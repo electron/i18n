@@ -2,12 +2,16 @@
 
 > La linea di comando cambia a supportata da Electron.
 
-Puoi usare [app.Lineacomando.aggiungiCambia](app.md#appcommandlineappendswitchswitch-value) per aggiungerle nello script principale della tua app prima che siano emessi gli eventi [pronto](app.md#event-ready) del modulo [app](app.md):
+Puoi usare [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) per aggiungerle nello script principale della tua app prima che sia emesso l' evento [ready](app.md#event-ready) del modulo [app](app.md):
 
 ```javascript
-const {app} = richiede('electron')
-app.Lineacomando.aggiungiCambia('remoto-debugging-porta', '8315') app.Lineacomando.aggiungiCambia('regole-ospite', 'MAP * 127.0.0.1') app.su('pronto', () => {
-  // Il tuo codice va qui})
+const {app} = require('electron')
+app.commandLine.appendSwitch('remote-debugging-port', '8315')
+app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
+
+app.on('ready', () =>  {
+  // Il tuo codice va qui
+})
 ```
 
 ## --ignora-limite-connessione=`dominio`
