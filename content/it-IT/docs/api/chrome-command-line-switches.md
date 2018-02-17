@@ -1,8 +1,8 @@
 # Opzioni di Chrome supportate da riga di comando
 
-> La linea di comando cambia a supportata da Electron.
+> La Command line switches è supportata da Electron.
 
-Puoi usare [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) per aggiungerle nello script principale della tua app prima che sia emesso l' evento [ready](app.md#event-ready) del modulo [app](app.md):
+Puoi usare [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) per aggiungerlo nello script principale della tua app prima che sia emesso l' evento [ready](app.md#event-ready) del modulo [app](app.md):
 
 ```javascript
 const {app} = require('electron')
@@ -75,16 +75,16 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 ## --host-rules=`rules`
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+Un elenco di regole separate da virgole che controllano il modo in cui i nomi degli host sono mappati.
 
 Ad esempio:
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* MAP * 127.0.0.1 Forza tutti gli hostname a mappare su 127.0.0.1
+* MAP *.google.com proxy Forza tutti i sottodomini google.com da risolvere in "proxy".
+* MAP test.com [:: 1]: 77 Forza "test.com" per risolvere il loopback IPv6. Forzerà anche la porta dell'indirizzo socket risultante a 77.
+* MAP * baz, EXCLUDE www.google.com Rimappa tutto in "baz", ad eccezione di "www.google.com".
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+Questi mapping si applicano all'host dell'endpoint in una richiesta net (il TCP connect e il resolver host in una connessione diretta e CONNECT in una connessione proxy HTTP e l'host endpoint in una connessione proxy SOCKS).
 
 ## --host-resolver-rules=`rules`
 
