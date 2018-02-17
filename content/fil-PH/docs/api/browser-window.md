@@ -123,7 +123,7 @@ Ito ay gumagawa ng panibagong `BrowserWindow` na may likas na mga ari-arian na i
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) -ioffset ang kaliwang Window mula sa screen. Idefault ang window sa sentro.
   * `y` Integer (optional) (**required** Kung ang x ay nagamit) - Ioffset ang windows sa itaas ng screen Ang Default ay nasa sentro ng windows.
-  * `useContentSize` Boolean (optional) - The `width` and `height`ay gagamtin bilang web ang sukat ng pahina, ibig sabihin ang aktwal na sukat ng windoz ay kasama ng sukat ng window frame na medyo malaki. Ang default ay `false`.
+  * `useContentSize` Boolean (optional) - The `width` and `height`ay gagamtin bilang web ang sukat ng pahina, ibig sabihin ang aktwal na sukat ng windoz ay kasama ng sukat ng window frame na medyo malaki. Default is `false`.
   * `center` Boolean (optional) - Makikita ang window sa sentro ng screen.
   * `minWidth` Integer (optional) - Ang windows na mayroong maliit ng lapad Default ay ``.
   * `minHeight` Integer (optional) - Ang minimum na height ng windows. Default ay ``.
