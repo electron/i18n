@@ -34,7 +34,7 @@ community:
   videos: Video
   meetups: Incontri
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  meetup_notice: Per aggiungere un meetup, modifica <code>data/meetups.json</code> e <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> fai una richiesta di pull</a>.
 electron_is_easy:
   title: È più facile di quanto pensi
   description: Se puoi costruire un sito Web, allora puoi costruire un'applicazione desktop. Electron è un framework per la creazione di applicazioni native con tecnologie web come JavaScript, HTML e CSS. Electron gestisce le parti più complicate, così puoi concentrarti sul core dell'applicazione.
@@ -60,7 +60,7 @@ get_started:
   description: Per iniziare con Electron, guarda i link qui sotto. Scopri come trasformare la tua web app in una applicazione Electron, accedere a tutte le API e generare applicazioni pronte per essere installate.
 explore:
   title: Esplorare le API di Electron
-  description: "L'app <a href='https://github.com/electron/electron-api-demos'> Electron API Demos app </a> mostra in modo interattivo le funzionalità più importanti delle API di Electron. Scopri cosa è possibile fare con Electron con codici d'esempio e suggerimenti utili per creare la tua app."
+  description: "L'app <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> mostra in modo interattivo le funzionalità più importanti delle API di Electron. Scopri cosa è possibile fare con Electron con codici d'esempio e suggerimenti utili per creare la tua app."
 download_from_github: Scarica da GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Tutte le versioni</a> su GitHub
 quick_start:
@@ -135,7 +135,7 @@ pages:
     title: Spectron
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
-  page_not_found: Page not found.
+  page_not_found: Pagina non trovata.
   if_this_is_an_error: If this is an error
   please_file_an_issue: please file an issue.
 search:
