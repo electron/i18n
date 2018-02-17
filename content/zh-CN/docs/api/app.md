@@ -652,7 +652,7 @@ app.on('ready', () => {
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
 
-Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+使当前的[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)用户活动无效。
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
@@ -777,9 +777,9 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 * `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
 
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+手动启用 Chrome 的辅助功能的支持, 允许在应用程序中设置是否开启辅助功能。 查看更多信息，请查阅 https://www.chromium.org/developers/design-documents/accessibility 默认为禁用
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
