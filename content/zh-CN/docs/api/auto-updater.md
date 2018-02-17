@@ -4,13 +4,13 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**您可以在 [这里](../tutorial/updates.md) 找到一个详细的指南，介绍如何将更新应用到您的应用程序。**
 
-## Platform Notices
+## 跨平台提醒
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+目前，只有 macOS 和 Window 支持该功能。在 Linux 上没有对自动更新程序的内置支持，因此建议使用发行版的包管理器来更新您的应用程序。
 
-In addition, there are some subtle differences on each platform:
+此外，每个平台都有一些细微的差别:
 
 ### macOS
 
