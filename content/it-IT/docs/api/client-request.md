@@ -34,13 +34,13 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Eventi dell'istanza
 
-#### Event: 'response'
+#### Evento: 'response'
 
 Restituiti:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - Un oggetto che rappresenta il messaggio di risposta HTTP.
 
 #### Evento: 'accedi'
 
