@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 1.x 版
 
-Electron *< 2.0* 的版本並不符合 [semver](http://semver.org) 規範。 主版號對應到終端使用者 API 變動。 次版號對應到 Chromium 主發行版次。 Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron *< 2.0* 的版本並不符合 [semver](http://semver.org) 規範。 主版號對應到終端使用者 API 變動。 次版號對應到 Chromium 主發行版次。 修訂號對應到新功能或錯誤修正。 這樣雖然對開發人員合併新功能很方便，但對寫應用程式供一般用戶使用的開發人員卻會造成不少困擾。 The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
 Here is an example of the 1.x strategy:
 
