@@ -58,7 +58,7 @@ Restituiti:
 
 Emesso quando un proxy di autenticazione richiede le credenziali dell'utente.
 
-The `callback` function is expected to be called back with user credentials:
+La funzione `callback` è prevista per essere richiamata con le credenziali dell'utente:
 
 * `nomeutente` Stringa
 * `password` Stringa
