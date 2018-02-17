@@ -6,9 +6,9 @@
 
 ### `new Menu()`
 
-Creates a new menu.
+Създава ново меню.
 
-### Static Methods
+### Статични методи
 
 The `menu` class has the following static methods:
 
