@@ -4,7 +4,7 @@
 
 處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+下列範例展示如何將桌面上標題為 `Electron` 的視窗擷取為影像檔:
 
 ```javascript
 // 在畫面轉譯處理序裡。
