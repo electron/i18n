@@ -1,12 +1,12 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Detecta eventos de teclado quando o aplicativo não tiver o foco do teclado.
 
 Processo: [Main](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+O módulo `globalShortcut` pode registrar/cancelar o registro de um atalho de teclado global com o sistema operativo que você possa personalizar as operações para os vários atalhos.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+** Nota:** O atalho é global; Isso funcionará mesmo se o aplicativo não tenha o foco do teclado. You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
