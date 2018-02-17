@@ -313,7 +313,7 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 * `exitCode` Integer (任意)
 
-`exitCode` ですぐに終了します。`exitCode` の初期値は0です。
+`exitCode` ですぐに終了します。`exitCode` の省略値は0です。
 
 ユーザに確認することなくすべてのウインドウがすぐに閉じられ、`before-quit` および `will-quit` イベントは発生しません。
 
@@ -446,21 +446,21 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 * `path` String
 
-Adds `path` to the recent documents list.
+`path` を最近使ったドキュメントのリストに追加します。
 
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+このリストはOSによって管理されています。Windowsの場合、タスクバーからリストにアクセスすることができ、macOSの場合、ドックのメニューからリストにアクセスすることができます。
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+最近使ったドキュメントのリストをクリアします。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - `://` を除くプロトコルの名前。 アプリで `electron://` リンクを処理したい場合、パラメータとして `electron` を指定してこのメソッドを呼び出してください。
+* `path` String (任意) *Windows* - 省略値は `process.execPath`
+* `args` String[] (任意) *Windows* - 省略値は空の配列
 
-Returns `Boolean` - Whether the call succeeded.
+戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
 This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
@@ -472,9 +472,9 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - `://` を除くプロトコルの名前。
+* `path` String (任意) *Windows* - 省略値は `process.execPath`
+* `args` String[] (任意) *Windows* - 省略値は空の配列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -482,9 +482,9 @@ This method checks if the current executable as the default handler for a protoc
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - `://` を除くプロトコルの名前。
+* `path` String (任意) *Windows* - 省略値は `process.execPath`
+* `args` String[] (任意) *Windows* - 省略値は空の配列
 
 Returns `Boolean`
 
