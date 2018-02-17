@@ -56,7 +56,7 @@ Restituiti:
   * `nomeutente` Stringa
   * `password` Stringa
 
-Emitted when an authenticating proxy is asking for user credentials.
+Emesso quando un proxy di autenticazione richiede le credenziali dell'utente.
 
 The `callback` function is expected to be called back with user credentials:
 
