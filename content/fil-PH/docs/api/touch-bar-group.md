@@ -6,5 +6,5 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarGroup(options)` *Experimental*
 
-* `mga pagpipilian` Bagay 
+* `options` Bagay 
   * `items` [TouchBar](touch-bar.md) - Items to display as a group.
