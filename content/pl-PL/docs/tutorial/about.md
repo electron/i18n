@@ -22,11 +22,11 @@ Biblioteka Electron w Chromium jest zazwyczaj aktualizowana w ciągu jednego lub
 
 Po wydaniu nowej wersji Node.js, Electron zazwyczaj adaptuje ją po około miesiącu czekając na stabilizację wersji.
 
-Electron, Node.js oraz Chromium używają pojedyńczej instancji V8 - zazwyczaj wersji, którą używa Chromium. Większość czasu *działa*, ale czasami oznacza łatanie Node.js.
+Electron, Node.js oraz Chromium używają pojedyńczej instancji V8 - zazwyczaj wersji, którą używa Chromium. W większości przypadków *to po prostu działa*, choć czasem wymagane jest dostosowanie Node.js.
 
 ### Numer Wersji
 
-Od wersji Electron 2.0 [śledzi`semver`](https://semver.org). Dla większości aplikacji użycie dowolnej najnowszej wersji npm, uruchomienie `$ npm install electron` wystraczy, aby działał poprawnie.
+Od wersji Electron 2.0 [stosowany jest `semver`](https://semver.org). Dla większości aplikacji używającej nowszych wersji npm, uruchomienie `$ npm install electron` wystarczy, aby działał poprawnie.
 
 Proces aktualizacji jest dokładnie opisany w naszej [Specyfikacji wersji](electron-versioning.md).
 
