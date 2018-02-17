@@ -28,8 +28,8 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
 * `mga pagpipilian` Bagay 
   * `title` String (opsyonal)
   * `defaultPath` String (opsyonal)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa, kapag napabayaang bakante, ang default na lebel ang gagamitin.
+  * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
   * `properties` String[] (opsyonal) - Naglalaman ng kung aling mga katangian ng dialog ang dapat na gagamitin. Ang mga sumusunod na halaga ay suportado: 
     * `openFile` - Nagpapahintulot na mapili ang mga file.
     * `openDirectory` - Nagpapahintulot na mapili ang mga direktoryo.
@@ -40,12 +40,12 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
     * `noResolveAliases` - pinapahinto ang awtomatikong alyas (symlink) na resolusyon ng path. Ang piniling mga alyas ay babalik sa alyas na path sa halip na sa target na path. *macOS*
     * `treatPackageAsDirectory` - tinatrato ang mga pakete, katulad ng `.app` na mga folder bilang isang direktoryo kaysa isang file. *macOS*
   * `message` String (opsyonal) *macOS* - mensaheng nagpapakita ng mga kahong pang-input sa itaas.
-* `callback` Function (optional) 
+* `callback` Function (opsyonal) 
   * `filePaths` String[] - Isang hanay ng mga path ng file na pinili ng gumagamit
 
 Ibinabalik ang `String[]`, isang hanay ng mga path ng file na napili ng gumagamit, kung ang callback ay ibinigay, ibinabalik nito ang `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Ang `browserWindow` na argumento ay pinahihintulutan ang dialog na ilakip ang kanyang sarili sa isang parent window, na ginagawa itong modal.
 
 Ang mga `filter` ay nagtitiyak ng mga hanay ng mga uri ng file na maipapakita o mapipili kung nais mong limitahan ang gumagamit sa isang tiyak na uri. Halimbawa:
 
