@@ -67,7 +67,7 @@ Will use the proxy server for all hosts except for local addresses (`localhost`,
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+Utilizza lo script di PAC all' `url` specificato.
 
 ## --no-proxy-server
 
@@ -88,11 +88,11 @@ These mappings apply to the endpoint host in a net request (the TCP connect and 
 
 ## --host-resolver-rules=`rules`
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+Come `--host-rules` ma queste `regole` si applicano solo al resolver host.
 
 ## --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+Un elenco di server separati da virgola per i quali è abilitata l'autenticazione integrata.
 
 Ad esempio:
 
@@ -100,11 +100,11 @@ Ad esempio:
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+per cui qualsiasi `url` che termina con `example.com`, `foobar.com`, `baz` verrà preso in considerazione per l'autenticazione integrata. Senza il prefisso `*` l'Url deve corrispondere esattamente.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+Un elenco di server separato da virgole, per il quale è necessaria la delega delle credenziali utente. Senza il prefisso `*`, l url deve corrispondere esattamente.
 
 ## --ignore-certificate-errors
 
