@@ -1128,29 +1128,29 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+当启用本地选项卡，并且窗口中有另一个标签时，选择上一个选项卡。
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+当启用本地选项卡，并且窗口中有另一个标签时，选择下一个选项卡。
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+当启用本地选项卡并且存在多个打开窗口时，将所有窗口合并到一个带有多个选项卡的窗口中。
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+如果启用了本机选项卡并且当前窗口中有多个选项卡，则将当前选项卡移动到新窗口中。
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+如果启用了本机选项卡并且当前窗口中只有一个选项卡，则切换选项卡栏是否可见。
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+在该窗口中添加一个窗口作为选项卡，位于窗口实例的选项卡之后。
 
 #### `win.setVibrancy(type)` *macOS*
 
@@ -1172,6 +1172,6 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 #### `win.getBrowserView()` *实验功能*
 
-Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
+返回 `BrowserView | null` - 一个附加的 BrowserView. 如果没有被附加的窗口，则返回 `null`.
 
 **注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
