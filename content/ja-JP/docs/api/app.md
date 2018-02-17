@@ -342,7 +342,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-戻り値 `Boolean` - Electronの初期化が完了した場合、`true`、そうでない場合、`false`。
+戻り値 `Boolean` - Electronの初期化が完了している場合、`true`、そうでない場合、`false`。
 
 ### `app.focus()`
 
