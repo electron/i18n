@@ -511,15 +511,15 @@ Windowsでジャンプリストの [タスク](http://msdn.microsoft.com/en-us/l
 戻り値 `Object`:
 
 * `minItems` Integer - ジャンプリストに表示されるアイテムの最小の数 (この値の詳細な説明は [MSDN ドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx) を参照してください) 。
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - ユーザがジャンプリストのカスタムカテゴリから明示的に削除したアイテムに対応した `JumpListItem` オブジェクトの配列。 These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - ユーザがジャンプリストのカスタムカテゴリから明示的に削除したアイテムに対応した `JumpListItem` オブジェクトの配列。 これらのアイテムを**直後の** `app.setJumpList()` の呼び出しでジャンプリストに再度追加してはいけません。Windowsは削除されたアイテムを含むいかなるカスタムカテゴリも表示することはできません。
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) または `null` - `JumpListCategory` オブジェクトの配列。
 
-Sets or removes a custom Jump List for the application, and returns one of the following strings:
+アプリケーションのカスタムジャンプリストを設定もしくは削除し、以下の文字列のいずれかを返します。
 
-* `ok` - Nothing went wrong.
+* `ok` - 正常。
 * `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
 * `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
 * `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
