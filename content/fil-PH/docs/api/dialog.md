@@ -1,4 +1,4 @@
-# ang dialog
+# I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.
 
 > Ipinapakita ang mga dialog ng sarilihang sistema para sa pagbubukas at pagse-seyb ng mga file, pag-aalerto, atbp.
 
