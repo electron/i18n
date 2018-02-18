@@ -98,10 +98,10 @@ Kapareho sa `unsubscribeNotification`, pero tinatanggal ang nagsa-subscribe mula
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `key` na String
+* `key` String
 * `type` na String - pwedeng `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+Ibinabalik ang `any` - Ang halaga ng `key` sa `NSUserDefaults`.
 
 Some popular `key` and `type`s are:
 
@@ -119,11 +119,11 @@ Some popular `key` and `type`s are:
 * `type` na String - Tinitingnan ang [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` na String
 
-Set the value of `key` in `NSUserDefaults`.
+Itakda ang halaga ng `key` sa `NSUserDefaults`.
 
 Tandaan na dapat tugma ang `type` sa akwal na uri ng `value`. Ang isang nabubukod ay ibinabato kapag hindi ito tugma.
 
-Some popular `key` and `type`s are:
+Ang ilang mga sikat na `key` at mga `type` ay:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -131,7 +131,7 @@ Some popular `key` and `type`s are:
 
 * `key` na String
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+Tinatanggal ang `key` sa `NSUserDefaults`. Maaari itong gamitin sa pagbabalik ng default o pangkalahatang halaga ng isang `key` na naitakda gamit ang `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
