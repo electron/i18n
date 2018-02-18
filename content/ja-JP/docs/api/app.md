@@ -601,11 +601,11 @@ app.setJumpList([
 
 このメソッドはアプリケーションをシングルインスタンスのアプリケーションにします。複数のインスタンスでのアプリ実行を許可する代わりに、これはアプリの単一のインスタンスだけが実行されていることを保証します。そして、他のインスタンスはこのインスタンスに通知し、終了します。
 
-2番目のインスタンスを実行すると、`callback(argv, workingDirectory)` で、`callback` が最初のインスタンスによって呼び出されます。 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはメインウインドウにフォーカスを当て、最小化しないようにしようとします。
+2番目のインスタンスを実行すると、`callback(argv, workingDirectory)` で、`callback` が最初のインスタンスによって呼び出されます。 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないようにしようとします。
 
 `callback` は `app` の `ready` のイベントが発生した後で実行されることが保証されます。
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+このメソッドは、プロセスがアプリケーションの1番目のインスタンスで、アプリがロード処理を続行する必要がある場合、`false` を返します。 そして、プロセスが別のインスタンスにパラメータを送信し、すぐに終了する必要がある場合、`true` を返します。
 
 On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
