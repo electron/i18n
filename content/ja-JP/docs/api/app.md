@@ -840,23 +840,23 @@ Returns `Integer` an ID representing the request.
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+`id` のバウンスをキャンセルします。
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+filePath がダウンロードフォルダの中の場合、ダウンロードのスタックをバウンスさせます。
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+ドックのバッジ領域に表示される文字列を設定します。
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+戻り値 `String` - ドックのバッジ文字列。
 
 ### `app.dock.hide()` *macOS*
 
@@ -868,16 +868,16 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+戻り値 `Boolean` - ドックアイコンが表示されているかどうか。 `app.dock.show()` の呼び出しは非同期のため、その呼出の直後は、このメソッドから true が返却されない可能性があります。
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+アプリケーションの[ドックメニュー](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) を設定します。
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+このドックアイコンに関連付けられた `image` を設定します。
