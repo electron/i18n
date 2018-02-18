@@ -734,16 +734,16 @@ macOSでは、ドックアイコンに表示されます。Linuxでは、Unity�
 * `openAtLogin` Boolean - アプリがログイン時に開くように設定されている場合、`true`。
 * `openAsHidden` Boolean - アプリがログイン時に非表示で開くように設定されている場合、`true`。この設定は、macOSでのみサポートされています。
 * `wasOpenedAtLogin` Boolean - アプリがログイン時に自動的に開かれていた場合、`true`。この設定は、macOSでのみサポートされています。
-* `wasOpenedAsHidden` Boolean - アプリが非表示のログイン項目として開かれていた場合、`true`。 これは、アプリが起動時にウインドウを開くことがないことを示します。 この設定は、macOSでのみサポートされています。
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. この設定は、macOSでのみサポートされています。
+* `wasOpenedAsHidden` Boolean - アプリが非表示のログイン項目として開かれていた場合、`true`。 これは、アプリが起動時にウインドウを開く必要がないことを示します。 この設定は、macOSでのみサポートされています。
+* `restoreState` Boolean - 前回のセッションの状態を復元してアプリがログイン項目として開かれていた場合、`true`。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は、macOSでのみサポートされています。
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**注:** このAPIは [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) に影響を与えません。
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
+  * `openAtLogin` Boolean (任意) - アプリをログイン時に開く場合、`true`、ログイン項目からアプリを外す場合、`false`。 省略値は `false` です。
+  * `openAsHidden` Boolean (任意) - アプリを非表示で開く場合、`true`。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができます。そのため、アプリが開いたときに現在の値を把握するため、`app.getLoginItemStatus().wasOpenedAsHidden` を確認するようにしてください。 この設定は、macOSでのみサポートされています。
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
@@ -766,7 +766,7 @@ app.setLoginItemSettings({
 })
 ```
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**注:** このAPIは [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) に影響を与えません。
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
