@@ -607,16 +607,16 @@ app.setJumpList([
 
 このメソッドは、プロセスがアプリケーションの1番目のインスタンスで、アプリがロード処理を続行する必要がある場合、`false` を返します。 そして、プロセスが別のインスタンスにパラメータを送信し、すぐに終了する必要がある場合、`true` を返します。
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+macOSの場合、ユーザがFinderでアプリの2番目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
 
-An example of activating the window of primary instance when a second instance starts:
+2番目のインスタンスが開始されたとき、1番目のインスタンスのウインドウをアクティブにする例:
 
 ```javascript
 const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
+  // 誰かが2番目のインスタンスを実行しようとした場合、今のウインドウにフォーカスを当てる必要があります。
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
