@@ -744,12 +744,12 @@ macOSでは、ドックアイコンに表示されます。Linuxでは、Unity�
 * `settings` Object 
   * `openAtLogin` Boolean (任意) - アプリをログイン時に開く場合、`true`、ログイン項目からアプリを外す場合、`false`。 省略値は `false` です。
   * `openAsHidden` Boolean (任意) - アプリを非表示で開く場合、`true`。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができます。そのため、アプリが開いたときに現在の値を把握するため、`app.getLoginItemStatus().wasOpenedAsHidden` を確認するようにしてください。 この設定は、macOSでのみサポートされています。
-  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `path` String (任意) *Windows* - ログイン時に起動する実行ファイルのパス。省略値は、`process.execPath` です。
+  * `args` String[] (任意) *Windows* - 実行ファイルに引き渡すコマンドライン引数。省略値は空の配列です。パスは引用符で囲むように注意してください。
 
-Set the app's login item settings.
+アプリのログイン項目設定を設定します。
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+WindowsでElectronの `autoUpdater` を [Squirrel](https://github.com/Squirrel/Squirrel.Windows) を使って動かす場合、起動パスをUpdate.exeに設定し、アプリケーション名を特定する引数を渡してください。 例:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -770,7 +770,7 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+戻り値 `Boolean` - Chromeのユーザ補助機能が有効な場合、`true`、そうでない場合、`false`。 このAPIは、スクリーンリーダーなどの支援技術を使っていることが検出された場合、`true` を返します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
