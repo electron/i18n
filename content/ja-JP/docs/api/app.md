@@ -685,7 +685,7 @@ app.on('ready', () => {
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-既定では、GPUプロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで、Chromiumは、3D API (例えばWebGL) を無効にします。この関数はこの振る舞いを無効にします。
+既定では、GPUプロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで、Chromiumは3D API (例えばWebGL) を無効にします。この関数はこの振る舞いを無効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
@@ -707,19 +707,19 @@ app.on('ready', () => {
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+現在のアプリのカウンターバッジを設定します。count を `` に設定すると、バッジを非表示にします。
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+macOSでは、ドックアイコンに表示されます。Linuxでは、Unityランチャーでしか機能しません。
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**注:** 機能させるには、Unityランチャーは、`.desktop` ファイルの存在を必要とします。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux) をお読みください。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+戻り値 `Integer` - カウンターバッジに表示されている現在の値。
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+戻り値 `Boolean` - 現在のデスクトップ環境がUnityランチャーであるかどうか。
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
