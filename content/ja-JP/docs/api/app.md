@@ -828,13 +828,13 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (任意) - `critical` もしくは `informational`。省略値は `informational` です。
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+`critical` が渡された場合、ドックのアイコンはアプリケーションがアクティブになるか、リクエストがキャンセルされるまでバウンスします。
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+`informational` が渡された場合、ドックのアイコンが1秒間、バウンスします。ただし、アプリケーションがアクティブになるか、リクエストがキャンセルされるまでリクエストはアクティブなままです。
 
-Returns `Integer` an ID representing the request.
+戻り値 `Integer` このリクエストを表すID。
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
