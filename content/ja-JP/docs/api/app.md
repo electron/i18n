@@ -665,7 +665,7 @@ app.on('ready', () => {
 
 * `id` String
 
-[アプリケーションユーザモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) を `id` に変更します。
+[アプリケーションユーザモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)を `id` に変更します。
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
@@ -868,7 +868,7 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 ### `app.dock.isVisible()` *macOS*
 
-戻り値 `Boolean` - ドックアイコンが表示されているかどうか。 `app.dock.show()` の呼び出しは非同期のため、その呼出の直後は、このメソッドから true が返却されない可能性があります。
+戻り値 `Boolean` - ドックアイコンが表示されているかどうか。 `app.dock.show()` の呼出は非同期のため、その呼出の直後は、このメソッドから true が返却されない可能性があります。
 
 ### `app.dock.setMenu(menu)` *macOS*
 
