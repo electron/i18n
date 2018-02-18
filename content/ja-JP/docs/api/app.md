@@ -727,15 +727,15 @@ macOSでは、ドックアイコンに表示されます。Linuxでは、Unity�
   * `path` String (任意) *Windows* - 比較する実行ファイルのパス。省略値は、`process.execPath` です。
   * `args` String[] (任意) *Windows* - 比較するコマンドライン引数。省略値は空の配列です。
 
-`app.setLoginItemSettings` に `path` と `args` オプションを指定した場合、正しく設定するために、ここで同じ引数を `openAtLogin` に引き渡す必要があります。
+`app.setLoginItemSettings` に `path` と `args` オプションを指定した場合、`openAtLogin` が正しく設定されるように、ここで同じ引数を引き渡す必要があります。
 
 戻り値 `Object`:
 
-* `openAtLogin` Boolean - アプリがログイン時に開くように設定した場合、`true`。
-* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
-* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+* `openAtLogin` Boolean - アプリがログイン時に開くように設定されている場合、`true`。
+* `openAsHidden` Boolean - アプリがログイン時に非表示で開くように設定されている場合、`true`。この設定は、macOSでのみサポートされています。
+* `wasOpenedAtLogin` Boolean - アプリがログイン時に自動的に開かれていた場合、`true`。この設定は、macOSでのみサポートされています。
+* `wasOpenedAsHidden` Boolean - アプリが非表示のログイン項目として開かれていた場合、`true`。 これは、アプリが起動時にウインドウを開くことがないことを示します。 この設定は、macOSでのみサポートされています。
+* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. この設定は、macOSでのみサポートされています。
 
 **Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
