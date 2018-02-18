@@ -8,7 +8,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ------------- | ------------------------------ |
 | af            | Język afrikaans                |
 | am            | Amharic                        |
-| ar            | Arabic                         |
+| ar            | Arabski                        |
 | az            | Azerski                        |
 | be            | Białoruski                     |
 | bg            | Bułgarski                      |
@@ -61,7 +61,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | hy            | Armeński                       |
 | ia            | Interlingua                    |
 | id            | Indonezyjski                   |
-| is            | Islandzki                      |
+| jest          | Islandzki                      |
 | it            | Italian                        |
 | it-CH         | Italian (Switzerland)          |
 | it-IT         | Włoski (Włochy)                |
@@ -95,7 +95,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | om            | Oromo                          |
 | lub           | Język orija                    |
 | pa            | Pendżabski                     |
-| pl            | Polish                         |
+| pl            | Polski                         |
 | ps            | Pashto                         |
 | pt            | Portugalski                    |
 | pt-BR         | Portuguese (Brazil)            |
