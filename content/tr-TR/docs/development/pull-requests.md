@@ -39,7 +39,7 @@ Build steps and dependencies differ slightly depending on your operating system.
 * [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+Projeyi bilgisayarına kurduysan, değişiklikler yapmaya hazırsın demektir!
 
 ### Step 3: Branch
 
