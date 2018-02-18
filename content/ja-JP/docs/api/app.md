@@ -776,25 +776,25 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - [アクセシビリティツリー](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)レンダリングを有効もしくは無効にします。
 
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。 既定では無効です。
+手動でChromeのユーザ補助機能を有効にすると、アプリケーションの設定でユーザにアクセシビリティスイッチを出すことができます。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。 既定では無効です。
 
 **注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+  * `applicationName` String (任意) - アプリの名前。
+  * `applicationVersion` String (任意) - アプリのバージョン。
+  * `copyright` String (任意) - 著作権情報。
+  * `credits` String (任意) - クレジット情報.
+  * `version` String (任意) - アプリのビルドバージョン番号。
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Aboutパネルのオプションを設定します。 これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `switch` String - コマンドラインスイッチ
+* `value` String (任意) - 与えられたスイッチの値
 
 Append a switch (with optional `value`) to Chromium's command line.
 
