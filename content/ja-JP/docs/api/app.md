@@ -808,7 +808,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 **Note:** This will not affect `process.argv`.
 
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableMixedSandbox()` *実験的* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
@@ -874,7 +874,7 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 * `menu` [Menu](menu.md)
 
-アプリケーションの[ドックメニュー](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) を設定します。
+アプリケーションの[ドックメニュー](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103)を設定します。
 
 ### `app.dock.setIcon(image)` *macOS*
 
