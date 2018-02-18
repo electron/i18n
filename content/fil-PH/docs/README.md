@@ -38,7 +38,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 
 ## Sangguniang API
 
-* [Sinopsis](api/synopsis.md)
+* [Synopsis](api/synopsis.md)
 * [Mga pangprocessong bagay](api/process.md)
 * [Suportado ng Chrome ang Command Line Switches](api/chrome-command-line-switches.md)
 * [Environment Variables ](api/environment-variables.md)
