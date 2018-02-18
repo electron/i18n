@@ -28,27 +28,27 @@ Ang `screen` na modyul na naglalabas ng mga sumusunod na pangyayari:
 
 ### Pangyayari: 'display-added'
 
-Pagbabalik:
+Returns:
 
-* `kaganapan`Kaganapan
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
 Naglalabas kapag `newDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-removed'
 
-Pagbabalik:
+Returns:
 
-* `kaganapan`Kaganapan
+* `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
 Naglalabas kapag `oldDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-metrics-changed'
 
-Pagbabalik:
+Returns:
 
-* `kaganapan`Kaganapan
+* `event` Event
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
