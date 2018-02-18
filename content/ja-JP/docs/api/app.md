@@ -675,7 +675,7 @@ app.on('ready', () => {
 * `callback` Function 
   * `result` Integer - インポート結果。
 
-プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`` という値は成功を意味しますが、その他の値は chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
+プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`` という値は成功を意味しますが、その他の値はchromiumの [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
 
 ### `app.disableHardwareAcceleration()`
 
@@ -685,21 +685,21 @@ app.on('ready', () => {
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+既定では、GPUプロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで、Chromiumは、3D API (例えばWebGL) を無効にします。この関数はこの振る舞いを無効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### `app.getAppMemoryInfo()` *非推奨*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+戻り値 [`ProcessMetric[]`](structures/process-metric.md): アプリに関連付けられたすべてのプロセスのメモリやCPU使用率の統計情報に対応した `ProcessMetric` オブジェクトの配列。 **注:** このメソッドは非推奨です。代わりに `app.getAppMetrics()` を使ってください。
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+戻り値 [`ProcessMetric[]`](structures/process-metric.md): アプリに関連付けられたすべてのプロセスのメモリやCPU使用率の統計情報に対応した `ProcessMetric` オブジェクトの配列。
 
 ### `app.getGPUFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+戻り値 [`GPUFeatureStatus`](structures/gpu-feature-status.md) - `chrome://gpu/` から取得したグラフィックス機能のステータス。
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
