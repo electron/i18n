@@ -45,10 +45,10 @@ Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina a
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
-* `event` String
-* `userInfo` Object
+* `event` na String
+* `userInfo` na Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
@@ -77,7 +77,7 @@ Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificati
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
-* `id` Integer
+* `id` na Integer
 
 Tinatanggal ang nagsa-subscribe kasama ang `id`.
 
@@ -103,7 +103,7 @@ Kapareho sa `unsubscribeNotification`, pero tinatanggal ang nagsa-subscribe mula
 
 Ibinabalik ang `any` - Ang halaga ng `key` sa `NSUserDefaults`.
 
-Some popular `key` and `type`s are:
+Ang ilang mga sikat na `key` at `type` ay:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
