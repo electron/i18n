@@ -774,11 +774,11 @@ app.setLoginItemSettings({
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+* `enabled` Boolean - [アクセシビリティツリー](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)レンダリングを有効もしくは無効にします。
 
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。 既定では無効です。
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
