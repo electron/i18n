@@ -1,12 +1,12 @@
 # autoUpdater
 
-> アプリを自動的に更新させられます。
+> アプリを自動的に更新することができます。
 
 プロセス: [Main](../glossary.md#main-process)
 
 **You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-## Platform Notices
+## プラットフォームに関する注意事項
 
 Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
