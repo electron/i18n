@@ -646,48 +646,48 @@ app.on('ready', () => {
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+戻り値 `String` - 現在実行されているアクティビティのタイプ。
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
 * `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 
-Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+現在の[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)ユーザアクティビティを無効にします。
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` Object - 別のデバイスで使用するために保存されたアプリ固有の情報。
 
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+タイプが `type` と一致した場合、現在のアクティビティを更新し、現在の `userInfo` ディスクショナリに `userInfo` のエントリを統合します。
 
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+[アプリケーションユーザモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) を `id` に変更します。
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
 * `options` Object 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
+  * `certificate` String - PACS#12ファイルのパス。
+  * `password` String - 証明書のパスフレーズ。
 * `callback` Function 
-  * `result` Integer - Result of import.
+  * `result` Integer - インポート結果。
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`` という値は成功を意味しますが、その他の値は chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+現在のアプリのハードウェアアクセラレーションを無効にします。
 
-This method can only be called before app is ready.
+このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
-This method can only be called before app is ready.
+このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
 ### `app.getAppMemoryInfo()` *Deprecated*
 
@@ -812,7 +812,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
 ### `app.isInApplicationsFolder()` *macOS*
 
