@@ -14,14 +14,14 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | bg            | Bułgarski                      |
 | bh            | Bihari                         |
 | bn            | Bengali                        |
-| br            | Breton                         |
+| br            | Bretoński                      |
 | bs            | Bosnian                        |
 | ca            | Catalan                        |
 | co            | Korsykański                    |
 | cs            | Czeski                         |
 | cy            | Walijski                       |
-| da            | Danish                         |
-| de            | German                         |
+| da            | Duński                         |
+| de            | Niemiecki                      |
 | de-AT         | Niemiecki (Austria)            |
 | de-CH         | German (Switzerland)           |
 | de-DE         | Niemiecki (Niemcy)             |
@@ -42,7 +42,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | fi            | Finnish                        |
 | fil           | Filipiński                     |
 | fo            | Faroese                        |
-| fr            | French                         |
+| fr            | Francuski                      |
 | fr-CA         | Francuski (Kanada)             |
 | fr-CH         | French (Switzerland)           |
 | fr-FR         | Francuski (Francja)            |
@@ -54,7 +54,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | gu            | Gudżarati                      |
 | ha            | Hausa                          |
 | haw           | Hawajski                       |
-| he            | Hebrew                         |
+| he            | Hebrajski                      |
 | hi            | Hindi                          |
 | hr            | Chorwacki                      |
 | hu            | Węgierski                      |
@@ -68,12 +68,12 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ja            | Japoński                       |
 | jw            | Jawajski                       |
 | ka            | Gruziński                      |
-| kk            | Kazakh                         |
+| kk            | Kazachski                      |
 | km            | Kambodżański                   |
 | kn            | Kannada                        |
-| ko            | Korean                         |
+| ko            | Koreański                      |
 | ku            | Kurdish                        |
-| ky            | Kyrgyz                         |
+| ky            | Kirgiski                       |
 | la            | Łaciński                       |
 | ln            | Język lingala                  |
 | lo            | Język laotański                |
@@ -87,7 +87,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ms            | Malajski                       |
 | mt            | Maltański                      |
 | nb            | Norwegian (Bokmal)             |
-| ne            | Nepali                         |
+| ne            | Nepalski                       |
 | nl            | Duński                         |
 | nn            | Norwegian (Nynorsk)            |
 | no            | Norwegian                      |
@@ -107,7 +107,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | sd            | Sindhi                         |
 | sh            | Serbo-Croatian                 |
 | si            | Sinhalese                      |
-| sk            | Slovak                         |
+| sk            | Słowacki                       |
 | sl            | Slovenian                      |
 | sn            | Shona                          |
 | so            | Somali                         |
