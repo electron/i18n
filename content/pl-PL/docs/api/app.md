@@ -390,7 +390,7 @@ Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 
 * `path` String
 * `options` Obiekt (opcjonalne) 
-  * `size` Ciąg tekstu 
+  * `rozmiar` Ciąg tekstu 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
