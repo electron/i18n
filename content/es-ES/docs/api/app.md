@@ -138,7 +138,7 @@ Devuelve:
 * `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `Información de Usuario` Objeto: contiene el estado específico de la aplicación almacenado por la actividad.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+Emitido durante [Manos Libres](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) después de que se realiza una actividad con éxito en este dispositivo se reanuda en otro.
 
 ### Event: 'update-activity-state' *macOS*
 
