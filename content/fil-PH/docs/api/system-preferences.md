@@ -1,11 +1,11 @@
-# mga kagustuhan sa sistema
+# systemPreferences
 
 > Kuhanin ang mga kagustuhan ng sistema.
 
 Proseso:[Main](../glossary.md#main-process)
 
 ```javascript
-const {systemPreferences} = nangangailangan ('elektron')
+const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
@@ -15,25 +15,25 @@ Ang `systemPreferences` na object ay naglalabas ng sumusunod na mga pangyayari:
 
 ### Pangyayari: 'accent-color-changed' *Windows*
 
-Pagbabalik sa:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` na Pangyayari
 * `newColor` na String - Ang bagong kulay ng RGBA na itinatakda ng tagagamit bilang kanilang pansistemang accent na kulay.
 
 ### Pangyayari: 'color-changed' *Windows*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan`Kaganapan
+* `event` na Pangyayari
 
 ### Pangyayari: 'inverted-color-scheme-changed' *Windows*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `event` Event
+* `event` na Pangyayari
 * `invertedColorScheme` na Boolean - `true` kapag ang isang binaliktad na pamamaraan ng pagkulay, tulad isang mataas na antas ng temang pangkontrast, ay ginagagami, `false` kapag hindi.
 
-## Mga Method
+## Mga Pamamaraan
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
@@ -45,10 +45,10 @@ Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina a
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
-* `event` na String
-* `userInfo` na Object
+* `event` String
+* `userInfo` Object
 
-Inilalathala ang `event` bilang pansariling paalala ng macOS. Ang `userInfo` ay isang Object na naglalaman ng impormasyong diksyunaryo ng tagagamit na ipinapadala kasama ang paalala.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
@@ -60,7 +60,7 @@ Inilalathala ang `event` bilang pansariling paalala ng macOS. Ang `userInfo` ay 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` na String
-* `callback` Ang Punsyon 
+* `callback` Ang Function 
   * `event` na String
   * `userInfo` na Object
 
@@ -84,7 +84,7 @@ Tinatanggal ang nagsa-subscribe kasama ang `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` na String
-* `callback` Punsyon 
+* `callback` Function 
   * `event` na String
   * `userInfo` na Object
 
@@ -92,7 +92,7 @@ Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` pa
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
-* `id` Integer
+* `id` na Integer
 
 Kapareho sa `unsubscribeNotification`, pero tinatanggal ang nagsa-subscribe mula sa `NSNotificationCenter`.
 
