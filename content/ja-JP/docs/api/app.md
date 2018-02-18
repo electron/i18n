@@ -796,33 +796,33 @@ Aboutパネルのオプションを設定します。 これはアプリの `.pl
 * `switch` String - コマンドラインスイッチ
 * `value` String (任意) - 与えられたスイッチの値
 
-Append a switch (with optional `value`) to Chromium's command line.
+Chromiumのコマンドラインに (オプションの `value` と一緒に) スイッチを追加します。
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**注:** これは`process.argv` に影響を与えません。また、いくつかの低レベルのChromiumの振る舞いを制御するために主に開発者によって使われます。
 
 ### `app.commandLine.appendArgument(value)`
 
-* `value` String - The argument to append to the command line
+* `value` String - コマンドラインに追加された引数
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Chromiumのコマンドラインに引数を追加します。引数は正しく引用符で囲ってください。
 
-**Note:** This will not affect `process.argv`.
+**注:** これは`process.argv` に影響を与えません。
 
 ### `app.enableMixedSandbox()` *実験的* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+アプリで混在サンドボックスモードを有効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+戻り値 `Boolean` - アプリケーションが現在、システムのアプリケーションフォルダから実行されているかどうか。`app.moveToApplicationsFolder()` と組み合わせて使ってください。
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+戻り値 `Boolean` - 移動が成功したかどうか。 移動が成功した場合、アプリケーションは終了し、再起動されることに注意してください。
 
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+既定では、確認ダイアログは表示されません。ユーザに操作の確認をさせたい場合は、[`dialog`](dialog.md) APIを使うと実現できます。
 
 **NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
