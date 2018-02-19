@@ -109,16 +109,16 @@ Restituisce:
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Se vuoi gestire questo evento dovresti chiamare `event.preventDefault()`.
 
-Un'attività dell'utente può essere continuata solo in un app con lo stesso Team ID dello sviluppatore come fonte app dell'attività e che supporti il tipo di attività. I tipi di attività supportati sono specificati nell'`Info.plist` dell'app sotto la chiave `NSTipoAttivitàUtente`.
+Un'attività dell'utente può essere continuata solo in un app con lo stesso developer Team ID come l'attività dell'app di riferimento e che supporti il tipo di attività. I tipi di attività supportati sono specificati nell'`Info.plist` dell'applicazione sotto la chiave `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' *macOS*
+### Evento: 'will-continue-activity' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `event` Evento
+* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) prima che un'attività desideri da un dispositivo diverso essere ripristinata. Se vuoi gestire questo evento dovresti chiamare l'`event.preventDefault()`.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), prima che un'attività da un dispositivo differente richieda di essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
 ### Event: 'continue-activity-error' *macOS*
 
