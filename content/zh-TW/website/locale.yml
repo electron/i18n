@@ -33,7 +33,7 @@ community:
   components: 元件
   videos: 影片
   meetups: 聚會
-  awesome_notice: 這份清單是由 <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus 的 Awesome Electron</a>儲存庫自動產生的。<br> 發現少了什麼嗎? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">發個 Pull Request</a> 吧。
+  awesome_notice: 這份清單是由 <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus 的 Awesome Electron</a> 儲存庫自動產生的。<br> 發現少了什麼嗎? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">發個 Pull Request</a> 吧。
   meetup_notice: 如果要增加聚會，改好 <code>data/meetups.json</code> 後<a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">發個 Pull Request</a>。
 electron_is_easy:
   title: 比你想像的更容易

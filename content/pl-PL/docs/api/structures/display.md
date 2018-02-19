@@ -1,12 +1,12 @@
 # Obiekt Display
 
-* `id` Number - Unikalny indetyfikator powiązany z wyświetlaczem.
-* `rotation` Number - może być 0, 90, 180, 270, reprezentuje obrót w stopniach według ruchu wskazówek zegaru ekranu.
-* `scaleFactor` Number - Output device's pixel scale factor.
+* `id` Number - Unikalny identyfikator powiązany z wyświetlaczem.
+* `rotation` Number - może być równa 0, 90, 180, 270, reprezentuje obrót ekranu w stopniach według ruchu wskazówek zegara.
+* `scaleFactor` Numer - współczynnik skali pikseli urządzenia wyjściowego.
 * `touchSupport` String - może przyjmować wartości `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+Obiekt `Display` reprezentuje fizyczny wyświetlacz połączony z systemem. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.

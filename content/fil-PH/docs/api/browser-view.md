@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `mga pagpipilian` Bagay (opsyonal) 
+* `options` Bagay (opsyonal) 
   * `webPreferences` Bagay (opsyonal) - Tingnan ang [BrowserWindow](browser-window.md).
 
 ### Mga istatikong pamamaraan

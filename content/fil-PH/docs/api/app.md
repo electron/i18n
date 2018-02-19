@@ -2,7 +2,7 @@
 
 > Kontrolin ang event lifecycle ng iyong aplikasyon.
 
-Proseso:[Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Ang sumusunod na halimbawa ay nagpapakita kung paano ihinto ang aplikasyon kapag ang huling window ay isinara na:
 
@@ -25,7 +25,7 @@ Sa karamihan, dapat mo lang gawin ang lahat sa mga `ready` handler ng event.
 
 ### Mga event: 'ready'
 
-Pagbabalik:
+Returns:
 
 * `launchInfo` Mga bagay *MacOS*
 
@@ -41,7 +41,7 @@ Kung ikaw ay hindi nag-subscribe sa event na ito at ang lahat ng mga window ay s
 
 Ibinabalika ang:
 
-* `kaganapan`Kaganapan
+* `event` Event
 
 Ilalabas bago magsimula ang aplikasyon sa pagsasara ng mga window nito. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag-aalis ng aplikasyon.
 

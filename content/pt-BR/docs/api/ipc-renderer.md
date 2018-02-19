@@ -1,16 +1,16 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> Comunica de forma assíncrona de um processo de renderização para o processo principal.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+O módulo `ipcRenderer` é uma instância da classe [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ele fornece alguns métodos para que você possa enviar mensagens síncronas e assíncronas do processo de renderização (página da web) para o processo principal. Você também pode receber respostas do processo principal.
 
-See [ipcMain](ipc-main.md) for code examples.
+Veja [ipcMain](ipc-main.md) para exemplos de código.
 
 ## Métodos
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+O módulo `ipcRenderer` possui o seguinte método para ouvir eventos e enviar mensagens:
 
 ### `ipcRenderer.on(channel, listener)`
 
@@ -55,11 +55,11 @@ The main process handles it by listening for `channel` with `ipcMain` module.
 
 Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Envie uma mensagem ao processo principal de forma síncrona via `channel`, você também pode enviar argumentos arbitrários. Argumentos serão serializados em JSON internamente e, portanto, nenhuma função ou cadeia de protótipo será incluída.
 
 The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**Nota:**O envio de uma mensagem síncrona bloqueará todo o processo de renderização, a menos que você saiba o que está fazendo, você nunca deve usá-lo.
 
 ### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
 

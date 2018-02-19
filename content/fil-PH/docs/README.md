@@ -38,7 +38,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 
 ## Sangguniang API
 
-* [Sinopsis](api/synopsis.md)
+* [Synopsis](api/synopsis.md)
 * [Mga pangprocessong bagay](api/process.md)
 * [Suportado ng Chrome ang Command Line Switches](api/chrome-command-line-switches.md)
 * [Environment Variables ](api/environment-variables.md)
@@ -101,7 +101,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Mga Tagubilin ng Debug (Windows)](development/debug-instructions-windows.md)
 * [Pag-se-set up ng Simbolo ng Debugger](development/setting-up-symbol-server.md)
 * [Dekumentasyon ng patnubay ng Estilo](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
+* [Makadagdag sa elektron](../CONTRIBUTING.md)
 * [Isyu](development/issues.md)
 * [Pull Requests](development/pull-requests.md)
 * [Pagpapaganda ng Chromium](development/upgrading-chromium.md)

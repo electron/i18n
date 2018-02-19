@@ -1,10 +1,10 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> 取得桌面上可透過 [`navigator.mediaDevices.getUserMedia`] API 擷取影片或音訊的媒體來源資訊。
 
 處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+下列範例展示如何將桌面上標題為 `Electron` 的視窗擷取為影像檔:
 
 ```javascript
 // 在畫面轉譯處理序裡。
@@ -66,7 +66,7 @@ const constraints = {
 
 ## 方法
 
-The `desktopCapturer` module has the following methods:
+`desktopCapturer` 模組提供了下列方法:
 
 ### `desktopCapturer.getSources(options, callback)`
 

@@ -2,7 +2,7 @@
 
 > Make HTTP/HTTPS requests.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -34,17 +34,17 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Eventi dell'istanza
 
-#### Event: 'response'
+#### Evento: 'response'
 
-Restituiti:
+Restituisce:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - Un oggetto che rappresenta il messaggio di risposta HTTP.
 
 #### Evento: 'accedi'
 
-Restituiti:
+Restituisce:
 
 * `infoautore` Object 
   * `èProxy` Booleano
@@ -56,9 +56,9 @@ Restituiti:
   * `nomeutente` Stringa
   * `password` Stringa
 
-Emitted when an authenticating proxy is asking for user credentials.
+Emesso quando un proxy di autenticazione richiede le credenziali dell'utente.
 
-The `callback` function is expected to be called back with user credentials:
+La funzione `callback` è prevista per essere richiamata con le credenziali dell'utente:
 
 * `nomeutente` Stringa
 * `password` Stringa
@@ -83,7 +83,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Evento: 'finish'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
@@ -93,7 +93,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Evento: 'errore'
 
-Restituiti:
+Restituisce:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -105,7 +105,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### Event: 'redirect'
 
-Restituiti:
+Restituisce:
 
 * `statusCode` Integer
 * `metodo` Stringa

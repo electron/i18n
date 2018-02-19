@@ -6,11 +6,11 @@
 
 ### `new Menu()`
 
-Creates a new menu.
+Създава ново меню.
 
-### Static Methods
+### Статични член функции
 
-The `menu` class has the following static methods:
+Класът `menu` има следните статични член-функции:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -18,13 +18,13 @@ The `menu` class has the following static methods:
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+При подаване на `null` ще премахне лентата с менюто под Windows и Линукс, но няма ефект върху macOS.
 
 **Note:** This API has to be called after the `ready` event of `app` module.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Връща `Menu | null` - менюто на приложението, ако е зададено, и `null`, в противен случай.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -42,7 +42,7 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 Returns `Menu`
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+По принцип, `template` е просто масив от `options` за създаване на [MenuItem](menu-item.md). За употребата му вижте по-горе.
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 

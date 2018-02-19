@@ -1,5 +1,5 @@
-# StreamProtokolPagtugon Bagay
+# StreamProtokolPagtugon na Bagay
 
-* `statusCode` Number - The HTTP response code
-* `headers` Object - An object containing the response headers
+* `statusCode` na Numero - Ang HTTP response code
+* `headers` Object - Isang bagay na pumpaloob sa response headers
 * `data` ReadableStream - A Node.js readable stream representing the response body

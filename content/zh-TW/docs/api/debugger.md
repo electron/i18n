@@ -1,6 +1,6 @@
 ## Class: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Chrome 遠端 debug 協定的替代傳輸通道。
 
 處理序: [主處理序](../glossary.md#main-process)
 
@@ -69,7 +69,7 @@ Emitted when debugging session is terminated. This happens either when `webConte
 #### 事件: 'message'
 
 * `event` Event
-* `method` String - Method name.
+* `method` String - 方法名稱。
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever debugging target issues instrumentation event.

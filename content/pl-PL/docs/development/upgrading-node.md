@@ -43,7 +43,7 @@ We need to generate a patch file from each patch applied to V8.
 
 1. Get a copy of Electron's libcc fork 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Run `script/update` to get the latest libcc 
+2. Uruchom `script/update` to get the latest libcc 
   - This will be time-consuming
 3. Remove our copies of the old Node v8 patches 
   - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
@@ -54,7 +54,7 @@ We need to generate a patch file from each patch applied to V8.
 4. Inspect Node [repo](https://github.com/electron/node) to see what patches upstream Node used with their v8 after bumping its version 
   - `git log --oneline deps/V8`
 5. Create a checklist of the patches. This is useful for tracking your work and for having a quick reference of commit hashes to use in the `git diff-tree` step below.
-6. Read `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
+6. Odczytaj `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
   - Delete each patchfile referenced in `patches/v8/README.md`
 7. For each patch, do: 
   - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
@@ -63,7 +63,7 @@ We need to generate a patch file from each patch applied to V8.
   - (remainder of steps in libchromium repo) Manually edit the `.patch` file to match upstream V8's directory: 
     - If a diff section has no instances of `deps/V8`, remove it altogether. 
       - We don’t want those patches because we’re only patching V8.
-    - Replace instances of `a/deps/v8/filename.ext` with `a/filename.ext` 
+    - Replace instances of `a/deps/v8/filename.ext` z `a/filename.ext` 
       - This is needed because upstream Node keeps its V8 files in a subdirectory
   - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
   - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`

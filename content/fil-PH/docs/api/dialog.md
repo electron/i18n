@@ -1,4 +1,4 @@
-# ang dialog
+# I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.
 
 > Ipinapakita ang mga dialog ng sarilihang sistema para sa pagbubukas at pagse-seyb ng mga file, pag-aalerto, atbp.
 
@@ -14,7 +14,7 @@ console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'mu
 Ang Dialog ay binuksan mula sa pangunahing thread ng Electron. Kung gusto mong gamitin ang dialog mula sa renderer na proseso, tandaang i-access ito gamit ang remote:
 
 ```javascript
-const {dialog} = kailangan('electron').remote
+const {dialog} = require('electron').remote
 console.log(dialog)
 ```
 
@@ -24,11 +24,11 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
 
 ### `dialog.showOpenDialog([browserWindow, ]mga opsyon[, callback])`
 
-* `browserWindow` Ang BrowserWindow (opsyonal)
-* `options` Object 
+* `browserWindow` BrowserWindow (opsyonal)
+* `mga pagpipilian` Bagay 
   * `title` String (opsyonal)
   * `defaultPath` String (opsyonal)
-  * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa kompirmasyong pipindutian, na kapag naiwang walang laman, ang default na lebel ang gagamitin.
+  * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa, kapag napabayaang bakante, ang default na lebel ang gagamitin.
   * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
   * `properties` String[] (opsyonal) - Naglalaman ng kung aling mga katangian ng dialog ang dapat na gagamitin. Ang mga sumusunod na halaga ay suportado: 
     * `openFile` - Nagpapahintulot na mapili ang mga file.
@@ -45,7 +45,7 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
 
 Ibinabalik ang `String[]`, isang hanay ng mga path ng file na napili ng gumagamit, kung ang callback ay ibinigay, ibinabalik nito ang `undefined`.
 
-Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kanyang sarili sa isang parent na window na ginagawa itong modal.
+Ang `browserWindow` na argumento ay pinahihintulutan ang dialog na ilakip ang kanyang sarili sa isang parent window, na ginagawa itong modal.
 
 Ang mga `filter` ay nagtitiyak ng mga hanay ng mga uri ng file na maipapakita o mapipili kung nais mong limitahan ang gumagamit sa isang tiyak na uri. Halimbawa:
 
@@ -69,7 +69,7 @@ Kapag naipasa ang isang `callback`, ang API na tawag ay magiging asynchronous at
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` Ang BrowserWindow (opsyonal)
-* `options` Object 
+* `options` Bagay 
   * `title` String (opsyonal)
   * `defaultPath` String (opsyonal) - isang ganap na path ng direktoryo, ganap na path ng file, o ang pangalan ng file na gagamitin pag naka-default.
   * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa kompirmasyong pipindutian, na kapag naiwang walang laman, ang default na lebel ang gagamitin.
@@ -90,8 +90,8 @@ Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous 
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` Ang BrowserWindow (opsyonal)
-* `mga pagpipilian` Bagay 
+* `browserWindow` BrowserWindow (opsyonal)
+* `options` Bagay 
   * `type` String (opsyonal) - Pwedeng `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. Sa Windows, ang `"question"` ay nagpapakita ng icon na pareho sa `"info"`, maliban kung nag-set ka ng icon gamit ang opsyong `"icon"`. Sa macOS, ang `"warning"` at `"error"` ay nagpapakita ng kaparehong babalang icon.
   * `buttons` String[] (opsyonal) - isang hanay ng mga teksto para sa mga pipindutin. Sa Windows, ang isang blankong hanay ay magreresulta sa isang pipindutin na may lebel na "OK".
   * `defaultId` Integer (opsyonal) - index ng pipindutin sa hanay ng mga pipindutin na mapipili nang naka-default kapag ang mensaheng kahon ay bumubukas.
@@ -112,11 +112,11 @@ Ibinabalik ang `Integer`, ang index ng napindot na pipindutin, kung ang isang ca
 
 Nagpapakita ng isang mensaheng kahon, inaantala nito ang proseso hanggang nasara na ang mensaheng kahon. Ibinabalik nito ang index ng napindot na pipindutin.
 
-Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kanyang sarili sa isang parent na window na ginagawa itong modal.
+Ang `browserWindow` na argumento ay pinahihintulutan ang dialog na ilakip ang kanyang sarili sa isang parent window, na ginagawa itong modal.
 
 Kung ang isang `callback` ay naipasa, hindi pipigilan ng dialog ang proseso. Ang API na tawag ay magiging asynchronous at ang resulta ay ipapasa gamit ang `callback(response)`.
 
-### `dialog.showErrorBox(title, content)`
+### `dialog.showErrorBox(titulo, nilalaman)`
 
 * `title` String - ang titulo na ipapakita sa kahon ng mali
 * `content` String - Ang tekstong nilalaman na ipapakita sa kahon ng mali
@@ -127,11 +127,11 @@ Ang API na ito ay maaaring ligtas kung tawagin bago ang `ready` na event na inil
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` Ang BrowserWindow (opsyonal)
-* `options` Object 
+* `browserWindow` BrowserWindow (opsyonal)
+* `options` Bagay 
   * `certificate` [Certificate](structures/certificate.md) - Ang sertipiko ng pagtiwala/pag-import.
   * `message` String - Ang mensaheng ipapakita sa tagagamit.
-* `callback` Function
+* `callback` na Function
 
 Sa macOS, ipinapakita nito ang isang modal na dialog na nagpapakita ng isang mensahe at impormasyon sa sertipiko, at nagbibigay sa gumagamit ng pagpipiliang magtiwala at mag-import ng certificate. Kapag magbibigay ka ng `browserWindow` na argumento, ang dialog ay malalakip sa parent na window, na ginagawa itong modal.
 

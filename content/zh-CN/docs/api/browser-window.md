@@ -138,7 +138,7 @@ child.once('ready-to-show', () => {
   * `alwaysOnTop` Boolean (可选) -窗口是否永远在别的窗口的上面. 默认值为`false`.
   * ` fullscreen ` Boolean (可选) - 窗口是否可以全屏. 当设置为 `false` 时，在 macOS 上全屏的按钮将被隐藏或禁用. 默认值为 `false`.
   * ` fullscreenable ` Boolean (可选) - 窗口是否可以进入全屏状态. 在 macOS上, 最大化/缩放按钮是否可用 默认值为 `true`。
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
+  * `simpleFullscreen` Boolean (可选) - 在 macOS 上使用 pre-Lion 全屏. 默认为`false`.
   * `skipTaskbar` Boolean (可选) - 是否在任务栏中显示窗口. 默认值为`false`.
   * `kiosk` Boolean (可选) - kiosk 模式. 默认值为 `false`.
   * `title` String (可选) - 窗口的默认标题. 默认值为 `"Electron"`.
@@ -151,9 +151,9 @@ child.once('ready-to-show', () => {
   * `disableAutoHideCursor` Boolean (可选) - 是否在输入时隐藏鼠标. 默认值为`false`.
   * `autoHideMenuBar` Boolean (可选) - 自动隐藏菜单栏, 除非按了`Alt`键. 默认值为`false`.
   * `enableLargerThanScreen` Boolean (可选) - 是否允许改变窗口的大小时, 大于屏幕的尺寸. 默认值为`false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). 默认值为`#FFF` (白色).
+  * `backgroundColor` String (可选) - 窗口的16进制背景颜色, 例如 `#66CD00` 或 `#FFF` 或 `#80FFFFFF` (支持alpha透明度). 默认值为`#FFF` (白色).
   * `hasShadow` Boolean (可选) - 窗口是否有阴影. 仅在 macOS 上支持. 默认值为 `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `opacity` Number (可选)-设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。仅支持 Windows 和 macOS 。
   * `darkTheme` Boolean (可选) - 强制窗口使用 dark 主题, 只在一些拥有 GTK+3 桌面环境上有效. 默认值为 `false`.
   * `transparent` Boolean (可选) - 使窗口 [透明](frameless-window.md). 默认值为 `false`.
   * `type` String (可选) - 窗口的类型, 默认为普通窗口. 下面可以查看更多.
@@ -201,7 +201,7 @@ child.once('ready-to-show', () => {
     * `defaultMonospaceFontSize` Integer (可选) - 默认值为 `13`.
     * ` minimumFontSize ` Integer (可选) - 默认值为 ``.
     * ` defaultEncoding ` String (可选) - 默认值为 `ISO-8859-1`.
-    * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 This also affects the [Page Visibility API](#page-visibility). 默认值为 `true`。
+    * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
     * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。 **注意:**改选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
     * `nativeWindowOpen` Boolean (可选) - 是否使用原生的 `window.open()`. 默认为 `false`. **注意:** 该选项目前为实验性质.
@@ -249,11 +249,11 @@ window.onbeforeunload = (e) => {
   // 与通常的浏览器不同,会提示给用户一个消息框,
   //返回非空值将默认取消关闭
   //建议使用对话框 API 让用户确认关闭应用程序.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  e.returnValue = false // 相当于 `return false` ，但是不推荐使用
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('beforeunload', handler)` 的行为有细微的区别。 建议始终明确设置`event.returnValue` ，而不是仅返回一个值，因为前者在Electron 内工作更一致。*
 
 #### 事件： 'closed'
 
@@ -414,7 +414,7 @@ win.on('app-command', (e, cmd) => {
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+返回 ` BrowserWindow | null `-拥有给定 ` browserView ` 的窗口。如果给定视图未附加到任何窗口, 则返回 ` null `。
 
 #### `BrowserWindow.fromId(id)`
 
@@ -590,13 +590,13 @@ win.loadURL('https://github.com')
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+进入或离开简单的全屏模式。
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+简单全屏模式模拟 Mac OS X prior to Lion (10.7) 版本中发现的原生全屏行为。
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+返回 `Boolean` - 窗口是否为简单全屏模式(pre-Lion)。
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -981,7 +981,7 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+返回 `Number` - 介于0.0 ( 完全透明) 和1.0 ( 完全不透明) 之间
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -1085,7 +1085,8 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
 * `ignore` Boolean
 * `选项` Object (可选) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Boolean (可选) *Windows* - 如果为 true, 则转发鼠标移动 消息发送到 Chromium，启用与鼠标有关的事件，如` mouseleave </ 0>。
+仅当<code> ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
 
 忽略窗口内的所有鼠标事件
 
@@ -1127,29 +1128,29 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+当启用本地选项卡，并且窗口中有另一个标签时，选择上一个选项卡。
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+当启用本地选项卡，并且窗口中有另一个标签时，选择下一个选项卡。
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+当启用本地选项卡并且存在多个打开窗口时，将所有窗口合并到一个带有多个选项卡的窗口中。
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+如果启用了本机选项卡并且当前窗口中有多个选项卡，则将当前选项卡移动到新窗口中。
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+如果启用了本机选项卡并且当前窗口中只有一个选项卡，则切换选项卡栏是否可见。
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+在该窗口中添加一个窗口作为选项卡，位于窗口实例的选项卡之后。
 
 #### `win.setVibrancy(type)` *macOS*
 
@@ -1171,6 +1172,6 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 #### `win.getBrowserView()` *实验功能*
 
-Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
+返回 `BrowserView | null` - 一个附加的 BrowserView. 如果没有被附加的窗口，则返回 `null`.
 
 **注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。

@@ -1,6 +1,6 @@
 # `sandbox` 選項
 
-> Create a browser window with a renderer that can run inside Chromium OS sandbox. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
+> 建立可在 Chromium OS 沙箱中執行的瀏覽器視窗以及畫面轉譯器。 啟用這個選項時，畫面轉譯器必需透過 IPC 與主處理序溝通才能存取 Node.js API。 執行 Electron 時要加上 `--enable-sandbox` 命令列參數才會啟用 Chromium OS 沙箱功能。
 
 One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
 

@@ -1,4 +1,4 @@
-tagline: Изграждане на приложения за множество платформи с JavaScript, HTML и CSS
+tagline: Изграждайте приложения за множество платформи с JavaScript, HTML и CSS
 nav:
   docs: Документация
   blog: Блог
@@ -11,7 +11,7 @@ nav:
   code_of_conduct: Кодекс за поведение
   search: Търсене
 docs:
-  title: Електрон документация
+  title: Документация на Електрон
   description: Вижте всички <a href="/docs/all"> документи на една страница</a> или проверете на <a href="/docs/faq"> често задавани въпроси</a>.
   guides: Ръководства
   api_reference: Функционална документация
@@ -43,7 +43,7 @@ web_technologies:
   title: Интернет Технологии
   description: Електрон използва Chromium и Node.js, за да може вие да изградите вашето приложение с HTML, CSS и JavaScript.
 open_source:
-  title: Отворен код
+  title: С отворен код
   description: Електрон е проект с отворен код, поддържан от GitHub и активна общност от съдружници.
 cross_platform:
   title: Междуплатформен

@@ -68,7 +68,7 @@ Lumalabas kapag ang sesyon ng "debugging" ay tuluyan nang inihinto o winakasan. 
 
 #### Pangyayari: 'mensahe'
 
-* `kaganapan`Kaganapan
+* `event` Event
 * `method` String - Pangalan ng sistematikong paraan.
 * `params` Object - Ang "Event parameters" ay tinutukoy gamit ang katangian ng 'parameters' sa "remote" ng sistematikong panuntunan ng "debugging".
 

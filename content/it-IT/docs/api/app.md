@@ -2,14 +2,14 @@
 
 > Controlla il ciclo di vita degli eventi della tua applicazione.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 I seguenti esempi mostrano come uscire dall'applicazione quando l'ultima finestra è chiusa:
 
 ```javascript
-const {app} = richiedi('electron')
-app.on('finestra-tutta-chiusa', () => {
- app.esci()
+const {app} = require('electron')
+app.on('window-all-closed', () => {
+  app.quit()
 })
 ```
 
@@ -17,108 +17,108 @@ app.on('finestra-tutta-chiusa', () => {
 
 L'oggetto `app` emette i seguenti eventi:
 
-### Evento: 'finirà-lancio'
+### Evento: 'will-finish-launching'
 
-Emetti quando l'app ha finito la startup di base. Su Windows e Linux, l'evento `finirà-lancio` equivale all'evento `pronto`; su macOS questo evento rappresenta la notifica `applicazionefiniràlancio` di `NSApplication`. Spesso dovrai impostare ascoltatori per gli eventi `apri-file` e `apri-url` ed avviare il reporter dei crash e l'aggiornamento automatico.
+Emesso quando l'app ha finito l'avvio di base. Su Windows e Linux, l'evento `will-finish-launching` equivale all'evento `ready`; su macOS questo evento rappresenta la notifica `applicationWillFinishLaunching` di `NSApplication`. Potresti necessitare spesso di definire ascoltatori (listener) per gli eventi `open-file` e `open-url` ed avviare il reporter dei crash e l'aggiornamento automatico.
 
-In gran parte dei casi, dovresti solo fare tutto nel gestore eventi `pronto`.
+In gran parte dei casi, dovresti solo fare tutto nel gestore dell'evento `ready`.
 
-### Evento: 'pronto'
+### Evento: 'ready'
 
-Restituiti:
+Restituisce:
 
-* `Infolanciò` Oggetto *macOS*
+* `launchInfo` Oggetto *macOS*
 
-Emesso quando Electron ha concluso l'inizializzazione. Su macOS `Infolancio` deteiene le `Infouser` della `NSNotificazioneUtente` usata per aprire l'applicazione, se lanciata dal Centro Notifiche. Puoi chiamare `app.isPronta()` per controllare se gli eventi sono già stati generati.
+Emesso quando Electron ha concluso l'inizializzazione. Su macOS `launchInfo` detiene le `userInfo` della `NSUserNotification` usata per aprire l'applicazione, se lanciata dal Centro Notifiche. Puoi chiamare `app.isReady()` per controllare se gli eventi sono già stati generati.
 
-### Evento: 'finestra-tutto-chiuso'
+### Evento: 'window-all-closed'
 
 Emesso quando tutte le finestre sono state chiuse.
 
-Se non sottoscrivi a questo evento e tutte le finestre sono chiuse il comportamento predefinito è di uscire dall'app; comunque sr sottoscrivi controlli se l'app deve uscire o no. Se l'utente ha premuto `Cmd+Q` o lo sviluppatore chiamato `app.esci()`, Electron proverà prima a chiudere tutte le finestre ed emettere l'evento `will-quit` e in questo caso l'evento `finestra-tutto-chiuso` non sarà emesso.
+Se l'evento non viene gestito e tutte le finestre vengono chiuse, il comportamento predefinito è l'uscita dall'applicazione; però, se gestito, è possibile controllare il caso in cui l'applicazione deve uscire o meno. Se l'utente ha premuto `Cmd + Q` o lo sviluppatore ha invocato `app.quit()`, Electron proverà prima a chiudere tutte le finestre e poi emetterà l'evento `will-quit` e in questo caso l'evento `window-all-closed` non sarà emesso.
 
-### Evento: 'prima-uscire'
+### Evento: 'before-quit'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 
-Emesso prima che l'app inizi a chiudere le sue finestre. Chiamare `evento.previeniDefault()` impedirà il comportamento predefinito che sta terminando l'applicazione.
+Emesso prima che l'applicazione inizi a chiudere le sue finestre. Chiamare `event.preventDefault()` impedirà il comportamento predefinito, ovvero la terminazione l'applicazione.
 
-**Note:** Se l'uscita dall'app è avviata da `autoAggiornamento.esciEInstalla()` allora `prima-uscire` è emesso *dopo* aver emesso l'evento `chiuso` su tutte le finestre e chiudendole.
+**Note:** Se l'uscita dall'applicazione è avviata da `autoUpdater.quitAndInstall()` allora `before-quit` è emesso *dopo* aver emesso l'evento `close` su tutte le finestre e chiudendole.
 
-### Evento: 'uscirà'
+### Evento: 'will-quit'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 
-Emesso quando tutte le finestre sono state chiuse e l'app uscirà. Chiamando `evento.previeniDefault` impedirà il comportamento predefinito che sta terminando l'app.
+Emesso quando tutte le finestre sono state chiuse e l'applicazione uscirà. Chiamare `event.preventDefault()` impedirà il comportamento predefinito, ovvero la terminazione l'applicazione.
 
-Vedi la descrizione dell'evento `finestra-tutto-chiuso` per le differenze tra gli eventi `uscirà` e `finestra-tutto-chiuso`.
+Vedi la descrizione dell'evento `window-all-closed` per le differenze tra gli eventi `will-quit` e `window-all-closed`.
 
-### Evento: 'esci'
+### Evento: 'quit'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `Codiceuscita` Numero Intero
+* `event` Evento
+* `codiceUscita` Numero Intero
 
-Emesso quando l'app è in uscita.
+Emesso quando l'applicazione è in uscita.
 
-### Evento: 'apri-file' *macOS*
+### Evento: 'open-file' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `percorso` Stringa
+* `event` Evento
+* `path` Stringa
 
-Emesso quando l'utente vuole aprire un file con l'app. L'evento `apri-file` è in genere emesso quando l'app è già aperta e l'OS vuole riutilizzare l'app per aprire il file. `apri-file` è anche emesso quando un file è rilasciato nel dock e l'app non è ancora in esecuzione. Assicurati di ascoltare l'evento `apri-file` molto presto all'avvio della tua app per gestire questo cado (anche prima dell'emissione dell'evento `pronto`).
+Emesso quando l'utente vuole aprire un file con l'app. L'evento `open-file` è in genere emesso quando l'applicazione è già aperta e l'S.O. vuole riutilizzarla per aprire il file. `open-file` è anche emesso quando un file è rilasciato nel dock e l'applicazione non è ancora in esecuzione. E' necessario assicurarsi di ascoltare l'evento `open-file` molto presto all'avvio della tua app per gestire questo caso (anche prima dell'emissione dell'evento `ready`).
 
-Dovresti chiamare `evento.previeniDefault` se vuoi gestire questo evento.
+Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
 Su Windows, devi analizzare `process.argv` (nel processo principale) per ottenere il percorso del file.
 
-### Evento: 'apri-url' *macOS*
+### Evento: 'open-url' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `url` Stringa
 
-Emesso quando l'utente vuole aprire un URL con l'l'applicazione. Il file `Info.plist` della tua applicazione definisce lo schema url compreso della chiave `CFBundleURLTipo` ed imposta la `NSClassePrincipale` ad `AtomApplicazione`.
+Emesso quando l'utente vuole aprire un URL con l'l'applicazione. Il file `Info.plist` della tua applicazione deve definire lo schema URL compreso della chiave `CFBundleURLTypes` ed impostare `NSPrincipalClass` ad `AtomApplication`.
 
-Dovresti chiamare `evento.previeniDefault` se vuoi gestire questo evento.
+Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
-### Evento: 'attiva' *macOS*
+### Evento: 'activate' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `haFinestreVisibili` Booleano
+* `event` Evento
+* `hasVisibleWindows` Booleano
 
-Emesso quando l'app è attivata. Varie azioni possono generare questo evento, come il lancio dell'app per la prima volta, provare a rilanciare l'app quando già aperta o cliccare sul dock dell'applicazione o sull'icona della taskbar.
+Emesso quando l'applicazione è attivata. Varie azioni possono generare questo evento, come il lancio dell'applicazione per la prima volta, provare a rilanciarla quando è già aperta o cliccare sul dock dell'applicazione o sull'icona della taskbar.
 
-### Evento: 'continua-attività' *macOS*
+### Evento: 'continue-activity' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `utenteInfo` Oggetto - Contiene stati app specifici immagazzinati per attività su un altro dispositivo.
+* `event` Evento
+* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Oggetto - Contiene stati specifici dell'applicazione immagazzinati per attività su un altro dispositivo.
 
-Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Se vuoi gestire questo evento dovresti chiamare l'`evento.previeniDefault()`.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Se vuoi gestire questo evento dovresti chiamare `event.preventDefault()`.
 
-Un'attività dell'utente può essere continuata solo in un app con lo stesso Team ID dello sviluppatore come fonte app dell'attività e che supporti il tipo di attività. I tipi di attività supportati sono specificati nell'`Info.plist` dell'app sotto la chiave `NSTipoAttivitàUtente`.
+Un'attività dell'utente può essere continuata solo in un app con lo stesso developer Team ID come l'attività dell'app di riferimento e che supporti il tipo di attività. I tipi di attività supportati sono specificati nell'`Info.plist` dell'applicazione sotto la chiave `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' *macOS*
+### Evento: 'will-continue-activity' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `event` Evento
+* `type` Stringa - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Se vuoi gestire questo evento dovresti chiamare l'`evento.previeniDefault()`.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), prima che un'attività da un dispositivo differente richieda di essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
 ### Event: 'continue-activity-error' *macOS*
 
@@ -539,57 +539,57 @@ Puoi richiedere i seguenti percorsi dal nome:
     Questo è un esempio molto semplice di come creare una Jump List personalizzata:
     
     ```javascript
-const {app} = richiedi('electron')
+const {app} = require('electron')
 
-app.impostaJumpList([
+app.setJumpList([
   {
-    tipo: 'personalizzata',
-    nome: 'Progetti Recenti',
-    elementi: [
-      { tipo: 'file', percorso: 'C:\\Progetti\\progetto1.proj' },
-      { tipe: 'file', percorso: 'C:\\Progetti\\progetto2.proj' }
+    type: 'custom',
+    name: 'Progetti recenti',
+    items: [
+      { type: 'file', path: 'C:\\Projects\\project1.proj' },
+      { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // ha un nome quindi 'tipo' è considerato essere "personalizzato"
-    nome: 'Strumenti',
-    elementi: [
+  { // Ha un nome, così `type` viene considerato come "custom"
+    name: 'Strumenti',
+    items: [
       {
-        tipo: 'task',
-        titolo: 'Strumento A',
-        programma: processo.eseguiPercorso,
-        arg: '--esegui-strumento-a',
-        icona: processo.eseguiPercorso,
-        indiceIcona: 0,
-        descrizione: 'Esegui Strumento A'
+        type: 'task',
+        title: 'Strumento A',
+        program: process.execPath,
+        args: '--run-tool-a',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Esegui Strumento A'
       },
       {
-        tipo: 'task',
-        titolo: 'Strumento B',
-        programma: processo.eseguiPercorso,
-        arg: '--esegiui-strumento-b',
-        icona: processo.eseguiPercorso'
-        Indiceicona: 0,
-        descrizione: 'Esegui Strumento B'
+        type: 'task',
+        title: 'Strumento B',
+        program: process.execPath,
+        args: '--run-tool-b',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Esegui Strumento B'
       }
     ]
   },
-  { tipo: 'frequente' },
-  { // non ha nè nome nè tipo quindi il 'tipo' è considerato essere "task"
-    strumenti: [
+  { type: 'frequent' },
+  { // NON ha un nome, così `type` viene considerato come "tasks"
+    items: [
       {
-        tipo: 'task',
-        titolo: 'Nuoco Progetto',
-        programma: processo.eseguiPercorso,
-        arg: '--nuovo-progetto',
-        descrizione: 'Crea un nuovo progetto.'
+        type: 'task',
+        title: 'Nuovo Progetto',
+        program: process.execPath,
+        args: '--new-project',
+        description: 'Crea un nuovo progetto.'
       },
-      { tipo: 'separatore' },
+      { type: 'separator' },
       {
-        tipo: 'task',
-        titolo: 'Recupera Progetto',
-        programma: processo.eseguiPercorso,
-        arg: '--recupera-progetto',
-        descrizione: 'Recupera Progetto'
+        type: 'task',
+        title: 'Recupera Progetto',
+        program: process.execPath,
+        args: '--recover-project',
+        description: 'Recupera Progetto'
       }
     ]
   }
@@ -617,25 +617,23 @@ Su macOS il sistema fa rispettare l'istanza singola automaticamente quando l'ute
 Un esempio dell'attivazione drll'istanza primaria quando se ne avvia una seconda:
 
 ```javascript
-const {app} = richiedi('electron')
-fai miaFinestra = nullo
+const {app} = require('electron')
+let myWindow = null
 
-
-const èSecondaIstanza =
-app.faSingolaIstanza((Lineacomando, Directoryfunzionante) => {
- // Qualcuno ha provato ad eseguire una seconda istanza, dovremmo focalizzare la nostra finestra.
-  se (miaFinestra) {
-    se (miaFinestra.èMinimizzata()) miaFinestra.ristabilisci()
-    miaFinestra.focalizza()
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  // Qualcuno ha provato ad avviare una seconda istanza, dovremmo focalizzare la nostra finestra.
+  if (myWindow) {
+    if (myWindow.isMinimized()) myWindow.restore()
+    myWindow.focus()
   }
 })
 
-se (èSecondaIstanza) {
-  app.esci()
+if (isSecondInstance) {
+  app.quit()
 }
 
-// Crea miaFinestra, carica il resto dell'app, etc...
-app.su('pronto', () => {
+// Crea myWindow, carica il resto dell'app, ecc...
+app.on('ready', () => {
 })
 ```
 
@@ -759,16 +757,16 @@ Imposta le impostazioni dell'elemento d'accesso all'app.
 Per lavorare con l'`autoCaricatore` di Electron su Windows, che usa [Squirrel](https://github.com/Squirrel/Squirrel.Windows), vorrai impostare il percorso di lancio ad Update.exe e passare gli argomenti per specificare il nome della tua applicazione. Ad esempio:
 
 ```javascript
-const Cartellaapp = percorso.dirnome(processo.eseguiPercorso)
-const aggiornaExe = percorso.risolvi(Cartellaapp, '..', 'Aggiorna.exe')
-const exeNome = percorso.basenome(processo.eseguiPercorso)
+const cartellaApp = path.dirname(process.execPath)
+const aggiornaExe = path.resolve(cartellaApp, '..', 'Aggiornamento.exe')
+const nomeExe = path.basename(process.execPath)
 
-app.impostaImpostazioniElementoAccesso({
-  apriAdAccssso: true,
-  percorso: AggiornaExe,
-  arg: [
-    '--processoAvvio', `"${exeNome}"`,
-    '--processo-avvio-arg', `"--nascosto"`
+app.setLoginItemSettings({
+  openAtLogin: true,
+  path: aggiornaExe,
+  args: [
+    '--processStart', `"${nomeExe}"`,
+    '--process-start-args', `"--hidden"`
   ]
 })
 ```

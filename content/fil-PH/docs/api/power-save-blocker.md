@@ -2,7 +2,7 @@
 
 > Hahadlangan ang sistema sa pagpasok mula sa moda ng low-power (pagtulog).
 
-Proseso:[Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Halimbawa:
 
@@ -15,7 +15,7 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Pamamaraan
+## Methods
 
 Ang modyul ng `powerSaveBlock` ay mayroon ng mga sumusunod na mga pamamaraan:
 

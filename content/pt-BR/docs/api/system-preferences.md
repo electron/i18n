@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> Obtenha preferências do sistema.
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -11,7 +11,7 @@ console.log(systemPreferences.isDarkMode())
 
 ## Eventos
 
-The `systemPreferences` object emits the following events:
+O objeto `systemPreferences` emite os seguintes eventos:
 
 ### Event: 'accent-color-changed' *Windows*
 

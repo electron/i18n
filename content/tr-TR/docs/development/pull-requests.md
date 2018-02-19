@@ -1,12 +1,12 @@
 # Pull Requests
 
-* [Dependencies](#dependencies)
-* [Setting up your local environment](#setting-up-your-local-environment) 
+* [Bağımlılıklar](#dependencies)
+* [Yerel ortamını ayarla](#setting-up-your-local-environment) 
   * [Step 1: Fork](#step-1-fork)
   * [Step 2: Build](#step-2-build)
   * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes) 
-  * [Step 4: Code](#step-4-code)
+* [Düzenleme yapmak](#making-changes) 
+  * [Kod](#step-4-code)
   * [Step 5: Commit](#step-5-commit) 
     * [Commit message guidelines](#commit-message-guidelines)
   * [Step 6: Rebase](#step-6-rebase)
@@ -16,13 +16,13 @@
   * [Step 10: Discuss and Update](#step-9-discuss-and-update) 
     * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
   * [Step 11: Landing](#step-10-landing)
-  * [Continuous Integration Testing](#continuous-integration-testing)
+  * [Sürekli Entegrasyon Testi](#continuous-integration-testing)
 
-## Setting up your local environment
+## Yerel ortamını ayarla
 
-### Step 1: Fork
+### 1. Adım: Dahil Ol
 
-Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
+[GitHup](https://github.com/electron/electron) üzerindeki projeyi bilgisayarına kopyala ve projeye dahil ol.
 
 ```sh
 $ git clone git@github.com:username/electron.git
@@ -39,7 +39,7 @@ Build steps and dependencies differ slightly depending on your operating system.
 * [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+Projeyi bilgisayarına kurduysan, değişiklikler yapmaya hazırsın demektir!
 
 ### Step 3: Branch
 
@@ -49,9 +49,9 @@ To keep your development environment organized, create local branches to hold yo
 $ git checkout -b my-branch -t upstream/master
 ```
 
-## Making Changes
+## Düzenleme yapmak
 
-### Step 4: Code
+### Kod
 
 Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
@@ -173,7 +173,7 @@ In order to land, a pull request needs to be reviewed and approved by at least o
 
 Congratulations and thanks for your contribution!
 
-### Continuous Integration Testing
+### Sürekli Entegrasyon Testi
 
 Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 

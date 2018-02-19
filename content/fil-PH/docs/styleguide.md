@@ -92,7 +92,7 @@ Gamit ang `Session`at`Cookies`classes bilang halimbawa:
 ### Mga Halimbawa ng Pamamaraan #### `ses.getCacheSize (callback)` ### Instance Properties #### `ses.cookies` ## Klase: Mga Cookies ### Mga Halimbawa ng Pamamaraan #### `cookies.get (filter, callback)`
 ```
 
-### Pamamaraan
+### Methods
 
 Ang pamamaraan ng kabanata ay dapat nasa sumusunod na form:
 
@@ -116,7 +116,7 @@ Sa ibaba ng paraan ay mas detalyadong impormasyon sa bawat isa sa mga argumento.
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Bilang`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Bagay`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * O isang pasadyang uri tulad ng elektron [`WebContent`](api/web-contents.md)

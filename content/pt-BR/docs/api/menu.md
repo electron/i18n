@@ -18,7 +18,7 @@ A classe `menu` tem os seguintes métodos estáticos:
 
 Define `menu` como o menu de aplicativo no macOS. No Windows e no Linux, o `menu` será definido como menu superior de cada janela.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+Passando `null` removerá a barra de menus no Windows e Linux, mas não tem efeito no macOS.
 
 **Nota:** Esta API tem que ser chamada após o evento `ready` do módulo do `app`.
 
@@ -44,7 +44,7 @@ Returns `Menu`
 
 Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Você também pode anexar outros campos ao elemento do `template` e eles se tornarão propriedades dos itens de menu construídos.
 
 ### Métodos de Instância
 
@@ -102,7 +102,7 @@ A classe `Menu` só está disponível no processo principal, mas você também p
 
 ### Processo principal
 
-An example of creating the application menu in the main process with the simple template API:
+Um exemplo de criar o menu do aplicativo no processo principal com a API do modelo simples:
 
 ```javascript
 const {app, Menu} = require('electron')

@@ -16,7 +16,7 @@ pemasangan npm --save-dev electron@latest
 
 ## Versi 1.x
 
-Electron versions *< 2.0* tidak sesuai dengan [semver](http://semver.org) spesifikasi. Versi utama berhubungan dengan perubahan API pengguna akhir . Versi minor berhubungan dengan rilis utama Chromium . Versi patch sesuai dengan fitur baru dan perbaikan bug. Meskipun mudah bagi pengembang yang menggabungkan fitur, ini menciptakan masalah bagi pengembang aplikasi yang menghadapi klien. Siklus pengujian QA dari aplikasi utama seperti Slack, Stride, Teams, Skype, VS Code, Atom , dan Desktop dapat berlangsung lama dan stabilitas adalah hasil yang sangat diinginkan. Ada risiko tinggi dalam mengadopsi fitur baru saat mencoba menyerap perbaikan bug.
+Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Meskipun mudah bagi pengembang yang menggabungkan fitur, ini menciptakan masalah bagi pengembang aplikasi yang menghadapi klien. Siklus pengujian QA dari aplikasi utama seperti Slack, Stride, Teams, Skype, VS Code, Atom , dan Desktop dapat berlangsung lama dan stabilitas adalah hasil yang sangat diinginkan. Ada risiko tinggi dalam mengadopsi fitur baru saat mencoba menyerap perbaikan bug.
 
 Berikut adalah contoh strategi 1.x:
 
@@ -42,17 +42,11 @@ Dari 2,0 dan seterusnya, Elektron akan mengikuti semver.
 
 Berikut adalah tabel yang secara eksplisit memetakan jenis perubahan pada kategori semver mereka yang sesuai (mis. Major, Minor, Patch).
 
-* **Versi increment** 
-    * Pembaruan versi kromium
-    * update versi utama node.js
-    * Elektron melanggar API berubah
-* **Versi minor** 
-    * versi pembaruan node.js minor
-    * Perubahan API non-breaking elektron
-* **Versi Patch** 
-    * update patch versi node.js
-    * memperbaiki kromium terkait patch
-    * Perbaikan bug electron
+| Versi increment                | Versi minor                         | Versi Patch                       |
+| ------------------------------ | ----------------------------------- | --------------------------------- |
+| Elektron melanggar API berubah | Perubahan API non-breaking elektron | Perbaikan bug electron            |
+| Node.js major version updates  | Node.js minor version updates       | Node.js patch version updates     |
+| Pembaruan versi kromium        |                                     | memperbaiki kromium terkait patch |
 
 Perhatikan bahwa kebanyakan update kromium akan dianggap melanggar. Perbaikan yang bisa di-backport kemungkinan akan dipilih ceri sebagai tambalan.
 
@@ -72,7 +66,7 @@ Baris yang lebih tua tidak akan didukung oleh GitHub, namun kelompok lain dapat 
 
 Pengembang ingin mengetahui rilis mana yang *aman* untuk digunakan. Bahkan fitur yang tampaknya tidak berdosa bisa mengenalkan regresi dalam aplikasi yang kompleks. Pada saat bersamaan, penguncian ke versi tetap berbahaya karena anda mengabaikan tambalan keamanan dan perbaikan bug yang mungkin keluar sejak versi anda. Tujuan kami adalah membiarkan rangkaian standar berikut masuk `package.json` :
 
-* Gunakan ` ~ 2.0.0 </ 0> untuk mengakui hanya perbaikan stabilitas atau keamanan terkait rilis Anda <code> 2.0.0 </ 0>.</li>
+- Gunakan ` ~ 2.0.0 </ 0> untuk mengakui hanya perbaikan stabilitas atau keamanan terkait rilis Anda <code> 2.0.0 </ 0>.</li>
 <li>Gunakan <code>^ 2.0.0` untuk mengakui fitur pekerjaan yang tidak melanggar * cukup stabil * serta perbaikan keamanan dan bug.
 
 Yang penting dari poin kedua adalah aplikasi yang menggunakan ` ^` tetap dapat mengharapkan tingkat stabilitas yang masuk akal. Untuk mencapai hal ini, semver memungkinkan * pengenal pra-rilis * untuk menunjukkan versi tertentu belum *aman* atau * stabil*.
@@ -99,11 +93,11 @@ For each major and minor bump, you should expect to see something like the follo
 
 Contoh siklus hidup dalam gambar:
 
-* Cabang rilis baru dibuat yang mencakup rangkaian fitur terbaru. Ini diterbitkan menjadi` 2.0.0-beta.1 </ 0>.
+- Cabang rilis baru dibuat yang mencakup rangkaian fitur terbaru. Ini diterbitkan menjadi` 2.0.0-beta.1 </ 0>.
 <img src="../images/versioning-sketch-3.png" alt="" /></li>
 <li>A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as <code>2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* Beta dianggap *umumnya stabil* dan diterbitkan lagi sebagai non-beta di bawah `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+- Beta dianggap *umumnya stabil* dan diterbitkan lagi sebagai non-beta di bawah `2.0.0`. ![](../images/versioning-sketch-5.png)
+- Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Beberapa contoh bagaimana berbagai rentang semver akan mengambil rilis baru:
 
@@ -115,16 +109,16 @@ Strategi kami memiliki beberapa pengorbanan, yang untuk saat ini kami merasa ses
 
 Sebagai pertimbangan di masa depan, kami dapat memperkenalkan satu atau kedua hal berikut:
 
-* malam membangun dari tuan; ini akan memungkinkan orang untuk menguji fitur baru dengan cepat dan memberikan umpan balik
-* rilis alpha yang memiliki batasan stabilitas yang lebih longgar pada beta; misalnya akan diizinkan untuk mengakui fitur baru saat saluran stabilitas masuk *alpha*
+- malam membangun dari tuan; ini akan memungkinkan orang untuk menguji fitur baru dengan cepat dan memberikan umpan balik
+- rilis alpha yang memiliki batasan stabilitas yang lebih longgar pada beta; misalnya akan diizinkan untuk mengakui fitur baru saat saluran stabilitas masuk *alpha*
 
 # Bendera fitur
 
 Bendera fitur adalah praktik umum di Chromium, dan mapan di ekosistem pengembangan web. Dalam konteks Elektron, bendera fitur atau **soft branch** harus memiliki sifat berikut:
 
-* it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* itu benar-benar segmen jalur kode baru dan lama; refactoring kode lama untuk mendukung fitur baru *violates* kontrak bendera fitur
-* flag fitur akhirnya dihapus setelah soft-branch digabung
+- it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+- itu benar-benar segmen jalur kode baru dan lama; refactoring kode lama untuk mendukung fitur baru *violates* kontrak bendera fitur
+- flag fitur akhirnya dihapus setelah soft-branch digabung
 
 Kami mendamaikan kode yang ditandai dengan strategi versi kami sebagai berikut:
 
@@ -135,16 +129,16 @@ Kami mendamaikan kode yang ditandai dengan strategi versi kami sebagai berikut:
 
 Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan release. Dimulai dengan `2.0.0` kami akan meminta permintaan tarik sesuai dengan spesifikasi [Konvensional ](https://conventionalcommits.org/), yang dapat diringkas sebagai berikut:
 
-* Komitmen yang akan menghasilkan tiang utama **utama** harus dimulai dengan `BREAKING CHANGE:`.
-* Komitmen yang akan menghasilkan titik semintang **minor** harus dimulai dengan `feat:`.
-* Perintah yang akan menghasilkan tambatan semver **patch** harus dimulai dengan `fix:`.
+- Komitmen yang akan menghasilkan tiang utama **utama** harus dimulai dengan `BREAKING CHANGE:`.
+- Komitmen yang akan menghasilkan titik semintang **minor** harus dimulai dengan `feat:`.
+- Perintah yang akan menghasilkan tambatan semver **patch** harus dimulai dengan `fix:`.
 
-* Kami mengizinkan meremas commit, asalkan berpegang pesan terjepit di atas format pesan.
+- Kami mengizinkan meremas commit, asalkan berpegang pesan terjepit di atas format pesan.
 
-* Hal ini dapat diterima untuk beberapa commit dalam permintaan tarik untuk tidak memasukkan awalan semantik, asalkan komit kemudian dalam permintaan tarik sama berisi pesan semantik bermakna mencakup.
+- Hal ini dapat diterima untuk beberapa commit dalam permintaan tarik untuk tidak memasukkan awalan semantik, asalkan komit kemudian dalam permintaan tarik sama berisi pesan semantik bermakna mencakup.
 
 # Versionless `master`
 
-* `Master` branch akan selalu berisi `0.0.0-dev` di yang `package.json`
-* Rilis Cabang-cabang tidak pernah digabung kembali ke master
-* Rilis cabang *Apakah* mengandung versi yang benar di mereka `package.json`
+- `Master` branch akan selalu berisi `0.0.0-dev` di yang `package.json`
+- Rilis Cabang-cabang tidak pernah digabung kembali ke master
+- Rilis cabang *Apakah* mengandung versi yang benar di mereka `package.json`

@@ -422,12 +422,12 @@ Dönüşler:
   * `inputFieldType` Dizgi - Bağlam menüsü bir girdi alanından çağrıldığında, o alanın türü. Olası değerler: `none`, `plainText`, `password`, `other`.
   * `menuSourceType` Dizgi - Bağlam menüsünü çağıran giriş kaynağı.`none`, `mouse`, `keyboard`, `touch`, `touchMenu` olabilir.
   * `medya bayrakları` Obje - İçerik menüsünün medya elemanı için yapılmış bayraklar. 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
+    * `inError` Mantıksal - Ortam öğeside eğer çökme olursa.
+    * `isPaused` Mantıksal - Ortam öğesinin duraklatılıp duraklatılmadığı.
     * `isMuted` Boolean - Ortam öğesinin sessiz olup olmadığı.
     * `hasAudio` Boolean - Ortam öğesinin sesli olup olmadığı.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
+    * `isLooping` Mantıksal - Ortam öğesi döngüsel olup olmadığında.
+    * `isControlsVisible` Mantıksal - Ortam öğesinin kontrolleri olup olmadığını.
     * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
     * `canRotate` Boolean - Whether the media element can be rotated.
   * `bayrakları editle` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 

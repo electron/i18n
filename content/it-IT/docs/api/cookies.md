@@ -2,7 +2,7 @@
 
 > Query and modify a session's cookies.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
@@ -35,7 +35,7 @@ The following events are available on instances of `Cookies`:
 
 #### Event: 'changed'
 
-* `evento` Evento
+* `event` Evento
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
 * `cause` String - The cause of the change with one of the following values: 
   * `explicit` - The cookie was changed directly by a consumer's action.

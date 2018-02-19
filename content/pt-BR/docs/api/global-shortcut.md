@@ -1,12 +1,12 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Detecta eventos de teclado quando o aplicativo não tiver o foco do teclado.
 
 Processo: [Main](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+O módulo `globalShortcut` pode registrar/cancelar o registro de um atalho de teclado global com o sistema operativo que você possa personalizar as operações para os vários atalhos.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+** Nota:** O atalho é global; Isso funcionará mesmo se o aplicativo não tenha o foco do teclado. Não deve usar este módulo até que o evento`ready` do módulo do aplicativo é emitido.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
@@ -36,31 +36,31 @@ app.on('will-quit', () => {
 
 ## Métodos
 
-The `globalShortcut` module has the following methods:
+O módulo `globalShortcut` tem os seguintes métodos:
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Registra um atalho global de `accelerator`. O ` callback` é chamado quando o atalho registrado é pressionado pelo utilizador.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Quando o acelerador já está sendo utilizado por outras aplicações, esta chamada falhará silenciosamente. Este comportamento é pretendido pelos sistemas operacionais, uma vez que eles não querem que os aplicativos lutem por atalhos globais.
 
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Retorna `Boolean` - Se esta aplicação registrou o `accelerator`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Quando o acelerador já está sendo utilizado por outras aplicações, esta ainda retorna `false`. Este comportamento é pretendido pelos sistemas operacionais, uma vez que eles não querem que os aplicativos lutem por atalhos globais.
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+Não registra o atalho global de `accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Não registra todos os atalhos globais.

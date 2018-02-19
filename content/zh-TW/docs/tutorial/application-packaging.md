@@ -132,7 +132,7 @@ fs.readFileSync('/path/to/example.asar')
 
 有的 Node API 能執行二進位檔，例如 `child_process.exec`, `child_process.spawn` 及 `child_process.execFile`，但只有 `execFile` 支援執行 `asar` 封存檔中的二進位檔。
 
-這是因為 `exec` 和 `spawn` 收的參數是`指令`而不是 `檔案`，而且`指令`是在 shell 下執行的。 沒有萬無一失的方法判斷指令是否有用到 asar 封存檔中的檔案，就算我們真的做到了，也無法保證能毫無副作用的代換指令中的路徑。
+這是因為 `exec` 和 `spawn` 收的參數是 `command` (指令) 而不是 `file` (檔案)，而且 `command` 是在 shell 下執行的。 沒有萬無一失的方法判斷指令是否有用到 asar 封存檔中的檔案，就算我們真的做到了，也無法保證能毫無副作用的代換指令中的路徑。
 
 ## 將無法封存的檔案與 `asar` 封存檔整合
 
