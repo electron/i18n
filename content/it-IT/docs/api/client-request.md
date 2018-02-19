@@ -38,13 +38,13 @@ const request = net.request({
 
 #### Evento: 'response'
 
-Restituiti:
+Restituisce:
 
 * `response` IncomingMessage - Un oggetto che rappresenta il messaggio di risposta HTTP.
 
 #### Evento: 'accedi'
 
-Restituiti:
+Restituisce:
 
 * `infoautore` Object 
   * `èProxy` Booleano
@@ -93,7 +93,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Evento: 'errore'
 
-Restituiti:
+Restituisce:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -105,7 +105,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### Event: 'redirect'
 
-Restituiti:
+Restituisce:
 
 * `statusCode` Integer
 * `metodo` Stringa
