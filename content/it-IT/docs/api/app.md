@@ -62,7 +62,7 @@ Vedi la descrizione dell'evento `window-all-closed` per le differenze tra gli ev
 Restituisce:
 
 * `event` Evento
-* `exitCode` Numero Intero
+* `codiceUscita` Numero Intero
 
 Emesso quando l'applicazione è in uscita.
 
@@ -75,36 +75,36 @@ Restituisce:
 
 Emesso quando l'utente vuole aprire un file con l'app. L'evento `open-file` è in genere emesso quando l'applicazione è già aperta e l'S.O. vuole riutilizzarla per aprire il file. `open-file` è anche emesso quando un file è rilasciato nel dock e l'applicazione non è ancora in esecuzione. E' necessario assicurarsi di ascoltare l'evento `open-file` molto presto all'avvio della tua app per gestire questo caso (anche prima dell'emissione dell'evento `ready`).
 
-Dovresti chiamare `evento.previeniDefault` se vuoi gestire questo evento.
+Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
 Su Windows, devi analizzare `process.argv` (nel processo principale) per ottenere il percorso del file.
 
-### Evento: 'apri-url' *macOS*
+### Evento: 'open-url' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `url` Stringa
 
-Emesso quando l'utente vuole aprire un URL con l'l'applicazione. Il file `Info.plist` della tua applicazione definisce lo schema url compreso della chiave `CFBundleURLTipo` ed imposta la `NSClassePrincipale` ad `AtomApplicazione`.
+Emesso quando l'utente vuole aprire un URL con l'l'applicazione. Il file `Info.plist` della tua applicazione deve definire lo schema URL compreso della chiave `CFBundleURLTypes` ed impostare `NSPrincipalClass` ad `AtomApplication`.
 
-Dovresti chiamare `evento.previeniDefault` se vuoi gestire questo evento.
+Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
-### Evento: 'attiva' *macOS*
+### Evento: 'activate' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `haFinestreVisibili` Booleano
+* `event` Evento
+* `hasVisibleWindows` Booleano
 
-Emesso quando l'app è attivata. Varie azioni possono generare questo evento, come il lancio dell'app per la prima volta, provare a rilanciare l'app quando già aperta o cliccare sul dock dell'applicazione o sull'icona della taskbar.
+Emesso quando l'applicazione è attivata. Varie azioni possono generare questo evento, come il lancio dell'applicazione per la prima volta, provare a rilanciarla quando è già aperta o cliccare sul dock dell'applicazione o sull'icona della taskbar.
 
-### Evento: 'continua-attività' *macOS*
+### Evento: 'continue-activity' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `event` Evento
+* `type` Stringa - Una stringa che identifica l'l'attività. Mappato a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `utenteInfo` Oggetto - Contiene stati app specifici immagazzinati per attività su un altro dispositivo.
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Se vuoi gestire questo evento dovresti chiamare l'`evento.previeniDefault()`.
