@@ -35,42 +35,42 @@ Emesso quando Electron ha concluso l'inizializzazione. Su macOS `launchInfo` det
 
 Emesso quando tutte le finestre sono state chiuse.
 
-Se non sottoscrivi a questo evento e tutte le finestre sono chiuse il comportamento predefinito è di uscire dall'app; comunque sr sottoscrivi controlli se l'app deve uscire o no. Se l'utente ha premuto `Cmd+Q` o lo sviluppatore chiamato `app.esci()`, Electron proverà prima a chiudere tutte le finestre ed emettere l'evento `will-quit` e in questo caso l'evento `finestra-tutto-chiuso` non sarà emesso.
+Se l'evento non viene gestito e tutte le finestre vengono chiuse, il comportamento predefinito è l'uscita dall'applicazione; però, se gestito, è possibile controllare il caso in cui l'applicazione deve uscire o meno. Se l'utente ha premuto `Cmd + Q` o lo sviluppatore ha invocato `app.quit()`, Electron proverà prima a chiudere tutte le finestre e poi emetterà l'evento `will-quit` e in questo caso l'evento `window-all-closed` non sarà emesso.
 
-### Evento: 'prima-uscire'
+### Evento: 'before-quit'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 
-Emesso prima che l'app inizi a chiudere le sue finestre. Chiamare `evento.previeniDefault()` impedirà il comportamento predefinito che sta terminando l'applicazione.
+Emesso prima che l'applicazione inizi a chiudere le sue finestre. Chiamare `event.preventDefault()` impedirà il comportamento predefinito, ovvero la terminazione l'applicazione.
 
-**Note:** Se l'uscita dall'app è avviata da `autoAggiornamento.esciEInstalla()` allora `prima-uscire` è emesso *dopo* aver emesso l'evento `chiuso` su tutte le finestre e chiudendole.
+**Note:** Se l'uscita dall'applicazione è avviata da `autoUpdater.quitAndInstall()` allora `before-quit` è emesso *dopo* aver emesso l'evento `close` su tutte le finestre e chiudendole.
 
-### Evento: 'uscirà'
+### Evento: 'will-quit'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 
-Emesso quando tutte le finestre sono state chiuse e l'app uscirà. Chiamando `evento.previeniDefault` impedirà il comportamento predefinito che sta terminando l'app.
+Emesso quando tutte le finestre sono state chiuse e l'applicazione uscirà. Chiamare `event.preventDefault()` impedirà il comportamento predefinito, ovvero la terminazione l'applicazione.
 
-Vedi la descrizione dell'evento `finestra-tutto-chiuso` per le differenze tra gli eventi `uscirà` e `finestra-tutto-chiuso`.
+Vedi la descrizione dell'evento `window-all-closed` per le differenze tra gli eventi `will-quit` e `window-all-closed`.
 
-### Evento: 'esci'
+### Evento: 'quit'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `Codiceuscita` Numero Intero
+* `event` Evento
+* `exitCode` Numero Intero
 
-Emesso quando l'app è in uscita.
+Emesso quando l'applicazione è in uscita.
 
-### Evento: 'apri-file' *macOS*
+### Evento: 'open-file' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `percorso` Stringa
 
 Emesso quando l'utente vuole aprire un file con l'app. L'evento `apri-file` è in genere emesso quando l'app è già aperta e l'OS vuole riutilizzare l'app per aprire il file. `apri-file` è anche emesso quando un file è rilasciato nel dock e l'app non è ancora in esecuzione. Assicurati di ascoltare l'evento `apri-file` molto presto all'avvio della tua app per gestire questo cado (anche prima dell'emissione dell'evento `pronto`).
