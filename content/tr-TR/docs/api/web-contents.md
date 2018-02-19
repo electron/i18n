@@ -426,8 +426,8 @@ Dönüşler:
     * `isPaused` Mantıksal - Ortam öğesinin duraklatılıp duraklatılmadığı.
     * `isMuted` Boolean - Ortam öğesinin sessiz olup olmadığı.
     * `hasAudio` Boolean - Ortam öğesinin sesli olup olmadığı.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
+    * `isLooping` Mantıksal - Ortam öğesi döngüsel olup olmadığında.
+    * `isControlsVisible` Mantıksal - Ortam öğesinin kontrolleri olup olmadığını.
     * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
     * `canRotate` Boolean - Whether the media element can be rotated.
   * `bayrakları editle` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
