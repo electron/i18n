@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 版本1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
 
 以下是 1.x 策略的一个例子：
 
@@ -42,11 +42,11 @@ Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spe
 
 下面是一个表格，明确地将变化的类型映射到它们对应的 semver 类别 (例如Major，Minor，Patch)。
 
-| Major Version Increments      | Minor Version Increments          | Patch Version Increments      |
-| ----------------------------- | --------------------------------- | ----------------------------- |
-| Electron breaking API changes | Electron non-breaking API changes | Electron bug fixes            |
-| Node.js major version updates | Node.js minor version updates     | Node.js patch version updates |
-| Chromium version updates      |                                   | fix-related chromium patches  |
+| Major 版本增量                    | Minor 版本增量                    | Patch 版本增量                    |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| Electron 突破性 API 变更           | Electron 无突破性 API 变更          | Electron bug 修复               |
+| Node.js major version updates | Node.js minor version updates | Node.js patch version updates |
+| Chromium 版本更新                 |                               | 修复相关的 chromium 补丁             |
 
 请注意，大多数 chromium 更新将被视为突破性更新。 可以被回溯的修复可能会被修补为修补程序。
 
@@ -66,8 +66,8 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 开发人员想知道哪个版本可以 *安全* 使用。 即使是简单的功能也会使应用程序变得复杂。 同时，锁定到一个固定的版本是很危险的，因为你忽略了自你的版本以来可能出现的安全补丁和错误修复。 我们的目标是在 `package.json ` 中允许以下标准的 semver 范围:
 
-- Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-- Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+- 使用 ` ~ 2.0. 0 ` 只接受您的 ` 2.0.0 ` 版本的稳定性或安全性相关的修复程序。
+- 使用 ` ^ 2.0. 0 ` 可允许不破坏性的 * 合理稳定 * 功能以及安全性和 bug 修复。
 
 第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 为了达到这个目的，semver允许一个 *pre-release 标识* 来表示一个特定的版本还不 *安全* 或 *稳定*.
 
@@ -93,9 +93,9 @@ For each major and minor bump, you should expect to see something like the follo
 
 图片中的生命周期示例:
 
-- A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
+- 将创建一个新的发布分支, 其中包括最新的一组功能。它被发布为 ` 2.0. 0-beta 1 `。 ![](../images/versioning-sketch-3.png)
 - A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-- The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
+- 测试版被认为是 * 一般稳定 * 的, 它在 ` 2.0.0 ` 下作为非 beta 版本再次被发布。 ![](../images/versioning-sketch-5.png)
 - Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 几个不同的 semver 范围将如何接收新版本的示例:
@@ -108,16 +108,16 @@ For each major and minor bump, you should expect to see something like the follo
 
 作为未来的考虑, 我们可以介绍以下一种或两种情况:
 
-- nightly builds off of master; these would allow folks to test new features quickly and give feedback
-- alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+- 由 master 构建的 nightly; 这些将允许人们快速测试新的功能, 并提供反馈
+- 具有松散稳定性限制的 alpha 释放版; 例如, 当稳定通道在 * alpha * 中时, 允许接纳新特性
 
 # 功能标志
 
 功能标志是 Chromium 的一种常见的做法, 在网络开发生态系统中得到了很好的确立。 在 Electron 环境中, 功能标志或 ** 软分支 ** 必须具有以下属性:
 
 - it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-- it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-- feature flags are eventually removed after the soft-branch is merged
+- 它完全细分新的和旧的代码路径; 重构旧代码以允许新功能 * 违反 * 功能标志内容
+- 在合并软分支后, 功能标志最终将被删除
 
 我们将标记的代码与我们的版本控制策略进行协调, 如下所示:
 
@@ -128,16 +128,16 @@ For each major and minor bump, you should expect to see something like the follo
 
 我们力求在更新和发布过程的各个层面提高清晰度。 从 ` 2.0.0 ` 开始, 我们将要求遵循 [ 常规提交 ](https://conventionalcommits.org/) 规范的拉请求, 可以概括如下:
 
-- Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-- Commits that would result in a semver **minor** bump must start with `feat:`.
-- Commits that would result in a semver **patch** bump must start with `fix:`.
+- 提交会导致 semver **major** 必须以 `BREAKING CHANGE:` 开头。
+- 提交会导致 semver **minor** 必须以 `feat:` 开头。
+- 提交会导致 semver ** patch ** 必须以 ` fix:` 开头。
 
-- We allow squashing of commits, provided that the squashed message adheres the the above message format.
+- 我们允许压缩提交，只要压缩的消息符合上述消息格式。
 
-- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+- 只要稍后在相同的拉取请求中提交包含有意义的包含语义消息，拉取请求中的一些提交就不包括语义前缀是可接受的。
 
 # 无版本的 `master`
 
-- The `master` branch will always contain `0.0.0-dev` in its `package.json`
-- Release branches are never merged back to master
-- Release branches *do* contain the correct version in their `package.json`
+- The `master` 分支将始终在其 `package.json` 中包含 `0.0.0-dev`.
+- Release 分支永远不会合并回 master 分支
+- 发布分支 *在* 其`package.json ` 中包含正确的版本
