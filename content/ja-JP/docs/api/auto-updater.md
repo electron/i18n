@@ -26,23 +26,23 @@ Windowsでは、`autoUpdater` を使えるようにする前にユーザのマ�
 
 Squirrelで作成されたインストーラは、例えば、`com.squirrel.slack.Slack` や `com.squirrel.code.Code` といった`com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` という形式による[アプリケーションユーザID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)を持つショートカットアイコンを作成します。 `app.setAppUserModelId` APIでアプリに対して同じIDを使うようにしてください。そうでないと、Windowsはタスクバーにアプリを正しくピン留めすることができません。
 
-Squirrel.Mac とは異なり、Windows は S3 またはその他の静的ファイルのホストに更新プログラムをホストできます。 Squirrel.Windows のしくみについての詳細を取得する [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) のドキュメントを読むことができます。
+Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイルホストに更新データをホストすることができます。 Squirrel.Windowsの仕組みの詳細については、[Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) のドキュメントをお読みください。
 
 ## イベント
 
-`autoUpdater` オブジェクトは以下のイベントを発生させます。
+`autoUpdater` オブジェクトでは以下のイベントが発生します。
 
 ### イベント: 'error'
 
-戻り値：
+戻り値:
 
 * `error` Error
 
-更新中にエラーがあるときに出力されます。
+更新中にエラーがあるときに発生します。
 
 ### イベント: 'checking-for-update'
 
-更新が始まったかどうかをチェックするときに放出されます。
+更新処理が開始されたかをチェックするときに発生します。
 
 ### イベント: 'update-available'
 
