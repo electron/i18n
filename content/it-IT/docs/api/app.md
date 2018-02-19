@@ -104,10 +104,10 @@ Emesso quando l'applicazione è attivata. Varie azioni possono generare questo e
 Restituisce:
 
 * `event` Evento
-* `type` Stringa - Una stringa che identifica l'l'attività. Mappato a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `utenteInfo` Oggetto - Contiene stati app specifici immagazzinati per attività su un altro dispositivo.
+* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Oggetto - Contiene stati specifici dell'applicazione immagazzinati per attività su un altro dispositivo.
 
-Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Se vuoi gestire questo evento dovresti chiamare l'`evento.previeniDefault()`.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Se vuoi gestire questo evento dovresti chiamare `event.preventDefault()`.
 
 Un'attività dell'utente può essere continuata solo in un app con lo stesso Team ID dello sviluppatore come fonte app dell'attività e che supporti il tipo di attività. I tipi di attività supportati sono specificati nell'`Info.plist` dell'app sotto la chiave `NSTipoAttivitàUtente`.
 
