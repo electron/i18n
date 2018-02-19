@@ -10,7 +10,7 @@ O formato ASAR foi criado principalmente para melhorar o desempenho no Windows..
 
 ### Brightray
 
-Brightray [foi](https://github.com/electron-archive/brightray) uma biblioteca estática que tornava o uso do [libchromiumcontent](#libchromiumcontent) mais fácil. Isso é agora obsoleta e foi incorporada na base de código do Electron.
+Brightray [foi](https://github.com/electron-archive/brightray) uma biblioteca estática tornava o uso de [libchromiumcontent](#libchromiumcontent) mais fácil. Isso é agora obsoleta e foi incorporada na base de código do Electron.
 
 ### CRT
 
@@ -30,13 +30,13 @@ IPC significa comunicação entre processos. Electron usa IPC para enviar mensag
 
 ### libchromiumcontent
 
-Uma biblioteca compartilhada que inclui o [Chromium Content module](https://www.chromium.org/developers/content-module) e todas as suas dependências (exemplo: Blink, [V8](#v8) e etc.). Também conhecido como "libcc".
+A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Também conhecido como "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
 ### main process
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+O processo principal, normalmente fica em um arquivo chamando `main.js`, é o ponto de entrada para cada app em Electron. Isso controla a vida do app, de aberto para fechado. Isso também é gerencia elementos nativos, como o Menu, Barra de Menus, Dock, Bandeja e etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
