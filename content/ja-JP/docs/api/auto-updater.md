@@ -4,13 +4,13 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**アプリケーションに自動更新を実装する方法についての詳細なガイドは [ここ](../tutorial/updates.md) にあります。**
 
 ## プラットフォームに関する注意事項
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+現在のところ、macOSとWindowsしかサポートされていません。Linuxでは、自動アップデータの組み込みサポートがないので、アプリを更新するためにディストリビューションのパッケージマネージャーを使うことを推奨しています。
 
-In addition, there are some subtle differences on each platform:
+さらに、各プラットフォームではいくつかの微妙な違いがあります。
 
 ### macOS
 
