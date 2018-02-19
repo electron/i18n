@@ -8,7 +8,7 @@ Juntos con las amplia comunidad de Linux, Canonical busca arreglar algunos de lo
 
 Hay tres maneras de crear un archivo `.snap`:
 
-1) Usando [`electron-forge`](https://github.com/electron-userland/electron-forge) o [`electron-builder`](https://github.com/electron-userland/electron-builder), ambas herramientas que vienen con soporte para `snap` incluido. Esta es la opción más fácil. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) Usando [`electron-forge`](https://github.com/electron-userland/electron-forge) o [`electron-builder`](https://github.com/electron-userland/electron-builder), ambas herramientas que vienen con soporte para `snap` incluido. Esta es la opción más fácil. 2) Usando `electron-installer-snap`, que toma el resultado de `electron-packager`. 3) Usando un paquete `.deb` ya creado.
 
 In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
