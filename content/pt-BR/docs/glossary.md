@@ -10,7 +10,7 @@ O formato ASAR foi criado principalmente para melhorar o desempenho no Windows..
 
 ### Brightray
 
-Brightray [foi](https://github.com/electron-archive/brightray) uma biblioteca estática tornava o uso de [libchromiumcontent](#libchromiumcontent) mais fácil. Isso é agora obsoleta e foi incorporada na base de código do Electron.
+Brightray [foi](https://github.com/electron-archive/brightray) uma biblioteca estática que tornava o uso do [libchromiumcontent](#libchromiumcontent) mais fácil. Isso é agora obsoleta e foi incorporada na base de código do Electron.
 
 ### CRT
 
@@ -30,7 +30,7 @@ IPC significa comunicação entre processos. Electron usa IPC para enviar mensag
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Também conhecido como "libcc".
+Uma biblioteca compartilhada que inclui o [Chromium Content module](https://www.chromium.org/developers/content-module) e todas as suas dependências (exemplo: Blink, [V8](#v8) e etc.). Também conhecido como "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
