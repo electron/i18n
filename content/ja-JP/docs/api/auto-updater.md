@@ -26,7 +26,7 @@ Windowsでは、`autoUpdater` を使えるようにする前にユーザのマ�
 
 Squirrelで作成されたインストーラは、例えば、`com.squirrel.slack.Slack` や `com.squirrel.code.Code` といった`com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` という形式による[アプリケーションユーザID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)を持つショートカットアイコンを作成します。 `app.setAppUserModelId` APIでアプリに対して同じIDを使うようにしてください。そうでないと、Windowsはタスクバーにアプリを正しくピン留めすることができません。
 
-Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイルホストに更新データをホストすることができます。 Squirrel.Windowsの仕組みの詳細については、[Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) のドキュメントをお読みください。
+Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイルホストに更新プログラムをホストすることができます。 Squirrel.Windowsの仕組みの詳細については、[Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) のドキュメントをお読みください。
 
 ## イベント
 
@@ -46,15 +46,15 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 
 ### イベント: 'update-available'
 
-利用可能な更新がある場合に生成されます。更新プログラムが自動的にダウンロードされます。
+利用可能な更新プログラムがあるときに発生します。更新プログラムは自動的にダウンロードされます。
 
 ### イベント: 'update-not-available'
 
-利用可能な更新がない場合に出力されます。
+利用可能な更新プログラムがないときに発生します。
 
 ### イベント: 'update-downloaded'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `releaseNotes` String
@@ -62,7 +62,7 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+更新プログラムがダウンロードされたときに発生します。
 
 Windowsでは `releaseName` のみ利用可能です。
 
@@ -73,20 +73,20 @@ Windowsでは `releaseName` のみ利用可能です。
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders`*MacOS* (オプション) - HTTP リクエスト ヘッダーをオブジェクトします。
+* `requestHeaders` Object *MacOS* (任意) - HTTPリクエストヘッダー。
 
-Sets the `url` and initialize the auto updater.
+`url` を設定して自動更新を初期化します。
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+戻り値 `String` - 現在の更新フィードURL。
 
 ### `autoUpdater.checkForUpdates()`
 
-更新プログラムがあるかどうかをサーバーに要求します。この API を使用する前に `setFeedURL` を呼び出す必要があります。
+更新プログラムがあるかをサーバーに問い合わせます。このAPIを使用する前に `setFeedURL` を呼び出さなければなりません。
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+更新プログラムがダウンロードされた後でアプリを再起動し、更新プログラムをインストールします。`update-downloaded` が発生した後でしか呼び出さないようにしてください。
 
 **Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
