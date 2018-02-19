@@ -2,7 +2,7 @@
 
 > Controlla il ciclo di vita degli eventi della tua applicazione.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 I seguenti esempi mostrano come uscire dall'applicazione quando l'ultima finestra è chiusa:
 
@@ -17,11 +17,11 @@ app.on('window-all-closed', () => {
 
 L'oggetto `app` emette i seguenti eventi:
 
-### Evento: 'finirà-lancio'
+### Evento: 'will-finish-launching'
 
-Emetti quando l'app ha finito la startup di base. Su Windows e Linux, l'evento `finirà-lancio` equivale all'evento `pronto`; su macOS questo evento rappresenta la notifica `applicazionefiniràlancio` di `NSApplication`. Spesso dovrai impostare ascoltatori per gli eventi `apri-file` e `apri-url` ed avviare il reporter dei crash e l'aggiornamento automatico.
+Emettesso quando l'app ha finito la startup di base. Su Windows e Linux, l'evento `will-finish-launching` equivale all'evento `ready`; su macOS questo evento rappresenta la notifica `applicationWillFinishLaunching` di `NSApplication`. Potresti necessitare spesso di definire ascoltatori (listener) per gli eventi `open-file` e `open-url` ed avviare il reporter dei crash e l'aggiornamento automatico.
 
-In gran parte dei casi, dovresti solo fare tutto nel gestore eventi `pronto`.
+In gran parte dei casi, dovresti solo fare tutto nel gestore dell'evento `ready`.
 
 ### Evento: 'pronto'
 
