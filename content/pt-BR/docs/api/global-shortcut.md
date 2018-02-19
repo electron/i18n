@@ -51,7 +51,7 @@ Quando o acelerador já está sendo utilizado por outras aplicações, esta cham
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Retorna `Boolean` - Se esta aplicação registrou o ` accelerator`.
+Retorna `Boolean` - Se esta aplicação registrou o `accelerator`.
 
 Quando o acelerador já está sendo utilizado por outras aplicações, esta ainda retorna `false`. Este comportamento é pretendido pelos sistemas operacionais, uma vez que eles não querem que os aplicativos lutem por atalhos globais.
 
