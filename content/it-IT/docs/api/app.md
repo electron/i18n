@@ -7,9 +7,9 @@ Processo: [Principale](../glossary.md#main-process)
 I seguenti esempi mostrano come uscire dall'applicazione quando l'ultima finestra è chiusa:
 
 ```javascript
-const {app} = richiedi('electron')
-app.on('finestra-tutta-chiusa', () => {
- app.esci()
+const {app} = require('electron')
+app.on('window-all-closed', () => {
+  app.quit()
 })
 ```
 
