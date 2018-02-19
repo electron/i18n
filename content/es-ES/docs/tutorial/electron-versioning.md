@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Versión 1.x
 
-La versión *< 2.0* de electron no se ajustó a las especificaciones de [semver](http://semver.org). Versiones mayores corresponden a cambios API para el usuario final. Las versiones menores corresponden a publicaciones mayores de Chromium. Versiones con parches corresponden a nuevas características o correcciones de errores. Mientras es convenientes para desarrolladores combinar características, esto crea problemas para desarrolladores de de aplicaciones que los clientes están viendo. Los ciclos de pruebas QA de las aplicaciones mayores como Slack, Stride, Temas, Skype, VS Code, Arom, y Desktop pueden ser duraderas y la estabilidad es un resultado muy deseado. Hay un riesgo grande adoptando nuevas características mientras se está tratando de absorber soluciones a errores.
+Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Mientras es convenientes para desarrolladores combinar características, esto crea problemas para desarrolladores de de aplicaciones que los clientes están viendo. Los ciclos de pruebas QA de las aplicaciones mayores como Slack, Stride, Temas, Skype, VS Code, Arom, y Desktop pueden ser duraderas y la estabilidad es un resultado muy deseado. Hay un riesgo grande adoptando nuevas características mientras se está tratando de absorber soluciones a errores.
 
 Aquí hay un ejemplo de la estrategia 1.x:
 
@@ -42,17 +42,11 @@ Desde 2.0, Electron seguiría semver.
 
 Abajo hay una tabla construyendo un mapa explícitamente con los tipos las categorías correspondientes de semver (Ej: mayor, menor, parche).
 
-* **Incrementos de versiones mayores** 
-    * Actualización de versiones de Chromium
-    * actualizaciones mayores de versión de node.js
-    * Cambios de API por Electron
-* **Incrementos de version menores** 
-    * node.js minor version updates
-    * Cambios de API por otras razones de Electron
-* **Incrementos en la versión de parches** 
-    * actualizaciones en la versión de parches de node.js
-    * parches de chromium relacionados con el arreglo de problemas
-    * Corrección de fallos de Electron
+| Incrementos de versiones mayores       | Incrementos de version menores               | Incrementos en la versión de parches                         |
+| -------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
+| Cambios de API por Electron            | Cambios de API por otras razones de Electron | Corrección de fallos de Electron                             |
+| Node.js major version updates          | Node.js minor version updates                | Node.js patch version updates                                |
+| Actualización de versiones de Chromium |                                              | parches de chromium relacionados con el arreglo de problemas |
 
 Note que la mayoría de las actualizaciones de chromium serán consideras como rompientes. Arreglos que pueden hacerse por la puerta de atrás es probable que sean escogidos como parches.
 
@@ -72,8 +66,8 @@ Líneas antiguas no serán soportadas por GitHub, pero otros grupos pueden tomar
 
 Los desarrolladores quieren saber cuáles publicaciones son *seguras*. Hasta características que parecen inocentes pueden introducir grandes regresiones en aplicaciones complejas. Al mismo tiempo, quedarse con una versión arreglada es peligroso porque está ignorando parches de seguridad y arreglos de errores que pudieron salir desde su versión. Nuestra meta es permitir que el siguiente rango semver estandar en `package.json` :
 
-* Usar `~2.0.0` para admitir solo arreglo relacionados con la estabilidad o seguridad de su publicación `2.0.0`.
-* Use `^2.0.0` para admitir características no frágiles y *razonablemente estables* que trabajen tanto en seguridad como en arreglo de errores.
+- Usar `~2.0.0` para admitir solo arreglo relacionados con la estabilidad o seguridad de su publicación `2.0.0`.
+- Use `^2.0.0` para admitir características no frágiles y *razonablemente estables* que trabajen tanto en seguridad como en arreglo de errores.
 
 Lo que es importante del segundo punto es que las aplicaciones que usan `^` aún deben ser capaces de esperar cierto nivel de estabilidad. Para lograr esto, semver le permite a *identificador pre-lanzamiento* indicar que una versión particular no es *segura* o *estable* todavía.
 
@@ -99,10 +93,10 @@ For each major and minor bump, you should expect to see something like the follo
 
 Un ejemplo del ciclo de vida en imágenes:
 
-* Una nueva rama de lanzamientos es creada e incluye el último conjunto de características. Es publicada como `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* El beta es considerado *generalmente estable* y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+- Una nueva rama de lanzamientos es creada e incluye el último conjunto de características. Es publicada como `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
+- A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+- El beta es considerado *generalmente estable* y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![](../images/versioning-sketch-5.png)
+- Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Algunos ejemplos de como varios rangos semver recogerán nuevo lanzamientos:
 
@@ -114,16 +108,16 @@ Nuestra estrategia tiene algunas compensaciones, que por ahora sentimos que son 
 
 Como consideración futura, podemos introducir uno o ambos de los siguientes:
 
-* nightly se estructura fuera de la maestra; esto le permitiría a la gente probar nuevas características rápido y que dieran retroalimentación
-* lanzamientos alpha que tiene perdida de estabilidad se vuelven beta; por ejemplo, le permitiría admitir nuevas características mientras un canal de estabilidad está en *alpha*
+- nightly se estructura fuera de la maestra; esto le permitiría a la gente probar nuevas características rápido y que dieran retroalimentación
+- lanzamientos alpha que tiene perdida de estabilidad se vuelven beta; por ejemplo, le permitiría admitir nuevas características mientras un canal de estabilidad está en *alpha*
 
 # Señales de característica
 
 Banderas de características son prácticas comunes en Chromium, y son bien establecidas en el ecosistema de diseño web. En el contexto de Electron, banderas de características o **ramas suaves** deben seguir las siguientes propiedades:
 
-* it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* segmenta completamente nuevos y viejos rutas de códigos; refactorizando viejo código para soportar nuevas características *viola* el contrato de las banderas de características
-* banderas de características son removidas eventualmente después de que la rama blanda es absorbida
+- it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+- segmenta completamente nuevos y viejos rutas de códigos; refactorizando viejo código para soportar nuevas características *viola* el contrato de las banderas de características
+- banderas de características son removidas eventualmente después de que la rama blanda es absorbida
 
 Nosotros reconciliamos el código con bandera con nuestras estrategias de versiones como sigue:
 
@@ -134,16 +128,16 @@ Nosotros reconciliamos el código con bandera con nuestras estrategias de versio
 
 Buscamos aumentar la claridad en todos los niveles del proceso de actualización y publicación. Comenzando con `2.0.0` necesitaremos retirar solicitudes adheridas a la especificación [Conventional Commits](https://conventionalcommits.org/), la cual se puede resumir como:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+- Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
+- Commits that would result in a semver **minor** bump must start with `feat:`.
+- Commits that would result in a semver **patch** bump must start with `fix:`.
 
-* Permitimos el aplastamiento de commits, siempre que el mensaje aplastado se adhiera al formato de mensaje anterior.
+- Permitimos el aplastamiento de commits, siempre que el mensaje aplastado se adhiera al formato de mensaje anterior.
 
-* Es aceptable que algunas confirmaciones en una solicitud de extracción no incluyan un prefijo semántico, siempre que una confirmación posterior en la misma solicitud de extracción contenga un mensaje semántico significativo que lo abarque.
+- Es aceptable que algunas confirmaciones en una solicitud de extracción no incluyan un prefijo semántico, siempre que una confirmación posterior en la misma solicitud de extracción contenga un mensaje semántico significativo que lo abarque.
 
 # Versionless `master`
 
-* La rama `master` siempre contendrá `0.0.0-dev` en su `package.json`
-* Las ramas de lanzamiento no se fusionan nuevamente con la rama maestra
-* Las ramas de versión *do*contienen la versión correcta en su `package.json`
+- La rama `master` siempre contendrá `0.0.0-dev` en su `package.json`
+- Las ramas de lanzamiento no se fusionan nuevamente con la rama maestra
+- Las ramas de versión *do*contienen la versión correcta en su `package.json`
