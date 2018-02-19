@@ -22,7 +22,7 @@ Indicates that response body has ended.
 
 #### Event: 'aborted'
 
-Emitiu quando uma solicitação foi cancelada durante uma transação HTTP em curso.
+Emitido quando uma solicitação foi cancelada durante uma transação HTTP em curso.
 
 #### Event: 'error'
 
@@ -30,7 +30,7 @@ Retorna:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 
-Emitiu quando ocorreu um erro ao transmitir eventos de dados de resposta. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Emitido quando ocorreu um erro ao transmitir eventos de dados de resposta. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
 ### Propriedades da Instância
 
@@ -38,7 +38,7 @@ An `IncomingMessage` instance has the following readable properties:
 
 #### `response.statusCode`
 
-Um `Inteiro` indica o estado do código de resposta HTTP.
+Um `Integer` indica o estado do código de resposta HTTP.
 
 #### `response.statusMessage`
 
