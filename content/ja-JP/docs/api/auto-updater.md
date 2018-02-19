@@ -22,9 +22,9 @@ macOSでは、`autoUpdater` モジュールは [Squirrel.Mac](https://github.com
 
 Windowsでは、`autoUpdater` を使えるようにする前にユーザのマシンにアプリをインストールしなければなりません。そのため、[electron-winstaller](https://github.com/electron/windows-installer)、[electron-forge](https://github.com/electron-userland/electron-forge) または [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) パッケージを使ってWindowsインストーラーを作成することを推奨します。
 
-確認してください [電子 winstaller](https://github.com/electron/windows-installer) または [電子フォージ](https://github.com/electron-userland/electron-forge) を使用してときあなたのアプリの [初回実行](https://github.com/electron/windows-installer#handling-squirrel-events) (を参照してください [より多くの情報のためのこの問題](https://github.com/electron/electron/issues/7155) も) を更新はないです。 またアプリのショートカットを取得する [電子-リス-スタートアップ](https://github.com/mongodb-js/electron-squirrel-startup) を使用する勧めします。
+[electron-winstaller](https://github.com/electron/windows-installer) または [electron-forge](https://github.com/electron-userland/electron-forge) を使用する場合、[初回実行時に](https://github.com/electron/windows-installer#handling-squirrel-events)アプリを更新しようとしないようにしてください ([この問題の詳細情報](https://github.com/electron/electron/issues/7155)も参照してください)。 アプリのデスクトップショートカットを作成する [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) を使用することも推奨します。
 
-リスで生成されたインストーラーは、1 com.squirrel.PACKAGE_ID の形式で [アプリケーションのユーザー モデル ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) を持つショートカット アイコンを作成します。YOUR_EXE_WITHOUT_DOT_EXE</code>、例は、`com.squirrel.slack.Slack` と `com.squirrel.code.Code`。 `App.setAppUserModelId` API を使用してアプリケーションに同じ ID を使用する必要が、それ以外の場合、Windows はアプリをタスク バーに正しく固定することができません。
+Squirrelで作成されたインストーラは、例えば、`com.squirrel.slack.Slack` や `com.squirrel.code.Code` といった`com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` という形式による[アプリケーションユーザID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)を持つショートカットアイコンを作成します。 `app.setAppUserModelId` APIでアプリに対して同じIDを使うようにしてください。そうでないと、Windowsはタスクバーにアプリを正しくピン留めすることができません。
 
 Squirrel.Mac とは異なり、Windows は S3 またはその他の静的ファイルのホストに更新プログラムをホストできます。 Squirrel.Windows のしくみについての詳細を取得する [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) のドキュメントを読むことができます。
 
