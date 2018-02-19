@@ -116,7 +116,7 @@ Un'attività dell'utente può essere continuata solo in un app con lo stesso dev
 Restituisce:
 
 * `event` Evento
-* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` Stringa - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), prima che un'attività da un dispositivo differente richieda di essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
@@ -539,57 +539,57 @@ Puoi richiedere i seguenti percorsi dal nome:
     Questo è un esempio molto semplice di come creare una Jump List personalizzata:
     
     ```javascript
-const {app} = richiedi('electron')
+const {app} = require('electron')
 
-app.impostaJumpList([
+app.setJumpList([
   {
-    tipo: 'personalizzata',
-    nome: 'Progetti Recenti',
-    elementi: [
-      { tipo: 'file', percorso: 'C:\\Progetti\\progetto1.proj' },
-      { tipe: 'file', percorso: 'C:\\Progetti\\progetto2.proj' }
+    type: 'custom',
+    name: 'Recent Projects',
+    items: [
+      { type: 'file', path: 'C:\\Projects\\project1.proj' },
+      { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // ha un nome quindi 'tipo' è considerato essere "personalizzato"
-    nome: 'Strumenti',
-    elementi: [
+  { // has a name so `type` is assumed to be "custom"
+    name: 'Tools',
+    items: [
       {
-        tipo: 'task',
-        titolo: 'Strumento A',
-        programma: processo.eseguiPercorso,
-        arg: '--esegui-strumento-a',
-        icona: processo.eseguiPercorso,
-        indiceIcona: 0,
-        descrizione: 'Esegui Strumento A'
+        type: 'task',
+        title: 'Tool A',
+        program: process.execPath,
+        args: '--run-tool-a',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Runs Tool A'
       },
       {
-        tipo: 'task',
-        titolo: 'Strumento B',
-        programma: processo.eseguiPercorso,
-        arg: '--esegiui-strumento-b',
-        icona: processo.eseguiPercorso'
-        Indiceicona: 0,
-        descrizione: 'Esegui Strumento B'
+        type: 'task',
+        title: 'Tool B',
+        program: process.execPath,
+        args: '--run-tool-b',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Runs Tool B'
       }
     ]
   },
-  { tipo: 'frequente' },
-  { // non ha nè nome nè tipo quindi il 'tipo' è considerato essere "task"
-    strumenti: [
+  { type: 'frequent' },
+  { // has no name and no type so `type` is assumed to be "tasks"
+    items: [
       {
-        tipo: 'task',
-        titolo: 'Nuoco Progetto',
-        programma: processo.eseguiPercorso,
-        arg: '--nuovo-progetto',
-        descrizione: 'Crea un nuovo progetto.'
+        type: 'task',
+        title: 'New Project',
+        program: process.execPath,
+        args: '--new-project',
+        description: 'Create a new project.'
       },
-      { tipo: 'separatore' },
+      { type: 'separator' },
       {
-        tipo: 'task',
-        titolo: 'Recupera Progetto',
-        programma: processo.eseguiPercorso,
-        arg: '--recupera-progetto',
-        descrizione: 'Recupera Progetto'
+        type: 'task',
+        title: 'Recover Project',
+        program: process.execPath,
+        args: '--recover-project',
+        description: 'Recover Project'
       }
     ]
   }
@@ -617,13 +617,11 @@ Su macOS il sistema fa rispettare l'istanza singola automaticamente quando l'ute
 Un esempio dell'attivazione drll'istanza primaria quando se ne avvia una seconda:
 
 ```javascript
-const {app} = richiedi('electron')
-fai miaFinestra = nullo
+const {app} = require('electron')
+let myWindow = null
 
-
-const èSecondaIstanza =
-app.faSingolaIstanza((Lineacomando, Directoryfunzionante) => {
- // Qualcuno ha provato ad eseguire una seconda istanza, dovremmo focalizzare la nostra finestra.
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  // Someone tried to run a second instance, we should focus our window.
   se (miaFinestra) {
     se (miaFinestra.èMinimizzata()) miaFinestra.ristabilisci()
     miaFinestra.focalizza()
