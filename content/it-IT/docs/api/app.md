@@ -19,19 +19,19 @@ L'oggetto `app` emette i seguenti eventi:
 
 ### Evento: 'will-finish-launching'
 
-Emettesso quando l'app ha finito la startup di base. Su Windows e Linux, l'evento `will-finish-launching` equivale all'evento `ready`; su macOS questo evento rappresenta la notifica `applicationWillFinishLaunching` di `NSApplication`. Potresti necessitare spesso di definire ascoltatori (listener) per gli eventi `open-file` e `open-url` ed avviare il reporter dei crash e l'aggiornamento automatico.
+Emesso quando l'app ha finito l'avvio di base. Su Windows e Linux, l'evento `will-finish-launching` equivale all'evento `ready`; su macOS questo evento rappresenta la notifica `applicationWillFinishLaunching` di `NSApplication`. Potresti necessitare spesso di definire ascoltatori (listener) per gli eventi `open-file` e `open-url` ed avviare il reporter dei crash e l'aggiornamento automatico.
 
 In gran parte dei casi, dovresti solo fare tutto nel gestore dell'evento `ready`.
 
-### Evento: 'pronto'
+### Evento: 'ready'
 
-Restituiti:
+Restituisce:
 
-* `Infolanciò` Oggetto *macOS*
+* `launchInfo` Oggetto *macOS*
 
-Emesso quando Electron ha concluso l'inizializzazione. Su macOS `Infolancio` deteiene le `Infouser` della `NSNotificazioneUtente` usata per aprire l'applicazione, se lanciata dal Centro Notifiche. Puoi chiamare `app.isPronta()` per controllare se gli eventi sono già stati generati.
+Emesso quando Electron ha concluso l'inizializzazione. Su macOS `launchInfo` detiene le `userInfo` della `NSUserNotification` usata per aprire l'applicazione, se lanciata dal Centro Notifiche. Puoi chiamare `app.isReady()` per controllare se gli eventi sono già stati generati.
 
-### Evento: 'finestra-tutto-chiuso'
+### Evento: 'window-all-closed'
 
 Emesso quando tutte le finestre sono state chiuse.
 
