@@ -544,52 +544,52 @@ const {app} = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: 'Progetti recenti',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // Ha un nome, così `type` viene considerato come "custom"
+    name: 'Strumenti',
     items: [
       {
         type: 'task',
-        title: 'Tool A',
+        title: 'Strumento A',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: 'Esegui Strumento A'
       },
       {
         type: 'task',
-        title: 'Tool B',
+        title: 'Strumento B',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: 'Esegui Strumento B'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // NON ha un nome, così `type` viene considerato come "tasks"
     items: [
       {
         type: 'task',
-        title: 'New Project',
+        title: 'Nuovo Progetto',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: 'Crea un nuovo progetto.'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: 'Recupera Progetto',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: 'Recupera Progetto'
       }
     ]
   }
@@ -621,19 +621,19 @@ const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
-  se (miaFinestra) {
-    se (miaFinestra.èMinimizzata()) miaFinestra.ristabilisci()
-    miaFinestra.focalizza()
+  // Qualcuno ha provato ad avviare una seconda istanza, dovremmo focalizzare la nostra finestra.
+  if (myWindow) {
+    if (myWindow.isMinimized()) myWindow.restore()
+    myWindow.focus()
   }
 })
 
-se (èSecondaIstanza) {
-  app.esci()
+if (isSecondInstance) {
+  app.quit()
 }
 
-// Crea miaFinestra, carica il resto dell'app, etc...
-app.su('pronto', () => {
+// Crea myWindow, carica il resto dell'app, ecc...
+app.on('ready', () => {
 })
 ```
 
@@ -757,16 +757,16 @@ Imposta le impostazioni dell'elemento d'accesso all'app.
 Per lavorare con l'`autoCaricatore` di Electron su Windows, che usa [Squirrel](https://github.com/Squirrel/Squirrel.Windows), vorrai impostare il percorso di lancio ad Update.exe e passare gli argomenti per specificare il nome della tua applicazione. Ad esempio:
 
 ```javascript
-const Cartellaapp = percorso.dirnome(processo.eseguiPercorso)
-const aggiornaExe = percorso.risolvi(Cartellaapp, '..', 'Aggiorna.exe')
-const exeNome = percorso.basenome(processo.eseguiPercorso)
+const cartellaApp = path.dirname(process.execPath)
+const aggiornaExe = path.resolve(cartellaApp, '..', 'Aggiornamento.exe')
+const nomeExe = path.basename(process.execPath)
 
-app.impostaImpostazioniElementoAccesso({
-  apriAdAccssso: true,
-  percorso: AggiornaExe,
-  arg: [
-    '--processoAvvio', `"${exeNome}"`,
-    '--processo-avvio-arg', `"--nascosto"`
+app.setLoginItemSettings({
+  openAtLogin: true,
+  path: aggiornaExe,
+  args: [
+    '--processStart', `"${nomeExe}"`,
+    '--process-start-args', `"--hidden"`
   ]
 })
 ```
