@@ -1,6 +1,6 @@
 # autoUpdater
 
-> アプリに自ら自動的に更新させることができます。
+> アプリを自動的に更新することができます。
 
 プロセス: [Main](../glossary.md#main-process)
 
