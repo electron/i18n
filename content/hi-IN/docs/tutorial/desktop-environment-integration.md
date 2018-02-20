@@ -167,17 +167,17 @@ win.setThumbarButtons([])
 
 ## टास्कबार में प्रगति बार (विंडोज, मैकओएस, यूनिटी)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+विंडोज पर एक टास्कबार बटन एक प्रगति बार दिखाने के लिए इस्तेमाल किया जा सकता है | इससे एक विंडो को उपयोगकर्ता को बिना खुद विंडो बदले प्रगति की जानकारी उपलब्ध कराने की क्षमता मिलती है |
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+मैकओएस पर प्रगति बार डॉक आइकॉन के एक हिस्से के रूप में दिखाई देगी |
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+यूनिटी डीई के पास भी एक ऐसा ही फीचर है जिससे आपको लांचर में प्रगति बार निर्दिष्ट करने की सुविधा मिलती है |
 
-**Progress bar in taskbar button:**
+**टास्कबार बटन में प्रगति बार:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+एक विंडो के लिए प्रगति बार सेट करने के लिए, आप [BrowserWindow. setProgressBar](../api/browser-window.md#winsetprogressbarprogress) ऐपीआई का उपयोग कर सकते हैं:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,9 +185,9 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## टास्कबार में आइकॉन ओवरलेस (विंडोज)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+विंडोज पर एक टास्कबार बटन एक छोटा सा ओवेरले इस्तेमाल कर एप्लीकेशन स्टेटस दिखा सकता है, जैसा कि MSDN से उद्धृत है:
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
