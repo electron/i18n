@@ -34,7 +34,7 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 
 1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
 
-## 1) Only Load Secure Content
+## 1) Sadece Güvenli İçeriği Yükleyin
 
 Uygulamanıza dahil edilmemiş her kaynak `HTTPS` gibi bir güvenlik protokolü kullanılarak yüklenmelidir. Başka bir deyişle, `HTTP` gibi güvensiz protokoller kullanmayın. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
@@ -77,13 +77,13 @@ Eğer saldırgan işleyici işleminden kurtulup kullanıcının bilgisayarındak
 ### Nasıl?
 
 ```js
-// Bad
+// Kötü
 const mainWindow = new BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
+// İyi
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
@@ -95,10 +95,10 @@ mainWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- İyi-->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<!-- Kötü-->
 <webview src="page.html"></webview>
 ```
 
@@ -131,7 +131,7 @@ Aynı zamanda, önyükleme komut dosyaları hala ` belgesine </ 0> erişebilir v
 
 <h3>Nasıl?</h3>
 
-<pre><code class="js">// Main process
+<pre><code class="js">// Ana süreç
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
