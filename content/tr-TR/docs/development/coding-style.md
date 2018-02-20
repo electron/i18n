@@ -15,8 +15,8 @@ Electron için kodlama stili rehberleri.
   * Class methods and properties (methods starting with a `@`)
   * Instance methods and properties
 * Avoid platform-dependent code: 
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+  * Dosya isimlerini birleştirmek için `path.join()` kullanın.
+  * Geçiçi dizine gönderme yapmaya ihtiyaç duyduğunuzda `/tmp` yerine `os.tmpdir()` kullanın.
 * Using a plain `return` when returning explicitly at the end of a function. 
   * Not `return null`, `return undefined`, `null`, or `undefined`
 
