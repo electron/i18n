@@ -4,9 +4,9 @@ Electron için kodlama stili rehberleri.
 
 `cpplint` ve `eslint` tarafından tespit edilen durumları görmek için `npm run lint` çalıştırabilirsiniz.
 
-## General Code
+## Genel Kod
 
-* End files with a newline.
+* Yeni satır ile biter.
 * Place requires in the following order: 
   * Built in Node Modules (such as `path`)
   * Built in Electron Modules (such as `ipc`, `app`)
