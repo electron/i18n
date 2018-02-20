@@ -117,13 +117,13 @@ MSDN से, यह कहा गया है:
 
 > यह टूलबार सिर्फ जानी-पहचानी मानक टूलबार कॉमन कंट्रोल है | इसमें अधिकतम सात बटनस होते हैं | हर बटन की आईडी, चित्र, टूलटिप, और स्थिति एक सरंचना में निर्दिष्ट होते हैं, जो कि फिर टास्कबार में पास कर दिए जाते हैं | एप्लीकेशन, थंबनेल टूलबार से बटनस को दिखा, इनेबल, डिसएबल, या छुपा सकती है, उसकी वर्तमान स्थिति के अनुसार |
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> उदाहरण के लिए, विंडोज मीडिया प्लेयर मानक मीडिया ट्रांसपोर्ट कंट्रोलस जैसे कि प्ले, पॉज, म्यूट एंड स्टॉप उपलब्ध करा सकता है |
 
-**Thumbnail toolbar of Windows Media Player:**
+**विंडोज मीडिया प्लेयर की थंबनेल टूलबार:**
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+अपनी एप्लीकेशन में थंबनेल टूलबार को सेट करने के लिए आप [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) का इस्तेमाल कर सकते हैं:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+थंबनेल टूलबार बटनस को साफ़ करने के लिए, आपको केवल एक खाली ऐरे के साथ `BrowserWindow.setThumbarButtons` को बुलाना है:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -157,9 +157,9 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## यूनिटी लांचर शोर्टकट्स (लिनक्स)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+यूनिटी में, आप उसके लांचर में `.desktop` फाइल में बदलाव कर कस्टम एंट्री शामिल कर सकते हैं, [एक लांचर में शोर्टकट्स शामिल करना](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) देखें |
 
 **Launcher shortcuts of Audacious:**
 
