@@ -1,4 +1,4 @@
-## Class: BrowserView
+## クラス: BrowserView
 
 > Create and control views.
 
