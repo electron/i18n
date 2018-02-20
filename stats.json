@@ -42,10 +42,10 @@
     "name": "Chinese Traditional",
     "code": "zh-TW",
     "phrases": "8847",
-    "translated": "4636",
+    "translated": "4637",
     "approved": "50",
     "words": "79936",
-    "words_translated": "25749",
+    "words_translated": "25768",
     "words_approved": "112",
     "translated_progress": 32,
     "approved_progress": 0,
@@ -120,14 +120,14 @@
     "name": "Hindi",
     "code": "hi",
     "phrases": "8847",
-    "translated": "1328",
+    "translated": "1353",
     "approved": "0",
     "words": "79936",
-    "words_translated": "13503",
+    "words_translated": "13820",
     "words_approved": "0",
-    "translated_progress": 16,
+    "translated_progress": 17,
     "approved_progress": 0,
-    "qa_issues": "1175"
+    "qa_issues": "1203"
   },
   {
     "name": "Indonesian",
@@ -159,14 +159,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "8847",
-    "translated": "3475",
+    "translated": "3496",
     "approved": "135",
     "words": "79936",
-    "words_translated": "20693",
+    "words_translated": "20923",
     "words_approved": "368",
-    "translated_progress": 25,
+    "translated_progress": 26,
     "approved_progress": 0,
-    "qa_issues": "121"
+    "qa_issues": "116"
   },
   {
     "name": "Korean",
@@ -263,14 +263,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "8847",
-    "translated": "8398",
+    "translated": "8420",
     "approved": "2",
     "words": "79936",
-    "words_translated": "75747",
+    "words_translated": "75882",
     "words_approved": "2",
     "translated_progress": 94,
     "approved_progress": 0,
-    "qa_issues": "4084"
+    "qa_issues": "4092"
   },
   {
     "name": "Ukrainian",
