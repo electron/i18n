@@ -189,7 +189,7 @@ win.setProgressBar(0.5)
 
 विंडोज पर एक टास्कबार बटन एक छोटा सा ओवेरले इस्तेमाल कर एप्लीकेशन स्टेटस दिखा सकता है, जैसा कि MSDN से उद्धृत है:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> आइकॉन ओवरलेस, स्टेटस की एक प्रासंगिक नोटिफिकेशन का काम करते हैं, और इनका मकसद उपयोगकर्ता को वह जानकारी देने के लिए एक अलग नोटिफिकेशन क्षेत्र स्टेटस आइकॉन की जरूरत को खत्म करना है | For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
 **Overlay on taskbar button:**
 
