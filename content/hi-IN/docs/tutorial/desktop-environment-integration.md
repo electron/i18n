@@ -107,7 +107,7 @@ const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+आपकी एप्लीकेशन के बंद होने के बाद भी उपयोगकर्ता टास्कस दिखाई देंगे, ताकि आइकॉन और एक टास्क के लिए निर्दिष्ट प्रोग्राम पथ आपकी एप्लीकेशन के अनइनस्टॉल होने तक मौज़ूद रहें |
 
 ## थंबनेल टूलबार्स
 
