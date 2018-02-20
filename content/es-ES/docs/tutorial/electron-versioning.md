@@ -26,19 +26,19 @@ Una aplicación desarrollada con `1.8.1` no puede tener la solución de errores 
 
 ## Versión 2.0 y superiores
 
-Hay varios cambios mayores desde nuestra estrategia 1.x expresada abajo. Cada cambio tiene la intención de satisfacer las necesidades y prioridades de los desarrolladores y personas que mantienen la aplicación.
+Hay varios cambios principales desde nuestra estrategia 1.x expresada abajo. Cada cambio tiene la intención de satisfacer las necesidades y prioridades de los desarrolladores/mantenedores y los desarrolladores de aplicaciones.
 
 1. Uso estricto de semver
 2. Introducción de las etiquetas de semver-compliant `-beta`
 3. Introducción a [mensajes de compromiso convencionales](https://conventionalcommits.org/)
 4. Rama de estabilización claramente definidas
-5. The `master` branch is versionless; only stabilization branches contain version information
+5. La rama `master` no tiene versiones: solo las ramas de estabilización contienen información de las versiones
 
-Reseñamos en detalle cómo funcionan las ramas git, cómo funcionan las etiquetas de npm, qué es lo que el desarrollador espera ver, y como se puede hacer cambios por la puerta de atras.
+Reseñamos en detalle cómo funcionan las ramas git, cómo funcionan las etiquetas de npm, qué es lo que los desarrolladores esperan ver, y como se pueden portar cambios a versiones anteriores.
 
 # semver
 
-Desde 2.0, Electron seguiría semver.
+Desde 2.0, Electron seguirá semver.
 
 Abajo hay una tabla construyendo un mapa explícitamente con los tipos las categorías correspondientes de semver (Ej: mayor, menor, parche).
 
