@@ -26,13 +26,13 @@ Możesz dowiedzieć się więcej o tej funkcjonalności w [Dokumentacji Spectron
 
 W Devtron'ie, jest nowa karta ułatwień dostępu, która pozwoli Ci na audyt strony w aplikacji oraz sortować i filtrować wyniki.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![devtron zrzut z ekranu](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Obydwa te narzędzia używają [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) biblioteki stworzonej przez Google dla przeglądarki Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Obydwa te narzędzia używają [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) biblioteki stworzonej przez Google dla przeglądarki Chrome. Możesz dowiedzieć się więcej na temat zasad inspekcji ułatwień dostępu, których ta biblioteka używa na [repozytorium wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
 If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
 
-## Enabling Accessibility
+## Włączanie ułatwień dostępu
 
 Aplikacja Electron ma domyślnie wyłączoną dostępność ze względów wydajnościowych, ale istnieje kilka sposobów aby je włączyć.
 
