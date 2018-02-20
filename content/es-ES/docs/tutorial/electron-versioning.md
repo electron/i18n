@@ -40,15 +40,15 @@ Reseñamos en detalle cómo funcionan las ramas git, cómo funcionan las etiquet
 
 Desde 2.0, Electron seguirá semver.
 
-Abajo hay una tabla construyendo un mapa explícitamente con los tipos las categorías correspondientes de semver (Ej: mayor, menor, parche).
+A continuación hay una tabla relacionado explícitamente los tipos de cambios con sus correspondientes categorías de semver (Ej: Major, Minor, Patch).
 
-| Incrementos de versiones mayores       | Incrementos de version menores               | Incrementos en la versión de parches                         |
-| -------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
-| Cambios de API por Electron            | Cambios de API por otras razones de Electron | Corrección de fallos de Electron                             |
-| Node.js major version updates          | Node.js minor version updates                | Node.js patch version updates                                |
-| Actualización de versiones de Chromium |                                              | parches de chromium relacionados con el arreglo de problemas |
+| Incrementos de versiones major                 | Incrementos de version minor                   | Incrementos en la versión patch                              |
+| ---------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
+| Cambios incompatibles con la API de Electron   | Cambios compatibles de la API de Electron      | Solución a fallos de Electron                                |
+| Actualizaciones en la version major de Node.js | Actualizaciones en la version minor de Node.js | Actualizaciones en la version patch de Node.js               |
+| Actualización de versiones de Chromium         |                                                | parches de chromium relacionados con soluciones de problemas |
 
-Note que la mayoría de las actualizaciones de chromium serán consideras como rompientes. Arreglos que pueden hacerse por la puerta de atrás es probable que sean escogidos como parches.
+Considere que la mayoría de las actualizaciones de chromium serán consideras como incompatibles. Los arreglos que puedan ser portados a versiones anteriores es probable que sean aplicados como parches.
 
 # Ramas estabilizadoras
 
