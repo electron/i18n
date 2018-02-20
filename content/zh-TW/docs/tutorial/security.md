@@ -66,9 +66,9 @@ browserWindow.loadURL('https://my-website.com')
 
 ## 2) 針對遠端內容停用 Node.js 整合功能
 
-在任何會載入遠端內容的畫面轉譯器 ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md) 或 [`WebView`](../api/web-view)) 中停用 Node.js 整合非常重要。 目的在限制權限，限縮遠端內容能做的事，就算攻擊者能在你的網站中執行 JavaScript，也難以真正傷害到使用者。
+停用所有會載入遠端內容的畫面轉譯器 ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md) 或 [`WebView`](../api/web-view)) 中的 Node.js 整合功能非常重要。 目的是在限縮遠端內容能做的事，就算攻擊者能在你的網站中執行 JavaScript，也很難真正傷害到使用者。
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+你可以再針對特定的網址提供額外權限。 For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
 
 ### 為什麼?
 
