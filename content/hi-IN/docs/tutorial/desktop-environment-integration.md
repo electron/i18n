@@ -2,39 +2,39 @@
 
 अलग-अलग ऑपरेटिंग सिस्टमस, डेस्कटॉप एप्लीकेशनस को उनके डेस्कटॉप वातावरण में एकीकृत करने के लिए अलग-अलग सुविधायें प्रदान करते हैं | उदाहरण के लिए, विंडोज पर, एप्लीकेशनस टास्क बार की जम्पलिस्ट में शोर्टकट्स डाल सकती हैं, और मैक पर, एप्लीकेशनस डॉक मेन्यु में एक कस्टम मेन्यु डाल सकती हैं |
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+यह गाइड विस्तार से बताएगी कि कैसे आप इलेक्ट्रॉन ऐपीआई का इस्तेमाल कर अपनी एप्लीकेशन को उन डेस्कटॉप वातावरणों के साथ एकीकृत कर सकते हैं |
 
-## Notifications
+## नोटीफीकेशनस
 
-See [Notifications](notifications.md)
+[नोटीफीकेशनस](notifications.md) देखें
 
-## Recent documents (Windows & macOS)
+## हाल के दस्तावेज़ (विंडोज & मैकओएस)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+विंडोज और मैकओसएस, एप्लीकेशन के द्वारा हाल ही में खोले गये दस्तावेजों की एक सूची तक जम्पलिस्ट या डॉक मेन्यु के द्वारा आसान पहुँच उपलब्ध कराते हैं |
 
-**JumpList:**
+**जम्पलिस्ट:**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**एप्लीकेशन डॉक मेन्यु:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+हाल ही के दस्तावेजों में एक फाइल को शामिल करने के लिए, आप [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) ऐपीआई का इस्तेमाल कर सकते हैं:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
+और आप [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) ऐपीआई का इस्तेमाल हाल ही के दस्तावेजों की सूची को खाली करने के लिए कर सकते हैं:
 
 ```javascript
 const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### विंडोज नोट्स
 
 In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
