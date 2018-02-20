@@ -1,6 +1,6 @@
 # डेस्कटॉप वातावरण एकीकरण
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+अलग-अलग ऑपरेटिंग सिस्टमस, डेस्कटॉप एप्लीकेशनस को उनके डेस्कटॉप वातावरण में एकीकृत करने के लिए अलग-अलग सुविधायें प्रदान करते हैं | उदाहरण के लिए, विंडोज पर, एप्लीकेशनस टास्क बार की जम्पलिस्ट में शोर्टकट्स डाल सकती हैं, और मैक पर, एप्लीकेशनस डॉक मेन्यु में एक कस्टम मेन्यु डाल सकती हैं |
 
 This guide explains how to integrate your application into those desktop environments with Electron APIs.
 
