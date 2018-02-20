@@ -111,11 +111,11 @@ app.setUserTasks([])
 
 ## थंबनेल टूलबार्स
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+विंडोज पर आप एक एप्लीकेशन विंडो के टास्कबार लेआउट में मौज़ूद निर्दिष्ट बटनों के साथ थंबनेल टूलबार को शामिल कर सकते हैं | यह उपयोगकर्ताओं को एक ख़ास विंडो की कमांड तक पहुँचने के लिए एक मार्ग उपलब्ध करता है, बिना विंडो को बहाल या सक्रीय करे |
 
-From MSDN, it's illustrated:
+MSDN से, यह कहा गया है:
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> यह टूलबार सिर्फ जानी-पहचानी मानक टूलबार कॉमन कंट्रोल है | इसमें अधिकतम सात बटनस होते हैं | Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
