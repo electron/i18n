@@ -1,8 +1,8 @@
-# Versionamiento de Electron
+# Versionado de Electron
 
 > Una mirada detallada en la política e implementación de las versiones.
 
-Como desde la versión 2.0.0, Electron siguen [semver](#semver). El siguiente comando instalará la estructura estable más reciente de Electron:
+Desde la versión 2.0.0, Electron sigue [semver](#semver). El siguiente comando instalará la compilación mas estable y reciente de Electron:
 
 ```sh
 npm install --save-dev electron
