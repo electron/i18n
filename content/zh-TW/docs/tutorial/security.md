@@ -66,7 +66,7 @@ browserWindow.loadURL('https://my-website.com')
 
 ## 2) 針對遠端內容停用 Node.js 整合功能
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+在任何會載入遠端內容的畫面轉譯器 ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md) 或 [`WebView`](../api/web-view)) 中停用 Node.js 整合非常重要。 目的在限制權限，限縮遠端內容能做的事，就算攻擊者能在你的網站中執行 JavaScript，也難以真正傷害到使用者。
 
 After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
 
