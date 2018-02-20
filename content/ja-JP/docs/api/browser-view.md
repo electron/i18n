@@ -1,14 +1,14 @@
 ## クラス: BrowserView
 
-> Create and control views.
+> ビューを作成したり、制御したりします。
 
-**Note:**BrowserView API は現在実験的な機能です。将来的に変更されたり削除されたりする可能性があります。
+**注:** 現在のところ、BrowserView APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
 
 プロセス: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView` は、`BrowserWindow` に追加のWebコンテンツを埋め込むのに使用することができます。 外側のウインドウを基準にして配置される点を除いて、子ウインドウのようなものです。 `webview` タグの代替となるものです。
 
-## サンプル
+## 例
 
 ```javascript
 // メインプロセス
@@ -29,16 +29,16 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *実験的*
 
-* `options` Object (optional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+* `options` Object (任意) 
+  * `webPreferences` Object (任意) - [BrowserWindow](browser-window.md) を参照してください。
 
 ### 静的メソッド
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+戻り値 `BrowserView[]` - 開かれたすべてのBrowserViewの配列。
 
 #### `BrowserView.fromWebContents(webContents)`
 
