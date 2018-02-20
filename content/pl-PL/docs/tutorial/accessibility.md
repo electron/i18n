@@ -4,7 +4,7 @@ Udostępnianie dostępnych aplikacji jest dla nas ważne i jesteśmy szczęśliw
 
 * * *
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Obawy ułatwień dostępu w aplikacjach Electron'a są podobne do tych z stron internetowych, ponieważ są one tak samo ostatecznie w HTML'u. Aplikacje Electron'a jednak nie mogą używać zasobów online dla audytów dostępności, ponieważ Twoja aplikacja nie ma adresu URL, który by wskazywał dla biegłych rewidendów.
 
 Te nowe funkcjonalności dostarczają narzędzia do badania twojej aplikacji. Możesz wybrać pomiędzy dodaniem ich do Twoich testów za pomocą Spectron lub użyć ich w DevTools z Devtron. Zapoznaj się z podsumowaniem narzędzi lub z naszą [dokumentacją](https://electronjs.org/docs/tutorial/accessibility) aby uzyskać więcej informacji.
 
@@ -24,11 +24,11 @@ Możesz dowiedzieć się więcej o tej funkcjonalności w [Dokumentacji Spectron
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+W Devtron'ie, jest nowa karta ułatwień dostępu, która pozwoli Ci na audyt strony w aplikacji oraz sortować i filtrować wyniki.
 
 ![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Obydwa te narzędzia używają [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) biblioteki stworzonej przez Google dla przeglądarki Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
 If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
 
