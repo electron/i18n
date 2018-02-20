@@ -115,7 +115,7 @@ app.setUserTasks([])
 
 MSDN से, यह कहा गया है:
 
-> यह टूलबार सिर्फ जानी-पहचानी मानक टूलबार कॉमन कंट्रोल है | इसमें अधिकतम सात बटनस होते हैं | Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> यह टूलबार सिर्फ जानी-पहचानी मानक टूलबार कॉमन कंट्रोल है | इसमें अधिकतम सात बटनस होते हैं | हर बटन की आईडी, चित्र, टूलटिप, और स्थिति एक सरंचना में निर्दिष्ट होते हैं, जो कि फिर टास्कबार में पास कर दिए जाते हैं | एप्लीकेशन, थंबनेल टूलबार से बटनस को दिखा, इनेबल, डिसएबल, या छुपा सकती है, उसकी वर्तमान स्थिति के अनुसार |
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
