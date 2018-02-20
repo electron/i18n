@@ -120,14 +120,14 @@
     "name": "Hindi",
     "code": "hi",
     "phrases": "8847",
-    "translated": "1371",
+    "translated": "1381",
     "approved": "0",
     "words": "79936",
-    "words_translated": "14154",
+    "words_translated": "14306",
     "words_approved": "0",
     "translated_progress": 17,
     "approved_progress": 0,
-    "qa_issues": "1222"
+    "qa_issues": "1228"
   },
   {
     "name": "Indonesian",
