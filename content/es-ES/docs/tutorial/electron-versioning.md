@@ -16,13 +16,13 @@ npm install --save-dev electron@latest
 
 ## Versión 1.x
 
-Las versiones de electrón *< 2.0* no se ajustan a la especificación [semver](http://semver.org): las versiones principales correspondían a cambios en la API para el usuario final, las versiones menores correspondían a versiones principales de Chromium, y las versiones de parches correspondían a nuevas características y correcciones de errores. Mientras que es conveniente para los desarrolladores combinar características, crea problemas para los desarrolladores de aplicaciones orientadas al cliente. Los ciclos de pruebas QA de las aplicaciones mayores como Slack, Stride, Temas, Skype, VS Code, Arom, y Desktop pueden ser duraderas y la estabilidad es un resultado muy deseado. Hay un riesgo grande adoptando nuevas características mientras se está tratando de absorber soluciones a errores.
+Las versiones de electrón *< 2.0* no se ajustan a la especificación [semver](http://semver.org): las versiones principales correspondían a cambios en la API para el usuario final, las versiones menores correspondían a versiones principales de Chromium, y las versiones de parches correspondían a nuevas características y correcciones de errores. Mientras que es conveniente para los desarrolladores combinar características, crea problemas para los desarrolladores de aplicaciones orientadas al cliente. Los ciclos de pruebas QA de aplicaciones importantes como Slack, Stride, Teams, Skype, VS Code, Atom, y Desktop pueden ser muy completos y la estabilidad es un resultado muy deseado. Hay un riesgo grande adoptando nuevas características mientras se está tratando de asimilar las soluciones de errores.
 
 Aquí hay un ejemplo de la estrategia 1.x:
 
 ![](../images/versioning-sketch-0.png)
 
-Una aplicación desarrollada con `1.8.1` no puede tener la corrección de errores `1.8.3` sin absorber las características `1.8.2`, o devolviendo el arreglo y manteniendo la nueva línea de publicación.
+Una aplicación desarrollada con `1.8.1` no puede tener la solución de errores `1.8.3` sin asimilar las características `1.8.2`, o portando la solución y manteniendo un nueva línea de publicación.
 
 ## Versión 2.0 y superiores
 
