@@ -525,13 +525,13 @@ API използва системния регистър на Windows и LSCopyD
 * `fileTypeRegistrationError` - Направен е опит за да добавите на връзка към файл към списъка за прескачане за файл от тип, който не е регистриран за обработване от приложението.
 * `customCategoryAccessDeniedError` - Потребителски категории не могат да бъдат добавени към списъка за прескачане поради личните или груповите настройки за политики.
 
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
+Ако `categories` е `null` предварително зададени потребителски списък за прескачане (ако има такъв) ще се замени със стандартен списък за прескачане за приложението (управлявано от Windows).
 
 **Забележка:** Ако обекта `JumpListCategory` няма нито `type`, нито `name` свойство, тогава неговия `type` се приема за `tasks`. Ако свойството на `name` е зададено, но `type` е пропуснато, тогава `type` се приема да бъде `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Забележка:** Потребителите могат да премахнете елементи от потребителски категории, и Windows няма да позволи на вече премахнат елемент, да бъде добавен обратно в потребителските категория до **след** следващото успешно извикване на `app.setJumpList(categories)`. Всеки опит да повторно добавяне на премахнат елемент към потребителска категория по-рано от това ще доведе до пропускане на цялата потребителска категория от списъка за прескачане. Списъкът на отстранени елементи може да бъде получен с помощта на `app.getJumpListSettings()`.
 
-Here's a very simple example of creating a custom Jump List:
+Ето един много прост пример за създаване на потребителски списък за прескачане:
 
 ```javascript
 const {app} = require('electron')
@@ -545,7 +545,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
+  { // има име, така че `type` ще бъде "custom"
     name: 'Tools',
     items: [
       {
@@ -569,7 +569,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // няма нито име, нито тип, така че `type` ще бъде "tasks"
     items: [
       {
         type: 'task',
