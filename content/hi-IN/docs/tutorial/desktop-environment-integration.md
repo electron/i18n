@@ -36,13 +36,13 @@ app.clearRecentDocuments()
 
 ### विंडोज नोट्स
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+विंडोज पर इस सुविधा का इस्तेमाल करने के लिए, आपकी एप्लीकेशन दस्तावेज के फाइल प्रकार के एक हैंडलर के रूप में पंजीकृत होनी चाहिये, अन्यथा फाइल जम्पलिस्ट में दिखाई नहीं देगी, उसे शामिल करने के बाद भी नहीं | अपनी एप्लीकेशन का पंजीकरण करने के बारे में आप सारी जानकारी [एप्लीकेशन पंजीकरण](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx) में प्राप्त कर सकते हैं |
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+जब एक उपयोगकर्ता जम्पलिस्ट से फाइल क्लिक करेगा, तो आपकी एप्लीकेशन का एक नया इंस्टैंस शुरू हो जायेगा, जिसमे फाइल का पथ कमांड लाइन आर्गुमेंट के रूप में शामिल होगा |
 
-### macOS Notes
+### मैकओस नोट्स
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+जब एक फाइल हाल ही एक दस्तावेजों से मंगाई जाती है, तो `app` मोड्यूल का `open-file` इवेंट उसके लिए छोड़ा जायेगा|
 
 ## Custom Dock Menu (macOS)
 
