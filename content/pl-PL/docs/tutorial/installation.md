@@ -38,9 +38,9 @@ Jeżeli używasz serwera HTTP Proxy, możesz [użyć tych zmiennych środowiskow
 
 ## Custom Mirrors and Caches
 
-Podczas instalacji moduł `electron'a` zawoła [`electron-download`](https://github.com/electron-userland/electron-download), aby pobrać wstępnie zbudowane pliki binarne Electron'a dla Twojej platformy. Wykona to poprzez skontaktowanie się stroną wydanych wersji w domenie GitHub'a (`https://github.com/electron/electron/releases/tag/v$VERSION` gdzie `$VERSION` to dokładna wersja Electron'a).
+Podczas instalacji moduł `electron'a` zawoła [`electron-download`](https://github.com/electron-userland/electron-download), aby pobrać wstępnie zbudowane pliki binarne Electron'a dla Twojej platformy. Wykona to poprzez skontaktowanie się stroną wydań w domenie GitHub'a (`https://github.com/electron/electron/releases/tag/v$VERSION` gdzie `$VERSION` to dokładna wersja Electron'a).
 
-Jeśli nie można uzyskać dostępu witryny GitHub lub należy podać niestandardowe kompilacji, możesz to zrobić przez zapewnienie lustra lub istniejącego katalogu pamięci podręcznej.
+Jeśli nie masz dostępu do witryny GitHub lub wymagasz niestandardowej kompilacji, możesz to zrobić przez zapewnienie mirror lub istniejącego katalogu pamięci podręcznej.
 
 #### Mirror
 
