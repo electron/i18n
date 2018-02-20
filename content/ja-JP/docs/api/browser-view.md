@@ -72,14 +72,14 @@ view.webContents.loadURL('https://electronjs.org')
 
 * `options` Object 
   * `width` Boolean - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。省略値は、`false` です。
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `height` Boolean - `true` の場合、ビューの高さはウインドウと一緒に伸び縮みします。省略値は、`false` です。
 
-#### `view.setBounds(bounds)` (*実験的*)
+#### `view.setBounds(bounds)` *実験的*
 
 * `bounds` [Rectangle](structures/rectangle.md) 
 
-Resizes and moves the view to the supplied bounds relative to the window.
+ウインドウを基準に指定された境界までビューをリサイズしたり、移動させたりします。
 
-#### `view.setBackgroundColor(color)` (*実験的*)
+#### `view.setBackgroundColor(color)` *実験的*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - `#aarrggbb` や `#argb` といった形式の色。アルファチャンネルは任意です。
