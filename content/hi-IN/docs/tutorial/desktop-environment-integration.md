@@ -70,21 +70,21 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## उपयोगकर्ता कार्य (विंडोज)
+## उपयोगकर्ता टास्कस (विंडोज)
 
 विंडोज में आप जम्पलिस्ट की `Tasks` श्रेणी में कस्टम कार्य निर्दिष्ट कर सकते हैं, जैसे कि MSDN से उद्धृत है:
 
 > प्रोग्राम के फीचर्स और एक उपयोगकर्ता मुख्यतः उनसे क्या कर सकता है, इन दोनों चीजों के आधार पर एप्लीकेशनस कार्य निर्दिष्ट करती हैं | कार्य सन्दर्भ मुक्त होने चाहिये, यानी कि उनके पूरे होने के लिए एप्लीकेशन का चलना ज़रूरी नहीं होना चाहिये | सांख्यिकीय आधार पर वे एक सामान्य उपयोगकर्ता द्वारा एक एप्लीकेशन में किये जाने वाले आम कार्य होने चाहियें, जैसे कि एक ईमेल सन्देश का निर्माण या एक मेल प्रोग्राम में कैलेंडर खोलना, वर्ड प्रोसेसर में एक नया दस्तावेज बनाना, एक ख़ास मोड में एक एप्लीकेशन को खोलना, या उसकी एक उप-कमांड को लांच करना | एक एप्लीकेशन को चाहिये कि वह मेन्यु को उन उन्नत फीचर्स से न भर दें, जिनकी सामान्य उपयोगकर्ताओं को जरूरत न हों या एक बार किये जाने वाले कार्य जैसे कि पंजीकरण | टास्कस का इस्तेमाल प्रचार आइटम्स जैसे कि अपग्रेडस या विशेष ऑफर्स के लिए न करें |
 > 
-> टास्क सूची स्थिर हो, इस बात की विशेष सलाह दी जाती है | एप्लीकेशन की स्थिति या अवस्था जो भी हो, वह एक समान की रहनी चाहिये | While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> टास्क सूची स्थिर हो, इस बात की विशेष सलाह दी जाती है | एप्लीकेशन की स्थिति या अवस्था जो भी हो, वह एक समान की रहनी चाहिये | हालाँकि सूची को सक्रिय रूप से बदला जा सकता है, पर ऐसा करने से उपयोगकर्ता भ्रमित भी हो सकता है जो कि गंतव्य सूची के उस हिस्से की बदलने की अपेक्षा नहीं कर रहा था |
 
-**Tasks of Internet Explorer:**
+**इन्टरनेट एक्स्प्लोरर के टास्कस:**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+मैकओएस की डॉक मेन्यु से भिन्न जो कि एक असल मेन्यु है, विंडोज में उपयोगकर्ता टास्कस एप्लीकेशन शोर्टकट्स की तरह काम करते हैं, जैसे जब एक उपयोगकर्ता एक टास्क को क्लिक करें, तो एक प्रोग्राम ख़ास आर्गुमेंट्स के साथ चले |
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+अपनी एप्लीकेशन के लिए उपयोगकर्ता टास्कस सेट करने के लिए, आप [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) ऐपीआई का इस्तेमाल कर सकते हैं:
 
 ```javascript
 const {app} = require('electron')
@@ -100,7 +100,7 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+टास्कस सूची को खाली करने के लिए, आपको केवल एक खाली ऐरे के साथ `app.setUserTasks` को बुलाना है:
 
 ```javascript
 const {app} = require('electron')
@@ -109,7 +109,7 @@ app.setUserTasks([])
 
 The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
 
-## Thumbnail Toolbars
+## थंबनेल टूलबार्स
 
 On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
 
