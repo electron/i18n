@@ -10,7 +10,7 @@ Hay tres maneras de crear un archivo `.snap`:
 
 1) Usando [`electron-forge`](https://github.com/electron-userland/electron-forge) o [`electron-builder`](https://github.com/electron-userland/electron-builder), ambas herramientas que vienen con soporte para `snap` incluido. Esta es la opción más fácil. 2) Usando `electron-installer-snap`, que toma el resultado de `electron-packager`. 3) Usando un paquete `.deb` ya creado.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+En todos los casos. deberás de tener la herramienta `snapcraft` instalada. Te recomendamos desarrollar en Ubuntu 16.04 (o el actual LTS).
 
 ```sh
 snap install snapcraft --classic
