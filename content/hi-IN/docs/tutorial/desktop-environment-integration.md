@@ -161,11 +161,11 @@ win.setThumbarButtons([])
 
 यूनिटी में, आप उसके लांचर में `.desktop` फाइल में बदलाव कर कस्टम एंट्री शामिल कर सकते हैं, [एक लांचर में शोर्टकट्स शामिल करना](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) देखें |
 
-**Launcher shortcuts of Audacious:**
+**Audacious की लांचर शोर्टकट्स:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## टास्कबार में प्रगति बार (विंडोज, मैकओएस, यूनिटी)
 
 On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
