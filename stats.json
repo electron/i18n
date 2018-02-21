@@ -238,13 +238,13 @@
     "code": "es-ES",
     "phrases": "8847",
     "translated": "7998",
-    "approved": "161",
+    "approved": "162",
     "words": "79936",
     "words_translated": "71431",
-    "words_approved": "1756",
+    "words_approved": "1777",
     "translated_progress": 89,
     "approved_progress": 2,
-    "qa_issues": "3146"
+    "qa_issues": "3145"
   },
   {
     "name": "Thai",
