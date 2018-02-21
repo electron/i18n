@@ -6,7 +6,7 @@ This guide provides information on how to package your Electron application for 
 
 Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
 
-There are three ways to create a `.snap` file:
+有三種方式可以建立 `.snap` 檔:
 
 1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
 
@@ -117,8 +117,8 @@ apps:
   myApp:
     command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
     desktop: usr/share/applications/myApp.desktop
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    # 將 Chromium Framework/Electron 的 TMPDIR 路徑改對，
+    # 確保 libappindicator 可以讀到資源。
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
@@ -136,8 +136,8 @@ Alternatively, if you're building your `snap` with `strict` confinement, you can
 ```yaml
 apps:
   myApp:
-    # 修正 Chromium Framework/Electron 的 TMPDIR 路徑，確保
-    # libappindicator 有可供讀取的資源。
+    # 將 Chromium Framework/Electron 的 TMPDIR 路徑改對，
+    # 確保 libappindicator 可以讀到資源。
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
