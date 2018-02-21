@@ -2,8 +2,8 @@
 
 * `name` String - de naam van de cookie.
 * `value` String - de waarde van de cookie.
-* `domain` String (optional) - The domain of the cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
+* `domain` String (optioneel) - Het domein van de cookie.
+* `hostOnly` Boolean (optioneel) - Of de cookie alleen een host-only cookie is.
 * `path` String (optioneel) - Het pad van de cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
 * `httpOnly` Boolean (optioneel) - of de cookie is gemarkeerd als alleen HTTP.
