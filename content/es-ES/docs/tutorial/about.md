@@ -4,7 +4,7 @@
 
 Electron comenzó en 2013 como el marco de trabajo en el que se construiría [Atom](https://atom.io), el editor de texto pirateable de GitHub. Los dos fueron liberados como de código abierto en la primavera de 2014.
 
-Desde entonces se ha convertido en una herramienta popular utilizada por desarrolladores de código abierto, nuevas empresas y compañías establecidas. [Vea quién está desarrollando en Electron](https://electronjs.org/apps).
+Desde entonces se ha convertido en una herramienta popular utilizada por desarrolladores de código abierto, nuevas empresas y compañías establecidas. [Vea quién está desarrollando con Electron](https://electronjs.org/apps).
 
 Siga leyendo para obtener más información sobre los contribuyentes y las versiones de Electron o para comenzar a desarrollar con Electron en la [Guía de inicio rápido](quick-start.md).
 
@@ -40,7 +40,7 @@ Llegó una actualización importante con la versión `v1.0.0`. Si aún no está 
 
 Para mantener Electron pequeño (tamaño del fichero) y sostenible (la propagación de las dependencias y APIs) el proyecto limita el alcance del proyecto base.
 
-Por ejemplo, el Electron utiliza sólo la biblioteca de renderizado de Chromium en lugar de todo Chromium. Esto facilita actualizar Chromium pero también significa encontrar algunas características del navegador en Google Chrome no existentes en Electron.
+Por ejemplo, Electron utiliza sólo la biblioteca de renderizado de Chromium en lugar de todo Chromium. Esto facilita actualizar Chromium pero también significa encontrar algunas características del navegador en Google Chrome no existentes en Electron.
 
 Las nuevas características añadidas a la Electron principalmente deben ser API nativas. Si una característica puede ser su propio módulo Node.js, probablemente debería serlo. Ver las [herramientas electrónicas construidas por la comunidad](https://electronjs.org/community).
 
