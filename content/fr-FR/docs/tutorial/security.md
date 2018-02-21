@@ -268,9 +268,9 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### Pourquoi ?
 
-The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+La méthode `eval()` a précisément une seule mission : de compiler une série de caractères comme étant du Javascript, et de l'exécuter. C’est une méthode obligatoire chaque fois que vous avez besoin de compiler du code qui ne peut pas être connu à l'avance. Bien qu’il existe des cas d’utilisation légitimes, à l’instar de n’importe quel autre générateur de code, les protections d'`eval()` sont difficiles à durcir.
 
-Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
+De manière générale, il est plus facile de désactiver complètement `eval()` plutôt que de le blinder. Ainsi, si vous n’en avez pas besoin, c’est une bonne idée de le désactiver.
 
 ### Comment ?
 
@@ -292,7 +292,7 @@ Loading the initial HTML of a website over `HTTPS` and attempting to load subseq
 
 ### Pourquoi ?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
+En termes simples, télécharger du contenu via `HTTPS` assure l’authenticité et l’intégrité des ressources téléchargées en cryptant le trafic. Consultez la section sur l' [affichage du contenu sécurisé uniquement](#only-display-secure-content) pour plus de détails.
 
 ### Comment ?
 
@@ -314,13 +314,13 @@ const mainWindow = new BrowserWindow({})
 
 *Cette recommandation est appliquée par défaut sur Electron*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
+Les utilisateurs avancés d’Electron peuvent activer les fonctionnalités expérimentales de Chrome en utilisant les propriétés `experimentalFeatures` et `experimentalCanvasFeatures`.
 
 ### Pourquoi ?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Les fonctionnalités expérimentales, comme leur nom suggère, sont expérimentales et n'ont pas été activées pour tous les utilisateurs de Chromium. De plus, leur impact sur Electron n'a probablement pas été testé et vérifié.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+Il est parfois légitime de les implémenter, mais à moins que vous sachiez vraiment ce que vous faites, vous ne devriez pas autoriser ces fonctionnalités.
 
 ### Comment ?
 
@@ -418,4 +418,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Encore une fois, cette liste permet simplement de réduire le risque, elle ne le supprime pas. Si votre but est d’afficher un site Web, un navigateur sera une option plus sûre.
