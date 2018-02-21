@@ -189,13 +189,13 @@ win.setProgressBar(0.5)
 
 विंडोज पर एक टास्कबार बटन एक छोटा सा ओवेरले इस्तेमाल कर एप्लीकेशन स्टेटस दिखा सकता है, जैसा कि MSDN से उद्धृत है:
 
-> आइकॉन ओवरलेस, स्टेटस की एक प्रासंगिक नोटिफिकेशन का काम करते हैं, और इनका मकसद उपयोगकर्ता को वह जानकारी देने के लिए एक अलग नोटिफिकेशन क्षेत्र स्टेटस आइकॉन की जरूरत को खत्म करना है | For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> आइकॉन ओवरलेस, स्टेटस की एक प्रासंगिक नोटिफिकेशन का काम करते हैं, और इनका मकसद उपयोगकर्ता को वह जानकारी देने के लिए एक अलग नोटिफिकेशन क्षेत्र स्टेटस आइकॉन की जरूरत को खत्म करना है | उदाहरण के लिए, माइक्रोसॉफ्ट आउटलुक में मौज़ूद नया मेल स्टेटस, जो कि वर्तमान में नोटिफिकेशन क्षेत्र में दिखाई देता है, अब टास्कबार बटन के ऊपर ओवरले के द्वारा भी दिखाया जा सकता है | पर, आपको निर्माण चक्र के दौरान ही यह निर्णय लेना होगा कि आपकी एप्लीकेशन के लिए सबसे अच्छा कौन सा तरीका है | ओवरले आइकॉनस का इस्तेमाल महत्वपूर्ण, लम्बी-अवधि के स्टेटस या नेटवर्क स्टेटस, मैसेंजर स्टेटस, या नया मेल जैसी नोटिफिकेशनस दिखाने के लिए किया जा सकता है | उपयोगकर्ता के सामने सतत बदलते ओवरले या एनीमेशनस नहीं प्रस्तुत करने चाहिये |
 
-**Overlay on taskbar button:**
+**टास्कबार बटन पर ओवेरले:**
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+एक विंडो के लिए ओवरले आइकॉन सेट करने के लिए, आप [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) ऐपीआई का उपयोग कर सकते हैं:
 
 ```javascript
 const {BrowserWindow} = require('electron')
