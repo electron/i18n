@@ -67,13 +67,13 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## Usando un paquete de Debian existente
 
 Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
 
 ### Paso 1: Crear un paquete Debian
 
-Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podría ser una forma más fácil para crear el paquete instantáneo. Sin embargo, existen múltiples soluciones para la creación de paquetes de Debian, incluyendo [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podría ser una forma más fácil para crear el paquete instantáneo. Sin embargo, existen múltiples soluciones para la creación de paquetes de Debian, incluyendo [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) o [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
 
 ### Paso 2: Creando un snapcraft.yaml
 
