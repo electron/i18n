@@ -17,7 +17,14 @@ feel free to propose changes to this document in a pull request.
 
 ## Translating
 
-👉 **Do not translate the content directly in this repository!**
+Here are some guidelines to keep in mind as a translator:
+
+- All translation happens on [Crowdin](https://crowdin.com/project/electron). **Do not open pull requests that translate the content in this repository!**
+- Do not translate JavaScript keywords like `String`, `Event`, `Array`, `Class`, etc.
+- Do not translate Electron classes, method names, event names, etc.
+- If you find an error in the source English docs, open a pull request on the [electron/electron](https://github.com/electron/electron/tree/master/docs) repository.
+- If you've been working as a translator and want to have more influence over the approved translations in your language, let us know and we'll make you a proofreader.
+- If you're using a platform like Utopian.io, please do some translation work before applying for proofreader status. This shows us that you're serious.
 
 Electron's localization effort uses [Crowdin], an awesome platform for 
 collaborative translation. Changes on Crowdin are  automatically turned into 
