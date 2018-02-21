@@ -1,12 +1,12 @@
 # Acerca de Electron
 
-[Electron](https://electronjs.org)es una biblioteca de código abierto desarrollada por GitHub para crear aplicaciones de escritorio multiplataforma con HTML, CSS y JavaScript. Electron logra esto combinando [Chromium](https://www.chromium.org/Home) y Node.js</ 1> en un solo tiempo de ejecución y las aplicaciones se pueden empaquetar para Mac, Windows y Linux.</p> 
+[Electron](https://electronjs.org) es una biblioteca de código abierto desarrollada por GitHub para crear aplicaciones de escritorio multiplataforma con HTML, CSS y JavaScript. Electron logra esto combinando [Chromium](https://www.chromium.org/Home) y Node.js</ 1> en un solo tiempo de ejecución y las aplicaciones se pueden empaquetar para Mac, Windows y Linux.</p> 
 
-Electron comenzó en 2013 como el marco en el que se construiría [Atom](https://atom.io), el editor de texto pirateable de GitHub. Los dos fueron de fuente abierta en la primavera de 2014.
+Electron comenzó en 2013 como el marco de trabajo en el que se construiría [Atom](https://atom.io), el editor de texto pirateable de GitHub. Los dos fueron liberados como de código abierto en la primavera de 2014.
 
-Desde entonces se ha convertido en una herramienta popular utilizada por desarrolladores de código abierto, nuevas empresas y compañías establecidas. [Vea quién está construyendo en Electron](https://electronjs.org/apps).
+Desde entonces se ha convertido en una herramienta popular utilizada por desarrolladores de código abierto, nuevas empresas y compañías establecidas. [Vea quién está desarrollando en Electron](https://electronjs.org/apps).
 
-Siga leyendo para obtener más información sobre los contribuyentes y las versiones de Electron o para comenzar a construir con Electron en la [Guía de inicio rápido](quick-start.md).
+Siga leyendo para obtener más información sobre los contribuyentes y las versiones de Electron o para comenzar a desarrollar con Electron en la [Guía de inicio rápido](quick-start.md).
 
 ## Equipo central y contribuyentes
 
