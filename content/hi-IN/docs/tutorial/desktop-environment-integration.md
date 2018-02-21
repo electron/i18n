@@ -203,13 +203,13 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame (Windows)
+## फ़्लैश फ्रेम (विंडोज)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+विंडोज पर आप टास्कबार बटन को हाईलाइट कर उपयोगकर्ता का ध्यान खींच सकते हैं | यह मैकओएस पर डॉक आइकॉन को बाउंस करने के समान ही है | MSDN के रेफेरेंस दस्तावेजीकरण से:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> आम तौर पर, एक विंडो की तरफ उपयोगकर्ता का ध्यान खीचने के लिए उसे फ़्लैश किया जाता है पर तब जब विंडो को कीबोर्ड का ध्यान न प्राप्त हो |
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+ब्राउज़रविंडो टास्कबार बटन को फ़्लैश करने के लिए, आप [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) ऐपीआई का इस्तेमाल कर सकते हैं:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -218,9 +218,9 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+फ़्लैश को बंद करने के लिए `flashFrame` मेथड को `false` के साथ बुलाना न भूलें | ऊपर दिए गये उदाहरण में, उसे तब बुलाया गया है जब विंडो केंद्र में आती है, पर आप एक टाइमआउट या कोई और इवेंट इस्तेमाल कर के उसे डिसएबल कर सकते हैं |
 
-## Represented File of Window (macOS)
+## विंडो की प्रतिनिधित्व फ़ाइल (मैकओएस)
 
 On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
 
