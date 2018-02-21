@@ -1,16 +1,17 @@
 # Pamamahagi ng aplikasyon
 
-Upang maipamahagi ang iyong app sa elektron, kailangan mong i-download ang elektron mga binary ng prebuilt<0/>. Sunod, ang foloder na naglalaman ng iyong app ay dapat nakapangalan sa `app` at iniligay sa mga pinagkukunan ng Elektron Ang direktoryo ay ipinapakita sa mga sumusunod na halimbawa. Tandaan na ang mga lokasyon ng mga binary sa Elektron prebuilt ay ipinapahiwatig ng `elektron/<0> sa mga halimbawa sa ibaba.</p>
+Upang maipamahagi ang iyong app sa Electron, kailangan mong i-download ang elektron [mga binary ng prebuilt](https://github.com/electron/electron/releases). Sunod, ang foloder na naglalaman ng iyong app ay dapat nakapangalan sa `app` at iniligay sa mga pinagkukunan ng Electron Ang direktoryo ay ipinapakita sa mga sumusunod na halimbawa. Tandaan na ang mga lokasyon ng mga binary sa Electron prebuilt ay ipinapahiwatig ng `electron` sa mga halimbawa sa ibaba.
 
-<p>Sa macOs:</p>
+Sa macOs:
 
-<pre><code class="text">electron/Electron.app/Contents/Resources/app/
+```text
+electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
 └── index.html
-`</pre> 
+```
 
-Sa windows at linux:
+Sa Windows at Linux:
 
 ```text
 electron/resources/app
@@ -34,7 +35,7 @@ electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-Sa windows at linux:
+Sa Windows at Linux:
 
 ```text
 electron/resources/
@@ -53,12 +54,10 @@ Maari mong palitan ang `electron.exe` sa anumang pangalan na gusto mo, at i-edit
 
 ### macOS
 
-Maari mong palitan ng pangalan ang `Electron.app` sa anumang gusto mo, at maari mo ring palitan ng pangalan anh `CFBundleDisplayName`,</code>CFBundleIdentifier</code> at `CFBundleName</0> sa mga larangan sa mga sumusunod na file:</p>
+You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
 
-<ul>
-<li><code>Electron.app/Contents/Info.plist`</li> 
-
-* `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`</ul> 
+* `Electron.app/Contents/Info.plist`
+* `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
 Maari mo ring palitan ng pangalan ang tumutulong na app upang maiwasan ang pagpapakita `Electron Helper` sa aktibidad ng monitor, ngunit siguraduhin na palitan mo nang pangalan ang helper app's para mapalitan ng pangalan ang mga file.
 
