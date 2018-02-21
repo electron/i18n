@@ -4,15 +4,15 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+`BrowserWindowProxy` オブジェクトは、`window.open` から返却され、子ウインドウの限定的な機能を提供します。
 
 ### インスタンスメソッド
 
-The `BrowserWindowProxy` object has the following instance methods:
+`BrowserWindowProxy` オブジェクトには、次のインスタンスメソッドがあります。
 
 #### `win.blur()`
 
-Removes focus from the child window.
+子ウインドウからフォーカスを外します。
 
 #### `win.close()`
 
