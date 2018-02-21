@@ -32,7 +32,18 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 
 This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
 
-1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+1. [Mag load lamang ng siguradong nilalaman](#only-load-secure-content)
+2. [Huwang paganahin ang Node.js na integrasyon sa lahat ng mga renderer na maipakita ang bahagyang nilalaman.](#disable-node.js-integration-for-remote-content)
+3. [Paganahin ang kontekstong pagkakabukod na ipinakita ang bahagyang nilalaman.](#enable-context-isolation-for-remote-content)
+4. [Gamitin ang `ses.setPermissionRequestHandler()` sa lahat ng mga sesyon na maka-load ang bahagyang nilalaman.](#handle-session-permission-requests-from-remote-content)
+5. [Huwang i-disable ang `webSecurity`](#do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
+8. [Huwag i-set ang `allowRunningInsecureContent` sa `true`](#do-not-set-allowRunningInsecureContent-to-true)
+9. [Huwag paganahin ang mga experimental na katangian](#do-not-enable-experimental-features)
+10. [Huwag gamitin ang `blinkFeatures`](#do-not-use-blinkfeatures)
+11. [WebViews: Huwag gamitin ang `allowpopups`](#do-not-use-allowpopups)
+12. [WebViews: I-verify ang mga opsyun at mga param sa lahat ng `<webview>`mga tag](#verify-webview-options-before-creation)
 
 ## 1) Only Load Secure Content
 
