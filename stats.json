@@ -211,14 +211,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "8847",
-    "translated": "2903",
+    "translated": "2905",
     "approved": "77",
     "words": "79936",
-    "words_translated": "18126",
+    "words_translated": "18154",
     "words_approved": "153",
     "translated_progress": 22,
     "approved_progress": 0,
-    "qa_issues": "861"
+    "qa_issues": "862"
   },
   {
     "name": "Russian",
