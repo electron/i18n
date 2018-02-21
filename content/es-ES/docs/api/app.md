@@ -15,7 +15,7 @@ app.on('window-all-closed', () => {
 
 ## Eventos
 
-El objeto `app` emite los siguientes eventos:
+El objeto `app` produce los siguientes eventos:
 
 ### Evento: 'will-finish-launching'
 
@@ -25,7 +25,7 @@ En la mayoría de los casos, usted debe hacer todo en el controlador del evento 
 
 ### Evento: 'ready'
 
-Devuelve:
+Retorna:
 
 * `launchInfo` Objecto *macOS*
 
@@ -111,7 +111,7 @@ Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/
 
 La actividad de un usuario puede ser continuada solo en una aplicación que tenga la misma identificación de equipo de desarrolladores como la la aplicación fuente de las actividades y que soporte los tipos de actividad. Los tipos de actividades soportadas están en el `Info.plist` de la aplicación bajo la llave `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' *macOS*
+### Evento: 'will-continue-activity' *macOS*
 
 Devuelve:
 
