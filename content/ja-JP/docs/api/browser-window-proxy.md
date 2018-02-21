@@ -16,35 +16,35 @@
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+unloadイベントを呼び出すことなく、子ウインドウを強制的に閉じます。
 
 #### `win.eval(code)`
 
 * `code` String
 
-Evaluates the code in the child window.
+子ウインドウでコードを評価します。
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+子ウインドウにフォーカスします (ウインドウを前面に移動します)。
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+子ウインドウで印刷ダイアログを呼び出します。
 
 #### `win.postMessage(message, targetOrigin)`
 
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+特定のオリジンまたはオリジン未設定を意味する `*` で子ウインドウにメッセージを送信します。
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+これらのメソッドに加えて、子ウインドウには、プロパティがなく、1つのメソッドを持つ `window.opener` オブジェクトが実装されています。
 
 ### インスタンスプロパティ
 
-The `BrowserWindowProxy` object has the following instance properties:
+`BrowserWindowProxy` オブジェクトには、次のインスタンスプロパティがあります。
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+子ウインドウが閉じた後にtrueが設定される `Boolean` 型のプロパティ。
