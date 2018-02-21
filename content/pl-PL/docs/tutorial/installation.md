@@ -2,7 +2,7 @@
 
 > Porady odnośnie instalowania Electrona
 
-W celu zainstalowania prekompilowanych plików Electrona, użyj [`npm`](https://docs.npmjs.com/). Preferowaną metodą instalacji Electrona jest dodanie go jako zależność deweloperską twojej aplikacji:
+W celu zainstalowania prekompilowanych plików Electrona, użyj [`npm`](https://docs.npmjs.com/). Preferowaną metodą instalacji Electrona jest zainstalowanie go jako zależność deweloperską twojej aplikacji:
 
 ```sh
 npm install electron --save-dev
