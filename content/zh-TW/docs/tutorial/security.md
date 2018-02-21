@@ -102,9 +102,9 @@ mainWindow.loadURL('https://my-website.com')
 <webview src="page.html"></webview>
 ```
 
-就算停用了 Node.js 整合功能，你還是能將 Node.js 的模組或功能 API 提供給網站執行。 Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+就算停用了 Node.js 整合功能，你還是能將 Node.js 的模組或功能 API 提供給網站執行。 你可以在預載腳本中使用 `require` 及其他 Node.js 的功能，開發人員可以提供自訂 API 給遠端載入的內容使用。
 
-In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
+下列這段預載腳本範例中，後續載入的網頁可以使用 `window.readConfig()` 方法，但無法直接存取 Node.js 功能。
 
 ```js
 const { readFileSync } = require('fs')
@@ -117,7 +117,7 @@ window.readConfig = function () {
 
 ## 3) 針對遠端內容啟用內容隔離功能
 
-Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
+內容隔離是 Electron 提供的功能，讓開發者可以在預載腳本及 Electron API 中以專用的 JavaScript 環境執行程式碼。 In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
@@ -262,10 +262,10 @@ Generally speaking, it is easier to completely disable `eval()` than to make it 
 ### 怎麼做?
 
 ```js
-// ESLint will warn about any use of eval(), even this one
-// eslint-disable-next-line
+// ESLint 會對任何用到 eval() 的地方提出警告，就算用了
+// eslint-disable-next-line 也一樣
 window.eval = global.eval = function () {
-  throw new Error(`Sorry, this app does not support window.eval().`)
+  throw new Error(`失禮了，本應用程式不支援 window.eval()。`)
 }
 ```
 
