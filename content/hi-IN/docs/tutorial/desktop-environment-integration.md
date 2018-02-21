@@ -14,7 +14,7 @@
 
 **जम्पलिस्ट:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![जम्पलिस्ट हाल ही की फाइल्स](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **एप्लीकेशन डॉक मेन्यु:**
 
@@ -121,7 +121,7 @@ MSDN से, यह कहा गया है:
 
 **विंडोज मीडिया प्लेयर की थंबनेल टूलबार:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![पल्येर](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 अपनी एप्लीकेशन में थंबनेल टूलबार को सेट करने के लिए आप [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) का इस्तेमाल कर सकते हैं:
 
@@ -163,7 +163,7 @@ win.setThumbarButtons([])
 
 **Audacious की लांचर शोर्टकट्स:**
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![Audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
 ## टास्कबार में प्रगति बार (विंडोज, मैकओएस, यूनिटी)
 
@@ -222,15 +222,15 @@ win.flashFrame(true)
 
 ## विंडो की प्रतिनिधित्व फ़ाइल (मैकओएस)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+मैकओएस पर एक विंडो अपनी प्रतिनिधित्व फ़ाइल सेट कर सकती है, ताकि फाइल का आइकॉन शीर्षक बार में दिखाई डे सके और फिर जब उपयोगकर्ता शीर्षक पर कमांड-क्लिक या कंट्रोल-क्लिक करें तो एक पथ पॉपअप दिखे |
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+आप एक विंडो की संपादित अवस्था भी सेट कर सकते हैं, ताकि फाइल आइकॉन यह बता सके कि अगर विंडो में मौज़ूद दस्तावेज को बदला गया है |
 
-**Represented file popup menu:**
+**प्रतिनिधित्व फाइल पॉपअप मेन्यु:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+एक विंडो की प्रतिनिधित्व फ़ाइल सेट करने के लिए, आप [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) और [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) ऐपीआई का इस्तेमाल कर सकते हैं:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -239,11 +239,11 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## विंडो से फाइल्स को बाहर निकालना
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+फाइल्स पर काम करने वाली कुछ ख़ास तरह की एप्प्स के लिए, यह ज़रूरी है कि वे इलेक्ट्रॉन से फाइल्स खींच कर दूसरी एप्प्स तक पहुँचा सकें | अपनी एप्प में इस सुविधा का इस्तेमाल करने के लिए, आपको बस `ondragstart` इवेंट पर `webContents.startDrag(item)` ऐपीआई को बुलाना होगा |
 
-In web page:
+वेब पेज में:
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +255,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+मुख्य प्रक्रिया में:
 
 ```javascript
 const {ipcMain} = require('electron')
