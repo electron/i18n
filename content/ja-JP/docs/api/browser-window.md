@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> ブラウザウィンドウを作成し、制御します。
+> ブラウザウィンドウを作成したり、制御したりします。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -8,7 +8,7 @@
 // メインプロセス
 const {BrowserWindow} = require('electron')
 
-// または、レンダラープロセスから `remote`を使用してください。
+// または、レンダラープロセスから `remote` を使用してください。
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,16 +16,16 @@ win.on('closed', () => {
   win = null
 })
 
-// リモートURLをロードする
+// リモートURLをロード
 win.loadURL('https://github.com')
 
-// または、ローカルファイルをロードする
+// または、ローカルファイルをロード
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## フレーム無しウィンドウ
+## フレームレスウィンドウ
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+[Frameless Window](frameless-window.md) APIを使うと、枠がないウインドウや任意の形状の透明なウインドウを作成することができます。
 
 ## Showing window gracefully
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## クラス: BrowserWindow
 
-> ブラウザウィンドウを作成し、制御します。
+> ブラウザウィンドウを作成したり、制御したりします。
 
 プロセス: [Main](../glossary.md#main-process)
 
