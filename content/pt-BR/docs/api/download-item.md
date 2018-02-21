@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` é um `EventEmitter` que representa um item de download no Electron. É usado no evento `will-download` da classe `Session`, e permite aos usuários controlarem o item de download.
 
 ```javascript
 // No processo main.
