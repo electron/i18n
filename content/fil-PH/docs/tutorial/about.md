@@ -55,4 +55,4 @@ Nasa ibaba ang mga mahahalagang pangyayari sa kasaysayan ng Elektron.
 | **Abril 2015**         | [Ang Atom Shell ay muling pinangalanang Elektron](https://github.com/electron/electron/pull/1389).                |
 | **Mayo 2016**          | [Inilabas ang elektron`v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
 | **Mayo 2016Mayo 2016** | [Ang mga app ng elektron ay tugma sa Mac App Store](mac-app-store-submission-guide.md).                           |
-| **Agosto 2017**        | [sinusuportahan ng Windows Store ang Elektron apps](windows-store-guide.md).                                      |
+| **Agosto 2017**        | [Windows Store na suporta para sa Electron na mga app](windows-store-guide.md).                                   |
