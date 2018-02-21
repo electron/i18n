@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> ブラウザウィンドウを作成し、制御します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## クラス: BrowserWindow
 
-> Create and control browser windows.
+> ブラウザウィンドウを作成し、制御します。
 
 プロセス: [Main](../glossary.md#main-process)
 
