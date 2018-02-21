@@ -43,7 +43,7 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
 
 1. Kumuha ng kopya ng Elektron's libcc fork 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Tumakbo `script/update` para makakuha ng panibagong libcc 
+2. Tumakbo `script/updatescript/update` para makakuha ng panibagong libcc 
   - Kinakailangan ito ng mahabang oras
 3. Tanggalin ang lumang kopya ng ating Node v8 patches 
   - (Sa libchromiumcontent repo) Basahin ang `patches/v8/README.md` upang makita kung anong patchfiles ang nilikha sa nakaraang update
@@ -74,7 +74,7 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
     - `diff -u test.patch patches/v8/xxx-patch_name.patch`
   - Palitan ang lumang patch ng bago: 
     - `mv test.patch patches/v8/xxx-patch_name.patch`
-  - Ilagay ang patched code sa index *na walang* committing: 
+  - Ilagay ang patched code sa index *na walang* gumawa: 
     - `cd src/v8 && git add . && cd ../..`
     - Hindi natin kailangan gumawa ng pagbabago(naka-save sila sa patchfiles) pero kailangan sila locally para hindi magpakita ng kasunod na diffs habang nagi-iterate sa pamamagitan ng higit pang patches
   - Ilagay ang patchfile sa index: 
