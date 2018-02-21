@@ -32,7 +32,18 @@
 
 不是說這樣就能金槍不入，但至少你應該依照下列步驟來提升你應用程式的安全性。
 
-1) [只載入安全的內容](#only-load-secure-content) 2) [停用任何會顯示遠端內容的畫面轉譯處理序中的 Node.js 整合功能](#disable-node.js-integration-for-remote-content) 3) [在所有會顯示遠端內容的畫面轉譯處理序中啟用內容隔離功能](#enable-context-isolation-for-remote-content) 4) [在所有會載入遠端內容的 Session 中使用`ses.setPermissionRequestHandler()`](#handle-session-permission-requests-from-remote-content) 5) [不要停用 `webSecurity`](#do-not-disable-websecurity) 6) [定義 `Content-Security-Policy`](#define-a-content-security-policy) 並啟用嚴格規則 (i.e. `script-src 'self'`) 7) [覆寫並停用 `eval`](#override-and-disable-eval)，否則一般字串有可能被當成程式執行。 8) [不要將 `allowRunningInsecureContent` 設為 `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [不要啟用實驗性功能](#do-not-enable-experimental-features) 10) [不要使用 `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: 不要用 `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: 檢查所有 `<webview>` 標籤的選項及參數](#verify-webview-options-before-creation)
+1. [Only load secure content](#only-load-secure-content)
+2. [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
+3. [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
+4. [在所有會載入遠端內容的 Session 中使用 `ses.setPermissionRequestHandler()`](#handle-session-permission-requests-from-remote-content)
+5. [Do not disable `webSecurity`](#do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
+8. [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
+9. [Do not enable experimental features](#do-not-enable-experimental-features)
+10. [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
+11. [WebViews: 不要用 `allowpopups`。](#do-not-use-allowpopups)
+12. [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
 
 ## 1) 只載入安全的內容
 
@@ -405,4 +416,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目的只是要顯示網站，那麼瀏覽器會是比較安全的選項。
+再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目標只是要顯示網站，那麼瀏覽器會是比較安全的選項。
