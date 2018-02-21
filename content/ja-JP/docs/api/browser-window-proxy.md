@@ -1,8 +1,8 @@
 ## クラス: BrowserWindowProxy
 
-> 子ブラウザウィンドウを操作する
+> 子ブラウザウィンドウを操作します。
 
-プロセス: [レンダラー](../glossary.md#renderer-process)
+プロセス: [Renderer](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
