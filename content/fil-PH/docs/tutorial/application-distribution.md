@@ -20,7 +20,7 @@ electron/resources/app
 └── index.html
 ```
 
-Pagkatapos magsagawa ng `Electron.app` (o `elektron` sa Linux,`electron.exe` sa windows), at ang elektron ay magsisimula bilang iyong app. Ang `elektron`direktoryo ay magiging iyong ma-i-pamamahagi upang ihatid sa mga huling gumagamit.
+Pagkatapos magsagawa ng `Electron.app` (o `electron` sa Linux,`electron.exe` sa windows), at ang elektron ay magsisimula bilang iyong app. Ang `elektron`direktoryo ay magiging iyong ma-i-pamamahagi upang ihatid sa mga huling gumagamit.
 
 ## Pagkaging ng iyong App sa isang File
 
@@ -54,7 +54,7 @@ Maari mong palitan ang `electron.exe` sa anumang pangalan na gusto mo, at i-edit
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Maari mong palitan ng pangalan ang `Electron.app` sa anumang gusto mo, at maari mo ring palitan ng pangalan ang `CFBundleDisplayName`,`CFBundleIdentifier` at `CFBundleName` sa mga larangan sa mga sumusunod na file:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
@@ -64,7 +64,7 @@ Maari mo ring palitan ng pangalan ang tumutulong na app upang maiwasan ang pagpa
 Ang istraktura na pinalitang pangalan ng app ay magiging tulad ng:
 
 ```text
-AngAkingApp.app/Mga Nilalaman
+MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
 │   └── MyApp
@@ -119,10 +119,10 @@ Kailangan mong mag fork Electron kapag ikaw ay mag pasadyang C++ na kodigo na iy
 
 3. Itakda ang mga sumusunod na baryabol ng kapaligiran:
 
-* `ELEKTRON_GITHUB_TOKEN` - ay isang token na maaring lumikha ng mga release sa GitHub.
+* `ELECTRON_GITHUB_TOKEN` - ay isang token na maaring lumikha ng mga release sa GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - ang lugar kung saan maari kang mag-upload ng mga header sa node.js pati na rin ang mga simbolo
 * `ELECTRON_RELEASE` - Itakda sa `tama` at ang parte ng pag-upload ay gagana, iwanan ang i-unset At `surf-bumuo` gagawin namin ang mga pagsusuri ng CI-type, nararapat patakbuhin sa bawat pull ng kahilingan.
-* `CI<code> - Itakda sa <0>tama` o kung hindi ito ay mabibigo
+* `CI` - Itakda sa `tama` o kung hindi ito ay mabibigo
 * `GITHUB_TOKEN` - itakda ito sa kaparehong `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - itakda sa `C:\Temp` sa windows upang maiwasan ang mga landas na isyu sa mahabang isyu
 * `TARGET_ARCH` - itakda sa `ia32` o `x64`
