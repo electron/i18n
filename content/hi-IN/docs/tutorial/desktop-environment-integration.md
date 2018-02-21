@@ -163,7 +163,7 @@ win.setThumbarButtons([])
 
 **Audacious की लांचर शोर्टकट्स:**
 
-![Audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
 ## टास्कबार में प्रगति बार (विंडोज, मैकओएस, यूनिटी)
 
@@ -175,7 +175,7 @@ win.setThumbarButtons([])
 
 **टास्कबार बटन में प्रगति बार:**
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![टास्कबार प्रगति बार](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
 एक विंडो के लिए प्रगति बार सेट करने के लिए, आप [BrowserWindow. setProgressBar](../api/browser-window.md#winsetprogressbarprogress) ऐपीआई का उपयोग कर सकते हैं:
 
@@ -193,7 +193,7 @@ win.setProgressBar(0.5)
 
 **टास्कबार बटन पर ओवेरले:**
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![टास्कबार बटन पर ओवरले](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 एक विंडो के लिए ओवरले आइकॉन सेट करने के लिए, आप [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) ऐपीआई का उपयोग कर सकते हैं:
 
