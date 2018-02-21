@@ -42,14 +42,14 @@
     "name": "Chinese Traditional",
     "code": "zh-TW",
     "phrases": "8847",
-    "translated": "4640",
+    "translated": "4651",
     "approved": "50",
     "words": "79936",
-    "words_translated": "25838",
+    "words_translated": "26110",
     "words_approved": "112",
     "translated_progress": 32,
     "approved_progress": 0,
-    "qa_issues": "44"
+    "qa_issues": "45"
   },
   {
     "name": "Czech",
@@ -88,7 +88,7 @@
     "words_approved": "8675",
     "translated_progress": 89,
     "approved_progress": 10,
-    "qa_issues": "264"
+    "qa_issues": "263"
   },
   {
     "name": "French",
@@ -159,14 +159,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "8847",
-    "translated": "3496",
+    "translated": "3510",
     "approved": "135",
     "words": "79936",
-    "words_translated": "20923",
+    "words_translated": "21071",
     "words_approved": "368",
     "translated_progress": 26,
     "approved_progress": 0,
-    "qa_issues": "116"
+    "qa_issues": "117"
   },
   {
     "name": "Korean",
