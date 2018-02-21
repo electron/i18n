@@ -72,7 +72,7 @@ browserWindow.loadURL('https://my-website.com')
 
 ### 為什麼?
 
-A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+如果攻擊者能跳出畫面轉譯處理序，直接在使用者的電腦上執行程式碼，那麼跨網站指令碼 (Cross-Site Scripting; 縮寫 XSS) 攻擊會變得非常危險。 XSS 攻擊很常見，通常發生時其破壞力只限於亂搞被執行的網站。 停用 Node.js 整合功能，能防止 XSS 攻擊擴大成「遠端程式碼執行」(Remote Code Execution; 縮寫 RCE) 攻擊
 
 ### 怎麼做?
 
@@ -102,7 +102,7 @@ mainWindow.loadURL('https://my-website.com')
 <webview src="page.html"></webview>
 ```
 
-When disabling Node.js integration, you can still expose APIs to your website that do consume Node.js modules or features. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+就算停用了 Node.js 整合功能，你還是能將 Node.js 的模組或功能 API 提供給網站執行。 Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
 
 In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
 
