@@ -101,7 +101,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 * [Debug petunjuk (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Server simbol di debugger](development/setting-up-symbol-server.md)
 * [Dokumentasi Styleguide](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
+* [berkontribusi ke electron](../CONTRIBUTING.md)
 * [Isu](development/issues.md)
 * [Ajukan Permintaan](development/pull-requests.md)
 * [Mengupgrade Chromium](development/upgrading-chromium.md)
