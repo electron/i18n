@@ -6,52 +6,106 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 * [Preguntas Frecuentes sobre Electron](faq.md)
 
-## Guías
+## Guides and Tutorials
+
+* [Setting up the Development Environment](tutorial/development-environment.md) 
+  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
+* [Creating your First App](tutorial/first-app.md) 
+  * [Installing Electron](tutorial/first-app.md#installing-electron)
+  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Running Your App](tutorial/first-app.md#running-your-app)
+* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
+  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [Electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+* [Application Architecture](tutorial/application-architecture.md) 
+  * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
+  * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
+  * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
+  * [Inter-Process Communication](tutorial/application-architecture.md#)
+* Adding Features to Your App 
+  * [Notificaciones](tutorial/notifications.md)
+  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Application Progress](tutorial/progress-bar.md)
+  * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
+  * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
+  * [Atajos del teclado](tutorial/keyboard-shortcuts.md)
+  * [Offline/Online Detection](tutorial/online-offline-events.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+* [Application Accessibility](tutorial/accessibility.md) 
+  * [Spectron](tutorial/accessibility.md#spectron)
+  * [Devtron](tutorial/accessibility.md#devtron)
+  * [Habilitar la accesibilidad](tutorial/accessibility.md#enabling-accessibility)
+* [Application Testing and Debugging](tutorial/application-debugging.md) 
+  * [Depuración del proceso principal](tutorial/debugging-main-process.md)
+  * [Uso de Selenium y WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [Pruebas de sistemas de CI sin cabeceras (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [Extensión de herramientas de desarrollo](tutorial/devtools-extension.md)
+* [Distribución de la aplicación](tutorial/application-distribution.md) 
+  * [Plataformas soportadas](tutorial/supported-platforms.md)
+  * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
+  * [Windows Store](tutorial/windows-store-guide.md)
+  * [Snapcraft](tutorial/snapcraft.md)
+* [Application Security](tutorial/security.md) 
+  * [Reportando problemas de seguridad](tutorial/security.md#reporting-security-issues)
+  * [Actualizaciones y problemas de seguridad Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
+  * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
+  * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
+* [Application Updates](tutorial/updates.md) 
+  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
+  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Applying Updates](tutorial/updates.md#applying-updates)
+
+## Detailed Tutorials
+
+These individual tutorials expand on topics discussed in the guide above.
+
+* [In Detail: Installing Electron](tutorial/installation.md) 
+  * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
+  * [Proxies](tutorial/installation.md#proxies)
+  * [Espejos y cachés personalizados](tutorial/installation.md#custom-mirrors-and-caches)
+  * [Problemas](tutorial/installation.md#troubleshooting)
+* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+  * [semver](tutorial/electron-versioning.md#semver)
+  * [Ramas estabilizadoras](tutorial/electron-versioning.md#stabilization-branches)
+  * [Publicaciones beta y arreglo de problemas](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
+  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
+  * [Usando archivos asar](tutorial/application-packaging.md#using-asar-archives)
+  * [Limitaciones](tutorial/application-packaging.md#limitations-of-the-node-api)
+  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
+
+* * *
 
 * [Glosario de términos](glossary.md)
-* [Plataformas soportadas](tutorial/supported-platforms.md)
-* [Seguridad](tutorial/security.md)
-* [Versiones](tutorial/electron-versioning.md)
-* [Distribución de aplicaciones](tutorial/application-distribution.md)
-* [Guía de publicación en la Mac App Store](tutorial/mac-app-store-submission-guide.md)
-* [Guía de Windows Store](tutorial/windows-store-guide.md)
-* [Snapcraft Guide](tutorial/snapcraft-guide.md)
-* [Empaquetado de la aplicación](tutorial/application-packaging.md)
-* [Uso de módulos nativos de Node](tutorial/using-native-node-modules.md)
-* [Depuración del proceso principal](tutorial/debugging-main-process.md)
-* [Uso de Selenium y WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [Extensión de herramientas de desarrollo](tutorial/devtools-extension.md)
-* [Uso del Plugin de Pepper Flash](tutorial/using-pepper-flash-plugin.md)
-* [Uso del plugin MDL Widevine](tutorial/using-widevine-cdm-plugin.md)
-* [Pruebas de sistemas de CI sin cabeceras (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
-* [Atajos del teclado](tutorial/keyboard-shortcuts.md)
-* [Actualización de aplicaciones](tutorial/updates.md)
-
-## Tutoriales
-
-* [Inicio Rápido](tutorial/quick-start.md)
-* [Integración del entorno de escritorio](tutorial/desktop-environment-integration.md)
-* [Detección de eventos online y Offline](tutorial/online-offline-events.md)
-* [REPL](tutorial/repl.md)
-* [Notificaciones nativas](tutorial/notifications.md)
 
 ## Referencia de la API
 
 * [Sinopsis](api/synopsis.md)
 * [Objeto de proceso](api/process.md)
-* [Opciones de linea de commandos de Chrome soportadas](api/chrome-command-line-switches.md)
+* [Soporte para los interruptores de la linea de comando de Chrome](api/chrome-command-line-switches.md)
 * [Variables de entorno](api/environment-variables.md)
 
 ### Elementos de DOM personalizados:
 
-* [`File` Object](api/file-object.md)
+* [`Archivo` Objeto](api/file-object.md)
 * [`<webview>` Etiqueta](api/webview-tag.md)
-* [Función `window.open`](api/window-open.md)
+* [`window.open` Función](api/window-open.md)
 
 ### Módulos para el proceso principal:
 
-* [aplicación](api/app.md)
+* [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
@@ -82,14 +136,14 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
-* [NativeImage](api/native-image.md)
+* [nativeImage](api/native-image.md)
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## Desarrollo
 
 * [Estilo de código](development/coding-style.md)
-* [Clang-formato en código C++](development/clang-format.md)
+* [Usar clang-format en código C++](development/clang-format.md)
 * [Pruebas](development/testing.md)
 * [Estructura del directorio de código fuente](development/source-code-directory-structure.md)
 * [Diferencias técnicas con NW.js (antes node-webkit)](development/atom-shell-vs-node-webkit.md)
@@ -104,6 +158,6 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * [Contributing to Electron](../CONTRIBUTING.md)
 * [Issues](development/issues.md)
 * [Pull Requests](development/pull-requests.md)
-* [Actualizando Chrome](development/upgrading-chromium.md)
+* [Actualizando Chomium](development/upgrading-chromium.md)
 * [Desarrollo de Chromium](development/chromium-development.md)
 * [Desarrollo de V8](development/v8-development.md)
