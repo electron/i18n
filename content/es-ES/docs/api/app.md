@@ -111,7 +111,7 @@ Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/
 
 La actividad de un usuario puede ser continuada solo en una aplicación que tenga la misma identificación de equipo de desarrolladores como la la aplicación fuente de las actividades y que soporte los tipos de actividad. Los tipos de actividades soportadas están en el `Info.plist` de la aplicación bajo la llave `NSUserActivityTypes`.
 
-### Evento: 'will-continue-activity' *macOS*
+### Event: 'will-continue-activity' *macOS*
 
 Devuelve:
 
@@ -150,7 +150,7 @@ Devuelve:
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
 
-### Evento: 'new-window-for-tab' *macOS*
+### Event: 'new-window-for-tab' *macOS*
 
 Devuelve:
 
@@ -158,7 +158,7 @@ Devuelve:
 
 Emitido cuando el usuario hace click en el nuevo botón nativo de madOS. El nuevo botón es visible solamente si el `BrowserWindow` actual tiene `tabbingIdentifier`
 
-### Evento: 'browser-window-blur'
+### Event: 'browser-window-blur'
 
 Devuelve:
 
@@ -167,7 +167,7 @@ Devuelve:
 
 Emitido cuando el [browserWindow](browser-window.md) está borroso.
 
-### Evento: 'browser-window-focus'
+### Event: 'browser-window-focus'
 
 Devuelve:
 
@@ -185,7 +185,7 @@ Devuelve:
 
 Emitido cuando se crea un [browserWindow](browser-window.md).
 
-### Evento: 'web-contenido-creado'
+### Event: 'web-contenido-creado'
 
 Devuelve:
 
@@ -194,7 +194,7 @@ Devuelve:
 
 Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
 
-### Evento: 'error-certificado'
+### Event: 'error-certificado'
 
 Devuelve:
 
@@ -222,7 +222,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Evento: 'select--client-certificate'
+### Event: 'select--client-certificate'
 
 Devuelve:
 
@@ -246,7 +246,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Evento:'login'
+### Event:'login'
 
 Devuelve:
 
@@ -279,7 +279,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Evento: 'gpu-process-crashed'
+### Event: 'gpu-process-crashed'
 
 Devuelve:
 
@@ -288,7 +288,7 @@ Devuelve:
 
 Es emitido cuando el proceso de la gpu se crashea o es terminado.
 
-### Evento: 'accessibility-support-changed' *macOS* *Windows*
+### Event: 'accessibility-support-changed' *macOS* *Windows*
 
 Devuelve:
 
