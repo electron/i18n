@@ -36,7 +36,7 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 ## JavaScript
 
-* [Standart](https://npm.im/standard) Javascript stilinde yazın.
+* [Standart](https://npm.im/standard) JavaScript stilinde yazın.
 * Dosya isimleri `_` ile değil `-` ile birleştirilmeli, örneğin: `dosya_adi.js` yerine `dosya-adi.js`. Bunun sebebi [github/atom](https://github.com/github/atom) modül isimlerinin genelde `module-name` formunda olmasıdır. Bu kural sadece `.js` dosyalarında uygulanır.
 * Uygun olan yerlerde ES6/ES2015 sözdizimini kullanın 
   * require komutları ve sabitler için [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
