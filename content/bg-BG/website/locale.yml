@@ -35,6 +35,7 @@ community:
   meetups: Срещи
   awesome_notice: Този списък е генериран от хранилището на<a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus страхотен Електрон</a>. <br>Нещо липсва? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> направи предложение</a>.
   meetup_notice: За да добавите среща, редактиране <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> направи предложение</a>.
+releases: Издания
 electron_is_easy:
   title: По-лесно е, отколкото си мислите
   description: Ако можете да създадете уеб сайт, то можете да създадете и настолно приложение. Електрон е система за създаване на настолни приложения, използвайки интернет технологии като JavaScript, HTML и CSS. Електрон се грижи за трудните неща, за да можете вие да се фокусирате върху същността на вашето приложение.
