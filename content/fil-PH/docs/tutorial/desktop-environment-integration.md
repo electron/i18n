@@ -1,4 +1,4 @@
-# Pagsama sa Desktop Environment
+# Ang Pag-iintegrate ng Desktop Environment
 
 Ang iba't-ibang mga operating system ay nagbibigay ng iba't-ibang mga katangian para sa pag-iintegrate ng mga aplikasyong pang-desktop sa mga desktop environment. Halimbawa, sa Windows, ang mga aplikasyon ay pwedeng maglagay ng mga shortcut sa JumpList ng task bar, at sa Mac, ang mga aplikasyon ay nakakapaglagay ng karaniwang menu sa dock menu.
 
