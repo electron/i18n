@@ -35,6 +35,7 @@ community:
   meetups: พบเจอได้ที่
   awesome_notice: รายชื่อพวกนี้ถูกสร้างจาก <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus's Awesome Electron </a> repository <br> มีอะไรหาย? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> สร้าง pull request สิ</a>
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+releases: การเผยแพร่
 electron_is_easy:
   title: ง่ายกว่าที่คุณคิด
   description: ถ้าคุณสร้างเว็บไซต์ได้ คุณก็สร้างเดสท็อปแอปได้ ซึ่ง Electron คือเฟรมเวิร์คสำหรับสร้างแอปด้วยเทคโนโลยีของเว็บไซต์ เช่น JavaScript, HTML และ CSS โดยที่เราจะจัดการส่วนที่ยากให้เอง คุณก็เพียงแต่เน้นไปที่ส่วนสำคัญของแอปของคุณเท่านั้น
