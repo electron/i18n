@@ -1,16 +1,16 @@
 # Aksesibilidad
 
-Paggawa ng mga ma-access na applikasyon ay importante at masaya kami na ipakilala ang bagong pag-andar ng [Devtron](https://electronjs.org/devtron) at [Spectron](https://electronjs.org/spectron) nabibigay ito sa mga developer ng opportunidad upang mapabuti ang kanilang app para sa lahat.
+Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
 
 * * *
 
-Aksesibilidad ng mga alalahanin sa mga aplikasyon ng Elektron ay medyo kapareho sa mga website dahil pareho silang nasa huli ng HTML. Sa mga app ng elektron, Gayunpaman, hindi mo magagamit ang mga pagkukunan sa online para sa aksesibilidad dahil ang iyong app ay walang URL sa punto ng auditor sa.
+Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
 
-Ang mga bagong tampok na ito ay dalhin ang mga tool sa pag-awdit sa iyong Elektron app. Maari kang pumili upang maidagdag ang mga pag-awdit sa iyong pag-subok sa Spectron o gamitin ang mga iyon sa loob ng DevTools sa Devtron. Basahin para sa buod ng mga tools o i-checkout ang aming [ aksesibilidad ng dokumentasyon ](https://electronjs.org/docs/tutorial/accessibility) para s karagdagang impormasyon.
+These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools.
 
 ## Spectron
 
-Para sa pag-susubok ng framework spectron, maari kang mag-awdit ngayon sa bawsat window at `<webview>` i-tag in sa iyong aplikasyon. Halimbawa:
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,27 +24,27 @@ Maari kang basahin ng higit pa tungkol sa tampok na ito sa [Spectron's dokumenta
 
 ## DevtronDevtron
 
-Sa Devtron, may isang bagong tab ng aksesibilidad kung saan na pinahintulutan kayo na mag-awdit ng pahina sa iyong app, ayusin at salain ang mga resulta.
+In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
 
 ![ang screenshot ng devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Parehong sa mga kagamitan na ito ay ginagamit ng [ Mga kagamitan sa Aksesibilidad ng nag-develop](https://github.com/GoogleChrome/accessibility-developer-tools) binuong library sa google para sa chrome. Marami kang matutunan tungkol sa mga panuntunan sa aksesibilidad ng pag audit dito sa silid-aklatan na gumagamit ng [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-Kung alam mo ang ibang malakong aksebilidad na mga kagamitan sa Elektron, idagdag ang mga ito sa [dokumentasyon ng aksebilidad](https://electronjs.org/docs/tutorial/accessibility) sa pull request.
+If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
 ## Paganahin ang aksesibilidad
 
-Mga aplikasyon ng electron na pinapanatili ang di pinaga na aksesibilidad sa pag default para sa pagganap na mga rason pero mayroon ding mga karamihang paraan para mapagana ito.
+Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 
 ### Loobang aplikasyon
 
-Sa paggamit ng [`app.setAccesibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), ikaw ay pwedeng maglantad ng aksesibilidad na paglipat sa gumagamit doon sa kagustuhang aplikasyon. Ang sistema ng gumagamit na assistive ng mga utilities ay mayroong prayoridad higit sa setting nito at pwedeng i-override ito.
+By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
 
 ### Teknolohiyang assistive
 
-Ang aplikasyong electron ay mapapagan ang aksesibilidad na awtomatik kapag nakita ang assistive na teknolohiya (Windows) o VoiceOver (macOS). Tingnan ang chrome na [dokumentasyon ng aksesibilidad](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) para sa mga karagdagang detalye.
+Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
 
-Sa macOS, ang ikatlong-partidi sa teknolohiyang assistive ay pwedeng ilipat ang aksesibilidad sa loob ng Electron na mga aplikasyon sa setting ng attribute `AXManu-manongAksesibilidad` na programang:
+On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
