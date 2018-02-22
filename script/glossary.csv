@@ -57,403 +57,403 @@ URIError, URIError is a JavaScript builtin and should NOT be translated.
 valueOf, valueOf is a JavaScript builtin and should NOT be translated.
 WeakMap, WeakMap is a JavaScript builtin and should NOT be translated.
 WeakSet, WeakSet is a JavaScript builtin and should NOT be translated.
-app, This is an Electron API and should NOT be translated',
-autoUpdater, This is an Electron API and should NOT be translated',
-BluetoothDevice, This is an Electron API and should NOT be translated',
-BrowserView, This is an Electron API and should NOT be translated',
-BrowserWindow, This is an Electron API and should NOT be translated',
-BrowserWindowProxy, This is an Electron API and should NOT be translated',
-Certificate, This is an Electron API and should NOT be translated',
-CertificatePrincipal, This is an Electron API and should NOT be translated',
-ClientRequest, This is an Electron API and should NOT be translated',
-clipboard, This is an Electron API and should NOT be translated',
-contentTracing, This is an Electron API and should NOT be translated',
-Cookie, This is an Electron API and should NOT be translated',
-Cookies, This is an Electron API and should NOT be translated',
-CPUUsage, This is an Electron API and should NOT be translated',
-CrashReport, This is an Electron API and should NOT be translated',
-crashReporter, This is an Electron API and should NOT be translated',
-Debugger, This is an Electron API and should NOT be translated',
-desktopCapturer, This is an Electron API and should NOT be translated',
-DesktopCapturerSource, This is an Electron API and should NOT be translated',
-dialog, This is an Electron API and should NOT be translated',
-Display, This is an Electron API and should NOT be translated',
-DownloadItem, This is an Electron API and should NOT be translated',
-FileFilter, This is an Electron API and should NOT be translated',
-globalShortcut, This is an Electron API and should NOT be translated',
-GPUFeatureStatus, This is an Electron API and should NOT be translated',
-IncomingMessage, This is an Electron API and should NOT be translated',
-IOCounters, This is an Electron API and should NOT be translated',
-ipcMain, This is an Electron API and should NOT be translated',
-ipcRenderer, This is an Electron API and should NOT be translated',
-JumpListCategory, This is an Electron API and should NOT be translated',
-JumpListItem, This is an Electron API and should NOT be translated',
-MemoryInfo, This is an Electron API and should NOT be translated',
-MemoryUsageDetails, This is an Electron API and should NOT be translated',
-Menu, This is an Electron API and should NOT be translated',
-MenuItem, This is an Electron API and should NOT be translated',
-MimeTypedBuffer, This is an Electron API and should NOT be translated',
-nativeImage, This is an Electron API and should NOT be translated',
-NativeImage, This is an Electron API and should NOT be translated',
-net, This is an Electron API and should NOT be translated',
-Notification, This is an Electron API and should NOT be translated',
-NotificationAction, This is an Electron API and should NOT be translated',
-Point, This is an Electron API and should NOT be translated',
-powerMonitor, This is an Electron API and should NOT be translated',
-powerSaveBlocker, This is an Electron API and should NOT be translated',
-PrinterInfo, This is an Electron API and should NOT be translated',
-process, This is an Electron API and should NOT be translated',
-ProcessMetric, This is an Electron API and should NOT be translated',
-protocol, This is an Electron API and should NOT be translated',
-Rectangle, This is an Electron API and should NOT be translated',
-remote, This is an Electron API and should NOT be translated',
-RemoveClientCertificate, This is an Electron API and should NOT be translated',
-RemovePassword, This is an Electron API and should NOT be translated',
-screen, This is an Electron API and should NOT be translated',
-ScrubberItem, This is an Electron API and should NOT be translated',
-SegmentedControlSegment, This is an Electron API and should NOT be translated',
-session, This is an Electron API and should NOT be translated',
-Session, This is an Electron API and should NOT be translated',
-shell, This is an Electron API and should NOT be translated',
-ShortcutDetails, This is an Electron API and should NOT be translated',
-Size, This is an Electron API and should NOT be translated',
-StreamProtocolResponse, This is an Electron API and should NOT be translated',
-systemPreferences, This is an Electron API and should NOT be translated',
-Task, This is an Electron API and should NOT be translated',
-ThumbarButton, This is an Electron API and should NOT be translated',
-TouchBar, This is an Electron API and should NOT be translated',
-Tray, This is an Electron API and should NOT be translated',
-UploadBlob, This is an Electron API and should NOT be translated',
-UploadData, This is an Electron API and should NOT be translated',
-UploadFile, This is an Electron API and should NOT be translated',
-UploadFileSystem, This is an Electron API and should NOT be translated',
-UploadRawData, This is an Electron API and should NOT be translated',
-webContents, This is an Electron API and should NOT be translated',
-WebContents, This is an Electron API and should NOT be translated',
-webFrame, This is an Electron API and should NOT be translated',
-WebRequest, This is an Electron API and should NOT be translated',
-webviewTag, This is an Electron API and should NOT be translated',
-view.setAutoResize, This is an Electron instance method and should NOT be translated',
-view.setBounds, This is an Electron instance method and should NOT be translated',
-view.setBackgroundColor, This is an Electron instance method and should NOT be translated',
-view.webContents, This is an Electron instance property and should NOT be translated',
-view.id, This is an Electron instance property and should NOT be translated',
-win.destroy, This is an Electron instance method and should NOT be translated',
-win.close, This is an Electron instance method and should NOT be translated',
-win.focus, This is an Electron instance method and should NOT be translated',
-win.blur, This is an Electron instance method and should NOT be translated',
-win.isFocused, This is an Electron instance method and should NOT be translated',
-win.isDestroyed, This is an Electron instance method and should NOT be translated',
-win.show, This is an Electron instance method and should NOT be translated',
-win.showInactive, This is an Electron instance method and should NOT be translated',
-win.hide, This is an Electron instance method and should NOT be translated',
-win.isVisible, This is an Electron instance method and should NOT be translated',
-win.isModal, This is an Electron instance method and should NOT be translated',
-win.maximize, This is an Electron instance method and should NOT be translated',
-win.unmaximize, This is an Electron instance method and should NOT be translated',
-win.isMaximized, This is an Electron instance method and should NOT be translated',
-win.minimize, This is an Electron instance method and should NOT be translated',
-win.restore, This is an Electron instance method and should NOT be translated',
-win.isMinimized, This is an Electron instance method and should NOT be translated',
-win.setFullScreen, This is an Electron instance method and should NOT be translated',
-win.isFullScreen, This is an Electron instance method and should NOT be translated',
-win.setSimpleFullScreen, This is an Electron instance method and should NOT be translated',
-win.isSimpleFullScreen, This is an Electron instance method and should NOT be translated',
-win.setAspectRatio, This is an Electron instance method and should NOT be translated',
-win.previewFile, This is an Electron instance method and should NOT be translated',
-win.closeFilePreview, This is an Electron instance method and should NOT be translated',
-win.setBounds, This is an Electron instance method and should NOT be translated',
-win.getBounds, This is an Electron instance method and should NOT be translated',
-win.setContentBounds, This is an Electron instance method and should NOT be translated',
-win.getContentBounds, This is an Electron instance method and should NOT be translated',
-win.setSize, This is an Electron instance method and should NOT be translated',
-win.getSize, This is an Electron instance method and should NOT be translated',
-win.setContentSize, This is an Electron instance method and should NOT be translated',
-win.getContentSize, This is an Electron instance method and should NOT be translated',
-win.setMinimumSize, This is an Electron instance method and should NOT be translated',
-win.getMinimumSize, This is an Electron instance method and should NOT be translated',
-win.setMaximumSize, This is an Electron instance method and should NOT be translated',
-win.getMaximumSize, This is an Electron instance method and should NOT be translated',
-win.setResizable, This is an Electron instance method and should NOT be translated',
-win.isResizable, This is an Electron instance method and should NOT be translated',
-win.setMovable, This is an Electron instance method and should NOT be translated',
-win.isMovable, This is an Electron instance method and should NOT be translated',
-win.setMinimizable, This is an Electron instance method and should NOT be translated',
-win.isMinimizable, This is an Electron instance method and should NOT be translated',
-win.setMaximizable, This is an Electron instance method and should NOT be translated',
-win.isMaximizable, This is an Electron instance method and should NOT be translated',
-win.setFullScreenable, This is an Electron instance method and should NOT be translated',
-win.isFullScreenable, This is an Electron instance method and should NOT be translated',
-win.setClosable, This is an Electron instance method and should NOT be translated',
-win.isClosable, This is an Electron instance method and should NOT be translated',
-win.setAlwaysOnTop, This is an Electron instance method and should NOT be translated',
-win.isAlwaysOnTop, This is an Electron instance method and should NOT be translated',
-win.center, This is an Electron instance method and should NOT be translated',
-win.setPosition, This is an Electron instance method and should NOT be translated',
-win.getPosition, This is an Electron instance method and should NOT be translated',
-win.setTitle, This is an Electron instance method and should NOT be translated',
-win.getTitle, This is an Electron instance method and should NOT be translated',
-win.setSheetOffset, This is an Electron instance method and should NOT be translated',
-win.flashFrame, This is an Electron instance method and should NOT be translated',
-win.setSkipTaskbar, This is an Electron instance method and should NOT be translated',
-win.setKiosk, This is an Electron instance method and should NOT be translated',
-win.isKiosk, This is an Electron instance method and should NOT be translated',
-win.getNativeWindowHandle, This is an Electron instance method and should NOT be translated',
-win.hookWindowMessage, This is an Electron instance method and should NOT be translated',
-win.isWindowMessageHooked, This is an Electron instance method and should NOT be translated',
-win.unhookWindowMessage, This is an Electron instance method and should NOT be translated',
-win.unhookAllWindowMessages, This is an Electron instance method and should NOT be translated',
-win.setRepresentedFilename, This is an Electron instance method and should NOT be translated',
-win.getRepresentedFilename, This is an Electron instance method and should NOT be translated',
-win.setDocumentEdited, This is an Electron instance method and should NOT be translated',
-win.isDocumentEdited, This is an Electron instance method and should NOT be translated',
-win.focusOnWebView, This is an Electron instance method and should NOT be translated',
-win.blurWebView, This is an Electron instance method and should NOT be translated',
-win.capturePage, This is an Electron instance method and should NOT be translated',
-win.loadURL, This is an Electron instance method and should NOT be translated',
-win.reload, This is an Electron instance method and should NOT be translated',
-win.setMenu, This is an Electron instance method and should NOT be translated',
-win.setProgressBar, This is an Electron instance method and should NOT be translated',
-win.setOverlayIcon, This is an Electron instance method and should NOT be translated',
-win.setHasShadow, This is an Electron instance method and should NOT be translated',
-win.hasShadow, This is an Electron instance method and should NOT be translated',
-win.setOpacity, This is an Electron instance method and should NOT be translated',
-win.getOpacity, This is an Electron instance method and should NOT be translated',
-win.setThumbarButtons, This is an Electron instance method and should NOT be translated',
-win.setThumbnailClip, This is an Electron instance method and should NOT be translated',
-win.setThumbnailToolTip, This is an Electron instance method and should NOT be translated',
-win.setAppDetails, This is an Electron instance method and should NOT be translated',
-win.showDefinitionForSelection, This is an Electron instance method and should NOT be translated',
-win.setIcon, This is an Electron instance method and should NOT be translated',
-win.setAutoHideMenuBar, This is an Electron instance method and should NOT be translated',
-win.isMenuBarAutoHide, This is an Electron instance method and should NOT be translated',
-win.setMenuBarVisibility, This is an Electron instance method and should NOT be translated',
-win.isMenuBarVisible, This is an Electron instance method and should NOT be translated',
-win.setVisibleOnAllWorkspaces, This is an Electron instance method and should NOT be translated',
-win.isVisibleOnAllWorkspaces, This is an Electron instance method and should NOT be translated',
-win.setIgnoreMouseEvents, This is an Electron instance method and should NOT be translated',
-win.setContentProtection, This is an Electron instance method and should NOT be translated',
-win.setFocusable, This is an Electron instance method and should NOT be translated',
-win.setParentWindow, This is an Electron instance method and should NOT be translated',
-win.getParentWindow, This is an Electron instance method and should NOT be translated',
-win.getChildWindows, This is an Electron instance method and should NOT be translated',
-win.setAutoHideCursor, This is an Electron instance method and should NOT be translated',
-win.selectPreviousTab, This is an Electron instance method and should NOT be translated',
-win.selectNextTab, This is an Electron instance method and should NOT be translated',
-win.mergeAllWindows, This is an Electron instance method and should NOT be translated',
-win.moveTabToNewWindow, This is an Electron instance method and should NOT be translated',
-win.toggleTabBar, This is an Electron instance method and should NOT be translated',
-win.addTabbedWindow, This is an Electron instance method and should NOT be translated',
-win.setVibrancy, This is an Electron instance method and should NOT be translated',
-win.setTouchBar, This is an Electron instance method and should NOT be translated',
-win.setBrowserView, This is an Electron instance method and should NOT be translated',
-win.getBrowserView, This is an Electron instance method and should NOT be translated',
-win.webContents, This is an Electron instance property and should NOT be translated',
-win.id, This is an Electron instance property and should NOT be translated',
-win.blur, This is an Electron instance method and should NOT be translated',
-win.close, This is an Electron instance method and should NOT be translated',
-win.eval, This is an Electron instance method and should NOT be translated',
-win.focus, This is an Electron instance method and should NOT be translated',
-win.print, This is an Electron instance method and should NOT be translated',
-win.postMessage, This is an Electron instance method and should NOT be translated',
-win.closed, This is an Electron instance property and should NOT be translated',
-request.setHeader, This is an Electron instance method and should NOT be translated',
-request.getHeader, This is an Electron instance method and should NOT be translated',
-request.removeHeader, This is an Electron instance method and should NOT be translated',
-request.write, This is an Electron instance method and should NOT be translated',
-request.end, This is an Electron instance method and should NOT be translated',
-request.abort, This is an Electron instance method and should NOT be translated',
-request.followRedirect, This is an Electron instance method and should NOT be translated',
-request.chunkedEncoding, This is an Electron instance property and should NOT be translated',
-cookies.get, This is an Electron instance method and should NOT be translated',
-cookies.set, This is an Electron instance method and should NOT be translated',
-cookies.remove, This is an Electron instance method and should NOT be translated',
-cookies.flushStore, This is an Electron instance method and should NOT be translated',
-debugger.attach, This is an Electron instance method and should NOT be translated',
-debugger.isAttached, This is an Electron instance method and should NOT be translated',
-debugger.detach, This is an Electron instance method and should NOT be translated',
-debugger.sendCommand, This is an Electron instance method and should NOT be translated',
-downloadItem.setSavePath, This is an Electron instance method and should NOT be translated',
-downloadItem.getSavePath, This is an Electron instance method and should NOT be translated',
-downloadItem.pause, This is an Electron instance method and should NOT be translated',
-downloadItem.isPaused, This is an Electron instance method and should NOT be translated',
-downloadItem.resume, This is an Electron instance method and should NOT be translated',
-downloadItem.canResume, This is an Electron instance method and should NOT be translated',
-downloadItem.cancel, This is an Electron instance method and should NOT be translated',
-downloadItem.getURL, This is an Electron instance method and should NOT be translated',
-downloadItem.getMimeType, This is an Electron instance method and should NOT be translated',
-downloadItem.hasUserGesture, This is an Electron instance method and should NOT be translated',
-downloadItem.getFilename, This is an Electron instance method and should NOT be translated',
-downloadItem.getTotalBytes, This is an Electron instance method and should NOT be translated',
-downloadItem.getReceivedBytes, This is an Electron instance method and should NOT be translated',
-downloadItem.getContentDisposition, This is an Electron instance method and should NOT be translated',
-downloadItem.getState, This is an Electron instance method and should NOT be translated',
-downloadItem.getURLChain, This is an Electron instance method and should NOT be translated',
-downloadItem.getLastModifiedTime, This is an Electron instance method and should NOT be translated',
-downloadItem.getETag, This is an Electron instance method and should NOT be translated',
-downloadItem.getStartTime, This is an Electron instance method and should NOT be translated',
-response.statusCode, This is an Electron instance property and should NOT be translated',
-response.statusMessage, This is an Electron instance property and should NOT be translated',
-response.headers, This is an Electron instance property and should NOT be translated',
-response.httpVersion, This is an Electron instance property and should NOT be translated',
-response.httpVersionMajor, This is an Electron instance property and should NOT be translated',
-response.httpVersionMinor, This is an Electron instance property and should NOT be translated',
-menu.popup, This is an Electron instance method and should NOT be translated',
-menu.closePopup, This is an Electron instance method and should NOT be translated',
-menu.append, This is an Electron instance method and should NOT be translated',
-menu.getMenuItemById, This is an Electron instance method and should NOT be translated',
-menu.insert, This is an Electron instance method and should NOT be translated',
-menu.items, This is an Electron instance property and should NOT be translated',
-menuItem.enabled, This is an Electron instance property and should NOT be translated',
-menuItem.visible, This is an Electron instance property and should NOT be translated',
-menuItem.checked, This is an Electron instance property and should NOT be translated',
-menuItem.label, This is an Electron instance property and should NOT be translated',
-menuItem.click, This is an Electron instance property and should NOT be translated',
-image.toPNG, This is an Electron instance method and should NOT be translated',
-image.toJPEG, This is an Electron instance method and should NOT be translated',
-image.toBitmap, This is an Electron instance method and should NOT be translated',
-image.toDataURL, This is an Electron instance method and should NOT be translated',
-image.getBitmap, This is an Electron instance method and should NOT be translated',
-image.getNativeHandle, This is an Electron instance method and should NOT be translated',
-image.isEmpty, This is an Electron instance method and should NOT be translated',
-image.getSize, This is an Electron instance method and should NOT be translated',
-image.setTemplateImage, This is an Electron instance method and should NOT be translated',
-image.isTemplateImage, This is an Electron instance method and should NOT be translated',
-image.crop, This is an Electron instance method and should NOT be translated',
-image.resize, This is an Electron instance method and should NOT be translated',
-image.getAspectRatio, This is an Electron instance method and should NOT be translated',
-image.addRepresentation, This is an Electron instance method and should NOT be translated',
-notification.show, This is an Electron instance method and should NOT be translated',
-notification.close, This is an Electron instance method and should NOT be translated',
-ses.getCacheSize, This is an Electron instance method and should NOT be translated',
-ses.clearCache, This is an Electron instance method and should NOT be translated',
-ses.clearStorageData, This is an Electron instance method and should NOT be translated',
-ses.flushStorageData, This is an Electron instance method and should NOT be translated',
-ses.setProxy, This is an Electron instance method and should NOT be translated',
-ses.resolveProxy, This is an Electron instance method and should NOT be translated',
-ses.setDownloadPath, This is an Electron instance method and should NOT be translated',
-ses.enableNetworkEmulation, This is an Electron instance method and should NOT be translated',
-ses.disableNetworkEmulation, This is an Electron instance method and should NOT be translated',
-ses.setCertificateVerifyProc, This is an Electron instance method and should NOT be translated',
-ses.setPermissionRequestHandler, This is an Electron instance method and should NOT be translated',
-ses.clearHostResolverCache, This is an Electron instance method and should NOT be translated',
-ses.allowNTLMCredentialsForDomains, This is an Electron instance method and should NOT be translated',
-ses.setUserAgent, This is an Electron instance method and should NOT be translated',
-ses.getUserAgent, This is an Electron instance method and should NOT be translated',
-ses.getBlobData, This is an Electron instance method and should NOT be translated',
-ses.createInterruptedDownload, This is an Electron instance method and should NOT be translated',
-ses.clearAuthCache, This is an Electron instance method and should NOT be translated',
-ses.cookies, This is an Electron instance property and should NOT be translated',
-ses.webRequest, This is an Electron instance property and should NOT be translated',
-ses.protocol, This is an Electron instance property and should NOT be translated',
-touchBar.escapeItem, This is an Electron instance property and should NOT be translated',
-tray.destroy, This is an Electron instance method and should NOT be translated',
-tray.setImage, This is an Electron instance method and should NOT be translated',
-tray.setPressedImage, This is an Electron instance method and should NOT be translated',
-tray.setToolTip, This is an Electron instance method and should NOT be translated',
-tray.setTitle, This is an Electron instance method and should NOT be translated',
-tray.setHighlightMode, This is an Electron instance method and should NOT be translated',
-tray.displayBalloon, This is an Electron instance method and should NOT be translated',
-tray.popUpContextMenu, This is an Electron instance method and should NOT be translated',
-tray.setContextMenu, This is an Electron instance method and should NOT be translated',
-tray.getBounds, This is an Electron instance method and should NOT be translated',
-tray.isDestroyed, This is an Electron instance method and should NOT be translated',
-contents.loadURL, This is an Electron instance method and should NOT be translated',
-contents.downloadURL, This is an Electron instance method and should NOT be translated',
-contents.getURL, This is an Electron instance method and should NOT be translated',
-contents.getTitle, This is an Electron instance method and should NOT be translated',
-contents.isDestroyed, This is an Electron instance method and should NOT be translated',
-contents.focus, This is an Electron instance method and should NOT be translated',
-contents.isFocused, This is an Electron instance method and should NOT be translated',
-contents.isLoading, This is an Electron instance method and should NOT be translated',
-contents.isLoadingMainFrame, This is an Electron instance method and should NOT be translated',
-contents.isWaitingForResponse, This is an Electron instance method and should NOT be translated',
-contents.stop, This is an Electron instance method and should NOT be translated',
-contents.reload, This is an Electron instance method and should NOT be translated',
-contents.reloadIgnoringCache, This is an Electron instance method and should NOT be translated',
-contents.canGoBack, This is an Electron instance method and should NOT be translated',
-contents.canGoForward, This is an Electron instance method and should NOT be translated',
-contents.canGoToOffset, This is an Electron instance method and should NOT be translated',
-contents.clearHistory, This is an Electron instance method and should NOT be translated',
-contents.goBack, This is an Electron instance method and should NOT be translated',
-contents.goForward, This is an Electron instance method and should NOT be translated',
-contents.goToIndex, This is an Electron instance method and should NOT be translated',
-contents.goToOffset, This is an Electron instance method and should NOT be translated',
-contents.isCrashed, This is an Electron instance method and should NOT be translated',
-contents.setUserAgent, This is an Electron instance method and should NOT be translated',
-contents.getUserAgent, This is an Electron instance method and should NOT be translated',
-contents.insertCSS, This is an Electron instance method and should NOT be translated',
-contents.executeJavaScript, This is an Electron instance method and should NOT be translated',
-contents.setIgnoreMenuShortcuts, This is an Electron instance method and should NOT be translated',
-contents.setAudioMuted, This is an Electron instance method and should NOT be translated',
-contents.isAudioMuted, This is an Electron instance method and should NOT be translated',
-contents.setZoomFactor, This is an Electron instance method and should NOT be translated',
-contents.getZoomFactor, This is an Electron instance method and should NOT be translated',
-contents.setZoomLevel, This is an Electron instance method and should NOT be translated',
-contents.getZoomLevel, This is an Electron instance method and should NOT be translated',
-contents.setZoomLevelLimits, This is an Electron instance method and should NOT be translated',
-contents.setVisualZoomLevelLimits, This is an Electron instance method and should NOT be translated',
-contents.setLayoutZoomLevelLimits, This is an Electron instance method and should NOT be translated',
-contents.undo, This is an Electron instance method and should NOT be translated',
-contents.redo, This is an Electron instance method and should NOT be translated',
-contents.cut, This is an Electron instance method and should NOT be translated',
-contents.copy, This is an Electron instance method and should NOT be translated',
-contents.copyImageAt, This is an Electron instance method and should NOT be translated',
-contents.paste, This is an Electron instance method and should NOT be translated',
-contents.pasteAndMatchStyle, This is an Electron instance method and should NOT be translated',
-contents.delete, This is an Electron instance method and should NOT be translated',
-contents.selectAll, This is an Electron instance method and should NOT be translated',
-contents.unselect, This is an Electron instance method and should NOT be translated',
-contents.replace, This is an Electron instance method and should NOT be translated',
-contents.replaceMisspelling, This is an Electron instance method and should NOT be translated',
-contents.insertText, This is an Electron instance method and should NOT be translated',
-contents.findInPage, This is an Electron instance method and should NOT be translated',
-contents.stopFindInPage, This is an Electron instance method and should NOT be translated',
-contents.capturePage, This is an Electron instance method and should NOT be translated',
-contents.hasServiceWorker, This is an Electron instance method and should NOT be translated',
-contents.unregisterServiceWorker, This is an Electron instance method and should NOT be translated',
-contents.getPrinters, This is an Electron instance method and should NOT be translated',
-contents.print, This is an Electron instance method and should NOT be translated',
-contents.printToPDF, This is an Electron instance method and should NOT be translated',
-contents.addWorkSpace, This is an Electron instance method and should NOT be translated',
-contents.removeWorkSpace, This is an Electron instance method and should NOT be translated',
-contents.openDevTools, This is an Electron instance method and should NOT be translated',
-contents.closeDevTools, This is an Electron instance method and should NOT be translated',
-contents.isDevToolsOpened, This is an Electron instance method and should NOT be translated',
-contents.isDevToolsFocused, This is an Electron instance method and should NOT be translated',
-contents.toggleDevTools, This is an Electron instance method and should NOT be translated',
-contents.inspectElement, This is an Electron instance method and should NOT be translated',
-contents.inspectServiceWorker, This is an Electron instance method and should NOT be translated',
-contents.send, This is an Electron instance method and should NOT be translated',
-contents.enableDeviceEmulation, This is an Electron instance method and should NOT be translated',
-contents.disableDeviceEmulation, This is an Electron instance method and should NOT be translated',
-contents.sendInputEvent, This is an Electron instance method and should NOT be translated',
-contents.beginFrameSubscription, This is an Electron instance method and should NOT be translated',
-contents.endFrameSubscription, This is an Electron instance method and should NOT be translated',
-contents.startDrag, This is an Electron instance method and should NOT be translated',
-contents.savePage, This is an Electron instance method and should NOT be translated',
-contents.showDefinitionForSelection, This is an Electron instance method and should NOT be translated',
-contents.setSize, This is an Electron instance method and should NOT be translated',
-contents.isOffscreen, This is an Electron instance method and should NOT be translated',
-contents.startPainting, This is an Electron instance method and should NOT be translated',
-contents.stopPainting, This is an Electron instance method and should NOT be translated',
-contents.isPainting, This is an Electron instance method and should NOT be translated',
-contents.setFrameRate, This is an Electron instance method and should NOT be translated',
-contents.getFrameRate, This is an Electron instance method and should NOT be translated',
-contents.invalidate, This is an Electron instance method and should NOT be translated',
-contents.getWebRTCIPHandlingPolicy, This is an Electron instance method and should NOT be translated',
-contents.setWebRTCIPHandlingPolicy, This is an Electron instance method and should NOT be translated',
-contents.getOSProcessId, This is an Electron instance method and should NOT be translated',
-contents.id, This is an Electron instance property and should NOT be translated',
-contents.session, This is an Electron instance property and should NOT be translated',
-contents.hostWebContents, This is an Electron instance property and should NOT be translated',
-contents.devToolsWebContents, This is an Electron instance property and should NOT be translated',
-contents.debugger, This is an Electron instance property and should NOT be translated',
-webRequest.onBeforeRequest, This is an Electron instance method and should NOT be translated',
-webRequest.onBeforeSendHeaders, This is an Electron instance method and should NOT be translated',
-webRequest.onSendHeaders, This is an Electron instance method and should NOT be translated',
-webRequest.onHeadersReceived, This is an Electron instance method and should NOT be translated',
-webRequest.onResponseStarted, This is an Electron instance method and should NOT be translated',
-webRequest.onBeforeRedirect, This is an Electron instance method and should NOT be translated',
-webRequest.onCompleted, This is an Electron instance method and should NOT be translated',
-webRequest.onErrorOccurred, This is an Electron instance method and should NOT be translated',
+app, This is an Electron API and should NOT be translated
+autoUpdater, This is an Electron API and should NOT be translated
+BluetoothDevice, This is an Electron API and should NOT be translated
+BrowserView, This is an Electron API and should NOT be translated
+BrowserWindow, This is an Electron API and should NOT be translated
+BrowserWindowProxy, This is an Electron API and should NOT be translated
+Certificate, This is an Electron API and should NOT be translated
+CertificatePrincipal, This is an Electron API and should NOT be translated
+ClientRequest, This is an Electron API and should NOT be translated
+clipboard, This is an Electron API and should NOT be translated
+contentTracing, This is an Electron API and should NOT be translated
+Cookie, This is an Electron API and should NOT be translated
+Cookies, This is an Electron API and should NOT be translated
+CPUUsage, This is an Electron API and should NOT be translated
+CrashReport, This is an Electron API and should NOT be translated
+crashReporter, This is an Electron API and should NOT be translated
+Debugger, This is an Electron API and should NOT be translated
+desktopCapturer, This is an Electron API and should NOT be translated
+DesktopCapturerSource, This is an Electron API and should NOT be translated
+dialog, This is an Electron API and should NOT be translated
+Display, This is an Electron API and should NOT be translated
+DownloadItem, This is an Electron API and should NOT be translated
+FileFilter, This is an Electron API and should NOT be translated
+globalShortcut, This is an Electron API and should NOT be translated
+GPUFeatureStatus, This is an Electron API and should NOT be translated
+IncomingMessage, This is an Electron API and should NOT be translated
+IOCounters, This is an Electron API and should NOT be translated
+ipcMain, This is an Electron API and should NOT be translated
+ipcRenderer, This is an Electron API and should NOT be translated
+JumpListCategory, This is an Electron API and should NOT be translated
+JumpListItem, This is an Electron API and should NOT be translated
+MemoryInfo, This is an Electron API and should NOT be translated
+MemoryUsageDetails, This is an Electron API and should NOT be translated
+Menu, This is an Electron API and should NOT be translated
+MenuItem, This is an Electron API and should NOT be translated
+MimeTypedBuffer, This is an Electron API and should NOT be translated
+nativeImage, This is an Electron API and should NOT be translated
+NativeImage, This is an Electron API and should NOT be translated
+net, This is an Electron API and should NOT be translated
+Notification, This is an Electron API and should NOT be translated
+NotificationAction, This is an Electron API and should NOT be translated
+Point, This is an Electron API and should NOT be translated
+powerMonitor, This is an Electron API and should NOT be translated
+powerSaveBlocker, This is an Electron API and should NOT be translated
+PrinterInfo, This is an Electron API and should NOT be translated
+process, This is an Electron API and should NOT be translated
+ProcessMetric, This is an Electron API and should NOT be translated
+protocol, This is an Electron API and should NOT be translated
+Rectangle, This is an Electron API and should NOT be translated
+remote, This is an Electron API and should NOT be translated
+RemoveClientCertificate, This is an Electron API and should NOT be translated
+RemovePassword, This is an Electron API and should NOT be translated
+screen, This is an Electron API and should NOT be translated
+ScrubberItem, This is an Electron API and should NOT be translated
+SegmentedControlSegment, This is an Electron API and should NOT be translated
+session, This is an Electron API and should NOT be translated
+Session, This is an Electron API and should NOT be translated
+shell, This is an Electron API and should NOT be translated
+ShortcutDetails, This is an Electron API and should NOT be translated
+Size, This is an Electron API and should NOT be translated
+StreamProtocolResponse, This is an Electron API and should NOT be translated
+systemPreferences, This is an Electron API and should NOT be translated
+Task, This is an Electron API and should NOT be translated
+ThumbarButton, This is an Electron API and should NOT be translated
+TouchBar, This is an Electron API and should NOT be translated
+Tray, This is an Electron API and should NOT be translated
+UploadBlob, This is an Electron API and should NOT be translated
+UploadData, This is an Electron API and should NOT be translated
+UploadFile, This is an Electron API and should NOT be translated
+UploadFileSystem, This is an Electron API and should NOT be translated
+UploadRawData, This is an Electron API and should NOT be translated
+webContents, This is an Electron API and should NOT be translated
+WebContents, This is an Electron API and should NOT be translated
+webFrame, This is an Electron API and should NOT be translated
+WebRequest, This is an Electron API and should NOT be translated
+webviewTag, This is an Electron API and should NOT be translated
+view.setAutoResize, This is an Electron instance method and should NOT be translated
+view.setBounds, This is an Electron instance method and should NOT be translated
+view.setBackgroundColor, This is an Electron instance method and should NOT be translated
+view.webContents, This is an Electron instance property and should NOT be translated
+view.id, This is an Electron instance property and should NOT be translated
+win.destroy, This is an Electron instance method and should NOT be translated
+win.close, This is an Electron instance method and should NOT be translated
+win.focus, This is an Electron instance method and should NOT be translated
+win.blur, This is an Electron instance method and should NOT be translated
+win.isFocused, This is an Electron instance method and should NOT be translated
+win.isDestroyed, This is an Electron instance method and should NOT be translated
+win.show, This is an Electron instance method and should NOT be translated
+win.showInactive, This is an Electron instance method and should NOT be translated
+win.hide, This is an Electron instance method and should NOT be translated
+win.isVisible, This is an Electron instance method and should NOT be translated
+win.isModal, This is an Electron instance method and should NOT be translated
+win.maximize, This is an Electron instance method and should NOT be translated
+win.unmaximize, This is an Electron instance method and should NOT be translated
+win.isMaximized, This is an Electron instance method and should NOT be translated
+win.minimize, This is an Electron instance method and should NOT be translated
+win.restore, This is an Electron instance method and should NOT be translated
+win.isMinimized, This is an Electron instance method and should NOT be translated
+win.setFullScreen, This is an Electron instance method and should NOT be translated
+win.isFullScreen, This is an Electron instance method and should NOT be translated
+win.setSimpleFullScreen, This is an Electron instance method and should NOT be translated
+win.isSimpleFullScreen, This is an Electron instance method and should NOT be translated
+win.setAspectRatio, This is an Electron instance method and should NOT be translated
+win.previewFile, This is an Electron instance method and should NOT be translated
+win.closeFilePreview, This is an Electron instance method and should NOT be translated
+win.setBounds, This is an Electron instance method and should NOT be translated
+win.getBounds, This is an Electron instance method and should NOT be translated
+win.setContentBounds, This is an Electron instance method and should NOT be translated
+win.getContentBounds, This is an Electron instance method and should NOT be translated
+win.setSize, This is an Electron instance method and should NOT be translated
+win.getSize, This is an Electron instance method and should NOT be translated
+win.setContentSize, This is an Electron instance method and should NOT be translated
+win.getContentSize, This is an Electron instance method and should NOT be translated
+win.setMinimumSize, This is an Electron instance method and should NOT be translated
+win.getMinimumSize, This is an Electron instance method and should NOT be translated
+win.setMaximumSize, This is an Electron instance method and should NOT be translated
+win.getMaximumSize, This is an Electron instance method and should NOT be translated
+win.setResizable, This is an Electron instance method and should NOT be translated
+win.isResizable, This is an Electron instance method and should NOT be translated
+win.setMovable, This is an Electron instance method and should NOT be translated
+win.isMovable, This is an Electron instance method and should NOT be translated
+win.setMinimizable, This is an Electron instance method and should NOT be translated
+win.isMinimizable, This is an Electron instance method and should NOT be translated
+win.setMaximizable, This is an Electron instance method and should NOT be translated
+win.isMaximizable, This is an Electron instance method and should NOT be translated
+win.setFullScreenable, This is an Electron instance method and should NOT be translated
+win.isFullScreenable, This is an Electron instance method and should NOT be translated
+win.setClosable, This is an Electron instance method and should NOT be translated
+win.isClosable, This is an Electron instance method and should NOT be translated
+win.setAlwaysOnTop, This is an Electron instance method and should NOT be translated
+win.isAlwaysOnTop, This is an Electron instance method and should NOT be translated
+win.center, This is an Electron instance method and should NOT be translated
+win.setPosition, This is an Electron instance method and should NOT be translated
+win.getPosition, This is an Electron instance method and should NOT be translated
+win.setTitle, This is an Electron instance method and should NOT be translated
+win.getTitle, This is an Electron instance method and should NOT be translated
+win.setSheetOffset, This is an Electron instance method and should NOT be translated
+win.flashFrame, This is an Electron instance method and should NOT be translated
+win.setSkipTaskbar, This is an Electron instance method and should NOT be translated
+win.setKiosk, This is an Electron instance method and should NOT be translated
+win.isKiosk, This is an Electron instance method and should NOT be translated
+win.getNativeWindowHandle, This is an Electron instance method and should NOT be translated
+win.hookWindowMessage, This is an Electron instance method and should NOT be translated
+win.isWindowMessageHooked, This is an Electron instance method and should NOT be translated
+win.unhookWindowMessage, This is an Electron instance method and should NOT be translated
+win.unhookAllWindowMessages, This is an Electron instance method and should NOT be translated
+win.setRepresentedFilename, This is an Electron instance method and should NOT be translated
+win.getRepresentedFilename, This is an Electron instance method and should NOT be translated
+win.setDocumentEdited, This is an Electron instance method and should NOT be translated
+win.isDocumentEdited, This is an Electron instance method and should NOT be translated
+win.focusOnWebView, This is an Electron instance method and should NOT be translated
+win.blurWebView, This is an Electron instance method and should NOT be translated
+win.capturePage, This is an Electron instance method and should NOT be translated
+win.loadURL, This is an Electron instance method and should NOT be translated
+win.reload, This is an Electron instance method and should NOT be translated
+win.setMenu, This is an Electron instance method and should NOT be translated
+win.setProgressBar, This is an Electron instance method and should NOT be translated
+win.setOverlayIcon, This is an Electron instance method and should NOT be translated
+win.setHasShadow, This is an Electron instance method and should NOT be translated
+win.hasShadow, This is an Electron instance method and should NOT be translated
+win.setOpacity, This is an Electron instance method and should NOT be translated
+win.getOpacity, This is an Electron instance method and should NOT be translated
+win.setThumbarButtons, This is an Electron instance method and should NOT be translated
+win.setThumbnailClip, This is an Electron instance method and should NOT be translated
+win.setThumbnailToolTip, This is an Electron instance method and should NOT be translated
+win.setAppDetails, This is an Electron instance method and should NOT be translated
+win.showDefinitionForSelection, This is an Electron instance method and should NOT be translated
+win.setIcon, This is an Electron instance method and should NOT be translated
+win.setAutoHideMenuBar, This is an Electron instance method and should NOT be translated
+win.isMenuBarAutoHide, This is an Electron instance method and should NOT be translated
+win.setMenuBarVisibility, This is an Electron instance method and should NOT be translated
+win.isMenuBarVisible, This is an Electron instance method and should NOT be translated
+win.setVisibleOnAllWorkspaces, This is an Electron instance method and should NOT be translated
+win.isVisibleOnAllWorkspaces, This is an Electron instance method and should NOT be translated
+win.setIgnoreMouseEvents, This is an Electron instance method and should NOT be translated
+win.setContentProtection, This is an Electron instance method and should NOT be translated
+win.setFocusable, This is an Electron instance method and should NOT be translated
+win.setParentWindow, This is an Electron instance method and should NOT be translated
+win.getParentWindow, This is an Electron instance method and should NOT be translated
+win.getChildWindows, This is an Electron instance method and should NOT be translated
+win.setAutoHideCursor, This is an Electron instance method and should NOT be translated
+win.selectPreviousTab, This is an Electron instance method and should NOT be translated
+win.selectNextTab, This is an Electron instance method and should NOT be translated
+win.mergeAllWindows, This is an Electron instance method and should NOT be translated
+win.moveTabToNewWindow, This is an Electron instance method and should NOT be translated
+win.toggleTabBar, This is an Electron instance method and should NOT be translated
+win.addTabbedWindow, This is an Electron instance method and should NOT be translated
+win.setVibrancy, This is an Electron instance method and should NOT be translated
+win.setTouchBar, This is an Electron instance method and should NOT be translated
+win.setBrowserView, This is an Electron instance method and should NOT be translated
+win.getBrowserView, This is an Electron instance method and should NOT be translated
+win.webContents, This is an Electron instance property and should NOT be translated
+win.id, This is an Electron instance property and should NOT be translated
+win.blur, This is an Electron instance method and should NOT be translated
+win.close, This is an Electron instance method and should NOT be translated
+win.eval, This is an Electron instance method and should NOT be translated
+win.focus, This is an Electron instance method and should NOT be translated
+win.print, This is an Electron instance method and should NOT be translated
+win.postMessage, This is an Electron instance method and should NOT be translated
+win.closed, This is an Electron instance property and should NOT be translated
+request.setHeader, This is an Electron instance method and should NOT be translated
+request.getHeader, This is an Electron instance method and should NOT be translated
+request.removeHeader, This is an Electron instance method and should NOT be translated
+request.write, This is an Electron instance method and should NOT be translated
+request.end, This is an Electron instance method and should NOT be translated
+request.abort, This is an Electron instance method and should NOT be translated
+request.followRedirect, This is an Electron instance method and should NOT be translated
+request.chunkedEncoding, This is an Electron instance property and should NOT be translated
+cookies.get, This is an Electron instance method and should NOT be translated
+cookies.set, This is an Electron instance method and should NOT be translated
+cookies.remove, This is an Electron instance method and should NOT be translated
+cookies.flushStore, This is an Electron instance method and should NOT be translated
+debugger.attach, This is an Electron instance method and should NOT be translated
+debugger.isAttached, This is an Electron instance method and should NOT be translated
+debugger.detach, This is an Electron instance method and should NOT be translated
+debugger.sendCommand, This is an Electron instance method and should NOT be translated
+downloadItem.setSavePath, This is an Electron instance method and should NOT be translated
+downloadItem.getSavePath, This is an Electron instance method and should NOT be translated
+downloadItem.pause, This is an Electron instance method and should NOT be translated
+downloadItem.isPaused, This is an Electron instance method and should NOT be translated
+downloadItem.resume, This is an Electron instance method and should NOT be translated
+downloadItem.canResume, This is an Electron instance method and should NOT be translated
+downloadItem.cancel, This is an Electron instance method and should NOT be translated
+downloadItem.getURL, This is an Electron instance method and should NOT be translated
+downloadItem.getMimeType, This is an Electron instance method and should NOT be translated
+downloadItem.hasUserGesture, This is an Electron instance method and should NOT be translated
+downloadItem.getFilename, This is an Electron instance method and should NOT be translated
+downloadItem.getTotalBytes, This is an Electron instance method and should NOT be translated
+downloadItem.getReceivedBytes, This is an Electron instance method and should NOT be translated
+downloadItem.getContentDisposition, This is an Electron instance method and should NOT be translated
+downloadItem.getState, This is an Electron instance method and should NOT be translated
+downloadItem.getURLChain, This is an Electron instance method and should NOT be translated
+downloadItem.getLastModifiedTime, This is an Electron instance method and should NOT be translated
+downloadItem.getETag, This is an Electron instance method and should NOT be translated
+downloadItem.getStartTime, This is an Electron instance method and should NOT be translated
+response.statusCode, This is an Electron instance property and should NOT be translated
+response.statusMessage, This is an Electron instance property and should NOT be translated
+response.headers, This is an Electron instance property and should NOT be translated
+response.httpVersion, This is an Electron instance property and should NOT be translated
+response.httpVersionMajor, This is an Electron instance property and should NOT be translated
+response.httpVersionMinor, This is an Electron instance property and should NOT be translated
+menu.popup, This is an Electron instance method and should NOT be translated
+menu.closePopup, This is an Electron instance method and should NOT be translated
+menu.append, This is an Electron instance method and should NOT be translated
+menu.getMenuItemById, This is an Electron instance method and should NOT be translated
+menu.insert, This is an Electron instance method and should NOT be translated
+menu.items, This is an Electron instance property and should NOT be translated
+menuItem.enabled, This is an Electron instance property and should NOT be translated
+menuItem.visible, This is an Electron instance property and should NOT be translated
+menuItem.checked, This is an Electron instance property and should NOT be translated
+menuItem.label, This is an Electron instance property and should NOT be translated
+menuItem.click, This is an Electron instance property and should NOT be translated
+image.toPNG, This is an Electron instance method and should NOT be translated
+image.toJPEG, This is an Electron instance method and should NOT be translated
+image.toBitmap, This is an Electron instance method and should NOT be translated
+image.toDataURL, This is an Electron instance method and should NOT be translated
+image.getBitmap, This is an Electron instance method and should NOT be translated
+image.getNativeHandle, This is an Electron instance method and should NOT be translated
+image.isEmpty, This is an Electron instance method and should NOT be translated
+image.getSize, This is an Electron instance method and should NOT be translated
+image.setTemplateImage, This is an Electron instance method and should NOT be translated
+image.isTemplateImage, This is an Electron instance method and should NOT be translated
+image.crop, This is an Electron instance method and should NOT be translated
+image.resize, This is an Electron instance method and should NOT be translated
+image.getAspectRatio, This is an Electron instance method and should NOT be translated
+image.addRepresentation, This is an Electron instance method and should NOT be translated
+notification.show, This is an Electron instance method and should NOT be translated
+notification.close, This is an Electron instance method and should NOT be translated
+ses.getCacheSize, This is an Electron instance method and should NOT be translated
+ses.clearCache, This is an Electron instance method and should NOT be translated
+ses.clearStorageData, This is an Electron instance method and should NOT be translated
+ses.flushStorageData, This is an Electron instance method and should NOT be translated
+ses.setProxy, This is an Electron instance method and should NOT be translated
+ses.resolveProxy, This is an Electron instance method and should NOT be translated
+ses.setDownloadPath, This is an Electron instance method and should NOT be translated
+ses.enableNetworkEmulation, This is an Electron instance method and should NOT be translated
+ses.disableNetworkEmulation, This is an Electron instance method and should NOT be translated
+ses.setCertificateVerifyProc, This is an Electron instance method and should NOT be translated
+ses.setPermissionRequestHandler, This is an Electron instance method and should NOT be translated
+ses.clearHostResolverCache, This is an Electron instance method and should NOT be translated
+ses.allowNTLMCredentialsForDomains, This is an Electron instance method and should NOT be translated
+ses.setUserAgent, This is an Electron instance method and should NOT be translated
+ses.getUserAgent, This is an Electron instance method and should NOT be translated
+ses.getBlobData, This is an Electron instance method and should NOT be translated
+ses.createInterruptedDownload, This is an Electron instance method and should NOT be translated
+ses.clearAuthCache, This is an Electron instance method and should NOT be translated
+ses.cookies, This is an Electron instance property and should NOT be translated
+ses.webRequest, This is an Electron instance property and should NOT be translated
+ses.protocol, This is an Electron instance property and should NOT be translated
+touchBar.escapeItem, This is an Electron instance property and should NOT be translated
+tray.destroy, This is an Electron instance method and should NOT be translated
+tray.setImage, This is an Electron instance method and should NOT be translated
+tray.setPressedImage, This is an Electron instance method and should NOT be translated
+tray.setToolTip, This is an Electron instance method and should NOT be translated
+tray.setTitle, This is an Electron instance method and should NOT be translated
+tray.setHighlightMode, This is an Electron instance method and should NOT be translated
+tray.displayBalloon, This is an Electron instance method and should NOT be translated
+tray.popUpContextMenu, This is an Electron instance method and should NOT be translated
+tray.setContextMenu, This is an Electron instance method and should NOT be translated
+tray.getBounds, This is an Electron instance method and should NOT be translated
+tray.isDestroyed, This is an Electron instance method and should NOT be translated
+contents.loadURL, This is an Electron instance method and should NOT be translated
+contents.downloadURL, This is an Electron instance method and should NOT be translated
+contents.getURL, This is an Electron instance method and should NOT be translated
+contents.getTitle, This is an Electron instance method and should NOT be translated
+contents.isDestroyed, This is an Electron instance method and should NOT be translated
+contents.focus, This is an Electron instance method and should NOT be translated
+contents.isFocused, This is an Electron instance method and should NOT be translated
+contents.isLoading, This is an Electron instance method and should NOT be translated
+contents.isLoadingMainFrame, This is an Electron instance method and should NOT be translated
+contents.isWaitingForResponse, This is an Electron instance method and should NOT be translated
+contents.stop, This is an Electron instance method and should NOT be translated
+contents.reload, This is an Electron instance method and should NOT be translated
+contents.reloadIgnoringCache, This is an Electron instance method and should NOT be translated
+contents.canGoBack, This is an Electron instance method and should NOT be translated
+contents.canGoForward, This is an Electron instance method and should NOT be translated
+contents.canGoToOffset, This is an Electron instance method and should NOT be translated
+contents.clearHistory, This is an Electron instance method and should NOT be translated
+contents.goBack, This is an Electron instance method and should NOT be translated
+contents.goForward, This is an Electron instance method and should NOT be translated
+contents.goToIndex, This is an Electron instance method and should NOT be translated
+contents.goToOffset, This is an Electron instance method and should NOT be translated
+contents.isCrashed, This is an Electron instance method and should NOT be translated
+contents.setUserAgent, This is an Electron instance method and should NOT be translated
+contents.getUserAgent, This is an Electron instance method and should NOT be translated
+contents.insertCSS, This is an Electron instance method and should NOT be translated
+contents.executeJavaScript, This is an Electron instance method and should NOT be translated
+contents.setIgnoreMenuShortcuts, This is an Electron instance method and should NOT be translated
+contents.setAudioMuted, This is an Electron instance method and should NOT be translated
+contents.isAudioMuted, This is an Electron instance method and should NOT be translated
+contents.setZoomFactor, This is an Electron instance method and should NOT be translated
+contents.getZoomFactor, This is an Electron instance method and should NOT be translated
+contents.setZoomLevel, This is an Electron instance method and should NOT be translated
+contents.getZoomLevel, This is an Electron instance method and should NOT be translated
+contents.setZoomLevelLimits, This is an Electron instance method and should NOT be translated
+contents.setVisualZoomLevelLimits, This is an Electron instance method and should NOT be translated
+contents.setLayoutZoomLevelLimits, This is an Electron instance method and should NOT be translated
+contents.undo, This is an Electron instance method and should NOT be translated
+contents.redo, This is an Electron instance method and should NOT be translated
+contents.cut, This is an Electron instance method and should NOT be translated
+contents.copy, This is an Electron instance method and should NOT be translated
+contents.copyImageAt, This is an Electron instance method and should NOT be translated
+contents.paste, This is an Electron instance method and should NOT be translated
+contents.pasteAndMatchStyle, This is an Electron instance method and should NOT be translated
+contents.delete, This is an Electron instance method and should NOT be translated
+contents.selectAll, This is an Electron instance method and should NOT be translated
+contents.unselect, This is an Electron instance method and should NOT be translated
+contents.replace, This is an Electron instance method and should NOT be translated
+contents.replaceMisspelling, This is an Electron instance method and should NOT be translated
+contents.insertText, This is an Electron instance method and should NOT be translated
+contents.findInPage, This is an Electron instance method and should NOT be translated
+contents.stopFindInPage, This is an Electron instance method and should NOT be translated
+contents.capturePage, This is an Electron instance method and should NOT be translated
+contents.hasServiceWorker, This is an Electron instance method and should NOT be translated
+contents.unregisterServiceWorker, This is an Electron instance method and should NOT be translated
+contents.getPrinters, This is an Electron instance method and should NOT be translated
+contents.print, This is an Electron instance method and should NOT be translated
+contents.printToPDF, This is an Electron instance method and should NOT be translated
+contents.addWorkSpace, This is an Electron instance method and should NOT be translated
+contents.removeWorkSpace, This is an Electron instance method and should NOT be translated
+contents.openDevTools, This is an Electron instance method and should NOT be translated
+contents.closeDevTools, This is an Electron instance method and should NOT be translated
+contents.isDevToolsOpened, This is an Electron instance method and should NOT be translated
+contents.isDevToolsFocused, This is an Electron instance method and should NOT be translated
+contents.toggleDevTools, This is an Electron instance method and should NOT be translated
+contents.inspectElement, This is an Electron instance method and should NOT be translated
+contents.inspectServiceWorker, This is an Electron instance method and should NOT be translated
+contents.send, This is an Electron instance method and should NOT be translated
+contents.enableDeviceEmulation, This is an Electron instance method and should NOT be translated
+contents.disableDeviceEmulation, This is an Electron instance method and should NOT be translated
+contents.sendInputEvent, This is an Electron instance method and should NOT be translated
+contents.beginFrameSubscription, This is an Electron instance method and should NOT be translated
+contents.endFrameSubscription, This is an Electron instance method and should NOT be translated
+contents.startDrag, This is an Electron instance method and should NOT be translated
+contents.savePage, This is an Electron instance method and should NOT be translated
+contents.showDefinitionForSelection, This is an Electron instance method and should NOT be translated
+contents.setSize, This is an Electron instance method and should NOT be translated
+contents.isOffscreen, This is an Electron instance method and should NOT be translated
+contents.startPainting, This is an Electron instance method and should NOT be translated
+contents.stopPainting, This is an Electron instance method and should NOT be translated
+contents.isPainting, This is an Electron instance method and should NOT be translated
+contents.setFrameRate, This is an Electron instance method and should NOT be translated
+contents.getFrameRate, This is an Electron instance method and should NOT be translated
+contents.invalidate, This is an Electron instance method and should NOT be translated
+contents.getWebRTCIPHandlingPolicy, This is an Electron instance method and should NOT be translated
+contents.setWebRTCIPHandlingPolicy, This is an Electron instance method and should NOT be translated
+contents.getOSProcessId, This is an Electron instance method and should NOT be translated
+contents.id, This is an Electron instance property and should NOT be translated
+contents.session, This is an Electron instance property and should NOT be translated
+contents.hostWebContents, This is an Electron instance property and should NOT be translated
+contents.devToolsWebContents, This is an Electron instance property and should NOT be translated
+contents.debugger, This is an Electron instance property and should NOT be translated
+webRequest.onBeforeRequest, This is an Electron instance method and should NOT be translated
+webRequest.onBeforeSendHeaders, This is an Electron instance method and should NOT be translated
+webRequest.onSendHeaders, This is an Electron instance method and should NOT be translated
+webRequest.onHeadersReceived, This is an Electron instance method and should NOT be translated
+webRequest.onResponseStarted, This is an Electron instance method and should NOT be translated
+webRequest.onBeforeRedirect, This is an Electron instance method and should NOT be translated
+webRequest.onCompleted, This is an Electron instance method and should NOT be translated
+webRequest.onErrorOccurred, This is an Electron instance method and should NOT be translated
