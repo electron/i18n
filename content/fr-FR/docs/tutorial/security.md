@@ -20,7 +20,7 @@ Nous estimons que notre système actuel de mise à jour de Chromium présente un
 
 Il existe un problème de sécurité chaque fois que vous recevez le code d’une destination distante et l’exécutez localement. A titre d'exemple, considérons un site Web distant affiché à l'intérieur d'une fenêtre de navigateur [`BrowserWindow`](../api/browser-window.md). Si un attaquant parvient d'une manière ou d'une autre à modifier ce contenu (soit en attaquant directement la source, soit en restant assis entre votre application et la destination réelle), il pourra exécuter du code natif sur la machine de l'utilisateur.
 
-> :warning: en aucune circonstance vous devriez charger et exécuter du code distant avec l'intégration de Node.js activé. Utilisez plutôt les fichiers locaux (empaquetés avec votre application) pour exécuter le code de Node. Pour afficher du contenu distant, utilisez la balise [`webview`](../api/web-view) et assurez-vous de désactiver le `nodeIntegration`.
+> :warning: en aucune circonstance vous devriez charger et exécuter du code distant avec l'intégration de Node.js activé. Utilisez plutôt les fichiers locaux (empaquetés avec votre application) pour exécuter le code de Node. To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
 
 ## Avertissements de sécurité d'Electron
 
@@ -77,7 +77,7 @@ browserWindow.loadURL('https://my-website.com')
 
 ## 2) Désactiver l'intégration de Node.js dans tous les renderers affichant des contenus distants
 
-Il est crucial que vous désactiviez l'intégration de Node.js dans tous les renderers ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) qui téléchargent des contenus distants. Le but est de limiter les permissions accordées aux contenus distants, ce qui complique drastiquement la tâche pour un attaquant qui souhaiterait nuire à vos utilisateurs (si jamais cet attaquant réussissait à exécuter du javascript sur votre site).
+It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) that loads remote content. Le but est de limiter les permissions accordées aux contenus distants, ce qui complique drastiquement la tâche pour un attaquant qui souhaiterait nuire à vos utilisateurs (si jamais cet attaquant réussissait à exécuter du javascript sur votre site).
 
 Une fois cela fait, vous pouvez accorder des permissions supplémentaires à des hôtes spécifiques. Par exemple, si vous ouvrez une BrowserWindow ayant `https://my-website.com/" pour cible, vous pouvez ne conférer à ce site que les capacités dont il a besoin pour fonctionner.
 
@@ -208,7 +208,7 @@ session
 
 *Cette recommandation est appliquée par défaut sur Electron*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) disables crucial security features.
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) disables crucial security features.
 
 Do not disable `webSecurity` in production applications.
 
@@ -368,11 +368,11 @@ const mainWindow = new BrowserWindow()
 
 *Cette recommandation est appliquée par défaut sur Electron*
 
-If you are using [`WebViews`](web-view), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
+If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
 ### Pourquoi ?
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](browser-window) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](../api/browser-window.md) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
 
 ### Comment ?
 
@@ -388,17 +388,17 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
 
-It is a good idea to control the creation of new [`WebViews`](web-view) from the main process and to verify that their webPreferences do not disable security features.
+It is a good idea to control the creation of new [`WebViews`](../api/web-view.md) from the main process and to verify that their webPreferences do not disable security features.
 
 ### Pourquoi ?
 
 Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](web-view) tags.
+Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](../api/web-view.md) tags.
 
 ### Comment ?
 
-Before a [`<WebView>`](web-view) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
+Before a [`<WebView>`](../api/web-view.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
 
 ```js
 app.on('web-contents-created', (event, contents) => {
