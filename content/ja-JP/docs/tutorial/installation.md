@@ -1,14 +1,12 @@
 # インストール作業
 
-> ElectronのインストールのためのTips
-
-Electronのビルド済みバイナリを使用するためには、[`npm`](https://docs.npmjs.com/)を使用してください。 Electronをアプリでの開発用依存ファイルとして追加するのにおすすめの方法は：
+To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## グローバルインストール
 
@@ -93,13 +91,13 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-上記のエラーが継続する場合は、[unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm)フラグをtrueにする必要があるかもしれません。
+If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-速度の遅いネットワークでは、`--verbose`を指定してダウンロード進捗を表示することでなにか役に立つ情報が得られるかもしれません。
+On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
 
 ```sh
 npm install --verbose electron
