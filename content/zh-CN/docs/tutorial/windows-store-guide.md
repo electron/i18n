@@ -87,7 +87,7 @@ electron-windows-store `
 
 要生成 AppX 包，`electron-windows-store` CLI 使用的模板应该适用于大多数 Electron 应用程序。 但是，如果您使用自定义安装程序，或者您遇到生成的包的任何问题，您可以尝试使用 Windows 容器编译创建包 - 在该模式下，CLI 将在空 Windows 容器中安装和运行应用程序，以确定应用程序正在对操作系统进行哪些修改。
 
-在第一次运行 CLI 之前，您必须安装 “Windows Desktop App Converter” 。 这将需要几分钟，但不要担心 - 你只需要这样做一次。 Download and Desktop App Converter from [here](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). 您将得到两个文件： `DesktopAppConverter.zip` 和 `BaseImage-14316.wim`.
+在第一次运行 CLI 之前，您必须安装 “Windows Desktop App Converter” 。 这将需要几分钟，但不要担心 - 你只需要这样做一次。 从[这里](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter)下载 Desktop App Converter 您将得到两个文件： `DesktopAppConverter.zip` 和 `BaseImage-14316.wim`.
 
 1. 解压 `DesktopAppConverter.zip`. 打开提权的 PowerShell (用"以管理员权限运行"打开, 确保您的系统执行策略允许我们通过调用 `Set-ExecutionPolicy bypass` 来运行我们想要运行的一切).
 2. 然后, 通过调用 `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`, 运行 Desktop App Converter 安装，并传递 Windows 基本映像的位置 (下载的 `BaseImage-14316.wim`).
