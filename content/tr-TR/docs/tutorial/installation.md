@@ -12,7 +12,7 @@ Uygulamalarınızdaki Electron sürümlerini nasıl yöneteceğinizle ilgili bil
 
 ## Genel kurulum
 
-`electron` komutunu genel `$PATH` 'nıza da yükleyebilirsiniz:
+`electron` komutunu global olarak `$PATH`'inize de yükleyebilirsiniz:
 
 ```sh
 npm install electron -g
@@ -36,7 +36,7 @@ npm install --platform=win32 electron
 
 Bir vekil sunucu kullanmaya ihtiyacınız varsa [ bu çevre değişkenleri ayarlayabilirsiniz](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Custom Mirrors and Caches
+## Özel Aynalar ve Önbellekler
 
 Yükleme sırasında, `electron` modülü platformunuz için önceden hazırlanmış Electron binary'lerini indirmek için [`electron-download`](https://github.com/electron-userland/electron-download)'u çağıracaktır. Bu aynı zamanda GitHub'ın sürüm indirme sayfasına başvurarak da yapılabilir.(`https://github.com/electron/electron/releases/tag/v$VERSION`, `$VERSION` sürümü Elektron'un doğru sürümüdür).
 
