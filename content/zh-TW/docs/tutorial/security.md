@@ -32,17 +32,17 @@
 
 不是說這樣就能金槍不入，但至少你應該依照下列步驟來提升你應用程式的安全性。
 
-1. [Only load secure content](#only-load-secure-content)
+1. [只載入安全的內容](#only-load-secure-content)
 2. [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
 3. [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
 4. [在所有會載入遠端內容的 Session 中使用 `ses.setPermissionRequestHandler()`](#handle-session-permission-requests-from-remote-content)
-5. [Do not disable `webSecurity`](#do-not-disable-websecurity)
+5. [不要停用 `webSecurity`](#do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
 7. [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
-8. [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
+8. [不要將 `allowRunningInsecureContent` 設為 `true`](#do-not-set-allowRunningInsecureContent-to-true)
 9. [Do not enable experimental features](#do-not-enable-experimental-features)
-10. [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
-11. [WebViews: 不要用 `allowpopups`。](#do-not-use-allowpopups)
+10. [不要用 `blinkFeatures`](#do-not-use-blinkfeatures)
+11. [WebViews: 不要用 `allowpopups`](#do-not-use-allowpopups)
 12. [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
 
 ## 1) 只載入安全的內容
@@ -202,7 +202,7 @@ session
   })
 ```
 
-## 5) 不用停用 WebSecurity
+## 5) 不要停用 WebSecurity
 
 *建議值就是 Electron 的預設值*
 
