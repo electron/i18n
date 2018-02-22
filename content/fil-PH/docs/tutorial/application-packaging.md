@@ -83,9 +83,9 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Itinuturing ang "Archive" ng `asar` bilang Normal na Payl
+### Itinuturing ang Archive ng `asar` bilang Normal na File
 
-Para sa ibang mga kaso tulad ng pagkumpirma sa "archive's checksum" ng `asar`, kinakailangan nating basahin ang nilalaman ng "archive" ng `asar` bilang payl. Para sa layuning ito, maaaring gumamit ng "built-in" na modyul ng `original-fs` na nagbibigay ng orihinal na `fs` APIs nang hindi kasama ang suporta ng `asar`:
+Para sa ibang mga kaso tulad ng pagkumpirma sa checksum ng archive ng `asar`, kinakailangan nating basahin ang nilalaman ng archive ng `asar` bilang isang file. Para sa layuning ito, maaaring gumamit ng built-in na modyul ng `original-fs` na nagbibigay ng orihinal na `fs` na mga API nang hindi kasama ang suporta ng `asar`:
 
 ```javascript
 const originalFs = require('original-fs')
@@ -100,23 +100,23 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Mga Limitasyon ng Node API
+## Mga Limitasyon ng Node na API
 
-Kahit pa ating subukan na gumawa ng "archive" ng `asar`, hangga't maaari sa loob ng "Node API" tulad ng mga direktoryo, mayroon pa ring mga limitasyon dahil sa natural mababang lebel ng ng "Node API".
+Kahit pa ating subukan na gumawa ng archive ng `asar`, hangga't maaari sa loob ng Node na API tulad ng mga direktoryo, mayroon pa ring mga limitasyon dahil sa natural mababang antas ng "Node API".
 
-### Ang mga "Archives" ay "Read-only"
+### Ang mga Archive ay Read-only
 
-Ang mga "archive" ay hindi maaaring mabago kaya ang lahat ng "Node APIs" na maaaring mabago ang mga payl ay hindi gagana sa "archive" ng `asar`.
+Ang mga archive ay hindi maaaring mabago kaya ang lahat ng mga Node na API na maaaring magbago ng mga file ay hindi gagana sa mga archive ng `asar`.
 
-### Ang Gumaganang Direktoryo ay Hindi Maaaring Itakda sa mga Direktoryo sa "Archive"
+### Ang Gumaganang Direktoryo ay Hindi Maaaring Itakda sa mga Direktoryo sa Archive
 
-Bagaman, ang mga "archive" ng `asar` ay itinuturing bilang mga direktoryo, walang aktwal na mga direktoryo sa loob ng sistema ng payl, kaya kailanman ay hindi maaaring itakda ang tumtakbong direktoryo sa mga direktoryo sa mga "archive" ng `asar`. Ang pagpapadaan sa kanila bilang opsyon ng `cwd` ng ilang APIs ay magiging dahilan din ng mga mali.
+Bagaman, ang mga archive ng `asar` ay itinuturing bilang mga direktoryo, walang aktwal na mga direktoryo sa loob ng sistema ng file, kaya kailanman ay hindi maaaring itakda ang tumatakbong direktoryo sa mga direktoryo sa mga archive ng `asar`. Ang pagpapasa sa kanila bilang opsyon ng `cwd` ng ilang mga API ay magiging dahilan din ng mga mali.
 
-### Dagdag na "Unpacking" sa Ilang APIs
+### Dagdag na Unpacking sa Ilang mga API
 
-Karamihan sa `fs` APIs ay nakakabasa ng payl o kumukuha ng impormasyon ng payl galing sa mga "archive" ng `asar` nang hindi kasama ang "unpacking", ngunit para sa ilang APIs na nakadepende sa pagdaan sa totoong "path" ng payl na pinagbabatayan ng pagtawag ng sistema, ang Elektron ay ililipat ang mga kailangang payl sa pansamantalang payl at dadaan sa "path" ng pansamantalang patungo sa "APIs" para sila ay gumana. Ito ay nagdadagdag ng kaunting "overhead" para sa mga APIs.
+Karamihan sa `fs` na API ay nakakabasa ng file o kumukuha ng impormasyon ng file galing sa mga archive ng `asar` nang hindi kasama ang unpacking, ngunit para sa ilang mga API na nakadepende sa pagdaan sa totoong path ng file na pinagbabatayan ng pagtawag ng sistema, ang Electron ay ililipat ang mga kailangang file sa pansamantalang file at dadaan sa path ng pansamantalang patungo sa API para sila ay gumana. Ito ay nagdadagdag ng kaunting overhead para sa mga API na ito.
 
-Ang APIs na nangangailangan ng karagdagang "unpacking" ay mga:
+Ang mga API na nangangailangan ng karagdagang unpacking ay:
 
 * `child_process.execFile`
 * `child_process.execFileSync`
