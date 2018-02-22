@@ -114,7 +114,7 @@ Bagaman, ang mga archive ng `asar` ay itinuturing bilang mga direktoryo, walang 
 
 ### Dagdag na Unpacking sa Ilang mga API
 
-Karamihan sa `fs` na API ay nakakabasa ng file o kumukuha ng impormasyon ng file galing sa mga archive ng `asar` nang hindi kasama ang unpacking, ngunit para sa ilang mga API na nakadepende sa pagdaan sa totoong path ng file na pinagbabatayan ng pagtawag ng sistema, ang Electron ay ililipat ang mga kailangang file sa pansamantalang file at dadaan sa path ng pansamantalang patungo sa API para sila ay gumana. Ito ay nagdadagdag ng kaunting overhead para sa mga API na ito.
+Karamihan sa `fs` na API ay nakakabasa ng file o kumukuha ng impormasyon ng file galing sa mga archive ng `asar` nang hindi kasama ang unpacking, ngunit para sa ilang mga API na nakadepende sa pagdaan sa totoong path ng file na pinagbabatayan ng pagtawag ng sistema, ang Electron ay ililipat ang mga kailangang file sa pansamantalang file at dadaan sa path ng pansamantalang file patungo sa API para sila ay gumana. Ito ay nagdadagdag ng kaunting overhead para sa mga API na ito.
 
 Ang mga API na nangangailangan ng karagdagang unpacking ay:
 
@@ -126,7 +126,7 @@ Ang mga API na nangangailangan ng karagdagang unpacking ay:
 
 ### Mga Impormasyon ng Fake Stat sa `fs.stat`
 
-Ang `Stats` na bagay na ibinalik ng `ft.stat` at mga kalapit na mga file sa `asar` na archive ay nabuo sa pamamagitan ng paghula, dahil ang mga file na iyon ay hindi umiiral sa mga sistema ng file. Kaya hindi dapat pagkatiwalaan ang `Stats` na bagay maliban na lang sa pagkuha ng sukat ng file at pagsusuri sa uri ng file.
+Ang `Stats` na bagay na ibinalik ng `ft.stat` at mga kalapit na mga file sa `asar` na archive ay nabuo sa pamamagitan ng paghula, dahil ang mga file na iyon ay hindi umiiral sa filesystem. Kaya hindi dapat pagkatiwalaan ang `Stats` na bagay maliban na lang sa pagkuha ng sukat ng file at pagsusuri sa uri ng file.
 
 ### Pagpapagana ng mga Binary sa Loob ng Archive ng `asar`
 
@@ -144,4 +144,4 @@ Para sa gumawa sa paligid nito, maaari itong unpack ang ilan sa mga pile na lumi
 $ asar pack app app.asar --unpack *.node
 ```
 
-Pagkatapos patakbuhin ang "command", bukod sa `app.asar`, mayroon din isang "folder" ng `app.asar.unpacked` na nabuo na naglalaman ng mga payl na "unpacked", dapat kopyahin mo ito kasama ang `app.asar` kapag ito ay ipapadala sa mga gumagamit.
+Pagkatapos patakbuhin ang command, bukod sa `app.asar`, mayroon din isang folder na `app.asar.unpacked` na nabuo na naglalaman ng mga file na na-unpack, dapat kopyahin mo ito kasama ang `app.asar` kapag ito ay ipapadala sa mga gumagamit.
