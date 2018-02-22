@@ -47,7 +47,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 * [Application Testing and Debugging](tutorial/application-debugging.md) 
   * [Debugging Proses Utama](tutorial/debugging-main-process.md)
   * [Menggunakan Selenium dan WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [Pengujian pada Sistem CI tanpa kepala (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensi DevTools](tutorial/devtools-extension.md)
 * [Distribusi Aplikasi](tutorial/application-distribution.md) 
   * [Platform yang Didukung](tutorial/supported-platforms.md)
@@ -88,34 +88,34 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * * *
 
-* [Glossary of Terms](glossary.md)
+* [Daftar Istilah](glossary.md)
 
 ## Referensi API
 
 * [Ringkasan](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Didukung saklar baris perintah Chrome](api/chrome-command-line-switches.md)
+* [Proses objek](api/process.md)
+* [Saklar Baris Perintah Chrome yang Didukung](api/chrome-command-line-switches.md)
 * [Variabel Lingkungan](api/environment-variables.md)
 
 ### Elemen DOM Khusus:
 
-* [` File </ 0> Objek</a></li>
-<li><a href="api/webview-tag.md"><code><webview>`Tag](api/file-object.md)
-* [`window.open` Fungsi](api/window-open.md)
+* [`File` Objek](api/file-object.md)
+* [`<webview>`Tag](api/webview-tag.md)
+* [`window.open` fungsi](api/window-open.md)
 
 ### Modul untuk Proses Utama:
 
 * [aplikasi](api/app.md)
 * [autoUpdater](api/auto-updater.md)
-* [BrowserView](api/browser-view.md)
+* [TampilanBrowser](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [pelacakan konten](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [jalan pintas global](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
-* [ipc Main](api/ipc-main.md)
+* [ipc Utama](api/ipc-main.md)
 * [Menu](api/menu.md)
-* [MenuItem](api/menu-item.md)
+* [ItemMenu](api/menu-item.md)
 * [bersih](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
@@ -136,28 +136,28 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [clipboard](api/clipboard.md)
 * [kerusakanReporter](api/crash-reporter.md)
-* [asli](api/native-image.md)
-* [screen](api/screen.md)
+* [gambarasli](api/native-image.md)
+* [layar](api/screen.md)
 * [kulit](api/shell.md)
 
 ## Pengembangan
 
 * [Model coding](development/coding-style.md)
-* [Menggunakan clang-format pada C ++ Code](development/clang-format.md)
+* [Menggunakan dentang-format pada kode C++ Code](development/clang-format.md)
 * [Pengujian](development/testing.md)
 * [Struktur direktori sumber kode](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Membangun Sistem Tinjauan](development/build-system-overview.md)
+* [Perbedaan teknis untuk NW.js (sebelumnya node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Membangun sistem Tinjauan](development/build-system-overview.md)
 * [Membangun petunjuk (macOS)](development/build-instructions-osx.md)
 * [Membangun petunjuk (Windows)](development/build-instructions-windows.md)
 * [Membangun petunjuk (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
+* [Debug petunjuk (macOS)](development/debugging-instructions-macos.md)
+* [Debug petunjuk (Windows)](development/debug-instructions-windows.md)
+* [Setting Up Server simbol di debugger](development/setting-up-symbol-server.md)
+* [Dokumentasi Styleguide](styleguide.md)
+* [berkontribusi ke electron](../CONTRIBUTING.md)
 * [Isu](development/issues.md)
 * [Ajukan Permintaan](development/pull-requests.md)
 * [Mengupgrade Chromium](development/upgrading-chromium.md)
-* [Pengembangan Chromium](development/chromium-development.md)
+* [Kromium pengembangan](development/chromium-development.md)
 * [Pengembangan V8](development/v8-development.md)
