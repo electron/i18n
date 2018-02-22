@@ -1,4 +1,4 @@
-# Ang Pag-iintegrate ng Desktop Environment
+# Pagsama sa Desktop Environment
 
 Ang iba't-ibang mga operating system ay nagbibigay ng iba't-ibang mga katangian para sa pag-iintegrate ng mga aplikasyong pang-desktop sa mga desktop environment. Halimbawa, sa Windows, ang mga aplikasyon ay pwedeng maglagay ng mga shortcut sa JumpList ng task bar, at sa Mac, ang mga aplikasyon ay nakakapaglagay ng karaniwang menu sa dock menu.
 
@@ -24,6 +24,6 @@ See the [Unity Launcher documentation](unity-launcher.md).
 
 See the [Represented File documentation](represented-file.md).
 
-## Dragging files out of the window
+## Paghila ng mga file palabas sa window
 
 See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
