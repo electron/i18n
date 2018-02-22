@@ -24,6 +24,6 @@ See the [Unity Launcher documentation](unity-launcher.md).
 
 See the [Represented File documentation](represented-file.md).
 
-## Dragging files out of the window
+## Faire glisser les fichiers en dehors de la fenêtre
 
 See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
