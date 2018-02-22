@@ -111,7 +111,7 @@ Retourne :
 
 Une activité d'utilisateur peut être poursuivie seulement dans une application qui a le même identifiant d'équipe développeur que l'application d'origine de la source d'activité et qui prend en charge le type d'activité. La prise en charge d’activité types est spécifiée dans le `Info.plist` de l'application sous la clé `NSUserActivityType`.
 
-### Event: 'will-continue-activity' *macOS*
+### Événement: 'wil-continue-activity' *macOS*
 
 Retourne :
 
