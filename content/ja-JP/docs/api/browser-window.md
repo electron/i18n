@@ -27,7 +27,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 [Frameless Window](frameless-window.md) APIを使うと、枠がないウインドウや任意の形状の透明なウインドウを作成することができます。
 
-## Showing window gracefully
+## ウインドウを違和感なく表示する
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
