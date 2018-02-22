@@ -22,7 +22,7 @@ Setelah mengeposkan server pembaruan Anda, lanjutkan dengan mengimpor yang diper
 **Penting:** Pastikan kode di bawah ini hanya akan dijalankan dalam aplikasi kemasan Anda, dan tidak dalam pengembangan. Kamu dapat memakai [elektron-is-dev](https://github.com/sindresorhus/electron-is-dev) untuk memeriksa lingkungan.
 
 ```javascript
-const { app, autoUpdater, dialog } = require('electron')
+const { app, autoUpdater, dialog } = membutuhkan ('elektron')
 ```
 
 Selanjutnya, buatlah URL server update dan beri tahu [autoUpdater](../api/auto-updater.md) tentangnya:
