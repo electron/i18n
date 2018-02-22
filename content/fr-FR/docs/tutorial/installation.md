@@ -1,6 +1,6 @@
 # Installation
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+Pour installer les binaires précompilés d'Electron, utilisez [`npm`](https://docs.npmjs.com). Il est préférable d'installer Electron comme une dépendance de développement dans votre application :
 
 ```sh
 npm install electron --save-dev
