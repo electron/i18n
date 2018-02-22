@@ -75,7 +75,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
-For example, to get a file with `$.get`:
+Por exemplo, para obter um arquivo com `$.get`:
 
 ```html
 <script>
