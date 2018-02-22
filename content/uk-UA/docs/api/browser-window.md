@@ -737,11 +737,11 @@ win.loadURL('https://github.com')
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Встановлює чи кнопка розгорнути/масштабувати перемикає повноекранний режим чи максимізує вікно.
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Повертає `Boolean` - Чи кнопка розгорнути/масштабувати перемикає повноекранний режим чи максимізує вікно.
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
@@ -759,9 +759,9 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `flag` Boolean
 * `level` String (опціонально) *macOS* - Включає значення `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, та ~~`dock`~~ (Застаріло). За замовчуванням `floating`. Дивіться [документацію macOS ](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) для деталей.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. За замовчуванням ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `relativeLevel` Integer (опціонально) *macOS* - Кількість шарів, на яку потрібно підняти вікно в порівнянні з `level`. За замовчуванням ``. Зверніть увагу, що Apple не рекомендує налаштування шарів вище за 1 над `screen-saver`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+Встановлює чи вікно повинно завжди бути поверх інших вікон. Після встановлення цього, вікно все ще звичайне вікно, не вікно-інструмент, на яке не можна встановити фокус.
 
 #### `win.isAlwaysOnTop()`
 
@@ -814,19 +814,19 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Starts or stops flashing the window to attract user's attention.
+Стартує чи зупиняє миготіння вікна для залучення уваги користувача.
 
 #### `win.setSkipTaskbar(skip)`
 
 * `skip` Boolean
 
-Makes the window not show in the taskbar.
+Не показує вікно на панелі завдань.
 
 #### `win.setKiosk(flag)`
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Заходить в чи виходить з повноекранного режиму браузера.
 
 #### `win.isKiosk()`
 
@@ -834,9 +834,9 @@ Enters or leaves the kiosk mode.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Повертає `Buffer` - Хендлер вікна, в залежності від платформи.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+Еативний тип хендлера `HWND` на Windows, `NSView*` на macOS, і `Window` (`unsigned long`) на Linux.
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
