@@ -843,23 +843,23 @@ win.setSheetOffset(toolbarRect.height)
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Чіпає повідомлення вікна. `callback` викликається коли повідомлення отримане в WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Повертає `Boolean` - `true` чи `false` в залежності чи повідомлення причіплене.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
 * `message` Integer
 
-Unhook the window message.
+Знімає повідомлення вікна.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+Знімає всі повідомлення вікна.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
