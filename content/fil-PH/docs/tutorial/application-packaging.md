@@ -2,9 +2,9 @@
 
 Para maiwasan ang [mga isyu](https://github.com/joyent/node/issues/6960) sa paligid ng mahabang pangalan sa landas ng Windows, bahagyang mapapabilis ang `require` para itago ang iyong source code mula sa pinasimpleng inspeksyon, pwede kang mamili para I- package ang iyong app isang [asar](https://github.com/electron/asar) na aktibo sa maliit na pag babago sa iyong source code.
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+Karamihan sa mga tagagamit ay makukuha ang katangiang ito nang libre, dahil sinusuportahan ito sa labas sa pamamagitan ng [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), at [`electron-builder`](https://github.com/electron-userland/electron-builder). Kung hindi mo ginagamit ang kahit alin sa mga kasangkapang ito, magbasa pa.
 
-## Generating `asar` Archives
+## Pagbubuo ng mga `asar` na Archive
 
 Ang "[asar](https://github.com/electron/asar) archive ay isang simpleng ayos tulad ng tar na dinudugtong sa mga payl upang maging isang payl. Ang Elektron ay maaaring basahin ang mga payl na arbitraryo galing dito nang hindi kinukuha sa buong payl.
 
@@ -137,7 +137,7 @@ May mga na Node API na nagpapagana ng mga binary tulad ng `child_process.exec`, 
 
 Ito ay dahil sa `exec` at `spawn` na tumatanggap ng `command` sa halip na `file` bilang input, at mga `command` ay pinapagana sa ilalim ng shell. Walang ibang paraan upang matukoy kung ang command ay gumagamit ng payl sa archive ng asar, at kahit gawin natin, hindi tayo makakasiguro kung maaari nating palitan ang path sa command nang walang ibang masamang epekto.
 
-## Adding Unpacked Files to `asar` Archives
+## Pagdaragdag ng mga naka-unpack na mga file sa `asar` na mga Archive
 
 As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
