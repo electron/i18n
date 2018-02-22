@@ -1,18 +1,22 @@
 # Kemasan Aplikasi
 
-Untuk mengurangi  masalah </ 0> di sekitar nama path yang panjang di Windows , sedikit mempercepat ` require </ 1> dan menyembunyikan kode sumber Anda dari pemeriksaan sepintas, Anda dapat memilih untuk mengemas aplikasi Anda menjadi <a href="https://github.com/electron/asar"> asar </ 2> 
+Untuk mengurangi [ masalah </ 0> di sekitar nama path yang panjang di Windows , sedikit mempercepat ` require </ 1> dan menyembunyikan kode sumber Anda dari pemeriksaan sepintas, Anda dapat memilih untuk mengemas aplikasi Anda menjadi <a href="https://github.com/electron/asar"> asar </ 2> 
 arsipkan dengan sedikit perubahan pada kode sumber Anda.</p>
 
-<h2>Membangkitkan <code> asar </ 0> Arsip</h2>
+<p>Most users will get this feature for free, since it's supported out of the box
+by <a href="https://github.com/electron-userland/electron-packager"><code>electron-packager`](https://github.com/joyent/node/issues/6960), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
 
-<p>Sebuah <a href="https://github.com/electron/asar"> asar </ 0> arsip adalah tar-seperti format yang sederhana yang concatenates file ke dalam satu file. Elektron dapat membaca file-file sewenang-wenang darinya tanpa membongkar seluruh berkas.</p>
+## Generating `asar` Archives
 
-<p>Langkah-langkah untuk mengemas aplikasi Anda ke arsip <code> asar </ 0> :</p>
+An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
-<h3>1. Instal Asar Utility</h3>
+Steps to package your app into an `asar` archive:
 
-<pre><code class="sh">$ npm install -g asar
-`</pre> 
+### 1. Instal Asar Utility
+
+```sh
+$ npm install -g asar
+```
 
 ### 2. Paket dengan ` asar pack </ 0></h3>
 
@@ -21,87 +25,93 @@ arsipkan dengan sedikit perubahan pada kode sumber Anda.</p>
 
 ## Menggunakan ` asar </ 0> Arsip</h2>
 
-<p>Di Elektron ada dua set API: API Node yang disediakan oleh Node .js dan API Web yang disediakan oleh Chromium . Kedua API mendukung file bacaan dari arsip <code> asar </ 0> .</p>
+<p>In Electron there are two sets of APIs: Node APIs provided by Node.js and Web
+APIs provided by Chromium. Both APIs support reading files from <code>asar` archives.</p> 
 
-<h3> API Node</h3>
+### API Node
 
-<p>Dengan patch khusus di Elektron , API Node seperti <code> fs.readFile </ 0> dan <code> memerlukan </ 0> 
-memperlakukan <code> asar </ 0> arsip sebagai direktori virtual, dan file di dalamnya seperti file biasa di filesystem</p>
+With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
 
-<p>Misalnya, misalkan kita memiliki arsip <code> example.asar </ 0> di bawah <code> / path / to </ 0> :</p>
+For example, suppose we have an `example.asar` archive under `/path/to`:
 
-<pre><code class="sh">$ asar list / path / to / example. asar 
+```sh
+$ asar list / path / to / example. asar 
 /app.js /file.txt /dir/module.js /static/index.html /static/main.css /static/jquery.min.js
-`</pre> 
+```
 
-Baca file di arsip ` asar </ 0> :</p>
+Read a file in the `asar` archive:
 
-<pre><code class="javascript">const fs = require ('fs') fs.readFileSync ('/ path / to / example.asar / file.txt')
-`</pre> 
+```javascript
+const fs = require ('fs') fs.readFileSync ('/ path / to / example.asar / file.txt')
+```
 
-Cantumkan semua file di bawah akar arsip:
+List all files under the root of the archive:
 
 ```javascript
 const fs = require ('fs') fs.readdirSync ('/ path / to / example.asar')
 ```
 
-Gunakan modul dari arsip:
+Use a module from the archive:
 
 ```javascript
 membutuhkan ('/ path / to / example.asar / dir / module.js')
 ```
 
-Anda juga dapat menampilkan halaman web di arsip ` asar </ 0> dengan <code> BrowserWindow </ 0> :</p>
+You can also display a web page in an `asar` archive with `BrowserWindow`:
 
-<pre><code class="javascript">const {BrowserWindow} = require ('electron') let win = new BrowserWindow ( {width: 800, height: 600} ) win.loadURL ('file: ///path/to/example.asar/static/index.html ')
-`</pre> 
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+
+win.loadURL('file:///path/to/example.asar/static/index.html')
+```
 
 ### Web API
 
-Di halaman web, file dalam arsip dapat diminta dengan protokol ` : </ 0> . Seperti API Node  , <code> asar </ 0> arsip diperlakukan sebagai direktori.</p>
+In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
-<p>Misalnya, untuk mendapatkan file dengan <code> $ .get </ 0> :</p>
+For example, to get a file with `$.get`:
 
-<pre><code class="html"><script> 
+```html
+<script> 
 biarkan $ = memerlukan ('./ jquery.min.js') $ .get ('file: ///path/to/example.asar/file.txt', (data) = & gt; {
    console. log (data)})
  </ 0>
-`</pre> 
+```
 
 ### Mengobati Arsip ` asar </ 0> sebagai File Normal</h3>
 
-<p>Untuk beberapa kasus seperti memverifikasi checksum arsip <code> asar </ 0> , kita perlu membaca isi arsip <code> asar </ 0> sebagai file. Untuk tujuan ini Anda dapat menggunakan modul <code> original-fs </ 0> built-in
- yang menyediakan API asli <code> fs </ 0> tanpa <code> asar </ 0> ;</p>
+<p>For some cases like verifying the <code>asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:</p> 
 
-<pre><code class="javascript">const originalFs = require ('original-fs') originalFs.readFileSync ('/ path / to / example.asar')
-`</pre> 
+```javascript
+const originalFs = require ('original-fs') originalFs.readFileSync ('/ path / to / example.asar')
+```
 
-Anda juga dapat mengatur ` process.noAsar </ 0> ke <code> true </ 0> untuk menonaktifkan dukungan <code> asar </ 0> di modul <code> fs </ 0></p>
+You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
 
-<pre><code class="javascript">const fs = require ('fs') process.noAsar = true fs.readFileSync ('/ path / to / example.asar')
-`</pre> 
+```javascript
+const fs = require ('fs') process.noAsar = true fs.readFileSync ('/ path / to / example.asar')
+```
 
 ## Keterbatasan API Node 
 
-Meskipun kami berusaha keras membuat arsip ` asar </ 0> di API Node  bekerja seperti direktori sebanyak mungkin, masih ada batasan karena sifat rendah dari API Node . </p>
+Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
 
-<h3>Arsip hanya baca saja</h3>
+### Arsip hanya baca saja
 
-<p>Arsip tidak dapat dimodifikasi sehingga semua API Node yang dapat memodifikasi file tidak akan berfungsi dengan arsip <code> asar </ 0> .</p>
+The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
 
-<h3>Direktori Kerja Tidak Dapat Ditetapkan ke Direktori di Arsip</h3>
+### Direktori Kerja Tidak Dapat Ditetapkan ke Direktori di Arsip
 
-<p>Meskipun arsip <code> asar </ 0> diperlakukan sebagai direktori, tidak ada direktori aktual dalam filesystem, jadi Anda tidak dapat mengatur direktori kerja ke direktori di arsip <code> asar </ 0> . Melewati mereka sebagai <code> cwd </ 0>  pilihan dari beberapa API juga akan menyebabkan kesalahan.</p>
+Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
 
-<h3>Extra Unpacking pada Beberapa API</h3>
+### Extra Unpacking pada Beberapa API
 
-<p>Sebagian besar <code> fs </ 0> API dapat membaca file atau mendapatkan informasi file dari arsip <code> asar </ 0> tanpa membongkar, namun untuk beberapa API yang mengandalkan cara melewatkan jalur file sebenarnya ke panggilan sistem yang mendasarinya, Elektron akan mengekstrak file yang dibutuhkan ke file sementara dan melewati jalur file sementara ke API untuk membuatnya bekerja. Ini menambahkan sedikit overhead untuk API tersebut.</p>
+Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
 
-<p>API yang membutuhkan pembongkaran ekstra adalah:</p>
+APIs that requires extra unpacking are:
 
-<ul>
-<li><code>child_process.execFile`</li> 
-
+* `child_process.execFile`
 * `child_process.execFileSync`
 * `fs.open`
 * `fsopenSync`
@@ -110,22 +120,21 @@ Meskipun kami berusaha keras membuat arsip ` asar </ 0> di API Node  bekerja sep
 
 <h3>Informasi Stat Fake <code> fs.stat </ 0></h3>
 
-<p><code>Statistik` objek yang dikembalikan oleh `fs.stat` dan teman-teman pada file dalam arsip `asar` yang dihasilkan oleh menebak, karena file tidak ada pada filesystem. Jadi sebaiknya Anda tidak mempercayai objek ` Statistik </ 0> kecuali untuk mendapatkan ukuran file dan memeriksa jenis file.</p>
-
-<h3>Menjalankan binari di dalam <code>asar` Arsip</h3> 
-    Ada API Node yang dapat menjalankan binari seperti ` child_process.exec </ 0> ,
- <code> child_process.spawn </ 0> dan <code> child_process.execFile </ 0> , namun hanya <code> execFile </ 0> didukung untuk menjalankan binari di dalam arsip <code> asar </ 0> .</p>
-
-<p>Ini karena <code> exec </ 0> dan <code> menelurkan </ 0> menerima <code> perintah </ 0> daripada <code> file </ 0> sebagai masukan, dan <code> perintah </ 0 > dieksekusi di bawah shell Tidak ada cara yang dapat diandalkan untuk menentukan apakah sebuah perintah menggunakan file dalam arsip asar , dan bahkan jika kita melakukannya, kita tidak dapat memastikan apakah kita dapat mengganti jalan di perintah tanpa efek samping.</p>
-
-<h2>Menambahkan file dibongkar di <code>asar` Arsip</h2> 
+<p>The <code>Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. So you should not trust the `Stats` object except for getting file size and checking file type.</p> 
+    ### Menjalankan binari di dalam `asar` Arsip
     
-    Seperti yang dinyatakan di atas, beberapa API Node akan membongkar file ke filesystem saat menelepon, terlepas dari masalah kinerja, hal itu juga dapat menyebabkan peringatan palsu pemindai virus.
+    There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
     
-    Untuk mengatasi ini, Anda dapat membongkar beberapa file yang menciptakan Arsip dengan menggunakan `--membongkar` pilihan, contoh termasuk shared library modul asli adalah:
+    This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+    
+    ## Adding Unpacked Files to `asar` Archives
+    
+    As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+    
+    As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libaries of native Node.js modules will not be packed:
     
     ```sh
 $ asar paket app app.asar--membongkar *.node
 ```
 
-Setelah menjalankan perintah, selain `app.asar`, ada juga `app.asar.unpacked` dihasilkan folder yang berisi file dibongkar, Anda harus menyalin itu bersama-sama dengan `app.asar` saat pengiriman kepada pengguna.
+After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
