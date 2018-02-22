@@ -20,7 +20,7 @@ Parang ang aming kasalukuyang sistema ng pag-update ng bahagi sa Chromium ay mak
 
 Ang isang isyu ay nangyayari tuwing makakatanggap ka ng code galing sa malayo na patutunguhan at ma-execute ito ng lokal. Bilang halimbawa, isaalang-alang ang bahagyang website na ipnapakita sa loob ng [`BrowserWindow`](../api/browser-window.md). Kung ang isang attacker ay makakabago ng nasabing nilalaman (alinmang aatakehin nito ang direktang nilalaman o sa pamamagitan ng pag-upo sa pagitan ng iyong app at ang aktwal na patutunguhan), kaya nilang mag-execute na natibong code sa machine ng taga gamit.
 
-> :babala: Sa anumang pangyayari ay hindi ka maaaring mag-load at mag-execute ng remote code kasama ng Node.js integrasyong napagana. Sa halip, gamitin lamang ang lokal na mga file (nakabalot kasama ang iyong aplikasyon) para ma-execute ang Node.js na code. To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
+> :babala: Sa anumang pangyayari ay hindi ka maaaring mag-load at mag-execute ng remote code kasama ng Node.js integrasyong napagana. Sa halip, gamitin lamang ang lokal na mga file (nakabalot kasama ang iyong aplikasyon) para ma-execute ang Node.js na code. Para maipakita ang bahagyang nilalaman, gamiting ang [`webview`](../api/web-view.md) na tag para makasiguradong hindi gumana ang `nodeIntegration`.
 
 ## Electron Security Warnings
 
@@ -364,11 +364,11 @@ const mainWindow = new BrowserWindow()
 
 *Ang rekomendasyon ay default ng Electron*
 
-If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` ay hindi pinapayagan na lumikha ng bago bintana.
+Kung gumagamit ka ng [`WebViews`](../api/web-view.md), maaaring kailanganin mo ang mga pahina at script load sa iyong `<webview>` tag upang magbukas ng mga bagong window. Ang `allowpopups` na katangian ay nagbibigay-daan sa kanila upang lumikha ng bagong [`BrowserWindows`](../api/browser-window.md) gamit ang `window.open()` na paraan. `WebViews` ay hindi pinapayagan na lumikha ng bago bintana.
 
 ### Bakit?
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](../api/browser-window.md) by default. Kasunod nito ang prinsipyo ng minimally required access: Huwag hayaan ang isang website na lumikha ng mga bagong popup maliban kung alam mo na kailangan nito ang tampok na iyon.
+Kung hindi mo kailangan ang mga popup, ikaw ay mas mahusay na hindi pinapayagan ang paglikha ng bagong [`BrowserWindows`](../api/browser-window.md) bilang default. Kasunod nito ang prinsipyo ng minimally required access: Huwag hayaan ang isang website na lumikha ng mga bagong popup maliban kung alam mo na kailangan nito ang tampok na iyon.
 
 ### Paano?
 
@@ -383,17 +383,17 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 Ang isang WebView na nilikha sa isang proseso ng renderer na walang pagsasama ng Node.js pinagana hindi makapag-enable ang pagsasama mismo. Gayunpaman, ang isang WebView ay laging lumikha ng isang malayang proseso ng pag-render na may sariling `webPreferences`.
 
-It is a good idea to control the creation of new [`WebViews`](../api/web-view.md) from the main process and to verify that their webPreferences do not disable security features.
+Magandang ideya na kontrolin ang paglikha ng bagong [`WebViews`](../api/web-view.md) mula ang pangunahing proseso at upang mapatunayan na hindi pinagana ang kanilang mga webPreferences katangian ng seguridad.
 
 ### Bakit?
 
 Dahil nabubuhay ang WebView sa DOM, maaari silang lumikha ng isang script na tumatakbo sa iyong website kahit na hindi naka-disable ang pagsasama ng Node.js.
 
-Ang electron ay nagbibigay-daan sa mga developer na huwag paganahin ang iba't ibang mga tampok ng seguridad na kontrol isang proseso ng tagapag-render. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](../api/web-view.md) tags.
+Ang electron ay nagbibigay-daan sa mga developer na huwag paganahin ang iba't ibang mga tampok ng seguridad na kontrol isang proseso ng tagapag-render. Sa karamihan ng mga kaso, hindi kailangan ng mga developer na huwag paganahin ang alinman sa mga tampok na iyon - at dapat mong hindi pinapayagan ang iba't ibang mga pagsasaayos para sa mga bagong nilikha [`<WebView>`](../api/web-view.md) na mga tag.
 
 ### Paano?
 
-Before a [`<WebView>`](../api/web-view.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Gamitin ang event sa pigilan ang paglikha ng mga WebView na may posibleng mga opsyon na hindi secure.
+Bago ang isang [`<WebView>`](../api/web-view.md) tag ay naka-attach, Electron ay sunugin ang `will-attach-webview` kaganapan sa hosting `webContents`. Gamitin ang event sa pigilan ang paglikha ng mga WebView na may posibleng mga opsyon na hindi secure.
 
 ```js
 app.on('web-contents-created', (event, contents) => {
