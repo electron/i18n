@@ -6,9 +6,9 @@ Most users will get this feature for free, since it's supported out of the box b
 
 ## Generating `asar` Archives
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+[asar](https://github.com/electron/asar) 是一种将多个文件合并成一个文件的类 tar 风格的归档格式。 Electron 可以无需解压整个文件，即可从其中读取任意文件内容。
 
-Steps to package your app into an `asar` archive:
+参照如下步骤将你的应用打包成 `asar`归档文件。
 
 ### 1. 安装 asar 实用程序
 
@@ -24,13 +24,13 @@ $ asar pack your-app app.asar
 
 ## 使用 `asar` 档案文件
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+在 Electron 中有两类 APIs：Node.js 提供的 Node API 和 Chromium 提供的 Web API。 这两种 API 都支持从 `asar` 档案中读取文件。
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+由于 Electron 中打了特别补丁， Node API 中如 `fs.readFile` 或者 `require` 之类 的方法可以将 `asar` 视之为虚拟文件夹，读取 asar 里面的文件就和从真实的文件系统中读取一样。
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+例如，假设我们在 `/path/to` 文件夹下有个 `example.asar` 包：
 
 ```sh
 $ asar list /path/to/example.asar
@@ -42,27 +42,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+从 `asar` 档案读取一个文件：
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+列出档案根目录下的所有文件：
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+使用档案中的模块：
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+你也可以使用 `BrowserWindow` 来显示一个 `asar` 档案里的 web 页面：
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -73,9 +73,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+在 Web 页面里，用 `file:` 协议可以获取 `asar` 包中文件。和 Node API 一样，视 asar 包如虚拟文件夹。
 
-For example, to get a file with `$.get`:
+例如，用 `$.get` 获取文件:
 
 ```html
 <script>
@@ -88,14 +88,14 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 ### 把 `asar` 档案当作一个普通的文件
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+某些情况下，如：对 `asar` 档案文件进行校验，我们需要像读取 “文件” 那样读取 `asar` 档案文件。 为此你可以使用内置的没有`asar`功能的和原始`fs`模块一模一样的`original-fs`模块。
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+您也可以将 `process.noAsar` 设置为 `true` 以禁用 `fs` 模块中对 `asar` 的支持：
 
 ```javascript
 const fs = require('fs')
@@ -105,21 +105,21 @@ fs.readFileSync('/path/to/example.asar')
 
 ## Node API 的局限性
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+尽管我们已经尽了最大努力使得 `asar` 包在 Node API 下的应用尽可能的趋向于真实的目录结构，但仍有一些底层 Node API 我们无法保证其正常工作。
 
 ### 档案文件是只读的
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+档案文件中的内容不可更改，所以 Node APIs 里那些会修改文件的方法在使用`asar` 归档文件时都无法正常工作.
 
 ### 工作目录不能设置为档案文件里的目录
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+尽管 `asar` 档案是虚拟文件夹，但其实并没有真实的目录架构对应在文件系统里，所以你不可能将 working Directory 设置成 `asar` 包里的一个文件夹。 将 asar 中的文件夹以 `cwd` 形式作为参数传入一些 API 中也会报错。
 
 ### 某些 API 需要额外解压档案包
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+大部分 `fs` API 可以无需解压即从 `asar` 档案中读取文件或者文件的信息，但是在处理一些依赖真实文件路径的底层系统方法时，Electron 会将所需文件解压到临时目录下，然后将临时目录下的真实文件路径传给底层系统方法使其正常工作。 对于这类API，会增加一些开销。
 
-APIs that requires extra unpacking are:
+以下是一些需要额外解压的 API：
 
 * `child_process.execFile`
 * `child_process.execFileSync`
@@ -129,13 +129,13 @@ APIs that requires extra unpacking are:
 
 ### `fs.stat` 的不真实统计信息
 
-The `Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. So you should not trust the `Stats` object except for getting file size and checking file type.
+对 `asar` 档案中的文件取 `fs.stat`，返回的 `Stats` 对象不是精确值，因为这些文件不是真实存在于文件系统里。 所以除了文件大小和文件类型以外，你不应该依赖 `Stats` 对象的值。
 
 ### 执行`asar`档案内的二进制文件
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+Node 中有一些可以执行程序的 API，如 `child_process.exec`，`child_process.spawn` 和 `child_process.execFile` 等， 但只有 `execFile` 可以执行 `asar` 包中的程序。
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+因为 `exec` 和 `spawn` 允许 `command` 替代 `file` 作为输入，而 `command` 是需要在 shell 下执行的. 目前没有 可靠的方法来判断 command 中是否在操作一个 asar 包中的文件，而且即便可以判断，我们依旧无法保证可以在无任何 副作用的情况下替换 command 中的文件路径。
 
 ## Adding Unpacked Files to `asar` Archives
 
