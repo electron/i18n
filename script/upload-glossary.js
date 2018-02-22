@@ -19,7 +19,7 @@ let glossary = []
 // Add JavaScript builtings like Array, Map, String, etc
 Object.keys(globals.builtin).map(key => {
   const term = format(
-    '%s, %s is a JavaScript builtin and should NOT be translated.', 
+    '%s, %s is a JavaScript builtin and should usually not be translated.', 
     key, 
     key
   )

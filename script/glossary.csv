@@ -1,62 +1,62 @@
-Array, Array is a JavaScript builtin and should NOT be translated.
-ArrayBuffer, ArrayBuffer is a JavaScript builtin and should NOT be translated.
-Atomics, Atomics is a JavaScript builtin and should NOT be translated.
-Boolean, Boolean is a JavaScript builtin and should NOT be translated.
-constructor, constructor is a JavaScript builtin and should NOT be translated.
-DataView, DataView is a JavaScript builtin and should NOT be translated.
-Date, Date is a JavaScript builtin and should NOT be translated.
-decodeURI, decodeURI is a JavaScript builtin and should NOT be translated.
-decodeURIComponent, decodeURIComponent is a JavaScript builtin and should NOT be translated.
-encodeURI, encodeURI is a JavaScript builtin and should NOT be translated.
-encodeURIComponent, encodeURIComponent is a JavaScript builtin and should NOT be translated.
-Error, Error is a JavaScript builtin and should NOT be translated.
-escape, escape is a JavaScript builtin and should NOT be translated.
-eval, eval is a JavaScript builtin and should NOT be translated.
-EvalError, EvalError is a JavaScript builtin and should NOT be translated.
-Float32Array, Float32Array is a JavaScript builtin and should NOT be translated.
-Float64Array, Float64Array is a JavaScript builtin and should NOT be translated.
-Function, Function is a JavaScript builtin and should NOT be translated.
-hasOwnProperty, hasOwnProperty is a JavaScript builtin and should NOT be translated.
-Infinity, Infinity is a JavaScript builtin and should NOT be translated.
-Int16Array, Int16Array is a JavaScript builtin and should NOT be translated.
-Int32Array, Int32Array is a JavaScript builtin and should NOT be translated.
-Int8Array, Int8Array is a JavaScript builtin and should NOT be translated.
-isFinite, isFinite is a JavaScript builtin and should NOT be translated.
-isNaN, isNaN is a JavaScript builtin and should NOT be translated.
-isPrototypeOf, isPrototypeOf is a JavaScript builtin and should NOT be translated.
-JSON, JSON is a JavaScript builtin and should NOT be translated.
-Map, Map is a JavaScript builtin and should NOT be translated.
-Math, Math is a JavaScript builtin and should NOT be translated.
-NaN, NaN is a JavaScript builtin and should NOT be translated.
-Number, Number is a JavaScript builtin and should NOT be translated.
-Object, Object is a JavaScript builtin and should NOT be translated.
-parseFloat, parseFloat is a JavaScript builtin and should NOT be translated.
-parseInt, parseInt is a JavaScript builtin and should NOT be translated.
-Promise, Promise is a JavaScript builtin and should NOT be translated.
-propertyIsEnumerable, propertyIsEnumerable is a JavaScript builtin and should NOT be translated.
-Proxy, Proxy is a JavaScript builtin and should NOT be translated.
-RangeError, RangeError is a JavaScript builtin and should NOT be translated.
-ReferenceError, ReferenceError is a JavaScript builtin and should NOT be translated.
-Reflect, Reflect is a JavaScript builtin and should NOT be translated.
-RegExp, RegExp is a JavaScript builtin and should NOT be translated.
-Set, Set is a JavaScript builtin and should NOT be translated.
-SharedArrayBuffer, SharedArrayBuffer is a JavaScript builtin and should NOT be translated.
-String, String is a JavaScript builtin and should NOT be translated.
-Symbol, Symbol is a JavaScript builtin and should NOT be translated.
-SyntaxError, SyntaxError is a JavaScript builtin and should NOT be translated.
-toLocaleString, toLocaleString is a JavaScript builtin and should NOT be translated.
-toString, toString is a JavaScript builtin and should NOT be translated.
-TypeError, TypeError is a JavaScript builtin and should NOT be translated.
-Uint16Array, Uint16Array is a JavaScript builtin and should NOT be translated.
-Uint32Array, Uint32Array is a JavaScript builtin and should NOT be translated.
-Uint8Array, Uint8Array is a JavaScript builtin and should NOT be translated.
-Uint8ClampedArray, Uint8ClampedArray is a JavaScript builtin and should NOT be translated.
-undefined, undefined is a JavaScript builtin and should NOT be translated.
-unescape, unescape is a JavaScript builtin and should NOT be translated.
-URIError, URIError is a JavaScript builtin and should NOT be translated.
-valueOf, valueOf is a JavaScript builtin and should NOT be translated.
-WeakMap, WeakMap is a JavaScript builtin and should NOT be translated.
-WeakSet, WeakSet is a JavaScript builtin and should NOT be translated.
+Array, Array is a JavaScript builtin and should usually not be translated.
+ArrayBuffer, ArrayBuffer is a JavaScript builtin and should usually not be translated.
+Atomics, Atomics is a JavaScript builtin and should usually not be translated.
+Boolean, Boolean is a JavaScript builtin and should usually not be translated.
+constructor, constructor is a JavaScript builtin and should usually not be translated.
+DataView, DataView is a JavaScript builtin and should usually not be translated.
+Date, Date is a JavaScript builtin and should usually not be translated.
+decodeURI, decodeURI is a JavaScript builtin and should usually not be translated.
+decodeURIComponent, decodeURIComponent is a JavaScript builtin and should usually not be translated.
+encodeURI, encodeURI is a JavaScript builtin and should usually not be translated.
+encodeURIComponent, encodeURIComponent is a JavaScript builtin and should usually not be translated.
+Error, Error is a JavaScript builtin and should usually not be translated.
+escape, escape is a JavaScript builtin and should usually not be translated.
+eval, eval is a JavaScript builtin and should usually not be translated.
+EvalError, EvalError is a JavaScript builtin and should usually not be translated.
+Float32Array, Float32Array is a JavaScript builtin and should usually not be translated.
+Float64Array, Float64Array is a JavaScript builtin and should usually not be translated.
+Function, Function is a JavaScript builtin and should usually not be translated.
+hasOwnProperty, hasOwnProperty is a JavaScript builtin and should usually not be translated.
+Infinity, Infinity is a JavaScript builtin and should usually not be translated.
+Int16Array, Int16Array is a JavaScript builtin and should usually not be translated.
+Int32Array, Int32Array is a JavaScript builtin and should usually not be translated.
+Int8Array, Int8Array is a JavaScript builtin and should usually not be translated.
+isFinite, isFinite is a JavaScript builtin and should usually not be translated.
+isNaN, isNaN is a JavaScript builtin and should usually not be translated.
+isPrototypeOf, isPrototypeOf is a JavaScript builtin and should usually not be translated.
+JSON, JSON is a JavaScript builtin and should usually not be translated.
+Map, Map is a JavaScript builtin and should usually not be translated.
+Math, Math is a JavaScript builtin and should usually not be translated.
+NaN, NaN is a JavaScript builtin and should usually not be translated.
+Number, Number is a JavaScript builtin and should usually not be translated.
+Object, Object is a JavaScript builtin and should usually not be translated.
+parseFloat, parseFloat is a JavaScript builtin and should usually not be translated.
+parseInt, parseInt is a JavaScript builtin and should usually not be translated.
+Promise, Promise is a JavaScript builtin and should usually not be translated.
+propertyIsEnumerable, propertyIsEnumerable is a JavaScript builtin and should usually not be translated.
+Proxy, Proxy is a JavaScript builtin and should usually not be translated.
+RangeError, RangeError is a JavaScript builtin and should usually not be translated.
+ReferenceError, ReferenceError is a JavaScript builtin and should usually not be translated.
+Reflect, Reflect is a JavaScript builtin and should usually not be translated.
+RegExp, RegExp is a JavaScript builtin and should usually not be translated.
+Set, Set is a JavaScript builtin and should usually not be translated.
+SharedArrayBuffer, SharedArrayBuffer is a JavaScript builtin and should usually not be translated.
+String, String is a JavaScript builtin and should usually not be translated.
+Symbol, Symbol is a JavaScript builtin and should usually not be translated.
+SyntaxError, SyntaxError is a JavaScript builtin and should usually not be translated.
+toLocaleString, toLocaleString is a JavaScript builtin and should usually not be translated.
+toString, toString is a JavaScript builtin and should usually not be translated.
+TypeError, TypeError is a JavaScript builtin and should usually not be translated.
+Uint16Array, Uint16Array is a JavaScript builtin and should usually not be translated.
+Uint32Array, Uint32Array is a JavaScript builtin and should usually not be translated.
+Uint8Array, Uint8Array is a JavaScript builtin and should usually not be translated.
+Uint8ClampedArray, Uint8ClampedArray is a JavaScript builtin and should usually not be translated.
+undefined, undefined is a JavaScript builtin and should usually not be translated.
+unescape, unescape is a JavaScript builtin and should usually not be translated.
+URIError, URIError is a JavaScript builtin and should usually not be translated.
+valueOf, valueOf is a JavaScript builtin and should usually not be translated.
+WeakMap, WeakMap is a JavaScript builtin and should usually not be translated.
+WeakSet, WeakSet is a JavaScript builtin and should usually not be translated.
 app, This is an Electron Module and should usually not be translated
 autoUpdater, This is an Electron Module and should usually not be translated
 BluetoothDevice, This is an Electron Structure and should usually not be translated
