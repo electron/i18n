@@ -10,12 +10,12 @@ Depende sa iyong mga pangangailangan, makakapili ka ng isa mula dito:
 
 - [Hazel](https://github.com/zeit/hazel) – Update na server para sa pribado o open-source na mga app na madedeploy nang libre sa [Now](https://zeit.co/now). Nahihila ito mula sa [Mga Lathala sa Github](https://help.github.com/articles/creating-releases/) at pinapataas ang kapangyarihan ng CDN ng Github.
 - [Nuts](https://github.com/GitbookIO/nuts) – Gumagamit din ng [Mga Lathala sa Github](https://help.github.com/articles/creating-releases/), pero kina-cache ang mga app na update sa disk at sumusuporta sa mga pribadong repositori.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Nagbibgay ng isang dashboard para sa paghahawak ng mga lathala at hindi nangangailangang ang mga lathala ay nagmula sa Github.
+- [Nucleus](https://github.com/atlassian/nucleus) – Isang kompletong update na server para sa Electron na mga app na pinapanatili ng Atlassian. Sumusuporta sa maraming mga aplikasyon at tsanel; gumagamit ng isang istatikkong file na imbakan para paliitin ang gastos ng server.
 
-If your app is packaged with [`electron-builder`](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
+Kapag ang iyong app ay nakapakete kasama ang [`electron-builder`](https://github.com/electron-userland/electron-builder), magagamit mo ang [electron-updater](https://www.electron.build/auto-update) na modyul, na hindi nangangailangan ng isang server at pinapayagan ang mga update mula sa S3, Github o kahit anong istatikong host ng file. Pinapalikwas nito ang ang built-in na mekanismong pang-update ng Electron, ang ibig sabihin na ang natitira sa dokumentasyong ito ay hindi maaaplay sa updater ng `electron-builder`.
 
-## Implementing Updates in Your App
+## Pagpapatupad ng mga Update sa iyong App
 
 Kapag na-deploy mo na ang iyong update server, ipagpapatuloy ang pag-import ng mga kinakailangang mga modyul sa iyong code. Ang sumusunod na code ay possibleng naiiba sa mga iba't - ibang server software, pero gumagana ito katulad ng inilalarawan kapag gumagamit ng [Hazel](https://github.com/zeit/hazel).
 
@@ -42,9 +42,9 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Kapag [napakete](../tutorial/application-distribution.md) na ang iyong aplikasyon, makakatanggap ito ng isang update para sa bawat bagong [Lathala ng Github](https://help.github.com/articles/creating-releases/) na ilalathala mo.
 
-## Applying Updates
+## Pag-aaplay sa mga Update
 
 Ngayong na-configure mo na ang basikong mekanismo para sa pag-update ng iyong aplikasyon, kailangang siguraduhin mo na ang gumagamit ay mapapaalahanan kapag mayroong update. Nakakamit ito gamit ang autoUpdater na API [events](../api/auto-updater.md#events):
 
