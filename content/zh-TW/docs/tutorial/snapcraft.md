@@ -81,8 +81,8 @@ For more information on the available configuration options, see the [documentat
 
 ```yaml
 name: myApp
-version: 2.0.0
-summary: 應用程式的簡介。
+version: '2.0.0'
+summary: A little description for the app.
 description: |
  你知道嗎? 這個 app 超讚的! 什麼事都幫你做好了。 有人說用了之後整個人都年輕了起來，好像也更快樂了呢。
 
