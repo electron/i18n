@@ -20,15 +20,15 @@ $ npm install -g asar
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## Paggamit ng mga Archives ng `asar`
 
-Sa Elektron, mayroong dalawang nakatakdang "APIs": "Node APIs" na galing sa Node.js at ang "Web APIs na galing sa " Chrilomium". Ang parehong "APIs" ay sumusuporta sa pagbasa ng mga payl galing sa mga "archive" ng `asar`.
+Sa Electron, mayroong dalawang nakatakdang mga API: Ang Node na API ay galing sa Node.js at ang Web na API ay galing sa " Chromium". Ang parehong mga API ay sumusuporta sa pagbasa ng mga file galing sa mga archive ng `asar`.
 
-### "Node API"
+### Node na API
 
-Kasama ang espesyal na "patches" sa Elektron, "Node APIs" tulad ng `fs.readFile` at `require` ay itinuturing ang "archive" ng `asar` bilang mga direktoryo ng birtwal, at ang mga payl dito at bilang mga normal na payl sa sistema nito.
+Kasama ang espesyal na mga sa Electron, ang mga Node na API tulad ng `fs.readFile` at `require` ay itinuturing ang archive ng `asar` bilang mga direktoryo ng birtwal, at ang mga file dito at bilang mga normal na mga file sa sistema nito.
 
-Halimbawa, ating ipagpalagay na ang "archive" na `example.asar` sa ilalim ng `/path/to`:
+Halimbawa, ating ipagpalagay na ang archive na `example.asar` sa ilalim ng `/path/to`:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -40,27 +40,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Basahin ang oayl sa "archive" ng `asar`:
+Basahin ang file sa archive ng `asar`:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-Ang listahan ng lahat ng payl sa ilalim ng "root" ng "archive":
+Ilista ang lahat ng mga filesa ilalim ng ugat ng archive:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Gumamit ng modyul galing sa "archive":
+Gumamit ng modyul galing sa archive:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-Maaari ring i-display ang pahina ng "web" sa "archive" na `asar` kasama ang `BrowserWindow`:
+Maaari ring i-display ang pahina ng web sa archive na `asar` kasama ang `BrowserWindow`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -68,11 +68,11 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('file:///path/to/example.asar/static/index.html')
 ```
 
-### "Web API"
+### Web na API
 
-Sa pahina ng "web", ang mga payl na nasa "archive" ay maaaring hilingin sa protokol ng `file:`. Tulad ng "Node API", ang mga "archive" ng `asar` ay tinuturing bilang mga direktoryo.
+Sa pahina ng web, ang mga file na nasa archive ay maaaring hilingin sa protokol ng `file:`. Tulad ng Node na API, ang mga archive ng `asar` ay tinuturing bilang mga direktoryo.
 
-Halimbawa, para makuha ang payl gamit ang `$.get`:
+Halimbawa, para makuha ang isang file gamit ang `$.get`:
 
 ```html
 <script>
