@@ -1,14 +1,12 @@
 # Installation
 
-> Tipps zum Installieren von Electron
-
-Nutzen Sie [`npm`](https://docs.npmjs.com/) um Electron als vorgefertigtes Archiv zu installieren. Die bevorzugte Methode ist jedoch, Electron als Abhängigkeit in Ihrer App einzubinden:
+To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## Globale Installation
 
@@ -93,13 +91,13 @@ Man kann auch versuchen, Electron direkt unter [electron/electron/releases](http
 
 If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-Falls dieser Fehler dennoch bestehen bleibt, könnte es Abhilfe schaffen, den [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm)-Flag auf "true" zu setzen:
+If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-In langsameren Netzwerken ist es ratsam den `--verbose`-Flag zu benutzen um den Downloadfortschritt anzuzeigen:
+On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
 
 ```sh
 npm install --verbose electron
