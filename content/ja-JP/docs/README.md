@@ -47,7 +47,7 @@
 * [Application Testing and Debugging](tutorial/application-debugging.md) 
   * [メインプロセスのデバッグ](tutorial/debugging-main-process.md)
   * [SeleniumとWebDriverを使用する](tutorial/using-selenium-and-webdriver.md)
-  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools エクステンション](tutorial/devtools-extension.md)
 * [アプリケーションの配布](tutorial/application-distribution.md) 
   * [サポートされているプラットフォーム](tutorial/supported-platforms.md)
@@ -79,7 +79,7 @@ These individual tutorials expand on topics discussed in the guide above.
   * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+  * [asar アーカイブを使用する](tutorial/application-packaging.md#using-asar-archives)
   * [制限事項](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
@@ -88,12 +88,12 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * * *
 
-* [Glossary of Terms](glossary.md)
+* [用語集](glossary.md)
 
 ## API リファレンス
 
 * [概要](api/synopsis.md)
-* [Process Object](api/process.md)
+* [プロセスオブジェクト](api/process.md)
 * [サポートしているChromeコマンドラインスイッチ](api/chrome-command-line-switches.md)
 * [環境変数](api/environment-variables.md)
 
@@ -146,18 +146,18 @@ These individual tutorials expand on topics discussed in the guide above.
 * [C++のコードにclang-formatを使用する](development/clang-format.md)
 * [テスト](development/testing.md)
 * [ソースコードのディレクトリ構造](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [NW.js(node-webkit) との技術的違い](development/atom-shell-vs-node-webkit.md)
 * [ビルドシステムの概要](development/build-system-overview.md)
 * [ビルド手順 (macOS)](development/build-instructions-osx.md)
 * [ビルド手順 (Windows)](development/build-instructions-windows.md)
 * [ビルド手順 (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
+* [デバッグ手順 (macOS)](development/debugging-instructions-macos.md)
+* [デバッグ手順 (Windows)](development/debug-instructions-windows.md)
+* [デバッガーでシンボルサーバーを設定](development/setting-up-symbol-server.md)
+* [ドキュメントガイド](styleguide.md)
 * [Contributing to Electron](../CONTRIBUTING.md)
 * [Issues](development/issues.md)
 * [Pull Requests](development/pull-requests.md)
-* [Upgrading Chromium](development/upgrading-chromium.md)
-* [Chromiumの開発](development/chromium-development.md)
+* [Chromiumをアップグレードする](development/upgrading-chromium.md)
+* [Chromium開発](development/chromium-development.md)
 * [V8 開発](development/v8-development.md)
