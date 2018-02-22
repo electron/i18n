@@ -47,7 +47,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [Application Testing and Debugging](tutorial/application-debugging.md) 
   * [Debugging the Main Process](tutorial/debugging-main-process.md)
   * [Uso di Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [Test su sistemi Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Estensione DevTools](tutorial/devtools-extension.md)
 * [Distribuzione delle applicazioni](tutorial/application-distribution.md) 
   * [Piattaforme supportate](tutorial/supported-platforms.md)
@@ -88,12 +88,12 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * * *
 
-* [Glossary of Terms](glossary.md)
+* [Glossario dei termini](glossary.md)
 
 ## Riferimenti API
 
 * [Sinossi](api/synopsis.md)
-* [Process Object](api/process.md)
+* [Oggetto Process](api/process.md)
 * [Opzioni di Chrome supportate da riga di comando](api/chrome-command-line-switches.md)
 * [Variabili di ambiente](api/environment-variables.md)
 
@@ -120,7 +120,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocollo](api/protocol.md)
-* [session](api/session.md)
+* [sessione](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
@@ -146,15 +146,15 @@ These individual tutorials expand on topics discussed in the guide above.
 * [Uso di clang-format nel codice C++](development/clang-format.md)
 * [Testing](development/testing.md)
 * [Struttura della cartella del codice sorgente](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Differenze tecniche da NW.js (ex node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Panoramica sul sistema di compilazione](development/build-system-overview.md)
 * [Istruzioni per la compilazione (macOS)](development/build-instructions-osx.md)
 * [Istruzioni per la compilazione (Windows)](development/build-instructions-windows.md)
 * [Istruzioni per la compilazione (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
+* [Istruzioni per il debug (macOS)](development/debugging-instructions-macos.md)
+* [Istruzioni per il debug (Windows)](development/debug-instructions-windows.md)
+* [Impostazione di un Symbol Server nel debugger](development/setting-up-symbol-server.md)
+* [Linee guida per la documentazione](styleguide.md)
 * [Contributing to Electron](../CONTRIBUTING.md)
 * [Issues](development/issues.md)
 * [Pull Requests](development/pull-requests.md)
