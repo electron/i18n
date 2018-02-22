@@ -6,7 +6,7 @@ Ekran dışı görüntülenme, bir tarayıcı penceresinin içeriğini bir bitma
 
 **Not:** Bir ekran dışı pencere her zamanan [Frameless Window](../api/frameless-window.md) oluşturur.
 
-## İşlemenin iki modu
+## Rendering Modes
 
 ### GPU hızlandırma
 
@@ -21,17 +21,19 @@ Bu modu etkinleştirmek için [`app.disableHardwareAcceleration()`](../api/app.m
 ## Kullanım
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
 
 let win
+
 app.once('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
+
   win.loadURL('http://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
     // updateBitmap(dirty, image.getBitmap())
