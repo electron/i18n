@@ -20,7 +20,7 @@ Mevcut Chromium özelliklerini güncellediğimiz sistemin bize sağladıklarıyl
 
 Uzak bir hedeften kod alıp yerel olarak çalıştırdığınızda bir güvenlik sorunu var demektir. Örneğin, bir[`BrowserWindow`](../api/browser-window.md) içerisinde gösterilen uzak bir web sitesi düşünün. Bir saldırgan bir şekilde bahsi geçen içeriği değiştirebilirse (kaynağa direkt olarak saldırarak ya da uygulamanız ve gerçek hedef arasına geçerek), kullanıcının cihazındaki yerel kodu çalıştırabilir.
 
-> :warning: Node.js entegrasyonu açıkken hiçbir durumda uzaktan kod yüklemeyin ve çalıştırmayın. Bunun yerine, Node.js kodunu çalıştırmak için sadece yerel dosyaları (uygulamanızla birlikte gelen) kullanın. To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
+> :warning: Node.js entegrasyonu açıkken hiçbir durumda uzaktan kod yüklemeyin ve çalıştırmayın. Bunun yerine, Node.js kodunu çalıştırmak için sadece yerel dosyaları (uygulamanızla birlikte gelen) kullanın. Uzaktan içeriği görüntülemek için, [`webview`](../api/web-view.md) etiketini kullanın ve `nodeIntegration` ı etkisiz hale getirdiğinizden emin olun.
 
 ## Electron Security Warnings
 
@@ -366,42 +366,55 @@ const mainWindow = new BrowserWindow()
 
 *Tavsiye edilen ayar Electron'da varsayılandır*
 
-If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. ` WebViews </ 0> 'e, aksi takdirde yeni
+` WebViews </ 0> kullanıyorsanız, sayfalara ve komut dizelerine
+yeni pencereleri açmak için <code><webview>` gereklidir. ` allowpopups </ 0> özniteliği
+kullanarak yeni <a href="../api/browser-window.md"><code> BrowserWindows </ 1> oluşturmalarına olanak tanır
+<code> window.open () </ 0>  <code> WebViews </ 0> 'e, aksi takdirde yeni
 pencereler.</p>
 
 <h3>Neden?</h3>
 
-<p>If you do not need popups, you are better off not allowing the creation of
-new <a href="../api/browser-window.md"><code>BrowserWindows`</a> by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+<p>op-up'a ihtiyacınız yoksa, dosyanın oluşturulmasına izin vermeyin.
+varsayılan olarak yeni <a href="../api/browser-window.md"><code> BrowserWindows </ 0>. This follows the principle
+of minimally required access: Don't let a website create new popups unless
+you know it needs that feature.</p>
 
-### Nasıl?
+<h3>Nasıl?</h3>
 
-```html
-<!-- İyi-->
+<pre><code class="html"><!-- İyi-->
 <webview allowpopups src="page.html"></webview>
 
 <!-- Kötü-->
 <webview src="page.html"></webview>
-```
+`</pre> 
 
 ## 12) Verify WebView Options Before Creation
 
 Node.js entegrasyonuna sahip olmayan bir oluşturucu işleminde oluşturulan bir WebView etkinleştirildiğinde entegrasyonu etkinleştirmeyecektir. Bununla birlikte, bir WebView kendi ` webPreferences </ 0> ile her zaman bağımsız bir oluşturucu işlemi oluşturun.</p>
 
-<p>It is a good idea to control the creation of new <a href="../api/web-view.md"><code>WebViews`</a> from the main process and to verify that their webPreferences do not disable security features.
+<p>
+Yeni <a href="../api/web-view.md"><code> WebViews </ 0> 'in oluşturulmasını kontrol etmek iyi bir fikirdir.
+Ana İşlem ve webPreferences'ın devre dışı bırakılmadığını doğrulama
+güvenlik özellikleri.</p>
 
-### Neden?
+<h3>Neden?</h3>
 
-WebViews, DOM'da yaşadığından, bunlar üzerinde çalışan bir komut dosyası ile oluşturulabilirler. Node.js entegrasyonu aksi halde devre dışı bırakılmış olsa bile.
+<p>
+WebViews, DOM'da yaşadığından, bunlar üzerinde çalışan bir komut dosyası ile oluşturulabilirler.
+Node.js entegrasyonu aksi halde devre dışı bırakılmış olsa bile.</p>
 
-Elektron, geliştiricilerin çeşitli güvenlik özelliklerini devre dışı bırakmasını sağlar. bir oluşturucu işlemi. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](../api/web-view.md) tags.
+<p>
+Elektron, geliştiricilerin çeşitli güvenlik özelliklerini devre dışı bırakmasını sağlar.
+bir oluşturucu işlemi. Çoğu durumda, geliştiricilerin hiçbirini devre dışı bırakmaları gerekmez.
+bu özellikler - ve dolayısıyla farklı yapılandırmalara izin vermemelisiniz
+yeni oluşturulan <a href="../api/web-view.md"><code><WebView>`</a> etiketleri için.
 
 ### Nasıl?
 
-Before a [`<WebView>`](../api/web-view.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Etkinliği, muhtemelen güvensiz seçeneklerle WebViews oluşturulmasını engelleyin.
+Bir [`<WebView>`](../api/web-view.md) etiketinin eklenmesinden önce, Elektron, ` web içeriği barındırma </ 1> 'nda will-attach-webview </ 1> etkinliği. Etkinliği,
+muhtemelen güvensiz seçeneklerle WebViews oluşturulmasını engelleyin.</p>
 
-```js
-app.on('web-contents-created', (event, contents) => {
+<pre><code class="js">app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
     // Strip away preload scripts if unused or verify their location is legitimate
     delete webPreferences.preload
@@ -416,6 +429,6 @@ app.on('web-contents-created', (event, contents) => {
     }
   })
 })
-```
+`</pre> 
 
 Yine, bu liste yalnızca riski en aza indirir, kaldırmaz. Amacınız bir web sitesini görüntülemek ise, tarayıcı daha güvenli bir seçenek olacaktır .
