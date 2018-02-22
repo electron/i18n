@@ -6,7 +6,7 @@
 
 **注意:** 屏幕窗口始终创建为 [Frameless Window](../api/frameless-window.md).
 
-## 两种渲染模式
+## Rendering Modes
 
 ### GPU加速
 
@@ -21,17 +21,19 @@ GPU加速渲染意味着使用GPU用于合成。 因为帧必须从需要更多�
 ## 用法
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
 
 let win
+
 app.once('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
+
   win.loadURL('http://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
     // updateBitmap(dirty, image.getBitmap())
