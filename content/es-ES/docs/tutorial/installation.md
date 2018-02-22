@@ -1,14 +1,12 @@
 # Instalación
 
-> Tips para instalar Electron
-
-Para instalar binarios de Electron incorporados, usar [`npm`](https://docs.npmjs.com/). El método preferido es instalar Electron como una dependencia de desarrollo en tu aplicación:
+Para instalar binarios de Electron incorporados, usar [`npm`](https://docs.npmjs.com). El método preferido es instalar Electron como una dependencia de desarrollo en tu aplicación:
 
 ```sh
 npm install electron -save-dev
 ```
 
-Consulte [Electron versioning doc](electron-versioning.md) para información sobre cómo manejar las versiones Electron en las aplicaciones.
+See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## Instalación Global
 
@@ -38,7 +36,7 @@ Si necesitas usar un porxy HTTP puedes [configurar estas variables de entorno](h
 
 ## Espejos y cachés personalizados
 
-Durante la instalación, el módulo `electron` será llamado a [`electron-download`](https://github.com/electron-userland/electron-download) para descargar los archivos binarios precreados de Electron para la plataforma. Lo hará poniéndose en contacto con la página de descarga de versiones de GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, donde `$VERSION` es la versión exacta de Electron).
+During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. Lo hará poniéndose en contacto con la página de descarga de versiones de GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, donde `$VERSION` es la versión exacta de Electron).
 
 Si no puede acceder a GitHub o necesita proporcionar una compilación personalizada, puede hacerlo proporcionando un espejo o un directorio de caché existente.
 
@@ -93,13 +91,13 @@ También puede intentar descargar Electron directamente de [electron/electron/re
 
 Si la instalación falla con un error `EACCESS` puede que se necesite los [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-Si el error de arriba persiste, puede ser que el flag [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) necesite ser igualado a true:
+If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-En redes más lentas, puede ser aconsejable utilizar el flag `--verbose` de manera que se muestre el progreso de descarga:
+On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
 
 ```sh
 npm install --verbose electron
