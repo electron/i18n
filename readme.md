@@ -16,8 +16,8 @@ The following languages are currently being translated, but we can
 [easily add more]((https://github.com/electron/electron-i18n/issues/new?title=new%20language%20request)):
 
 <!-- start language-table -->
-- [Indonesian](https://crowdin.com/project/electron/id)
 - [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
+- [Indonesian](https://crowdin.com/project/electron/id)
 - [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [Filipino](https://crowdin.com/project/electron/fil)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
@@ -35,8 +35,8 @@ The following languages are currently being translated, but we can
 - [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
 - [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
-- [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
+- [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
 - [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 <!-- end language-table -->
