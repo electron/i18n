@@ -607,16 +607,16 @@ app.setJumpList([
 
 Този метод връща `false`, ако вашия процес е основният екземпляр на приложението и вашето приложението трябва да продължи зареждането. Както и връща `true` ако вашия процес е изпратил своите параметри на друг екземпляр, и вие трябва веднага да изключите текущата инстанция.
 
-На macOS системата автоматично налага един екземпляр, когато потребителите се опитват да отворят второ копие на приложението ви в Finder събитията `open-file` и `open-url` ще бъдат излъчени. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+На macOS системата автоматично налага един екземпляр, когато потребителите се опитват да отворят второ копие на приложението ви в Finder събитията `open-file` и `open-url` ще бъдат излъчени. Обаче когато потребителите стартират приложението ви в командния ред, еднократният механизъм на системата ще бъде избегнат, тогава ще трябва да използвате този метод, за да гарантирате единичен екземпляр.
 
-An example of activating the window of primary instance when a second instance starts:
+Пример за активиране на прозореца на основния екземпляр, когато втори екземпляр бива стартиран:
 
 ```javascript
 const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
+  // Някой се е опитал да стартира втори екземпляр, трябва да се фокусираме върху нашия прозорез.
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
@@ -627,19 +627,19 @@ if (isSecondInstance) {
   app.quit()
 }
 
-// Create myWindow, load the rest of the app, etc...
+// Създай myWindow, зареди останалата част от приложението, и т.н. ...
 app.on('ready', () => {
 })
 ```
 
 ### `app.releaseSingleInstance()`
 
-Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
+Освобождава всички ключалки, създадени от `makeSingleInstance`. Това ще позволи няколко копия на приложението, работещи едновременно.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
+* `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Състояние специфично за приложението, което да бъде използвано от друго приложение.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
 Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
@@ -650,14 +650,14 @@ Returns `String` - The type of the currently running activity.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - Uniquely identifies the activity. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
-* `type` String - Uniquely identifies the activity. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
+* `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Състояние специфично за приложението, което да бъде използвано от друго приложение.
 
 Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
 
