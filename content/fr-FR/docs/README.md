@@ -47,7 +47,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Application Testing and Debugging](tutorial/application-debugging.md) 
   * [Débogguer le Main Process](tutorial/debugging-main-process.md)
   * [Utilisation de Selenium et WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extension DevTools](tutorial/devtools-extension.md)
 * [Distribution de l'Application](tutorial/application-distribution.md) 
   * [Plateformes supportées](tutorial/supported-platforms.md)
@@ -79,16 +79,16 @@ These individual tutorials expand on topics discussed in the guide above.
   * [Versions bêta et corrections de bugs](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+  * [Lire une archive asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Rendu Offscreen](tutorial/offscreen-rendering.md)
+* [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
 
 * * *
 
-* [Glossary of Terms](glossary.md)
+* [Glossaire des termes](glossary.md)
 
 ## Références de l'API
 
@@ -99,7 +99,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ### Éléments DOM Personnalisé :
 
-* [`File` Object](api/file-object.md)
+* [Objet `File`](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
@@ -112,7 +112,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
-* [inAppPurchase](api/in-app-purchase.md)
+* [Achat inApp](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -143,19 +143,19 @@ These individual tutorials expand on topics discussed in the guide above.
 ## Développement
 
 * [Style de Codage](development/coding-style.md)
-* [Utilisation du clang-format pour du code C++](development/clang-format.md)
+* [Utilisation du clang-format sur du code C++](development/clang-format.md)
 * [Test](development/testing.md)
-* [Hiérarchie du Code Source](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Aperçu du Système de Build](development/build-system-overview.md)
+* [Structure du répertoire du Code Source](development/source-code-directory-structure.md)
+* [Différences Techniques de NW.js (anciennement node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Aperçu du Système de compilation](development/build-system-overview.md)
 * [Instructions de Build (macOS)](development/build-instructions-osx.md)
 * [Instructions de Build (Windows)](development/build-instructions-windows.md)
-* [Instructions de compilation (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
+* [Instructions de Build (Linux)](development/build-instructions-linux.md)
+* [Instructions de Debug (macOS)](development/debugging-instructions-macos.md)
+* [Instructions de Debug (Windows)](development/debug-instructions-windows.md)
+* [Installer un Serveur de Symbol dans le debugger](development/setting-up-symbol-server.md)
 * [Documentation Styleguide](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
+* [Contribuer à Electron](../CONTRIBUTING.md)
 * [Issues](development/issues.md)
 * [Pull Requests](development/pull-requests.md)
 * [Mettre à jour Chromium](development/upgrading-chromium.md)
