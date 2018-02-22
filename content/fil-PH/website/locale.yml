@@ -130,7 +130,7 @@ pages:
   '/userland':
     title: Userland
   '/devtron':
-    title: Devtron
+    title: DevtronDevtron
     description: Ang Devtron ay isang open source tool na makakatulong inspeksyunin, i-monitor, at mag-debug ng iyong Electron app. Binuo sa tuktok ng kamangha-manghang Chrome Developer na mga Tool.
   '/spectron':
     title: Spectron
