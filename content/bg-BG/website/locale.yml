@@ -96,7 +96,7 @@ or: или
 pages:
   '/':
     title: Електрон | Изграждане на приложения за множество платформи с JavaScript, HTML и CSS.
-    description: 'Изграждане на приложения за множество платформи с JavaScript, HTML и CSS.'
+    description: 'Изграждайте приложения за множество платформи с JavaScript, HTML и CSS.'
   '/apps':
     title: Електрон приложения
     description: Приложения, изградени с Електрон
