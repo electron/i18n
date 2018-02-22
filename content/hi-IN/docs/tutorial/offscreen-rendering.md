@@ -6,7 +6,7 @@
 
 **नोट:** एक ऑफस्क्रीन विंडो हमेशा एक [फ्रेमलेस विंडो](../api/frameless-window.md) की तरह निर्मित होती है |
 
-## रेंडरिंग के दो मोड
+## Rendering Modes
 
 ### जीपीयु एक्स्सलरेटेड
 
@@ -21,17 +21,19 @@
 ## उपयोग
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
 
 let win
+
 app.once('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
+
   win.loadURL('http://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
     // updateBitmap(dirty, image.getBitmap())
