@@ -28,7 +28,7 @@ Object.keys(globals.builtin).map(key => {
 
 // Add Electron API names
 apis.forEach(api => {
-  glossary.push(`${api.name}, This is an Electron API and should NOT be translated`)
+  glossary.push(`${api.name}, This is an Electron ${api.type} and should usually not be translated`)
 })
 
 // Add Electron instance methods and properties
@@ -37,12 +37,12 @@ apis
   .forEach(api => {
     const methods = api.instanceMethods || []
     methods.forEach(method => {
-      glossary.push(`${api.instanceName}.${method.name}, This is an Electron instance method and should NOT be translated`)
+      glossary.push(`${api.instanceName}.${method.name}, This is an Electron instance method and should usually not be translated`)
     })
 
     const props = api.instanceProperties || []
     props.forEach(prop => {
-      glossary.push(`${api.instanceName}.${prop.name}, This is an Electron instance property and should NOT be translated`)
+      glossary.push(`${api.instanceName}.${prop.name}, This is an Electron instance property and should usually not be translated`)
     })
   })
 
