@@ -32,7 +32,18 @@
 
 不是說這樣就能金槍不入，但至少你應該依照下列步驟來提升你應用程式的安全性。
 
-1) [只載入安全的內容](#only-load-secure-content) 2) [停用任何會顯示遠端內容的畫面轉譯處理序中的 Node.js 整合功能](#disable-node.js-integration-for-remote-content) 3) [在所有會顯示遠端內容的畫面轉譯處理序中啟用內容隔離功能](#enable-context-isolation-for-remote-content) 4) [在所有會載入遠端內容的 Session 中使用`ses.setPermissionRequestHandler()`](#handle-session-permission-requests-from-remote-content) 5) [不要停用 `webSecurity`](#do-not-disable-websecurity) 6) [定義 `Content-Security-Policy`](#define-a-content-security-policy) 並啟用嚴格規則 (i.e. `script-src 'self'`) 7) [覆寫並停用 `eval`](#override-and-disable-eval)，否則一般字串有可能被當成程式執行。 8) [不要將 `allowRunningInsecureContent` 設為 `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [不要啟用實驗性功能](#do-not-enable-experimental-features) 10) [不要使用 `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: 不要用 `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: 檢查所有 `<webview>` 標籤的選項及參數](#verify-webview-options-before-creation)
+1. [只載入安全的內容](#only-load-secure-content)
+2. [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
+3. [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
+4. [在所有會載入遠端內容的 Session 中使用 `ses.setPermissionRequestHandler()`](#handle-session-permission-requests-from-remote-content)
+5. [不要停用 `webSecurity`](#do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
+8. [不要將 `allowRunningInsecureContent` 設為 `true`](#do-not-set-allowRunningInsecureContent-to-true)
+9. [Do not enable experimental features](#do-not-enable-experimental-features)
+10. [不要用 `blinkFeatures`](#do-not-use-blinkfeatures)
+11. [WebViews: 不要用 `allowpopups`](#do-not-use-allowpopups)
+12. [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
 
 ## 1) 只載入安全的內容
 
@@ -66,13 +77,13 @@ browserWindow.loadURL('https://my-website.com')
 
 ## 2) 針對遠端內容停用 Node.js 整合功能
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+停用所有會載入遠端內容的畫面轉譯器 ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md) 或 [`WebView`](../api/web-view)) 中的 Node.js 整合功能非常重要。 目的是在限縮遠端內容能做的事，就算攻擊者能在你的網站中執行 JavaScript，也很難真正傷害到使用者。
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+你可以再針對特定的網址提供額外權限。 例如，如果你開了一個指到 `https://my-website.com/" 的 BrowserWindow，可以額外指定該網頁需要有的最小權限，千萬不要多給用不到的權限。
 
 ### 為什麼?
 
-A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+如果攻擊者能跳出畫面轉譯處理序，直接在使用者的電腦上執行程式碼，那麼跨網站指令碼 (Cross-Site Scripting; 縮寫 XSS) 攻擊會變得非常危險。 XSS 攻擊很常見，通常發生時其破壞力只限於亂搞被執行的網站。 停用 Node.js 整合功能，能防止 XSS 攻擊擴大成「遠端程式碼執行」(Remote Code Execution; 縮寫 RCE) 攻擊
 
 ### 怎麼做?
 
@@ -102,9 +113,9 @@ mainWindow.loadURL('https://my-website.com')
 <webview src="page.html"></webview>
 ```
 
-When disabling Node.js integration, you can still expose APIs to your website that do consume Node.js modules or features. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+就算停用了 Node.js 整合功能，你還是能將 Node.js 的模組或功能 API 提供給網站執行。 你可以在預載腳本中使用 `require` 及其他 Node.js 的功能，開發人員可以提供自訂 API 給遠端載入的內容使用。
 
-In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
+下列這段預載腳本範例中，後續載入的網頁可以使用 `window.readConfig()` 方法，但無法直接存取 Node.js 功能。
 
 ```js
 const { readFileSync } = require('fs')
@@ -117,7 +128,7 @@ window.readConfig = function () {
 
 ## 3) 針對遠端內容啟用內容隔離功能
 
-Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
+內容隔離是 Electron 提供的功能，讓開發者可以在預載腳本及 Electron API 中以專用的 JavaScript 環境執行程式碼。 In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
@@ -191,7 +202,7 @@ session
   })
 ```
 
-## 5) 不用停用 WebSecurity
+## 5) 不要停用 WebSecurity
 
 *建議值就是 Electron 的預設值*
 
@@ -262,10 +273,10 @@ Generally speaking, it is easier to completely disable `eval()` than to make it 
 ### 怎麼做?
 
 ```js
-// ESLint will warn about any use of eval(), even this one
-// eslint-disable-next-line
+// ESLint 會對任何用到 eval() 的地方提出警告，就算用了
+// eslint-disable-next-line 也一樣
 window.eval = global.eval = function () {
-  throw new Error(`Sorry, this app does not support window.eval().`)
+  throw new Error(`失禮了，本應用程式不支援 window.eval()。`)
 }
 ```
 
@@ -405,4 +416,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目的只是要顯示網站，那麼瀏覽器會是比較安全的選項。
+再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目標只是要顯示網站，那麼瀏覽器會是比較安全的選項。

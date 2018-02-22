@@ -34,24 +34,24 @@ objek <code> process.env </ code> atau <code>> </ code>.</p>
 <p>Ini bukan antipeluru, tapi paling tidak, Anda harus mengikuti langkah-langkah ini
 tingkatkan keamanan aplikasi Anda.</p>
 
-<p>1) <a href="#only-load-secure-content"> Isi muatan aman saja </a>
-2) <a href="#disable-node.js-integration-for-remote-content"> Nonaktifkan integrasi Node.js di semua penyaji yang menampilkan konten jauh </a>
-3) <a href="#enable-context-isolation-for-remote-content"> Aktifkan isolasi konteks di semua penyaji yang menampilkan konten jauh </a>
-4) <a href="#handle-session-permission-requests-from-remote-content"> Gunakan <code> ses.setPermissionRequestHandler () </ code> di semua sesi yang memuat konten jarak jauh </a>
-5) <a href="#do-not-disable-websecurity"> Jangan menonaktifkan <code> webSecurity </ code> </a>
-6) <a href="#define-a-content-security-policy"> Tentukan <code> Content-Security-Policy </ code> </a>
-  dan gunakan aturan pembatasan (yaitu <code> script-src 'self' </ code>)
-7) <a href="#override-and-disable-eval"> Mengabaikan dan menonaktifkan <code> eval </ code> </a>
-, yang memungkinkan string untuk dieksekusi sebagai kode.
-8) <a href="#do-not-set-allowRunningInsecureContent-to-true"> Jangan set <code> allowRunningInsecureContent </ code> ke <code> true </ code> </a>
-9) <a href="#do-not-enable-experimental-features"> Jangan aktifkan fitur eksperimental </a>
-10) <a href="#do-not-use-blinkfeatures"> Jangan gunakan <code> blinkFeatures </ code> </a>
-11) <a href="#do-not-use-allowpopups"> WebViews: Jangan gunakan <code> allowpopups </ code> </a>
-12) <a href="#verify-webview-options-before-creation"> WebViews: Verifikasi opsi dan params dari semua tag <code> & lt; webview & gt; </ code> </a></p>
+<ol>
+<li><a href="#only-load-secure-content">Hanya memuat konten aman</a></li>
+<li><a href="#disable-node.js-integration-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
+<li><a href="#enable-context-isolation-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
+<li><a href="#handle-session-permission-requests-from-remote-content">Gunakan <code>ses.setPermissionRequestHandler ()</ 0> di semua sesi yang memuat konten jauh</a></li>
+<li><a href="#do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`</a></li> 
 
-<h2>1) Hanya memuat konten aman</h2>
+- [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+- [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
+- [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#do-not-set-allowRunningInsecureContent-to-true)
+- [Tidak mengaktifkan fitur eksperimental](#do-not-enable-experimental-features)
+- [Jangan gunakan <kode>berkedipFitur</kode>](#do-not-use-blinkfeatures)
+- [Tampilan Web: Jangan gunakan `allowpopups`](#do-not-use-allowpopups)
+- [WebViews: Memverifikasi pilihan dan params semua tag `<webview>`](#verify-webview-options-before-creation)</ol> 
 
-<p>Setiap sumber daya yang tidak disertakan dengan aplikasi anda harus dimuat dengan menggunakan protokol yang aman seperti <code>HTTPS`. Dengan kata lain, jangan gunakan tidak aman protokol seperti `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+## 1) Hanya memuat konten aman
+
+Setiap sumber daya yang tidak disertakan dengan aplikasi anda harus dimuat dengan menggunakan protokol yang aman seperti `HTTPS`. Dengan kata lain, jangan gunakan tidak aman protokol seperti `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### Mengapa?
 
@@ -199,7 +199,7 @@ session
 
 ## 5) Jangan Nonaktifkan Keamanan Web
 
-*Rekomendasi adalah elektron 's default*
+*Recommendation is Electron's default*
 
 Anda mungkin sudah menduga bahwa menonaktifkan property ` webSecurity </ code> pada a proses renderer (<a href="../api/browser-window.md"> <code> BrowserWindow </ code> </a>,<a href="../api/browser-view.md"> <code> BrowserView </ code> </a>, atau <a href="../api/web-view"> <code> WebView </ code> </a>) menonaktifkan penting
 fitur keamanan.</p>
@@ -327,7 +327,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 10) Jangan Gunakan ` blinkFeatures </ code></h2>
 
-<p><em>Recommendation is Electron's default</em></p>
+<p><em>Rekomendasi adalah elektron 's default</em></p>
 
 <p>Blink is the name of the rendering engine behind Chromium. Sebagai properti <code>blinkFeatures` dengan `experimentalFeatures`, memungkinkan pengembang untuk mengaktifkan fitur yang telah dinonaktifkan secara default.</p> 
 

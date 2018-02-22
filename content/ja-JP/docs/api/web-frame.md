@@ -2,7 +2,7 @@
 
 > Customize the rendering of the current web page.
 
-プロセス: [レンダラー](../glossary.md#renderer-process)
+プロセス: [Renderer](../glossary.md#renderer-process)
 
 An example of zooming current page to 200%.
 
@@ -97,7 +97,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (optional) 
+* `options` Object (任意) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
   * `allowServiceWorkers` Boolean - (optional) Default true.

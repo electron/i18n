@@ -1,8 +1,8 @@
-# kalabog ng tagapagbalita
+# bumagsakReporter
 
-> Ipasa ang crash reports para ma kontrol ang server
+> Isumite ang mga ulat ng pag bagsak sa isang remote server.
 
-Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Ang mga ito ay halimbawa ng awtomatikong pag pasa ng mga crash report patungo sa remote server:
 

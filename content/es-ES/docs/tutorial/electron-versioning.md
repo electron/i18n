@@ -1,8 +1,8 @@
-# Versionamiento de Electron
+# Versionado de Electron
 
 > Una mirada detallada en la política e implementación de las versiones.
 
-Como desde la versión 2.0.0, Electron siguen [semver](#semver). El siguiente comando instalará la estructura estable más reciente de Electron:
+Desde la versión 2.0.0, Electron sigue [semver](#semver). El siguiente comando instalará la compilación mas estable y reciente de Electron:
 
 ```sh
 npm install --save-dev electron
@@ -16,39 +16,39 @@ npm install --save-dev electron@latest
 
 ## Versión 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Mientras es convenientes para desarrolladores combinar características, esto crea problemas para desarrolladores de de aplicaciones que los clientes están viendo. Los ciclos de pruebas QA de las aplicaciones mayores como Slack, Stride, Temas, Skype, VS Code, Arom, y Desktop pueden ser duraderas y la estabilidad es un resultado muy deseado. Hay un riesgo grande adoptando nuevas características mientras se está tratando de absorber soluciones a errores.
+Las versiones de electrón *< 2.0* no se ajustan a la especificación [semver](http://semver.org): las versiones principales correspondían a cambios en la API para el usuario final, las versiones menores correspondían a versiones principales de Chromium, y las versiones de parches correspondían a nuevas características y correcciones de errores. Mientras que es conveniente para los desarrolladores combinar características, crea problemas para los desarrolladores de aplicaciones orientadas al cliente. Los ciclos de pruebas QA de aplicaciones importantes como Slack, Stride, Teams, Skype, VS Code, Atom, y Desktop pueden ser muy completos y la estabilidad es un resultado muy deseado. Hay un riesgo grande adoptando nuevas características mientras se está tratando de asimilar las soluciones de errores.
 
 Aquí hay un ejemplo de la estrategia 1.x:
 
 ![](../images/versioning-sketch-0.png)
 
-Una aplicación desarrollada con `1.8.1` no puede tener la corrección de errores `1.8.3` sin absorber las características `1.8.2`, o devolviendo el arreglo y manteniendo la nueva línea de publicación.
+Una aplicación desarrollada con `1.8.1` no puede tener la solución de errores `1.8.3` sin asimilar las características `1.8.2`, o portando la solución y manteniendo un nueva línea de publicación.
 
 ## Versión 2.0 y superiores
 
-Hay varios cambios mayores desde nuestra estrategia 1.x expresada abajo. Cada cambio tiene la intención de satisfacer las necesidades y prioridades de los desarrolladores y personas que mantienen la aplicación.
+Hay varios cambios principales desde nuestra estrategia 1.x expresada abajo. Cada cambio tiene la intención de satisfacer las necesidades y prioridades de los desarrolladores/mantenedores y los desarrolladores de aplicaciones.
 
 1. Uso estricto de semver
 2. Introducción de las etiquetas de semver-compliant `-beta`
 3. Introducción a [mensajes de compromiso convencionales](https://conventionalcommits.org/)
 4. Rama de estabilización claramente definidas
-5. The `master` branch is versionless; only stabilization branches contain version information
+5. La rama `master` no tiene versiones: solo las ramas de estabilización contienen información de las versiones
 
-Reseñamos en detalle cómo funcionan las ramas git, cómo funcionan las etiquetas de npm, qué es lo que el desarrollador espera ver, y como se puede hacer cambios por la puerta de atras.
+Reseñamos en detalle cómo funcionan las ramas git, cómo funcionan las etiquetas de npm, qué es lo que los desarrolladores esperan ver, y como se pueden portar cambios a versiones anteriores.
 
 # semver
 
-Desde 2.0, Electron seguiría semver.
+Desde 2.0, Electron seguirá semver.
 
-Abajo hay una tabla construyendo un mapa explícitamente con los tipos las categorías correspondientes de semver (Ej: mayor, menor, parche).
+A continuación hay una tabla relacionado explícitamente los tipos de cambios con sus correspondientes categorías de semver (Ej: Major, Minor, Patch).
 
-| Incrementos de versiones mayores       | Incrementos de version menores               | Incrementos en la versión de parches                         |
-| -------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
-| Cambios de API por Electron            | Cambios de API por otras razones de Electron | Corrección de fallos de Electron                             |
-| Node.js major version updates          | Node.js minor version updates                | Node.js patch version updates                                |
-| Actualización de versiones de Chromium |                                              | parches de chromium relacionados con el arreglo de problemas |
+| Incrementos de versiones major                 | Incrementos de version minor                   | Incrementos en la versión patch                              |
+| ---------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
+| Cambios incompatibles con la API de Electron   | Cambios compatibles de la API de Electron      | Solución a fallos de Electron                                |
+| Actualizaciones en la version major de Node.js | Actualizaciones en la version minor de Node.js | Actualizaciones en la version patch de Node.js               |
+| Actualización de versiones de Chromium         |                                                | parches de chromium relacionados con soluciones de problemas |
 
-Note que la mayoría de las actualizaciones de chromium serán consideras como rompientes. Arreglos que pueden hacerse por la puerta de atrás es probable que sean escogidos como parches.
+Considere que la mayoría de las actualizaciones de chromium serán consideras como incompatibles. Los arreglos que puedan ser portados a versiones anteriores es probable que sean aplicados como parches.
 
 # Ramas estabilizadoras
 

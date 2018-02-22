@@ -274,8 +274,8 @@ describe('i18n.locales', () => {
 
   it('sorts locales by translation progress', () => {
     const progress = Object.keys(i18n.locales).map(locale => i18n.locales[locale].stats.translated_progress)
-    progress[0].should.be.above(progress[1])
-    progress[1].should.be.above(progress[2])
+    progress[0].should.be.above(progress[4])
+    progress[4].should.be.above(progress[8])
   })
 })
 

@@ -1,16 +1,17 @@
 # Pamamahagi ng aplikasyon
 
-Upang maipamahagi ang iyong app sa elektron, kailangan mong i-download ang elektron mga binary ng prebuilt<0/>. Sunod, ang foloder na naglalaman ng iyong app ay dapat nakapangalan sa `app` at iniligay sa mga pinagkukunan ng Elektron Ang direktoryo ay ipinapakita sa mga sumusunod na halimbawa. Tandaan na ang mga lokasyon ng mga binary sa Elektron prebuilt ay ipinapahiwatig ng `elektron/<0> sa mga halimbawa sa ibaba.</p>
+Upang maipamahagi ang iyong app sa Electron, kailangan mong i-download ang electron [mga binary ng prebuilt](https://github.com/electron/electron/releases). Sunod, ang foloder na naglalaman ng iyong app ay dapat nakapangalan sa `app` at iniligay sa mga pinagkukunan ng Electron Ang direktoryo ay ipinapakita sa mga sumusunod na halimbawa. Tandaan na ang mga lokasyon ng mga binary sa Electron prebuilt ay ipinapahiwatig ng `electron` sa mga halimbawa sa ibaba.
 
-<p>Sa macOs:</p>
+Sa macOs:
 
-<pre><code class="text">electron/Electron.app/Contents/Resources/app/
+```text
+electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
 └── index.html
-`</pre> 
+```
 
-Sa windows at linux:
+Sa Windows at Linux:
 
 ```text
 electron/resources/app
@@ -19,7 +20,7 @@ electron/resources/app
 └── index.html
 ```
 
-Pagkatapos magsagawa ng `Electron.app` (o `elektron` sa Linux,`electron.exe` sa windows), at ang elektron ay magsisimula bilang iyong app. Ang `elektron`direktoryo ay magiging iyong ma-i-pamamahagi upang ihatid sa mga huling gumagamit.
+Pagkatapos magsagawa ng `Electron.app` (o `electron` sa Linux,`electron.exe` sa windows), at ang elektron ay magsisimula bilang iyong app. Ang `elektron`direktoryo ay magiging iyong ma-i-pamamahagi upang ihatid sa mga huling gumagamit.
 
 ## Pagkaging ng iyong App sa isang File
 
@@ -34,7 +35,7 @@ electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-Sa windows at linux:
+Sa Windows at Linux:
 
 ```text
 electron/resources/
@@ -53,19 +54,17 @@ Maari mong palitan ang `electron.exe` sa anumang pangalan na gusto mo, at i-edit
 
 ### macOS
 
-Maari mong palitan ng pangalan ang `Electron.app` sa anumang gusto mo, at maari mo ring palitan ng pangalan anh `CFBundleDisplayName`,</code>CFBundleIdentifier</code> at `CFBundleName</0> sa mga larangan sa mga sumusunod na file:</p>
+Maari mong palitan ng pangalan ang `Electron.app` sa anumang gusto mo, at maari mo ring palitan ng pangalan ang `CFBundleDisplayName`,`CFBundleIdentifier` at `CFBundleName` sa mga larangan sa mga sumusunod na file:
 
-<ul>
-<li><code>Electron.app/Contents/Info.plist`</li> 
-
-* `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`</ul> 
+* `Electron.app/Contents/Info.plist`
+* `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
 Maari mo ring palitan ng pangalan ang tumutulong na app upang maiwasan ang pagpapakita `Electron Helper` sa aktibidad ng monitor, ngunit siguraduhin na palitan mo nang pangalan ang helper app's para mapalitan ng pangalan ang mga file.
 
 Ang istraktura na pinalitang pangalan ng app ay magiging tulad ng:
 
 ```text
-AngAkingApp.app/Mga Nilalaman
+MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
 │   └── MyApp
@@ -120,10 +119,10 @@ Kailangan mong mag fork Electron kapag ikaw ay mag pasadyang C++ na kodigo na iy
 
 3. Itakda ang mga sumusunod na baryabol ng kapaligiran:
 
-* `ELEKTRON_GITHUB_TOKEN` - ay isang token na maaring lumikha ng mga release sa GitHub.
+* `ELECTRON_GITHUB_TOKEN` - ay isang token na maaring lumikha ng mga release sa GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - ang lugar kung saan maari kang mag-upload ng mga header sa node.js pati na rin ang mga simbolo
 * `ELECTRON_RELEASE` - Itakda sa `tama` at ang parte ng pag-upload ay gagana, iwanan ang i-unset At `surf-bumuo` gagawin namin ang mga pagsusuri ng CI-type, nararapat patakbuhin sa bawat pull ng kahilingan.
-* `CI<code> - Itakda sa <0>tama` o kung hindi ito ay mabibigo
+* `CI` - Itakda sa `tama` o kung hindi ito ay mabibigo
 * `GITHUB_TOKEN` - itakda ito sa kaparehong `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - itakda sa `C:\Temp` sa windows upang maiwasan ang mga landas na isyu sa mahabang isyu
 * `TARGET_ARCH` - itakda sa `ia32` o `x64`

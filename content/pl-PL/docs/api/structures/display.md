@@ -9,4 +9,4 @@
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-Obiekt `Display` reprezentuje fizyczny wyświetlacz połączony z systemem. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+Obiekt `Display` reprezentuje fizyczny wyświetlacz połączony z systemem. Fałszywy `Display` może istnieć w systemie bez głowy (headless), lub `Display` może odpowiadać do wirtualnego, zdalnego wyświetlacza.

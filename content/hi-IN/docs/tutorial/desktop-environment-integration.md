@@ -1,58 +1,58 @@
 # डेस्कटॉप वातावरण एकीकरण
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+अलग-अलग ऑपरेटिंग सिस्टमस, डेस्कटॉप एप्लीकेशनस को उनके डेस्कटॉप वातावरण में एकीकृत करने के लिए अलग-अलग सुविधायें प्रदान करते हैं | उदाहरण के लिए, विंडोज पर, एप्लीकेशनस टास्क बार की जम्पलिस्ट में शोर्टकट्स डाल सकती हैं, और मैक पर, एप्लीकेशनस डॉक मेन्यु में एक कस्टम मेन्यु डाल सकती हैं |
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+यह गाइड विस्तार से बताएगी कि कैसे आप इलेक्ट्रॉन ऐपीआई का इस्तेमाल कर अपनी एप्लीकेशन को उन डेस्कटॉप वातावरणों के साथ एकीकृत कर सकते हैं |
 
-## Notifications
+## नोटीफीकेशनस
 
-See [Notifications](notifications.md)
+[नोटीफीकेशनस](notifications.md) देखें
 
-## Recent documents (Windows & macOS)
+## हाल के दस्तावेज़ (विंडोज & मैकओएस)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+विंडोज और मैकओसएस, एप्लीकेशन के द्वारा हाल ही में खोले गये दस्तावेजों की एक सूची तक जम्पलिस्ट या डॉक मेन्यु के द्वारा आसान पहुँच उपलब्ध कराते हैं |
 
-**JumpList:**
+**जम्पलिस्ट:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![जम्पलिस्ट हाल ही की फाइल्स](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**एप्लीकेशन डॉक मेन्यु:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+हाल ही के दस्तावेजों में एक फाइल को शामिल करने के लिए, आप [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) ऐपीआई का इस्तेमाल कर सकते हैं:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
+और आप [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) ऐपीआई का इस्तेमाल हाल ही के दस्तावेजों की सूची को खाली करने के लिए कर सकते हैं:
 
 ```javascript
 const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### विंडोज नोट्स
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+विंडोज पर इस सुविधा का इस्तेमाल करने के लिए, आपकी एप्लीकेशन दस्तावेज के फाइल प्रकार के एक हैंडलर के रूप में पंजीकृत होनी चाहिये, अन्यथा फाइल जम्पलिस्ट में दिखाई नहीं देगी, उसे शामिल करने के बाद भी नहीं | अपनी एप्लीकेशन का पंजीकरण करने के बारे में आप सारी जानकारी [एप्लीकेशन पंजीकरण](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx) में प्राप्त कर सकते हैं |
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+जब एक उपयोगकर्ता जम्पलिस्ट से फाइल क्लिक करेगा, तो आपकी एप्लीकेशन का एक नया इंस्टैंस शुरू हो जायेगा, जिसमे फाइल का पथ कमांड लाइन आर्गुमेंट के रूप में शामिल होगा |
 
-### macOS Notes
+### मैकओस नोट्स
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+जब एक फाइल हाल ही एक दस्तावेजों से मंगाई जाती है, तो `app` मोड्यूल का `open-file` इवेंट उसके लिए छोड़ा जायेगा|
 
-## Custom Dock Menu (macOS)
+## कस्टम डॉक मेन्यु (मैकओएस)
 
-macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
+मैकओएस डेवलपर्स को डॉक के लिए एक कस्टम मेन्यु निर्दिष्ट करने की सुविधा प्रदान करता है, जिसमे अक्सर आपकी एप्लीकेशन के आम तौर पर इस्तेमाल होने वाले फीचर्स के लिए कुछ शोर्टकटस शामिल होती हैं:
 
-**Dock menu of Terminal.app:**
+**Terminal.app की डॉक मेन्यु:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+अपनी कस्टम डॉक मेन्यु को सेट करने के लिए, आप `app.dock.setMenu` ऐपीआई का इस्तेमाल कर सकते हैं, जो केवल मैकओएस पर उपलब्ध होती है:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -70,21 +70,21 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## उपयोगकर्ता टास्कस (विंडोज)
 
-On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+विंडोज में आप जम्पलिस्ट की `Tasks` श्रेणी में कस्टम कार्य निर्दिष्ट कर सकते हैं, जैसे कि MSDN से उद्धृत है:
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> प्रोग्राम के फीचर्स और एक उपयोगकर्ता मुख्यतः उनसे क्या कर सकता है, इन दोनों चीजों के आधार पर एप्लीकेशनस कार्य निर्दिष्ट करती हैं | कार्य सन्दर्भ मुक्त होने चाहिये, यानी कि उनके पूरे होने के लिए एप्लीकेशन का चलना ज़रूरी नहीं होना चाहिये | सांख्यिकीय आधार पर वे एक सामान्य उपयोगकर्ता द्वारा एक एप्लीकेशन में किये जाने वाले आम कार्य होने चाहियें, जैसे कि एक ईमेल सन्देश का निर्माण या एक मेल प्रोग्राम में कैलेंडर खोलना, वर्ड प्रोसेसर में एक नया दस्तावेज बनाना, एक ख़ास मोड में एक एप्लीकेशन को खोलना, या उसकी एक उप-कमांड को लांच करना | एक एप्लीकेशन को चाहिये कि वह मेन्यु को उन उन्नत फीचर्स से न भर दें, जिनकी सामान्य उपयोगकर्ताओं को जरूरत न हों या एक बार किये जाने वाले कार्य जैसे कि पंजीकरण | टास्कस का इस्तेमाल प्रचार आइटम्स जैसे कि अपग्रेडस या विशेष ऑफर्स के लिए न करें |
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> टास्क सूची स्थिर हो, इस बात की विशेष सलाह दी जाती है | एप्लीकेशन की स्थिति या अवस्था जो भी हो, वह एक समान की रहनी चाहिये | हालाँकि सूची को सक्रिय रूप से बदला जा सकता है, पर ऐसा करने से उपयोगकर्ता भ्रमित भी हो सकता है जो कि गंतव्य सूची के उस हिस्से की बदलने की अपेक्षा नहीं कर रहा था |
 
-**Tasks of Internet Explorer:**
+**इन्टरनेट एक्स्प्लोरर के टास्कस:**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+मैकओएस की डॉक मेन्यु से भिन्न जो कि एक असल मेन्यु है, विंडोज में उपयोगकर्ता टास्कस एप्लीकेशन शोर्टकट्स की तरह काम करते हैं, जैसे जब एक उपयोगकर्ता एक टास्क को क्लिक करें, तो एक प्रोग्राम ख़ास आर्गुमेंट्स के साथ चले |
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+अपनी एप्लीकेशन के लिए उपयोगकर्ता टास्कस सेट करने के लिए, आप [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) ऐपीआई का इस्तेमाल कर सकते हैं:
 
 ```javascript
 const {app} = require('electron')
@@ -100,30 +100,30 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+टास्कस सूची को खाली करने के लिए, आपको केवल एक खाली ऐरे के साथ `app.setUserTasks` को बुलाना है:
 
 ```javascript
 const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+आपकी एप्लीकेशन के बंद होने के बाद भी उपयोगकर्ता टास्कस दिखाई देंगे, ताकि आइकॉन और एक टास्क के लिए निर्दिष्ट प्रोग्राम पथ आपकी एप्लीकेशन के अनइनस्टॉल होने तक मौज़ूद रहें |
 
-## Thumbnail Toolbars
+## थंबनेल टूलबार्स
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+विंडोज पर आप एक एप्लीकेशन विंडो के टास्कबार लेआउट में मौज़ूद निर्दिष्ट बटनों के साथ थंबनेल टूलबार को शामिल कर सकते हैं | यह उपयोगकर्ताओं को एक ख़ास विंडो की कमांड तक पहुँचने के लिए एक मार्ग उपलब्ध करता है, बिना विंडो को बहाल या सक्रीय करे |
 
-From MSDN, it's illustrated:
+MSDN से, यह कहा गया है:
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> यह टूलबार सिर्फ जानी-पहचानी मानक टूलबार कॉमन कंट्रोल है | इसमें अधिकतम सात बटनस होते हैं | हर बटन की आईडी, चित्र, टूलटिप, और स्थिति एक सरंचना में निर्दिष्ट होते हैं, जो कि फिर टास्कबार में पास कर दिए जाते हैं | एप्लीकेशन, थंबनेल टूलबार से बटनस को दिखा, इनेबल, डिसएबल, या छुपा सकती है, उसकी वर्तमान स्थिति के अनुसार |
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> उदाहरण के लिए, विंडोज मीडिया प्लेयर मानक मीडिया ट्रांसपोर्ट कंट्रोलस जैसे कि प्ले, पॉज, म्यूट एंड स्टॉप उपलब्ध करा सकता है |
 
-**Thumbnail toolbar of Windows Media Player:**
+**विंडोज मीडिया प्लेयर की थंबनेल टूलबार:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![पल्येर](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+अपनी एप्लीकेशन में थंबनेल टूलबार को सेट करने के लिए आप [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) का इस्तेमाल कर सकते हैं:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+थंबनेल टूलबार बटनस को साफ़ करने के लिए, आपको केवल एक खाली ऐरे के साथ `BrowserWindow.setThumbarButtons` को बुलाना है:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -157,27 +157,27 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## यूनिटी लांचर शोर्टकट्स (लिनक्स)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+यूनिटी में, आप उसके लांचर में `.desktop` फाइल में बदलाव कर कस्टम एंट्री शामिल कर सकते हैं, [एक लांचर में शोर्टकट्स शामिल करना](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) देखें |
 
-**Launcher shortcuts of Audacious:**
+**Audacious की लांचर शोर्टकट्स:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## टास्कबार में प्रगति बार (विंडोज, मैकओएस, यूनिटी)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+विंडोज पर एक टास्कबार बटन एक प्रगति बार दिखाने के लिए इस्तेमाल किया जा सकता है | इससे एक विंडो को उपयोगकर्ता को बिना खुद विंडो बदले प्रगति की जानकारी उपलब्ध कराने की क्षमता मिलती है |
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+मैकओएस पर प्रगति बार डॉक आइकॉन के एक हिस्से के रूप में दिखाई देगी |
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+यूनिटी डीई के पास भी एक ऐसा ही फीचर है जिससे आपको लांचर में प्रगति बार निर्दिष्ट करने की सुविधा मिलती है |
 
-**Progress bar in taskbar button:**
+**टास्कबार बटन में प्रगति बार:**
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![टास्कबार प्रगति बार](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+एक विंडो के लिए प्रगति बार सेट करने के लिए, आप [BrowserWindow. setProgressBar](../api/browser-window.md#winsetprogressbarprogress) ऐपीआई का उपयोग कर सकते हैं:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,17 +185,17 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## टास्कबार में आइकॉन ओवरलेस (विंडोज)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+विंडोज पर एक टास्कबार बटन एक छोटा सा ओवेरले इस्तेमाल कर एप्लीकेशन स्टेटस दिखा सकता है, जैसा कि MSDN से उद्धृत है:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> आइकॉन ओवरलेस, स्टेटस की एक प्रासंगिक नोटिफिकेशन का काम करते हैं, और इनका मकसद उपयोगकर्ता को वह जानकारी देने के लिए एक अलग नोटिफिकेशन क्षेत्र स्टेटस आइकॉन की जरूरत को खत्म करना है | उदाहरण के लिए, माइक्रोसॉफ्ट आउटलुक में मौज़ूद नया मेल स्टेटस, जो कि वर्तमान में नोटिफिकेशन क्षेत्र में दिखाई देता है, अब टास्कबार बटन के ऊपर ओवरले के द्वारा भी दिखाया जा सकता है | पर, आपको निर्माण चक्र के दौरान ही यह निर्णय लेना होगा कि आपकी एप्लीकेशन के लिए सबसे अच्छा कौन सा तरीका है | ओवरले आइकॉनस का इस्तेमाल महत्वपूर्ण, लम्बी-अवधि के स्टेटस या नेटवर्क स्टेटस, मैसेंजर स्टेटस, या नया मेल जैसी नोटिफिकेशनस दिखाने के लिए किया जा सकता है | उपयोगकर्ता के सामने सतत बदलते ओवरले या एनीमेशनस नहीं प्रस्तुत करने चाहिये |
 
-**Overlay on taskbar button:**
+**टास्कबार बटन पर ओवेरले:**
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![टास्कबार बटन पर ओवरले](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+एक विंडो के लिए ओवरले आइकॉन सेट करने के लिए, आप [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) ऐपीआई का उपयोग कर सकते हैं:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -203,13 +203,13 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame (Windows)
+## फ़्लैश फ्रेम (विंडोज)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+विंडोज पर आप टास्कबार बटन को हाईलाइट कर उपयोगकर्ता का ध्यान खींच सकते हैं | यह मैकओएस पर डॉक आइकॉन को बाउंस करने के समान ही है | MSDN के रेफेरेंस दस्तावेजीकरण से:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> आम तौर पर, एक विंडो की तरफ उपयोगकर्ता का ध्यान खीचने के लिए उसे फ़्लैश किया जाता है पर तब जब विंडो को कीबोर्ड का ध्यान न प्राप्त हो |
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+ब्राउज़रविंडो टास्कबार बटन को फ़्लैश करने के लिए, आप [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) ऐपीआई का इस्तेमाल कर सकते हैं:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -218,19 +218,19 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+फ़्लैश को बंद करने के लिए `flashFrame` मेथड को `false` के साथ बुलाना न भूलें | ऊपर दिए गये उदाहरण में, उसे तब बुलाया गया है जब विंडो केंद्र में आती है, पर आप एक टाइमआउट या कोई और इवेंट इस्तेमाल कर के उसे डिसएबल कर सकते हैं |
 
-## Represented File of Window (macOS)
+## विंडो की प्रतिनिधित्व फ़ाइल (मैकओएस)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+मैकओएस पर एक विंडो अपनी प्रतिनिधित्व फ़ाइल सेट कर सकती है, ताकि फाइल का आइकॉन शीर्षक बार में दिखाई डे सके और फिर जब उपयोगकर्ता शीर्षक पर कमांड-क्लिक या कंट्रोल-क्लिक करें तो एक पथ पॉपअप दिखे |
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+आप एक विंडो की संपादित अवस्था भी सेट कर सकते हैं, ताकि फाइल आइकॉन यह बता सके कि अगर विंडो में मौज़ूद दस्तावेज को बदला गया है |
 
-**Represented file popup menu:**
+**प्रतिनिधित्व फाइल पॉपअप मेन्यु:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+एक विंडो की प्रतिनिधित्व फ़ाइल सेट करने के लिए, आप [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) और [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) ऐपीआई का इस्तेमाल कर सकते हैं:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -239,11 +239,11 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## विंडो से फाइल्स को बाहर निकालना
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+फाइल्स पर काम करने वाली कुछ ख़ास तरह की एप्प्स के लिए, यह ज़रूरी है कि वे इलेक्ट्रॉन से फाइल्स खींच कर दूसरी एप्प्स तक पहुँचा सकें | अपनी एप्प में इस सुविधा का इस्तेमाल करने के लिए, आपको बस `ondragstart` इवेंट पर `webContents.startDrag(item)` ऐपीआई को बुलाना होगा |
 
-In web page:
+वेब पेज में:
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +255,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+मुख्य प्रक्रिया में:
 
 ```javascript
 const {ipcMain} = require('electron')

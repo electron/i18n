@@ -22,11 +22,11 @@ app.client.auditAccessibility().then(function (audit) {
 
 Maari kang basahin ng higit pa tungkol sa tampok na ito sa [Spectron's dokumentasyon ](https://github.com/electron/spectron#accessibility-testing).
 
-## Devtron
+## DevtronDevtron
 
 Sa Devtron, may isang bagong tab ng aksesibilidad kung saan na pinahintulutan kayo na mag-awdit ng pahina sa iyong app, ayusin at salain ang mga resulta.
 
-![ang screen ng devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![ang screenshot ng devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
 Parehong sa mga kagamitan na ito ay ginagamit ng [ Mga kagamitan sa Aksesibilidad ng nag-develop](https://github.com/GoogleChrome/accessibility-developer-tools) binuong library sa google para sa chrome. Marami kang matutunan tungkol sa mga panuntunan sa aksesibilidad ng pag audit dito sa silid-aklatan na gumagamit ng [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 

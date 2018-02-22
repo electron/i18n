@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> ブラウザウィンドウを作成したり、制御したりします。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -8,7 +8,7 @@
 // メインプロセス
 const {BrowserWindow} = require('electron')
 
-// または、レンダラープロセスから `remote`を使用してください。
+// または、レンダラープロセスから `remote` を使用してください。
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,24 +16,24 @@ win.on('closed', () => {
   win = null
 })
 
-// リモートURLをロードする
+// リモートURLをロード
 win.loadURL('https://github.com')
 
-// または、ローカルファイルをロードする
+// または、ローカルファイルをロード
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## フレーム無しウィンドウ
+## フレームレスウィンドウ
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+[Frameless Window](frameless-window.md) APIを使うと、枠がないウインドウや任意の形状の透明なウインドウを作成することができます。
 
-## Showing window gracefully
+## ウインドウを違和感なく表示する
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+ウインドウにページを直接ロードすると、ユーザにはページが徐々にロードされるように見えるかもしれません。これはネイティブアプリでは良い挙動ではありません。チラつかせることなくウインドウを表示するには、さまざまな状況に応じた2つの解決策があります。
 
-### Using `ready-to-show` event
+### `ready-to-show` イベントを使用する
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+ページのロード中、ウインドウがまだ表示されていない場合、レンダラープロセスが初めてページをレンダリングし終わったとき、`ready-to-show` イベントが発生します。 このイベントの後にウインドウを表示させれば、チラつくことはありません。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -43,11 +43,11 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+このイベントは、通常、`did-finish-load` イベントの後に発生しますが、大量のリモートリソースがあるページでは、`did-finish-load` イベントの前に発生する可能性があります。
 
 ### `backgroundColor`を設定する
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+複雑なアプリでは、`ready-to-show` イベントが発生するのに時間がかかり過ぎて、アプリが遅いと感じさせる可能性があります。 このような場合、ウインドウをすぐに表示し、アプリの背景に近い `backgroundColor` を使うことを推奨します。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -56,11 +56,11 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+`ready-to-show` イベントを使っているアプリに対しても、アプリがよりネイティブに感じられるように `backgroundColor` を設定することが推奨されます。
 
 ## 親ウィンドウと子ウィンドウ
 
-By using `parent` option, you can create child windows:
+`parent` オプションを使用することで、子ウインドウを作成することができます。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+`child` ウインドウは、常に `top` ウインドウの上に表示されます。
 
 ### モーダルウィンドウ
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+モーダルウインドウは親ウインドウを無効化する子ウインドウです。モーダルウインドウを作成するには、`parent` と `modal` オプションの両方を設定しなければなりません。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -98,7 +98,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### プラットフォームごとの通知
+### プラットフォームに関する注意事項
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## クラス: BrowserWindow
 
-> Create and control browser windows.
+> ブラウザウィンドウを作成したり、制御したりします。
 
 プロセス: [Main](../glossary.md#main-process)
 

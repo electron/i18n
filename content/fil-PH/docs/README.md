@@ -12,7 +12,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Mga Suportadong Plataporma](tutorial/supported-platforms.md)
 * [Seguridad](tutorial/security.md)
 * [Bersyon](tutorial/electron-versioning.md)
-* [Pamamahagi ng aplikasyon](tutorial/application-distribution.md)
+* [Application Distribution](tutorial/application-distribution.md)
 * [Gabay sa pagsmite sa Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Gabay sa Windows Store](tutorial/windows-store-guide.md)
 * [Gabay na snapkrap](tutorial/snapcraft-guide.md)

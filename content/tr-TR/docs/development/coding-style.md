@@ -4,9 +4,9 @@ Electron için kodlama stili rehberleri.
 
 `cpplint` ve `eslint` tarafından tespit edilen durumları görmek için `npm run lint` çalıştırabilirsiniz.
 
-## General Code
+## Genel Kod
 
-* End files with a newline.
+* Yeni satır ile biter.
 * Place requires in the following order: 
   * Built in Node Modules (such as `path`)
   * Built in Electron Modules (such as `ipc`, `app`)
@@ -15,8 +15,8 @@ Electron için kodlama stili rehberleri.
   * Class methods and properties (methods starting with a `@`)
   * Instance methods and properties
 * Avoid platform-dependent code: 
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+  * Dosya isimlerini birleştirmek için `path.join()` kullanın.
+  * Geçiçi dizine gönderme yapmaya ihtiyaç duyduğunuzda `/tmp` yerine `os.tmpdir()` kullanın.
 * Using a plain `return` when returning explicitly at the end of a function. 
   * Not `return null`, `return undefined`, `null`, or `undefined`
 
@@ -36,7 +36,7 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 ## JavaScript
 
-* [Standart](https://npm.im/standard) Javascript stilinde yazın.
+* [Standart](https://npm.im/standard) JavaScript stilinde yazın.
 * Dosya isimleri `_` ile değil `-` ile birleştirilmeli, örneğin: `dosya_adi.js` yerine `dosya-adi.js`. Bunun sebebi [github/atom](https://github.com/github/atom) modül isimlerinin genelde `module-name` formunda olmasıdır. Bu kural sadece `.js` dosyalarında uygulanır.
 * Uygun olan yerlerde ES6/ES2015 sözdizimini kullanın 
   * require komutları ve sabitler için [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)

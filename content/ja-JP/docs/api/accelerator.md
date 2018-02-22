@@ -2,7 +2,7 @@
 
 > キーボードショートカットを定義します。
 
-アクセラレータは、`+` によって結合された複数の修飾キーとキーコードを含む文字列で、アプリケーション全体でキーボードショートカットを定義するために使われます。
+Acceleratorは、`+` によって結合された複数の修飾キーとキーコードを含む文字列で、アプリケーション全体でキーボードショートカットを定義するために使われます。
 
 例:
 
@@ -24,7 +24,7 @@ app.on('ready', () => {
 
 ## プラットフォームに関する注意事項
 
-LinuxとWindowsの場合、`Command` キーは効果がないため、アクセラレータを定義するため、macOSでは `Command`、LinuxとWindowsでは `Control` を表す `CommandOrControl` を使うようにしてください。
+LinuxとWindowsの場合、`Command` キーは効果がないため、Acceleratorを定義するため、macOSでは `Command`、LinuxとWindowsでは `Control` を表す `CommandOrControl` を使うようにしてください。
 
 `Option` の代わりに `Alt` を使うようにしてください。`Option` キーはmacOSにしか存在しませんが、`Alt` キーは全てのプラットフォームで利用可能です。
 

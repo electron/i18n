@@ -1,14 +1,14 @@
-## Class: BrowserView
+## クラス: BrowserView
 
-> Create and control views.
+> ビューを作成したり、制御したりします。
 
-**Note:**BrowserView API は現在実験的な機能です。将来的に変更されたり削除されたりする可能性があります。
+**注:** 現在のところ、BrowserView APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
 
 プロセス: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView` は、`BrowserWindow` に追加のWebコンテンツを埋め込むのに使用することができます。 外側のウインドウを基準にして配置される点を除いて、子ウインドウのようなものです。 `webview` タグの代替となるものです。
 
-## サンプル
+## 例
 
 ```javascript
 // メインプロセス
@@ -29,57 +29,57 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *実験的*
 
-* `options` Object (optional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+* `options` Object (任意) 
+  * `webPreferences` Object (任意) - [BrowserWindow](browser-window.md) を参照してください。
 
 ### 静的メソッド
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+戻り値 `BrowserView[]` - 開かれたすべてのBrowserViewの配列。
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+戻り値 `BrowserView | null` - 指定された `webContents` を保持しているBrowserViewまたはコンテンツがBrowserViewによって保持されていない場合、`null`。
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+戻り値 `BrowserView` - 指定された `id` のビュー。
 
 ### インスタンスプロパティ
 
-Objects created with `new BrowserView` have the following properties:
+`new BrowserView` で作成されたオブジェクトは、以下のプロパティを持っています。
 
-#### `view.webContents` (*実験的*)
+#### `view.webContents` *実験的*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+このビューによって保持されている [`WebContents`](web-contents.md) オブジェクト。
 
-#### `view.id` (*実験的*)
+#### `view.id` *実験的*
 
-A `Integer` representing the unique ID of the view.
+ビューの一意のIDを表す `Integer`。
 
 ### インスタンスメソッド
 
-Objects created with `new BrowserView` have the following instance methods:
+`new BrowserView` で作成されたオブジェクトは、次のインスタンスメソッドを持っています。
 
-#### `view.setAutoResize(options)` (*実験的*)
+#### `view.setAutoResize(options)` *実験的*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。省略値は、`false` です。
+  * `height` Boolean - `true` の場合、ビューの高さはウインドウと一緒に伸び縮みします。省略値は、`false` です。
 
-#### `view.setBounds(bounds)` (*実験的*)
+#### `view.setBounds(bounds)` *実験的*
 
 * `bounds` [Rectangle](structures/rectangle.md) 
 
-Resizes and moves the view to the supplied bounds relative to the window.
+ウインドウを基準に指定された境界までビューをリサイズしたり、移動させたりします。
 
-#### `view.setBackgroundColor(color)` (*実験的*)
+#### `view.setBackgroundColor(color)` *実験的*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - `#aarrggbb` や `#argb` といった形式の色。アルファチャンネルは任意です。

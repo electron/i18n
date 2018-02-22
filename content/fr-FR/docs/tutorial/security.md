@@ -32,7 +32,18 @@ Vous pouvez forcer l'activation ou la désactivation ces avertissements en défi
 
 Cette liste n'est pas 100% parfaite, mais vous devriez au moins suivre ces quelques étapes pour améliorer la sécurité de votre application.
 
-1) [Ne télécharger que des contenus sécurisés](#only-load-secure-content) 2) [Désactiver l'intégration de Node.js dans tous les renderers affichant des contenus distants](#disable-node.js-integration-for-remote-content) 3) [Permettre l'isolation de contexte dans tous les renderers affichant des contenus distants](#enable-context-isolation-for-remote-content) 4) [Utilisez `ses.setPermissionRequestHandler()` dans toutes les sessions affichant des contenus distants](#handle-session-permission-requests-from-remote-content) 5) [Ne désactivez pas `webSecurity`](#do-not-disable-websecurity) 6) [Définissez une `Content-Security-Policy`](#define-a-content-security-policy) et implémentez des règles restrictives (ex: `script-src 'self'`) 7) [Désactivez`eval`](#override-and-disable-eval) , qui permet à des lignes de texte d'être traitées comme du texte. 8) [Ne positionnez pas `allowRunningInsecureContent` sur `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [N'autorisez pas de fonctionnalités expérimentales](#do-not-enable-experimental-features) 10) [N'utilisez pas `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: N'utilisez pas `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Vérifiez les options et paramètres de tous les `<webview>` tags](#verify-webview-options-before-creation)
+1. [Only load secure content](#only-load-secure-content)
+2. [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
+3. [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
+4. [Utiliser `ses.setPermissionRequestHandler()` dans toutes les sessions qui se chargent de contenu distant](#handle-session-permission-requests-from-remote-content)
+5. [Do not disable `webSecurity`](#do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
+8. [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
+9. [Do not enable experimental features](#do-not-enable-experimental-features)
+10. [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
+11. [WebViews : Ne pas utiliser `allowpopups`](#do-not-use-allowpopups)
+12. [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
 
 ## 1) Ne télécharger que des contenus sécurisés
 

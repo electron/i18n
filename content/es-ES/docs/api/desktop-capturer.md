@@ -45,7 +45,7 @@ function handleError (e) {
 }
 ```
 
-Para capturar vídeo desde una fuente proporcionada por por `desktopCapturer` las limitaciones pasadas a [`navigator.mediaDevices.getUserMedia`] deben incluir `chromeMediaSource: 'desktop'`, y `audio: false`.
+Para capturar vídeo desde una fuente proporcionada por `desktopCapturer` las limitaciones pasadas a [`navigator.mediaDevices.getUserMedia`] deben incluir `chromeMediaSource: 'desktop'`, y `audio: false`.
 
 Para capturar tanto audio y video desde todo el escritorio, las limitaciones pasadas a [`navigator.mediaDevices.getUserMedia`] deben incluir `chromeMediaSource: 'desktop'`, para ambos `audio` y `video`, pero no deben incluir una limitación `chromeMediaSourceId`.
 

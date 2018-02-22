@@ -32,9 +32,20 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 
 This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
 
-1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+1. [Sadece güvenli içeriği yükleyin](#only-load-secure-content)
+2. [Uzaktan içeriği görüntülemek için Node.js entegrasyonunu bütün işleyicilerde etkisiz hale getirin](#disable-node.js-integration-for-remote-content)
+3. [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
+4. [Uzak içeriği yükleyen tüm oturumlarda `ses.setPermissionRequestHandler()` kullanın](#handle-session-permission-requests-from-remote-content)
+5. [`webSecurity` i kapatmayın](#do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Geçersiz kıl ve devredışı bırak `eval`](#override-and-disable-eval), dizelerin kod olarak yürütülmesine izin verir.
+8. [`allowRunningInsecureContent` i `true` a ayarlamayın](#do-not-set-allowRunningInsecureContent-to-true)
+9. [Deneysel özellikleri aktifleştirmeyin](#do-not-enable-experimental-features)
+10. [`blinkFeatures` kullanmayın](#do-not-use-blinkfeatures)
+11. [WebViews:`allowpopups` kullanmayın](#do-not-use-allowpopups)
+12. [WebViews: Ayarlar ve parametreleri bütün `<webview>` etiketlerde doğrulayın](#verify-webview-options-before-creation)
 
-## 1) Only Load Secure Content
+## 1) Sadece Güvenli İçeriği Yükleyin
 
 Uygulamanıza dahil edilmemiş her kaynak `HTTPS` gibi bir güvenlik protokolü kullanılarak yüklenmelidir. Başka bir deyişle, `HTTP` gibi güvensiz protokoller kullanmayın. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
@@ -77,13 +88,13 @@ Eğer saldırgan işleyici işleminden kurtulup kullanıcının bilgisayarındak
 ### Nasıl?
 
 ```js
-// Bad
+// Kötü
 const mainWindow = new BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
+// İyi
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
@@ -95,10 +106,10 @@ mainWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- İyi-->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<!-- Kötü-->
 <webview src="page.html"></webview>
 ```
 
@@ -131,7 +142,7 @@ Aynı zamanda, önyükleme komut dosyaları hala ` belgesine </ 0> erişebilir v
 
 <h3>Nasıl?</h3>
 
-<pre><code class="js">// Main process
+<pre><code class="js">// Ana süreç
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
@@ -221,10 +232,10 @@ const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Bad -->
+<!-- İyi-->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<!-- Kötü-->
 <webview src="page.html"></webview>
 ```
 
@@ -370,10 +381,10 @@ you know it needs that feature.</p>
 
 <h3>Nasıl?</h3>
 
-<pre><code class="html"><!-- Bad -->
+<pre><code class="html"><!-- İyi-->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- Kötü-->
 <webview src="page.html"></webview>
 `</pre> 
 

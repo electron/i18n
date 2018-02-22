@@ -12,7 +12,7 @@ Uygulamalarınızdaki Electron sürümlerini nasıl yöneteceğinizle ilgili bil
 
 ## Genel kurulum
 
-`electron` komutunu genel `$PATH` 'nıza da yükleyebilirsiniz:
+`electron` komutunu global olarak `$PATH`'inize de yükleyebilirsiniz:
 
 ```sh
 npm install electron -g
@@ -32,11 +32,11 @@ Mimariyi değiştirmeye ek olarak, `--platform` işaretini kullanarak platformu 
 npm install --platform=win32 electron
 ```
 
-## Vekil sunucular
+## Vekil Sunucular
 
 Bir vekil sunucu kullanmaya ihtiyacınız varsa [ bu çevre değişkenleri ayarlayabilirsiniz](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Custom Mirrors and Caches
+## Özel Aynalar ve Önbellekler
 
 Yükleme sırasında, `electron` modülü platformunuz için önceden hazırlanmış Electron binary'lerini indirmek için [`electron-download`](https://github.com/electron-userland/electron-download)'u çağıracaktır. Bu aynı zamanda GitHub'ın sürüm indirme sayfasına başvurarak da yapılabilir.(`https://github.com/electron/electron/releases/tag/v$VERSION`, `$VERSION` sürümü Elektron'un doğru sürümüdür).
 
@@ -56,9 +56,9 @@ url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
-#### Cache
+#### Önbellek
 
-Alternatif olarak yerel öncelleği geçersiz kılabilirsiniz. `electron-download` will cache downloaded binaries in a local directory to not stress your network. Önbellek klasörünü Elektronun özel kurulumlarını sağlamak veya ağ ile iletişimi tamamen kesmek için kullanabilirsiniz.
+Alternatif olarak yerel önbelleği geçersiz kılabilirsiniz. `electron-download` indirilmiş binary'leri yerel bir klasör içine ağınızı zorlamamak için önbelleyecektir. Önbellek klasörünü Elektron'un özel kurulumlarını sağlamak veya ağ ile iletişimini tamamen kesmek için kullanabilirsiniz.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
@@ -83,7 +83,7 @@ Yerel önbellek konumunu `ELECTRON_CACHE` çevre değişkenini sağlayarak deği
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
-## Arıza giderme
+## Arıza Giderme
 
 `npm install electron` çalıştırılırken, bazı kullanıcılar bazen kurulum hatalarıyla karşılaşmaktadırlar.
 
@@ -96,7 +96,7 @@ Eğer yükleme bir `EACCESS` hatası ile başarısız olursa [npm izinlerini dü
 Üstteki devam ediyorsa, [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) bayrağının Doğru olarak ayarlanması gerekebilir:
 
 ```sh
-sudo npm install electron --unsafe-perm= doğru
+sudo npm install electron --unsafe-perm=true
 ```
 
 İnternet erişiminiz yavaşsa `--verbose` indirme sürecinizde tavsiye edilir:

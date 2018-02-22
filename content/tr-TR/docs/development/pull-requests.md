@@ -6,11 +6,11 @@
   * [Step 2: Build](#step-2-build)
   * [Step 3: Branch](#step-3-branch)
 * [Düzenleme yapmak](#making-changes) 
-  * [Kod](#step-4-code)
+  * [4. Adım: Kodlama](#step-4-code)
   * [Step 5: Commit](#step-5-commit) 
     * [Commit message guidelines](#commit-message-guidelines)
   * [Step 6: Rebase](#step-6-rebase)
-  * [Step 7: Test](#step-7-test)
+  * [7. Adım: Deneme](#step-7-test)
   * [Step 8: Push](#step-8-push)
   * [Step 9: Opening the Pull Request](#step-8-opening-the-pull-request)
   * [Step 10: Discuss and Update](#step-9-discuss-and-update) 
@@ -51,7 +51,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ## Düzenleme yapmak
 
-### Kod
+### 4. Adım: Kodlama
 
 Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
@@ -85,7 +85,7 @@ A good commit message should describe what changed and why.
   
   * `fixed typos in atom_api_menu.h`
 
-2. Keep the second line blank.
+2. İkinci satırı boş bırakın.
 
 3. Wrap all other lines at 72 columns.
 
@@ -102,7 +102,7 @@ $ git rebase upstream/master
 
 This ensures that your working branch has the latest changes from `electron/electron` master.
 
-### Step 7: Test
+### 7. Adım: Deneme
 
 Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
