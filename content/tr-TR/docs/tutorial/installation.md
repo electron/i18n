@@ -56,9 +56,9 @@ url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
-#### Cache
+#### Önbellek
 
-Alternatif olarak yerel öncelleği geçersiz kılabilirsiniz. `electron-download` will cache downloaded binaries in a local directory to not stress your network. Önbellek klasörünü Elektronun özel kurulumlarını sağlamak veya ağ ile iletişimi tamamen kesmek için kullanabilirsiniz.
+Alternatif olarak yerel önbelleği geçersiz kılabilirsiniz. `electron-download` will cache downloaded binaries in a local directory to not stress your network. Önbellek klasörünü Elektronun özel kurulumlarını sağlamak veya ağ ile iletişimi tamamen kesmek için kullanabilirsiniz.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
