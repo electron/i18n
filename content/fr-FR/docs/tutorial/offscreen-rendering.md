@@ -6,7 +6,7 @@ Deux modes de rendu peuvent être utilisés et la zone sale est passée à l’�
 
 **Remarque :** Une fenêtre hors de l’écran est toujours créée comme une [Fenêtre sans cadre](../api/frameless-window.md).
 
-## Deux modes de rendu
+## Rendering Modes
 
 ### Accélération GPU
 
@@ -21,17 +21,19 @@ Pour activer ce mode, l'accélération GPU doit être désactivé en appelant l'
 ## Utilisation
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
 
 let win
+
 app.once('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
+
   win.loadURL('http://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
     // updateBitmap(dirty, image.getBitmap())
