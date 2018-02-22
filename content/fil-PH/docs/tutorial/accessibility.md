@@ -42,9 +42,9 @@ Sa paggamit ng [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#app
 
 ### Teknolohiyang assistive
 
-Ang Electron na aplikasyon ay awtomatikong magpapagana sa aksesibilidad kapag napansin nito ang asistibong teknolohiya (Windows) o VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Ang Electron na aplikasyon ay awtomatikong magpapagana sa aksesibilidad kapag napansin nito ang asistibong teknolohiya (Windows) o VoiceOver (macOS). Tingnan ang [dokumentasyon sa aksesibilidad](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) ng Chrome para sa karagdagang detalye.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+Sa macOS, ang pangatlong partidong asistibong teknolohiya ay makakabago sa aksesibilidad sa loob ng ma Electron na aplikasyon sa pamamagitan ng pagtiyak sa katangiang `AXManualAccessibility` sa programatikong paraan:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
