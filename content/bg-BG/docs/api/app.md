@@ -607,7 +607,7 @@ app.setJumpList([
 
 Този метод връща `false`, ако вашия процес е основният екземпляр на приложението и вашето приложението трябва да продължи зареждането. Както и връща `true` ако вашия процес е изпратил своите параметри на друг екземпляр, и вие трябва веднага да изключите текущата инстанция.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+На macOS системата автоматично налага един екземпляр, когато потребителите се опитват да отворят второ копие на приложението ви в Finder събитията `open-file` и `open-url` ще бъдат излъчени. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
 An example of activating the window of primary instance when a second instance starts:
 
