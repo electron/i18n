@@ -1,26 +1,26 @@
-# "Packaging" ng Aplikasyon
+# Packaging ng aplikasyon
 
-Para maiwasan ang [issues](https://github.com/joyent/node/issues/6960) sa paligid ng mahabang pangalan sa landas ng Windows, bahagyang mapapabilis ang `require` para itago ang iyong source code mula sa pinasimpleng inspeksyon, pwede kang mamili para I- package ang iyong app isang [asar](https://github.com/electron/asar) na aktibo sa maliit na pag babago sa iyong source code.
+Para maiwasan ang [mga isyu](https://github.com/joyent/node/issues/6960) sa paligid ng mahabang pangalan sa landas ng Windows, bahagyang mapapabilis ang `require` para itago ang iyong source code mula sa pinasimpleng inspeksyon, pwede kang mamili para I- package ang iyong app isang [asar](https://github.com/electron/asar) na aktibo sa maliit na pag babago sa iyong source code.
 
 ## Pagbuo ng `asar` na aktibo
 
-Ang "[asar](https://github.com/electron/asar) archive" ay isang simpleng ayos tulad ng "tar" na dinudugtong sa mga payl upang maging isang payl. Ang Elektron ay maaaring basahin ang mga payl na arbitraryo galing dito nang hindi kinukuha sa buong payl.
+Ang "[asar](https://github.com/electron/asar) archive ay isang simpleng ayos tulad ng tar na dinudugtong sa mga payl upang maging isang payl. Ang Elektron ay maaaring basahin ang mga payl na arbitraryo galing dito nang hindi kinukuha sa buong payl.
 
-Mga hakbang para mailagak ang iyong "app" sa "archive" ng `asar`:
+Mga hakbang para mailagak ang iyong app sa archive ng `asar`:
 
-### 1. Iinstol ang "asar Utility"
+### 1. I-install ang asar Utility
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Ang ilang "software" kasama ang `asar pack`
+### 2. Pakete kasama ang `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
 ```
 
-## Gamit ang "Archives" ng `asar`
+## Using `asar` Archives
 
 Sa Elektron, mayroong dalawang nakatakdang "APIs": "Node APIs" na galing sa Node.js at ang "Web APIs na galing sa " Chrilomium". Ang parehong "APIs" ay sumusuporta sa pagbasa ng mga payl galing sa mga "archive" ng `asar`.
 
