@@ -6,7 +6,7 @@ Se pueden usar dos modos de representación y solo se pasa el área sucia en el 
 
 **Nota:** siempre se crea una ventana fuera de pantalla como [Frameless Window](../api/frameless-window.md).
 
-## Dos modos de representación
+## Rendering Modes
 
 ### GPU acelerado
 
@@ -21,17 +21,19 @@ Para habilitar este modo, la aceleración de la GPU debe desactivarse llamando l
 ## Uso
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
 
 let win
+
 app.once('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
+
   win.loadURL('http://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
     // updateBitmap(dirty, image.getBitmap())
