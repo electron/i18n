@@ -6,9 +6,9 @@ Most users will get this feature for free, since it's supported out of the box b
 
 ## Generating `asar` Archives
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+Ang "[asar](https://github.com/electron/asar) archive ay isang simpleng ayos tulad ng tar na dinudugtong sa mga payl upang maging isang payl. Ang Elektron ay maaaring basahin ang mga payl na arbitraryo galing dito nang hindi kinukuha sa buong payl.
 
-Steps to package your app into an `asar` archive:
+Mga hakbang para mailagak ang iyong app sa archive ng `asar`:
 
 ### 1. I-install ang asar Utility
 
@@ -24,13 +24,13 @@ $ asar pack your-app app.asar
 
 ## Paggamit ng mga Archives ng `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Sa Electron, mayroong dalawang nakatakdang mga API: Ang Node na API ay galing sa Node.js at ang Web na API ay galing sa " Chromium". Ang parehong mga API ay sumusuporta sa pagbasa ng mga file galing sa mga archive ng `asar`.
 
 ### Node na API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Kasama ang espesyal na mga sa Electron, ang mga Node na API tulad ng `fs.readFile` at `require` ay itinuturing ang archive ng `asar` bilang mga direktoryo ng birtwal, at ang mga file dito at bilang mga normal na mga file sa sistema nito.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Halimbawa, ating ipagpalagay na ang archive na `example.asar` sa ilalim ng `/path/to`:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -42,27 +42,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+Basahin ang file sa archive ng `asar`:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Ilista ang lahat ng mga filesa ilalim ng ugat ng archive:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Gumamit ng modyul galing sa archive:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Maaari ring i-display ang pahina ng web sa archive na `asar` kasama ang `BrowserWindow`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -73,9 +73,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web na API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Sa pahina ng web, ang mga file na nasa archive ay maaaring hilingin sa protokol ng `file:`. Tulad ng Node na API, ang mga archive ng `asar` ay tinuturing bilang mga direktoryo.
 
-For example, to get a file with `$.get`:
+Halimbawa, para makuha ang isang file gamit ang `$.get`:
 
 ```html
 <script>
@@ -88,14 +88,14 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 ### Itinuturing ang Archive ng `asar` bilang Normal na File
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+Para sa ibang mga kaso tulad ng pagkumpirma sa checksum ng archive ng `asar`, kinakailangan nating basahin ang nilalaman ng archive ng `asar` bilang isang file. Para sa layuning ito, maaaring gumamit ng built-in na modyul ng `original-fs` na nagbibigay ng orihinal na `fs` na mga API nang hindi kasama ang suporta ng `asar`:
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+Maaari ring itakda ang `process.noAsar` sa `true` para hindi magamit an suporta para sa `asar` sa modyul ng `fs`:
 
 ```javascript
 const fs = require('fs')
@@ -105,21 +105,21 @@ fs.readFileSync('/path/to/example.asar')
 
 ## Mga Limitasyon ng Node na API
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+Kahit pa ating subukan na gumawa ng archive ng `asar`, hangga't maaari sa loob ng Node na API tulad ng mga direktoryo, mayroon pa ring mga limitasyon dahil sa natural mababang antas ng "Node API".
 
 ### Ang mga Archive ay Read-only
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Ang mga archive ay hindi maaaring mabago kaya ang lahat ng mga Node na API na maaaring magbago ng mga file ay hindi gagana sa mga archive ng `asar`.
 
 ### Ang Gumaganang Direktoryo ay Hindi Maaaring Itakda sa mga Direktoryo sa Archive
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+Bagaman, ang mga archive ng `asar` ay itinuturing bilang mga direktoryo, walang aktwal na mga direktoryo sa loob ng sistema ng file, kaya kailanman ay hindi maaaring itakda ang tumatakbong direktoryo sa mga direktoryo sa mga archive ng `asar`. Ang pagpapasa sa kanila bilang opsyon ng `cwd` ng ilang mga API ay magiging dahilan din ng mga mali.
 
 ### Dagdag na Unpacking sa Ilang mga API
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+Karamihan sa `fs` na API ay nakakabasa ng file o kumukuha ng impormasyon ng file galing sa mga archive ng `asar` nang hindi kasama ang unpacking, ngunit para sa ilang mga API na nakadepende sa pagdaan sa totoong path ng file na pinagbabatayan ng pagtawag ng sistema, ang Electron ay ililipat ang mga kailangang file sa pansamantalang file at dadaan sa path ng pansamantalang file patungo sa API para sila ay gumana. Ito ay nagdadagdag ng kaunting overhead para sa mga API na ito.
 
-APIs that requires extra unpacking are:
+Ang mga API na nangangailangan ng karagdagang unpacking ay:
 
 * `child_process.execFile`
 * `child_process.execFileSync`
@@ -129,13 +129,13 @@ APIs that requires extra unpacking are:
 
 ### Mga Impormasyon ng Fake Stat sa `fs.stat`
 
-The `Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. So you should not trust the `Stats` object except for getting file size and checking file type.
+Ang `Stats` na bagay na ibinalik ng `ft.stat` at mga kalapit na mga file sa `asar` na archive ay nabuo sa pamamagitan ng paghula, dahil ang mga file na iyon ay hindi umiiral sa filesystem. Kaya hindi dapat pagkatiwalaan ang `Stats` na bagay maliban na lang sa pagkuha ng sukat ng file at pagsusuri sa uri ng file.
 
 ### Pagpapagana ng mga Binary sa Loob ng Archive ng `asar`
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+May mga na Node API na nagpapagana ng mga binary tulad ng `child_process.exec`, `child_process.spawn` at `child_process.execFile`, ngunit ang `execFile` lamang ang nag-iisang sinusuportahan sa pagpapagana ng mga binary sa loob ng archive ng `asar`.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+Ito ay dahil sa `exec` at `spawn` na tumatanggap ng `command` sa halip na `file` bilang input, at mga `command` ay pinapagana sa ilalim ng shell. Walang ibang paraan upang matukoy kung ang command ay gumagamit ng payl sa archive ng asar, at kahit gawin natin, hindi tayo makakasiguro kung maaari nating palitan ang path sa command nang walang ibang masamang epekto.
 
 ## Adding Unpacked Files to `asar` Archives
 
