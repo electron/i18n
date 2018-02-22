@@ -1,14 +1,12 @@
 # Pag-install
 
-> Mga tip para sa pag-install ng Electron
-
-Upang mag-install ng prebuilt Electron binaries, gamitin ang [` npm `](https://docs.npmjs.com/). Ang ginustong paraan ay ang pag-install ng Electron bilang isang dependency sa pag-unlad sa iyong app:
+To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
 npm instol elektron -- isave-dev
 ```
 
-Tingnan ang [ Electron versioning doc ](electron-versioning.md) para sa impormasyon kung paano pamahalaan ang mga bersyon ng Electron sa iyong mga app.
+See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## Global Installation
 
@@ -38,7 +36,7 @@ Kung kailangan mong gumamit ng HTTP proxy maaari mong [ itakda ang mga variable 
 
 ## Custom Mirrors and Caches
 
-Sa panahon ng pag-install, ang module ng ` electron ` ay tatawag sa [`electron-download`](https://github.com/electron-userland/electron-download) upang i-download ang prebuilt binaries ng Electron para sa iyong platform. Magagawa ito sa pamamagitan ng pakikipag-ugnay sa GitHub release ang pahina ng pag-download (` https://github.com/electron/electron/releases/tag/v$VERSION `, kung saan ` $VERSION ` ay ang eksaktong bersyon ng Electron).
+During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. Magagawa ito sa pamamagitan ng pakikipag-ugnay sa GitHub release ang pahina ng pag-download (` https://github.com/electron/electron/releases/tag/v$VERSION `, kung saan ` $VERSION ` ay ang eksaktong bersyon ng Electron).
 
 Kung hindi mo ma-access ang GitHub o kailangan mong magbigay ng custom build, ay maaaring gawin mo ito sa alinman sa pagbibigay ng salamin o isang umiiral na direktoryo ng cache.
 
@@ -93,13 +91,13 @@ Maari mo ring subukan i download ang Electron ng direkta mula sa [electron/elect
 
 Kung nabigo ang pag-install sa isang error na ` EACCESS ` maaaring kailanganin mo [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-Kung nagpatuloy ang error sa itaas, ang flag ng [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) ay maaaring itakda sa totoo:
+If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-Sa mas mabagal na mga network, maaring gamitin ang bandang `--verbose` upang maipakita ang progreso ng pag-download:
+On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
 
 ```sh
 npm install --verbose electron

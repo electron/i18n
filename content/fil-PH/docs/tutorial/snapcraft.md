@@ -80,9 +80,9 @@ Kung wala kang package na `.deb `, gamit ang ` electron-installer-snap ` maaarin
 Para sa higit pang impormasyon sa magagamit na mga opsyon sa pagsasaayos, tingnan ang [documentation on the snapcraft syntax ](https://docs.snapcraft.io/build-snaps/syntax). Tingnan natin ang halimbawa:
 
 ```yaml
-pangalan: myApp
-bersyon: 2.0.0
-buod: Isang maliit na paglalarawan para sa app.
+name: myApp
+version: '2.0.0'
+summary: A little description for the app.
 paglalarawan: |
  Alam mo ba? Ang app na ito ay kamangha-mangha! Ginagawa nito ang lahat ng mga bagay
  para sa iyo. Ang ilan ay nagsasabi na ito ay nagpapanatili sa iyong kabataan, marahil kahit na masaya.

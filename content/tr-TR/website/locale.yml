@@ -35,6 +35,7 @@ community:
   meetups: Buluşmalar
   awesome_notice: Bu liste <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron</a> deposu baz alınarak oluşturulmuştur. <br>Listede birşeyler eksik mi? Listenin büyümesine <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">katkıda bulunun</a>.
   meetup_notice: Bir konferans eklemek için, <code>data/meetups.json</code> düzenleyin ve <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">talepte bulunun</a>.
+releases: Sürümler
 electron_is_easy:
   title: Düşündüğünden daha kolay
   description: Eğer bir website oluşturabiliyorsanız, masaüstü uygulama da oluşturabilirsiniz. Electron, JavaScript, HTML ve CSS gibi web teknolojileriyle birlikte yaratıcı, yerli uygulamalar oluşturmak için bir sistemdir. Uygulamanızın özüne odaklanabilmeniz için, zor kısımların üstesinden gelir.

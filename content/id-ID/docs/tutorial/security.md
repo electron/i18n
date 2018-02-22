@@ -20,7 +20,7 @@ Kami merasa bahwa sistem kami saat memperbarui Chromium komponen menyerang kesei
 
 Masalah keamanan ada setiap kali Anda menerima kode dari remote tujuan dan menjalankannya secara lokal. Sebagai contoh, mempertimbangkan sebuah situs terpencil yang ditampilkan di dalam [`BrowserWindow`](../api/browser-window.md). Jika penyerang entah bagaimana berhasil mengubah konten kata (baik dengan menyerang sumber langsung, atau dengan duduk di antara aplikasi dan tujuan yang sebenarnya), mereka akan dapat mengeksekusi kode asli pada mesin pengguna.
 
-> : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. Untuk menampilkan konten jauh, gunakan [tampilan web` tag dan pastikan untuk menonaktifkan `nodeIntegrasi](../api/web-view).
+> : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. Untuk menampilkan konten jauh, gunakan [tampilan web` tag dan pastikan untuk menonaktifkan `nodeIntegrasi](../api/web-view.md).
 
 ## Peringatan Keamanan Elektronika
 
@@ -72,7 +72,7 @@ Buruk browserWindow.loadURL ('http://my-website.com') / / baik browserWindow.loa
 ## 2) Nonaktifkan Integrasi Node.js untuk Konten Jarak Jauh
 
 Yang terpenting adalah Anda menonaktifkan integrasi Node.js di renderer manapun ( `` BrowserWindow </ code> </a>, <a href="../api/browser-view.md"> <code > BrowserView </ code> </a>, atau
-<a href="../api/web-view"> <code> WebView </ code> </a>) yang memuat konten jarak jauh. Tujuannya adalah untuk membatasi
+<a href="../api/web-view.md"> <code> WebView </ code> </a>) yang memuat konten jarak jauh. Tujuannya adalah untuk membatasi
 kekuatan yang anda berikan untuk konten terpencil, sehingga membuatnya jauh lebih sulit bagi penyerang membahayakan pengguna harus memperoleh kemampuan mereka untuk menjalankan JavaScript pada situs web anda.</p>
 
 <p>Setelah ini, anda dapat memberikan izin tambahan untuk host tertentu. Misalnya, jika anda membuka BrowserWindow menunjuk pada`https://my-website.com/", anda dapat memberikan situs web yang tepat dengan kemampuan yang dibutuhkan, tapi tidak lebih.</p>
@@ -199,9 +199,9 @@ session
 
 ## 5) Jangan Nonaktifkan Keamanan Web
 
-*Recommendation is Electron's default*
+*Rekomendasi adalah elektron 's default*
 
-Anda mungkin sudah menduga bahwa menonaktifkan property ` webSecurity </ code> pada a proses renderer (<a href="../api/browser-window.md"> <code> BrowserWindow </ code> </a>,<a href="../api/browser-view.md"> <code> BrowserView </ code> </a>, atau <a href="../api/web-view"> <code> WebView </ code> </a>) menonaktifkan penting
+Anda mungkin sudah menduga bahwa menonaktifkan property ` webSecurity </ code> pada a proses renderer (<a href="../api/browser-window.md"> <code> BrowserWindow </ code> </a>,<a href="../api/browser-view.md"> <code> BrowserView </ code> </a>, atau <a href="../api/web-view.md"> <code> WebView </ code> </a>) menonaktifkan penting
 fitur keamanan.</p>
 
 <p>Tidak menonaktifkan <code>webSecurity` dalam aplikasi produksi.
@@ -271,7 +271,7 @@ window.eval = global.eval = function () {
 
 ## 8) Do Not Set `allowRunningInsecureContent` to `true`
 
-*Recommendation is Electron's default*
+*Rekomendasi adalah elektron 's default*
 
 By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -355,11 +355,11 @@ const mainWindow = new BrowserWindow()
 
 <p><em>Recommendation is Electron's default</em></p>
 
-<p>Jika Anda menggunakan <a href="web-view"><code>WebView`</a>, Anda mungkin perlu halaman dan script dimuat dalam tag `<webview>` untuk membuka jendela baru. Atribut `allowpopups` memungkinkan mereka untuk menciptakan baru [`BrowserWindows`](browser-window) menggunakan metode `window.open()`. `WebViews` sebaliknya tidak diperbolehkan untuk membuat jendela baru.</p> 
+<p>Jika Anda menggunakan <a href="../api/web-view.md"><code>WebView`</a>, Anda mungkin perlu halaman dan script dimuat dalam tag `<webview>` untuk membuka jendela baru. Atribut `allowpopups` memungkinkan mereka untuk menciptakan baru [`BrowserWindows`](../api/browser-window.md) menggunakan metode `window.open()`. `WebViews` sebaliknya tidak diperbolehkan untuk membuat jendela baru.</p> 
 
 ### Mengapa?
 
-Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan baru [`BrowserWindows`](browser-window) secara default. Ini mengikuti prinsip dari jumlah minimal akses yang diperlukan: Jangan biarkan situs web membuat popup baru kecuali anda tahu kebutuhan fitur ini.
+Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan baru [`BrowserWindows`](../api/browser-window.md) secara default. Ini mengikuti prinsip dari jumlah minimal akses yang diperlukan: Jangan biarkan situs web membuat popup baru kecuali anda tahu kebutuhan fitur ini.
 
 ### Bagaimana?
 
@@ -371,17 +371,17 @@ Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan 
 
 Tampilan Web yang dibuat dalam sebuah proses penyaji yang tidak memiliki integrasi Node.js diaktifkan tidak akan dapat mengaktifkan integrasi itu sendiri. Namun, WebView akan selalu membuat proses renderer independen dengan sendiri `webPreferences`.
 
-Itu adalah ide yang baik untuk mengendalikan pembuatan baru [`TampilanWeb`](web-view) dari proses utama dan untuk memverifikasi bahwa web Preferensi mereka tidak menonaktifkan fitur keamanan.
+Itu adalah ide yang baik untuk mengendalikan pembuatan baru [`TampilanWeb`](../api/web-view.md) dari proses utama dan untuk memverifikasi bahwa web Preferensi mereka tidak menonaktifkan fitur keamanan.
 
 ### Mengapa?
 
 Karena WebViews tinggal di DOM, mereka dapat dibuat oleh sebuah script yang menjalankan website Anda bahkan jika Node.js integrasi sebaliknya dinonaktifkan.
 
-Elektron memungkinkan pengembang untuk menonaktifkan berbagai fitur keamanan kontrol proses renderer. Dalam kebanyakan kasus, pengembang tidak perlu menonaktifkan salah satu fitur tersebut - dan Anda harus karena itu tidak memungkinkan konfigurasi yang berbeda untuk [`<WebView>`](web-view)tag yang baru dibuat.
+Elektron memungkinkan pengembang untuk menonaktifkan berbagai fitur keamanan kontrol proses renderer. Dalam kebanyakan kasus, pengembang tidak perlu menonaktifkan salah satu fitur tersebut - dan Anda harus karena itu tidak memungkinkan konfigurasi yang berbeda untuk [`<WebView>`](../api/web-view.md)tag yang baru dibuat.
 
 ### Bagaimana?
 
-Sebelum [`<WebView>`](web-view)tag terpasang, elektron akan api acara `akan-melampirkan-webview` pada hosting `webContents`. Menggunakan acara untuk mencegah pembentukan WebViews dengan pilihan mungkin tidak aman.
+Sebelum [`<WebView>`](../api/web-view.md)tag terpasang, elektron akan api acara `akan-melampirkan-webview` pada hosting `webContents`. Menggunakan acara untuk mencegah pembentukan WebViews dengan pilihan mungkin tidak aman.
 
 ```js
 app.on ( 'web-isi-dibuat', ( acara , isi) = & gt; {

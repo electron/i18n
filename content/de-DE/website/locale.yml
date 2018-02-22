@@ -35,6 +35,7 @@ community:
   meetups: Treffen
   awesome_notice: "Diese Liste wurde von <a href=\"https://github.com/sindresorhus/awesome-electron\">@sindresorhus's Awesome Electron</a> Repository genieriert.\n<br>Fehlt etwas? Dann <a href=\"https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md\">erstellen Sie einen Pull-Request</a>."
   meetup_notice: Um ein Treffen hinzuzufügen, bearbeiten Sie die Datei <code>data/meetups.json</code> und <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">erstellen einen Pull-Request</a>.
+releases: Veröffentlichungen
 electron_is_easy:
   title: Es ist einfacher als Sie denken
   description: Sind Sie in der Lage eine Website zu erstellen? Dann können Sie auch eine Desktop-Anwendung entwickeln! Electron ist ein Framework mit dem Sie Webtechnologien wie JavaScript, HTML und CSS nutzen um native Desktop-Applikationen zu erstellen. Wir kümmern uns um die kniffligen Dinge - und Sie um den Kern der Anwendung.

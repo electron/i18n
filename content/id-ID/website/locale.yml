@@ -35,6 +35,7 @@ community:
   meetups: Bertemu
   awesome_notice: Daftar ini dihasilkan dari gudang <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's mengagumkan elektron </a>. <br> ada yang hilang <a href="https://github.com/sindresorhus/mengagumkan-elektron/blob/master/contributing.md"> Buat permintaan tarik </a>.
   meetup_notice: Untuk menambahkan pertemuan, edit <code> data / meetups.json </ code> dan <a href="https://github.com/electron/electronjs.org/tree/master/data/pertemuan.json"> buat permintaan tarik </a>
+releases: Rilis
 electron_is_easy:
   title: Lebih mudah dari pada yang Anda pikirkan
   description: Jika Anda bisa membangun sebuah website, Anda bisa membangun aplikasi desktop. Elektron adalah kerangka kerja untuk membuat aplikasi asli dengan teknologi web seperti JavaScript, HTML, dan CSS. Ini mengurus bagian-bagian yang sulit sehingga Anda dapat fokus pada inti aplikasi Anda.

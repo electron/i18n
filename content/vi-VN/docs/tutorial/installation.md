@@ -1,14 +1,12 @@
 # Cài đặt tại thư mục ứng dụng
 
-> Các mẹo cài đặt Electron
-
-Để cài đặt các tệp thực thi Electron buid sẵn, hãy sử dụng [`npm`](https://docs.npmjs.com/). Phương pháp cài đặt Electron khuyên dùng là cài các tệp tạo sẵn dành cho phát triển ứng dụng. Ứng dụng của bạn sẽ phụ thuộc vào các tệp này, để cài hãy sử dụng câu lệnh sau tại thư mục chứa ứng dụng:
+Để cài đặt các tệp thực thi Electron buid sẵn, hãy sử dụng [`npm`](https://docs.npmjs.com). Phương pháp cài đặt Electron khuyên dùng là cài các tệp tạo sẵn dành cho phát triển ứng dụng. Ứng dụng của bạn sẽ phụ thuộc vào các tệp này, để cài hãy sử dụng câu lệnh sau tại thư mục chứa ứng dụng:
 
 ```sh
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## Cặt đặt trên toàn hệ thống
 
@@ -93,13 +91,13 @@ Bạn cũng có thể tải Electron trực tiếp từ [electron/electron/relea
 
 If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-Nếu lỗi trên vẫn còn, [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) có thể cần phải được thiết lập là true:
+If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-Với những mạng chậm, bạn nên sử dụng `--verbose` để hiển thị tiến trình tải về:
+On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
 
 ```sh
 npm install --verbose electron

@@ -2,7 +2,9 @@
 
 Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.com/joyent/node/issues/6960)를 완화하고 `require` 속도를 약간 빠르게 하며 애플리케이션의 리소스와 소스 코드를 좋지 않은 사용자로부터 보호하기 위해 애플리케이션을 [asar](https://github.com/electron/asar) 아카이브로 패키징 할 수 있습니다.
 
-## `asar` 아카이브 생성
+Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+
+## Generating `asar` Archives
 
 [asar](https://github.com/electron/asar) 아카이브는 tar과 비슷한 포맷으로 모든 리소스를 하나의 파일로 만듭니다. 그리고 Electron은 압축해제 없이 임의로 모든 파일을 읽어들일 수 있습니다.
 
@@ -63,10 +65,10 @@ require('/path/to/example.asar/dir/module.js')
 `asar`아카이브의`BrowserWindow` 클래스를 이용해 원하는 웹 페이지도 표시할 수 있습니다
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('file:///path/to/example.asar/static/index.html')
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
 
+win.loadURL('file:///path/to/example.asar/static/index.html')
 ```
 
 ### Web API
@@ -135,14 +137,14 @@ Node API에는 `child_process.exec`, `child_process.spawn` 그리고 `child_proc
 
 이 한계가 존재하는 이유는 `exec`와 `spawn`은 `file` 대신 `command`를 인수로 허용하고 있고 `command`는 shell에서 작동하기 때문입니다. 그리고 asar 아카이브 내의 파일을 사용하는지 결정하는데 적절한 방법을 가지고 있지 않으며, 심지어 그게 가능하다고 해도 부작용 없이 명령 경로를 대체할 수 있는지에 대해 확실히 알 수 있는 방법이 없습니다.
 
-## `asar` 아카이브에 미리 압축 해제된 파일 추가하기
+## Adding Unpacked Files to `asar` Archives
 
-위에서 언급했듯이, 몇몇 Node API는 호출 시 해당 파일을 임시폴더에 압축을 해제합니다. 이 방법은 성능문제가 발생할 수 있습니다. 그리고 설계상 백신 소프트웨어에서 잘못 진단하여 바이러스로 진단 할 수도 있습니다.
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-이 문제를 해결하려면 `--unpack` 옵션을 통해 파일을 압축이 풀려진 상태로 유지해야 합니다. 다음의 예시는 node 네이티브 모듈의 공유 라이브러리를 압축이 풀려진 상태로 유지합니다:
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libaries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-커맨드를 실행한 후 같은 디렉터리에 `app.asar` 파일 외에 `app.asar.unpacked` 폴더가 같이 생성됩니다. 이 폴더안에 unpack 옵션에서 설정한 파일들이 압축이 풀려진 상태로 포함되어 있습니다. 사용자에게 애플리케이션을 배포할 때 반드시 `app.asar` 폴더도 같이 배포해야 합니다.
+After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.

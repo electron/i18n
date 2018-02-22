@@ -6,7 +6,7 @@ Dua mode rendering dapat digunakan dan hanya daerah kotor dilewatkan dalam ` 'ca
 
 <p><strong> Catatan: </ 0> Sebuah jendela offscreen selalu dibuat sebagai <a href="../api/frameless-window.md"> Frameless Jendela </ 1> .</p>
 
-<h2>Dua mode rendering</h2>
+<h2>Rendering Modes</h2>
 
 <h3>GPU dipercepat</h3>
 
@@ -21,7 +21,23 @@ Dua mode rendering dapat digunakan dan hanya daerah kotor dilewatkan dalam ` 'ca
 
 <h2>Pemakaian</h2>
 
-<pre><code class="javascript">const {app, BrowserWindow} = require('electron') app.disableHardwareAcceleration() membiarkan memenangkan app.once ('siap', () = > {memenangkan = BrowserWindow baru ({webPreferences: {
+<pre><code class="javascript">const { app, BrowserWindow } = require('electron')
+
+app.disableHardwareAcceleration()
+
+let win
+
+app.once('ready', () => {
+  win = new BrowserWindow({
+    webPreferences: {
       offscreen: true
-    }}) win.webContents.on win.loadURL ('http://github.com') ('cat', (acara, kotor, gambar) = > {/ / updateBitmap (kotor, image.getBitmap())}) win.webContents.setFrameRate(30)})
+    }
+  })
+
+  win.loadURL('http://github.com')
+  win.webContents.on('paint', (event, dirty, image) => {
+    // updateBitmap(dirty, image.getBitmap())
+  })
+  win.webContents.setFrameRate(30)
+})
 `</pre>

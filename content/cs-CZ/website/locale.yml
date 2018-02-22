@@ -35,6 +35,7 @@ community:
   meetups: Setkání
   awesome_notice: Tento seznam je generován z repozitáře <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron od @sindresorhus</a>. <br>Něco chybí? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Pošlete pull request</a>.
   meetup_notice: Chcete-li přidat setkání, upravte <code>data/meetups.json</code> a <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">pošlete pull request</a>.
+releases: Vydání
 electron_is_easy:
   title: Je to snazší, než si myslíte
   description: Pokud vytváříte webové stránky, můžete si také vytvořit desktopovou aplikaci. Elektron je framework pro vytváření nativních aplikací pomocí webových technologií, jako je JavaScript, HTML a CSS. Elektron se postará o systémové části aplikace, a vy se můžete soustředit na specifika vaší aplikace.

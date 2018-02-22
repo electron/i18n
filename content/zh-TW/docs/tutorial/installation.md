@@ -1,14 +1,12 @@
 # 安裝
 
-> Electron 安裝秘訣
-
-可以透過 [`npm`](https://docs.npmjs.com/) 安裝預先建置好的 Electron 二進位檔。建議將 Electron 安裝成你應用程式開發相依套件:
+To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
 npm install electron --save-dev
 ```
 
-請參考 [Electron 版號規則文件](electron-versioning.md)，了解該怎麼管理你應用程式中的 Electron 版本。
+See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## 全域安裝
 
@@ -38,7 +36,7 @@ npm install --platform=win32 electron
 
 ## 自訂鏡像及快取
 
-安裝過程中，`electron` 模組會叫用 [`electron-download`](https://github.com/electron-userland/electron-download) 來下載符合你平台的 Electron 預建二進位檔。 它會連到 GitHub 的發行下載頁(`https://github.com/electron/electron/releases/tag/v$VERSION`，當中的 `$VERSION` 替換成 Electron 確切的版本) 下載。
+During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. 它會連到 GitHub 的發行下載頁(`https://github.com/electron/electron/releases/tag/v$VERSION`，當中的 `$VERSION` 替換成 Electron 確切的版本) 下載。
 
 如果你連不到 GitHub，或是需要使用客製化的版本，可以提供鏡像或是既有的快取目錄來安裝。
 
@@ -93,13 +91,13 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 如果安裝過程遇到 `EACCESS` 錯誤而失敗，代表可能要 [修正你 npm 的權限](https://docs.npmjs.com/getting-started/fixing-npm-permissions)。
 
-如果上述錯誤持續發生，可能需要把 [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) 旗標設為 true:
+If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-在網路速度較慢的環境中，建議搭配 `--verbose` 旗標以便看到下載進度:
+On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
 
 ```sh
 npm install --verbose electron

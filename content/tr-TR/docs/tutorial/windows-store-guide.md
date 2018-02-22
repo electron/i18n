@@ -93,7 +93,7 @@ Bir arka plan görevini kullanan bir Electron uygulamasının toast bildirimleri
 
 AppX paketi oluşturmak için, `electron-windows-store` CLI'si çoğu Electron uygulamasında çalışması gereken bir şablon kullanır. Bununla birlikte, bir özel kurulumcu kullanıyorsanız veya oluşturulan paketle ilgili herhangi bir sorun yaşarsanız, Windows Container - içinde derleme kullanarak bir paket oluşturmaya çalışabilir, bu modda, CLI yükleme yapar ve uygulamanızı boş Windows Konteynerın'da çalıştırır uygulamanızın hangi işletim modülüne değişiklik yaptığını tam olarak belirleme sistemi.
 
-CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüştürücüsü" nü kurmanız gerekmektedir. Bu birkaç dakika alacaktır, ama endişelenmeyin - bunu yalnızca bir defa yapmanız gerekiyor. Karşıdan yükleme ve Masaüstü çeviri uygulaması için [burası](https://www.microsoft.com/en-us/download/details.aspx?id=51691). İki dosya alacaksınız: `DesktopAppConverter.zip` ve `BaseImage-14316.wim`.
+CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüştürücüsü" nü kurmanız gerekmektedir. Bu birkaç dakika alacaktır, ama endişelenmeyin - bunu yalnızca bir defa yapmanız gerekiyor. Karşıdan yükleme ve Masaüstü çeviri uygulaması için [burası](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). İki dosya alacaksınız: `DesktopAppConverter.zip` ve `BaseImage-14316.wim`.
 
 1. Zipten çıkar `DesktopAppConverter.zip`. Yükseltilmiş Powershell' den ( "yönetici olarak çalıştır", sistem yürütme politikanızın bize izin vermesini sağlayın. Bu şekilde Çalıştırmak istediğimiz herşeyi `Set-ExecutionPolicy bypass` çağırarak çalıştırır.
 2. Konumdaki windows temel görünümünü görmezden gelerek masaüstü uygulama çeviricisini indir ve çalıştır.

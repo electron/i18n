@@ -2,7 +2,9 @@
 
 Para mitigar los [problemas](https://github.com/joyent/node/issues/6960) relacionados con los nombres de ruta largas en Windows, acelere ligeramente y `exija` que su código fuente se inspeccione rápidamente, puede optar por empaquetar su aplicación en un archivo [asar](https://github.com/electron/asar) con pocos cambios en su código fuente.
 
-## Generando Archivo `asar`
+Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+
+## Generating `asar` Archives
 
 Un archivo [asar](https://github.com/electron/asar) es un formato simple similar a un alquitrán que concatena archivos en un solo archivo. Electron puede leer archivos arbitrarios sin desempaquetar todo el archivo. 
 
@@ -61,8 +63,9 @@ require('/path/to/example.asar/dir/module.js')
 You can also display a web page in an `asar` archive with `BrowserWindow`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+
 win.loadURL('file:///path/to/example.asar/static/index.html')
 ```
 
@@ -132,14 +135,14 @@ Hay APIs de nodos que pueden ejecutar binarios como `child_process.exec`, `child
 
 Esto es debido a que `exec` y `spawn` acepta `command` en vez de `file` como entrada, y `command` son ejecutados por debajo de la cáscara. No hay manera fiable de determinar si un comando usa un archivo en un archivo asar, y aún si lo hiciésemos, no podemos estar seguros si no podemos reemplazar el camino en comando sin efectos secundarios.
 
-## Añadiendo archivos desempaquetados en un archivo `asar`
+## Adding Unpacked Files to `asar` Archives
 
-Como e indicó anteriormente, algunas APIs de node desempaquetarán un archivo en el sistema cuando sea llamado, aparte de los problemas de desempeño, pudiese fácilmente llevar a una falsa alerta en los antivirus.
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-Para trabajar alrededor de esto, usted puede desempaquetar algunos archivos creando otros usando la opción `--unpack`, un ejemplo de excluir bibliotecas compartidas de módulos nativos es:
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libaries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-Después de correr el comando, aparte de `app.asar`, hay también una carpeta `app.asar.unpacked` generada que contiene los archivos desempaquetados, debe copiarlos juntos con `app.asar` cuando se entregue a lo usuarios.
+After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.

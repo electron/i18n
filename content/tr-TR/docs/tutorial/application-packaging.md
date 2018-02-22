@@ -2,7 +2,9 @@
 
 Windows'ta uzun yol adları etrafındaki [issues](https://github.com/joyent/node/issues/6960) azaltmak için `require`’ı biraz hızlandırın ve kaynak kodunuzu muayene işleminden gizleyin, uygulamanızı, kaynak kodunuzda ufak değişiklikler yaparak bir [asar](https://github.com/electron/asar) arşivine paketlemeyi seçebilirsiniz.
 
-## `asar` Arşivi Oluşturuluyor
+Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+
+## Generating `asar` Archives
 
 Bir [asar](https://github.com/electron/asar) arşivi, dosyaları birleştiren basit bir tar benzeri formatta tek bir dosyaya dönüştürür. Electron, bütün dosyaları paketten çıkarmadan rastgele dosyaları okuyabilir.
 
@@ -63,8 +65,9 @@ gerektirir('/path/to/example.asar/dir/module.js')
 `BrowserWindow` ile `asar` arşivinde bir web sayfası da gösterebilirsiniz:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+
 win.loadURL('file:///path/to/example.asar/static/index.html')
 ```
 
@@ -135,14 +138,14 @@ Ek paketten çıkarmayı gerektiren API'ler şunlardır:
     Bunun nedeni, giriş olarak ` file <code> exec </ 0> ve <code> spawn </ 0> <code> komutunu </ 0> kabul etmesi, ve <code> command </ 0> 'ların kabuk altında yürütülmesi. Belirlemek için güvenilir bir yol yok.
 bir komutun asar arşivinde bir dosya kullanıp kullanmadığı belirlemek için güvenilir bir yol yoktur, yan etkileri olmadan komuta yolunu değiştirip değiştiremeyeceğimizden emin olamayız.</p>
 
-<h2>Paketlenmemiş Dosyaları <code>asar` Arşivine Ekleme</h2> 
+<h2>Adding Unpacked Files to <code>asar` Archives</h2> 
     
-    Yukarıda belirtildiği gibi, bazı düğüm API'leri, dosyayı dosya sistemine açmak için performans sorunlarının yanı sıra virüs tarayıcılarında yanlış uyarılara da yol açabilir.
+    As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
     
-    Bu sorunu çözmek için, arşiv oluşturma özelliğini kullanarak bazı dosyaları açabilirsiniz. `--unpack ` seçeneği, yerel modüllerin paylaşılan kitaplıklarını hariç tutmanın geçerli bir örneğidir:
+    As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libaries of native Node.js modules will not be packed:
     
     ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-Komutu çalıştırdıktan sonra, `app.asar` haricinde, açılmış dosyaları içeren bir `app.asar.unpacked` klasörü de var, bunu kullanıcılara gönderirken `app.asar` ile birlikte kopyalamalısınız.
+After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.

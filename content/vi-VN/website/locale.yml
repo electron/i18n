@@ -35,6 +35,7 @@ community:
   meetups: Meetups
   awesome_notice: 'Danh sách này được tạo ra từ repository: <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron của @sindresorhus</a>. <br>Thấy thiếu cái gì đó? Hãy <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">tạo một pull request để thêm vào</a>.'
   meetup_notice: Để thêm một meetup, chỉnh sửa <code>data/meetups.json</code> và sau đó <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">tạo một pull request</a>.
+releases: Các phiên bản phát hành
 electron_is_easy:
   title: Nó dễ hơn bạn nghĩ
   description: Nếu bạn có thể xây dựng một website thì bạn có thể xây dựng ứng dụng trên desktop. Electron là một framework cho việc tạo ra các ứng dụng đó chỉ với công nghệ xây dựng web, giống như HTML, CSS và Javascript. Nó sẽ lo về các phần cứng dùm bạn, việc của bạn chỉ cần làm là tập trung tinh thành vào lập trình ứng dụng của bạn.

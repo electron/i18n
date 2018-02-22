@@ -35,6 +35,7 @@ community:
   meetups: Собрания
   awesome_notice: Этот список генерируется из <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> репозитория. <br> Кое-что пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
   meetup_notice: Чтобы добавить meetup, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> сделайте pull request</a>.
+releases: Релизы
 electron_is_easy:
   title: Это проще, чем вы думаете
   description: 'Если Вы можете сделать сайт, то Вы сможете сделать приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что вы можете сосредоточиться на главных элементах Вашего приложения.'

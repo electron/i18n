@@ -2,32 +2,32 @@
 
 Il y a plusieurs méthodes pour mettre à jour une application Electron. La plus simple, et celle qui est officiellement supportée, tire parti de l'intégration du framework [Squirrel](https://github.com/Squirrel) et du module [autoUpdater](../api/auto-updater.md) d'Electron.
 
-## Déploiement d’un serveur de mise à jour
+## Deploying an Update Server
 
 Pour commencer, vous devez d'abord déployer un serveur sur lequel le module [autoUpdater](../api/auto-updater.md) ira télécharger les nouvelles mises à jour.
 
 Selon vos besoins, vous pouvez choisir parmi l'un d'entre eux :
 
-- [Hazel](https://github.com/zeit/hazel) - Serveur de mise à jour pour les applications open sources ou privées. Peut être déployé gratuitement sur [Now](https://zeit.co/now) (à l'aide d'une seule commande), récupère depuis [GitHub Releases](https://help.github.com/articles/creating-releases/) et exploite la puissance du CDN de GitHub.
-- [Nuts](https://github.com/GitbookIO/nuts) - Utilise également les [versions GitHub](https://help.github.com/articles/creating-releases/), mais met en cache les mises à jour sur le disque et prend en charge les dépôts privés.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Fournit un tableau de bord pour le traitement des versions
-- [Nucleus](https://github.com/atlassian/nucleus) - Un serveur de mise à jour complet pour les applications Electron, maintenu par Atlassian. Prend en charge plusieurs applications et canaux; utilise un magasin de fichier statiques pour rapetisser le coût serveur.
+- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
+- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
+- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
 
-Si votre application est empaquetée avec [electron-builder](https://github.com/electron-userland/electron-builder), vous pouvez utiliser le module [electron-updater](https://www.electron.build/auto-update) qui ne nécessite pas de serveur et permet les mises à jour depuis S3, GitHub ou tout autre hôte de fichiers statiques.
+If your app is packaged with [`electron-builder`](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
 
-## Implémentation des mises à jour dans votre application
+## Implementing Updates in Your App
 
 Une fois que vous avez déployé votre serveur de mise à jour, continuez d'importer les modules requis dans votre code. Le code suivant peut varier pour les différents serveurs, mais il fonctionne comme décrit lors de l'utilisation de [Hazel](https://github.com/zeit/hazel).
 
 **Important :** Veuillez vous assurer que le code ci-dessous sera exécuté uniquement dans votre application empaquetée, et non dans la version en développement. Vous pouvez utiliser [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) pour vérifier l'environnement.
 
-```js
-const {app, autoUpdater, dialog} = require('electron')
+```javascript
+const { app, autoUpdater, dialog } = require('electron')
 ```
 
 Ensuite, construisez l'URL du serveur de mise à jour et informez-en [autoUpdater](../api/auto-updater.md):
 
-```js
+```javascript
 const server = 'https://your-deployment-url.com'
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 
@@ -36,19 +36,19 @@ autoUpdater.setFeedURL(feed)
 
 Comme dernière étape, vérifiez les mises à jour. L'exemple ci-dessous vérifie chaque minute:
 
-```js
+```javascript
 setInterval(() => {
   autoUpdater.checkForUpdates()
 }, 60000)
 ```
 
-Une fois que votre application est [empaquetée](../tutorial/application-distribution.md), elle recevra une mise à jour pour chaque nouvelle [version GitHub](https://help.github.com/articles/creating-releases/) que vous publierez.
+Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
 
-## Appliquer la mise à jour
+## Applying Updates
 
 Maintenant que vous avez configuré le mécanisme de mise à jour de base de votre application, vous devez vous assurer que l’utilisateur sera notifié quand il y a une mise à jour. Cela peut être réalisé avec les [événements](../api/auto-updater.md#events) de l'API autoUpdater:
 
-```js
+```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
   const dialogOpts = {
     type: 'info',
@@ -66,7 +66,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 
 Veillez également à ce que les erreurs soient [traitées](../api/auto-updater.md#event-error). Voila un exemple de ce qu'il se passe dans vous les entrez dans `stderr` :
 
-```js
+```javascript
 autoUpdater.on('error', message => {
   console.error('There was a problem updating the application')
   console.error(message)

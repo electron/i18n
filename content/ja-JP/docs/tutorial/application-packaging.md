@@ -2,7 +2,9 @@
 
 Windows上の[長いパス名周りの問題](https://github.com/joyent/node/issues/6960)を軽減したり、`require`を若干スピードアップしたり、簡単な調査からソースコードを隠したりするために、ソースコードを少々変更して、アプリケーションを [asar](https://github.com/electron/asar) アーカイブとしてパッケージ化することもできます。
 
-## `asar` アーカイブの生成
+Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+
+## Generating `asar` Archives
 
 [asar](https://github.com/electron/asar) アーカイブは、ファイルを1つに連結するtarライクなシンプルなフォーマットです。 Electron はファイル全体を展開しなくても任意のファイルを読み込めます。
 
@@ -63,8 +65,9 @@ require('/path/to/example.asar/dir/module.js')
 `BrowserWindow` を使って `asar` アーカイブ内の Web ページを表示することもできます:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+
 win.loadURL('file:///path/to/example.asar/static/index.html')
 ```
 
@@ -134,14 +137,14 @@ Node APIで、`asar` アーカイブがディレクトリのように動作す�
 
 なぜならば、`exec` と `spawn` は入力として `file` の代わりに `command` を受け取り、`command` はシェル配下で実行されるからです。 コマンドが asar アーカイブ内のファイルを使うかどうかを決定するための信頼できる方法はありませんし、そうするとしてもコマンドで使うファイルパスを副作用なしに置き換えることができるかどうかを確認することはできません。
 
-## `asar` アーカイブ内のファイルを展開して追加
+## Adding Unpacked Files to `asar` Archives
 
-上記のように、いくつかのNode APIが呼ばれると、ファイルシステム上にファイルを展開しますが，パフォーマンス問題は別として、ウィルススキャナーの誤報につながる可能性があります。
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-これに対応するために、`--unpack` オプションを使用して、アーカイブを作成する際に、いくつかのファイルを含めないようにできます。例えば、ネイティブモジュールの共有ライブラリを除く場合：
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libaries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-このコマンドを実行した後、`app.asar` とは別に、アンパックされたファイルを含んだ`app.asar.unpacked` フォルダーが生成されます。ユーザーに提供するときには、`app.asar` と一緒にコピーしなければなりません
+After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.

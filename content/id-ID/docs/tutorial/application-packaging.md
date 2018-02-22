@@ -1,13 +1,16 @@
 # Kemasan Aplikasi
 
-Untuk mengurangi  masalah </ 0> di sekitar nama path yang panjang di Windows , sedikit mempercepat ` require </ 1> dan menyembunyikan kode sumber Anda dari pemeriksaan sepintas, Anda dapat memilih untuk mengemas aplikasi Anda menjadi <a href="https://github.com/electron/asar"> asar </ 2> 
+Untuk mengurangi [ masalah </ 0> di sekitar nama path yang panjang di Windows , sedikit mempercepat ` require </ 1> dan menyembunyikan kode sumber Anda dari pemeriksaan sepintas, Anda dapat memilih untuk mengemas aplikasi Anda menjadi <a href="https://github.com/electron/asar"> asar </ 2> 
 arsipkan dengan sedikit perubahan pada kode sumber Anda.</p>
 
-<h2>Membangkitkan <code> asar </ 0> Arsip</h2>
+<p>Most users will get this feature for free, since it's supported out of the box
+by <a href="https://github.com/electron-userland/electron-packager"><code>electron-packager`](https://github.com/joyent/node/issues/6960), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
 
-<p>Sebuah <a href="https://github.com/electron/asar"> asar </ 0> arsip adalah tar-seperti format yang sederhana yang concatenates file ke dalam satu file. Elektron dapat membaca file-file sewenang-wenang darinya tanpa membongkar seluruh berkas.</p>
+## Generating `asar` Archives
 
-<p>Langkah-langkah untuk mengemas aplikasi Anda ke arsip <code> asar </ 0> :</p>
+Sebuah  asar </ 0> arsip adalah tar-seperti format yang sederhana yang concatenates file ke dalam satu file. Elektron dapat membaca file-file sewenang-wenang darinya tanpa membongkar seluruh berkas.</p> 
+
+Langkah-langkah untuk mengemas aplikasi Anda ke arsip ` asar </ 0> :</p>
 
 <h3>1. Instal Asar Utility</h3>
 
@@ -53,7 +56,10 @@ membutuhkan ('/ path / to / example.asar / dir / module.js')
 
 Anda juga dapat menampilkan halaman web di arsip ` asar </ 0> dengan <code> BrowserWindow </ 0> :</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require ('electron') let win = new BrowserWindow ( {width: 800, height: 600} ) win.loadURL ('file: ///path/to/example.asar/static/index.html ')
+<pre><code class="javascript">const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+
+win.loadURL('file:///path/to/example.asar/static/index.html')
 `</pre> 
 
 ### Web API
@@ -118,14 +124,14 @@ Meskipun kami berusaha keras membuat arsip ` asar </ 0> di API Node  bekerja sep
 
 <p>Ini karena <code> exec </ 0> dan <code> menelurkan </ 0> menerima <code> perintah </ 0> daripada <code> file </ 0> sebagai masukan, dan <code> perintah </ 0 > dieksekusi di bawah shell Tidak ada cara yang dapat diandalkan untuk menentukan apakah sebuah perintah menggunakan file dalam arsip asar , dan bahkan jika kita melakukannya, kita tidak dapat memastikan apakah kita dapat mengganti jalan di perintah tanpa efek samping.</p>
 
-<h2>Menambahkan file dibongkar di <code>asar` Arsip</h2> 
+<h2>Adding Unpacked Files to <code>asar` Archives</h2> 
     
-    Seperti yang dinyatakan di atas, beberapa API Node akan membongkar file ke filesystem saat menelepon, terlepas dari masalah kinerja, hal itu juga dapat menyebabkan peringatan palsu pemindai virus.
+    As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
     
-    Untuk mengatasi ini, Anda dapat membongkar beberapa file yang menciptakan Arsip dengan menggunakan `--membongkar` pilihan, contoh termasuk shared library modul asli adalah:
+    As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libaries of native Node.js modules will not be packed:
     
     ```sh
 $ asar paket app app.asar--membongkar *.node
 ```
 
-Setelah menjalankan perintah, selain `app.asar`, ada juga `app.asar.unpacked` dihasilkan folder yang berisi file dibongkar, Anda harus menyalin itu bersama-sama dengan `app.asar` saat pengiriman kepada pengguna.
+After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.

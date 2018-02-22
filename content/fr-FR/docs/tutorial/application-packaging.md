@@ -2,7 +2,9 @@
 
 Pour atténuer les [problèmes](https://github.com/joyent/node/issues/6960) autour des noms de chemins longs sous Windows, en accélérant légèrement `require` et dissimulant votre code source de l'inspection superficielle, vous pouvez empaqueter votre application dans une archive de [asar](https://github.com/electron/asar) avec peu de modifications à votre code source.
 
-## Génerer une archive `asar`
+Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+
+## Generating `asar` Archives
 
 Une archive [asar](https://github.com/electron/asar) est un simple format d'archive comme tar, qui concatène les fichiers en un seul fichier. Electron peut lire les fichiers arbitrairement sans avoir a décompresser l'archive.
 
@@ -63,8 +65,9 @@ require('/chemin/vers/exemple.asar/dir/module.js')
 Vous pouvez également afficher une page web se trouvant dans une archive `asar` avec `BrowserWindow` :
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+
 win.loadURL('file:///path/to/example.asar/static/index.html')
 ```
 
@@ -134,14 +137,14 @@ Il existe des APIs Node qui peuvent exécuter des binaires tels que `child_proce
 
 C'est parce que `exec` et `spawn` acceptent `command` au lieu de `file` en entrée, et les `command` sont exécutées sous shell. Il n'y a pas de moyen fiable de déterminer si une commande utilise un fichier dans une archive asar, et même si nous le faisons, nous ne pouvons pas être sûrs de pouvoir remplacer les chemins d'accès dans la commande sans effets secondaires.
 
-## Ajouter des fichiers non empaquetés dans une archive `asar`
+## Adding Unpacked Files to `asar` Archives
 
-Comme indiqué ci-dessus, certaines APIs Node vont dépaqueter le fichier du système de fichiers lors de l'appel, mis à part les problèmes de performance, cela pourrait également conduire à de fausses alertes de scanners antivirus.
+As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-Pour contourner ce problème, vous pouvez dépaqueter certains fichiers en créant des archives en utilisant l'option `--unpack`, un exemple d'exclusion des librairies partagées des modules natifs est :
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libaries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-Après l'exécution de la commande, en dehors de `app.asar`, il y a également un dossier `app.asar.unpacked` généré contenant les fichiers dépaquetés, vous devez le copier avec `app.asar` en l'envoyant aux utilisateurs.
+After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.

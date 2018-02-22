@@ -35,6 +35,7 @@ community:
   meetups: सम्मेलन
   awesome_notice: यह सूची <a href="https://github.com/sindresorhus/awesome-electron">@सिंड्रेसोरहस की अद्भुत </a> रिपॉजिटरी से उत्पन्न है. <br> किसी चीज़ की कमी है? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">एक पुल रिक्वेस्ट बनायें</a>|
   meetup_notice: सम्मलेन जोड़ने के लिए, <code>data/meetups.json</code> का संपादन करें और <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">एक पुल रिक्वेस्ट बनायें</a> |
+releases: रिलीज़स
 electron_is_easy:
   title: जितना आप सोचते है उससे आसान है यह
   description: यदि आप एक वेबसाइट का निर्माण कर सकते हैं, तो आप एक डेस्कटॉप app बना सकते हैं । इलेक्ट्रॉन जावास्क्रिप्ट, एचटीएमएल और सीएसएस जैसी वेब प्रौद्योगिकियों के साथ मूल एप्लीकेशनस बनाने के लिए एक रूपरेखा है । यह मुश्किल भागों का ख्याल रखता है ताकि आप अपने एप्लीकेशन के मूल पर ध्यान केंद्रित कर सकते हैं ।

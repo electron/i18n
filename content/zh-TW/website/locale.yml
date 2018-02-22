@@ -35,6 +35,7 @@ community:
   meetups: 聚會
   awesome_notice: 這份清單是由 <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus 的 Awesome Electron</a> 儲存庫自動產生的。<br> 發現少了什麼嗎? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">發個 Pull Request</a> 吧。
   meetup_notice: 如果要增加聚會，改好 <code>data/meetups.json</code> 後<a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">發個 Pull Request</a>。
+releases: 版本發佈
 electron_is_easy:
   title: 比你想像的更容易
   description: 如果你有能力寫網站，就寫得出桌面應用程式。 Electron 是個用 JavaScript、HTML 及 CSS 等網頁技術開發原生應用程式的框架。鳥事它都包了，專注在你的核心功能吧。

@@ -1,13 +1,11 @@
 # Instalasi
 
-> Tip untuk memasang Elektron
-
 Untuk memasang binari elektron prebuilt , gunakan ` npm </ 0> . Metode yang disukai adalah menginstal Elektron sebagai ketergantungan pengembangan di aplikasi Anda:</p>
 
 <pre><code class="sh">npm menginstal elektron - menyimpan-dev
 `</pre> 
 
-Lihat  Dokumen versi elektron </ 0> untuk info tentang cara mengelola versi Elektron di aplikasi Anda.</p> 
+See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## Instalasi global
 
@@ -36,9 +34,7 @@ Jika Anda perlu menggunakan proxy HTTP, Anda dapat [ menetapkan variabel lingkun
 
 ## Custom Mirrors and Caches
 
-Selama instalasi, modul ` elektron </ 0> akan memanggil <a href="https://github.com/electron-userland/electron-download"><code> elektron-download </ 1> untuk mendownload prebuilt
-binari Elektron untuk platform Anda. Ini juga dapat dilakukan dengan menghubungi GitHub's
-halaman download yang dirilis (<code>https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. Ini juga dapat dilakukan dengan menghubungi GitHub's halaman download yang dirilis (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
 
 Jika Anda tidak dapat mengakses GitHub atau Anda memerlukan penyediaan kustom build, Anda dapat melakukannya dengan menyediakan mirror atau direktori cache yang ada.
 
@@ -94,12 +90,13 @@ Anda juga dapat mencoba mendownload Electron langsung dari [Electron/Electron/pe
 
 Jika penginstalan gagal dengan kesalahan ` EACCESS </ 0> Anda mungkin memerlukan <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions"> perbaiki izin npm anda </ 1>.</p>
 
-<p>Jika kesalahan di atas terus berlanjut, flag <a href="https://docs.npmjs.com/misc/config#unsafe-perm">unsafe-perm</a> mungkin perlu disetel ke true:</p>
+<p>If the above error persists, the <a href="https://docs.npmjs.com/misc/config#unsafe-perm">unsafe-perm</a> flag may need to be
+set to true:</p>
 
 <pre><code class="sh">sudo npm menginstal elektron--tidak aman-perm = true
 `</pre> 
 
-Pada jaringan yang lebih lambat, disarankan untuk menggunakan flag `--verbose` untuk menunjukkan kemajuan download:
+On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
 
 ```sh
 memasang npm --verbose electron
