@@ -1,6 +1,6 @@
-# Rectangle Object
+# Obiekt Rectangle
 
-* `x` Number - The x coordinate of the origin of the rectangle (must be an integer)
-* `y` Number - The y coordinate of the origin of the rectangle (must be an integer)
-* `width` Number - The width of the rectangle (must be an integer)
-* `height` Number - The height of the rectangle (must be an integer)
+* `x` Number - Współrzędna x punktu startowego prostokąta (musi być liczbą całkowitą)
+* `y` Number - Współrzędna y punktu startowego prostokąta (musi być liczbą całkowitą)
+* `Szerokość` Number - szerokość prostokąta (musi być liczbą całkowitą)
+* `wysokość` Number - wysokość prostokąta (musi być liczbą całkowitą)
