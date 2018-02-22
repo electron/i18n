@@ -1,6 +1,6 @@
 # Installation
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+Nutzen Sie [`npm`](https://docs.npmjs.com) um Electron als vorgefertigtes Archiv zu installieren. Die bevorzugte Methode ist jedoch, Electron als Abhängigkeit in Ihrer App einzubinden:
 
 ```sh
 npm install electron --save-dev
@@ -85,7 +85,7 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 Beim Ausführen von `npm install electron` können bei einigen Nutzern gelegentlich Installationsfehler auftreten.
 
-In fast allen Fällen sind entstehen diese Fehler wegen Netzwerkproblemen und sind nicht mit dem `electron` npm package verbunden. Fehler wie `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` weisen alle auf ein Problem mit dem Netzwerk hin. Das Problem kann am besten gelöst werden, wenn man das Netzwerk wechselt oder man eine Weile wartet und die Installation erneut versucht.
+In fast allen Fällen sind diese Fehler das Ergebnis von Netzwerkproblemen und nicht von tatsächlichen Problemen mit dem Paket `electron` npm. Fehler wie `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` weisen alle auf ein Problem mit dem Netzwerk hin. Das Problem kann am besten gelöst werden, wenn man das Netzwerk wechselt oder man eine Weile wartet und die Installation erneut versucht.
 
 Man kann auch versuchen, Electron direkt unter [electron/electron/releases](https://github.com/electron/electron/releases) herunterzuladen, falls die Installation über `npm` weiterhin fehlschlägt.
 
