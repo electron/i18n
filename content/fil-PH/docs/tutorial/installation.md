@@ -1,6 +1,6 @@
 # Pag-install
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+Upang mag-install ng prebuilt Electron binaries, gamitin ang [` npm `](https://docs.npmjs.com). Ang ginustong paraan ay ang pag-install ng Electron bilang isang dependency sa pag-unlad sa iyong app:
 
 ```sh
 npm instol elektron -- isave-dev
@@ -81,7 +81,7 @@ Ang cache ay naglalaman ng opisyal na zip file ng bersyon pati na rin ang checks
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
-## Paghahanap ng Problema
+## Paghahanap ng ProblemaPaghahanap ng Problema
 
 Habang pinatatakbo and `npm install electron`, ang ibang user ay kadalasang nakakasalubong ng error sa pag-install.
 
