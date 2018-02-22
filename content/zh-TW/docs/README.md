@@ -47,8 +47,8 @@
 * [Application Testing and Debugging](tutorial/application-debugging.md) 
   * [Debug 主處理序](tutorial/debugging-main-process.md)
   * [使用 Selenium 及 WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [DevTools 擴充功能](tutorial/devtools-extension.md)
+  * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [DevTools 擴充](tutorial/devtools-extension.md)
 * [應用程式發佈](tutorial/application-distribution.md) 
   * [支援平臺](tutorial/supported-platforms.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
@@ -79,7 +79,7 @@ These individual tutorials expand on topics discussed in the guide above.
   * [Beta 版及 Bug 修正](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+  * [使用 asar 封存檔](tutorial/application-packaging.md#using-asar-archives)
   * [限制](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
@@ -88,12 +88,12 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * * *
 
-* [Glossary of Terms](glossary.md)
+* [詞彙表](glossary.md)
 
 ## API 參考
 
 * [簡介](api/synopsis.md)
-* [Process Object](api/process.md)
+* [處理序物件](api/process.md)
 * [支援的 Chrome 命令列參數](api/chrome-command-line-switches.md)
 * [環境變數](api/environment-variables.md)
 
@@ -146,16 +146,16 @@ These individual tutorials expand on topics discussed in the guide above.
 * [在 C++ 程式碼中使用 Clang-Format](development/clang-format.md)
 * [測試](development/testing.md)
 * [原始碼目錄結構](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [與 NW.js (原名 node-webkit) 的技術差異](development/atom-shell-vs-node-webkit.md)
 * [建置系統概述](development/build-system-overview.md)
 * [建置步驟 (macOS)](development/build-instructions-osx.md)
 * [建置步驟 (Windows)](development/build-instructions-windows.md)
 * [建置步驟 (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
+* [Debug 步驟 (macOS)](development/debugging-instructions-macos.md)
+* [Debug 步驟 (Windows)](development/debug-instructions-windows.md)
+* [在 Debugger 中設定符號伺服器](development/setting-up-symbol-server.md)
+* [文件編寫風格](styleguide.md)
+* [貢獻 Electron](../CONTRIBUTING.md)
 * [議題](development/issues.md)
 * [合併請求 (PR)](development/pull-requests.md)
 * [Chromium 升版](development/upgrading-chromium.md)
