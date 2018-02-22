@@ -1,14 +1,12 @@
 # Kurulum
 
-> Electron'u yüklemek için ipuçları
-
-Önceden yapılandırılmış Electron ikilileri, kullan [`npm`](https://docs.npmjs.com/). Tercih edilen Electronu geliştirme özgürlüğüyle sizin için kurmaktır:
+Önceden yapılandırılmış Electron ikilileri, kullan [`npm`](https://docs.npmjs.com). Tercih edilen Electronu geliştirme özgürlüğüyle sizin için kurmaktır:
 
 ```sh
 npm yükle electron --kaydet-dev
 ```
 
-Uygulamalarınızdaki Electron sürümlerini nasıl yöneteceğinizle ilgili bilgiler için [Electron versioning doc](electron-versioning.md)'a bakın.
+See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## Genel kurulum
 
@@ -38,7 +36,7 @@ Bir vekil sunucu kullanmaya ihtiyacınız varsa [ bu çevre değişkenleri ayarl
 
 ## Özel Aynalar ve Önbellekler
 
-Yükleme sırasında, `electron` modülü platformunuz için önceden hazırlanmış Electron binary'lerini indirmek için [`electron-download`](https://github.com/electron-userland/electron-download)'u çağıracaktır. Bu aynı zamanda GitHub'ın sürüm indirme sayfasına başvurarak da yapılabilir.(`https://github.com/electron/electron/releases/tag/v$VERSION`, `$VERSION` sürümü Elektron'un doğru sürümüdür).
+During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. Bu aynı zamanda GitHub'ın sürüm indirme sayfasına başvurarak da yapılabilir.(`https://github.com/electron/electron/releases/tag/v$VERSION`, `$VERSION` sürümü Elektron'un doğru sürümüdür).
 
 Eğer GitHub'a erişemiyorsanız veya özel bir kurulum sağlamanız gerekiyorsa bunu bir ayna veya varolan bir önbellek dizini sağlayarak da yapabilirsiniz.
 
@@ -93,13 +91,13 @@ Eğer `npm` ile kurulum hataya düşüyorsa, Electron'u doğrudan [electron/elec
 
 Eğer yükleme bir `EACCESS` hatası ile başarısız olursa [npm izinlerini düzeltmeniz](https://docs.npmjs.com/getting-started/fixing-npm-permissions) gerekebilir.
 
-Üstteki devam ediyorsa, [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) bayrağının Doğru olarak ayarlanması gerekebilir:
+If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-İnternet erişiminiz yavaşsa `--verbose` indirme sürecinizde tavsiye edilir:
+On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
 
 ```sh
 npm yükle --verbose electron
