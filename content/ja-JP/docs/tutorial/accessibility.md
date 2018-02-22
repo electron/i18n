@@ -1,16 +1,16 @@
 # アクセシビリティ
 
-アクセシビリティの高いアプリケーションを作ることは重要です。開発者がすべてのユーザとってより良いアプリケーションを開発することを手助けする新機能「[Devtron](https://electronjs.org/devtron)」および「[Spectron](https://electronjs.org/spectron)」をご紹介いたします。
+Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
 
 * * *
 
 Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
+These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools.
 
 ## Spectron
 
-Spectron テストフレームワークで、アプリケーション内の各ウィンドウおよび`<webview>`タグを監視できます。以下に例を示します。
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,21 +24,21 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Devtron
 
-Devtronでは新機能のアクセシビリティタブが利用できます。このタブでは、アプリケーション内の監視結果をソートしたり、フィルタによって絞り込んだりできます。
+In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
 
 ![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-いずれのツールも Google が Chrome 向けに開発した [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) ライブラリを利用しています。 このライブラリが使用しているアクセシビリティ監視のルールに関する詳細は、[リポジトリのwiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) に記載されています。
+Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-これ以外の Electron 向けに使用可能な素晴らしいアクセシビリティツールをご存じの方は、 ぜひ[アクセシビリティに関するドキュメント](https://electronjs.org/docs/tutorial/accessibility) に追加してプルリクエストをお送りください。
+If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
 ## アクセスビリティの有効化
 
-Electronアプリケーションはパフォーマンス上の理由によって標準でアクセシビリティが無効になっていますが、有効にする方法は複数あります。
+Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 
 ### アプリケーション側で有効にする
 
-[`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) を使って、アプリケーション設定にアクセシビリティの有効化機能を設けられます。 ユーザーのシステムが持つアシスト機能はこの設定より優先され、設定を上書きする可能性があります。
+By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
 
 ### Assistive Technology
 
