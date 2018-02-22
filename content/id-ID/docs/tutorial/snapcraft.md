@@ -79,9 +79,9 @@ file yang menggambarkan sumber, dependensi, deskripsi, dan blok bangunan inti la
 <p>Untuk informasi lebih lanjut tentang pilihan konfigurasi yang tersedia, lihat
 <a href="https://docs.snapcraft.io/build-snaps/syntax"> dokumentasi tentang sintaks snapcraft </a>.Mari kita lihat sebuah contoh:</p>
 
-<pre><code class="yaml">nama: myApp
-versi: 2.0.0
-ringkasan: Sedikit deskripsi untuk aplikasi
+<pre><code class="yaml">name: myApp
+version: '2.0.0'
+summary: A little description for the app.
 deskripsi: |
 Kamu tahu apa? Aplikasi ini luar biasa! Itu semua untuk anda. Ada yang mengatakan itu membuat Anda muda, bahkan mungkin bahagia.
 
