@@ -1,10 +1,9 @@
 # Instalasi
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+Untuk memasang binari elektron prebuilt , gunakan ` npm </ 0> . Metode yang disukai adalah menginstal Elektron sebagai ketergantungan pengembangan di aplikasi Anda:</p>
 
-```sh
-npm menginstal elektron - menyimpan-dev
-```
+<pre><code class="sh">npm menginstal elektron - menyimpan-dev
+`</pre> 
 
 See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
 
