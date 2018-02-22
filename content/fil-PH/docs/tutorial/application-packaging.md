@@ -139,12 +139,12 @@ Ito ay dahil sa `exec` at `spawn` na tumatanggap ng `command` sa halip na `file`
 
 ## Pagdaragdag ng mga naka-unpack na mga file sa `asar` na mga Archive
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+Gaya ng nasabi sa itaas, ang ilang mga node na api ay mag-a-unpack sa file patungo sa filesystem kapag tinawag. Hindi lang mga isyu sa pagganap, ang ilang mga anti-virus na mga skaner ay maaaring mapagana ng ganitong paggalaw.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libaries of native Node.js modules will not be packed:
+Bilang isang paglalakbay, maaari mong iwanan ang iba't-ibang mga file gamit ang `--unpack` na opsyon. Sa sumusunod na halimbawa, ang binabahaging mga library ng native Node.js na mga modyul ay hindi ipa-pack:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+Pagkatapos paganahin ang utos, mapapansin mo na ang isang folder na pinangalanang `app.asar.unpacked` ay nailikha kasama ang `app.asar` na file. Naglalaman ito ng mga naka-unpack na mga file at dapat ipinadala kasabay ang `app.asar` na archive.
