@@ -20,7 +20,7 @@ Nous estimons que notre système actuel de mise à jour de Chromium présente un
 
 Il existe un problème de sécurité chaque fois que vous recevez le code d’une destination distante et l’exécutez localement. A titre d'exemple, considérons un site Web distant affiché à l'intérieur d'une fenêtre de navigateur [`BrowserWindow`](../api/browser-window.md). Si un attaquant parvient d'une manière ou d'une autre à modifier ce contenu (soit en attaquant directement la source, soit en restant assis entre votre application et la destination réelle), il pourra exécuter du code natif sur la machine de l'utilisateur.
 
-> :warning: en aucune circonstance vous devriez charger et exécuter du code distant avec l'intégration de Node.js activé. Utilisez plutôt les fichiers locaux (empaquetés avec votre application) pour exécuter le code de Node. To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
+> :warning: en aucune circonstance vous devriez charger et exécuter du code distant avec l'intégration de Node.js activé. Utilisez plutôt les fichiers locaux (empaquetés avec votre application) pour exécuter le code de Node. Pour afficher du contenu distant, utilisez la balise [`webview`](../api/web-view.md) et assurez-vous de désactiver le `nodeIntegration`.
 
 ## Avertissements de sécurité d'Electron
 
@@ -77,7 +77,7 @@ browserWindow.loadURL('https://my-website.com')
 
 ## 2) Désactiver l'intégration de Node.js dans tous les renderers affichant des contenus distants
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) that loads remote content. Le but est de limiter les permissions accordées aux contenus distants, ce qui complique drastiquement la tâche pour un attaquant qui souhaiterait nuire à vos utilisateurs (si jamais cet attaquant réussissait à exécuter du javascript sur votre site).
+Il est crucial que vous désactiviez l'intégration de Node.js dans tous les renderers ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) qui téléchargent des contenus distants. Le but est de limiter les permissions accordées aux contenus distants, ce qui complique drastiquement la tâche pour un attaquant qui souhaiterait nuire à vos utilisateurs (si jamais cet attaquant réussissait à exécuter du javascript sur votre site).
 
 Une fois cela fait, vous pouvez accorder des permissions supplémentaires à des hôtes spécifiques. Par exemple, si vous ouvrez une BrowserWindow ayant `https://my-website.com/" pour cible, vous pouvez ne conférer à ce site que les capacités dont il a besoin pour fonctionner.
 
