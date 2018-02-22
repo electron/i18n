@@ -606,14 +606,14 @@ win.loadURL('https://github.com')
 
 Це примусить вікна зберігати співвідношення сторін. Додатковий розмір дозволить розробнику мати простір, визнайчений в пікселях, не включений розрахунки пропорцій. Це API вже бере до уваги різницю між розміром вікна та розміром контенту.
 
-Розглянемо звичайне вікно з HD відеоплеєром та елементами його керування. Нехай є 15 пікселів елементів керування на лівому краї, 25 пікселів на правому та 50 пікселів під плеєром. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
+Розглянемо звичайне вікно з HD відеоплеєром та елементами його керування. Нехай є 15 пікселів елементів керування на лівому краї, 25 пікселів на правому та 50 пікселів під плеєром. Щоб підтримувати пропорції 16:9 (стандарт для HD @1920x1080) з самим плеєром, потрібно викликати функцію за параметрами 16/9 та [ 40, 50 ]. Другому параметру не цікаво де додаткові ширина та висота розміщені, важливо, що вони є. Просто додайте будь-які додаткові ширину та висоту, які ви маєте в межах загального вмісту.
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
-* `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
-* `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `path` String - Абсолютний шлях до файлу, який потрібно переглянути за допомогою QuickLook. Це вадливо, тому що Quick Look використовує назву файлу і його розширення з шляху, щоб визначити тип контенту.
+* `displayName` String (опціонально) - Назва файлу для відображення на Quick Look. Має суто візуальний ефект та не впливає на вміст файлу. За замовчуванням `path`.
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+Використовує [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) для перегляду файлу по заданому шляху.
 
 #### `win.closeFilePreview()` *macOS*
 
