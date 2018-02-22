@@ -57,7 +57,7 @@ clipboard.writeHtml ()
 clipboard.writeHTML ()
 ```
 
-## `kecelakaan reporter`
+## `kerusakanReporter`
 
 ```js
 // Deprecated
