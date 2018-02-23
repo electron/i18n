@@ -2,7 +2,7 @@
 
 There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
 
-## Deploying an Update Server
+## Розгортання на Сервері для Оновлень
 
 To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
 
