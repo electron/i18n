@@ -905,9 +905,9 @@ win.setSheetOffset(toolbarRect.height)
 
 Те саме що і `webContents.loadURL(url[, options])`.
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+`url` може бути віддаленою адресою (наприклад, `http://`) чи шляхом до локального HTML файлу, за допомогою протоколу `file://`.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Щоб переконатися, що посилання на файли правильно відформатовані, рекомендовано використовувати метод Node [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject):
 
 ```javascript
 let url = require('url').format({
@@ -919,7 +919,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Ви можете завантажити посилання за допомогою `POST` запиту з кодованими для посилання даними, роблячи наступне:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -1150,13 +1150,13 @@ Toggles the visibility of the tab bar if native tabs are enabled and there is on
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Додає вікно як вкладку на цьому вікні, після вкладки вікна екземпляра.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - Може бути `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` чи `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
+* `type` String - Може бути `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` чи `ultra-dark`. Дивіться [документацію macOS ](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) для деталей.
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+Додає ефект вібрації до вікна браузера. При передаванні `null` або пустого рядка буде видалено ефект.
 
 #### `win.setTouchBar(touchBar)` *macOS* *Експериментальний*
 
