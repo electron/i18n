@@ -869,17 +869,17 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+Повертає `String` - Шлях до файлу, який представлений вікном.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Визначає чи документ вікна був редагований і піктограма на панелі заголовків стане сірою, якщо встановлено в `true`.
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+Повертає `Boolean` - Чи документ вікна був редагований.
 
 #### `win.focusOnWebView()`
 
@@ -897,11 +897,11 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 * `url` String
 * `options` Object (опціонально) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
+  * `httpReferrer` String (опціонально) - HTTP URL вІдправника.
+  * `userAgent` String (опціонально) - User agent відправника запиту.
+  * `extraHeaders` String (опціонально) - Додаткові заголовки, розділені "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (опціонально)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Те саме що і `webContents.loadURL(url[, options])`.
 
