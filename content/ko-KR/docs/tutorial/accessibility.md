@@ -1,6 +1,6 @@
 # 접근성
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+애플리케이션의 접근성을 용이하게 만드는 것은 중요한 일입니다. 저희는 개발자들이 멋진 애플리케이션을 만들 수 있도록 [Devtron](https://electronjs.org/devtron) 과 [Spectron](https://electronjs.org/spectron) 을 개발 도구로 제공하고 있습니다.
 
 * * *
 
