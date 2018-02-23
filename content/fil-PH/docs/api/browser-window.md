@@ -845,29 +845,29 @@ Ang katutubong uri ng handle ay `HWND` sa Windows, `NSView*` sa macOS, at `Windo
 * `message` Integer
 * `baliktawag` ginagawa
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Ang mga hook ay isang mensahe ng window. Ang ` callback ` ay tinatawag kung kailan ang mensahe ay natanggap sa WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Ibinabalik ang ` Boolean ` - ` true ` o ` false ` depende kung ang mensahe ay naka-hook.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
 * `message` Integer
 
-Unhook the window message.
+I-unhook ang mensahe sa window.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+I-unhook ang lahat ng mensahe sa window.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Nagtatakda ng pathnamesa mga file na irepresenta sa window, at ang icon ng file ay ipapakita sa title bar ng window.
 
 #### `win.getRepresentedFilename()` *macOS*
 
