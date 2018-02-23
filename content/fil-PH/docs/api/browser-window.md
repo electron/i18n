@@ -715,7 +715,7 @@ Ang Linux ay palaging bumabalik `tama`.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Nagtatakda kung ang window ay maaring mapinaliit na manu-mano ng gugamit. Sa Linux ay walang nagawa.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
