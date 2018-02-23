@@ -122,9 +122,9 @@ child.once('ready-to-show', () => {
   * `width` Integer (任意) - ピクセル単位でのウインドウの幅。省略値は、`800` です。
   * `height` Integer (任意) - ピクセル単位でのウインドウの高さ。省略値は、`600` です。
   * `x` Integer (任意) (yが使われている場合は、**必須**) - ウインドウの画面左のオフセット。 省略値では、ウインドウが中央になるようになっています。
-  * `x` Integer (任意) (xが使われている場合は、**必須**) - ウインドウの画面上のオフセット。 省略値では、ウインドウが中央になるようになっています。
-  * `useContentSize` Boolean (任意) - `width` と `height` は、Webページのサイズが使用されるようになっています。これは、実際のウインドウのサイズには、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は `false` です。
-  * `center` Boolean (optional) - Show window in the center of the screen.
+  * `y` Integer (任意) (xが使われている場合は、**必須**) - ウインドウの画面上のオフセット。 省略値では、ウインドウが中央になるようになっています。
+  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は `false` です。
+  * `center` Boolean (任意) - ウインドウを画面中央に表示します。
   * `minWidth` Integer (任意) - ウインドウの最小の幅。省略値は、`` です。
   * `minHeight` Integer (任意) - ウィンドウの最小の高さ。省略値は、`` です。
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
