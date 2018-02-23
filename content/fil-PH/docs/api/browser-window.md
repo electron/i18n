@@ -871,17 +871,17 @@ Nagtatakda ng pathnamesa mga file na irepresenta sa window, at ang icon ng file 
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+Ibinibalik `String` - Ang pathname ng file na nakarepresenta sa window.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Tinutukoy kung ang dokumento ng window ay na-edit, at ang icon sa pamagat ng bar ay magiging gray kung itatakda sa `true`.
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 
 #### `win.focusOnWebView()`
 
@@ -905,11 +905,11 @@ Same as `webContents.capturePage([rect, ]callback)`.
   * `postData`([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional) Context | Request Context
   * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
-Same as `webContents.loadURL(url[, options])`.
+Tulad ng `webContents.loadURL(url[, options])`.
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+Ang ` url ` ay maaaring maging isang remote address (hal. ` http: // `) o isang path sa isang lokal na HTML file gamit ang protocol na ` file: // `.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Upang matiyak na ang mga URL ng file ay maayos na nai-format, inirerekomendang gamitin ito Node's [` url.format `](https://nodejs.org/api/url.html#url_url_format_urlobject) na paraan:
 
 ```javascript
 let url = require('url').format({
@@ -921,7 +921,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Maaari kang mag-load ng isang URL gamit ang isang ` POST ` na kahilingan gamit ang URL-naka-encode na data sa pamamagitan ng paggawa ang mga sumusunod:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -935,7 +935,7 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Tulad ng `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
