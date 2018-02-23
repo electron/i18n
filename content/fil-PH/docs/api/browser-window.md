@@ -592,7 +592,7 @@ Binabalik ang `Boolean` - Kung ang window ay nasa fullscreen na mode.
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Pagpasok o pag-alis sa simpleng fullscreen na mode.
 
 Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
 
