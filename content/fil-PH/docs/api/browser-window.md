@@ -347,24 +347,24 @@ Ibinabalik ang:
 
 Ay lalabas kung ang [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) ay nananawagan. Ang karaniwang pinag-uugna ito sa mga keyboard key ng media o browser mga atas, pati na rin ang pindutang "i-balik" na itinatatag sa ilang mga mouse sa Windows.
 
-Ang mga atas ay lowercase, ang mga underscore ay binabago ang mga gitling, at ang `APPCOMMAND_` nakuha ang prefix sa. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+Ang mga atas ay lowercase, ang mga underscore ay binabago ang mga gitling, at ang `APPCOMMAND_` nakuha ang prefix sa. e.g. `APPCOMMAND_BROWSER_BACKWARD`ay lalabas bilang `browser-backward`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // Mag-navigate sa window pabalik kapag pinindot ng gumagamit ang kanilang pindutan ng back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Kaganapan: 'scroll-touch-begin' * macOS *
 
-Emitted when scroll wheel event phase has begun.
+Ay lalabas kung ang scroll wheel na bahagi ng kaganapan ay magsimula.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Kaganapan: 'scroll-touch-end' * macOS *
 
 Emitted when scroll wheel event phase has ended.
 
