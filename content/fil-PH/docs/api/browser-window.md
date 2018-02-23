@@ -665,7 +665,7 @@ Lumalawak sa lugar ng kliyente ng window (e.g. the web page) to `width` and `hei
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Binabalik ang `Integer[]` - Naglalaman ng window's client area's width and height.
 
 #### `win.setMinimumSize(width, height)`
 
