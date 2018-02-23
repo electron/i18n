@@ -245,13 +245,12 @@ Kadalasan ay nais mong gamitin ang `beforeunload` handler upang magpasiya kung a
 
 ```javascript
 window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
-
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  console.log('Hindi ko gustong maisarado')
+// Hindi katulad nang karaniwang browsers na ang kahon ng mensahe ay i-promot sa mga gumagamit, binabalik
+// ang hindi-void na balyu ay tahimik na kakanselahin ang pag sirado.
+  // Inerekomenda na gumamit ng dialog API upang hayaan ang gumagamit na kompirmahin ang pagsirado
+// aplikasyon.
+  e.returnValue = false // equivalent to `return false` pero hindi inerekomenda
 }
 ```
 
