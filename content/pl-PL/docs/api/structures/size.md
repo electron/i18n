@@ -1,4 +1,4 @@
-# Size Object
+# Obiekt Size
 
 * `width` Number
 * `height` Number
