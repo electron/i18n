@@ -1,4 +1,4 @@
-## Класс: BrowserWindowProxy
+## Class: BrowserWindowProxy
 
 > Манипулирование дочерним окном браузера
 
