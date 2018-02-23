@@ -34,11 +34,11 @@ Electron에서 활용할 수 있는 괜찮은 접근성 도구를 알고 있다�
 
 ## 접근성 활성화
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Electron 애플리케이션은 성능을 위해 접근성을 기본적으로 비활성 상태로 설정했지만 다양한 방법으로 다시 활성화할 수 있습니다.
 
 ### 애플리케이션 내부
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+[`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows)을 이용해 애플리케이션 설정에서 사용자에게 접근성 스위치를 노출할 수 있습니다.. User's system assistive utilities have priority over this setting and will override it.
 
 ### Assistive 유틸리티
 
