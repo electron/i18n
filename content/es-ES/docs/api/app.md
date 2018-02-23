@@ -194,7 +194,7 @@ Devuelve:
 
 Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
 
-### Event: 'error-certificado'
+### Event: 'certificate-error'
 
 Devuelve:
 
