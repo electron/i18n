@@ -399,7 +399,7 @@ Ang `BrowserWindow`: klas na ito ay mayroong sumusunod na static na pamamaraan:
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+Binabalik ang ` BrowserWindow [] ` - Ang array ng lahat ng windows na browser na binuksan.
 
 #### `BrowserWindow.getFocusedWindow()`
 
@@ -415,7 +415,7 @@ Ibinabalik `BrowserWindow` - Ang window na nagmamay-ari ng ibinigay na `webConte
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Binabalik ang `BrowserWindow | null` - Ang window na nagmamay-ari ng ibinigay na `browserView`. Kung ang ibinigay na tanawin ay hindi nakakabit sa alinmang window, binabalik ang `null`.
 
 #### `BrowserWindow.fromId(id)`
 
