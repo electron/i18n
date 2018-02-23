@@ -968,19 +968,19 @@ Nagtatakda ng 16 x 16 na pixel na overlay papunta sa kasalukuyang icon ng taskba
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+Nagtatakda kung ang window ay dapat magkaroon ng anino. Sa Windows at Linux ay walang ginagawa.
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+Ibinabalik ` Boolean` - Kung ang window ay may anino.
 
-On Windows and Linux always returns `true`.
+Palaging nagbabalik ang Windows at Linux `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
 * `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
-Sets the opacity of the window. On Linux does nothing.
+Nagtatakda ng opacity ng window. Sa Linux walang ginagawa.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
@@ -992,9 +992,9 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
 Returns `Boolean` - Whether the buttons were added successfully
 
-Magdagdag ng isang thumbnail toolbar na may tinukoy na hilera ng mga pindutan sa thumbnail na larawan ng isang window sa isang layout ng pindutan ng taskbar. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+Magdagdag ng isang thumbnail toolbar na may tinukoy na hilera ng mga pindutan sa thumbnail na larawan ng isang window sa isang layout ng pindutan ng taskbar. Ibinibalik ang ` Boolean ` kung ang thumbnail ay matagumpay na naidagdag.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+Ang bilang ng mga pindutan sa thumbnail toolbar ay dapat na hindi pa mas malaki kaysa sa 7 dahil sa ang limitadong kuwarto. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. Ngunit maaari mong tawagan ang API na walang laman na array upang linisin ang mga pindutan.
 
 The `buttons` is an array of `Button` objects:
 
@@ -1017,7 +1017,7 @@ Ang `flags` ay isang kaayusan na maaaring isama ang mga sumusunod `String`:
 
 * `region` [Rectangle](structures/rectangle.md) - Region of the window
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
+Itinatakda ang rehiyon ng window upang ipakita kung kailan ipinapakita ang thumbnail na larawan na agaw sa window sa taskbar. Maaari mong i-reset ang thumbnail upang maging ang buong window sa pamamagitan ng pagtukoy ng walang laman na rehiyon: ` {x: 0, y: 0, lapad: 0, taas: 0} `.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
