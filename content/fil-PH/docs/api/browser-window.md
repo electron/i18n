@@ -336,16 +336,16 @@ Ay lalabas kapag pumasok ang window ng isang full-screen na estado ayy na-trigge
 
 #### Event: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Ay lalabas kung ang window ay aalis na sa full-screen na estado ay na-trigger ng HTML API.
 
-#### Event: 'app-command' *Windows*
+#### Kaganapan: 'app-command' * Windows *
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `event` Event
 * `command` String
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. Ang karaniwang pinag-uugna ito sa mga keyboard key ng media o browser mga atas, pati na rin ang pindutang "i-balik" na itinatatag sa ilang mga mouse sa Windows.
+Ay lalabas kung ang [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) ay nananawagan. Ang karaniwang pinag-uugna ito sa mga keyboard key ng media o browser mga atas, pati na rin ang pindutang "i-balik" na itinatatag sa ilang mga mouse sa Windows.
 
 Ang mga atas ay lowercase, ang mga underscore ay binabago ang mga gitling, at ang `APPCOMMAND_` nakuha ang prefix sa. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
 
