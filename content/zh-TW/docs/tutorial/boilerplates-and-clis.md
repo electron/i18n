@@ -1,4 +1,4 @@
-# Boilerplates and CLIs
+# 模版及命令列介面 (CLI)
 
 Electron development is un-opinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
 
