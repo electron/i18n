@@ -560,33 +560,33 @@ Pinapalaki ang window. Ipapakita rin nito (buti not focus) sa window kung ito ay
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Pag-unmaximize sa windows.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Binabalik ang `Boolean` - Kung ang window ay naka maximized.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Binabawasan ang window. Sa ilang mga platform ang minimize na window ay ipapakita sa isang Dock.
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Binabalik ang window galing sa pinaliit na estado sa nakaraan na estado.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Binabalik ang `Boolean` - Kung saan ang window ay naka maximized.
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Itinatakda kung ang window ay dapat na sa fullscreen na mode.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Binabalik ang `Boolean` - Kung ang window ay nasa fullscreen na mode.
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
