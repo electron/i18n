@@ -127,10 +127,10 @@ child.once('ready-to-show', () => {
   * `center` Boolean (任意) - ウインドウを画面中央に表示します。
   * `minWidth` Integer (任意) - ウインドウの最小の幅。省略値は、`` です。
   * `minHeight` Integer (任意) - ウィンドウの最小の高さ。省略値は、`` です。
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
+  * `maxWidth` Integer (任意) - ウインドウの最大の幅。省略値は、無制限です。
+  * `maxHeight` Integer (任意) - ウインドウの最大の高さ。省略値は、無制限です。
+  * `resizable` Boolean (任意) - ウインドウがリサイズ可能かどうか。省略値は、 `true` です。
+  * `movable` Boolean (任意) - ウインドウが移動可能かどうか。これはLinuxでは実装されていません。省略値は、`true` です。
   * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
   * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
   * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
