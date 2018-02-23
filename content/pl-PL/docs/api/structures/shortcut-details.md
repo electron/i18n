@@ -1,6 +1,6 @@
-# ShortcutDetails Object
+# Obiekt ShortcutDetails
 
-* `target` String - The target to launch from this shortcut.
+* `target` String - cel, który ma zostać uruchomiony poprzez ten skrót.
 * `cwd` String (optional) - The working directory. Default is empty.
 * `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Default is empty.
 * `description` String (optional) - The description of the shortcut. Default is empty.
