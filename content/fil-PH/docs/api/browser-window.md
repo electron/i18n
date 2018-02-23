@@ -623,7 +623,7 @@ Pagsara sa kasalukuyang nakabukas na [Quick Look](https://en.wikipedia.org/wiki/
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opsyonal) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
@@ -634,7 +634,7 @@ Nagbabalik[`Rectangle`](structures/rectangle.md)
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opsyonal) *macOS*
 
 Lumalawak at gumagalaw ang lugar ng kliyente ng window (e.g. the web page) ang itinustos na mga hangganan.
 
@@ -646,7 +646,7 @@ Nagbabalik[`Rectangle`](structures/rectangle.md)
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opsyonal) *macOS*
 
 Lumalabas ang window sa `width` at `
 height`.
@@ -659,7 +659,7 @@ Ibinabalik `Integer[]` - Naglalaman ng lapad at taas ng window.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opsyonal) *macOS*
 
 Lumalawak sa lugar ng kliyente ng window (e.g. the web page) to `width` and `height`.
 
@@ -777,7 +777,7 @@ Inililipat ang window sa gitna ng screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opsyonal) *macOS*
 
 Ilipat ang window sa `x` and `y`.
 
