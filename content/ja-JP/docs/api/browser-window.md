@@ -96,15 +96,15 @@ child.once('ready-to-show', () => {
 * `BrowserWindow` が `show: false` で作成された場合、ウインドウが実際には非表示であるにも関わらず、初期の表示状態は `visible` になります。
 * `backgroundThrottling` が無効の場合、ウインドウを最小化したり、重ねたり、非表示にしたりしても、表示状態は `visible` のままになります。
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+消費電力を最小にするために、表示状態が `hidden` のとき、高負荷な操作を一時停止することを推奨します。
 
 ### プラットフォームに関する注意事項
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* macOSでは、モーダルウインドウは親ウインドウに付随したシートとして表示されます。
+* 親ウインドウが移動したとき、macOSでは、子ウインドウは親ウインドウに対する相対的な位置を維持しますが、WindowsとLinuxでは、子ウインドウは移動しません。
+* Windowsでは、動的に親ウインドウを変更することはサポートされていません。
+* Linuxでは、モーダルウインドウの型は、`dialog` に変更されます。
+* Linuxでは、多くのデスクトップ環境は、モーダルウインドウを非表示にすることをサポートしていません。
 
 ## クラス: BrowserWindow
 
