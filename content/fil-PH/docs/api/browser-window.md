@@ -308,31 +308,31 @@ Ay lalabas kapag ang window ay pinaliit.
 
 Ay lalabas kung ang window ay binalik galing sa pinaliit na estado.
 
-#### Event: 'resize'
+#### Kaganapan: 'baguhin ang laki'
 
-Emitted when the window is being resized.
+Ay lalabas kung ang window ay binago ang laki.
 
-#### Event: 'move'
+#### Kaganapan: 'ilipat'
 
-Emitted when the window is being moved to a new position.
+Ay lalabas kung ang window ay inilipat sa bagong posisyon.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Tandaan **: Sa macOS ang kaganapan na ito ay isang alyas lamang ng ` inilipat `.
 
-#### Event: 'moved' *macOS*
+#### Kaganapan: 'inilipat' * macOS *
 
-Emitted once when the window is moved to a new position.
+Ay lalabas kapag ang window ay inilipat sa bagong posisyon.
 
-#### Event: 'enter-full-screen'
+#### Kaganapan: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Ay lalabas kung ang window ay pumasok sa full-screen na estado.
 
-#### Event: 'leave-full-screen'
+#### Kaganapan: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Ay lalabas kung ang window a aalis na sa full-screen na estado.
 
 #### Event: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Ay lalabas kapag pumasok ang window ng isang full-screen na estado ayy na-trigger ng HTML API.
 
 #### Event: 'leave-html-full-screen'
 
