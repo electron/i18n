@@ -939,13 +939,13 @@ win.loadURL('http://localhost:8000/post', {
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+Встановлює `menu` як рядок меню вікна, встановлення його в `null` буде видалити рядок меню.
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
 * `options` Object (опціонально) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
+  * `mode` String *Windows* - Режим для рядка прогресу. Може бути `none`, `normal`, `indeterminate`, `error`, чи `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
 
@@ -1080,25 +1080,25 @@ Sets whether the window should be visible on all workspaces.
 
 Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Note:** This API always returns false on Windows.
+**Примітка:** Цей API завжди повертає false на Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
 * `options` Object (опціонально) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Boolean (опціонально) *Windows* - Якщо true, передають повідомлення про рухи мишки в Chromium, в тому числі пов'язані з мишкою події такими як `mouseleave`. Використовується тільки якщо `ignore` дорівнює true. Якщо `ignore` дорівнює false, передавання завжди вимкнене незважаючи на поточне значення.
 
-Makes the window ignore all mouse events.
+Примушує вікно ігнорувати всі події мишки.
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+Всі події мишки будуть передані вікну нижче, але якщо вікно має фокус, події клавіатури все ще будуть отримуватися.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+Забороняє захоплювати контент вікна іншими застосунками.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+На macOS встановлює sharingType NSWindow в NSWindowSharingNone. На Windows викликає SetWindowDisplayAffinity з `WDA_MONITOR`.
 
 #### `win.setFocusable(focusable)` *Windows*
 
@@ -1140,11 +1140,11 @@ Merges all windows into one window with multiple tabs when native tabs are enabl
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Переміщує поточну вкладку в нове вікно, якщо ввімкнено нативні вкладки і існує більш ніж одна вкладка в поточному вікні.
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Показує чи ховає панелі вкладок, якщо ввімкнено нативні вкладки, і є тільки одна вкладка в поточному вікні.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
