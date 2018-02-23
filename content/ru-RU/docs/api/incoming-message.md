@@ -1,4 +1,4 @@
-## Класс: IncomingMessage
+## Class: IncomingMessage
 
 > Обрабатывает запросы на HTTP/HTTPS-запросы.
 
