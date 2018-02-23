@@ -366,7 +366,7 @@ Ay lalabas kung ang scroll wheel na bahagi ng kaganapan ay magsimula.
 
 #### Kaganapan: 'scroll-touch-end' * macOS *
 
-Emitted when scroll wheel event phase has ended.
+Ay lalabas kung ang scroll wheel na bahagi ng kaganapan ay natapos na.
 
 #### Event: 'scroll-touch-edge' *macOS*
 
