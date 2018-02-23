@@ -114,19 +114,19 @@ child.once('ready-to-show', () => {
 
 `BrowserWindow` は [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) です。
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+`options` によって設定されたネイティブプロパティで新しい `BrowserWindow` を生成します。
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional) 
-  * `width` Integer (optional) - ウィンドウの幅（ピクセル単位）。デフォルトは`800`です。
-  * `height` Integer (optional) - ウィンドウの高さ（ピクセル単位）。デフォルトは`600`です。
+* `options` Object (任意) 
+  * `width` Integer (任意) - ピクセル単位でのウインドウの幅。省略値は、`800` です。
+  * `height` Integer (任意) - ピクセル単位でのウインドウの高さ。省略値は、`600` です。
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
-  * `minWidth` Integer (optional) - ウィンドウの最小の幅。デフォルトは``です。
-  * `minHeight` Integer (optional) - ウィンドウの最小の高さ。デフォルトは``です。
+  * `minWidth` Integer (任意) - ウインドウの最小の幅。省略値は、`` です。
+  * `minHeight` Integer (任意) - ウィンドウの最小の高さ。省略値は、`` です。
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
   * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
   * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
