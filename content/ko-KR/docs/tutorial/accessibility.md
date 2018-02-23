@@ -4,9 +4,9 @@
 
 * * *
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Electron 애플리케이션과 웹사이트 모두 궁극적으로는 HTML을 사용하기 때문에 Electron 애플리케이션의 접근성 문제는 웹사이트의 접근성 문제와 유사합니다. 하지만 Electron 앱의 경우, 검증 도구(auditor)가 접근할 수 있는 URL을 가지고 있지 않기 때문에 접근성 검증에 온라인 자원을 사용할 수 없습니다.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools.
+Devtron과 Spectron 기능을 통해 Electron 앱에서 검증 도구를 사용할 수 있습니다. Spectron을 통해 여러분이 작성한 테스트를 검증하거나 개발 도구(DevTools)안에서 Devtron을 이용해 검증 도구를 사용할 수 있습니다. Read on for a summary of the tools.
 
 ## Spectron
 
