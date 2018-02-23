@@ -10,7 +10,7 @@ Devtron과 Spectron 기능을 통해 Electron 앱에서 검증 도구를 사용�
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+테스팅 프레임워크인 Spectron에서는 애플리케이션 안에 있는 각각의 window와 `<webview>` 태그를 검증할 수 있습니다. 예제 코드는 다음과 같습니다:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,17 +20,17 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-이 기능에 대한 자세한 내용은 [Spectron](https://github.com/electron/spectron#accessibility-testing) 의 문서 를 참고하세요.
+이 기능에 대한 자세한 내용은 [Spectron](https://github.com/electron/spectron#accessibility-testing)문서를 참고하세요.
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+Devtron에서는 신규 추가된 accessibility 탭을 통해 앱의 페이지를 검증하고, 결과를 정렬하거나 필터링할 수 있습니다.
 
 ![devtron 스크린샷](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Chrome을 위해 구글이 개발한 [접근성 개발자 도구](https://github.com/GoogleChrome/accessibility-developer-tools) 라이브러리를 통해 이들 도구를 사용할 수 있습니다. 이 라이브러리가 사용하는 접근성 검증 규칙에 관해 자세히 알고 싶다면, [저장소 wiki 페이지](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules)를 참고하시길 바랍니다.
 
-If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
+Electron에서 활용할 수 있는 괜찮은 접근성 도구를 알고 있다면 pull request를 이용해 접근성 문서에 해당 도구를 추가해주시길 바랍니다.
 
 ## 접근성 활성화
 
