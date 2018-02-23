@@ -60,30 +60,30 @@
   * [Попередження про Безпеку Electron](tutorial/security.md#electron-security-warnings)
   * [Контрольний Список Безпеки](tutorial/security.md#checklist-security-recommendations)
 * [Оновлення Застосунків](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
+  * [Розгортання на Сервері для Оновлень](tutorial/updates.md#deploying-an-update-server)
   * [Реалізація Оновлення в Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
   * [Застосування Оновлень](tutorial/updates.md#applying-updates)
 
 ## Докладні Підручники
 
-These individual tutorials expand on topics discussed in the guide above.
+Ці окремі підручники розширюють теми, що обговорюються в Путівнику вище.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
-  * [Proxies](tutorial/installation.md#proxies)
-  * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
-  * [Troubleshooting](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [Детальніше: Встановлення Electron](tutorial/installation.md) 
+  * [Глобальна vs Локальна Установка](tutorial/installation.md#global-versus-local-installation)
+  * [Проксі](tutorial/installation.md#proxies)
+  * [Користувацькі Дзеркала та Кеш](tutorial/installation.md#custom-mirrors-and-caches)
+  * [Виправлення Неполадок](tutorial/installation.md#troubleshooting)
+* [Детальніше: Схема Версій Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+  * [Стабілізація Гілок](tutorial/electron-versioning.md#stabilization-branches)
+  * [Бета Релізи і Усування Помилок](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [Детальніше: Пакування Коду Застосунку з asar](tutorial/application-packaging.md) 
+  * [Генерація asar Архівів](tutorial/application-packaging.md#generating-asar-archives)
+  * [Використання asar Архівів](tutorial/application-packaging.md#using-asar-archives)
   * [Обмеження](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+  * [Додавання Нерозпакований Файлів в asar Архів](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Детальніше: Використання Плагіну Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Детальніше: Використання Плагіну Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
 
 * * *
