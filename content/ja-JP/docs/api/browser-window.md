@@ -87,12 +87,12 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### ページの可視性
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) は、以下のように動作します。
 
-* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
+* すべてのプラットフォームおいて、可視状態はウインドウが非表示/最小化されているかどうかをトラッキングします。
+* さらに、macOSでは、可視状態はウインドウが重なり合った状態もトラッキングします。 ウインドウが別のウインドウと重なり合った (例えば、完全に覆い隠された) 場合、可視状態は、`hidden` になります。 On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
 * If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
 * If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
 
