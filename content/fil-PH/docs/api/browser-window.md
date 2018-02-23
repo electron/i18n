@@ -749,7 +749,7 @@ Ang pag-balik `Boolean` - Kung ang pindutan ng Pag-papalaki/zoom window ay i-tog
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Nagtatakda kung ang window ay maaring isara ng gumagamit na manu-mano. Sa linux walang ginagawa.
 
 #### `win.isClosable()` *macOS* *Windows*
 
@@ -783,7 +783,7 @@ Ilipat ang window sa `x` and `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Ibinibalik ang `Integer[]` - Naglalaman ng kasalukuyang posisyon ng window.
 
 #### `win.setTitle(title)`
 
