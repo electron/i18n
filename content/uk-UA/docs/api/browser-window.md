@@ -901,7 +901,7 @@ win.setSheetOffset(toolbarRect.height)
   * `userAgent` String (опціонально) - User agent відправника запиту.
   * `extraHeaders` String (опціонально) - Додаткові заголовки, розділені "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (опціонально)
-  * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. Це необхідно, лише якщо вказане `url` є посилання на дані і потребує завантаження інших файлів.
 
 Те саме що і `webContents.loadURL(url[, options])`.
 
