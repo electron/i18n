@@ -625,7 +625,7 @@ Pagsara sa kasalukuyang nakabukas na [Quick Look](https://en.wikipedia.org/wiki/
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (opsyonal) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Pag-resize ay paglipat ng window sa hangganan na ibinibigay
 
 #### `win.getBounds()`
 
