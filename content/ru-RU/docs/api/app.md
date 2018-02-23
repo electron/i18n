@@ -111,26 +111,26 @@ app.on('window-all-closed', () => {
 
 Активность пользователей может быть продолжена только в приложении, которое имеет ID разработчика команды как активность исходного приложения и который поддерживает этот тип действия. Поддержка типов активности, указаны в приложении `Info.plist` под ключом `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' *macOS*
+### Событие: 'will-continue-activity' *macOS*
 
 Возвращает:
 
 * `event` Event
 * `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
+Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) после возобновления активности на различных устройствах. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
 
-### Event: 'continue-activity-error' *macOS*
+### Событие: 'continue-activity' *macOS*
 
 Возвращает:
 
 * `event` Event
 * `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - A string with the error's localized description.
+* `error` String - cтрока с ошибкой локализованного описания.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) при ошибочном возобновлении активности на различных устройствах.
 
-### Event: 'activity-was-continued' *macOS*
+### Событие: 'activity-was-continued' *macOS*
 
 Возвращает:
 
@@ -140,7 +140,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) после возобновления активности на различных устройствах.
 
-### Event: 'update-activity-state' *macOS*
+### Событие: 'update-activity-state' *macOS*
 
 Возвращает:
 
@@ -383,7 +383,7 @@ app.exit(0)
 * `music` каталог пользователя "Music".
 * `pictures` каталог пользователя для фотографии.
 * `videos` каталог пользователя для видео.
-* `logs` Directory for your app's log folder.
+* `logs` директория для логов вашего приложения.
 * `pepperFlashSystemPlugin` полный путь к версии системы плагина Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -652,14 +652,14 @@ app.on('ready', () => {
 
 * `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+Аннулирует текущую [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активность пользователя.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - специфичное для приложение состояние для использование других устроиств.
 
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+Обновляет текущую активность, если его тип совпадает `type` слияния записей из `userInfo` в его текущем словаре `userInfo`.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
