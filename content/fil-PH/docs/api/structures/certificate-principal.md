@@ -1,4 +1,4 @@
-# Mga bagay ng CertificatePrincipal
+# CertificatePrincipal na Bagay
 
 * `commonName` na String - Karaniwang Pangalan
 * `organizations` na String[] - mga pangalan ng organisasyon
