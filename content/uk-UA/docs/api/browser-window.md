@@ -800,7 +800,7 @@ win.loadURL('https://github.com')
 * `offsetY` Float
 * `offsetX` Float (опціонально)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+Змінює точку кріплення для сторінок на macOS. За замовчуванням сторінки кріпляться під панеллю віконної рами, але ви можете захотіти відображати їх під розміченою HTML панеллю інструментів. Наприклад:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -865,7 +865,7 @@ win.setSheetOffset(toolbarRect.height)
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Встановлює шлях до файлу, який представлений вікном, та піктограма файлу ьуде показана в панелі заголовку вікна.
 
 #### `win.getRepresentedFilename()` *macOS*
 
