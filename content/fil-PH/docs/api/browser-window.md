@@ -370,7 +370,7 @@ Ay lalabas kung ang scroll wheel na bahagi ng kaganapan ay natapos na.
 
 #### Event: 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Ay lalabas kung ang scroll event na bahagi ng kaganapan sa pag-abot sa gilid ng elemento.
 
 #### Event: 'swipe' *macOS*
 
@@ -379,23 +379,23 @@ Ibinabalika ang:
 * `kaganapan` Kaganapan
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+Pinapalabas sa 3-finger swipe. Ang mga posibleng direksyon ay ` up `, ` kanan `, ` pababa `, ` kaliwa `.
 
 #### Event: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Napalabas kapag nagbukas ang window ng sheet.
 
 #### Event: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Ay lalabas kapag nakasara ang isang sheet ng window.
 
 #### Event: 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+Ay lalabas kung ang native ng pindutan ng bagong tab ay na-click.
 
 ### Mga istatikong pamamaraan
 
-The `BrowserWindow` class has the following static methods:
+Ang `BrowserWindow`: klas na ito ay mayroong sumusunod na static na pamamaraan:
 
 #### `BrowserWindow.getAllWindows()`
 
