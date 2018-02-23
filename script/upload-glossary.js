@@ -4,50 +4,20 @@ require('dotenv-safe').load()
 
 const fs = require('fs')
 const path = require('path')
-const globals = require('globals')
-const {format} = require('util')
 const {post} = require('got')
 const FormData = require('form-data')
-const apis = require('../content/en-US/electron-api.json')
+const glossary = require('../content/en-US/glossary.json')
 
 const project = 'electron'
 const url = `https://api.crowdin.com/api/project/${project}/upload-glossary?key=${process.env.CROWDIN_KEY}`
 const form = new FormData()
 
-let glossary = []
-
-// Add JavaScript builtings like Array, Map, String, etc
-Object.keys(globals.builtin).map(key => {
-  const term = format(
-    '%s, %s is a JavaScript builtin and should usually not be translated.', 
-    key, 
-    key
-  )
-  glossary.push(term)
-})
-
-// Add Electron API names
-apis.forEach(api => {
-  glossary.push(`${api.name}, This is an Electron ${api.type} and should usually not be translated`)
-})
-
-// Add Electron instance methods and properties
-apis
-  .filter(api => api.type === 'Class')
-  .forEach(api => {
-    const methods = api.instanceMethods || []
-    methods.forEach(method => {
-      glossary.push(`${api.instanceName}.${method.name}, This is an Electron instance method and should usually not be translated`)
-    })
-
-    const props = api.instanceProperties || []
-    props.forEach(prop => {
-      glossary.push(`${api.instanceName}.${prop.name}, This is an Electron instance property and should usually not be translated`)
-    })
-  })
+const csv = glossary
+  .map(entry => `${entry.term}, ${entry.description}`)
+  .join('\n')
 
 const glossaryFile = path.join(__dirname, 'glossary.csv')
-fs.writeFileSync(glossaryFile, glossary.join('\n'))
+fs.writeFileSync(glossaryFile, csv)
 
 form.append('scheme', 'term_en,description_en')
 form.append('file', fs.createReadStream(glossaryFile))
@@ -55,7 +25,7 @@ form.append('json', 'true')
 
 post(url, {body: form})
   .then((res) => {
-    console.log('Uploaded glossary!')
+    console.log('Uploaded glossary! See https://crowdin.com/project/electron/settings#glossary')
   })
   .catch(err => {
     console.error('Problem uploading glossary')

@@ -54,7 +54,9 @@
     "prepush": "check-for-leaks",
     "pretest": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "upload-glossary": "node script/upload-glossary.js"
+    "glossary": "npm-run-all glossary:*",
+    "glossary:build": "node script/build-glossary.js",
+    "glossary:upload": "node script/upload-glossary.js"
   },
   "electronLatestStableTag": "v1.8.4",
   "electronMasterBranchCommit": "95cbd69e48fde434ea4298ab74b0b4af4d537210"

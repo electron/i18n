@@ -1,0 +1,2297 @@
+[
+  {
+    "term": "Array",
+    "type": "globals.builtin",
+    "description": "Array is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "ArrayBuffer",
+    "type": "globals.builtin",
+    "description": "ArrayBuffer is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Atomics",
+    "type": "globals.builtin",
+    "description": "Atomics is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Boolean",
+    "type": "globals.builtin",
+    "description": "Boolean is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "constructor",
+    "type": "globals.builtin",
+    "description": "constructor is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "DataView",
+    "type": "globals.builtin",
+    "description": "DataView is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Date",
+    "type": "globals.builtin",
+    "description": "Date is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "decodeURI",
+    "type": "globals.builtin",
+    "description": "decodeURI is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "decodeURIComponent",
+    "type": "globals.builtin",
+    "description": "decodeURIComponent is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "encodeURI",
+    "type": "globals.builtin",
+    "description": "encodeURI is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "encodeURIComponent",
+    "type": "globals.builtin",
+    "description": "encodeURIComponent is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Error",
+    "type": "globals.builtin",
+    "description": "Error is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "escape",
+    "type": "globals.builtin",
+    "description": "escape is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "eval",
+    "type": "globals.builtin",
+    "description": "eval is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "EvalError",
+    "type": "globals.builtin",
+    "description": "EvalError is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Float32Array",
+    "type": "globals.builtin",
+    "description": "Float32Array is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Float64Array",
+    "type": "globals.builtin",
+    "description": "Float64Array is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Function",
+    "type": "globals.builtin",
+    "description": "Function is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "hasOwnProperty",
+    "type": "globals.builtin",
+    "description": "hasOwnProperty is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Infinity",
+    "type": "globals.builtin",
+    "description": "Infinity is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Int16Array",
+    "type": "globals.builtin",
+    "description": "Int16Array is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Int32Array",
+    "type": "globals.builtin",
+    "description": "Int32Array is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Int8Array",
+    "type": "globals.builtin",
+    "description": "Int8Array is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "isFinite",
+    "type": "globals.builtin",
+    "description": "isFinite is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "isNaN",
+    "type": "globals.builtin",
+    "description": "isNaN is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "isPrototypeOf",
+    "type": "globals.builtin",
+    "description": "isPrototypeOf is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "JSON",
+    "type": "globals.builtin",
+    "description": "JSON is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Map",
+    "type": "globals.builtin",
+    "description": "Map is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Math",
+    "type": "globals.builtin",
+    "description": "Math is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "NaN",
+    "type": "globals.builtin",
+    "description": "NaN is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Number",
+    "type": "globals.builtin",
+    "description": "Number is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Object",
+    "type": "globals.builtin",
+    "description": "Object is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "parseFloat",
+    "type": "globals.builtin",
+    "description": "parseFloat is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "parseInt",
+    "type": "globals.builtin",
+    "description": "parseInt is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Promise",
+    "type": "globals.builtin",
+    "description": "Promise is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "propertyIsEnumerable",
+    "type": "globals.builtin",
+    "description": "propertyIsEnumerable is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Proxy",
+    "type": "globals.builtin",
+    "description": "Proxy is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "RangeError",
+    "type": "globals.builtin",
+    "description": "RangeError is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "ReferenceError",
+    "type": "globals.builtin",
+    "description": "ReferenceError is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Reflect",
+    "type": "globals.builtin",
+    "description": "Reflect is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "RegExp",
+    "type": "globals.builtin",
+    "description": "RegExp is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Set",
+    "type": "globals.builtin",
+    "description": "Set is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "SharedArrayBuffer",
+    "type": "globals.builtin",
+    "description": "SharedArrayBuffer is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "String",
+    "type": "globals.builtin",
+    "description": "String is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Symbol",
+    "type": "globals.builtin",
+    "description": "Symbol is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "SyntaxError",
+    "type": "globals.builtin",
+    "description": "SyntaxError is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "toLocaleString",
+    "type": "globals.builtin",
+    "description": "toLocaleString is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "toString",
+    "type": "globals.builtin",
+    "description": "toString is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "TypeError",
+    "type": "globals.builtin",
+    "description": "TypeError is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Uint16Array",
+    "type": "globals.builtin",
+    "description": "Uint16Array is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Uint32Array",
+    "type": "globals.builtin",
+    "description": "Uint32Array is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Uint8Array",
+    "type": "globals.builtin",
+    "description": "Uint8Array is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "Uint8ClampedArray",
+    "type": "globals.builtin",
+    "description": "Uint8ClampedArray is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "undefined",
+    "type": "globals.builtin",
+    "description": "undefined is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "unescape",
+    "type": "globals.builtin",
+    "description": "unescape is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "URIError",
+    "type": "globals.builtin",
+    "description": "URIError is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "valueOf",
+    "type": "globals.builtin",
+    "description": "valueOf is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "WeakMap",
+    "type": "globals.builtin",
+    "description": "WeakMap is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "WeakSet",
+    "type": "globals.builtin",
+    "description": "WeakSet is a JavaScript builtin and should usually not be translated."
+  },
+  {
+    "term": "app",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "autoUpdater",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "BluetoothDevice",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "BrowserView",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "BrowserWindow",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "BrowserWindowProxy",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "Certificate",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "CertificatePrincipal",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "ClientRequest",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "clipboard",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "contentTracing",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "Cookie",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "Cookies",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "CPUUsage",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "CrashReport",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "crashReporter",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "Debugger",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "desktopCapturer",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "DesktopCapturerSource",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "dialog",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "Display",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "DownloadItem",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "FileFilter",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "globalShortcut",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "GPUFeatureStatus",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "IncomingMessage",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "IOCounters",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "ipcMain",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "ipcRenderer",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "JumpListCategory",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "JumpListItem",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "MemoryInfo",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "MemoryUsageDetails",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "Menu",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "MenuItem",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "MimeTypedBuffer",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "nativeImage",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "NativeImage",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "net",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "Notification",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "NotificationAction",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "Point",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "powerMonitor",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "powerSaveBlocker",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "PrinterInfo",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "process",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "ProcessMetric",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "protocol",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "Rectangle",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "remote",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "RemoveClientCertificate",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "RemovePassword",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "screen",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "ScrubberItem",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "SegmentedControlSegment",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "session",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "Session",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "shell",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "ShortcutDetails",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "Size",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "StreamProtocolResponse",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "systemPreferences",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "Task",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "ThumbarButton",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "TouchBar",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "Tray",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "UploadBlob",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "UploadData",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "UploadFile",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "UploadFileSystem",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "UploadRawData",
+    "type": "electronAPI",
+    "description": "This is an Electron Structure and should usually not be translated"
+  },
+  {
+    "term": "webContents",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "WebContents",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "webFrame",
+    "type": "electronAPI",
+    "description": "This is an Electron Module and should usually not be translated"
+  },
+  {
+    "term": "WebRequest",
+    "type": "electronAPI",
+    "description": "This is an Electron Class and should usually not be translated"
+  },
+  {
+    "term": "webviewTag",
+    "type": "electronAPI",
+    "description": "This is an Electron Element and should usually not be translated"
+  },
+  {
+    "term": "view.setAutoResize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "view.setBounds",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "view.setBackgroundColor",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "view.webContents",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "view.id",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "win.destroy",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.close",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.focus",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.blur",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isFocused",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isDestroyed",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.show",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.showInactive",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.hide",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isVisible",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isModal",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.maximize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.unmaximize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isMaximized",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.minimize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.restore",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isMinimized",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setFullScreen",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isFullScreen",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setSimpleFullScreen",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isSimpleFullScreen",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setAspectRatio",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.previewFile",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.closeFilePreview",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setBounds",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getBounds",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setContentBounds",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getContentBounds",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setContentSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getContentSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setMinimumSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getMinimumSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setMaximumSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getMaximumSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setResizable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isResizable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setMovable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isMovable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setMinimizable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isMinimizable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setMaximizable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isMaximizable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setFullScreenable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isFullScreenable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setClosable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isClosable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setAlwaysOnTop",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isAlwaysOnTop",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.center",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setPosition",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getPosition",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setTitle",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getTitle",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setSheetOffset",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.flashFrame",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setSkipTaskbar",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setKiosk",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isKiosk",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getNativeWindowHandle",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.hookWindowMessage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isWindowMessageHooked",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.unhookWindowMessage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.unhookAllWindowMessages",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setRepresentedFilename",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getRepresentedFilename",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setDocumentEdited",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isDocumentEdited",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.focusOnWebView",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.blurWebView",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.capturePage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.loadURL",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.reload",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setMenu",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setProgressBar",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setOverlayIcon",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setHasShadow",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.hasShadow",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setOpacity",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getOpacity",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setThumbarButtons",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setThumbnailClip",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setThumbnailToolTip",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setAppDetails",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.showDefinitionForSelection",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setIcon",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setAutoHideMenuBar",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isMenuBarAutoHide",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setMenuBarVisibility",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isMenuBarVisible",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setVisibleOnAllWorkspaces",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.isVisibleOnAllWorkspaces",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setIgnoreMouseEvents",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setContentProtection",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setFocusable",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setParentWindow",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getParentWindow",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getChildWindows",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setAutoHideCursor",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.selectPreviousTab",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.selectNextTab",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.mergeAllWindows",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.moveTabToNewWindow",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.toggleTabBar",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.addTabbedWindow",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setVibrancy",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setTouchBar",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.setBrowserView",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.getBrowserView",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.webContents",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "win.id",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "win.blur",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.close",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.eval",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.focus",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.print",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.postMessage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "win.closed",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "request.setHeader",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "request.getHeader",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "request.removeHeader",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "request.write",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "request.end",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "request.abort",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "request.followRedirect",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "request.chunkedEncoding",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "cookies.get",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "cookies.set",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "cookies.remove",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "cookies.flushStore",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "debugger.attach",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "debugger.isAttached",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "debugger.detach",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "debugger.sendCommand",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.setSavePath",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getSavePath",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.pause",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.isPaused",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.resume",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.canResume",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.cancel",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getURL",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getMimeType",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.hasUserGesture",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getFilename",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getTotalBytes",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getReceivedBytes",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getContentDisposition",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getState",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getURLChain",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getLastModifiedTime",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getETag",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "downloadItem.getStartTime",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "response.statusCode",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "response.statusMessage",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "response.headers",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "response.httpVersion",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "response.httpVersionMajor",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "response.httpVersionMinor",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "menu.popup",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "menu.closePopup",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "menu.append",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "menu.getMenuItemById",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "menu.insert",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "menu.items",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "menuItem.enabled",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "menuItem.visible",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "menuItem.checked",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "menuItem.label",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "menuItem.click",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "image.toPNG",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.toJPEG",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.toBitmap",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.toDataURL",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.getBitmap",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.getNativeHandle",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.isEmpty",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.getSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.setTemplateImage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.isTemplateImage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.crop",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.resize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.getAspectRatio",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "image.addRepresentation",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "notification.show",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "notification.close",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.getCacheSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.clearCache",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.clearStorageData",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.flushStorageData",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.setProxy",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.resolveProxy",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.setDownloadPath",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.enableNetworkEmulation",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.disableNetworkEmulation",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.setCertificateVerifyProc",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.setPermissionRequestHandler",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.clearHostResolverCache",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.allowNTLMCredentialsForDomains",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.setUserAgent",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.getUserAgent",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.getBlobData",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.createInterruptedDownload",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.clearAuthCache",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ses.cookies",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "ses.webRequest",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "ses.protocol",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "touchBar.escapeItem",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "tray.destroy",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "tray.setImage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "tray.setPressedImage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "tray.setToolTip",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "tray.setTitle",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "tray.setHighlightMode",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "tray.displayBalloon",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "tray.popUpContextMenu",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "tray.setContextMenu",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "tray.getBounds",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "tray.isDestroyed",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.loadURL",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.downloadURL",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.getURL",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.getTitle",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isDestroyed",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.focus",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isFocused",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isLoading",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isLoadingMainFrame",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isWaitingForResponse",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.stop",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.reload",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.reloadIgnoringCache",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.canGoBack",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.canGoForward",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.canGoToOffset",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.clearHistory",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.goBack",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.goForward",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.goToIndex",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.goToOffset",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isCrashed",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setUserAgent",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.getUserAgent",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.insertCSS",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.executeJavaScript",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setIgnoreMenuShortcuts",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setAudioMuted",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isAudioMuted",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setZoomFactor",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.getZoomFactor",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setZoomLevel",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.getZoomLevel",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setZoomLevelLimits",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setVisualZoomLevelLimits",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setLayoutZoomLevelLimits",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.undo",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.redo",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.cut",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.copy",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.copyImageAt",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.paste",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.pasteAndMatchStyle",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.delete",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.selectAll",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.unselect",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.replace",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.replaceMisspelling",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.insertText",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.findInPage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.stopFindInPage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.capturePage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.hasServiceWorker",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.unregisterServiceWorker",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.getPrinters",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.print",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.printToPDF",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.addWorkSpace",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.removeWorkSpace",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.openDevTools",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.closeDevTools",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isDevToolsOpened",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isDevToolsFocused",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.toggleDevTools",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.inspectElement",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.inspectServiceWorker",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.send",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.enableDeviceEmulation",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.disableDeviceEmulation",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.sendInputEvent",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.beginFrameSubscription",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.endFrameSubscription",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.startDrag",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.savePage",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.showDefinitionForSelection",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setSize",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isOffscreen",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.startPainting",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.stopPainting",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.isPainting",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setFrameRate",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.getFrameRate",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.invalidate",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.getWebRTCIPHandlingPolicy",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.setWebRTCIPHandlingPolicy",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.getOSProcessId",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "contents.id",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "contents.session",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "contents.hostWebContents",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "contents.devToolsWebContents",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "contents.debugger",
+    "type": "electronInstanceProperty",
+    "description": "This is an Electron instance property and should usually not be translated"
+  },
+  {
+    "term": "webRequest.onBeforeRequest",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "webRequest.onBeforeSendHeaders",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "webRequest.onSendHeaders",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "webRequest.onHeadersReceived",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "webRequest.onResponseStarted",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "webRequest.onBeforeRedirect",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "webRequest.onCompleted",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "webRequest.onErrorOccurred",
+    "type": "electronInstanceMethod",
+    "description": "This is an Electron instance method and should usually not be translated"
+  }
+]
