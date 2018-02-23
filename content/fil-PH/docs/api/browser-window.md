@@ -254,9 +254,9 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-***Tandaan**: Merong banayad na pagkakaiba sa pagitan ng pag-uugali ng `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***Tandaan**: Merong banayad na pagkakaiba sa pagitan ng pag-uugali ng `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. Inerekomenda na palaging i-set ang `event.returnValue` ng tahasan, sa halip na binalik ang balyu, bilang ang dating gumagana nang mas tuluy-tuloy sa loob ng Electron.*
 
-#### Event: 'closed'
+#### Kaganapan: 'i-minimize'
 
 Ay lalabas kapag ang window ay isinara. Pagkatapos mong matanggap ang kaganapan na ito ay maaari mong tanggalin ang sanggunian sa mga window at iwasan itong gamitin ulit.
 
@@ -300,13 +300,13 @@ Ay lalabas kapag ang window ay pinalaki.
 
 Ay lalabas kapag ang window ay lumabas mula sa pinalaking estado.
 
-#### Event: 'minimize'
+#### Kaganapan: 'i-minimize'
 
-Emitted when the window is minimized.
+Ay lalabas kapag ang window ay pinaliit.
 
-#### Event: 'restore'
+#### Kaganapan: 'ibalik'
 
-Emitted when the window is restored from a minimized state.
+Ay lalabas kung ang window ay binalik galing sa pinaliit na estado.
 
 #### Event: 'resize'
 
