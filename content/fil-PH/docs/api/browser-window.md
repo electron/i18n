@@ -687,27 +687,27 @@ Itinatakda ang maximum na laki ng window `width` and `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Binabalik ang `Integer[]` - Naglalaman ng pinakamataas na lapad at taas ng windows.
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Tinatakda kung ang window ay maaring i-manual na pag-bago sa gumagamit.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Ibinabalik ` Boolean ` - Kung ang window ay maaaring manu-manong napalitan ng user.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Nagtatakda kung ang window ay maaaring ilipat ng gumagamit. Sa Linux ay walang ginagawa.
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+Ibinabalik `Boolean` - Kung ang window ay maaring ilipat ng gumagamit.
 
 Ang Linux ay palaging bumabalik `tama`.
 
