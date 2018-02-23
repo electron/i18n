@@ -594,16 +594,16 @@ Binabalik ang `Boolean` - Kung ang window ay nasa fullscreen na mode.
 
 Pagpasok o pag-alis sa simpleng fullscreen na mode.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Ang simpleng fullscreen mode ay nagpapalabas ng katutubong pag-uugali ng fullscreen na natagpuan sa mga bersyon ng Mac OS X bago ang Lion (10.7).
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Binabalik ang `Boolean` - Kung saan ang window ay nasa simpleng(pre-Lion) na fullscreen mode.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* ` aspectRatio ` Float - Ang aspect ratio upang mapanatili para sa ilang bahagi ng nilalaman ng view.
+* ` extraSize ` [ Size ](structures/size.md) - Ang sobrang laki na hindi dapat isama habang pagpapanatili ng aspect ratio.
 
 Gagawin nitong isang window na mapanatili ang hichura ng ratio. Ang sobrang laki ay nagbibigay ng pahintulot sa isang ang developer ay may puwang, na tinukoy sa mga pixel, hindi kasama sa loob ng aspeto Ang ratio kalkulasyon. Ang sinasabi ng API na ito ang pagkakaiba sa pagitan ng isang laki ng window at laki ng nilalaman nito.
 
@@ -614,11 +614,11 @@ Ang pag-sasa alang alang ng normal na window na may HD bidyo player at mga nauug
 * `daan` String - Ang ganap na daan sa file upang i-ipakita gamit ang QuickLook. Ang mahalaga nito habang ginagamit ng Quick Look ang pangalan ng file at lawig ng file sa daan upang matukoy ang tipo ng nilalaman ng file upang buksan.
 * `Ang pagpakita sa pangalan` String (pag-pipilian) - Ang pangalan ng file na ipapakita sa Quick Look modal na tanaw. Ito ay ang malinis na viswal at hindi nakakaapekto sa nilalaman na uri ng file. Defaults to `path`.
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+Ginagamit ang [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) upang i-preview ang file sa ibinigay na landas.
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+Pagsara sa kasalukuyang nakabukas na [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
 
 #### `win.setBounds(bounds[, animate])`
 
