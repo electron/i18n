@@ -6,7 +6,7 @@
 
 * [Electron 常見問題集](faq.md)
 
-## Guides and Tutorials
+## 使用導引與教學
 
 * [開發環境設定](tutorial/development-environment.md) 
   * [macOS 設定](tutorial/development-environment.md#setting-up-macos)
@@ -64,26 +64,26 @@
   * [在應用程式中實作更新功能](tutorial/updates.md#implementing-updates-in-your-app)
   * [套用更新](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## 深入教學
 
 These individual tutorials expand on topics discussed in the guide above.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
+* [深入: 安裝 Electron](tutorial/installation.md) 
   * [全域與本地安裝](tutorial/installation.md#global-versus-local-installation)
   * [代理伺服器](tutorial/installation.md#proxies)
   * [自訂鏡像及快取](tutorial/installation.md#custom-mirrors-and-caches)
   * [疑難排解](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [深入: Electron 版號規則](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [穩定分支](tutorial/electron-versioning.md#stabilization-branches)
   * [Beta 版及 Bug 修正](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* [深入: 用 asar 打包應用程式原始碼](tutorial/application-packaging.md) 
   * [產生 asar 封存檔](tutorial/application-packaging.md#generating-asar-archives)
   * [使用 asar 封存檔](tutorial/application-packaging.md#using-asar-archives)
   * [限制](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [將無法封存的檔案與 asar 封存檔整合](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [深入: 使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
+* [深入: 使用 Widevine CDM 外掛程式](tutorial/using-widevine-cdm-plugin.md)
 * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
 
 * * *
