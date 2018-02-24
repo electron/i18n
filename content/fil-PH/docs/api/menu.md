@@ -4,7 +4,7 @@
 
 Proseso:[Main](../glossary.md#main-process)
 
-### `bagong Menu()`
+### `new Menu()`
 
 Lumilikha ng isang bagong menu.
 
