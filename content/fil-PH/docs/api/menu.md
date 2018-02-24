@@ -8,29 +8,29 @@ Proseso:[Main](../glossary.md#main-process)
 
 Lumilikha ng isang bagong menu.
 
-### Mga statik na pamamaraan
+### Mga istatikong pamamaraan
 
-Ang klase ng `menu` na mayroon ng mga sumusunod na mga istatikong pamamaraan:
+Ang klaseng `menu` ay mayroong mga sumusunod na mga istatikong pamamaraan:
 
 #### `Menu.setApplicationMenu(menu)`
 
 * `menu` Menu | null
 
-Nagtatakda ng `menu` bilang ang aplikasyon ng menu sa macOS. Sa Windows at Linux, ang `menu` ay magtatakda sa ibabaw ng menu sa bawat window.
+Nagtatakda ng `menu` bilang aplikasyon ng menu sa macOS. Sa Windows at Linux, ang `menu` ay itatakda sa ibabaw ng menu ng bawat window.
 
-Ang pagpasa sa `null` ay aalisin ang bar ng menu sa Windows at sa Linux ngunit walang epekto sa macOS.
+Ang pagpasa ng `null` ay magtatanggal ng menu bar sa Windows at sa Linux ngunit walang epekto sa macOS.
 
-**Note:** Ang API na ito ay dapat tawagin pagkatapos ng `ready` sa event ng modyul ng `app`.
+**Tandaan:** Ang API na ito ay dapat tawagin pagkatapos ng `ready`na event ng `app` na modyul.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Ibinabalik ang `Menu | null` - Ang menu ng aplikasyon, kapag naitakda, o `null` kapag hindi naitakda.
 
-**Note:** Ang nagbalik na instansya ng `Menu` ay hindi suportado ang dinamikong pagdadagdag o pagtatanggal ng mga aytem ng menu. [mga katangian ng pagkakataon ](#instance-properties) na maaring dynamic na binago.
+**Tandaan:** Ang ibinalik na instance ng `Menu` ay hindi suportado ang dinamikong pagdadagdag o pagtatanggal ng mga aytem ng menu. [Ang mga instance na katangian ](#instance-properties) ay maaring baguhin sa dinamikong paraan.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
-* `action` String
+* `action` na String
 
 Ipadala ang mga `Pagkilos` Sa mga unang responder ng aplikasyon. Ito ay ginagamit para sa pagtulad sa default macOS menu ng pag-uugali. Karaniwan mong ginagamit ang [`papel`](menu-item.md#roles)pag-aari ng isang[`Menultem`](menu-item.md).
 
