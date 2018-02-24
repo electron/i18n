@@ -6,6 +6,7 @@ const fs = require('fs')
 const path = require('path')
 const {post} = require('got')
 const FormData = require('form-data')
+const tmp = require('tmp')
 const glossary = require('../content/en-US/glossary.json')
 
 const project = 'electron'
@@ -22,7 +23,7 @@ const csv = glossary
   .map(({term, description}) => `${term}, ${csvify(description)}`)
   .join('\n')
 
-const glossaryFile = path.join(__dirname, 'glossary.csv')
+const glossaryFile = tmp.fileSync().name
 fs.writeFileSync(glossaryFile, csv)
 
 form.append('scheme', 'term_en,description_en')

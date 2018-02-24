@@ -38,6 +38,7 @@
     "rimraf": "^2.6.2",
     "semantic-release": "^8.2.3",
     "standard": "^10.0.2",
+    "tmp": "^0.0.33",
     "walk-sync": "^0.3.2"
   },
   "scripts": {
