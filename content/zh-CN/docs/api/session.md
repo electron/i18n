@@ -179,13 +179,13 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 * `callback` Function - 回调函数 
   * `proxy` String
 
-Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+解析 `url` 的代理信息。执行被请求时, 将使用 `callback(proxy)` 来调用 `callback`。
 
 #### `ses.setDownloadPath(path)`
 
 * `path` String - The download location
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+设置下载保存目录。默认情况下, 下载目录将是相应应用程序文件夹下的 `Downloads`。
 
 #### `ses.enableNetworkEmulation(options)`
 
