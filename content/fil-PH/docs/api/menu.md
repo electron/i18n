@@ -63,7 +63,7 @@ Pasulputin ang menu na ito bilang isang menu ng konteksto sa `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
+* `browserWindow` na BrowserWindow (opsyonal) - ay default ang pinagtutuunang window.
 
 Isinasara ang konteksto ng menu sa `browserWindow`.
 
@@ -75,34 +75,34 @@ Idinagdag ang `menuItem` sa menu.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` String
+* `id` na String
 
-Returns `MenuItem` the item with the specified `id`
+Ibinabalik ang `MenuItem` ang aytem na may tiyak na `id`
 
 #### `menu.insert(pos, menuItem)`
 
-* `pos` Integer
-* `menuItem` Ang MenuItem
+* `pos` na Integer
+* `menuItem` na MenuItem
 
-Ipasok sa`menuItem`papunta sa posisyon ng`pos`ng menu.
+Ipinapasok ang `menuItem` sa posisyon ng`pos` ng menu.
 
-### Mga Katangian ng Instansya
+### Mga Katangian ng Instance
 
-Ang mga bagay sa `menu` ay mayroon ding mga sumusunod na katangian:
+Ang mga bagay ng `menu` ay mayroon ding mga sumusunod na katangian:
 
 #### `menu.items`
 
-Ang hanay ng `MenuItem[]` na naglalaman ng mag aytem ng menu.
+Ang isang hanay ng `MenuItem[]` na naglalaman ng mag aytem ng menu.
 
-Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuItem` ay mayroong isang submenu.
+Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuItem` ay maaaring magkaroon ng isang submenu.
 
-## Halimbawa
+## Mga Halimbawa
 
-Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong tagabigay sa pamamagitan ng modyul ng [`remote`](remote.md).
+Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong render sa pamamagitan ng [`remote`](remote.md)na modyul.
 
 ### Pangunahing proseso
 
-Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso ay sa simpleng template ng API:
+Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso gamit ang simpleng template ng API:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -196,9 +196,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Prosesong tagabigay
+### Prosesong Render
 
-Ang nasa ibaba ay isang halimbawa ng paglikha ng isang dinamikong menu sa isang pahina ng web (prosesong tagabigay) sa pamamagitan ng paggamit ng modyul ng [`remote`](remote.md), at ipinapakita ito kapag ang user ay nira-right click ang pahina:
+Ang nasa ibaba ay isang halimbawa ng paglikha ng isang dinamikong menu sa isang pahina ng web (prosesong tagabigay) sa pamamagitan ng paggamit ng modyul na [`remote`](remote.md), at ipinapakita ito kapag ang user ay nira-right click ang pahina:
 
 ```html
 <!-- index.html -->
@@ -218,9 +218,9 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Ang mga tala sa Menu ng Aplikasyon sa macOS
+## Ang mga tala sa Menu ng Aplikasyon ng macOS
 
-ang macOS ay may kompletong naiibang istilo ng aplikasyon ng menu mula saWindows at Linux. Narito ang ilang mga tala kung paanong ang menu ng iyong app ay maging mas natural.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### Mga pamantayan ng Menu
 
