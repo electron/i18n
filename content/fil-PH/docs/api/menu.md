@@ -54,10 +54,10 @@ Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
 
 * `browserWindow` na BrowserWindow (opsyonal) - ang default ay ang pinagtutuunang window.
 * `mga opsyon` Bagay (opsyonal) 
-  * `x` na numero (opsyonal) - Ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ipahayag kung ang `y` ay naipahayag na.
-  * `y` (opsyonal) - bilang Default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ipahayag kung `x` ay ipinahayag.
-  * `async` Boolean (opsyonal) - Itinakda sa `true` upang maibalik agad ang pamamaraang ito ay tinawag, `false` upang maibalik pagkatapos na ang menu ay mapili o maisara. Ang default na `mali`.
-  * `positioningItem` Number (opsyonal) *macOS* - Ang indise ng mga aytem ng menu upang maging nakaposisyon sa ilalim ng cursor ng mouse sa tinukoy na pagkakatugma. Ang default ay -1.
+  * `x` na numero (opsyonal) - Ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ideklara kung ang `y` ay naideklara na.
+  * `y` na numero (opsyonal) - ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ideklara kung `x` ay naideklara na.
+  * `async` na Boolean (opsyonal) - Itinakda sa `true` upang maibalik agad ang pamamaraang ito kapag tinawag, `false` upang maibalik pagkatapos na ang menu ay mapili o maisara. Naka-default sa `false`.
+  * `positioningItem` na numero (opsyonal) *macOS* - Ang index ng aytem ng menu na ipoposisyon sa ilalim ng cursor ng mouse sa tinukoy na mga coordinate. Ang default ay -1.
 
 Pasulputin ang menu na ito bilang isang menu ng konteksto sa `browserWindow`.
 
