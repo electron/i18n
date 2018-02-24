@@ -30,13 +30,13 @@ Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
 * `schemes` na String[] - Ang karaniwang panukala na irerehistro bilang mga istandard na iskema.
 * `mga opsyon` Bagay (opsyonal) 
-  * `secure` Boolean (opsyonal) - `true` para irehistro ang panukala bilang ligtas. Ang default ay `false`.
+  * `secure` na Boolean (opsyonal) - `true` upang irehistro ang iskema bilang ligtas. Ang default ay `false`.
 
-Ang isang standard na panukala ay sumusunod sa kung tawagin ng RFC 3986 ay [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Halimbawa ang `http` at ang `https` ay mga standard na panukala, samantalang ang `file` ay hindi.
+Ang isang standard na iskema ay sumasang-ayon sa kung tawagin ng RFC 3986 ay [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Halimbawa ang `http` at ang `https` ay mga istandard na iskema, samantalang ang `file` ay hindi.
 
-Ang pagpaparehistro ng panukala bilang standard, ay papayagan ang may kaugnayan at tiyak na mapagkukunan ay malulutas ng tama kapag isinilbi. Kung hindi man ang panukala ay kikilos ng kagaya ng protokol ng `file`, ngunit walang kakayahang lutasin ang may kaugnayang mga URL.
+Ang pagpaparehistro ng iskema bilang standard, ay papayagan ang may kaugnayan at tiyak na mapagkukunan na malulutas nang tama kapag isinilbi. Kung hindi man, ang panukala ay kikilos ng kagaya ng `file` na protokol, ngunit walang kakayahang lutasin ang may kaugnayang mga URL.
 
-Halimbawa kapag iniload mo ang mga sumusunod na pahina na may pasadyang protokol na hindi inirerehistro ito bilang standard na panukala, ang imahe ay hindi mailoload sapagkat ang hindi standard na mga panukala ay hindi makakakilala ng may kaugnayang mga URL:
+Halimbawa kapag ini-load mo ang mga sumusunod na pahina na may karaniwang protokol na hindi inirerehistro ito bilang standard na iskema, ang imahe ay hindi mailoload sapagkat ang hindi istandard na mga iskema ay hindi makakakilala ng may kaugnayang mga URL:
 
 ```html
 <body>
@@ -44,9 +44,9 @@ Halimbawa kapag iniload mo ang mga sumusunod na pahina na may pasadyang protokol
 </body>
 ```
 
-Ang pagrerehistro sa isang panukala bilang standard ay pinapayagan ang pagpunta sa mga file sa pamamagitan ng [FileSystemAPI](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Kung hindi man ang tagabigay ay magbabato ng isang pang-seguridad na pagkakamali para sa panukala.
+Ang pagrerehistro sa isang iskema bilang standard ay pinapayagan ang pagpunta sa mga file sa pamamagitan ng [FileSystemAPI](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Kung hindi man, ang taga-render ay magbabato ng isang pang-seguridad na pagkakamali para sa iskema.
 
-Sa pamamagitan ng default ang apis ng imbakan ng web (localStorage, sessionStorage, webSQL, indexedDB, cookies) ay hindi pinagana para sa hindi standard na mga panukala. Kaya sa pangkalahatan kung gusto mong irehistro ang isang pasadyang protokol para palitan ang protokol ng `http`, kailangan mo itong irehistro bilang isang standard na panukala:
+Sa default, ang mga api ng imbakan ng web (localStorage, sessionStorage, webSQL, indexedDB, cookies) ay hindi pinagana para sa hindi istandard na mga iskema. Kaya sa pangkalahatan kung gusto mong irehistro ang isang karaniwang protokol para palitan ng `http` na protokol, kailangan mo itong irehistro bilang isang istandard na iskema:
 
 ```javascript
 const {app, protocol} = kailangan('electron')
@@ -57,9 +57,9 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** Ang pamamaraan na ito ay maaari lamang gamitin bago ang event ng `ready` sa modyul ng `app` ay lalabas.
+**Tandaan:** Ang pamamaraan na ito ay maaari lamang gamitin bago lumabas ang ang `ready` na event ng `app` na modyul.
 
-### `ang protocol.registerServiceWorkerSchemes(mga panukala)`
+### `protocol.registerServiceWorkerSchemes(mga panukala)`
 
 * `schemes` String[] - Ang pasadyang mga panukala na magiging rehistrado para hawakan ang mga manggagawa ng serbisyo.
 
