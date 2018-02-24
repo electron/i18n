@@ -2,11 +2,11 @@
 
 Simula v0.34.0, pinahintulutan ng Electron ang pagsumite ng pinaketeng mga app sa Mac App Store (MAS). Ang gabay na ito ay nagbibigay impormasyon sa: paano isumite ng iyong app at ang mga limitasyon ng MAS na build.
 
-**Palatandaan:** Ang pagsumite ng app sa Mac App Store ay nangangailangan ng pag-enrol ng [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), kung saan nagkakahalaga ng pera.
+**Tandaan:** Ang pagsumite ng app sa Mac App Store ay nangangailangan ng pag-enrol ng [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), na nagkakahalaga ng pera.
 
-## Paano mag-sumite ng Iyong App
+## Paano Isumite ng Iyong App
 
-Ang sumusunod na hakbang ay nagpapakilala ng simpleng paraan upang isumite ang iyong app sa Mac App Store. Ngunit, ang mga hakbang na ito ay hindi matitiyak na maapruban ng Apple ang iyong app; kailangan mo parin basahin ang hakbang ng [Pagsumite ng Iyong App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) ng Apple upang matugunan ang pangangailangan ng Mac App Store.
+Ang sumusunod na mga hakbang ay nagpapakilala ng isang simpleng paraan sa pagsumite ng iyong app sa Mac App Store. Ngunit, ang mga hakbang na ito ay hindi matitiyak na maapruban ng Apple ang iyong app; kailangan mo parin basahin ang hakbang ng [Pagsumite ng Iyong App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) ng Apple upang matugunan ang pangangailangan ng Mac App Store.
 
 ### Kumuha ng Sertipiko
 
