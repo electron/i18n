@@ -40,7 +40,7 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
     * `noResolveAliases` - pinapahinto ang awtomatikong alyas (symlink) na resolusyon ng path. Ang piniling mga alyas ay babalik sa alyas na path sa halip na sa target na path. *macOS*
     * `treatPackageAsDirectory` - tinatrato ang mga pakete, katulad ng `.app` na mga folder bilang isang direktoryo kaysa isang file. *macOS*
   * `message` String (opsyonal) *macOS* - mensaheng nagpapakita ng mga kahong pang-input sa itaas.
-* `callback` Function (opsyonal) 
+* `callback` Function (optional) 
   * `filePaths` String[] - Isang hanay ng mga path ng file na pinili ng gumagamit
 
 Ibinabalik ang `String[]`, isang hanay ng mga path ng file na napili ng gumagamit, kung ang callback ay ibinigay, ibinabalik nito ang `undefined`.
