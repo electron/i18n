@@ -80,38 +80,36 @@ Ang mga sumusunod na mga suffix ng DPI ay suportado rin:
 * `@4x`
 * `@5x`
 
-## Template Image
+## Template na Imahe
 
-Ang template image ay binubuo ng itim at malinaw na kulay (at ang aplha channel). Ang template images ay hindi inilalaan para gamiting napag-iisang imahe at kadalasan ay inihahalo sa ibang nilalaman para bumuo ng nais na huling kaanyuan.
+Ang template na imahe ay binubuo ng itim at malinaw na mga kulay (at ang alpha na tsanel). Ang mga template na imahe ay hindi inilalaan para gamiting napag-iisang imahe at kadalasan ay inihahalo sa ibang nilalaman para bumuo ng nais na huling kaanyuan.
 
-Ang pinaka karaniwang kaso ay ang paggamit ng template images para sa menu bar icon upang maakma sa kapwa maliwanag at madilim na menu bars.
+Ang pinakakaraniwang kaso ay ang paggamit ng template na mga imahe para sa menu bar na icon upang maakma sa kapwa maliwanag at madilim na mga menu bar.
 
-**Note:** Template image ay suportado lamang ng macOS.
+**Tandaan:** Ang template na imahe ay suportado lamang sa macOS.
 
-Para markahan ang imahe bilang template image, ang filename at dapat magtatapos sa salitang `Template`. Halimbawa:
+Para markahan ang imahe bilang template na imahe, ang filename ay dapat magtatapos sa salitang `Template`. Halimbawa:
 
 * `xxxTemplate.png`
-* `xxxTemplate@2x.png
+* `xxxTemplate@2x.png`
 
-`
+## Mga Pamamaraan
 
-## Pamamaraan
-
-Ang ` nativeimage ` modyul ay may mga sumusunod na pamamaraan, lahat ng ito ay bumalik sa isang halimbawa ng `NativeImage` na klase:
+Ang ` nativeimage ` na modyul ay may mga sumusunod na pamamaraan, lahat ng ito ay nagbabalik ng isang instance ng `NativeImage` na klase:
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+Nagbabalik ng `NativeImage`
 
-Gumawa ng walang lamang `NativeImage` instance.
+Gumawa ng bakanteng `NativeImage` na instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` String
+* `path` na String
 
-Returns `NativeImage`
+Nagbabalik ng `NativeImage`
 
-Gumawa ng bagong 0>NativeImage</code> instance mula sa file na matatagpuan sa `path`. Ang pamamaraan ay bumabalik ng walang lamang imahe kapag ang `path` ay hindi umiiral, hindi mababasa or walang bisang imahe. 
+Gumagawa ng bagong 0>NativeImage</code> na instance mula sa file na matatagpuan sa `path`. Ang pamamaraan ay bumabalik ng walang lamang imahe kapag ang `path` ay hindi umiiral, hindi mababasa or walang bisang imahe. 
 
 ```javascript
 const nativeImage = require('electron').nativeImage
