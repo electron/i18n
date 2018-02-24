@@ -32,25 +32,25 @@ Ibinabalik ang `Menu | null` - Ang menu ng aplikasyon, kapag naitakda, o `null` 
 
 * `action` na String
 
-Ipadala ang mga `Pagkilos` Sa mga unang responder ng aplikasyon. Ito ay ginagamit para sa pagtulad sa default macOS menu ng pag-uugali. Karaniwan mong ginagamit ang [`papel`](menu-item.md#roles)pag-aari ng isang[`Menultem`](menu-item.md).
+Ipinapadala ang `aksyon` sa unang tagaresponde ng aplikasyon. Ito ay ginagamit para sa paggaya sa default na mga paggalaw ng macOS na menu. Kadalasan ginagamit mo lang ang katangiang [`role`](menu-item.md#roles) ng isang [`Menultem`](menu-item.md).
 
-Tingnan ang [mascOS Cocoa kaganapan sa pag-aasikso ng paggabay](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) Para sa mga karagdagang impormasyon sa mascOS' katutubong pagkilos.
+Tingnan ang [Gabay sa Paghahawak ng Kaganapang macOS Cocoa](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) para sa karagdagang impormasyon sa mga natibong aksyon ng macOS.
 
 #### `Menu.buildFromTemplate(template)`
 
-* `ang template` [MenuItemConstructorOptions]
+* `template` na [MenuItemConstructorOptions]
 
-Nagbabalik ang `Menu`
+Ibinabalik ang `Menu`
 
-Sa pangkalahatan, ang `template` ay lamang ng isang hanay ng mga `pagpipilian` para sa pagpapagawa ng isang [MenuItem](menu-item.md). Ang paggamit ay maaaring binanggit sa itaas.
+Sa pangkalahatan, ang `template` ay isang hanay lamang ng mga `pagpipilian` para sa paggawa ng isang [MenuItem](menu-item.md). Ang paggamit ay maaaring ibabatay sa itaas.
 
-Makakabitan mo din ang iba pang mga patlang sa mga elemento ng mga `template` at sila ay magiging mga katangian ng mga constructed menu item.
+Mailalakip mo rin ang iba pang mga patlang sa mga elemento ng mga `template` at sila ay magiging mga katangian ng mga naggawang mga aytem ng menu.
 
-### Halimbawa ng mga pamamaraan
+### Mga Pamamaraan ng Instance
 
-Ang `Menu`Na object ay ang mga sumusunod na pamamaraan ng pagkakataon:
+Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
 
-#### `ang menu.popup([browserWindow, options])`
+#### `menu.popup([browserWindow, options])`
 
 * `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
 * `mga opsyon` Mga bagay (opsyonal) 
