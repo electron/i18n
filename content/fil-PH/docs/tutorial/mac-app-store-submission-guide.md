@@ -121,7 +121,7 @@ Kung baguhan ka sa app sandboxing ng macOS, dapat mo rin basahin sa pamamagitan 
 
 Bukod sa pag mano-manong pag-sign ng iyong app, maaari ka ring pumili na gumamit ng [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) na modyul para gawin ang trabaho.
 
-#### Sign Native Modules
+#### Pirmahan ang mga Native na Modyul
 
 Ang mga native na modyul na ginagamit ng iyong app ay dapat ring lagdaan. Kung gagamit ng electron-osx-sign, siguraduhing isama ang landas ng built binaries sa lista ng argumento:
 
