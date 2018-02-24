@@ -69,7 +69,7 @@ app.on('ready', () => {
 * `tagahawak` Function 
   * `kahilingan` Bagay 
     * `url` na String
-    * `referer` na String
+    * `referrer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -90,18 +90,18 @@ Batay sa default ang `scheme` ay tinatrato katulad ng `http`, na sinusuri ng kak
 * `scheme` na string
 * `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` Tali
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+    * `url` na String
+    * `referrer` na String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsyonal)
-* `ang pagkumpleto` Function (opsyonal) 
-  * `error` Error
+* `pagkumpleto` Function (opsyonal) 
+  * `error` na Kamalian
 
-Ay irerehistro ang isang protokol ng `scheme` na magpapadala ng isang `Buffer` bilang isang tugon.
+Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `Buffer` bilang isang tugon.
 
-Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callback` ay dapat tawagin na may isang bagay ng `Buffer` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
+Ang paggamit ay katulad din ng `registerFileProtocol`, maliban lang na ang `callback` ay dapat tawagin na may isang bagay ng `Buffer` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
 
 Halimbawa:
 
@@ -115,21 +115,21 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 })
 ```
 
-### `ang protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
+### `protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
 
-* `scheme` Ang string
-* `ang tagahawak` function 
+* `scheme` na string
+* `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` Tali
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
-    * `data` String (opsyonal)
-* `ang pagkumpleto` Ang Punsyon (opsyonal) 
-  * `error` Error
+    * `url` na String
+    * `referrer` na String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
+    * `data` na String (opsyonal)
+* `pagkumpleto` Function (opsyonal) 
+  * `error` na Kamalian
 
-Ay irerehistro ang isang protokol ng `scheme` na magpapadala ng isang `String` bilang isang tugon.
+Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `String` bilang isang tugon.
 
 Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callback` ay dapat tawagin na may isang bagay ng `String` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
 
@@ -153,7 +153,7 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
 * `ang pagkumpleto` Ang Punsyon (opsyonal) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang HTTP na kahilingan bilang isang tugon.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
 
