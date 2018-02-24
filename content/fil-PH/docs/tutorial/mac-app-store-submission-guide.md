@@ -1,4 +1,4 @@
-# Gabay sa pagsmite sa Mac App Store
+# Gabay sa Pagsumite sa Mac App Store
 
 Simula v0.34.0, pinahintulutan ng Electron ang pagsumite ng packaged apps sa Mac App Store (IMAS). Ang gabay na ito ay nagbibigay impormasyon sa: paano magsumite ng iyong app at ang limitasyon ng MAS build.
 
