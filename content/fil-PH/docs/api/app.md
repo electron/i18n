@@ -84,7 +84,7 @@ Sa Windows, kailangan mong i-parse ang `process.argv` (sa pangunahing proseso) p
 Ibinabalika ang:
 
 * `kaganapan` kaganapan
-* `url` Tali
+* `url` String
 
 Lalabas kapag ang user ay gustong buksan ang isang URL kasama ang aplikasyon. Ang `info.plist` file ng iyong aplikasyon ay dapat tukuyin ang url scheme sa loob ng key ng `CFBundleURLTypes`, at i-set ang `NSPrincipalClass` sa `AtomApplication`.
 
