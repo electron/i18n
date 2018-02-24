@@ -1,10 +1,10 @@
 # ang protokol
 
-> Irehistro ang isang ipinasadyang protokol at harangin ang umiiral na kahilingan para sa protokol.
+> Irehistro ang isang karaniwang protokol at harangin ang umiiral na kahilingang protokol.
 
 Proseso:[Main](../glossary.md#main-process)
 
-Ang isang halimbawa ng pagpapatupad ng isang protokol na may kaparehas na epekto katulad ng protokol ng `file://`:
+Ang isang halimbawa ng pagpapatupad ng isang protokol na may kaparehas na epekto katulad ng `file://` na protokol:
 
 ```javascript
 const {app, protocol} = kailangan('electron')
@@ -20,16 +20,16 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** Ang lahat ng mga pamamaraan maliban kung tinukoy ay maaari lamang gamitin pagkatapos ng event ng `ready` sa modyul ng `app` ay lumabas.
+**Note:** Ang lahat ng mga pamamaraan maliban sa mga tinukoy ay maaari lamang gamitin pagkatapos ng paglabas ng event na `ready` ng modyul ng `app`.
 
-## Mga Paraan
+## Mga Pamamaraan
 
-Ang modyul ng `protocol` ay mayroon ng mga sumusunod na mga pamamaraan:
+Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
-* `schemes` String[] - Ang pasadyang panukala na magiging rehistrado bilang mga standard na panukala.
-* `mga opsyon` Mga bagay (opsyonal) 
+* `schemes` na String[] - Ang karaniwang panukala na irerehistro bilang mga istandard na iskema.
+* `mga opsyon` Bagay (opsyonal) 
   * `secure` Boolean (opsyonal) - `true` para irehistro ang panukala bilang ligtas. Ang default ay `false`.
 
 Ang isang standard na panukala ay sumusunod sa kung tawagin ng RFC 3986 ay [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Halimbawa ang `http` at ang `https` ay mga standard na panukala, samantalang ang `file` ay hindi.
