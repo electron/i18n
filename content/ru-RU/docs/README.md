@@ -70,7 +70,7 @@
 
 * [В деталях: Установка Electron](tutorial/installation.md) 
   * [Глобальные против локальных установок](tutorial/installation.md#global-versus-local-installation)
-  * [Полномочие](tutorial/installation.md#proxies)
+  * [Полномочия](tutorial/installation.md#proxies)
   * [Пользовательские зеркала и кэши](tutorial/installation.md#custom-mirrors-and-caches)
   * [Устранение проблем](tutorial/installation.md#troubleshooting)
 * [В деталях: Схема управления версиями Electron](tutorial/electron-versioning.md) 
@@ -82,8 +82,8 @@
   * [Использование архива asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Добавление распакованных файлов в архив asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [В деталях: Использование плагина Pepper Flas](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [В деталях: Использование плагина Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [В деталях: Использование плагина Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
 
 * * *
@@ -125,7 +125,7 @@
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Модули для процесса-рендерера (веб-страницы):
+### Модули для Renderer процесса (веб-страницы):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
@@ -155,9 +155,9 @@
 * [Инструкции по отладке (Windows)](development/debug-instructions-windows.md)
 * [Настройка сервера символов в отладчике](development/setting-up-symbol-server.md)
 * [Руководство по написанию документации](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
+* [Вклад в Elecetron](../CONTRIBUTING.md)
+* [Вопросы](development/issues.md)
+* [Запросы на слияние](development/pull-requests.md)
 * [Обновление Chromium](development/upgrading-chromium.md)
 * [Разработка Chromium](development/chromium-development.md)
 * [Разработка V8](development/v8-development.md)
