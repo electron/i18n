@@ -6,7 +6,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 * [Electron SSS](faq.md)
 
-## Guides and Tutorials
+## 1 whan to business in online application
 
 * [Setting up the Development Environment](tutorial/development-environment.md) 
   * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
