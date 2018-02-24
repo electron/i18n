@@ -109,7 +109,7 @@ Gumawa ng bakanteng `NativeImage` na instance.
 
 Nagbabalik ng `NativeImage`
 
-Gumagawa ng bagong 0>NativeImage</code> na instance mula sa file na matatagpuan sa `path`. Ang pamamaraan ay bumabalik ng walang lamang imahe kapag ang `path` ay hindi umiiral, hindi mababasa or walang bisang imahe. 
+Gumagawa ng bagong `NativeImage` na instance mula sa file na matatagpuan sa `path`. Ang paraang ito ay nagbabalik ng bakanteng imahe kapag ang `path` ay hindi umiiral, hindi mababasa or hindi isang tamang imahe.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -121,32 +121,32 @@ console.log(image)
 ### `ativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Kinakailangan para sa mga bitmap buffers. * `height` Integer (optional) - Kinakailangan para sa mga bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (opsyonal) * `width` Integer (opsyonal) - Kinakailangan para sa mga bitmap na buffer. * `height` na Integer (opsyonal) - Kinakailangan para sa mga bitmap na buffer. * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
-Returns `NativeImage`
+Nagbabalik ng `NativeImage`
 
-Gumawa ng bagong `NativeImage` instance mula `buffer`.
+Gumagawa ng bagong `NativeImage` na instance mula sa `buffer`.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
-* `dataURL` String
+* `dataURL` na String
 
-Returns `NativeImage`
+Nagbabalik ng `NativeImage`
 
-Gumawa ng bagong `NativeImage` instance mula `dataURL`. 
+Gumagawa ng bagong `NativeImage` na instance mula sa `dataURL`.
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
-* `imageName` String
+* `imageName` na String
 * `hslShift` Number[]
 
-Returns `NativeImage`
+Nagbabalik ng `NativeImage`
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+Gumagawa ng isang bagong `NativeImage` na instance mula sa NSImage na nagmamapa sa binigay na pangalan ng imahe. Tingnan ang [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) para sa listahan ng mga posibleng halaga.
 
-The `hslShift` is applied to the image with the following rules
+Ang `hslShift` ay inaaplay sa imahe na may sumusunod na mga patakaran
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[0]` (hue): Ang ganap na halaga ng hue para sa imahe - 0 at 1 na minamapa sa 0 at 360 sa pangkulay na gulong ng hue (pula).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
  0 = remove all color.  
  0.5 = leave unchanged.  
