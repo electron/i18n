@@ -393,7 +393,7 @@ Ay lalabas kapag nakasara ang isang sheet ng window.
 
 Ay lalabas kung ang native ng pindutan ng bagong tab ay na-click.
 
-### Mga istatikong pamamaraan
+### Static Methods
 
 Ang `BrowserWindow`: klas na ito ay mayroong sumusunod na static na pamamaraan:
 
