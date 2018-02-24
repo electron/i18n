@@ -160,14 +160,14 @@ Depende sa kung aling mga Electron API ang ginagamit ng iyong app, maaaring kail
 
 #### Access sa Network
 
-Paganahing papalabas ang mga koneksyon ng network para payagan ang iyong app na kumonek sa isang server:
+Paganahin ang mga kasalukuyang mga koneksyon ng network para payagan ang iyong app na kumonekta sa isang server:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Paganahin ang mga papasok na koneksyon sa network upang payagan ang iyong app na magbukas ng network pakikinig socket:
+Paganahin ang mga papasok na koneksyon sa network upang payagan ang iyong app na magbukas ng isang network listening socket:
 
 ```xml
 <key>com.apple.security.network.server</key>
@@ -183,7 +183,7 @@ Tingnan ang [Enabling Network Access decumentation](https://developer.apple.com/
 <true/>
 ```
 
-Tingnan ang [Enabling User-Selected File Access decumentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
+Tingnan ang [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
 
 #### dialog.showSaveDialog
 
@@ -192,21 +192,21 @@ Tingnan ang [Enabling User-Selected File Access decumentation](https://developer
 <true/>
 ```
 
-Tingnan ang [Enabling User-Selected File Access decumentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
+Tingnan ang [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
 
-## Hindi kilalang mga isyu
+## Kilalang mga isyu
 
 ### `shell.openItem(filePath)`
 
 Mabibigo ito kapag nilagdaan ang app para sa pamamahagi sa Mac App Store. Mag-subscribe sa [#9005](https://github.com/electron/electron/issues/9005) para sa mga update.
 
-#### Gumana sa Paligid
+#### Workaround
 
-`shell.openExternal('file: //' + filePath)` ay bubuksan ang file sa default na application hangga't ang extension ay nauugnay sa isang naka-install na app.
+Bubuksan ng `shell.openExternal('file: //' + filePath)` ang file sa default na aplikasyon hangga't ang extension ay nauugnay sa isang naka-install na app.
 
-## Cryptographic Algorithm Ginamit ng Electron
+## Mga Cryptographic Algorithm na Ginamit ng Electron
 
-Depende sa bansa at rehiyon na iyong matatagpuan, maaaring kailanganin ng Mac App Store pagdodokumento ng mga cryptographic algorithm na ginamit sa iyong app, at kahit na hilingin sa iyo magsumite ng kopya ng pag-apruba ng U.S. Encryption Registration (ERN).
+Depende sa bansa at rehiyon kung saan ka matatagpuan, maaaring kailanganin ng Mac App Store ang pagdodokumento ng mga cryptographic algorithm na ginamit sa iyong app, at posibleng hilingin kang magsumite ng kopya ng pag-apruba ng U.S. Encryption Registration (ERN).
 
 Ang Electron ay gumagamit ng mga sumusunod na cryptographic algorithm:
 
@@ -234,4 +234,4 @@ Ang Electron ay gumagamit ng mga sumusunod na cryptographic algorithm:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+Sa kung paano makakuha ng ERN na pag-apruba, maaari mong batayan ang artikulong: [Paano legal na isumite ang isang app sa Apple’s App Store kapag gumagamit ito ng encryption (o paano makakuha ng isang ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
