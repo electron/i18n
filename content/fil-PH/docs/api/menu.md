@@ -1,6 +1,6 @@
-## Class: Menu
+## Klase: Menu
 
-> Lumikha ng natural na mga menu ng aplikasyon at mga menu ng konteksto.
+> Lumikha ng natibong mga menu ng aplikasyon at mga menu ng konteksto.
 
 Proseso:[Main](../glossary.md#main-process)
 
