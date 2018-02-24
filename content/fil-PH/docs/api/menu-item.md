@@ -10,7 +10,7 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
 
 * `mga pagpipilian` Bagay 
   * `i-klik` Punsyon (opsyonal) - Ay tatawagin na may `i-klik ang(menuItem, browserWindow, event)` kapag ang aytem ng menu ay na-klik na. 
-    * `menuItem`MenuItem
+    * `menuItem` MenuItem
     * `browserWindow` ang BrowserWindow
     * `kaganapan` Kaganapan
   * `role` String (opsyonal) - tukuyin ang aksyon ng mga aytem ng menu, kapag tinukoy ang katangian `click` ay hindi na papansinin. Tingnan ang [roles](#roles).
