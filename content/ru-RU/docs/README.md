@@ -6,7 +6,7 @@
 
 * [FAQ по Electron](faq.md)
 
-## Гайды и Туториалы
+## Руководство
 
 * [Настройка среды разработки](tutorial/development-environment.md) 
   * [Настройка macOS](tutorial/development-environment.md#setting-up-macos)
@@ -64,25 +64,25 @@
   * [Внедрение обновлений в Ваше приложение](tutorial/updates.md#implementing-updates-in-your-app)
   * [Применение обновлений](tutorial/updates.md#applying-updates)
 
-## Подробные туториалы
+## Подробное руководство
 
-These individual tutorials expand on topics discussed in the guide above.
+Эти индивидуальные руководства расширят темы, обсуждаемые выше.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
-  * [Proxies](tutorial/installation.md#proxies)
-  * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
+* [В деталях: Установка Electron](tutorial/installation.md) 
+  * [Глобальные против локальных установок](tutorial/installation.md#global-versus-local-installation)
+  * [Полномочие](tutorial/installation.md#proxies)
+  * [Пользовательские зеркала и кэши](tutorial/installation.md#custom-mirrors-and-caches)
   * [Устранение проблем](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [В деталях: Схема управления версиями Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
+  * [Стабильные ветки](tutorial/electron-versioning.md#stabilization-branches)
+  * [Бета-релизы и исправление багов](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [В деталях: Упаковка исходного кода приложения с помощью asar](tutorial/application-packaging.md) 
+  * [Создание архива asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Использование архива asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+  * [Добавление распакованных файлов в архив asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [В деталях: Использование плагина Pepper Flas](tutorial/using-pepper-flash-plugin.md)
 * [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
 
