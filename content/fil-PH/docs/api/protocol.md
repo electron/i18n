@@ -61,34 +61,34 @@ app.on('ready', () => {
 
 ### `protocol.registerServiceWorkerSchemes(mga panukala)`
 
-* `schemes` String[] - Ang pasadyang mga panukala na magiging rehistrado para hawakan ang mga manggagawa ng serbisyo.
+* `schemes` String[] - Ang karaniwang mga iskema na irerehistro para hawakan ang mga panserbisyong mga manggagawa.
 
-### `ang protocol.registerFileProtocol(panukala, tagahawak[,pagkumpleto])`
+### `protocol.registerFileProtocol(panukala, tagahawak[,pagkumpleto])`
 
-* `scheme` Ang string
-* `ang tagahawak` Function 
+* `scheme` na String
+* `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` Tali
-    * `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
-    * ang `filePath` String (opsyonal)
-* `ang pagkumpleto` Function (opsyonal) 
-  * `error` Error
+    * `url` na String
+    * `referer` na String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
+    * `filePath` na String (opsyonal)
+* `pagkumpleto` Function (opsyonal) 
+  * `error` na Kamalian
 
-Irerehistro ang isang protokol ng `scheme` na ipapadala ang file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
+Nagrerehistro ang isang protokol ng `scheme` na magpapadala sa file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
 
-Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa landas ng file o isang bagay na may katangian ng `path`, hal. ang `callback(filePath)` o ang `callback({path: filePath})`.
+Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa landas ng file o isang bagay na may katangian ng `path`, halimbawa. ang `callback(filePath)` o ang `callback({path: filePath})`.
 
-Kapag ang `callback` ay tinawag ng walang kasama na, isang numero, o isang bagay na may katangian ng `error`, ang `request` ay mabibigo kasama ang `error` na numero na iyong tinukoy. Para sa magagamit na mga maling numero na iyong gagamitin, pakiusap tingnan ang [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Kapag ang `callback` ay tinawag ng walang kasama na isang numero, o isang bagay na may katangian ng `error`, ang `request` ay mabibigo kasama ang `error` na numero na iyong tinukoy. Para sa magagamit na mga maling numero na iyong gagamitin, pakiusap tingnan ang [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-Batay sa default ang `scheme` ay tinatrato katulad ng `http`, kung saan ay sinusuri ng kakaiba sa mga protokol na sinusundan ang "generic URI syntax" katulad ng `file`, kaya marahil gusto mong tawagin ang `protocol.registerStandardSchemes` para ang iyong panukala ay itrato bilang isang standard na panukala.
+Batay sa default ang `scheme` ay tinatrato katulad ng `http`, na sinusuri ng kakaiba sa mga protokol na sinusundan ang "generic URI syntax" katulad ng `file:`, kaya marahil gusto mong tawagin ang `protocol.registerStandardSchemes` para ang iyong iskema ay itrato bilang isang istandard na iskema.
 
-### `ang protocol.registerBufferProtocol(panukala, tagahawak[, pagkumpleto])`
+### `protocol.registerBufferProtocol(iskema, tagahawak[, pagkumpleto])`
 
-* `scheme` Ang string
-* `ang tagahawak` Function 
+* `scheme` na string
+* `tagahawak` Function 
   * `kahilingan` Bagay 
     * `url` Tali
     * ang `referer` String
