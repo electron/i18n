@@ -129,36 +129,36 @@ Ang mga native na modyul na ginagamit ng iyong app ay dapat ring lagdaan. Kung g
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Tandaan din na ang native na mga modyul ay maaaring may intermediate na mga file na binuo na hindi sana kabilang (na dapat rin nilagdaan). Kung gumamit ka ng [electron-packager](https://github.com/electron-userland/electron-packager) bago ang bersyon 8.1.0, magdagdag ng `--ignore=.+\.o$` sa iyong build na hakbang para maiwasan ang mga file. Mga bersyon 8.1.0 at luma pa ay iniiwasan ang mga file na iyon sa pamamagitan ng default.
+Tandaan din na ang native na mga modyul ay maaaring may intermediate na mga file na binuo na hindi sana kabilang (na dapat rin nilagdaan). Kung gumamit ka ng [electron-packager](https://github.com/electron-userland/electron-packager) bago ang bersyon 8.1.0, magdagdag ng `--ignore=.+\.o$` sa iyong build na hakbang para maiwasan ang mga file. Ang mga bersyong 8.1.0 at mas bago pa ay iniiwasan ang mga file na iyon sa pamamagitan ng default.
 
-### I-upload aang iyong app
+### I-upload ang iyong app
 
 Matapos lagdaan ang iyong app, maaari kang gumamit ng Application Loader para mag-upload sa iTunes Connect upang ma proseso, sinisigurado na ikaw ay [nakalikha ng record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) bago mag-upload.
 
-### I-sumite ang Iyong App upang Suriin
+### I-sumite ang Iyong App para sa Pagsusuri
 
 Matapos ang mga hakbang na ito, maaari mong [i-sumite ang iyong app para sa pagsusuri](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Mga limitasyon ng MAS Build
+## Mga Limitasyon ng MAS Build
 
 Upang matugunan ang pangangailangan ng app sandboxing, ang sumusunod na modyul ay hindi pinagana sa MAS build:
 
 * `crashReporter`
 * `autoUpdater`
 
-at ang mga sumusunod na paguugali ay binago:
+at ang mga sumusunod na mga paggalaw ay binago:
 
-* Ang bidyo capture ay maaaring hindi gumana sa ibang mga makina.
-* Siguradong accessibility features ay maaaring hindi gumana.
+* Ang pagkuha ng video ay maaaring hindi gumana sa ibang mga makina.
+* Ang ilang mga katangian ng aksesibilidad ay maaaring hindi gumana.
 * Ang mga app ay hindi makakaalam sa mga pagbabago ng DNS.
 
-Tsaka, dahil sa paggagamit ng app sandboxing, ang mga sagguniang maaaring ma-access sa pamamagitan ng app ay striktong limitado; maaari mong basahin ang [App Sandboxing](https://developer.apple.com/app-sandboxing/) para sa karagdagang impormasyon.
+At saka, dahil sa pagamit ng app sandboxing, ang mga kagamitang maaaring ma-access sa pamamagitan ng app ay striktong limitado; maaari mong basahin ang [App Sandboxing](https://developer.apple.com/app-sandboxing/) para sa karagdagang impormasyon.
 
 ### Karagdagang mga Karapatan
 
-Depende sa kung aling mga Electron API ang ginagamit ng iyong app, maaaring kailangan mong magdagdag ng karagdagang karapatan sa iyong `parent.plist` file upang magamit ang mga API na ito mula sa iyong bumuo ng Mac App Store ng app.
+Depende sa kung aling mga Electron API ang ginagamit ng iyong app, maaaring kailangan mong magdagdag ng karagdagang mga karapatan sa iyong `parent.plist` na file upang magamit ang mga API na ito mula sa Mac App Store na build ng iyong app.
 
-#### Daanan ng Network
+#### Access sa Network
 
 Paganahing papalabas ang mga koneksyon ng network para payagan ang iyong app na kumonek sa isang server:
 
