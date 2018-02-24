@@ -220,33 +220,33 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Ang mga tala sa Menu ng Aplikasyon ng macOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+Ang macOS ay may kompletong naiibang istilo ng aplikasyon ng menu mula sa Windows at Linux. Narito ang ilang mga tala kung paanong ang menu ng iyong app ay maging mas natural.
 
-### Mga pamantayan ng Menu
+### Mga Istandard na Menu
 
-Sa macOS ay maraming tukoy na sistema ng standard na menu, tulad ng `Services` at mga menu ng `Window`. Para gawin ang iyong menu na standard na menu, dapat mong i-set ang iyong menu sa `role` sa isa sa mga sumusunod at ang Electron ay makikilala sila at gagawin silang mga standard na menu:
+Sa macOS ay maraming istandard na menu na natukoy ng sistema, tulad ng `Services` at mga menu ng `Window`. Para gawin ang iyong menu na isang istandard na menu, dapat mong i-set ang `role` ng iyong menu sa isa sa mga sumusunod at kilalanin sila ng Electron at gagawin silang mga istandard na menu:
 
-* `ang window`
+* `window`
 * `tulong`
 * `mga serbisyo`
 
-### Mga Aksyon ng Standard Menu
+### Mga Aytem na Aksyon ng Istandard na Menu
 
-ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang standard na aksyon, dapat mong itakda ang katangian ng `role` ng item ng menu.
+Ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang istandard na aksyon, dapat mong itakda ang katangiang `role` ng item ng menu.
 
 ### Pangalan ng Pangunahing Menu
 
-Sa macOS ang tatak ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist`. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
+Sa macOS ang lebel ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist` na file. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
 
-## Itinatakda ang Menu para sa Specific Browser Window ng (*Linux* *Windows*)
+## Pagtatakda ang Menu para sa Tiyak na Browser Window ng (*Linux* *Windows*)
 
-Ang [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng tiyak na browser windows.
+Ang [`setMenu` na pamamaraan](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng isang browser windows.
 
 ## Posisyon ng Item ng Menu
 
-Maaari kang gumamit ng `position` at `id` para makontrol kung paano ilalagay ang mga item kapag bumubuo ng isang menu sa pamamagitan ng `Menu.buildFromTemplate`.
+Maaari kang gumamit ng `position` at `id` para makontrol kung paano ilalagay ang aytem kapag bumubuo ng isang menu sa pamamagitan ng `Menu.buildFromTemplate`.
 
-Ang katangian ng `position` ng `MenuItem` ay may anyo na `[placement]=[id]`, kung saan `placement` ay isa sa `before`, `after`, o `endof` at `id` ay ang natatanging ID ng isang umiiral na item sa menu:
+Ang katangiang `position` ng `MenuItem` ay may anyo na `[placement]=[id]`, kung saan `placement` ay isa sa `before`, `after`, o `endof` at `id` ay ang natatanging ID ng isang umiiral na item sa menu:
 
 * `before` - Isisingit ang item na ito bago ang id ng isinangguning item. Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
 * `after` - Isisingit ang item na ito pagkatapos ng id ng isinangguning item, Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
