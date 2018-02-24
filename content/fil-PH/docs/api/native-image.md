@@ -147,10 +147,10 @@ Gumagawa ng isang bagong `NativeImage` na instance mula sa NSImage na nagmamapa 
 Ang `hslShift` ay inaaplay sa imahe na may sumusunod na mga patakaran
 
 * `hsl_shift[0]` (hue): Ang ganap na halaga ng hue para sa imahe - 0 at 1 na minamapa sa 0 at 360 sa pangkulay na gulong ng hue (pula).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
+* `hsl_shift[1]` (satyurasyon): Isang satyurasyon na shift para sa imahe kasa ang mga sumusunod na halaga:  
+ 0 = tanggalin lahat ng kulay.  
+ 0.5 = pabayaang hindi binago.  
+ 1 = ganap na i-saturate ang imahe. 
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
  0 = remove all lightness (make all pixels black).  
  0.5 = leave unchanged.  
