@@ -2293,5 +2293,95 @@
     "term": "webRequest.onErrorOccurred",
     "type": "electronInstanceMethod",
     "description": "This is an Electron instance method and should usually not be translated"
+  },
+  {
+    "term": "ASAR",
+    "type": "electronJargon",
+    "description": "ASAR stands for Atom Shell Archive Format. An asar archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file."
+  },
+  {
+    "term": "Brightray",
+    "type": "electronJargon",
+    "description": "Brightray was a static library that made libchromiumcontent easier to use in applications. It is now deprecated and has been merged into Electron's codebase."
+  },
+  {
+    "term": "CRT",
+    "type": "electronJargon",
+    "description": "The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development."
+  },
+  {
+    "term": "DMG",
+    "type": "electronJargon",
+    "description": "An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application \"installers\". electron-builder supports dmg as a build target."
+  },
+  {
+    "term": "IME",
+    "type": "electronJargon",
+    "description": "Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters."
+  },
+  {
+    "term": "IPC",
+    "type": "electronJargon",
+    "description": "IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the main and renderer processes."
+  },
+  {
+    "term": "libchromiumcontent",
+    "type": "electronJargon",
+    "description": "A shared library that includes the Chromium Content module and all its dependencies (e.g., Blink, V8, etc.). Also referred to as \"libcc\"."
+  },
+  {
+    "term": "main process",
+    "type": "electronJargon",
+    "description": "The main process, commonly a file named main.js, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in."
+  },
+  {
+    "term": "MAS",
+    "type": "electronJargon",
+    "description": "Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the Mac App Store Submission Guide."
+  },
+  {
+    "term": "native modules",
+    "type": "electronJargon",
+    "description": "Native modules (also called addons in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries."
+  },
+  {
+    "term": "NSIS",
+    "type": "electronJargon",
+    "description": "Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. electron-builder supports NSIS as a build target."
+  },
+  {
+    "term": "OSR",
+    "type": "electronJargon",
+    "description": "OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen."
+  },
+  {
+    "term": "process",
+    "type": "electronJargon",
+    "description": "A process is an instance of a computer program that is being executed. Electron apps that make use of the main and one or many renderer process are actually running several programs simultaneously."
+  },
+  {
+    "term": "renderer process",
+    "type": "electronJargon",
+    "description": "The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden."
+  },
+  {
+    "term": "Squirrel",
+    "type": "electronJargon",
+    "description": "Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the autoUpdater API for info about getting started with Squirrel."
+  },
+  {
+    "term": "userland",
+    "type": "electronJargon",
+    "description": "This term originated in the Unix community, where \"userland\" or \"userspace\" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in \"Node core\" versus packages published to the npm registry by the much larger \"user\" community."
+  },
+  {
+    "term": "V8",
+    "type": "electronJargon",
+    "description": "V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application."
+  },
+  {
+    "term": "webview",
+    "type": "electronJargon",
+    "description": "webview tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to iframes, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content."
   }
 ]

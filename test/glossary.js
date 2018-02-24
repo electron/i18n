@@ -9,7 +9,7 @@ describe('glossary', () => {
   })
 
   it('has lots of entries', () => {
-    glossary.length.should.be.above(400)
+    glossary.length.should.be.above(476)
   })
 
   it('sets expected properties on every entry', () => {
@@ -24,11 +24,8 @@ describe('glossary', () => {
       'electronAPI',
       'electronInstanceMethod',
       'electronInstanceProperty',
+      'electronJargon',
       'globals.builtin'
     ])
-  })
-
-  it('does not allow commas in descriptions (for CSV purposes)', () => {
-    glossary.some(entry => entry.description.includes(',')).should.eq(false)
   })
 })

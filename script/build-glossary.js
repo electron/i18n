@@ -6,7 +6,8 @@ const fs = require('fs')
 const path = require('path')
 const globals = require('globals')
 const apis = require('../content/en-US/electron-api.json')
-const glossary = []
+const parseGlossaryDoc = require('../lib/parse-glossary-doc')
+let glossary = []
 
 // JavaScript builtings like Array, Map, String, etc
 Object.keys(globals.builtin).map(term => {
@@ -51,6 +52,10 @@ apis
     })
   })
 
-const glossaryFile = path.join(__dirname, '../content/en-US/glossary.json')
-fs.writeFileSync(glossaryFile, JSON.stringify(glossary, null, 2))
-console.log(`Wrote ${glossaryFile} with ${glossary.length} entries.`)
+parseGlossaryDoc().then(results => {
+  glossary = glossary.concat(results)
+  const glossaryFile = path.join(__dirname, '../content/en-US/glossary.json')
+  fs.writeFileSync(glossaryFile, JSON.stringify(glossary, null, 2))
+  console.log(`Wrote ${glossaryFile} with ${glossary.length} entries.`)
+})
+

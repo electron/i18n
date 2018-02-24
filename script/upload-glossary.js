@@ -12,8 +12,14 @@ const project = 'electron'
 const url = `https://api.crowdin.com/api/project/${project}/upload-glossary?key=${process.env.CROWDIN_KEY}`
 const form = new FormData()
 
+// make strings safe for writing to a CSV file
+function csvify (string) {
+  return '"' + string.replace(/\"/g, '\"') + '"'
+}
+
+// Crowdin expects CSV files
 const csv = glossary
-  .map(entry => `${entry.term}, ${entry.description}`)
+  .map(({term, description}) => `${term}, ${csvify(description)}`)
   .join('\n')
 
 const glossaryFile = path.join(__dirname, 'glossary.csv')
