@@ -98,7 +98,7 @@ Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuI
 
 ## Mga Halimbawa
 
-Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong render sa pamamagitan ng [`remote`](remote.md)na modyul.
+Ang klaseng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong render sa pamamagitan ng [`remote`](remote.md)na modyul.
 
 ### Pangunahing proseso
 
