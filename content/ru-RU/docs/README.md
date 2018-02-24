@@ -2,37 +2,37 @@
 
 ## FAQ
 
-Есть вопросы, которые задаются довольно часто. Ознакомьтесь с данным документом, прежде чем задать свой вопрос. Возможно, решение вашего вопроса уже описано:
+Есть вопросы, которые задаются довольно часто. Ознакомьтесь с данным документом, прежде чем задать свой вопрос:
 
 * [FAQ по Electron](faq.md)
 
-## Guides and Tutorials
+## Гайды и Туториалы
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
-  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+* [Настройка среды разработки](tutorial/development-environment.md) 
+  * [Настройка macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Настройка Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Настройка Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Выбор редактора](tutorial/development-environment.md#a-good-editor)
+* [Создание Вашего первого приложения](tutorial/first-app.md) 
+  * [Установка Electron](tutorial/first-app.md#installing-electron)
+  * [Разработка Electron в двух словах](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Запуск Вашего приложения](tutorial/first-app.md#running-your-app)
+* [Макеты и CLI](tutorial/boilerplates-and-clis.md) 
+  * [Макеты против CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Application Architecture](tutorial/application-architecture.md) 
-  * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
-  * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
-  * [Inter-Process Communication](tutorial/application-architecture.md#)
-* Adding Features to Your App 
+  * [Другие инструменты и Макеты](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+* [Архитектура приложения](tutorial/application-architecture.md) 
+  * [Main и Renderer процессы](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Использование API Electron](tutorial/application-architecture.md#using-electron-apis)
+  * [Использование API Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Использование нативных модулей Node.js](tutorial/using-native-node-modules.md)
+  * [Межпроцессное взаимодействие](tutorial/application-architecture.md#)
+* Добавление функционала в Ваше приложение 
   * [Уведомления](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
-  * [Application Progress](tutorial/progress-bar.md)
+  * [Недавние документы](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Прогресс приложения](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
   * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
