@@ -1,12 +1,12 @@
-# gupitin ng maikli ang mga litrato
+# nativeImage
 
-> Gumawa ng trey, pantalan, at aplikasyon na icon gamit ang PNG o JPG files.
+> Gumawa ng tray, dock, at aplikasyon na mga icon gamit ang PNG o JPG na mga file.
 
 Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file paths o `NativeImage` mga pagkakataon. Ang walang laman na imahe ay gagamitin kung `null` ay maipasa.
+Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file paths o `NativeImage` na mga instance. Ang walang laman na imahe ay gagamitin kung ang `null` ay maipasa.
 
-Halimbawa, kung gagawa ng trey o pagtatakda sa window's icon, pwede mong ipasa ang file path ng imahe bilang `String`:
+Halimbawa, kung gagawa ng tray o setting sa icon ng window, pwede mong ipasa ang file path ng imahe bilang isang `String`:
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -16,7 +16,7 @@ let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
 console.log(appIcon, win)
 ```
 
-O basahin ang imahe mula sa klipbord na nagbabalik sa `NativeImage`:
+O basahin ang imahe mula sa klipbord na nagbabalik ng isang `NativeImage`:
 
 ```javascript
 const {clipboard, Tray} = require('electron')
@@ -25,7 +25,7 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Suportadong Pormat 
+## Suportadong mga Pormat
 
 Sa kasalukuyan `PNG` and `JPEG` ipormat ng imahe ay suportad. `PNG` ay inirerekomenda dahil ito ay sumusuporta sa aninaw at walang pagkakawalang compression.
 
