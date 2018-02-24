@@ -16,7 +16,7 @@ Untuk menyematkan laman web di aplikasi Anda, tambahkan tag ` webview ` ke halam
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-Jika Anda ingin mengontrol konten tamu dengan cara apa pun, Anda dapat menulis JavaScript yang mendengarkan untuk kejadian ` webview ` dan merespons kejadian tersebut dengan menggunakan metode ` webview `. Berikut contoh kode dengan dua pendengar acara: yang mendengarkan halaman web untuk mulai memuat, yang lainnya untuk halaman web berhenti memuat, dan menampilkan pesan "loading..." selama waktu muat:
+Jika Anda ingin mengontrol konten tamu dengan cara apa pun, Anda dapat menulis JavaScript yang mendengarkan untuk kejadian ` webview ` dan merespons kejadian tersebut dengan menggunakan metode ` webview `. Berikut contoh kode dengan dua pendengar kejadian: satu yang mendengarkan halaman web untuk mulai memuat, yang lainnya untuk halaman web untuk berhenti memuat, dan menampilkan pesan "memuat..." selama waktu muat:
 
 ```html
 <script>onload = () = > {const webview = indikator const document.querySelector('webview') = document.querySelector('.indicator') const loadstart = () = > {indicator.innerText = 'memuat...'}      Const loadstop = () = > {indicator.innerText = ''} webview.addEventListener (' lakukan-mulai-loading', loadstart) webview.addEventListener (' lakukan-stop-loading', loadstop)}</script>
@@ -24,7 +24,7 @@ Jika Anda ingin mengontrol konten tamu dengan cara apa pun, Anda dapat menulis J
 
 ## Catatan Styling CSS
 
-Harap dicatat bahwa `webview` tag menggunakan `tampilan: flex;` internal untuk memastikan anak `objek` elemen mengisi penuh tinggi dan lebar dari wadah `webview` bila digunakan dengan tradisional dan flexbox layout (sejak v0.36.11). Tolong jangan menimpa properti default ` display: flex; ` CSS, kecuali menentukan tampilan `: inline-flex; ` untuk tata letak inline.
+Harap dicatat bahwa gaya tag`webview` menggunakan `tampilan: flex;` secara internal untuk memastikan elemen `objek` anak mengisi penuh tinggi dan lebar dari wadah `webview` saat digunakan bersama tata letak tradisional dan flexbox (sejak v0.36.11). Tolong jangan menimpa properti default ` display: flex; ` CSS, kecuali menentukan tampilan `: inline-flex; ` untuk tata letak inline.
 
 `WebView` memiliki masalah yang menggunakan atribut `tersembunyi` tersembunyi atau menggunakan `menampilkan: none;`. Ini dapat menyebabkan perilaku render yang tidak biasa dalam anaknya `browserplugin` objek dan halaman web reloaded ketika `webview` un tersembunyi. Pendekatan yang direkomendasikan adalah untuk menyembunyikan `webview` menggunakan `visibilitas: tersembunyi`.
 
