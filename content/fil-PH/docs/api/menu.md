@@ -52,8 +52,8 @@ Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
 
 #### `menu.popup([browserWindow, options])`
 
-* `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
-* `mga opsyon` Mga bagay (opsyonal) 
+* `browserWindow` na BrowserWindow (opsyonal) - ang default ay ang pinagtutuunang window.
+* `mga opsyon` Bagay (opsyonal) 
   * `x` Number (opsyonal) - Ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ipahayag kung ang `y` ay naipahayag na.
   * `y` (opsyonal) - bilang Default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ipahayag kung `x` ay ipinahayag.
   * `async` Boolean (opsyonal) - Itinakda sa `true` upang maibalik agad ang pamamaraang ito ay tinawag, `false` upang maibalik pagkatapos na ang menu ay mapili o maisara. Ang default na `mali`.
