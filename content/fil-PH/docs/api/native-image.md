@@ -27,15 +27,15 @@ console.log(appIcon)
 
 ## Suportadong mga Pormat
 
-Sa kasalukuyan `PNG` and `JPEG` ipormat ng imahe ay suportad. `PNG` ay inirerekomenda dahil ito ay sumusuporta sa aninaw at walang pagkakawalang compression.
+Sa kasalukuyan ang `PNG` at `JPEG` na mga pormat ng imahe ay suportado. Ang `PNG` ay inirerekomenda dahil ito ay sumusuporta sa malinis at walang pagkawalang kompresyon.
 
-Sa Windows, pwede ka ring mag load ng `ICO` icons galing sa file paths. Para pinakamahusay na biswal na kalidad, nirerekomenda ang pag sama sa mga sumusunod na laki sa:
+Sa Windows, pwede ka ring mag load ng `ICO` na mga icon galing sa mga file path. Para sa pinakamahusay na kalidad na biswal, inirerekomenda ang pag sama sa mga sumusunod na sukat sa:
 
 * Maliit na icon 
- * 16x16 (100% DPI scale) 
+ * 16x16 (100% DPI scale)
  * 20x20 (125% DPI scale)
  * 24x24 (150% DPI scale)
- * 32x32 (200% DPI scale) 
+ * 32x32 (200% DPI scale)
 * Malaking Icon 
  * 32x32 (100% DPI scale)
  * 40x40 (125% DPI scale)
@@ -43,15 +43,15 @@ Sa Windows, pwede ka ring mag load ng `ICO` icons galing sa file paths. Para pin
  * 64x64 (200% DPI scale)
 * 256x256
 
-Itsek ang *Size requirements* na seksyon sa [ artikulong ito](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Suriin ang *Kinakailangan sa sukat* na seksyon sa [ artikulong ito](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
-## Mataas na Resolusyong Imahe 
+## Imaheng may Mataas na Resolusyon
 
-Sa platform na may high-DPI support katulod ng Apple Retina displays, pwede kang magdagdag ng `@2x` pagkatapos ng image's base filename para markahan ito bilang mataas na resolusyong imahe. 
+Sa plataporma na may suporta sa mataas na DPI katulad ng Apple Retina na mga display, pwede kang magdagdag ng `@2x` pagkatapos ng base filename ng imahe para markahan ito bilang imaheng may mataas na resolusyon.
 
-Halmibawa kung `icon.png` ay normal na imahe na may standard na resolusyon, pagkatapos ay `icon@2x.png` ito ay mabibilang na mataas na resolusyong imahe na mayroong dobleng DPI density.
+Halimbawa kung `icon.png` ay normal na imahe na may istandard na resolusyon, samakatuwid ang `icon@2x.png` ay tatratuhin bilang imaheng may mataas na resolusyon na mayroong dobleng DPI na density.
 
-Kung gusto mong sumuporta ng displey nay mag magkaibang DPI densities na magkasabay, pwede kang maglagay ng imahe na may iba-ibang laki sa parehong folder at gamitin ang filename sa walang DPI suffixes. Halimbawa:
+Kung gusto mong suportahan ang mga display na nayy magkaibang mga DPI na density ng sabayan, pwede kang maglagay ng imahe na may iba-ibang sukat sa parehong folder at gamitin ang filename nang walang mga DPI suffix. Halimbawa:
 
 ```text
 imahe/
@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Ang mga sumusunod na suffixes ng DPI ay suportado rin.
+Ang mga sumusunod na mga suffix ng DPI ay suportado rin:
 
 * `@1x`
 * `@1.25x`
