@@ -2,7 +2,7 @@
 
 * `id` Number - уникальный числовой идентификатор дисплея.
 * `rotation` Number - число, которое представляет собой угол поворота экрана. Может быть 0, 90, 180, 270.
-* `scaleFactor` Number - матричный коэффициент пиксельного маштабирования выходного устройства.
+* `scaleFactor` Number - матричный коэффициент пиксельного масштабирования выходного устройства.
 * `touchSupport` String - может быть `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
