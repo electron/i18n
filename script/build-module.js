@@ -16,6 +16,7 @@ const GithubSlugger = require('github-slugger')
 const getIds = require('get-crowdin-file-ids')
 const remark = require('remark')
 const links = require('remark-inline-links')
+const parseGlossaryDoc = require('../lib/parse-glossary-doc')
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -184,7 +185,8 @@ function splitMd (md) {
   return sections
 }
 
-parseDocs().then(docs => {
+async function main () {
+  const docs = await parseDocs()
   const docsByLocale = Object.keys(locales)
     .reduce((acc, locale) => {
       acc[locale] = docs
@@ -204,6 +206,11 @@ parseDocs().then(docs => {
       return acc
     }, {})
 
+  const glossary = {}
+  for (let locale in locales) {
+    glossary[locale] = await parseGlossaryDoc(locale)
+  }
+
   fs.writeFileSync(
     path.join(__dirname, '../index.json'),
     JSON.stringify({
@@ -213,7 +220,10 @@ parseDocs().then(docs => {
       locales: locales,
       docs: docsByLocale,
       website: websiteStringsByLocale,
+      glossary: glossary,
       date: new Date()
     }, null, 2)
   )
-})
+}
+
+main()
