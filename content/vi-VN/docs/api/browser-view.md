@@ -29,9 +29,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *Đang thử nghiệm*
 
-* `options` Object (optional) 
+* `options` Object (không bắt buộc) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### Static Methods
