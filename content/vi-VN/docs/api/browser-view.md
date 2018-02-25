@@ -1,4 +1,4 @@
-## Class: BrowserView
+## Lớp: BrowserView
 
 > Tạo và điểu khiển View.
 
@@ -71,14 +71,14 @@ Object được tạo bằng `new BrowserView` các các phương thức riêng 
 #### `view.setAutoResize(options)` *Đang thử nghiệm*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - Nếu `true`, chiều ngang của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
+  * `height` Boolean - Nếu `true`, chiều dọc của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
 
 #### `view.setBounds(bounds)` *Đang thử nghiệm*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Điều chỉnh kích cỡ và di chuyển view.
 
 #### `view.setBackgroundColor(color)` *Đang thử nghiệm*
 
