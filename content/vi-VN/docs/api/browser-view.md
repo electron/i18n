@@ -34,7 +34,7 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (không bắt buộc) 
   * `webPreferences` Object (không bắt buộc) - Xem [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Các phương thức chung
 
 #### `BrowserView.getAllViews()`
 
@@ -50,7 +50,7 @@ Trả về `BrowserView ` đang sở hữu `webContents` hoặc trả về `null
 
 * `id` Số nguyên
 
-Trả về `id` của `BrowserView`.
+Trả về `BrowserView` với `id` đã cho.
 
 ### Các Thuộc Tính
 
@@ -58,15 +58,15 @@ Object được tạo bằng `new BrowserView` có các thuộc tính sau đây:
 
 #### `view.webContents` *Đang thử nghiệm*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+[`WebContents`](web-contents.md) object sở hữu bởi view này.
 
-#### `view.id` *Experimental*
+#### `view.id` *Đang thử nghiệm*
 
-A `Integer` representing the unique ID of the view.
+Một `số thực` đại diện cho ID độc nhất của View đó.
 
-### Instance Methods
+### Các phương thức riêng
 
-Objects created with `new BrowserView` have the following instance methods:
+Object được tạo bằng `new BrowserView` các các phương thức riêng sau đây:
 
 #### `view.setAutoResize(options)` *Đang thử nghiệm*
 
