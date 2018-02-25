@@ -32,27 +32,27 @@ view.webContents.loadURL('https://electronjs.org')
 ### `new BrowserView([options])` *Đang thử nghiệm*
 
 * `options` Object (không bắt buộc) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+  * `webPreferences` Object (không bắt buộc) - Xem [BrowserWindow](browser-window.md).
 
 ### Static Methods
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Trả về `BrowserView[]` - Một array các BrowserView đã mở.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Trả về `BrowserView ` đang sở hữu `webContents` hoặc trả về `null` nếu webContent không được sở hữu bởi BrowserView.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Số nguyên
 
-Returns `BrowserView` - The view with the given `id`.
+Trả về `id` của `BrowserView`.
 
-### Instance Properties
+### Các Thuộc Tính
 
 Objects created with `new BrowserView` have the following properties:
 
