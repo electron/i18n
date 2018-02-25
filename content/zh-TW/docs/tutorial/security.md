@@ -24,7 +24,7 @@
 
 ## Electron 安全性警告
 
-由 Electron 2.0 版開始，開發者會在開發主控台中看到警告訊息及建議事項。 只限於二進位檔名是 Electron 時才會顯示這些訊息，因為這代表看主控台的就是開發者。
+由 Electron 2.0 版開始，開發者會在開發主控台中看到警告訊息及建議事項。 They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
 你也可以在 `process.env` 或 `window` 中設定 `ELECTRON_ENABLE_SECURITY_WARNINGS` 或 `ELECTRON_DISABLE_SECURITY_WARNINGS` 來強制開啟或關閉這些警告訊息。
 
