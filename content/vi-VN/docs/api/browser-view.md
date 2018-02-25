@@ -1,12 +1,12 @@
 ## Class: BrowserView
 
-> Create and control views.
+> Tạo và điểu khiển View.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Ghi chú:** BrowserView API đang được thử nghiệm và có thể bị thay đổi hoặc bỏ luôn trong các phiên bản Electron kế tiếp.
 
-Quá trình: [Main](../glossary.md#main-process)
+Tiến trình: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+Một `BrowserView` được dùng để nhúng thêm nội dung web vào một `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
 ## Ví dụ
 
@@ -54,9 +54,9 @@ Trả về `id` của `BrowserView`.
 
 ### Các Thuộc Tính
 
-Objects created with `new BrowserView` have the following properties:
+Object được tạo bằng `new BrowserView` có các thuộc tính sau đây:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *Đang thử nghiệm*
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
@@ -68,18 +68,18 @@ A `Integer` representing the unique ID of the view.
 
 Objects created with `new BrowserView` have the following instance methods:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *Đang thử nghiệm*
 
 * `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *Đang thử nghiệm*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Đang thử nghiệm*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` Chuỗi - Màu dưới định dạng `#aarrggbb` hoặc `#argb`. Kênh alpha không bắt buộc.
