@@ -24,7 +24,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+В Devtron есть новая вкладка доступности, которая позволит вам совершить аудит страницы в вашем приложении, сортировать и фильтровать результаты.
 
 ![devtron скриншот](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
@@ -38,7 +38,7 @@ Electron приложения держат доступность отключе
 
 ### Inside Application
 
-С помощью [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), вы можете открыть переключатель доступности для пользователей в настройках приложения. User's system assistive utilities have priority over this setting and will override it.
+С помощью [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), вы можете открыть переключатель доступности для пользователей в настройках приложения. Вспомогательные утилиты пользователя системы имеют приоритет перед этим параметром и будут переопределять его.
 
 ### Assistive Technology
 
