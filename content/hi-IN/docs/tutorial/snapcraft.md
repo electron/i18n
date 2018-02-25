@@ -8,9 +8,9 @@
 
 एक `.snap` फाइल का निर्माण करने के 3 तरीके हैं:
 
-1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) [`इलेक्ट्रॉन-फोर्ज`](https://github.com/electron-userland/electron-forge) या [`इलेक्ट्रॉन-बिल्डर`](https://github.com/electron-userland/electron-builder) का इस्तेमाल कर, ये दोनों `स्नेप` सपोर्ट के साथ आउट ऑफ़ दा बॉक्स आते हैं | यह सबसे आसान विकल्प है | 2) `इलेक्ट्रॉन-इंस्टालर-स्नेप` का इस्तेमाल कर, जो कि `इलेक्ट्रॉन-पैकेजर` का आउटपुट लेता है | 3) पहले से निर्मित एक `.deb` पैकेज का इस्तेमाल कर |
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+सभी मामलों में, `स्नेपक्राफ्ट` टूल इनस्टॉल होना चाहिये | हम उबुन्तु 16.04 (या वर्तमान LTS) के ऊपर निर्माण करने की सलाह देते हैं |
 
 ```sh
 snap install snapcraft --classic
