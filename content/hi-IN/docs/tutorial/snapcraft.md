@@ -4,9 +4,9 @@
 
 ## पृष्ठभूमि और आवश्यकतायें
 
-Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+व्यापक लिनक्स समुदाय का साथ चल कर, कैनोनिकल का मकसद [`स्नेपक्राफ्ट`](https://snapcraft.io/) परियोजना के साथ होने वाली कई सारी आम सॉफ्टवेयर इंस्टालेशन सम्बंधित दिक्कतों को दूर करना है | स्नेप्स कंटेनराआइज़ड सॉफ्टवेर पैकेज हैं जिनमें ज़रूरी निर्भार्तायें शामिल होती हैं, स्वतः-अपडेट होते हैं, और ये सभी प्रमुख लिनक्स वितरणों पर बिना सिस्टम बदलावों के काम करते हैं |
 
-There are three ways to create a `.snap` file:
+एक `.snap` फाइल का निर्माण करने के 3 तरीके हैं:
 
 1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
 
