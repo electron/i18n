@@ -151,11 +151,11 @@ child.once('ready-to-show', () => {
   * `disableAutoHideCursor` Boolean (任意) - 入力中にカーソルを非表示にするかどうか。 省略値は、`false` です。
   * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていない場合、メニューバーを自動的に非表示にします。省略値は、`false` です。
   * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。省略値は、`false` です。
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
+  * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (アルファ値をサポートしています) のような16進数の値でのウインドウの背景色。 省略値は、`#FFF` (白) です。
+  * `hasShadow` Boolean (任意) - ウインドウが影をもっているかどうか。これはmacOSでのみ実装されています。省略値は、`true` です。
+  * `opacity` Number (任意) - ウインドウの初期透明度を0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。これはWindowsとmacOSでのみ実装されています。
+  * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマを強制的に使用します。いくつかのGTK+3デスクトップ環境でしか動作しません。省略値は、`false` です。
+  * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md) にします。 省略値は、`false` です。
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
     * `default` - Results in the standard gray opaque Mac title bar.
