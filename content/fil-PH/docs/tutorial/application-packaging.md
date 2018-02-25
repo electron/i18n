@@ -1,12 +1,12 @@
-# Packaging ng aplikasyon
+# Pagpapakete ng aplikasyon
 
-Para maiwasan ang [mga isyu](https://github.com/joyent/node/issues/6960) sa paligid ng mahabang pangalan sa landas ng Windows, bahagyang mapapabilis ang `require` para itago ang iyong source code mula sa pinasimpleng inspeksyon, pwede kang mamili para I- package ang iyong app isang [asar](https://github.com/electron/asar) na aktibo sa maliit na pag babago sa iyong source code.
+Para maiwasan ang [mga isyu](https://github.com/joyent/node/issues/6960) sa paligid ng mahabang mga pangalan ng path sa Windows, bahagyang bilisan ang `require` para itago ang iyong source code mula sa pinasimpleng inspeksyon, pwede kang pumiling ipakete ang iyong app sa isang [asar](https://github.com/electron/asar) na archive na may maliit na pagbabago sa iyong source code.
 
 Karamihan sa mga tagagamit ay makukuha ang katangiang ito nang libre, dahil sinusuportahan ito sa labas sa pamamagitan ng [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), at [`electron-builder`](https://github.com/electron-userland/electron-builder). Kung hindi mo ginagamit ang kahit alin sa mga kasangkapang ito, magbasa pa.
 
 ## Pagbubuo ng mga `asar` na Archive
 
-Ang "[asar](https://github.com/electron/asar) archive ay isang simpleng ayos tulad ng tar na dinudugtong sa mga payl upang maging isang payl. Ang Elektron ay maaaring basahin ang mga payl na arbitraryo galing dito nang hindi kinukuha sa buong payl.
+Ang "[asar](https://github.com/electron/asar) na archive ay isang simpleng ayos tulad ng tar na dinudugtong sa mga payl upang maging isang payl. Ang Elektron ay maaaring basahin ang mga payl na arbitraryo galing dito nang hindi ina-unpack ang buong file.
 
 Mga hakbang para mailagak ang iyong app sa archive ng `asar`:
 
@@ -95,7 +95,7 @@ const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-Maaari ring itakda ang `process.noAsar` sa `true` para hindi magamit an suporta para sa `asar` sa modyul ng `fs`:
+Maaari ring itakda ang `process.noAsar` sa `true` para hindi magamit ang suporta para sa `asar` sa modyul ng `fs`:
 
 ```javascript
 const fs = require('fs')
