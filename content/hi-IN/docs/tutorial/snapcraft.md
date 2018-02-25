@@ -1,6 +1,6 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# स्नेपक्राफ्ट गाइड (उबुन्तु सॉफ्टवेर सेंटर & अधिक)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+यह गाइड इलेक्ट्रॉन एप्लीकेशन को किसी भी स्नेपक्राफ्ट वातावरण के लिए, (जिसमे उबुन्तु सॉफ्टवेर सेंटर शामिल है) पैकेज करने के लिए जानकारी उपलब्ध कराती है |
 
 ## पृष्ठभूमि और आवश्यकतायें
 
