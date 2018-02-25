@@ -34,11 +34,11 @@ If you know of other great accessibility tools for Electron, add them to the acc
 
 ## Enabling Accessibility
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Electron приложения держат доступность отключенной по умолчанию для производительности, но есть несколько способов ее включения.
 
 ### Inside Application
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+С помощью [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), вы можете открыть переключатель доступности для пользователей в настройках приложения. User's system assistive utilities have priority over this setting and will override it.
 
 ### Assistive Technology
 
