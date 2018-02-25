@@ -6,12 +6,12 @@
 
 Tiến trình: [Main](../glossary.md#main-process)
 
-Một `BrowserView` được dùng để nhúng thêm nội dung web vào một `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+Một `BrowserView` được dùng để nhúng thêm nội dung web vào một `BrowserWindow`. Nó như một cửa sổ con, ngoại trừ vị trí của nó thì tương đối với cửa sổ sở hữu nó. Có thể xem nó là một sự lựa chọn khác với sử dụng tag `webview`.
 
 ## Ví dụ
 
 ```javascript
-// Trong main process.
+// Trong tiến trình main.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
