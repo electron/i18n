@@ -20,7 +20,7 @@ snap install snapcraft --classic
 
 ## `इलेक्ट्रॉन-इंस्टालर-स्नेप` का इस्तेमाल
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+मोड्यूल [`electron-winstaller`](https://github.com/electron/windows-installer) और इसी तरह के मोडयुल्स की तरह काम करता है कि इसकी परिधि स्नेप पैकेजेस का निर्माण करने तक ही सीमित है | आप इसको इनस्टॉल कर सकते है इसके साथ:
 
 ```sh
 npm install --save-dev electron-installer-snap
