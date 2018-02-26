@@ -6,7 +6,7 @@ Process: [Main](../glossary.md#main-process)
 
 Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
 
-Halimbawa:
+For example:
 
 ```javascript
 const electron = kailangan('electron')
