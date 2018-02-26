@@ -20,4 +20,4 @@ Isang `String` kumakatawan sa label ng kasalukuyang salita. Kung babaguhin ang h
 
 #### `touchBarLabel.kulayngteksto`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+Isang `String` hex code na kumakatawan sa label ng kasalukuyang kulay ng salita. Kung babaguhin ang halaga nito ay agad mauupdate ang label na nasa touch bar.
