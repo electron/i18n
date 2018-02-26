@@ -4,7 +4,7 @@ Sa Windows 10, ang lumang win32 executable ay mayroong bagong kapatid: Ang Unive
 
 Ang Microsoft[ay bumuo ng isang kagamitan na kumukalap ng Electron apps bilang`.appx`pakete](https://github.com/catalystcode/electron-windows-store)na tumulutong sa mga developers na magamit ang ilang magagandang bagay na makikita sa bagong modelong aplikasyon. Ang gabay na ito ay nagpapaliwanag kung paano ito gagamitin - anu-ano ang mga kakayahan at limitaston ng pakete ng Electron AppX.
 
-## Background and Requirements
+## Background at Mga Kinakailangan
 
 Ang Windows 10 "Anniversary Update" ay kayang paganahin ang win32`.exe`binaries sa pamamagitan ng paglunsad nito ng sabay sa virtualized filesystem at registry. Sila ay kapwa nalikha sa panahon ng pagtitipon sa pamamagitan ng pagpapagana ng app at installer sa loob ng Windows Container, ito ay nagbibigay pahintulot sa Windows para eksaktong matukoy kung aling pagbabago sa operating system ang nagawa sa oras ng pag-iinstall. Ang pagpapares ng maipapatupad sa isang virtual filesystem at isang virtual registry ay nagbibigay pahintulot sa Windows upang paganahin ang pag-install at pagtanggal sa pamamagitan ng isang klik.
 
@@ -22,11 +22,11 @@ Then, go and install the `electron-windows-store` CLI:
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## Unang hakbang: Package ng Iyong Application sa Electron
 
 Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
 
-The output should look roughly like this:
+Ang output ay dapat magmukhang halos katulad nito:
 
 ```text
 ├── Ghost.exe
@@ -87,7 +87,7 @@ Upang tingnan kung paano ang isang app ng Electron na gumagamit ng isang gawain 
 
 Upang makabuo ng pakete ng AppX, ginagamit ng `electron-windows-store`CLI ang isang template na dapat gumana para sa karamihan ng mga apps sa Electron. Gayunpaman, kung gumagamit ka ng custom installer, o dapat kang makaranas ng anumang problema sa nabuong pakete, ikaw maaaring magtangkang lumikha ng isang pakete gamit ang compilation sa isang Windows Container - in na mode, ang CLI ay mag-i-install at magpatakbo ng iyong aplikasyon sa blangko ng Windows Container upang matukoy kung anong pagbabago ang eksaktong ginagawa ng iyong aplikasyon sa pagpapatakbo sistema.
 
-Bago patakbuhin ang CLI sa unang pagkakataon, kakailanganin mong i-setup ang "Windows Desktop App Converter ". Kakailanganin ito ng ilang minuto, ngunit huwag mag-alala - kailangan mo lang gawin ito nang isang beses. Download and Desktop App Converter from [here](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). Makakatanggap ka ng dalawang mga file: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Bago patakbuhin ang CLI sa unang pagkakataon, kakailanganin mong i-setup ang "Windows Desktop App Converter ". Kakailanganin ito ng ilang minuto, ngunit huwag mag-alala - kailangan mo lang gawin ito nang isang beses. I-download at Desktop App Converter mula sa [here](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). Makakatanggap ka ng dalawang mga file: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
 1. Hindi na zip `DesktopAppConverter.zip`. Mula sa isang nakataas PowerShell (binuksan gamit ang "run as administrator", tiyaking pinapayagan kami ng patakaran sa pagpapatupad ng iyong system patakbuhin ang lahat ng bagay na nais naming patakbuhin sa pamamagitan ng pagtawag `Set-ExecutionPolicy bypass`.
 2. Pagkatapos, patakbuhin ang pag-install ng Desktop App Converter, na ipinapasa ang lokasyon ng Windows base Image (downloaded as `BaseImage-14316.wim`), sa pamamagitan ng pagtawag `.\DesktopAppConverter.ps1-Setup -BaseImage .\BaseImage-14316.wim`.

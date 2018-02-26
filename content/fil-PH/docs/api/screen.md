@@ -2,7 +2,7 @@
 
 > Kunin ang impormasyon tungkol sa laki ng screen, display, cursor posisyon, at iba pa.
 
-Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
 
@@ -54,7 +54,7 @@ Returns:
 
 Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. Ang `changedMetrics` ay isang array ng mga strings na naglalarawan ng mga pagbabago. Mga posiblen pagbabago sa `bounds`, `workArea`, `scaleFactor` at `rotation`.
 
-## Methods
+## Paraan
 
 Ang `screen` na modyul ay may mga sumusunod na mga paraan:
 

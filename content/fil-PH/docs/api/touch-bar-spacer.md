@@ -6,8 +6,8 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### `bagong diinangPagitangBar(pamimilian)`*Eksperimento*
 
-* `options` Object 
-  * `sukat` String (optional) - Size of spacer, possible values are: 
+* `pagpipilian` Bagay 
+  * `sukat` Pisi (opsyonal) - laki ng spacer, posibleng values ay: 
     * `maliit` - Maliit na pagitan sa gitna ng mga aytem.
     * `malaki` - Malaking pagitan sa gitna ng mga aytem.
     * `flexible` - kunin ang lahat ng espasyo na magagamit.

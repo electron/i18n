@@ -1,12 +1,12 @@
-# Gabay sa pagsmite sa Mac App Store
+# Gabay sa Pagsumite sa Mac App Store
 
-Simula v0.34.0, pinahintulutan ng Electron ang pagsumite ng packaged apps sa Mac App Store (IMAS). Ang gabay na ito ay nagbibigay impormasyon sa: paano magsumite ng iyong app at ang limitasyon ng MAS build.
+Simula v0.34.0, pinahintulutan ng Electron ang pagsumite ng pinaketeng mga app sa Mac App Store (MAS). Ang gabay na ito ay nagbibigay impormasyon sa: paano isumite ng iyong app at ang mga limitasyon ng MAS na build.
 
-**Palatandaan:** Ang pagsumite ng app sa Mac App Store ay nangangailangan ng pag-enrol ng [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), kung saan nagkakahalaga ng pera.
+**Tandaan:** Ang pagsumite ng app sa Mac App Store ay nangangailangan ng pag-enrol ng [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), na nagkakahalaga ng pera.
 
-## Paano mag-sumite ng Iyong App
+## Paano Isumite ng Iyong App
 
-Ang sumusunod na hakbang ay nagpapakilala ng simpleng paraan upang isumite ang iyong app sa Mac App Store. Ngunit, ang mga hakbang na ito ay hindi matitiyak na maapruban ng Apple ang iyong app; kailangan mo parin basahin ang hakbang ng [Pagsumite ng Iyong App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) ng Apple upang matugunan ang pangangailangan ng Mac App Store.
+Ang sumusunod na mga hakbang ay nagpapakilala ng isang simpleng paraan sa pagsumite ng iyong app sa Mac App Store. Ngunit, ang mga hakbang na ito ay hindi matitiyak na maapruban ng Apple ang iyong app; kailangan mo parin basahin ang hakbang ng [Pagsumite ng Iyong App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) ng Apple upang matugunan ang pangangailangan ng Mac App Store.
 
 ### Kumuha ng Sertipiko
 
@@ -88,7 +88,7 @@ At pagkatapos, lagdaan ang iyong app sa sumusunod na mga iskrip:
 APP="YourApp"
 # Ang landas na mag-sign ang iyong app.
 APP_PATH="/path/to/YourApp.app"
-# Ang landas sa lokasyon na gusto mong ilagay ang signed package.
+# Ang landas sa lokasyon na gusto mong ilagay ang pinirmahang pakete.
 RESULT_PATH="~/Desktop/$APP.pkg"
 # Ang pangalan ng mga sertipikong hiniling mo.
 APP_KEY="3rd Party Mac Developer Application: Pangalan ng Kompanya (APPIDENTITY)"
@@ -117,11 +117,11 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-Kung baguhan ka sa app sandboxing ng macOS, dapat mo rin basahin sa pamamagitan ng [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) ng Apple para magkaroon ng pangunahing ideya, tapos magdagdag ng mga ideya na kailangan upang pahintulutan ang iyong app ng mga entitlement file. 
+Kung baguhan ka sa app sandboxing ng macOS, dapat mo rin basahin sa pamamagitan ng [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) ng Apple para magkaroon ng pangunahing ideya, tapos magdagdag ng mga ideya na kailangan upang pahintulutan ang iyong app ng mga entitlement file.
 
 Bukod sa pag mano-manong pag-sign ng iyong app, maaari ka ring pumili na gumamit ng [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) na modyul para gawin ang trabaho.
 
-#### Mga sign ng mga Native na Modyul
+#### Pirmahan ang mga Native na Modyul
 
 Ang mga native na modyul na ginagamit ng iyong app ay dapat ring lagdaan. Kung gagamit ng electron-osx-sign, siguraduhing isama ang landas ng built binaries sa lista ng argumento:
 
@@ -129,45 +129,45 @@ Ang mga native na modyul na ginagamit ng iyong app ay dapat ring lagdaan. Kung g
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Tandaan din na ang native na mga modyul ay maaaring may intermediate na mga file na binuo na hindi sana kabilang (na dapat rin nilagdaan). Kung gumamit ka ng [electron-packager](https://github.com/electron-userland/electron-packager) bago ang bersyon 8.1.0, magdagdag ng `--ignore=.+\.o$` sa iyong build na hakbang para maiwasan ang mga file. Mga bersyon 8.1.0 at luma pa ay iniiwasan ang mga file na iyon sa pamamagitan ng default.
+Tandaan din na ang native na mga modyul ay maaaring may intermediate na mga file na binuo na hindi sana kabilang (na dapat rin nilagdaan). Kung gumamit ka ng [electron-packager](https://github.com/electron-userland/electron-packager) bago ang bersyon 8.1.0, magdagdag ng `--ignore=.+\.o$` sa iyong build na hakbang para maiwasan ang mga file. Ang mga bersyong 8.1.0 at mas bago pa ay iniiwasan ang mga file na iyon sa pamamagitan ng default.
 
-### I-upload aang iyong app
+### I-upload ang iyong app
 
 Matapos lagdaan ang iyong app, maaari kang gumamit ng Application Loader para mag-upload sa iTunes Connect upang ma proseso, sinisigurado na ikaw ay [nakalikha ng record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) bago mag-upload.
 
-### I-sumite ang Iyong App upang Suriin
+### I-sumite ang Iyong App para sa Pagsusuri
 
 Matapos ang mga hakbang na ito, maaari mong [i-sumite ang iyong app para sa pagsusuri](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Mga limitasyon ng MAS Build
+## Mga Limitasyon ng MAS Build
 
 Upang matugunan ang pangangailangan ng app sandboxing, ang sumusunod na modyul ay hindi pinagana sa MAS build:
 
 * `crashReporter`
 * `autoUpdater`
 
-at ang mga sumusunod na paguugali ay binago:
+at ang mga sumusunod na mga paggalaw ay binago:
 
-* Ang bidyo capture ay maaaring hindi gumana sa ibang mga makina.
-* Siguradong accessibility features ay maaaring hindi gumana.
+* Ang pagkuha ng video ay maaaring hindi gumana sa ibang mga makina.
+* Ang ilang mga katangian ng aksesibilidad ay maaaring hindi gumana.
 * Ang mga app ay hindi makakaalam sa mga pagbabago ng DNS.
 
-Tsaka, dahil sa paggagamit ng app sandboxing, ang mga sagguniang maaaring ma-access sa pamamagitan ng app ay striktong limitado; maaari mong basahin ang [App Sandboxing](https://developer.apple.com/app-sandboxing/) para sa karagdagang impormasyon.
+At saka, dahil sa pagamit ng app sandboxing, ang mga kagamitang maaaring ma-access sa pamamagitan ng app ay striktong limitado; maaari mong basahin ang [App Sandboxing](https://developer.apple.com/app-sandboxing/) para sa karagdagang impormasyon.
 
 ### Karagdagang mga Karapatan
 
-Depende sa kung aling mga Electron API ang ginagamit ng iyong app, maaaring kailangan mong magdagdag ng karagdagang karapatan sa iyong `parent.plist` file upang magamit ang mga API na ito mula sa iyong bumuo ng Mac App Store ng app.
+Depende sa kung aling mga Electron API ang ginagamit ng iyong app, maaaring kailangan mong magdagdag ng karagdagang mga karapatan sa iyong `parent.plist` na file upang magamit ang mga API na ito mula sa Mac App Store na build ng iyong app.
 
-#### Daanan ng Network
+#### Access sa Network
 
-Paganahing papalabas ang mga koneksyon ng network para payagan ang iyong app na kumonek sa isang server:
+Paganahin ang mga kasalukuyang mga koneksyon ng network para payagan ang iyong app na kumonekta sa isang server:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Paganahin ang mga papasok na koneksyon sa network upang payagan ang iyong app na magbukas ng network pakikinig socket:
+Paganahin ang mga papasok na koneksyon sa network upang payagan ang iyong app na magbukas ng isang network listening socket:
 
 ```xml
 <key>com.apple.security.network.server</key>
@@ -183,7 +183,7 @@ Tingnan ang [Enabling Network Access decumentation](https://developer.apple.com/
 <true/>
 ```
 
-Tingnan ang [Enabling User-Selected File Access decumentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
+Tingnan ang [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
 
 #### dialog.showSaveDialog
 
@@ -192,21 +192,21 @@ Tingnan ang [Enabling User-Selected File Access decumentation](https://developer
 <true/>
 ```
 
-Tingnan ang [Enabling User-Selected File Access decumentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
+Tingnan ang [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
 
-## Hindi kilalang mga isyu
+## Kilalang mga isyu
 
 ### `shell.openItem(filePath)`
 
 Mabibigo ito kapag nilagdaan ang app para sa pamamahagi sa Mac App Store. Mag-subscribe sa [#9005](https://github.com/electron/electron/issues/9005) para sa mga update.
 
-#### Gumana sa Paligid
+#### Workaround
 
-`shell.openExternal('file: //' + filePath)` ay bubuksan ang file sa default na application hangga't ang extension ay nauugnay sa isang naka-install na app.
+Bubuksan ng `shell.openExternal('file: //' + filePath)` ang file sa default na aplikasyon hangga't ang extension ay nauugnay sa isang naka-install na app.
 
-## Cryptographic Algorithm Ginamit ng Electron
+## Mga Cryptographic Algorithm na Ginamit ng Electron
 
-Depende sa bansa at rehiyon na iyong matatagpuan, maaaring kailanganin ng Mac App Store pagdodokumento ng mga cryptographic algorithm na ginamit sa iyong app, at kahit na hilingin sa iyo magsumite ng kopya ng pag-apruba ng U.S. Encryption Registration (ERN).
+Depende sa bansa at rehiyon kung saan ka matatagpuan, maaaring kailanganin ng Mac App Store ang pagdodokumento ng mga cryptographic algorithm na ginamit sa iyong app, at posibleng hilingin kang magsumite ng kopya ng pag-apruba ng U.S. Encryption Registration (ERN).
 
 Ang Electron ay gumagamit ng mga sumusunod na cryptographic algorithm:
 
@@ -234,4 +234,4 @@ Ang Electron ay gumagamit ng mga sumusunod na cryptographic algorithm:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+Sa kung paano makakuha ng ERN na pag-apruba, maaari mong batayan ang artikulong: [Paano legal na isumite ang isang app sa Apple’s App Store kapag gumagamit ito ng encryption (o paano makakuha ng isang ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).

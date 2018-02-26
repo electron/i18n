@@ -8,7 +8,7 @@
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Недавние документы
 
 See [Recent Documents documentation](recent-documents.md).
 

@@ -47,7 +47,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Application Testing and Debugging](tutorial/application-debugging.md) 
   * [Debugging the Main Process](tutorial/debugging-main-process.md)
   * [Využití Selenium a WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [Testování na bezhlavý CI systémů (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools rozšíření](tutorial/devtools-extension.md)
 * [Distribuce aplikací](tutorial/application-distribution.md) 
   * [Podporované platformy](tutorial/supported-platforms.md)
@@ -88,7 +88,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * * *
 
-* [Glossary of Terms](glossary.md)
+* [Slovníček pojmů](glossary.md)
 
 ## API Reference
 

@@ -1,4 +1,4 @@
-# BluetoothDevice वस्तु
+# lokendra singh 
 
 * ` deviceName ` String
 * ` deviceId ` String

@@ -6,10 +6,10 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 * [Electron SSS](faq.md)
 
-## Guides and Tutorials
+## 1 whan to business in online application
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
+* [Geliştirme Ortamını Kurmak](tutorial/development-environment.md) 
+  * [MacOS'u kurma](tutorial/development-environment.md#setting-up-macos)
   * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
   * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
   * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)

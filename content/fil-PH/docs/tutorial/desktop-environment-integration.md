@@ -8,7 +8,7 @@ Ang gabay na ito ay nagpapaliwanag kung paano i-integrate ang iyong aplikasyon s
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Kasalukuyang dokumento
 
 See [Recent Documents documentation](recent-documents.md).
 
@@ -24,6 +24,6 @@ See the [Unity Launcher documentation](unity-launcher.md).
 
 See the [Represented File documentation](represented-file.md).
 
-## Dragging files out of the window
+## Paghila ng mga file palabas sa window
 
 See the [Native File Drag & Drop documentation](native-file-drag-drop.md).

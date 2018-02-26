@@ -1,4 +1,4 @@
-# Frameless Window 
+# Window na Walang Frame
 
 > Magbukas ng window na walang mga toolbar, mga border, o iba pang graphical na "chrome".
 

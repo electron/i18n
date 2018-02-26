@@ -1,12 +1,12 @@
-# gupitin ng maikli ang mga litrato
+# nativeImage
 
-> Gumawa ng trey, pantalan, at aplikasyon na icon gamit ang PNG o JPG files.
+> Gumawa ng tray, dock, at aplikasyon na mga icon gamit ang PNG o JPG na mga file.
 
 Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file paths o `NativeImage` mga pagkakataon. Ang walang laman na imahe ay gagamitin kung `null` ay maipasa.
+Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file paths o `NativeImage` na mga instance. Ang walang laman na imahe ay gagamitin kung ang `null` ay maipasa.
 
-Halimbawa, kung gagawa ng trey o pagtatakda sa window's icon, pwede mong ipasa ang file path ng imahe bilang `String`:
+Halimbawa, kung gagawa ng tray o setting sa icon ng window, pwede mong ipasa ang file path ng imahe bilang isang `String`:
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -16,7 +16,7 @@ let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
 console.log(appIcon, win)
 ```
 
-O basahin ang imahe mula sa klipbord na nagbabalik sa `NativeImage`:
+O basahin ang imahe mula sa klipbord na nagbabalik ng isang `NativeImage`:
 
 ```javascript
 const {clipboard, Tray} = require('electron')
@@ -25,17 +25,17 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Suportadong Pormat 
+## Suportadong mga Pormat
 
-Sa kasalukuyan `PNG` and `JPEG` ipormat ng imahe ay suportad. `PNG` ay inirerekomenda dahil ito ay sumusuporta sa aninaw at walang pagkakawalang compression.
+Sa kasalukuyan ang `PNG` at `JPEG` na mga pormat ng imahe ay suportado. Ang `PNG` ay inirerekomenda dahil ito ay sumusuporta sa malinis at walang pagkawalang kompresyon.
 
-Sa Windows, pwede ka ring mag load ng `ICO` icons galing sa file paths. Para pinakamahusay na biswal na kalidad, nirerekomenda ang pag sama sa mga sumusunod na laki sa:
+Sa Windows, pwede ka ring mag load ng `ICO` na mga icon galing sa mga file path. Para sa pinakamahusay na kalidad na biswal, inirerekomenda ang pag sama sa mga sumusunod na sukat sa:
 
 * Maliit na icon 
- * 16x16 (100% DPI scale) 
+ * 16x16 (100% DPI scale)
  * 20x20 (125% DPI scale)
  * 24x24 (150% DPI scale)
- * 32x32 (200% DPI scale) 
+ * 32x32 (200% DPI scale)
 * Malaking Icon 
  * 32x32 (100% DPI scale)
  * 40x40 (125% DPI scale)
@@ -43,15 +43,15 @@ Sa Windows, pwede ka ring mag load ng `ICO` icons galing sa file paths. Para pin
  * 64x64 (200% DPI scale)
 * 256x256
 
-Itsek ang *Size requirements* na seksyon sa [ artikulong ito](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Suriin ang *Kinakailangan sa sukat* na seksyon sa [ artikulong ito](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
-## Mataas na Resolusyong Imahe 
+## Imaheng may Mataas na Resolusyon
 
-Sa platform na may high-DPI support katulod ng Apple Retina displays, pwede kang magdagdag ng `@2x` pagkatapos ng image's base filename para markahan ito bilang mataas na resolusyong imahe. 
+Sa plataporma na may suporta sa mataas na DPI katulad ng Apple Retina na mga display, pwede kang magdagdag ng `@2x` pagkatapos ng base filename ng imahe para markahan ito bilang imaheng may mataas na resolusyon.
 
-Halmibawa kung `icon.png` ay normal na imahe na may standard na resolusyon, pagkatapos ay `icon@2x.png` ito ay mabibilang na mataas na resolusyong imahe na mayroong dobleng DPI density.
+Halimbawa kung `icon.png` ay normal na imahe na may istandard na resolusyon, samakatuwid ang `icon@2x.png` ay tatratuhin bilang imaheng may mataas na resolusyon na mayroong dobleng DPI na density.
 
-Kung gusto mong sumuporta ng displey nay mag magkaibang DPI densities na magkasabay, pwede kang maglagay ng imahe na may iba-ibang laki sa parehong folder at gamitin ang filename sa walang DPI suffixes. Halimbawa:
+Kung gusto mong suportahan ang mga display na nayy magkaibang mga DPI na density ng sabayan, pwede kang maglagay ng imahe na may iba-ibang sukat sa parehong folder at gamitin ang filename nang walang mga DPI suffix. Halimbawa:
 
 ```text
 imahe/
@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Ang mga sumusunod na suffixes ng DPI ay suportado rin.
+Ang mga sumusunod na mga suffix ng DPI ay suportado rin:
 
 * `@1x`
 * `@1.25x`
@@ -80,38 +80,36 @@ Ang mga sumusunod na suffixes ng DPI ay suportado rin.
 * `@4x`
 * `@5x`
 
-## Template Image
+## Template na Imahe
 
-Ang template image ay binubuo ng itim at malinaw na kulay (at ang aplha channel). Ang template images ay hindi inilalaan para gamiting napag-iisang imahe at kadalasan ay inihahalo sa ibang nilalaman para bumuo ng nais na huling kaanyuan.
+Ang template na imahe ay binubuo ng itim at malinaw na mga kulay (at ang alpha na tsanel). Ang mga template na imahe ay hindi inilalaan para gamiting napag-iisang imahe at kadalasan ay inihahalo sa ibang nilalaman para bumuo ng nais na huling kaanyuan.
 
-Ang pinaka karaniwang kaso ay ang paggamit ng template images para sa menu bar icon upang maakma sa kapwa maliwanag at madilim na menu bars.
+Ang pinakakaraniwang kaso ay ang paggamit ng template na mga imahe para sa menu bar na icon upang maakma sa kapwa maliwanag at madilim na mga menu bar.
 
-**Note:** Template image ay suportado lamang ng macOS.
+**Tandaan:** Ang template na imahe ay suportado lamang sa macOS.
 
-Para markahan ang imahe bilang template image, ang filename at dapat magtatapos sa salitang `Template`. Halimbawa:
+Para markahan ang imahe bilang template na imahe, ang filename ay dapat magtatapos sa salitang `Template`. Halimbawa:
 
 * `xxxTemplate.png`
-* `xxxTemplate@2x.png
+* `xxxTemplate@2x.png`
 
-`
+## Mga Pamamaraan
 
-## Pamamaraan
-
-Ang ` nativeimage ` modyul ay may mga sumusunod na pamamaraan, lahat ng ito ay bumalik sa isang halimbawa ng `NativeImage` na klase:
+Ang ` nativeimage ` na modyul ay may mga sumusunod na pamamaraan, lahat ng ito ay nagbabalik ng isang instance ng `NativeImage` na klase:
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+Nagbabalik ng `NativeImage`
 
-Gumawa ng walang lamang `NativeImage` instance.
+Gumawa ng bakanteng `NativeImage` na instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` String
+* `path` na String
 
-Returns `NativeImage`
+Nagbabalik ng `NativeImage`
 
-Gumawa ng bagong 0>NativeImage</code> instance mula sa file na matatagpuan sa `path`. Ang pamamaraan ay bumabalik ng walang lamang imahe kapag ang `path` ay hindi umiiral, hindi mababasa or walang bisang imahe. 
+Gumagawa ng bagong `NativeImage` na instance mula sa file na matatagpuan sa `path`. Ang paraang ito ay nagbabalik ng bakanteng imahe kapag ang `path` ay hindi umiiral, hindi mababasa or hindi isang tamang imahe.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -123,36 +121,36 @@ console.log(image)
 ### `ativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Kinakailangan para sa mga bitmap buffers. * `height` Integer (optional) - Kinakailangan para sa mga bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (opsyonal) * `width` Integer (opsyonal) - Kinakailangan para sa mga bitmap na buffer. * `height` na Integer (opsyonal) - Kinakailangan para sa mga bitmap na buffer. * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
-Returns `NativeImage`
+Nagbabalik ng `NativeImage`
 
-Gumawa ng bagong `NativeImage` instance mula `buffer`.
+Gumagawa ng bagong `NativeImage` na instance mula sa `buffer`.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
-* `dataURL` String
+* `dataURL` na String
 
-Returns `NativeImage`
+Nagbabalik ng `NativeImage`
 
-Gumawa ng bagong `NativeImage` instance mula `dataURL`. 
+Gumagawa ng bagong `NativeImage` na instance mula sa `dataURL`.
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
-* `imageName` String
+* `imageName` na String
 * `hslShift` Number[]
 
-Returns `NativeImage`
+Nagbabalik ng `NativeImage`
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+Gumagawa ng isang bagong `NativeImage` na instance mula sa NSImage na nagmamapa sa binigay na pangalan ng imahe. Tingnan ang [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) para sa listahan ng mga posibleng halaga.
 
-The `hslShift` is applied to the image with the following rules
+Ang `hslShift` ay inaaplay sa imahe na may sumusunod na mga patakaran
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
+* `hsl_shift[0]` (hue): Ang ganap na halaga ng hue para sa imahe - 0 at 1 na minamapa sa 0 at 360 sa pangkulay na gulong ng hue (pula).
+* `hsl_shift[1]` (satyurasyon): Isang satyurasyon na shift para sa imahe kasa ang mga sumusunod na halaga:  
+ 0 = tanggalin lahat ng kulay.  
+ 0.5 = pabayaang hindi binago.  
+ 1 = ganap na i-saturate ang imahe. 
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
  0 = remove all lightness (make all pixels black).  
  0.5 = leave unchanged.  

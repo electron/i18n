@@ -1,10 +1,10 @@
 # ang protokol
 
-> Irehistro ang isang ipinasadyang protokol at harangin ang umiiral na kahilingan para sa protokol.
+> Irehistro ang isang karaniwang protokol at harangin ang umiiral na kahilingang protokol.
 
 Proseso:[Main](../glossary.md#main-process)
 
-Ang isang halimbawa ng pagpapatupad ng isang protokol na may kaparehas na epekto katulad ng protokol ng `file://`:
+Ang isang halimbawa ng pagpapatupad ng isang protokol na may kaparehas na epekto katulad ng `file://` na protokol:
 
 ```javascript
 const {app, protocol} = kailangan('electron')
@@ -20,23 +20,23 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** Ang lahat ng mga pamamaraan maliban kung tinukoy ay maaari lamang gamitin pagkatapos ng event ng `ready` sa modyul ng `app` ay lumabas.
+**Note:** Ang lahat ng mga pamamaraan maliban sa mga tinukoy ay maaari lamang gamitin pagkatapos ng paglabas ng event na `ready` ng modyul ng `app`.
 
-## Mga Paraan
+## Mga Pamamaraan
 
-Ang modyul ng `protocol` ay mayroon ng mga sumusunod na mga pamamaraan:
+Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
-* `schemes` String[] - Ang pasadyang panukala na magiging rehistrado bilang mga standard na panukala.
-* `mga opsyon` Mga bagay (opsyonal) 
-  * `secure` Boolean (opsyonal) - `true` para irehistro ang panukala bilang ligtas. Ang default ay `false`.
+* `schemes` na String[] - Ang karaniwang panukala na irerehistro bilang mga istandard na iskema.
+* `mga opsyon` Bagay (opsyonal) 
+  * `secure` na Boolean (opsyonal) - `true` upang irehistro ang iskema bilang ligtas. Ang default ay `false`.
 
-Ang isang standard na panukala ay sumusunod sa kung tawagin ng RFC 3986 ay [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Halimbawa ang `http` at ang `https` ay mga standard na panukala, samantalang ang `file` ay hindi.
+Ang isang standard na iskema ay sumasang-ayon sa kung tawagin ng RFC 3986 ay [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Halimbawa ang `http` at ang `https` ay mga istandard na iskema, samantalang ang `file` ay hindi.
 
-Ang pagpaparehistro ng panukala bilang standard, ay papayagan ang may kaugnayan at tiyak na mapagkukunan ay malulutas ng tama kapag isinilbi. Kung hindi man ang panukala ay kikilos ng kagaya ng protokol ng `file`, ngunit walang kakayahang lutasin ang may kaugnayang mga URL.
+Ang pagpaparehistro ng iskema bilang standard, ay papayagan ang may kaugnayan at tiyak na mapagkukunan na malulutas nang tama kapag isinilbi. Kung hindi man, ang panukala ay kikilos ng kagaya ng `file` na protokol, ngunit walang kakayahang lutasin ang may kaugnayang mga URL.
 
-Halimbawa kapag iniload mo ang mga sumusunod na pahina na may pasadyang protokol na hindi inirerehistro ito bilang standard na panukala, ang imahe ay hindi mailoload sapagkat ang hindi standard na mga panukala ay hindi makakakilala ng may kaugnayang mga URL:
+Halimbawa kapag ini-load mo ang mga sumusunod na pahina na may karaniwang protokol na hindi inirerehistro ito bilang standard na iskema, ang imahe ay hindi mailoload sapagkat ang hindi istandard na mga iskema ay hindi makakakilala ng may kaugnayang mga URL:
 
 ```html
 <body>
@@ -44,9 +44,9 @@ Halimbawa kapag iniload mo ang mga sumusunod na pahina na may pasadyang protokol
 </body>
 ```
 
-Ang pagrerehistro sa isang panukala bilang standard ay pinapayagan ang pagpunta sa mga file sa pamamagitan ng [FileSystemAPI](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Kung hindi man ang tagabigay ay magbabato ng isang pang-seguridad na pagkakamali para sa panukala.
+Ang pagrerehistro sa isang iskema bilang standard ay pinapayagan ang pagpunta sa mga file sa pamamagitan ng [FileSystemAPI](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Kung hindi man, ang taga-render ay magbabato ng isang pang-seguridad na pagkakamali para sa iskema.
 
-Sa pamamagitan ng default ang apis ng imbakan ng web (localStorage, sessionStorage, webSQL, indexedDB, cookies) ay hindi pinagana para sa hindi standard na mga panukala. Kaya sa pangkalahatan kung gusto mong irehistro ang isang pasadyang protokol para palitan ang protokol ng `http`, kailangan mo itong irehistro bilang isang standard na panukala:
+Sa default, ang mga api ng imbakan ng web (localStorage, sessionStorage, webSQL, indexedDB, cookies) ay hindi pinagana para sa hindi istandard na mga iskema. Kaya sa pangkalahatan kung gusto mong irehistro ang isang karaniwang protokol para palitan ng `http` na protokol, kailangan mo itong irehistro bilang isang istandard na iskema:
 
 ```javascript
 const {app, protocol} = kailangan('electron')
@@ -57,51 +57,51 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** Ang pamamaraan na ito ay maaari lamang gamitin bago ang event ng `ready` sa modyul ng `app` ay lalabas.
+**Tandaan:** Ang pamamaraan na ito ay maaari lamang gamitin bago lumabas ang ang `ready` na event ng `app` na modyul.
 
-### `ang protocol.registerServiceWorkerSchemes(mga panukala)`
+### `protocol.registerServiceWorkerSchemes(mga panukala)`
 
-* `schemes` String[] - Ang pasadyang mga panukala na magiging rehistrado para hawakan ang mga manggagawa ng serbisyo.
+* `schemes` String[] - Ang karaniwang mga iskema na irerehistro para hawakan ang mga panserbisyong mga manggagawa.
 
-### `ang protocol.registerFileProtocol(panukala, tagahawak[,pagkumpleto])`
+### `protocol.registerFileProtocol(panukala, tagahawak[,pagkumpleto])`
 
-* `scheme` Ang string
-* `ang tagahawak` Function 
+* `scheme` na String
+* `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` Tali
-    * `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
-    * ang `filePath` String (opsyonal)
-* `ang pagkumpleto` Function (opsyonal) 
-  * `error` Error
+    * `url` na String
+    * `referrer` String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
+    * `filePath` na String (opsyonal)
+* `pagkumpleto` Function (opsyonal) 
+  * `error` na Kamalian
 
-Irerehistro ang isang protokol ng `scheme` na ipapadala ang file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
+Nagrerehistro ang isang protokol ng `scheme` na magpapadala sa file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
 
-Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa landas ng file o isang bagay na may katangian ng `path`, hal. ang `callback(filePath)` o ang `callback({path: filePath})`.
+Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa landas ng file o isang bagay na may katangian ng `path`, halimbawa. ang `callback(filePath)` o ang `callback({path: filePath})`.
 
-Kapag ang `callback` ay tinawag ng walang kasama na, isang numero, o isang bagay na may katangian ng `error`, ang `request` ay mabibigo kasama ang `error` na numero na iyong tinukoy. Para sa magagamit na mga maling numero na iyong gagamitin, pakiusap tingnan ang [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Kapag ang `callback` ay tinawag ng walang kasama na isang numero, o isang bagay na may katangian ng `error`, ang `request` ay mabibigo kasama ang `error` na numero na iyong tinukoy. Para sa magagamit na mga maling numero na iyong gagamitin, pakiusap tingnan ang [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-Batay sa default ang `scheme` ay tinatrato katulad ng `http`, kung saan ay sinusuri ng kakaiba sa mga protokol na sinusundan ang "generic URI syntax" katulad ng `file`, kaya marahil gusto mong tawagin ang `protocol.registerStandardSchemes` para ang iyong panukala ay itrato bilang isang standard na panukala.
+Batay sa default ang `scheme` ay tinatrato katulad ng `http`, na sinusuri ng kakaiba sa mga protokol na sinusundan ang "generic URI syntax" katulad ng `file:`, kaya marahil gusto mong tawagin ang `protocol.registerStandardSchemes` para ang iyong iskema ay itrato bilang isang istandard na iskema.
 
-### `ang protocol.registerBufferProtocol(panukala, tagahawak[, pagkumpleto])`
+### `protocol.registerBufferProtocol(iskema, tagahawak[, pagkumpleto])`
 
-* `scheme` Ang string
-* `ang tagahawak` Function 
+* `scheme` na string
+* `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` Tali
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+    * `url` na String
+    * `referrer` na String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsyonal)
-* `ang pagkumpleto` Function (opsyonal) 
-  * `error` Error
+* `pagkumpleto` Function (opsyonal) 
+  * `error` na Kamalian
 
-Ay irerehistro ang isang protokol ng `scheme` na magpapadala ng isang `Buffer` bilang isang tugon.
+Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `Buffer` bilang isang tugon.
 
-Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callback` ay dapat tawagin na may isang bagay ng `Buffer` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
+Ang paggamit ay katulad din ng `registerFileProtocol`, maliban lang na ang `callback` ay dapat tawagin na may isang bagay ng `Buffer` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
 
 Halimbawa:
 
@@ -115,21 +115,21 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 })
 ```
 
-### `ang protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
+### `protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
 
-* `scheme` Ang string
-* `ang tagahawak` function 
+* `scheme` na string
+* `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` Tali
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
-    * `data` String (opsyonal)
-* `ang pagkumpleto` Ang Punsyon (opsyonal) 
-  * `error` Error
+    * `url` na String
+    * `referrer` na String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
+    * `data` na String (opsyonal)
+* `pagkumpleto` Function (opsyonal) 
+  * `error` na Kamalian
 
-Ay irerehistro ang isang protokol ng `scheme` na magpapadala ng isang `String` bilang isang tugon.
+Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `String` bilang isang tugon.
 
 Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callback` ay dapat tawagin na may isang bagay ng `String` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
 
@@ -153,7 +153,7 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
 * `ang pagkumpleto` Ang Punsyon (opsyonal) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang HTTP na kahilingan bilang isang tugon.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
 

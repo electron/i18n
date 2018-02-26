@@ -2,7 +2,7 @@
 
 > Magsagawa ng mga kopya at idikit ang mga operasyon sa clipboard ng system.
 
-Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Ang mga sumusunod na halimbawa ay nagpapakita kung paano sumulat ng isang string sa clipboard ng: 
 

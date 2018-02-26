@@ -1,67 +1,67 @@
-# Developer Environment
+# Environment ng Developer
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Ang development ng Electron ay ang Node.js development. Upang mabago ang iyong operating system sa isang environment na pwedeng gumawa ng aplikasyon na pang desktop gamit ang Electron, kinakailangan mo ng Node.js, npm, isang code editor na iyong gusto at isang malalim na kaalaman tungkol sa pagoperate ng command line client ng system.
 
-## Setting up macOS
+## Pagsetup ng macOS
 
-> Electron supports Mac OS X 10.9 (and all versions named macOS) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Pagsuporta ng Electron sa Mac OS X 10.9 (at ang lahat ng bersyon ng macOS) at pataas. Hindi hinahayaan ng Apple na umandar ang macOS sa isang virtual machine kung hindi rin Apple ang host na kompyuter, kaya if kaylangan mo ng Mac, siguraduhing mayroon kang cloud service kung saan pwede kang mag renta ng access sa ibang Macs (tulad ng[MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+Una, i-install ang bagong bersyon ng Node.js. Nirerekomenda namin na i-install nyo alin man sa mga bagong `LTS` or `Current` na bersyon na meron. Bisitahin ang [the Node.js download page](https://nodejs.org/en/download/) at piliin ang `macOS Installer`. Habang Homebrew ay isang inaalok na opsyon, nirerekomenda namin ng wag gamitin to - maraming iba pang kagamitan na pwedeng angkop sa kung paano ang Homebrew ay makakainstall ng Node.js.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Kung na download muna, i-execute ang installer at hayaang ang installation wizard ang mag gabay hanggang matapos ang installation.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by simply search for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Kung natapos na ang pag install, isiguro kung gumagana na ang lahat sa inaasahan. Hanapin ang macOS `Terminal` na aplikasyon sa iyong `/Applications/Utilities` folder (o sa paghahanap gamit ang salita `Terminal` sa spotlight). Buksan ang `Terminal` o ibang command line client na iyong gusto at isiguro na ang dalawa `node` at `npm` ay pwedeng magamit:
 
 ```sh
-# This command should print the version of Node.js
+# Ang utos na ito ay dapat maipakita sa bersyon ng Node.js
 node -v
 
-# This command should print the version of npm
+# Ang utos na ito ay dapat maipakita sa bersyon ng npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Sa hindi kapa magsimula, kung gusto mong mag install ng isang [code editor](#a-good-editor) na angkop para sa javaScript development.
 
-## Setting up Windows
+## Pagsetuo ng Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Sinusuporta ng Electron ang Windows 7 ang mga bagong bersyon nito -layunin nitong i develop ang mga aplikasyon ng Electron sa mga bagong bersion ng Windows na hindi gumagana. Ang Microsoft ay nagbibigay ng libreng [virtual machine images sa Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) para sa mga developers.
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Una, i-install ang bagong bersyon ng Node.js. Nirerekomenda namin na i-install nyo alin man sa mga bagong `LTS` or `Current` na bersyon na meron. Bisitahin ang [the Node.js download page](https://nodejs.org/en/download/) at piliin ang `Windows Installer`. Kung na download muna, i-execute ang installer at hayaang ang installation wizard ang mag gabay hanggang matapos ang installation.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Kung natapos na ang pag install, isiguro kung gumagana na ang lahat sa inaasahan. Hanapin ang Windows PowerShell sa paraan ng pag bukas ng Start Menu at pagsulat ng `PowerShell`. Buksan sa itaas `PowerShell` o ibang command line client na iyong gusto at siguraduhin na ang dalawang `node` at `npm` ay pwedeng magamit:
 
 ```powershell
-# This command should print the version of Node.js
+# Ang utos na ito ay dapat maipakita sa bersyon ng Node.js
 node -v
 
-# This command should print the version of npm
+# Ang utos na ito ay dapat maipakita sa bersyon ng npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Sa hindi kapa magsimula, kung gusto mong mag install ng isang [code editor](#a-good-editor) na angkop para sa javaScript development.
 
-## Setting up Linux
+## Pagsetup ng Linux
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> Sa madaling salita, ang Electron ay sumosuporta sa Ubuntu 12.04, Fedora 21, Debian 8 at ang mga bago pa.
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Una, i-install ang bagong bersyon ng Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
 
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-# This command should print the version of Node.js
+# Ang utos na ito ay dapat maipakita sa bersyon ng Node.js
 node -v
 
-# This command should print the version of npm
+# Ang utos na ito ay dapat maipakita sa bersyon ng npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Sa hindi kapa magsimula, kung gusto mong mag install ng isang [code editor](#a-good-editor) na angkop para sa javaScript development.
 
-## A Good Editor
+## Isang magaling na editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+Sinasuggest namin na dalawang libre na popular na editor na builtin sa Electron: GitHub's [Atom](https://atom.io/) at Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Ang dalawang ito ay magaling sa Javascript support.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Kung ikaw ay isa samga nagdevelop na mayroong malakas na kaalaman sa pagpili, alamin na virtually ang lahat ng mga code editors at mga IDEs sa mga araw na ito ay sumusuporta sa JavaScript.

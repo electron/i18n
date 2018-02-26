@@ -1,4 +1,4 @@
-## Класс: Cookies
+## Class: Cookies
 
 > Запрашивайте и изменяйте cookie.
 

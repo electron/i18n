@@ -245,19 +245,18 @@ Kadalasan ay nais mong gamitin ang `beforeunload` handler upang magpasiya kung a
 
 ```javascript
 window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
-
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  console.log('Hindi ko gustong maisarado')
+// Hindi katulad nang karaniwang browsers na ang kahon ng mensahe ay i-promot sa mga gumagamit, binabalik
+// ang hindi-void na balyu ay tahimik na kakanselahin ang pag sirado.
+  // Inerekomenda na gumamit ng dialog API upang hayaan ang gumagamit na kompirmahin ang pagsirado
+// aplikasyon.
+  e.returnValue = false // equivalent to `return false` pero hindi inerekomenda
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***Tandaan**: Merong banayad na pagkakaiba sa pagitan ng pag-uugali ng `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. Inerekomenda na palaging i-set ang `event.returnValue` ng tahasan, sa halip na binalik ang balyu, bilang ang dating gumagana nang mas tuluy-tuloy sa loob ng Electron.*
 
-#### Event: 'closed'
+#### Kaganapan: 'i-minimize'
 
 Ay lalabas kapag ang window ay isinara. Pagkatapos mong matanggap ang kaganapan na ito ay maaari mong tanggalin ang sanggunian sa mga window at iwasan itong gamitin ulit.
 
@@ -301,77 +300,77 @@ Ay lalabas kapag ang window ay pinalaki.
 
 Ay lalabas kapag ang window ay lumabas mula sa pinalaking estado.
 
-#### Event: 'minimize'
+#### Kaganapan: 'i-minimize'
 
-Emitted when the window is minimized.
+Ay lalabas kapag ang window ay pinaliit.
 
-#### Event: 'restore'
+#### Kaganapan: 'ibalik'
 
-Emitted when the window is restored from a minimized state.
+Ay lalabas kung ang window ay binalik galing sa pinaliit na estado.
 
-#### Event: 'resize'
+#### Kaganapan: 'baguhin ang laki'
 
-Emitted when the window is being resized.
+Ay lalabas kung ang window ay binago ang laki.
 
-#### Event: 'move'
+#### Kaganapan: 'ilipat'
 
-Emitted when the window is being moved to a new position.
+Ay lalabas kung ang window ay inilipat sa bagong posisyon.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Tandaan **: Sa macOS ang kaganapan na ito ay isang alyas lamang ng ` inilipat `.
 
-#### Event: 'moved' *macOS*
+#### Kaganapan: 'inilipat' * macOS *
 
-Emitted once when the window is moved to a new position.
+Ay lalabas kapag ang window ay inilipat sa bagong posisyon.
 
-#### Event: 'enter-full-screen'
+#### Kaganapan: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Ay lalabas kung ang window ay pumasok sa full-screen na estado.
 
-#### Event: 'leave-full-screen'
+#### Kaganapan: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Ay lalabas kung ang window a aalis na sa full-screen na estado.
 
 #### Event: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Ay lalabas kapag pumasok ang window ng isang full-screen na estado ayy na-trigger ng HTML API.
 
 #### Event: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Ay lalabas kung ang window ay aalis na sa full-screen na estado ay na-trigger ng HTML API.
 
-#### Event: 'app-command' *Windows*
+#### Kaganapan: 'app-command' * Windows *
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `event` Event
 * `command` String
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. Ang karaniwang pinag-uugna ito sa mga keyboard key ng media o browser mga atas, pati na rin ang pindutang "i-balik" na itinatatag sa ilang mga mouse sa Windows.
+Ay lalabas kung ang [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) ay nananawagan. Ang karaniwang pinag-uugna ito sa mga keyboard key ng media o browser mga atas, pati na rin ang pindutang "i-balik" na itinatatag sa ilang mga mouse sa Windows.
 
-Ang mga atas ay lowercase, ang mga underscore ay binabago ang mga gitling, at ang `APPCOMMAND_` nakuha ang prefix sa. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+Ang mga atas ay lowercase, ang mga underscore ay binabago ang mga gitling, at ang `APPCOMMAND_` nakuha ang prefix sa. e.g. `APPCOMMAND_BROWSER_BACKWARD`ay lalabas bilang `browser-backward`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // Mag-navigate sa window pabalik kapag pinindot ng gumagamit ang kanilang pindutan ng back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Kaganapan: 'scroll-touch-begin' * macOS *
 
-Emitted when scroll wheel event phase has begun.
+Ay lalabas kung ang scroll wheel na bahagi ng kaganapan ay magsimula.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Kaganapan: 'scroll-touch-end' * macOS *
 
-Emitted when scroll wheel event phase has ended.
+Ay lalabas kung ang scroll wheel na bahagi ng kaganapan ay natapos na.
 
 #### Event: 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Ay lalabas kung ang scroll event na bahagi ng kaganapan sa pag-abot sa gilid ng elemento.
 
 #### Event: 'swipe' *macOS*
 
@@ -380,27 +379,27 @@ Ibinabalika ang:
 * `kaganapan` Kaganapan
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+Pinapalabas sa 3-finger swipe. Ang mga posibleng direksyon ay ` up `, ` kanan `, ` pababa `, ` kaliwa `.
 
 #### Event: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Napalabas kapag nagbukas ang window ng sheet.
 
 #### Event: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Ay lalabas kapag nakasara ang isang sheet ng window.
 
 #### Event: 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+Ay lalabas kung ang native ng pindutan ng bagong tab ay na-click.
 
-### Mga istatikong pamamaraan
+### Static Methods
 
-The `BrowserWindow` class has the following static methods:
+Ang `BrowserWindow`: klas na ito ay mayroong sumusunod na static na pamamaraan:
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+Binabalik ang ` BrowserWindow [] ` - Ang array ng lahat ng windows na browser na binuksan.
 
 #### `BrowserWindow.getFocusedWindow()`
 
@@ -416,7 +415,7 @@ Ibinabalik `BrowserWindow` - Ang window na nagmamay-ari ng ibinigay na `webConte
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Binabalik ang `BrowserWindow | null` - Ang window na nagmamay-ari ng ibinigay na `browserView`. Kung ang ibinigay na tanawin ay hindi nakakabit sa alinmang window, binabalik ang `null`.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -561,50 +560,50 @@ Pinapalaki ang window. Ipapakita rin nito (buti not focus) sa window kung ito ay
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Pag-unmaximize sa windows.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Binabalik ang `Boolean` - Kung ang window ay naka maximized.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Binabawasan ang window. Sa ilang mga platform ang minimize na window ay ipapakita sa isang Dock.
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Binabalik ang window galing sa pinaliit na estado sa nakaraan na estado.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Binabalik ang `Boolean` - Kung saan ang window ay naka maximized.
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Itinatakda kung ang window ay dapat na sa fullscreen na mode.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Binabalik ang `Boolean` - Kung ang window ay nasa fullscreen na mode.
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Pagpasok o pag-alis sa simpleng fullscreen na mode.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Ang simpleng fullscreen mode ay nagpapalabas ng katutubong pag-uugali ng fullscreen na natagpuan sa mga bersyon ng Mac OS X bago ang Lion (10.7).
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Binabalik ang `Boolean` - Kung saan ang window ay nasa simpleng(pre-Lion) na fullscreen mode.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* ` aspectRatio ` Float - Ang aspect ratio upang mapanatili para sa ilang bahagi ng nilalaman ng view.
+* ` extraSize ` [ Size ](structures/size.md) - Ang sobrang laki na hindi dapat isama habang pagpapanatili ng aspect ratio.
 
 Gagawin nitong isang window na mapanatili ang hichura ng ratio. Ang sobrang laki ay nagbibigay ng pahintulot sa isang ang developer ay may puwang, na tinukoy sa mga pixel, hindi kasama sa loob ng aspeto Ang ratio kalkulasyon. Ang sinasabi ng API na ito ang pagkakaiba sa pagitan ng isang laki ng window at laki ng nilalaman nito.
 
@@ -615,18 +614,18 @@ Ang pag-sasa alang alang ng normal na window na may HD bidyo player at mga nauug
 * `daan` String - Ang ganap na daan sa file upang i-ipakita gamit ang QuickLook. Ang mahalaga nito habang ginagamit ng Quick Look ang pangalan ng file at lawig ng file sa daan upang matukoy ang tipo ng nilalaman ng file upang buksan.
 * `Ang pagpakita sa pangalan` String (pag-pipilian) - Ang pangalan ng file na ipapakita sa Quick Look modal na tanaw. Ito ay ang malinis na viswal at hindi nakakaapekto sa nilalaman na uri ng file. Defaults to `path`.
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+Ginagamit ang [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) upang i-preview ang file sa ibinigay na landas.
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+Pagsara sa kasalukuyang nakabukas na [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opsyonal) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Pag-resize ay paglipat ng window sa hangganan na ibinibigay
 
 #### `win.getBounds()`
 
@@ -635,7 +634,7 @@ Nagbabalik[`Rectangle`](structures/rectangle.md)
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opsyonal) *macOS*
 
 Lumalawak at gumagalaw ang lugar ng kliyente ng window (e.g. the web page) ang itinustos na mga hangganan.
 
@@ -647,7 +646,7 @@ Nagbabalik[`Rectangle`](structures/rectangle.md)
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opsyonal) *macOS*
 
 Lumalabas ang window sa `width` at `
 height`.
@@ -660,13 +659,13 @@ Ibinabalik `Integer[]` - Naglalaman ng lapad at taas ng window.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opsyonal) *macOS*
 
 Lumalawak sa lugar ng kliyente ng window (e.g. the web page) to `width` and `height`.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Binabalik ang `Integer[]` - Naglalaman ng window's client area's width and height.
 
 #### `win.setMinimumSize(width, height)`
 
@@ -688,27 +687,27 @@ Itinatakda ang maximum na laki ng window `width` and `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Binabalik ang `Integer[]` - Naglalaman ng pinakamataas na lapad at taas ng windows.
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Tinatakda kung ang window ay maaring i-manual na pag-bago sa gumagamit.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Ibinabalik ` Boolean ` - Kung ang window ay maaaring manu-manong napalitan ng user.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Nagtatakda kung ang window ay maaaring ilipat ng gumagamit. Sa Linux ay walang ginagawa.
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+Ibinabalik `Boolean` - Kung ang window ay maaring ilipat ng gumagamit.
 
 Ang Linux ay palaging bumabalik `tama`.
 
@@ -716,7 +715,7 @@ Ang Linux ay palaging bumabalik `tama`.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Nagtatakda kung ang window ay maaring mapinaliit na manu-mano ng gugamit. Sa Linux ay walang nagawa.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
@@ -750,7 +749,7 @@ Ang pag-balik `Boolean` - Kung ang pindutan ng Pag-papalaki/zoom window ay i-tog
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Nagtatakda kung ang window ay maaring isara ng gumagamit na manu-mano. Sa linux walang ginagawa.
 
 #### `win.isClosable()` *macOS* *Windows*
 
@@ -778,13 +777,13 @@ Inililipat ang window sa gitna ng screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opsyonal) *macOS*
 
 Ilipat ang window sa `x` and `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Ibinibalik ang `Integer[]` - Naglalaman ng kasalukuyang posisyon ng window.
 
 #### `win.setTitle(title)`
 
@@ -846,43 +845,43 @@ Ang katutubong uri ng handle ay `HWND` sa Windows, `NSView*` sa macOS, at `Windo
 * `message` Integer
 * `baliktawag` ginagawa
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Ang mga hook ay isang mensahe ng window. Ang ` callback ` ay tinatawag kung kailan ang mensahe ay natanggap sa WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Ibinabalik ang ` Boolean ` - ` true ` o ` false ` depende kung ang mensahe ay naka-hook.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
 * `message` Integer
 
-Unhook the window message.
+I-unhook ang mensahe sa window.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+I-unhook ang lahat ng mensahe sa window.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Nagtatakda ng pathnamesa mga file na irepresenta sa window, at ang icon ng file ay ipapakita sa title bar ng window.
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+Ibinibalik `String` - Ang pathname ng file na nakarepresenta sa window.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Tinutukoy kung ang dokumento ng window ay na-edit, at ang icon sa pamagat ng bar ay magiging gray kung itatakda sa `true`.
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 
 #### `win.focusOnWebView()`
 
@@ -906,11 +905,11 @@ Same as `webContents.capturePage([rect, ]callback)`.
   * `postData`([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional) Context | Request Context
   * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
-Same as `webContents.loadURL(url[, options])`.
+Tulad ng `webContents.loadURL(url[, options])`.
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+Ang ` url ` ay maaaring maging isang remote address (hal. ` http: // `) o isang path sa isang lokal na HTML file gamit ang protocol na ` file: // `.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Upang matiyak na ang mga URL ng file ay maayos na nai-format, inirerekomendang gamitin ito Node's [` url.format `](https://nodejs.org/api/url.html#url_url_format_urlobject) na paraan:
 
 ```javascript
 let url = require('url').format({
@@ -922,7 +921,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Maaari kang mag-load ng isang URL gamit ang isang ` POST ` na kahilingan gamit ang URL-naka-encode na data sa pamamagitan ng paggawa ang mga sumusunod:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -936,52 +935,52 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Tulad ng `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+Itinatakda ang ` menu ` bilang menu bar ng window, ang pagtatakda nito sa ` null ` ay aalisin ang menu bar.
 
 #### `win.setProgressBar(progress[, options])`
 
-* `progress` Double
+* `progress` Doble
 * `mga pinagpipilian` Bagay (opsyonal) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Nagtatakda ng halaga ng pag-unlad sa progress bar. Ang wastong saklaw ay [0, 1.0].
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+Alisin ang progress bar kapag umuunlad<0; Baguhin sa indeterminate mode kapag umuunlad> 1.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+Sa platform ng Linux, sinusuportahan lamang ng Unity desktop na environment, kailangan mong tukuyin ang pangalan ng `*.desktop` file name to `desktopName ` sa ` package.json `. Bilang default, ito ay ipinapalagay `app.getName().desktop`.
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+Sa windows, ang mode ay maaring makapasa. Tinatanggap na mga balyu ay `none`, `normal`, `indeterminate`, `error`, and `paused`. Kung tumawag ka ng ` setProgressBar ` nang walang isang mode set (ngunit may halaga sa loob ng wastong hanay), ipagpalagay na ` normal `.
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
 * `overlay` [NativeImage](native-image.md) - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
 * `description` String - a description that will be provided to Accessibility screen readers
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+Nagtatakda ng 16 x 16 na pixel na overlay papunta sa kasalukuyang icon ng taskbar, kadalasang ginagamit sa ihatid ang ilang mga uri ng katayuan ng application o upang pasabihan ipagbigay-alam sa gumagamit.
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+Nagtatakda kung ang window ay dapat magkaroon ng anino. Sa Windows at Linux ay walang ginagawa.
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+Ibinabalik ` Boolean` - Kung ang window ay may anino.
 
-On Windows and Linux always returns `true`.
+Palaging nagbabalik ang Windows at Linux `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
 * `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
-Sets the opacity of the window. On Linux does nothing.
+Nagtatakda ng opacity ng window. Sa Linux walang ginagawa.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
@@ -993,9 +992,9 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
 Returns `Boolean` - Whether the buttons were added successfully
 
-Magdagdag ng isang thumbnail toolbar na may tinukoy na hilera ng mga pindutan sa thumbnail na larawan ng isang window sa isang layout ng pindutan ng taskbar. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+Magdagdag ng isang thumbnail toolbar na may tinukoy na hilera ng mga pindutan sa thumbnail na larawan ng isang window sa isang layout ng pindutan ng taskbar. Ibinibalik ang ` Boolean ` kung ang thumbnail ay matagumpay na naidagdag.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+Ang bilang ng mga pindutan sa thumbnail toolbar ay dapat na hindi pa mas malaki kaysa sa 7 dahil sa ang limitadong kuwarto. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. Ngunit maaari mong tawagan ang API na walang laman na array upang linisin ang mga pindutan.
 
 The `buttons` is an array of `Button` objects:
 
@@ -1018,7 +1017,7 @@ Ang `flags` ay isang kaayusan na maaaring isama ang mga sumusunod `String`:
 
 * `region` [Rectangle](structures/rectangle.md) - Region of the window
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
+Itinatakda ang rehiyon ng window upang ipakita kung kailan ipinapakita ang thumbnail na larawan na agaw sa window sa taskbar. Maaari mong i-reset ang thumbnail upang maging ang buong window sa pamamagitan ng pagtukoy ng walang laman na rehiyon: ` {x: 0, y: 0, lapad: 0, taas: 0} `.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 

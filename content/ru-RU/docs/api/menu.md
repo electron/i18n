@@ -1,6 +1,6 @@
 ## Class: Menu
 
-> Создает в найтивных приложениях меню и контекстные меню.
+> Создаёт меню и контекстное меню в нативных приложениях.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -18,7 +18,7 @@ Process: [Main](../glossary.md#main-process)
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+Передача `null` удалит строку меню на Windows и Linux, но ничего не сделает на на macOS.
 
 **Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
 

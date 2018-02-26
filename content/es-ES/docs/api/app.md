@@ -185,7 +185,7 @@ Devuelve:
 
 Emitido cuando se crea un [browserWindow](browser-window.md).
 
-### Event: 'web-contenido-creado'
+### Event: 'web-contents-created'
 
 Devuelve:
 
@@ -194,7 +194,7 @@ Devuelve:
 
 Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
 
-### Event: 'error-certificado'
+### Event: 'certificate-error'
 
 Devuelve:
 
@@ -222,7 +222,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select--client-certificate'
+### Event: 'select-client-certificate'
 
 Devuelve:
 

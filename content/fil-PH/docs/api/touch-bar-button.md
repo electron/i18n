@@ -1,6 +1,6 @@
-## Class: TouchBarButton
+## Klase: TouchBarButton
 
-> Maglikha ng isang pipindutin sa touch para sa native na macOS na mga aplikasyon
+> Gumawa ng isang pipindutin sa touch bar para sa katutubong aplikasyon para sa macOS
 
 Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
@@ -19,12 +19,12 @@ Ang sumusunod na mga katangian ay makikita sa mga sitwasyon ng `TouchBarButton`:
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+Isang `String` kumakatawan sa pindutan ng kasalukuyang teksto. Kung babaguhin ang halaga nito agad na mauupdate ang button sa touch bar.
 
-#### `touchBarButton.backgroundColor`
+#### `touchBarButton.kulayngbackground`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+Isang `String` hex code na kumakatawan sa kasalukuyang kulay ng likuran ng button. Kung babaguhin ang halaga nito ay agad na mauupdate ang button sa touch bar.
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+Isang `NativeImage` kumakatawan sa pindutan ng kasalukuyang icon. Kung babaguhin ang halaga nito ay agad na mauupdate ang button sa touch bar.

@@ -24,7 +24,7 @@ Il existe un problème de sécurité chaque fois que vous recevez le code d’un
 
 ## Avertissements de sécurité d'Electron
 
-A partir d'Electron 2.0, les développeurs recevront des avertissements et recommandations directement dans la console de développement. Elles n'apparaissent que lorsque le nom du binaire est Electron, ce qui indique d'un développeur est en train d'inspecter la console.
+A partir d'Electron 2.0, les développeurs recevront des avertissements et recommandations directement dans la console de développement. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
 Vous pouvez forcer l'activation ou la désactivation ces avertissements en définissant `ELECTRON_ENABLE_SECURITY_WARNINGS` ou `ELECTRON_DISABLE_SECURITY_WARNINGS` sur `process.env` ou sur l’objet `window`.
 

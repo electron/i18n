@@ -1,4 +1,4 @@
-# Mga bagay sa CrashReport
+# CrashReport na Bagay
 
-* `date` String
-* `ID` Integer
+* `date` na String
+* `ID` na Integer

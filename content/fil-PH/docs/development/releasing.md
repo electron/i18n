@@ -1,152 +1,152 @@
-# Ilalabas
+# Paglalabas
 
-Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng Electron.
+Ang dokumentong ito ay nag papakita ng proseso ng pagpapalabas ng isang bagong bersyon ng Electron.
 
-## Alamin kung aling sangay nagmula ang ilalabas
+## Alamin kung mula sa aling sangay maglalabas
 
-- **If releasing beta,** paganahin ang scrip sa ilalim ng `master`.
-- **If releasing a stable version,** paganahin na ang script sa ilalim ng `1-7-x` ok kaya `1-6-x`, depende kung anung bersyon ang ilalabas.
+- **Kapag naglalabas ng isang beta,** paganahin ang skrip sa ibaba mula sa `master`.
+- **Kung naglalabas ng isang matatag na bersyon,** paganahin na ang skrip sa ibaba mula sa `1-7-x` o `1-6-x`, depende kung sa aling bersyon ka maglalabas.
 
-## Alamin kung alung bersyon ang nabago ito ay kinakailangan
+## Alamin kung anong pagbabago sa bersyon ang kinakailangan
 
-Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang kusang pag generate ng paglabas ng mga tala. Ang mga talang nabuo ay makakatulong upang matukoy kung ito ay major, minor, patch, o kaya beta na nabago ang bersyon. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) para sa karagdagang impormasyon.
+Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang awtomatikong nalikhang mga kopya sa paglalabas. Ang mga kopyang nabuo ay makakatulong upang matukoy kung ito ay major, minor, patch, o kaya beta na pagbabago ng bersyon. Basahin ang [Mga Patakaran sa Pagbabago ng Bersyon](../tutorial/electron-versioning.md#semver) para sa karagdagang impormasyon.
 
-## Paganahing ang prepare-release script
+## Paganahing ang prepare-release na skrip
 
-Ang hanada ng ilabas na script ay gagawin ang mga sumusunod: 1. Tingnan ang nilabas kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang sangay na ilalabas. 3. I-Bump ang numero ng bersyon ng ilang files. Tingnan ang [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) isang halimbawa. 4. Gumawa ng isang draft na I rerelease sa GitHub kasama ang auto-generated na release ng mga tala. 5. Itulak ang paglabas ng sangay. 6. Tawagin ang API para paganahin ang release builds.
+Ang prepare release na skrip ay gagawin ang mga sumusunod: 1. Tingnan ang isang lathala kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang panglathalang sangay. 3. Ibangga ang numero ng bersyon sa maraming mga file. Tingnan ang [bump commit na ito](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) bilang isang halimbawa. 4. Gumawa ng isang draft na lathala sa GitHub kasama ang mga awtomatikong nalikhang mga kopya ng lathala. 5. Itulak ang panlathalang sangay. 6. Tawagin ang mga API para paganahin ang mga panlathalang build.
 
-Kung natukoy mo na kung aling type ng bersyon ang kailangang baguhin. paganahin ang `prepare-release` script sa argumento ayon sa iyong pangangailangan: - `[major|minor|patch|beta]` pagtaas ng isa sa mga numero ng bersyon. O - `--stable` upang ito ay ipahiwatig na matatag ang bersyon
+Kung natukoy mo na kung aling uri ng bersyon ang kailangang baguhin, paganahin ang `prepare-release` na skripkasama ang mga argumento ayon sa iyong pangangailangan: - `[major|minor|patch|beta]` upang iangat ang isa sa mga numero ng bersyon, o - `--stable` upang ipahiwatig na ito ay isang matatag ang bersyon
 
 Halimbawa:
 
-### Major ng bersyon ay nabago
+### Pangunahing pagbabago sa bersyon
 
 ```sh
-npm paganahin ang prepare-release -- major
+npm run prepare-release -- major
 ```
 
-### Minor ng bersyon ay nabago
+### Menor na pagbabago sa bersyon
 
 ```sh
-npm paganahin ang prepare-release -- minor
+npm run prepare-release -- minor
 ```
 
-### Patch ng bersyon ay nabago
+### Patch na pagbabago sa bersyon
 
 ```sh
-npm paganahin ang prepare-release -- patch
+npm run prepare-release -- patch
 ```
 
-### Patch ng bersyon ay nabago
+### Beta na pagbabago sa bersyon
 
 ```sh
-npm paganahin ang prepare-release -- beta
+npm run prepare-release -- beta
 ```
 
-### Pataasin ang beta para maging maayos
+### Iangat mula beta papuntang stable
 
 ```sh
-npm paganahin ang prepare-release -- stable
+npm run prepare-release -- --stable
 ```
 
-## Hintayin ang builds :hourglass_flowing_sand:
+## Hintayin ang mga build :hourglass_flowing_sand:
 
-Ang `prepare-release` script ay nag-trigger sa builds sa pamamagitan ng API calls. para masubaybayan ang pagbuo ng proseso. tingnan ang mga sumusunod na pahina:
+Ang `prepare-release` na skrip ay magti-trigger sa mga build sa pamamagitan ng mga API na tawag. Upang masubaybayan ang estado ng pagbubuo, tingnan ang mga sumusunod na pahina:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) ito ay para sa Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) ito ay para sa OS X
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) ito ay para sa Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) ito ay para sa Windows
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) para sa Mac App Store
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) para sa OS X
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) para sa Linux
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) para sa Windows
 
-## Tipunin ang mga tala ng release
+## Tipunin ang mga kopya ng lathala
 
-Isulat ang mga tala ng release ito ay mabuting paraan upang mapanatiling abala ang iyong sarili habang tumatakbo ang builds. Para sa bagong art, tingnan kung merong releases sa [the releases page](https://github.com/electron/electron/releases).
+Ang pagsulat ng mga panlathalang kopya ay isang paraan upang mapanatiling abala ang iyong sarili habang tumatakbo ang mga build. Para sa naunang sining, tingnan ang mga naunang lathala sa [pahina ng mga lathala](https://github.com/electron/electron/releases).
 
-Tips: - Ang bawat aytem na nakalista na ay kinakailangang isangguni sa PR sa electron/electron, hindi ito isyu, at hind rin PR na galing sa ibang repo katulad ng libcc. - Hindi na kailangang gamitin ang link na markup kapag tinutukoy ay ang PRs. Ang mga string na kagaya ng `#123` ay awtomatikong na convert na sa links ng github.com. - Maaaring tingnan ang mga bersyon ng Chromioum, V8 at Node ang kada bersyon ng Electron, bisitahin ang [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Mga Mungkahi: - Ang bawat aytem na nakalista na ay kinakailangang isangguni sa isang PR sa electron/electron, hindi isang isyu, at hind rin PR na galing sa ibang repo katulad ng libcc. - Hindi na kailangang gamitin ang link na markup nagsasangguni ng mga PR. Ang mga string na kagaya ng `#123` ay awtomatikong isasalin sa mga link sa github.com. - Upang tingnan ang bersyon ng Chromioum, V8 at Node sa kada bersyon ng Electron, bisitahin ang [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Ang Patch releases
+### Ang mga Patch na lathala
 
-Para sa `patch` release, gumamit ng mga sumusunod na format:
+Para sa isang `patch` na lathala, gumamit ng mga sumusunod na pormat:
 
 ```sh
-# # Bug fix 
+# # Kaayusan sa Bug 
 
-* Naayos na ang bahagi ng cross-platform na ito. #123
+* Naayos na ang isang cross-platform na bagay. #123
 
 ### Linux
 
-* Naayos na ang bahagi ng Linux. #123
+* Naayos na isang Linux na bagay. #123
 
 ### macOS
 
-* Naayos na ang bahagi ng macOS. #123
+* Naayos na ang isang macOS na bagay. #123
 
 ###Windows
 
-* Naayos na ang bahagi ng Windows. #1234
+* Naayos na ang isang Windows na bagay. #1234
 ```
 
-### Mga Minor na nailabas na
+### Mga Menor na Lathala
 
-Para sa `minor` release, e.g. `1.8.0`, gamitin ang format na ito:
+Para sa `menor` na lathala, e.g. `1.8.0`, gamitin ang pormat na ito:
 
 ```sh
-## Upgrades
+## Mga Upgrade
 
-- I-upgrade ang Node ' mula sa lumang bersyon' patungo sa 'bagong berston'. #123 
+- Na-upgrade mula sa Node na`oldVersion' patungo sa 'newVersion'. #123 
 
-## Mga pagbabago sa ApI 
+## Mga pagbabago sa API 
 
-* Nabago ang isang bahagi. #123
+* Nabago ang isang bagay. #123
 
 ### Linux
 
-* Nabago ang isang bahagi ng Linux. #123
+* Nabago ang isang Linux na bagay. #123
 
 ### macOS
 
-* Nabago ang isang bahagi macOS. #123
+* Nabago ang isang macOS bagay. #123
 
 ### Windows
 
-* Nabago ang isang bahagi Windows. #123
+* Nabago ang isang Windows na bagay. #123
 ```
 
-### Mga pangunahing nilabas
+### Mga Pangunahing Lathala
 
 ```sh
-## Upgrades
+## Mga Upgrade
 
-- Upgraded na ang Chromium mula sa 'lumang bersyon' patungo sa 'bagong bersyon'. #123
-- Itinaas ang Node ' mula sa lumang bersyon' patungo sa 'bagong bersyon'. #123 
+- Na upgrade mula sa Chromium na 'oldVersion' patungo sa 'newVersion'. #123
+- Na-upgrade mula sa Node na`oldVersion' patungo sa 'newVersion'. #123 
 
-## Mga paglabag sa ApI na nabago
+## Paghahati sa mga API na pagbabago
 
-* Nabago ang isang bahagi. #123
+* Nabago ang isang bagay. #123
 
 ### Linux
 
-* Nabago ang isang bahagi ng Linux. #123
+* Nabago ang isang Linux na bagay. #123
 
 ### macOS
 
-* Nabago ang isang bahagi macOS. #123
+* Nabago ang isang macOS bagay. #123
 
 ### Windows
 
-* Nabago ang isang bahagi Windows. #123
+* Nabago ang isang Windows na bagay. #123
 
-## Iba pang pagbabago 
+## Iba pang mga pagbabago 
 
-- yun iba ay nabago. #123
+- Ilang pang pagbabago. #123
 ```
 
-### Beta na release
+### Beta na mga lathala
 
-Gumamit ng kaparehong format nanakatulad katulad ng naimungkahi na sa itaas. Ngunit dagdagan ang mga sumusunod na tala sa simula ng changelog:
+Gamitin ang kaparehong mga pormat katulad ng iminungkahi sa itaas, ngunit idagdag ang sumusunod na paalala sa simula ng changelog:
 
 ```sh
-**Paalala:** eto ay beta release at malamang na magkakaroon ng ilang kawalang katatagan o regressions.
+**Paalala:** Ito ay isang beta na lathala at malamang ay magkakaroon ng ilang kawalang katatagan o mga regresyon.
 
 Mangyaring mag file ng bagong isyu para sa anumang bug na makikita mo dito.
 

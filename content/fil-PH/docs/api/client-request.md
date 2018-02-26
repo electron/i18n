@@ -1,10 +1,10 @@
 ## Klase: ClientRequest
 
-> Gawin ang mga kahilingan ng HTTP/HTTPS
+> Gawin ang mga kahilingan ng HTTP/HTTPS.
 
-I-process: [Main](../glossary.md#main-process)
+Proseso: [Main](../glossary.md#main-process)
 
-`ClientRequest`ipinatupad ng mga [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface at samakatuwid ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Context | Request Context
+`ClientRequest`ipinatupad ng mga [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface at samakatuwid ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ### `bagong ClientRequest(options)
  

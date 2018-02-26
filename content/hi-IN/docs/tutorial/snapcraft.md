@@ -1,26 +1,26 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# स्नेपक्राफ्ट गाइड (उबुन्तु सॉफ्टवेर सेंटर & अधिक)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+यह गाइड इलेक्ट्रॉन एप्लीकेशन को किसी भी स्नेपक्राफ्ट वातावरण के लिए, (जिसमे उबुन्तु सॉफ्टवेर सेंटर शामिल है) पैकेज करने के लिए जानकारी उपलब्ध कराती है |
 
 ## पृष्ठभूमि और आवश्यकतायें
 
-Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+व्यापक लिनक्स समुदाय का साथ चल कर, कैनोनिकल का मकसद [`स्नेपक्राफ्ट`](https://snapcraft.io/) परियोजना के साथ होने वाली कई सारी आम सॉफ्टवेयर इंस्टालेशन सम्बंधित दिक्कतों को दूर करना है | स्नेप्स कंटेनराआइज़ड सॉफ्टवेर पैकेज हैं जिनमें ज़रूरी निर्भार्तायें शामिल होती हैं, स्वतः-अपडेट होते हैं, और ये सभी प्रमुख लिनक्स वितरणों पर बिना सिस्टम बदलावों के काम करते हैं |
 
-There are three ways to create a `.snap` file:
+एक `.snap` फाइल का निर्माण करने के 3 तरीके हैं:
 
-1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) [`इलेक्ट्रॉन-फोर्ज`](https://github.com/electron-userland/electron-forge) या [`इलेक्ट्रॉन-बिल्डर`](https://github.com/electron-userland/electron-builder) का इस्तेमाल कर, ये दोनों `स्नेप` सपोर्ट के साथ आउट ऑफ़ दा बॉक्स आते हैं | यह सबसे आसान विकल्प है | 2) `इलेक्ट्रॉन-इंस्टालर-स्नेप` का इस्तेमाल कर, जो कि `इलेक्ट्रॉन-पैकेजर` का आउटपुट लेता है | 3) पहले से निर्मित एक `.deb` पैकेज का इस्तेमाल कर |
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+सभी मामलों में, `स्नेपक्राफ्ट` टूल इनस्टॉल होना चाहिये | हम उबुन्तु 16.04 (या वर्तमान LTS) के ऊपर निर्माण करने की सलाह देते हैं |
 
 ```sh
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+हालाँकि *यह संभव* है कि `स्नेपक्राफ्ट` को होमब्रिऊ का इस्तेमाल कर मैकओएस पर इनस्टॉल किया जा सके, पर वह `स्नेप` पैकेजेस का निर्माण करने में सक्षम नहीं है और उसका ध्यान स्टोर में पैकेजेस का प्रबंधन करने पर केन्द्रित है |
 
-## Using `electron-installer-snap`
+## `इलेक्ट्रॉन-इंस्टालर-स्नेप` का इस्तेमाल
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+मोड्यूल [`electron-winstaller`](https://github.com/electron/windows-installer) और इसी तरह के मोडयुल्स की तरह काम करता है कि इसकी परिधि स्नेप पैकेजेस का निर्माण करने तक ही सीमित है | आप इसको इनस्टॉल कर सकते है इसके साथ:
 
 ```sh
 npm install --save-dev electron-installer-snap

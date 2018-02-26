@@ -48,7 +48,7 @@
 
 当发现一个可用更新的时候触发，更新包下载会自动开始。
 
-### Event: 'update-available'
+### Event: 'update-not-available'
 
 当没有可用更新的时候触发。
 

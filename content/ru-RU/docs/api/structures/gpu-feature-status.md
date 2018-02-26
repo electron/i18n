@@ -8,7 +8,7 @@
 * `multiple_raster_threads` String - несколько растровых потоков
 * `native_gpu_memory_buffers` String - нативный GpuMemoryBuffers
 * `rasterization` String - растеризация
-* `video_decode` Строка - видео декодирование
+* `video_decode` String - видео декодирование
 * `video_encode` String - видео кодирование
 * `vpx_decode` String - VPx видео декодер
 * `webgl` String - WebGL

@@ -1,6 +1,6 @@
 # JumpListCategory Objekt
 
-* `typ` String (optional) - Eine der folgenden Möglichkeiten: 
+* `type` String (optional) - Eine der folgenden Möglichkeiten: 
   * `tasks` - Aufgaben in dieser Kategorie werden in die Kategorie `Tasks` eingeordnet. Es kann nur eine solche Kategorie geben, und sie wird am ende der Liste dargestellt.
   * `frequent` - Zeigt eine Liste der Dateien an, die häufig von der Anwendung geöffnet werden, der Name der Kategorie und ihre Elemente werden von Windows festgelegt.
   * `recent` - Zeigt eine Liste der zuletzt von der Anwendung geöffneten Dateien an, der Name der Kategorie und ihre Elemente werden von Windows festgelegt. Artikel können dieser Kategorie indirekt hinzugefügt werden durch `app.addRecentDocument(path)`.

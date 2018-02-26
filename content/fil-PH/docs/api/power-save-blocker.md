@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-Halimbawa:
+For example:
 
 ```javascript
 const {powerSaveBlocker} = kailangan('electron')
@@ -15,7 +15,7 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Methods
+## Paraan
 
 Ang modyul ng `powerSaveBlock` ay mayroon ng mga sumusunod na mga pamamaraan:
 

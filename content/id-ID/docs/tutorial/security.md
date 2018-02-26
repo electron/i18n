@@ -24,7 +24,7 @@ Masalah keamanan ada setiap kali Anda menerima kode dari remote tujuan dan menja
 
 ## Peringatan Keamanan Elektronika
 
-Dari Electron 2.0, pengembang akan melihat peringatan dan rekomendasi yang dicetak ke konsol pengembang. Mereka hanya menunjukkan op ketika nama binernya adalah Electron, menunjukkan bahwa pengembang saat ini melihat konsol.
+Dari Electron 2.0, pengembang akan melihat peringatan dan rekomendasi yang dicetak ke konsol pengembang. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
 Anda dapat memaksa atau menonaktifkan peringatan ini dengan menyetel ` ELECTRON_ENABLE_SECURITY_WARNINGS </ code> atau <code> ELECTRON_DISABLE_SECURITY_WARNINGS </ code> pada
 objek <code> process.env </ code> atau <code>> </ code>.</p>
@@ -327,7 +327,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 10) Jangan Gunakan ` blinkFeatures </ code></h2>
 
-<p><em>Rekomendasi adalah elektron 's default</em></p>
+<p><em>Recommendation is Electron's default</em></p>
 
 <p>Blink is the name of the rendering engine behind Chromium. Sebagai properti <code>blinkFeatures` dengan `experimentalFeatures`, memungkinkan pengembang untuk mengaktifkan fitur yang telah dinonaktifkan secara default.</p> 
 

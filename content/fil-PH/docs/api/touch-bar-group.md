@@ -1,10 +1,10 @@
-## Class: TouchBarGroup
+## Klase: TouchBarGroup
 
-> Create a group in the touch bar for native macOS applications
+> Gumawa ng grupo sa touch bar para sa mga aplikasyon ng katutubong macOS
 
 Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarGroup(options)` *Experimental*
+### `bagong TouchBarGroup(options)` *Pangeksperimento*
 
-* `options` Object 
-  * `items` [TouchBar](touch-bar.md) - Items to display as a group.
+* `pagpipilian` Bagay 
+  * `mga aytem` [TouchBar](touch-bar.md) - mga item naiipakita bilang isang grupo.

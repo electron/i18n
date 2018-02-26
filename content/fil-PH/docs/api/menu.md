@@ -1,69 +1,69 @@
-## Class: Menu
+## Klase: Menu
 
-> Lumikha ng natural na mga menu ng aplikasyon at mga menu ng konteksto.
+> Lumikha ng natibong mga menu ng aplikasyon at mga menu ng konteksto.
 
 Proseso:[Main](../glossary.md#main-process)
 
-### `bagong Menu()`
+### `new Menu()`
 
 Lumilikha ng isang bagong menu.
 
-### Mga statik na pamamaraan
+### Mga istatikong pamamaraan
 
-Ang klase ng `menu` na mayroon ng mga sumusunod na mga istatikong pamamaraan:
+Ang klaseng `menu` ay mayroong mga sumusunod na mga istatikong pamamaraan:
 
 #### `Menu.setApplicationMenu(menu)`
 
 * `menu` Menu | null
 
-Nagtatakda ng `menu` bilang ang aplikasyon ng menu sa macOS. Sa Windows at Linux, ang `menu` ay magtatakda sa ibabaw ng menu sa bawat window.
+Nagtatakda ng `menu` bilang aplikasyon ng menu sa macOS. Sa Windows at Linux, ang `menu` ay itatakda sa ibabaw ng menu ng bawat window.
 
-Ang pagpasa sa `null` ay aalisin ang bar ng menu sa Windows at sa Linux ngunit walang epekto sa macOS.
+Ang pagpasa ng `null` ay magtatanggal ng menu bar sa Windows at sa Linux ngunit walang epekto sa macOS.
 
-**Note:** Ang API na ito ay dapat tawagin pagkatapos ng `ready` sa event ng modyul ng `app`.
+**Tandaan:** Ang API na ito ay dapat tawagin pagkatapos ng `ready`na event ng `app` na modyul.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Ibinabalik ang `Menu | null` - Ang menu ng aplikasyon, kapag naitakda, o `null` kapag hindi naitakda.
 
-**Note:** Ang nagbalik na instansya ng `Menu` ay hindi suportado ang dinamikong pagdadagdag o pagtatanggal ng mga aytem ng menu. [mga katangian ng pagkakataon ](#instance-properties) na maaring dynamic na binago.
+**Tandaan:** Ang ibinalik na instance ng `Menu` ay hindi suportado ang dinamikong pagdadagdag o pagtatanggal ng mga aytem ng menu. [Ang mga instance na katangian ](#instance-properties) ay maaring baguhin sa dinamikong paraan.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
-* `action` String
+* `action` na String
 
-Ipadala ang mga `Pagkilos` Sa mga unang responder ng aplikasyon. Ito ay ginagamit para sa pagtulad sa default macOS menu ng pag-uugali. Karaniwan mong ginagamit ang [`papel`](menu-item.md#roles)pag-aari ng isang[`Menultem`](menu-item.md).
+Ipinapadala ang `aksyon` sa unang tagaresponde ng aplikasyon. Ito ay ginagamit para sa paggaya sa default na mga paggalaw ng macOS na menu. Kadalasan ginagamit mo lang ang katangiang [`role`](menu-item.md#roles) ng isang [`Menultem`](menu-item.md).
 
-Tingnan ang [mascOS Cocoa kaganapan sa pag-aasikso ng paggabay](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) Para sa mga karagdagang impormasyon sa mascOS' katutubong pagkilos.
+Tingnan ang [Gabay sa Paghahawak ng Kaganapang macOS Cocoa](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) para sa karagdagang impormasyon sa mga natibong aksyon ng macOS.
 
 #### `Menu.buildFromTemplate(template)`
 
-* `ang template` [MenuItemConstructorOptions]
+* `template` na [MenuItemConstructorOptions]
 
-Nagbabalik ang `Menu`
+Ibinabalik ang `Menu`
 
-Sa pangkalahatan, ang `template` ay lamang ng isang hanay ng mga `pagpipilian` para sa pagpapagawa ng isang [MenuItem](menu-item.md). Ang paggamit ay maaaring binanggit sa itaas.
+Sa pangkalahatan, ang `template` ay isang hanay lamang ng mga `pagpipilian` para sa paggawa ng isang [MenuItem](menu-item.md). Ang paggamit ay maaaring ibabatay sa itaas.
 
-Makakabitan mo din ang iba pang mga patlang sa mga elemento ng mga `template` at sila ay magiging mga katangian ng mga constructed menu item.
+Mailalakip mo rin ang iba pang mga patlang sa mga elemento ng mga `template` at sila ay magiging mga katangian ng mga naggawang mga aytem ng menu.
 
-### Halimbawa ng mga pamamaraan
+### Mga Pamamaraan ng Instance
 
-Ang `Menu`Na object ay ang mga sumusunod na pamamaraan ng pagkakataon:
+Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
 
-#### `ang menu.popup([browserWindow, options])`
+#### `menu.popup([browserWindow, options])`
 
-* `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
-* `mga opsyon` Mga bagay (opsyonal) 
-  * `x` Number (opsyonal) - Ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ipahayag kung ang `y` ay naipahayag na.
-  * `y` (opsyonal) - bilang Default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ipahayag kung `x` ay ipinahayag.
-  * `async` Boolean (opsyonal) - Itinakda sa `true` upang maibalik agad ang pamamaraang ito ay tinawag, `false` upang maibalik pagkatapos na ang menu ay mapili o maisara. Ang default na `mali`.
-  * `positioningItem` Number (opsyonal) *macOS* - Ang indise ng mga aytem ng menu upang maging nakaposisyon sa ilalim ng cursor ng mouse sa tinukoy na pagkakatugma. Ang default ay -1.
+* `browserWindow` na BrowserWindow (opsyonal) - ang default ay ang pinagtutuunang window.
+* `mga opsyon` Bagay (opsyonal) 
+  * `x` na numero (opsyonal) - Ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ideklara kung ang `y` ay naideklara na.
+  * `y` na numero (opsyonal) - ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ideklara kung `x` ay naideklara na.
+  * `async` na Boolean (opsyonal) - Itinakda sa `true` upang maibalik agad ang pamamaraang ito kapag tinawag, `false` upang maibalik pagkatapos na ang menu ay mapili o maisara. Naka-default sa `false`.
+  * `positioningItem` na numero (opsyonal) *macOS* - Ang index ng aytem ng menu na ipoposisyon sa ilalim ng cursor ng mouse sa tinukoy na mga coordinate. Ang default ay -1.
 
 Pasulputin ang menu na ito bilang isang menu ng konteksto sa `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
+* `browserWindow` na BrowserWindow (opsyonal) - ay default ang pinagtutuunang window.
 
 Isinasara ang konteksto ng menu sa `browserWindow`.
 
@@ -75,34 +75,34 @@ Idinagdag ang `menuItem` sa menu.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` String
+* `id` na String
 
-Returns `MenuItem` the item with the specified `id`
+Ibinabalik ang `MenuItem` ang aytem na may tiyak na `id`
 
 #### `menu.insert(pos, menuItem)`
 
-* `pos` Integer
-* `menuItem` Ang MenuItem
+* `pos` na Integer
+* `menuItem` na MenuItem
 
-Ipasok sa`menuItem`papunta sa posisyon ng`pos`ng menu.
+Ipinapasok ang `menuItem` sa posisyon ng`pos` ng menu.
 
-### Mga Katangian ng Instansya
+### Mga Katangian ng Instance
 
-Ang mga bagay sa `menu` ay mayroon ding mga sumusunod na katangian:
+Ang mga bagay ng `menu` ay mayroon ding mga sumusunod na katangian:
 
 #### `menu.items`
 
-Ang hanay ng `MenuItem[]` na naglalaman ng mag aytem ng menu.
+Ang isang hanay ng `MenuItem[]` na naglalaman ng mag aytem ng menu.
 
-Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuItem` ay mayroong isang submenu.
+Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuItem` ay maaaring magkaroon ng isang submenu.
 
-## Halimbawa
+## Mga Halimbawa
 
-Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong tagabigay sa pamamagitan ng modyul ng [`remote`](remote.md).
+Ang klaseng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong render sa pamamagitan ng [`remote`](remote.md)na modyul.
 
 ### Pangunahing proseso
 
-Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso ay sa simpleng template ng API:
+Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso gamit ang simpleng template ng API:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -196,9 +196,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Prosesong tagabigay
+### Prosesong Render
 
-Ang nasa ibaba ay isang halimbawa ng paglikha ng isang dinamikong menu sa isang pahina ng web (prosesong tagabigay) sa pamamagitan ng paggamit ng modyul ng [`remote`](remote.md), at ipinapakita ito kapag ang user ay nira-right click ang pahina:
+Ang nasa ibaba ay isang halimbawa ng paglikha ng isang dinamikong menu sa isang pahina ng web (prosesong tagabigay) sa pamamagitan ng paggamit ng modyul na [`remote`](remote.md), at ipinapakita ito kapag ang user ay nira-right click ang pahina:
 
 ```html
 <!-- index.html -->
@@ -218,43 +218,43 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Ang mga tala sa Menu ng Aplikasyon sa macOS
+## Ang mga tala sa Menu ng Aplikasyon ng macOS
 
-ang macOS ay may kompletong naiibang istilo ng aplikasyon ng menu mula saWindows at Linux. Narito ang ilang mga tala kung paanong ang menu ng iyong app ay maging mas natural.
+Ang macOS ay may kompletong naiibang istilo ng aplikasyon ng menu mula sa Windows at Linux. Narito ang ilang mga tala kung paanong ang menu ng iyong app ay maging mas natural.
 
-### Mga pamantayan ng Menu
+### Mga Istandard na Menu
 
-Sa macOS ay maraming tukoy na sistema ng standard na menu, tulad ng `Services` at mga menu ng `Window`. Para gawin ang iyong menu na standard na menu, dapat mong i-set ang iyong menu sa `role` sa isa sa mga sumusunod at ang Electron ay makikilala sila at gagawin silang mga standard na menu:
+Sa macOS ay maraming istandard na menu na natukoy ng sistema, tulad ng `Services` at mga menu ng `Window`. Para gawin ang iyong menu na isang istandard na menu, dapat mong i-set ang `role` ng iyong menu sa isa sa mga sumusunod at kilalanin sila ng Electron at gagawin silang mga istandard na menu:
 
-* `ang window`
+* `window`
 * `tulong`
 * `mga serbisyo`
 
-### Mga Aksyon ng Standard Menu
+### Mga Aytem na Aksyon ng Istandard na Menu
 
-ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang standard na aksyon, dapat mong itakda ang katangian ng `role` ng item ng menu.
+Ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang istandard na aksyon, dapat mong itakda ang katangiang `role` ng item ng menu.
 
 ### Pangalan ng Pangunahing Menu
 
-Sa macOS ang tatak ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist`. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
+Sa macOS ang lebel ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist` na file. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
 
-## Itinatakda ang Menu para sa Specific Browser Window ng (*Linux* *Windows*)
+## Pagtatakda ang Menu para sa Tiyak na Browser Window ng (*Linux* *Windows*)
 
-Ang [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng tiyak na browser windows.
+Ang [`setMenu` na pamamaraan](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng isang browser windows.
 
 ## Posisyon ng Item ng Menu
 
-Maaari kang gumamit ng `position` at `id` para makontrol kung paano ilalagay ang mga item kapag bumubuo ng isang menu sa pamamagitan ng `Menu.buildFromTemplate`.
+Maaari kang gumamit ng `position` at `id` para makontrol kung paano ilalagay ang aytem kapag bumubuo ng isang menu sa pamamagitan ng `Menu.buildFromTemplate`.
 
-Ang katangian ng `position` ng `MenuItem` ay may anyo na `[placement]=[id]`, kung saan `placement` ay isa sa `before`, `after`, o `endof` at `id` ay ang natatanging ID ng isang umiiral na item sa menu:
+Ang katangiang `position` ng `MenuItem` ay may anyo na `[placement]=[id]`, kung saan `placement` ay isa sa `before`, `after`, o `endof` at `id` ay ang natatanging ID ng isang umiiral na item sa menu:
 
-* `before` - Isisingit ang item na ito bago ang id ng isinangguning item. Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
-* `after` - Isisingit ang item na ito pagkatapos ng id ng isinangguning item, Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
-* `endof` - Isisingit ang item na ito sa hulihan ng lohikal na grupo na naglalaman ng id ng isinangguning item (ang mga grupo ay ginawa nang taga-hiwalay ng mga item). Kung ang isinangguning aytem ay hindi umiiral, isang bagong grupo ng taga-hiwalay ay lilikhain kasama ang ibinigay na id at ang aytem na ito ay ilalagay pagkatapos nang taga-hiwalay.
+* `before` - Isinisingit ang item na ito bago ang id ng isinangguning item. Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
+* `after` - Isinisingit ang item na ito pagkatapos ng id ng isinangguning item, Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
+* `endof` - Isinisingit ang item na ito sa hulihan ng lohikal na grupo na naglalaman ng id ng isinangguning item (ang mga grupo ay ginawa nang taga-hiwalay ng mga item). Kung ang isinangguning aytem ay hindi umiiral, isang bagong grupo ng taga-hiwalay ay lilikhain kasama ang ibinigay na id at ang aytem na ito ay ilalagay pagkatapos ng taga-hiwalay na iyon.
 
-Kapag ang aytem ay naka-posisyon na, lahat ng hindi naka-posisyon na mga aytem ay ilalagay pagkatapos nito hanggang ang isang bagong aytem ay nai-posisyon na. Kaya kung gusto mong i-posisyon ang isang grupo ng mga aytem ng menu sa kaparehas na lokasyon kailangan mo lang tukuyin ang posisyon para sa unang aytem.
+Kapag ang aytem ay nakaposisyon na, lahat ng hindi nakaposisyon na mga aytem ay ilalagay pagkatapos nito hanggang ang isang bagong aytem ay naiposisyon na. Kaya kung gusto mong iposisyon ang isang grupo ng mga aytem ng menu sa kaparehas na lokasyon kailangan mo lang tukuyin ang posisyon para sa unang aytem.
 
-### Mga halimbawa
+### Mga Halimbawa
 
 Ang Template:
 
@@ -276,8 +276,6 @@ Ang Menu:
 - 3
 - 4
 - 5
- 
-Context | Request Context
 ```
 
 Ang Template:

@@ -1,17 +1,17 @@
-## Class: BrowserView
+## Lớp: BrowserView
 
-> Create and control views.
+> Tạo và điểu khiển View.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Ghi chú:** BrowserView API đang được thử nghiệm và có thể bị thay đổi hoặc bỏ luôn trong các phiên bản Electron kế tiếp.
 
-Quá trình: [Main](../glossary.md#main-process)
+Tiến trình: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+Một `BrowserView` được dùng để nhúng thêm nội dung web vào một `BrowserWindow`. Nó như một cửa sổ con, ngoại trừ vị trí của nó thì tương đối với cửa sổ sở hữu nó. Có thể xem nó là một sự lựa chọn khác với sử dụng tag `webview`.
 
 ## Ví dụ
 
 ```javascript
-// Trong main process.
+// Trong tiến trình main.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -29,57 +29,57 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *Đang thử nghiệm*
 
-* `options` Object (optional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+* `options` Object (không bắt buộc) 
+  * `webPreferences` Object (không bắt buộc) - Xem [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Các phương thức chung
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Trả về `BrowserView[]` - Một array các BrowserView đã mở.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Trả về `BrowserView ` đang sở hữu `webContents` hoặc trả về `null` nếu webContent không được sở hữu bởi BrowserView.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Số nguyên
 
-Returns `BrowserView` - The view with the given `id`.
+Trả về `BrowserView` với `id` đã cho.
 
-### Instance Properties
+### Các Thuộc Tính
 
-Objects created with `new BrowserView` have the following properties:
+Object được tạo bằng `new BrowserView` có các thuộc tính sau đây:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *Đang thử nghiệm*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+[`WebContents`](web-contents.md) object sở hữu bởi view này.
 
-#### `view.id` *Experimental*
+#### `view.id` *Đang thử nghiệm*
 
-A `Integer` representing the unique ID of the view.
+Một `số thực` đại diện cho ID độc nhất của View đó.
 
-### Instance Methods
+### Các phương thức riêng
 
-Objects created with `new BrowserView` have the following instance methods:
+Object được tạo bằng `new BrowserView` các các phương thức riêng sau đây:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *Đang thử nghiệm*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - Nếu `true`, chiều ngang của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
+  * `height` Boolean - Nếu `true`, chiều dọc của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *Đang thử nghiệm*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Điều chỉnh kích cỡ và di chuyển view.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Đang thử nghiệm*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` Chuỗi - Màu dưới định dạng `#aarrggbb` hoặc `#argb`. Kênh alpha không bắt buộc.

@@ -1,13 +1,13 @@
-# PrinterInfo Object
+# PrinterInfo-Objekt
 
 * `name` Zeichenfolge
-* `description` String
-* `status` Number
-* `isDefault` Boolean
+* `description` Zeichenfolge
+* `status` Nummer
+* `isDefault` Ja/Nein
 
-## Example
+## Beispiel
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+Weiter unten ist ein Beispel von einigen Optionen die sich jedoch auf unterschiedlichen Plattformen evtl. unterschiedlich verhalten.
 
 ```javascript
 {
@@ -39,4 +39,7 @@ Below is an example of some of the additional options that may be set which may 
     system_driverinfo: 'Z'
   }
 }
+ 
+Text
+XPath: /pre/code
 ```
