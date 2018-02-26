@@ -1,12 +1,12 @@
-## Class: TouchBarLabel
+## Klase: TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> Gumawa ng label sa touch bar para sa mga applikasyon ng katutubong macOS
 
 Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `bagong TouchBarLabel(options)`*Pangeksperimento *
 
-* `options` Object 
+* `mga pagpipilian` Bagay 
   * `label` String (optional) - Text to display.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
