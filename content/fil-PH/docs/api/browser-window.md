@@ -820,7 +820,7 @@ Magsisimula o tumitigil na kumikislap sa bintana upang maakit ang pansin ng guma
 
 #### `win.setSkipTaskbar(skip)`
 
-* `skip` Boolean
+* `laktawan` Boolean
 
 Ginagawa ang window na hindi ipinapakita sa taskbar.
 
