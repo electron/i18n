@@ -14,12 +14,12 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### Katangian ng pagkakataon
 
-The following properties are available on instances of `TouchBarPopover`:
+Ang sumusunod na mga katangian ay makukuha sa mga kaganapan ng `TouchBarPopover`:
 
 #### `touchBarPopover.label`
 
-A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
+Isang `String` kumakatawan sa popover ng kasalukuyang pindutan ng salita. Kung babaguhin ang halaga nito ay agad mauupdate ang label na nasa touch bar.
 
 #### `touchBarPopover.icon`
 
-A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
+Isang `NativeImage` kumakatawan sa popover ng kasalukuyang pindutan na icon. Kung babaguhin ang halaga nito ay agad mauupdate ang label na nasa touch bar.
