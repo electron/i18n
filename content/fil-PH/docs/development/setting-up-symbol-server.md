@@ -29,6 +29,6 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 I-type ang sumusunod na mga utos sa Windbg upang i-print kung bakit hindi naglo-load ang mga simbolo:
 
 ```powershell
-> ! sym maingay
-> .reload / f elektron.exe
+> !sym noisy
+> .reload /f electron.exe
 ```
