@@ -77,13 +77,13 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
   * [semver](tutorial/electron-versioning.md#semver)
   * [Pagpapapanatag ng mga Branch](tutorial/electron-versioning.md#stabilization-branches)
   * [Beta Releases at ang pagsasaayos ng Bug](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* [Detalyadong pagimpake ng App Source Code gamit ang asar](tutorial/application-packaging.md) 
   * [Paggawa ng asar archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Paggamit ng mga Archives ng asar](tutorial/application-packaging.md#using-asar-archives)
   * [Mga limitasyon](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+  * [Pagdagdag ng na unpack na mga file sa asar Archive](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Detalyadong paggamit ng Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Detalyadong paggamit ng Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Labas sa iskrin na pagproseso](tutorial/offscreen-rendering.md)
 
 * * *
