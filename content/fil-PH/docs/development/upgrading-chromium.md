@@ -33,7 +33,7 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
 6. Kapag matagumpay ang build, gumawa ng isang `dist` para sa Electron 
   - `$ ./script/create-dist --no_zip` 
     - Ito ay lilikha ng `dist/main` na folder sa root ng libcc repo. Kakailanganin mo ito upang gumawa ng Electron.
-7. (Opsyonal) I-update ang mga nilalaman ng script kung may mga error na nagreresulta mula sa mga file na inalis o pinalitan ng pangalan. (`--no_zip` pinipigilan ang iskrip mula sa paglikha `dist` arkibos. Hindi mo sila kinakailangan.)
+7. (Opsyonal) I-update ang mga nilalaman ng script kung may mga error na nagreresulta mula sa mga file na inalis o pinalitan ng pangalan. (`--no_zip` pinipigilan ang iskrip mula sa create `dist` na mga archive. Hindi mo sila kinakailangan.)
 
 ## I-update code ng Electron
 
