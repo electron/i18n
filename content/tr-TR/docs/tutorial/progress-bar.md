@@ -1,6 +1,6 @@
-# Görev çubuğunda ilerleme çubuğu (Windows, macOS, Unity)
+# Görev çubuğunda ilerleme göstergesi (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Windows işletim sisteminde, ilerleme göstergesi görev çubuğu butonuna basılarak erişilebilir. Bu sayede kullanıcı pencereler arasında geçiş yapmak zorunda kalmadan ilerlemeyi görebilir.
 
 MacOS üzerinde ilerleme çubuğu dock simgesinin bir parçası olarak görüntülenir.
 
