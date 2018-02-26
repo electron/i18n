@@ -62,57 +62,57 @@ Ang `prepare-release` na skrip ay magti-trigger sa mga build sa pamamagitan ng m
 
 Ang pagsulat ng mga panlathalang kopya ay isang paraan upang mapanatiling abala ang iyong sarili habang tumatakbo ang mga build. Para sa naunang sining, tingnan ang mga naunang lathala sa [pahina ng mga lathala](https://github.com/electron/electron/releases).
 
-Mga Mungkahi: - Ang bawat aytem na nakalista na ay kinakailangang isangguni sa isang PR sa electron/electron, hindi isang isyu, at hind rin PR na galing sa ibang repo katulad ng libcc. - Hindi na kailangang gamitin ang link na markup nagsasangguni ng mga PR. Ang mga string na kagaya ng `#123` ay awtomatikong isasalin sa mga link sa github.com. - Maaaring tingnan ang mga bersyon ng Chromioum, V8 at Node ang kada bersyon ng Electron, bisitahin ang [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Mga Mungkahi: - Ang bawat aytem na nakalista na ay kinakailangang isangguni sa isang PR sa electron/electron, hindi isang isyu, at hind rin PR na galing sa ibang repo katulad ng libcc. - Hindi na kailangang gamitin ang link na markup nagsasangguni ng mga PR. Ang mga string na kagaya ng `#123` ay awtomatikong isasalin sa mga link sa github.com. - Upang tingnan ang bersyon ng Chromioum, V8 at Node sa kada bersyon ng Electron, bisitahin ang [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Ang Patch releases
+### Ang mga Patch na lathala
 
-Para sa `patch` release, gumamit ng mga sumusunod na format:
+Para sa isang `patch` na lathala, gumamit ng mga sumusunod na pormat:
 
 ```sh
-# # Bug fix 
+# # Kaayusan sa Bug 
 
-* Naayos na ang bahagi ng cross-platform na ito. #123
+* Naayos na ang isang cross-platform na bagay. #123
 
 ### Linux
 
-* Naayos na ang bahagi ng Linux. #123
+* Naayos na isang Linux na bagay. #123
 
 ### macOS
 
-* Naayos na ang bahagi ng macOS. #123
+* Naayos na ang isang macOS na bagay. #123
 
 ###Windows
 
-* Naayos na ang bahagi ng Windows. #1234
+* Naayos na ang isang Windows na bagay. #1234
 ```
 
-### Mga Minor na nailabas na
+### Mga Menor na Lathala
 
-Para sa `minor` release, e.g. `1.8.0`, gamitin ang format na ito:
+Para sa `menor` na lathala, e.g. `1.8.0`, gamitin ang pormat na ito:
 
 ```sh
-## Upgrades
+## Mga Upgrade
 
-- I-upgrade ang Node ' mula sa lumang bersyon' patungo sa 'bagong berston'. #123 
+- I-upgrade mula sa Node na`oldVersion' patungo sa 'newVersion'. #123 
 
-## Mga pagbabago sa ApI 
+## Mga pagbabago sa API 
 
-* Nabago ang isang bahagi. #123
+* Nabago ang isang bagay. #123
 
 ### Linux
 
-* Nabago ang isang bahagi ng Linux. #123
+* Nabago ang isang Linux na bagay. #123
 
 ### macOS
 
-* Nabago ang isang bahagi macOS. #123
+* Nabago ang isang macOS bagay. #123
 
 ### Windows
 
-* Nabago ang isang bahagi Windows. #123
+* Nabago ang isang Windows na bagay. #123
 ```
 
-### Mga pangunahing nilabas
+### Mga Pangunahing Lathala
 
 ```sh
 ## Upgrades
