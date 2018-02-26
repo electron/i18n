@@ -20,17 +20,17 @@ node -v
 npm -v
 ```
 
-Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Sa hindi kapa magsimula, kung gusto mong mag install ng isang [code editor](#a-good-editor) na angkop para sa javaScript development.
 
-## Setting up Windows
+## Pagsetuo ng Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Sinusuporta ng Electron ang Windows 7 ang mga bagong bersyon nito -layunin nitong i develop ang mga aplikasyon ng Electron sa mga bagong bersion ng Windows na hindi gumagana. Ang Microsoft ay nagbibigay ng libreng [virtual machine images sa Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) para sa mga developers.
 
-Una, i-install ang bagong bersyon ng Node.js. Nirerekomenda namin na i-install nyo alin man sa mga bagong `LTS` or `Current` na bersyon na meron. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Kung na download muna, i-execute ang installer at hayaang ang installation wizard ang mag gabay hanggang matapos ang installation.
+Una, i-install ang bagong bersyon ng Node.js. Nirerekomenda namin na i-install nyo alin man sa mga bagong `LTS` or `Current` na bersyon na meron. Bisitahin ang [the Node.js download page](https://nodejs.org/en/download/) at piliin ang `Windows Installer`. Kung na download muna, i-execute ang installer at hayaang ang installation wizard ang mag gabay hanggang matapos ang installation.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Kung natapos na ang pag install, isiguro kung gumagana na ang lahat sa inaasahan. Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Kung natapos na ang pag install, isiguro kung gumagana na ang lahat sa inaasahan. Hanapin ang Windows PowerShell sa paraan ng pag bukas ng Start Menu at pagsulat ng `PowerShell`. Buksan sa itaas `PowerShell` o ibang command line client na iyong gusto at siguraduhin na ang dalawang `node` at `npm` ay pwedeng magamit:
 
 ```powershell
 # Ang utos na ito ay dapat maipakita sa bersyon ng Node.js
@@ -40,11 +40,11 @@ node -v
 npm -v
 ```
 
-Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Sa hindi kapa magsimula, kung gusto mong mag install ng isang [code editor](#a-good-editor) na angkop para sa javaScript development.
 
-## Setting up Linux
+## Pagsetup ng Linux
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> Sa madaling salita, ang Electron ay sumosuporta sa Ubuntu 12.04, Fedora 21, Debian 8 at ang mga bago pa.
 
 Una, i-install ang bagong bersyon ng Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
 
@@ -58,10 +58,10 @@ node -v
 npm -v
 ```
 
-Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Sa hindi kapa magsimula, kung gusto mong mag install ng isang [code editor](#a-good-editor) na angkop para sa javaScript development.
 
-## A Good Editor
+## Isang magaling na editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+Sinasuggest namin na dalawang libre na popular na editor na builtin sa Electron: GitHub's [Atom](https://atom.io/) at Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Ang dalawang ito ay magaling sa Javascript support.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Kung ikaw ay isa samga nagdevelop na mayroong malakas na kaalaman sa pagpili, alamin na virtually ang lahat ng mga code editors at mga IDEs sa mga araw na ito ay sumusuporta sa JavaScript.
