@@ -1,15 +1,15 @@
-# Ilalabas
+# Paglalabas
 
-Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng Electron.
+Ang dokumentong ito ay nag papakita ng proseso ng pagpapalabas ng isang bagong bersyon ng Electron.
 
-## Alamin kung aling sangay nagmula ang ilalabas
+## Alamin kung mula sa aling sangay maglalabas
 
-- **If releasing beta,** paganahin ang scrip sa ilalim ng `master`.
-- **If releasing a stable version,** paganahin na ang script sa ilalim ng `1-7-x` ok kaya `1-6-x`, depende kung anung bersyon ang ilalabas.
+- **Kapag naglalabas ng isang beta,** paganahin ang skrip sa ibaba mula sa `master`.
+- **Kung naglalabas ng isang matatag na bersyon,** paganahin na ang skrip sa ibaba mula sa `1-7-x` o `1-6-x`, depende kung sa aling bersyon ka maglalabas.
 
-## Alamin kung alung bersyon ang nabago ito ay kinakailangan
+## Alamin kung anong pagbabago sa bersyon ang kinakailangan
 
-Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang kusang pag generate ng paglabas ng mga tala. Ang mga talang nabuo ay makakatulong upang matukoy kung ito ay major, minor, patch, o kaya beta na nabago ang bersyon. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) para sa karagdagang impormasyon.
+Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang awtomatikong nalikhang mga kopya sa paglalabas. Ang mga talang nabuo ay makakatulong upang matukoy kung ito ay major, minor, patch, o kaya beta na nabago ang bersyon. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) para sa karagdagang impormasyon.
 
 ## Paganahing ang prepare-release script
 
