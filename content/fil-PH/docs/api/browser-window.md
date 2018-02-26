@@ -368,11 +368,11 @@ Ay lalabas kung ang scroll wheel na bahagi ng kaganapan ay magsimula.
 
 Ay lalabas kung ang scroll wheel na bahagi ng kaganapan ay natapos na.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Kaganapan: 'scroll-touch-edge' *macOS*
 
 Ay lalabas kung ang scroll event na bahagi ng kaganapan sa pag-abot sa gilid ng elemento.
 
-#### Event: 'swipe' *macOS*
+#### Kaganapan: 'swipe' *macOS*
 
 Ibinabalika ang:
 
@@ -381,11 +381,11 @@ Ibinabalika ang:
 
 Pinapalabas sa 3-finger swipe. Ang mga posibleng direksyon ay ` up `, ` kanan `, ` pababa `, ` kaliwa `.
 
-#### Event: 'sheet-begin' *macOS*
+#### Kaganapan: 'sheet-begin' *macOS*
 
 Napalabas kapag nagbukas ang window ng sheet.
 
-#### Event: 'sheet-end' *macOS*
+#### Kaganapan: 'sheet-end' *macOS*
 
 Ay lalabas kapag nakasara ang isang sheet ng window.
 
@@ -393,7 +393,7 @@ Ay lalabas kapag nakasara ang isang sheet ng window.
 
 Ay lalabas kung ang native ng pindutan ng bagong tab ay na-click.
 
-### Static Methods
+### Static na pamamaraan
 
 Ang `BrowserWindow`: klas na ito ay mayroong sumusunod na static na pamamaraan:
 
@@ -423,7 +423,7 @@ Binabalik ang `BrowserWindow | null` - Ang window na nagmamay-ari ng ibinigay na
 
 Ibinabalik `BrowserWindow` - Ang window na may ibinigay na `id`.
 
-#### `BrowserWindow.addExtension(path)`
+#### `BrowserWindow.addExtension(landas)`
 
 * `path` String
 
@@ -433,7 +433,7 @@ Ang pamamaraan ay hindi maaring babalik kung ang manifest ng ekstensyon ay nawaw
 
 **noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
-#### `BrowserWindow.removeExtension(name)`
+#### `BrowserWindow.removeExtension(pangalan)`
 
 * `name` String
 
@@ -447,7 +447,7 @@ Babalik `Object` - Ang mga key ay ang mga pangalan ng extension at bawat halaga 
 
 **noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
-#### `BrowserWindow.addDevToolsExtension(path)`
+#### `BrowserWindow.addDevToolsExtension(landas)`
 
 * `path` String
 
@@ -459,7 +459,7 @@ Ang pamamaraan ay hindi maaring babalik kung ang manifest ng ekstensyon ay nawaw
 
 **noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
-#### `BrowserWindow.removeDevToolsExtension(name)`
+#### `BrowserWindow.removeDevToolsExtension(pangalan)`
 
 * `name` String
 
@@ -476,7 +476,7 @@ Upang masuri kung naka-install ang extension ng DevTools maaari mong patakbuhin 
 ```javascript
 const {BrowserWindow} = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+Hayaan ma install ang = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
