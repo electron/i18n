@@ -2,37 +2,37 @@
 
 1. Kuning ang bersyon ng crashpad na gagamitin natin.
     
-    - `libcc/src/third_party/crashpad/README.chromium` magkakaroon ng linya `Rebisyon:` na may checksum
-    - We need to check out the corresponding branch.
-    - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
+    - Ang `libcc/src/third_party/crashpad/README.chromium` ay magkakaroon ng linya `Rebisyon:` na may checksum
+    - Kailangan nating suriin ang katugmang sangay.
+    - Kopyahin ang crashpad ng Google (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - Tingnan ang sangay na may rebisyon na may checksum: 
+    - Tingnan ang sangay na may rebisyong checksum: 
         - `git checkout <revision checksum>`
-    - Magdagdag ng electon's crashpad fork bilang isang remote
+    - Idagdag ng crashpad fork ng electron bilang isang remote
     - `git remote add electron https://github.com/electron/crashpad`
     - Tingnan ang bagong sangay para sa update
     - `git checkout -b electron-crashpad-vA.B.C.D`
-    - `A.B.C.D` ay ang Chromium bersyon na matatagpuan sa `libcc/VERSION` at magiging tulad nito `62.0.3202.94`
+    - Ang `A.B.C.D` ay ang Chromium bersyon na matatagpuan sa `libcc/VERSION` at magiging tulad nito `62.0.3202.94`
 
-2. Gumawa ng isang checklist ng mga patong ng Electron na kailangang ilapat `git log --oneline`
+2. Gumawa ng isang checklist ng mga patch ng Electron na kailangang ilapat gamit ang `git log --oneline`
     
     - O tingnan sa https://github.com/electron/crashpad/commits/previous-branch-name
 
 3. Para sa bawat patch:
     
-    - Sa `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
+    - Sa `electron-crashpad-vA.B.C.D`, i-cherry-pick ang checksum ng patch
     - `git cherry-pick<checksum>`
-    - Lutasin ang ano mang kasalungat
-    - Tiyaking bumuo ito pagkatapos ay idagdag, gumawa, at itulak ang trabaho sa electron's crashpad fork
-    - `git itulak ang electron electron-crashpad-vA.B.C.D`
+    - Lutasin ang ano mang mga problema
+    - Tiyaking bumuo ito pagkatapos ay idagdag, gumawa, at itulak ang trabaho sa crashpad fork ng electron
+    - `git push electron electron-crashpad-vA.B.C.D`
 
-4. I-update ang Electron na gumawa ng bagong crashpad:
+4. I-update ang Electron upang gawin ang bagong crashpad:
     
     - `cd vendor/crashpad`
     - `git fetch`
     - `git checkout electron-crashpad-v62.0.3202.94`
-5. Muling buuhin ang Ninja files laban sa parehong target 
-    - Mula sa Electron root's ugat, paganahin ang `cript/update.py`
+5. Muling buuhin ang mga Ninja file laban sa dalawang target 
+    - Mula sa ugat ng Electron root, paganahin ang `script/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
     - Dapat parehong walang mga mali sa paggawa
