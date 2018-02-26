@@ -148,23 +148,23 @@ Gamitin ang kaparehong mga pormat katulad ng iminungkahi sa itaas, ngunit idagda
 ```sh
 **Paalala:** Ito ay isang beta na lathala at malamang ay magkakaroon ng ilang kawalang katatagan o mga regresyon.
 
-Mangyaring mag file ng bagong isyu para sa anumang bug na makikita mo dito.
+Mangyaring mag-file ng bagong isyu para sa anumang bug na makikita mo dito.
 
-Ang release na to ay nailathala sa [npm] (https://www.npmjs.com/package/electron) sa ilalim ng 'beta' I tag at maaring i-instal sa pamamagoitan ng `npm install electron@beta`.
+Ang lathalang to ay nailathala sa [npm] (https://www.npmjs.com/package/electron) sa ilalim ng `beta` na tag at maaring i-install sa pamamagitan ng `npm install electron@beta`.
 ```
 
-## I-edit ang release draft
+## Baguhin ang draft ng lathala
 
-1. Bisitahin ang [the releases page](https://github.com/electron/electron/releases) at makikita mo ang bagong draft na narelease kasama ng placeholder release ng mga tala.
-2. I-edit ang release at magdagdag ng mga release notes.
-3. Tanggalan ng tsek ang `prerelease` checkbox kung kayo ay maglalathala ng isang matatag na release; iwanan itong naka tsek para sa beta release.
-4. Ipindutin ang 'Save draft'. **Do not click 'Publish release'!**
-5. Antayin ang lahat ng build na pumasa bago magpatuloy.
-6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
+1. Bisitahin ang [pahina ng mga lathala](https://github.com/electron/electron/releases) at makikita mo ang bagong draft na lathala kasama ng placeholder na lathala.
+2. Baguhin ang lathala at magdagdag ng mga kopya ng lathala.
+3. Tanggalin ng tsek sa `prerelease` na checkbox kung ikaw ay naglalathala ng isang matatag na lathala; pabayaan itong naka tsek para sa beta na mga lathala.
+4. Pindutin ang 'Save draft'. **Huwag pindutin ang 'Publish release'!**
+5. Hintayin ang lahat ng build na pumasa bago magpatuloy.
+6. Maaari mong paganahin ang `npm run release -- --validateRelease` upang patunayan na ang lahat ng mga kinakailangang file ay nalikha na para sa lathala.
 
-## Ilathala ang release
+## Ilathala ang lathala
 
-Once the release builds have finished, run the `release` script via `npm run release` to finish the release process. Ang script nato ay gagawin ang mga sumusunod. Gumawa ng proyekto para patunayan na tama ang numero ng bersyon na nailabas na. 2. I download ang binaries at i-generate ang node ng headers at ang .lib linker gamitin sa window sa pamamagitan ng node-gyp para mabuo ang negatibong modyul. 3. Gumawa at i-upload ang SHASUMS files na nakatabi sa S3 para sa node files. 4. Gumawa at i-upload ang SHASUMS256.txt file na nakatabi sa GitHub release. 5. Patunayan na ang lahat ng kinakailangang mga file na prinisinta sa GitHub at S3 at magkaroon ng tamang checksums gaya ng tinutukoy sa SHASUMS files. 6. Ilathala ang release sa GitHub 7. Tanggalin ang `release` na sangay.
+Kapag ang mga panlathalang build ay natapos na, paganahin ang `release` na skrip gamit ang `npm run release` upang matapos ang proseso ng paglathala. Ang iskrip na ito ay gagawin ang mga sumusunod: 1. Itayo ang proyekto para patunayan na tama ang numero ng bersyon na inilalabas. 2. I-download ang mga binary at lumikha ng mga node header at ang .lib na linker na ginamit sa Windows sa pamamagitan ng node-gyp para mabuo ang mga native na modyul. 3. Gumawa at i-upload ang SHASUMS files na nakatabi sa S3 para sa node files. 4. Gumawa at i-upload ang SHASUMS256.txt file na nakatabi sa GitHub release. 5. Patunayan na ang lahat ng kinakailangang mga file na prinisinta sa GitHub at S3 at magkaroon ng tamang checksums gaya ng tinutukoy sa SHASUMS files. 6. Ilathala ang release sa GitHub 7. Tanggalin ang `release` na sangay.
 
 ## Ilathala sa npm
 
