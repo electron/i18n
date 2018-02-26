@@ -1,4 +1,4 @@
-## Class: TouchBarGroup
+## Klase: TouchBarGroup
 
 > Gumawa ng grupo sa touch bar para sa mga aplikasyon ng katutubong macOS
 
