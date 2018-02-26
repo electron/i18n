@@ -21,23 +21,23 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
     - Maaari itong gawin nang manu-mano sa pamamagitan ng pagbisita sa OmahaProxy sa isang browser, o awtomatikong:
     - One-liner para sa pinakabagong bersyon ng matibay na mac:`curl -so- https://omahaproxy.appspot.com/mac > Bersyon `
     - One-liner para sa pinakabagong beta version ng win64: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > Bersyon`
-  - tumakbo `$ ./script/update` 
+  - paganahin `$ ./script/update` 
     - Magluto ng ilang tsaa - maaaring tumakbo ito nang 30m o higit pa.
     - Maaaring ito ay mabibigo sa pag-aaplay ng mga patch.
-3. Ayusin `*.patch` mga file na nasa `patches` at `patches-mas/` mga polder.
-4. (Opsyonal) `script/update` gamitin ang mga patches, ngunit kung kinakailangan ang maraming pagsubok maaari mong manu-manong patakbuhin ang parehong script na iyon `i-update` mga tawag: `$ ./script/apply-patches` 
+3. Ayusin ang `*.patch` mga file na nasa `patches` at `patches-mas/` mga polder.
+4. (Opsyonal) `script/update` ay nag-aaplay sa mga patch, ngunit kung kinakailangan ang maraming pagsubok maaari mong manu-manong patakbuhin ang parehong script na `nag-update` sa mga tawag: `$ ./script/apply-patches` 
   - Mayroong pangalawang iskrip, `script/patch.py` na maaaring maging kapaki-pakinabang. Basahin `./script/patch.py -h` para sa karagdagang impormasyon.
 5. Patakbuhin ang build kapag ang lahat ng mga patch ay maaaring mailapat nang walang mga error 
   - `$ ./script/build`
   - Kung ang ilang patches ay hindi katugma sa iyong Chromium kowd, ayusing ang mga mali sa paglista.
 6. Kapag matagumpay ang build, gumawa ng isang `dist` para sa Electron 
   - `$ ./script/create-dist --no_zip` 
-    - Ito ay lilikha ng `dist/main`polder sa root ng libcc repo. Kakailanganin mo ito upang gumawa ng Electron.
-7. (Opsyonal) I-update ang mga nilalaman ng script kung may mga error na nagreresulta mula sa mga file na inalis o pinalitan ng pangalan. (`--no_zip` pinipigilan ang iskrip mula sa paglikha `dist` arkibos. Hindi mo ito kinakailangan.)
+    - Ito ay lilikha ng `dist/main` na folder sa root ng libcc repo. Kakailanganin mo ito upang gumawa ng Electron.
+7. (Opsyonal) I-update ang mga nilalaman ng script kung may mga error na nagreresulta mula sa mga file na inalis o pinalitan ng pangalan. (`--no_zip` pinipigilan ang iskrip mula sa paglikha `dist` arkibos. Hindi mo sila kinakailangan.)
 
-## I-update Electron's kowd
+## I-update code ng Electron
 
-1. Kuning ang kowd: 
+1. Kuning ang code: 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
@@ -53,7 +53,7 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
   
   - Tiyakin na ang libcc na submodule (`vendor/libchromiumcontent`) tumugma sa tamang rebisyon
 
-4. Itakda `CLANG_REVISION` sa `script/update-clang.sh` upang tumugma sa bersyon gumamit ng Chromium.
+4. Itakda `CLANG_REVISION` sa `script/update-clang.sh` upang tumugma sa bersyon ginagamit ng Chromium.
   
   - Matatagpuan sa `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
 
