@@ -1,18 +1,18 @@
 ## Klase: TouchBarPopover
 
-> Create a popover in the touch bar for native macOS applications
+> Gumawa ng isang popover sa touch bar para sa mga aplikasyon ng katutubong macOS
 
 Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarPopover(options)` *Experimental*
+### `bagong TouchBarPopover(pagpipilian)` *Pangeksperimento*
 
-* `options` Object 
-  * `label` String (optional) - Popover button text.
-  * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
-  * `items` [TouchBar](touch-bar.md) (optional) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Default is `true`.
+* `pagpipilian` Bagay 
+  * `label` Pisi (opsyonal) - Popover na pindutan ng teksto.
+  * `icon` [NativeImage](native-image.md) (opsyonal) - Popover button icon.
+  * `mga aytem` [TouchBar](touch-bar.md) (opsyonal) - Mga item na ipapakita sa popover.
+  * `showCloseButton` Boolean (opsyonal) - `tunay` magdispley ng isang pindutan para pindutan na pangsara malapit sa kaliwa ng popover, `mali` upang hindi ito ipakita. Default ay `Totoo`.
 
-### Humahalimbawa sa bahagi nito
+### Katangian ng pagkakataon
 
 The following properties are available on instances of `TouchBarPopover`:
 
