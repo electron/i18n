@@ -8,19 +8,19 @@ Ang opisyal na simbolong server na URL para sa Electron ay https://electron-symb
 
 ## Pagamit ng Simbolong Server sa Windbg
 
-Ang simbolong landas ng Windbg ay na-configure gamit ang halaga ng string na nalimitahan ng mga asterisk na karakter. Upang magamit lamang ang server na simbolo ng Electron, idagdag ang sumusunod na entry sa iyong daan na simbolo (**Tandaan:**maaari mong palitan` c:\code\mga simbolo` sa anumang writable direktoryo sa iyong computer, kung gusto mo ng ibang lokasyon para ma-download Ang mga simbolo):
+Ang simbolong landas ng Windbg ay na-configure gamit ang halaga ng string na nalimitahan ng mga asterisk na karakter. Upang magamit lamang ang simbolong server ng Electron, idagdag ang sumusunod na entry sa iyong simbolong landas (**Tandaan:**maaari mong palitan` c:\code\symbols` sa anumang masusulatang direktoryo sa iyong kompyuter, kung gusto mo ng ibang lokasyon para na-download na mga simbolo):
 
 ```powershell
-SRV*c:\ code\mga simbolo\*https://electron-mga simbolo.githubapp.com
+SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 ```
 
-Itakda ang string na ito bilang `_NT_SYMBOL_PATH ` sa kapaligiran, gamit ang mga Windbg menu, o sa pamamagitan ng pag-type`sympath` utos. Kung nais mong makakuha ng mga simbolo mula sa Microsoft's simbolo ng server pati na rin, dapat mong ilista ang unang:
+Itakda ang string na ito bilang `_NT_SYMBOL_PATH ` sa kapaligiran, gamit ang mga Windbg na menu, o sa pamamagitan ng pag-type ng `sympath` na utos. Kung nais mong makakuha ng mga simbolo mula sa simbolong server ng Microsoft, dapat mong ilista muna ito:
 
 ```powershell
-SRV*c:\code\ mga simbolo\*https://msdl.microsoft.com/download/mga simbolo;SRV* c:\code\mga simbolo\*https://elektron-symbols.githubapp.com
+SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 ```
 
-## Gamit ang simbolo ng server sa Visual Studio
+## Paggamit ng simbolong server sa Visual Studio
 
 <img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
