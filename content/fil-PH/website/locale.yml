@@ -140,7 +140,7 @@ _404:
   if_this_is_an_error: Kung ito ay isang error
   please_file_an_issue: magsampa ng isyu.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_all: Maghanap ng Electron na kaalaman mula sa <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
+  description_docs: Maghanap ng kaalaman tungkol sa Electron mula sa dokumentasyon.
+  description_npm: Maghanap ng kaalaman tungkol sa Electron mula sa npm packages.
+  description_repos: Maghanap ng kaalaman tungkol sa Electron mula sa Github repos.
