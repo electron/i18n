@@ -6,7 +6,7 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### `bagong TouchBarColorPicker(options)` *Experimental*
 
-* `options` Object 
+* `pagpipilian` Bagay 
   * `availableColors` String[] (optional) - Pagkakasunod-sunod ng mga linya ng kulay para ipakitang bilang posibleng kulay na mapili.
   * `selectedColor` String (optional) - Ang napiling kulay sa tagapili, i.e `#ABCDEF`.
   * `baguhin` Function (optional) - tungkuling taga tawag kung merong kulay na mapili. 
