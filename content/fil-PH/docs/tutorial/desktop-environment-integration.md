@@ -8,7 +8,7 @@ Ang gabay na ito ay nagpapaliwanag kung paano i-integrate ang iyong aplikasyon s
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Kasalukuyang dokumento
 
 See [Recent Documents documentation](recent-documents.md).
 
