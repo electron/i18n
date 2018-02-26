@@ -1,6 +1,6 @@
 # Paglalabas
 
-Ang dokumentong ito ay nag papakita ng proseso ng pagpapalabas ng isang bagong bersyon ng Electron.
+Ang dokumentong ito ay nagpapakita ng proseso ng pagpapalabas ng isang bagong bersyon ng Electron.
 
 ## Alamin kung mula sa aling sangay maglalabas
 
@@ -176,7 +176,7 @@ Sa kaso ng isang nasirang release na may sirang CI na mga makina, maaari nating 
 
 Ang unang hakbang ay pumunta sa [Mga Lathala](https://github.com/electron/electron/releases) na pahina at tanggalin ang nasirang mga binary kasama ang `SHASUMS256.txt` na checksum file.
 
-Pagkatapos ay imanu-manong gawin ang distribusyon para sa bawat plataporma at i-upload ang mga ito:
+Pagkatapos ay manu-manong gawin ang distribusyon para sa bawat plataporma at i-upload ang mga ito:
 
 ```sh
 # Tingnan ang bersyon na muling i-upload.
