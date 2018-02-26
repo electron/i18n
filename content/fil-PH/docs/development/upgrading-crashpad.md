@@ -1,6 +1,6 @@
 # Pag-upgrade ng Crashpad
 
-1. Kuning ang bersyon ng crashpad na gagamitin namin.
+1. Kuning ang bersyon ng crashpad na gagamitin natin.
     
     - `libcc/src/third_party/crashpad/README.chromium` magkakaroon ng linya `Rebisyon:` na may checksum
     - We need to check out the corresponding branch.
