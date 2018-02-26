@@ -35,7 +35,7 @@
     - Mula sa ugat ng Electron root, paganahin ang `script/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
-    - Dapat parehong walang mga mali sa paggawa
-6. Isulong ang mga pagbabago sa reperensiya ng submodule 
+    - Dapat magbuo ang dalawa nang walang mga mali
+6. Isulong ang mga pagbabago sa batayang submodule 
     - (Mula sa ugat ng electron) `git add vendor/crashpad`
-    - `git pinagmulang ng tulak upgrade-to-chromium-62`
+    - `git push origin upgrade-to-chromium-62`
