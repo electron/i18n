@@ -13,50 +13,50 @@ Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang awtomatik
 
 ## Paganahing ang prepare-release na skrip
 
-Ang hanada ng ilabas na script ay gagawin ang mga sumusunod: 1. Tingnan ang nilabas kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang sangay na ilalabas. 3. I-Bump ang numero ng bersyon ng ilang files. Tingnan ang [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) isang halimbawa. 4. Gumawa ng isang draft na I rerelease sa GitHub kasama ang auto-generated na release ng mga tala. 5. Itulak ang paglabas ng sangay. 6. Tawagin ang API para paganahin ang release builds.
+Ang prepare release na skrip ay gagawin ang mga sumusunod: 1. Tingnan ang isang lathala kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang panglathalang sangay. 3. Ibangga ang numero ng bersyon sa maraming mga file. Tingnan ang [bump commit na ito](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) bilang isang halimbawa. 4. Gumawa ng isang draft na lathala sa GitHub kasama ang mga awtomatikong nalikhang mga kopya ng lathala. 5. Itulak ang panlathalang sangay. 6. Tawagin ang mga API para paganahin ang mga panlathalang build.
 
-Kung natukoy mo na kung aling type ng bersyon ang kailangang baguhin. paganahin ang `prepare-release` script sa argumento ayon sa iyong pangangailangan: - `[major|minor|patch|beta]` pagtaas ng isa sa mga numero ng bersyon. O - `--stable` upang ito ay ipahiwatig na matatag ang bersyon
+Kung natukoy mo na kung aling uri ng bersyon ang kailangang baguhin, paganahin ang `prepare-release` na skripkasama ang mga argumento ayon sa iyong pangangailangan: - `[major|minor|patch|beta]` upang iangat ang isa sa mga numero ng bersyon, o - `--stable` upang ipahiwatig na ito ay isang matatag ang bersyon
 
 Halimbawa:
 
-### Major ng bersyon ay nabago
+### Pangunahing pagbabago sa bersyon
 
 ```sh
-npm paganahin ang prepare-release -- major
+npm run prepare-release -- major
 ```
 
-### Minor ng bersyon ay nabago
+### Menor na pagbabago sa bersyon
 
 ```sh
-npm paganahin ang prepare-release -- minor
+npm run prepare-release -- minor
 ```
 
-### Patch ng bersyon ay nabago
+### Patch na pagbabago sa bersyon
 
 ```sh
-npm paganahin ang prepare-release -- patch
+npm run prepare-release -- patch
 ```
 
-### Patch ng bersyon ay nabago
+### Beta na pagbabago sa bersyon
 
 ```sh
-npm paganahin ang prepare-release -- beta
+npm run prepare-release -- beta
 ```
 
-### Pataasin ang beta para maging maayos
+### Iangat mula beta papuntang stable
 
 ```sh
-npm paganahin ang prepare-release -- stable
+npm run prepare-release -- --stable
 ```
 
-## Hintayin ang builds :hourglass_flowing_sand:
+## Hintayin ang mga build :hourglass_flowing_sand:
 
-Ang `prepare-release` script ay nag-trigger sa builds sa pamamagitan ng API calls. para masubaybayan ang pagbuo ng proseso. tingnan ang mga sumusunod na pahina:
+Ang `prepare-release` na skrip ay magti-trigger sa mga build sa pamamagitan ng mga API na tawag. Upang masubaybayan ang estado ng pagbubuo, tingnan ang mga sumusunod na pahina:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) ito ay para sa Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) ito ay para sa OS X
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) ito ay para sa Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) ito ay para sa Windows
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) para sa Mac App Store
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) para sa OS X
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) para sa Linux
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) para sa Windows
 
 ## Tipunin ang mga tala ng release
 
