@@ -14,12 +14,12 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### Humahalimbawa sa bahagi nito
 
-The following properties are available on instances of `TouchBarColorPicker`:
+Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBarColorPicker`:
 
-#### `touchBarColorPicker.availableColors`
+#### `touchBarColorPicker.mamagamitnamgaKulay`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+Isang `String`array na kumakatawan sa pagpipilian ng kulay na magagamit sa kasalukuyang pwedeng mapili. Kung babaguhin ang halaga nito ay agad mauupdate ang color picker na nasa touch bar.
 
-#### `touchBarColorPicker.selectedColor`
+#### `touchBarColorPicker.napilingKulay`
 
-A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
+Isang `String` hex code na kumakatawan sa kulay sa pagpipilian ng mga kulay na kasalukuyang napili. Kung babaguhin ang halaga nito ay agad mauupdate ang color picker na nasa touch bar.
