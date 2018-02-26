@@ -93,7 +93,7 @@ Para sa `menor` na lathala, e.g. `1.8.0`, gamitin ang pormat na ito:
 ```sh
 ## Mga Upgrade
 
-- I-upgrade mula sa Node na`oldVersion' patungo sa 'newVersion'. #123 
+- Na-upgrade mula sa Node na`oldVersion' patungo sa 'newVersion'. #123 
 
 ## Mga pagbabago sa API 
 
@@ -115,38 +115,38 @@ Para sa `menor` na lathala, e.g. `1.8.0`, gamitin ang pormat na ito:
 ### Mga Pangunahing Lathala
 
 ```sh
-## Upgrades
+## Mga Upgrade
 
-- Upgraded na ang Chromium mula sa 'lumang bersyon' patungo sa 'bagong bersyon'. #123
-- Itinaas ang Node ' mula sa lumang bersyon' patungo sa 'bagong bersyon'. #123 
+- Na upgrade mula sa Chromium na 'oldVersion' patungo sa 'newVersion'. #123
+- Na-upgrade mula sa Node na`oldVersion' patungo sa 'newVersion'. #123 
 
-## Mga paglabag sa ApI na nabago
+## Paghahati sa mga API na pagbabago
 
-* Nabago ang isang bahagi. #123
+* Nabago ang isang bagay. #123
 
 ### Linux
 
-* Nabago ang isang bahagi ng Linux. #123
+* Nabago ang isang Linux na bagay. #123
 
 ### macOS
 
-* Nabago ang isang bahagi macOS. #123
+* Nabago ang isang macOS bagay. #123
 
 ### Windows
 
-* Nabago ang isang bahagi Windows. #123
+* Nabago ang isang Windows na bagay. #123
 
-## Iba pang pagbabago 
+## Iba pang mga pagbabago 
 
-- yun iba ay nabago. #123
+- Ilang pang pagbabago. #123
 ```
 
-### Beta na release
+### Beta na mga lathala
 
-Gumamit ng kaparehong format nanakatulad katulad ng naimungkahi na sa itaas. Ngunit dagdagan ang mga sumusunod na tala sa simula ng changelog:
+Gamitin ang kaparehong mga pormat katulad ng iminungkahi sa itaas, ngunit idagdag ang sumusunod na paalala sa simula ng changelog:
 
 ```sh
-**Paalala:** eto ay beta release at malamang na magkakaroon ng ilang kawalang katatagan o regressions.
+**Paalala:** Ito ay isang beta na lathala at malamang ay magkakaroon ng ilang kawalang katatagan o mga regresyon.
 
 Mangyaring mag file ng bagong isyu para sa anumang bug na makikita mo dito.
 
