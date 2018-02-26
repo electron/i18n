@@ -61,20 +61,20 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
     - (Palitan ang `{VERSION}` placeholder na nasa url sa itaas sa Chromium bersyon libbc na ginagamit.)
-6. Gumawa ng Electron. 
-  - Subukang gumawa ng Debug bersyon muna: `$ ./script/build.py -c D`
-  - Kakailanganin mo itong subukang patakbuhin
-7. Ayusin ang kompilasyon at naglilink ng mga error
+6. Itayo ang Electron. 
+  - Subukang gumawa ng Debug na bersyon muna: `$ ./script/build.py -c D`
+  - Kakailanganin mo itong sa pagpapatakbo ng mga pagsusuri
+7. Ayusin ang kompilasyon at naglilink na mga error
 8. Siguradihin na ang Release build ay magawa din 
   - `$ ./script/build.py -c R`
   - Kadalasan ang Release build ay magkakaroon ng iba't ibang mga error sa pag-uugnay na kinakailangan mong ayusin.
-  - Ang ilang mga kompilasyon at nalilink na mga error ay sanhi ng nawawalang pinagmulan / bagay mga file sa libcc `dist`
-9. I-update `./script/create-dist` sa libcc repo, gumawa muli ng `dist`, at patakbuhin ang Electron Bootstrap iskrip muli.
+  - Ang ilang mga kompilasyon at nalilink na mga error ay sanhi ng nawawalang pinagmulan / bagay na mga file sa libcc `dist`
+9. I-update `./script/create-dist` sa libcc repo, gumawa muli ng `dist`, at patakbuhin ang Electron Bootstrap na iskrip muli.
 
-### Mga tip para sa pag-aayos ng mga error sa kompilasyon
+### Mga mungkahi para sa pag-aayos ng mga error sa kompilasyon
 
 - Ayusin ang Build config na mga mali muna
-- Ayusin muna ang nakamamatay na mga error, tulad ng nawawalang mga file at mga error na may kaugnayan sa tagatala mga flag o mga takda
+- Ayusin muna ang grabeng na mga error, tulad ng nawawalang mga file at mga error na may kaugnayan sa tagatala na flag o mga takda
 - Subukang kilalanin ang mga kumplikadong mga error sa lalong madaling panahon. 
   - Humingi ng tulong kung hindi ka sigurado kung paano ayusin ang mga ito
 - Huwag paganahin ang lahat ng mga tampok ng Electron, ayusin ang build, pagkatapos paganahin ang mga ito ng isa-isa
@@ -84,21 +84,21 @@ Kung ang Debug build ng Electron ay matagumpay, subukang patakbuhin: `$ ./script
 
 Sundin ang lahat ng mga hakbang sa itaas upang ayusin ang Electron kowd sa lahat ng mga sinusuportahang plataporma.
 
-## Ina-update ang Crashpad
+## Pag-a-update sa Crashpad
 
-Kung mayroong anumang mga error sa kompilasyon na may kaugnayan sa Crashpad, marahil ay nangangahulugan ito kailangan mong i-update ang fork sa isang mas bagong rebisyon. Tingnan [pag-upgrade ng Crashpad](upgrading-crashpad.md) para sa mga instruksiyon kung paano gawin iyon.
+Kung mayroong anumang mga error sa kompilasyon na may kaugnayan sa Crashpad, marahil ay nangangahulugan ito na kailangan mong i-update ang fork sa isang mas bagong rebisyon. Tingnan ang [pag-upgrade ng Crashpad](upgrading-crashpad.md) para sa mga instruksiyon kung paano gawin iyon.
 
-## Pag-upgrade ng NodeJS
+## Pag-update ng NodeJS
 
-Mag-upgrade `vendor/node` sa release ng Node na tumutugon sa v8 na bersyon na ginamit sa bagong paglabas ng Chromium. Tingnan ang v8 na bersyon sa Node on
+I-upgrade `vendor/node` sa release ng Node na tumutugon sa v8 na bersyon na ginamit sa bagong paglabas ng Chromium. Tingnan ang v8 na bersyon sa Node on
 
 Tingnan [pag-upgrade ng Node](upgrading-node.md) para sa mga instruksiyon tungkol dito.
 
 ## I-verify ang suporta ng ffmpeg
 
-Electron ships na may bersyon ng `ffmpeg` kabilang dito ang proprietary codecs sa pamamagitan ng default. Ang isang bersyon na walang mga codec na ito ay binuo at ipinamamahagi sa bawat release din. Dapat i-verify ng bawat pag-upgrade ng Chrome na lumipat sa bersyong ito ay sinusuportahan pa rin.
+Electron ships na may bersyon ng `ffmpeg` kabilang dito ang proprietary codecs sa pamamagitan ng default. Ang isang bersyon na walang mga codec na ito ay binuo at ipinamamahagi sa bawat release din. Dapat i-verify ng bawat pag-upgrade ng Chrome na ang paglipat sa bersyong ito ay sinusuportahan pa rin.
 
-Maaaari mong i-verify ang suporta ng Electron para sa maramihang `ffmpeg` builds sa pamamagitan ng paglo-load ng sumusunod na pahina. Dapat itong gumana sa default `ffmpeg` ipinamahagi ang librerya na may Electron at hindi gumagana sa `ffmpeg` ang librerya ay itinayo nang walang proprietary codecs.
+Maaaari mong i-verify ang suporta ng Electron para sa maramihang `ffmpeg` na mga build sa pamamagitan ng paglo-load ng sumusunod na pahina. Dapat itong gumana sa default na `ffmpeg` na library ni ipinamamahagi ng Electron at hindi gumagana sa `ffmpeg` ang library na itinayo nang walang proprietary codecs.
 
 ```html
 <!DOCTYPE html>
@@ -132,6 +132,6 @@ Context | Request Context
 
 ## Mga kapakipakinabang na link
 
-- [Chrome Release Iskedyul](https://www.chromium.org/developers/calendar)
+- [Iskedyul ng Chrome na Lathala](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Isyu Tracker](https://bugs.chromium.org/p/chromium)
+- [Tagasubaybay ng Isyu ng Chromium](https://bugs.chromium.org/p/chromium)
