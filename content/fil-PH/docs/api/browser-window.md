@@ -487,8 +487,8 @@ console.log(installed)
 Ang mga bagay na nilikha gamit ang `new BrowserWindow` ay may mga sumusunod na katangian:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-// In this example `win` is our instance
+const {BrowserWindow} = kinakailangan('electron')
+// Sa halimbawa na ito `panalo` ay ating halimbawa
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
@@ -612,7 +612,7 @@ Ang pag-sasa alang alang ng normal na window na may HD bidyo player at mga nauug
 #### `win.previewFile(path[, displayName])` *macOS*
 
 * `daan` String - Ang ganap na daan sa file upang i-ipakita gamit ang QuickLook. Ang mahalaga nito habang ginagamit ng Quick Look ang pangalan ng file at lawig ng file sa daan upang matukoy ang tipo ng nilalaman ng file upang buksan.
-* `Ang pagpakita sa pangalan` String (pag-pipilian) - Ang pangalan ng file na ipapakita sa Quick Look modal na tanaw. Ito ay ang malinis na viswal at hindi nakakaapekto sa nilalaman na uri ng file. Defaults to `path`.
+* `Ang pagpakita sa pangalan` String (pag-pipilian) - Ang pangalan ng file na ipapakita sa Quick Look modal na tanaw. Ito ay ang malinis na viswal at hindi nakakaapekto sa nilalaman na uri ng file. Defaults sa `path`.
 
 Ginagamit ang [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) upang i-preview ang file sa ibinigay na landas.
 
@@ -644,8 +644,8 @@ Nagbabalik[`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
-* `width` Integer
-* `height` Integer
+* `lapad` Integer
+* `taas` Integer
 * `animate` Boolean (opsyonal) *macOS*
 
 Lumalabas ang window sa `width` at `
@@ -655,10 +655,10 @@ height`.
 
 Ibinabalik `Integer[]` - Naglalaman ng lapad at taas ng window.
 
-#### `win.setContentSize(width, height[, animate])`
+#### `win.setContentSize(lapad, taas[, animate])`
 
-* `width` Integer
-* `height` Integer
+* `lapad` Integer
+* `taas` Integer
 * `animate` Boolean (opsyonal) *macOS*
 
 Lumalawak sa lugar ng kliyente ng window (e.g. the web page) to `width` and `height`.
@@ -667,10 +667,10 @@ Lumalawak sa lugar ng kliyente ng window (e.g. the web page) to `width` and `hei
 
 Binabalik ang `Integer[]` - Naglalaman ng window's client area's width and height.
 
-#### `win.setMinimumSize(width, height)`
+#### `win.setMinimumSize(lapad, taas)`
 
-* `width` Integer
-* `height` Integer
+* `lapad` Integer
+* `taas` Integer
 
 Itinatakda ang minimum na laki ng window `width` and `height`.
 
@@ -678,10 +678,10 @@ Itinatakda ang minimum na laki ng window `width` and `height`.
 
 Ibinabalik `Integer[]` - Naglalaman ng lapad at taas ng window.
 
-#### `win.setMaximumSize(width, height)`
+#### `win.setMaximumSize(lapad, taas)`
 
-* `width` Integer
-* `height` Integer
+* `lapad` Integer
+* `taas` Integer
 
 Itinatakda ang maximum na laki ng window `width` and `height`.
 
