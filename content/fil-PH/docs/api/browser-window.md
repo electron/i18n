@@ -1091,7 +1091,7 @@ Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng
 
 Ginagawa ang window na hindi pansinin ang lahat ng mouse na kaganapan.
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+Lahat ng mouse na kaganapan dito sa window ay maaring dumaan para sa window sa ibaba ng window, pero kung ang window ay may focus, ito ay makakatanggap parin ng keyboard na kaganapan.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
@@ -1099,13 +1099,13 @@ All mouse events happened in this window will be passed to the window below this
 
 Ang pag-pigil sa mga nilalaman ng window mula sa kumkuha ng iba pang apps.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+Sa macOS itinatakda nito ang pagbabahagi ng NSWindow sa NSWindowSharingNone. Sa Windows tinatawagan nito ang SetWindowDisplayAffinity sa `WDA_MONITOR`.
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Binabago kung ang window ay maaaring nakatuon.
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
@@ -1115,11 +1115,11 @@ Ang mga pagtatakda`peyrent`bilang isang peyrent ng window, na dumadaan sa `null`
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+Ibinabalik kung `BrowserWindow` - Ang magulang na window.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+Ibinabalik kung `BrowserWindow[]` - Lahat ay anak windows.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
