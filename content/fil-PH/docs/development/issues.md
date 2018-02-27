@@ -12,9 +12,9 @@
 
 Para sa anumang isyu, mayroong tatlong pangunahing pamamaraan na ang isang indibidwal ay maka pag-ambag:
 
-1. Sa pamamagitan nang pagbukas nang isyu para sa talakayan: Kung maniniwala ka na nahanap mo na ang bagong bug sa electron, kailangan mo itong iulat sa pamamagitan nang paggawa nang bagong isyu sa Ang`elektron/elektron`isyu tracker.
-2. Sa pamamagitan nang pag tulong para sa traige ang isyu: Magagawa mo ito alinman sa pagbibigay nang tulong sa mga detalye (maaaring kopyahin nang pagsusulit na kaso na maipakita nang isang bug) o sa pamamagitan nang pagbibigay mungkahi sa address ang isyu.
-3. Sa pamamagitan nang pagtulong upang malutas ang issue: Ito ay maaaring gawin sa pagpakita na ang isyu ay hindi bug o ito ay naayos na; pero kadalasan, sa pamamagitan nang pagbukas sa hilahin ang kahilingan na makapagbabago nang pinagmulan sa `elektron/elektron` sa isang kongreto at pagsusuring paraan.
+1. Sa pamamagitan ng pagbukas nang isyu para sa talakayan: Kung naniniwala ka na nakahanap ka ng isang bagong bug sa Electron, kailangan mo itong ipaalam sa pamamagitan ng paggawa ng bagong isyu sa `electron/electron` na tagasubaybay ng isyu.
+2. Sa pamamagitan nang pagtulong upang ma-triage ang isyu: Magagawa mo ito sa pagbibigay ng asistibong mga detalye (isang mapaparaming kaso ng pagsusuri na nagpapakita ng isang bug) o sa pamamagitan ng pagbibigay ng mga mungkahi upang malutas ang isyu.
+3. Sa pamamagitan ng pagtulong sa paglutas ng isyu: Ito ay maaaring gawin sa pamamagitan ng pagpapakita na ang isyu ay hindi bug o ito ay naayos na; pero kadalasan, sa pamamagitan nang pagbukas ng isang pull request na nagbabago sa pinagmulan sa `electron/electron` sa isang konkreto at masusuring paraan.
 
 ## Paghingi ng Pangkalahatang Tulong
 
