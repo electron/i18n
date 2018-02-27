@@ -87,7 +87,7 @@ Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `Sesyon`:
 #### `ses.getCacheSize(callback)`
 
 * `callback` Function 
-  * `size` Integer - Nagamit na laki cache sa bytes.
+  * `size` na Integer - Sukat ng cache ginagamit sa byte.
 
 Pagwatag-muli ay nananawagan sa mga sesyons sa kasalukuyang laki ng cache.
 
