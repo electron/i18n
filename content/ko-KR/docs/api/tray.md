@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray`는 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)이다.
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
