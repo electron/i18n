@@ -62,15 +62,15 @@ $ npm start || electron.
 
 Kung naniniwala ka na nakshanap ka ng isang bug sa Elektron, pakiusap punan mo ang form na ito sa abot ng iyong makakaya.
 
-Ang dalawang pinakamahalagang piraso ng informasyon na kailangan upang suriin ang report ay isang paglalarawan ng bug at ang simpleng pagsubok na kaso upang muling likhain ito. Madali itong ayusin ang bug kung maaari itong magparami.
+Ang dalawang pinakamahahalagang piraso ng impormasyon na kailangan upang masuri ang ulat ay isang paglalarawan ng bug at isang simpleng kaso ng pagsusuri upang muling likhain ito. Madaling mag-ayos ng isang bug kung maaari itong paramihin.
 
-Tingnan[Paano makagawa ng minimal, Kumpleto, at Napatunayan halimbawa](https://stackoverflow.com/help/mcve).
+Tingnan ang [Paano makagawa ng isang Minimal, Kumpleto, at Mapapatunayang halimbawa](https://stackoverflow.com/help/mcve).
 
-## Pagsasagawa sa bug report
+## Pagta-triage ng isang Ulat ukol sa Bug
 
-Karaniwan nito para sa mga bukas na isyu upang makasali sa diskusyon. Ilan sa mga mag-aambag ay maaaring meron ibat-ibang mga opinyon, kabilang ang kung ang pag-uugali ay isang bug o tampok. Ang talakayang ito ay bahagi ng proseso at dapat na maingatan at nakatuon, matutlungin, at propesyonal.
+Karaniwan ito para sa mga bukas na isyu upang makasali sa diskusyon. Ilan sa mga mag-aambag ay maaaring mayroong ibat-ibang mga opinyon, kabilang ang kung ang paggalaw ay isang bug o katangian. Ang talakayang ito ay bahagi ng proseso at dapat na napanatiling napagtuonan, nakakatulong, at propesyonal.
 
-Mga tugon na nagbibigay alinman sa karagdagang konteksto o pagsuporta sa mga detalye ay hindi kapaki-pakinabang o profesyonal. Sa napakarami, ang mga tugon na ito ay nakakainis at hindi magiliw.
+Ang mga Terse na kasagutan na nagbibigay ng wala sa karagdagang konteksto o ang pagsuporta sa mga detalye ay hindi kapaki-pakinabang o propesyonal. Sa nakararami, ang mga tugong ito ay nakakainis at hindi makaibigan.
 
 Hinihikayat ang mga taga-ambag na lutasin ng magkasama ang mga isyu at tulungan ang isat isa para makagawa ng progreso. Kung naka tagpo kanang isyu na pakiramdam mo ay hindi wasto, o naglalaman ng maling informasyon, ipaliwanag *why* nararamdaman mo ang paraan dito karagdagang suporta na mga konteksto, at handa maging kumbinsido na ikaw ay mali. Sa paggawa nito, madalas naming maabot ang tamang kinalalabasan na mas mabilis.
 
