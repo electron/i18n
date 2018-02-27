@@ -1089,7 +1089,7 @@ Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng
 * `options` Bagay (opsyonal) 
   * `forward` Boolean (opsyonal) *Windows* -Kung totoo, Ang pagsulong ng mouse ay inilipat ang mga mensahe sa Chromium, Ang pag-pagana ng mouse related events ay `mouseleave`. Ginagamit lamang kung ang`ignore` ay tama. Kung ang `ignore` is mali, Pagsulong ay palaging hindi-pinagana sa anumang mga balyu.
 
-Makes the window ignore all mouse events.
+Ginagawa ang window na hindi pansinin ang lahat ng mouse na kaganapan.
 
 All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 
