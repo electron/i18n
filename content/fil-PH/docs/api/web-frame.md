@@ -61,7 +61,7 @@ Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi v
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Bagay 
+* `provider` Object 
   * `spellCheck` Function - Returns `Boolean` 
     * `text` String
 
