@@ -92,7 +92,7 @@ Gamit ang `Session`at`Cookies`classes bilang halimbawa:
 ### Mga Halimbawa ng Pamamaraan #### `ses.getCacheSize (callback)` ### Instance Properties #### `ses.cookies` ## Klase: Mga Cookies ### Mga Halimbawa ng Pamamaraan #### `cookies.get (filter, callback)`
 ```
 
-### Paraan
+### Methods
 
 Ang pamamaraan ng kabanata ay dapat nasa sumusunod na form:
 
