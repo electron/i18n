@@ -1,10 +1,10 @@
 # Pagde-debug sa macOS
 
-Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron at naniniwala ka na ito'y hindi sanhi ng iyong JavaScript na aplikasyon, sa halip ang problema ay nasa Electron mismo, ang pagde-debug ay posibleng maging medyo nakakalito, lalo na sa mga tagabuo na hindi gumagamit ng native/C++ na pagde-debug. Ganoon pa man, gamit ang lldb at source code ng Electron, ito ay magiging madali upang mag-debug gamit ang mga breakpoint sa loob ng source code nito.
+Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron at naniniwala ka na ito'y hindi sanhi ng iyong JavaScript na aplikasyon, sa halip ang problema ay nasa Electron mismo, ang pagde-debug ay posibleng maging medyo nakakalito, lalo na sa mga tagabuo na hindi gumagamit ng native/C++ na pagde-debug. Ganoon pa man, sa paggamit ang lldb at source code ng Electron, ito ay masyadong madali upang paganahin ang isang hakbang-hakbang na pagde-debug kasama ang mga breakpoint sa loob ng source code ng Electron.
 
-## Mga kinakailangan
+## Mga Kinakailangan
 
-* **Ang debug na gawa ng Elektron**: Kadalasan, ang pinakamadaling paraan upang buuin ito ay gamit ang kanyang sarili sa pamamagitan ng mga gamit at mga pangunahing kailangan na nasa [build instructions para sa Windows](build-instructions-osx.md). Habang ang Elektron " ay tuwirang "dina-download", ito ay madaling maikakabit at matutukoy ang problema o "debug", at ito'y siguradong gagana nang higit na mas maayos. Ginagawa nitong mas mahirap ang paghahanap at pag-aayos ng mga problema o "debugging": Kapag ang "debugger" ay hindi kayang ipakita ang lahat ng laman ng "variable" at mapapansin ang "execution path" ay maaaring maging kakaiba dahil sa "inlining", "tail calls" at iba pang "compiler optimizations".
+* **Isang debug na build ng Elektron**: Ang pinakamadaling paraan ay kadalasan ang pagbuo mo nito mismo, gamit ang mga kagamitan at mga paunang kinakailangan na nasa [instruksyon sa pagbuo para sa Windows](build-instructions-osx.md). Habang ang Elektron " ay tuwirang "dina-download", ito ay madaling maikakabit at matutukoy ang problema o "debug", at ito'y siguradong gagana nang higit na mas maayos. Ginagawa nitong mas mahirap ang paghahanap at pag-aayos ng mga problema o "debugging": Kapag ang "debugger" ay hindi kayang ipakita ang lahat ng laman ng "variable" at mapapansin ang "execution path" ay maaaring maging kakaiba dahil sa "inlining", "tail calls" at iba pang "compiler optimizations".
 
 * **Xcode**: Sa karagdagan, ang "Xcode" ay ginagamit din ang "Xcode command line tools". Kasama rin ang "LLDB", ang "default debugger" ng "Xcode" sa "Mac OS X". Sinusuportahan nito ang "debugging C", "Objective-C" at "C++" sa "desktop" at "iOS devices" at "simulator".
 
