@@ -12,7 +12,7 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
   * `baguhin` Function (optional) - tungkuling taga tawag kung merong kulay na mapili. 
     * `color` String - Ang kulay na napili ng gumagamit sa pilian
 
-### Humahalimbawa sa bahagi nito
+### Instance Properties
 
 Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBarColorPicker`:
 
