@@ -2,11 +2,11 @@
 
 # Mga Isyu
 
-* [Paano Makapag-ambag sa mga Isyu](#how-to-contribute-in-issues)
-* [Paghingi ng Pangkalahatang Tulong](#asking-for-general-help)
-* [Pagsusumite ng isang Ulat ukol sa Bug](#submitting-a-bug-report)
-* [Pagta-triage ng isang Ulat ukol sa Bug](#triaging-a-bug-report)
-* [Paglulutas ng isang Ulat ukol sa Bug](#resolving-a-bug-report)
+* [Paano Makapag-ambag sa mga Isyu](#paano-makapag-ambag-sa-mga-isyu)
+* [Paghingi ng Pangkalahatang Tulong](#paghihingi-ng-pangkalahatang-tulong)
+* [Pagsusumite ng isang Ulat ukol sa Bug](#pagsusumite-ng-isang-ulat-ukol-sa-bug)
+* [Pagta-triage ng isang Ulat ukol sa Bug](#pata-triage-ng-isang-ulat-ukol-sa-bug)
+* [Paglulutas ng isang Ulat ukol sa Bug](#paglulutas-ng-isang-ulat-ukol-sa-bug)
 
 ## Paano Makapag-ambag sa mga Isyu
 
@@ -72,8 +72,8 @@ Karaniwan ito para sa mga bukas na isyu upang makasali sa diskusyon. Ilan sa mga
 
 Ang mga Terse na kasagutan na nagbibigay ng wala sa karagdagang konteksto o ang pagsuporta sa mga detalye ay hindi kapaki-pakinabang o propesyonal. Sa nakararami, ang mga tugong ito ay nakakainis at hindi makaibigan.
 
-Hinihikayat ang mga taga-ambag na lutasin ng magkasama ang mga isyu at tulungan ang isat isa para makagawa ng progreso. Kung naka tagpo kanang isyu na pakiramdam mo ay hindi wasto, o naglalaman ng maling informasyon, ipaliwanag *why* nararamdaman mo ang paraan dito karagdagang suporta na mga konteksto, at handa maging kumbinsido na ikaw ay mali. Sa paggawa nito, madalas naming maabot ang tamang kinalalabasan na mas mabilis.
+Hinihikayat ang mga taga-ambag na lutasin ng magkasama ang mga isyu at tulungan ang isat isa para makagawa ng progreso. Kung nakatagpo ka ng isang isyu na pakiramdam mo ay hindi wasto, o naglalaman ng maling impormasyon, ipaliwanag *bakit* nakakaramdam ka ng ganito nang may kasamang karagdagang sumusuportang konteksto, at handang maging kumbinsido na ikaw ay posibleng nagkamali. Sa paggawa nito, madalas naming maaabot ang tamang kinalalabasan sa mas mabilis na paraan.
 
-## Paglutas sa bug report
+## Paglulutas ng isang Ulat ukol sa Bug
 
-Kadalasan sa mga isyu ay nalutas sa pamamagitan ng pagbukas ng hilahin ang kahilingan. Ang prosseso sa pagbukas at pagrerepaso sa paghila ng kahilingan ay pareho sa mga nagbukas at pagsasagawa sa mga isyu, pero nagdadala ito ng kainakailangan pagsusuri at pag-apruba na workflow na tiyak na ang ipinanukalang pagbabago ay matugunan ang kalidad at ang mga alintuntunin ng proyekto ng elektron.
+Karamihan sa mga isyu ay nalulutas sa pamamagitan ng pagbukas ng isang pull request. Ang proseso sa pagbukas at pagsusuri sa isang pull request ay kapareho ng pagbukas at pag-triage ng mga isyu, pero nagdadala ito ng mga kainakailangang pagsusuri at pag-apruba na workflow na nagtitiyak na ang ipinanukalang mga pagbabago ay tumutugon sa minimal na kalidad at umiiral na alintuntunin ng proyekto ng Electron.
