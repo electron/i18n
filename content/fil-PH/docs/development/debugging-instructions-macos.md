@@ -4,13 +4,13 @@ Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron
 
 ## Mga Kinakailangan
 
-* **Isang debug na build ng Elektron**: Ang pinakamadaling paraan ay kadalasan ang pagbuo mo nito mismo, gamit ang mga kagamitan at mga paunang kinakailangan na nasa [instruksyon sa pagbuo para sa Windows](build-instructions-osx.md). Habang ang Elektron " ay tuwirang "dina-download", ito ay madaling maikakabit at matutukoy ang problema o "debug", at ito'y siguradong gagana nang higit na mas maayos. Ginagawa nitong mas mahirap ang paghahanap at pag-aayos ng mga problema o "debugging": Kapag ang "debugger" ay hindi kayang ipakita ang lahat ng laman ng "variable" at mapapansin ang "execution path" ay maaaring maging kakaiba dahil sa "inlining", "tail calls" at iba pang "compiler optimizations".
+* **Isang debug na build ng Elektron**: Ang pinakamadaling paraan ay kadalasan ang pagbuo mo nito mismo, gamit ang mga kagamitan at mga paunang kinakailangan na nasa [instruksyon sa pagbuo para sa Windows](build-instructions-osx.md). Habang kaya mong madaliang ilakip sa at i-debug ang Electron gaya ng kaya mong direkta itong i-download, makikita mong lubos itong na-optimize, na ginagawa ang pagde-debug na mas mahirap: Ang taga-debug ay hindi kayang ipakita sa iyo ang nilalaman ng lahat ng mga variable at ang landas ng pagsunod ay magmumukhang kakaiba dahil sa pag-inline, mga hulihang tawag at iba pang mga optimisasyon sa compiler.
 
-* **Xcode**: Sa karagdagan, ang "Xcode" ay ginagamit din ang "Xcode command line tools". Kasama rin ang "LLDB", ang "default debugger" ng "Xcode" sa "Mac OS X". Sinusuportahan nito ang "debugging C", "Objective-C" at "C++" sa "desktop" at "iOS devices" at "simulator".
+* **Xcode**: Bilang karagdagan sa Xcode, i-install rin ang mga kagamitan sa Xcode na pang-utoss na linya. Isinasali nila ang LLDB, ang default na taga-debug sa Xcode sa Mac OS X. Sinusuportahan nito ang debugging C, Objective-C at C++ sa desktop at ios na mga kasangkapan at taga-simulate.
 
-## Pagkakabit at "Pagde-debug" sa "Electron"
+## Pagkakabit at Pagde-debug sa Electron
 
-Para simulan ang "debugging session", buksan ang Terminal at umpisahan ang `lldb`, na dadaan sa "debug" na gawa ng Elektron bilang "parameter".
+Upang simulan ang debugging na sesyon, buksan ang Terminal at umpisahan ang `lldb`, habang pinapasa ang isang debug na build ng Electron bilang isang parametro.
 
 ```sh
 lldb ./out/D/Electron.app
@@ -20,7 +20,7 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 ### Pagtatakda ng mga Breakpoint
 
-Ang LLDB ang pinakamahalagang kasangkapan at sumusuporta sa karamihan ng estratihiya para siyasatin ang code. Para sa simula ng pundasyon, ipagpalagay natin na ang tinatawag na command galing sa "JavaScript" ay di gumagana ng maayos - at ngayon, hindi mo nanaisin na gamitin ang "C++" bilang command katapat sa loob ng "source" ng Elektron.
+Ang LLDB ay isang makapangyarihang kagamitan at sumusuporta sa maraming mga istratehiya sa pagsisiyasat ng code. Para sa simpleng introduksyong ito, ipagpalagay natin na nagtatawag ka ng isang utos mula sa JavaScript na hindi gumagalaw ng tama - kaya gusto mong magtuon sa katumbas nitong C++ na utos sa loob ng pinagkukunan ng Electron.
 
 Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay harcore, maaaring mo ring direktang i-debug si Chromium na matatagpuan sa `chromium_src`.
 
