@@ -227,9 +227,9 @@ Hindi pinapagana ang anumang network na pag-emulate na aktibo na para sa `sesyon
       * `-2` - Nagpapahiwatig sa kabiguan.
       * `-3` - Gumagamit ng resulta ng pagpapatunay galing sa chromium.
 
-Nagtatakda ng sertifikong verify proc para sa `session`, ang `proc` ay tinatawag na may `proc(request, callback)` sa tuwing ang server certificate ay hinihiling. Calling `callback(0)` tinatanggap ang sertifiko, calling `callback(-2)` tinatangihan ito.
+Nagtatakda ng sertipikong verify proc para sa `sesyon`, ang `proc` ay tinatawag na may `proc(request, callback)` sa tuwing ang pagpapatunay ng sertipiko ng server ay hinihiling. Ang pagtawag sa `callback(0)` ay tumatanggap sa sertipiko, pagtawag sa `callback(-2)` ang magtatanggi nito.
 
-Ang pagtawag `setCertificateVerifyProc(null)` ay i-rerevert pabalik sa default ang sertifiko verify proc.
+Ang pagtawag sa `setCertificateVerifyProc(null)` ay magbabalik sa certificate verify proc sa default.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -247,13 +247,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `ang tagahawak` Function | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents pag-request ng pahintulot.
-  * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
+* `tagahawak` Function | null 
+  * `webContents` na [WebContents](web-contents.md) - WebContents na naghihingi ng pahintulot.
+  * `pahintulot` na String - Enum ng 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
-    * `permissionGranted` Boolean - Pagpayag o pag-tanggi sa pahintulot
+    * `permissionGranted` na Boolean - Pagpayag o pagtanggi sa pahintulot
 
-Nagtatakda sa handler kung saan magagamit upang tumugon sa pahintulot na kahilingan para sa `session`. Calling `callback(true)` ay maaring bigyan pahintulot ang `callback(false)` ay tatangihan ito. To clear the handler, call `setPermissionRequestHandler(null)`.
+Nagtatakda sa tagahawak na magagamit upang tumugon sa mga kahilingan sa pahintulot para sa `sesyon`. Ang pagtawag sa `callback(true)` ay maaring magbigay ng pahintulot at ang `callback(false)` ay magtatanggi ito. Upang linisin ang tagahawak, tawagin ang `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
@@ -270,11 +270,11 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
-Nililimas ang host resolver cache.
+Nililinis ang cache ng tagalutas ng host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - Ang comma-separated na listahan ng servers para sa integrated authentication ay pinagana.
+* `mga domain` na String - Ang listahan ng mga server na pinaghihiwalay ng kuwit kung saan ang naka-integrate na pagpapatunay ay pinagana.
 
 Dynamically ay nagtatakda kung para sa laging magpadala sa credentials para sa HTTP NTLM o Negotiate authentication.
 
