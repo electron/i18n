@@ -143,7 +143,7 @@ Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamar
 
 Ang mga argumento ng isang pangyayaring sundin ang parehong patakaran bilang pamamaraan.
 
-### Mga Katangian
+### Properties
 
 Ang mga katangian ng kabanata ay dapat nasa sumusunod na form:
 
