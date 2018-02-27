@@ -18,18 +18,18 @@ Para sa anumang isyu, mayroong tatlong pangunahing pamamaraan na ang isang indib
 
 ## Paghingi ng Pangkalahatang Tulong
 
-Dahil ang antas nang aktibidad nasa `elektron/elektron` imbakan ay napakataas, mga tanong o hiling para sa pangkalahatang tulong sa paggamit nang elektron ay dapat na direktang sa [kommunidad malubay na channel](https://atomio.slack.com) o ang [forum](https://discuss.atom.io/c/electron).
+Dahil ang antas nang aktibidad na nasa `electron/electron` na repositori ay napakataas, ang mga tanong o hiling para sa pangkalahatang tulong sa paggamit ng Electron ay dapat na idirekta sa [slack na tsanel ng komunidad](https://atomio.slack.com) o sa [forum](https://discuss.atom.io/c/electron).
 
 ## Pagsusumite ng isang Ulat ukol sa Bug
 
-Kapag nagbukas kanang bagong isyu sa `elektron/elektron` isyu tracker, mga gumagamit ay maipapakita na may isang template na dapat mapunan.
+Kapag nagbubukas ng isang bagong isyu sa `electron/electron` na tagasubaybay ng isyu, ang mga gumagamit ay papakitaan ng isang template na dapat mapunan.
 
 ```markdown
-&It;!--
-Salamat sa pagbukas nang isyu! Ilang bagay na dapat tandaan:
+<!--
+Salamat sa pagbukas ng isang isyu! Ilang mga bagay na dapat tandaan:
 
-- Ang isyu tracker ay para sa bugs at tampok na hiling.
-Bago mag ulat ng isang bug, pakiusap subukan mag reproduce nang iyong isyu laban sa pinakabagong  bersyon ng Elektron.
+- Ang tagagsubaybay sa isyu ay para sa mga bug at mga paghiling ng katangian.
+Bago mag-ulat ng isang bug, pakiusap subukang gawin ulit ang iyong isyu laban sa pinakabagong  bersyon ng Electron.
 -Kung kailangan mo ng pangkalahatang isyu, sumali ka sa aming Slack: http://atom-slack.herokuapp.com
 -->
 
