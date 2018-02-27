@@ -81,9 +81,9 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
   * [Gerando Arquivos asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Usando arquivos asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitações](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+  * [Adicionando Arquivos Descompactados para os arquivos asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Em Detalhes: Usando o Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Em Detalhes: Usando o Plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Renderização fora da tela](tutorial/offscreen-rendering.md)
 
 * * *
