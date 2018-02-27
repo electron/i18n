@@ -276,47 +276,47 @@ Nililinis ang cache ng tagalutas ng host.
 
 * `mga domain` na String - Ang listahan ng mga server na pinaghihiwalay ng kuwit kung saan ang naka-integrate na pagpapatunay ay pinagana.
 
-Dynamically ay nagtatakda kung para sa laging magpadala sa credentials para sa HTTP NTLM o Negotiate authentication.
+Dinamikong itinatakda kung lagi bang magpadala ng mga kredensyal para sa HTTP NTLM o makipagpulungan para pagpapatunay.
 
 ```javascript
 const {session} = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// para sa pagsasama ng pagpapatunay.
+// isaalang-alang ang kahit anong url na nagtatapos sa `example.com`, `foobar.com`, `baz`
+// para sa naka-integrate na pagpapatunay.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// isa-alangalang ang lahat ng urls para sa pagsasama ng pagpapatunay.
+// isaalang-alang ang lahat ng mga url para sa naka-integrate na pagpapatunay.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
-* `userAgent` String
-* `acceptLanguages` String (opsyonal)
+* `userAgent` na String
+* `acceptLanguages` na String (opsyonal)
 
-I-override ang `userAgent` at `acceptLanguages` para sa sesyong ito.
+Nag-override sa `userAgent` at `acceptLanguages` para sa sesyong ito.
 
-Ang `acceptLanguages` ay dapat may kuwit na hiwalay na ordered list sa language codes, para sa halimbawa `"en-US,fr,de,ko,zh-CN,ja"`.
+Ang `acceptLanguages` ay dapat pinaghiwalay ng kuwit na isinaayos na listahan ng mga code ng lengwahe, bilang halimbawa `"en-US,fr,de,ko,zh-CN,ja"`.
 
-Ito ay hindi makakapekto sa umiiral `WebContents`, at bawat-isa `WebContents` ay magagamit `webContents.setUserAgent` para i-override ang sesyon-wide ng ahente na gumagamit.
+Ito ay hindi makakapekto sa umiiral na `WebContents`, at ang bawat `WebContents` ay makakagamit ng `webContents.setUserAgent` para i-override ang malawakang-sesyon na tagagamit na ahente.
 
 #### `ses.getUserAgent()`
 
-Nagbabalik `String` - Ang gugamit na ahente para sa sesyon na ito.
+Nagbabalik ng `String` - Ang tagagamit na ahente para sa sesyong ito.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identifier` na String - Tamang UUID.
 * `callback` Function 
-  * `result` Buffer - Blob data.
+  * `result` na Buffer - Blob na datos.
 
-Nagbabalik `Blob` - The blob na datos ay na-uugnay na may `identifier`.
+Nagbabalik ng `Blob` - Ang blob na datos na nauugnay sa `identifier`.
 
-#### `ses.createInterruptedDownload(opsyons)`
+#### `ses.createInterruptedDownload(options)`
 
 * `options` Bagay 
-  * `path` String - Ganap na path para sa download.
-  * `urlChain` String[] - Completong URL chain para sa download.
-  * `mimeType` String (opsyonal)
+  * `path` na String - Ganap na path ng download.
+  * `urlChain` na String[] - kompletong URL na chain para sa download.
+  * `mimeType` na String (opsyonal)
   * `offset` Integer - Pagsimula sa range para sa download.
   * `length` Integer - Kabuuhan ng haba para sa download.
   * `lastModified` String - Last-Modified header value.
