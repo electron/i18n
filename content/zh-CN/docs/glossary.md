@@ -48,7 +48,7 @@ IPC 代表 Inter-Process Communication进程间通信。Electron 使用 IPC 来�
 
 是指苹果系统上的 Mac App Store 的缩略词。有关于如何提交你的 app 至 MAS ，详见 [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)。
 
-### native modules原生模块
+### native modules
 
 原生模块 (在 Node.js 里也叫 [addons](https://nodejs.org/api/addons.html))，是一些使用 C or C++ 编写的能够在 Node.js 中或者在 Electron 中使用 require() 方法来加载的模块，它使用起来就如同 Node.js 的模块。 它主要使在Node.js 上运行的 JavaScript 能调用 C/C++ 的库。
 
@@ -64,7 +64,7 @@ Nullsoft Scriptable Install System 是一个微软 Windows 平台上脚本驱动
 
 OSR(离屏渲染) 可以让你渲染页面而不用立刻显示到屏幕上。 这个技术可被用于在后台加载超大页面然后再显示(这样做速度会更快)。
 
-### 进程
+### process
 
 一个进程是计算机程序正在执行中的一个实例。 Electron 应用同时使用了[main](#main-process) 进程和一个或者多个 [renderer](#renderer-process) 进程来运行多个程序。
 
@@ -82,7 +82,7 @@ OSR(离屏渲染) 可以让你渲染页面而不用立刻显示到屏幕上。 �
 
 ### Squirrel
 
-Squirrel 是一个开源的框架来让 Electron 的应用能够自动的更新到最新发布的版本. 详见 [autoUpdater](api/auto-updater.md) API 了解如何开始使用 Squirrel。
+Squirrel 是一个开源框架, 能够让 Electron 应用程序自动更新到最新发布的版本. 详见 [autoUpdater](api/auto-updater.md) API 了解如何开始使用 Squirrel。
 
 ### userland
 
