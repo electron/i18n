@@ -53,7 +53,7 @@ Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
 
 #### `cookies.get(filter,callback)`
 
-* `salain` Bagay 
+* `salain` Object 
   * `url` String (opsyunal) - Nakuhang cookies na may kaugnayan sa `url`. Ang walang laman ay nagpapahiwatig na pagkuha ng mga cookies ng buong url.
   * `name` String (opsyunal) - Efilter ang mga cookies sa kanilang pangalan.
   * `domain` String (opsyunal) - Ang mga kinuhang cookies na ang domain ay nagtugma o ang mga subdomain ng `domain`
@@ -68,7 +68,7 @@ Magpadala ng hiling para nakuha ang lahat ng cookies na nagtugma sa `detalye`, `
 
 #### `cookies.set(detalye, baliktawag)`
 
-* `ang mga detalye` Bagay 
+* `ang mga detalye` Object 
   * `url` String - Ang url ay maiuugnay sa cookie.
   * `name` String (opsyunal) - Ang pangalan ng cookie. Walang laman ito pagdefault kung itinanggal.
   * `value` String (opsyunal) - Ang halaga ng isang cookie. Walang laman ito pagdefault kung itinanggal.
