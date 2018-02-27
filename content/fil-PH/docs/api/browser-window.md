@@ -1067,21 +1067,21 @@ I-takda kung saan ang menu bar ay maaring makita. kapag ang menu bar ay kusang n
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+Ibinabalik ang `Boolean` - Kung saan ang menu bar ay makikita.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
 * `visible` Boolean
 
-Sets whether the window should be visible on all workspaces.
+Itakda kung ang window ay dapat na makikita sa lahat ng workspaces.
 
-**Note:** This API does nothing on Windows.
+**Tandaan:** Ang API ay walang magagawa para sa windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng workspaces.
 
-**Note:** This API always returns false on Windows.
+**Tandaan:** Itong API ay palaging ibinabalik na huwad para sa windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
