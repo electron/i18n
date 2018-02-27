@@ -9,13 +9,13 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 ## Guias e Tutoriais
 
 * [Configurar Ambiente de Desenvolvimento](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Configurando o macOS](tutorial/development-environment.md#setting-up-macos)
   * [Configurando o Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Configurando o Linux](tutorial/development-environment.md#setting-up-linux)
   * [Escolhendo um Editor](tutorial/development-environment.md#a-good-editor)
 * [Criando seu Primeiro Aplicativo](tutorial/first-app.md) 
   * [Instalando o Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Desenvolvimento Electron em um Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Executando Seu Aplicativo](tutorial/first-app.md#running-your-app)
 * [Boilerplates e CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
