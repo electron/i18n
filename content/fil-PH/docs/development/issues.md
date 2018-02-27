@@ -30,37 +30,37 @@ Salamat sa pagbukas ng isang isyu! Ilang mga bagay na dapat tandaan:
 
 - Ang tagagsubaybay sa isyu ay para sa mga bug at mga paghiling ng katangian.
 Bago mag-ulat ng isang bug, pakiusap subukang gawin ulit ang iyong isyu laban sa pinakabagong  bersyon ng Electron.
--Kung kailangan mo ng pangkalahatang isyu, sumali ka sa aming Slack: http://atom-slack.herokuapp.com
+-Kung kailangan mo ng pangkalahatang mungkahi, sumali ka sa aming Slack: http://atom-slack.herokuapp.com
 -->
 
-*Elektron bersyon:
-*Operating system:
+*Bersyon ng Electron:
+*Sistemang pang-operasyon:
 
-###Inaasahang pag-uugali
+###Inaasahang paggalaw
 
-&It;!-- Anong sa tingin nyo ang mangyayari? -->
+<!-- Anong sa tingin mo ang dapat mangyari? -->
 
-### Aktwal na pag-uugali
+### Aktwal na paggalaw
 
-&It;!-- Ano talaga ang mangyayari? -->
+<!-- Ano ba ang aktwal na nangyari? -->
 
 ### Paano magparami
 
-&It;!--
-Ang pinakamahusay na pagkakataon ng pagkuha ng bug na ito ay tingnan ng mabilis ay upang magbigay ng imbakan na maaring kopyahin at patakbuhin.
+<!--
+Ang pinakamahusay na pagkakataon upang madaling masuri ang bug na ito ay ang magbigay ng isang REPOSITORI na maaaring kopyahin at patakbuhin.
 
-Maari mong itapon https://github.com/elektron/elektron-guick-start at isama ang link sa iyong pagbabago.
+Maari mong i-fork ang https://github.com/electron/electron-quick-start at isama ang isang link sa iyong sangay kasama ang mga pagbabago.
 
-Kung magbigay kanang ERL, pakiusap ilista ang mga command kinakailangan upang i clone/setup/run your repo e.g.
+Kung magbibigay ka ng URL, mangyaring ilista ang mga utos na kinakailangan upang kopyahin/i-setup/paganahin ang iyong repo e.g.
 
 $ git clone $YOUR_URL -b $BRANCH
 $ npm install
-$ npm start || elektron.
+$ npm start || electron.
 
 -->
 ```
 
-Kung naniniwala ka na nahanap mo na ang bug sa loob nang Elektron, pakiusap punan mo ang form sa abot ng iyong makakaya.
+Kung naniniwala ka na nakshanap ka ng isang bug sa Elektron, pakiusap punan mo ang form na ito sa abot ng iyong makakaya.
 
 Ang dalawang pinakamahalagang piraso ng informasyon na kailangan upang suriin ang report ay isang paglalarawan ng bug at ang simpleng pagsubok na kaso upang muling likhain ito. Madali itong ayusin ang bug kung maaari itong magparami.
 
