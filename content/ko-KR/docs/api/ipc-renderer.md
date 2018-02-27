@@ -67,7 +67,7 @@ main 프로세스가 `ipcMain` 모듈로 `channel`을 수신하여 처리합니�
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `windowid` via `channel`
+`channel`을 통해 `windowid`를 가진 윈도우에 메시지를 보냅니다. 
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
