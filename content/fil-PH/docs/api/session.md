@@ -66,9 +66,9 @@ Ang sumusunod na mga kaganapan ay magagamit para sa mga instance ng `Sesyon`:
 * `item` na [DownloadItem](download-item.md)
 * `webContents` na [WebContents](web-contents.md)
 
-Napalabs kung ang Electron ay tungkol para sa pag-download ng `item` in `webContents`.
+Inilalabas kung ang Electron ay magda-download ng `item` sa `webContents`.
 
-Pagtawag sa `event.preventDefault()` ay makakansela ang dinadownload at ang `aytem` ay hindi maaaring magamit hanggang sa susunod na tik ng proseso.
+Ang pagtawag sa `event.preventDefault()` ay magkakansela sa download at ang `aytem` ay hindi maaaring magamit hanggang sa susunod na tik ng proseso.
 
 ```javascript
 const {session} = require('electron')
@@ -80,9 +80,9 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Mga pamamaraan ng pagkakataon
+### Mga Pamamaraan ng Instance
 
-Nag sumusunod na pamamaraan ay magagamit para sa halimbawa ng `Session`:
+Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `Sesyon`:
 
 #### `ses.getCacheSize(callback)`
 
