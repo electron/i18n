@@ -16,11 +16,11 @@
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+虽然 * 可以 * 在使用自制程序的 macOS 上安装 ` snapcraft `, 但它无法生成 ` snap ` 包, 并且集中于管理存储中的包。
 
-## Using `electron-installer-snap`
+## 使用 `electron-installer-snap`
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+该模块的工作原理与[` electron-winstaller `](https://github.com/electron/windows-installer)类似 因为它的范围仅限于构建捕捉包。 你可以这样安装:
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### 步骤 1: 打包你的 Electron 应用程序
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+打包应用程序使用 [electron-packager](https://github.com/electron-userland/electron-packager) (或类似工具)。 确保在最终的应用程序中删除不需要的 `node_modules`, 因为这些你不需要模块只会额外增加你的应用程序大小.
 
 结构输出应该看起来大致像这样:
 
@@ -50,7 +50,7 @@ Package the application using [electron-packager](https://github.com/electron-us
         └── version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### 步骤 2: 运行 `electron-installer-snap`
 
 From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
 
@@ -67,15 +67,15 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## 使用一个现有的 Debian 包
 
 Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
 
-### Step 1: Create a Debian Package
+### 步骤 1: 创建一个 Debian 包
 
 If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
 
-### Step 2: Create a snapcraft.yaml
+### 步骤 2: 创建一个 snapcraft.yaml
 
 For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
