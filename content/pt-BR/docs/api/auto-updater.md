@@ -89,4 +89,4 @@ Asks the server whether there is an update. You must call `setFeedURL` before us
 
 Reinicia o aplicativo e instala a atualização depois de ter sido baixada. isto só deve ser chamado após `update-downloaded `ter sido emitido.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Nota:**`autoUpdater.quitAndInstall ()` irá fechar todas as janelas primeiro e somente emitirá o evento ` before-quit ` em ` app` depois disso. This is different from the normal quit event sequence.
