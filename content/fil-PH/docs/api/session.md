@@ -323,30 +323,30 @@ Nagbabalik ng `Blob` - Ang blob na datos na nauugnay sa `identifier`.
   * `eTag` na String - ETag na halaga ng header.
   * `startTime` na Doble (opsyonal) - Ang oras kung kailan sinimulan ang download sa segundong bilang simula sa UNIX epoch.
 
-Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay maglilikha ng isang [DownloadItem](download-item.md) na maaring ma-access gamit ang [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` kaugnay nito at ang inisyal na estado ay magiging `interrupted`. Ang download ay magsisimula kung ang `resume` API ay tinawag sa [DownloadItem](download-item.md).
+Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay maglilikha ng isang [DownloadItem](download-item.md) na maaring ma-access gamit ang [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` nauugnay rito at ang paunang estado ay `maaantala`. Ang download ay magsisimula kung ang `resume` na API ay tinawag sa [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na
+* `mga opsyon` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+* `callback` na Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na
 
-Nililimas ang sesyon ng HTTP authentication cache.
+Nilinis ang sesyon ng HTTP authentication na cache.
 
 ### Mga Katangian ng Instance
 
-Ang mga sumusunod na ari-arian ay magagamit sa mga pagkakataon ng `Session`:
+Ang mga sumusunod na katangian ay magagamit sa mga instance ng `Sesyon`:
 
 #### `ses.cookies`
 
-Ang [Cookies](cookies.md) mga objeyk para sa sesyon na ito.
+Isang [Cookies](cookies.md) na bagay para sa sesyong ito.
 
 #### `ses.webRequest`
 
-Ang [WebRequest](web-request.md) mga objeyk para sa sesyon na ito.
+Isang [WebRequest](web-request.md) na bagay para sa sesyong ito.
 
 #### `ses.protocol`
 
-Ang [Protocol](protocol.md) mga objeyk para sa sesyon na ito.
+Isang [Protocol](protocol.md) na bagay para sa sesyong ito.
 
 ```javascript
 onst {app, session} = require('electron')
