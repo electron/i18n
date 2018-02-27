@@ -4,7 +4,7 @@
 
 这里是一些被经常问到的问题，在创建 issue 之前请先看一下这里。
 
-* [Electron 常见问题](faq.md)
+* [Electron 常见问题 (FAQ)](faq.md)
 
 ## 指南和教程
 
