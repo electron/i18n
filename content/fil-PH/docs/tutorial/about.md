@@ -1,4 +1,4 @@
-# Tungkol sa Elektron
+# Tungkol sa Electron
 
 [Elektron](https://electronjs.org) ay isang bukas na aklatan na binuo ni GitHub para sa pagtatayo ng mga aplikasyon ng desktop ng krus-platform na may HTML, CSS, at JavaScript. Ginagawa ito ng elektron sa pamamagitan ng pagsasama ng [Chromium](https://www.chromium.org/Home) at [Node.js](https://nodejs.org) sa isang runtime at mga apps na maaaring ma-pakete para sa Mac, Windows, at Linux.
 
