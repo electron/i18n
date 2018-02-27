@@ -1,26 +1,26 @@
-# Mga isyu ng Elektron
+# Mga Isyu sa Electron
 
-# Isyu
+# Mga Isyu
 
-* [Kung paano maka pag-ambag sa isyu](#how-to-contribute-in-issues)
-* [Humingi nang pangkalahatang tulong](#asking-for-general-help)
-* [Pagsusumite sa bug report](#submitting-a-bug-report)
-* [Pagsasagawa sa bug report](#triaging-a-bug-report)
-* [Paglutas sa bug report](#resolving-a-bug-report)
+* [Paano Makapag-ambag sa mga Isyu](#how-to-contribute-in-issues)
+* [Paghingi ng Pangkalahatang Tulong](#asking-for-general-help)
+* [Pagsusumite ng isang Ulat ukol sa Bug](#submitting-a-bug-report)
+* [Pagta-triage ng isang Ulat ukol sa Bug](#triaging-a-bug-report)
+* [Paglulutas ng isang Ulat ukol sa Bug](#resolving-a-bug-report)
 
-## Kung paano maka pag-ambag sa isyu
+## Paano Makapag-ambag sa mga Isyu
 
-Para sa anumang isyu, merong mga panimula at tatlong pamamaraan na idibidwal na maka pag-ambag:
+Para sa anumang isyu, mayroong tatlong pangunahing pamamaraan na ang isang indibidwal ay maka pag-ambag:
 
 1. Sa pamamagitan nang pagbukas nang isyu para sa talakayan: Kung maniniwala ka na nahanap mo na ang bagong bug sa electron, kailangan mo itong iulat sa pamamagitan nang paggawa nang bagong isyu sa Ang`elektron/elektron`isyu tracker.
 2. Sa pamamagitan nang pag tulong para sa traige ang isyu: Magagawa mo ito alinman sa pagbibigay nang tulong sa mga detalye (maaaring kopyahin nang pagsusulit na kaso na maipakita nang isang bug) o sa pamamagitan nang pagbibigay mungkahi sa address ang isyu.
 3. Sa pamamagitan nang pagtulong upang malutas ang issue: Ito ay maaaring gawin sa pagpakita na ang isyu ay hindi bug o ito ay naayos na; pero kadalasan, sa pamamagitan nang pagbukas sa hilahin ang kahilingan na makapagbabago nang pinagmulan sa `elektron/elektron` sa isang kongreto at pagsusuring paraan.
 
-## Humingi nang pangkalahatang tulong
+## Paghingi ng Pangkalahatang Tulong
 
 Dahil ang antas nang aktibidad nasa `elektron/elektron` imbakan ay napakataas, mga tanong o hiling para sa pangkalahatang tulong sa paggamit nang elektron ay dapat na direktang sa [kommunidad malubay na channel](https://atomio.slack.com) o ang [forum](https://discuss.atom.io/c/electron).
 
-## Pagsusumite sa bug report
+## Pagsusumite ng isang Ulat ukol sa Bug
 
 Kapag nagbukas kanang bagong isyu sa `elektron/elektron` isyu tracker, mga gumagamit ay maipapakita na may isang template na dapat mapunan.
 
