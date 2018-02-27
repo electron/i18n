@@ -22,22 +22,22 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 Ang LLDB ay isang makapangyarihang kagamitan at sumusuporta sa maraming mga istratehiya sa pagsisiyasat ng code. Para sa simpleng introduksyong ito, ipagpalagay natin na nagtatawag ka ng isang utos mula sa JavaScript na hindi gumagalaw ng tama - kaya gusto mong magtuon sa katumbas nitong C++ na utos sa loob ng pinagkukunan ng Electron.
 
-Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay harcore, maaaring mo ring direktang i-debug si Chromium na matatagpuan sa `chromium_src`.
+Ang mga may kaugnayang mga code file ay matatagpuan sa `./atom/` pati na rin sa Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay isang hardcore, maaaring mo ring direktang i-debug ang Chromium na matatagpuan sa `chromium_src`.
 
-Ipagpalagay natin na ang gusto mong i-debug ay `app.setName()`, na syang tumutukoy sa `browser.cc` bilang `Browser::SetName()`. Itakda ang breakpoint gamit ang command na `breakpoint` na tumutukoy sa file at linya:
+Ipagpalagay natin na gusto mong i-debug ang `app.setName()`, na syang inilalarawan sa `browser.cc` bilang `Browser::SetName()`. Itakda ang breakpoint gamit ang utos na `breakpoint` na tumutukoy sa file at linya na pagtutuonan:
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Pagkatapos, simulan ang Electron:
+Pagkatapos, simulan na ang Electron:
 
 ```sh
 (lldb) run
 ```
 
-Ang app ay mabilis na hihinto dahil ang Elektron ay nagtatakda ng pangalan ng app sa launch:
+Ang app ay madaliang ihihinto dahil ang Electron ay nagtatakda ng pangalan ng app sa paglunsad:
 
 ```sh
 (lldb) run
@@ -55,7 +55,7 @@ Process 25244 stopped
 (lldb)
 ```
 
-Para maipakita ang mga argumento at mga lokal na "variable" para sa kasalukuyang balangkas nito, patakbuhin ang `frame variable` (o `fr v`), na magpapakita sa'yo na ang "app" ay kasalukuyang itinatakda ang pangalan sa Elektron.
+Para maipakita ang mga argumento at mga lokal na variable para sa kasalukuyang frame, paganahin ang `frame variable` (o `fr v`), na magpapakita sa'yo na ang app ay kasalukuyang itinatakda ang pangalan sa Elektron.
 
 ```sh
 (lldb) frame variable
@@ -65,7 +65,7 @@ Para maipakita ang mga argumento at mga lokal na "variable" para sa kasalukuyang
 }
 ```
 
-Para magawa ang lebel ng "source" sa isang hakbang sa kasalukuyang napiling "thread", palabasin ang `step` (o `s`). Ito ang magdadala sa'yo sa `name_override_.empty()`. Para magpatuloy at isagawa ang hakbang, patakbuhin ang `next` (o `n`).
+Upang makagawa ng isang hakbang sa antas ng pinagmulan sa kasalukuyang napiling thread, paganahin ang `step` (o `s`). Ito ang magdadala sa'yo sa `name_override_.empty()`. Upang makapagpatuloy at makagawa ng isang step over, paganahin ang `next` (o `n`).
 
 ```sh
 (lldb) step
@@ -81,12 +81,12 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-Sa puntong ito, para matapos ang "debugging", patakbuhin ang `process continue`. Maaari ka ring magpatuloy hanggang ang tiyak na linya ay matamaan sa "thread" na to (`thread until 100`). Ang "command" na ito ay patatakbuhin ang "thread" sa kasalukuyan nitong balangkas hanggang ito'y umabot sa 100 na linya o patigilin kapag iniwan ang kasalukuyang balangkas.
+Sa puntong ito, para matapos ang pagde-debug, paganahin ang `process continue`. Maaari ka ring magpatuloy hanggang ang isang tiyak na linya ay matamaan sa thread na ito (`thread until 100`). Ang utos na ito ay magpapatakbo sa thread sa kasalukuyan nitong frame hanggang ito'y umabot sa 100 na linya o patigilin kapag iniwan ang kasalukuyang frame.
 
-Ngayon, kung iyong bubuksan ang "developer tools" ng Elektron at tinatawag na `setName`, matatamaan mong muli ang "breakpoint".
+Ngayon, kung iyong bubuksan ang mga kagamitan ng tagabuo ng Electron at tatawagin ang `setName`, matatamaan mong muli ang breakpoint.
 
-### Para sa Pagpapatuloy ng Pagbabasa
+### Karagdagang Pagbabasa
 
-"LLDB" ay ang pinakamalakas na gamit magandang dokumentasyon. Para sa karagdagang kaalaman tungkol dito, isaalang-alang ang dokumentasyon sa "debugging" ng Apple, halimbawa ang [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o ang panimula ng [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+Ang LLDB ay ang isang makapangyarihang kagamitan na may magandang dokumentasyon. Para sa karagdagang kaalaman tungkol dito, isaalang-alang ang dokumentasyon sa "debugging" ng Apple, halimbawa ang [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o ang panimula ng [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 Maaari mo ring tingnan ang kamangha-manghang [manual and tutorial](http://lldb.llvm.org/tutorial.html) ng "LLDB", na mas magpapaliwanag ng iba't-ibang maaaring mangyari sa "complex debugging".
