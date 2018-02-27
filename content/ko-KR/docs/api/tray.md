@@ -42,15 +42,15 @@ app.on('ready', () => {
     {label: 'Item2', type: 'radio'}
   ])
 
-  // Make a change to the context menu
+  // 컨텍스트 메뉴를 변경
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
+  // Linux에서는 컨텍스트 메뉴를 변경하면 다시 호출
   appIcon.setContextMenu(contextMenu)
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Windows에서는 가장 좋은 시각효과를 위해 `ICO` 아이콘을 사용을 권장하고 있다.
 
 If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
 
