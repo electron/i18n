@@ -155,44 +155,44 @@ Ang `proxyBypassRules` ay isang listahan ng panuntunan na pinaghihiwalay ng kuwi
     
     Itugma ang isang partikular na domain suffix.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    Mga halimbawa: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Itugma ang URLs kung saan ang IP address na literals.
+  Itugma ang mga URL na mga IP address na literal.
   
   Mga halimbawa: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
-  Itugma ang anumang URL na para sa IP literal na bumaba sa pagitan ng binigay na saklaw. IP range ay tinukoy gamit ang CIDR notation.
+  Itugma ang anumang URL na para sa IP literal na nabibilang sa pagitan ng binigay na saklaw. Ang saklaw ng IP ay tinukoy gamit ang CIDR na notasyon.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  Mga Halimbawa: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  Itugma ang mga lokal na mga address. Ang ibig sabihin ng `<local>` ay kung ang host ay matutugma sa isang: "127.0.0.1", "::1", "localhost".
+  Itugma ang mga lokal na mga address. Ang ibig sabihin ng `<local>` ay kung ang host ay tumutugma sa isa sa: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url, callback)`
 
-* `url` Ang URL
+* `url` na URL
 * `callback` Function 
-  * `proxy` String
+  * `proxy` na String
 
-Malulutas ang impormasyon para sa `url`. Ang `callback` ay tatawagin na may `callback(proxy)` kung saan ang hiling ay gagawin.
+Naglulutas ng impormasyon sa proxy para sa `url`. Ang `callback` ay tatawagin nang may `callback(proxy)` kung ang kahilingan ay ginaganap.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - Ang lokasyon ng pag-download
+* `path` na String - Ang lokasyon ng pag-download
 
-Nagtatakda ng download saving na diktoryo. Bilang default, ang download na diktoryo ay magiging `Downloads` sa ilalim ng kaukulang app na folder.
+Nagtatakda ng download saving na direktoryo. Bilang default, ang download na direktoryo ay ang`Downloads` sa ilalim ng kaukulang app na folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `mga opsyon` Bagay 
-  * `offline` Boolean (opsyonal) - Kung saan i-emulate ang network outage. Defaults sa huwad.
-  * `latency` Double (opsyonal) - RTT in ms. Defaults sa 0 kung saan ito ay hindi pinagana ng latency throttling.
-  * `downloadThroughput` Double (opsyonal) - Pag-download ng rate sa Bps. Defaults sa 0 kung saan hindi pinagana ang download throttling.
+  * `offline` na Boolean (opsyonal) - Kung tularan ba ang network outage. Naka-default sa false.
+  * `latency` na Doble (opsyonal) - RTT sa ms. Naka-default sa 0 na siyang magpapatigil sa latency throttling.
+  * `downloadThroughput` na Doble (opsyonal) - Bilis ng pag-download sa Bps. Naka-default sa 0 na siyang magpapatigil sa download throttling.
   * `uploadThroughput` Double (opsyonal) - Mag-upload ng rate sa Bps. Dafaults sa 0 kung saan hidni pinagana ang upload throttling.
 
 Pag-emulate ng network na may nakabigay na konfigurasyon para sa `session`.
