@@ -10,7 +10,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
 * [Configurar Ambiente de Desenvolvimento](tutorial/development-environment.md) 
   * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Configurando o Windows](tutorial/development-environment.md#setting-up-windows)
   * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
   * [Escolhendo um Editor](tutorial/development-environment.md#a-good-editor)
 * [Criando seu Primeiro Aplicativo](tutorial/first-app.md) 
