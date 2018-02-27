@@ -1,6 +1,6 @@
 # 테두리없는 윈도우
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> 툴바, 테두리, 다른 그래픽 "크롬" 없는 윈도우를 엽니다.
 
 A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
 
@@ -17,7 +17,7 @@ win.show()
 
 ### Alternatives on macOS
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+macOS 10.9 매버릭스 이상에서는 chromeless 윈도우를 지정하는 다른 방법이 있다. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
 
 #### `hidden`
 
