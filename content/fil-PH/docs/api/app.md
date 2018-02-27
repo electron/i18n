@@ -136,7 +136,7 @@ Ibinabalika ang:
 
 * `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` Object - Naglalaman ng app-specific na estado na nakaimbak ng aktibidad.
 
 Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)pagkatapos ang aktibidad galing sa ibang matagumpay na naibalik ang isa pa.
 
@@ -146,9 +146,9 @@ Ibinabalika ang:
 
 * `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` Object - Naglalaman ng app-specific na estado na nakaimbak ng aktibidad.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ay malapit na ipagpatuloy sa isa pang device. Kung kailangan mong i-update ang estado na ililipat, dapat kang tumawag ng `event.preventDefault()` kaagad, gumawa ng bagong `userInfo` diksyonaryo at tawag `app.updateCurrentActiviy()` sa isang napapanahong paraan. Kung hindi, ang operasyon ay mabibigo at `continue-activity-error` ay tatawagin.
 
 ### Event: 'new-window-for-tab' *macOS*
 
@@ -659,7 +659,7 @@ Invalidates the current [Handoff](https://developer.apple.com/library/ios/docume
 * `type` String - Kakaibang pagkakilala sa aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userinfo` Object - App-tiyak na estado para itago upang magamit ng ibang aparato.
 
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+Ini-update ang kasalukuyang aktibidad kung tumutugma ito`type`, pinagsamasama ang mga entry mula sa `userInfo` sa kasalukuyan nitong diksyonaryo ng `userInfo`.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
