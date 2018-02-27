@@ -958,8 +958,8 @@ Sa windows, ang mode ay maaring makapasa. Tinatanggap na mga balyu ay `none`, `n
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-* `description` String - a description that will be provided to Accessibility screen readers
+* `overlay` [NativeImage](native-image.md) - Ang icon na dapat ipakita sa may sulok ng ibaba ng taskbar icon. Kung ang parameter ay `null`, Ang overlay ay nalinis
+* `description` String - Ang deskripsyon na dapat maibigay pasa sa Accessibility screen readers
 
 Nagtatakda ng 16 x 16 na pixel na overlay papunta sa kasalukuyang icon ng taskbar, kadalasang ginagamit sa ihatid ang ilang mga uri ng katayuan ng application o upang pasabihan ipagbigay-alam sa gumagamit.
 
@@ -977,25 +977,25 @@ Palaging nagbabalik ang Windows at Linux `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Number - sa gitna ng 0.0 (fully transparent) at 1.0 (fully opaque)
 
 Nagtatakda ng opacity ng window. Sa Linux walang ginagawa.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Ibinabalik ang `Number` - sa gitna ng 0.0 (fully transparent) at 1.0 (fully opaque)
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Ibinibalik ang `Boolean` - Kung saan ang mga buttons ay naidagdag ng matagumpay
 
 Magdagdag ng isang thumbnail toolbar na may tinukoy na hilera ng mga pindutan sa thumbnail na larawan ng isang window sa isang layout ng pindutan ng taskbar. Ibinibalik ang ` Boolean ` kung ang thumbnail ay matagumpay na naidagdag.
 
 Ang bilang ng mga pindutan sa thumbnail toolbar ay dapat na hindi pa mas malaki kaysa sa 7 dahil sa ang limitadong kuwarto. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. Ngunit maaari mong tawagan ang API na walang laman na array upang linisin ang mga pindutan.
 
-The `buttons` is an array of `Button` objects:
+Ang `buttons` ay isang array ng `Button` objects:
 
 * `Pindutan` Bagay 
   * `icon` [NativeImage](native-image.md) - Ang icon na ipinapakita sa thumbnail ng toolbar.
@@ -1014,7 +1014,7 @@ Ang `flags` ay isang kaayusan na maaaring isama ang mga sumusunod `String`:
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - Rehiyon ng window
 
 Itinatakda ang rehiyon ng window upang ipakita kung kailan ipinapakita ang thumbnail na larawan na agaw sa window sa taskbar. Maaari mong i-reset ang thumbnail upang maging ang buong window sa pamamagitan ng pagtukoy ng walang laman na rehiyon: ` {x: 0, y: 0, lapad: 0, taas: 0} `.
 
@@ -1022,7 +1022,7 @@ Itinatakda ang rehiyon ng window upang ipakita kung kailan ipinapakita ang thumb
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+Itakda ang toolTip na ipinapakita habang nag-hohover higit sa window ng thumbnail sa taskbar.
 
 #### `win.setAppDetails(options)` *Windows*
 
