@@ -47,7 +47,7 @@ Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
 Napalabas kapag ang cookie ay nagbago dahil ito'y idinagdag, inedit, natanggal, o napaso.
 
-### Mga pamamaraan ng pagkakataon
+### Instance Methods
 
 Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
 
