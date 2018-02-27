@@ -32,41 +32,41 @@ Ibinabalik ang `Sesyon` - Isang instance ng sesyon mula sa `partisyon` na string
 
 Kung ang `partisyon` ay nagsisimula sa `persist:`, ang pahina ay gagamit ng isang nagpupumilit na sesyon na magagamit sa lahat ng mga pahina sa app na may kaparehong `partisyon`. kapag walang `persist:` na prefix, ang pahina ay gagamit ng isang in-memory na sesyon. Kung ang `partisyon` ay walang laman kung gayoon ang sesyong default ng app ay ibabalik.
 
-Upang makagawa ng isang `sesyon` kasama ng `mga opsyon`, siguraduhin mo na ang `Sesyon` kasama ang `partisyon` ay hindi pa ginamit noon. Walang ibang paraan para baguhin ang `mga opsyon` bilang isang umiiiral na `Sesyon` ng layunin.
+Upang makagawa ng isang `sesyon` kasama ng `mga opsyon`, siguraduhin mo na ang `Sesyon` kasama ang `partisyon` ay hindi pa ginamit noon. Walang paraan para baguhin ang `mga opsyon` ng isang umiiiral na `Sesyon` na bagay.
 
 ## Mga Katangian
 
-Ang `sesyon` ng module ay may sinusunod na katangian:
+Ang `sesyon` na module ay may sumusunod na mga katangian:
 
-### `sesyon.defaultngsesyon`
+### `session.defaultSession`
 
-Isang `sesyon` ng layunin, ang depult ng sesyon na layunin ng app.
+Isang `sesyon` na bagay, ang default na sesyon na bagay ng app.
 
-## Klase: ng Sesyon
+## Klase: Sesyon
 
-> Kumuwa at magtakda ng mga katangian ng isang sesyon.
+> Kumuha at magtakda ng mga katangian ng isang sesyon.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
-Maaari kang gumawa ng isang `Sesyon` ng layunin sa `sesyon` ng module:
+Maaari kang gumawa ng isang `Sesyon` na bagay sa `sesyon` na modyul:
 
 ```javascript
-const {session} = kinakailangang('electron')
-const ses = sesyon.galingpartisyon('persist:name')
+const {session} = require('electron')
+const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Halimbawa ng mga event
+### Mga Instance na Kaganapan
 
-Ang mga sumusunod na mga kaganapan ay magagamit sa mga pagkakataon ng `Sesyon`:
+Ang sumusunod na mga kaganapan ay magagamit para sa mga instance ng `Sesyon`:
 
-#### Kaganapan: 'Ay-madadownload'
+#### Kaganapan: 'will-download'
 
-* `kaganapan`Kaganapan
-* `aytem` [I-downloadangaytem](download-item.md)
-* `mga nilalaman ng web` [Mga nilalaman ng Web](web-contents.md)
+* `event` na Kaganapan
+* `item` na [DownloadItem](download-item.md)
+* `webContents` na [WebContents](web-contents.md)
 
-Kung saan ang electron ay napalabas tungkol sa download `aytem` sa `Mga nilalaman ng web`.
+Napalabs kung ang Electron ay tungkol para sa pag-download ng `item` in `webContents`.
 
 Pagtawag sa `event.preventDefault()` ay makakansela ang dinadownload at ang `aytem` ay hindi maaaring magamit hanggang sa susunod na tik ng proseso.
 
