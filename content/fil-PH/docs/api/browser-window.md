@@ -1033,25 +1033,25 @@ Itakda ang toolTip na ipinapakita habang nag-hohover higit sa window ng thumbnai
   * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
-Sets the properties for the window's taskbar button.
+Itakda ang ari-arian para sa window's taskbar na button.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Note:** `relaunchCommand` at `relaunchDisplayName` dapat na palaging itakda nang sabay. Kung ang isang ari-arian ay hindi naitakda, pagkatapos ay hindi na ito magagamit.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+Tulad nang`webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Pinagbabago ang window icon.
 
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Itakda kung ang window menu bar ay dapat itago ang sarili na awtomatiko. Kapag naitakda na ang menu bar ay ipapakita lamang kung ang gumagamit ay pipindutin ang single na `Alt` key.
 
 Kpag ang menu bar ay kasalukuyang makikita, ang pag-tawag `setAutoHideMenuBar(true)` hindi ito kayang itago agad.
 
