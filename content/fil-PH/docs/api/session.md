@@ -193,9 +193,9 @@ Nagtatakda ng download saving na direktoryo. Bilang default, ang download na dir
   * `offline` na Boolean (opsyonal) - Kung tularan ba ang network outage. Naka-default sa false.
   * `latency` na Doble (opsyonal) - RTT sa ms. Naka-default sa 0 na siyang magpapatigil sa latency throttling.
   * `downloadThroughput` na Doble (opsyonal) - Bilis ng pag-download sa Bps. Naka-default sa 0 na siyang magpapatigil sa download throttling.
-  * `uploadThroughput` Double (opsyonal) - Mag-upload ng rate sa Bps. Dafaults sa 0 kung saan hidni pinagana ang upload throttling.
+  * `uploadThroughput` na Doble (opsyonal) - Bilis ng upload sa Bps. Naka-default sa 0 na siyang magpapatigil sa upload throttling.
 
-Pag-emulate ng network na may nakabigay na konfigurasyon para sa `session`.
+Ginagaya ang network na may nakalaang konfigurasyon para sa `sesyon`.
 
 ```javascript
 // Para i-emulate ang GPRS na koneksyon na may 50kbps na throughput at 500 ms na latency.
@@ -211,21 +211,21 @@ window.webContents.session.enableNetworkEmulation({offline: true})
 
 #### `ses.disableNetworkEmulation()`
 
-Hindi pinapagana ang anumang network emulation ay na aktibo para sa `session`. Ni-rereset para sa orihinal na network na konfigurasyon.
+Hindi pinapagana ang anumang network na pag-emulate na aktibo na para sa `sesyon`. Nagrereset para sa orihinal na konfigurasyon ng network.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function 
   * `kahilingan` Bagay 
-    * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `hostname` na String
+    * `certificate` na [Sertipiko](structures/certificate.md)
+    * `verificationResult` na String - Resulta ng pagpapatunay mula sa chromium.
+    * `errorCode` na Integer - code ng kamalian.
   * `callback` Function 
-    * `verificationResult` Integer - Balyo ay maaring isang sertipiko na error codes galing sa [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Bukod sa sertifikong error codes, ang mga sumusunod na espesyal na codes ay magagamit. 
-      * `` - Indicates success and disables Certificate Transparency verification.
-      * `-2` - Nagpapahiwatig sa kabigu-an.
-      * `-3` - Gumagamit ng pagpapatunay galing sa chromium.
+    * `verificationResult` Integer - Ang halaga ay maaring isa sa mga error na code ng sertipiko na mula [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Bukod sa mga error na code sa sertipiko, ang mga sumusunod na mga espesyal na code ay magagamit. 
+      * `` - Nagpapahiwatig ng tagumpay at nagpapatigil sa pagpapatunay ng Certificate Transparency.
+      * `-2` - Nagpapahiwatig sa kabiguan.
+      * `-3` - Gumagamit ng resulta ng pagpapatunay galing sa chromium.
 
 Nagtatakda ng sertifikong verify proc para sa `session`, ang `proc` ay tinatawag na may `proc(request, callback)` sa tuwing ang server certificate ay hinihiling. Calling `callback(0)` tinatanggap ang sertifiko, calling `callback(-2)` tinatangihan ito.
 
