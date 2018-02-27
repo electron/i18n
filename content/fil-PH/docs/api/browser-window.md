@@ -1087,7 +1087,7 @@ Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng
 
 * `huwag pansinin` Boolean
 * `options` Bagay (opsyonal) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Boolean (opsyonal) *Windows* -Kung totoo, Ang pagsulong ng mouse ay inilipat ang mga mensahe sa Chromium, Ang pag-pagana ng mouse related events ay `mouseleave`. Ginagamit lamang kung ang`ignore` ay tama. Kung ang `ignore` is mali, Pagsulong ay palaging hindi-pinagana sa anumang mga balyu.
 
 Makes the window ignore all mouse events.
 
