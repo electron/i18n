@@ -842,20 +842,20 @@ Ang katutubong uri ng handle ay `HWND` sa Windows, `NSView*` sa macOS, at `Windo
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
-* `message` Integer
+* `mensahe` Integer
 * `baliktawag` ginagawa
 
 Ang mga hook ay isang mensahe ng window. Ang ` callback ` ay tinatawag kung kailan ang mensahe ay natanggap sa WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
-* `message` Integer
+* `mensahe` Integer
 
 Ibinabalik ang ` Boolean ` - ` true ` o ` false ` depende kung ang mensahe ay naka-hook.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
-* `message` Integer
+* `mensahe` Integer
 
 I-unhook ang mensahe sa window.
 
@@ -889,11 +889,11 @@ Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 
 #### `win.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+Katulad nang `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, mga pagpipilian])`
 
@@ -917,7 +917,6 @@ let url = require('url').format({
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')
 })
-
 win.loadURL(url)
 ```
 
@@ -947,7 +946,7 @@ Itinatakda ang ` menu ` bilang menu bar ng window, ang pagtatakda nito sa ` null
 
 * `progress` Doble
 * `mga pinagpipilian` Bagay (opsyonal) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
+  * `mode` String *Windows* - Mode para sa progress bar. ay maaaring `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
 Nagtatakda ng halaga ng pag-unlad sa progress bar. Ang wastong saklaw ay [0, 1.0].
 
