@@ -17,7 +17,7 @@ win.show()
 
 ### Alternatives on macOS
 
-macOS 10.9 매버릭스 이상에서는 chromeless 윈도우를 지정하는 다른 방법이 있다. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+macOS 10.9 매버릭스 이상에서는 chromeless 윈도우를 지정하는 다른 방법이 있다. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. `titleBarStyle` 옵션을 지정하여 이를 할 수 있습니다:
 
 #### `hidden`
 
