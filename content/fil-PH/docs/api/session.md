@@ -1,26 +1,26 @@
 # sesyon
 
-> Pamahalaan ang mga sesyon ng browser, mga cookie, cache, mga setting ng proxy, etc.
+> Pamahalaan ang mga sesyon ng browser, mga cookie, cache, mga setting ng proxy, atbp.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
-Ang `sesyon` modyul ay maaaring gamitin para gumawa ng bagong `Sesyon` ng mga layunin.
+Ang `sesyon` na modyul ay maaaring gamitin para gumawa ng bagong `Sesyon` ng mga bagay.
 
-Maaari mo rin ma-akses ang `sesyon` ng umiiral na mga pahina sa pamamagitan ng paggamit ng `sesyon` uri ng [`NilalamanngmgaWeb`](web-contents.md), o galing sa `sesyon` na modyul.
+Maaari mo rin ma-akses ang `sesyon` ng umiiral na mga pahina sa pamamagitan ng paggamit ng `sesyon`na katangian ng [`Webcontents`](web-contents.md), o galing sa `sesyon` na modyul.
 
 ```javascript
 const {BrowserWindow} = require('electron')
 
-let win = bagong BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Mga Paraan
+## Mga Pamamaraan
 
-Ang `sesyon` ng modyul ay ang mga sumusunod na pamamaraan:
+Ang `sesyon` na modyul ay ang mga sumusunod na pamamaraan:
 
 ### `sesyon.galingPartisyon(partisyon[, mga opsyon])`
 
