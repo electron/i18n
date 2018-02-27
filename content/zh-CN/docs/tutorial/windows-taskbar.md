@@ -1,6 +1,6 @@
 # Windows 任务栏
 
-Electron有API来配置Windows任务栏中的应用程序图标。 Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar-windows), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron有API来配置Windows任务栏中的应用程序图标。 支持的有 [创建一个 `弹出列表`](#jumplist), [自定义缩略图和工具栏](#thumbnail-toolbars), [图标叠加](#icon-overlays-in-taskbar-windows), 和所谓的 ["闪烁框" 效果](#flash-frame), 而且 Electron 还使用应用程序的 dock 图标来实现跨平台功能 比如 [最近文档](./recent-documents.md) 和 [应用进程](./progress-bar.md).
 
 ## 弹出列表
 
