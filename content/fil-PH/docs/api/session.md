@@ -89,41 +89,41 @@ Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `Sesyon`:
 * `callback` Function 
   * `size` na Integer - Sukat ng cache ginagamit sa byte.
 
-Pagwatag-muli ay nananawagan sa mga sesyons sa kasalukuyang laki ng cache.
+Ang callback ay tinatawag sa kasalukuyang sukat ng cache ng sesyon.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Tinatawag kung ang operasyon ay tapos na
+* `callback` na Function - Tinatawag kung ang operasyon ay tapos na
 
-Nililimas ang sesyon ng HTTP cache.
+Inaalis ang HTTP na cache ng sesyon.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `options` Bagay (opsyonal) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+* `mga opsyon` Bagay (opsyonal) 
+  * `origin` na String - (opsyonal) dapat sinusunod ng representasyon ng `window.location.origin` `scheme://host:port`.
+  * `storages` na String[] - (opsyonal) Ang uri ng mga imbakan na aalisin, maaaring maglalaman ng: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
+  * `quotas` na String[] - (opsyonal) Ang mga uri ng mga quota na aalisin, maaaring maglalaman ng: `temporary`, `persistent`, `syncable`.
 * `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
-Nililimas and datos ng web na imbikan.
+Inaalis ang datos ng mga web na imbakan.
 
 #### `ses.flushStorageData()`
 
-Pagsulat nag anumang di-nakusulat na DOMStorage na datos para sa disk.
+Nagsusulat ng anumang di-nakusulat na DOMStorage na datos sa disk.
 
 #### `ses.setProxy(config, callback)`
 
-* `kumpuni` Bagay 
-  * `pacScript` String - Ang URL na kasama na may PAC file.
-  * `proxyRules` String - Mga panuntunan na nagsasad kung no lang mga proxies na gagamitan.
-  * `proxyBypassRules` String - Mga panuntunan na nagpapahiwatig kung saan ang URLs ay dapat i-bypass ang mga setting ng proxy.
-* `callback` Function - Tinatawag kung ang operason ay tapos na.
+* `config` Bagay 
+  * `pacScript` na String - Ang URL na may kaugnayan sa PAC na file.
+  * `proxyRules` na String - Mga panuntunan na nagsasad kung aling mga proxy ang gagamitin.
+  * `proxyBypassRules` na String - Mga panuntunan na nagpapahiwatig kung aling mga URL ay dapat mag-bypass ang mga setting ng proxy.
+* `callback` na Function - Tinatawag kung ang operason ay tapos na.
 
-Nagtatakda ng mga settings na proxy.
+Nagtatakda ng mga settings ng proxy.
 
-Kung ang `pacScript` at `proxyRules` ay kasabay na ibinigay, ang `proxyRules` na opsyon ay hindi pinansin at `pacScript` ang pagsasaayos ay inilipat.
+Kung ang `pacScript` at `proxyRules` ay kasabay na ibinigay, ang `proxyRules` na opsyon ay hindi pinansin at `pacScript` na konpigurasyon ay inilalapat.
 
-Ang `proxyRules` ay dapat sumunod sa panuntunan:
+Ang `proxyRules` ay dapat sumunod sa mga panuntunan sa ibaba:
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
