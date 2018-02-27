@@ -48,9 +48,9 @@
   * [调试主进程](tutorial/debugging-main-process.md)
   * [使用 Selenium 和 WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [使用自动化持续集成系统 (CI) 进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [开发者工具拓展](tutorial/devtools-extension.md)
+  * [开发者工具扩展](tutorial/devtools-extension.md)
 * [分发应用](tutorial/application-distribution.md) 
-  * [支持平台](tutorial/supported-platforms.md)
+  * [支持的平台](tutorial/supported-platforms.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -97,13 +97,13 @@
 * [支持的 Chrome 命令行开关](api/chrome-command-line-switches.md)
 * [环境变量](api/environment-variables.md)
 
-### 自定义的 DOM 元素:
+### 自定义 DOM 元素:
 
 * [`File` 对象](api/file-object.md)
 * [`<webview>`标签](api/webview-tag.md)
 * [`window.open` 函数](api/window-open.md)
 
-### 在主进程内可用的模块:
+### 主进程可用的模块:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -125,14 +125,14 @@
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### 在渲染进程（网页）内可用的模块:
+### 渲染进程（网页）可用的模块:
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### 在两种进程中都可用的模块:
+### 两种进程都可用的模块:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
