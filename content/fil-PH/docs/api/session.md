@@ -323,7 +323,7 @@ Nagbabalik ng `Blob` - Ang blob na datos na nauugnay sa `identifier`.
   * `eTag` na String - ETag na halaga ng header.
   * `startTime` na Doble (opsyonal) - Ang oras kung kailan sinimulan ang download sa segundong bilang simula sa UNIX epoch.
 
-Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay mag-gegenerate ng [DownloadItem](download-item.md) na maaring ma-access na may [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` kaugnay nito at ang inisyal na estado ay magiging `interrupted`. Ang download ay magsisimula kung ang `resume` API ay tinawag sa [DownloadItem](download-item.md).
+Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay maglilikha ng isang [DownloadItem](download-item.md) na maaring ma-access gamit ang [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` kaugnay nito at ang inisyal na estado ay magiging `interrupted`. Ang download ay magsisimula kung ang `resume` API ay tinawag sa [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
