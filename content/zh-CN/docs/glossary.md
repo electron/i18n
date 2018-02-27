@@ -1,12 +1,12 @@
 # 术语表
 
-这篇文档说明了一些经常在 Electron 开发中使用的专业术语。
+这篇文档解释了一些经常在 Electron 开发中使用的专业术语。
 
 ### ASAR
 
-ASAR 代表了 Atom Shell Archive Format。 一个 [asar](https://github.com/electron/asar) 压缩包就是一个简单的 `tar` 文件-就像将那些有联系的文件格式化至一个单独的文件中。 Electron 能够任意读取其中的文件并且不需要解压缩整个文件。
+ASAR 表示 Atom Shell Archive Format。 一个 [asar](https://github.com/electron/asar) 档案就是一个简单的 `tar` 文件 - 比如将那些有关联的文件放至一个单独的文件格式中。 Electron 能够任意读取其中的文件并且不需要解压整个文件。
 
-ASAR 格式主要是为了提升 Windows 平台上的性能。TODO
+ASAR 格式主要是为了提高 Windows 上的性能而创建的... TODO
 
 ### Brightray
 
