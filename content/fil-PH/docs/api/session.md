@@ -24,13 +24,13 @@ Ang `sesyon` na modyul ay ang mga sumusunod na pamamaraan:
 
 ### `sesyon.galingPartisyon(partisyon[, mga opsyon])`
 
-* `partisyon` String
-* `mga pagpipilian` Mga bagay (opsyonal) 
-  * `cache` Boolean - Maaaring paganahin ang cache.
+* `partisyon` na String
+* `mga opsyon` Na Bagay (opsyonal) 
+  * `cache` na Boolean - Kung pagaganahin ang cache.
 
-Ibalik ang `Sesyon` - Isang mungkahi ng sesyon mula sa `partisyon` ng string. Kapag merong umiiral sa `sesyon` ng may kaparehong `partisyon`, ito ay maaaring bumalik: sa kabilang banda ay maging bago `Sesyon` ang instansya ay maaaring gumawa kasama ang `mga opsyon`.
+Ibinabalik ang `Sesyon` - Isang instance ng sesyon mula sa `partisyon` na string. Kapag merong umiiral sa `sesyon` ng may kaparehong `partisyon`, ito ay ibabalik: sa kabilang banda ang isang bagong `Sesyon` na instance ay malilikha kasama ang `mga opsyon`.
 
-Kung ang `partisyon` ay nagsisimula kasama ang `pananatili:`, ang pahina ay gumagamit ng isang sesyon sa pananatili Maaari magamit ito sa lahat ng mga pahina sa mga app na may kaparehong `partisyon`. kung walang ditong `paninindigan:` prefix, ang pahina ay magagamit bilang sesyon ng memorya. Kung ang `partisyon` ay walang laman kung gayoon ang sesyon ng default ng app ay ibabalik.
+Kung ang `partisyon` ay nagsisimula sa `persist:`, ang pahina ay gagamit ng isang nagpupumilit na sesyon na magagamit sa lahat ng mga pahina sa app na may kaparehong `partisyon`. kapag walang `persist:` na prefix, ang pahina ay gagamit ng isang in-memory na sesyon. Kung ang `partisyon` ay walang laman kung gayoon ang sesyong default ng app ay ibabalik.
 
 Para gumawa ng isang `sesyon` kasama ng `mga option`, siguraduhin mo rin ang `Sesyon` kasama ang `partisyon` na hindi pa ginamit nuon. Walang ibang paraan para baguhin ang `mga opsyon` bilang isang umiiiral na `Sesyon` ng layunin.
 
