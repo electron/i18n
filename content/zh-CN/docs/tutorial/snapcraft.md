@@ -1,16 +1,16 @@
 # Snapcraft 指南 (Ubuntu 软件中心 & 更多)
 
-本指南提供了有关如何包装您的电子应用程序的任何 Snapcraft 环境, 包括 Ubuntu 软件中心的信息。
+本指南提供了有关如何包装你的 Electron 应用程序的任何 Snapcraft 环境, 包括 Ubuntu 软件中心的信息。
 
 ## 背景和要求
 
-与更广泛的 Linux 社区一起, 规范旨在解决 [` snapcraft `](https://snapcraft.io/) 项目中的许多常见软件安装问题。 Snaps 是容器化的软件包, 包括所需的依赖项、自动更新和对所有主要 Linux 发行版的工作, 而无需进行系统修改。
+与更广泛的 Linux 社区一起, 规范旨在解决 [` snapcraft `](https://snapcraft.io/) 项目中的许多常见的软件安装问题。 Snaps 是容器化的软件包, 包括所需的依赖项、自动更新和对所有主要 Linux 发行版的工作, 而无需进行系统修改。
 
 创建 `.snap` 文件有三种方法:
 
-1) 使用 [`electron-forge`](https://github.com/electron-userland/electron-forge) 或 [`electron-builder`](https://github.com/electron-userland/electron-builder), 与 `snap` 支持的两个工具都不在该框中。 This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) 使用 [`electron-forge`](https://github.com/electron-userland/electron-forge) 或 [`electron-builder`](https://github.com/electron-userland/electron-builder), 与 `snap` 支持的两个工具都不在该框中。 这是最简单的选择。 2) 使用 `electron-installer-snap`, 它采用 `electron-packager` 的输出。 3) 使用已经创建的 `.deb` 包。
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+在所有情况下, 都需要安装 `snapcraft` 工具。我们建议在 Ubuntu 16.04 (或当前的) 上建立。
 
 ```sh
 snap install snapcraft --classic
