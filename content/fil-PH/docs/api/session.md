@@ -317,13 +317,13 @@ Nagbabalik ng `Blob` - Ang blob na datos na nauugnay sa `identifier`.
   * `path` na String - Ganap na path ng download.
   * `urlChain` na String[] - kompletong URL na chain para sa download.
   * `mimeType` na String (opsyonal)
-  * `offset` Integer - Pagsimula sa range para sa download.
-  * `length` Integer - Kabuuhan ng haba para sa download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header balyo.
-  * `startTime` Double (opsyonal) - Ang oras kung saan ang download ay nagsimula na sa numero ng segundo since UNIX epoch.
+  * `offset` na Integer - Pagsimulang saklaw para sa download.
+  * `length` na Integer - Kabuuang haba ng download.
+  * `lastModified` na String - Last-Modified na halaga ng header.
+  * `eTag` na String - ETag na halaga ng header.
+  * `startTime` na Doble (opsyonal) - Ang oras kung kailan sinimulan ang download sa segundong bilang simula sa UNIX epoch.
 
-Nagpapahintulot ng pagpapatuloy sa `cancelled` o `interrupted` downloads galing sa nakaraan na `Session`. Ang API ay mag-gegenerate ng [DownloadItem](download-item.md) na maaring ma-access na may [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` kaugnay nito at ang inisyal na estado ay magiging `interrupted`. Ang download ay magsisimula kung ang `resume` API ay tinawag sa [DownloadItem](download-item.md).
+Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay mag-gegenerate ng [DownloadItem](download-item.md) na maaring ma-access na may [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` kaugnay nito at ang inisyal na estado ay magiging `interrupted`. Ang download ay magsisimula kung ang `resume` API ay tinawag sa [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
