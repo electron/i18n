@@ -61,29 +61,29 @@
   * [安全性检查列表](tutorial/security.md#checklist-security-recommendations)
 * [应用程序升级](tutorial/updates.md) 
   * [部署更新服务器](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+  * [在你的应用中实施更新](tutorial/updates.md#implementing-updates-in-your-app)
+  * [应用更新](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## 详细教程
 
-These individual tutorials expand on topics discussed in the guide above.
+这些独立教程扩展了上面指南中所讨论的主题。
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
+* [深入: 安装 Electron](tutorial/installation.md) 
+  * [全局与本地安装](tutorial/installation.md#global-versus-local-installation)
   * [代理](tutorial/installation.md#proxies)
   * [自定义镜像和缓存](tutorial/installation.md#custom-mirrors-and-caches)
   * [故障排查](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [深入: Electron 的版本控制方案](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [稳定分支](tutorial/electron-versioning.md#stabilization-branches)
   * [测试版和Bug修复](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
+* [深入: 用 asar 打包 App 源代码](tutorial/application-packaging.md) 
+  * [生成 asar 档案](tutorial/application-packaging.md#generating-asar-archives)
   * [使用 asar 档案文件](tutorial/application-packaging.md#using-asar-archives)
   * [局限性](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+  * [添加未打包的文件到 asar 档案](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [深入: 使用 Pepper Flash 插件](tutorial/using-pepper-flash-plugin.md)
+* [深入: 使用 Widevine CDM 插件](tutorial/using-widevine-cdm-plugin.md)
 * [离屏渲染](tutorial/offscreen-rendering.md)
 
 * * *
@@ -155,9 +155,9 @@ These individual tutorials expand on topics discussed in the guide above.
 * [调试步骤 (Windows)](development/debug-instructions-windows.md)
 * [在调试中使用 Symbol Server](development/setting-up-symbol-server.md)
 * [文档风格指南](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
+* [贡献到 Electron](../CONTRIBUTING.md)
+* [问题](development/issues.md)
+* [拉取请求](development/pull-requests.md)
 * [升级 Chromium](development/upgrading-chromium.md)
 * [Chromium 开发](development/chromium-development.md)
 * [V8 开发](development/v8-development.md)
