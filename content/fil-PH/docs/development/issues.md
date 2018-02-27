@@ -1,66 +1,66 @@
-# Mga isyu ng Elektron
+# Mga Isyu sa Electron
 
-# Isyu
+# Mga Isyu
 
-* [Kung paano maka pag-ambag sa isyu](#how-to-contribute-in-issues)
-* [Humingi nang pangkalahatang tulong](#asking-for-general-help)
-* [Pagsusumite sa bug report](#submitting-a-bug-report)
-* [Pagsasagawa sa bug report](#triaging-a-bug-report)
-* [Paglutas sa bug report](#resolving-a-bug-report)
+* [Paano Makapag-ambag sa mga Isyu](#how-to-contribute-in-issues)
+* [Paghingi ng Pangkalahatang Tulong](#asking-for-general-help)
+* [Pagsusumite ng isang Ulat ukol sa Bug](#submitting-a-bug-report)
+* [Pagta-triage ng isang Ulat ukol sa Bug](#triaging-a-bug-report)
+* [Paglulutas ng isang Ulat ukol sa Bug](#resolving-a-bug-report)
 
-## Kung paano maka pag-ambag sa isyu
+## Paano Makapag-ambag sa mga Isyu
 
-Para sa anumang isyu, merong mga panimula at tatlong pamamaraan na idibidwal na maka pag-ambag:
+Para sa anumang isyu, mayroong tatlong pangunahing pamamaraan na ang isang indibidwal ay maka pag-ambag:
 
-1. Sa pamamagitan nang pagbukas nang isyu para sa talakayan: Kung maniniwala ka na nahanap mo na ang bagong bug sa electron, kailangan mo itong iulat sa pamamagitan nang paggawa nang bagong isyu sa Ang`elektron/elektron`isyu tracker.
-2. Sa pamamagitan nang pag tulong para sa traige ang isyu: Magagawa mo ito alinman sa pagbibigay nang tulong sa mga detalye (maaaring kopyahin nang pagsusulit na kaso na maipakita nang isang bug) o sa pamamagitan nang pagbibigay mungkahi sa address ang isyu.
-3. Sa pamamagitan nang pagtulong upang malutas ang issue: Ito ay maaaring gawin sa pagpakita na ang isyu ay hindi bug o ito ay naayos na; pero kadalasan, sa pamamagitan nang pagbukas sa hilahin ang kahilingan na makapagbabago nang pinagmulan sa `elektron/elektron` sa isang kongreto at pagsusuring paraan.
+1. Sa pamamagitan ng pagbukas nang isyu para sa talakayan: Kung naniniwala ka na nakahanap ka ng isang bagong bug sa Electron, kailangan mo itong ipaalam sa pamamagitan ng paggawa ng bagong isyu sa `electron/electron` na tagasubaybay ng isyu.
+2. Sa pamamagitan nang pagtulong upang ma-triage ang isyu: Magagawa mo ito sa pagbibigay ng asistibong mga detalye (isang mapaparaming kaso ng pagsusuri na nagpapakita ng isang bug) o sa pamamagitan ng pagbibigay ng mga mungkahi upang malutas ang isyu.
+3. Sa pamamagitan ng pagtulong sa paglutas ng isyu: Ito ay maaaring gawin sa pamamagitan ng pagpapakita na ang isyu ay hindi bug o ito ay naayos na; pero kadalasan, sa pamamagitan nang pagbukas ng isang pull request na nagbabago sa pinagmulan sa `electron/electron` sa isang konkreto at masusuring paraan.
 
-## Humingi nang pangkalahatang tulong
+## Paghingi ng Pangkalahatang Tulong
 
-Dahil ang antas nang aktibidad nasa `elektron/elektron` imbakan ay napakataas, mga tanong o hiling para sa pangkalahatang tulong sa paggamit nang elektron ay dapat na direktang sa [kommunidad malubay na channel](https://atomio.slack.com) o ang [forum](https://discuss.atom.io/c/electron).
+Dahil ang antas nang aktibidad na nasa `electron/electron` na repositori ay napakataas, ang mga tanong o hiling para sa pangkalahatang tulong sa paggamit ng Electron ay dapat na idirekta sa [slack na tsanel ng komunidad](https://atomio.slack.com) o sa [forum](https://discuss.atom.io/c/electron).
 
-## Pagsusumite sa bug report
+## Pagsusumite ng isang Ulat ukol sa Bug
 
-Kapag nagbukas kanang bagong isyu sa `elektron/elektron` isyu tracker, mga gumagamit ay maipapakita na may isang template na dapat mapunan.
+Kapag nagbubukas ng isang bagong isyu sa `electron/electron` na tagasubaybay ng isyu, ang mga gumagamit ay papakitaan ng isang template na dapat mapunan.
 
 ```markdown
-&It;!--
-Salamat sa pagbukas nang isyu! Ilang bagay na dapat tandaan:
+<!--
+Salamat sa pagbukas ng isang isyu! Ilang mga bagay na dapat tandaan:
 
-- Ang isyu tracker ay para sa bugs at tampok na hiling.
-Bago mag ulat ng isang bug, pakiusap subukan mag reproduce nang iyong isyu laban sa pinakabagong  bersyon ng Elektron.
--Kung kailangan mo ng pangkalahatang isyu, sumali ka sa aming Slack: http://atom-slack.herokuapp.com
+- Ang tagagsubaybay sa isyu ay para sa mga bug at mga paghiling ng katangian.
+Bago mag-ulat ng isang bug, pakiusap subukang gawin ulit ang iyong isyu laban sa pinakabagong  bersyon ng Electron.
+-Kung kailangan mo ng pangkalahatang mungkahi, sumali ka sa aming Slack: http://atom-slack.herokuapp.com
 -->
 
-*Elektron bersyon:
-*Operating system:
+*Bersyon ng Electron:
+*Sistemang pang-operasyon:
 
-###Inaasahang pag-uugali
+###Inaasahang paggalaw
 
-&It;!-- Anong sa tingin nyo ang mangyayari? -->
+<!-- Anong sa tingin mo ang dapat mangyari? -->
 
-### Aktwal na pag-uugali
+### Aktwal na paggalaw
 
-&It;!-- Ano talaga ang mangyayari? -->
+<!-- Ano ba ang aktwal na nangyari? -->
 
 ### Paano magparami
 
-&It;!--
-Ang pinakamahusay na pagkakataon ng pagkuha ng bug na ito ay tingnan ng mabilis ay upang magbigay ng imbakan na maaring kopyahin at patakbuhin.
+<!--
+Ang pinakamahusay na pagkakataon upang madaling masuri ang bug na ito ay ang magbigay ng isang REPOSITORI na maaaring kopyahin at patakbuhin.
 
-Maari mong itapon https://github.com/elektron/elektron-guick-start at isama ang link sa iyong pagbabago.
+Maari mong i-fork ang https://github.com/electron/electron-quick-start at isama ang isang link sa iyong sangay kasama ang mga pagbabago.
 
-Kung magbigay kanang ERL, pakiusap ilista ang mga command kinakailangan upang i clone/setup/run your repo e.g.
+Kung magbibigay ka ng URL, mangyaring ilista ang mga utos na kinakailangan upang kopyahin/i-setup/paganahin ang iyong repo e.g.
 
 $ git clone $YOUR_URL -b $BRANCH
 $ npm install
-$ npm start || elektron.
+$ npm start || electron.
 
 -->
 ```
 
-Kung naniniwala ka na nahanap mo na ang bug sa loob nang Elektron, pakiusap punan mo ang form sa abot ng iyong makakaya.
+Kung naniniwala ka na nakshanap ka ng isang bug sa Elektron, pakiusap punan mo ang form na ito sa abot ng iyong makakaya.
 
 Ang dalawang pinakamahalagang piraso ng informasyon na kailangan upang suriin ang report ay isang paglalarawan ng bug at ang simpleng pagsubok na kaso upang muling likhain ito. Madali itong ayusin ang bug kung maaari itong magparami.
 

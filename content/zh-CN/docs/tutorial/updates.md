@@ -2,20 +2,20 @@
 
 有多种方法可以更新Electron应用. 最简单并且官方支持的是一个利用内置的[Squirrel](https://github.com/Squirrel)框架和Electron的[autoUpdater](../api/auto-updater.md)模块.
 
-## Deploying an Update Server
+## 部署更新服务器
 
 开始前, 你首先需要部署一个服务器用来更新下载[autoUpdater](../api/auto-updater.md)模块.
 
 根据你的需要，你可以从下方选择：
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Hazel](https://github.com/zeit/hazel) – 更新私人或开源应用的服务器，可以在 [Now](https://zeit.co/now) 上免费使用。. 它从[GitHub Releases](https://help.github.com/articles/creating-releases/)中拉取并利用GitHub CDN的强大功能。
+- [Nuts](https://github.com/GitbookIO/nuts)－同样使用[GitHub Releases](https://help.github.com/articles/creating-releases/), 但得在磁盘上缓存应用程序更新并支持私有存储库.
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – 提供一个用于处理发布的仪表板，并且不需要在GitHub上发布发布。
+- [Nucleus](https://github.com/atlassian/nucleus) – 一个由Atlassian维护的 Electron 应用程序的完整更新服务器。 支持多种应用程序和渠道; 使用静态文件存储来降低服务器成本.
 
-If your app is packaged with [`electron-builder`](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
+如果你的app是通过[`electron-builder`](https://github.com/electron-userland/electron-builder)打包那么你可以使用[electron-updater](https://www.electron.build/auto-update)模块, 它不依赖任何服务器并且可以从S3, GitHub或者任何其它静态文件存储更新. 这避开了 Electron 内置的更新机制，这意味着本文档的其余部分不适用于此 ` electron-builder `的更新程序。
 
-## Implementing Updates in Your App
+## 在你的应用中实施更新
 
 一旦你部署了更新服务器, 继续导入你所需要的代码模块. 下列代码可能因不同的服务器软件而变化, but it works like described when using [Hazel](https://github.com/zeit/hazel).
 
@@ -42,9 +42,9 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+应用程序被[packaged](../tutorial/application-distribution.md)后, 它将接收你每次发布在[GitHub Release](https://help.github.com/articles/creating-releases/)上的的更新。
 
-## Applying Updates
+## 应用更新
 
 现在您已经为应用程序配置了基本的更新机制, 您需要确保在更新时通知用户. 这可以使用autoUpdater API [events](../api/auto-updater.md#events)来实现:
 

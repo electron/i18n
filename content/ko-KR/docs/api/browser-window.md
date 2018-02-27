@@ -25,7 +25,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Frameless window
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+크롬을 사용하지 않고 창을 만들거나 임의의 모양으로 투명한 창을 만들려면 [Frameless Window API](frameless-window.md)를 사용할 수 있습니다.
 
 ## Showing window gracefully
 

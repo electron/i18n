@@ -1,6 +1,6 @@
 # Paglalabas
 
-Ang dokumentong ito ay nag papakita ng proseso ng pagpapalabas ng isang bagong bersyon ng Electron.
+Ang dokumentong ito ay nagpapakita ng proseso ng pagpapalabas ng isang bagong bersyon ng Electron.
 
 ## Alamin kung mula sa aling sangay maglalabas
 
@@ -148,49 +148,51 @@ Gamitin ang kaparehong mga pormat katulad ng iminungkahi sa itaas, ngunit idagda
 ```sh
 **Paalala:** Ito ay isang beta na lathala at malamang ay magkakaroon ng ilang kawalang katatagan o mga regresyon.
 
-Mangyaring mag file ng bagong isyu para sa anumang bug na makikita mo dito.
+Mangyaring mag-file ng bagong isyu para sa anumang bug na makikita mo dito.
 
-Ang release na to ay nailathala sa [npm] (https://www.npmjs.com/package/electron) sa ilalim ng 'beta' I tag at maaring i-instal sa pamamagoitan ng `npm install electron@beta`.
+Ang lathalang to ay nailathala sa [npm] (https://www.npmjs.com/package/electron) sa ilalim ng `beta` na tag at maaring i-install sa pamamagitan ng `npm install electron@beta`.
 ```
 
-## I-edit ang release draft
+## Baguhin ang draft ng lathala
 
-1. Bisitahin ang [the releases page](https://github.com/electron/electron/releases) at makikita mo ang bagong draft na narelease kasama ng placeholder release ng mga tala.
-2. I-edit ang release at magdagdag ng mga release notes.
-3. Tanggalan ng tsek ang `prerelease` checkbox kung kayo ay maglalathala ng isang matatag na release; iwanan itong naka tsek para sa beta release.
-4. Ipindutin ang 'Save draft'. **Do not click 'Publish release'!**
-5. Antayin ang lahat ng build na pumasa bago magpatuloy.
-6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
+1. Bisitahin ang [pahina ng mga lathala](https://github.com/electron/electron/releases) at makikita mo ang bagong draft na lathala kasama ng placeholder na lathala.
+2. Baguhin ang lathala at magdagdag ng mga kopya ng lathala.
+3. Tanggalin ng tsek sa `prerelease` na checkbox kung ikaw ay naglalathala ng isang matatag na lathala; pabayaan itong naka tsek para sa beta na mga lathala.
+4. Pindutin ang 'Save draft'. **Huwag pindutin ang 'Publish release'!**
+5. Hintayin ang lahat ng build na pumasa bago magpatuloy.
+6. Maaari mong paganahin ang `npm run release -- --validateRelease` upang patunayan na ang lahat ng mga kinakailangang file ay nalikha na para sa lathala.
 
-## Ilathala ang release
+## Ilathala ang lathala
 
-Once the release builds have finished, run the `release` script via `npm run release` to finish the release process. Ang script nato ay gagawin ang mga sumusunod. Gumawa ng proyekto para patunayan na tama ang numero ng bersyon na nailabas na. 2. I download ang binaries at i-generate ang node ng headers at ang .lib linker gamitin sa window sa pamamagitan ng node-gyp para mabuo ang negatibong modyul. 3. Gumawa at i-upload ang SHASUMS files na nakatabi sa S3 para sa node files. 4. Gumawa at i-upload ang SHASUMS256.txt file na nakatabi sa GitHub release. 5. Patunayan na ang lahat ng kinakailangang mga file na prinisinta sa GitHub at S3 at magkaroon ng tamang checksums gaya ng tinutukoy sa SHASUMS files. 6. Ilathala ang release sa GitHub 7. Tanggalin ang `release` na sangay.
+Kapag ang mga panlathalang build ay natapos na, paganahin ang `release` na skrip gamit ang `npm run release` upang matapos ang proseso ng paglathala. Ang iskrip na ito ay gagawin ang mga sumusunod: 1. Itayo ang proyekto para patunayan na tama ang numero ng bersyon na inilalabas. 2. I-download ang mga binary at lumikha ng mga node header at ang .lib na linker na ginamit sa Windows sa pamamagitan ng node-gyp para mabuo ang mga native na modyul. 3. Gumawa at i-upload ang SHASUMS na mga file na inipon sa S3 para sa mga node na file. 4. Gawin at i-upload ang SHASUMS256.txt file na inipon sa GitHub na lathala. 5. Patunayan na ang lahat ng kinakailangang mga file na ay nasa GitHub at S3 at may mga tamang checksum gaya ng tinutukoy sa SHASUMS na mga file. 6. Ilathala ang release sa GitHub 7. Tanggalin ang `panlathalang` sangay.
 
 ## Ilathala sa npm
 
-Sa sandaling ang paglathala ay matagumpay, tumakbo `npm patakbuhin ang paglathala sa npm` mailathala sa release sa npm. mailathaka sa release sa npm.
+Sa sandaling ang paglathala ay matagumpay, paganahin ang `npm run publish-to-npm` upang mailathala sa release sa npm.
 
-## Ayusin ang mga nawawalang binary ng release ng mano-mano
+## Ayusin ang mga nawawalang binary ng isang lathala nang mano-mano
 
-Sa kaso ng isang nasirang release na may sirang CI machines, maaari nating muling i-upload ang binary para sa isang nailathalang release.
+Sa kaso ng isang nasirang release na may sirang CI na mga makina, maaari nating muling i-upload ang mga binary para sa isang nailathalang release.
 
-Ang unang hakbang ay pumunta sa [Releases](https://github.com/electron/electron/releases) pahina at tanggalin ang nasirang binary kasama ang `SHASUMS256.txt` checksum file.
+Ang unang hakbang ay pumunta sa [Mga Lathala](https://github.com/electron/electron/releases) na pahina at tanggalin ang nasirang mga binary kasama ang `SHASUMS256.txt` na checksum file.
 
-Pagkatapos ay imanu-manong gawin ang pag-distribusyon para sa bawat platform at i-upload ang mga ito:
+Pagkatapos ay manu-manong gawin ang distribusyon para sa bawat plataporma at i-upload ang mga ito:
 
 ```sh
 # Tingnan ang bersyon na muling i-upload.
-git checkout vTHE.RELEASE.VERSION # gawin ang release build, pagtukoy ng isang target sa arkitektura.
+git checkout vTHE.RELEASE.VERSION
+
+# Gawin ang release build, habang tinutukoy ang isang target sa arkitektura.
 ./script/bootstrap.py --target_arch [arm|x64|ia32]
 ./script/build.py -c R
 ./script/create-dist.py
 
-#Malinaw na pinayagan i-overwriting ang nailathala na release.
+# Lubos na payagan ang pag-overwrite ng nailathalang release.
 ./script/upload.py --overwrite
 ```
 
-Matapos muling pag-upload ang lahat distribusyon, ilathala muli upang mag-upload ang checksum:
+Matapos ng muling pag-upload ng lahat ng mga distribusyon, ilathala muli upang ma-upload ang checksum na file:
 
 ```sh
-npm paganahin ang release
+npm run release
 ```

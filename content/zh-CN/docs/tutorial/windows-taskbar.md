@@ -1,10 +1,10 @@
-# Windows Taskbar
+# Windows 任务栏
 
-Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar-windows), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron有API来配置Windows任务栏中的应用程序图标。 支持的有 [创建一个 `弹出列表`](#jumplist), [自定义缩略图和工具栏](#thumbnail-toolbars), [图标叠加](#icon-overlays-in-taskbar-windows), 和所谓的 ["闪烁框" 效果](#flash-frame), 而且 Electron 还使用应用程序的 dock 图标来实现跨平台功能 比如 [最近文档](./recent-documents.md) 和 [应用进程](./progress-bar.md).
 
-## JumpList
+## 弹出列表
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows 允许应用程序定义一个自定义上下文菜单，用户可以看到该菜单 右键单击任务栏中的应用图标。 该上下文菜单被成为 `弹出列表`. 您可以在弹出列表的 ` Tasks ` 类别中指定自定义操作， 来自 MSDN 的引用：
 
 > 应用程序的tasks应该是基于程序的功能和用户能用它做一些的关键性事情来制定的。 任务应当是上下文无关的，因为它不需要程序运行就可以工作 而且他们应该是统计上用户在这个应用上最多的行为例如: 撰写一封邮件或者在邮件程序里打开日历，word处理程序新建一个文档，以某一种模式启动应用程序，或者是启动应用程序的某些子命令。 一个应用程序不应当把菜单用一些用户不需要的高级功能的或者只会使用一次的动作例如注册给弄得杂乱无章。 不要将tasks功能用于广告项目例如升级或者特价产品之类。
 > 
@@ -86,7 +86,7 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Icon Overlays in Taskbar
+## 任务栏中的图标叠加
 
 在 Windows，任务栏按钮可以使用小型叠加层显示应用程序 状态，引用 MSDN 的文档：
 
@@ -104,9 +104,9 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame
+## 闪烁框
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+在Windows上，你可以突出显示任务栏按钮以获得用户的关注。 这与在macOS上弹跳停靠栏图标相似。 来自 MSDN 参考文档：
 
 > 通常, 会闪现一个窗口, 通知用户该窗口需要注意, 但是该窗口当前没有键盘焦点。
 
