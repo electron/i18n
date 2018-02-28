@@ -1,6 +1,6 @@
 # Barre des tâches Windows
 
-Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar-windows), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron possède des APIs pour configurer l'icône de l'application dans la barre des tâches de Windows. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar-windows), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
 
 ## JumpList 
 
@@ -104,9 +104,9 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame
+## Fenêtre clignotante
 
-Sur Windows vous pouvez mettre en avant le bouton dans la barre des tâches pour attirer l'attention de l'utilisateur. C'est similaire à l'effet de rebond des icônes dans le dock macOS. From the MSDN reference documentation:
+Sur Windows vous pouvez mettre en avant le bouton dans la barre des tâches pour attirer l'attention de l'utilisateur. C'est similaire à l'effet de rebond des icônes dans le dock macOS. Depuis la documentation de référence sur MSDN :
 
 > En règle générale, une fenêtre clignote pour informer l'utilisateur que la fenêtre nécessite de l'attention alors qu'elle n'a pas le focus clavier.
 
