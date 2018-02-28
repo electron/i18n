@@ -178,13 +178,13 @@ child.once('ready-to-show', () => {
     * `partition` String (任意) - セッションのパーティション文字列に従って、ページで使用されるセッションを設定します。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 省略値は、既定のセッションです。
     * `zoomFactor` Number (任意) - ページの既定のズーム倍率で、`3.0` は `300%` を表します。省略値は、`1.0` です。
     * `javascript` Boolean (任意) - JavaScriptサポートを有効にします。省略値は、`true` です。
-    * `webSecurity` Boolean (任意) - `false` のとき、同一オリジンポリシー (通常、人々によるテスト用Webサイトを使用します) が無効になり、ユーザによって設定されない場合、`allowRunningInsecureContent` が `true` に設定されます。 省略値は `true` です。
-    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
-    * `images` Boolean (optional) - Enables image support. Default is `true`.
-    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-    * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
-    * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
-    * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
+    * `webSecurity` Boolean (任意) - `false` のとき、同一オリジンポリシー (通常、テスト用Webサイトを使用します) が無効になり、ユーザによって設定されない場合、`allowRunningInsecureContent` が `true` に設定されます。 省略値は `true` です。
+    * `allowRunningInsecureContent` Boolean (任意) - httpsのページでhttpのURLからのJavaScript、CSSやプラグインを実行することを許可します。省略値は、`false` です。
+    * `images` Boolean (任意) - 画像のサポートを有効にします。省略値は、`true` です。
+    * `textAreasAreResizable` Boolean (任意) - TextArea要素のサイズを変更可能にします。省略値は、`true` です。
+    * `webgl` Boolean (任意) - WebGLのサポートを有効にします。省略値は、`true` です。
+    * `webaudio` Boolean (任意) - WebAudioのサポートを有効にします。省略値は、`true` です。
+    * `plugins` Boolean (任意) - プラグインを有効にするかどうか。省略値は、`false` です。
     * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
     * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
     * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
