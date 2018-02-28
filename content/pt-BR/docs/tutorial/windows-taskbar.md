@@ -110,7 +110,7 @@ On Windows you can highlight the taskbar button to get the user's attention. Thi
 
 > Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+Para piscar o botão da barra de tarefas do BrowserWindow, você pode usar o [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -119,4 +119,4 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Não esqueça de chamar o método `flashFrame` com ` false` para desligar o flash. No exemplo acima, ele é chamado quando a janela entra em foco, mas você pode usar um tempo limite ou algum outro evento para desativá-lo.
