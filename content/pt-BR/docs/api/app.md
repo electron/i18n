@@ -438,7 +438,7 @@ Sobrescreve o atual nome da aplicação.
 
 Retorna `String` - A atual localização da aplicação. Possíveis retornos estão documentados [aqui](locales.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Nota:** Quando estiver distribuindo seu aplicativo, você também deve entregar o arquivo `locales`.
 
 **Note:** On Windows you have to call it after the `ready` events gets emitted.
 
