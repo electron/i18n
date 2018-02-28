@@ -30,7 +30,7 @@ Electron oferece uma série de APIs que suportam o desenvolvimento de uma aplica
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for the individual API will clearly state which process they can be used from.
+Todas as Electron APIs são atribuídas em um tipo de processo. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for the individual API will clearly state which process they can be used from.
 
 A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
 
