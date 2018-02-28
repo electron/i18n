@@ -18,7 +18,7 @@
   * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [執行你的應用程式](tutorial/first-app.md#running-your-app)
 * [模版及命令列介面 (CLI)](tutorial/boilerplates-and-clis.md) 
-  * [樣板 vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [模板 vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
@@ -28,7 +28,7 @@
   * [使用 Electron API](tutorial/application-architecture.md#using-electron-apis)
   * [使用 Node.js API](tutorial/application-architecture.md#using-node.js-apis)
   * [使用原生 Node.js 模組](tutorial/using-native-node-modules.md)
-  * [踦處理序通訊](tutorial/application-architecture.md#)
+  * [跨處理序通訊](tutorial/application-architecture.md#)
 * 新增功能進應用程式 
   * [通知](tutorial/notifications.md)
   * [最近的文件](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
