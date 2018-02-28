@@ -7,7 +7,7 @@
 
 | نوع عمل | پشتیبانی پلت فرم | `متن` - مورد استفاده         | `متن` پیشفرض | محدودیت ها                                                                                                                                                           |
 | ------- | ---------------- | ---------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `دکمه`  | مک‌اواس          | برچسب مورد استفاده برای دکمه | "نمایش"      | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| `دکمه`  | سیستم عامل مک    | برچسب مورد استفاده برای دکمه | "نمایش"      | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### پشتیبانی دکمه در مک‌اواس
 

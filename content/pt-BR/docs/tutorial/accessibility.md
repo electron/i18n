@@ -1,16 +1,16 @@
 # Acessibilidade
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Tornar acessíveis os aplicativos é importante e nós estamos felizes em apresentar a novo funcionalidade de [Devtron](https://electronjs.org/devtron) e [Spectron](https://electronjs.org/spectron) que oferece aos desenvolvedores a oportunidade de melhorar seus aplicativos para todos.
 
 * * *
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Questões de acessibilidade em Electron aplicativos são semelhantes de sites pois, ambos fazer uso do HTML. No entanto com electron apps, não pode ser usado os recursos online para auditorias de acessibilidade por causa que seu aplicativo não tem uma URL para apontar o auditor.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools.
+Esses novos recursos trazem ferramentas de auditoria para seu Electron app. Você pode escolher adicionar auditor ao seus testes com Spectron ou usá-las na DevTools com Devtron. Leia sobre isso no resumo das ferramentas.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+Em testes na Spectron framework, você pode agora auditar cada janela e `<webview>` tag em seu aplicativo. Por exemplo:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,23 +20,23 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Você pode ler mais sobre esse recurso na [docummentação do Spectron](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+Em Devtron, há uma nova guia de acessibilidade que permitirá que você fazer auditoria em uma página de seu aplicativo, classificar e filtrar os resultados.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![captura de tela do devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Ambas essas ferramentas são usadas na [Acessibilidade Ferramentas para Desenvolvedores](https://github.com/GoogleChrome/accessibility-developer-tools) construída para o Google Chrome. Você pode aprender mais sobre as regras de auditoria de acessibilidade que essa biblioteca usa no [wiki do repositório](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
+Se você souber de outra fantástica ferramenta de acessibilidade para Electron, adicione na documentação de acessibilidade com um pull request.
 
-## Enabling Accessibility
+## Permitindo Acessibilidade
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Aplicativos em Electron devem mantém acessibilidade desabilitada por padrão, em razão do desempenho, mas existem várias maneiras para habilita.
 
-### Inside Application
+### Dentro do Aplicativo
 
 By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
 

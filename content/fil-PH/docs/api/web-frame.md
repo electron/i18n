@@ -12,7 +12,7 @@ const {webFrame} = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Paraan
+## Methods
 
 The `webFrame` module has the following methods:
 
@@ -61,7 +61,7 @@ Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi v
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Bagay 
+* `provider` Object 
   * `spellCheck` Function - Returns `Boolean` 
     * `text` String
 

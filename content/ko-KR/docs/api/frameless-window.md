@@ -1,6 +1,6 @@
 # 테두리없는 윈도우
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> 툴바, 테두리, 다른 그래픽 "크롬" 없는 윈도우를 엽니다.
 
 A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
 
@@ -17,11 +17,11 @@ win.show()
 
 ### Alternatives on macOS
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+macOS 10.9 매버릭스 이상에서는 chromeless 윈도우를 지정하는 다른 방법이 있다. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. `titleBarStyle` 옵션을 지정하여 이를 할 수 있습니다:
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+타이블바가 숨겨지고 전체크기의 컨텐츠 윈도우가 표시되지만 여전히 타이틀바는 표준 윈도우 컨트롤인 ("신호등")을 왼쪽 상단에 가지게 됩니다.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -32,7 +32,7 @@ win.show()
 
 #### `hiddenInset`
 
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+타이틀바가 숨겨지고 신호등 버튼이 윈도우 가장자리에 약간 더 끼워진 대체 모습으로 표시됩니다.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -54,7 +54,7 @@ win.show()
 
 ## 투명한 윈도우
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+`transparent`옵션을 `true`로 설정함으로써 테두리없는 윈도우를 투명하게 만들 수 있습니다:
 
 ```javascript
 const {BrowserWindow} = require('electron')

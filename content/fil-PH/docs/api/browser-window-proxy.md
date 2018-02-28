@@ -6,7 +6,7 @@ Mga proseso: [Renderer](../glossary.md#renderer-process)
 
 Ang mga bagay sa `BrowserWindowProxy` ay bumabalik mula sa `window.open` at nagbibigay ng limitadong pag-andar sa maliliit na window.
 
-### Mga pamamaraan ng pagkakataon
+### Instance Methods
 
 Ang mga bagay sa `BrowserWindowProxy` ay mayroon ng mga sumusunod pamamaraan ng pagkakataon:
 
@@ -42,7 +42,7 @@ Ipasa ang mensahe sa maliit na window kasama ang tamang origin o kaya `*` sa hin
 
 Bukod sa mga pamamaraang ito, ay ipinatutupad ng maliit na window na to na ang `window.opener` ay bagay na walang katangian at iisa ang pamamaraan.
 
-### Humahalimbawa sa bahagi nito
+### Instance Properties
 
 Ang `BrowserWindowProxy` na to ay bahagi ng mga sumusunod na halimbawa ng mga bahagi:
 

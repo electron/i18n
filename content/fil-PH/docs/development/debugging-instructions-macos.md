@@ -1,16 +1,16 @@
-# "Debugging" sa "macOS"
+# Pagde-debug sa macOS
 
-Kung ikaw ay nakararanas ng pagbagsak o may nagaganap na di tama sa Electron at alam mo na ito'y 'di sanhi ng JavaScript application, sa halip ang problema ay nasa mismong Electron, ang paghahanap at pag-aayos ng mga posibleng problema (debugging) ay medyo nakakalito lalo na sa mga naglilinang nito na hindi gumagamit ng native/C++ upang mahanap o maitama ang mga mali nito (debugging). Ganoon pa man, gamit ang lldb at source code ng Electron, ito ay magiging madali upang mag-debug gamit ang mga breakpoint sa loob ng source code nito.
+Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron at naniniwala ka na ito'y hindi sanhi ng iyong JavaScript na aplikasyon, sa halip ang problema ay nasa Electron mismo, ang pagde-debug ay posibleng maging medyo nakakalito, lalo na sa mga tagabuo na hindi gumagamit ng native/C++ na pagde-debug. Ganoon pa man, sa paggamit ang lldb at source code ng Electron, ito ay masyadong madali upang paganahin ang isang hakbang-hakbang na pagde-debug kasama ang mga breakpoint sa loob ng source code ng Electron.
 
-## Mga kinakailangan
+## Mga Kinakailangan
 
-* **Ang debug na gawa ng Elektron**: Kadalasan, ang pinakamadaling paraan upang buuin ito ay gamit ang kanyang sarili sa pamamagitan ng mga gamit at mga pangunahing kailangan na nasa [build instructions para sa Windows](build-instructions-osx.md). Habang ang Elektron " ay tuwirang "dina-download", ito ay madaling maikakabit at matutukoy ang problema o "debug", at ito'y siguradong gagana nang higit na mas maayos. Ginagawa nitong mas mahirap ang paghahanap at pag-aayos ng mga problema o "debugging": Kapag ang "debugger" ay hindi kayang ipakita ang lahat ng laman ng "variable" at mapapansin ang "execution path" ay maaaring maging kakaiba dahil sa "inlining", "tail calls" at iba pang "compiler optimizations".
+* **Isang debug na build ng Elektron**: Ang pinakamadaling paraan ay kadalasan ang pagbuo mo nito mismo, gamit ang mga kagamitan at mga paunang kinakailangan na nasa [instruksyon sa pagbuo para sa Windows](build-instructions-osx.md). Habang kaya mong madaliang ilakip sa at i-debug ang Electron gaya ng kaya mong direkta itong i-download, makikita mong lubos itong na-optimize, na ginagawa ang pagde-debug na mas mahirap: Ang taga-debug ay hindi kayang ipakita sa iyo ang nilalaman ng lahat ng mga variable at ang landas ng pagsunod ay magmumukhang kakaiba dahil sa pag-inline, mga hulihang tawag at iba pang mga optimisasyon sa compiler.
 
-* **Xcode**: Sa karagdagan, ang "Xcode" ay ginagamit din ang "Xcode command line tools". Kasama rin ang "LLDB", ang "default debugger" ng "Xcode" sa "Mac OS X". Sinusuportahan nito ang "debugging C", "Objective-C" at "C++" sa "desktop" at "iOS devices" at "simulator".
+* **Xcode**: Bilang karagdagan sa Xcode, i-install rin ang mga kagamitan sa Xcode na pang-utoss na linya. Isinasali nila ang LLDB, ang default na taga-debug sa Xcode sa Mac OS X. Sinusuportahan nito ang debugging C, Objective-C at C++ sa desktop at ios na mga kasangkapan at taga-simulate.
 
-## Pagkakabit at "Pagde-debug" sa "Electron"
+## Pagkakabit at Pagde-debug sa Electron
 
-Para simulan ang "debugging session", buksan ang Terminal at umpisahan ang `lldb`, na dadaan sa "debug" na gawa ng Elektron bilang "parameter".
+Upang simulan ang debugging na sesyon, buksan ang Terminal at umpisahan ang `lldb`, habang pinapasa ang isang debug na build ng Electron bilang isang parametro.
 
 ```sh
 lldb ./out/D/Electron.app
@@ -20,24 +20,24 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 ### Pagtatakda ng mga Breakpoint
 
-Ang LLDB ang pinakamahalagang kasangkapan at sumusuporta sa karamihan ng estratihiya para siyasatin ang code. Para sa simula ng pundasyon, ipagpalagay natin na ang tinatawag na command galing sa "JavaScript" ay di gumagana ng maayos - at ngayon, hindi mo nanaisin na gamitin ang "C++" bilang command katapat sa loob ng "source" ng Elektron.
+Ang LLDB ay isang makapangyarihang kagamitan at sumusuporta sa maraming mga istratehiya sa pagsisiyasat ng code. Para sa simpleng introduksyong ito, ipagpalagay natin na nagtatawag ka ng isang utos mula sa JavaScript na hindi gumagalaw ng tama - kaya gusto mong magtuon sa katumbas nitong C++ na utos sa loob ng pinagkukunan ng Electron.
 
-Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay harcore, maaaring mo ring direktang i-debug si Chromium na matatagpuan sa `chromium_src`.
+Ang mga may kaugnayang mga code file ay matatagpuan sa `./atom/` pati na rin sa Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay isang hardcore, maaaring mo ring direktang i-debug ang Chromium na matatagpuan sa `chromium_src`.
 
-Ipagpalagay natin na ang gusto mong i-debug ay `app.setName()`, na syang tumutukoy sa `browser.cc` bilang `Browser::SetName()`. Itakda ang breakpoint gamit ang command na `breakpoint` na tumutukoy sa file at linya:
+Ipagpalagay natin na gusto mong i-debug ang `app.setName()`, na syang inilalarawan sa `browser.cc` bilang `Browser::SetName()`. Itakda ang breakpoint gamit ang utos na `breakpoint` na tumutukoy sa file at linya na pagtutuonan:
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Pagkatapos, simulan ang Electron:
+Pagkatapos, simulan na ang Electron:
 
 ```sh
 (lldb) run
 ```
 
-Ang app ay mabilis na hihinto dahil ang Elektron ay nagtatakda ng pangalan ng app sa launch:
+Ang app ay madaliang ihihinto dahil ang Electron ay nagtatakda ng pangalan ng app sa paglunsad:
 
 ```sh
 (lldb) run
@@ -55,7 +55,7 @@ Process 25244 stopped
 (lldb)
 ```
 
-Para maipakita ang mga argumento at mga lokal na "variable" para sa kasalukuyang balangkas nito, patakbuhin ang `frame variable` (o `fr v`), na magpapakita sa'yo na ang "app" ay kasalukuyang itinatakda ang pangalan sa Elektron.
+Para maipakita ang mga argumento at mga lokal na variable para sa kasalukuyang frame, paganahin ang `frame variable` (o `fr v`), na magpapakita sa'yo na ang app ay kasalukuyang itinatakda ang pangalan sa Elektron.
 
 ```sh
 (lldb) frame variable
@@ -65,7 +65,7 @@ Para maipakita ang mga argumento at mga lokal na "variable" para sa kasalukuyang
 }
 ```
 
-Para magawa ang lebel ng "source" sa isang hakbang sa kasalukuyang napiling "thread", palabasin ang `step` (o `s`). Ito ang magdadala sa'yo sa `name_override_.empty()`. Para magpatuloy at isagawa ang hakbang, patakbuhin ang `next` (o `n`).
+Upang makagawa ng isang hakbang sa antas ng pinagmulan sa kasalukuyang napiling thread, paganahin ang `step` (o `s`). Ito ang magdadala sa'yo sa `name_override_.empty()`. Upang makapagpatuloy at makagawa ng isang step over, paganahin ang `next` (o `n`).
 
 ```sh
 (lldb) step
@@ -81,12 +81,12 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-Sa puntong ito, para matapos ang "debugging", patakbuhin ang `process continue`. Maaari ka ring magpatuloy hanggang ang tiyak na linya ay matamaan sa "thread" na to (`thread until 100`). Ang "command" na ito ay patatakbuhin ang "thread" sa kasalukuyan nitong balangkas hanggang ito'y umabot sa 100 na linya o patigilin kapag iniwan ang kasalukuyang balangkas.
+Sa puntong ito, para matapos ang pagde-debug, paganahin ang `process continue`. Maaari ka ring magpatuloy hanggang ang isang tiyak na linya ay matamaan sa thread na ito (`thread until 100`). Ang utos na ito ay magpapatakbo sa thread sa kasalukuyan nitong frame hanggang ito'y umabot sa 100 na linya o patigilin kapag iniwan ang kasalukuyang frame.
 
-Ngayon, kung iyong bubuksan ang "developer tools" ng Elektron at tinatawag na `setName`, matatamaan mong muli ang "breakpoint".
+Ngayon, kung iyong bubuksan ang mga kagamitan ng tagabuo ng Electron at tatawagin ang `setName`, matatamaan mong muli ang breakpoint.
 
-### Para sa Pagpapatuloy ng Pagbabasa
+### Karagdagang Pagbabasa
 
-"LLDB" ay ang pinakamalakas na gamit magandang dokumentasyon. Para sa karagdagang kaalaman tungkol dito, isaalang-alang ang dokumentasyon sa "debugging" ng Apple, halimbawa ang [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o ang panimula ng [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+Ang LLDB ay ang isang makapangyarihang kagamitan na may magandang dokumentasyon. Upang mas makaalam pa tungkol dito, isaalang-alang ang dokumentasyon sa pagde-debug ng Apple, halimbawa ang [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o ang panimula ng [Paggamit ng LLDB bilang isang Standalone na Taga-debug](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-Maaari mo ring tingnan ang kamangha-manghang [manual and tutorial](http://lldb.llvm.org/tutorial.html) ng "LLDB", na mas magpapaliwanag ng iba't-ibang maaaring mangyari sa "complex debugging".
+Maaari mo ring tingnan ang kamangha-manghang [manwal and tyutoryal](http://lldb.llvm.org/tutorial.html) ng LLDB, na mas magpapaliwanag sa mga mas komplikadong sitwasyon ng pagde-debug.

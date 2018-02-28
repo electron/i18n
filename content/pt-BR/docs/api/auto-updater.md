@@ -75,7 +75,7 @@ The `autoUpdater` object has the following methods:
 * `url` String
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-Sets the `url` and initialize the auto updater.
+Define a `url` e inicializa o atualizador automático.
 
 ### `autoUpdater.getFeedURL()`
 
@@ -87,6 +87,6 @@ Asks the server whether there is an update. You must call `setFeedURL` before us
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Reinicia o aplicativo e instala a atualização depois de ter sido baixada. isto só deve ser chamado após `update-downloaded `ter sido emitido.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Nota:**`autoUpdater.quitAndInstall ()` irá fechar todas as janelas primeiro e somente emitirá o evento ` before-quit ` em ` app` depois disso. This is different from the normal quit event sequence.
