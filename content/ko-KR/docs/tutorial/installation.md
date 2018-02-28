@@ -8,7 +8,7 @@ npm install electron --save-dev
 
 엡에서 Electron 버전을 관리하는 방법은 [Electron 버전 관리](./electron-versioning.md) 문서를 참고하세요.
 
-## Global Installation
+## 전역(Global) 설치
 
 You can also install the `electron` command globally in your `$PATH`:
 
