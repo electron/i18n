@@ -1,10 +1,10 @@
-# Windows Taskbar
+# Barre des tâches Windows
 
 Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar-windows), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
 
 ## JumpList 
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows permet aux applications de définir un menu contextuel personnalisé qui s’affiche lorsque les utilisateurs effectuent un clic-droit sur l’icône de l’application dans la barre des tâches. Ce menu contextuel est appelé `JumpList`. Vous spécifiez les actions personnalisées dans la catégorie `Tasks` JumpList, comme cité sur le site MSDN :
 
 > Les applications définissent des tâches basées sur les caractéristiques du programme et les fonctionnalités clés que l'utilisateur est censé utiliser. Les tâches doivent être indépendantes du contexte, c'est à dire qu'elles n'ont pas besoin de s'exécuter pour fonctionner. Il devrait également il y avoir les actions statistiquement plus courantes qu'un utilisateur normal utiliserait dans une application, comme rédiger un message électronique ou ouvrir le calendrier dans un logiciel de messagerie, ou créer un nouveau document dans un traitement de texte, lancer une application dans un certain mode, ou lancer une des ses sous-commandes. Une application ne doit pas encombrer le menu avec des fonctions avancées que les utilisateurs standards n'auraient pas besoin ou des actions ponctuelles telles que l'inscription. Ne pas utiliser les tâches pour les articles promotionnels tels que les mises à niveau ou des offres spéciales.
 > 
@@ -65,14 +65,14 @@ const win = new BrowserWindow()
 
 win.setThumbarButtons([
   {
-    tooltip: 'button1',
-    icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
+    tooltip: 'bouton1',
+    icon: path.join(__dirname, 'bouton1.png'),
+    click () { console.log('bouton1 cliqué') }
   }, {
-    tooltip: 'button2',
-    icon: path.join(__dirname, 'button2.png'),
+    tooltip: 'bouton2',
+    icon: path.join(__dirname, 'bouton2.png'),
     flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
+    click () { console.log('bouton2 cliqué.') }
   }
 ])
 ```
@@ -86,7 +86,7 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Icon Overlays in Taskbar
+## Superposition d'icône dans la barre des tâches
 
 Sous Windows, un bouton de la barre des tâches peut permettre une petite superposition pour afficher l'état de l'application, comme cité dans MSDN :
 
@@ -106,7 +106,7 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 ## Flash Frame
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Sur Windows vous pouvez mettre en avant le bouton dans la barre des tâches pour attirer l'attention de l'utilisateur. C'est similaire à l'effet de rebond des icônes dans le dock macOS. From the MSDN reference documentation:
 
 > En règle générale, une fenêtre clignote pour informer l'utilisateur que la fenêtre nécessite de l'attention alors qu'elle n'a pas le focus clavier.
 
