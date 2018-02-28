@@ -185,8 +185,8 @@ child.once('ready-to-show', () => {
     * `webgl` Boolean (任意) - WebGLのサポートを有効にします。省略値は、`true` です。
     * `webaudio` Boolean (任意) - WebAudioのサポートを有効にします。省略値は、`true` です。
     * `plugins` Boolean (任意) - プラグインを有効にするかどうか。省略値は、`false` です。
-    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
-    * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
+    * `experimentalFeatures` Boolean (任意) - Chromiumの実験的な機能を有効にします。 省略値は、`false` です。
+    * `experimentalCanvasFeatures` Boolean (任意) - Chromiumの実験的なキャンバスの機能を有効にします。省略値は、`false` です。
     * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
     * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
     * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
