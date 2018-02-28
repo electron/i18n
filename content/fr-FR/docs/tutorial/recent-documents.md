@@ -1,4 +1,4 @@
-# Recent Documents (Windows & macOS)
+# Documents récents (Windows & macOS)
 
 Windows et macOS permettent d’accéder facilement à une liste des documents récemment ouverts par l'application via JumpList ou dock menu, respectivement.
 
