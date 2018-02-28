@@ -2,7 +2,7 @@
 
 > Node.jsとElectron APIを使用する方法。
 
-[Node.jsのすべての組み込みモジュール](https://nodejs.org/api/)は、Electronおよびサードパーティのノードモジュール（[ネイティブモジュール](../tutorial/using-native-node-modules.md)を含む）でも完全にサポートされています。
+[Node.jsのすべての組み込みモジュール](https://nodejs.org/api/)は、Electronおよびサードパーティの node モジュール（[ネイティブモジュール](../tutorial/using-native-node-modules.md)を含む）でも完全にサポートされています。
 
 Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
 
