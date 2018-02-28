@@ -56,7 +56,7 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-`ready-to-show` イベントを使っているアプリに対しても、アプリがよりネイティブに感じられるように `backgroundColor` を設定することが推奨されます。
+`ready-to-show` イベントを使用しているアプリに対しても、アプリがよりネイティブに感じられるように `backgroundColor` を設定することが推奨されます。
 
 ## 親ウィンドウと子ウィンドウ
 
