@@ -119,4 +119,4 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Não esqueça de chamar o método `flashFrame` com ` false` para desligar o flash. No exemplo acima, ele é chamado quando a janela entra em foco, mas você pode usar um tempo limite ou algum outro evento para desativá-lo.
+Não esqueça de chamar o método `flashFrame` com `false` para desligar o flash. No exemplo acima, ele é chamado quando a janela entra em foco, mas você pode usar um tempo limite ou algum outro evento para desativá-lo.
