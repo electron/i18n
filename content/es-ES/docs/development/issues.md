@@ -1,14 +1,14 @@
-# Issues In Electron
+# Problemas en Electron
 
-# Issues
+# Problemas
 
-* [How to Contribute in Issues](#how-to-contribute-in-issues)
-* [Asking for General Help](#asking-for-general-help)
-* [Submitting a Bug Report](#submitting-a-bug-report)
-* [Triaging a Bug Report](#triaging-a-bug-report)
+* [Cómo contribuir para arreglar los problemas](#how-to-contribute-in-issues)
+* [Pedir ayuda general](#asking-for-general-help)
+* [Presentar un informe de error](#submitting-a-bug-report)
+* [Resolviendo un error en el informe](#triaging-a-bug-report)
 * [Resolving a Bug Report](#resolving-a-bug-report)
 
-## How to Contribute in Issues
+## Cómo contribuir para arreglar los problemas
 
 For any issue, there are fundamentally three ways an individual can contribute:
 
@@ -16,11 +16,11 @@ For any issue, there are fundamentally three ways an individual can contribute:
 2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
-## Asking for General Help
+## Pedir ayuda general
 
 Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
 
-## Submitting a Bug Report
+## Presentar un informe de error
 
 When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
 
@@ -68,7 +68,7 @@ The two most important pieces of information needed to evaluate the report are a
 
 See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
 
-## Triaging a Bug Report
+## Resolviendo un error en el informe
 
 It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
 
