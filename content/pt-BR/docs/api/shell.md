@@ -30,13 +30,13 @@ Mostra o arquivo especificado em um gerenciador de arquivos. Se possível, selec
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Retorna `Boolean` - Se o item foi aberto com êxito.
 
-Open the given file in the desktop's default manner.
+Abre o arquivo fornecido na maneira padrão da área de trabalho.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false
+* `url` String - máximo de 2081 caracteres no windows, ou a função retorna falso
 * `opções` Objeto (opcional) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
@@ -52,19 +52,19 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 Returns `Boolean` - Whether the item was successfully moved to the trash
 
-Move the given file to trash and returns a boolean status for the operation.
+Move o arquivo fornecido para o lixo e retorna um booleano para o operação.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Toca o sinal sonoro.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
 * `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+  * `create` - Cria um novo atalho, sobrescrevendo se necessário.
+  * `update` - Atualiza propriedades especificadas apenas em um atalho existente.
+  * `replace` - Sobrescreve um atalho existente, falha se o atalho não existir.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
 Returns `Boolean` - Whether the shortcut was created successfully
@@ -75,8 +75,8 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Retorna [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Uma exceção será lançada quando qualquer erro acontecer.
