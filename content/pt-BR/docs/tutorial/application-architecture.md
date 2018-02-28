@@ -1,10 +1,10 @@
-# Electron Application Architecture
+# Arquitetura do Aplicativo em Electron
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Antes de nós podemos mergulhar nas APIs do Electron, precisamos discutir os dois tipos de processo disponíveis em Electron. Eles são fundamentalmente diferentes e importantes para entender.
 
-## Main and Renderer Processes
+## Processos Principais e Renderizados
 
-No Electron, o processo que executa o script `main` do `package.json` é chamado de **processo principal**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Em Electron, o processo que executa o script `main` do `package.json` é chamado de **processo principal**. O script que executa no processo principal pode apresentar uma interface gráfica através da criação de páginas web. An Electron app always has one main process, but never more.
 
 Uma vez que o Electron utiliza o Chromium para a apresentação de páginas web, a arquitetura de multiprocessamento do Chromium também é utilizada. Cada página web no Electron executa seu próprio processo, que é chamado de **processo de renderização**.
 
