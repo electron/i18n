@@ -219,9 +219,9 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 ### インスタンスイベント
 
-Objects created with `new BrowserWindow` emit the following events:
+`new BrowserWindow` で作成されたオブジェクトは、次のイベントを発生させます。
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Note:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
 #### イベント: 'page-title-updated'
 
@@ -266,11 +266,11 @@ Emitted when window session is going to end due to force shutdown or machine res
 
 #### イベント: 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Webページが応答しなくなったときに発生します。
 
 #### イベント: 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+応答しないWebページが再び応答すると発生します。
 
 #### イベント: 'blur'
 
@@ -294,19 +294,19 @@ Emitted when the web page has been rendered (while not being shown) and window c
 
 #### イベント: 'maximize'
 
-Emitted when window is maximized.
+ウィンドウが最大化されたときに発生します。
 
 #### イベント: 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+ウィンドウの最大化が解除されたときに出力されます。
 
 #### イベント: 'minimize'
 
-Emitted when the window is minimized.
+ウィンドウが最小化されたときに発生します。
 
 #### イベント: 'restore'
 
-Emitted when the window is restored from a minimized state.
+ウィンドウが最小化状態から復元されたときに生成されます。
 
 #### イベント: 'resize'
 
