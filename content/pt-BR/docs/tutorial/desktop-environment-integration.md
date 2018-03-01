@@ -4,7 +4,7 @@ Different operating systems provide different features for integrating desktop a
 
 This guide explains how to integrate your application into those desktop environments with Electron APIs.
 
-## Notifications
+## Notificações
 
 See the [Notifications documentation](notifications.md).
 
@@ -18,7 +18,7 @@ See the [Progress Bar documentation](progress-bar.md).
 
 ## Unity Launcher
 
-See the [Unity Launcher documentation](unity-launcher.md).
+See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
 ## Represented File for macOS Window
 
