@@ -334,7 +334,7 @@ Nilinis ang sesyon ng HTTP authentication na cache.
 
 ### Mga Katangian ng Instance
 
-Ang mga sumusunod na katangian ay magagamit sa mga instance ng `Sesyon`:
+Ang mga sumusunod na katangian ay magagamit sa mga instance ng `session`:
 
 #### `ses.cookies`
 
