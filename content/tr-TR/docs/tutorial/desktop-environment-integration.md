@@ -8,7 +8,7 @@ Bu bölüm, uygulamanızı masaüstü ortamınıza entegre etmek için Electron 
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Son Günlerdeki Dokümanlar
 
 See [Recent Documents documentation](recent-documents.md).
 
