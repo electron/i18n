@@ -1,6 +1,6 @@
 # Custom Linux Desktop Launcher Actions
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+En muchos ambientes Linux, puede agregar entradas personalizadas al lanzador modificando el archivo `.desktop`. Para la documentación de la unidad de Canonical, vea [Agregar accesos directos a un lanzador](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). Para obtener más información sobre una aplicación más genérica, vea la [especificación de freedesktop.org](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
 **Accesos directos del Launcher de Audacious:**
 
