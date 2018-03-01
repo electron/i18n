@@ -675,31 +675,31 @@ app.on('ready', () => {
 * `callback` Function 
   * `result` Integer - Резултата на импортирането.
 
-Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` е извикана с `result` от импортиращата операция, стойност от `` показва успех, докато всяка друга стойност показва провал следващ chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Забранява хардуерно ускорение за текущото приложение.
 
-This method can only be called before app is ready.
+Този метод може да бъде извикван само преди приложението да е готово.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+По подразбиране Chromium забранява 3D API (например WebGL) до рестартиране на база на домейн, ако твърде често GPU процеса прекъсва поради грешка. Тази функция забранява това поведение.
 
-This method can only be called before app is ready.
+Този метод може да бъде извикван само преди приложението да е готово.
 
 ### `app.getAppMemoryInfo()` *Deprecated*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Връща [`ProcessMetric[]`](structures/process-metric.md): масив от `ProcessMetric` обекти, които съответстват на памет и статистика на cpu потреблението на всички процеси, свързани с приложението. **Забележка:** Този метод е непрепоръчителен, вместо това използвайте `app.getAppMetrics()`.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Връща [`ProcessMetric[]`](structures/process-metric.md): масив от `ProcessMetric` обекти, които съответстват на памет и статистика на cpu потреблението на всички процеси, свързани с приложението.
 
 ### `app.getGPUFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Връща [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Състоянието на функцията графика от `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -707,11 +707,11 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Записва брояча на текущото приложение. Записване на стойност `` ще се погрижи за значката.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+На macOS бива показано в иконата на дока. На Linux бива показано сам под Unity launcher,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Забележка:** Unity launcher изисква съществуването на файл `.desktop` да работи, за повече информация моля прочетете [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -812,7 +812,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Този метод може да бъде извикван само преди приложението да е готово.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
