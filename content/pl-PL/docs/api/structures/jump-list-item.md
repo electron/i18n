@@ -4,8 +4,8 @@
   * `task` - zadanie uruchomi aplikację z określonymi parametrami.
   * `separator` - może służyć do oddzielania elementów standardowych kategorii `Tasks`.
   * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
-* `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
-* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
+* `path` String (opcjonalnie) - Ścieżka do pliku, który ma być otwarty, należy ustawić tylko dla przypadku, kiedy `type` jest ustawiony na `file`.
+* `program` String (opcjonalnie) - Ścieżka do programu, który ma zostać uruchomiony, zazwyczaj powinieneś określić `process.execParth`, który otwiera bieżący program. Should only be set if `type` is `task`.
 * `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
 * `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
 * `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
