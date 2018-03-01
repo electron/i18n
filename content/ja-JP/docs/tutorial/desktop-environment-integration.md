@@ -18,7 +18,7 @@ See the [Progress Bar documentation](progress-bar.md).
 
 ## Unity Launcher
 
-See the [Unity Launcher documentation](unity-launcher.md).
+See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
 ## Represented File for macOS Window
 
