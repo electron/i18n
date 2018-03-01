@@ -4,10 +4,10 @@
   * `task` - zadanie uruchomi aplikację z określonymi parametrami.
   * `separator` - może służyć do oddzielania elementów standardowych kategorii `Tasks`.
   * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
-* `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
-* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
-* `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
-* `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
-* `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
-* `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). You can usually specify `process.execPath` to show the program icon.
-* `iconIndex` Number (optional) - The index of the icon in the resource file. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
+* `path` String (opcjonalnie) - Ścieżka do pliku, który ma być otwarty, należy ustawić tylko dla przypadku, kiedy `type` jest ustawiony na `file`.
+* `program` String (opcjonalnie) - Ścieżka do programu, który ma zostać uruchomiony, zazwyczaj powinieneś określić `process.execParth`, który otwiera bieżący program. Powinno być ustawiony tylko dla przypadku, kiedy `type` jest ustawiony na `task`.
+* `args` String(opcjonalnie) - argumenty wiersza polecenia podczas wykonywania `program`. Powinno być ustawione, jeśli `type` jest ustawione na `task`.
+* `title` String (opcjonalnie) - tekst, który ma być wyświetlany dla elementu na liście szybkiego dostępu. Powinno być ustawione, jeśli `type` jest ustawione na `task`.
+* `description` String (opcjonalnie) - opis zadania (wyświetlany w etykietce narzędzia). Powinno być ustawione, jeśli `type` jest ustawione na `task`.
+* `iconPath` Striing (opcjonalnie) - bezwzględna ścieżka to ikony, która ma zostać wyświetlona w Jump List, który może być dowolnym zasobem, który zawiera ikony (`.ico`, `.exe`, `.dll`). Zazwyczaj można określić `process.execPath`, aby wyświetlić ikonę programu.
+* `iconIndex` Number (opcjonalne) - indeks ikony w pliku zasobów. Jeśli plik zasobów zawiera wiele ikon ta wartość może służyć do określenia indeksu ikony, który ma być wyświetlany dla tego zadania. Jeśli plik zasobów zawiera tylko jedną ikone, ta właściwość powinna być równa zero.

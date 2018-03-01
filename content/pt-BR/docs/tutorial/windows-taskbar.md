@@ -1,10 +1,10 @@
 # Windows Taskbar
 
-Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar-windows), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+O Electron possui APIs para a configuração do ícone do aplicativo na barra de tarefas do Windows. São suportadas as [criações de `JumpList`](#jumplist), [miniaturas personalizadas e barras de ferramentas](#thumbnail-toolbars), [sobreposições de ícones](#icon-overlays-in-taskbar-windows), e o chamado [efeito "Flash Frame"](#flash-frame), porém o Electron também usa o ícone da doca do aplicativo para implementar recursos multiplataforma, como [documentos recentes](./recent-documents.md) e [progresso da aplicação](./progress-bar.md).
 
 ## JumpList
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+O Windows permite que as aplicações definam um menu de contexto personalizado que aparece quando os usuários clicam com o botão direito do mouse no ícone do aplicativo na barra de tarefas. Esse menu de contexto é chamado `JumpList`. Você especifica ações personalizadas na categoria `Tasks` em JumpList, como citado no MSDN:
 
 > Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 
@@ -88,7 +88,7 @@ win.setThumbarButtons([])
 
 ## Icon Overlays in Taskbar
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+No Windows, um botão da barra de tarefas pode usar uma pequena sobreposição para exibir o status do aplicativo, como citado no MSDN:
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
@@ -110,7 +110,7 @@ On Windows you can highlight the taskbar button to get the user's attention. Thi
 
 > Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+Para piscar o botão da barra de tarefas do BrowserWindow, você pode usar o [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -119,4 +119,4 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Não esqueça de chamar o método `flashFrame` com `false` para desligar o flash. No exemplo acima, ele é chamado quando a janela entra em foco, mas você pode usar um tempo limite ou algum outro evento para desativá-lo.

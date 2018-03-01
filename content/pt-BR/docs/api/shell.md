@@ -36,7 +36,7 @@ Abre o arquivo fornecido na maneira padrão da área de trabalho.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - máximo de 2081 caracteres no windows, ou a função retorna falso
+* `url` String - Máximo de 2081 caracteres no windows, ou a função retorna falso
 * `opções` Objeto (opcional) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
@@ -52,7 +52,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 Returns `Boolean` - Whether the item was successfully moved to the trash
 
-Move o arquivo fornecido para o lixo e retorna um booleano para o operação.
+Move o arquivo fornecido para o lixo e retorna um boolean para o operação.
 
 ### `shell.beep()`
 

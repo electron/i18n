@@ -8,7 +8,7 @@ Bu bölüm, uygulamanızı masaüstü ortamınıza entegre etmek için Electron 
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Son Günlerdeki Dokümanlar
 
 See [Recent Documents documentation](recent-documents.md).
 
@@ -18,7 +18,7 @@ See the [Progress Bar documentation](progress-bar.md).
 
 ## Unity Launcher
 
-See the [Unity Launcher documentation](unity-launcher.md).
+See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
 ## Represented File for macOS Window
 

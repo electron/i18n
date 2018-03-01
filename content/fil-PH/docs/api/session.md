@@ -1,12 +1,12 @@
-# sesyon
+# session
 
 > Pamahalaan ang mga sesyon ng browser, mga cookie, cache, mga setting ng proxy, atbp.
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-Ang `sesyon` na modyul ay maaaring gamitin para gumawa ng bagong `Sesyon` ng mga bagay.
+Ang `session` na modyul ay maaaring gamitin para gumawa ng bagong `session` ng mga bagay.
 
-Maaari mo rin ma-akses ang `sesyon` ng umiiral na mga pahina sa pamamagitan ng paggamit ng `sesyon`na katangian ng [`Webcontents`](web-contents.md), o galing sa `sesyon` na modyul.
+Maaari mo rin ma-akses ang `session` ng umiiral na mga pahina sa pamamagitan ng paggamit ng `session` na katangian ng [`Webcontents`](web-contents.md), o galing sa `session` na modyul.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -20,7 +20,7 @@ console.log(ses.getUserAgent())
 
 ## Mga Pamamaraan
 
-Ang `sesyon` na modyul ay ang mga sumusunod na pamamaraan:
+Ang `session` na modyul ay ang mga sumusunod na pamamaraan:
 
 ### `sesyon.galingPartisyon(partisyon[, mga opsyon])`
 
@@ -28,11 +28,11 @@ Ang `sesyon` na modyul ay ang mga sumusunod na pamamaraan:
 * `mga opsyon` Na Bagay (opsyonal) 
   * `cache` na Boolean - Kung pagaganahin ang cache.
 
-Ibinabalik ang `Sesyon` - Isang instance ng sesyon mula sa `partisyon` na string. Kapag merong umiiral sa `sesyon` ng may kaparehong `partisyon`, ito ay ibabalik: sa kabilang banda ang isang bagong `Sesyon` na instance ay malilikha kasama ang `mga opsyon`.
+Ibinabalik ang `session` - Isang instance ng sesyon mula sa `partisyon` na string. Kapag merong umiiral sa `session` ng may kaparehong `partisyon`, ito ay ibabalik: sa kabilang banda ang isang bagong `session` na instance ay malilikha kasama ang `options`.
 
-Kung ang `partisyon` ay nagsisimula sa `persist:`, ang pahina ay gagamit ng isang nagpupumilit na sesyon na magagamit sa lahat ng mga pahina sa app na may kaparehong `partisyon`. kapag walang `persist:` na prefix, ang pahina ay gagamit ng isang in-memory na sesyon. Kung ang `partisyon` ay walang laman kung gayoon ang sesyong default ng app ay ibabalik.
+Kung ang `partition` ay nagsisimula sa `persist:`, ang pahina ay gagamit ng isang nagpupumilit na sesyon na magagamit sa lahat ng mga pahina sa app na may kaparehong `partition`. kapag walang `persist:` na prefix, ang pahina ay gagamit ng isang in-memory na sesyon. Kung ang `partition` ay walang laman kung gayoon ang sesyong default ng app ay ibabalik.
 
-Upang makagawa ng isang `sesyon` kasama ng `mga opsyon`, siguraduhin mo na ang `Sesyon` kasama ang `partisyon` ay hindi pa ginamit noon. Walang paraan para baguhin ang `mga opsyon` ng isang umiiiral na `Sesyon` na bagay.
+Upang makagawa ng isang `session` kasama ng `mga opsyon`, siguraduhin mo na ang `Session` kasama ang `partition` ay hindi pa ginamit noon. Walang paraan para baguhin ang `options` ng isang umiiiral na `Sesyon` na bagay.
 
 ## Mga Katangian
 
@@ -40,7 +40,7 @@ Ang `sesyon` na module ay may sumusunod na mga katangian:
 
 ### `session.defaultSession`
 
-Isang `sesyon` na bagay, ang default na sesyon na bagay ng app.
+Isang `session` na bagay, ang default na sesyon na bagay ng app.
 
 ## Klase: Sesyon
 
@@ -48,7 +48,7 @@ Isang `sesyon` na bagay, ang default na sesyon na bagay ng app.
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-Maaari kang gumawa ng isang `Sesyon` na bagay sa `sesyon` na modyul:
+Maaari kang gumawa ng isang `Sesyon` na bagay sa `session` na modyul:
 
 ```javascript
 const {session} = require('electron')
@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 ### Mga Pamamaraan ng Instance
 
-Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `Sesyon`:
+Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `session`:
 
 #### `ses.getCacheSize(callback)`
 
@@ -227,7 +227,7 @@ Hindi pinapagana ang anumang network na pag-emulate na aktibo na para sa `sesyon
       * `-2` - Nagpapahiwatig sa kabiguan.
       * `-3` - Gumagamit ng resulta ng pagpapatunay galing sa chromium.
 
-Nagtatakda ng sertipikong verify proc para sa `sesyon`, ang `proc` ay tinatawag na may `proc(request, callback)` sa tuwing ang pagpapatunay ng sertipiko ng server ay hinihiling. Ang pagtawag sa `callback(0)` ay tumatanggap sa sertipiko, pagtawag sa `callback(-2)` ang magtatanggi nito.
+Nagtatakda ng sertipikong verify proc para sa `session`, ang `proc` ay tinatawag na may `proc(request, callback)` sa tuwing ang pagpapatunay ng sertipiko ng server ay hinihiling. Ang pagtawag sa `callback(0)` ay tumatanggap sa sertipiko, pagtawag sa `callback(-2)` ang magtatanggi nito.
 
 Ang pagtawag sa `setCertificateVerifyProc(null)` ay magbabalik sa certificate verify proc sa default.
 
@@ -253,7 +253,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permissionGranted` na Boolean - Pagpayag o pagtanggi sa pahintulot
 
-Nagtatakda sa tagahawak na magagamit upang tumugon sa mga kahilingan sa pahintulot para sa `sesyon`. Ang pagtawag sa `callback(true)` ay maaring magbigay ng pahintulot at ang `callback(false)` ay magtatanggi ito. Upang linisin ang tagahawak, tawagin ang `setPermissionRequestHandler(null)`.
+Nagtatakda sa tagahawak na magagamit upang tumugon sa mga kahilingan sa pahintulot para sa `session`. Ang pagtawag sa `callback(true)` ay maaring magbigay ng pahintulot at ang `callback(false)` ay magtatanggi ito. Upang linisin ang tagahawak, tawagin ang `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
@@ -334,7 +334,7 @@ Nilinis ang sesyon ng HTTP authentication na cache.
 
 ### Mga Katangian ng Instance
 
-Ang mga sumusunod na katangian ay magagamit sa mga instance ng `Sesyon`:
+Ang mga sumusunod na katangian ay magagamit sa mga instance ng `session`:
 
 #### `ses.cookies`
 

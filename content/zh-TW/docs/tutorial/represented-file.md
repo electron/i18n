@@ -1,4 +1,4 @@
-# Represented File for macOS BrowserWindows
+# macOS BrowserWindows 的代表檔案
 
 在 macOS 中，可以設定視窗的代表檔案，那個檔案的圖示就會顯示在標題列中，使用者按住 Command 或 Control 再點擊標題，就會顯示路徑 快顯選單。
 

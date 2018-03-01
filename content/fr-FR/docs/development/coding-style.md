@@ -6,7 +6,7 @@ Vous pouvez exécuter `npm run lint` pour montrer tous les problèmes de style d
 
 ## General Code
 
-* End files with a newline.
+* Terminer les fichiers avec une ligne vide.
 * Place requires in the following order: 
   * Built in Node Modules (such as `path`)
   * Built in Electron Modules (such as `ipc`, `app`)
@@ -30,9 +30,9 @@ Le code C++ utilise beaucoup d’abstractions et de types de Chromium, il est do
 
 ## Documentation
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style
+* Ecrivez les [remarques](https://github.com/remarkjs/remark) en markdown
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+Vous pouvez exécuter `npm run lint-docs` pour vous assurer que vos modifications de documentation sont formatés correctement.
 
 ## JavaScript
 

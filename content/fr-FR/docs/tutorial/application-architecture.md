@@ -1,10 +1,10 @@
-# Electron Application Architecture
+# Architecture d'une application Electron
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Avant de se plonger dans les APIs Electron, discutons des deux types de processus disponibles dans Electron. Ils sont fondamentalement différents et importants à comprendre.
 
-## Main and Renderer Processes
+## Processus Principal et de Rendu
 
-Dans Electron, le processus qui exécute le script `main` dans le `package.json` est appelé le **processus principal**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Dans Electron, le processus qui exécute le script `main` dans le `package.json` est appelé le **processus principal**. Le script qui exécute le processus principal peut afficher une interface graphique en créant des pages web. Une application Electron possède toujours un processus principal, jamais plus.
 
 Puisque Electron utilise utilise Chromium pour l'affichage de pages web, l'architecture multiprocessus de Chromium est également utilisée. Chaque page web dans Electron s'exécute dans son propre processus, qui s'appelle le **processus de rendu**.
 
@@ -14,17 +14,17 @@ Dans un navigateur normal, les pages web sont habituellement exécuté dans un e
 
 Le processus principal créé des pages web en créant des instances de `BrowserWindow`. Chaque instance de `BrowserWindow` exécute la page web dans son propre processus de rendu. Lorsqu’une instance de `BrowserWindow` est détruite, le processus de rendu correspondant est également arrêté.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Le processus principal gère toutes les pages web et leurs processus de rendu associés. Chaque processus de rendu est isolé et se soucie uniquement de la page web dans laquelle il est en cours d’exécution.
 
 Dans les pages web, l'appel aux GUI natifs associés aux APIs n'est pas autorisé car la gestion des ressources GUI natifs dans les pages web est très dangereuse et il est facile d'avoir une fuite de ressource. Si vous voulez effectuer des opérations GUI dans une page web, alors le processus de rendu doit communiquer avec le processus principal pour demander a celui-ci d'effectuer ces opérations.
 
-> #### Aside: Communication Between Processes
+> #### Aparté : Communication entre processus
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> Avec Electron, nous avons plusieurs façons de communiquer entre le processus principal et les processus de rendu. Comme les modules [`ipcRenderer`](../api/ipc-renderer.md) et [`ipcMain`](../api/ipc-main.md) pour envoyer des messages, et le module [remote](../api/remote.md) pour une communication de style RPC. Il y a également une entrée dans la FAQ sur [le partage des données entre les pages web](../faq.md#how-to-share-data-between-web-pages).
 
-## Using Electron APIs
+## Utiliser les APIs Electron
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+Électrons offre un certain nombre d’API qui prennent en charge le développement d’une application de bureau dans le processus principal et le processus de rendu. In both processes, you'd access Electron's APIs by requiring its included module:
 
 ```javascript
 const electron = require('electron')
@@ -35,8 +35,8 @@ All Electron APIs are assigned a process type. Many of them can only be used fro
 A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// Cela va fonctionner dans le processus principal, mais sera`undefined`
+// dans un processus de rendu :
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
@@ -82,7 +82,7 @@ npm install --save aws-sdk
 Then, in your Electron app, simply require and use the module as if you were building a Node.js application:
 
 ```javascript
-// A ready-to-use S3 Client
+// Un client AWS S3 prêt à utiliser
 const S3 = require('aws-sdk/clients/s3')
 ```
 

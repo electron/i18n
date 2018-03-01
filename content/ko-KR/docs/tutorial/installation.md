@@ -1,14 +1,14 @@
-# Installation
+# 설치
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+[`npm`](https://docs.npmjs.com)을 이용해 Electron 바이너리 버전을 설치할 수 있습니다. 앱에서 Electron을 설치할 때는 개발 의존성 모드로 설치할 것을 권장합니다:
 
 ```sh
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
+엡에서 Electron 버전을 관리하는 방법은 [Electron 버전 관리](./electron-versioning.md) 문서를 참고하세요.
 
-## Global Installation
+## 전역(Global) 설치
 
 You can also install the `electron` command globally in your `$PATH`:
 

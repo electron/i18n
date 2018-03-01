@@ -136,7 +136,7 @@ Retorna:
 
 * `event` Event
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contém informações específicas do app armazenadas pela atividade.
+* `userInfo` Object - Contém configurações específicas do app armazenadas na atividade.
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
 
@@ -146,7 +146,7 @@ Retorna:
 
 * `event` Event
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contém informações específicas do app armazenadas pela atividade.
+* `userInfo` Object - Contém configurações específicas do app armazenadas na atividade.
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
 
@@ -424,21 +424,21 @@ Retorna `String` - A versão da aplicação carregada. Se nenhuma versão é enc
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Retorna `String` - O atual nome da aplicação, que é o nome da aplicação no arquivo `package.json`.
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Usualmente o campo `name` do `package.json` é um nome com letras minúsculas, de acordo com a especificação dos módulo npm. Você normalmente deve especificar um campo `productName`, que é o nome completo da aplicação contendo letras maiúsculas e minúsculas e qual será preferido por `name` pelo Electron.
 
 ### `app.setName(name)`
 
 * `name` String
 
-Overrides the current application's name.
+Sobrescreve o atual nome da aplicação.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Retorna `String` - A atual localização da aplicação. Possíveis retornos estão documentados [aqui](locales.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Nota:** Quando estiver distribuindo seu aplicativo, você também deve entregar a pasta `locales`.
 
 **Note:** On Windows you have to call it after the `ready` events gets emitted.
 

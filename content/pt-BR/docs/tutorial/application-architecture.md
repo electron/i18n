@@ -1,10 +1,10 @@
-# Electron Application Architecture
+# Arquitetura do Aplicativo em Electron
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Antes de nós podemos mergulhar nas APIs do Electron, precisamos discutir os dois tipos de processo disponíveis em Electron. Eles são fundamentalmente diferentes e importantes para entender.
 
-## Main and Renderer Processes
+## Processos Principais e Renderizados
 
-No Electron, o processo que executa o script `main` do `package.json` é chamado de **processo principal**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Em Electron, o processo que executa o script `main` do `package.json` é chamado de **processo principal**. O script que executa no processo principal pode apresentar uma interface gráfica através da criação de páginas web. Um Electron app sempre tem um processo principal, mas nunca mais de um.
 
 Uma vez que o Electron utiliza o Chromium para a apresentação de páginas web, a arquitetura de multiprocessamento do Chromium também é utilizada. Cada página web no Electron executa seu próprio processo, que é chamado de **processo de renderização**.
 
@@ -14,23 +14,23 @@ Em navegadores normais, as páginas web geralmente executam em um ambiente de á
 
 O processo principal cria páginas web pela criação de instâncias de `BrowserWindow`. Cada instância de `BrowserWindow` executa a página web em seu próprio processo de renderização. Quando uma instância de `BrowserWindow` é destruída, o processo de renderização correspondente também é finalizado.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+O principal processo gerencia todas as web páginas e seus correspondentes processos de renderização. Cada processo de renderização é isolado e só se preocupa com a web página que nele executa.
 
 Em páginas web, chamar APIs nativas relacionadas à interface gráfica de usuário não é permitido, uma vez que o gerenciamento de recursos nativos em páginas web é muito perigoso e facilita a ocorrência de vazamento de recursos. Se você quiser executar operações de interface gráfica em uma página web, o processo de renderização da página deve estabelecer uma comunicação com o processo principal para requisitar que ele efetue essas operações.
 
-> #### Aside: Communication Between Processes
+> #### Aparte: Comunicação Entre Processos
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> No Electron, nós temos diversas maneiras de estabelecer uma comunicação entre o processo principal e os processos de renderização. Como os módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md) para o envio de mensagens, e o módulo [remote](../api/remote.md) para comunicação no estilo RPC. Também existe um tópico no FAQ sobre [como compartilhar dados entre páginas web](../faq.md#how-to-share-data-between-web-pages).
 
-## Using Electron APIs
+## Usando Electron APIs
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+Electron oferece uma série de APIs que suportam o desenvolvimento de uma aplicação desktop em ambos, o processos principal e o processo de renderização. Em ambos os processos, você pode acessa Electron APIs exigindo seu módulo:
 
 ```javascript
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for the individual API will clearly state which process they can be used from.
+Todas as Electron APIs são atribuídas em um tipo de processo. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for the individual API will clearly state which process they can be used from.
 
 A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
 

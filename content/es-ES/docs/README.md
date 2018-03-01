@@ -156,7 +156,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [Configurando el Symbol Server en el depurador](development/setting-up-symbol-server.md)
 * [Documentación guía de estilos](styleguide.md)
 * [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
+* [Problemas](development/issues.md)
 * [Pull Requests](development/pull-requests.md)
 * [Actualizando Chomium](development/upgrading-chromium.md)
 * [Desarrollo de Chromium](development/chromium-development.md)

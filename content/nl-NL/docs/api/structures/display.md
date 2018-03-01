@@ -1,6 +1,6 @@
-# Display Object
+# Object weergeven
 
-* `id` Number - Unique identifier associated with the display.
+* `id-` nummer - unieke identificatie die is gekoppeld aan de weergave.
 * `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
 * `scaleFactor` Number - Output device's pixel scale factor.
 * `touchSupport` String - Can be `available`, `unavailable`, `unknown`.

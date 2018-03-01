@@ -1,6 +1,6 @@
 ## Class: MenuItem
 
-> Add items to native application menus and context menus.
+> ネイティブアプリケーションメニューとコンテキストメニューに項目を追加します。
 
 プロセス: [Main](../glossary.md#main-process)
 

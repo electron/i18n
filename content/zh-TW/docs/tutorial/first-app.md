@@ -1,4 +1,4 @@
-# Writing Your First Electron App
+# 寫你第一個 Electron 應用程式
 
 Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作業系統) APIs 來建立桌面應用程式。 你可以將它視為另一個著重於桌面應用程式的 Node.js ，而非網站伺服器。
 
@@ -57,7 +57,7 @@ Turning this Node application into an Electron application is quite simple - we 
 }
 ```
 
-## Installing Electron
+## 安裝 Electron
 
 At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
 
@@ -174,11 +174,11 @@ app.on('activate', () => {
 </html>
 ```
 
-## Running Your App
+## 執行你的應用程式
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
-## Trying this Example
+## 試試這個範例
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 

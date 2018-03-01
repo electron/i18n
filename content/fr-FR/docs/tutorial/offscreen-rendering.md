@@ -6,7 +6,7 @@ Deux modes de rendu peuvent être utilisés et la zone sale est passée à l’�
 
 **Remarque :** Une fenêtre hors de l’écran est toujours créée comme une [Fenêtre sans cadre](../api/frameless-window.md).
 
-## Rendering Modes
+## Mode de rendu
 
 ### Accélération GPU
 

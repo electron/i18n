@@ -1,4 +1,4 @@
-# Recent Documents (Windows & macOS)
+# 最近的文件 (Windows & macOS)
 
 Windows 及 macOS 提供了捷徑清單或 Dock 選單功能，方便快速存取應用程式最近開啟過的文件。
 
@@ -8,7 +8,7 @@ Windows 及 macOS 提供了捷徑清單或 Dock 選單功能，方便快速存�
 
 **應用程式 Dock 選單:**
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![macOS Dock 選單](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
 要將檔案加到最近的文件清單中，可以使用 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
 

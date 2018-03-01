@@ -1,10 +1,10 @@
-# Electron Application Architecture
+# Electron 應用程式架構
 
 Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
 
-## Main and Renderer Processes
+## 主處理序及畫面轉譯處理序
 
-在 Electron 中，透過 `package.json` 中的 `main` 指令執行的程序稱作**主程序**。 The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+在 Electron 中，透過 `package.json` 中的 `main` 指令執行的程序稱作**主處理序**。 The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
 由於 Electron 使用 Chromium 來顯示網頁，因此 Chromium 的多程序架構也可以被使用。 Electron 中每個網頁都執行在各自的程序中，稱作**渲染器程序**。
 
@@ -22,7 +22,7 @@ The main process manages all web pages and their corresponding renderer processe
 > 
 > In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Using Electron APIs
+## 使用 Electron API
 
 Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
 
@@ -53,7 +53,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## 使用 Node.js API
 
 Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
 
