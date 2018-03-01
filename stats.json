@@ -42,14 +42,14 @@
     "name": "Chinese Traditional",
     "code": "zh-TW",
     "phrases": "9087",
-    "translated": "4619",
+    "translated": "4670",
     "approved": "50",
     "words": "82661",
-    "words_translated": "25015",
+    "words_translated": "25525",
     "words_approved": "112",
     "translated_progress": 30,
     "approved_progress": 0,
-    "qa_issues": "51"
+    "qa_issues": "54"
   },
   {
     "name": "Czech",
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "9087",
-    "translated": "6634",
+    "translated": "6645",
     "approved": "47",
     "words": "82661",
-    "words_translated": "49663",
+    "words_translated": "49762",
     "words_approved": "296",
     "translated_progress": 60,
     "approved_progress": 0,
-    "qa_issues": "1985"
+    "qa_issues": "1989"
   },
   {
     "name": "German",
@@ -133,14 +133,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "9087",
-    "translated": "8425",
+    "translated": "8426",
     "approved": "9",
     "words": "82661",
-    "words_translated": "75154",
+    "words_translated": "75159",
     "words_approved": "65",
     "translated_progress": 90,
     "approved_progress": 0,
-    "qa_issues": "4727"
+    "qa_issues": "4728"
   },
   {
     "name": "Italian",
@@ -159,11 +159,11 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9087",
-    "translated": "3611",
-    "approved": "152",
+    "translated": "3620",
+    "approved": "165",
     "words": "82661",
-    "words_translated": "22578",
-    "words_approved": "509",
+    "words_translated": "22697",
+    "words_approved": "724",
     "translated_progress": 27,
     "approved_progress": 0,
     "qa_issues": "118"
@@ -211,27 +211,27 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9087",
-    "translated": "2995",
+    "translated": "3027",
     "approved": "76",
     "words": "82661",
-    "words_translated": "18703",
+    "words_translated": "19024",
     "words_approved": "148",
-    "translated_progress": 22,
+    "translated_progress": 23,
     "approved_progress": 0,
-    "qa_issues": "906"
+    "qa_issues": "922"
   },
   {
     "name": "Russian",
     "code": "ru",
     "phrases": "9087",
-    "translated": "3994",
+    "translated": "3997",
     "approved": "327",
     "words": "82661",
-    "words_translated": "25047",
+    "words_translated": "25124",
     "words_approved": "1499",
     "translated_progress": 30,
     "approved_progress": 1,
-    "qa_issues": "1277"
+    "qa_issues": "1280"
   },
   {
     "name": "Spanish",
