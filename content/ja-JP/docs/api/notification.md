@@ -43,7 +43,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 Objects created with `new Notification` emit the following events:
 
-**Note:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
+**注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
 #### イベント: 'show'
 
