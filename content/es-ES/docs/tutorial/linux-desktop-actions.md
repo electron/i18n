@@ -6,7 +6,7 @@ En muchos ambientes Linux, puede agregar entradas personalizadas al lanzador mod
 
 ![audaz](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+En términos generales, se añaden accesos directos proporcionando un `name` y la propiedad `Exec` para cada entrada en el menú de accesos directos. Unity ejecutará el campo `Exec` cuando el usuario haga clic. El formato es el siguiente:
 
 ```text
 Actions=PlayPause;Next;Previous
@@ -27,4 +27,4 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+La forma preferida de Unity de decirle a su aplicación qué hacer es usando parámetros. Puede encontrarlos en su aplicación en la variable global `process.argv`.
