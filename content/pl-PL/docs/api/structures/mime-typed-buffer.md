@@ -1,4 +1,4 @@
 # Obiekt MimeTypedBuffer
 
-* `mimeType` String - The mimeType of the Buffer that you are sending
-* `data` Buffer - The actual Buffer content
+* `mimeType` String - Typ Mime buforu który wysyłasz
+* `data` Buffer - Zawartość buforu
