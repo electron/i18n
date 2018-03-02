@@ -4,17 +4,17 @@ Ce sont les règles de style pour coder dans Electron.
 
 Vous pouvez exécuter `npm run lint` pour montrer tous les problèmes de style détectés par `cpplint` et `eslint`.
 
-## General Code
+## Code général
 
 * Terminer les fichiers avec une ligne vide.
-* Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order: 
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
-* Avoid platform-dependent code: 
+* Le positionnement est exigé dans l'ordre suivant : 
+  * Modules Node embarqués (tel que `path`)
+  * Modules Electron embarqués (tels que `ipc`, `app`)
+  * Modules locaux (utilisant des chemins relatifs)
+* Le positionnement des classes dans l'ordre suivant : 
+  * Méthodes et propriétés de la classe (méthodes commençant par un `@`)
+  * Méthodes et propriétés d'instance
+* Évitez le code dépendant de la plateforme : 
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
 * Using a plain `return` when returning explicitly at the end of a function. 
