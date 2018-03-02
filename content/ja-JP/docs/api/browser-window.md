@@ -340,7 +340,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### イベント: 'app-command' *Windows*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `command` String
@@ -374,7 +374,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### イベント: 'swipe' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `direction` String
@@ -622,7 +622,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md) 
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (任意) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
@@ -633,7 +633,7 @@ Returns [`Rectangle`](structures/rectangle.md)
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md) 
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (任意) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
@@ -645,7 +645,7 @@ Returns [`Rectangle`](structures/rectangle.md)
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (任意) *macOS*
 
 Resizes the window to `width` and `height`.
 
@@ -657,7 +657,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (任意) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -775,7 +775,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (任意) *macOS*
 
 Moves window to `x` and `y`.
 
@@ -997,9 +997,9 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - ツールバーサムネイルで表示されるアイコン。 
+  * `icon` [NativeImage](native-image.md) - サムネイルツールバーで表示されるアイコン。
   * `click` Function
-  * `tooltip` String (optional) - ボタンのツールチップのテキスト。
+  * `tooltip` String (任意) - ボタンのツールチップのテキスト。
   * `flags` String[] (optional) - 特定の状態や行動を制御する ボタン。デフォルトでは、 `['enabled']`。
 
 `flags` は、 `String` を含むことができる配列です。
