@@ -128,7 +128,7 @@ Retorna:
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `error` String - A string with the error's localized description.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando uma atividade de outro dispositivo falha ao ser resumida.
 
 ### Event: 'activity-was-continued' *macOS*
 
@@ -383,7 +383,7 @@ Você pode solicitar os seguintes caminhos pelo o nome:
 * `music` Diretório para a música de um usuário.
 * `pictures` Diretório para as imagens de um usuário.
 * `videos` Diretório para os vídeos de um usuário.
-* `logs` Directory for your app's log folder.
+* `logs` Diretório que armazena os logs da aplicação.
 * `pepperFlashSystemPlugin` Caminho completo até a versão do sistema do plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
