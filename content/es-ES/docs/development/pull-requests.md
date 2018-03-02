@@ -33,17 +33,17 @@ $ git fetch upstream
 
 ### Paso 2: Compilado
 
-Pasos de construcción y dependencias difieren ligeramente dependiendo de su sistema operativo. Ver estas guías detalladas en construcción local de Electron:
+Pasos de compilado y dependencias difieren ligeramente dependiendo de su sistema operativo. Ver estas guías detalladas en compilacion local de Electron:
 
-* [Building on MacOS](https://electronjs.org/docs/development/build-instructions-osx)
-* [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [Compilado en MacOS](https://electronjs.org/docs/development/build-instructions-osx)
+* [Compilado en Linux](https://electronjs.org/docs/development/build-instructions-linux)
+* [Compilado en Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+Una vez que has compilado el proyecto local mente, ¡estas listo para empezar a hacer cambios!
 
 ### Paso 3: Rama
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+Para mantener tu entorno de desarrollo organizado, crea ramas locales para retener tu trabajo. Estos deben ser ramificados directamente de la rama `principal`.
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
