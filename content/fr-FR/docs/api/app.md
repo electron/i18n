@@ -426,7 +426,7 @@ Retourne `String` - La version de l'application chargée. Si aucune version n'es
 
 Retourne `String` - Le nom de l'application, qui est écrit dans le fichier `package.json` .
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Généralement, le champ `name` du fichier `package.json` est un nom court écrit en lettres minuscules, comme recommandé dans la spécification des modules npm. Vous devriez dans la plupart des cas renseigner également un champ `productName`, qui contient le nom complet et capitalisé de votre application, et qui sera préféré à `name` par Electron.
 
 ### `app.setName(name)`
 
@@ -436,11 +436,11 @@ Remplace le nom de l'application actuelle.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Retourne `String` - La localisation actuelle de l'application. Les valeurs possibles sont documentés [ici](locales.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Remarque :** À la distribution de votre application empaquetée, vous devrez également inclure le dossier `locales`.
 
-**Remarque :** Sous Windows, vous devrez l’appeler après que l'événement `prêt` soit émit.
+**Remarque :** Sous Windows, vous ne pouvez appeler cette fonction qu'après que l'événement `ready` soit émit.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
