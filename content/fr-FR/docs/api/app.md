@@ -148,7 +148,7 @@ Retourne :
 * `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contient l'état spécifique à l'application stocké par l'activité.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Émis lorsque la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va être repris par un autre appareil. Si vous avez besoin de mettre à jour l'état à transférer, vous devez appeler `event.preventDefault()` immédiatement, construire un nouveau dictionnaire `userInfo` et appeler `app.updateCurrentActiviy()` de manière rapide. Dans le cas contraire, l'opération échouera et `continue-activity-error` sera appelée.
 
 ### Événement : 'new-window-for-tab' *macOS*
 
@@ -383,7 +383,7 @@ Vous pouvez demander les chemins suivants sous le nom :
 * `music` Dossier de musique de l’utilisateur.
 * `pictures` Dossier des images de l’utilisateur.
 * `videos` Dossier des vidéos de l’utilisateur.
-* `logs` Directory for your app's log folder.
+* `logs` Répertoire du dossier de log de votre application.
 * `pepperFlashSystemPlugin` Chemin d’accès complet à la version du système du plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -412,11 +412,11 @@ Sur *Linux* et *macOS*, les icônes dépendent de l'application associée au typ
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Remplace le chemin `path` par un répertoire spécial ou un fichier associé à `name`. Si le chemin spécifie un répertoire qui n'existe pas, le répertoire sera créé par cette méthode. En cas d'échec, une `Error` sera levée.
 
 Vous pouvez remplacer uniquement les chemins d’un `name` défini dans `app.getPath`.
 
-Par défaut, les cookies et la cache des pages web seront stockés dans le répertoire `userData`. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Par défaut, les cookies et la cache des pages web seront stockés dans le répertoire `userData`. Si vous voulez changer cet emplacement, vous devez remplacer le chemin `userData` avant que l'événement `ready` du module `app` soit émis.
 
 ### `app.getVersion()`
 
