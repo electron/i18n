@@ -40,7 +40,7 @@ const request = net.request({
 
 Zwraca:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `odpowiedź` Przychodzące wiadomości - Obiekt reprezentujący komunikat odpowiedzi HTTP. 
 
 #### Wydarzenie: 'login'
 
