@@ -456,7 +456,7 @@ Limpa a lista de documentos recentes.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - O nome do protocolo sem `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `protocol` String - O nome do protocolo sem `://`. Se você deseja que sua aplicação manipule links `electron://`, utilize este método com o parâmetro `electron`.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
