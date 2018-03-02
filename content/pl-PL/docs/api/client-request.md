@@ -1,12 +1,12 @@
-## Class: ClientRequest
+## Klasa: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> Wysyłaj żądania HTTP / HTTPS.
 
 Proces: [Main](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### `new ClientRequest(options)`
+### `nowe ClientRequest(opcje)`
 
 * `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
@@ -36,32 +36,32 @@ const request = net.request({
 
 ### Wydarzenia instancji
 
-#### Event: 'response'
+#### Wydarzenie: 'odpowiedź'
 
 Zwraca:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
-#### Event: 'login'
+#### Wydarzenie: 'login'
 
 Zwraca:
 
 * `authInfo` Obiekt 
   * `isProxy` Boolean
-  * `scheme` String
+  * `schemat` String
   * `host` String
   * `port` Integer
-  * `realm` String
+  * `dziedzina` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `Nazwa użytkownika` String
+  * `Hasło` String
 
 Emitted when an authenticating proxy is asking for user credentials.
 
 The `callback` function is expected to be called back with user credentials:
 
-* `username` String
-* `password` String
+* `Nazwa użytkownika` String
+* `Hasło` String
 
 ```JavaScript
 request.on('login', (authInfo, callback) => {
