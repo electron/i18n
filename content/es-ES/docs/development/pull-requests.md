@@ -2,8 +2,8 @@
 
 * [Dependencias](#dependencies)
 * [Configurando tu entorno local](#setting-up-your-local-environment) 
-  * [Paso 1: Tenedor](#step-1-fork)
-  * [Paso 2: Construir](#step-2-build)
+  * [Paso 1: Bifurcar](#step-1-fork)
+  * [Paso 2: Compilado](#step-2-build)
   * [Paso 3: Rama](#step-3-branch)
 * [Haciendo Cambios](#making-changes) 
   * [Paso 4: Código](#step-4-code)
@@ -13,14 +13,14 @@
   * [Paso 7: Prueba](#step-7-test)
   * [Paso 8: Presione](#step-8-push)
   * [Paso 9: Abriendo la Solicitud de Retiro](#step-8-opening-the-pull-request)
-  * [Step 10: Discuss and Update](#step-9-discuss-and-update) 
-    * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
-  * [Step 11: Landing](#step-10-landing)
-  * [Continuous Integration Testing](#continuous-integration-testing)
+  * [Paso 10: Analizar y actualizar](#step-9-discuss-and-update) 
+    * [Aprobación y Solicitud de Cambios de flujo de trabajo](#approval-and-request-changes-workflow)
+  * [Paso 11: Aterrizaje](#step-10-landing)
+  * [Prueba de Integración Continua](#continuous-integration-testing)
 
 ## Configurando tu entorno local
 
-### Paso 1: Tenedor
+### Paso 1: Bifurcar
 
 Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
 
@@ -31,9 +31,9 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Paso 2: Construir
+### Paso 2: Compilado
 
-Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
+Pasos de construcción y dependencias difieren ligeramente dependiendo de su sistema operativo. Ver estas guías detalladas en construcción local de Electron:
 
 * [Building on MacOS](https://electronjs.org/docs/development/build-instructions-osx)
 * [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
@@ -161,19 +161,19 @@ There are a number of more advanced mechanisms for managing commits using `git r
 
 Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
-#### Approval and Request Changes Workflow
+#### Aprobación y Solicitud de Cambios de flujo de trabajo
 
 All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
-### Step 11: Landing
+### Paso 11: Aterrizaje
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
 Congratulations and thanks for your contribution!
 
-### Continuous Integration Testing
+### Prueba de Integración Continua
 
 Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 
