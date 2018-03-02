@@ -266,11 +266,11 @@ Emitted when window session is going to end due to force shutdown or machine res
 
 #### イベント: 'unresponsive'
 
-Webページが応答しなくなったときに発生します。
+Webページが応答しなくなるときに発生します。
 
 #### イベント: 'responsive'
 
-応答しないWebページが再び応答すると発生します。
+応答しないWebページが再び応答するようになるときに発生します。
 
 #### イベント: 'blur'
 
@@ -294,15 +294,15 @@ Emitted when the web page has been rendered (while not being shown) and window c
 
 #### イベント: 'maximize'
 
-ウィンドウが最大化されたときに発生します。
+ウィンドウが最大化されるときに発生します。
 
 #### イベント: 'unmaximize'
 
-ウィンドウの最大化が解除されたときに出力されます。
+ウインドウが最大化状態から抜けるときに発生します。
 
 #### イベント: 'minimize'
 
-ウィンドウが最小化されたときに発生します。
+ウィンドウが最小化されるときに発生します。
 
 #### イベント: 'restore'
 
