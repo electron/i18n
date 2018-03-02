@@ -246,7 +246,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### Wydarzenie: 'login'
 
 Zwraca:
 
@@ -258,13 +258,13 @@ Zwraca:
   * `referrer` URL
 * `authInfo` Obiekt 
   * `isProxy` Boolean
-  * `scheme` String
+  * `schemat` String
   * `host` String
   * `port` Integer
-  * `realm` String
+  * `dziedzina` String
 * `callback` Funkcja 
-  * `username` String
-  * `password` String
+  * `Nazwa użytkownika` String
+  * `Hasło` String
 
 Emitted when `webContents` wants to do basic auth.
 
