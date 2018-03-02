@@ -10,21 +10,21 @@
 
 एक बार डाउनलोड होने के बाद, इंस्टालर को चलायें और फिर इंस्टालेशन विज़ार्ड के निर्देशानुसार इंस्टालेशन पूरी करें |
 
-इनस्टॉल करने के बाद, यह सुनिश्चित कर लें कि सब अपेक्षानुसार चल रहा हो| अपने `/Applications/Utilities` फोल्डर में मैकओएस `Terminal` एप्लीकेशन खोजें (या केवल `Terminal` शब्द को स्पॉटलाइट में खोज के) | Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+इनस्टॉल करने के बाद, यह सुनिश्चित कर लें कि सब अपेक्षानुसार चल रहा हो| अपने `/Applications/Utilities` फोल्डर में मैकओएस `Terminal` एप्लीकेशन खोजें (या केवल `Terminal` शब्द को स्पॉटलाइट में खोज के) | `Terminal` या अपनी पसंद का कोई दूसरा कमांड लाइन क्लाइंट खोलें और यह सुनिश्चित करें कि `नोड` और `एनपीएम` दोनों उपलब्ध हों:
 
 ```sh
-# This command should print the version of Node.js
+# यह कमांड नोड.जेएस के संस्करण को दिखाती है
 node -v
 
-# This command should print the version of npm
+# यह कमांड एनपीएम के संस्करण को दिखाती है
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+अगर दोनों कमांड्स ने एक संस्करण संख्या दिखाई, तो आप आगे बढ़ सकते हैं! शुरू करने से पहले, आपको जावास्क्रिप्ट विकास के लिए उपयुक्त एक [कोड-एडिटर](#a-good-editor) इनस्टॉल करना चाहिये |
 
-## Setting up Windows
+## विंडोज का सेटअप करना
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> इलेक्ट्रॉन विंडोज 7 और उसके बाद के संस्करणों का समर्थन करता है - इससे पहले के विंडोज संस्करणों पर इलेक्ट्रॉन का विकास करना संभव नहीं है | डेवलपर्स के लिए माइक्रोसॉफ्ट [विंडोज 10 के साथ वर्चुअल मशीन इमेजेस](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) मुफ़्त में उपलब्ध कराता है |
 
 पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | हम सलाह देंगे कि आप या तो नवीनतम `LTS` या `वर्तमान` उपलब्ध संस्करण इनस्टॉल करें | Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. एक बार डाउनलोड होने के बाद, इंस्टालर को चलायें और फिर इंस्टालेशन विज़ार्ड के निर्देशानुसार इंस्टालेशन पूरी करें |
 
@@ -33,14 +33,14 @@ On the screen that allows you to configure the installation, make sure to select
 इनस्टॉल करने के बाद, यह सुनिश्चित कर लें कि सब अपेक्षानुसार चल रहा हो| Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
-# This command should print the version of Node.js
+# यह कमांड नोड.जेएस के संस्करण को दिखाती है
 node -v
 
-# This command should print the version of npm
+# यह कमांड एनपीएम के संस्करण को दिखाती है
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+अगर दोनों कमांड्स ने एक संस्करण संख्या दिखाई, तो आप आगे बढ़ सकते हैं! शुरू करने से पहले, आपको जावास्क्रिप्ट विकास के लिए उपयुक्त एक [कोड-एडिटर](#a-good-editor) इनस्टॉल करना चाहिये |
 
 ## Setting up Linux
 
@@ -51,14 +51,14 @@ If both commands printed a version number, you are all set! Before you get start
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-# This command should print the version of Node.js
+# यह कमांड नोड.जेएस के संस्करण को दिखाती है
 node -v
 
-# This command should print the version of npm
+# यह कमांड एनपीएम के संस्करण को दिखाती है
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+अगर दोनों कमांड्स ने एक संस्करण संख्या दिखाई, तो आप आगे बढ़ सकते हैं! शुरू करने से पहले, आपको जावास्क्रिप्ट विकास के लिए उपयुक्त एक [कोड-एडिटर](#a-good-editor) इनस्टॉल करना चाहिये |
 
 ## A Good Editor
 
