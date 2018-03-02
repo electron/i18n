@@ -306,7 +306,7 @@ Emitted when the web page has been rendered (while not being shown) and window c
 
 #### イベント: 'restore'
 
-ウィンドウが最小化状態から復元されたときに生成されます。
+ウインドウが最小化状態から復元されたときに発生します。
 
 #### イベント: 'resize'
 
