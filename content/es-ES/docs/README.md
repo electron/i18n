@@ -157,7 +157,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [Documentación guía de estilos](styleguide.md)
 * [Contributing to Electron](../CONTRIBUTING.md)
 * [Problemas](development/issues.md)
-* [Solicitud de Incorporación de cambios](development/pull-requests.md)
+* [Solicitud de Retiro](development/pull-requests.md)
 * [Actualizando Chomium](development/upgrading-chromium.md)
 * [Desarrollo de Chromium](development/chromium-development.md)
 * [Desarrollo de V8](development/v8-development.md)
