@@ -1,12 +1,12 @@
 # कस्टम लिनक्स डेस्कटॉप लांचर क्रियायें
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+काफी सारे लिनक्स वातावरणों में, आप `.desktop` फाइल में बदलाव कर उनके लांचर में कस्टम एंट्रीज़ जोड़ सकते हैं | कैनोनिकल की यूनिटी दस्तावेजीकरण के लिए, [एक लांचर में शोर्टकट्स जोड़ना](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) देखें | एक साधारण कार्यान्वयन पर और अधिक जानकारी के लिए, [freedesktop.org स्पेसिफिकेशन](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html) देखें |
 
 **Audacious की लांचर शोर्टकट्स:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+सामान्यतः, हर एंट्री के लिए एक `Name` और `Exec` प्रॉपर्टी प्रदान कर शोर्टकट्स को शोर्टकट्स मेन्यु में डाला जाता है | एक बार उपयोगकर्ता के क्लिक करने के बाद यूनिटी `Exec` फील्ड को चला देगी | इसका फॉर्मेट निम्नलिखित है:
 
 ```text
 Actions=PlayPause;Next;Previous
@@ -27,4 +27,4 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+आपकी एप्लीकेशन को क्या करना है, इसका निर्देश देने के लिए यूनिटी का पसंदीदा तरीका है पैरामीटर्स का इस्तेमाल करना | You can find these in your app in the global variable `process.argv`.
