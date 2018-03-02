@@ -420,7 +420,7 @@ Par défaut, les cookies et la cache des pages web seront stockés dans le répe
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Retourne `String` - La version de l'application chargée. Si aucune version n'est trouvée dans le fichier `package.json` de l'application, la version du bundle courant ou de l'exécutable est renvoyée.
 
 ### `app.getName()`
 
