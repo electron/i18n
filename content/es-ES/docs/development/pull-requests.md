@@ -1,4 +1,4 @@
-# Solicitud de Incorporación de cambios
+# Solicitud de Retiro
 
 * [Dependencias](#dependencies)
 * [Configurando tu entorno local](#setting-up-your-local-environment) 
@@ -7,12 +7,12 @@
   * [Paso 3: Rama](#step-3-branch)
 * [Haciendo Cambios](#making-changes) 
   * [Paso 4: Código](#step-4-code)
-  * [Paso 5: Confirmar](#step-5-commit) 
-    * [Commit message guidelines](#commit-message-guidelines)
-  * [Step 6: Rebase](#step-6-rebase)
-  * [Step 7: Test](#step-7-test)
-  * [Step 8: Push](#step-8-push)
-  * [Step 9: Opening the Pull Request](#step-8-opening-the-pull-request)
+  * [Paso 5: Asignar](#step-5-commit) 
+    * [Asignar directrices de mensaje](#commit-message-guidelines)
+  * [Paso 6: Reorganizar](#step-6-rebase)
+  * [Paso 7: Prueba](#step-7-test)
+  * [Paso 8: Presione](#step-8-push)
+  * [Paso 9: Abriendo la Solicitud de Retiro](#step-8-opening-the-pull-request)
   * [Step 10: Discuss and Update](#step-9-discuss-and-update) 
     * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
   * [Step 11: Landing](#step-10-landing)
@@ -59,7 +59,7 @@ Please be sure to run `npm run lint` from time to time on any code changes to en
 
 See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
 
-### Paso 5: Confirmar
+### Paso 5: Asignar
 
 It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
 
@@ -70,7 +70,7 @@ $ git commit
 
 Note that multiple commits often get squashed when they are landed.
 
-#### Commit message guidelines
+#### Asignar directrices de mensaje
 
 A good commit message should describe what changed and why.
 
@@ -91,7 +91,7 @@ A good commit message should describe what changed and why.
 
 See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
 
-### Step 6: Rebase
+### Paso 6: Reorganizar
 
 Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
 
@@ -102,7 +102,7 @@ $ git rebase upstream/master
 
 This ensures that your working branch has the latest changes from `electron/electron` master.
 
-### Step 7: Test
+### Paso 7: Prueba
 
 Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
@@ -122,7 +122,7 @@ $ npm run test -match=menu
 
 The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
 
-### Step 8: Push
+### Paso 8: Presione
 
 Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
@@ -130,7 +130,7 @@ Once your commits are ready to go -- with passing tests and linting -- begin the
 $ git push origin my-branch
 ```
 
-### Step 9: Opening the Pull Request
+### Paso 9: Abriendo la Solicitud de Retiro
 
 From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
