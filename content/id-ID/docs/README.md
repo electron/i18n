@@ -17,7 +17,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Installing Electron](tutorial/first-app.md#installing-electron)
   * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Running Your App](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
+* [Boilerplates dan CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [elektron-penempa](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
