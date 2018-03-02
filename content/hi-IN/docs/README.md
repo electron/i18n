@@ -11,7 +11,7 @@
 * [Setting up the Development Environment](tutorial/development-environment.md) 
   * [मैकओएस का सेटअप करना](tutorial/development-environment.md#setting-up-macos)
   * [विंडोज का सेटअप करना](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
+  * [लिनक्स का सेटअप करना](tutorial/development-environment.md#setting-up-linux)
   * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
 * [Creating your First App](tutorial/first-app.md) 
   * [Installing Electron](tutorial/first-app.md#installing-electron)
