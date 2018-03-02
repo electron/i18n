@@ -61,27 +61,27 @@ Ver [coding style](https://electronjs.org/docs/development/coding-style) para ma
 
 ### Paso 5: Asignar
 
-Se le recomienda mantener sus cambios agrupados lógicamente sin individualizar las compilaciones. Muchos contribuyentes encuentras mas fácil el revisar los cambios que son divididos entre multiples compilaciones. No hay límite en el número de compilaciones en una solicitud de retiro.
+Se le recomienda mantener sus cambios agrupados lógicamente sin individualizar las asignaciones. Muchos contribuyentes encuentras mas fácil el revisar los cambios que son divididos entre multiples asignaciones. No hay límite en el número de asignaciones en una solicitud de retiro.
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Note that multiple commits often get squashed when they are landed.
+Tenga en cuenta que multiples asignaciones a menudo son aplastados cuando han aterrizado.
 
 #### Asignar directrices de mensaje
 
-A good commit message should describe what changed and why.
+Un buen mensaje de asignación debe describir que ha cambiado y por qué.
 
-1. The first line should:
+1. La primera linea debe:
   
-  * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+  * contener una breve descripción del cambio (preferiblemente 50 caracteres o menos, y no mas de 72 caracteres)
+  * estar completamente en minúsculas con la excepción de nombres propios, acrónimos, y las palabras que refieren a un código, como nombres de función/variables
     
     Ejemplos:
   
-  * `updated osx build documentation for new sdk`
+  * `actualizar la documentacion de compilado osx para un nuevo sdk`
   
   * `fixed typos in atom_api_menu.h`
 
