@@ -34,21 +34,21 @@ It is best to specify `role` for any menu item that matches a standard role, rat
 
 The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
 
-The `role` property can have following values:
+La propriété `role` peut avoir les valeurs suivantes :
 
 * `undo`
 * `redo`
 * `cut`
-* `copier`
+* `copy`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
 * `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
+* `minimize` - Minimise la fenêtre courante
+* `close` - Ferme la fenêtre courante
+* `quit`- Quitte l'application
+* `reload` - Recharge la fenêtre courante
+* `forcereload` - Recharge la fenêtre courante en ignorant le cache.
 * `toggledevtools` - Toggle developer tools in the current window
 * `togglefullscreen`- Toggle full screen mode on the current window
 * `resetzoom` - Reset the focused page's zoom level to the original size
@@ -80,7 +80,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### Instance Properties
 
-The following properties are available on instances of `MenuItem`:
+Les propriétés suivantes sont disponibles pour les instances de `MenuItem` :
 
 #### `menuItem.enabled`
 
@@ -102,8 +102,8 @@ You can add a `click` function for additional behavior.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label
+Un `String` représentant le libellé visible des éléments de menu
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event
+A `Function` qui est activée lorsque l'élément MenuItem reçoit un événement de clic
