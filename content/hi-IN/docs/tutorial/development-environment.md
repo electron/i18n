@@ -48,7 +48,7 @@ npm -v
 
 पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | आपकी लिनक्स वितरण पर निर्भर करते हुए, इंस्टालेशन के चरण भिन्न-भिन्न हो सकते हैं | अगर आप सामान्यतः `apt` या `pacman` जैसे एक पैकेज मेनेजर का इस्तेमाल कर सॉफ्टवेर इनस्टॉल करते हैं, तो आप आधिकारिक [लिनक्स पर इनस्टॉल करने की नोड.जेएस गाइड](https://nodejs.org/en/download/package-manager/) का इस्तेमाल करें |
 
-आप लिनक्स चला रहे हैं, तो आपको पहले से ही पता होगा कि एक कमांड लाइन क्लाइंट को कैसे इस्तेमाल किया जाता है | Open up your favorite client and confirm that both `node` and `npm` are available globally:
+आप लिनक्स चला रहे हैं, तो आपको पहले से ही पता होगा कि एक कमांड लाइन क्लाइंट को कैसे इस्तेमाल किया जाता है | अपना पसंदीदा क्लाइंट खोलें और यह सुनिश्चित करें कि `नोड` और `एनपीएम` दोनों वैश्विक तौर पर उपलब्ध हो:
 
 ```sh
 # यह कमांड नोड.जेएस के संस्करण को दिखाती है
@@ -60,8 +60,8 @@ npm -v
 
 अगर दोनों कमांड्स ने एक संस्करण संख्या दिखाई, तो आप आगे बढ़ सकते हैं! शुरू करने से पहले, आपको जावास्क्रिप्ट विकास के लिए उपयुक्त एक [कोड-एडिटर](#a-good-editor) इनस्टॉल करना चाहिये |
 
-## A Good Editor
+## एक अच्छा एडिटर
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+हम इलेक्ट्रॉन में निर्मित दो मुफ़्त लोकप्रिय एडिटर्स का सुझाव देंगे: गिटहब का [एटम](https://atom.io/) और माइक्रोसॉफ्ट का [विसुअल स्टूडियो कोड](https://code.visualstudio.com/) | दोनों के पास जावास्क्रिप्ट का उत्तम समर्थन मौज़ूद है |
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+अगर आप उन डेवलपर्स में से एक है जिनकी एक ख़ास पसंद होती है, तो आपको यह पता होना चाहिये कि आजकल लगभग सभी कोड एडिटर्स और आईडीई जावास्क्रिप्ट का समर्थन करते हैं |
