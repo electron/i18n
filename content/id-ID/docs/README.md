@@ -6,7 +6,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
 * [Elektron FAQ](faq.md)
 
-## Guides and Tutorials
+## Panduan dan Tutorial
 
 * [Setting up the Development Environment](tutorial/development-environment.md) 
   * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
