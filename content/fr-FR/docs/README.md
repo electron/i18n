@@ -66,24 +66,24 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 
 ## Tutoriels détaillés
 
-These individual tutorials expand on topics discussed in the guide above.
+Ces tutoriels individuels développent les sujets abordés dans le guide ci-dessus.
 
 * [En détail : Installer Electron](tutorial/installation.md) 
   * [Global versus Installation Local](tutorial/installation.md#global-versus-local-installation)
   * [Les proxys](tutorial/installation.md#proxies)
   * [Mirroirs et Caches personnalisés](tutorial/installation.md#custom-mirrors-and-caches)
   * [Résolution de problème](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [En détail : Le schéma de versioning d'Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Branches de stabilisation](tutorial/electron-versioning.md#stabilization-branches)
   * [Versions bêta et corrections de bugs](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
+* [En détail : Empaqueter le code source de l'App avec asar](tutorial/application-packaging.md) 
+  * [Génerer des archives asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Lire une archive asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+  * [Ajouter des fichiers non empaquetés dans des archives asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [En détail : Utiliser le plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [En détail : Utiliser le plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
 
 * * *
