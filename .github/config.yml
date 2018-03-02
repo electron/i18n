@@ -8,7 +8,7 @@ newPRWelcomeComment: >
 
   Note that translations should be made on [Crowdin](https://crowdin.com/project/electron) and _should not_ be submitted manually here as a pull request.
 
-  Please check out our [contributing guidelines](https://github.com/electron/electron-i18n/blob/master/contributing.md).
+  Please check out our [contributing guidelines](https://github.com/electron/i18n/blob/master/contributing.md).
 
   🙏
 

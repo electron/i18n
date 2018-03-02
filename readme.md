@@ -13,7 +13,7 @@ To get started translating, visit
 and log in with your GitHub account.
 
 The following languages are currently being translated, but we can
-[easily add more]((https://github.com/electron/electron-i18n/issues/new?title=new%20language%20request)):
+[easily add more]((https://github.com/electron/i18n/issues/new?title=new%20language%20request)):
 
 <!-- start language-table -->
 - [Indonesian](https://crowdin.com/project/electron/id)

@@ -10,7 +10,7 @@ set -o errexit    # always exit on error
 set -o pipefail   # honor exit codes when piping
 set -o nounset    # fail on unset variables
 
-git clone "https://github.com/electron/electron-i18n" module
+git clone "https://github.com/electron/i18n" module
 cd module
 npm install
 npm run collect
