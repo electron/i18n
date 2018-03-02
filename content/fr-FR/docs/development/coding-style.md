@@ -15,9 +15,9 @@ Vous pouvez exécuter `npm run lint` pour montrer tous les problèmes de style d
   * Méthodes et propriétés de la classe (méthodes commençant par un `@`)
   * Méthodes et propriétés d'instance
 * Évitez le code dépendant de la plateforme : 
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
-* Using a plain `return` when returning explicitly at the end of a function. 
+  * Utilisez `path.join()` pour concaténer les noms de fichiers.
+  * Utilisez `os.tmpdir()` au lieu de `/tmp` lorsque vous devez référencer le répertoire temporaire.
+* Utilisez un `return` simple lorsque vous retournez explicitement à la fin d'une fonction. 
   * Not `return null`, `return undefined`, `null`, or `undefined`
 
 ## C++ et Python
