@@ -1000,11 +1000,11 @@ The `buttons` is an array of `Button` objects:
   * `icon` [NativeImage](native-image.md) - サムネイルツールバーで表示されるアイコン。
   * `click` Function
   * `tooltip` String (任意) - ボタンのツールチップのテキスト。
-  * `flags` String[] (optional) - 特定の状態や行動を制御する ボタン。デフォルトでは、 `['enabled']`。
+  * `flags` String[] (任意) - ボタンの特定の状態や動作を制御します。省略値は、`['enabled']` です。
 
-`flags` は、 `String` を含むことができる配列です。
+`flags` は、以下の `String` を含めることができる配列です。
 
-* `enabled` - ボタンはアクティブで、ユーザーが使用できます。
+* `enabled` - ボタンはアクティブで、ユーザが利用可能です。
 * `disabled` - ボタンは無効です。存在しますが、ユーザ操作に応答しないことを示す視覚的な状態です。
 * `dismissonclick` - ボタンをクリックすると、サムネイルウインドウはすぐに閉じます。
 * `nobackground` - ボタンの境界を描画しません。画像だけでしか使用しないでください。
