@@ -207,9 +207,9 @@ child.once('ready-to-show', () => {
     * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。省略値は、`false` です。**注:** このオプションは、現在のところ、実験的なものです。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は、`nodeIntegration` オプションの値です。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
 
-When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
+`minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制限に従わないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに引き渡したすことは、差し支えありません。
 
-The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+`type` オプションに設定できる値と動作は、プラットフォーム依存です。設定できる値:
 
 * On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * On macOS, possible types are `desktop`, `textured`. 
