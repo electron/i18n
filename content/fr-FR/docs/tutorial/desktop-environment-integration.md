@@ -8,7 +8,7 @@ Ce guide explique comment intégrer votre application dans les environnements de
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Documents récents
 
 See [Recent Documents documentation](recent-documents.md).
 
