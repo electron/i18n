@@ -65,7 +65,7 @@ app.on('ready', () => {
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
@@ -87,7 +87,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
@@ -117,7 +117,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
@@ -135,7 +135,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
@@ -163,7 +163,7 @@ For POST requests the `uploadData` object must be provided.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
@@ -221,7 +221,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `completion` Funkcja (opcjonalne) 
   * `error` Error
 
@@ -229,7 +229,7 @@ Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
-* `scheme` String
+* `schemat` String
 * `callback` Funkcja 
   * `error` Error
 
@@ -237,7 +237,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
@@ -253,7 +253,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
@@ -269,7 +269,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
@@ -285,7 +285,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
@@ -307,7 +307,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
@@ -324,7 +324,7 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
-* `scheme` String
+* `schemat` String
 * `completion` Funkcja (opcjonalne) 
   * `error` Error
 
