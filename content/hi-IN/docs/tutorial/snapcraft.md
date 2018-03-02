@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### पहला चरण: अपनी इलेक्ट्रॉन एप्लीकेशन पैकेज करें
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन को पैकेज करें | अपनी पूर्ण एप्लीकेशन में जो `नोड_मोड्यूलस` आपको नहीं चाहिये, उन्हें ज़रूर निकाल दें, नहीं तो गैर-ज़रूरी मोड्यूलस बस आपकी एप्लीकेशन का आकार ही बढ़ायेंगे |
 
 आउटपुट कुछ इस तरह का दिखना चाहिये:
 
@@ -50,7 +50,7 @@ Package the application using [electron-packager](https://github.com/electron-us
         └── version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### दूसरा चरण: `इलेक्ट्रॉन-इंस्टालर-स्नेप` को चलाना
 
 From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
 
