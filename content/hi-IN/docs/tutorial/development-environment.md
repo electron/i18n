@@ -4,13 +4,13 @@
 
 ## मैकओएस का सेटअप करना
 
-> इलेक्ट्रॉन मैक ओएस एक्स 10.9 (और सभी मैकओएस नामित संस्करण) और उनसे ऊपर का समर्थन करता है | Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> इलेक्ट्रॉन मैक ओएस एक्स 10.9 (और सभी मैकओएस नामित संस्करण) और उनसे ऊपर का समर्थन करता है | एप्पल मैकओएस को वर्चुअल मशीन में चलाने की अनुमति नहीं देता जब तक कि होस्ट कंप्यूटर खुद एक एप्पल कंप्यूटर न हो, तो अगर आपको एक मैक की ज़रुरत महसूस हो, तो आप एक क्लाउड सर्विस का इस्तेमाल कर सकते हैं जो कि किराया लेकर मैक तक पहुँच उपलब्ध कराती हो (जैसे कि [MacInCloud](https://www.macincloud.com/) या [xcloud](https://xcloud.me)) |
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | हम सलाह देंगे कि आप या तो नवीनतम `LTS` या `वर्तमान` उपलब्ध संस्करण इनस्टॉल करें | [नोड.जेएस डाउनलोड पेज](https://nodejs.org/en/download/) पर जाकर `macOS Installer` चुनें | हालाँकि होमब्रियु भी एक उपलब्ध विकल्प है, पर हम उसे इस्तेमाल न करने की सलाह देंगे - जिस तरह से होमब्रियु नोड.जेएस को इनस्टॉल करता है उससे कई सारे टूल्स बेमेल हो जायेंगे |
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+एक बार डाउनलोड होने के बाद, इंस्टालर को चलायें और फिर इंस्टालेशन विज़ार्ड के निर्देशानुसार इंस्टालेशन पूरी करें |
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by simply search for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+इनस्टॉल करने के बाद, यह सुनिश्चित कर लें कि सब अपेक्षानुसार चल रहा हो| अपने `/Applications/Utilities` फोल्डर में मैकओएस `Terminal` एप्लीकेशन खोजें (या केवल `Terminal` शब्द को स्पॉटलाइट में खोज के) | Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```sh
 # This command should print the version of Node.js
@@ -26,11 +26,11 @@ If both commands printed a version number, you are all set! Before you get start
 
 > Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | हम सलाह देंगे कि आप या तो नवीनतम `LTS` या `वर्तमान` उपलब्ध संस्करण इनस्टॉल करें | Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. एक बार डाउनलोड होने के बाद, इंस्टालर को चलायें और फिर इंस्टालेशन विज़ार्ड के निर्देशानुसार इंस्टालेशन पूरी करें |
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+इनस्टॉल करने के बाद, यह सुनिश्चित कर लें कि सब अपेक्षानुसार चल रहा हो| Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
 # This command should print the version of Node.js
@@ -46,7 +46,7 @@ If both commands printed a version number, you are all set! Before you get start
 
 > Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
 
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
