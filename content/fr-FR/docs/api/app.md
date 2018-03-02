@@ -456,7 +456,7 @@ Efface la liste des documents récents.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `protocol` String - Le nom de votre protocole, sans le préfixe `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
@@ -472,7 +472,7 @@ L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerFor
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
+* `protocol` String - Le nom de votre protocole, sans le préfixe `://`.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
@@ -482,7 +482,7 @@ This method checks if the current executable as the default handler for a protoc
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
+* `protocol` String - Le nom de votre protocole, sans le préfixe `://`.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
