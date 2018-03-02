@@ -52,13 +52,13 @@ npm install --save-dev electron-installer-snap
 
 ### दूसरा चरण: `इलेक्ट्रॉन-इंस्टालर-स्नेप` को चलाना
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+एक टर्मिनल जिसके `पथ` में `स्नेपक्राफ्ट` शामिल हो, उससे केवल `--src` पैरामीटर के साथ`इलेक्ट्रॉन-इंस्टालर-स्नेप` चलायें, जो कि पहले चरण में निर्मित आपकी पैकेज्ड इलेक्ट्रॉन एप्लीकेशन का स्थान है |
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+अगर आपके पास एक पहले से निर्मित पाइपलाइन है, तो आप `इलेक्ट्रॉन-इंस्टालर-स्नेप` को प्रोग्रामेटिकल्ली भी इस्तेमाल कर सकते हैं | और अधिक जानकारी के लिए, कृपया [स्नेपक्राफ्ट ऐपीआई डॉक्स](https://docs.snapcraft.io/build-snaps/syntax) देखें |
 
 ```js
 const snap = require('electron-installer-snap')
@@ -67,11 +67,11 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## एक मौजूदा डेबियन पैकेज का इस्तेमाल करना
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+स्नेपक्राफ्ट एक मौज़ूदा `.deb` को लेकर उसे एक `.snap` फाइल में बदलने में सक्षम है | एक `snapcraft.yaml` फाइल जो कि स्त्रोत, निर्भार्तायें, विवरण, और अन्य मुख्य निर्माण ब्लॉक्स का वर्णन करती है, उसका इस्तेमाल कर एक स्नेप का निर्माण कॉन्फ़िगर किया जाता है |
 
-### Step 1: Create a Debian Package
+### पहला चरण: एक डेबियन पैकेज का निर्माण करें
 
 If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
 
