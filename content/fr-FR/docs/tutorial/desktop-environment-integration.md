@@ -6,17 +6,17 @@ Ce guide explique comment intégrer votre application dans les environnements de
 
 ## Notifications
 
-See the [Notifications documentation](notifications.md).
+Voir la [documentation Notifications](notifications.md).
 
 ## Documents récents
 
-See [Recent Documents documentation](recent-documents.md).
+Voir la [documentation Documents récents](recent-documents.md).
 
-## Progress Bar
+## Barre de progression
 
-See the [Progress Bar documentation](progress-bar.md).
+Voir la [documentation Barre de progression](progress-bar.md).
 
-## Unity Launcher
+## Lanceur Unity
 
 See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
