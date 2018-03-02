@@ -73,19 +73,18 @@ snap(options)
 
 ### पहला चरण: एक डेबियन पैकेज का निर्माण करें
 
-If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+अगर आपके पास पहले से एक `.deb` पैकेज उपलब्ध नहीं है, तो स्नेप पैकेजेस का निर्माण करने के लिए `इलेक्ट्रॉन-इंस्टालर-स्नेप` का इस्तेमाल करना एक ज्यादा आसान मार्ग है | हालाँकि, डेबियन पैकेजेस का निर्माण करने के लिए विभिन्न तरीके मौज़ूद हैं, जिनमे [`इलेक्ट्रॉन-फोर्ज`](https://github.com/electron-userland/electron-forge), [`इलेक्ट्रॉन-बिल्डर`](https://github.com/electron-userland/electron-builder) या [`इलेक्ट्रॉन-इंस्टालर-डेबियन`](https://github.com/unindented/electron-installer-debian) शामिल हैं |
 
-### Step 2: Create a snapcraft.yaml
+### दूसरा चरण: एक snapcraft.yaml का निर्माण करें
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+उपलब्ध कॉन्फ़िगरेशन विकल्पों के बारे में और ज्यादा जानकारी के लिए, [स्नेपक्राफ्ट सिंटेक्स पर मौज़ूद दस्तावेज़ीकरण](https://docs.snapcraft.io/build-snaps/syntax) पढ़ें | आइये एक उदाहरण देखते हैं:
 
 ```yaml
 name: myApp
 version: '2.0.0'
-summary: A little description for the app.
+summary: एप्प का एक छोटा सा विवरण |
 description: |
- You know what? This app is amazing! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+क्या आपको पता है? यह एप्प शानदार है! यह आपके लिए सब चीज़े करती है | कुछ लोग कहते हैं कि यह आपको जवान रखती है, शायद खुश भी |
 
 grade: stable
 confinement: classic
