@@ -1,6 +1,6 @@
 # Actions personnalisées de lancement du bureau Linux
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+Sur de nombreux environnements Linux, vous pouvez ajouter des entrées personnalisées à son lanceur en modifiant le fichier `.desktop`. Pour la documentation sur l'Unité canonique, voir [Ajouter des raccourcis vers un lanceur](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). Pour plus de détails sur une implémentation plus générique, voir la [Spécification freedesktop.org](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
 **Raccourcis du lanceur d'Audacious :**
 
