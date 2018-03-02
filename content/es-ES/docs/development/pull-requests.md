@@ -43,7 +43,7 @@ Una vez que has compilado el proyecto local mente, ¡estas listo para empezar a 
 
 ### Paso 3: Rama
 
-Para mantener tu entorno de desarrollo organizado, crea ramas locales para retener tu trabajo. Estos deben ser ramificados directamente de la rama `principal`.
+Para mantener tu entorno de desarrollo organizado, crea ramas locales para retener tu trabajo. Estos deben ser ramificados directamente de la rama `master`.
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
@@ -53,15 +53,15 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Paso 4: Código
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+La mayoría de las solicitudes de extracción abiertas en contra del repositorio `electron/electron` incluyen cambios tanto para el código C/C++ en los archivos `atom/` como para los archivos `brightray/`, el código JavaScript en el archivo `lib/`, la documentación en `docs/api/` o las pruebas en el archivo `spec/`.
 
-Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
+Por favor asegúrate de correr `npm run lint` de vez en cuando en cualquier cambio de código para asegurar que estos siguen el estilo de código del proyecto.
 
-See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
+Ver [coding style](https://electronjs.org/docs/development/coding-style) para mas información acerca de la mejor práctica cuando se esta modificando el código en diferentes partes del proyecto.
 
 ### Paso 5: Asignar
 
-It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
+Se le recomienda mantener sus cambios agrupados lógicamente sin individualizar las compilaciones. Muchos contribuyentes encuentras mas fácil el revisar los cambios que son divididos entre multiples compilaciones. No hay límite en el número de compilaciones en una solicitud de retiro.
 
 ```sh
 $ git add my/changed/files
