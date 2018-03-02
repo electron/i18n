@@ -117,13 +117,13 @@ apps:
   myApp:
     command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
     desktop: usr/share/applications/myApp.desktop
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    # क्रोमियम फ्रेमवर्क/इलेक्ट्रॉन के लिए TMPDIR पथ सही करें ताकि यह सुनिश्चित किया जा सके
+    # libappindicator के पास पढ़े जाने योग्य संसाधन उपलब्ध हो |
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it simply passes information on to the app's binary:
+जैसा कि आप देख सकते हैं, `snapcraft.yaml` सिस्टम को एक `electron-launch` नामक फाइल लांच करने का निर्देश देती है | इस उदाहरण में, यह केवल एप्प की बाइनरी पर जानकारी को पास करता है |
 
 ```sh
 #!/bin/sh
@@ -131,13 +131,13 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+या फिर, अगर आप `स्नेप` को `विशुद्ध` कन्फायीनमेंट के साथ बना रहे हैं, तो आप `desktop-launch` कमांड का इस्तेमाल कर सकते हैं:
 
 ```yaml
 apps:
   myApp:
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+   # क्रोमियम फ्रेमवर्क/इलेक्ट्रॉन के लिए TMPDIR पथ सही करें ताकि यह सुनिश्चित किया जा सके
+    # libappindicator के पास पढ़े जाने योग्य संसाधन उपलब्ध हो |
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
