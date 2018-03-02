@@ -26,11 +26,11 @@ npm -v
 
 > इलेक्ट्रॉन विंडोज 7 और उसके बाद के संस्करणों का समर्थन करता है - इससे पहले के विंडोज संस्करणों पर इलेक्ट्रॉन का विकास करना संभव नहीं है | डेवलपर्स के लिए माइक्रोसॉफ्ट [विंडोज 10 के साथ वर्चुअल मशीन इमेजेस](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) मुफ़्त में उपलब्ध कराता है |
 
-पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | हम सलाह देंगे कि आप या तो नवीनतम `LTS` या `वर्तमान` उपलब्ध संस्करण इनस्टॉल करें | Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. एक बार डाउनलोड होने के बाद, इंस्टालर को चलायें और फिर इंस्टालेशन विज़ार्ड के निर्देशानुसार इंस्टालेशन पूरी करें |
+पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | हम सलाह देंगे कि आप या तो नवीनतम `LTS` या `वर्तमान` उपलब्ध संस्करण इनस्टॉल करें | [नोड.जेएस डाउनलोड पेज](https://nodejs.org/en/download/) पर जाकर `Windows Installer` चुनें | एक बार डाउनलोड होने के बाद, इंस्टालर को चलायें और फिर इंस्टालेशन विज़ार्ड के निर्देशानुसार इंस्टालेशन पूरी करें |
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+जिस स्क्रीन पर इंस्टालेशन को कॉन्फ़िगर करने का विकल्प आता है, वहाँ सुनिश्चित करें कि आपने `Node.js runtime`, `npm package manager`, और `Add to PATH` विकल्पों को चुना है |
 
-इनस्टॉल करने के बाद, यह सुनिश्चित कर लें कि सब अपेक्षानुसार चल रहा हो| Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+इनस्टॉल करने के बाद, यह सुनिश्चित कर लें कि सब अपेक्षानुसार चल रहा हो| स्टार्ट मेन्यु खोल कर और फिर `PowerShell` टाइप कर विंडोज पॉवरशैल को खोजें | `PowerShell` या अपनी पसंद का कोई दूसरा कमांड लाइन क्लाइंट खोलें और यह सुनिश्चित करें कि `नोड` और `एनपीएम` दोनों उपलब्ध हों:
 
 ```powershell
 # यह कमांड नोड.जेएस के संस्करण को दिखाती है
@@ -42,13 +42,13 @@ npm -v
 
 अगर दोनों कमांड्स ने एक संस्करण संख्या दिखाई, तो आप आगे बढ़ सकते हैं! शुरू करने से पहले, आपको जावास्क्रिप्ट विकास के लिए उपयुक्त एक [कोड-एडिटर](#a-good-editor) इनस्टॉल करना चाहिये |
 
-## Setting up Linux
+## लिनक्स का सेटअप करना
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> आम तौर पर, इलेक्ट्रॉन उबुन्तु 12.04, फेडोरा 21, डेबियन 8 और उसके बाद के संस्करणों का समर्थन करता है |
 
-पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | आपकी लिनक्स वितरण पर निर्भर करते हुए, इंस्टालेशन के चरण भिन्न-भिन्न हो सकते हैं | अगर आप सामान्यतः `apt` या `pacman` जैसे एक पैकेज मेनेजर का इस्तेमाल कर सॉफ्टवेर इनस्टॉल करते हैं, तो आप आधिकारिक [लिनक्स पर इनस्टॉल करने की नोड.जेएस गाइड](https://nodejs.org/en/download/package-manager/) का इस्तेमाल करें |
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+आप लिनक्स चला रहे हैं, तो आपको पहले से ही पता होगा कि एक कमांड लाइन क्लाइंट को कैसे इस्तेमाल किया जाता है | Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
 # यह कमांड नोड.जेएस के संस्करण को दिखाती है
