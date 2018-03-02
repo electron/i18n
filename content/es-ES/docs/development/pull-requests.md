@@ -1,13 +1,13 @@
-# Pull Requests
+# Solicitud de Incorporación de cambios
 
-* [Dependencies](#dependencies)
-* [Setting up your local environment](#setting-up-your-local-environment) 
-  * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes) 
-  * [Step 4: Code](#step-4-code)
-  * [Step 5: Commit](#step-5-commit) 
+* [Dependencias](#dependencies)
+* [Configurando tu entorno local](#setting-up-your-local-environment) 
+  * [Paso 1: Tenedor](#step-1-fork)
+  * [Paso 2: Construir](#step-2-build)
+  * [Paso 3: Rama](#step-3-branch)
+* [Haciendo Cambios](#making-changes) 
+  * [Paso 4: Código](#step-4-code)
+  * [Paso 5: Confirmar](#step-5-commit) 
     * [Commit message guidelines](#commit-message-guidelines)
   * [Step 6: Rebase](#step-6-rebase)
   * [Step 7: Test](#step-7-test)
@@ -18,9 +18,9 @@
   * [Step 11: Landing](#step-10-landing)
   * [Continuous Integration Testing](#continuous-integration-testing)
 
-## Setting up your local environment
+## Configurando tu entorno local
 
-### Step 1: Fork
+### Paso 1: Tenedor
 
 Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
 
@@ -31,7 +31,7 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Step 2: Build
+### Paso 2: Construir
 
 Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
 
@@ -41,7 +41,7 @@ Build steps and dependencies differ slightly depending on your operating system.
 
 Once you've built the project locally, you're ready to start making changes!
 
-### Step 3: Branch
+### Paso 3: Rama
 
 To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
 
@@ -49,9 +49,9 @@ To keep your development environment organized, create local branches to hold yo
 $ git checkout -b my-branch -t upstream/master
 ```
 
-## Making Changes
+## Haciendo Cambios
 
-### Step 4: Code
+### Paso 4: Código
 
 Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
@@ -59,7 +59,7 @@ Please be sure to run `npm run lint` from time to time on any code changes to en
 
 See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
 
-### Step 5: Commit
+### Paso 5: Confirmar
 
 It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
 
