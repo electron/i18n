@@ -9,7 +9,7 @@
 ## Guides and Tutorials
 
 * [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
+  * [मैकओएस का सेटअप करना](tutorial/development-environment.md#setting-up-macos)
   * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
   * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
   * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
