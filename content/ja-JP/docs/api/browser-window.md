@@ -248,7 +248,7 @@ window.onbeforeunload = (e) => {
 
   // メッセージボックスがユーザに表示される通常のブラウザーとは違って、
   // 無効でない値を返却すれば、何も表示せずにクローズをキャンセルします。
-  // アプリケーションをクローズするのをユーザに確認させるには、
+  // アプリケーションがクローズするのをユーザに確認させるには、
   // ダイアログAPIを使用することを推奨します。
   e.returnValue = false // `return false` と同じですが、非推奨
 }
@@ -262,7 +262,7 @@ window.onbeforeunload = (e) => {
 
 #### イベント: 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+強制的なシャットダウン、マシン再起動またはセッションのログオフによってウインドウセッションが終了されようとしたときに発生します。
 
 #### イベント: 'unresponsive'
 
@@ -274,23 +274,23 @@ Webページが応答しなくなるときに発生します。
 
 #### イベント: 'blur'
 
-Emitted when the window loses focus.
+ウインドウがフォーカスを失うときに発生します。
 
 #### イベント: 'focus'
 
-Emitted when the window gains focus.
+ウインドウがフォーカスを得るときに発生します。
 
 #### イベント: 'show'
 
-Emitted when the window is shown.
+ウインドウが表示されるときに発生します。
 
 #### イベント: 'hide'
 
-Emitted when the window is hidden.
+ウインドウが非表示になるときに発生します。
 
 #### イベント: 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Webページが (まだ表示されていないが) レンダリングされ、チラつくことなくウインドウが表示できるときに発生します。
 
 #### イベント: 'maximize'
 
@@ -310,11 +310,11 @@ Emitted when the web page has been rendered (while not being shown) and window c
 
 #### イベント: 'resize'
 
-Emitted when the window is being resized.
+ウインドウがリサイズされるときに発生します。
 
 #### イベント: 'move'
 
-Emitted when the window is being moved to a new position.
+ウインドウが新しい位置に移動されているときに発生します。
 
 **Note**: On macOS this event is just an alias of `moved`.
 
