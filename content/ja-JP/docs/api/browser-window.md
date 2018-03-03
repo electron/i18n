@@ -248,17 +248,17 @@ window.onbeforeunload = (e) => {
 
   // メッセージボックスがユーザに表示される通常のブラウザーとは違って、
   // 無効でない値を返却すれば、何も表示せずにクローズをキャンセルします。
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  // アプリケーションをクローズするのをユーザに確認させるには、
+  // ダイアログAPIを使用することを推奨します。
+  e.returnValue = false // `return false` と同じですが、非推奨
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***注**: `window.onbeforeunload = handler` と `window.addEventListener('beforeunload', handler)` の動作には、微妙な違いがあります。 単純に値を返却する代わりに、常に明示的に `event.returnValue` を設定するようにすることを推奨します。後者の方がElectron内でより一貫性のある動作をします。*
 
 #### イベント: 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+ウインドウがクローズされると発生します。このイベントを受け取った後は、ウインドウへの参照を削除し、これ以上、ウインドウを使用しないようにしてください。
 
 #### イベント: 'session-end' *Windows*
 
