@@ -1,18 +1,18 @@
-## Class: ClientRequest
+## Клас: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> Направи искания HTTP/HTTPS.
 
-Процес: [Main / Главен](../glossary.md#main-process)
+Процеса: [основни](../glossary.md#main-process)
 
-`ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest` интерфейс [Writable поток](https://nodejs.org/api/stream.html#stream_writable_streams) и следователно е [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### `new ClientRequest(options)`
+### `Нова ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
+* `опции` (Обект | Низ) - ако `опции` е низ, се тълкува като заявка URL. Ако това е обект, се очаква да напълно Задайте HTTP заявка чрез следните свойства: 
+  * `метод` Низ (по избор) - HTTP заявка метод. По подразбиране метода GET.
+  * `URL` Низ (по избор) - заявка URL. Трябва да се предоставя в абсолютна форма зададена като http или https схемата на протокола.
+  * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката.
+  * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката. По подразбиране е празен низ. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
   * `hostname` String (optional) - The server host name.
