@@ -399,7 +399,7 @@ win.on('app-command', (e, cmd) => {
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+戻り値 `BrowserWindow[]` - 開かれたすべてのブラウザウィンドウの配列。
 
 #### `BrowserWindow.getFocusedWindow()`
 
