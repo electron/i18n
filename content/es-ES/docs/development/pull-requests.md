@@ -159,13 +159,13 @@ $ git push origin my-branch
 
 Existe un número de mecanismos mas avanzados para gestionar commits usando `git rebase` que puede ser usado, pero esta mas allá del alcance de esta guía.
 
-Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
+Siéntete libre de postear un comentario en el pull request para avisar a los críticos si estas esperando una respuesta en algo. Si encuentras palabras o acrónimos que parecen desconocidas, consulte este [glosario](https://sites.google.com/a/chromium.org/dev/glossary).
 
 #### Aprobación y Solicitud de Cambios de Workflow
 
-All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+Todos los pull request requieren la aprobación de un [Propietario de Código](https://github.com/orgs/electron/teams/code-owners) en el area que modificaste con el fín de ejecutar. Cada vez que un responsable revisa un pull request ellos pueden solicitar cambios. Estos pueden ser pequeños, tales como corregir un error, o puede implicar cambios sustanciales. Dichas solicitudes tienen la intención de ser útiles, pero a veces pueden venir mediante algo brusco o poco útil, especialmente si no incluyen sugerencias concretas en *como* cambiarlo.
 
-Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
+Trata de no estar desmotivado. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
 ### Paso 11: Ejecutado
 
