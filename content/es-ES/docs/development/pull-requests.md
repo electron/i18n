@@ -7,14 +7,14 @@
   * [Paso 3: Rama](#step-3-branch)
 * [Haciendo Cambios](#making-changes) 
   * [Paso 4: Código](#step-4-code)
-  * [Paso 5: Asignar](#step-5-commit) 
-    * [Asignar directrices de mensaje](#commit-message-guidelines)
+  * [Paso 5: Commit](#step-5-commit) 
+    * [Directrices de mensaje commit](#commit-message-guidelines)
   * [Paso 6: Reorganizar](#step-6-rebase)
   * [Paso 7: Prueba](#step-7-test)
   * [Paso 8: Push](#step-8-push)
   * [Paso 9: Abriendo la Solicitud de Retiro](#step-8-opening-the-pull-request)
   * [Paso 10: Analizar y actualizar](#step-9-discuss-and-update) 
-    * [Aprobación y Solicitud de Cambios de flujo de trabajo](#approval-and-request-changes-workflow)
+    * [Aprobación y Solicitud de Cambios de Workflow](#approval-and-request-changes-workflow)
   * [Paso 11: Ejecutado](#step-10-landing)
   * [Prueba de Integración Continua](#continuous-integration-testing)
 
@@ -59,20 +59,20 @@ Por favor asegúrate de correr `npm run lint` de vez en cuando en cualquier camb
 
 Ver [estilo de codificación](https://electronjs.org/docs/development/coding-style) para mas información acerca de la mejor práctica cuando se esta modificando el código en diferentes partes del proyecto.
 
-### Paso 5: Asignar
+### Paso 5: Commit
 
-Se le recomienda mantener sus cambios agrupados lógicamente sin individualizar las asignaciones. Muchos contribuyentes encuentras mas fácil el revisar los cambios que son divididos entre multiples asignaciones. No hay límite en el número de asignaciones en un pull request.
+Se le recomienda mantener sus cambios agrupados lógicamente dentro de commits individuales. Muchos contribuyentes encuentras mas fácil el revisar los cambios que son divididos entre multiples commits. No hay límite en el número de commits en un pull request.
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Tenga en cuenta que multiples asignaciones a menudo colisionan cuando son ejecutadas.
+Tenga en cuenta que multiples commits a menudo colisionan cuando son ejecutadas.
 
-#### Asignar directrices de mensaje
+#### Directrices de mensaje commit
 
-Un buen mensaje de asignación debe describir que ha cambiado y por qué.
+Un buen mensaje de commit debe describir que ha cambiado y por qué.
 
 1. La primera linea debe:
   
@@ -89,7 +89,7 @@ Un buen mensaje de asignación debe describir que ha cambiado y por qué.
 
 3. Ajuste todas las otras linea en 72 columnas.
 
-Ver [este artículo](https://chris.beams.io/posts/git-commit/) para mas ejemplos de como escribir buenos mensajes git de asignación.
+Ver [este artículo](https://chris.beams.io/posts/git-commit/) para mas ejemplos de como escribir buenos mensajes git de commit.
 
 ### Paso 6: Reorganizar
 
@@ -124,7 +124,7 @@ Lo anterior solo podrá ejecutar módulos específicos coincidentes `menu`, el c
 
 ### Paso 8: Push
 
-Una vez tus asignaciones están listas -- ya pasadas las pruebas y el linting -- comienza el proceso de apertura de un pull request haciendo un push de tu rama de trabajo a tu fork en GitHub.
+Una vez commits están listos -- ya pasadas las pruebas y el linting -- comienza el proceso de apertura de un pull request haciendo un push de tu rama de trabajo a tu fork en GitHub.
 
 ```sh
 $ git push origin my-branch
@@ -149,7 +149,7 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 
 Probablemente recibirás críticas o peticiones de cambios a tu pull request. ¡Esta es una gran parte del proceso de envío así que no te desanimes! Algunos contribuyentes pueden inmediatamente desistir del pull request. Otros pueden tener comentarios o críticas detalladas. Esto es una parte necesaria del proceso con el fin de evaluar si los cambios son correctos y necesarios.
 
-To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
+Para realizar cambios a un pull request existente, realiza los cambios a tu rama loca, añade una nuevo commit con esos cambios, y haz a este nuevo commit un push hacia tu fork. GitHub actualizará automáticamente el pull request.
 
 ```sh
 $ git add my/changed/files
@@ -161,7 +161,7 @@ There are a number of more advanced mechanisms for managing commits using `git r
 
 Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
-#### Aprobación y Solicitud de Cambios de flujo de trabajo
+#### Aprobación y Solicitud de Cambios de Workflow
 
 All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
