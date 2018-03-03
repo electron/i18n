@@ -6,7 +6,7 @@
   "files": [
     "index.json"
   ],
-  "repository": "https://github.com/electron/electron-i18n",
+  "repository": "https://github.com/electron/i18n",
   "author": "zeke",
   "license": "MIT",
   "devDependencies": {
