@@ -1,8 +1,8 @@
 # Native File Drag & Drop
 
-Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
+作为桌面程序，当然希望能够实现操作系统的 drag & drop 功能。 很多网站已经支持拖拽文件 Electron 当然也支持
 
-要在 app 的实现此功能 ，你需要在 `ondragstart` 事件上调用 `webContents.startDrag(item)` API。
+要在 app 中实现此功能 ，你需要在 Render 进程中调用`webContents.startDrag(item)` API， 此API会给 Main 进程发送一个`ondragstart`事件。
 
 在Render进程中, 处理 ` ondragstart ` 事件并将信息转发到主进程。
 
@@ -16,7 +16,7 @@ Certain kinds of applications that manipulate files might want to support the op
 </script>
 ```
 
-Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
+然后, 在主进程中，发送要拖动的文件的路径和图标。
 
 ```javascript
 const { ipcMain } = require('electron')
