@@ -179,4 +179,4 @@ Cada pull request se prueva en el sistema de Integracion Continua (CI) para conf
 
 Idealmente, el pull request pasara("ser verde") en todas las plataformas de CI. Esto quiere decir que pasa todas las pruebas y no hay errores linting. Sin embargo, no es infrecuente para la infraestructura de CI el fallar en plataformas específicas o como son llamadas pruebas "escamosas" a fallar ("be red"). Cada falla de CI debe ser inspeccionada manualmente para determinar la causa.
 
-CI starts automatically when you open a pull request, but only [Releasers](https://github.com/orgs/electron/teams/releasers/members) can restart a CI run. If you believe CI is giving a false negative, ask a Releaser to restart the tests.
+CI inicia automáticamente cuando abres un pull request, pero solo los [Liberadores](https://github.com/orgs/electron/teams/releasers/members) pueden reiniciar una ejecución CI. Si usted cree que CI esta dando negativos falsos, pregunta a un Liberador para reiniciar las pruebas.
