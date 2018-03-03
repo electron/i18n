@@ -403,25 +403,25 @@ win.on('app-command', (e, cmd) => {
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+戻り値 `BrowserWindow` - このアプリケーションでフォーカスされたウインドウ。それ以外は、`null` を返します。
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+戻り値 `BrowserWindow` - 指定された `webContents` を所有するウインドウ。
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+戻り値 `BrowserWindow | null` - 指定された `browserView` を所有するウインドウ。指定されたビューがどのウインドウにもアタッチされていない場合、`null` を返します。
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+戻り値 `BrowserWindow` - 指定された `id` のウインドウ。
 
 #### `BrowserWindow.addExtension(path)`
 
