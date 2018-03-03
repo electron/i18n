@@ -113,6 +113,7 @@ i18n.docs['en-US']['/docs/api/app']
   title: 'app',
   description: '\nControl your application\'s event lifecycle.\n'
   githubUrl: 'https://github.com/electron/electron/tree/master/docs/api/app.md',
+  crowdinFileId: '123',
   isTutorial: false,
   isApiDoc: true,
   isDevTutorial: false,
