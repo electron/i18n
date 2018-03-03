@@ -124,7 +124,7 @@ Lo anterior solo podrá ejecutar módulos específicos coincidentes `menu`, el c
 
 ### Paso 8: Push
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+Una vez tus asignaciones están listas -- ya pasadas las pruebas y el linting -- comienza el proceso de apertura de un pull request haciendo un push de tu rama de trabajo a tu fork en GitHub.
 
 ```sh
 $ git push origin my-branch
@@ -132,7 +132,7 @@ $ git push origin my-branch
 
 ### Paso 9: Abriendo el Pull Request
 
-From within GitHub, opening a new pull request will present you with a template that should be filled out:
+Desde dentro de GitHub, abrir una nueva pull request te presentará con una plantilla que debe ser llenada:
 
 ```markdown
 <!--
@@ -145,9 +145,9 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 -->
 ```
 
-### Step 10: Discuss and update
+### Paso: 10: Analizar y actualizar
 
-You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+Probablemente recibirás comentarios o peticiones de cambios a tu pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
 To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
 
