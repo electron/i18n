@@ -57,7 +57,7 @@ La mayoría de las solicitudes de extracción abiertas en contra del repositorio
 
 Por favor asegúrate de correr `npm run lint` de vez en cuando en cualquier cambio de código para asegurar que estos siguen el estilo de código del proyecto.
 
-Ver [coding style](https://electronjs.org/docs/development/coding-style) para mas información acerca de la mejor práctica cuando se esta modificando el código en diferentes partes del proyecto.
+Ver [estilo de codificación](https://electronjs.org/docs/development/coding-style) para mas información acerca de la mejor práctica cuando se esta modificando el código en diferentes partes del proyecto.
 
 ### Paso 5: Asignar
 
@@ -85,22 +85,22 @@ Un buen mensaje de asignación debe describir que ha cambiado y por qué.
   
   * `fixed typos in atom_api_menu.h`
 
-2. Keep the second line blank.
+2. Mantén la segunda linea vacía.
 
-3. Wrap all other lines at 72 columns.
+3. Ajuste todas las otras linea en 72 columnas.
 
-See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
+Ver [este artículo](https://chris.beams.io/posts/git-commit/) para mas ejemplos de como escribir buenos mensajes git de asignación.
 
 ### Paso 6: Reorganizar
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+Una vez hayas asignado tus cambios, es una buena idea el usar `git rebase` (no `git merge`) para sincronizar tu trabajo con el repositorio principal.
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` master.
+Esto asegura que tu rama de trabajo tiene los ultimos cambios del principal `electron/electron`.
 
 ### Paso 7: Prueba
 
