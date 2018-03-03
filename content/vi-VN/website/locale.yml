@@ -38,7 +38,7 @@ community:
 releases: Các phiên bản phát hành
 electron_is_easy:
   title: Nó dễ hơn bạn nghĩ
-  description: Nếu bạn có thể xây dựng một website thì bạn có thể xây dựng ứng dụng trên desktop. Electron là một framework cho việc tạo ra các ứng dụng đó chỉ với công nghệ xây dựng web, giống như HTML, CSS và Javascript. Nó sẽ lo về các phần cứng dùm bạn, việc của bạn chỉ cần làm là tập trung tinh thành vào lập trình ứng dụng của bạn.
+  description: Nếu bạn có thể xây dựng một website thì cũng có thể xây dựng ứng dụng trên desktop. Electron là framework giúp xây dựng ứng dụng gốc với công nghệ web như JavaScript, HTML và CSS. Nó sẽ lo những phần khó nên bạn có thể tập trung vào cốt lõi của ứng dụng.
   video_link: Xem video
 web_technologies:
   title: Công nghệ lập trình Web
