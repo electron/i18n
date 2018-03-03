@@ -240,14 +240,14 @@ child.once('ready-to-show', () => {
 
 ウインドウがクローズされようとするときに発生します。 これは、DOMの `beforeunload` と `unload` イベントの前に発生します。 `event.preventDefault()` を呼び出すことで、クローズがキャンセルされます。
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
+通常、ウインドウをクローズさせる必要があるかどうかを判断するために、`beforeunload` ハンドラーを使用したいと思うでしょうが、これは、ウインドウがリロードされるときにも呼び出されます。 Electronでは、`undefined` 以外の値を返却すれば、クローズをキャンセルします。 例:
 
 ```javascript
 window.onbeforeunload = (e) => {
   console.log('I do not want to be closed')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
+  // メッセージボックスがユーザに表示される通常のブラウザーとは違って、
+  // 無効でない値を返却すれば、何も表示せずにクローズをキャンセルします。
   // It is recommended to use the dialog API to let the user confirm closing the
   // application.
   e.returnValue = false // equivalent to `return false` but not recommended
