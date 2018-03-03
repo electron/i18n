@@ -316,27 +316,27 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウが新しい位置に移動されているときに発生します。
 
-**Note**: On macOS this event is just an alias of `moved`.
+**注**: macOSでは、このイベントは `moved` のただのエイリアスです。
 
 #### イベント: 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+ウインドウが新しい位置に移動されるときに一回だけ、発生します。
 
 #### イベント: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+ウインドウがフルスクリーン状態に入るときに発生します。
 
 #### イベント: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+ウインドウがフルスクリーン状態を抜けるときに発生します。
 
 #### イベント: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+ウインドウがHTML APIによってフルスクリーン状態に入るときに発生します。
 
 #### イベント: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+ウインドウがHTML APIによってフルスクリーン状態を抜けるときに発生します。
 
 #### イベント: 'app-command' *Windows*
 
