@@ -106,7 +106,7 @@ Esto asegura que tu rama de trabajo tiene los ultimos cambios del principal `ele
 
 Las características y reparaciones de un error deben siempre ser dadas con pruebas. Una [guía de prueba](https://electronjs.org/docs/development/testing) ha sido proporcionado para facilitar el proceso. Mirar otras pruebas para ver como deberían ser estructuradas también puede ayudar.
 
-Antes de enviar tus cambios en una solicitud de retiro, siempre ejecute el paquete completo de pruebas. Para ejecutar las pruebas:
+Antes de enviar tus cambios en una pull request, siempre ejecute el paquete completo de pruebas. Para ejecutar las pruebas:
 
 ```sh
 $ npm run test
@@ -120,7 +120,7 @@ Si estas actualizando las pruebas y sólo desea ejecutar una especificación ún
 $ npm run test -match=menu
 ```
 
-The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
+Lo anterior solo podrá ejecutar módulos específicos coincidentes `menu`, el cual es útil para cualquiera que esta trabajando en pruebas que podrían de lo contrario estar al final de un ciclo de prueba.
 
 ### Paso 8: Push
 
@@ -130,7 +130,7 @@ Once your commits are ready to go -- with passing tests and linting -- begin the
 $ git push origin my-branch
 ```
 
-### Paso 9: Abriendo la Solicitud de Retiro
+### Paso 9: Abriendo el Pull Request
 
 From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
