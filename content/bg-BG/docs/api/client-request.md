@@ -12,17 +12,17 @@
   * `метод` Низ (по избор) - HTTP заявка метод. По подразбиране метода GET.
   * `URL` Низ (по избор) - заявка URL. Трябва да се предоставя в абсолютна форма зададена като http или https схемата на протокола.
   * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката.
-  * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката. По подразбиране е празен низ. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
+  * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката. По подразбиране е празен низ. Опцията `сесия` преобладава на `дял`. Следователно ако изрично е указано `сесия`, `дял` се игнорира.
+  * `протокол` Низ (по избор) - схемата на протокол във формата "схема:'. Поддържани в момента стойности са ' http:' или ' https:'. По подразбиране е "http:".
+  * `домакин` Низ (по избор) - хост сървъра предоставени като конкатенация на хост и порт номер "hostname:port"
+  * `име на хост` Низ (по избор) - името на хоста на сървъра.
+  * `порт` Цяло число (по избор) - слушане номера на порта на сървъра.
+  * `path` String (по избор) - Пътя на бисквитката.
   * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+свойства на `Опции` като `протокол`, `хост`, `име на хост`, `пристанището` и `пътя` следват стриктно Node.js модела, както е описано в модула [URL](https://nodejs.org/api/url.html).
 
-For instance, we could have created the same request to 'github.com' as follows:
+Например ние може да сме създали същото искане за "github.com" както следва:
 
 ```JavaScript
 const request = net.request({
@@ -36,40 +36,38 @@ const request = net.request({
 
 ### Събития
 
-#### Event: 'response'
+#### Събитие: "отговор"
 
 Връща:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `отговор` IncomingMessage - обект, представляващ HTTP отговор съобщението.
 
-#### Event: 'login'
+#### Събитие: "вход"
 
 Връща:
 
 * `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
-* `callback` Function 
-  * `username` String
-  * `password` String
+  * `isProxy` Булев
+  * `схема` Низ
+  * `домакин` Низ
+  * `порт` Цяло число
+  * `царство` Низ
+* `обратно повикване` Функция 
+  * `потребителско име` Низ
+  * `парола` Низ
 
-Emitted when an authenticating proxy is asking for user credentials.
+Отделяни при автентичността прокси е asking за потребителски идентификационни данни.
 
-The `callback` function is expected to be called back with user credentials:
+Функцията `за обратно извикване` се очаква да се обади с потребителски идентификационни данни:
 
-* `username` String
-* `password` String
+* `потребителско име` Низ
+* `парола` Низ
 
 ```JavaScript
-request.on('login', (authInfo, callback) => {
-  callback('username', 'password')
-})
+request.On ("вход", (authInfo, callback) => {обратно повикване ("потребителско име", "парола")})
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Предоставяне на идентификационни данни на празна ще отмени искането и доклад грешка при удостоверяване на обект на отговор:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -83,11 +81,11 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Събитие: "Готово"
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+Излъчва само след последното парче от `заявка` на данни е написано в `искането` предмет.
 
-#### Event: 'abort'
+#### Събитие: "недоносче"
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
@@ -149,11 +147,11 @@ Removes a previously set extra header name. This method can be called only befor
 * `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `callback` Function (optional) - Called after the write operation ends.
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Противно на Node.js изпълнението не е гарантирано, че `парче` съдържание са изпразнен на тел преди `обратно повикване` се нарича.
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+Добавя парче на данни към органа по заявка. Първата операция на запис може да причини на искането заглавията да бъдат издадени на тел. След първата пиша операция, не е позволено да добавите или премахнете потребителски горен колонтитул.
 
-#### `request.end([chunk][, encoding][, callback])`
+#### `request.End ([chunk][, кодиране] [, обратно повикване])`
 
 * `chunk` (String | Buffer) (optional)
 * `encoding` String (optional)
