@@ -1,8 +1,8 @@
-# Solicitud de Retiro
+# Pull Requests
 
 * [Dependencias](#dependencies)
 * [Configurando tu entorno local](#setting-up-your-local-environment) 
-  * [Paso 1: Bifurcar](#step-1-fork)
+  * [Paso 1: Fork](#step-1-fork)
   * [Paso 2: Compilado](#step-2-build)
   * [Paso 3: Rama](#step-3-branch)
 * [Haciendo Cambios](#making-changes) 
@@ -11,16 +11,16 @@
     * [Asignar directrices de mensaje](#commit-message-guidelines)
   * [Paso 6: Reorganizar](#step-6-rebase)
   * [Paso 7: Prueba](#step-7-test)
-  * [Paso 8: Presione](#step-8-push)
+  * [Paso 8: Push](#step-8-push)
   * [Paso 9: Abriendo la Solicitud de Retiro](#step-8-opening-the-pull-request)
   * [Paso 10: Analizar y actualizar](#step-9-discuss-and-update) 
     * [Aprobación y Solicitud de Cambios de flujo de trabajo](#approval-and-request-changes-workflow)
-  * [Paso 11: Aterrizaje](#step-10-landing)
+  * [Paso 11: Ejecutado](#step-10-landing)
   * [Prueba de Integración Continua](#continuous-integration-testing)
 
 ## Configurando tu entorno local
 
-### Paso 1: Bifurcar
+### Paso 1: Fork
 
 Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
 
@@ -39,7 +39,7 @@ Pasos de compilado y dependencias difieren ligeramente dependiendo de su sistema
 * [Compilado en Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Compilado en Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
-Una vez que has compilado el proyecto local mente, ¡estas listo para empezar a hacer cambios!
+Una vez que has compilado el proyecto localmente, ¡Estas listo para empezar a hacer cambios!
 
 ### Paso 3: Rama
 
@@ -53,7 +53,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Paso 4: Código
 
-La mayoría de las solicitudes de extracción abiertas en contra del repositorio `electron/electron` incluyen cambios tanto para el código C/C++ en los archivos `atom/` como para los archivos `brightray/`, el código JavaScript en el archivo `lib/`, la documentación en `docs/api/` o las pruebas en el archivo `spec/`.
+La mayoría de los pull request abiertos en contra del repositorio `electron/electron` incluyen cambios tanto para el código C/C++ en los archivos `atom/` como para los archivos `brightray/`, el código JavaScript en el archivo `lib/`, la documentación en `docs/api/` o las pruebas en el archivo `spec/`.
 
 Por favor asegúrate de correr `npm run lint` de vez en cuando en cualquier cambio de código para asegurar que estos siguen el estilo de código del proyecto.
 
@@ -61,14 +61,14 @@ Ver [estilo de codificación](https://electronjs.org/docs/development/coding-sty
 
 ### Paso 5: Asignar
 
-Se le recomienda mantener sus cambios agrupados lógicamente sin individualizar las asignaciones. Muchos contribuyentes encuentras mas fácil el revisar los cambios que son divididos entre multiples asignaciones. No hay límite en el número de asignaciones en una solicitud de retiro.
+Se le recomienda mantener sus cambios agrupados lógicamente sin individualizar las asignaciones. Muchos contribuyentes encuentras mas fácil el revisar los cambios que son divididos entre multiples asignaciones. No hay límite en el número de asignaciones en un pull request.
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Tenga en cuenta que multiples asignaciones a menudo son aplastados cuando han aterrizado.
+Tenga en cuenta que multiples asignaciones a menudo colisionan cuando son ejecutadas.
 
 #### Asignar directrices de mensaje
 
@@ -122,7 +122,7 @@ $ npm run test -match=menu
 
 The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
 
-### Paso 8: Presione
+### Paso 8: Push
 
 Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
@@ -167,7 +167,7 @@ All pull requests require approval from a [Code Owner](https://github.com/orgs/e
 
 Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
-### Paso 11: Aterrizaje
+### Paso 11: Ejecutado
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
