@@ -366,11 +366,11 @@ win.on('app-command', (e, cmd) => {
 
 #### イベント: 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+スクロールホイールイベントフェーズが終了したときに発生します。
 
 #### イベント: 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+スクロールイベントフェーズが要素の端に達したことを検出したときに発生します。
 
 #### イベント: 'swipe' *macOS*
 
@@ -379,23 +379,23 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+3本指でのスワイプで発生します。とりうる方向は、`up`、`right`、`down`、`left` です。
 
 #### イベント: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+ウインドウがシートを開くときに発生します。
 
 #### イベント: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+ウインドウがシートを閉じたときに発生します。
 
 #### イベント: 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+ネイティブの新規タブボタンがクリックされるときに発生します。
 
 ### 静的メソッド
 
-The `BrowserWindow` class has the following static methods:
+`BrowserWindow` クラスには、次の静的メソッドがあります。
 
 #### `BrowserWindow.getAllWindows()`
 
