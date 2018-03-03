@@ -345,9 +345,9 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 * `event` Event
 * `command` String
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+[アプリコマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) が呼び出されるときに発生します。 これらは、Windowsで幾つかのマウスに組み込まれている "Back" ボタンだけでなく、一般的にキーボードのメディアキーやブラウザコマンドとも関連付けられています。
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+コマンドは小文字にされ、アンダースコアはハイフンに置き換えられ、`APPCOMMAND_` プレフィックスは外されます。 例えば、`APPCOMMAND_BROWSER_BACKWARD` は、`browser-backward` として送信されます。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -362,7 +362,7 @@ win.on('app-command', (e, cmd) => {
 
 #### イベント: 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+スクロールホイールイベントフェーズが開始されたときに発生します。
 
 #### イベント: 'scroll-touch-end' *macOS*
 
