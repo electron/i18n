@@ -165,13 +165,13 @@ Siéntete libre de postear un comentario en el pull request para avisar a los cr
 
 Todos los pull request requieren la aprobación de un [Propietario de Código](https://github.com/orgs/electron/teams/code-owners) en el area que modificaste con el fín de ejecutar. Cada vez que un responsable revisa un pull request ellos pueden solicitar cambios. Estos pueden ser pequeños, tales como corregir un error, o puede implicar cambios sustanciales. Dichas solicitudes tienen la intención de ser útiles, pero a veces pueden venir mediante algo brusco o poco útil, especialmente si no incluyen sugerencias concretas en *como* cambiarlo.
 
-Trata de no estar desmotivado. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
+Trata de no estar desmotivado. Si tu sientes que una crítica es injusta, confórmate o busca la entrada de otro contribuyente del proyecto. A menudo ese tipo de comentarios son el resultado de un crítico que no toma el suficiente tiempo para revisar y no son mal intencionados. Estas dificultades a menudo pueden ser resueltas con un poco de paciencia. Dicho esto, se espera que los críticos ofrezcan una crítica útil.
 
 ### Paso 11: Ejecutado
 
-In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
+Con el fin de ejecutar, un pull request necesita se revisado y aprobado por al menos un Propietario de Código Electron y tarjeta CI. Después de eso, si no hay objeciones de otro contribuyentes, el pull request puede ser combinado.
 
-Congratulations and thanks for your contribution!
+¡Felicitaciones y gracias por tu contribución!
 
 ### Prueba de Integración Continua
 
