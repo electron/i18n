@@ -347,7 +347,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 [アプリコマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) が呼び出されるときに発生します。 これらは、Windowsで幾つかのマウスに組み込まれている "Back" ボタンだけでなく、一般的にキーボードのメディアキーやブラウザコマンドとも関連付けられています。
 
-コマンドは小文字にされ、アンダースコアはハイフンに置き換えられ、`APPCOMMAND_` プレフィックスは外されます。 例えば、`APPCOMMAND_BROWSER_BACKWARD` は、`browser-backward` として送信されます。
+コマンドは小文字にされ、アンダースコアはハイフンに置き換えられ、`APPCOMMAND_`プレフィックスは外されます。 例えば、`APPCOMMAND_BROWSER_BACKWARD` は、`browser-backward` として送信されます。
 
 ```javascript
 const {BrowserWindow} = require('electron')
