@@ -6,7 +6,7 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 
 | 语言码    | 语言名称                    |
 | ------ | ----------------------- |
-| af     | Afrikaans               |
+| af     | 南非语                     |
 | am     | Amharic                 |
 | ar     | Arabic                  |
 | az     | Azerbaijani             |
