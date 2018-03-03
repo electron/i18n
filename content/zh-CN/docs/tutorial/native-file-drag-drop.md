@@ -2,9 +2,9 @@
 
 Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
 
-To implement this feature in your app, you need to call `webContents.startDrag(item)` API in response to the `ondragstart` event.
+要在 app 的实现此功能 ，你需要在 `ondragstart` 事件上调用 `webContents.startDrag(item)` API。
 
-In your renderer process, handle the `ondragstart` event and forward the information to your main process.
+在Render进程中, 处理 ` ondragstart ` 事件并将信息转发到主进程。
 
 ```html
 <a href="#" id="drag">item</a>
