@@ -77,9 +77,9 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-### Forwarding
+### 转发
 
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+忽略鼠标消息会使网页无视鼠标移动，这意味着鼠标移动事件不会被发出。 在 Windows 操作系统上，可以使用可选参数将鼠标移动消息转发到网页，从而允许发出诸如 `mouseleave` 之类的事件：
 
 ```javascript
 let win = require('electron').remote.getCurrentWindow()
@@ -92,7 +92,7 @@ el.addEventListener('mouseleave', () => {
 })
 ```
 
-This makes the web page click-through when over `el`, and returns to normal outside it.
+这将使网页在 `el` 上点击时穿透，在它外面时恢复正常。
 
 ## 可拖拽区
 
