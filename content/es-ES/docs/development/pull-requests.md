@@ -104,15 +104,15 @@ Esto asegura que tu rama de trabajo tiene los ultimos cambios del principal `ele
 
 ### Paso 7: Prueba
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Las características y reparaciones de un error deben siempre ser dadas con pruebas. Una [guía de prueba](https://electronjs.org/docs/development/testing) ha sido proporcionado para facilitar el proceso. Mirar otras pruebas para ver como deberían ser estructuradas también puede ayudar.
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+Antes de enviar tus cambios en una solicitud de retiro, siempre ejecute el paquete completo de pruebas. Para ejecutar las pruebas:
 
 ```sh
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+Asegúrese de que el linter no reporta ningún inconveniente y que pasa todas pruebas. Please do not submit patches that fail either check.
 
 If you are updating tests and just want to run a single spec to check it:
 
