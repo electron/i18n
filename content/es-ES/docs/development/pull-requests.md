@@ -112,9 +112,9 @@ Antes de enviar tus cambios en una solicitud de retiro, siempre ejecute el paque
 $ npm run test
 ```
 
-Asegúrese de que el linter no reporta ningún inconveniente y que pasa todas pruebas. Please do not submit patches that fail either check.
+Asegúrese de que el linter no reporta ningún inconveniente y que pasa todas pruebas. Por favor no envíe parches que fallan en cualquiera de las verificaciones.
 
-If you are updating tests and just want to run a single spec to check it:
+Si estas actualizando las pruebas y sólo desea ejecutar una especificación única para comprobarlo:
 
 ```sh
 $ npm run test -match=menu
