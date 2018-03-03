@@ -4,7 +4,7 @@
 
 要在 app 中实现此功能 ，你需要在 Render 进程中调用`webContents.startDrag(item)` API， 此API会给 Main 进程发送一个`ondragstart`事件。
 
-在Render进程中, 处理 ` ondragstart ` 事件并将信息转发到主进程。
+在 Render 进程中, 接收 ` ondragstart ` 事件并发送消息到 Main 进程。
 
 ```html
 <a href="#" id="drag">item</a>
@@ -16,7 +16,7 @@
 </script>
 ```
 
-然后, 在主进程中，发送要拖动的文件的路径和图标。
+然后, 在主进程中，接收拖拽过来的文件路径和在拖拽过程中要显示的图标。
 
 ```javascript
 const { ipcMain } = require('electron')
