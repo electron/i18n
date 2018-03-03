@@ -124,7 +124,7 @@ Lo anterior solo podrá ejecutar módulos específicos coincidentes `menu`, el c
 
 ### Paso 8: Push
 
-Una vez commits están listos -- ya pasadas las pruebas y el linting -- comienza el proceso de apertura de un pull request haciendo un push de tu rama de trabajo a tu fork en GitHub.
+Una vez que tus commits están listos -- ya pasadas las pruebas y el linting -- comienza el proceso de apertura de un pull request haciendo un push de tu rama de trabajo a tu fork en GitHub.
 
 ```sh
 $ git push origin my-branch
@@ -157,7 +157,7 @@ $ git commit
 $ git push origin my-branch
 ```
 
-There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
+Existe un número de mecanismos mas avanzados para gestionar commits usando `git rebase` que puede ser usado, pero esta mas allá del alcance de esta guía.
 
 Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
