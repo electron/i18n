@@ -13,10 +13,10 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google ofrece [documentación excelente para sus herramientas de desarrollo](https://developer.chrome.com/devtools). We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
+Google ofrece [documentación excelente para sus herramientas de desarrollo](https://developer.chrome.com/devtools). Recomendamos que se familiarice con ello - son usualmente una de las utilidades más poderosas en cualquier cinturón de herramientas de un desarrollador Electron.
 
 ## Proceso Principal
 
-Depurando el proceso principal es un poco complicado, desde que no se puede simplemente abrir herramientas de desarrollo para ello. The Chromium Developer Tools can [be used to debug Electron's main process](https://nodejs.org/en/docs/inspector/) thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+Depurando el proceso principal es un poco complicado, desde que no se puede simplemente abrir herramientas de desarrollo para ello. Las Herramientas de Desarrollo Chromium pueden [ser usados para depurar un proceso principal de Electron](https://nodejs.org/en/docs/inspector/) gracias a una colaboración cercana entre Google / Chrome y Node.js, pero puede encontrar obstáculo como `require` no estar presente en la consola.
 
-For more information, see the [Debugging the Main Process documentation](./debugging-main-process.md).
+Para mas información, ve el [Depurando la documentación de proceso principal](./debugging-main-process.md).
