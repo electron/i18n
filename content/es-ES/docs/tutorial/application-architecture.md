@@ -1,6 +1,6 @@
-# Electron Application Architecture
+# Arquitectura de Aplicación Electron
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Antes de que podamos entrar a fondo en las APIs de Electron, necesitamos discutir los dos tipos de procesos disponibles en Electron. Son fundamentalmente diferentes e importantes de entender.
 
 ## Main and Renderer Processes
 
