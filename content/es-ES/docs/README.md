@@ -22,7 +22,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [Electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+  * [Otras Herramientas y Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Application Architecture](tutorial/application-architecture.md) 
   * [Proceso Principal y Proceso Visualizador](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
