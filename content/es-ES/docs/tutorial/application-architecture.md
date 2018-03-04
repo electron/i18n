@@ -30,9 +30,9 @@ Electron ofrece un número de APIs que apoyan el desarrollo de una aplicación d
 const electron = require('electron')
 ```
 
-Todas las APIs de Electron son asignadas a un tipo de proceso. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for the individual API will clearly state which process they can be used from.
+Todas las APIs de Electron son asignadas a un tipo de proceso. Many of them can only be used from the main process, some of them only from a renderer process, some from both. La documentación para la API individual indicará claramente cuales procesos pueden ser utilizados.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+Una ventana en Electron es, por ejemplo, creada usando la clase `BrowserWindow`. Sólo esta disponible en el proceso principal.
 
 ```javascript
 // This will work in the main process, but be `undefined` in a
@@ -42,7 +42,7 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron viene con un módulo llamado `remote` que expone las APIs usualmente solo disponibles en el proceso principal. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
 
 ```javascript
 // This will work in a renderer process, but be `undefined` in the
@@ -55,9 +55,9 @@ const win = new BrowserWindow()
 
 ## Using Node.js APIs
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron exposes full access to Node.js both in the main and the renderer process. Esto tiene dos Implicaciones importantes:
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Todas las APIs disponibles en Node.js están disponibles en Electron. Llamar el siguiente código de una aplicación Electron funciona:
 
 ```javascript
 const fs = require('fs')
