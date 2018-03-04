@@ -6,7 +6,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 
 * [Electron FAQ](faq.md)
 
-## Guides and Tutorials
+## Leitfäden und Tutorials
 
 * [Entwicklungsumgebung einrichten](tutorial/development-environment.md) 
   * [Einrichtung auf macOSX](tutorial/development-environment.md#setting-up-macos)
@@ -31,11 +31,11 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Inter-Process Communication](tutorial/application-architecture.md#)
 * Features zu deiner App hinzufügen 
   * [Benachrichtigungen](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Kürzliche Dokumente](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
   * [Anwendungsprozess](tutorial/progress-bar.md)
   * [Benutzerdefiniertes Dockmenu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
   * [Benutzerdefinierte Windows Taskleiste](tutorial/windows-taskbar.md)
-  * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
+  * [Benutzerdefinierte Linux Desktop Aktionen](tutorial/linux-desktop-actions.md)
   * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
   * [Offline/Online erkennung](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
@@ -55,13 +55,13 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Anwendungssicherheit](tutorial/security.md) 
-  * [Reporting Security Issues](tutorial/security.md#reporting-security-issues)
-  * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
+  * [Berichterstattung von Sicherheitsproblemen](tutorial/security.md#reporting-security-issues)
+  * [Chromium Sicherheitsprobleme und Updates](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Sicherheitswarnungen](tutorial/security.md#electron-security-warnings)
   * [Sicherheits-Checkliste](tutorial/security.md#checklist-security-recommendations)
 * [Updaten der App](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Bereitstellung eines Update-Servers](tutorial/updates.md#deploying-an-update-server)
+  * [Implementieren von Updates in deiner App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Updates anwenden](tutorial/updates.md#applying-updates)
 
 ## detaillierte Tutorials
