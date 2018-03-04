@@ -13,16 +13,16 @@
 Para cualquier inconveniente, existen tres maneras fundamentales en las que un individuo puede contribuir:
 
 1. Abriendo el inconveniente como "tema" en una discusión: Si crees haber encontrado un nuevo error en Electro, debes reportarlo creando un nuevo asunto en el rastreador de inconvenientes `electron/electron`.
-2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
-3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
+2. Ayudando a examinar el inconveniente: Puedes hacer esto tanto proporcionando detalles de asistencia (un caso de prueba reproducible que demuestra un error) como proporcionando sugerencias para abordar el inconveniente.
+3. Ayudando a resolver el inconveniente: Esto se puede hacer demostrando que el inconveniente no es un error o se fue arreglado; Pero mas a menudo, abriendo un pull request que cambia la fuente de `electron/electron` a una manera concreta y susceptible de revisión.
 
 ## Pedir Ayuda General
 
-Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
+Porque es tan alto el nivel de actividad en el repositorio `electron/electron`, preguntas o peticiones por ayuda general usando Electron deben orientarse al [canal de comunidad holgazana](https://atomio.slack.com) o al [foro](https://discuss.atom.io/c/electron).
 
 ## Presentar un informe de error
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+Al abrir un nuevo asunto en el rastreador de inconvenientes `electron/electron`, los usuarios serán presentados con una plantilla que debe ser llenada.
 
 ```markdown
 <!--
@@ -62,7 +62,7 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+Si cree que ha encontrado un error en Electron, por favor llene este formulario con sus mejores habilidades.
 
 The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
 
