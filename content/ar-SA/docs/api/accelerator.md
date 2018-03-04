@@ -1,10 +1,10 @@
-# Accelerator
+# مسرع
 
 > Define keyboard shortcuts.
 
 Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
-Examples:
+أمثلة:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
@@ -34,11 +34,11 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 * `Command` (or `Cmd` for short)
 * `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* <; 0>; كوماندوركونترول<;/0>; (أو <; 0>; كمدوركترل<;/0>; لفترة قصيرة)
 * `Alt`
-* `Option`
+* `خيارات`
 * `AltGr`
-* `Shift`
+* `العالي`
 * `Super`
 
 ## Available key codes
@@ -47,12 +47,12 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `A` to `Z`
 * `F1` to `F24`
 * Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
-* `Tab`
-* `Backspace`
-* `Delete`
-* `Insert`
+* `علامة الجمع`
+* `الفضاء`
+* `التبويب`
+* `امسح حرف`
+* `حذف`
+* `إدخال`
 * `Return` (or `Enter` as alias)
 * `Up`, `Down`, `Left` and `Right`
 * `Home` and `End`
