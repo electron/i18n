@@ -1,4 +1,4 @@
-# UploadFile Object
+# ترقية الكائن
 
 * `type` String - `file`.
 * `filePath` String - Path of file to be uploaded.
