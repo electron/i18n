@@ -145,4 +145,4 @@ Como solución, se pueden dejar varios archivos desempaquetados usando la opció
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+Después de ejecutar el comando, notará que una carpeta llamada `app.asar.unpacked` fue creada en conjunto con el archivo `app.asar`. Este contiene los archivos desempaquetados y debe ser enviado en conjunto con el archivo `app.asar`.
