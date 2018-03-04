@@ -8,7 +8,7 @@ Diese Anleitung erklärt Ihnen, wie Sie Ihre Applikation mit Electron-APIs in di
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Kürzliche Dokumente
 
 See [Recent Documents documentation](recent-documents.md).
 
