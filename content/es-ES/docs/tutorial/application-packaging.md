@@ -139,7 +139,7 @@ Esto es debido a que `exec` y `spawn` acepta `command` en vez de `file` como ent
 
 Como se indicó anteriormente, algunos APIs Node desempaquetaran el archivo al sistema de archivos cuando es llamado. Aparte de los inconvenientes de rendimiento, varios escaner anti-virus pueden ser activados por este comportamiento.
 
-Como solución, se pueden dejar varios archivos desempaquetados usando la opción `--unpack`. En el siguiente ejemplo, libros compartidos de módulos Node.js originales no serán empaquetados:
+Como solución, se pueden dejar varios archivos desempaquetados usando la opción `--unpack`. En el siguiente ejemplo, las librerías compartidos de módulos nativos de Node.js no serán empaquetadas:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
