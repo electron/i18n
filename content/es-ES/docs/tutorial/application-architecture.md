@@ -30,7 +30,7 @@ Electron ofrece un número de APIs que apoyan el desarrollo de una aplicación d
 const electron = require('electron')
 ```
 
-Todas las APIs de Electron son asignadas a un tipo de proceso. Many of them can only be used from the main process, some of them only from a renderer process, some from both. La documentación para la API individual indicará claramente cuales procesos pueden ser utilizados.
+Todas las APIs de Electron son asignadas a un tipo de proceso. Muchos de ellos puede ser utilizados desde el proceso principal, algunos de estos sólo desde el proceso visualizador, algunos otros de ambos. La documentación para la API individual indicará claramente cuales procesos pueden ser utilizados.
 
 Una ventana en Electron es, por ejemplo, creada usando la clase `BrowserWindow`. Sólo esta disponible en el proceso principal.
 
@@ -42,7 +42,7 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron viene con un módulo llamado `remote` que expone las APIs usualmente solo disponibles en el proceso principal. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+Desde que la comunicación entre procesos es posible, un proceso visualizador puede llamar el proceso principal para realizar tareas. Electron viene con un módulo llamado `remote` que expone las APIs usualmente solo disponibles en el proceso principal. Con el fin de crear un `BrowserWindow` desde un proceso visualizador, usaremos el remoto como un intermediario:
 
 ```javascript
 // This will work in a renderer process, but be `undefined` in the
@@ -55,7 +55,7 @@ const win = new BrowserWindow()
 
 ## Using Node.js APIs
 
-Electron exposes full access to Node.js both in the main and the renderer process. Esto tiene dos Implicaciones importantes:
+Electrón expone accesos total al Node.js tanto en el proceso principal como en el proceso visualizador. Esto tiene dos Implicaciones importantes:
 
 1) Todas las APIs disponibles en Node.js están disponibles en Electron. Llamar el siguiente código de una aplicación Electron funciona:
 
