@@ -427,7 +427,7 @@ win.on('app-command', (e, cmd) => {
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+`path` にあるChrome拡張機能を追加し、拡張機能の名前を返します。
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
