@@ -453,7 +453,7 @@ win.on('app-command', (e, cmd) => {
 
 `path` にある開発者ツールの拡張機能を追加し、拡張機能の名前を返します。
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+拡張機能は記憶されるため、このAPIを一度しか呼び出す必要はありません。このAPIはプログラミングで使用するためのものではありません。 既にロードされている拡張機能を追加しようとした場合、このメソッドは何も返さず、代わりにコンソールに警告を出力します。
 
 このメソッドは、拡張機能のマニフェストが存在しないか、不完全である場合、何も返しません。
 
@@ -484,28 +484,28 @@ console.log(installed)
 
 ### インスタンスプロパティ
 
-Objects created with `new BrowserWindow` have the following properties:
+`new BrowserWindow` で作成されたオブジェクトは、以下のプロパティを持っています。
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// In this example `win` is our instance
+// この例では、`win` がインスタンス
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+このウインドウが所有している `WebContents` オブジェクト。すべてのWebページ関連のイベントと操作はこれを介して行われます。
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+[`webContents` ドキュメント](web-contents.md) でメソッドやイベントについて参照してください。
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+ウインドウの一意のIDを表す `Integer`。
 
 ### インスタンスメソッド
 
-Objects created with `new BrowserWindow` have the following instance methods:
+`new BrowserWindow` で作成されたオブジェクトは、次のインスタンスメソッドを持っています。
 
 **注:** いくつかのメソッドは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
