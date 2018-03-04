@@ -429,49 +429,49 @@ win.on('app-command', (e, cmd) => {
 
 `path` にあるChrome拡張機能を追加し、拡張機能の名前を返します。
 
-The method will also not return if the extension's manifest is missing or incomplete.
+このメソッドは、拡張機能のマニフェストが存在しないか、不完全である場合、何も返しません。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `BrowserWindow.removeExtension(name)`
 
 * `name` String
 
-Remove a Chrome extension by name.
+指定した名前でChrome拡張機能を削除します。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+戻り値 `Object` - キーは拡張機能の名前で、それぞれの値は、`name` と `version` プロパティを含むObjectです。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+`path` にある開発者ツールの拡張機能を追加し、拡張機能の名前を返します。
 
 The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+このメソッドは、拡張機能のマニフェストが存在しないか、不完全である場合、何も返しません。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
 * `name` String
 
-Remove a DevTools extension by name.
+指定した名前で開発者ツールの拡張機能を削除します。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+戻り値 `Object` - キーは拡張機能の名前で、それぞれの値は、`name` と `version` プロパティを含むObjectです。
 
-To check if a DevTools extension is installed you can run the following:
+開発者ツールの拡張機能がインストールされているかを確認するには、以下のように実行することで可能です。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -480,7 +480,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 ### インスタンスプロパティ
 
