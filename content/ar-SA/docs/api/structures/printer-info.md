@@ -1,7 +1,7 @@
 # PrinterInfo Object
 
-* `name` String
-* `description` String
+* اسم الجهاز
+* اسم الجهاز
 * `status` Number
 * `isDefault` Boolean
 
