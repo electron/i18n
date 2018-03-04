@@ -64,15 +64,15 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 
 Si cree que ha encontrado un error en Electron, por favor llene este formulario con sus mejores habilidades.
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
+Las dos piezas mas importantes de información necesitadas para evaluar el reporte son, la descripción del error y un caso de prueba simple para recrearlo. Es más fácil corregir un error si se puede reproducir.
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+Véase [Como crear un Mínimo, Completo y Verificable ejemplo](https://stackoverflow.com/help/mcve).
 
 ## Inquirir un Informe de Error
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+Es común para asuntos abiertos el involucrar una discusión. Algunos contribuyentes pueden tener diferentes opiniones, incluyendo si el comportamiento es un error o una falla. La discusión es parte del proceso y debe mantenerse centrada, útil y profesional.
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+Respuestas bruscas que no proveen contexto adiciona o detalles de apoyo, no son útiles o profesionales. To many, such responses are annoying and unfriendly.
 
 Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
