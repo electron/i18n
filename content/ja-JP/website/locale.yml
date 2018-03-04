@@ -4,14 +4,14 @@ nav:
   blog: ブログ
   community: コミュニティ
   apps: アプリ
-  userland: ユーザーランド (userland)
+  userland: ユーザーランド
   releases: リリース
   contact: お問い合わせ
   languages: 言語
   code_of_conduct: 行動規範
   search: 検索
 docs:
-  title: Electon のドキュメント
+  title: Electron ドキュメント
   description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。
   guides: ガイド
   api_reference: API リファレンス
