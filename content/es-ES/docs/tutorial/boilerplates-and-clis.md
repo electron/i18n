@@ -2,7 +2,7 @@
 
 Electron development is un-opinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
 
-Ese nivel de modularidad y posibilidad asegura que todos los desarrolladores que trabajan con Electron, ambos equipos grandes y pequeños, nunca ese restringidos en que pueden o no hacer en cualquier momento durante su ciclo de vida de desarrollo. Sin embargo, para muchos desarrolladores, uno de los boilerplates comunitarios o herramientas de línea de comandos podría facilitar dramáticamente el compilar, empacar y liberar una aplicación.
+Ese nivel de modularidad y extensibilidad asegura que todos los desarrolladores que trabajan con Electron, ambos equipos grandes y pequeños, nunca estén restringidos en que pueden o no puedan hacer en cualquier momento durante sus ciclos de vida del desarrollo. Sin embargo, para muchos desarrolladores, uno de los boilerplates comunitarios o herramientas de línea de comandos podría facilitar dramáticamente el compilar, empacar y liberar una aplicación.
 
 ## Boilerplate vs CLI
 
@@ -14,13 +14,13 @@ Por otro lado una herramienta de línea de comandos sigue para apoyarte a lo lar
 
 Una "herramienta completa para las construcción de aplicaciones Electron modernas". La Fragua Electron unifica las herramientas de construcción existentes (y en buen estado) para el desarrollo de Electron en uno simple, fácil de usar empaquetado de manera que cualquiera pueda saltar dentro del desarrollo de Electron.
 
-Forge comes with [ready-to-use templates](https://electronforge.io/templates) for popular frameworks like React, Vue, or Angular. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+La Fragua viene con [Plantillas listas para usar](https://electronforge.io/templates) para infraestructuras populares como React, Vue o Angular. Utiliza los mismos módulos de nucleo usados por la gran comunidad Electron (como [`electron-packager`](https://github.com/electron-userland/electron-packager)) - los cambios hechos por los mantenedores a cargo de Electron (como Slack), benefician también a los usuarios de Fragua.
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+Puede encontrar información y documentación en [electronforge.io](https://electronforge.io/).
 
 ## Electron-builder
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+Una " solución completa para empaquetar y construir una aplicación Electron lista para su distribución" que se centra en una experiencia integrada. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
 
 `electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
 
