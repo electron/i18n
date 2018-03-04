@@ -2,7 +2,7 @@
 
 Antes de que podamos entrar a fondo en las APIs de Electron, necesitamos discutir los dos tipos de procesos disponibles en Electron. Son fundamentalmente diferentes e importantes de entender.
 
-## Main and Renderer Processes
+## Proceso Principal y Proceso Visualizador
 
 En Electron, el proceso que ejecuta el script `main` del archivo `package.json` es llamado **el proceso principal**. El script que corre en el proceso principal puede mostrar una GUI (Interfaz Gráfica de Usuario) creando páginas web. Una aplicación Electron siempre tiene un proceso principal, pero nunca más de uno.
 
@@ -14,13 +14,13 @@ En los navegadores normales, las páginas web generalmente se ejecutan en espaci
 
 El proceso principal crea páginas web creando instancias de `BrowserWindow`. Cada instancia de `BrowserWindow` ejecuta la página web en su propio proceso renderizador. Cuando una instancia de `BrowserWindow` es destruida, el proceso renderizador correspondiente es también terminado.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+El proceso principal administra todas las páginas web y sus correspondientes procesos visualizador. Cada proceso visualizador esta aislado y sólo se preocupa por la página web que se ejecuta en el.
 
 En páginas web, llamar APIs nativas relacionadas a GUI no está permitido porque manejar recursos nativos de GUI en páginas web es bastante peligroso y es fácil que ocurran fugas de recursos. Si quieres realizar operaciones de GUI en una página web, el proceso renderizador de la página web debe comunicarse con el proceso principal para pedirle que realice esas operaciones.
 
-> #### Aside: Communication Between Processes
+> #### A un lado: Comunicación entre Procesos
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes. Como [`ipcRenderer`](../api/ipc-renderer.md) y módulos [`ipcMain`](../api/ipc-main.md) para enviar mensajes, y el módulo [remote](../api/remote.md) para una comunicación de estilo RPC. Existe también una entrada de FAQ en [como compartir data entre páginas web](../faq.md#how-to-share-data-between-web-pages).
+> En Electron, tenemos varias maneras de comunicarnos entre el proceso principal y el proceso visualizador. Como [`ipcRenderer`](../api/ipc-renderer.md) y módulos [`ipcMain`](../api/ipc-main.md) para enviar mensajes, y el módulo [remote](../api/remote.md) para una comunicación de estilo RPC. Existe también una entrada de FAQ en [como compartir data entre páginas web](../faq.md#how-to-share-data-between-web-pages).
 
 ## Usando APIs de Electron
 
