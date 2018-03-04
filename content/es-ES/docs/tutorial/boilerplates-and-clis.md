@@ -32,4 +32,4 @@ Si no desea ninguna herramienta si no simplemente un boilerplate solido desde do
 
 ## Otras Herramientas y Boilerplates
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+La [lista "Electron impresionante"](https://github.com/sindresorhus/awesome-electron#boilerplates) contiene más herramientas y boilerplates para escoger. Si encuentra la extensión de la lista algo intimidante, no olvide que añadir herramientas mientras avanza, también es un enfoque valido.
