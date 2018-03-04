@@ -353,7 +353,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // ユーザがマウスの戻るボタンをクリックしたとき、ウインドウに対して戻るように操作する
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
