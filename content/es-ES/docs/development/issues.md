@@ -62,7 +62,7 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 -->
 ```
 
-Si cree que ha encontrado un error en Electron, por favor llene este formulario con sus mejores habilidades.
+Si cree que ha encontrado un error en Electron, por favor llene este formulario lo mejor posible.
 
 Las dos piezas mas importantes de información necesitadas para evaluar el reporte son, la descripción del error y un caso de prueba simple para recrearlo. Es más fácil corregir un error si se puede reproducir.
 
