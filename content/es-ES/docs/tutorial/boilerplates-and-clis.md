@@ -20,16 +20,16 @@ Puede encontrar información y documentación en [electronforge.io](https://elec
 
 ## Electron-builder
 
-Una " solución completa para empaquetar y construir una aplicación Electron lista para su distribución" que se centra en una experiencia integrada. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+Una " solución completa para empaquetar y construir una aplicación Electron lista para su distribución" que se centra en una experiencia integrada. [`electron-builder`](https://github.com/electron-userland/electron-builder) añade una única dependencia enfocada en la simplicidad y gestiona todos los requisitos internamente.
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`electron-builder` reemplaza las características y módulos usados por los mantenedores a cargo de Electron (tales como el auto-actualizador) con los personalizados. Generalmente son bien integrados pero tendrán menos en común con las aplicaciones Electron populares como Atom, Visual Studio Code, o Slack.
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+Puede encontrar mas información y documentación en [el repositorio](https://github.com/electron-userland/electron-builder).
 
 ## electron-react-boilerplate
 
-If you don't want any tools but simply a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+Si no desea ninguna herramienta si no simplemente un boilerplate solido desde donde construir, puede valer la pena darle un vistazo a [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) de CT Lin. Es muy popular en la comunidad y utiliza `electron-builder` internamente.
 
-## Other Tools and Boilerplates
+## Otras Herramientas y Boilerplates
 
 The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
