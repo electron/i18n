@@ -78,4 +78,4 @@ Los contribuyentes están incentivados a resolver inconvenientes de manera colab
 
 ## Resolviendo un Informe de Error
 
-La mayoría de los inconvenientes son resueltos al abrir un pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+La mayoría de los inconvenientes son resueltos al abrir un pull request. El proceso para abrir y revisar un pull request es similar a abrir e inquirir inconvenientes, pero conlleva una revisión necesaria y aprobar un workflow que asegure que los cambios propuestos tengan el mínimo atributo y criterios funcionales del proyecto Electron.
