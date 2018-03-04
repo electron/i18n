@@ -17,6 +17,6 @@ Google ofrece [documentación excelente para sus herramientas de desarrollo](htt
 
 ## Proceso Principal
 
-Depurando el proceso principal es un poco complicado, desde que no se puede simplemente abrir herramientas de desarrollo para ello. Las Herramientas de Desarrollo Chromium pueden [ser usados para depurar un proceso principal de Electron](https://nodejs.org/en/docs/inspector/) gracias a una colaboración cercana entre Google / Chrome y Node.js, pero puede encontrar obstáculo como `require` no estar presente en la consola.
+Depurando el proceso principal es un poco complicado, desde que no se puede simplemente abrir herramientas de desarrollo para ello. Las Herramientas de Desarrollo Chromium pueden [ser usadas para depurar un proceso principal de Electron](https://nodejs.org/en/docs/inspector/) gracias a una colaboración cercana entre Google / Chrome y Node.js, pero puede encontrar obstáculo como que `require` no esta presente en la consola.
 
 Para mas información, ve el [Depurando la documentación de proceso principal](./debugging-main-process.md).
