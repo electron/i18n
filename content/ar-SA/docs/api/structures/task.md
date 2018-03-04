@@ -1,8 +1,8 @@
-# Task Object
+# كائن المهمة
 
-* `program` String - Path of the program to execute, usually you should specify `process.execPath` which opens the current program.
-* `arguments` String - The command line arguments when `program` is executed.
-* `title` String - The string to be displayed in a JumpList.
-* `description` String - Description of this task.
-* `iconPath` String - The absolute path to an icon to be displayed in a JumpList, which can be an arbitrary resource file that contains an icon. You can usually specify `process.execPath` to show the icon of the program.
-* `iconIndex` Number - The icon index in the icon file. If an icon file consists of two or more icons, set this value to identify the icon. If an icon file consists of one icon, this value is 0.
+* <;0>;البرنامج<;/0>; السلسلة--مسار البرنامج تنفيذ، عادة ما ينبغي أن تحدده <;0>;process.execPath<;/0>; الذي يفتح البرنامج الحالي.
+* <; 0>; الوسائط<;/0>; سلسلة-وسيطات سطر الأوامر عند تنفيذ <; 0>; البرنامج<;/0>.
+* <; 0>; العنوان<;/0>; السلسلة--السلسلة التي ترغب في عرضها في JumpList.
+* <; 0>; الوصف<;/0>; السلسلة--وصف لهذه المهمة.
+* <; 0>; إيكونباث<;/0>; السلسلة--المسار المطلق إلى رمز ليتم عرضها في JumpList، الذي يمكن أن يكون ملف مورد تعسفي الذي يحتوي على رمز. يمكنك عادة تحديد <;0>;process.execPath<;/0>; لإظهار أيقونة للبرنامج.
+* <; 0>; إيكونينديكس<;/0>; العدد-فهرس رمز في ملف الرمز. إذا كان ملف رمز يتكون من اثنين أو أكثر من الرموز، تعيين هذه القيمة لتحديد الرمز. إذا كان ملف رمز يتكون من رمز واحد، هذه القيمة هي 0.
