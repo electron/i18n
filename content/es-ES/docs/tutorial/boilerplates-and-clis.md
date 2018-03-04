@@ -8,11 +8,11 @@ Ese nivel de modularidad y posibilidad asegura que todos los desarrolladores que
 
 Un boilerplate es simplemente un punto de inicio - un lienzo, por así decir - desde donde construya su aplicación. Generalmente vienen en la forma de repositorio, puede clonar y personalizar a su gusto.
 
-Por otro lado una herramienta de línea de comandos sigue para apoyarte a lo largo del desarrollo y liberación. Son mas útiles y serviciales pero encarga lineas directrices en como su código debe ser estructurado y construido. *Especially for beginners, using a command line tool is likely to be helpful*.
+Por otro lado una herramienta de línea de comandos sigue para apoyarte a lo largo del desarrollo y liberación. Son mas útiles y serviciales pero encarga lineas directrices en como su código debe ser estructurado y construido. *Especialmente para principiantes, usando una herramienta de linea de comando es probable que sea útil*.
 
 ## electron-forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a simple, easy to use package so that anyone can jump right in to Electron development.
+Una "herramienta completa para las construcción de aplicaciones Electron modernas". La Fragua Electron unifica las herramientas de construcción existentes (y en buen estado) para el desarrollo de Electron en uno simple, fácil de usar empaquetado de manera que cualquiera pueda saltar dentro del desarrollo de Electron.
 
 Forge comes with [ready-to-use templates](https://electronforge.io/templates) for popular frameworks like React, Vue, or Angular. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
 
