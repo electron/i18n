@@ -141,6 +141,6 @@ _404:
   please_file_an_issue: melden Sie ein Problem.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_docs: Finde Electron Ressourcen aus der Dokumentation.
+  description_npm: Finde Electron Ressourcen aus NPM Paketen.
+  description_repos: Finde Electron Ressourcen aus GitHub Repositories.
