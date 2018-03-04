@@ -998,7 +998,7 @@ The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
-  * `click` Function
+  * <; 0>;<;/0>; Function
   * `tooltip` String (optional) - The text of the button's tooltip.
   * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
