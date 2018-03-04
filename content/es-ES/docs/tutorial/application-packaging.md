@@ -2,7 +2,7 @@
 
 Para mitigar los [problemas](https://github.com/joyent/node/issues/6960) relacionados con los nombres de ruta largas en Windows, acelere ligeramente y `exija` que su código fuente se inspeccione rápidamente, puede optar por empaquetar su aplicación en un archivo [asar](https://github.com/electron/asar) con pocos cambios en su código fuente.
 
-La mayoría de los usuarios conseguirán estas características de manera gratuita, desde que esta soportado fuera de la box por [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), y [`electron-builder`](https://github.com/electron-userland/electron-builder). Si no utiliza ninguna de estas herramientas, siga leyendo.
+La mayoría de los usuarios conseguirán estas características de manera gratuita, ya que están soportadas desde el primer momento por [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), y [`electron-builder`](https://github.com/electron-userland/electron-builder). Si no utiliza ninguna de estas herramientas, siga leyendo.
 
 ## Generating `asar` Archives
 
