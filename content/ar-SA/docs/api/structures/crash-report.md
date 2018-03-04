@@ -1,4 +1,4 @@
 # CrashReport Object
 
-* `date` String
+* اسم الجهاز
 * `ID` Integer
