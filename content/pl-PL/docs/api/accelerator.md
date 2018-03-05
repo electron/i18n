@@ -6,10 +6,10 @@ Akceleratory są to ciągi znaków typu String, które mogą zawierać wiele mod
 
 Przykłady:
 
-* `CommandOrControl+A`
-* `CommandOrControl+Shift+Z`
+* `CommandOrControl + A`
+* `CommandOrControl + Shift + Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Skróty są zarejestrowane z modułem [`globalShortcut`](global-shortcut.md), za pomocą metody [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), tj.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
@@ -22,19 +22,19 @@ app.on('ready', () => {
 })
 ```
 
-## Platform notice
+## Uwagi do platform
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+Na systemach Linux oraz Windows klawisz `Command` nie ma żadnego wpływu, więc należy używać `CommandOrControl`, który reprezentuje `command` na systemie macOS i `control` na systemach Linux oraz Windows, aby zdefiniować niektóre akceleratory.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Używaj `Alt` zamiast `Option`. Klawisz `Option` istnieje tylko na systemie macOS, mając na uwadze, że klawisz `Alt` jest dostępny na wszystkich systemach.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux oraz jako `Cmd` na macOS.
 
 ## Dostępne modyfikatory
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (lub `Cmd` w skrócie)
+* `Control` (lub `Ctrl` w skrócie)
+* `CommandOrControl` (lub `CmdOrCtrl` w skrócie)
 * `Alt`
 * `Option`
 * `AltGr`
