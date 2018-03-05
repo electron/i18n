@@ -75,7 +75,7 @@ need_help:
   title: Нужна помощь?
   description: Задайте вопроссы на канале <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> на Twitter. Нужно приватно связаться? Email <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
-  languages: Languages
+  languages: Языки
 taglines:
   languages: Локализованное содержимое от нашего удивительного сообщества разработчиков по всему миру.
 help_translate: "Помочь перевести"
