@@ -74,7 +74,7 @@ Creates a new tray icon associated with the `image`.
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
 * `position` [Point](structures/point.md) - The position of the event
 
-Emitted when the tray icon is clicked.
+Генерується коли значок контекстного меню натиснутий.
 
 #### Event: 'right-click' *macOS* *Windows*
 
