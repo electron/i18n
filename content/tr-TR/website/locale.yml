@@ -137,8 +137,6 @@ pages:
     description: Spectron, Electron uygulamanıza, kolaylıkla test entegrasyonu yazılmasını sağlayan, açık kaynak kodlu kütüphanedir. ChromeDriver ve WebDriverIO ya geliştirilmiştir.
 _404:
   page_not_found: Sayfa bulunamadı.
-  if_this_is_an_error: Bu bir hata ise
-  please_file_an_issue: lütfen sorunu bulunuz.
 search:
   description_all: Elektron Kaynaklarını <a href="/search/docs">belgelerden</a>, <a href="/search/npmPackages">npm paketlerinden</a>, ve <a href="/search/repos">GitHub repolarından</a> bulun.
   description_docs: Elektron Kaynaklarını belgelerden bulun.
