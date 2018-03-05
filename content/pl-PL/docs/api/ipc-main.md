@@ -6,7 +6,7 @@ Proces: [Main](../glossary.md#main-process)
 
 The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
 
-## Wysyłanie Wiadomości
+## Wysyłanie wiadomości
 
 It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
 
