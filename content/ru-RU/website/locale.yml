@@ -61,12 +61,12 @@ get_started:
   description: Для начала работы с Electron посмотрите на указанные ниже ресурсы. Узнайте как обернуть ваше веб-приложение с Electron, получить доступ ко всем API и научиться создавать установщики.
 explore:
   title: Исследуйте Electron API
-  description: "<a href='https://github.com/electron/electron-api-demos'>Демо приложение API Electron'а</a> интерактивно демонстрирует наиболее важные функции API Electron'а. Смотрите, что возможно с Electron, на примере простого, и полезные советы для создания Вашего приложения."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Демонстрационное приложение API Electron'а</a> интерактивно демонстрирует наиболее важные функции API Electron'а. Посмотрите на возможности Electron на примере простого кода и прочитайте полезные советы для создания Вашего приложения."
 download_from_github: Скачать с GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub
 quick_start:
   title: "Подготовьте приложение <a href='https://github.com/electron/electron-quick-start' target='_blank'>быстрого старта</a> для просмотра Electron в действии:"
-  description: Минимальное приложение Electron с полезными нотациями.
+  description: Небольшое приложение Electron с полезными нотациями.
   clone: Клонируйте репозиторий быстрого старта
   go_into_repo: Перейти в репозиторий
   install_deps: Установите зависимости и запустите
