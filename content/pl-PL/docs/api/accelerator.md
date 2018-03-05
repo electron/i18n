@@ -43,21 +43,21 @@ Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux o
 
 ## Dostępne kody klucza
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* od `` do `9`
+* od `A` do `Z`
+* od `F1` do `F24`
+* Znaki interpunkcyjne takie jak `~`, `!`, `@`, `nr`, `` $, itp.
 * `Plus`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (lub `Enter` jako alias)
+* strzałki `Up`, `Down`, `Left` oraz `Right`
+* `Home` oraz `End`
+* `PageUp` oraz `PageDown`
+* `Escape` (albo`Esc` w skrócie)
+* `VolumeUp`, `VolumeDown` i `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` i `MediaPlayPause`
 * `PrintScreen`
