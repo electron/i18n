@@ -137,8 +137,6 @@ pages:
     description: Spectron to framework o otwartym kodzie źródłowych dla łatwiejszego pisania testów integracyjnych dla twojej aplikacji stworzonej z Electron. Twórz na szczycie ChromeDriver i WebDriverIO.
 _404:
   page_not_found: Nie znaleziono strony.
-  if_this_is_an_error: Jeżeli to jest błąd
-  please_file_an_issue: proszę zgłoś problem.
 search:
   description_all: Znajdź zasoby Electron'a w <a href="/search/docs"> dokumentacji</a>, <a href="/search/npmPackages"> pakietów npm</a> oraz <a href="/search/repos"> repozytoriach GitHub</a>.
   description_docs: Szukaj zasobów Electron'a w dokumentacji.
