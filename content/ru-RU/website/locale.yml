@@ -27,14 +27,14 @@ languages:
   current: текущий выбор
 community:
   title: Сообщество Electron
-  description: 'Инструменты, шаблоны, видео и больше для Electron <a href="https://github.com/sindresorhus/awesome-electron"> удивительные</a> open-source вкладчики. Найти или добавить <a href="/community#meetups"> meetups</a> рядом с вами.'
+  description: 'Инструменты, шаблоны, видео и другие <a href="https://github.com/sindresorhus/awesome-electron">удивительные</a> для Electron''а разработчики с открытым исходным кодом. Найти или добавить <a href="/community#meetups">собрания</a> рядом с вами.'
   tools: Инструменты
   boilerplates: Шаблоны
   components: Компоненты
   videos: Видео
   meetups: Собрания
-  awesome_notice: Этот список генерируется из <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> репозитория. <br> Кое-что пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
-  meetup_notice: Чтобы добавить meetup, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> сделайте pull request</a>.
+  awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
+  meetup_notice: Чтобы добавить событие, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">сделайте pull request</a>.
 releases: Релизы
 electron_is_easy:
   title: Это проще, чем вы думаете
