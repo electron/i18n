@@ -519,7 +519,7 @@ win.loadURL('https://github.com')
 
 #### `win.focus()`
 
-ウインドウにフォーカスします。
+ウインドウにフォーカスを当てます。
 
 #### `win.blur()`
 
@@ -527,43 +527,43 @@ win.loadURL('https://github.com')
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+戻り値 `Boolean` - ウインドウがフォーカスされているかどうか。
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+戻り値 `Boolean` - ウインドウが破棄されているかどうか。
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+表示し、ウインドウにフォーカスを当てます。
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+ウインドウを表示しますが、フォーカスを当てません。
 
 #### `win.hide()`
 
-Hides the window.
+ウインドウを非表示にします。
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+戻り値 `Boolean` - ウインドウがユーザーに表示されているかどうか。
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+戻り値 `Boolean` - 現在のウインドウがモーダルウインドウかどうか。
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+ウインドウを最大化します。ウインドウがまだ表示されていない場合、併せてウインドウを表示 (ただし、フォーカスは当たりません) します。
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+ウインドウの最大化を解除します。
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+戻り値 `Boolean` - ウインドウが最大化されているかどうか。
 
 #### `win.minimize()`
 
