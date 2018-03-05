@@ -988,7 +988,7 @@ Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to conv
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Повертає `Boolean` - Якщо кнопки були додані успішно
 
 Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
 
@@ -1052,11 +1052,11 @@ Same as `webContents.showDefinitionForSelection()`.
 
 Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+Якщо панель меню вже відображається, виклик `setAutoHideMenuBar(true)` не приховає її негайно.
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+Повертає `Boolean` - Якщо панель меню автоматично приховується.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
@@ -1066,7 +1066,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 #### `win.isMenuBarVisible()`
 
-Повертає `Boolean` - Чи панель меню видима.
+Повертає `Boolean` - Якщо панель меню видима.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
