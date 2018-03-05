@@ -1,14 +1,14 @@
-# Issues In Electron
+# Les issues dans Electron
 
 # Issues
 
-* [How to Contribute in Issues](#how-to-contribute-in-issues)
+* [Comment contribuer dans les Issues](#how-to-contribute-in-issues)
 * [Asking for General Help](#asking-for-general-help)
 * [Submitting a Bug Report](#submitting-a-bug-report)
 * [Triaging a Bug Report](#triaging-a-bug-report)
 * [Resolving a Bug Report](#resolving-a-bug-report)
 
-## How to Contribute in Issues
+## Comment contribuer dans les Issues
 
 For any issue, there are fundamentally three ways an individual can contribute:
 
