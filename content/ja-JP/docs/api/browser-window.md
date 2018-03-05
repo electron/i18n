@@ -593,11 +593,11 @@ win.loadURL('https://github.com')
 
 簡易フルスクリーンモードに設定したり、解除したりします。
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルスクリーンモードはネイティブのフルスクリーン動作をエミュレートします。
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+戻り値 `Boolean` - ウインドウが簡易 (Lionより前) フルスクリーンモードであるかどうか。
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
