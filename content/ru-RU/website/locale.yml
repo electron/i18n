@@ -83,7 +83,7 @@ footer:
   see_the_faq: Просмотреть часто задаваемые вопросы
 apps:
   title: Приложения, созданные на Electron
-  description: С помощью Electron, создание настольного приложения для вашей компании или идеи легко. Первоначально разработанный для GitHub's <a href='https://atom.io' target='_blank'>Atom редактор</a>, Electron с тех пор используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.
+  description: С помощью Electron'а создание настольного приложения для вашей компании или идеи стало простым занятием. Первоначально разработанный для GitHub <a href='https://atom.io' target='_blank'>редактор Atom</a>, Electron теперь используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.
   view_more: Просмотреть другие приложения
   submit_your_own: или опубликовать своё
   something_missing: Что-то отсутствует?
@@ -92,7 +92,7 @@ clipboard:
   copy: Копировать
   copy_to_clipboard: Копировать в буфер обмена
   copied: Скопировано
-or: or
+or: или
 pages:
   '/':
     title: Electron | Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS.
