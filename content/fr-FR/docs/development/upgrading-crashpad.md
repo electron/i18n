@@ -4,13 +4,13 @@
     
     - `libcc/src/third_party/crashpad/README.chromium` aura une ligne `Revision:` avec un checksum
     - Nous avons besoin de vérifier la branche correspondante.
-    - Cloner crashpad de Google (https://chromium.googlesource.com/crashpad/crashpad)
+    - Clonez crashpad de Google (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
     - Vérifiez la branche avec le checksum de révision : 
         - `git checkout <revision checksum>`
-    - Ajouter le fork de crashpad d'Electron comme remote
+    - Ajoutez le fork de crashpad d'Electron comme remote
     - `git remote add electron https://github.com/electron/crashpad`
-    - Changer de branche pour la mise à jour
+    - Changez de branche pour la mise à jour
     - `git checkout -b electron-crashpad-vA.B.C.D`
     - `A.B.C.D` est la version de Chromium trouvable dans `libcc/VERSION` et sera quelque chose comme `62.0.3202.94`
 
@@ -20,10 +20,10 @@
 
 3. Pour chaque patch :
     
-    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
+    - Dans `electron-crashpad-vA.B.C.D`, attrapez le checksum du patch
     - `git cherry-pick <checksum>`
     - Résoudre tous les conflits
-    - Make sure it builds then add, commit, and push work to electron's crashpad fork
+    - Assurez-vous qu'il compile, puis ajoutez, commitez et poussez le résultat au fork de crashpad d'Electron
     - `git push electron electron-crashpad-vA.B.C.D`
 
 4. Mettre à jour Electron pour compiler le nouveau crashpad :
@@ -32,10 +32,10 @@
     - `git fetch`
     - `git checkout electron-crashpad-v62.0.3202.94`
 5. Régénérer les fichiers Ninja pour les deux cibles 
-    - From Electron root's root, run `script/update.py`
+    - Depuis la racine d'Electron, exécutez `script/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
-    - Both should build with no errors
+    - Les deux devraient se compiler sans erreur
 6. Push changes to submodule reference 
     - (À la racine d'Electron) `git add vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`
