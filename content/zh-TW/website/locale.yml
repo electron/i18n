@@ -137,8 +137,6 @@ pages:
     description: Spectron 是能讓你輕鬆寫出 Electron 整合測試案例的開放原始碼框架。架構在 ChromeDriver 及 WebDriverIO 之上。
 _404:
   page_not_found: 找不到頁面。
-  if_this_is_an_error: 如果這個情況不該發生
-  please_file_an_issue: 請提出議題。
 search:
   description_all: 從 <a href="/search/docs">文件</a>、<a href="/search/npmPackages">npm 套件</a> 及 <a href="/search/repos">GitHub 儲存庫</a> 尋找 Electron 資源。
   description_docs: 從文件中尋找 Electron 資源。
