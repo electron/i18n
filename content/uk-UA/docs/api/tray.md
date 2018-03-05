@@ -1,6 +1,6 @@
 ## Class: Tray
 
-> Add icons and context menus to the system's notification area.
+> Додає значки і контекстне меню в область оповіщень ОС.
 
 Процес: [Main](../glossary.md#main-process)
 
@@ -23,12 +23,12 @@ app.on('ready', () => {
 })
 ```
 
-**Platform limitations:**
+**Обмеження платформ:**
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
 * App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
+* Коли додаток запущено на Linux, то подія `click` на значку ігнорується.
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
 
 ```javascript
@@ -60,9 +60,9 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Події Екземпляру
+### Події екземпляру
 
-The `Tray` module emits the following events:
+Модуль `Tray` генерує наступні події:
 
 #### Event: 'click'
 
