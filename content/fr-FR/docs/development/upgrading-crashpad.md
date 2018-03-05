@@ -8,13 +8,13 @@
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
     - Vérifiez la branche avec le checksum de révision : 
         - `git checkout <revision checksum>`
-    - Add electron's crashpad fork as a remote
+    - Ajouter le fork de crashpad d'Electron comme remote
     - `git remote add electron https://github.com/electron/crashpad`
-    - Check out a new branch for the update
+    - Changer de branche pour la mise à jour
     - `git checkout -b electron-crashpad-vA.B.C.D`
-    - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
+    - `A.B.C.D` est la version de Chromium trouvable dans `libcc/VERSION` et sera quelque chose comme `62.0.3202.94`
 
-2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
+2. Faîtes une liste des correctifs d'Electron qui doivent être appliquées avec `git log --oneline`
     
     - Ou voir https://github.com/electron/crashpad/commits/previous-branch-name
 
@@ -22,16 +22,16 @@
     
     - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
     - `git cherry-pick <checksum>`
-    - Resolve any conflicts
+    - Résoudre tous les conflits
     - Make sure it builds then add, commit, and push work to electron's crashpad fork
     - `git push electron electron-crashpad-vA.B.C.D`
 
-4. Update Electron to build the new crashpad:
+4. Mettre à jour Electron pour compiler le nouveau crashpad :
     
     - `cd vendor/crashpad`
     - `git fetch`
     - `git checkout electron-crashpad-v62.0.3202.94`
-5. Regenerate Ninja files against both targets 
+5. Régénérer les fichiers Ninja pour les deux cibles 
     - From Electron root's root, run `script/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
