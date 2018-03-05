@@ -511,19 +511,19 @@ win.loadURL('https://github.com')
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+強制的にウインドウを閉じます。`unload` と `beforeunload` イベントはWebページで発生しません。また、`close` イベントもこのウインドウで発生しません。しかし、`closed` イベントが発生することは保証されます。
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+ウインドウを閉じることを試みます。これはユーザーが手動でウインドウの閉じるボタンをクリックするのと同じ効果があります。しかしながら、Webページがクローズ処理をキャンセルする可能性があります。[close イベント](#event-close) を参照してください。
 
 #### `win.focus()`
 
-Focuses on the window.
+ウインドウにフォーカスします。
 
 #### `win.blur()`
 
-Removes focus from the window.
+ウインドウからフォーカスを外します。
 
 #### `win.isFocused()`
 
