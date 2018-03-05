@@ -137,8 +137,6 @@ pages:
     description: Spectron adalah kerangka kerja open source untuk memudahkan pengujian integrasi untuk aplikasi Elektron Anda. Dibangun di atas ChromeDriver dan WebDriverIO.
 _404:
   page_not_found: Halaman tidak ditemukan.
-  if_this_is_an_error: Jika ini adalah kesalahan
-  please_file_an_issue: tolong ajukan masalah
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Find Electron resources from documentation.
