@@ -141,7 +141,7 @@ C'est parce que `exec` et `spawn` acceptent `command` au lieu de `file` en entr�
 
 Comme déclaré ci-dessus, certaines APIs Node décompresse le fichier vers le système de fichiers de l'ordinateur lorsqu'elle sont appelées. Cela peut cause des problèmes de performances, et surtout, certains scanners anti-virus pourraient être alertés par ce comportement.
 
-Pour contourner le problème, vous pouvez laisser certains fichiers décompressés en utilisant l'option `--unpack`. Dans l’exemple suivant, les bibliothèques partagées de modules natifs de Node.js ne seront pas empaquetées :
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
