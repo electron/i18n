@@ -567,31 +567,31 @@ win.loadURL('https://github.com')
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+ウインドウを最小化します。幾つかのプラットフォームでは、最小化されたウインドウはドックに表示されます。
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+ウインドウを最小化された状態からその前の状態に戻します。
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+戻り値 `Boolean` - ウインドウが最小化されているかどうか。
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+ウインドウをフルスクリーンモードにするかどうかを設定します。
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+戻り値 `Boolean` - ウインドウがフルスクリーンモードであるかどうか。
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+簡易フルスクリーンモードに設定したり、解除したりします。
 
 Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
 
