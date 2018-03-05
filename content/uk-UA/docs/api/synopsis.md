@@ -1,8 +1,8 @@
 # Короткий Огляд
 
-> How to use Node.js and Electron APIs.
+> Як використовувати API Node.js та Electron.
 
-All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
+Всі [вбудовані модулі Node.js](https://nodejs.org/api/) доступні в Electron, також повністю підтримуються сторонні модулі (включаючи [native modules](../tutorial/using-native-node-modules.md)).
 
 Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
 
