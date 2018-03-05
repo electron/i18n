@@ -27,7 +27,7 @@ languages:
   current: текущий выбор
 community:
   title: Сообщество Electron
-  description: 'Инструменты, шаблоны, видео и другие <a href="https://github.com/sindresorhus/awesome-electron">удивительные</a> для Electron''а разработчики с открытым исходным кодом. Найти или добавить <a href="/community#meetups">собрания</a> рядом с вами.'
+  description: 'Инструменты, шаблоны, видео и другие <a href="https://github.com/sindresorhus/awesome-electron">удивительные</a> примеры для Electron разработчиков с открытым исходным кодом. Найдите или добавьте <a href="/community#meetups">события</a> рядом с вами.'
   tools: Инструменты
   boilerplates: Шаблоны
   components: Компоненты
