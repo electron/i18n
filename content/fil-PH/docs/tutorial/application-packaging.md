@@ -141,7 +141,7 @@ Ito ay dahil sa `exec` at `spawn` na tumatanggap ng `command` sa halip na `file`
 
 Gaya ng nasabi sa itaas, ang ilang mga node na api ay mag-a-unpack sa file patungo sa filesystem kapag tinawag. Hindi lang mga isyu sa pagganap, ang ilang mga anti-virus na mga skaner ay maaaring mapagana ng ganitong paggalaw.
 
-Bilang isang paglalakbay, maaari mong iwanan ang iba't-ibang mga file gamit ang `--unpack` na opsyon. Sa sumusunod na halimbawa, ang binabahaging mga library ng native Node.js na mga modyul ay hindi ipa-pack:
+As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
