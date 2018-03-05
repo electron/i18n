@@ -1,4 +1,4 @@
-# Короткий Огляд
+# Короткий огляд
 
 > Як використовувати API Node.js та Electron.
 
@@ -38,7 +38,7 @@ app.on('ready', () => {
 
 ## Призначення деструктуризації
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+Починаючи з 0.37, ви можете використовувати [деструктуризацію](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) для легшої роботи з вбудованими модулями.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -51,7 +51,7 @@ app.on('ready', () => {
 })
 ```
 
-If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+Якщо вам потрібен весь `electron` модуль, ви можете імпортувати його і потім використати деструктуризацію для доступа до конкретного модуля `electron`.
 
 ```javascript
 const electron = require('electron')
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+Це рівноцінно наступному коду:
 
 ```javascript
 const electron = require('electron')
