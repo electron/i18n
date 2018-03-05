@@ -3,10 +3,10 @@
 1. Télécharger la version de crashpad que nous allons utiliser.
     
     - `libcc/src/third_party/crashpad/README.chromium` aura une ligne `Revision:` avec un checksum
-    - We need to check out the corresponding branch.
-    - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
+    - Nous avons besoin de vérifier la branche correspondante.
+    - Cloner crashpad de Google (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - Check out the branch with the revision checksum: 
+    - Vérifiez la branche avec le checksum de révision : 
         - `git checkout <revision checksum>`
     - Add electron's crashpad fork as a remote
     - `git remote add electron https://github.com/electron/crashpad`
@@ -16,9 +16,9 @@
 
 2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
     
-    - Or view https://github.com/electron/crashpad/commits/previous-branch-name
+    - Ou voir https://github.com/electron/crashpad/commits/previous-branch-name
 
-3. For each patch:
+3. Pour chaque patch :
     
     - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
     - `git cherry-pick <checksum>`
@@ -37,5 +37,5 @@
     - `script/build.py -c D --target=crashpad_handler`
     - Both should build with no errors
 6. Push changes to submodule reference 
-    - (From electron root) `git add vendor/crashpad`
+    - (À la racine d'Electron) `git add vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`
