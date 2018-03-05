@@ -36,6 +36,6 @@
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
     - Les deux devraient se compiler sans erreur
-6. Push changes to submodule reference 
+6. Poussez les modifications de la référence sous-module 
     - (À la racine d'Electron) `git add vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`
