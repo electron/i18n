@@ -137,8 +137,6 @@ pages:
     description: Спектрон является фреймворком с открытым исходным кодом для легкого написания, интеграции тестов для вашего приложения Electron. Построен на вершине ChromeDriver и WebDriverIO.
 _404:
   page_not_found: Страница не найдена.
-  if_this_is_an_error: Если это ошибка,
-  please_file_an_issue: пожалуйста, сообщите о проблеме.
 search:
   description_all: Найти ресурсы Electron из <a href="/search/docs"> документации</a>, <a href="/search/npmPackages"> npm пакетов</a> и <a href="/search/repos"> GitHub репозиториев</a>.
   description_docs: Найти ресурсы Electron из документации.
