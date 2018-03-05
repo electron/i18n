@@ -1128,15 +1128,15 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Вибирає попередню вкладку, якщо ввімкнено нативні вкладки та існують інші вкладки у вікні.
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Вибирає наступну вкладку, якщо ввімкнено нативні вкладки та існують інші вкладки у вікні.
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Об'єднує всі вікна в одне вікно з вкладками, якщо ввімкнено нативні вкладки та існує більш ніж одне відкрите вікно.
 
 #### `win.moveTabToNewWindow()` *macOS*
 
