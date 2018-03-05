@@ -137,8 +137,6 @@ pages:
     description: سبيكترون إطار مفتوح المصدر يسهل كتابة اختبارات التكامل الخاصة بتطبيق إلكترون، وهو مبني بالاتماد على ChromeDriver و WebDriverIO.
 _404:
   page_not_found: الصفحة غير موجودة.
-  if_this_is_an_error: إذا كان هذا خطأ
-  please_file_an_issue: يرجى تسجيل issue.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Find Electron resources from documentation.
