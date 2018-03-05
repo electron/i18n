@@ -101,7 +101,7 @@ pages:
     title: Приложения Electron
     description: Приложения, созданные на Electron
   '/docs':
-    title: Документации
+    title: Документация
     description: Руководства и API справочной документации для последнего релиза Electron
   '/docs/all':
     title: Все документы Electron!
