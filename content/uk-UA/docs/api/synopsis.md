@@ -4,11 +4,11 @@
 
 Всі [вбудовані модулі Node.js](https://nodejs.org/api/) доступні в Electron, також повністю підтримуються сторонні модулі (включаючи [native modules](../tutorial/using-native-node-modules.md)).
 
-Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
+Electron також забеспечує деякими вбудованими модулями для розробки десктопних застосунків. Деякі модулі доступні тільки в головному процесі, деякі доступні тільки в процесі візуалізації (Web сторінка) і деякі доступні в обох процесах.
 
 The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
 
-The main process script is just like a normal Node.js script:
+Скрипт головного процесу це звичайний скрипт Node.js:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+Процес візуалізації не відрізняється від звичайної Web сторінки, окрім можливості використовувати node модулі:
 
 ```html
 <!DOCTYPE html>
@@ -34,9 +34,9 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+Для того, щоб запустити ваш додаток, прочитайте [Запуск додатка](../tutorial/quick-start.md#run-your-app).
 
-## Destructuring assignment
+## Призначення деструктуризації
 
 As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
 
