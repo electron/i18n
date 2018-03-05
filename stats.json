@@ -276,14 +276,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "9087",
-    "translated": "3037",
+    "translated": "3047",
     "approved": "172",
     "words": "82661",
-    "words_translated": "20066",
+    "words_translated": "20215",
     "words_approved": "822",
     "translated_progress": 24,
     "approved_progress": 0,
-    "qa_issues": "1207"
+    "qa_issues": "1214"
   },
   {
     "name": "Vietnamese",
