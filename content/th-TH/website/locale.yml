@@ -137,8 +137,6 @@ pages:
     description: Spectron เป็นโอเพนซอร์ซเฟรมเวิร์ก ที่ใช้งานในการเขียนทดสอบแอป อิเล็กตรอนของคุณ สร้างขึ้นโดยบน ChromeDriver และ WebDriverIO
 _404:
   page_not_found: ไม่พบหน้าที่ต้องการ
-  if_this_is_an_error: หากนี้เป็นข้อผิดพลาด
-  please_file_an_issue: please file an issue.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Find Electron resources from documentation.
