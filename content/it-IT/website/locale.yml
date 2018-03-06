@@ -116,7 +116,7 @@ pages:
     title: Tutorial
     description: Guide e tutorial per l'ultima versione di Electron
   '/blog':
-    title: Electron Blog
+    title: Blog di Electron
     description: Tutte le ultime notizie dal team e dalla community di Electron.
   '/community':
     title: Community
