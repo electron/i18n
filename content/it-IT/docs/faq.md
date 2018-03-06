@@ -8,7 +8,7 @@ In quasi tutti i casi, questi errori sono il risultato di problemi di rete e non
 
 Puoi anche provare a scaricare Electron direttamente da [electron/electron/releases](https://github.com/electron/electron/releases) se l'installazione tramite `npm` non funziona.
 
-## When will Electron upgrade to latest Chrome?
+## Quando verrà aggiornato Electron all'ultima versione di Chrome?
 
 The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. Questa stima non è garantita e dipende dalla quantità di lavoro necessario per l'aggiornamento.
 
