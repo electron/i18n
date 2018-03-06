@@ -30,7 +30,7 @@ describe('i18n.docs', () => {
   })
 
   it('does not contain <html>, <head>, or <body> tag in compiled html', () => {
-    const html = i18n.docs['en-US']['/docs/api/accelerator'].html
+    const html = i18n.docs['en-US']['/docs/api/accelerator'].sections.map((section) => section.html).join('')
     html.should.be.a('string')
     html.should.contain('<p>')
     html.should.not.contain('<html>')
@@ -124,9 +124,6 @@ describe('API Docs', () => {
     app.locale.should.equal('en-US')
     app.slug.should.equal('app')
     app.category.should.equal('api')
-    app.markdown.should.be.a('string')
-    app.html.should.be.an('string')
-    app.html.length.should.be.above(0)
     app.sections.should.be.an('array')
     app.sections.length.should.be.above(0)
   })
@@ -159,14 +156,14 @@ describe('API Docs', () => {
 
   it('fixes relative links in docs', () => {
     const api = i18n.docs['en-US']['/docs/api/app']
-    const $ = cheerio.load(api.html)
+    const $ = cheerio.load(api.sections.map((section) => section.html).join(''))
     const link = $('a[href*="glossary"]').first()
     link.attr('href').should.equal('/docs/glossary#main-process')
   })
 
   it('fixes relative images in docs', () => {
     const doc = i18n.docs['en-US']['/docs/tutorial/electron-versioning']
-    const $ = cheerio.load(doc.html)
+    const $ = cheerio.load(doc.sections.map((section) => section.html).join(''))
     const sources = $('img')
       .map((i, el) => $(el).attr('src'))
       .get()

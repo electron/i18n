@@ -23,6 +23,7 @@ const categoryNames = {
   development: 'Development',
   tutorial: 'Guides'
 }
+const IGNORE_PATTERN = '<!-- i18n-ignore -->'
 
 function convertToUrlSlash (filePath) {
   return filePath.replace(/C:\\/g, '/').replace(/\\/g, '/')
@@ -33,8 +34,6 @@ let ids = {}
 async function parseDocs () {
   ids = await getIds('electron')
 
-  const IGNORE_PATTERN = '<!-- i18n-ignore -->'
-
   console.time('parsed docs in')
   const markdownFiles = walk.entries(contentDir)
     .filter(file => file.relativePath.endsWith('.md') && !file.relativePath.includes('README'))
@@ -42,7 +41,7 @@ async function parseDocs () {
   let docs = await Promise.all(markdownFiles.map(parseFile))
 
   // ignore some docs
-  docs = docs.filter(doc => !doc.markdown.includes(IGNORE_PATTERN))
+  docs = docs.filter(doc => !doc.ignore)
 
   console.timeEnd('parsed docs in')
   return docs
@@ -77,10 +76,16 @@ async function parseFile (file) {
   file.isApiStructureDoc = file.category === 'api/structures'
 
   // parse markdown to HTML
-  file.markdown = fs.readFileSync(file.fullPath, 'utf8')
+  const markdown = fs.readFileSync(file.fullPath, 'utf8')
+
+  // ignore some docs & skip the rest of the parsing logic
+  if (markdown.includes(IGNORE_PATTERN)) {
+    file.ignore = true
+    return file
+  }
 
   file.sections = await Promise.all(
-    splitMd(file.markdown).map(async (section) => {
+    splitMd(markdown).map(async (section) => {
       const parsed = await hubdown(section.body)
       const $ = cheerio.load(parsed.content || '')
       file.title = file.title ||
@@ -122,13 +127,10 @@ async function parseFile (file) {
         $(el).attr('src', URL.format(parsed))
       })
 
-      // return $('body').html()
       section.html = $('body').html()
 
       return section
     }))
-
-  file.html = file.sections.map(section => section.html).join('\n')
 
   // remove leftover file props from walk-sync
   delete file.mode
