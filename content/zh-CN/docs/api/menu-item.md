@@ -54,7 +54,7 @@
 * `resetzoom` - 重置页面原始大小的缩放级别
 * `zoomin` - 主页面放大 10%
 * `zoomout` -主页面缩小 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
+* `editMenu`-整个默认的 "编辑" 菜单 (撤消、复制等)
 * `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
 
 macOS 上提供了以下附加角色:
