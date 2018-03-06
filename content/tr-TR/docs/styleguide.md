@@ -40,7 +40,7 @@ Electron belgeleri yazmak için rehberler.
 
 API referansları için bazı istisnalar mevcut.
 
-## Markdown kuralları
+## Yazı Stili kuralları
 
 * Kod bloklarında `sh` yerine `cmd` kullanın. (Sözdizimi işaretleyicisinden dolayı).
 * Satırlar 80. karakterde bitmelidir.
@@ -70,11 +70,11 @@ Sayfa başlığı altında `>` ile başlayan tek satırlık bir açıklama olmal
 > Tarayıcı oturumlarını, çerezleri, önbelleği, proxy ayarlarını vb. Yönetin.
 ```
 
-### Modül yöntem ve etkinlikleri
+### Modül metodları ve olayları
 
 Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Methods` ve `##Events` bölümlerinin altında listelenmelidir.
 
-`autoUpdater` ögesini örnek olarak kullanmak:
+`autoUpdater` ögesini örnek verecek olursak:
 
 ```markdown
 # autoUpdater
