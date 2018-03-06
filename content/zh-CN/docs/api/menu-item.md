@@ -6,7 +6,7 @@
 
 有关示例, 请参见 [` Menu `](menu.md)。
 
-### `new MenuItem(options)`
+### `new MenuItem(可选)`
 
 * `options` Object 
   * `click` Function (可选) - 当菜单项被点击后，将会调用 `click(menuItem, browserWindow, event)` 。 
@@ -26,7 +26,7 @@
   * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
   * ` position `String (可选)-此字段允许对给定菜单中的特定位置进行 fine-grained（细粒度） 定义。
 
-### Roles
+### 角色
 
 可以通过角色来为menu添加预定义行为。
 
@@ -39,7 +39,7 @@
 * `undo`
 * `redo`
 * `cut`
-* `复制`
+* `copy`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
