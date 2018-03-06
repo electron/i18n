@@ -601,7 +601,7 @@ Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルス�
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
+* `aspectRatio` Float - コンテンツビューのいくつかの部分を維持するためのアスペクト比。
 * `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
 
 This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
