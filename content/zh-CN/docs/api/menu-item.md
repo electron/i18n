@@ -55,12 +55,12 @@
 * `zoomin` - 主页面放大 10%
 * `zoomout` -主页面缩小 10%
 * `editMenu`-整个默认的 "编辑" 菜单 (撤消、复制等)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* ` windowMenu `-整个默认 "窗口" 菜单 (最小化、关闭等)
 
 macOS 上提供了以下附加角色:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
+* ` about `-映射到 ` orderFrontStandardAboutPanel ` 操作
+* ` hide `-映射到 ` 隐藏 ` 操作
 * `hideothers` - Map to the `hideOtherApplications` action
 * `unhide` - Map to the `unhideAllApplications` action
 * `startspeaking` - Map to the `startSpeaking` action
