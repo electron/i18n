@@ -64,7 +64,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## Tutorial dettagliati
 
 These individual tutorials expand on topics discussed in the guide above.
 
@@ -106,7 +106,7 @@ These individual tutorials expand on topics discussed in the guide above.
 ### Moduli del processo principale:
 
 * [app](api/app.md)
-* [autoAggiornatore](api/auto-updater.md)
+* [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
