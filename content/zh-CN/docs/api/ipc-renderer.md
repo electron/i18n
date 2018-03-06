@@ -1,6 +1,6 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> 从渲染器进程到主进程的异步通信。
 
 进程: [ Renderer](../glossary.md#renderer-process)
 
