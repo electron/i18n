@@ -611,7 +611,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 #### `win.previewFile(path[, displayName])` *macOS*
 
 * `path` String - Quick Lookでプレビューするファイルへの絶対パス。 ここで、Quick Lookはパスのファイル名とファイル拡張子をファイルを開くためのコンテンツタイプを決定するのに使用する点が重要です。
-* `displayName` String (任意) - Quick Lookのモーダルビューに表示するファイルの名前。 これは単なる見た目だけのもので、ファイルのコンテンツタイプには影響しません。 省略値は、`path` です。
+* `displayName` String (任意) - Quick Lookのモーダルビューに表示するファイルの名前。 これは純粋に見た目だけのもので、ファイルのコンテンツタイプには影響しません。 省略値は、`path` です。
 
 指定したパスでファイルをプレビューするために、[Quick Look](https://en.wikipedia.org/wiki/Quick_Look) を使用します。
 
