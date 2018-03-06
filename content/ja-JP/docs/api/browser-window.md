@@ -610,21 +610,21 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
-* `path` String - QuickLookでプレビューするファイルへの絶対パス。 This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
-* `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `path` String - Quick Lookでプレビューするファイルへの絶対パス。 ここで、Quick Lookはパスのファイル名とファイル拡張子をファイルを開くためのコンテンツタイプを決定するのに使用する点が重要です。
+* `displayName` String (任意) - Quick Lookのモーダルビューに表示するファイルの名前。 これは単なる見た目だけのもので、ファイルのコンテンツタイプには影響しません。 省略値は、`path` です。
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+指定したパスでファイルをプレビューするために、[Quick Look](https://en.wikipedia.org/wiki/Quick_Look) を使用します。
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+現在開いている [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) のパネルを閉じます。
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md) 
 * `animate` Boolean (任意) *macOS*
 
-Resizes and moves the window to the supplied bounds
+指定した境界までウインドウのサイズを変更して移動します。
 
 #### `win.getBounds()`
 
