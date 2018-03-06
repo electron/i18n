@@ -670,28 +670,28 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+ウインドウの最小サイズを `width` と `height` に設定します。
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+戻り値 `Integer[]` - ウインドウの最小の幅と高さを含みます。
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+ウインドウの最大サイズを `width` と `height` に設定します。
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+戻り値 `Integer[]` - ウインドウの最大の幅と高さを含みます。
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+ウインドウがユーザーによって手動でサイズを変更できるかどうかを設定します。
 
 #### `win.isResizable()`
 
