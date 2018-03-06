@@ -131,10 +131,10 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 | uk     | 乌克兰语        |
 | ur     | 乌尔都语        |
 | uz     | 乌兹别克语       |
-| vi     | Vietnamese  |
-| xh     | Xhosa       |
-| yi     | Yiddish     |
-| yo     | Yoruba      |
+| vi     | 越南语         |
+| xh     | 科萨语         |
+| yi     | 意第绪语        |
+| yo     | 约鲁巴语        |
 | zh     | 中文          |
 | zh-CN  | 中文（简体）      |
 | zh-TW  | 中文（繁体）      |
