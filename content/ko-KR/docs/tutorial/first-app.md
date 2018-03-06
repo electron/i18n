@@ -4,7 +4,7 @@ Electron은 순수 JavaScript를 사용하여 풍부한 네이티브(운영 체�
 
 이건 Electron이 graphical user interface(GUI)라이브러리에 대한 자바 스크립트 바인딩이 아닙니다. 대신, Electron은 웹 페이지를 GUI로 사용하므로, 자바스크립트로 제어되는 크롬 브라우저로도 볼 수 있습니다.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**참고**: 이 예제의 저장소는 [내려받아 바로 실행](#trying-this-example) 가능합니다.
 
 As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
