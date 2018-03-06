@@ -628,18 +628,18 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+戻り値 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md) 
 * `animate` Boolean (任意) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+指定した境界までウインドウのクライアント領域 (例えば、Webページ) のサイズを変更して移動します。
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+戻り値 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
@@ -647,11 +647,11 @@ Returns [`Rectangle`](structures/rectangle.md)
 * `height` Integer
 * `animate` Boolean (任意) *macOS*
 
-Resizes the window to `width` and `height`.
+ウインドウのサイズを `width` と `height` に変更します。
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+戻り値 `Integer[]` - ウインドウの幅と高さを含みます。
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -659,11 +659,11 @@ Returns `Integer[]` - Contains the window's width and height.
 * `height` Integer
 * `animate` Boolean (任意) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+ウインドウのクライアント領域 (例えば、Webページ) のサイズを `width` と `height` に変更します。
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+戻り値 `Integer[]` - ウインドウのクライアント領域の幅と高さを含みます。
 
 #### `win.setMinimumSize(width, height)`
 
