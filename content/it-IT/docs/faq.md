@@ -16,7 +16,7 @@ Viene utilizzato solo il canale Chrome stabile. Se c'è una soluzione importante
 
 Per ulteriori informazioni, consulta [ l'introduzione alla sicurezza](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Quando verrà aggiornato Electron all'ultima versione di Node.js?
 
 Quando viene rilasciata una nuova versione di Node.js, di solito aspettiamo circa un mese prima di aggiornare Electron. Quindi possiamo evitare di essere influenzati dai bug introdotti nelle nuove versioni di Node.js, cosa che accade molto spesso.
 
