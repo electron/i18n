@@ -98,7 +98,7 @@ pages:
     title: Electron | Costruisci applicazioni desktop multipiattaforma in JavaScript, HTML e CSS.
     description: 'Costruisci applicazioni desktop multipiattaforma in JavaScript, HTML e CSS.'
   '/apps':
-    title: Electron Apps
+    title: Applicazioni Electron
     description: Applicazioni sviluppate con Electron
   '/docs':
     title: Documentazione
