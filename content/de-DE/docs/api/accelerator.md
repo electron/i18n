@@ -6,10 +6,10 @@ Accelerators are Strings that can contain multiple modifiers and key codes, comb
 
 Beispiele
 
-* `[Cmd+A] oder [Strg+A]`
-* `[Cmd+Shift+Z] oder [Strg+Shift+Z]`
+* `[Cmd+A] oder [Ctrl+A]`
+* `[Cmd+Shift+Z] oder [Ctrl+Shift+Z]`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Tastenkürzel werden registriert mit dem [`globalShortcut`](global-shortcut.md) Modul durch die [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) Methode.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
@@ -22,7 +22,7 @@ app.on('ready', () => {
 })
 ```
 
-## Platform notice
+## Plattformdiversitäten
 
 On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
 
@@ -43,21 +43,21 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 ## Available key codes
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* `` bis `9`
+* `A` bis `Z`
+* `F1` bis `F24`
+* Sonderzeichen wie `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (Oder `Enter` als Alias)
+* `Up`, `Down`, `Left` und `Right`
+* `Home` und `End`
+* `PageUp` und `PageDown`
+* `Escape` (oder `Esc` als Abkürzung)
+* `VolumeUp`, `VolumeDown` und `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` und `MediaPlayPause`
 * `PrintScreen`
