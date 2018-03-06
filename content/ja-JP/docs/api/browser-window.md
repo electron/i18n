@@ -695,43 +695,43 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+戻り値 `Boolean` - ウインドウがユーザーによって手動でサイズを変更できるかどうか。
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+ウインドウがユーザーによって移動できるかどうかを設定します。Linuxでは何もしません。
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+戻り値 `Boolean` - ウインドウがユーザーによって移動できるかどうか。
 
-On Linux always returns `true`.
+Linuxでは常に `true` を返します。
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+ウインドウがユーザーによって手動で最小化できるかどうかを設定します。Linuxでは何もしません。
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+戻り値 `Boolean` - ウインドウがユーザーによって手動で最小化できるかどうか
 
-On Linux always returns `true`.
+Linuxでは常に `true` を返します。
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+ウインドウがユーザーによって手動で最大化できるかどうかを設定します。Linuxでは何もしません。
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+戻り値 `Boolean` - ウインドウがユーザーによって手動で最大化できるかどうか。
 
-On Linux always returns `true`.
+Linuxでは常に `true` を返します。
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -753,7 +753,7 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
-On Linux always returns `true`.
+Linuxでは常に `true` を返します。
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
