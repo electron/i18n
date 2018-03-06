@@ -1,8 +1,8 @@
-# Accelerator
+# Tastenkürzel
 
 > Definiere Tastenkürzel
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Acceleratoren sind Strings, welche mehrere Modifikatoren und Tastencodes enthalten. Sie werden mit dem `+` Zeichen kombiniert, und werden benutzt um Tastenkürzel in deiner App zu definieren.
 
 Beispiele
 
@@ -24,13 +24,13 @@ app.on('ready', () => {
 
 ## Plattformdiversitäten
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+Unter Linux und Windows hat die `Command` Taste keinen Effekt, weshalb `CommandOrControl` benutzt werden sollte. Es repräsentiert `Command` unter macOS und `Control` unter Linux und Windows um Tastenkürzel zu definieren.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Alt` auf allen Plattformen verfügbar ist.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+`Super` ist auf die `Windows` Taste unter Windowsx und Linux gemappt. Unter macOS is es auf `Cmd` gemappt.
 
-## Available modifiers
+## Verfügbare Modifikatoren
 
 * `Command` (or `Cmd` for short)
 * `Control` (or `Ctrl` for short)
@@ -41,7 +41,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Shift`
 * `Super`
 
-## Available key codes
+## Verfügbare Tastencodes
 
 * `` bis `9`
 * `A` bis `Z`
