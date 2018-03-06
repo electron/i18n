@@ -17,7 +17,7 @@ ipcMain模块是EventEmitter类的一个实例。 当在主进程中使用时，
 下面是在渲染和主进程之间发送和处理消息的一个例子：
 
 ```javascript
-// In main process.
+// 在主进程中.
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg)  // prints "ping"
@@ -31,7 +31,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ```
 
 ```javascript
-// In renderer process (web page).
+//在渲染器进程 (网页) 中。
 const {ipcRenderer} = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
