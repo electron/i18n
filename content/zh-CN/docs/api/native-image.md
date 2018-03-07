@@ -1,12 +1,12 @@
 # nativeImage
 
-> 使用 PNG 或 JPG 文件创建托盘、坞站和应用程序图标。
+> 使用 PNG 或 JPG 文件创建托盘、dock和应用程序图标。
 
 进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
-在Electron中, 对于拍摄图像的 api, 您可以传递文件路径或 ` NativeImage ` 实例。当传递 ` null ` 时, 将使用空图像。
+在Electron中, 对所有创建 images 的 api 来说, 您可以传递文件路径或 ` NativeImage ` 实例。当传递 ` null ` 时, 将创建一个空的image 对象.
 
-例如, 创建托盘或设置窗口图标时, 可以将图像文件路径作为 ` String ` 传递:
+例如, 创建托盘或设置窗口图标时, 你可以传递 `String` 格式的图片路径
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -31,12 +31,12 @@ console.log(appIcon)
 
 在 Windows 上, 还可以从文件路径加载 ` ICO ` 图标。为了最佳的视觉质量, 建议在中至少包括以下大小:
 
-* Small icon 
+* 小图标 
  * 16x16 (100% DPI scale)
  * 20x20 (125% DPI scale)
  * 24x24 (150% DPI scale)
  * 32x32 (200% DPI scale)
-* Large icon 
+* 大图标 
  * 32x32 (100% DPI scale)
  * 40x40 (125% DPI scale)
  * 48x48 (150% DPI scale)
