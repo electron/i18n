@@ -2,13 +2,13 @@
 
 > 处理 HTTP/HTTPS 请求的响应。
 
-进程：[主进程](../glossary.md#main-process)
+线程：[主线程](../glossary.md#main-process)
 
 `ClientRequest`实现了[Writable Stream](https://nodejs.org/api/stream.html#stream_readable_streams)接口, 因此是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)类型.
 
-### 事件
+### 实例事件
 
-#### data事件
+#### Event: 'data'
 
 返回:
 
@@ -16,15 +16,15 @@
 
 `data`事件是将响应数据转换为应用程序代码的常用方法。
 
-#### end事件
+#### Event: 'end'
 
 指示响应正文已结束。
 
-#### aborted事件
+#### Event: 'aborted'
 
 正在进行的 HTTP 事务被取消后触发。
 
-#### error事件：
+#### Event: 'error'
 
 返回:
 
