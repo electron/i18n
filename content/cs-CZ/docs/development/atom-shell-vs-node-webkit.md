@@ -1,8 +1,8 @@
-# Technické rozdíly mezi Elektronem a NW.js (formálně node-webkit)
+# Technické rozdíly mezi Electronem a NW.js (formálně node-webkit)
 
 **Poznámka: Electron se dříve jmenoval Atom Shell.**
 
-Jako NW.js, Elektron poskytuje platformu pro vytváření desktopových aplikací s pomocí JavaScriptu a HTML mezitím co Node integruje podporu nízko systémových funkcí v rámci webové stránky.
+Jako NW.js, Electron poskytuje platformu pro vytváření desktopových aplikací s pomocí JavaScriptu a HTML mezitím co Node integruje podporu nízko systémových funkcí v rámci webové stránky.
 
 But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
 
