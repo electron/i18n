@@ -761,7 +761,7 @@ Linuxでは常に `true` を返します。
 * `level` String (任意) *macOS* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 省略値は、`floating` です。 詳細については、[macOSのドキュメント](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) を参照してください。
 * `relativeLevel` Integer (任意) *macOS* - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
-ウインドウが常に他のウインドウの上に表示されるかどうかを設定します。この設定をした後でも、ウインドウはフォーカスを当てられないツールボックスウインドウではなく、まだ通常のウインドウのままです。
+ウインドウが常に他のウインドウの上に表示されるかどうかを設定します。これを設定した後でも、ウインドウはフォーカスを当てられないツールボックスウインドウではなく、まだ通常のウインドウのままです。
 
 #### `win.isAlwaysOnTop()`
 
