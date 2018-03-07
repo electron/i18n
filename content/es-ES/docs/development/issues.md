@@ -64,17 +64,17 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 
 Si cree que ha encontrado un fallo en Electron, por favor rellene este formulario lo mejor posible.
 
-Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. Es más fácil corregir un error si se puede reproducir.
+Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. Es más fácil corregir un fallo si se puede reproducir.
 
 Véase [Como crear un Mínimo, Completo y Verificable ejemplo](https://stackoverflow.com/help/mcve).
 
 ## Seguimiento de un Informe de Error
 
-Es común para asuntos abiertos el involucrar una discusión. Algunos contribuyentes pueden tener diferentes opiniones, incluyendo si el comportamiento es un error o una falla. La discusión es parte del proceso y debe mantenerse centrada, útil y profesional.
+Es común que los problemas abiertos se acompañen con un debate. Algunos contribuyentes pueden tener diferentes opiniones, incluyendo si se comporta como un fallo o una funcionalidad. La discusión es parte del proceso y debe mantenerse centrada, útil y profesional.
 
 Respuestas bruscas que no proveen contexto adiciona o detalles de apoyo, no son útiles o profesionales. Para muchos, tales respuestas son molestas y dañinas.
 
-Los contribuyentes están incentivados a resolver inconvenientes de manera colaborativa y ayudarse mutuamente a progresar. Si encuentra un inconveniente que siente que es inválido, o contiene información incorrecta, explica *por qué* se siente de esa manera con ayuda de contexto de apoyo adicional, y estar dispuesto a ser convencido de que puede estar equivocado. Al hacerlo, podemos a menudo alcanzar la correcta solución de manera rápida.
+Los contribuyentes están animados a resolver problemas de manera colaborativa y ayudarse mutuamente a progresar. Si encuentra un inconveniente que siente que es inválido, o contiene información incorrecta, explica *por qué* se siente de esa manera con ayuda de contexto de apoyo adicional, y estar dispuesto a ser convencido de que puede estar equivocado. Al hacerlo, podemos a menudo alcanzar la correcta solución de manera rápida.
 
 ## Resolviendo un informe de error
 
