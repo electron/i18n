@@ -1,4 +1,4 @@
-# Verzování elektronu
+# Verzování Electronu
 
 > A detailed look at our versioning policy and implementation.
 
