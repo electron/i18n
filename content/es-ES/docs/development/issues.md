@@ -1,18 +1,18 @@
-# Inconvenientes en Electron
+# Problemas en Electron
 
-# Inconvenientes
+# Problemas
 
-* [Cómo contribuir en un inconveniente](#how-to-contribute-in-issues)
-* [Pedir Ayuda General](#asking-for-general-help)
+* [Cómo contribuir para arreglar los problemas](#how-to-contribute-in-issues)
+* [Pedir ayuda en general](#asking-for-general-help)
 * [Presentar un informe de error](#submitting-a-bug-report)
-* [Inquirir un Informe de Error](#triaging-a-bug-report)
-* [Resolviendo un Informe de Error](#resolving-a-bug-report)
+* [Seguimiento de un Informe de Error](#triaging-a-bug-report)
+* [Resolviendo un informe de error](#resolving-a-bug-report)
 
-## Cómo contribuir en un inconveniente
+## Cómo contribuir en un problema
 
-Para cualquier inconveniente, existen tres maneras fundamentales en las que un individuo puede contribuir:
+Para cualquier problema, existen fundamentalmente tres maneras en las que un individuo puede contribuir:
 
-1. Abriendo el inconveniente como "tema" en una discusión: Si crees haber encontrado un nuevo error en Electro, debes reportarlo creando un nuevo asunto en el rastreador de inconvenientes `electron/electron`.
+1. Mostrando el problema en una discusión: si crees haber encontrado un nuevo fallo en Electron, debes reportarlo creando un nuevo problema en el issue tracker de `electron/electron`.
 2. Ayudando a examinar el inconveniente: Puedes hacer esto tanto proporcionando detalles de asistencia (un caso de prueba reproducible que demuestra un error) como proporcionando sugerencias para abordar el inconveniente.
 3. Ayudando a resolver el inconveniente: Esto se puede hacer demostrando que el inconveniente no es un error o se fue arreglado; Pero mas a menudo, abriendo un pull request que cambia la fuente de `electron/electron` a una manera concreta y susceptible de revisión.
 
@@ -68,7 +68,7 @@ Las dos piezas mas importantes de información necesitadas para evaluar el repor
 
 Véase [Como crear un Mínimo, Completo y Verificable ejemplo](https://stackoverflow.com/help/mcve).
 
-## Inquirir un Informe de Error
+## Seguimiento de un Informe de Error
 
 Es común para asuntos abiertos el involucrar una discusión. Algunos contribuyentes pueden tener diferentes opiniones, incluyendo si el comportamiento es un error o una falla. La discusión es parte del proceso y debe mantenerse centrada, útil y profesional.
 
@@ -76,6 +76,6 @@ Respuestas bruscas que no proveen contexto adiciona o detalles de apoyo, no son 
 
 Los contribuyentes están incentivados a resolver inconvenientes de manera colaborativa y ayudarse mutuamente a progresar. Si encuentra un inconveniente que siente que es inválido, o contiene información incorrecta, explica *por qué* se siente de esa manera con ayuda de contexto de apoyo adicional, y estar dispuesto a ser convencido de que puede estar equivocado. Al hacerlo, podemos a menudo alcanzar la correcta solución de manera rápida.
 
-## Resolviendo un Informe de Error
+## Resolviendo un informe de error
 
 La mayoría de los inconvenientes son resueltos al abrir un pull request. El proceso para abrir y revisar un pull request es similar a abrir e inquirir inconvenientes, pero conlleva una revisión necesaria y aprobar un workflow que asegure que los cambios propuestos tengan el mínimo atributo y criterios funcionales del proyecto Electron.
