@@ -2,7 +2,7 @@
 
 > 添加菜单项到应用程序菜单和上下文菜单中
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 有关示例, 请参见 [` Menu `](menu.md)。
 
@@ -61,22 +61,22 @@ macOS 上提供了以下附加角色:
 
 * ` about `-映射到 ` orderFrontStandardAboutPanel ` 操作
 * ` hide `-映射到 ` 隐藏 ` 操作
-* `hideothers` - Map to the `hideOtherApplications` action
-* `unhide` - Map to the `unhideAllApplications` action
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `toggletabbar` - Map to the `toggleTabBar` action
-* `selectnexttab` - Map to the `selectNextTab` action
-* `selectprevioustab` - Map to the `selectPreviousTab` action
-* `mergeallwindows` - Map to the `mergeAllWindows` action
-* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* ` hideothers `-映射到 ` hideOtherApplications ` 的操作
+* ` unhide `-映射到 ` unhideAllApplications ` 操作
+* ` startspeaking `-映射到 ` startSpeaking ` 操作
+* ` stopspeaking `-映射到 ` stopSpeaking ` 操作
+* ` front `-映射到 ` arrangeInFront ` 操作
+* ` zoom `-映射到 ` performZoom ` 操作
+* ` toggletabbar `-映射到 ` toggleTabBar ` 操作
+* `selectnexttab` - 映射到 `selectNextTab` 操作
+* ` selectprevioustab ` - 映射到 ` selectPreviousTab ` 操作
+* `mergeallwindows` - 映射到 `mergeAllWindows` 操作
+* ` movetabtonewwindow ` - 映射到 ` moveTabToNewWindow ` 操作
+* `window` - 子菜单是"窗口" 菜单
+* ` help `-子菜单是 "帮助" 菜单
+* ` services `-子菜单是 "帮助" 菜单
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+在 macOS 上指定 ` role ` 时, ` label ` 和 ` accelerator ` 是将影响菜单项的唯一选项。所有其他选项都将被忽略。
 
 ### 实例属性
 
