@@ -761,15 +761,15 @@ Linuxでは常に `true` を返します。
 * `level` String (任意) *macOS* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 省略値は、`floating` です。 詳細については、[macOSのドキュメント](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) を参照してください。
 * `relativeLevel` Integer (任意) *macOS* - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+ウインドウが常に他のウインドウの上に表示されるかどうかを設定します。この設定をした後でも、ウインドウはフォーカスを当てられないツールボックスウインドウではなく、まだ通常のウインドウのままです。
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+戻り値 `Boolean` - ウインドウが常に他のウインドウの上に表示されるかどうか。
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+ウインドウを画面の中央に移動します。
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -777,23 +777,23 @@ Moves window to the center of the screen.
 * `y` Integer
 * `animate` Boolean (任意) *macOS*
 
-Moves window to `x` and `y`.
+ウインドウを `x` と `y` に移動します。
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+戻り値 `Integer[]` - ウインドウの現在の位置を含みます。
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+ネイティブのウインドウのタイトルを `title` に変更します。
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+戻り値 `String` - ネイティブのウインドウのタイトル。
 
-**Note:** The title of web page can be different from the title of the native window.
+**注:** Webページのタイトルはネイティブのウインドウのタイトルとは異なる可能性があります。
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
