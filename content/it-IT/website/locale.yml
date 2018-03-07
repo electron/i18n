@@ -14,7 +14,7 @@ docs:
   title: Documentazione di Electron
   description: Vedi tutti i <a href="/docs/all">documenti in un'unica pagina</a> o controlla le <a href="/docs/faq">FAQ</a>.
   guides: Guide
-  api_reference: API Reference
+  api_reference: API di Riferimento
   advanced: Avanzato
   footer:
     propose_change: Migliora questo documento
