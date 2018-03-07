@@ -737,7 +737,7 @@ Linuxでは常に `true` を返します。
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるか、ウインドウを最大化するかを設定します。
 
 #### `win.isFullScreenable()`
 
