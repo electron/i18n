@@ -38,14 +38,14 @@ community:
 releases: Vydání
 electron_is_easy:
   title: Je to snazší, než si myslíte
-  description: Pokud vytváříte webové stránky, můžete si také vytvořit desktopovou aplikaci. Elektron je framework pro vytváření nativních aplikací pomocí webových technologií, jako je JavaScript, HTML a CSS. Elektron se postará o systémové části aplikace, a vy se můžete soustředit na specifika vaší aplikace.
+  description: Pokud vytváříte webové stránky, můžete si také vytvořit desktopovou aplikaci. Electron je framework pro vytváření nativních aplikací pomocí webových technologií, jako je JavaScript, HTML a CSS. Elektron se postará o systémové části aplikace, a vy se můžete soustředit na specifika vaší aplikace.
   video_link: Podívejte se na video
 web_technologies:
   title: Webové technologie
-  description: Elektronové používá Chromium a Node.js, takže můžete vytvářet aplikace s HTML, CSS a JavaScript.
+  description: Electronové používá Chromium a Node.js, takže můžete vytvářet aplikace s HTML, CSS a JavaScript.
 open_source:
   title: Open Source
-  description: Elektron je open source projekt udržovaný GitHubem a aktivní komunitou přispěvatelů.
+  description: Electron je open source projekt udržovaný GitHubem a aktivní komunitou přispěvatelů.
 cross_platform:
   title: Multiplatformní
   description: Kompatibilní s Mac, Windows a Linuxem, Electron aplikace sestavíte a spustíte na třech platformách.
