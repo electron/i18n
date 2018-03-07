@@ -43,7 +43,7 @@ console.log(appIcon)
  * 64x64 (200% DPI scale)
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+在[这篇文章](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx)中查看 *尺寸说明* 的章节
 
 ## 高分辨率
 
@@ -51,7 +51,7 @@ Check the *Size requirements* section in [this article](https://msdn.microsoft.c
 
 例如, 如果 ` icon. png ` 是具有标准分辨率的普通图像, 而 ` icon@2x. png ` 将被视为具有两倍 DPI 密度的高分辨率图像。
 
-如果希望同时支持不同 dpi 密度的显示器, 可以将不同大小的图像放在同一文件夹中, 并使用没有 dpi 后缀的文件名。例如:
+如果希望同时支持不同 DPI 密度的显示器, 可以将不同大小的图像放在同一文件夹中, 并使用没有 DPI 后缀的文件名。例如:
 
 ```text
 images/
@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-还支持 DPI 的以下后缀:
+还支持下面这些 DPI 后缀:
 
 * `@1x`
 * `@1.25x`
@@ -80,11 +80,11 @@ console.log(appIcon)
 * `@4x`
 * `@5x`
 
-## Template Image
+## 模板图片
 
-Template image由黑色和清晰的颜色 (和 alpha 通道) 组成。 Template images不打算用作独立图像, 通常与其他内容混合, 以创建所需的最终外观。
+模板图片由黑色和清晰的颜色 (和 alpha 通道) 组成。 模板图片不是单独使用的, 它通常与其他内容混合以创建期望的最终效果
 
-最常见的情况是使用Template image的菜单栏图标, 使它可以适应浅色和深色菜单栏。
+最常见的情况是使用模板图片的菜单栏图标, 使它可以适应浅色和深色菜单栏。
 
 ** 注意: **仅在 macOS 上支持Template image。
 
@@ -99,7 +99,7 @@ Template image由黑色和清晰的颜色 (和 alpha 通道) 组成。 Template 
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+返回 `NativeImage`
 
 创建一个空的 ` NativeImage ` 实例。
 
@@ -107,7 +107,7 @@ Returns `NativeImage`
 
 * `path` String
 
-Returns `NativeImage`
+返回 `NativeImage`
 
 从位于 ` path ` 的文件创建新的 ` NativeImage ` 实例。 如果 ` path ` 不存在，方法将返回空图像，无法读取或不是有效图像, 。
 
@@ -126,7 +126,7 @@ console.log(image)
  * `height` Integer (optional) - Required for bitmap buffers.
  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+返回 `NativeImage`
 
 从 `buffer ` 创建新的 ` NativeImage ` 实例。
 
@@ -134,7 +134,7 @@ Returns `NativeImage`
 
 * `dataURL` String
 
-Returns `NativeImage`
+返回 `NativeImage`
 
 从 ` dataURL ` 创建新的 ` NativeImage ` 实例。
 
@@ -143,7 +143,7 @@ Returns `NativeImage`
 * `imageName` String
 * `hslShift` Number[]
 
-Returns `NativeImage`
+返回 `NativeImage`
 
 Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
 
