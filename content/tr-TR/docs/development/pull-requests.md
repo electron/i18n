@@ -7,7 +7,7 @@
   * [Step 3: Branch](#step-3-branch)
 * [Düzenleme yapmak](#making-changes) 
   * [4. Adım: Kodlama](#step-4-code)
-  * [Step 5: Commit](#step-5-commit) 
+  * [Değişiklikleri Onaylama](#step-5-commit) 
     * [Commit message guidelines](#commit-message-guidelines)
   * [Step 6: Rebase](#step-6-rebase)
   * [7. Adım: Deneme](#step-7-test)
@@ -59,7 +59,7 @@ Please be sure to run `npm run lint` from time to time on any code changes to en
 
 See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
 
-### Step 5: Commit
+### Değişiklikleri Onaylama
 
 It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
 
