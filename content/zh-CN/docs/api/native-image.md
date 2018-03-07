@@ -109,7 +109,7 @@ console.log(appIcon)
 
 返回 `NativeImage`
 
-从位于 ` path ` 的文件创建新的 ` NativeImage ` 实例。 如果 ` path ` 不存在，方法将返回空图像，无法读取或不是有效图像, 。
+从位于 ` path ` 的文件创建新的 ` NativeImage ` 实例。 如果 ` path ` 不存在，，无法读取或不是有效图像，方法将返回空图像, 。
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -121,10 +121,10 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) 
- * `width` Integer (optional) - Required for bitmap buffers.
- * `height` Integer (optional) - Required for bitmap buffers.
- * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+ * `width` Integer (可选) - 对于位图bitmap, 缓冲区(buffers) 是必需的
+ * `height` Integer (可选) - 对于位图bitmap, 缓冲区(buffers) 是必需的
+ * `scaleFactor` Double (可选) - 默认为 1.0.
 
 返回 `NativeImage`
 
@@ -145,15 +145,15 @@ console.log(image)
 
 返回 `NativeImage`
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 可以使用的值, 请参见 [` NSImageName `](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) 文档。
 
-The `hslShift` is applied to the image with the following rules
+使用以下规则将`hslShift`应用于图像
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
+* `hsl_shift[0]` (色调): 图像的绝对色调值，-0 和1 映射到 0和360，在色环上 (红色)。
+* `hsl_shift[1]` (饱和度): 图像的饱和度偏移量, 可以为下列值:  
+ 0 = 移除所有颜色.  
+ 0.5 = 保持不变.  
+ 1 = 图像完全饱和. 
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
  0 = remove all lightness (make all pixels black).  
  0.5 = leave unchanged.  
