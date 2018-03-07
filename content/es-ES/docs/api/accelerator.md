@@ -1,4 +1,4 @@
-# Acelerador
+# Combinaciones de teclas
 
 > Definir atajos del teclado.
 
@@ -22,7 +22,7 @@ app.on('ready', () => {
 })
 ```
 
-## Noticia de plataforma
+## Nota sobre plataformas
 
 En Linux y Windows, la clave `Command` no tiene ningún efecto, así que se utilizar `CommandOrControl` que representa `Command` para macOS y `Control` para Linux y Windows para definir algunos Aceleradores.
 
