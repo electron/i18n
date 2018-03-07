@@ -758,8 +758,8 @@ Linuxでは常に `true` を返します。
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (任意) *macOS* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 省略値は`floating`です。 詳細については、[macOSのドキュメント](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) を参照してください。
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `level` String (任意) *macOS* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 省略値は、`floating` です。 詳細については、[macOSのドキュメント](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) を参照してください。
+* `relativeLevel` Integer (任意) *macOS* - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
