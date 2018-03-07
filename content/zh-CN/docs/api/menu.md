@@ -77,7 +77,7 @@ menu类有以下静态方法：
 
 * `id` String
 
-Returns `MenuItem` the item with the specified `id`
+返回具有指定`id`项的`MenuItem`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -196,7 +196,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### 渲染进程
 
 下面是通过 [` remote `](remote.md) 模块在网页（render process）中动态创建右击菜单的示例:
 
@@ -256,7 +256,7 @@ macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide 
 
 ### 示例
 
-Template:
+模板：
 
 ```javascript
 [
@@ -268,7 +268,7 @@ Template:
 ]
 ```
 
-Menu:
+菜单:
 
 ```sh
 <br />- 1
@@ -278,7 +278,7 @@ Menu:
 - 5
 ```
 
-Template:
+模板：
 
 ```javascript
 [
@@ -291,7 +291,7 @@ Template:
 ]
 ```
 
-Menu:
+菜单:
 
 ```sh
 <br />- ---
