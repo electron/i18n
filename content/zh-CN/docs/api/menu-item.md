@@ -84,19 +84,19 @@ macOS 上提供了以下附加角色:
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+一个 ` Boolean ` 类型的值, 指示是否启用该项, 该属性可以动态改变
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+一个 ` Boolean ` 类型的值, 指示该项是否可见, 该属性可以动态改变。
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+一个 ` Boolean ` 类型的值, 指示是否选中该项, 该属性可以动态改变。
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+` checkbox ` 菜单项将在选中时切换 ` checked ` 的开关属性。
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+`单选菜单项` 将返回单击时`checked`属性, 并将关闭同一菜单中所有相邻项的属性。
 
 You can add a `click` function for additional behavior.
 
