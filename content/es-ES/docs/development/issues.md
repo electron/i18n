@@ -74,8 +74,8 @@ Es común que los problemas abiertos se acompañen con un debate. Algunos contri
 
 Respuestas bruscas que no proveen contexto adiciona o detalles de apoyo, no son útiles o profesionales. Para muchos, tales respuestas son molestas y dañinas.
 
-Los contribuyentes están animados a resolver problemas de manera colaborativa y ayudarse mutuamente a progresar. Si encuentra un inconveniente que siente que es inválido, o contiene información incorrecta, explica *por qué* se siente de esa manera con ayuda de contexto de apoyo adicional, y estar dispuesto a ser convencido de que puede estar equivocado. Al hacerlo, podemos a menudo alcanzar la correcta solución de manera rápida.
+Los contribuyentes están animados a resolver problemas de manera colaborativa y ayudarse mutuamente a progresar. Si encuentra un problema que cree que es nulo, o contiene información incorrecta, explique *por qué* lo cree de esa manera con un contexto de soporte adicional, y esté dispuesto a ser convencido de que pueda estar equivocado. Al hacerlo, podemos a menudo alcanzar la solución correcta de manera rápida.
 
 ## Resolviendo un informe de error
 
-La mayoría de los inconvenientes son resueltos al abrir un pull request. El proceso para abrir y revisar un pull request es similar a abrir e inquirir inconvenientes, pero conlleva una revisión necesaria y aprobar un workflow que asegure que los cambios propuestos tengan el mínimo atributo y criterios funcionales del proyecto Electron.
+La mayoría de los problemas son resueltos al abrir un pull request. El proceso para abrir y revisar un pull request es similar a abrir y seguir los problemas, pero conlleva una revisión necesaria y aprobar un workflow que asegure que los cambios propuestos tengan una mínima calidad y criterios funcionales del proyecto Electron.
