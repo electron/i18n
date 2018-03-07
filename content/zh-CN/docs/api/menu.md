@@ -24,7 +24,7 @@ menu类有以下静态方法：
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+返回 `Menu | null` - 如果有设置, 则返回应用程序菜单， 如果没设置，则返回 ` null `。
 
 ** 注意: **返回的 ` menu ` 实例不支持动态添加或删除菜单项。 但仍然可以动态修改 [ 实例属性 ](#instance-properties)。
 
@@ -56,7 +56,7 @@ Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 * `选项` Object (可选) 
   * ` x ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` y `, 则必须声明。
   * ` y ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` x `, 则必须声明。
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. 默认值为 `false`.
+  * ` async `Boolean (可选)-设置为 ` true `, 使此方法立即返回, ` false ` 在菜单被选中或关闭后返回。 默认值为 `false`.
   * ` positioningItem `数字 (可选) * macOS *-要在指定坐标下的鼠标光标下定位的菜单项的索引。默认值为-1。
 
 将此菜单作为 ` browserWindow ` 中的上下文菜单弹出。
