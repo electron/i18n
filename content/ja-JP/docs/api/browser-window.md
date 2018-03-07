@@ -741,17 +741,17 @@ Linuxでは常に `true` を返します。
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+戻り値 `Boolean` - ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるか、ウインドウを最大化するか。
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+ウインドウをユーザーが手動で閉じられるかどうかを設定します。Linuxでは何もしません。
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+戻り値 `Boolean` - ウインドウをユーザーが手動で閉じられるかどうか。
 
 Linuxでは常に `true` を返します。
 
