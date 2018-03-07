@@ -150,20 +150,20 @@ console.log(image)
 使用以下规则将`hslShift`应用于图像
 
 * `hsl_shift[0]` (色调): 图像的绝对色调值，-0 和1 映射到 0和360，在色环上 (红色)。
-* `hsl_shift[1]` (饱和度): 图像的饱和度偏移量, 可以为下列值:  
+* `hsl_shift[1]` (饱和度): 图像的饱和度变化, 可以为下列值:  
  0 = 移除所有颜色.  
  0.5 = 保持不变.  
  1 = 图像完全饱和. 
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
- 0 = remove all lightness (make all pixels black).  
- 0.5 = leave unchanged.  
- 1 = full lightness (make all pixels white).
+* `hsl_shift[2]` (亮度): 图像的亮度变化，可以为下列值:  
+ 0 = 移除所有亮度 (使所有像素变黑).  
+ 0.5 = 保持不变.  
+ 1 = 高亮 (使所有像素变白).
 
-This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+这意味着 `[-1, 0, 1]` 将使图像完全变白，`[-1, 1, 0]`将使图像完全变黑.
 
-## Class: NativeImage
+## 类: NativeImage
 
-> Natively wrap images such as tray, dock, and application icons.
+> 本机图像，如托盘、dock栏和应用图标。
 
 进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
@@ -171,10 +171,10 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 以下方法可用于 ` NativeImage ` 类的实例:
 
-#### `image.toPNG([options])`
+#### `image.toPNG([可选])`
 
-* `options` Object (optional) 
- * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+ * `scaleFactor` Double (可选) - 默认值为 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
 
