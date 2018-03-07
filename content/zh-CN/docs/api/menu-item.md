@@ -98,12 +98,12 @@ macOS 上提供了以下附加角色:
 
 `单选菜单项` 将返回单击时`checked`属性, 并将关闭同一菜单中所有相邻项的属性。
 
-You can add a `click` function for additional behavior.
+你可以为其他行为添加`click`函数。
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label
+一个表示菜单项标签的 `String`
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event
+当 MenuItem 接收到 click 事件时激发的`Function`
