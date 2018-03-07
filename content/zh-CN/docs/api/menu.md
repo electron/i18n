@@ -2,7 +2,7 @@
 
 > 创建原生应用菜单和上下文菜单。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 ### `new Menu()`
 
