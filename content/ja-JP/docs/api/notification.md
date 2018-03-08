@@ -16,11 +16,11 @@
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `Notification` with native properties as set by the `options`.
+`Notification` によって設定されたネイティブプロパティで新しい `BrowserWindow` を生成します。
 
 ### 静的メソッド
 
-The `Notification` class has the following static methods:
+`Notification` クラスには、次の静的メソッドがあります。
 
 #### `Notification.isSupported()`
 
