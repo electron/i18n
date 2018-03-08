@@ -2,7 +2,7 @@
 
 > Tampilkan dialog sistem asli untuk membuka dan menyimpan file, mengingatkan, dll.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Utama](../glossary.md#main-process)
 
 Contoh menampilkan dialog untuk memilih beberapa file dan direktori:
 
