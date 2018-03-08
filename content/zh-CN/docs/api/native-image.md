@@ -171,51 +171,51 @@ console.log(image)
 
 以下方法可用于 ` NativeImage ` 类的实例:
 
-#### `image.toPNG([可选])`
+#### `image.toPNG([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
 返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-#### `image.toJPEG(质量)`
+#### `image.toJPEG(quality)`
 
 * ` quality ` Integer (** 必需 **)-介于 0-100 之间。
 
 返回 ` Buffer `-一个包含图像 ` JPEG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-#### `image.toBitmap([可选])`
+#### `image.toBitmap([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
 返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-#### `image.toDataURL([可选])`
+#### `image.toDataURL([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
 返回 ` String `-图像的数据 URL。
 
-#### `image.getBitmap([可选])`
+#### `image.getBitmap([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+`getBitmap()` 和 `toBitmap() 的不同之处在于，<code>getBitmap()` 不会拷贝位图数据，所以你必须在返回 Buffer 后立刻使用它，否则数据可能会被更改或销毁
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+返回 ` Buffer `-一个 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer), 它将 C 指针存储在图像的基础本机句柄上。 在 macOS 上, 将返回指向 ` NSImage ` 实例的指针。
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+请注意, 返回的指针是指向基础本机映像而不是副本的弱指针, 因此 * 必须 * 确保关联的 ` nativeImage ` 实例保留在周围。
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+返回 ` Boolean `-图像是否为空。
 
 #### `image.getSize()`
 
@@ -225,21 +225,21 @@ Returns [`Size`](structures/size.md)
 
 * `option` Boolean
 
-Marks the image as a template image.
+将图像标记为模板图像。
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+返回 ` Boolean `-图像是否为模板图像。
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
+* ` rect `[ Rectangle ](structures/rectangle.md)-要裁剪的图像区域
 
-Returns `NativeImage` - The cropped image.
+返回 ` NativeImage `-裁剪的图像。
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (可选) - 默认为图像的高度 * `quality` String (可选) - 想要调整的图像质量. 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Returns `NativeImage` - The resized image.
 
