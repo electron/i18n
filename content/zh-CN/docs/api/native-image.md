@@ -176,34 +176,34 @@ console.log(image)
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-#### `image.toJPEG(quality)`
+#### `image.toJPEG(质量)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* ` quality ` Integer (** 必需 **)-介于 0-100 之间。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+返回 ` Buffer `-一个包含图像 ` JPEG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-#### `image.toBitmap([options])`
+#### `image.toBitmap([可选])`
 
-* `options` Object (optional) 
- * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+ * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-#### `image.toDataURL([options])`
+#### `image.toDataURL([可选])`
 
-* `options` Object (optional) 
- * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+ * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-Returns `String` - The data URL of the image.
+返回 ` String `-图像的数据 URL。
 
-#### `image.getBitmap([options])`
+#### `image.getBitmap([可选])`
 
-* `options` Object (optional) 
- * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+ * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
 
