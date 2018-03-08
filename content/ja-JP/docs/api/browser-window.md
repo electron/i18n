@@ -907,7 +907,7 @@ win.setSheetOffset(toolbarRect.height)
 
 `url` は、リモートアドレス (例えば、`http://`) または `file://` プロトコルを使ってローカルのHTMLファイルのパスにすることができます。
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+ファイルのURLが正しく構成されているようにするため、Nodeの [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) メソッドを使用することを推奨します。
 
 ```javascript
 let url = require('url').format({
@@ -919,7 +919,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+次のようにすることによって、URLエンコードされたデータで `POST` リクエストを使用してURLをロードすることができます。
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -939,7 +939,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+`menu` をウインドウのメニューバーとして設定します。`null` を設定すると、メニューバーが削除されます。
 
 #### `win.setProgressBar(progress[, options])`
 
