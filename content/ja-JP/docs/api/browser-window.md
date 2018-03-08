@@ -836,30 +836,30 @@ win.setSheetOffset(toolbarRect.height)
 
 戻り値 `Buffer` - ウインドウのプラットフォーム固有のハンドル。
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+ハンドルのネイティブな型は、Windowsでは `HWND`、macOSでは `NSView*`、Linuxでは `Window` (`unsigned long`) です。
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+ウインドウメッセージをフックします。メッセージがWndProcで受信されると、`callback` が呼び出されます。
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+戻り値 `Boolean` - メッセージがフックされているかどうかによって、`true` または `false` 。
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
 * `message` Integer
 
-Unhook the window message.
+ウインドウメッセージのフックを解除します。
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+すべてのウインドウメッセージのフックを解除します。
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
