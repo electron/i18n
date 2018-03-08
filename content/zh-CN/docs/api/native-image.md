@@ -239,18 +239,18 @@ Returns [`Size`](structures/size.md)
 
 #### `image.resize(options)`
 
-* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (可选) - 默认为图像的高度 * `quality` String (可选) - 想要调整的图像质量. 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (可选) - 默认为图像的高度 * `quality` String (可选) - 想要调整的图像质量. 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
 
-Returns `NativeImage` - The resized image.
+返回 ` NativeImage `-裁剪的图像。
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+如果只指定` height `或` width `，那么当前的长宽比将保留在缩放图像中。
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+返回 `Float` - 图像的长宽比.
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+* `options` Object * `scaleFactor` Double - 要添加图像的缩放系数. * `width` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `height` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区. * `dataURL` String (可选) - data URL 可以为 base 64 编码的 PNG 或 JPEG 图像.
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
