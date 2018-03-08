@@ -1,8 +1,8 @@
 # 电源监视器
 
-> Monitor power state changes.
+> 监视电源状态的改变。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 在发出 ` app ` 模块的 ` ready ` 事件之前, 您不能 `require` 或使用此模块。
 
