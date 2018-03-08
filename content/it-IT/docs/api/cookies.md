@@ -31,7 +31,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### Instance Events
 
-The following events are available on instances of `Cookies`:
+Gli eventi seguenti sono disponibili sulle istanze dei `Cookie`:
 
 #### Event: 'changed'
 
