@@ -52,23 +52,23 @@ process.once('loaded', () => {
 
 ### `process.traceDeprecation`
 
-一个 ` Boolean `, 用于控制打印的 ` stderr ` 中是否包含其堆栈跟踪。 将此设置为 ` true ` 将会打印堆栈跟踪。 This property is instead of the `--trace-deprecation` command line flag.
+一个 ` Boolean `, 用于控制打印的 ` stderr ` 中是否包含其堆栈跟踪。 将此设置为 ` true ` 将会打印堆栈跟踪。 此属性代替 `--trace-deprecation` 命令行标志。
 
 ### `process.traceProcessWarnings`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 ` true ` 将打印堆栈跟踪以处理进程的警告信息（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
 
 ### `process.type`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
+一个表示当前进程类型的 ` String `, 可以是 ` "browser" ` (即主进程) 或 ` "renderer" `。
 
 ### `process.versions.chrome`
 
-A `String` representing Chrome's version string.
+` string `，一个表示 Chrome 版本的字符串。
 
 ### `process.versions.electron`
 
-A `String` representing Electron's version string.
+` string `，一个表示 Electron 版本的字符串。
 
 ### `process.windowsStore`
 
