@@ -19,7 +19,7 @@ Obiekt `app` emituje następujące zdarzenia:
 
 ### Zdarzenie: 'will-finish-launching'
 
-Emitowane, kiedy aplikacja zakończy podstawowe uruchamianie. W systemach Windows oraz Linux, zdarzenie `will-finish-launching` jest takie samo jak zdarzenie `ready`; w macOS reprezentuje powiadomienie `applicationWillFinishLaunching` z `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Emitowane, kiedy aplikacja zakończy podstawowe uruchamianie. W systemach Windows oraz Linux, zdarzenie `will-finish-launching` jest takie samo jak zdarzenie `ready`; w macOS reprezentuje powiadomienie `applicationWillFinishLaunching` z `NSApplication`. Zazwyczaj chcesz skonfigurować nasłuchiwanie na zdarzenie `open-file` lub `open-url`, oraz uruchomić crash reporter i auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 
