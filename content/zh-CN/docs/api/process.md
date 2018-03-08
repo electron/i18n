@@ -1,6 +1,6 @@
 # 进程
 
-> Extensions to process object.
+> 处理对象的扩展
 
 进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
@@ -48,11 +48,11 @@ process.once('loaded', () => {
 
 ### `process.throwDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+`Boolean</ 0>类型，用于控制是否将弃用警告当做例外。  设置它为 <code>true` 时会抛出错误。 使用此属性而不是用 `--throw-deprecation ` 命令行标志。
 
 ### `process.traceDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+一个 ` Boolean `, 用于控制打印的 ` stderr ` 中是否包含其堆栈跟踪。 将此设置为 ` true ` 将会打印堆栈跟踪。 This property is instead of the `--trace-deprecation` command line flag.
 
 ### `process.traceProcessWarnings`
 
