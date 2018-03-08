@@ -11,7 +11,7 @@ antarmuka <a href="https://nodejs.org/api/stream.html#stream_readable_streams"> 
 
 <h4>Acara : 'data'</h4>
 
-<p>Pengembalian:</p>
+<p>Mengembalikan:</p>
 
 <ul>
 <li><code> bingkai</ 0>  penyangga- Sejumlah data dari respon tubuh.</li>
@@ -29,7 +29,7 @@ antarmuka <a href="https://nodejs.org/api/stream.html#stream_readable_streams"> 
 
 <h4>Acara: 'kesalahan'</h4>
 
-<p>Pengembalian:</p>
+<p>Mengembalikan:</p>
 
 <p>Kesalahan <code> kesalahan </ 0> - Biasanya memegang string kesalahan yang mengidentifikasi penyebab kegagalan akar.</p>
 
