@@ -1,4 +1,4 @@
-# 충돌 보고서 개체
+# CrashReport Object
 
 * `date` String
 * `ID` Integer
