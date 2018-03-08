@@ -800,7 +800,7 @@ Linuxでは常に `true` を返します。
 * `offsetY` Float
 * `offsetX` Float (optional)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+macOSでシートを表示させる場所を変更します。既定では、シートはウインドウフレームのちょうど真下に表示されますが、HTMLでレンダリングされたツールバーの下に表示したいことがあるかもしれません。例:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -814,27 +814,27 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Starts or stops flashing the window to attract user's attention.
+ユーザの注意を引きつけるためにウインドウの点滅を開始または停止します。
 
 #### `win.setSkipTaskbar(skip)`
 
 * `skip` Boolean
 
-Makes the window not show in the taskbar.
+ウインドウがタスクバーに表示されなくなります。
 
 #### `win.setKiosk(flag)`
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+キオスクモードに入ったり、出たりします。
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+戻り値 `Boolean` - ウインドウがキオスクモードであるかどうか。
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+戻り値 `Buffer` - ウインドウのプラットフォーム固有のハンドル。
 
 The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
 
