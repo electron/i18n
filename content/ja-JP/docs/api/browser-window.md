@@ -865,21 +865,21 @@ win.setSheetOffset(toolbarRect.height)
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+ウインドウが表すファイルのパス名を設定します。ファイルのアイコンがウインドウのタイトルバーに表示されます。
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+戻り値 `String` - ウインドウが表すファイルのパス名。
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+ウインドウのドキュメントが編集されたかどうかを指定します。`true` に設定すると、タイトルバーのアイコンがグレーになります。
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+戻り値 `Boolean` - ウインドウのドキュメントが編集されたかどうか。
 
 #### `win.focusOnWebView()`
 
@@ -887,18 +887,18 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャする範囲
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+`webContents.capturePage([rect, ]callback)` と同じです。
 
 #### `win.loadURL(url[, options])`
 
 * `url` String
 * `options` Object (任意) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
+  * `httpReferrer` String (任意) - HTTPリファラのURL。
+  * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
