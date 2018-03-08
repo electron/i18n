@@ -72,7 +72,7 @@ process.once('loaded', () => {
 
 ### `process.windowsStore`
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+`Boolean`. 如果应用运行于 Windows 商店(appx), 改属性为`true`, 否则为 `undefined`.
 
 ## 方法
 
@@ -80,11 +80,11 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ### `process.crash()`
 
-引起当前进程的主线程崩溃。
+导致当前进程崩溃的主线程。
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+返回 [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
