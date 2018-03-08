@@ -26,14 +26,14 @@
 
 Returns ` Boolean `-无论当前系统是否支持桌面通知
 
-### `new Notification([options])` *Experimental*
+### `new Notification([options])` *实验功能*
 
 * `选项` 对象 
   * ` title `String - 通知的标题, 将在通知窗口的顶部显示
   * ` subtitle `String (可选) 通知的副标题, 将显示在标题下面。* macOS *
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面
   * ` silent `Boolean (可选) 在显示通知时是否发出 OS 提示音
-  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
+  * `icon` (String | [NativeImage](native-image.md)) - (可选) 用于通知的图标
   * ` hasReply `Boolean (可选) 是否向通知中添加内联答复选项。 * macOS *
   * ` replyPlaceholder `String (可选) 内联答复输入字段中的占位符。* macOS *
   * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
@@ -53,7 +53,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 当通知向用户显示时触发, 请注意, 这可能会多次触发, 因为「通知」可以通过 ` show() ` 方法多次显示。
 
-#### Event: 'click'
+#### 事件: 'click'
 
 返回:
 
@@ -69,9 +69,9 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 当用户手动关闭通知时触发
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+当通知关闭后，这个事件不能保证在所有情况下都会触发。
 
-#### Event: 'reply' *macOS*
+#### 事件: 'reply' *macOS*
 
 返回:
 
@@ -80,12 +80,12 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 当用户单击 ` hasReply: true ` 的通知上的 "Reply" 按钮时触发。
 
-#### Event: 'action' *macOS*
+#### 事件: 'action' *macOS*
 
 返回:
 
 * `event` Event
-* `index` Number - The index of the action that was activated
+* `index` Number - 已激活的操作的索引
 
 ### 实例方法
 
@@ -95,13 +95,13 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 立即显示通知给用户，请注意这一点不同于 HTML5通知实现，只实例化一个 `new Notification` 不会马上显示给用户，你需要在OS将要显示它之前调用这个方法将显示它。
 
-If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+如果以前已显示通知, 则此方法将忽略以前显示的通知，并创建具有相同属性的新通知
 
 #### `notification.close()`
 
-Dismisses the notification.
+忽略这条通知
 
-### Playing Sounds
+### 播放声音
 
 在 macOS 上, 您可以指定在显示通知时要播放的声音的名称。 除了自定义声音文件之外, 还可以使用任何默认声音 ("系统首选项" > "声音")。 请确保声音文件是在应用程序包(例如, ` YourApp.app/Contents/Resources`) 内存在副本, 或者是下列位置之一:
 
