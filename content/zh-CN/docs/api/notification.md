@@ -1,14 +1,14 @@
-# Notification
+# 通知
 
 > 创建OS(操作系统)桌面通知
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 ## 在渲染进程中使用
 
 如果要显示来自渲染进程的通知, 你应该使用 [ HTML5 Notification API ](../tutorial/notifications.md)
 
-## Class: Notification
+## 类: Notification
 
 > 创建OS(操作系统)桌面通知
 
