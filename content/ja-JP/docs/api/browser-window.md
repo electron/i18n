@@ -1050,29 +1050,29 @@ WindowsとLinuxでは常に `true` を返します。
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+ウインドウメニューバーを自動的に非表示にするかどうかを設定します。一度設定すると、メニューバーはユーザーが単独で `Alt` キーを押下したときだけ表示されます。
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+メニューバーが既に表示されている場合、`setAutoHideMenuBar(true)` を呼び出してもすぐに非表示にはなりません。
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+戻り値 `Boolean` - メニューバーを自動的に非表示にするかどうか。
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+メニューバーを表示するかどうかを設定します。メニューバーが自動的に非表示にされている場合でも、ユーザは単独で `Alt` キーを押下することで、依然としてメニューバーを表示させることができます。
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+戻り値 `Boolean` - メニューバーを表示しているかどうか。
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
 * `visible` Boolean
 
-Sets whether the window should be visible on all workspaces.
+ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
 **Note:** This API does nothing on Windows.
 
