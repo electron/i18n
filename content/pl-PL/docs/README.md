@@ -13,7 +13,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Konfigurowanie systemu Windows](tutorial/development-environment.md#setting-up-windows)
   * [Konfigurowanie systemu Linux](tutorial/development-environment.md#setting-up-linux)
   * [Wybieranie Edytora](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
+* [Tworzenie pierwszej aplikacji](tutorial/first-app.md) 
   * [Instalowanie Electrona](tutorial/first-app.md#installing-electron)
   * [Rozwój Electrona w pigułce](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Running Your App](tutorial/first-app.md#running-your-app)
@@ -54,17 +54,17 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Sklep Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Application Security](tutorial/security.md) 
+* [Bezpieczeństwo aplikacji](tutorial/security.md) 
   * [Reporting Security Issues](tutorial/security.md#reporting-security-issues)
   * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Lista kontrolna zabezpieczeń](tutorial/security.md#checklist-security-recommendations)
-* [Application Updates](tutorial/updates.md) 
+* [Aktualizacje aplikacji](tutorial/updates.md) 
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## Szczegółowe poradniki
 
 These individual tutorials expand on topics discussed in the guide above.
 
