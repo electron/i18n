@@ -33,7 +33,7 @@ Electron 确保只要渲染进程中的远程对象存在（换句话说，没�
 
 如果远程对象在渲染进程中泄露（例如存储在映射中，但从未释放），则主进程中的相应对象也将被泄漏，所以您应该非常小心，不要泄漏远程对象。
 
-Primary value types like strings and numbers, however, are sent by copy.
+但是，字符串和数字等主要值的类型是通过复制发送的。
 
 ## Passing callbacks to the main process
 
