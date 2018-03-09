@@ -16,7 +16,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Tworzenie pierwszej aplikacji](tutorial/first-app.md) 
   * [Instalowanie Electrona](tutorial/first-app.md#installing-electron)
   * [Rozwój Electrona w pigułce](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
+  * [Uruchamianie Twojej aplikacji](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -66,9 +66,9 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 
 ## Szczegółowe poradniki
 
-These individual tutorials expand on topics discussed in the guide above.
+Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
+* [Szczegółowo: Instalowanie Electrona](tutorial/installation.md) 
   * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
   * [Proxy](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
