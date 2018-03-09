@@ -1026,11 +1026,11 @@ WindowsとLinuxでは常に `true` を返します。
 #### `win.setAppDetails(options)` *Windows*
 
 * `options` Object 
-  * `appId` String (任意) - ウインドウの [アプリユーザーモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). 設定されないと、他のオプションは無効です。
-  * `appIconPath` String (任意) - ウインドウの [再起動アイコン](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)。
+  * `appId` String (任意) - ウインドウの[アプリユーザーモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx)。 設定されないと、他のオプションは無効です。
+  * `appIconPath` String (任意) - ウインドウの[再起動アイコン](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)。
   * `appIconIndex` Integer (任意) - `appIconPath` のアイコンのインデックス。 `appIconPath` が設定されないと無視されます。省略値は、`` です。
-  * `relaunchCommand` String (任意) - ウインドウの [再起動コマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)。
-  * `relaunchDisplayName` String (任意) - ウインドウの [再起動表示名](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)。
+  * `relaunchCommand` String (任意) - ウインドウの[再起動コマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)。
+  * `relaunchDisplayName` String (任意) - ウインドウの[再起動表示名](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)。
 
 ウインドウのタスクバーボタンのプロパティを設定します。
 
