@@ -35,7 +35,7 @@ Electron 确保只要渲染进程中的远程对象存在（换句话说，没�
 
 但是，字符串和数字等主要值的类型是通过复制发送的。
 
-## Passing callbacks to the main process
+## 将回调传递给主进程
 
 主进程中的代码可以接受来自渲染进程的回调 - 例如`remote`模块 - 但使用此功能时应该非常小心。
 
@@ -44,7 +44,7 @@ Electron 确保只要渲染进程中的远程对象存在（换句话说，没�
 例如，您不能在主进程中调用的` Array.map `中使用来自渲染器进程的函数：
 
 ```javascript
-// main process mapNumbers.js
+// 主进程 mapNumbers.js
 exports.withRendererCallback = (mapper) => {
   return [1, 2, 3].map(mapper)
 }
@@ -55,7 +55,7 @@ exports.withLocalCallback = () => {
 ```
 
 ```javascript
-// renderer process
+// 渲染进程
 const mapNumbers = require('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
@@ -64,7 +64,7 @@ console.log(withRendererCb, withLocalCb)
 // [undefined, undefined, undefined], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+如您所见，渲染器回调的同步返回值不是预期的，而且在主进程中也与相同回调的返回值不符。
 
 其次，传递给主进程的回调将持续到主进程垃圾回收。
 
@@ -80,7 +80,7 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 
 更糟的是, 由于以前安装的回调的上下文已释放, 因此在发出 ` close ` 事件时, 将在主进程中引发异常。
 
-为了避免这个问题，请确保清除对传递给主进程的渲染器回调的引用。 This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+为了避免这个问题，请确保清除对传递给主进程的渲染器回调的引用。 这涉及到清理事件处理程序, 或者确保主进程被明确告知服从来自正在退出的渲染程序的回调。
 
 ## 访问主进程中的内置模块
 
