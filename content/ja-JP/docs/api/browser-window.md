@@ -1074,13 +1074,13 @@ WindowsとLinuxでは常に `true` を返します。
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
-**Note:** This API does nothing on Windows.
+**注:** このAPIはWindowsでは何もしません。
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+戻り値 `Boolean` - ウインドウがすべてのワークスペースで表示されているかどうか。
 
-**Note:** This API always returns false on Windows.
+**注:** このAPIはWindowsの場合、常にfalseを返します。
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
