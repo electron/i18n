@@ -949,7 +949,7 @@ win.loadURL('http://localhost:8000/post', {
 
 プログレスバーの進捗値を設定します。有効範囲は、[0, 1.0] です。
 
-progress < 0 の場合、プログレスバーは削除されます。progress > 1 の場合、不確定モードに変更します。
+進捗 < 0 の場合、プログレスバーは削除されます。進捗 > 1 の場合、不確定モードに変更します。
 
 Linuxプラットフォームでは、Unityデスクトップ環境のみがサポートされ、`package.json` の `desktopName` フィールドに `*.desktop` ファイル名を指定する必要があります。 既定では、`app.getName().desktop` であるとみなされます。
 
@@ -957,8 +957,8 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-* `description` String - a description that will be provided to Accessibility screen readers
+* `overlay` [NativeImage](native-image.md) - タスクバーアイコンの右下隅に表示されるアイコン。このパラメータが `null` の場合、オーバーレイはクリアされます
+* `description` String - アクセシビリティスクリーンリーダーに提供される説明
 
 Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
 
