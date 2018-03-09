@@ -545,7 +545,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // name があるため、`type` は "custom" と見做されます
+  { // name があるため、`type` は "custom" とみなされます
     name: 'Tools',
     items: [
       {
@@ -569,7 +569,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // name と type がないため、`type` は "tasks" と見做されます
+  { // name と type がないため、`type` は "tasks" とみなされます
     items: [
       {
         type: 'task',
