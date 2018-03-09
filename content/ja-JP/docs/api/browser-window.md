@@ -990,9 +990,9 @@ WindowsとLinuxでは常に `true` を返します。
 
 戻り値 `Boolean` - ボタンを追加するのに成功したかどうか
 
-タスクバーボタンレイアウトのウインドウのサムネイルイメージに指定されたボタンのセットと一緒にサムネイルツールバーを追加します。 Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+タスクバーボタンレイアウトのウインドウのサムネイルイメージに指定されたボタンのセットと一緒にサムネイルツールバーを追加します。 返却される `Boolean` オブジェクトは、サムネイルを追加するのに成功したかどうかを示します。
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+サムネイルツールバーのボタン数は、限られた空間のため、7以下にしてください。 一度、サムネイルツールバーをセットアップすると、プラットフォームの制約のため、ツールバーを削除することはできません。 But you can call the API with an empty array to clean the buttons.
 
 The `buttons` is an array of `Button` objects:
 
