@@ -4,9 +4,9 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+在 ` app ` 模組的 ` ready` 事件發出之前, 您不能要求或使用此模組。
 
-For example:
+例如:
 
 ```javascript
 const electron = require('electron')
@@ -21,7 +21,7 @@ app.on('ready', () => {
 
 ## 事件
 
-The `powerMonitor` module emits the following events:
+` powerMonitor ` 模組發出以下事件:
 
 ### 事件: 'suspend'
 
@@ -29,7 +29,7 @@ Emitted when the system is suspending.
 
 ### 事件: 'resume'
 
-Emitted when system is resuming.
+在系統復原時發出。
 
 ### 事件: 'on-ac' *Windows*
 
