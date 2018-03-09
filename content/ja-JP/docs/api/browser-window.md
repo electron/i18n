@@ -953,7 +953,7 @@ progress < 0 の場合、プログレスバーは削除されます。progress >
 
 Linuxプラットフォームでは、Unityデスクトップ環境のみがサポートされ、`package.json` の `desktopName` フィールドに `*.desktop` ファイル名を指定する必要があります。 既定では、`app.getName().desktop` であるとみなされます。
 
-Windowsでは、モードを渡すことができます。 有効な値は、`none`、`normal`、`indeterminate`、`error` と `paused` です。 If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+Windowsでは、モードを渡すことができます。 有効な値は、`none`、`normal`、`indeterminate`、`error` と `paused` です。 モードを設定せずに (ただし、有効範囲内の値で) `setProgressBar` を呼び出した場合、`normal` とみなされます。
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
