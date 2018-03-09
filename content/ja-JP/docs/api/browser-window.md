@@ -945,9 +945,9 @@ win.loadURL('http://localhost:8000/post', {
 
 * `progress` Double
 * `options` Object (任意) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
+  * `mode` String *Windows* - プログレスバーのモード。`none`、`normal`、`indeterminate`、`error` または `paused` にすることができます。
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+プログレスバーの進捗値を設定します。有効範囲は、[0, 1.0] です。
 
 Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
 
