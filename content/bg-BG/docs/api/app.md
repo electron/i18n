@@ -735,9 +735,9 @@ app.on('ready', () => {
 * `openAsHidden` Boolean - `true` ако приложението е настроено да се отвори като скрито при вход. Тази настройка се поддържа само за macOS.
 * `wasOpenedAtLogin` Boolean - `true` ако приложението е било отворено при вход автоматично. Тази настройка се поддържа само за macOS.
 * `wasOpenedAsHidden` Boolean - `true` ако приложението е било отворено като елемент от скрит вход. Това показва, че приложението не трябва да отваря никакви прозорци при стартиране. Тази настройка се поддържа само за macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. Тази настройка се поддържа само за macOS.
+* `restoreState` Boolean - `true` ако приложението е било отворено както входна точка, която трябва да възстанови състоянието от предишната сесия. Това показва, че приложението трябва да възстанови прозорците, които са били отворени при последното затваряне на приложението. Тази настройка се поддържа само за macOS.
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Забележка:** Този API няма никакъв ефект върху [MAS изгражданията](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
@@ -766,7 +766,7 @@ app.setLoginItemSettings({
 })
 ```
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Забележка:** Този API няма никакъв ефект върху [MAS изгражданията](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
