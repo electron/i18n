@@ -949,11 +949,11 @@ win.loadURL('http://localhost:8000/post', {
 
 プログレスバーの進捗値を設定します。有効範囲は、[0, 1.0] です。
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+progress < 0 の場合、プログレスバーは削除されます。progress > 1 の場合、不確定モードに変更します。
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+Linuxプラットフォームでは、Unityデスクトップ環境のみがサポートされ、`package.json` の `desktopName` フィールドに `*.desktop` ファイル名を指定する必要があります。 既定では、`app.getName().desktop` であるとみなされます。
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+Windowsでは、モードを渡すことができます。 有効な値は、`none`、`normal`、`indeterminate`、`error` と `paused` です。 If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
