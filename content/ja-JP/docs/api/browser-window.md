@@ -960,37 +960,37 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 * `overlay` [NativeImage](native-image.md) - タスクバーアイコンの右下隅に表示されるアイコン。このパラメータが `null` の場合、オーバーレイはクリアされます
 * `description` String - アクセシビリティスクリーンリーダーに提供される説明
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+現在のタスクバーアイコンの上に、通常、何らかのアプリケーションステータスを伝えたり、ユーザーに控えめに通知したりするのに使われる16 x 16ピクセルのオーバレイを設定します。
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+ウインドウに影を表示させるかどうかを設定します。WindowsとLinuxでは何もしません。
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+戻り値 `Boolean` - ウインドウに影を表示させているかどうか。
 
-On Windows and Linux always returns `true`.
+WindowsとLinuxでは常に `true` を返します。
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Number - 0.0 (完全に透明) と 1.0 (完全に不透明) の間
 
-Sets the opacity of the window. On Linux does nothing.
+ウインドウの透明度を設定します。Linuxでは何もしません。
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+戻り値 `Number` - 0.0 (完全に透明) と 1.0 (完全に不透明) の間
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+戻り値 `Boolean` - ボタンを追加するのに成功したかどうか
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+タスクバーボタンレイアウトのウインドウのサムネイルイメージに指定されたボタンのセットと一緒にサムネイルツールバーを追加します。 Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
 
 The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
