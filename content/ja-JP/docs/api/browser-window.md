@@ -992,9 +992,9 @@ WindowsとLinuxでは常に `true` を返します。
 
 タスクバーボタンレイアウトのウインドウのサムネイルイメージに指定されたボタンのセットと一緒にサムネイルツールバーを追加します。 返却される `Boolean` オブジェクトは、サムネイルを追加するのに成功したかどうかを示します。
 
-サムネイルツールバーのボタン数は、限られた空間のため、7以下にしてください。 一度、サムネイルツールバーをセットアップすると、プラットフォームの制約のため、ツールバーを削除することはできません。 But you can call the API with an empty array to clean the buttons.
+限られた空間のため、サムネイルツールバーのボタン数は、7以下にしてください。 一度、サムネイルツールバーをセットアップすると、プラットフォームの制約のため、ツールバーを削除することはできません。 しかしながら、ボタンを取り除くためにAPIを空の配列で呼び出すことはできます。
 
-The `buttons` is an array of `Button` objects:
+`buttons` は、`Button` オブジェクトの配列です。
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - サムネイルツールバーで表示されるアイコン。
@@ -1013,9 +1013,9 @@ The `buttons` is an array of `Button` objects:
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - ウインドウの領域
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
+タスクバーのウインドウの上でホバリングするときに表示されるサムネイルイメージとして表示するウインドウの領域を設定します。 You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
