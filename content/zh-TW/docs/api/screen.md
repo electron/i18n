@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+在 ` app ` 模組的 ` ready` 事件發出之前, 您不能要求或使用此模組。
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
