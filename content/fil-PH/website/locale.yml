@@ -137,8 +137,6 @@ pages:
     description: Ang Spectron ay isang open source framework para mapadaling maisulat ang mga integrasyon na mga test sa iyong Electron app. Binuo sa tuktok ng ChromeDriver at WebDriverIO.
 _404:
   page_not_found: Hindi matagpuan ang pahina.
-  if_this_is_an_error: Kung ito ay isang error
-  please_file_an_issue: magsampa ng isyu.
 search:
   description_all: Maghanap ng Electron na kaalaman mula sa <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Maghanap ng kaalaman tungkol sa Electron mula sa dokumentasyon.

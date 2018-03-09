@@ -6,14 +6,14 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 
 * [Domande frequenti su Electron](faq.md)
 
-## Guides and Tutorials
+## Guide e tutorial
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
+* [Impostazione dell'ambiente di sviluppo](tutorial/development-environment.md) 
+  * [Configurazione su macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Configurazione su Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Configurazione su Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Scegliere un Editor](tutorial/development-environment.md#a-good-editor)
+* [Creazione della tua prima applicazione](tutorial/first-app.md) 
   * [Installing Electron](tutorial/first-app.md#installing-electron)
   * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Running Your App](tutorial/first-app.md#running-your-app)
@@ -64,7 +64,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## Tutorial dettagliati
 
 These individual tutorials expand on topics discussed in the guide above.
 
@@ -106,7 +106,7 @@ These individual tutorials expand on topics discussed in the guide above.
 ### Moduli del processo principale:
 
 * [app](api/app.md)
-* [autoAggiornatore](api/auto-updater.md)
+* [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)

@@ -35,17 +35,17 @@ community:
   meetups: Setkání
   awesome_notice: Tento seznam je generován z repozitáře <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron od @sindresorhus</a>. <br>Něco chybí? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Pošlete pull request</a>.
   meetup_notice: Chcete-li přidat setkání, upravte <code>data/meetups.json</code> a <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">pošlete pull request</a>.
-releases: Releases
+releases: Vydání
 electron_is_easy:
   title: Je to snazší, než si myslíte
-  description: Pokud vytváříte webové stránky, můžete si také vytvořit desktopovou aplikaci. Elektron je framework pro vytváření nativních aplikací pomocí webových technologií, jako je JavaScript, HTML a CSS. Elektron se postará o systémové části aplikace, a vy se můžete soustředit na specifika vaší aplikace.
+  description: Pokud vytváříte webové stránky, můžete si také vytvořit desktopovou aplikaci. Electron je framework pro vytváření nativních aplikací pomocí webových technologií, jako je JavaScript, HTML a CSS. Elektron se postará o systémové části aplikace, a vy se můžete soustředit na specifika vaší aplikace.
   video_link: Podívejte se na video
 web_technologies:
   title: Webové technologie
-  description: Elektronové používá Chromium a Node.js, takže můžete vytvářet aplikace s HTML, CSS a JavaScript.
+  description: Electronové používá Chromium a Node.js, takže můžete vytvářet aplikace s HTML, CSS a JavaScript.
 open_source:
   title: Open Source
-  description: Elektron je open source projekt udržovaný GitHubem a aktivní komunitou přispěvatelů.
+  description: Electron je open source projekt udržovaný GitHubem a aktivní komunitou přispěvatelů.
 cross_platform:
   title: Multiplatformní
   description: Kompatibilní s Mac, Windows a Linuxem, Electron aplikace sestavíte a spustíte na třech platformách.
@@ -137,8 +137,6 @@ pages:
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
   page_not_found: Stránka nenalezena.
-  if_this_is_an_error: Pokud je to chyba
-  please_file_an_issue: prosím dejte nám vědět.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Find Electron resources from documentation.

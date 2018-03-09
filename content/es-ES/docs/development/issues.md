@@ -5,24 +5,24 @@
 * [Cómo contribuir para arreglar los problemas](#how-to-contribute-in-issues)
 * [Pedir ayuda general](#asking-for-general-help)
 * [Presentar un informe de error](#submitting-a-bug-report)
-* [Resolviendo un error en el informe](#triaging-a-bug-report)
-* [Resolving a Bug Report](#resolving-a-bug-report)
+* [Seguimiento de un Informe de Error](#triaging-a-bug-report)
+* [Resolviendo un informe de error](#resolving-a-bug-report)
 
-## Cómo contribuir para arreglar los problemas
+## Cómo contribuir en un problema
 
-For any issue, there are fundamentally three ways an individual can contribute:
+Para cualquier problema, existen fundamentalmente tres maneras en las que un individuo puede contribuir:
 
-1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the `electron/electron` issue tracker.
-2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
-3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
+1. Mostrando el problema en una discusión: si crees haber encontrado un nuevo fallo en Electron, debes reportarlo creando un nuevo problema en el issue tracker de `electron/electron`.
+2. Ayudando en el seguimiento del problema: Puedes hacerlo proporcionando detalles asistivos (un caso de prueba reproducible que demuestra el fallo) o proporcionando sugerencias para abordar el problema.
+3. Ayudando a resolver el problema: Esto se puede hacer demostrando que el problema no es un fallo o fue arreglado; Pero mas a menudo, abriendo un pull request que cambia el código fuente de `electron/electron` de una manera concreta y susceptible de revisión.
 
-## Pedir ayuda general
+## Pidiendo ayuda general
 
-Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
+Debido que el nivel de actividad en el repositorio `electron/electron` es muy alto, las preguntas o peticiones de ayuda general usando Electron deben ser dirigidas [community slack channel](https://atomio.slack.com) o al [foro](https://discuss.atom.io/c/electron).
 
 ## Presentar un informe de error
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+Al abrir un nuevo problema en el issue tracker de `electron/electron`, a los usuarios se les presentará una plantilla que deberá ser rellenada.
 
 ```markdown
 <!--
@@ -62,20 +62,20 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+Si cree que ha encontrado un fallo en Electron, por favor rellene este formulario lo mejor posible.
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
+Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. Es más fácil corregir un fallo si se puede reproducir.
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+Véase [Como crear un Mínimo, Completo y Verificable ejemplo](https://stackoverflow.com/help/mcve).
 
-## Resolviendo un error en el informe
+## Seguimiento de un Informe de Error
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+Es común que los problemas abiertos se acompañen con un debate. Algunos contribuyentes pueden tener diferentes opiniones, incluyendo si se comporta como un fallo o una funcionalidad. La discusión es parte del proceso y debe mantenerse centrada, útil y profesional.
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+Respuestas bruscas que no proveen contexto adiciona o detalles de apoyo, no son útiles o profesionales. Para muchos, tales respuestas son molestas y dañinas.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Los contribuyentes están animados a resolver problemas de manera colaborativa y ayudarse mutuamente a progresar. Si encuentra un problema que cree que es nulo, o contiene información incorrecta, explique *por qué* lo cree de esa manera con un contexto de soporte adicional, y esté dispuesto a ser convencido de que pueda estar equivocado. Al hacerlo, podemos a menudo alcanzar la solución correcta de manera rápida.
 
-## Resolving a Bug Report
+## Resolviendo un informe de error
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+La mayoría de los problemas son resueltos al abrir un pull request. El proceso para abrir y revisar un pull request es similar a abrir y seguir los problemas, pero conlleva una revisión necesaria y aprobar un workflow que asegure que los cambios propuestos tengan una mínima calidad y criterios funcionales del proyecto Electron.

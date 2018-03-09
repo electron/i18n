@@ -1,67 +1,67 @@
-# Developer Environment
+# डेवलपर वातावरण
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+इलेक्ट्रॉन विकास मूलतः नोड.जेएस विकास ही है | अपने ऑपरेटिंग सिस्टम को इलेक्ट्रॉन के साथ डेस्कटॉप एप्प्स का निर्माण करने में सक्षम एक वातावरण में बदलने के लिए, आपको बस नोड.जेएस, अपनी पसंद का एक कोड एडिटर, और अपने ऑपरेटिंग सिस्टम के कमांड लाइन क्लाइंट की एक बुनियादी समझ की ज़रुरत होगी |
 
-## Setting up macOS
+## मैकओएस का सेटअप करना
 
-> Electron supports Mac OS X 10.9 (and all versions named macOS) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> इलेक्ट्रॉन मैक ओएस एक्स 10.9 (और सभी मैकओएस नामित संस्करण) और उनसे ऊपर का समर्थन करता है | एप्पल मैकओएस को वर्चुअल मशीन में चलाने की अनुमति नहीं देता जब तक कि होस्ट कंप्यूटर खुद एक एप्पल कंप्यूटर न हो, तो अगर आपको एक मैक की ज़रुरत महसूस हो, तो आप एक क्लाउड सर्विस का इस्तेमाल कर सकते हैं जो कि किराया लेकर मैक तक पहुँच उपलब्ध कराती हो (जैसे कि [MacInCloud](https://www.macincloud.com/) या [xcloud](https://xcloud.me)) |
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | हम सलाह देंगे कि आप या तो नवीनतम `LTS` या `वर्तमान` उपलब्ध संस्करण इनस्टॉल करें | [नोड.जेएस डाउनलोड पेज](https://nodejs.org/en/download/) पर जाकर `macOS Installer` चुनें | हालाँकि होमब्रियु भी एक उपलब्ध विकल्प है, पर हम उसे इस्तेमाल न करने की सलाह देंगे - जिस तरह से होमब्रियु नोड.जेएस को इनस्टॉल करता है उससे कई सारे टूल्स बेमेल हो जायेंगे |
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+एक बार डाउनलोड होने के बाद, इंस्टालर को चलायें और फिर इंस्टालेशन विज़ार्ड के निर्देशानुसार इंस्टालेशन पूरी करें |
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by simply search for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+इनस्टॉल करने के बाद, यह सुनिश्चित कर लें कि सब अपेक्षानुसार चल रहा हो| अपने `/Applications/Utilities` फोल्डर में मैकओएस `Terminal` एप्लीकेशन खोजें (या केवल `Terminal` शब्द को स्पॉटलाइट में खोज के) | `Terminal` या अपनी पसंद का कोई दूसरा कमांड लाइन क्लाइंट खोलें और यह सुनिश्चित करें कि `नोड` और `एनपीएम` दोनों उपलब्ध हों:
 
 ```sh
-# This command should print the version of Node.js
+# यह कमांड नोड.जेएस के संस्करण को दिखाती है
 node -v
 
-# This command should print the version of npm
+# यह कमांड एनपीएम के संस्करण को दिखाती है
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+अगर दोनों कमांड्स ने एक संस्करण संख्या दिखाई, तो आप आगे बढ़ सकते हैं! शुरू करने से पहले, आपको जावास्क्रिप्ट विकास के लिए उपयुक्त एक [कोड-एडिटर](#a-good-editor) इनस्टॉल करना चाहिये |
 
-## Setting up Windows
+## विंडोज का सेटअप करना
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> इलेक्ट्रॉन विंडोज 7 और उसके बाद के संस्करणों का समर्थन करता है - इससे पहले के विंडोज संस्करणों पर इलेक्ट्रॉन का विकास करना संभव नहीं है | डेवलपर्स के लिए माइक्रोसॉफ्ट [विंडोज 10 के साथ वर्चुअल मशीन इमेजेस](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) मुफ़्त में उपलब्ध कराता है |
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | हम सलाह देंगे कि आप या तो नवीनतम `LTS` या `वर्तमान` उपलब्ध संस्करण इनस्टॉल करें | [नोड.जेएस डाउनलोड पेज](https://nodejs.org/en/download/) पर जाकर `Windows Installer` चुनें | एक बार डाउनलोड होने के बाद, इंस्टालर को चलायें और फिर इंस्टालेशन विज़ार्ड के निर्देशानुसार इंस्टालेशन पूरी करें |
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+जिस स्क्रीन पर इंस्टालेशन को कॉन्फ़िगर करने का विकल्प आता है, वहाँ सुनिश्चित करें कि आपने `Node.js runtime`, `npm package manager`, और `Add to PATH` विकल्पों को चुना है |
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+इनस्टॉल करने के बाद, यह सुनिश्चित कर लें कि सब अपेक्षानुसार चल रहा हो| स्टार्ट मेन्यु खोल कर और फिर `PowerShell` टाइप कर विंडोज पॉवरशैल को खोजें | `PowerShell` या अपनी पसंद का कोई दूसरा कमांड लाइन क्लाइंट खोलें और यह सुनिश्चित करें कि `नोड` और `एनपीएम` दोनों उपलब्ध हों:
 
 ```powershell
-# This command should print the version of Node.js
+# यह कमांड नोड.जेएस के संस्करण को दिखाती है
 node -v
 
-# This command should print the version of npm
+# यह कमांड एनपीएम के संस्करण को दिखाती है
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+अगर दोनों कमांड्स ने एक संस्करण संख्या दिखाई, तो आप आगे बढ़ सकते हैं! शुरू करने से पहले, आपको जावास्क्रिप्ट विकास के लिए उपयुक्त एक [कोड-एडिटर](#a-good-editor) इनस्टॉल करना चाहिये |
 
-## Setting up Linux
+## लिनक्स का सेटअप करना
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> आम तौर पर, इलेक्ट्रॉन उबुन्तु 12.04, फेडोरा 21, डेबियन 8 और उसके बाद के संस्करणों का समर्थन करता है |
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+पहले, नोड.जेएस का एक ताज़ा संस्करण इनस्टॉल करें | आपकी लिनक्स वितरण पर निर्भर करते हुए, इंस्टालेशन के चरण भिन्न-भिन्न हो सकते हैं | अगर आप सामान्यतः `apt` या `pacman` जैसे एक पैकेज मेनेजर का इस्तेमाल कर सॉफ्टवेर इनस्टॉल करते हैं, तो आप आधिकारिक [लिनक्स पर इनस्टॉल करने की नोड.जेएस गाइड](https://nodejs.org/en/download/package-manager/) का इस्तेमाल करें |
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+आप लिनक्स चला रहे हैं, तो आपको पहले से ही पता होगा कि एक कमांड लाइन क्लाइंट को कैसे इस्तेमाल किया जाता है | अपना पसंदीदा क्लाइंट खोलें और यह सुनिश्चित करें कि `नोड` और `एनपीएम` दोनों वैश्विक तौर पर उपलब्ध हो:
 
 ```sh
-# This command should print the version of Node.js
+# यह कमांड नोड.जेएस के संस्करण को दिखाती है
 node -v
 
-# This command should print the version of npm
+# यह कमांड एनपीएम के संस्करण को दिखाती है
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+अगर दोनों कमांड्स ने एक संस्करण संख्या दिखाई, तो आप आगे बढ़ सकते हैं! शुरू करने से पहले, आपको जावास्क्रिप्ट विकास के लिए उपयुक्त एक [कोड-एडिटर](#a-good-editor) इनस्टॉल करना चाहिये |
 
-## A Good Editor
+## एक अच्छा एडिटर
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+हम इलेक्ट्रॉन में निर्मित दो मुफ़्त लोकप्रिय एडिटर्स का सुझाव देंगे: गिटहब का [एटम](https://atom.io/) और माइक्रोसॉफ्ट का [विसुअल स्टूडियो कोड](https://code.visualstudio.com/) | दोनों के पास जावास्क्रिप्ट का उत्तम समर्थन मौज़ूद है |
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+अगर आप उन डेवलपर्स में से एक है जिनकी एक ख़ास पसंद होती है, तो आपको यह पता होना चाहिये कि आजकल लगभग सभी कोड एडिटर्स और आईडीई जावास्क्रिप्ट का समर्थन करते हैं |

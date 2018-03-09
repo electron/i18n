@@ -137,8 +137,6 @@ pages:
     description: Spectron - це фреймворк з відкритим кодом для полегшеного написання інтеграційних тестів для вашого застосунку Electron. Цей фреймворк раздробленный на базі ChromeDriver та WebDriverIO.
 _404:
   page_not_found: Сторінку не знайдено.
-  if_this_is_an_error: Якщо це помилка, 
-  please_file_an_issue: будь ласка, повідомте про проблему.
 search:
   description_all: Знайти ресурси Electron з <a href="/search/docs">документації</a>, <a href="/search/npmPackages">npm пакунків</a> і <a href="/search/repos">GitHub репозиторіїв</a>.
   description_docs: Знайти ресурси Electron з документації.

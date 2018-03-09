@@ -2,7 +2,7 @@
 
 > Memblokir sistem agar tidak masuk modus daya-rendah (tidur).
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Utama](../glossary.md#main-process)
 
 Sebagai contoh:
 

@@ -725,19 +725,19 @@ app.on('ready', () => {
 
 * `options` Object (по избор) 
   * `path` String (по избор) *Windows* - Изпълнимият път, който ще бъде ползван за сравнение. По подразбиране е `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+  * `args` String[] (по избор) *Windows* - Листът с аргументи от командния ред, с който ще се сравнява. По подразбиране е празен масив.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Ако сте предоставили опциите `path` и `args` на `app.setLoginItemSettings` тогава трябва да изпратите същите аргументи и тук за `openAtLogin` да се определи правилно.
 
-Returns `Object`:
+Връща `Object`:
 
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
-* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
-* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+* `openAtLogin` Boolean - `true` ако приложението е настроено да се отвори при вход.
+* `openAsHidden` Boolean - `true` ако приложението е настроено да се отвори като скрито при вход. Тази настройка се поддържа само за macOS.
+* `wasOpenedAtLogin` Boolean - `true` ако приложението е било отворено при вход автоматично. Тази настройка се поддържа само за macOS.
+* `wasOpenedAsHidden` Boolean - `true` ако приложението е било отворено като елемент от скрит вход. Това показва, че приложението не трябва да отваря никакви прозорци при стартиране. Тази настройка се поддържа само за macOS.
+* `restoreState` Boolean - `true` ако приложението е било отворено както входна точка, която трябва да възстанови състоянието от предишната сесия. Това показва, че приложението трябва да възстанови прозорците, които са били отворени при последното затваряне на приложението. Тази настройка се поддържа само за macOS.
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Забележка:** Този API няма никакъв ефект върху [MAS изгражданията](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
@@ -766,7 +766,7 @@ app.setLoginItemSettings({
 })
 ```
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Забележка:** Този API няма никакъв ефект върху [MAS изгражданията](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 

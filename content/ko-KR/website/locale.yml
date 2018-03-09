@@ -42,7 +42,7 @@ electron_is_easy:
   video_link: 동영상 보기
 web_technologies:
   title: 웹 기술
-  description: Electron은 크로미움과 Node.js를 사용하여, 여러분들이 HTML, CSS, 그리고 자바스크립트를 이용해 애플리케이션을 만들수 있도록 해줍니다.
+  description: Electron은 크로미움과 Node.js를 사용하여, 여러분이 HTML, CSS, 그리고 자바스크립트를 이용해 애플리케이션을 만들수 있도록 해줍니다.
 open_source:
   title: 오픈 소스
   description: Electron은 GitHub가 관리하는 오픈소스 프로젝트이며 적극적인 참여자와 함께하는 커뮤니티입니다.
@@ -137,10 +137,8 @@ pages:
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
   page_not_found: 페이지를 찾을 수 없습니다.
-  if_this_is_an_error: 만약 이것이 오류라면
-  please_file_an_issue: 이슈를 첨부해주세요.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: 문서에서 Electron 소스들을 찾아보세요
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_npm: npm 패키지에서 Electron 리소스를 찾아보세요.
+  description_repos: 깃허브 저장소에서 Electron 리소스를 찾아보세요.

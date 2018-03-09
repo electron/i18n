@@ -317,7 +317,7 @@ Emitowane, kiedy certyfikat klienta jest wymagany.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Wydarzenie: 'login'
 
 Zwraca:
 
@@ -328,13 +328,13 @@ Zwraca:
   * `referrer` URL
 * `authInfo` Obiekt 
   * `isProxy` Boolean
-  * `scheme` String
+  * `schemat` String
   * `host` String
   * `port` Integer
-  * `realm` String
+  * `dziedzina` String
 * `callback` Funkcja 
-  * `username` String
-  * `password` String
+  * `Nazwa użytkownika` String
+  * `Hasło` String
 
 Emitted when `webContents` wants to do basic auth.
 

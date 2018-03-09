@@ -4,14 +4,14 @@ nav:
   blog: ブログ
   community: コミュニティ
   apps: アプリ
-  userland: ユーザーランド (userland)
+  userland: ユーザーランド
   releases: リリース
   contact: お問い合わせ
   languages: 言語
   code_of_conduct: 行動規範
   search: 検索
 docs:
-  title: Electon のドキュメント
+  title: Electron ドキュメント
   description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。
   guides: ガイド
   api_reference: API リファレンス
@@ -128,7 +128,7 @@ pages:
   '/languages':
     title: 言語
   '/userland':
-    title: Userland
+    title: ユーザーランド
   '/devtron':
     title: Devtron
     description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
@@ -137,8 +137,6 @@ pages:
     description: Spectron は、 Electron アプリのインテグレーションテスト用コードを手軽に書くためのオープンソースフレームワークです。ChromeDriver と WebDriverIO を利用して構成されています。
 _404:
   page_not_found: ページが見つかりません。
-  if_this_is_an_error: もしこれがエラーであれば、
-  please_file_an_issue: Issue にてお知らせください。
 search:
   description_all: <a href="/search/docs">ドキュメント</a>や <a href="/search/npmPackages">npm パッケージ</a>、<a href="/search/repos">GitHub リポジトリ</a>から Electron に関するリソースを検索できます。
   description_docs: ドキュメントから Electron に関する情報を検索

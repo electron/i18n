@@ -83,11 +83,11 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 ## Risoluzione dei problemi
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Quando si esegue `npm install electron`, alcuni utenti occasionalmente si imbattono in errori di installazione.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. La migliore soluzione è provare a cambiare rete, o aspettare un po 'e provare a installare di nuovo.
+In quasi tutti i casi, questi errori sono il risultato di problemi di rete e non problemi reali con il pacchetto npm `electron`. Errori come `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` sono tutte indicazioni di un problemi di rete. La migliore soluzione è provare a cambiare rete, o aspettare un po 'e provare a installare di nuovo.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Puoi anche provare a scaricare Electron direttamente da [electron/electron/releases](https://github.com/electron/electron/releases) se l'installazione tramite `npm` non funziona.
 
 If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 

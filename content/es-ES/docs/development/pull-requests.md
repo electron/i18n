@@ -1,26 +1,26 @@
 # Pull Requests
 
-* [Dependencies](#dependencies)
-* [Setting up your local environment](#setting-up-your-local-environment) 
-  * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes) 
-  * [Step 4: Code](#step-4-code)
-  * [Step 5: Commit](#step-5-commit) 
-    * [Commit message guidelines](#commit-message-guidelines)
-  * [Step 6: Rebase](#step-6-rebase)
-  * [Step 7: Test](#step-7-test)
-  * [Step 8: Push](#step-8-push)
-  * [Step 9: Opening the Pull Request](#step-8-opening-the-pull-request)
-  * [Step 10: Discuss and Update](#step-9-discuss-and-update) 
-    * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
-  * [Step 11: Landing](#step-10-landing)
-  * [Continuous Integration Testing](#continuous-integration-testing)
+* [Dependencias](#dependencies)
+* [Configurando tu entorno local](#setting-up-your-local-environment) 
+  * [Paso 1: Fork](#step-1-fork)
+  * [Paso 2: Compilado](#step-2-build)
+  * [Paso 3: Rama](#step-3-branch)
+* [Haciendo Cambios](#making-changes) 
+  * [Paso 4: Código](#step-4-code)
+  * [Paso 5: Commit](#step-5-commit) 
+    * [Directrices de mensaje commit](#commit-message-guidelines)
+  * [Paso 6: Reorganizar](#step-6-rebase)
+  * [Paso 7: Prueba](#step-7-test)
+  * [Paso 8: Push](#step-8-push)
+  * [Paso 9: Abriendo la Solicitud de Retiro](#step-8-opening-the-pull-request)
+  * [Paso 10: Analizar y actualizar](#step-9-discuss-and-update) 
+    * [Aprobación y Solicitud de Cambios de Workflow](#approval-and-request-changes-workflow)
+  * [Paso 11: Ejecutado](#step-10-landing)
+  * [Prueba de Integración Continua](#continuous-integration-testing)
 
-## Setting up your local environment
+## Configurando tu entorno local
 
-### Step 1: Fork
+### Paso 1: Fork
 
 Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
 
@@ -31,108 +31,108 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Step 2: Build
+### Paso 2: Compilado
 
-Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
+Pasos de compilado y dependencias difieren ligeramente dependiendo de su sistema operativo. Ver estas guías detalladas en compilacion local de Electron:
 
-* [Building on MacOS](https://electronjs.org/docs/development/build-instructions-osx)
-* [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [Compilado en MacOS](https://electronjs.org/docs/development/build-instructions-osx)
+* [Compilado en Linux](https://electronjs.org/docs/development/build-instructions-linux)
+* [Compilado en Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+Una vez que has compilado el proyecto localmente, ¡Estas listo para empezar a hacer cambios!
 
-### Step 3: Branch
+### Paso 3: Rama
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+Para mantener tu entorno de desarrollo organizado, crea ramas locales para retener tu trabajo. Estos deben ser ramificados directamente de la rama `master`.
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
 ```
 
-## Making Changes
+## Haciendo Cambios
 
-### Step 4: Code
+### Paso 4: Código
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+La mayoría de los pull request abiertos en contra del repositorio `electron/electron` incluyen cambios tanto para el código C/C++ en los archivos `atom/` como para los archivos `brightray/`, el código JavaScript en el archivo `lib/`, la documentación en `docs/api/` o las pruebas en el archivo `spec/`.
 
-Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
+Por favor asegúrate de correr `npm run lint` de vez en cuando en cualquier cambio de código para asegurar que estos siguen el estilo de código del proyecto.
 
-See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
+Ver [estilo de codificación](https://electronjs.org/docs/development/coding-style) para mas información acerca de la mejor práctica cuando se esta modificando el código en diferentes partes del proyecto.
 
-### Step 5: Commit
+### Paso 5: Commit
 
-It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
+Se le recomienda mantener sus cambios agrupados lógicamente dentro de commits individuales. Muchos contribuyentes encuentras mas fácil el revisar los cambios que son divididos entre multiples commits. No hay límite en el número de commits en un pull request.
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Note that multiple commits often get squashed when they are landed.
+Tenga en cuenta que multiples commits a menudo colisionan cuando son ejecutadas.
 
-#### Commit message guidelines
+#### Directrices de mensaje commit
 
-A good commit message should describe what changed and why.
+Un buen mensaje de commit debe describir que ha cambiado y por qué.
 
-1. The first line should:
+1. La primera linea debe:
   
-  * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+  * contener una breve descripción del cambio (preferiblemente 50 caracteres o menos, y no mas de 72 caracteres)
+  * estar completamente en minúsculas con la excepción de nombres propios, acrónimos, y las palabras que refieren a un código, como nombres de función/variables
     
     Ejemplos:
   
-  * `updated osx build documentation for new sdk`
+  * `actualizar la documentacion de compilado osx para un nuevo sdk`
   
   * `fixed typos in atom_api_menu.h`
 
-2. Keep the second line blank.
+2. Mantén la segunda linea vacía.
 
-3. Wrap all other lines at 72 columns.
+3. Ajuste todas las otras linea en 72 columnas.
 
-See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
+Ver [este artículo](https://chris.beams.io/posts/git-commit/) para mas ejemplos de como escribir buenos mensajes git de commit.
 
-### Step 6: Rebase
+### Paso 6: Reorganizar
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+Una vez hayas asignado tus cambios, es una buena idea el usar `git rebase` (no `git merge`) para sincronizar tu trabajo con el repositorio principal.
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` master.
+Esto asegura que tu rama de trabajo tiene los ultimos cambios del principal `electron/electron`.
 
-### Step 7: Test
+### Paso 7: Prueba
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Las características y reparaciones de un error deben siempre ser dadas con pruebas. Una [guía de prueba](https://electronjs.org/docs/development/testing) ha sido proporcionado para facilitar el proceso. Mirar otras pruebas para ver como deberían ser estructuradas también puede ayudar.
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+Antes de enviar tus cambios en una pull request, siempre ejecute el paquete completo de pruebas. Para ejecutar las pruebas:
 
 ```sh
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+Asegúrese de que el linter no reporta ningún inconveniente y que pasa todas pruebas. Por favor no envíe parches que fallan en cualquiera de las verificaciones.
 
-If you are updating tests and just want to run a single spec to check it:
+Si estas actualizando las pruebas y sólo desea ejecutar una especificación única para comprobarlo:
 
 ```sh
 $ npm run test -match=menu
 ```
 
-The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
+Lo anterior solo podrá ejecutar módulos específicos coincidentes `menu`, el cual es útil para cualquiera que esta trabajando en pruebas que podrían de lo contrario estar al final de un ciclo de prueba.
 
-### Step 8: Push
+### Paso 8: Push
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+Una vez que tus commits están listos -- ya pasadas las pruebas y el linting -- comienza el proceso de apertura de un pull request haciendo un push de tu rama de trabajo a tu fork en GitHub.
 
 ```sh
 $ git push origin my-branch
 ```
 
-### Step 9: Opening the Pull Request
+### Paso 9: Abriendo el Pull Request
 
-From within GitHub, opening a new pull request will present you with a template that should be filled out:
+Desde dentro de GitHub, abrir una nueva pull request te presentará con una plantilla que debe ser llenada:
 
 ```markdown
 <!--
@@ -145,11 +145,11 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 -->
 ```
 
-### Step 10: Discuss and update
+### Paso: 10: Analizar y actualizar
 
-You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+Probablemente recibirás críticas o peticiones de cambios a tu pull request. ¡Esta es una gran parte del proceso de envío así que no te desanimes! Algunos contribuyentes pueden inmediatamente desistir del pull request. Otros pueden tener comentarios o críticas detalladas. Esto es una parte necesaria del proceso con el fin de evaluar si los cambios son correctos y necesarios.
 
-To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
+Para realizar cambios a un pull request existente, realiza los cambios a tu rama loca, añade una nuevo commit con esos cambios, y haz a este nuevo commit un push hacia tu fork. GitHub actualizará automáticamente el pull request.
 
 ```sh
 $ git add my/changed/files
@@ -157,26 +157,26 @@ $ git commit
 $ git push origin my-branch
 ```
 
-There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
+Existe un número de mecanismos mas avanzados para gestionar commits usando `git rebase` que puede ser usado, pero esta mas allá del alcance de esta guía.
 
-Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
+Siéntete libre de postear un comentario en el pull request para avisar a los críticos si estas esperando una respuesta en algo. Si encuentras palabras o acrónimos que parecen desconocidas, consulte este [glosario](https://sites.google.com/a/chromium.org/dev/glossary).
 
-#### Approval and Request Changes Workflow
+#### Aprobación y Solicitud de Cambios de Workflow
 
-All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+Todos los pull request requieren la aprobación de un [Propietario de Código](https://github.com/orgs/electron/teams/code-owners) en el area que modificaste con el fín de ejecutar. Cada vez que un responsable revisa un pull request ellos pueden solicitar cambios. Estos pueden ser pequeños, tales como corregir un error, o puede implicar cambios sustanciales. Dichas solicitudes tienen la intención de ser útiles, pero a veces pueden venir mediante algo brusco o poco útil, especialmente si no incluyen sugerencias concretas en *como* cambiarlo.
 
-Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
+Trata de no estar desmotivado. Si tu sientes que una crítica es injusta, confórmate o busca la entrada de otro contribuyente del proyecto. A menudo ese tipo de comentarios son el resultado de un crítico que no toma el suficiente tiempo para revisar y no son mal intencionados. Estas dificultades a menudo pueden ser resueltas con un poco de paciencia. Dicho esto, se espera que los críticos ofrezcan una crítica útil.
 
-### Step 11: Landing
+### Paso 11: Ejecutado
 
-In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
+Con el fin de ejecutar, un pull request necesita se revisado y aprobado por al menos un Propietario de Código Electron y tarjeta CI. Después de eso, si no hay objeciones de otro contribuyentes, el pull request puede ser combinado.
 
-Congratulations and thanks for your contribution!
+¡Felicitaciones y gracias por tu contribución!
 
-### Continuous Integration Testing
+### Prueba de Integración Continua
 
-Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
+Cada pull request se prueva en el sistema de Integracion Continua (CI) para confirmar que funciona en plataformas compatibles con Electron.
 
-Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
+Idealmente, el pull request pasara("ser verde") en todas las plataformas de CI. Esto quiere decir que pasa todas las pruebas y no hay errores linting. Sin embargo, no es infrecuente para la infraestructura de CI el fallar en plataformas específicas o como son llamadas pruebas "escamosas" a fallar ("be red"). Cada falla de CI debe ser inspeccionada manualmente para determinar la causa.
 
-CI starts automatically when you open a pull request, but only [Releasers](https://github.com/orgs/electron/teams/releasers/members) can restart a CI run. If you believe CI is giving a false negative, ask a Releaser to restart the tests.
+CI inicia automáticamente cuando abres un pull request, pero solo los [Liberadores](https://github.com/orgs/electron/teams/releasers/members) pueden reiniciar una ejecución CI. Si usted cree que CI esta dando negativos falsos, pregunta a un Liberador para reiniciar las pruebas.

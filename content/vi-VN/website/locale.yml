@@ -38,7 +38,7 @@ community:
 releases: Các phiên bản phát hành
 electron_is_easy:
   title: Nó dễ hơn bạn nghĩ
-  description: Nếu bạn có thể xây dựng một website thì bạn có thể xây dựng ứng dụng trên desktop. Electron là một framework cho việc tạo ra các ứng dụng đó chỉ với công nghệ xây dựng web, giống như HTML, CSS và Javascript. Nó sẽ lo về các phần cứng dùm bạn, việc của bạn chỉ cần làm là tập trung tinh thành vào lập trình ứng dụng của bạn.
+  description: Nếu bạn có thể xây dựng một website thì cũng có thể xây dựng ứng dụng trên desktop. Electron là framework giúp xây dựng ứng dụng gốc với công nghệ web như JavaScript, HTML và CSS. Nó sẽ lo những phần khó nên bạn có thể tập trung vào cốt lõi của ứng dụng.
   video_link: Xem video
 web_technologies:
   title: Công nghệ lập trình Web
@@ -137,8 +137,6 @@ pages:
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
   page_not_found: Không tìm thấy trang.
-  if_this_is_an_error: Nếu đây là một lỗi
-  please_file_an_issue: hãy tạo một issue về vấn đề này.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Find Electron resources from documentation.

@@ -126,7 +126,7 @@ pages:
     title: تماس به ما
     description: با تیم الکترون در توییتر، Slack، GitHub و یا توسط ایمیل در تماس باشید.
   '/languages':
-    title: زبان‌ها
+    title: زبان‌ ها
   '/userland':
     title: فضای کاربری
   '/devtron':
@@ -137,8 +137,6 @@ pages:
     description: Spectron یک چارچوب متن باز برای نوشتن تست های یک پارچه برای برنامه ی الکترون شما است. Spectron بر پایه ی ChromeDriver و WebDriverIO ساخته شده است.
 _404:
   page_not_found: صفحه یافت نشد.
-  if_this_is_an_error: اگر این یک خطا است
-  please_file_an_issue: لطفا یک مشکل ثبت کنید.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Find Electron resources from documentation.

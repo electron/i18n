@@ -14,7 +14,7 @@ docs:
   title: Documentazione di Electron
   description: Vedi tutti i <a href="/docs/all">documenti in un'unica pagina</a> o controlla le <a href="/docs/faq">FAQ</a>.
   guides: Guide
-  api_reference: API Reference
+  api_reference: API di Riferimento
   advanced: Avanzato
   footer:
     propose_change: Migliora questo documento
@@ -98,7 +98,7 @@ pages:
     title: Electron | Costruisci applicazioni desktop multipiattaforma in JavaScript, HTML e CSS.
     description: 'Costruisci applicazioni desktop multipiattaforma in JavaScript, HTML e CSS.'
   '/apps':
-    title: Electron Apps
+    title: Applicazioni Electron
     description: Applicazioni sviluppate con Electron
   '/docs':
     title: Documentazione
@@ -116,7 +116,7 @@ pages:
     title: Tutorial
     description: Guide e tutorial per l'ultima versione di Electron
   '/blog':
-    title: Electron Blog
+    title: Blog di Electron
     description: Tutte le ultime notizie dal team e dalla community di Electron.
   '/community':
     title: Community
@@ -137,8 +137,6 @@ pages:
     description: Spectron è un framework open source per scrivere facilmente test di integrazione per la tua app Electron. Costruito sulla base di ChromeDriver e WebDriverIO.
 _404:
   page_not_found: Pagina non trovata.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Trova le risorse di Electron dalla documentazione.

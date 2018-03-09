@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-一个例子是实现一个协议它和`file://`协议功能相同。
+实现与 ` file://` 协议具有相同效果的协议的示例:
 
 ```javascript
 const {app, protocol} = require('electron')
@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+** 注意: **除了指定的方法, 其他方法只能在 ` app ` 模块的 ` ready ` 事件被触发后使用。
 
 ## 方法
 
@@ -32,7 +32,7 @@ app.on('ready', () => {
 * `选项` Object (可选) 
   * `secure` Boolean (可选) - `true` 注册scheme为安全scheme。 默认 `false`.
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+标准方案遵循 RFC 3986 所调用的 [ generic URI syntax ](https://tools.ietf.org/html/rfc3986#section-3)。 For example `http` and `https` are standard schemes, while `file` is not.
 
 Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
 

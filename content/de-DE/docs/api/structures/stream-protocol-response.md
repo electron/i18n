@@ -1,4 +1,4 @@
-# StreamProtocolResponse Object
+# StreamProtocolResponse Objekt
 
 * `statusCode` Nummer - der HTTP Antwortcode
 * `headers` Objekt - Ein Objekt, das den Response-Header enthält

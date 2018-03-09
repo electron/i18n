@@ -137,8 +137,6 @@ pages:
     description: Spectron is een open source framework voor het gemakkelijk schrijven van integraties tests voor uw elektron app. Gebouwd op basis van ChromeDriver en WebDriverIO.
 _404:
   page_not_found: Pagina niet gevonden.
-  if_this_is_an_error: Als dit een fout is
-  please_file_an_issue: please file an issue.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Find Electron resources from documentation.

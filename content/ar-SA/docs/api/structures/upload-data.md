@@ -1,4 +1,4 @@
-# UploadData Object
+# ترقية الكائن
 
 * `bytes` Buffer - Content being sent.
 * `file` String - Path of file being uploaded.

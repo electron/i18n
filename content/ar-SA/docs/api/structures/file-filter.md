@@ -1,4 +1,4 @@
 # FileFilter Object
 
-* `name` String
-* `extensions` String[]
+* اسم الجهاز
+* اسم الجهاز[]

@@ -137,8 +137,6 @@ pages:
     description: स्पेकट्रॉन, इलेक्ट्रॉन एप्प के लिए आसानी से इंटीग्रेशन टेस्ट लिखने के लिए एक मुक्त स्त्रोत रूपरेखा है | क्रोमड्राईवर और वेबड्राईवरआईओ पर बनी |
 _404:
   page_not_found: पेज नहीं मिला
-  if_this_is_an_error: यदि यह कोई त्रुटि है
-  please_file_an_issue: कृपया समस्या दर्ज करें ।
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Find Electron resources from documentation.

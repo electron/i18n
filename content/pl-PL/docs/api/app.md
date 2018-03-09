@@ -19,7 +19,7 @@ Obiekt `app` emituje następujące zdarzenia:
 
 ### Zdarzenie: 'will-finish-launching'
 
-Emitowane, kiedy aplikacja zakończy podstawowe uruchamianie. W systemach Windows oraz Linux, zdarzenie `will-finish-launching` jest takie samo jak zdarzenie `ready`; w macOS reprezentuje powiadomienie `applicationWillFinishLaunching` z `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Emitowane, kiedy aplikacja zakończy podstawowe uruchamianie. W systemach Windows oraz Linux, zdarzenie `will-finish-launching` jest takie samo jak zdarzenie `ready`; w macOS reprezentuje powiadomienie `applicationWillFinishLaunching` z `NSApplication`. Zazwyczaj chcesz skonfigurować nasłuchiwanie na zdarzenie `open-file` lub `open-url`, oraz uruchomić crash reporter i auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 
@@ -246,7 +246,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### Wydarzenie: 'login'
 
 Zwraca:
 
@@ -258,13 +258,13 @@ Zwraca:
   * `referrer` URL
 * `authInfo` Obiekt 
   * `isProxy` Boolean
-  * `scheme` String
+  * `schemat` String
   * `host` String
   * `port` Integer
-  * `realm` String
+  * `dziedzina` String
 * `callback` Funkcja 
-  * `username` String
-  * `password` String
+  * `Nazwa użytkownika` String
+  * `Hasło` String
 
 Emitted when `webContents` wants to do basic auth.
 

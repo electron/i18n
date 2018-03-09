@@ -64,7 +64,7 @@ app.on('ready', () => {
 
 `Tray` 对象会发出以下事件:
 
-#### Event: 'click'
+#### 事件: 'click'
 
 * `event` Event 
   * `altKey` Boolean

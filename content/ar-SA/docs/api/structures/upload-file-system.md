@@ -1,4 +1,4 @@
-# UploadFileSystem Object
+# ترقية الكائن
 
 * `type` String - `fileSystem`.
 * `filsSystemURL` String - FileSystem url to read data for upload.

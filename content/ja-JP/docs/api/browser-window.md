@@ -203,157 +203,157 @@ child.once('ready-to-show', () => {
     * `defaultEncoding` String (任意) - 省略値は、`ISO-8859-1` です。
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は、`false` です。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
-    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されているコンテキストは、依然として `document` と `window` のグローバル変数にフルアクセスできますが、独自のJavaScriptの組み込みコマンドのセット (`Array`、`Object`、`JSON` など) を使用し、ロードされたページによってグローバル環境に加えられたいかなる変更からも分離されます。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **Note:** This option is currently experimental and may change or be removed in future Electron releases.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
-    * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to the value of the `nodeIntegration` option. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
+    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されているコンテキストは、依然として `document` と `window` のグローバル変数にフルアクセスできますが、独自のJavaScriptの組み込みコマンドのセット (`Array`、`Object`、`JSON` など) を使用し、ロードされたページによってグローバル環境に加えられたいかなる変更からも分離されます。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment)で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。 **注:** このオプションは、現在のところ、実験的なものであり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
+    * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。省略値は、`false` です。**注:** このオプションは、現在のところ、実験的なものです。
+    * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は、`nodeIntegration` オプションの値です。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
 
-When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
+`minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制限に従わないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに引き渡したすことは、差し支えありません。
 
-The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+`type` オプションに設定できる値と動作は、プラットフォーム依存です。設定できる値:
 
-* On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-* On macOS, possible types are `desktop`, `textured`. 
-  * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
-* On Windows, possible type is `toolbar`.
+* Linuxでは、設定できる値は、`desktop`、`dock`、`toolbar`、`splash`、`notification` です。
+* macOSでは、設定できる値は、 `desktop、`, `textured です。`. 
+  * `textured` タイプは、メタルのグラデーションの外観 (`NSTexturedBackgroundWindowMask`) を追加します。
+  * `desktop` タイプは、ウインドウをデスクトップのバックグラウンドウインドウのレベル (`kCGDesktopWindowLevel - 1`) に配置します。 デスクトップウインドウはフォーカス、キーボードやマウスイベントを受け付けることがないことに注意してください。しかしながら、`globalShortcut` を使って、かろうじて入力を受け付けることはできます。
+* Windowsでは、設定できるタイプは、`toolbar` です。
 
 ### インスタンスイベント
 
-`new BrowserWindow` で作成されたオブジェクトは、次のイベントを発生させます。
+`new BrowserWindow` で作成されたオブジェクトでは以下のイベントが発生します。
 
 **注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
 #### イベント: 'page-title-updated'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `title` String
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+ドキュメントのタイトルが変更されたときに発生します。`event.preventDefault()` を呼び出すことで、ネイティブウインドウのタイトルが変更されるのをキャンセルできます。
 
 #### イベント: 'close'
 
-戻り値：
+戻り値:
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+ウインドウがクローズされようとするときに発生します。 これは、DOMの `beforeunload` と `unload` イベントの前に発生します。 `event.preventDefault()` を呼び出すことで、クローズがキャンセルされます。
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
+通常、ウインドウをクローズさせる必要があるかどうかを判断するために、`beforeunload` ハンドラーを使用したいと思うでしょうが、これは、ウインドウがリロードされるときにも呼び出されます。 Electronでは、`undefined` 以外の値を返却すれば、クローズをキャンセルします。 例:
 
 ```javascript
 window.onbeforeunload = (e) => {
   console.log('I do not want to be closed')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  // メッセージボックスがユーザに表示される通常のブラウザーとは違って、
+  // 無効でない値を返却すれば、何も表示せずにクローズをキャンセルします。
+  // アプリケーションがクローズするのをユーザに確認させるには、
+  // ダイアログAPIを使用することを推奨します。
+  e.returnValue = false // `return false` と同じですが、非推奨
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***注**: `window.onbeforeunload = handler` と `window.addEventListener('beforeunload', handler)` の動作には、微妙な違いがあります。 単純に値を返却する代わりに、常に明示的に `event.returnValue` を設定するようにすることを推奨します。後者の方がElectron内でより一貫性のある動作をします。*
 
 #### イベント: 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+ウインドウがクローズされると発生します。このイベントを受け取った後は、ウインドウへの参照を削除し、これ以上、ウインドウを使用しないようにしてください。
 
 #### イベント: 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+強制的なシャットダウン、マシン再起動またはセッションのログオフによってウインドウセッションが終了されようとしたときに発生します。
 
 #### イベント: 'unresponsive'
 
-Webページが応答しなくなったときに発生します。
+Webページが応答しなくなるときに発生します。
 
 #### イベント: 'responsive'
 
-応答しないWebページが再び応答すると発生します。
+応答しないWebページが再び応答するようになるときに発生します。
 
 #### イベント: 'blur'
 
-Emitted when the window loses focus.
+ウインドウがフォーカスを失うときに発生します。
 
 #### イベント: 'focus'
 
-Emitted when the window gains focus.
+ウインドウがフォーカスを得るときに発生します。
 
 #### イベント: 'show'
 
-Emitted when the window is shown.
+ウインドウが表示されるときに発生します。
 
 #### イベント: 'hide'
 
-Emitted when the window is hidden.
+ウインドウが非表示になるときに発生します。
 
 #### イベント: 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Webページが (まだ表示されていないが) レンダリングされ、チラつくことなくウインドウが表示できるときに発生します。
 
 #### イベント: 'maximize'
 
-ウィンドウが最大化されたときに発生します。
+ウィンドウが最大化されるときに発生します。
 
 #### イベント: 'unmaximize'
 
-ウィンドウの最大化が解除されたときに出力されます。
+ウインドウが最大化状態から抜けるときに発生します。
 
 #### イベント: 'minimize'
 
-ウィンドウが最小化されたときに発生します。
+ウィンドウが最小化されるときに発生します。
 
 #### イベント: 'restore'
 
-ウィンドウが最小化状態から復元されたときに生成されます。
+ウインドウが最小化状態から復元されたときに発生します。
 
 #### イベント: 'resize'
 
-Emitted when the window is being resized.
+ウインドウがリサイズされるときに発生します。
 
 #### イベント: 'move'
 
-Emitted when the window is being moved to a new position.
+ウインドウが新しい位置に移動されているときに発生します。
 
-**Note**: On macOS this event is just an alias of `moved`.
+**注**: macOSでは、このイベントは `moved` のただのエイリアスです。
 
 #### イベント: 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+ウインドウが新しい位置に移動されるときに一回だけ、発生します。
 
 #### イベント: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+ウインドウがフルスクリーン状態に入るときに発生します。
 
 #### イベント: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+ウインドウがフルスクリーン状態を抜けるときに発生します。
 
 #### イベント: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+ウインドウがHTML APIによってフルスクリーン状態に入るときに発生します。
 
 #### イベント: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+ウインドウがHTML APIによってフルスクリーン状態を抜けるときに発生します。
 
 #### イベント: 'app-command' *Windows*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `command` String
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+[アプリコマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) が呼び出されるときに発生します。 これらは、Windowsで幾つかのマウスに組み込まれている "Back" ボタンだけでなく、一般的にキーボードのメディアキーやブラウザコマンドとも関連付けられています。
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+コマンドは小文字にされ、アンダースコアはハイフンに置き換えられ、`APPCOMMAND_`プレフィックスは外されます。 例えば、`APPCOMMAND_BROWSER_BACKWARD` は、`browser-backward` として送信されます。
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // ユーザがマウスの戻るボタンをクリックしたとき、ウインドウに対して戻るように操作する
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -362,116 +362,116 @@ win.on('app-command', (e, cmd) => {
 
 #### イベント: 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+スクロールホイールイベントフェーズが開始されたときに発生します。
 
 #### イベント: 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+スクロールホイールイベントフェーズが終了したときに発生します。
 
 #### イベント: 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+スクロールイベントフェーズが要素の端に達したことを検出したときに発生します。
 
 #### イベント: 'swipe' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+3本指でのスワイプで発生します。とりうる方向は、`up`、`right`、`down`、`left` です。
 
 #### イベント: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+ウインドウがシートを開くときに発生します。
 
 #### イベント: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+ウインドウがシートを閉じたときに発生します。
 
 #### イベント: 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+ネイティブの新規タブボタンがクリックされるときに発生します。
 
 ### 静的メソッド
 
-The `BrowserWindow` class has the following static methods:
+`BrowserWindow` クラスには、次の静的メソッドがあります。
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+戻り値 `BrowserWindow[]` - 開かれたすべてのブラウザウィンドウの配列。
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+戻り値 `BrowserWindow` - このアプリケーションでフォーカスされたウインドウ。それ以外は、`null` を返します。
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+戻り値 `BrowserWindow` - 指定された `webContents` を所有するウインドウ。
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+戻り値 `BrowserWindow | null` - 指定された `browserView` を所有するウインドウ。指定されたビューがどのウインドウにもアタッチされていない場合、`null` を返します。
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+戻り値 `BrowserWindow` - 指定された `id` のウインドウ。
 
 #### `BrowserWindow.addExtension(path)`
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+`path` にあるChrome拡張機能を追加し、拡張機能の名前を返します。
 
-The method will also not return if the extension's manifest is missing or incomplete.
+このメソッドは、拡張機能のマニフェストが存在しないか、不完全である場合、何も返しません。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `BrowserWindow.removeExtension(name)`
 
 * `name` String
 
-Remove a Chrome extension by name.
+指定した名前でChrome拡張機能を削除します。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+戻り値 `Object` - キーは拡張機能の名前で、それぞれの値は、`name` と `version` プロパティを含むObjectです。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+`path` にある開発者ツールの拡張機能を追加し、拡張機能の名前を返します。
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+拡張機能は記憶されるため、このAPIを一度しか呼び出す必要はありません。このAPIはプログラミングで使用するためのものではありません。 既にロードされている拡張機能を追加しようとした場合、このメソッドは何も返さず、代わりにコンソールに警告を出力します。
 
-The method will also not return if the extension's manifest is missing or incomplete.
+このメソッドは、拡張機能のマニフェストが存在しないか、不完全である場合、何も返しません。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
 * `name` String
 
-Remove a DevTools extension by name.
+指定した名前で開発者ツールの拡張機能を削除します。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+戻り値 `Object` - キーは拡張機能の名前で、それぞれの値は、`name` と `version` プロパティを含むObjectです。
 
-To check if a DevTools extension is installed you can run the following:
+開発者ツールの拡張機能がインストールされているかを確認するには、以下のように実行することで可能です。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -480,327 +480,327 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
 ### インスタンスプロパティ
 
-Objects created with `new BrowserWindow` have the following properties:
+`new BrowserWindow` で作成されたオブジェクトは、以下のプロパティを持っています。
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// In this example `win` is our instance
+// この例では、`win` がインスタンス
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+このウインドウが所有している `WebContents` オブジェクト。すべてのWebページ関連のイベントと操作はこれを介して行われます。
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+[`webContents` ドキュメント](web-contents.md) でメソッドやイベントについて参照してください。
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+ウインドウの一意のIDを表す `Integer`。
 
 ### インスタンスメソッド
 
-Objects created with `new BrowserWindow` have the following instance methods:
+`new BrowserWindow` で作成されたオブジェクトは、次のインスタンスメソッドを持っています。
 
 **注:** いくつかのメソッドは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+強制的にウインドウを閉じます。`unload` と `beforeunload` イベントはWebページで発生しません。また、`close` イベントもこのウインドウで発生しません。しかし、`closed` イベントが発生することは保証されます。
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+ウインドウを閉じることを試みます。これはユーザーが手動でウインドウの閉じるボタンをクリックするのと同じ効果があります。しかしながら、Webページがクローズ処理をキャンセルする可能性があります。[close イベント](#event-close) を参照してください。
 
 #### `win.focus()`
 
-Focuses on the window.
+ウインドウにフォーカスを当てます。
 
 #### `win.blur()`
 
-Removes focus from the window.
+ウインドウからフォーカスを外します。
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+戻り値 `Boolean` - ウインドウがフォーカスされているかどうか。
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+戻り値 `Boolean` - ウインドウが破棄されているかどうか。
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+表示し、ウインドウにフォーカスを当てます。
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+ウインドウを表示しますが、フォーカスを当てません。
 
 #### `win.hide()`
 
-Hides the window.
+ウインドウを非表示にします。
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+戻り値 `Boolean` - ウインドウがユーザーに表示されているかどうか。
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+戻り値 `Boolean` - 現在のウインドウがモーダルウインドウかどうか。
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+ウインドウを最大化します。ウインドウがまだ表示されていない場合、併せてウインドウを表示 (ただし、フォーカスは当たりません) します。
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+ウインドウの最大化を解除します。
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+戻り値 `Boolean` - ウインドウが最大化されているかどうか。
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+ウインドウを最小化します。幾つかのプラットフォームでは、最小化されたウインドウはドックに表示されます。
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+ウインドウを最小化された状態からその前の状態に戻します。
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+戻り値 `Boolean` - ウインドウが最小化されているかどうか。
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+ウインドウをフルスクリーンモードにするかどうかを設定します。
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+戻り値 `Boolean` - ウインドウがフルスクリーンモードであるかどうか。
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+簡易フルスクリーンモードに設定したり、解除したりします。
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルスクリーンモードはネイティブのフルスクリーン動作をエミュレートします。
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+戻り値 `Boolean` - ウインドウが簡易 (Lionより前) フルスクリーンモードであるかどうか。
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* `aspectRatio` Float - コンテンツビューの一部を維持するためのアスペクト比。
+* `extraSize` [Size](structures/size.md) - アスペクト比を維持する際に含まれない追加のサイズ。
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+これはウインドウのアスペクト比を維持します。 ピクセルで指定した追加のサイズによって、開発者は、アスペクト比の計算に含まれないスペースを確保することができます。 このAPIはウインドウのサイズとそのコンテンツのサイズの差異も考慮しています。
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
+HDビデオプレーヤーと関連したコントロールを持つ通常のウインドウを考えてみましょう。 ひょっとすると、左端に15ピクセルのコントロール、右端に25ピクセルのコントロール、プレーヤーの下部に50ピクセルのコントロールがあるかもしれません。 プレーヤー内で、16:9のアスペクト比 (HD @1920x1280の標準的なアスペクト比) を維持するためには、この関数を16/9と[ 40, 50 ]の引数で呼び出します。 2番目の引数は、追加の幅と高さがコンテンツビューの中に収まるかを気にしません。それらはただ存在しているだけです。 全体のコンテンツビュー内にある追加の幅と高さの領域を単純に足し合わせるだけです。
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
-* `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
-* `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `path` String - Quick Lookでプレビューするファイルへの絶対パス。 ここで、Quick Lookはパスのファイル名とファイル拡張子をファイルを開くためのコンテンツタイプを決定するのに使用する点が重要です。
+* `displayName` String (任意) - Quick Lookのモーダルビューに表示するファイルの名前。 これは純粋に見た目だけのもので、ファイルのコンテンツタイプには影響しません。 省略値は、`path` です。
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+指定したパスでファイルをプレビューするために、[Quick Look](https://en.wikipedia.org/wiki/Quick_Look) を使用します。
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+現在開いている [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) のパネルを閉じます。
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md) 
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (任意) *macOS*
 
-Resizes and moves the window to the supplied bounds
+指定した境界までウインドウのサイズを変更して移動します。
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+戻り値 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md) 
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (任意) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+指定した境界までウインドウのクライアント領域 (例えば、Webページ) のサイズを変更して移動します。
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+戻り値 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (任意) *macOS*
 
-Resizes the window to `width` and `height`.
+ウインドウのサイズを `width` と `height` に変更します。
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+戻り値 `Integer[]` - ウインドウの幅と高さを含みます。
 
 #### `win.setContentSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (任意) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+ウインドウのクライアント領域 (例えば、Webページ) のサイズを `width` と `height` に変更します。
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+戻り値 `Integer[]` - ウインドウのクライアント領域の幅と高さを含みます。
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+ウインドウの最小サイズを `width` と `height` に設定します。
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+戻り値 `Integer[]` - ウインドウの最小の幅と高さを含みます。
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+ウインドウの最大サイズを `width` と `height` に設定します。
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+戻り値 `Integer[]` - ウインドウの最大の幅と高さを含みます。
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+ウインドウがユーザーによって手動でサイズを変更できるかどうかを設定します。
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+戻り値 `Boolean` - ウインドウがユーザーによって手動でサイズを変更できるかどうか。
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+ウインドウがユーザーによって移動できるかどうかを設定します。Linuxでは何もしません。
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+戻り値 `Boolean` - ウインドウがユーザーによって移動できるかどうか。
 
-On Linux always returns `true`.
+Linuxでは常に `true` を返します。
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+ウインドウがユーザーによって手動で最小化できるかどうかを設定します。Linuxでは何もしません。
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+戻り値 `Boolean` - ウインドウがユーザーによって手動で最小化できるかどうか
 
-On Linux always returns `true`.
+Linuxでは常に `true` を返します。
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+ウインドウがユーザーによって手動で最大化できるかどうかを設定します。Linuxでは何もしません。
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+戻り値 `Boolean` - ウインドウがユーザーによって手動で最大化できるかどうか。
 
-On Linux always returns `true`.
+Linuxでは常に `true` を返します。
 
 #### `win.setFullScreenable(fullscreenable)`
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるか、ウインドウを最大化するかを設定します。
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+戻り値 `Boolean` - ウインドウの最大化/ズームボタンでフルスクリーンモードに切り替えるか、ウインドウを最大化するか。
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+ウインドウをユーザーが手動で閉じられるかどうかを設定します。Linuxでは何もしません。
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+戻り値 `Boolean` - ウインドウをユーザーが手動で閉じられるかどうか。
 
-On Linux always returns `true`.
+Linuxでは常に `true` を返します。
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `level` String (任意) *macOS* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 省略値は、`floating` です。 詳細については、[macOSのドキュメント](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) を参照してください。
+* `relativeLevel` Integer (任意) *macOS* - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+ウインドウが常に他のウインドウの上に表示されるかどうかを設定します。これを設定した後でも、ウインドウはフォーカスを当てられないツールボックスウインドウではなく、まだ通常のウインドウのままです。
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+戻り値 `Boolean` - ウインドウが常に他のウインドウの上に表示されるかどうか。
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+ウインドウを画面の中央に移動します。
 
 #### `win.setPosition(x, y[, animate])`
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (任意) *macOS*
 
-Moves window to `x` and `y`.
+ウインドウを `x` と `y` に移動します。
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+戻り値 `Integer[]` - ウインドウの現在の位置を含みます。
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+ネイティブのウインドウのタイトルを `title` に変更します。
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+戻り値 `String` - ネイティブのウインドウのタイトル。
 
-**Note:** The title of web page can be different from the title of the native window.
+**注:** Webページのタイトルはネイティブのウインドウのタイトルとは異なる可能性があります。
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
 * `offsetX` Float (optional)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+macOSでシートを表示させる場所を変更します。既定では、シートはウインドウフレームのちょうど真下に表示されますが、HTMLでレンダリングされたツールバーの下に表示したいことがあるかもしれません。例:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -814,72 +814,72 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Starts or stops flashing the window to attract user's attention.
+ユーザの注意を引きつけるためにウインドウの点滅を開始または停止します。
 
 #### `win.setSkipTaskbar(skip)`
 
 * `skip` Boolean
 
-Makes the window not show in the taskbar.
+ウインドウがタスクバーに表示されなくなります。
 
 #### `win.setKiosk(flag)`
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+キオスクモードに入ったり、出たりします。
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+戻り値 `Boolean` - ウインドウがキオスクモードであるかどうか。
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+戻り値 `Buffer` - ウインドウのプラットフォーム固有のハンドル。
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+ハンドルのネイティブな型は、Windowsでは `HWND`、macOSでは `NSView*`、Linuxでは `Window` (`unsigned long`) です。
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+ウインドウメッセージをフックします。メッセージがWndProcで受信されると、`callback` が呼び出されます。
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+戻り値 `Boolean` - メッセージがフックされているかどうかによって、`true` または `false` 。
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
 * `message` Integer
 
-Unhook the window message.
+ウインドウメッセージのフックを解除します。
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+すべてのウインドウメッセージのフックを解除します。
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+ウインドウが表すファイルのパス名を設定します。ファイルのアイコンがウインドウのタイトルバーに表示されます。
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+戻り値 `String` - ウインドウが表すファイルのパス名。
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+ウインドウのドキュメントが編集されたかどうかを指定します。`true` に設定すると、タイトルバーのアイコンがグレーになります。
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+戻り値 `Boolean` - ウインドウのドキュメントが編集されたかどうか。
 
 #### `win.focusOnWebView()`
 
@@ -887,27 +887,27 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャする範囲
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+`webContents.capturePage([rect, ]callback)` と同じです。
 
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+* `options` Object (任意) 
+  * `httpReferrer` String (任意) - HTTPリファラのURL。
+  * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
+  * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (任意)
+  * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-Same as `webContents.loadURL(url[, options])`.
+`webContents.loadURL(url[, options])` と同じです。
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+`url` は、リモートアドレス (例えば、`http://`) または `file://` プロトコルを使ってローカルのHTMLファイルのパスにすることができます。
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+ファイルのURLが正しく構成されているようにするため、Nodeの [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) メソッドを使用することを推奨します。
 
 ```javascript
 let url = require('url').format({
@@ -919,7 +919,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+次のようにすることによって、URLエンコードされたデータで `POST` リクエストを使用してURLをロードすることができます。
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -933,32 +933,32 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+`webContents.reload` と同じです。
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+`menu` をウインドウのメニューバーとして設定します。`null` を設定すると、メニューバーが削除されます。
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (optional) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
+* `options` Object (任意) 
+  * `mode` String *Windows* - プログレスバーのモード。`none`、`normal`、`indeterminate`、`error` または `paused` にすることができます。
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+プログレスバーの進捗値を設定します。有効範囲は、[0, 1.0] です。
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+進捗 < 0 の場合、プログレスバーは削除されます。進捗 > 1 の場合、不確定モードに変更します。
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+Linuxプラットフォームでは、Unityデスクトップ環境のみがサポートされ、`package.json` の `desktopName` フィールドに `*.desktop` ファイル名を指定する必要があります。 既定では、`app.getName().desktop` であるとみなされます。
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+Windowsでは、モードを渡すことができます。 有効な値は、`none`、`normal`、`indeterminate`、`error` と `paused` です。 モードを設定せずに (ただし、有効範囲内の値で) `setProgressBar` を呼び出した場合、`normal` とみなされます。
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-* `description` String - a description that will be provided to Accessibility screen readers
+* `overlay` [NativeImage](native-image.md) - タスクバーアイコンの右下隅に表示されるアイコン。このパラメータが `null` の場合、オーバーレイはクリアされます
+* `description` String - アクセシビリティスクリーンリーダーに提供される説明
 
 Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
 
@@ -997,14 +997,14 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - ツールバーサムネイルで表示されるアイコン。 
+  * `icon` [NativeImage](native-image.md) - サムネイルツールバーで表示されるアイコン。
   * `click` Function
-  * `tooltip` String (optional) - ボタンのツールチップのテキスト。
-  * `flags` String[] (optional) - 特定の状態や行動を制御する ボタン。デフォルトでは、 `['enabled']`。
+  * `tooltip` String (任意) - ボタンのツールチップのテキスト。
+  * `flags` String[] (任意) - ボタンの特定の状態や動作を制御します。省略値は、`['enabled']` です。
 
-`flags` は、 `String` を含むことができる配列です。
+`flags` は、以下の `String` を含めることができる配列です。
 
-* `enabled` - ボタンはアクティブで、ユーザーが使用できます。
+* `enabled` - ボタンはアクティブで、ユーザが利用可能です。
 * `disabled` - ボタンは無効です。存在しますが、ユーザ操作に応答しないことを示す視覚的な状態です。
 * `dismissonclick` - ボタンをクリックすると、サムネイルウインドウはすぐに閉じます。
 * `nobackground` - ボタンの境界を描画しません。画像だけでしか使用しないでください。
@@ -1085,7 +1085,7 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `options` Object (optional) 
+* `options` Object (任意) 
   * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Makes the window ignore all mouse events.
@@ -1158,20 +1158,20 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *実験的*
 
 * `touchBar` TouchBar
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** TouchBar API は現在実験的な機能です。将来的には変更されたり削除されたりする可能性があります。
+**注:** 現在のところ、TouchBar APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *実験的*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` (*実験的*)
+#### `win.getBrowserView()` *実験的*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
-**Note:**BrowserView API は現在実験的な機能です。将来的に変更されたり削除されたりする可能性があります。
+**注:** 現在のところ、BrowserView APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。

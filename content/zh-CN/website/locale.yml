@@ -61,7 +61,7 @@ get_started:
   description: 若要开始使用 Electron，请查阅下面的参考资料，了解如何使用 Electron 包装您的 web 应用程序，访问所有的 API，以及生成的安装程序。
 explore:
   title: 探索 Electron 的 API
-  description: "<a href='https://github.com/electron/electron-api-demos'> Electron API 演示应用程序 </a> 交互演示了Electron API 的最重要特性。看看有什么可能与电子与示例代码和有用的提示, 为您的应用程序的建设。"
+  description: "<a href='https://github.com/electron/electron-api-demos'> Electron API 演示应用程序 </a> 交互演示了 Electron API 的最重要特性。看看有什么可能与 Electron 与示例代码和有用的提示，为您的应用程序的建设。"
 download_from_github: 从 GitHub 下载
 view_all_releases_on_github: 在 GitHub 上 <a href="https://github.com/electron/electron-api-demos/releases"> 查看所有版本</a>
 quick_start:
@@ -73,7 +73,7 @@ quick_start:
   dive_deeper: 或潜得更深，并阅读 <a href='/docs'> 文档</a>。
 need_help:
   title: 需要帮助？
-  description: 在 <a href='https://discuss.atom.io/c/electron'> Discuss </a> 论坛或我们的 <a href='http://atom-slack.herokuapp.com/'> Slack </a>上提问。关注Twitter<a href="https://twitter.com/electronjs"> @electronjs </a> 以接收重要的公告。想要联系我们？发送电子邮件到 <a href="mailto:electron@github.com"> electron@github.com electron@github. com </a>。
+  description: 在 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 论坛或我们的 <a href='http://atom-slack.herokuapp.com/'>Slack</a>上提问。关注Twitter <a href="https://twitter.com/electronjs">@electronjs</a> 以接收重要的公告。想要联系我们？发送电子邮件到 <a href="mailto:electron@github.com">electron@github.com</a>。
 headings:
   languages: 语言
 taglines:
@@ -124,7 +124,7 @@ pages:
     title: 版本发布
   '/contact':
     title: 联系我们
-    description: 在Twitter、Slack、GitHub 或通过电子邮件与电子团队取得联系。
+    description: 在 Twitter、Slack、GitHub 或通过电子邮件与 Electron 团队取得联系。
   '/languages':
     title: 语言
   '/userland':
@@ -137,8 +137,6 @@ pages:
     description: Spectron 是一个开放源码的框架, 便于为您的Electron应用程序编写集成测试. 其建在 ChromeDriver 和 WebDriverIO 的顶部。
 _404:
   page_not_found: 页面找不到了。
-  if_this_is_an_error: 如果这是个错误
-  please_file_an_issue: 请发一个issue
 search:
   description_all: 从 <a href="/search/docs">文档</a>、<a href="/search/npmPackages">npm 包</a> 和 <a href="/search/repos">GitHub 存储库</a>中查找 Electron 资源。
   description_docs: 从文档中查找 Electron 资源。

@@ -137,8 +137,6 @@ pages:
     description: Spectron е рамка с отворен код за лесно писане на интеграционни тестове за вашето Електрон приложение. Spectron е създадена на основата на ChromeDriver и WebDriverIO.
 _404:
   page_not_found: Страницата не е намерена.
-  if_this_is_an_error: Ако това е грешка
-  please_file_an_issue: моля, изпратете въпрос.
 search:
   description_all: Намери Електрон ресурси от <a href="/search/docs"> документация</a>, <a href="/search/npmPackages"> npm пакети</a> и <a href="/search/repos"> GitHub хранилища</a>.
   description_docs: Намери Електрон ресурси от документацията.

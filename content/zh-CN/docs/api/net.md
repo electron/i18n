@@ -46,8 +46,8 @@ app.on('ready', () => {
 
 ### `net.request(options)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Object | String) - `ClientRequest` 构造函数的选项.
 
-Returns [`ClientRequest`](./client-request.md)
+返回 [`ClientRequest`](./client-request.md)
 
 使用 ` options ` 创建 [` ClientRequest `](./client-request.md) 实例, 这些选项直接转发到 ` ClientRequest ` 的构造函数。 ` net.request ` 方法将根据 ` options ` 对象中的指定协议方案, 去发送安全和不安全的 HTTP 请求（ both secure and insecure HTTP requests）。

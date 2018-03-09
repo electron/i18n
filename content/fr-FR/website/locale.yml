@@ -38,7 +38,7 @@ community:
 releases: Versions
 electron_is_easy:
   title: C'est plus facile que vous ne le pensez
-  description: Si vous savez développer un site, vous savez développer une application desktop. Electron est un framework pour créer des applications natives avec les technologies web comme JavaScript, HTML et CSS. Electron s'occupe de la partie technique pour que vous puissiez vous concentrer sur le cœur de votre application.
+  description: Si vous savez développer un site, alors vous savez développer une application desktop. Electron est un framework pour créer des applications natives avec les technologies web comme JavaScript, HTML et CSS. Electron s'occupe de la partie technique pour que vous puissiez vous concentrer sur le cœur de votre application.
   video_link: Voir la vidéo
 web_technologies:
   title: Technologies Web
@@ -137,8 +137,6 @@ pages:
     description: Spectron est un framework open source pour écrire facilement des tests d'intégrations pour votre application Electron. Intégré dans ChromeDriver et WebDriverIO.
 _404:
   page_not_found: Page non trouvée.
-  if_this_is_an_error: S'il s'agit d'une erreur
-  please_file_an_issue: veuillez ouvrir une requête (<i>issue</i>).
 search:
   description_all: Retrouvez les ressources d'Electron depuis la <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">paquets npm</a> et <a href="/search/repos">repos GitHub</a>.
   description_docs: Retrouvez les ressources d'Electron depuis la documentation.

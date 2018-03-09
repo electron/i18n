@@ -66,9 +66,9 @@ OSR(离屏渲染) 可以让你渲染页面而不用立刻显示到屏幕上。 �
 
 ### process
 
-一个进程是计算机程序正在执行中的一个实例。 Electron 应用同时使用了[main](#main-process) 进程和一个或者多个 [renderer](#renderer-process) 进程来运行多个程序。
+一个进程是计算机程序正在执行中的一个实例。 Electron 同时使用了[main](#main-process) 进程和一个或者多个 [renderer](#renderer-process) 进程来运行一个应用。
 
-在 Node.js 和 Electron 里面，每个运行中的进程都有一个 `process` 对象。 这个对象作为一个全局的提供当前进程的相关信息，操作方法。 作为一个全局变量，它在应用内部能够不用 require() 就能随时可用的。
+在 Node.js 和 Electron 里面，每个运行中的进程都有一个 `process` 对象。 这个对象作为一个全局的变量提供了当前进程的相关信息以及操作当前进程的相关方法。 作为一个全局变量，它在应用内部能够不用 require() 就能随时可用的。
 
 参见: [main process](#main-process), [renderer process](#renderer-process)
 

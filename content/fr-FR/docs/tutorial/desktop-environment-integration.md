@@ -6,24 +6,24 @@ Ce guide explique comment intégrer votre application dans les environnements de
 
 ## Notifications
 
-See the [Notifications documentation](notifications.md).
+Voir la [documentation Notifications](notifications.md).
 
-## Recent Documents
+## Documents récents
 
-See [Recent Documents documentation](recent-documents.md).
+Voir la [documentation Documents récents](recent-documents.md).
 
-## Progress Bar
+## Barre de progression
 
-See the [Progress Bar documentation](progress-bar.md).
+Voir la [documentation Barre de progression](progress-bar.md).
 
-## Unity Launcher
+## Lanceur Unity
 
-See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Voir la [documentation Lanceur Unity](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-## Represented File for macOS Window
+## Fichier représenté pour Window sur macOS
 
-See the [Represented File documentation](represented-file.md).
+Voir la [documentation Fichier représenté](represented-file.md).
 
 ## Faire glisser les fichiers en dehors de la fenêtre
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+Voir la [documentation Fichier natif Drag & Drop](native-file-drag-drop.md).

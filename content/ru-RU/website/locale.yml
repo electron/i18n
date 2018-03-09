@@ -27,25 +27,25 @@ languages:
   current: текущий выбор
 community:
   title: Сообщество Electron
-  description: 'Инструменты, шаблоны, видео и больше для Electron <a href="https://github.com/sindresorhus/awesome-electron"> удивительные</a> open-source вкладчики. Найти или добавить <a href="/community#meetups"> meetups</a> рядом с вами.'
+  description: 'Инструменты, шаблоны, видео и другие <a href="https://github.com/sindresorhus/awesome-electron">удивительные</a> примеры для Electron разработчиков с открытым исходным кодом. Найдите или добавьте <a href="/community#meetups">встречи</a> рядом с вами.'
   tools: Инструменты
   boilerplates: Шаблоны
   components: Компоненты
   videos: Видео
-  meetups: Собрания
-  awesome_notice: Этот список генерируется из <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> репозитория. <br> Кое-что пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
-  meetup_notice: Чтобы добавить meetup, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> сделайте pull request</a>.
+  meetups: Встречи
+  awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
+  meetup_notice: Чтобы добавить встречу, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">сделайте pull request</a>.
 releases: Релизы
 electron_is_easy:
   title: Это проще, чем вы думаете
   description: 'Если Вы можете сделать сайт, то Вы сможете сделать приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что вы можете сосредоточиться на главных элементах Вашего приложения.'
-  video_link: Смотреть видео
+  video_link: Посмотреть видео
 web_technologies:
   title: Веб-технологии
   description: Electron использует Chromium и Node.js, так что Вы можете создавать свои приложения на HTML, CSS и JavaScript.
 open_source:
   title: Open Source
-  description: Electron это проект с открытым исходным кодом который поддерживается GitHub и активным сообществом авторов.
+  description: Electron - это проект с открытым исходным кодом, который поддерживается GitHub и активным сообществом разработчиков.
 cross_platform:
   title: Кросс-платформенный
   description: Совместимые с Mac, Windows и Linux приложения Electron создаются и запускаются на трех платформах.
@@ -61,12 +61,12 @@ get_started:
   description: Для начала работы с Electron посмотрите на указанные ниже ресурсы. Узнайте как обернуть ваше веб-приложение с Electron, получить доступ ко всем API и научиться создавать установщики.
 explore:
   title: Исследуйте Electron API
-  description: "<a href='https://github.com/electron/electron-api-demos'>Демо приложение API Electron'а</a> интерактивно демонстрирует наиболее важные функции API Electron'а. Смотрите, что возможно с Electron, на примере простого, и полезные советы для создания Вашего приложения."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Демонстрационное приложение API Electron'а</a> интерактивно демонстрирует наиболее важные функции API Electron'а. Посмотрите на возможности Electron на примере простого кода и прочитайте полезные советы для создания Вашего приложения."
 download_from_github: Скачать с GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub
 quick_start:
   title: "Подготовьте приложение <a href='https://github.com/electron/electron-quick-start' target='_blank'>быстрого старта</a> для просмотра Electron в действии:"
-  description: Минимальное приложение Electron с полезными нотациями.
+  description: Небольшое приложение Electron с полезными нотациями.
   clone: Клонируйте репозиторий быстрого старта
   go_into_repo: Перейти в репозиторий
   install_deps: Установите зависимости и запустите
@@ -75,7 +75,7 @@ need_help:
   title: Нужна помощь?
   description: Задайте вопроссы на канале <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> на Twitter. Нужно приватно связаться? Email <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
-  languages: Languages
+  languages: Языки
 taglines:
   languages: Локализованное содержимое от нашего удивительного сообщества разработчиков по всему миру.
 help_translate: "Помочь перевести"
@@ -83,7 +83,7 @@ footer:
   see_the_faq: Просмотреть часто задаваемые вопросы
 apps:
   title: Приложения, созданные на Electron
-  description: С помощью Electron, создание настольного приложения для вашей компании или идеи легко. Первоначально разработанный для GitHub's <a href='https://atom.io' target='_blank'>Atom редактор</a>, Electron с тех пор используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.
+  description: С помощью Electron'а создание настольного приложения для вашей компании или идеи стало простым занятием. Первоначально разработанный для GitHub <a href='https://atom.io' target='_blank'>редактор Atom</a>, Electron теперь используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.
   view_more: Просмотреть другие приложения
   submit_your_own: или опубликовать своё
   something_missing: Что-то отсутствует?
@@ -92,7 +92,7 @@ clipboard:
   copy: Копировать
   copy_to_clipboard: Копировать в буфер обмена
   copied: Скопировано
-or: or
+or: или
 pages:
   '/':
     title: Electron | Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS.
@@ -101,7 +101,7 @@ pages:
     title: Приложения Electron
     description: Приложения, созданные на Electron
   '/docs':
-    title: Документации
+    title: Документация
     description: Руководства и API справочной документации для последнего релиза Electron
   '/docs/all':
     title: Все документы Electron!
@@ -137,8 +137,6 @@ pages:
     description: Спектрон является фреймворком с открытым исходным кодом для легкого написания, интеграции тестов для вашего приложения Electron. Построен на вершине ChromeDriver и WebDriverIO.
 _404:
   page_not_found: Страница не найдена.
-  if_this_is_an_error: Если это ошибка,
-  please_file_an_issue: пожалуйста, сообщите о проблеме.
 search:
   description_all: Найти ресурсы Electron из <a href="/search/docs"> документации</a>, <a href="/search/npmPackages"> npm пакетов</a> и <a href="/search/repos"> GitHub репозиториев</a>.
   description_docs: Найти ресурсы Electron из документации.

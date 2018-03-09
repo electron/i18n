@@ -2,7 +2,7 @@
 
 > Membuat permintaan HTTP/HTTPS.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Utama](../glossary.md#main-process)
 
 `ClientRequest` mengimplementasikan antarmuka [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) dan karena itu [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -32,13 +32,13 @@ permintaan Const = net.request ({metode: 'Mendapatkan', protokol: ' https:', nam
 
 #### Event: 'respon'
 
-Pengembalian:
+Mengembalikan:
 
 * `respon` IncomingMessage - sebuah objek yang mewakili pesan Respon HTTP.
 
 #### Acara: 'login'
 
-Pengembalian:
+Mengembalikan:
 
 * `authInfo` Obyek 
   * ` isProxy </ 0>  Boolean</li>
@@ -77,7 +77,7 @@ Dibunyikan apabila `permintaan` dibatalkan. `Membatalkan` acara tidak bisa dipec
 
 #### Acara: 'kesalahan'
 
-Pengembalian:
+Mengembalikan:
 
 * `kesalahan` Kesalahan - kesalahan objek menyediakan beberapa informasi tentang kegagalan.
 
@@ -89,7 +89,7 @@ Dipancarkan sebagai acara terakhir dalam transaksi permintaan-respon HTTP. `Menu
 
 #### Event: 'mengalihkan'
 
-Pengembalian:
+Mengembalikan:
 
 * `statusCode` Bilangan bulat
 * `method` String

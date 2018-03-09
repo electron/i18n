@@ -1,6 +1,6 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> 从渲染器进程到主进程的异步通信。
 
 进程: [ Renderer](../glossary.md#renderer-process)
 
@@ -67,7 +67,7 @@
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `windowid` via `channel`
+通过 `channel` 发送消息到带有 `windowid` 的窗口
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

@@ -1,35 +1,38 @@
-# Boilerplates and CLIs
+# Boilerplates dan CLIs
 
-Electron development is un-opinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+Pengembangan elektron un-dogmatis - tidak ada "satu cara yang benar" untuk mengembangkan, membangun, paket, atau melepaskan sebuah aplikasi elektron. Fitur tambahan untuk Electron, baik untuk build dan run-time, biasanya dapat ditemukan di  npm </ 0> dalam paket individual, yang memungkinkan pengembang untuk membangun aplikasi dan membuat jaringan pipa yang mereka butuhkan.</p> 
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+Tingkat modularitas dan kemampuan menyerap sedemikian rupa memastikan bahwa semua pengembang yang bekerja dengan Elektron, baik besar maupun kecil dalam ukuran tim, tidak pernah dibatasi dalam apa yang dapat atau tidak dapat mereka lakukan kapan saja selama siklus pengembangan mereka. Namun, bagi banyak pengembang, salah satu boilerplate berbasis komunitas atau alat baris perintah mungkin membuatnya lebih mudah untuk mengkompilasi, mengemas, dan merilis sebuah aplikasi .
 
 ## Boilerplate vs CLI
 
-A boilerplate is simply a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+A boilerplate is simply a starting point - a canvas, so to speak - from which you build your application. Mereka biasanya datang dalam bentuk sebuah repositori Anda dapat mengkloning dan menyesuaikan untuk isi hati Anda.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+Sebuah alat baris perintah di sisi lain terus mendukung Anda selama pengembangan dan pelepasan. Mereka lebih membantu dan mendukung namun menerapkan panduan tentang bagaimana kode Anda harus terstruktur dan dibangun. * Khusus untuk pemula, menggunakan sebuah alat baris perintah mungkin akan membantu </ 0> .</p> 
 
 ## elektron-penempa
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a simple, easy to use package so that anyone can jump right in to Electron development.
+Sebuah "alat lengkap untuk membangun aplikasi Elektron modern". Electron Forge menyatukan alat build yang ada (dan terawat dengan baik) untuk pengembangan Elektron menjadi paket yang mudah dan mudah digunakan sehingga siapapun bisa langsung masuk ke pengembangan Elektron.
 
-Forge comes with [ready-to-use templates](https://electronforge.io/templates) for popular frameworks like React, Vue, or Angular. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge hadir dengan  template siap pakai </ 0> untuk kerangka kerja populer seperti React, Vue, atau Angular. Menggunakan modul inti yang sama yang digunakan oleh komunitas Elektron yang lebih besar (seperti  packer elektron </ 0> ) -  
+perubahan yang dilakukan oleh pengelola Elektron (seperti Slack) menguntungkan pengguna Forge juga.</p>
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+<p>Anda dapat menemukan lebih banyak informasi dan dokumentasi tentang <a href="https://electronforge.io/"> electronforge.io </ 0> .</p>
 
-## electron-builder
+<h2>pembangun elektron</h2>
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+<p>Sebuah "solusi lengkap untuk paket dan membangun sebuah siap untuk distribusi elektron aplikasi " yang berfokus pada sebuah pengalaman yang terintegrasi. <a href="https://github.com/electron-userland/electron-builder"><code> pembangun elektron </ 0> menambahkan satu ketergantungan tunggal yang difokuskan pada kesederhanaan dan mengelola semua persyaratan lebih lanjut secara internal.</p>
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+<p><code> Pembangun elektron </ 0> menggantikan fitur dan modul yang digunakan oleh pengelola Elektron (seperti updater otomatis) dengan yang custom. Mereka umumnya lebih terintegrasi namun kurang memiliki kesamaan dengan aplikasi Elektron populer seperti Atom, Visual Studio Code, atau Slack.</p>
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+<p>Anda dapat menemukan lebih banyak informasi dan dokumentasi di <a href="https://github.com/electron-userland/electron-builder"> repositori </ 0> .</p>
 
-## electron-react-boilerplate
+<h2>elektron-bereaksi-boilerplate</h2>
 
-If you don't want any tools but simply a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+<p>Jika Anda tidak ingin alat tetapi hanya sebuah boilerplate yang solid untuk membangun dari, CT Lin <a href="https://github.com/chentsulin/electron-react-boilerplate"><code> elektron-bereaksi-boilerplate </ 0> mungkin layak
+ sebuah tampilan. Ini cukup populer di masyarakat dan menggunakan <code> pembangun elektron </ 0> secara 
+internal.</p>
 
-## Other Tools and Boilerplates
+<h2>Alat dan Boilerplate lainnya</h2>
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+<p>Daftar </ strong> Awesome Electron " </ 0> berisi lebih banyak alat dan boilerplates untuk dipilih. Jika Anda menemukan panjang daftar mengintimidasi, jangan lupa bahwa menambahkan alat sebagai Anda pergi bersama adalah suatu pendekatan yang valid, juga.</p>

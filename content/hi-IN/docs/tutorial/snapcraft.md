@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### पहला चरण: अपनी इलेक्ट्रॉन एप्लीकेशन पैकेज करें
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन को पैकेज करें | अपनी पूर्ण एप्लीकेशन में जो `नोड_मोड्यूलस` आपको नहीं चाहिये, उन्हें ज़रूर निकाल दें, नहीं तो गैर-ज़रूरी मोड्यूलस बस आपकी एप्लीकेशन का आकार ही बढ़ायेंगे |
 
 आउटपुट कुछ इस तरह का दिखना चाहिये:
 
@@ -50,15 +50,15 @@ Package the application using [electron-packager](https://github.com/electron-us
         └── version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### दूसरा चरण: `इलेक्ट्रॉन-इंस्टालर-स्नेप` को चलाना
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+एक टर्मिनल जिसके `पथ` में `स्नेपक्राफ्ट` शामिल हो, उससे केवल `--src` पैरामीटर के साथ`इलेक्ट्रॉन-इंस्टालर-स्नेप` चलायें, जो कि पहले चरण में निर्मित आपकी पैकेज्ड इलेक्ट्रॉन एप्लीकेशन का स्थान है |
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+अगर आपके पास एक पहले से निर्मित पाइपलाइन है, तो आप `इलेक्ट्रॉन-इंस्टालर-स्नेप` को प्रोग्रामेटिकल्ली भी इस्तेमाल कर सकते हैं | और अधिक जानकारी के लिए, कृपया [स्नेपक्राफ्ट ऐपीआई डॉक्स](https://docs.snapcraft.io/build-snaps/syntax) देखें |
 
 ```js
 const snap = require('electron-installer-snap')
@@ -67,25 +67,24 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## एक मौजूदा डेबियन पैकेज का इस्तेमाल करना
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+स्नेपक्राफ्ट एक मौज़ूदा `.deb` को लेकर उसे एक `.snap` फाइल में बदलने में सक्षम है | एक `snapcraft.yaml` फाइल जो कि स्त्रोत, निर्भार्तायें, विवरण, और अन्य मुख्य निर्माण ब्लॉक्स का वर्णन करती है, उसका इस्तेमाल कर एक स्नेप का निर्माण कॉन्फ़िगर किया जाता है |
 
-### Step 1: Create a Debian Package
+### पहला चरण: एक डेबियन पैकेज का निर्माण करें
 
-If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+अगर आपके पास पहले से एक `.deb` पैकेज उपलब्ध नहीं है, तो स्नेप पैकेजेस का निर्माण करने के लिए `इलेक्ट्रॉन-इंस्टालर-स्नेप` का इस्तेमाल करना एक ज्यादा आसान मार्ग है | हालाँकि, डेबियन पैकेजेस का निर्माण करने के लिए विभिन्न तरीके मौज़ूद हैं, जिनमे [`इलेक्ट्रॉन-फोर्ज`](https://github.com/electron-userland/electron-forge), [`इलेक्ट्रॉन-बिल्डर`](https://github.com/electron-userland/electron-builder) या [`इलेक्ट्रॉन-इंस्टालर-डेबियन`](https://github.com/unindented/electron-installer-debian) शामिल हैं |
 
-### Step 2: Create a snapcraft.yaml
+### दूसरा चरण: एक snapcraft.yaml का निर्माण करें
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+उपलब्ध कॉन्फ़िगरेशन विकल्पों के बारे में और ज्यादा जानकारी के लिए, [स्नेपक्राफ्ट सिंटेक्स पर मौज़ूद दस्तावेज़ीकरण](https://docs.snapcraft.io/build-snaps/syntax) पढ़ें | आइये एक उदाहरण देखते हैं:
 
 ```yaml
 name: myApp
 version: '2.0.0'
-summary: A little description for the app.
+summary: एप्प का एक छोटा सा विवरण |
 description: |
- You know what? This app is amazing! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+क्या आपको पता है? यह एप्प शानदार है! यह आपके लिए सब चीज़े करती है | कुछ लोग कहते हैं कि यह आपको जवान रखती है, शायद खुश भी |
 
 grade: stable
 confinement: classic
@@ -118,13 +117,13 @@ apps:
   myApp:
     command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
     desktop: usr/share/applications/myApp.desktop
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    # क्रोमियम फ्रेमवर्क/इलेक्ट्रॉन के लिए TMPDIR पथ सही करें ताकि यह सुनिश्चित किया जा सके
+    # libappindicator के पास पढ़े जाने योग्य संसाधन उपलब्ध हो |
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it simply passes information on to the app's binary:
+जैसा कि आप देख सकते हैं, `snapcraft.yaml` सिस्टम को एक `electron-launch` नामक फाइल लांच करने का निर्देश देती है | इस उदाहरण में, यह केवल एप्प की बाइनरी पर जानकारी को पास करता है |
 
 ```sh
 #!/bin/sh
@@ -132,13 +131,13 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+या फिर, अगर आप `स्नेप` को `विशुद्ध` कन्फायीनमेंट के साथ बना रहे हैं, तो आप `desktop-launch` कमांड का इस्तेमाल कर सकते हैं:
 
 ```yaml
 apps:
   myApp:
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+   # क्रोमियम फ्रेमवर्क/इलेक्ट्रॉन के लिए TMPDIR पथ सही करें ताकि यह सुनिश्चित किया जा सके
+    # libappindicator के पास पढ़े जाने योग्य संसाधन उपलब्ध हो |
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```

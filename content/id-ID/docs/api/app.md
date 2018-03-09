@@ -1,37 +1,35 @@
 # aplikasi
 
-> Kontrol aplikasi Anda acara siklus hidup.
+> Kendalikan siklus hidup kejadian aplikasi Anda.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Utama](../glossary.md#main-process)
 
-Contoh berikut menunjukkan bagaimana cara menghentikan aplikasi saat jendela terakhir ditutup:
+Contoh berikut ini menunjukkan bagaimana untuk keluar dari aplikasi ketika jendela terakhir ditutup:
 
 ```javascript
-const {app} = require ('electron') app.on ('window-all-closed', () = & gt; {
-   app.quit ()})
+const {app} = require('electron')
+app.on('window-all-closed', () => {
+  app.quit()
+})
 ```
 
-## Events
+## Kejadian
 
-The ` aplikasi </ 0> objek memancarkan peristiwa berikut:</p>
+Objek `aplikasi` memancarkan kejadian-kejadian berikut:
 
-<h3>Acara : 'will-finish-launching'</h3>
+### Kejadian: 'will-finish-launching'
 
-<p>Emitted saat aplikasi sudah selesai basic startup. Pada Windows dan Linux, <code> akan-selesai-launching </ 0>  acara adalah sama dengan <code> siap </ 0>  event ; di macos , acara ini mewakili aplikasi <code> applicationWillFinishLaunching </ 0> dari
- <code> NSApplication </ 0> . Anda biasanya akan menyiapkan pendengar untuk acara <code> open-file </ 0> dan
- <code> open-url </ 0> di sini, dan memulai reporter kecelakaan dan updater otomatis.</p>
+Dipancarkan saat aplikasi telah menyelesaikan proses awal mula dasar. Pada Windows dan Linux, kejadian `will-finish-launching` sama dengan kejadian `ready`; di macOS, kejadian ini mewakili pemberitahuan `applicationWillFinishLaunching` dari `NSApplication`. Anda biasanya akan menyiapkan pendengar untuk kejadian `open-file` dan `open-url` di sini, dan memulai pelapor crash dan pemutakhir otomatis.
 
-<p>Dalam kebanyakan kasus, Anda hanya harus melakukan semuanya dalam pengendali event <code> siap </ 0>  .</p>
+Dalam kebanyakan kasus, Anda mestinya hanya melakukan semuanya dalam pemroses kejadian `ready`.
 
-<h3>Acara : 'siap'</h3>
+### Kejadian: 'ready'
 
-<p>Pengembalian:</p>
+Mengembalikan:
 
-<ul>
-<li><code> launchInfo </ 0> Objek <em> macOS </ 1></li>
-</ul>
+* `launchInfo` Object *macOS*
 
-<p>Emitted ketika Elektron selesai menginisialisasi. Di macos , <code> launchInfo </ 0> memegang <code> userInfo </ 0> dari <code> NSUserNotification </ 0> yang digunakan untuk membuka aplikasi, jika diluncurkan dari Notification Center. Anda dapat menghubungi <code> app.isReady () </ 0> untuk memeriksa apakah acara ini telah dipecat.</p>
+Emitted ketika Elektron selesai menginisialisasi. Di macos , ` launchInfo </ 0> memegang <code> userInfo </ 0> dari <code> NSUserNotification </ 0> yang digunakan untuk membuka aplikasi, jika diluncurkan dari Notification Center. Anda dapat menghubungi <code> app.isReady () </ 0> untuk memeriksa apakah acara ini telah dipecat.</p>
 
 <h3>Acara : 'window-all-closed'</h3>
 

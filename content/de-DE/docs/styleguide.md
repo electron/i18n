@@ -1,44 +1,44 @@
-# Electron Documentation Styleguide
+# Electron's Dokumentations-Styleguide
 
 Dies sind die Richtlinien für das Schreiben von Dokumentation zu Elektron.
 
 ## Titel
 
 * Jede Seite hat ein einzelnen Titel mit `#` am Anfang.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Kapitel der selben Seite müssen `##`-Level Titel haben.
+* Unterkapitel müssen die Anzahl der `#` im Titel entsprechend ihrer Schachtelungstiefe erhöhen.
+* Alle Wörter im Titel der Seite müssen groß geschrieben werden, mit Ausnahme von Konjunktionen wie "von" und "und".
+* Nur das erste Wort eines Kapiteltitels muss großgeschrieben werden.
 
-Using `Quick Start` as example:
+Am Beispiel von `Schnellstart`:
 
 ```markdown
-# Quick Start
+# Schnellstart
 
 ...
 
-## Main process
+## Hauptprozess
 
 ...
 
-## Renderer process
+## Rendering-Prozess
 
 ...
 
-## Run your app
+## Starten Sie Ihre App
 
 ...
 
-### Run as a distribution
+### Als Distribution ausführen
 
 ...
 
-### Manually downloaded Electron binary
+### Manuell heruntergeladene Binärdateien von Electron
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 
 ## Regeln für Markdown
 

@@ -96,7 +96,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+返回`Boolean` - 下载是否可以恢复。
 
 #### `downloadItem.cancel()`
 
