@@ -6,13 +6,13 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 
 * [Electron FAQ](faq.md)
 
-## Guides and Tutorials
+## Poradniki i Samouczki
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
+* [Konfigurowanie środowiska programistycznego](tutorial/development-environment.md) 
+  * [Konfigurowanie systemu macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Konfigurowanie systemu Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Konfigurowanie systemu Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Wybieranie Edytora](tutorial/development-environment.md#a-good-editor)
 * [Creating your First App](tutorial/first-app.md) 
   * [Instalowanie Electrona](tutorial/first-app.md#installing-electron)
   * [Rozwój Electrona w pigułce](tutorial/first-app.md#electron-development-in-a-nutshell)
