@@ -32,17 +32,16 @@ const electron = require('electron')
 
 所有Electron的API都被指派给一种进程类型。 许多API只能被用于主进程中，有些API又只能被用于渲染进程，又有一些主进程和渲染进程中都可以使用。 针对特定API 的文档将明确说明可以在哪种进程中使用。
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+Electron中的窗口是使用`BrowserWindow`类型创建的一个实例， 它只能在主进程中使用。
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// 这样写在主进程会有用，但是在渲染进程中会提示'未定义'
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+因为进程之间的通信是被允许的, 所以渲染进程可以调用主进程来执行任务。 Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
 
 ```javascript
 // This will work in a renderer process, but be `undefined` in the
