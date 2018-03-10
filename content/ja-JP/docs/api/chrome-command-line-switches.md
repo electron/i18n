@@ -2,7 +2,7 @@
 
 > Electronによってサポートされているコマンドラインスイッチ。
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+[app](app.md) モジュールで [ready](app.md#event-ready) イベントが発生する前に、アプリのメインスクリプトで [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) を使って、コマンドラインスイッチを追加することができます。
 
 ```javascript
 const {app} = require('electron')
