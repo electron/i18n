@@ -16,27 +16,27 @@ app.on('ready', () => {
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+`,` で区切られた `domains` リストに対する接続数の制限を無視します。
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+HTTPリクエストに対するディスクキャッシュを無効にします。
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+デバッグ関連のフラグです。詳細については、[メインプロセスのデバッグ](../tutorial/debugging-main-process.md)ガイドを参照してください。
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+指定された `port` でHTTP越しのリモートデバッグを有効にします。
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+ディスクキャッシュによって使用されるバイト単位での最大のディスク容量を強制的に設定します。
 
 ## --js-flags=`flags`
 
