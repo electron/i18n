@@ -4,7 +4,7 @@
 
 ## 主进程和渲染进程
 
-在Electron中，运行`package.json`的`主要脚本的过程`，被称为**主进程**。 在主进程中运行的脚本通过创建web页面来展示用户界面。 一个Electron引用总是有且只有一个主进程。
+Electron 运行 `package.json` 的 `main` 脚本的进程被称为**主进程**。 在主进程中运行的脚本通过创建web页面来展示用户界面。 一个Electron引用总是有且只有一个主进程。
 
 由于 Electron 使用了 Chromium 来展示 web 页面，所以 Chromium 的多进程架构也被使用到。 每个 Electron 中的 web 页面运行在它自己的**渲染进程**进程中。
 
@@ -86,4 +86,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 有一个非常重要的提示: 原生Node.js模块 (即指，需要编译源码过后才能被使用的模块) 需要在编译后才能和Electron一起使用。
 
-绝大多数的Node.js模块都*不*是原生的， 只有大概400~650个模块是原生的。 However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md) (it's easy).
+绝大多数的Node.js模块都*不*是原生的， 只有大概400~650个模块是原生的。 当然了，如果你确实需要原生模块，可以在这里查询指南[如何重新为Electron编译它们](./using-native-node-modules.md)(很简单)。
