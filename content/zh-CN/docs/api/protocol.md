@@ -32,7 +32,7 @@ app.on('ready', () => {
 * `选项` Object (可选) 
   * `secure` Boolean (可选) - `true` 注册scheme为安全scheme。 默认 `false`.
 
-标准方案遵循 RFC 3986 所调用的 [ generic URI syntax ](https://tools.ietf.org/html/rfc3986#section-3)。 For example `http` and `https` are standard schemes, while `file` is not.
+协议标准遵循 RFC 3986 所设定的 [URI泛型语法 ](https://tools.ietf.org/html/rfc3986#section-3)。 例如, ` http ` 和 ` https ` 是标准协议, 而 ` file ` 不是。
 
 Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
 
