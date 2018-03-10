@@ -1096,47 +1096,47 @@ WindowsとLinuxでは常に `true` を返します。
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+他のアプリによってウインドウのコンテンツがキャプチャされるのを防止します。
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。Windowsでは、`WDA_MONITOR` でSetWindowDisplayAffinityを呼び出します。
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+ウインドウにフォーカスできるかどうかを変更します。
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+現在のウインドウの親ウインドウとして `parent` を設定します。`null` を渡すと、現在のウインドウをトップレベルウインドウにします。
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+戻り値 `BrowserWindow` - 親ウインドウ。
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+戻り値 `BrowserWindow[]` - すべての子ウインドウ。
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+タイプしているときにカーソルを非表示にするかどうかを制御します。
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+ネイティブのタブが有効で、ウインドウに他のタブがあるとき、一つ前のタブを選択します。
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+ネイティブのタブが有効で、ウインドウに他のタブがあるとき、次のタブを選択します。
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+ネイティブのタブが有効で複数の開いているウインドウがあるとき、すべてのウインドウを複数のタブで1つのウインドウにマージします。
 
 #### `win.moveTabToNewWindow()` *macOS*
 
