@@ -36,7 +36,7 @@ app.on('ready', () => {
 
 将一个scheme注册为标准scheme, 将保证相对和绝对资源在使用时能够得到正确的解析。 否则, 该协议将表现为 ` file ` 协议, 而且，这种文件协议将不能解析相对路径。
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+例如, 当您使用自定义协议加载以下内容时，如果你不将其注册为标准scheme, 图片将不会被加载, 因为非标准scheme无法识别相对 路径:
 
 ```html
 <body>
@@ -44,7 +44,7 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-注册一个scheme作为标准scheme将允许其通过[FileSystem 接口](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)访问文件。 Otherwise the renderer will throw a security error for the scheme.
+注册一个scheme作为标准scheme将允许其通过[FileSystem 接口](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)访问文件。 否则, 渲染器将会因为该scheme，而抛出一个安全性错误。
 
 默认情况下web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) 被禁止访问非标准schemes。 所以一般来说如果你想注册一个 自定义协议来替换`http`协议，您必须将其注册为标准scheme：
 
@@ -57,11 +57,11 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted.
+** 注意: **此方法只能在 ` app ` 模块的 ` ready ` 事件被发出之前使用。
 
 ### `protocol.registerServiceWorkerSchemes(schemes)`
 
-* `schemes` String[] - Custom schemes to be registered to handle service workers.
+* `schemes` String[] - 将自定义 schemes注册为处理线程服务的标准schemes。
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
