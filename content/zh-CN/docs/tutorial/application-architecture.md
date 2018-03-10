@@ -41,11 +41,10 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-因为进程之间的通信是被允许的, 所以渲染进程可以调用主进程来执行任务。 Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+因为进程之间的通信是被允许的, 所以渲染进程可以调用主进程来执行任务。 Electron调用`remote`模块暴露的API，只有它的API可以在主进程中被获取到。 为了在渲染进程中创建一个`BrowserWindow`的实例，我们通常使用remote模块为中间件：
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+//这样写在渲染进程中时行得通的，但是在主进程中是'未定义'
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
@@ -54,9 +53,9 @@ const win = new BrowserWindow()
 
 ## 使用Node.js的API
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron同时在主进程和渲染进程中对Node.js 暴露了所有的接口。 这里有两个重要的定义：
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1)所有在Node.js可以使用的API，在Electron中同样可以使用。 在Electron中调用如下代码是有用的：
 
 ```javascript
 const fs = require('fs')
