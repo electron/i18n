@@ -62,14 +62,14 @@ const fs = require('fs')
 
 const root = fs.readdirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// 这会打印出磁盘根级别的所有文件
+// 同时包含'/'和'C:\'。
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+正如您可能已经猜到的那样，如果您尝试加载远程内容， 这会带来重要的安全隐患。 您可以在我们的 [ 安全文档 ](./security.md) 中找到更多有关加载远程内容的信息和指南。
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2)你可以在你的应用程序中使用Node.js的模块。 选择您最喜欢的 npm 模块。 npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
 
 As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
 
