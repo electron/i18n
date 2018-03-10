@@ -20,9 +20,9 @@
 
 > #### 题外话：进程间通讯
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> 在Electron中，我们有几种方式让主进程和渲染进程进行通信。 例如[`ipcRenderer`](../api/ipc-renderer.md)和[`ipcMain`](../api/ipc-main.md)模块间发送消息，可以使用[远程](../api/remote.md)模块那样的RPC通信方式。 这里也有一个常见问题解答[web页面间如何共享数据](../faq.md#how-to-share-data-between-web-pages)。
 
-## Using Electron APIs
+## 使用Electron的API
 
 Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
 
@@ -53,7 +53,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## 使用Node.js的API
 
 Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
 
