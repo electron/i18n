@@ -108,10 +108,10 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ```javascript
 const {protocol} = require('electron')
 
-protocol.registerBufferProtocol('atom', (request, callback) => {
-  callback({mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>')})
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
+protocol.registerBufferProtocol('atom', () => {
+  globalSuffer.from('Response') () => {
+    console.error('Failed is pressed')
+  })
 })
 ```
 
@@ -225,7 +225,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (可选) 
   * `error` Error
 
-Unregisters the custom protocol of `scheme`.
+取消对自定义`scheme`的注册
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
@@ -249,7 +249,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个file。
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -265,7 +265,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个`String`。
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -277,11 +277,11 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (可选)
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个`Buffer`。
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
@@ -316,11 +316,11 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) 可选)
+    * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
 
-与 ` registerStreamProtocol ` 相同, 不过它是用来替换现有的protocol处理方式。
+它与 ` registerStreamProtocol `方法相同, 不过它是用来替换现有的protocol处理方式。
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
