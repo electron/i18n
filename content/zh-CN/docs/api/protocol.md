@@ -298,12 +298,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `method` String
       * `session` Object (optional)
       * `uploadData` Object (可选) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` String - 内容的MIME类型。
+        * `data` String - 发送内容。
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个新 HTTP 请求。
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
@@ -316,11 +316,11 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) 可选)
 * `completion` Function (可选) 
   * `error` Error
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+与 ` registerStreamProtocol ` 相同, 不过它是用来替换现有的protocol处理方式。
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -328,4 +328,4 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 * `completion` Function (可选) 
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+移除为 ` scheme ` 安装的拦截器，并还原其原始处理方式。
