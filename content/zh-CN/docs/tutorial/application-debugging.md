@@ -1,6 +1,6 @@
-# Application Debugging
+# 调试应用
 
-Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
+无论何时，你的Electron应用程序没有按照你想的方式运行，一组调试工具也许可以帮助你找到代码的错误，性能瓶颈，或者优化的机会。
 
 ## 渲染进程
 
