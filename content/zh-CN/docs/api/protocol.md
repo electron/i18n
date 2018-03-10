@@ -32,9 +32,9 @@ app.on('ready', () => {
 * `选项` Object (可选) 
   * `secure` Boolean (可选) - `true` 注册scheme为安全scheme。 默认 `false`.
 
-协议标准遵循 RFC 3986 所设定的 [URI泛型语法 ](https://tools.ietf.org/html/rfc3986#section-3)。 例如, ` http ` 和 ` https ` 是标准协议, 而 ` file ` 不是。
+标准scheme遵循 RFC 3986 所设定的 [URI泛型语法 ](https://tools.ietf.org/html/rfc3986#section-3)。 例如, ` http ` 和 ` https ` 是标准协议, 而 ` file ` 不是。
 
-Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+将一个scheme注册为标准scheme, 将保证相对和绝对资源在使用时能够得到正确的解析。 否则, 该协议将表现为 ` file ` 协议, 而且，这种文件协议将不能解析相对路径。
 
 For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
 
@@ -44,7 +44,7 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-注册一个scheme作为标准scheme将允许其访问文件通过[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)。 Otherwise the renderer will throw a security error for the scheme.
+注册一个scheme作为标准scheme将允许其通过[FileSystem 接口](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)访问文件。 Otherwise the renderer will throw a security error for the scheme.
 
 默认情况下web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) 被禁止访问非标准schemes。 所以一般来说如果你想注册一个 自定义协议来替换`http`协议，您必须将其注册为标准scheme：
 
@@ -159,7 +159,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
-For POST requests the `uploadData` object must be provided.
+对于 POST 请求, 必须提供 ` uploadData ` 对象。
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
