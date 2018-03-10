@@ -69,21 +69,21 @@ console.log(root)
 
 正如您可能已经猜到的那样，如果您尝试加载远程内容， 这会带来重要的安全隐患。 您可以在我们的 [ 安全文档 ](./security.md) 中找到更多有关加载远程内容的信息和指南。
 
-2)你可以在你的应用程序中使用Node.js的模块。 选择您最喜欢的 npm 模块。 npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2)你可以在你的应用程序中使用Node.js的模块。 选择您最喜欢的 npm 模块。 npm 提供了目前世界上最大的开源代码库，那里包含良好的维护、经过测试的代码，提供给服务器应用程序的特色功能也提供给Electron。
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+例如，在你的应用程序中要使用官方的AWS SDK，你需要首先安装它的依赖：
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, simply require and use the module as if you were building a Node.js application:
+然后，在你的Electron应用中，通过简单的require的方式引入并使用模块，就像构建Node.js应用程序那样：
 
 ```javascript
-// A ready-to-use S3 Client
+// 准备好被使用的S3 client模块
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+有一个非常重要的提示: 原生Node.js模块 (即指，需要编译源码过后才能被使用的模块) 需要在编译后才能和Electron一起使用。
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md) (it's easy).
+绝大多数的Node.js模块都*不*是原生的， 只有大概400~650个模块是原生的。 However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md) (it's easy).
