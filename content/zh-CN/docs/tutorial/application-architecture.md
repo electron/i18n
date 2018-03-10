@@ -1,10 +1,10 @@
 # Electron 应用结构
 
-在我们深入了解Electron的API之前，我们需要探讨一下Electron中的两个进程。 They are fundamentally different and important to understand.
+在我们深入了解Electron的API之前，我们需要探讨一下在Electron中可能遇到的两种进程类型。 它们是完全不同，但理解它们却非常重要。
 
-## Main and Renderer Processes
+## 主进程和渲染进程
 
-Electron 运行 `package.json` 的 `main` 脚本的进程被称为**主进程**。 The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+在Electron中，运行`package.json`的`主要脚本的过程`，被称为**主进程**。 在主进程中运行的脚本通过创建web页面来展示用户界面。 一个Electron引用总是有且只有一个主进程。
 
 由于 Electron 使用 Chromium 来显示 web 页面，所以 Chromium 的多进程架构也是可用的。 每个 Electron 中的 web 页面运行在它的叫**渲染进程**的进程中。
 
