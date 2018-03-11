@@ -46,7 +46,7 @@ Node JSエンジンに渡すフラグを指定します。メインプロセス�
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-利用できるフラグの一覧については、[Nodeのドキュメント](https://nodejs.org/api/cli.html) を参照するか、ターミナルで `node --help` を実行してください。 Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+利用できるフラグの一覧については、[Nodeのドキュメント](https://nodejs.org/api/cli.html)を参照するか、ターミナルで `node --help` を実行してください。 さらに、NodeのV8 JavaScriptエンジンに関するフラグの一覧を具体的に見るには、`node --v8-options` を実行してください。
 
 ## --proxy-server=`address:port`
 
