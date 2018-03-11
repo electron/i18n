@@ -10,8 +10,8 @@
 const {crashReporter} = require('electron')
 
 crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
+  productName: '이름',
+  companyName: '조직 이름',
   submitURL: 'https://your-domain.com/url-to-submit',
   uploadToServer: true
 })
@@ -31,12 +31,12 @@ Crash reports are saved locally in an application-specific temp directory folder
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String (optional)
-  * `submitURL` String - URL that crash reports will be sent to as POST.
-  * `productName` String (optional) - Defaults to `app.getName()`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
-  * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
+  * `companyName` String (선택적)
+  * `submitURL` String - POST로 보낼 충돌 보고서 URL 입니다.
+  * `productName` String (선택적) - 기본 값은 `app.getName()` 입니다.
+  * `uploadToServer` Boolean (선택적) - 충돌 보고서가 서버로 전송될지를 결정합니다. 기본값은 `true` 입니다.
+  * `ignoreSystemCrashHandler` Boolean (선택적) - 기본값은 `false` 입니다.
+  * `extra` Object (선택적) - 보고서와 함께 보낼 객체를 정의할 수 있습니다. 오직 문자열 속성들만 제대로 보내집니다. 중첩된 객체는 지원되지 않고, 속성 이름과 값은 64글자보다 작아야 합니다.
   * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
