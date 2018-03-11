@@ -100,27 +100,27 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+末尾が `example.com`、`foobar.com`、`baz` である `url` は、統合認証の対象になります。 `*` のプリフィックスがない場合は、URLは厳密に一致する必要があります。
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+ユーザーの資格情報の委任が必要となるサーバーのコンマ区切りのリスト。`*` のプリフィックスがない場合は、URLは厳密に一致する必要があります。
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+証明書関連のエラーを無視します。
 
 ## --ppapi-flash-path=`path`
 
-Sets the `path` of the pepper flash plugin.
+Pepper Flashプラグインの `path` を設定します。
 
 ## --ppapi-flash-version=`version`
 
-Sets the `version` of the pepper flash plugin.
+Pepper Flashプラグインの `version` を設定します。
 
 ## --log-net-log=`path`
 
-Enables net log events to be saved and writes them to `path`.
+保存されるネットワークログイベントを有効にし、`path` にそれらを書き込みます。
 
 ## --disable-renderer-backgrounding
 
