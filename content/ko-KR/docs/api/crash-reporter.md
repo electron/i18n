@@ -37,7 +37,7 @@ Crash reports are saved locally in an application-specific temp directory folder
   * `uploadToServer` Boolean (선택적) - 충돌 보고서가 서버로 전송될지를 결정합니다. 기본값은 `true` 입니다.
   * `ignoreSystemCrashHandler` Boolean (선택적) - 기본값은 `false` 입니다.
   * `extra` Object (선택적) - 보고서와 함께 보낼 객체를 정의할 수 있습니다. 오직 문자열 속성들만 제대로 보내집니다. 중첩된 객체는 지원되지 않고, 속성 이름과 값은 64글자보다 작아야 합니다.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
+  * `crashesDirectory` String (선택적) - crashreports를 임시로 저장할 디렉터리입니다. (충돌 보고서가 `process.crashReporter.start`로 시작되었을 때만 사용됩니다.)
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
 
@@ -107,7 +107,7 @@ Remove a extra parameter from the current set of parameters so that it will not 
 
 See all of the current parameters being passed to the crash reporter.
 
-## Crash Report Payload
+## 충돌 보고서 탑재 내용
 
 The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
