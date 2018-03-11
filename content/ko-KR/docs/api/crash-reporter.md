@@ -45,7 +45,7 @@ You are required to call this method before using any other `crashReporter` APIs
 
 **주의:** Windows에서 자식 프로세스의 충돌 보고서를 수집하려면, 이 추가 코드를 추가해야 합니다. 이 코드는 계속 감시하고 충돌 보고서를 보내는 프로세스를 시작합니다. `submitURL`, `productName` 와 `crashesDirectory`를 적절한 값으로 교체하세요.
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `setExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**참고:** 추가하거나 업데이트한 `extra` 매개 변수를 `start`를 호출한 뒤에 전송하려면 macOS인 경우 `setExtraParameter`를 호출할 수 있고, Linux 나 Windows 인 경우, `start`를 추가되거나 업데이트된 `extra` 매개 변수로 다시 호출 할 수 있습니다.
 
 ```js
  const args = [
@@ -62,7 +62,7 @@ You are required to call this method before using any other `crashReporter` APIs
  })
 ```
 
-**주의:** macOS에서는, Electron은 새 `crashpad` 클라이언트를 사용하여 충돌 수집과 보고서를 작성합니다. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. 이 방법으로 한번 초기화 되면, crashpad 핸들러가 모든 프로세스에서 충돌을 수집합니다. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**주의:** macOS에서는, Electron은 새 `crashpad` 클라이언트를 사용하여 충돌 수집과 보고서를 작성합니다. 충돌 보고를 사용 하려면, 주 프로세스에서 `crashReporter.start`를 사용하여, `crashpad`를 초기화 하는것이 어느 프로세스에서 충돌 수집을 하든 필요합니다. 이 방법으로 한번 초기화 되면, crashpad 핸들러가 모든 프로세스에서 충돌을 수집합니다. 아직 `crashReporter.start`를 렌더러나 자식 프로세스에서 호출하는 것이 필요합니다, 그렇지 않으면 `companyName`, `productName` 혹은 어느 `extra` 정보가 포함되지 않은 보고서가 제보될 것입니다.
 
 ### `crashReporter.getLastCrashReport()`
 
