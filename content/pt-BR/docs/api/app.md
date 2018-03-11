@@ -148,7 +148,7 @@ Retorna:
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contém configurações específicas do app armazenadas na atividade.
 
-Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. Se você precisar atualizar o estado a ser transferido, você deve imediatamente chamar `event.preventDefault()`, construir um novo dicionário `userInfo` e chamar `app.updateCurrentActivity()` de forma pontual. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
 
 ### Evento: 'new-window-for-tab' no *macOS*
 
@@ -165,7 +165,7 @@ Retorna:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido quando uma [browserWindow](browser-window.md) é desfocada.
+Emitido quando uma [browserWindow](browser-window.md) fica em segundo plano.
 
 ### Evento: 'browser-window-focus'
 
@@ -174,7 +174,7 @@ Retorna:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido quando [browserWindow](browser-window.md) é focado.
+Emitido quando uma [browserWindow](browser-window.md) fica em primeiro plano.
 
 ### Evento: 'browser-window-created'
 
@@ -183,7 +183,7 @@ Retorna:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido quando um novo [browserWindow](browser-window.md) é criado.
+Emitido quando uma nova [browserWindow](browser-window.md) é criada.
 
 ### Evento: 'web-contents-created'
 
@@ -440,7 +440,7 @@ Retorna `String` - A atual localização da aplicação. Possíveis retornos est
 
 **Nota:** Quando estiver distribuindo seu aplicativo, você também deve entregar a pasta `locales`.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Nota:** No Windows, você deve chamá-la após os eventos `ready` serem emitidos.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -457,7 +457,7 @@ Limpa a lista de documentos recentes.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - O nome do protocolo sem `://`. Se você deseja que sua aplicação manipule links `electron://`, utilize este método com o parâmetro `electron`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
+* `path` String (opcional) *Windows* - O padrão é `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
 Returns `Boolean` - Whether the call succeeded.
@@ -473,7 +473,7 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - O nome do protocolo sem `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
+* `path` String (opcional) *Windows* - O padrão é `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
 Returns `Boolean` - Whether the call succeeded.
@@ -483,7 +483,7 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - O nome do protocolo sem `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
+* `path` String (opcional) *Windows* - O padrão é `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
 Returns `Boolean`
