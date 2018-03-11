@@ -105,19 +105,19 @@ Remove a extra parameter from the current set of parameters so that it will not 
 
 ### `crashReporter.getParameters()`
 
-See all of the current parameters being passed to the crash reporter.
+충돌 보고서에 넘겨진 모든 매개 변수를 보여줍니다.
 
 ## 충돌 보고서 탑재 내용
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+충돌 보고서는 데이터를 `submitURL`에 `multipart/form-data` 형식으로 `POST` 방식의 요청을 보냅니다.
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
+* `ver` String - Electron의 버전입니다.
+* `platform` String - 예를 들어 'win32' 같은 값입니다.
+* `process_type` String - 예를 들어 'renderer' 같은 값입니다.
+* `guid` String - 예를 들어 '5e1286fc-da97-479e-918b-6bfb0c3d1c72' 같은 값입니다.
+* `_version` String - `package.json`의 버전입니다.
+* `_productName` String - `crashReporter` `options` 객체의 애플리케이션 이름입니다.
+* `prod` String - 기본 애플리케이션 이름 입니다. 이 경우엔 Electron입니다.
+* `_companyName` String - `crashReporter` `options` 객체의 조직 이름 입니다.
+* `upload_file_minidump` File - `minidump` 형식의 충돌 보고서입니다.
 * All level one properties of the `extra` object in the `crashReporter` `options` object.
