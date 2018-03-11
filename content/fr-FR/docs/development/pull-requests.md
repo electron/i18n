@@ -1,26 +1,26 @@
-# Pull Requests
+# Proposer une Evolution: Demande de Pull
 
-* [Dependencies](#dependencies)
-* [Setting up your local environment](#setting-up-your-local-environment) 
-  * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes) 
-  * [Step 4: Code](#step-4-code)
-  * [Step 5: Commit](#step-5-commit) 
-    * [Commit message guidelines](#commit-message-guidelines)
-  * [Step 6: Rebase](#step-6-rebase)
-  * [Step 7: Test](#step-7-test)
-  * [Step 8: Push](#step-8-push)
-  * [Step 9: Opening the Pull Request](#step-8-opening-the-pull-request)
-  * [Step 10: Discuss and Update](#step-9-discuss-and-update) 
-    * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
-  * [Step 11: Landing](#step-10-landing)
-  * [Continuous Integration Testing](#continuous-integration-testing)
+* [Dependances](#dependencies)
+* [Configurer votre environnement local](#setting-up-your-local-environment) 
+  * [Étape 1 : Dupliquer un projet](#step-1-fork)
+  * [Etape 2 : Construire, compiler](#step-2-build)
+  * [Étape 3 : Branche](#step-3-branch)
+* [Apporter des changements](#making-changes) 
+  * [Étape 4 : Code](#step-4-code)
+  * [Étape 5 : modifications](#step-5-commit) 
+    * [Ecrire un messages de modification](#commit-message-guidelines)
+  * [Étape 6 : Refonder - Rebase](#step-6-rebase)
+  * [Étape 7 : Tester](#step-7-test)
+  * [Étape 8 : Pousser](#step-8-push)
+  * [Étape 9 : Ouvrir la proposition d'évolution - la demande de Pull](#step-8-opening-the-pull-request)
+  * [Étape 10 : Examiner et mettre à jour](#step-9-discuss-and-update) 
+    * [Procédure de validation et de demandes d'évolutions](#approval-and-request-changes-workflow)
+  * [Étape 11 : Approbation](#step-10-landing)
+  * [Tests en intégration continue](#continuous-integration-testing)
 
-## Setting up your local environment
+## Configurer votre environnement local
 
-### Step 1: Fork
+### Étape 1 : Dupliquer un projet
 
 Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
 
@@ -31,7 +31,7 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Step 2: Build
+### Etape 2 : Construire, compiler
 
 Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
 
@@ -41,7 +41,7 @@ Build steps and dependencies differ slightly depending on your operating system.
 
 Once you've built the project locally, you're ready to start making changes!
 
-### Step 3: Branch
+### Étape 3 : Branche
 
 To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
 
@@ -49,9 +49,9 @@ To keep your development environment organized, create local branches to hold yo
 $ git checkout -b my-branch -t upstream/master
 ```
 
-## Making Changes
+## Apporter des changements
 
-### Step 4: Code
+### Étape 4 : Code
 
 Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
@@ -59,7 +59,7 @@ Please be sure to run `npm run lint` from time to time on any code changes to en
 
 See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
 
-### Step 5: Commit
+### Étape 5 : modifications
 
 It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
 
@@ -70,7 +70,7 @@ $ git commit
 
 Note that multiple commits often get squashed when they are landed.
 
-#### Commit message guidelines
+#### Ecrire un messages de modification
 
 A good commit message should describe what changed and why.
 
@@ -91,7 +91,7 @@ A good commit message should describe what changed and why.
 
 See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
 
-### Step 6: Rebase
+### Étape 6 : Refonder - Rebase
 
 Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
 
@@ -102,7 +102,7 @@ $ git rebase upstream/master
 
 This ensures that your working branch has the latest changes from `electron/electron` master.
 
-### Step 7: Test
+### Étape 7 : Tester
 
 Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
@@ -122,7 +122,7 @@ $ npm run test -match=menu
 
 The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
 
-### Step 8: Push
+### Étape 8 : Pousser
 
 Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
@@ -130,7 +130,7 @@ Once your commits are ready to go -- with passing tests and linting -- begin the
 $ git push origin my-branch
 ```
 
-### Step 9: Opening the Pull Request
+### Étape 9 : Ouvrir la proposition d'évolution - la demande de Pull
 
 From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
@@ -161,19 +161,19 @@ There are a number of more advanced mechanisms for managing commits using `git r
 
 Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
-#### Approval and Request Changes Workflow
+#### Procédure de validation et de demandes d'évolutions
 
 All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
-### Step 11: Landing
+### Étape 11 : Approbation
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
 Congratulations and thanks for your contribution!
 
-### Continuous Integration Testing
+### Tests en intégration continue
 
 Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 
