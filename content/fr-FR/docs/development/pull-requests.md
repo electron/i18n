@@ -124,7 +124,7 @@ The above would only run spec modules matching `menu`, which is useful for anyon
 
 ### Étape 8 : Pousser
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+Dès que vos commit sont prêts -- tests et lint inclus --, la procédure de soumission commence par un push de votre branche vers votre fork sur Github.
 
 ```sh
 $ git push origin my-branch
