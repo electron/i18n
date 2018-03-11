@@ -76,20 +76,20 @@ Un bon message de modification/commit doit décrire le changement et sa raison.
 
 1. La première ligne doit :
   
-  * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+  * contenir une courte description de la modification (de préférence moins de 50 caractères, et pas plus de 72)
+  * être entièrement en minuscules à l’exception des noms propres, acronymes et les mots qui font référence au code, comme les noms de variable/fonction
     
     Exemples :
   
-  * `updated osx build documentation for new sdk`
+  * `mise à jour de la documentation pour la construction du nouveau SDK`
   
   * `fixed typos in atom_api_menu.h`
 
-2. Keep the second line blank.
+2. Garder vide la deuxième ligne.
 
-3. Wrap all other lines at 72 columns.
+3. Ne pas dépasser 72 caractères pour les lignes suivantes.
 
-See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
+Voir [cet article](https://chris.beams.io/posts/git-commit/) pour d'autres exemples décrivants comment écrire de bon messages de modification/commit git.
 
 ### Étape 6 : Refonder - Rebase
 
