@@ -61,7 +61,7 @@ Voir [coding style](https://electronjs.org/docs/development/coding-style) pour p
 
 ### Étape 5 : modifications
 
-Il est recommandé de regrouper logiquement les modifications dans des commit dédiés. La plus-part des contributeurs préfèrent passer en revue les changements répartis dans plusieurs commit. Il est possible d'avoir autant de commit que nécessaire lors d'une proposition d'évolution - demande de Pull - .
+Il est recommandé de regrouper logiquement les modifications dans des commit dédiés. La plus-part des contributeurs préfèrent passer en revue les changements faits de plusieurs commit. Il est possible d'avoir autant de commit que nécessaire lors d'une proposition d'évolution - demande de Pull - .
 
 ```sh
 $ git add my/changed/files
@@ -132,7 +132,7 @@ $ git push origin my-branch
 
 ### Étape 9 : Ouvrir la proposition d'évolution - la demande de Pull
 
-From within GitHub, opening a new pull request will present you with a template that should be filled out:
+Depuis GitHub, en ouvrant une proposition de contribution dite --pull request--, vous aurez à remplir un caneva :
 
 ```markdown
 <!--
@@ -145,7 +145,7 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 -->
 ```
 
-### Step 10: Discuss and update
+### Étape 10 : Examiner et mettre à jour
 
 You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
