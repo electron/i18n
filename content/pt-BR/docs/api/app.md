@@ -462,13 +462,13 @@ Limpa a lista de documentos recentes.
 
 Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
-Este método define o executável atual como o programa padrão para um protocolo (também conhecido como esquema de URI). Com ele, é possível integrar sua aplicação com o sistema operacional de forma mais profunda. Assim que registrado, todos os links com `seu-protocolo://` serão abertos com o executável atual. O link inteiro, incluindo o protocolo, será passado para a sua aplicação como um parâmetro.
+Este método define o executável atual como o manipulador padrão de um protocolo (também conhecido como esquema de URI). Com ele, é possível integrar sua aplicação com o sistema operacional de forma mais profunda. Assim que registrado, todos os links com `seu-protocolo://` serão abertos com o executável atual. O link inteiro, incluindo o protocolo, será passado para a sua aplicação como um parâmetro.
 
 No Windows, você pode informar um caminho opcional de parâmetros, o caminho para seu executável e args, um array de argumentos a serem passados ao seu executável quando for iniciado.
 
 **Nota:** No macOS, você só pode registrar protocolos que foram adicionados à `info.plist` da sua aplicação, a qual não pode ser modificada em tempo de execução. No entanto, você pode alterar esse arquivo com um editor de texto simples ou um script durante o tempo de compilação. Caso precise de mais detalhes, consulte a [documentação da Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115).
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+A API usa internamente o Registro do Windows e o LSSetDefaultHandlerForURLScheme.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -476,9 +476,9 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 * `path` String (opcional) *Windows* - O padrão é `process.execPath`
 * `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
-Returns `Boolean` - Whether the call succeeded.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Esse método verifica se o executável atual é o manipulador padrão de um protocolo (também conhecido como esquema de URI). Caso seja, ele removerá a aplicação como o manipulador padrão.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -488,11 +488,11 @@ This method checks if the current executable as the default handler for a protoc
 
 Returns `Boolean`
 
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+Esse método verifica se o executável atual é o manipulador padrão de um protocolo (também conhecido como esquema de URI). Caso seja, ele retornará true. Caso contrário, ele retornará false.
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+**Nota:** No macOS, você pode usar este método para verificar se a aplicação foi registrada como o manipulador padrão de um protocolo. Você também pode verificar isso consultando o `~/Library/Preferences/com.apple.LaunchServices.plist` na máquina macOS. Caso precise de mais detalhes, consulte a [documentação da Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme).
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+A API usa internamente o Registro do Windows e o LSCopyDefaultHandlerForURLScheme.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
@@ -502,7 +502,7 @@ Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desk
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Whether the call succeeded.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
 **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
@@ -705,7 +705,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
