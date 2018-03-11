@@ -4,7 +4,7 @@
 * [Configurer votre environnement local](#setting-up-your-local-environment) 
   * [Étape 1 : Dupliquer un projet](#step-1-fork)
   * [Etape 2 : Construire, compiler](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
+  * [Step 3: Branches](#step-3-branch)
 * [Apporter des changements](#making-changes) 
   * [Étape 4 : Code](#step-4-code)
   * [Étape 5 : modifications](#step-5-commit) 
@@ -41,7 +41,7 @@ Le type de système d'exploitation peut faire varier les étapes de construction
 
 Dès que le projet est construit, vous pouvez apporter des modifications !
 
-### Step 3: Branch
+### Step 3: Branches
 
 Pour un environnement de développement ordonné, créez une branche locale qui contiendra votre travail. Votre branche doit être crée directement à partir de la branche `master`.
 
@@ -93,18 +93,18 @@ Voir [cet article](https://chris.beams.io/posts/git-commit/) pour d'autres exemp
 
 ### Étape 6 : Refonder - Rebase
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+Une fois vos changements livrés-"committés", il est recommander d'utiliser `git rebase` plutôt que `git merge` pour réintégrer l'historique général dans votre branche de travail.
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` master.
+Cela garanti à votre branche de contenir les derniers changements du master de `electron/electron`.
 
 ### Étape 7 : Tester
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Corrections et fonctionnalités doivent toujours être accompagnées de tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
 Before submitting your changes in a pull request, always run the full test suite. To run the tests:
 
