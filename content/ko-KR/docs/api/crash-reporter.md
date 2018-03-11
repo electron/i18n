@@ -41,9 +41,9 @@ crashReporter.start({
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
 
-**주의** `child_process` 모듈로 생성된 자식 프로세스는 Electron 모듈에 접근할 수 없습니다. 그러므로, 그것들에서 충돌 정보를 수집하려면, `process.crashReporter.start`를 대신 사용하세요. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. `process.crash()`를 호출하여 자식 프로세스를 충돌시켜서 실험해볼 수 있습니다.
+**참고** `child_process` 모듈로 생성된 자식 프로세스는 Electron 모듈에 접근할 수 없습니다. 그러므로, 그것들에서 충돌 정보를 수집하려면, `process.crashReporter.start`를 대신 사용하세요. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. `process.crash()`를 호출하여 자식 프로세스를 충돌시켜서 실험해볼 수 있습니다.
 
-**주의:** Windows에서 자식 프로세스의 충돌 보고서를 수집하려면, 이 추가 코드를 추가해야 합니다. 이 코드는 계속 감시하고 충돌 보고서를 보내는 프로세스를 시작합니다. `submitURL`, `productName` 와 `crashesDirectory`를 적절한 값으로 교체하세요.
+**참고:** Windows에서 자식 프로세스의 충돌 보고서를 수집하려면, 이 코드를 추가해야 합니다. 이 코드는 계속 감시하고 충돌 보고서를 보내는 프로세스를 시작합니다. `submitURL`, `productName` 와 `crashesDirectory`를 적절한 값으로 교체하세요.
 
 **참고:** 추가하거나 업데이트한 `extra` 매개 변수를 `start`를 호출한 뒤에 전송하려면 macOS인 경우 `setExtraParameter`를 호출할 수 있고, Linux 나 Windows 인 경우, `start`를 추가되거나 업데이트된 `extra` 매개 변수로 다시 호출 할 수 있습니다.
 
@@ -62,7 +62,7 @@ You are required to call this method before using any other `crashReporter` APIs
  })
 ```
 
-**주의:** macOS에서는, Electron은 새 `crashpad` 클라이언트를 사용하여 충돌 수집과 보고서를 작성합니다. 충돌 보고를 사용 하려면, 주 프로세스에서 `crashReporter.start`를 사용하여, `crashpad`를 초기화 하는것이 어느 프로세스에서 충돌 수집을 하든 필요합니다. 이 방법으로 한번 초기화 되면, crashpad 핸들러가 모든 프로세스에서 충돌을 수집합니다. 아직 `crashReporter.start`를 렌더러나 자식 프로세스에서 호출하는 것이 필요합니다, 그렇지 않으면 `companyName`, `productName` 혹은 어느 `extra` 정보가 포함되지 않은 보고서가 제보될 것입니다.
+**참고:** macOS에서는, Electron은 새 `crashpad` 클라이언트를 사용하여 충돌 수집과 보고서를 작성합니다. 충돌 보고를 사용 하려면, 주 프로세스에서 `crashReporter.start`를 사용하여, `crashpad`를 초기화 하는것이 어느 프로세스에서 충돌 수집을 하든 필요합니다. 이 방법으로 한번 초기화 되면, crashpad 핸들러가 모든 프로세스에서 충돌을 수집합니다. 아직 `crashReporter.start`를 렌더러나 자식 프로세스에서 호출하는 것이 필요합니다, 그렇지 않으면 `companyName`, `productName` 혹은 어느 `extra` 정보가 포함되지 않은 보고서가 제보될 것입니다.
 
 ### `crashReporter.getLastCrashReport()`
 
@@ -80,7 +80,7 @@ You are required to call this method before using any other `crashReporter` APIs
 
 `Boolean`을 반환합니다. - 보고서가 서버에 전송될 지를 표시합니다. `start` 매서드나 `setUploadToServer`를 통해 지정할 수 있습니다.
 
-**주의:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
+**참고:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
@@ -88,20 +88,20 @@ You are required to call this method before using any other `crashReporter` APIs
 
 주로 유저 설정에 의해 제어됩니다. `start`가 호출 되기 전에는 효과가 없습니다.
 
-**주의:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
+**참고:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` String - 매개 변수 키, 64글자보다 작아야 합니다.
 * `value` String - 매개 변수 키, 64글자보다 작아야 합니다.
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+충돌 보고와 함께 보낼 추가 매개 변수를 지정합니다. 여기에 지정된 값은 `start`가 호출 됐을때 `extra` 옵션으로 지정한 값이 추가로 전송됩니다. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
 * `key` String - 매개 변수 키, 64글자보다 작아야 합니다.
 
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+현재 매개 변수 집합에서 추가 매개 변수가 제거되고 충돌 보고서와 같이 전송되지 않게 합니다.
 
 ### `crashReporter.getParameters()`
 
