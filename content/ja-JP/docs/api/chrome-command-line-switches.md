@@ -67,19 +67,19 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+指定した `url` のPACスクリプトを使用します。
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+プロキシサーバーを使用せず、常に直接接続します。渡された他のプロキシサーバーのフラグを上書きします。
 
 ## --host-rules=`rules`
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+ホスト名をどのようにマッピングするかを制御する `rules` のコンマ区切りのリスト。
 
-For example:
+例:
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
+* `MAP * 127.0.0.1` は、すべてのホスト名を強制的に127.0.0.1にマッピングします。
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
 * `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
 * `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
