@@ -84,11 +84,11 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 * `MAP test.com [::1]:77` は、"test.com" を強制的にIPv6ループバックにします。また、最終的なソケットアドレスのポートを強制的に77にします。
 * `MAP * baz, EXCLUDE www.google.com` は、"www.google.com" 以外のすべてを "baz" に再マッピングします。
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+これらのマッピングは、ネットワークリクエストのエンドポイントのホスト (直接接続でのTCP接続とホストリゾルバー、HTTPプロキシ接続での `CONNECT`、`SOCKS` プロキシ接続でのエンドポイントホスト) に対して適用されます。
 
 ## --host-resolver-rules=`rules`
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+`--host-rules` と似ていますが、これらの `rules` は、ホストリゾルバーにしか適用されません。
 
 ## --auth-server-whitelist=`url`
 
