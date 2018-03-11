@@ -242,23 +242,23 @@ const mainWindow = new BrowserWindow()
 
 ## 6) 콘텐츠 보안 정책을 정의하세요.
 
-콘텐츠 보안 정책(CSP)은 교차-사이트-스크립트 공격과 데이터 삽입 공격에 대응하는 추가적인 보호 계층입니다. We recommend that they be enabled by any website you load inside Electron.
+콘텐츠 보안 정책(CSP)은 교차-사이트-스크립트 공격과 데이터 삽입 공격에 대응하는 추가적인 보호 계층입니다. Electron 안에서 로드하는 어떤 웹사이트든지 활성화하는 것을 권장합니다.
 
 ### 왜냐구요?
 
-CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your applications security.
+CSP는 서버가 콘텐츠를 제한적이고 웹페이지의 리소스를 제어하는 것을 허용하도록 합니다, 또한 Electron은 주어진 그 페이지를 로드 할 수 있습니다. `https://evil.attacker.com`에서는 실행되지 않아야 하고, `https://your-page.com`에서는 정의한 스크립트가 로드 되게 해야 합니다. CSP를 정의하는 것이 애플리케이션 보안을 향상하는 쉬운 방법입니다.
 
 ### 어떻게 하나요?
 
-Electron respects [the `Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the respective `<meta>` tag.
+Electron은 [`Content-Security-Policy` HTTP 헤더](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)와 `<meta>` 태그를 지킵니다.
 
-The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
+다음 CSP는 Electron이 현재 웹사이트와 `apis.mydomain.com`에서만 스크립트를 실행하게 허용합니다.
 
 ```txt
-// Bad
+// 나쁜 예
 Content-Security-Policy: '*'
 
-// Good
+// 좋은 예
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
