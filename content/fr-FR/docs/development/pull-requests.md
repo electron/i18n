@@ -4,7 +4,7 @@
 * [Configurer votre environnement local](#setting-up-your-local-environment) 
   * [Étape 1 : Dupliquer un projet](#step-1-fork)
   * [Etape 2 : Construire, compiler](#step-2-build)
-  * [Étape 3 : Branche](#step-3-branch)
+  * [Step 3: Branch](#step-3-branch)
 * [Apporter des changements](#making-changes) 
   * [Étape 4 : Code](#step-4-code)
   * [Étape 5 : modifications](#step-5-commit) 
@@ -31,19 +31,19 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Etape 2 : Construire, compiler
+### Etape 2 : construire, compiler
 
-Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
+Le type de système d'exploitation peut faire varier les étapes de construction et les dépendances. Reportez vous au guide dédié pour compiler Electron:
 
-* [Building on MacOS](https://electronjs.org/docs/development/build-instructions-osx)
-* [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [Construire sous MacOS](https://electronjs.org/docs/development/build-instructions-osx)
+* [Construire sous Linux](https://electronjs.org/docs/development/build-instructions-linux)
+* [Construire sous Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+Dès que le projet est construit, vous pouvez apporter des modifications !
 
-### Étape 3 : Branche
+### Step 3: Branch
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+Pour un environnement de développement ordonné, créez une branche locale qui contiendra votre travail. Votre branche doit être crée directement à partir de la branche `master`.
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
