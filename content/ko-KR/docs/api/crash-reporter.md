@@ -62,13 +62,13 @@ You are required to call this method before using any other `crashReporter` APIs
  })
 ```
 
-**Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**주의:** macOS에서는, Electron은 새 `crashpad` 클라이언트를 사용하여 충돌 수집과 보고서를 작성합니다. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md):
+[`CrashReport`](structures/crash-report.md)를 반환합니다:
 
-Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
+마지막 충돌 보고서의 날짜와 ID를 반환합니다. 충돌 보고서가 전송되지 않았거나 충돌 제보기가 시작되지 않았으면, `null`이 반환됩니다.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -78,7 +78,7 @@ Returns the date and ID of the last crash report. If no crash reports have been 
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-`Boolean`을 반환합니다. - 보고서가 서버에 전송될 지를 정합니다. `start` 매서드나 `setUploadToServer`를 통해 지정할 수 있습니다.
+`Boolean`을 반환합니다. - 보고서가 서버에 전송될 지를 표시합니다. `start` 매서드나 `setUploadToServer`를 통해 지정할 수 있습니다.
 
 **주의:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
 
@@ -86,14 +86,14 @@ Returns the date and ID of the last crash report. If no crash reports have been 
 
 * `uploadToServer` Boolean *macOS* - 보고서가 서버에 전송될 지를 정합니다.
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+주로 유저 설정에 의해 제어됩니다. `start`가 호출 되기 전에는 효과가 없습니다.
 
 **주의:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `key` String - 매개 변수 키, 64글자보다 작아야 합니다.
+* `value` String - 매개 변수 키, 64글자보다 작아야 합니다.
 
 Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
