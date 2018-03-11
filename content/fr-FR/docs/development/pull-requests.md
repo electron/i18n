@@ -61,20 +61,20 @@ Voir [coding style](https://electronjs.org/docs/development/coding-style) pour p
 
 ### Étape 5 : modifications
 
-It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
+Il est recommandé de regrouper logiquement les modifications dans des commit dédiés. La plus-part des contributeurs préfèrent passer en revue les changements répartis dans plusieurs commit. Il est possible d'avoir autant de commit que nécessaire lors d'une proposition d'évolution - demande de Pull - .
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Note that multiple commits often get squashed when they are landed.
+Au final lorsqu'ils sont revus, de nombreux commit sont fusionnés.
 
 #### Ecrire un messages de modification
 
-A good commit message should describe what changed and why.
+Un bon message de modification/commit doit décrire le changement et sa raison.
 
-1. The first line should:
+1. La première ligne doit :
   
   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
   * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
