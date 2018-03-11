@@ -262,13 +262,13 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
-## 7) Override and Disable `eval`
+## 7) `eval`을 재정의하고 비활성화하세요.
 
-`eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
+`eval()`은 문자열로 되어있는 JavaScript를 실행하도록 허용하는 핵심 JavaScript 매서드입니다. 이것을 비활성화하면 앱이 알려지지 않은 JavaScript 스크립트를 실행하지 못하도록 기능을 비활성화합니다.
 
 ### 왜냐구요?
 
-The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+`eval()`은 문자열로 되어 있는 자바스크립트를 실행하는 것 딱 한 가지에 목표를 두고 있습니다. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
 
 Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
 
