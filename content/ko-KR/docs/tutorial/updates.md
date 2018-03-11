@@ -1,6 +1,6 @@
 # 애플리케이션 업데이트
 
-There are several ways to update an Electron application. 가장 쉽고 공식적인 방법은 [Squirrel](https://github.com/Squirrel) 프레임워크와 Electron의 [autoUpdater](../api/auto-updater.md) 모듈을 사용하는 것입니다.
+Electron 애플리케이션을 업데이트 하는 방법은 여러 가지가 있습니다. 가장 쉽고 공식적인 방법은 [Squirrel](https://github.com/Squirrel) 프레임워크와 Electron의 [autoUpdater](../api/auto-updater.md) 모듈을 사용하는 것입니다.
 
 ## 서버에 업데이트 배포
 
@@ -55,7 +55,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    detail: '새로운 버전이 다운로드 되었습니다. 애플리케이션을 재시작해 업데이트를 적용해 주세요.'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
