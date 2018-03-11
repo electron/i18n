@@ -54,9 +54,9 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ## --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+指定したホストのセミコロン区切りのリストに対してプロキシサーバーをバイパスするよう、Electronに指示します。このフラグは、`--proxy-server` と併用する場合にしか効果がありません。
 
-For example:
+例:
 
 ```javascript
 const {app} = require('electron')
