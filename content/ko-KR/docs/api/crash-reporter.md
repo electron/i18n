@@ -72,23 +72,23 @@ Returns the date and ID of the last crash report. If no crash reports have been 
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+[`CrashReport[]`](structures/crash-report.md)를 반환합니다:
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+업로드된 모든 충돌 보고서를 반환합니다. 각자의 보고서는 날짜와 업로드 ID를 포함합니다.
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+`Boolean`을 반환합니다. - 보고서가 서버에 전송될 지를 정합니다. `start` 매서드나 `setUploadToServer`를 통해 지정할 수 있습니다.
 
-**Note:** This API can only be called from the main process.
+**주의:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+* `uploadToServer` Boolean *macOS* - 보고서가 서버에 전송될 지를 정합니다.
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Note:** This API can only be called from the main process.
+**주의:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
@@ -99,7 +99,7 @@ Set an extra parameter to be sent with the crash report. The values specified he
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
+* `key` String - 매개 변수 키, 64글자보다 작아야 합니다.
 
 Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
 
@@ -120,4 +120,4 @@ Remove a extra parameter from the current set of parameters so that it will not 
 * `prod` String - 기본 애플리케이션 이름 입니다. 이 경우엔 Electron입니다.
 * `_companyName` String - `crashReporter` `options` 객체의 조직 이름 입니다.
 * `upload_file_minidump` File - `minidump` 형식의 충돌 보고서입니다.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+* `crashReporter` `options` 객체안의 `extra` 객체의 모든 한 속성들이 포함됩니다.
