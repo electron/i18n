@@ -53,7 +53,7 @@ Retorna:
 
 * `event` Event
 
-Emitido quando todas as janelas foram fechadas e a aplicação irá encerrar. Chamar `event.preventDefault()` irá previnir o comportamento padrão, que é encerrar a aplicação.
+Emitido quando todas as janelas foram fechadas e a aplicação irá encerrar. Chamar `event.preventDefault()` irá impedir o comportamento padrão, que é encerrar a aplicação.
 
 Consulte a descrição do evento `window-all-closed` para as diferenças entre os eventos `will-quit` e `window-all-closed`.
 
@@ -111,16 +111,16 @@ Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/
 
 Uma atividade do usuário pode ser continuada apenas em uma aplicação que tem o mesmo Team ID do desenvolvedor como o aplicativo fonte da atividade e que suporta o tipo da atividade. Tipos de atividade suportadas são especificadas no `Info.plist` do aplicativo sob a chave `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' *macOS*
+### Evento: 'will-continue-activity' *macOS*
 
 Retorna:
 
 * `event` Event
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
+Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) antes de uma atividade em outro dispositivo desejar ser continuada. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
 
-### Event: 'continue-activity-error' *macOS*
+### Evento: 'continue-activity-error' *macOS*
 
 Retorna:
 
