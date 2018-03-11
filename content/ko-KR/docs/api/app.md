@@ -246,7 +246,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### 이벤트: 'login'
 
 반환:
 
@@ -593,7 +593,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `콜백` 함수 
+* `callback` 함수 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
@@ -609,7 +609,7 @@ This method returns `false` if your process is the primary instance of the appli
 
 On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
-An example of activating the window of primary instance when a second instance starts:
+두 번째 인스턴스가 실행됐을 때 주 인스턴스의 창을 활성화하는 예제입니다.
 
 ```javascript
 const {app} = require('electron')
@@ -665,7 +665,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+[애플리케이션 유저 모델 ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)를 `id`로 변경합니다.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
@@ -860,21 +860,21 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Dock 아이콘을 숨깁니다.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Dock 아이콘을 표시합니다.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+`Boolean`을 반환 - dock 아이콘이 보이는지를 나타냅니다. `app.dock.show()` 요청은 비동기라서 이 메서드는 직후에 바로 실행하면 참을 반환하지 않을 수 있습니다.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+애플리케이션의 [dock 메뉴](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103)를 설정합니다.
 
 ### `app.dock.setIcon(image)` *macOS*
 
