@@ -165,8 +165,10 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
   <body>
     <h1>Hello World!</h1>
 Kullandığınız Node'un sürümü: <script>document.write(process.versions.node)</script>,
-    Kullandığınız Chrome'un sürümü<script>document.write(process.versions.chrome)</script>,
-    ve Kullandığınız Electron'un sürümü <script>document.write(process.versions.electron)</script>.
+    Kullandığınız Chrome'un sürümü:
+ <script>document.write(process.versions.chrome)</script>,
+    ve Kullandığınız Electron'un sürümü: 
+ <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
