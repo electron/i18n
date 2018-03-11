@@ -9,15 +9,15 @@ nav:
   contact: ติดต่อ
   languages: ภาษา
   code_of_conduct: Code of Conduct
-  search: Search
+  search: ค้นหา
 docs:
-  title: Electron Documentation
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  title: เอกสารประกอบของ อิเล็กตรอน
+  description: ดูเพิ่มเติมใน<a href="/docs/all">เอกสารทั้งหมด</a> หรือ <a href="/docs/faq"></a> FAQ
   guides: คู่มือ
   api_reference: API อ้างอิง
   advanced: ขั้นสูง
   footer:
-    propose_change: Improve this doc
+    propose_change: ปรับปรุงเอกสารนี้
     version_history: Version history
     translate: Translate this doc
     view_all_docs: All Docs on One Page
