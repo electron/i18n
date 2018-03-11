@@ -1,4 +1,4 @@
-# Security, Native Capabilities, and Your Responsibility
+# 보안, 기본 기능, 그리고 당신의 책임
 
 As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
 
@@ -275,16 +275,16 @@ Generally speaking, it is easier to completely disable `eval()` than to make it 
 ### 어떻게 하나요?
 
 ```js
-// ESLint will warn about any use of eval(), even this one
+// ESLint는 어느 eval() 사용에 경고문을 띄웁니다. 심지어 이것도요.
 // eslint-disable-next-line
 window.eval = global.eval = function () {
-  throw new Error(`Sorry, this app does not support window.eval().`)
+  throw new Error(`이 앱은 window.eval()을 지원하지 않습니다.`)
 }
 ```
 
-## 8) Do Not Set `allowRunningInsecureContent` to `true`
+## 8) `allowRunningInsecureContent`를 `true`로 설정하지 마세요.
 
-*Recommendation is Electron's default*
+*추천 값은 Electron의 기본값입니다.*
 
 By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -297,7 +297,7 @@ Simply put, loading content over `HTTPS` assures the authenticity and integrity 
 ### 어떻게 하나요?
 
 ```js
-// Bad
+// 나쁜 예
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -306,26 +306,26 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 좋은 예
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Enable Experimental Features
+## 9) 실험적인 기능을 활성화하지 마세요.
 
-*Recommendation is Electron's default*
+*추천 값은 Electron의 기본값입니다.*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
+Electron의 고급 사용자는 `experimentalFeatures` 와 `experimentalCanvasFeatures`를 사용해서 Chromium의 실험적인 기능을 활성화할 수 있습니다.
 
 ### 왜냐구요?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+실험적인 기능은 이름에서 말하듯이, 실험적이고, 모든 Chromium 사용자에게 활성화되지 않습니다. 또한, Electron에 미치는 전체적인 영향이 실험되지 않았습니다.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+합법적인 사례도 존재하지만, 당신이 뭘 하는지 모른다면, 이 속성을 활성화하면 안 됩니다.
 
 ### 어떻게 하나요?
 
 ```js
-// Bad
+// 나쁜 예
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -334,11 +334,11 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 좋은 예
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `blinkFeatures`
+## 10) `blinkFeatures`를 사용하지 마세요.
 
 *Recommendation is Electron's default*
 
