@@ -92,9 +92,9 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+統合認証が有効であるサーバーのコンマ区切りのリスト。
 
-For example:
+例:
 
 ```bash
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
