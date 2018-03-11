@@ -104,15 +104,15 @@ Cela garanti à votre branche de contenir les derniers changements du master de 
 
 ### Étape 7 : Tester
 
-Corrections et fonctionnalités doivent toujours être accompagnées de tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Corrections et fonctionnalités doivent toujours être accompagnées de tests. Un [guide du test](https://electronjs.org/docs/development/testing) est fourni pour rendre le travail plus facile. S'inspirer d'autres tests peut aussi aider.
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+Exécutez toujours la suite de tests complète avant de soumettre une contribution. Pour exécuter les tests:
 
 ```sh
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+Assurez-vous que linter ne renvoie aucun problème et que tous les tests passent. Ne soumettez aucun patch ne passant pas l'un des tests.
 
 If you are updating tests and just want to run a single spec to check it:
 
