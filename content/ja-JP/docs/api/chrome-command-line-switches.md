@@ -40,13 +40,13 @@ HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Node JSエンジンに渡すフラグを指定します。メインプロセスで `flags` を有効にしたい場合、Electronを開始するときに渡す必要があります。
 
 ```bash
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+利用できるフラグの一覧については、[Nodeのドキュメント](https://nodejs.org/api/cli.html) を参照するか、ターミナルで `node --help` を実行してください。 Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
