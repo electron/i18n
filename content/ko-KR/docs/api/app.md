@@ -79,7 +79,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
-### Event: 'open-url' *macOS*
+### 이벤트: 'open-url' *macOS*
 
 반환:
 
@@ -90,7 +90,7 @@ Emitted when the user wants to open a URL with the application. Your application
 
 You should call `event.preventDefault()` if you want to handle this event.
 
-### Event: 'activate' *macOS*
+### 이벤트: 'activate' *macOS*
 
 반환:
 
@@ -99,9 +99,9 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
-### Event: 'continue-activity' *macOS*
+### 이벤트: 'continue-activity' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -111,7 +111,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
-### Event: 'will-continue-activity' *macOS*
+### 이벤트: 'will-continue-activity' *macOS*
 
 반환:
 
@@ -120,13 +120,13 @@ A user activity can be continued only in an app that has the same developer Team
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
 
-### Event: 'continue-activity-error' *macOS*
+### 이벤트: 'continue-activity-error' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - A string with the error's localized description.
+* `type` String - 활동을 식별하는 문자열. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - 에러의 변역된 설명 문자열
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
 
@@ -545,7 +545,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
+  { // 이름이 지정됬으니 `type`는 "custom" 입니다.
     name: 'Tools',
     items: [
       {
@@ -569,7 +569,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // 이름과 종류가 없으니 `type`는 "tasks" 입니다.
     items: [
       {
         type: 'task',
@@ -593,11 +593,11 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` 함수 
+* `콜백` 함수 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
-Returns `Boolean`.
+`Boolean`을 반환합니다.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
@@ -616,7 +616,7 @@ const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
+  // 뭔가가 두 번째 인스턴스를 실행했네요, 우리는 우리의 window에 집중합시다.
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
@@ -627,7 +627,7 @@ if (isSecondInstance) {
   app.quit()
 }
 
-// Create myWindow, load the rest of the app, etc...
+// myWindow를 생성합니다, 앱 로드, 기타 등등...
 app.on('ready', () => {
 })
 ```
