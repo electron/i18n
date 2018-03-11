@@ -41,7 +41,7 @@ crashReporter.start({
 
 다른 `crashReporter` API 혹은 각각의 프로세스 (메인/렌더러) 에서 충돌 보고서를 수집을 사용하기 전에, 이 메서드를 호출해야 합니다. 서로 다른 프로세스에서 호출할 때 다른 옵션을 `crashReporter.start`로 전달할 수 있습니다.
 
-**참고** `child_process` 모듈로 생성된 자식 프로세스는 Electron 모듈에 접근할 수 없습니다. 그러므로, 그것들에서 충돌 정보를 수집하려면, `process.crashReporter.start`를 대신 사용하세요. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. `process.crash()`를 호출하여 자식 프로세스를 충돌시켜서 실험해볼 수 있습니다.
+**참고** `child_process` 모듈로 생성된 자식 프로세스는 Electron 모듈에 접근할 수 없습니다. 그러므로, 그것들에서 충돌 정보를 수집하려면, `process.crashReporter.start`를 대신 사용하세요. 위와 똑같은 옵션에 추가로 충돌 보고서를 임시로 저장하는 디렉터리를 가리키는 `crashesDirectory` 값과 함께 전달합니다. `process.crash()`를 호출하여 자식 프로세스를 충돌시켜서 실험해볼 수 있습니다.
 
 **참고:** Windows에서 자식 프로세스의 충돌 보고서를 수집하려면, 이 코드를 추가해야 합니다. 이 코드는 계속 감시하고 충돌 보고서를 보내는 프로세스를 시작합니다. `submitURL`, `productName` 와 `crashesDirectory`를 적절한 값으로 교체하세요.
 
