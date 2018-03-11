@@ -458,11 +458,11 @@ Limpa a lista de documentos recentes.
 
 * `protocol` String - O nome do protocolo sem `://`. Se você deseja que sua aplicação manipule links `electron://`, utilize este método com o parâmetro `electron`.
 * `path` String (opcional) *Windows* - O padrão é `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
-Returns `Boolean` - Whether the call succeeded.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Este método define o executável atual como o programa padrão para um protocolo (também conhecido como esquema de URI). Com ele, é possível integrar sua aplicação com o sistema operacional de forma mais profunda. Assim que registrado, todos os links com `seu-protocolo://` serão abertos com o executável atual. O link inteiro, incluindo o protocolo, será passado para a sua aplicação como um parâmetro.
 
 On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
@@ -474,7 +474,7 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 
 * `protocol` String - O nome do protocolo sem `://`.
 * `path` String (opcional) *Windows* - O padrão é `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -484,7 +484,7 @@ This method checks if the current executable as the default handler for a protoc
 
 * `protocol` String - O nome do protocolo sem `://`.
 * `path` String (opcional) *Windows* - O padrão é `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
 Returns `Boolean`
 
