@@ -45,13 +45,13 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 11. [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups)
 12. [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
 
-## 1) Only Load Secure Content
+## 1) 안전한 콘텐츠만 로드하세요.
 
 Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### Why?
 
-`HTTPS` has three main benefits:
+`HTTPS`는 세 가지 이점이 있습니다:
 
 1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
 
@@ -204,7 +204,7 @@ session
   })
 ```
 
-## 5) Do Not Disable WebSecurity
+## 5) WebSecurity를 비활성화 하지 마세요.
 
 *Recommendation is Electron's default*
 
@@ -212,11 +212,11 @@ You may have already guessed that disabling the `webSecurity` property on a rend
 
 Do not disable `webSecurity` in production applications.
 
-### Why?
+### 왜냐구요?
 
 Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
 
-### How?
+### 어떻게 하나요?
 
 ```js
 // Bad
@@ -364,9 +364,9 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 11) Do Not Use `allowpopups`
+## 11) `allowpopups`을 사용하지 마세요.
 
-*Recommendation is Electron's default*
+*추천 값은 Electron의 기본값입니다.*
 
 If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
