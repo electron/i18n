@@ -41,9 +41,9 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 7. [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
 8. [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
 9. [Do not enable experimental features](#do-not-enable-experimental-features)
-10. [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
-11. [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups)
-12. [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+10. [`blinkFeatures`를 사용하지 마세요.](#do-not-use-blinkfeatures)
+11. [WebViews: `allowpopups`를 사용하지 마세요.](#do-not-use-allowpopups)
+12. [WebViews: 옵션과 모든 `<webview>` 태그의 매개 변수 확인](#verify-webview-options-before-creation)
 
 ## 1) 안전한 콘텐츠만 로드하세요.
 
@@ -153,21 +153,21 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Preload script
+// 프리로드 스크립트
 
-// Set a variable in the page before it loads
+// 로드되기 전에 페이지 변수를 설정합니다.
 webFrame.executeJavaScript('window.foo = "foo";')
 
-// The loaded page will not be able to access this, it is only available
-// in this context
+// 로드된 페이지에서는 이것에 접근할 수 없습니다, 이 컨텍스트에서만
+// 접근이 가능합니다.
 window.bar = 'bar'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Will log out 'undefined' since window.foo is only available in the main
-  // context
+  // window.foo는 메인 콘텍스트에서만 접근할 수 있기 때문에 'undefined' 가
+  // 출력됩니다.
   console.log(window.foo)
 
-  // Will log out 'bar' since window.bar is available in this context
+  // window.bar는 이 콘텍스트에서 사용할 수 있기 때문에 'bar'가 출력됩니다.
   console.log(window.bar)
 })
 ```
@@ -219,7 +219,7 @@ Disabling `webSecurity` will disable the same-origin policy and set `allowRunnin
 ### 어떻게 하나요?
 
 ```js
-// Bad
+// 나쁜 예
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -228,21 +228,21 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 좋은 예
 const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Bad -->
+<!-- 나쁜 예 -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<!-- 좋은 예 -->
 <webview src="page.html"></webview>
 ```
 
-## 6) Define a Content Security Policy
+## 6) 콘텐츠 보안 정책을 정의하세요.
 
-A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
+콘텐츠 보안 정책(CSP)은 교차-사이트-스크립트 공격과 데이터 삽입 공격에 대응하는 추가적인 보호 계층입니다. We recommend that they be enabled by any website you load inside Electron.
 
 ### 왜냐구요?
 
@@ -360,7 +360,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 좋은 예
 const mainWindow = new BrowserWindow()
 ```
 
