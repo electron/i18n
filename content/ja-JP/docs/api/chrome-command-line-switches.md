@@ -126,13 +126,13 @@ Pepper Flashプラグインの `version` を設定します。
 
 Chromiumが隠れたページのレンダラープロセスの優先順位を下げるのを防止します。
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+このフラグはすべてのレンダラープロセスに影響を及ぼすので、1つのウインドウの制限を無効にしたいだけの場合、[無音のオーディオを再生する](https://github.com/atom/atom/pull/9485/files)というテクニックを使うことができます。
 
 ## --enable-logging
 
-Prints Chromium's logging into console.
+コンソールにChromiumのログを出力します。
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+このスイッチは、ユーザのアプリがロードされるよりも早く解析されるため、`app.commandLine.appendSwitch` で使用することはできませんが、同じ効果を得るために `ELECTRON_ENABLE_LOGGING` 環境変数を設定することができます。
 
 ## --v=`log_level`
 
