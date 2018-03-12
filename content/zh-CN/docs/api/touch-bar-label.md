@@ -1,13 +1,13 @@
-## Class: TouchBarLabel
+## 类: TouchBarLabel
 
 > Create a label in the touch bar for native macOS applications
 
 线程：[主线程](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `new TouchBarLabel(options)` *实验功能*
 
 * `options` Object 
-  * `label` String (optional) - Text to display.
+  * `label` String (可选) - 显示的文本.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
 ### 实例属性
