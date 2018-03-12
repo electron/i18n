@@ -1,6 +1,6 @@
 ## クラス: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> HTTP/HTTPリクエストを行います。
 
 プロセス: [Main](../glossary.md#main-process)
 
