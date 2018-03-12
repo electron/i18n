@@ -96,7 +96,7 @@ V8 - JavaScript движок с открытым исходным кодом к�
 
 Electron компилирует V8 как часть Chromium а затем указывает Node использовать этот V8 при сборке.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Версионирование V8 соответствует номерам версий в Google Chrome. Chrome 59 версии включает в себя V8 5.9, Chrome 58- V8 5.8 версии и т. д.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
