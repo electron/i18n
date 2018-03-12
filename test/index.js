@@ -172,7 +172,7 @@ describe('API Docs', () => {
     sources.every(src => src.startsWith('https://cdn.rawgit.com/electron/electron/')).should.eq(true)
   })
 
-  it.only('contains no empty links', () => {
+  it('contains no empty links', () => {
     Object.keys(i18n.docs['en-US']).forEach(href => {
       const doc = i18n.docs['en-US'][href]
       doc.sections.forEach(section => {
