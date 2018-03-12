@@ -1,4 +1,4 @@
-## Class: TouchBarSpacer
+## 类: TouchBarSpacer
 
 > 在mac os应用中，为touch bar中的相邻项之间留白
 
