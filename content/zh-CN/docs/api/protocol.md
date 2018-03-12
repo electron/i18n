@@ -73,7 +73,7 @@ app.on('ready', () => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `filePath` String (optional)
+    * `filePath` String (可选)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -95,7 +95,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -125,7 +125,7 @@ protocol.registerBufferProtocol('atom', () => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `data` String (optional)
+    * `data` String (可选)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -146,10 +146,10 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `redirectRequest` Object 
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (可选)
       * `uploadData` Object (可选) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` String - 内容的MIME类型。
+        * `data` String - 要发送的内容。
 * `completion` Function (可选) 
   * `error` Error
 
@@ -172,7 +172,7 @@ By default the HTTP request will reuse the current session. If you want the requ
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -261,7 +261,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` String (optional)
+    * `data` String (可选)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -296,7 +296,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `redirectRequest` Object 
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (可选)
       * `uploadData` Object (可选) 
         * `contentType` String - 内容的MIME类型。
         * `data` String - 发送内容。
