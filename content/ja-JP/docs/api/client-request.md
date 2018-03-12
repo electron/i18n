@@ -13,12 +13,12 @@
   * `url` String (任意) - リクエストURL。httpまたはhttpsとして指定されているプロトコルスキームを伴う完全な形式で指定しなければなりません。
   * `session` Object (任意) - リクエストが関連付けられている [`Session`](session.md) のインスタンス。
   * `partition` String (任意) - リクエストが関連付けられている [`partition`](session.md) の名前。 省略値は、空の文字列です。 `session` オプションは、`partition` よりも優先されます。 そのため、`session` が明示的に指定されている場合、`partition` は無視されます。
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `protocol` String (任意) - 'scheme:' という形式のプロトコルスキーム。 現在サポートされている値は、'http:' または 'https:' です。省略値は、'http:' です。
+  * `host` String (任意) - ホスト名とポート番号を連結した 'hostname:port' として指定されたサーバーホスト。
+  * `hostname` String (任意) - サーバーホスト名。
+  * `port` Integer (任意) - サーバーのリスニングポート番号。
+  * `path` String (任意) - リクエストURLのパスの部分。
+  * `redirect` String (任意) - このリクエストのリダイレクトモード。 `follow`、`error` または `manual` のいずれかにする必要があります。 省略値は、`follow` です。 モードが `error` のとき、リダイレクトは中止されます。 When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
 `options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
 
