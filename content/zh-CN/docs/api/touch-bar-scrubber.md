@@ -1,10 +1,10 @@
-## Class: TouchBarScrubber
+## 类: TouchBarScrubber
 
 > 创建一个scrubber (可滚动的选择程序)
 
 线程：[主线程](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarScrubber(options)` *Experimental*
+### `new TouchBarScrubber(options)` *实验功能*
 
 * `options` Object 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
