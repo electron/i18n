@@ -87,7 +87,7 @@ Emitted when one or more metrics change in a `display`. The `changedMetrics` is 
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+返回 [`Point`](structures/point.md)
 
 当前鼠标的绝对位置。
 
