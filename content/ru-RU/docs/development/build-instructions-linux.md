@@ -91,9 +91,9 @@ $ ./script/build.py
 $ ./script/create-dist.py
 ```
 
-Оно создаст дистрибутив с гораздо меньшим размером файлов в директорию `dist`. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Оно создаст дистрибутив с гораздо меньшим размером файлов в директорию `dist`. После запуска `create-dist.py`, вероятно, вы захотите удалить 1.3+ Гб бинарный файл, который все еще находится в `out/R`.
 
-You can also build the `Debug` target only:
+Также вы можете собрать только `Debug` версию:
 
 ```sh
 $ ./script/build.py -c D
