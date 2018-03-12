@@ -2,9 +2,9 @@
 
 > 添加图标和上下文菜单到系统通知区
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -236,7 +236,7 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `选项` Object 
-  * `icon` ([NativeImage](native-image.md) | String) - (optional)
+  * `icon` ([NativeImage](native-image.md) | String) - (可选)
   * `title` String
   * `content` String
 
