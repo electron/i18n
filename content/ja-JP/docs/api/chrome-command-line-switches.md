@@ -136,14 +136,14 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 ## --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+既定の最大のアクティブなVログレベルを指定します。0が省略値です。通常、正の値がVログレベルには使われます。
 
-This switch only works when `--enable-logging` is also passed.
+このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
 
 ## --vmodule=`pattern`
 
-Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+`--v` で指定された値を上書きするモジュール単位の最大のVログレベルを指定します。 例えば、`my_module=2,foo*=3` は、`my_module.*` と `foo*.*` のソースファイルにあるすべてのコードのログレベルを変更します。
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+スラッシュまたはバックスラッシュを含むパターンは、モジュールにだけでなく、全体のパス名に対してテストされます。 例えば、`*/foo/bar/*=2` は、`foo/bar` ディレクトリの下にあるソースファイルのすべてのコードのログレベルを変更します。
 
-This switch only works when `--enable-logging` is also passed.
+このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
