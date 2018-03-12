@@ -22,7 +22,7 @@
 
 `protocol`、`host`、`hostname`、`port` や `path` といった `options` プロパティは、[URL](https://nodejs.org/api/url.html) モジュールで説明されている Node.js モデルに厳密に従うようにしてください。
 
-For instance, we could have created the same request to 'github.com' as follows:
+例えば、以下のようにすると、'github.com' に対してリクエストをしているのと同じです。
 
 ```JavaScript
 const request = net.request({
