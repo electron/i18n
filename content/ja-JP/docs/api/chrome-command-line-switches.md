@@ -124,7 +124,7 @@ Pepper Flashプラグインの `version` を設定します。
 
 ## --disable-renderer-backgrounding
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+Chromiumが隠れたページのレンダラープロセスの優先順位を下げるのを防止します。
 
 This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
