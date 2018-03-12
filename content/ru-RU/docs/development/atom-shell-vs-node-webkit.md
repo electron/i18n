@@ -28,4 +28,4 @@ Electron работает, скорее, как среда выполнения 
 
 С использованием функциональности [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) в Node, Electron не создает новый JavaScript контекст для веб страниц.
 
-Note: NW.js has optionally supported multi-context since 0.13.
+Примечание: Поддержка multi-context была представлена c 0.13 версии NW.js.
