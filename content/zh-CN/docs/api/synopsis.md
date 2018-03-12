@@ -36,7 +36,7 @@ app.on('ready', () => {
 
 要运行你的app, 请阅读 [ Run your app ](../tutorial/quick-start.md#run-your-app)。
 
-## Destructuring assignment
+## 解构赋值
 
 从0.37开始，可以使用 [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) (es6解构赋值)来使内置模块更容易使用。
 
