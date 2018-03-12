@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest` は [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) インターフェースを実装しているため、 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
 ### `new ClientRequest(options)`
 
@@ -36,15 +36,15 @@ const request = net.request({
 
 ### インスタンスイベント
 
-#### Event: 'response'
+#### イベント: 'response'
 
-戻り値：
+戻り値:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
 #### イベント: 'login'
 
-戻り値：
+戻り値:
 
 * `authInfo` Object 
   * `isProxy` Boolean
@@ -83,17 +83,17 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### イベント: 'finish'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Event: 'abort'
+#### イベント: 'abort'
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### イベント: 'error'
 
-戻り値：
+戻り値:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -103,9 +103,9 @@ Emitted when the `net` module fails to issue a network request. Typically when t
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Event: 'redirect'
+#### イベント: 'redirect'
 
-戻り値：
+戻り値:
 
 * `statusCode` Integer
 * `method` String
@@ -155,9 +155,9 @@ Adds a chunk of data to the request body. The first write operation may cause th
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
-* `callback` Function (optional)
+* `chunk` (String | Buffer) (任意)
+* `encoding` String (任意)
+* `callback` Function (任意)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
