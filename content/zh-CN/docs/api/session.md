@@ -2,7 +2,7 @@
 
 > 管理浏览器会话、cookie、缓存、代理设置等。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 ` session ` 模块可用于创建新的 ` session ` 对象。
 
@@ -26,7 +26,7 @@ console.log(ses.getUserAgent())
 
 * `partition` String
 * `选项` Object (可选) 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - 是否可以使用缓存.
 
 Returns `Session` - 根据`partition`字符串产生的session实例。 当这里已存在一个`Session`具有相同的`partition`, 它将被返回; 否则一个新的`Session`实例将根据`options`被创建。
 
@@ -60,7 +60,7 @@ console.log(ses.getUserAgent())
 
 以下事件会在` Session `实例触发。
 
-#### Event: 'will-download'
+#### Instance Events
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
