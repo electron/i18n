@@ -20,12 +20,12 @@ Electron работает, скорее, как среда выполнения 
 
 **3. Интеграция Node**
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
+В NW.js, интеграция с Node.js для веб страниц требует патча Chromium для работы, тогда как в Electron мы выбрали другой способ интеграции libuv в цикл событий для каждой платформы чтобы избежать хаков в Chromium. Вы можете изучить код [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common), чтобы узнать, как это было реализовано.
 
-**4. Multi-context**
+**4. Использование multi-context**
 
-If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
+Если вы опытный пользователь NW.js, вам должно быть знакомы понятия контекстов Node и Web. Эти понятия были придуманы из-за того, как был реализован NW.js.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+С использованием функциональности [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) в Node, Electron не создает новый JavaScript контекст для веб страниц.
 
 Note: NW.js has optionally supported multi-context since 0.13.
