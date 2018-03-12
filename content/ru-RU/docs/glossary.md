@@ -96,7 +96,7 @@ V8 - JavaScript движок с открытым исходным кодом к�
 
 Electron компилирует V8 как часть Chromium а затем указывает Node использовать этот V8 при сборке.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Версионирование V8 соответствует номерам версий в Google Chrome. Chrome 59 версии включает в себя V8 5.9, Chrome 58- V8 5.8 версии и т. д.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -104,4 +104,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+Теги `webview` используются для того, чтобы встроить сторонние ресурсы (такие как внешние веб-страницы) в ваше Electron приложение. Они похожи на `iframe`, с тем отличием, что каждый webview запускается в отдельном процессе. Оно не имеет тех же разрешений, так как ваша веб страница и все взаимодействие между вашим приложением и встроенным контентом будут асинхронными. Это позволяет защитить ваше приложение от встраиваемого содержимого.

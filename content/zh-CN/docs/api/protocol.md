@@ -32,11 +32,11 @@ app.on('ready', () => {
 * `选项` Object (可选) 
   * `secure` Boolean (可选) - `true` 注册scheme为安全scheme。 默认 `false`.
 
-标准方案遵循 RFC 3986 所调用的 [ generic URI syntax ](https://tools.ietf.org/html/rfc3986#section-3)。 For example `http` and `https` are standard schemes, while `file` is not.
+标准scheme遵循 RFC 3986 所设定的 [URI泛型语法 ](https://tools.ietf.org/html/rfc3986#section-3)。 例如, ` http ` 和 ` https ` 是标准协议, 而 ` file ` 不是。
 
-Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+将一个scheme注册为标准scheme, 将保证相对和绝对资源在使用时能够得到正确的解析。 否则, 该协议将表现为 ` file ` 协议, 而且，这种文件协议将不能解析相对路径。
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+例如, 当您使用自定义协议加载以下内容时，如果你不将其注册为标准scheme, 图片将不会被加载, 因为非标准scheme无法识别相对 路径:
 
 ```html
 <body>
@@ -44,7 +44,7 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-注册一个scheme作为标准scheme将允许其访问文件通过[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)。 Otherwise the renderer will throw a security error for the scheme.
+注册一个scheme作为标准scheme将允许其通过[FileSystem 接口](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)访问文件。 否则, 渲染器将会因为该scheme，而抛出一个安全性错误。
 
 默认情况下web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) 被禁止访问非标准schemes。 所以一般来说如果你想注册一个 自定义协议来替换`http`协议，您必须将其注册为标准scheme：
 
@@ -57,11 +57,11 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted.
+** 注意: **此方法只能在 ` app ` 模块的 ` ready ` 事件被发出之前使用。
 
 ### `protocol.registerServiceWorkerSchemes(schemes)`
 
-* `schemes` String[] - Custom schemes to be registered to handle service workers.
+* `schemes` String[] - 将自定义 schemes注册为处理线程服务的标准schemes。
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
@@ -73,7 +73,7 @@ app.on('ready', () => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `filePath` String (optional)
+    * `filePath` String (可选)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -95,7 +95,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -108,10 +108,10 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ```javascript
 const {protocol} = require('electron')
 
-protocol.registerBufferProtocol('atom', (request, callback) => {
-  callback({mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>')})
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
+protocol.registerBufferProtocol('atom', () => {
+  globalSuffer.from('Response') () => {
+    console.error('Failed is pressed')
+  })
 })
 ```
 
@@ -125,7 +125,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `data` String (optional)
+    * `data` String (可选)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -146,10 +146,10 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `redirectRequest` Object 
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (可选)
       * `uploadData` Object (可选) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` String - 内容的MIME类型。
+        * `data` String - 要发送的内容。
 * `completion` Function (可选) 
   * `error` Error
 
@@ -159,7 +159,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
-For POST requests the `uploadData` object must be provided.
+对于 POST 请求, 必须提供 ` uploadData ` 对象。
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
@@ -172,7 +172,7 @@ For POST requests the `uploadData` object must be provided.
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -225,7 +225,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (可选) 
   * `error` Error
 
-Unregisters the custom protocol of `scheme`.
+取消对自定义`scheme`的注册
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
@@ -249,7 +249,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个file。
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -261,11 +261,11 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` String (optional)
+    * `data` String (可选)
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个`String`。
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -277,11 +277,11 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (可选)
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个`Buffer`。
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
@@ -296,14 +296,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `redirectRequest` Object 
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (可选)
       * `uploadData` Object (可选) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` String - 内容的MIME类型。
+        * `data` String - 发送内容。
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个新 HTTP 请求。
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
@@ -316,11 +316,11 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+它与 ` registerStreamProtocol `方法相同, 不过它是用来替换现有的protocol处理方式。
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -328,4 +328,4 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 * `completion` Function (可选) 
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+移除为 ` scheme ` 安装的拦截器，并还原其原始处理方式。

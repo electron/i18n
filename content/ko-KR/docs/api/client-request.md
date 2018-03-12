@@ -34,15 +34,15 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### 인스턴스 이벤트
 
-#### Event: 'response'
+#### 이벤트: 'response'
 
-Returns:
+반환:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
-#### Event: 'login'
+#### 이벤트: 'login'
 
 반환:
 
@@ -83,11 +83,11 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### 이벤트: 'finish'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Event: 'abort'
+#### 이벤트: 'abort'
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 

@@ -21,29 +21,29 @@ Obiekt `app` emituje następujące zdarzenia:
 
 Emitowane, kiedy aplikacja zakończy podstawowe uruchamianie. W systemach Windows oraz Linux, zdarzenie `will-finish-launching` jest takie samo jak zdarzenie `ready`; w macOS reprezentuje powiadomienie `applicationWillFinishLaunching` z `NSApplication`. Zazwyczaj chcesz skonfigurować nasłuchiwanie na zdarzenie `open-file` lub `open-url`, oraz uruchomić crash reporter i auto updater.
 
-In most cases, you should just do everything in the `ready` event handler.
+W większości przypadków, należy po prostu zrobić wszystko w obsłudze zdarzenia `ready`.
 
-### Event: 'ready'
+### Zdarzenie: 'ready'
 
 Zwraca:
 
-* `launchInfo` Object *macOS*
+* `launchInfo` Obiekt *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Emitowane, gdy elektron zakończył inicjowanie. W systemie Mac OS `launchInfo` posiada `userInfo` z `NSUserNotification`, który został użyty do otwarcia aplikacji, jeśli został uruchomiony z centrum powiadomień. Można wywołać `app.isReady()` Aby sprawdzić, czy to zdarzenie został już wyemitowane.
 
-### Event: 'window-all-closed'
+### Zdarzenie: 'window-all-closed'
 
-Emitted when all windows have been closed.
+Emitowane, gdy wszystkie okna zostały zamknięte.
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Jeśli nie nasłuchujesz tego wydarzenia i wszystkie okna są zamknięte, domyślne zachowanie to zamknięcie aplikacji. Jeśli nasłuchujesz, wtedy możesz kontrolować, czy aplikacja zostanie zamknięta lub nie. Jeśli użytkownik nacisnął klawisz `Cmd + Q`, lub deweloper zawołał metodę `app.quit()`, Electron najpierw spróbuje zamknąć wszystkie okna, a następnie wyemitować zdarzenie `will-quit`, i w tym przypadku zdarzenie `window-all-closed` nie zostanie wyemitowane.
 
-### Event: 'before-quit'
+### Zdarzenie: 'before-quit'
 
 Zwraca:
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitowane przed tym jak aplikacja zacznie zamykać okna. Wywołanie `event.preventDefault()` uniemożliwi zachowanie domyślne, którym jest zakończenie aplikacji.
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
