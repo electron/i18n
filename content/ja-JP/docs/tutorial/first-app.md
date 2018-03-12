@@ -4,7 +4,7 @@ Electronは、豊富なネイティブ (オペレーティング・システム)
 
 これは、Electronはグラフィカルユーザーインターフェース (GUI) ライブラリへのJavaScriptバインディングである、という意味ではありません。 その代わりにGUIとしてWebページを使うので、ElectronはJavaScriptで操作できる、最小限のChromiumブラウザである、と捉えることもできます。
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**注意**: このサンプルはリポジトリとして利用できます。 [すぐにダウンロードして実行できます](#trying-this-example)。
 
 As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
@@ -15,7 +15,7 @@ your-app/
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+新規のElectronアプリ用に空のフォルダを新規作成します。 コマンドラインクライアントを起動し、いま作ったフォルダで`npm init`を実行します。
 
 ```sh
 npm init
@@ -182,7 +182,7 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**注意**: これを実行するには[Git](https://git-scm.com)が必要です。
 
 ```sh
 # リポジトリをクローン
