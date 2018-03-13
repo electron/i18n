@@ -153,11 +153,11 @@ protocol.registerBufferProtocol('atom', () => {
 * `completion` Function (可选) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+注册一个 `scheme` 协议, 将 HTTP 请求作为响应发送
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
+该用法与 `registerFileProtocol` 相同, 只是`callback` 会被` redirectRequest `对象或者带有`url`, `method`, `referrer`, `uploadData` 和 `session` 属性的对象调用。
 
-By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
+默认情况下, HTTP 请求会重复使用当前的 session。如果希望请求具有不同的session, 则应将 `session`设置为 `null`.
 
 对于 POST 请求, 必须提供 ` uploadData ` 对象。
 
@@ -176,9 +176,9 @@ By default the HTTP request will reuse the current session. If you want the requ
 * `completion` Function (可选) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Readable` as a response.
+注册一个 `scheme` 协议, 将 ` Readable `作为响应发送
 
-The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+该用法类似于 `register{Any}Protocol` ，只是`callback` 会被` Readable `对象或者带有`data`, `statusCode` 和 `headers` 属性的对象调用。
 
 例子:
 
