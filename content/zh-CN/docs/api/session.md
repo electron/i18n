@@ -30,19 +30,19 @@ console.log(ses.getUserAgent())
 
 Returns `Session` - 根据`partition`字符串产生的session实例。 当这里已存在一个`Session`具有相同的`partition`, 它将被返回; 否则一个新的`Session`实例将根据`options`被创建。
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 如果没有设置`partition`，app 将返回默认的session。
 
 要根据`options`创建`Session`，你需要确保`Session`的`partition`在之前从未被使用。 没有办法修改一个已存在的`Session`对象的`options`。
 
 ## 属性
 
-The `session` module has the following properties:
+` session ` 模块具有以下方法:
 
 ### `session.defaultSession`
 
 一个`Session`对象，该应用程序的默认session对象。
 
-## Class: Session
+## 类: Session
 
 > 获取和设置Session的属性。
 
@@ -102,8 +102,8 @@ Callback会被调用，参数是session的当前缓存大小。
 * `选项` Object (可选) 
   * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`
   * `storages` String[] - (可选项) 要清除的存储类型，可以为以下几种: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
+  * `quotas` String[] - (可选) 要清除的配额类型, 可以包含: `temporary`, `persistent`, `syncable`.
+* `callback` Function (optional) - 会在操作完成后被调用.
 
 清除Web storage的数据。
 
@@ -114,16 +114,16 @@ Callback会被调用，参数是session的当前缓存大小。
 #### `ses.setProxy(config, callback)`
 
 * `config` Object 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+  * `pacScript` String - 与 PAC 文件关联的 URL。
+  * `proxyRules` String - 表明要使用的代理规则。
+  * `proxyBypassRules` String - 表明哪些 url 应绕过代理设置的规则。
+* `callback` Function - 会在操作完成之后被调用。
 
 代理设置
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+当`pacScript`和`proxyRules`一起提供时, `proxyRules` 选项会被忽略, 会使用`pacScript`配置。
 
-The `proxyRules` has to follow the rules below:
+`proxyRules` 要遵循以下规则:
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
@@ -143,35 +143,35 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-The `proxyBypassRules` is a comma separated list of rules described below:
+`proxyBypassRules`是一个用逗号分隔的规则列表, 如下所述:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  与 HOSTNAME_PATTERN 模式匹配的所有主机名。
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  例如: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Match a particular domain suffix.
+    匹配特定域名后缀。
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    例如： ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  匹配URLs也就是IP地址字面值
+  匹配 IP 地址文本的 url。
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  例如: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  匹配位于给定范围之间的 IP 文本的任何 URL。IP 范围是使用 CIDR 表示法指定的。
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  例如: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+  匹配本地地址。local 的含义是，是否匹配其中一个: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url, callback)`
 
@@ -183,7 +183,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location
+* `path` String - 下载地址
 
 设置下载保存目录。默认情况下, 下载目录将是相应应用程序文件夹下的 `Downloads`。
 
@@ -268,7 +268,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (optional) - 会在操作完成后被调用.
 
 Clears the host resolver cache.
 
@@ -342,7 +342,7 @@ The following properties are available on instances of `Session`:
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+此会话的 [WebRequest](web-request.md) 对象。
 
 #### `ses.protocol`
 

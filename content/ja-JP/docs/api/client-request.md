@@ -40,7 +40,7 @@ const request = net.request({
 
 戻り値:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - HTTPレスポンスメッセージを表すオブジェクト。
 
 #### イベント: 'login'
 
@@ -56,9 +56,9 @@ const request = net.request({
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+認証プロキシがユーザの資格情報を要求しているときに発生します。
 
-The `callback` function is expected to be called back with user credentials:
+`callback` ファンクションは、ユーザの資格情報と共にコールバックされます。
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+空の資格情報を指定すると、リクエストがキャンセルされ、レスポンスオブジェクトで認証エラーが返ります。
 
 ```JavaScript
 request.on('response', (response) => {
@@ -85,23 +85,23 @@ request.on('login', (authInfo, callback) => {
 
 #### イベント: 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+`request` のデータの最後のチャンクが `request` オブジェクトに書き込まれた直後に発生します。
 
 #### イベント: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+`request` が中止されたときに発生します。`request` が既に終了している場合、`abort` イベントは発生しません。
 
 #### イベント: 'error'
 
 戻り値:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Error - 失敗に関するいくつかの情報を提供するエラーオブジェクト。
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+`net` モジュールがネットワークリクエストを行うのに失敗するときに発生します。 通常、`request` オブジェクトが `error` イベントを発生させるとき、続いて `close` イベントが発生し、レスポンスオブジェクトが返ることはありません。
 
 #### イベント: 'close'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+HTTPのリクエストからレスポンスまでのやり取りの最後のイベントして発生します。 `close` イベントは、`request` または `response` オブジェクトのいずれでもこれ以上のイベントが発生しないことを示します。
 
 #### イベント: 'redirect'
 
@@ -112,7 +112,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
+リダイレクトがあり、モードが `manual` のときに発生します。[`request.followRedirect`](#requestfollowRedirect) を呼び出すことでリダイレクトが続行されます。
 
 ### インスタンスプロパティ
 

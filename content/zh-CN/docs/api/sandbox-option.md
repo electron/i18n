@@ -14,9 +14,9 @@ Chromium主要的安全特征之一便是所有的blink渲染或者JavaScript代
 
 另一个区别是沙箱渲染器不修改任何默认的 JavaScript api。 因此, 某些 api （比如 `window.open`）将像在chromium中一样工作 (即它们不返回 ` BrowserWindowProxy `)。
 
-## 例子
+## 示例
 
-要创建一个沙箱窗口，设置`sandbox: true`在`webPreferences`中：
+要创建沙盒窗口, 只需将 ` 沙盒: true ` 传递到 ` webPreferences `:
 
 ```js
 let win

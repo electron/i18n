@@ -75,7 +75,7 @@ Returns `Boolean` - Whether the shortcut was created successfully
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+返回 [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 
