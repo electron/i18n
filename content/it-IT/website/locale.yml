@@ -33,7 +33,7 @@ community:
   components: Componenti
   videos: Video
   meetups: Incontri
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
+  awesome_notice: Questo elenco è generato dalla repository <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Manca qualcosa? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Fai una richiesta di pull</a>.
   meetup_notice: Per aggiungere un meetup, modifica <code>data/meetups.json</code> e <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> fai una richiesta di pull</a>.
 releases: Versioni
 electron_is_easy:
