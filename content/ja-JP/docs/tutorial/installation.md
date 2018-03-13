@@ -56,7 +56,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### キャッシュ
 
-代わりに、ローカルキャッシュを上書きできます。 `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+代わりに、ローカルキャッシュを上書きできます。 `electron-download`はあなたのネットワークに負荷がかからないようにダウンロードしたバイナリをローカルディレクトリにキャッシュします。 You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
