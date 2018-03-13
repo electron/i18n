@@ -45,9 +45,9 @@ Zwraca:
 
 Emitowane przed tym jak aplikacja zacznie zamykać okna. Wywołanie `event.preventDefault()` uniemożliwi zachowanie domyślne, którym jest zakończenie aplikacji.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Uwaga:** Jeśli zamykanie zostało zainicjowane przez `autoUpdater.quitAndInstall()`, wtedy `before-quit` jest emitowany *po* emitowaniu `close` na wszystkich oknach oraz ich zamknięcia.
 
-### Event: 'will-quit'
+### Zdarzenie: 'will-quit'
 
 Zwraca:
 
