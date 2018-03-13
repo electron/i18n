@@ -8,7 +8,7 @@ Electron's `process` object is extended from the [Node.js `process` object](http
 
 ## أحداث
 
-### Event: 'loaded'
+### الحدث: "تحميل"
 
 Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
@@ -77,7 +77,7 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ## المنهجية
 
-The `process` object has the following methods:
+الطرق
 
 ### `process.crash()`
 
@@ -117,7 +117,7 @@ Returns an object giving memory usage statistics about the entire system. Note t
 
 Causes the main thread of the current process hang.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### ماك أوس لينكس
 
 * `maxDescriptors` Integer
 
