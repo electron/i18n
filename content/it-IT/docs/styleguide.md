@@ -45,7 +45,7 @@ For API references, there are exceptions to this rule.
 * Usa `sh` invece di `cmd` nei blocchi di codice (a causa dell'evidenziatore della sintassi).
 * Lines should be wrapped at 80 columns.
 * Nessun elenco di nidificazione più di 2 livelli (a causa del renderizzatore di riduzione).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Tutti i blocchi di codice `js` e `javascript` sono allineati con il [Markdown standard](http://npm.im/standard-markdown).
 
 ## Picking words
 
