@@ -95,13 +95,13 @@ request.on('login', (authInfo, callback) => {
 
 戻り値:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Error - 失敗に関するいくつかの情報を提供するエラーオブジェクト。
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+`net` モジュールがネットワークリクエストを行うのに失敗するときに発生します。 通常、`request` オブジェクトが `error` イベントを発生させるとき、続いて `close` イベントが発生し、レスポンスオブジェクトが返ることはありません。
 
 #### イベント: 'close'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+HTTPのリクエストからレスポンスまでのやり取りの最後のイベントして発生します。 The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
 #### イベント: 'redirect'
 
