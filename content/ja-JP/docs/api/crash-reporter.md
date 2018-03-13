@@ -62,7 +62,7 @@ crashReporter.start({
  })
 ```
 
-**Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**注釈:** macOSでは、クラッシュレポートの収集と送信に`crashpad`という新しいクライアントが使われます。 もしこのクラッシュレポータを有効にしたい場合は、クラッシュレポートを収集したいかに関係なく、メインプロセスから`crashReporter.start`を用いて`crashpad`を初期化する必要があります。 一度この方法で初期化すると、crashpadは全てのプロセスからクラッシュレポートを収集します。 You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
 
 ### `crashReporter.getLastCrashReport()`
 
