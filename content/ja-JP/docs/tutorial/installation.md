@@ -6,7 +6,7 @@ Electronのビルド済みバイナリを使用するためには、[`npm`](http
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
+あなたのアプリ内でElectronのバージョンを管理する方法については、[Electronのバージョン管理](./electron-versioning.md)を参照して下さい。
 
 ## グローバルインストール
 
@@ -24,7 +24,7 @@ npm install electron -g
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+アーキテクチャに加えてプラットフォーム(`win32`、`linux`など)も変更する場合は、`--platform`フラグを更に指定できます。
 
 ```shell
 npm install --platform=win32 electron
@@ -34,9 +34,9 @@ npm install --platform=win32 electron
 
 HTTP プロキシを使用する必要がある場合は、[これらの環境変数を設定](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables)してください。
 
-## Custom Mirrors and Caches
+## ミラーとキャッシュのカスタマイズ
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+インストール中に、`electron`モジュールは[`electron-download`](https://github.com/electron-userland/electron-download)を呼び出してあなたのプラットフォームのElectronのプレビルドバイナリをダウンロードするでしょう。 It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
 
 If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
 
