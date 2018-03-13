@@ -35,9 +35,9 @@ For setting up a server to accept and process crash reports, you can use followi
   * `submitURL` String - POSTとしてクラッシュレポートが送られるURL。
   * `productName` String (任意) - 省略値は`app.getName()`。
   * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバに送るかどうか。省略値は`true`。
-  * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は`false`
-  * `extra` Object (任意) - レポートと共に送信されるように定義できるオブジェクト。 Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
+  * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は`false`。
+  * `extra` Object (任意) - レポートと共に送信されるように定義できるオブジェクト。 文字列のプロパティだけは正常に送られる。 ネストされたオブジェクト、または名前と値が64文字以上のプロパティはサポートされていない。
+  * `crashesDirectory` String (任意) - クラッシュレポートを格納する一時ディレクトリ (`process.crashReporter.start`を介してクラッシュレポータを起動させるときにのみ使用される)
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
 
