@@ -83,7 +83,7 @@ app.on('ready', () => {
 
 当 `callback` 被调用后，并且没有带着数字或 `error` 属性的对象时, `request`将会失败, 并且带有你指定的 `error`错误号。 更多的错误号信息，您可以查阅[网络错误列表](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`, so you probably want to call `protocol.registerStandardSchemes` to have your scheme treated as a standard scheme.
+默认情况下, `scheme` 与 `http:`,类似, 它的分析方式不同于遵循 "generic URI syntax" 的协议(例如 `file:`), 所以您可能需要调用`protocol.registerStandardSchemes` 以使您的方案作为标准方案处理。
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
@@ -99,9 +99,9 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 * `completion` Function (可选) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Buffer` as a response.
+注册一个 `scheme` 协议, 将 `Buffer`作为响应发送
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
+该用法与 `registerFileProtocol` 相同, 只是`callback` 会被`Buffer`对象或者带有`data`，`mimeType`和 `charset`属性的对象调用。
 
 例子:
 
@@ -129,9 +129,9 @@ protocol.registerBufferProtocol('atom', () => {
 * `completion` Function (可选) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+注册一个 `scheme` 协议, 将 `String` 作为响应发送
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
+该用法与 ` registerFileProtocol ` 相同, 只是`callback` 会被`String`对象或者带有`data`，`mimeType`和 `charset`属性的对象调用。
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
