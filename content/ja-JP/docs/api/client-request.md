@@ -40,7 +40,7 @@ const request = net.request({
 
 戻り値:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - HTTPレスポンスメッセージを表すオブジェクト。
 
 #### イベント: 'login'
 
@@ -56,9 +56,9 @@ const request = net.request({
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+認証プロキシがユーザの資格情報を要求しているときに発生します。
 
-The `callback` function is expected to be called back with user credentials:
+`callback` ファンクションは、ユーザの資格情報と共にコールバックされます。
 
 * `username` String
 * `password` String
