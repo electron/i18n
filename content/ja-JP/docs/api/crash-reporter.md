@@ -112,12 +112,12 @@ crashReporter.start({
 クラッシュレポータは`submitURL`に`multipart/form-data`の形式で`POST`で以下のデータを送信します。
 
 * `ver` String - Electronのバージョン。
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+* `platform` String - 'win32'など。
+* `process_type` String - 'renderer'など.
+* `guid` String - '5e1286fc-da97-479e-918b-6bfb0c3d1c72'など。
+* `_version` String - `package.json`内のバージョン。
+* `_productName` String - `crashReporter`の`options`内のproductName。
+* `prod` String - 基底のプロダクト。この場合はElectron。
+* `_companyName` String - `crashReporter`の`options`内のcompanyName。
+* `upload_file_minidump` File - `minidump`フォーマットのクラッシュレポート。
+* `crashReporter`の`options`内の`extra`オブジェクトの全ての最上位プロパティ。
