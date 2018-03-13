@@ -342,7 +342,7 @@ The following properties are available on instances of `Session`:
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+此会话的 [WebRequest](web-request.md) 对象。
 
 #### `ses.protocol`
 
