@@ -2,7 +2,7 @@
 
 Queste sono le linee guida per scrivere la documentazione di Electron.
 
-## Titles
+## Titoli
 
 * Each page must have a single `#`-level title at the top.
 * Chapters in the same page must have `##`-level titles.
