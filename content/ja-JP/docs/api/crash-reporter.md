@@ -26,7 +26,7 @@ crashReporter.start({
 
 ## メソッド
 
-`crashReporter` オブジェクトには以下のメソッドがあります
+`crashReporter` オブジェクトには以下のメソッドがあります。
 
 ### `crashReporter.start(options)`
 
@@ -95,23 +95,23 @@ crashReporter.start({
 * `key` String - パラメータのキー、64文字未満でなければならない。
 * `value` String - パラメータの値、64文字未満でなければならない。
 
-クラッシュレポートで送信されるextraパラメーターをセットします。 `start`を呼ぶときに`extra`オプションを通してセットする、追加で送信される値を指定します。 This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+クラッシュレポートで送信されるextraパラメーターをセットします。 `start`を呼ぶときに`extra`オプションを通してセットする、追加で送信される値を指定します。 このAPIはmacOSでのみ使用可能で、もしLinuxとWindowsで最初に`start`を呼んだあとにextraパラメータを追加/更新する必要があれば、`start`を新しい`extra`と共に呼び直すことでできます。
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
 * `key` String - パラメータのキー、64文字未満でなければならない。
 
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+現在のパラメータ群からextraパラメータを削除します。なので、それはクラッシュレポートと共に送信されなくなります。
 
 ### `crashReporter.getParameters()`
 
-See all of the current parameters being passed to the crash reporter.
+クラッシュレポータに渡した現在のパラメータ全てを閲覧します。
 
-## Crash Report Payload
+## クラッシュレポートの内容
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+クラッシュレポータは`submitURL`に`multipart/form-data`の形式で`POST`で以下のデータを送信します。
 
-* `ver` String - The version of Electron.
+* `ver` String - Electronのバージョン。
 * `platform` String - e.g. 'win32'.
 * `process_type` String - e.g. 'renderer'.
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
