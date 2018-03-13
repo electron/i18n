@@ -36,27 +36,27 @@ HTTP プロキシを使用する必要がある場合は、[これらの環境�
 
 ## ミラーとキャッシュのカスタマイズ
 
-インストール中に、`electron`モジュールは[`electron-download`](https://github.com/electron-userland/electron-download)を呼び出してあなたのプラットフォームのElectronのプレビルドバイナリをダウンロードするでしょう。 It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+インストール中に、`electron`モジュールは[`electron-download`](https://github.com/electron-userland/electron-download)を呼び出してあなたのプラットフォームのElectronのプレビルドバイナリをダウンロードするでしょう。 これはGithubのリリースダウンロードページ(`https://github.com/electron/electron/releases/tag/v$VERSION`、 `$VERSION`はElectronの詳細なバージョン)からそうします。
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+もしGithubにアクセス出来ないかカスタムビルドを提供する必要がある場合、他に提供されているミラーや既存のキャッシュからダウンロードできます。
 
-#### Mirror
+#### ミラー
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+基底URL、Electronのバイナリを見つけるためのパス、バイナリのファイル名は、環境変数を用いて上書きできます。 `electron-download`で使われるurlは以下の組み合わせです。
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+例として、中国のミラーを使うにはこうします。
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
-#### Cache
+#### キャッシュ
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+代わりに、ローカルキャッシュを上書きできます。 `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
