@@ -36,7 +36,7 @@ crashReporter.start({
   * `productName` String (任意) - 省略値は`app.getName()`。
   * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバに送るかどうか。省略値は`true`。
   * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は`false`。
-  * `extra` Object (任意) - レポートと共に送信されるように定義できるオブジェクト。 文字列のプロパティだけは正常に送られる。 ネストされたオブジェクト、または名前と値が64文字以上のプロパティはサポートされていない。
+  * `extra` Object (任意) - レポートと共に送信されるように定義できるオブジェクト。 文字列のプロパティだけは正常に送られる。 ネストされたオブジェクト、または名前/値が64文字以上のプロパティはサポートされていない。
   * `crashesDirectory` String (任意) - クラッシュレポートを格納する一時ディレクトリ (`process.crashReporter.start`を介してクラッシュレポータを起動させるときにのみ使用される)
 
 クラッシュレポートの収集元となる他の`crashReporter`API、各プロセス(メイン/レンダラー)を使用する前にこのメソッドを呼び出す必要があります。 異なるプロセスから呼び出すときは、`crashReporter.start`に異なるオプションを渡すことができます。
@@ -95,7 +95,7 @@ crashReporter.start({
 * `key` String - パラメータのキー、64文字未満でなければならない。
 * `value` String - パラメータの値、64文字未満でなければならない。
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+クラッシュレポートで送信されるextraパラメーターをセットします。 The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
