@@ -17,7 +17,7 @@ crashReporter.start({
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+クラッシュレポートを受信/処理するサーバーを立てるのに、以下のプロジェクトを使用できます。
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
@@ -45,7 +45,7 @@ For setting up a server to accept and process crash reports, you can use followi
 
 **注釈:** Windowsで子プロセスからクラッシュレポートを集めるには、 このコードを同じように加える必要があります。 これでクラッシュレポートを監視/送信するプロセスが起動します。 `submitURL`、`productName`、`crashesDirectory`を適切な値に置き換えて下さい。
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `setExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**注釈:** もし最初に`start`を呼んだ後に追加/更新した`extra`を送る必要があれば、macOSでは`setExtraParameter`を、LinuxとWindowsでは`start`を新しい`extra`と共に呼び直すことでできます。
 
 ```js
  const args = [
