@@ -68,38 +68,38 @@ crashReporter.start({
 
 戻り値: [`CrashReport`](structures/crash-report.md)
 
-Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
+日付とIDが最後のクラッシュレポートを返します。もしクラッシュレポートが送信されていないかクラッシュレポータが起動していない場合、`null`が返されます。
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+戻り値: [`CrashReport[]`](structures/crash-report.md)
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+すべてのアップロードされたクラッシュレポートを返します。各レポートは日付とアップロードIDを含みます。
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+戻り値 `Boolean` - クラッシュレポートがサーバにアップロードされるかどうか。 `start`メソッドか`setUploadToServer`からセットする。
 
-**Note:** This API can only be called from the main process.
+**注釈:** このAPIはメインプロセスからのみ呼び出すことができます。
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+* `uploadToServer` Boolean *macOS* - サーバにクラッシュレポートを提出するかどうか。
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+これは通常ユーザー設定によって制御されるでしょう。`start`が呼ばれる前に呼んでも効果はありません。
 
-**Note:** This API can only be called from the main process.
+**注釈:** このAPIはメインプロセスからのみ呼び出すことができます。
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `key` String - パラメータのキー、64文字未満でなければならない。
+* `value` String - パラメータの値、64文字未満でなければならない。
 
 Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
+* `key` String - パラメータのキー、64文字未満でなければならない。
 
 Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
 
