@@ -79,7 +79,7 @@ app.on('ready', () => {
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-当`display`中的一个或多个值发生改变时发出。 The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+当`display`中的一个或多个值发生改变时发出。 `changedMetrics`是描述更改信息的字符串数组。 可能改变的值有`bounds`, `workArea`, `scaleFactor` 和 `rotation`.
 
 ## 方法
 
