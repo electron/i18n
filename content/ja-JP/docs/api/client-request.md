@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+空の資格情報を指定すると、リクエストがキャンセルされ、レスポンスオブジェクトで認証エラーが返ります。
 
 ```JavaScript
 request.on('response', (response) => {
@@ -85,11 +85,11 @@ request.on('login', (authInfo, callback) => {
 
 #### イベント: 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+`request` のデータの最後のチャンクが `request` オブジェクトに書き込まれた直後に発生します。
 
 #### イベント: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+`request` が中止されたときに発生します。`request` が既に終了している場合、`abort` イベントは発生しません。
 
 #### イベント: 'error'
 
