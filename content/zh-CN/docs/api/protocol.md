@@ -206,7 +206,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+可以传递任何可读取流 API 的对象(`data`/`end`/`error` 事件)。以下是如何返回文件的方法示例:
 
 ```javascript
 const {protocol} = require('electron')
@@ -233,7 +233,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `callback` Function - 回调函数 
   * `error` Error
 
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+`callback` 会被调用，带有布尔值，表示是否已经有`scheme` 的处理程序。
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
