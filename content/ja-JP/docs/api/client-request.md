@@ -101,7 +101,7 @@ request.on('login', (authInfo, callback) => {
 
 #### イベント: 'close'
 
-HTTPのリクエストからレスポンスまでのやり取りの最後のイベントして発生します。 The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+HTTPのリクエストからレスポンスまでのやり取りの最後のイベントして発生します。 `close` イベントは、`request` または `response` オブジェクトのいずれでもこれ以上のイベントが発生しないことを示します。
 
 #### イベント: 'redirect'
 
@@ -112,7 +112,7 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
+リダイレクトがあり、モードが `manual` のときに発生します。[`request.followRedirect`](#requestfollowRedirect) を呼び出すことでリダイレクトが続行されます。
 
 ### インスタンスプロパティ
 
