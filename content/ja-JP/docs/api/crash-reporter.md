@@ -22,20 +22,20 @@ For setting up a server to accept and process crash reports, you can use followi
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-クラッシュレポートは、アプリケーション固有のローカルの一時フォルダーに保存されます。 `productName`が`YourName`のとき、クラッシュレポートは`YourName Crashes`という名前の一時フォルダ内に格納されます。 You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+クラッシュレポートは、アプリケーション固有のローカルの一時フォルダーに保存されます。 `productName`が`YourName`のとき、クラッシュレポートは`YourName Crashes`という名前の一時フォルダ内に格納されます。 クラッシュレポータを起動させる前に`app.setPath('temp', '/あなたの/好きな/一時フォルダ')`を呼ぶことで、この一時フォルダの場所をカスタマイズできます。
 
 ## メソッド
 
-The `crashReporter` module has the following methods:
+`crashReporter` オブジェクトには以下のメソッドがあります
 
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String (optional)
-  * `submitURL` String - URL that crash reports will be sent to as POST.
-  * `productName` String (optional) - Defaults to `app.getName()`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
+  * `companyName` String (任意)
+  * `submitURL` String - POSTとしてクラッシュレポートが送られるURL
+  * `productName` String (任意) - 省略値は`app.getName()`
+  * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバに送るかどうか。省略値は`true`
+  * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は`false`
   * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
   * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
 
