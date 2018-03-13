@@ -1,7 +1,7 @@
 # PrinterInfo 对象
 
 * `name` String
-* `description` String
+* `description` 字符串
 * `status` Number
 * `isDefault` Boolean
 
