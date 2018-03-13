@@ -41,9 +41,9 @@ For setting up a server to accept and process crash reports, you can use followi
 
 クラッシュレポートの収集元となる他の`crashReporter`API、各プロセス(メイン/レンダラー)を使用する前にこのメソッドを呼び出す必要があります。 異なるプロセスから呼び出すときは、`crashReporter.start`に異なるオプションを渡すことができます。
 
-**注釈** `child_process`モジュールを介して作成した子プロセスはこのモジュールにアクセスする必要はないでしょう。 その代わりに、それらからクラッシュレポートを収集するために、`process.crashReporter.start`を使用します。 上記のオプションに`crashesDirectory`を加えて渡し、クラッシュレポートを格納する一時ディレクトリを指定して下さい。 You can test this out by calling `process.crash()` to crash the child process.
+**注釈** `child_process`モジュールを介して作成した子プロセスはこのモジュールにアクセスする必要はないでしょう。 その代わりに、それらからクラッシュレポートを収集するために、`process.crashReporter.start`を使用します。 上記のオプションに`crashesDirectory`を加えて渡し、クラッシュレポートを格納する一時ディレクトリを指定して下さい。 子プロセスをクラッシュさせる`process.crash()`を呼ぶことでこれをテストできます。
 
-**Note:** To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace `submitURL`, `productName` and `crashesDirectory` with appropriate values.
+**注釈:** Windowsで子プロセスからクラッシュレポートを集めるには、 このコードを同じように加える必要があります。 これでクラッシュレポートを監視/送信するプロセスが起動します。 `submitURL`、`productName`、`crashesDirectory`を適切な値に置き換えて下さい。
 
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `setExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
