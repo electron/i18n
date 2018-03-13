@@ -95,7 +95,7 @@ crashReporter.start({
 * `key` String - パラメータのキー、64文字未満でなければならない。
 * `value` String - パラメータの値、64文字未満でなければならない。
 
-クラッシュレポートで送信されるextraパラメーターをセットします。 The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+クラッシュレポートで送信されるextraパラメーターをセットします。 `start`を呼ぶときに`extra`オプションを通してセットする、追加で送信される値を指定します。 This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
