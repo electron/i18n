@@ -62,7 +62,7 @@ console.log(dialog)
 
 `extensions` はワイルドカードやドットがない拡張子の配列です (例えば `'png'` は良いですが、 `'.png'` や `'*.png'` はいけません)。 すべてのファイルを表示するには、`'*'` ワイルドカードを使用します (他のワイルドカードはサポートされていません)。
 
-`callback` が渡されると、API呼び出しは非同期になり、 `callback(ファイル名)` を通して結果が渡されます。
+`callback` が渡されると、API呼び出しは非同期になり、 `callback(filenames)` を通して結果が渡されます。
 
 **注釈:** WindowsとLinuxではオープンダイアログはファイルとディレクトリ両方のセレクタになれません。なので、もし `properties` に `['openFile', 'openDirectory']` とセットした場合、これらのプラットフォームではディレクトリのセレクタとして表示されます。
 
@@ -86,7 +86,7 @@ console.log(dialog)
 
 `filters` は、表示されるファイルの種類を指定する配列です。例として `dialog.showOpenDialog` を参照して下さい。
 
-`callback` が渡されると、API呼び出しは非同期になり、 `callback(ファイル名)` を通して結果が渡されます。
+`callback` が渡されると、API呼び出しは非同期になり、 `callback(filename)` を通して結果が渡されます。
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
@@ -103,42 +103,42 @@ console.log(dialog)
   * `icon` [NativeImage](native-image.md) (任意)
   * `cancelId` Integer (任意) - `Esc` キーを介して、dialogをキャンセルするボタンのインデックス。 デフォルトは"キャンセル"または"いいえ"のラベルで最初のボタンに割り当てられる。 もしそのようなラベルのボタンがなく、このオプションが設定されていない場合、`` が戻り値やコールバックのresponseとして使われる。 このオプションはWindowsでは無視される。
   * `noLink` Boolean (任意) - WindowsのElectronでは、`buttons` のうちのどれが("キャンセル"や"はい"の様な) 一般的なボタンなのか把握しようとし、他のダイアログ内のボタンはアクセスキーとして表示しようとする。 これでモダンなWindowsアプリのスタイルで表示させることができる。 もしこの挙動が気に入らない場合、`noLink` を `true` に設定できる。
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. 省略値は `false` です。 Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+  * `normalizeAccessKeys` Boolean (任意) - プラットフォーム間でのキーボードアクセスキーの正規化。 省略値は `false` 。 これを有効にすると、キーボードショートカットアクセスキーの配置用のボタンラベルに `&` が使われ、各プラットフォーム間で正常に動作するようにラベルが変換されます。macOSでは `&` 文字は削除され、Linuxでは `_` に変換され、Windowsでは変換されません。 例えば、ボタンラベルが `Vie&w` のとき、Linuxでは `Vie_w` に、macOSでは `View` に、WindowsとLinuxでは `Alt-W` で選択できるようになります。
 * `callback` Function (任意) 
-  * `response` Number - The index of the button that was clicked
-  * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+  * `response` Number - クリックされたボタンのインデックス
+  * `checkboxChecked` Boolean - `checkboxLabel` で設定したチェックボックスの状態。無ければ `false`。
 
-Returns `Integer`, the index of the clicked button, if a callback is provided it returns undefined.
+戻り値はクリックされたボタンのインデックスの `Integer`。callbackが設けられている場合、undefinedを返します。
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+メッセージボックスが閉じられるまでプロセスをブロックして、メッセージボックスを表示します。クリックされたボタンのインデックスを返します。
 
 `browserWindow` を渡すと、それを親ウインドウとしてdialogをモーダルウインドウにします。
 
-If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+`callback` が渡されると、API呼び出しは非同期になり、 `callback(response)` を通して結果が渡されます。
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box
-* `content` String - The text content to display in the error box
+* `title` String - エラーボックス内に表示するタイトル
+* `content` String - エラーボックスの中に表示するテキスト
 
-Displays a modal dialog that shows an error message.
+エラーメッセージを示すモーダルダイアログを表示します。
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+このAPIは `app` オブジェクトの `ready` イベントが発行される前に、安全に呼べます。起動時の初期段階でのエラーの報告によく使われます。 Linuxにおいて、appの `ready` イベントが発行される前に呼んだ場合、メッセージは stderr に吐かれて、GUIのダイアログは表示されません。
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` BrowserWindow (任意)
 * `options` オブジェクト 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-  * `message` String - The message to display to the user.
+  * `certificate` [Certificate](structures/certificate.md) - 信頼/インポートする証明書。
+  * `message` String - ユーザに表示するメッセージ。
 * `callback` Function
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+macOSにおいて、これはメッセージと証明書の情報を表示し、ユーザに信頼/インポートする証明書のオプションを提供します。 `browserWindow` を渡すと、それを親ウインドウとしてdialogをモーダルウインドウにします。
 
-On Windows the options are more limited, due to the Win32 APIs used:
+Windowsでのオプションはより限られており、Win32APIは以下のようになります。
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* `message` は使用されません。OS独自の確認ダイアログを提供します。
+* この確認ダイアログはモーダルウインドウにできないので、`browserWindow` は無視されます。
 
 ## Sheets
 

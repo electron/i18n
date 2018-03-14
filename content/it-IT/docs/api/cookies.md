@@ -53,7 +53,7 @@ The following methods are available on instances of `Cookies`:
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Object 
+* `filter` Oggetto 
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
   * `name` String (optional) - Filters cookies by name.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
@@ -68,7 +68,7 @@ Sends a request to get all cookies matching `details`, `callback` will be called
 
 #### `cookies.set(details, callback)`
 
-* `details` Object 
+* `details` Oggetto 
   * `url` String - The url to associate the cookie with.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.

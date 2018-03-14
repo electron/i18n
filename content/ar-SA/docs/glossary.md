@@ -78,7 +78,7 @@ as a build target.</p>
 background and then displaying it after (it will be much faster).
 It allows you to render page without showing it on screen.</p>
 
-<h3>process</h3>
+<h3>عملية</h3>
 
 <p>A process is an instance of a computer program that is being executed. Electron
 apps that make use of the <a href="#main-process">main</a> and one or many <a href="#renderer-process">renderer</a> process are

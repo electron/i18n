@@ -211,4 +211,4 @@ Ce titre peut être au niveau `###` ou `####` si c'est une propriété d'une cla
 
 ## Traductions de la documentation
 
-Voir [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+See [electron/i18n](https://github.com/electron/i18n#readme)

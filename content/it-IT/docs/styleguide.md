@@ -98,7 +98,7 @@ Using `autoUpdater` as an example:
 * Tutti i metodi che hanno un valore di ritorno devono iniziare la loro descrizione con "Ritorna `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Le proprietà dell'istanza devono essere elencate sotto a `### Instance Properties` chapter. 
+* Le proprietà dell'istanza devono essere elencate sotto a `### Proprietà Istanza` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
@@ -135,7 +135,7 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Metodi
 
 Il capitolo dei metodi deve essere nella seguente forma:
 
@@ -162,9 +162,9 @@ required[, optional]
 
 Sotto il metodo sono informazioni più dettagliate su ciascuno degli argomenti. Il tipo di argomento è indicato dai tipi comuni:
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Stringa`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Oggetto`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Or a custom type like Electron's [`WebContent`](api/web-contents.md)
@@ -179,7 +179,7 @@ Se un argomento o un metodo è univoco per certe piattaforme, tali piattaforme s
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
-### Events
+### Eventi
 
 Il capitolo degli eventi deve essere nel seguente formato:
 
@@ -211,4 +211,4 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 
 ## Documentation Translations
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+See [electron/i18n](https://github.com/electron/i18n#readme)

@@ -1,4 +1,4 @@
-# Boilerplates and CLIs
+# Les Boilerplates et CLIs
 
 Electron development is un-opinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
 
@@ -30,6 +30,6 @@ You can find more information and documentation in [the repository](https://gith
 
 If you don't want any tools but simply a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
 
-## Other Tools and Boilerplates
+## Autres outils et boilerplates
 
 The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.

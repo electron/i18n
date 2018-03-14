@@ -1,6 +1,6 @@
 # Debugging on macOS
 
-Jeśli w przypadku awarii lub problemów w Electron, które twoim zdaniem nie są spowodowane przez aplikacje JavaScript, ale zamiast tego przez Electron, debugowanie może być trochę trudne, zwłaszcza dla programistów nie przyzwyczajonych do używania natywnego debugowania C++. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+Jeśli w przypadku awarii lub problemów w Electron, które twoim zdaniem nie są spowodowane przez aplikacje JavaScript, ale zamiast tego przez Electron, debugowanie może być trochę trudne, zwłaszcza dla programistów nie przyzwyczajonych do używania natywnego debugowania C++. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
 ## Requirements
 

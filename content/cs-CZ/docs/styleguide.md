@@ -135,7 +135,7 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Metody
 
 The methods chapter must be in the following form:
 
@@ -211,4 +211,4 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 
 ## Documentation Translations
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+See [electron/i18n](https://github.com/electron/i18n#readme)

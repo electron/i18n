@@ -1,6 +1,6 @@
 # 在 macOS 中调试
 
-如果你在 Electron 中遇到问题或者引起崩溃，你认为它不是由你的JavaScript应用程序引起的，而是由 Electron 本身引起的。调试可能有点棘手，特别是对于不习惯 native/C++ 调试的开发人员。 然而，使用 lldb 和 Electron 源代码，可以在 Electron 的源代码中使用断点启用逐步调试，这是相当容易的。
+如果你在 Electron 中遇到问题或者引起崩溃，你认为它不是由你的JavaScript应用程序引起的，而是由 Electron 本身引起的。调试可能有点棘手，特别是对于不习惯 native/C++ 调试的开发人员。 然而，使用 lldb 和 Electron 源代码，可以在 Electron 的源代码中使用断点启用逐步调试，这是相当容易的。 You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
 ## 要求
 

@@ -1,3 +1,5 @@
+# Official Guides
+
 Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin olunuz. Sürüm numarası, sayfa URL'inin bir parçası olmalıdır. Eğer değilse, muhtemelen kullandığınız bir geliştirme dal dokümantasyonu, Electron sürümünüzle uyumlu olmayan API değişikliklerini içeriyor olabilir. Dokümantasyonun eski sürümlerini görüntülemek için, [etikete göre gözatın](https://github.com/electron/electron/tree/v1.4.0) ile GitHub'da "Switch branches/tags" seçeneklerini açarak, sürümünüzle eşleşen etiketi seçebilirsiniz.
 
 ## SSS
@@ -10,7 +12,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 * [Geliştirme Ortamını Kurmak](tutorial/development-environment.md) 
   * [MacOS İçin Kurulum](tutorial/development-environment.md#setting-up-macos)
-  * [Windows İçin Kurulum](tutorial/development-environment.md#setting-up-windows)
+  * [Linux İçin Kurulum](tutorial/development-environment.md#setting-up-windows)
   * [Linux İçin Kurulum](tutorial/development-environment.md#setting-up-linux)
   * [Bir Editör Seçme](tutorial/development-environment.md#a-good-editor)
 * [İlk Uygulamanızı Oluşturma](tutorial/first-app.md) 
@@ -144,7 +146,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [Kodlama Stili](development/coding-style.md)
 * [C++ Kodunda Clang-Format Kullanma](development/clang-format.md)
-* [Test ediliyor](development/testing.md)
+* [Test Etme](development/testing.md)
 * [Kaynak Kodu Dizin Yapısı](development/source-code-directory-structure.md)
 * [NW.js (eski adı node-webkit)'le Teknik Farklılıkları](development/atom-shell-vs-node-webkit.md)
 * [Sistem Genel Bakışı Oluşturma](development/build-system-overview.md)

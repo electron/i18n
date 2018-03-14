@@ -98,7 +98,7 @@ Menggunakan `AutoUpdater` sebagai contoh:
 * Semua metode yang memiliki nilai kembali harus mulai deskripsi mereka dengan "Pengembalian `[TYPE]` - Return description" 
   * Jika metode mengembalikan sebuah `Object`, struktur dapat ditentukan dengan menggunakan titik dua diikuti dengan baris baru kemudian daftar unordered properti dalam gaya yang sama sebagai parameter fungsi.
 * Misalnya Acara harus terdaftar di bawah `### Instance Events` bagian.
-* Misalnya Properti harus terdaftar di bawah `### Instance Properties` bagian. 
+* Misalnya Properti harus terdaftar di bawah `### Contoh properti` bagian. 
   * Sifat misalnya harus dimulai dengan "A [Property Type] ..."
 
 Menggunakan `Session` dan `Cookies` kelas sebagai contoh:
@@ -135,7 +135,7 @@ Menggunakan `Session` dan `Cookies` kelas sebagai contoh:
 #### `cookies.get(filter, callback)`
 ```
 
-### Metode
+### Methods
 
 Metode Bab harus dalam bentuk berikut:
 
@@ -162,11 +162,11 @@ diperlukan [, opsional]
 
 Berikut metode ini informasi lebih rinci tentang masing-masing argumen. Jenis argumen dinotasikan oleh salah satu jenis umum:
 
-* [`Deretan`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Tali`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Jumlah`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Obyek`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Sasaran`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`susunan`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Atau jenis kustom seperti Electron [`webcontent`](api/web-contents.md)
 
 Jika argumen atau metode unik untuk platform tertentu, platform tersebut dilambangkan menggunakan daftar dicetak miring ruang-delimited berikut datatype. Nilai bisa saja `MacOS`, `Windows`, atau `Linux`.
@@ -197,7 +197,7 @@ Judul bisa `###` atau `####`-levels tergantung pada apakah itu adalah acara dari
 
 Argumen dari suatu acara mengikuti aturan yang sama seperti metode.
 
-### properti
+### Properti/peralatan
 
 Sifat Bab harus dalam bentuk berikut:
 
@@ -211,4 +211,4 @@ Judul bisa `###` atau `####`-levels tergantung pada apakah itu adalah properti d
 
 ## Dokumentasi Penerjemahan
 
-Lihat [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+See [electron/i18n](https://github.com/electron/i18n#readme)

@@ -67,7 +67,7 @@ Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan 
 ### `dialog.showSaveDialog ([browserWindow,] options [, callback])`
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
-<li><code>pilihan` Obyek 
+<li><code>pilihan` Sasaran 
   * ` judul </ 0>  String (opsional)</li>
 <li><code>defaultPath` String (opsional) - Jalur direktori absolut, path file absolut, atau nama file yang akan digunakan secara default.
   * ` buttonLabel </ 0>  String (opsional) - Label khusus untuk tombol konfirmasi, bila dibiarkan kosong, label default akan digunakan.</li>
@@ -89,7 +89,7 @@ Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan 
 ### `dialog.showMessageBox ([browserWindow,] options [, callback])`
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
-<li><code>pilihan` Obyek 
+<li><code>pilihan` Sasaran 
   * `ketik` String (opsional) - Bisa jadi `"none"`, `"info"`, `"error"`, `"pertanyaan"` atau `"peringatan"`. Pada Windows, `"question"` menampilkan ikon yang sama dengan `"info"`, kecuali jika Anda menyetel ikon menggunakan opsi ` "icon" `. Pada macos, keduanya `"warning"` dan `"error"` menampilkan ikon peringatan yang sama.
   * `tombol` String[] (opsional) - Array teks untuk tombol. Pada Windows, sebuah array kosong akan menghasilkan satu tombol berlabel "OK".
   * `defaultId` Integer (opsional) - Indeks tombol pada susunan tombol yang akan dipilih secara default saat kotak pesan terbuka.
@@ -126,7 +126,7 @@ API ini dapat dipanggil dengan aman sebelum `siap` acara yang digunakan aplikasi
 ### `dialog.showCertificateTrustDialog ([browserWindow,] options, callback)` * macos * * Windows *
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
-<li><code>pilihan` Obyek 
+<li><code>pilihan` Sasaran 
   * `sertifikat` [Sertifikat](structures/certificate.md) - Sertifikat untuk dipercaya/diimpor.
   * `pesan` String - Pesan untuk ditampilkan kepada pengguna.
 * `callback ` Fungsi

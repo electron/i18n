@@ -1,6 +1,6 @@
 # Débogage sur macOS
 
-Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, alors le débogage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le débogage natif/C++. Toutefois, à l’aide de base et du code source d'Electron, il est assez facile d'activer le débogage avec des points d’arrêt dans le code source d'Electron.
+Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, alors le débogage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le débogage natif/C++. Toutefois, à l’aide de base et du code source d'Electron, il est assez facile d'activer le débogage avec des points d’arrêt dans le code source d'Electron. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
 ## Spécifications requises
 

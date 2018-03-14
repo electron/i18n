@@ -1,8 +1,8 @@
 # Planlanmış API Değişimleri
 
-Takip eden liste, Electron 2.0'da kaldırılacak API'leri içerir.
+Takip eden liste, Electron 3.0'da kaldırılacak API'leri içerir.
 
-Bu sürümün ne zaman ortaya çıkacağına dair herhangi bir zaman çizelgesi mevcut değildir ancak kullanımdan kaldırılma uyarıları en az 90 gün önceden eklenecektir.
+There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
 
 ## `Uygulama`
 
@@ -25,15 +25,6 @@ let windowB = new BrowserWindow(optionsB)
  
 Context | Request Context
 
-```
-
-```js
-// Kullanım Dışı
-let optionsA = {titleBarStyle: 'hidden-inset'}
-let windowA = new BrowserWindow(optionsA)
-// İle Değiştirin
-let optionsB = {titleBarStyle: 'hiddenInset'}
-let windowB = new BrowserWindow(optionsB)
 ```
 
 ## `pano`
@@ -77,28 +68,9 @@ crashReporter.start({
 })
 ```
 
-## `menü`
-
-```js
-// Kullanım Dışı
-menu.popup(browserWindow, 100, 200, 2)
-// İle Değiştirin
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
-```
-
 ## `nativeImage`
 
 ```js
-// Deprecated
-nativeImage.toPng()
-// Replace with
-nativeImage.toPNG()
-
-// Deprecated
-nativeImage.toJpeg()
-// Replace with
-nativeImage.toJPEG()
-
 // Deprecated
 nativeImage.createFromBuffer(buffer, 1.0)
 // Replace with
@@ -107,16 +79,14 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `işlem`
+## `screen`
 
 ```js
-// Kullanım Dışı
-process.versions['atom-shell']
-// İle Değiştirin
-process.versions.electron
+// Deprecated
+screen.getMenuBarHeight()
+// Replace with
+screen.getPrimaryDisplay().workArea
 ```
-
-* `process.versions.electron` ve `process.version.chrome` okunacaktır - diğer tutarlılık için sadece özellikler `process.versions` Node tarafından belirlenen özellikler.
 
 ## `session`
 
@@ -154,21 +124,9 @@ webContents.openDevTools({detach: true})
 webContents.openDevTools({mode: 'detach'})
 ```
 
-```js
-// Deprecated
-webContents.setZoomLevelLimits(1, 2)
-// Replace with
-webContents.setVisualZoomLevelLimits(1, 2)
-```
-
 ## `webFrame`
 
 ```js
-// Deprecated
-webFrame.setZoomLevelLimits(1, 2)
-// Replace with
-webFrame.setVisualZoomLevelLimits(1, 2)
-
 // Deprecated
 webFrame.registerURLSchemeAsSecure('app')
 // Replace with
@@ -180,15 +138,6 @@ webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
-## `<webview>`
-
-```js
-// Deprecated
-webview.setZoomLevelLimits(1, 2)
-// Replace with
-webview.setVisualZoomLevelLimits(1, 2)
-```
-
 ## Node Başlıkları URLsi
 
 Bu, bir `.npmrc` dosyasında `disturl` olarak veya yerel Node modülleri oluştururken `--dist-url` komut satırı işareti olarak belirtilen URL'dir.
@@ -197,14 +146,6 @@ Kullanımdan kaldırıldı: https://atom.io/download/atom-shell
 
 Şununla değiştirildi: https://atom.io/download/electron
 
-## ARM Varlıklarını Çoğaltın
-
-Her Electron sürümü, `electron-v1.7.3-linux-arm.zip` ve `electron-v1.7.3-linux-armv7l.zip` gibi, az farklılık içeren dosya adlarıyla iki özdeş ARM yapısı içerir. `v7l` ünvanlı öğe, kullanıcılara hangi ARM sürümünü desteklediğini açıklamak ve gelecekte üretilebilecek armv6l ve arm64 öğelerinden ayırt etmek için eklendi.
-
-Herhangi bir dosya kırılmasını önlemek *without the prefix* için dosya hala yayınlanıyor. 2.0 ' dan başlayarak öneksiz dosya artık yayınlanmayacak.
-
-Ayrıntılar için bknz. [6986](https://github.com/electron/electron/pull/6986) ve [7189](https://github.com/electron/electron/pull/7189).
-
 ## `FIXME` yorumları
 
-`FIXME` dizesi, kod yorumlarında olması gereken şeyleri belirtmek için kullanılır 2.0 sürümü için sabit
+The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme

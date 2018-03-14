@@ -1,3 +1,5 @@
+# Official Guides
+
 Por favor, asegúrese de utilizar los documentos que correspondan con la versión de Electron que esta buscando. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver las antiguas versiones de la documentación, puede [navegar por las etiquetas](https://github.com/electron/electron/tree/v1.4.0) en GitHub abriendo el menú desplegable de "Switch branches/tags" y seleccionado la etiqueta que coincida con su versión.
 
 ## Preguntas más frecuentes
@@ -81,7 +83,7 @@ These individual tutorials expand on topics discussed in the guide above.
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Usando archivos asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitaciones](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+  * [Añadiendo archivos desempaquetados a ficheros asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)

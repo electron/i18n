@@ -2,7 +2,7 @@
 
 我们的目标是保持 Electron 代码的高覆盖率。 我们要求所有的拉取请求不仅要通过所有现有的测试，还要增加新的测试来覆盖改变的代码和新的场景。 确保我们尽可能多地捕获Electron的代码路径和用例，以确保我们所有的应用程序都能够运行更少的bug。
 
-这个仓库为 JavaScript 和 C ++ 提供了linting 规则 - 以及单元和集成测试。 要了解有关Electron编码风格的更多信息，请参阅[coding-style(coding-style.md)文档。
+这个仓库为 JavaScript 和 C ++ 提供了linting 规则 - 以及单元和集成测试。 To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
 
 ## Linting
 

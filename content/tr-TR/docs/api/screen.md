@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Olaylar
+## Events
 
 `ekran` modülü aşağıdaki olayları yayar:
 

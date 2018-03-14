@@ -1,3 +1,5 @@
+# Official Guides
+
 Upewnij się, że dokumentacja dotyczy twojej wersji Electrona. Numer wersji powinien być zawarty w URL tej strony. Jeżeli nie jest, prawdopodobnie przeglądasz dokumentację gałęzi deweloperskiej, która może zawierać zmiany w API, które nie są kompatybilne z twoją wersją Electrona. Aby przeglądać starsze wersje dokumentacji, możesz [przeglądać tagami](https://github.com/electron/electron/tree/v1.4.0) na GitHubie, rozwijając pole "Zmień gałąź/tagi" oraz wybierając tag, który odpowiada twojej wersji.
 
 ## FAQ
@@ -60,7 +62,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Lista kontrolna zabezpieczeń](tutorial/security.md#checklist-security-recommendations)
 * [Aktualizacje aplikacji](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
+  * [Wdrażanie aktualizacji serwera](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
 

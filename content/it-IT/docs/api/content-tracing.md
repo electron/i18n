@@ -29,7 +29,7 @@ app.on('ready', () => {
 })
 ```
 
-## Methods
+## Metodi
 
 The `contentTracing` module has the following methods:
 
@@ -44,7 +44,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `opzioni` Object 
+* `opzioni` Oggetto 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -89,7 +89,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `opzioni` Object 
+* `opzioni` Oggetto 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function

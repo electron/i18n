@@ -1,8 +1,8 @@
 # 计划中的 API 更改
 
-以下列表包括将在Electron 2.0中删除的API
+以下列表包括将在Electron 3.0中删除的API
 
-对于这个版本的发布没有时间表，但是弃用警告将被至少预先90天添加
+There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
 
 ## `app`
 
@@ -21,15 +21,6 @@ let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
 //替换为
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
-let windowB = new BrowserWindow(optionsB)
-```
-
-```js
-// 过时的
-let optionsA = {titleBarStyle: 'hidden-inset'}
-let windowA = new BrowserWindow(optionsA)
-//替换为
-let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -74,46 +65,25 @@ crashReporter.start({
 })
 ```
 
-## `menu`
-
-```js
-// 过时的
-menu.popup(browserWindow, 100, 200, 2)
-// 替换为
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
-```
-
 ## `nativeImage`
 
 ```js
-// 过时的
-nativeImage.toPng()
-// 替换为
-nativeImage.toPNG()
-
-// 过时的
-nativeImage.toJpeg()
-// 替换为
-nativeImage.toJPEG()
-
-// 过时的
+// Deprecated
 nativeImage.createFromBuffer(buffer, 1.0)
-// 替换为
+// Replace with
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
 
-## `process`
+## `screen`
 
 ```js
-// 过时的
-process.versions['atom-shell']
-// 替换为
-process.versions.electron
+// Deprecated
+screen.getMenuBarHeight()
+// Replace with
+screen.getPrimaryDisplay().workArea
 ```
-
-* ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
 ## `session`
 
@@ -151,39 +121,18 @@ webContents.openDevTools({detach: true})
 webContents.openDevTools({mode: 'detach'})
 ```
 
-```js
-// 过时的
-webContents.setZoomLevelLimits(1, 2)
-// 替换为
-webContents.setVisualZoomLevelLimits(1, 2)
-```
-
 ## `webFrame`
 
 ```js
-// 过时的
-webFrame.setZoomLevelLimits(1, 2)
-// 替换为
-webFrame.setVisualZoomLevelLimits(1, 2)
-
-// 过时的
+// Deprecated
 webFrame.registerURLSchemeAsSecure('app')
-// 替换为
+// Replace with
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// 过时的
+// Deprecated
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// 替换为
+// Replace with
 protocol.registerStandardSchemes(['app'], {secure: true})
-```
-
-## `<webview>`
-
-```js
-// 过时的
-webview.setZoomLevelLimits(1, 2)
-// 替换为
-webview.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## Node Headers URL
@@ -194,14 +143,6 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 替换为: https://atom.io/download/electron
 
-## 重复的 ARM 资源
-
-每个 Electron 版本包含两个相同的 ARM 版本, 但是文件名略有不同, 比如 `electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip`. 带有 `v7l` 前缀的资源被添加 以向用户阐明其支持的 ARM 版本, 并且将其从将来可能产生的 armv6l 和 arm64 资源中消除.
-
-仍然在发布 *没有前缀* 的文件, 以避免可能破坏正在使用它的任何设置. 从 2.0 开始，没有前缀的文件将不再被发布.
-
-更多详情, 参考 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189).
-
 ## `FIXME` 注释
 
-代码注释中使用 `FIXME` 字符串 来表示 2.0 版本 应该解决的问题. 参考 https://github.com/electron/electron/search?q=fixme
+The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme

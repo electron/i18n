@@ -98,7 +98,7 @@ Ví dụ như `autoUpdater` là một ví dụ:
 * Tất cả phương thức có trả về giá trị phải được bắt đầu bằng đoạn mô tả: "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
+* Instance Properties must be listed under an `### Các Thuộc Tính` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
 Sử dụng tài liệu của các class `Session` và `Cookies` làm ví dụ:
@@ -211,4 +211,4 @@ Tiêu đề có thể ở các mức độ `###` hoặc `####`. Cho dù nó là 
 
 ## Các bản dịch của tài liệu
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+See [electron/i18n](https://github.com/electron/i18n#readme)

@@ -6,7 +6,7 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
 ### `TouchBarLabel baru (pilihan)` *Eksperimental*
 
-* `pilihan` Obyek 
+* `pilihan` Sasaran 
   * `label` String (opsional) - Teks untuk ditampilkan.
   * `textColor` String (opsional) - Hex warna teks, i.e `#ABCDEF`.
 

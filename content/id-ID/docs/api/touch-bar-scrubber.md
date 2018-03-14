@@ -6,7 +6,7 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
 ### `TouchBarScrubberbaru(pilihan) ` * Eksperimental *
 
-* `pilihan` Obyek 
+* `pilihan` Sasaran 
   * `item` [ScrubberItem[] ](structures/scrubber-item.md) - Kumpulan item yang akan ditempatkan di scrubber ini
   * `memilih` Fungsi - Disebut saat pengguna mengetuk item yang bukan item terakhir yang disadap 
     * `selectedIndex` Bulat - indeks dari item yang dipilih pengguna
