@@ -59,10 +59,10 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 以下は macOS で有効な追加の role です。
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
-* `hideothers` - Map to the `hideOtherApplications` action
-* `unhide` - Map to the `unhideAllApplications` action
+* `about` - `orderFrontStandardAboutPanel` アクションにマップ
+* `hide` - `hide` アクションにマップ
+* `hideothers` - `hideOtherApplications` アクションにマップ
+* `unhide` - `unhideAllApplications` アクションにマップ
 * `startspeaking` - Map to the `startSpeaking` action
 * `stopspeaking` - Map to the `stopSpeaking` action
 * `front` - Map to the `arrangeInFront` action
