@@ -32,7 +32,7 @@ app.on ('will-quit', () => {
 })
 `</pre> 
 
-## Metode
+## Methods
 
 Modul ` globalShortcut ` memiliki metode berikut:
 
