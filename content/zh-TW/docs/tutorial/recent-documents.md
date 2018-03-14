@@ -26,7 +26,7 @@ app.clearRecentDocuments()
 
 ## Windows 注意事項
 
-要在 Windows 上使用這項功能，你的應用程式必須註冊為該檔案類型的處理常式 (Handler)。不然就算將檔案加入清單了，也不會出現在捷徑清單中。 You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+要在 Windows 上使用這項功能，你的應用程式必須註冊為該檔案類型的處理常式 (Handler)。不然就算將檔案加入清單了，也不會出現在捷徑清單中。 你可以在[應用程式註冊](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx)中找到如何註冊應用程式的資訊。
 
 當使用者點了捷徑清單的檔案後，系統會啟動你應用程式的新執行個體，並將該檔案的檔名路徑帶入命令列參數。
 
