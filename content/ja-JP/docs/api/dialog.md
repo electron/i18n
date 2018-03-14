@@ -60,9 +60,9 @@ console.log(dialog)
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+`extensions` はワイルドカードやドットがない拡張子の配列です (例えば `'png'` は良いですが、 `'.png'` や `'*.png'` はいけません)。 すべてのファイルを表示するには、`'*'` ワイルドカードを使用します (他のワイルドカードはサポートされていません)。
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`
+`callback` が渡されると、API呼び出しは非同期になり、 `callback(ファイル名)` を通して結果が渡されます。
 
 **Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
 
