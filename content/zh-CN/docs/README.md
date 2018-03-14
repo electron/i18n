@@ -1,3 +1,5 @@
+# Official Guides
+
 请确认你所使用的文档与你的 Electron 版本匹配。 你可以在页面的 URL 中找到对应的版本号。 如果没有，你可能正在使用开发版本分支里的文档，这个分支可能包含了一些与你的 Electron 版本不兼容的 API。 如果想要访问旧版本的文档，你可以[浏览标签](https://github.com/electron/electron/tree/v1.4.0)： 通过在GitHub 中打开下拉菜单“Switch branches/tags”中选择与你的版本匹配的分支。
 
 ## 常见问题 (FAQ)
@@ -24,9 +26,9 @@
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [其它工具和模板](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [应用架构](tutorial/application-architecture.md) 
-  * [主进程和渲染器进程](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [主进程和渲染进程](tutorial/application-architecture.md#main-and-renderer-processes)
   * [使用 Electron 的 API](tutorial/application-architecture.md#using-electron-apis)
-  * [使用 Node.js 的 API](tutorial/application-architecture.md#using-node.js-apis)
+  * [使用Node.js的API](tutorial/application-architecture.md#using-node.js-apis)
   * [使用原生 Node.js 模块](tutorial/using-native-node-modules.md)
   * [内部进程通信](tutorial/application-architecture.md#)
 * 为你的应用添加功能 
