@@ -1,3 +1,5 @@
+# Official Guides
+
 Si prega di assicurarsi di usare la documentazione corrispondente alla propria versione in uso di Electron. Il numero della versione dovrebbe essere una parte dell'URL della pagina. Se non lo è, probabilmente si sta utilizzando la documentazione di un ramo di sviluppo che può contenere modifiche alle API che non sono compatibili con la versione di Electron in uso. Per visualizzare le versioni precedenti della documentazione, è possibile [navigare per tag](https://github.com/electron/electron/tree/v1.4.0) su GitHub aprendo il menu a tendina "Switch branches/tags" e selezionando il tag che corrisponde alla versione in uso.
 
 ## FAQ (Domande frequenti)
