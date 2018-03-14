@@ -172,7 +172,7 @@ describe('API Docs', () => {
     sources.every(src => src.startsWith('https://cdn.rawgit.com/electron/electron/')).should.eq(true)
   })
 
-  /************************************* FIXME **************************************
+  /** *********************************** FIXME **************************************
   ** enable this test when the next stable release (> 1.8.3) of electron comes out **
   ** see: https://github.com/electron/i18n/pull/274#issuecomment-373003188         **
   ***********************************************************************************/
