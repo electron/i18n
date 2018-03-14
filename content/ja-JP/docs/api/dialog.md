@@ -28,15 +28,15 @@ console.log(dialog)
 * `options` オブジェクト 
   * `title` String (任意)
   * `defaultPath` String (任意)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
+  * `buttonLabel` String (任意) - 確認ボタンのラベルをカスタマイズする。空にするとデフォルトのラベルが使用される。
+  * `filters` [FileFilter[]](structures/file-filter.md) (任意)
+  * `properties` String[] (任意) - dialogのどの機能を使うべきかの配列。以下の値をサポートする。 
+    * `openFile` - ファイル選択を許可する。
+    * `openDirectory` - ディレクトリ選択を許可する。
+    * `multiSelections` - 複数選択を許可する。
+    * `showHiddenFiles` - dialog中で隠しファイルを表示する。
+    * `createDirectory` - dialog中で新規ディレクトリの作成を許可する。*macOS*
+    * `promptToCreate` - 存在しないパスをdialog中で入力したとき、その作成を促す。 This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
     * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
@@ -72,8 +72,8 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 * `options` オブジェクト 
   * `title` String (任意)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `buttonLabel` String (任意) - 確認ボタンのラベルをカスタマイズする。空にするとデフォルトのラベルが使用される。
+  * `filters` [FileFilter[]](structures/file-filter.md) (任意)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
