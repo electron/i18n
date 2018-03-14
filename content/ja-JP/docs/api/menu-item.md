@@ -28,11 +28,11 @@
 
 ### 役割 (roles)
 
-Roles allow menu items to have predefined behaviors.
+Roles を使用すると、メニューアイテムに定義済みの動作を持たせることができます。
 
-It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
+`click` 関数で手動で動作を実装しようとするのではなく、標準の role に一致するメニューアイテムに対して `role` を指定することが最善です。 組み込み `role` の動作は最適なネイティブの操作感を得られます。
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+`role`を使用する場合、`label` と `accelerator` の値は任意で、各プラットフォームに最適な値がデフォルトになっています。
 
 `role` プロパティは、以下の値を持つことができます。
 
@@ -44,9 +44,9 @@ The `label` and `accelerator` values are optional when using a `role` and will d
 * `pasteandmatchstyle`
 * `selectall`
 * `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
+* `minimize` - 現在のウィンドウを最小化
+* `close` - 現在のウィンドウを閉じる
+* `quit` - アプリケーションを終了する
 * `reload` - Reload the current window
 * `forcereload` - Reload the current window ignoring the cache.
 * `toggledevtools` - Toggle developer tools in the current window
