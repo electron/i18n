@@ -18,7 +18,7 @@ const {dialog} = require('electron').remote
 console.log(dialog)
 ```
 
-## Methods
+## المنهجية
 
 The `dialog` module has the following methods:
 
