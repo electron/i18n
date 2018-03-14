@@ -119,17 +119,17 @@ console.log(dialog)
 ### `dialog.showErrorBox(title, content)`
 
 * `title` String - エラーボックス内に表示するタイトル
-* `content` String - The text content to display in the error box
+* `content` String - エラーボックスの中に表示するテキスト
 
-Displays a modal dialog that shows an error message.
+エラーメッセージを示すモーダルダイアログを表示します。
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+このAPIは `app` オブジェクトの `ready` イベントが発行される前に、安全に呼べます。起動時の初期段階でのエラーの報告によく使われます。 Linuxにおいて、appの `ready` イベントが発行される前に呼んだ場合、メッセージは stderr に吐かれて、GUIのダイアログは表示されません。
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` BrowserWindow (任意)
 * `options` オブジェクト 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
+  * `certificate` [Certificate](structures/certificate.md) - 信頼/インポートする証明書。
   * `message` String - The message to display to the user.
 * `callback` Function
 
