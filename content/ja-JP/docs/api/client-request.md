@@ -120,7 +120,7 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 
 リクエストがHTTPのチャンク形式転送エンコーディングを使用するかどうかを指定する `Boolean` 型。 省略値は、false です。 プロパティは読み書き可能ですが、HTTPヘッダーがまだ送信されていない最初の書き込み操作の前でしか設定できません。 最初の書き込みの後、`chunkedEncoding` プロパティを設定しようとすると、エラーがスローされます。
 
-Electronのプロセスメモリの中で内部的にバッファする代わりにデータが細切れにストリーミングされるため、大きいリクエストボディを送信する必要がある場合、チャンク形式エンコーディングを使用するのを強く推奨します。
+Electronのプロセスメモリの中で内部的にバッファする代わりにデータが細切れにストリーミングされるため、大きなリクエストボディを送信する必要がある場合、チャンク形式のエンコーディングを使用することを強く推奨します。
 
 ### インスタンスメソッド
 
@@ -145,9 +145,9 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `chunk` (String | Buffer) - リクエストボディのデータのチャンク。文字列の場合、指定されたエンコーディングを使用してBufferに変換されます。
+* `encoding` String (任意) - 文字列のチャンクをBufferオブジェクトに変換するために使用します。省略値は、'utf-8' です。
+* `callback` Function (任意) - 書き込み操作の終了後で呼び出されます。
 
 `callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
 
