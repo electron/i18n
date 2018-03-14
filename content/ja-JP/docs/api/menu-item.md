@@ -4,12 +4,12 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+サンプルについては [`Menu`](menu.md) を参照して下さい。
 
 ### `new MenuItem(options)`
 
 * `options` オブジェクト 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `click` Function (任意) - メニューアイテムがクリックされると、 `click(menuItem, browserWindow, event)` と呼ばれる。 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
