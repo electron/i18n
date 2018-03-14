@@ -1,3 +1,5 @@
+# Official Guides
+
 Pakitiyak na ginagamit mo ang mga dokumento na tumutugma sa iyong bersyon ng Electron. Ang numero ng bersyon ay dapat na isang bahagi ng URL ng pahina. Kung hindi, ikaw ay marahil gumagamit ng dokumentasyon ng sangay sa pag-unlad na maaaring naglalaman ng mga pagbabago ng API na hindi tugma sa iyong bersyon ng Electron. Upang tingnan ang mas matandang mga bersyon ng dokumentasyon, maaari kang [ mag-browse ayon sa tag ](https://github.com/electron/electron/tree/v1.4.0) sa GitHub sa pamamagitan ng pagbukas ng dropdown na mga branch / tag "at pagpili sa tag na tumutugma sa iyong bersyon.
 
 ## FAQ
@@ -9,9 +11,9 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 ## Gabay at Tutorial
 
 * [Setup para sa Development Environment](tutorial/development-environment.md) 
-  * [Setting ng macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting ng Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting ng Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Pagsetup ng macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Pagsetuo ng Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Pagsetup ng Linux](tutorial/development-environment.md#setting-up-linux)
   * [Pagpili ng Editor](tutorial/development-environment.md#a-good-editor)
 * [Pag gawa ng una mong aplikasyon](tutorial/first-app.md) 
   * [Paginstall ng Electron](tutorial/first-app.md#installing-electron)
@@ -42,7 +44,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
   * [Katutubong File Drag& Drop](tutorial/native-file-drag-drop.md)
 * [Aplikasyon Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
-  * [Devtron](tutorial/accessibility.md#devtron)
+  * [DevtronDevtron](tutorial/accessibility.md#devtron)
   * [Paganahin ang aksesibilidad](tutorial/accessibility.md#enabling-accessibility)
 * [Pagsubok at pagdebug sa aplikasyon](tutorial/application-debugging.md) 
   * ["Debugging" ang Pangunahing Proseso](tutorial/debugging-main-process.md)
@@ -60,9 +62,9 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
   * [Babala sa seguridad ng Electron](tutorial/security.md#electron-security-warnings)
   * [Listahan ng Seguridad](tutorial/security.md#checklist-security-recommendations)
 * [Update ng Aplikasyon](tutorial/updates.md) 
-  * [Pagbigay ng Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Pagimplementa ng update sa iyong applikasyon](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Pagapply ng mga updates](tutorial/updates.md#applying-updates)
+  * [Pagde-deploy ng isang Update na Server](tutorial/updates.md#deploying-an-update-server)
+  * [Pagpapatupad ng mga Update sa iyong App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Pag-aaplay sa mga Update](tutorial/updates.md#applying-updates)
 
 ## Detalyadong Tutorials
 
@@ -78,10 +80,10 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
   * [Pagpapapanatag ng mga Branch](tutorial/electron-versioning.md#stabilization-branches)
   * [Beta Releases at ang pagsasaayos ng Bug](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [Detalyadong pagimpake ng App Source Code gamit ang asar](tutorial/application-packaging.md) 
-  * [Paggawa ng asar archives](tutorial/application-packaging.md#generating-asar-archives)
+  * [Pagbubuo ng mga asar na Archive](tutorial/application-packaging.md#generating-asar-archives)
   * [Paggamit ng mga Archives ng asar](tutorial/application-packaging.md#using-asar-archives)
   * [Mga limitasyon](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Pagdagdag ng na unpack na mga file sa asar Archive](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+  * [Pagdaragdag ng mga naka-unpack na mga file sa asar na mga Archive](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Detalyadong paggamit ng Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Detalyadong paggamit ng Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Labas sa iskrin na pagproseso](tutorial/offscreen-rendering.md)
@@ -120,7 +122,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [ang powerMonitor](api/power-monitor.md)
 * [ang powerSaveBlocker](api/power-save-blocker.md)
 * [ang protokol](api/protocol.md)
-* [sesyon](api/session.md)
+* [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
@@ -156,7 +158,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [Pag-se-set up ng Simbolo ng Debugger](development/setting-up-symbol-server.md)
 * [Dekumentasyon ng patnubay ng Estilo](styleguide.md)
 * [Makadagdag sa elektron](../CONTRIBUTING.md)
-* [Isyu](development/issues.md)
+* [Mga Isyu](development/issues.md)
 * [Pull Requests](development/pull-requests.md)
 * [Pagpapaganda ng Chromium](development/upgrading-chromium.md)
 * [Pagpapaunlad ng Chromium](development/chromium-development.md)
