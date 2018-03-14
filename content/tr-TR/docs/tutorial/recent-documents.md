@@ -26,7 +26,7 @@ app.clearRecentDocuments()
 
 ## Windows notları
 
-Bu özelliği Windows'ta kullanabilmek için uygulamanızın belgenin dosya türünü bir işleyici olarak kaydetmesi gerekir, aksi halde dosya ekledikten sonra bile Görev listesi'nde görünmeyecektir. You can find everything on registering your application in \[Application Registration\]\[app-registration\].
+Bu özelliği Windows'ta kullanabilmek için uygulamanızın belgenin dosya türünü bir işleyici olarak kaydetmesi gerekir, aksi halde dosya ekledikten sonra bile Görev listesi'nde görünmeyecektir. Her şeyi bulabilirsiniz Başvurunuzun tescili hakkında [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
 Bir kullanıcı Görev Listesi'nden bir dosyayı tıkladığında, uygulamanızın yeni bir örneği komut satırı argümanı olarak eklenen dosyanın yolu ile başlatılacaktır.
 
