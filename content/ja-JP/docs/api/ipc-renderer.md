@@ -1,6 +1,6 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> レンダラープロセスからメインプロセスに非同期通信をします。
 
 プロセス: [レンダラー](../glossary.md#renderer-process)
 
@@ -31,7 +31,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+指定した `channel` の listener 配列から、指定した `listener` を削除します。
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
