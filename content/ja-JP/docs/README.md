@@ -18,7 +18,7 @@
 * [Creating your First App](tutorial/first-app.md) 
   * [Electronのインストール](tutorial/first-app.md#installing-electron)
   * [3分くらいでわかるElectronアプリ開発](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
+  * [アプリの実行](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
