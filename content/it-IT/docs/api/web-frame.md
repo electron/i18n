@@ -12,7 +12,7 @@ const {webFrame} = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Methods
+## Metodi
 
 The `webFrame` module has the following methods:
 
@@ -61,7 +61,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Object 
+* `provider` Oggetto 
   * `spellCheck` Function - Returns `Boolean` 
     * `testo` Stringa
 
