@@ -98,11 +98,11 @@ menu のアイテムが入った配列 `MenuItem[]`。
 
 ## サンプル
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+`Menu` クラスはメインプロセスでのみ有効ですが、[`remote`](remote.md) オブジェクトを介してレンダラープロセス内で使うこともできます。
 
 ### メインプロセス (main process)
 
-An example of creating the application menu in the main process with the simple template API:
+シンプルなテンプレートAPIを使用して、メインプロセスでアプリケーションメニューを作成するサンプル。
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -170,7 +170,7 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Edit menu
+  // 編集メニュー
   template[1].submenu.push(
     {type: 'separator'},
     {
@@ -182,7 +182,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Window menu
+  // ウインドウメニュー
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
