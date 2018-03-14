@@ -46,7 +46,7 @@ Restituisce:
 
 Restituisce:
 
-* `infoautore` Object 
+* `infoautore` Oggetto 
   * `èProxy` Booleano
   * `schema` Stringa
   * `ospite` Stringa
