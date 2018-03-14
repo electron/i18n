@@ -102,7 +102,7 @@ console.log(dialog)
   * `checkboxChecked` Boolean (任意) - チェックボックスの初期状態。デフォルトは `false` 。
   * `icon` [NativeImage](native-image.md) (任意)
   * `cancelId` Integer (任意) - `Esc` キーを介して、dialogをキャンセルするボタンのインデックス。 デフォルトは"キャンセル"または"いいえ"のラベルで最初のボタンに割り当てられる。 もしそのようなラベルのボタンがなく、このオプションが設定されていない場合、`` が戻り値やコールバックのresponseとして使われる。 このオプションはWindowsでは無視される。
-  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
+  * `noLink` Boolean (任意) - WindowsのElectronでは、`buttons` のうちのどれが("キャンセル"や"はい"の様な) 一般的なボタンなのか把握しようとし、他のダイアログ内のボタンはアクセスキーとして表示しようとする。 これでモダンなWindowsアプリのスタイルで表示させることができる。 もしこの挙動が気に入らない場合、`noLink` を `true` に設定できる。
   * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. 省略値は `false` です。 Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
 * `callback` Function (任意) 
   * `response` Number - The index of the button that was clicked
