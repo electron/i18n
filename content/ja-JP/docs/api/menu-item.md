@@ -1,4 +1,4 @@
-## Class: MenuItem
+## クラス: MenuItem
 
 > ネイティブアプリケーションメニューとコンテキストメニューに項目を追加します。
 
@@ -13,16 +13,16 @@
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
-  * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
-  * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
-  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `role` String (任意) - メニューアイテムの動作を定義する。`click` プロパティを指定した場合は無視される。[roles](#roles) を参照。
+  * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
+  * `label` String - (任意)
+  * `sublabel` String - (任意)
+  * `accelerator` [Accelerator](accelerator.md) (任意)
+  * `icon` ([NativeImage](native-image.md) | String) (任意)
+  * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできません。
+  * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなります。
+  * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要があります。
+  * `submenu` (MenuItemConstructorOptions[] | Menu) (任意) - `submenu` の type のメニューアイテムに対してのみ指定する必要があります。 If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
