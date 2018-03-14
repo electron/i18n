@@ -1,6 +1,6 @@
 # 預計變更的 API
 
-The following list includes the APIs that will be removed in Electron 3.0.
+這份清單包含將會在 Electron 3.0 中被拿掉的 API。
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
 
@@ -27,37 +27,37 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
+// 已被取代
 clipboard.readRtf()
-// Replace with
+// 請寫成
 clipboard.readRTF()
 
-// Deprecated
+// 已被取代
 clipboard.writeRtf()
-// Replace with
+// 請寫成
 clipboard.writeRTF()
 
-// Deprecated
+// 已被取代
 clipboard.readHtml()
-// Replace with
+// 請寫成
 clipboard.readHTML()
 
-// Deprecated
+// 已被取代
 clipboard.writeHtml()
-// Replace with
+// 請寫成
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// 已被取代
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// 請寫成
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -88,11 +88,11 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Deprecated
+// 已被取代
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// 請寫成
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -101,23 +101,23 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// 已被取代
 tray.setHighlightMode(true)
-// Replace with
+// 請寫成
 tray.setHighlightMode('on')
 
-// Deprecated
+// 已被取代
 tray.setHighlightMode(false)
-// Replace with
+// 請寫成
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// 已被取代
 webContents.openDevTools({detach: true})
-// Replace with
+// 請寫成
 webContents.openDevTools({mode: 'detach'})
 ```
 
@@ -143,6 +143,6 @@ This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url`
 
 請改用: https://atom.io/download/electron
 
-## `FIXME` comments
+## `FIXME` 註解
 
 The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
