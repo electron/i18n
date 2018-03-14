@@ -75,13 +75,13 @@ Electron アプリは、Node.js 開発にあるものと同じ資産とメソッ
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might just wait for the application to be ready and open a window:
+`electron` オブジェクトは名前空間内の機能を公開します。 例として、`electron.app` を通じてアプリケーションのライフサイクルを管理したり、`electron.BrowserWindow` クラスを使用してウインドウを作成することができます。 この簡単な `main.js` ファイルは、アプリケーションの準備ができるまで待機してから、ウインドウを開くだけです。
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // ブラウザウインドウを作成
   win = new BrowserWindow({width: 800, height: 600})
 
   // アプリの index.html を読み込む
