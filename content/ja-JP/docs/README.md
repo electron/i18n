@@ -16,7 +16,7 @@
   * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
   * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
 * [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
+  * [Electronのインストール](tutorial/first-app.md#installing-electron)
   * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Running Your App](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
