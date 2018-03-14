@@ -4,14 +4,14 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+複数のファイルとディレクトリを選択するダイアログを表示する例:
 
 ```javascript
 const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+dialogはElectronのメインスレッドから開かれます。もしレンダラープロセスからdialogオブジェクトを使用したければ、remoteを用いてアクセスするようにして下さい。
 
 ```javascript
 const {dialog} = require('electron').remote
@@ -20,14 +20,14 @@ console.log(dialog)
 
 ## メソッド
 
-The `dialog` module has the following methods:
+`dialog` オブジェクトには以下のメソッドがあります
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (任意)
 * `options` オブジェクト 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
+  * `title` String (任意)
+  * `defaultPath` String (任意)
   * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
@@ -68,9 +68,9 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (任意)
 * `options` オブジェクト 
-  * `title` String (optional)
+  * `title` String (任意)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
   * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
@@ -90,7 +90,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (任意)
 * `options` オブジェクト 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -127,7 +127,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (任意)
 * `options` オブジェクト 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
