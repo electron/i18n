@@ -98,7 +98,7 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Methods` 
 * Bir getiri değeri olan tüm yöntemlerin açıklamalarını "getiriler ile başlatması gerekir `[TYPE]` -Getiri tanımı" 
   * Eğer yöntem `Nesne`'ye dönerse, yapısı iki noktadan sonra bir satır sonu karakteriyle, ardından da işlev parametreleriyle aynı tarzda sırasız bir özellik listesi kullanarak belirlenebilir.
 * Örnek Olayları `### Instance Events` bölümünün altında listelenmelidir.
-* Örnek Özellikler aşağısında listelenmelidir `### Instance Properties` bölüm. 
+* Örnek Özellikler aşağısında listelenmelidir `### Örnek Özellikler` bölüm. 
   * Örnek özellikleri "Bir [Özellik Türü]..." ile başlamalıdır
 
 Örnek olarak `Session` ve `Cookies` sınıflarını kullanmak:
@@ -162,11 +162,11 @@ gerekli[, isteğe bağlı]
 
 Yöntemin altında her değişken hakkında daha ayrıntılı bilgi var. Bağımsız değişken türü, ortak türlerle belirtilir:
 
-* [`Dize`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Dizgi`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Sayı`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Nesne`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Dizi`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boole değeri`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Ya da Electron'un [`WebContent`](api/web-contents.md) gibi özel bir tür
 
 Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu platformalar veri türünün ardında boşlukla sınırlanmış italikleşmiş bir liste kullanılarak ifade edilir. Değer `macOS`, `Windows` veya `Linux` olabilir.
@@ -179,7 +179,7 @@ Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu plat
 
 `Function` tür bağımsız değişkenleri için açıklamanın, nasıl çağrılabileceğini açıklığa kavuşturması ve ona iletilecek parametrelerin türlerini listelemesi gerekir.
 
-### Olaylar
+### Events
 
 Olaylar bölümü aşşağıdaki form da olmak zorundadır:
 
@@ -211,4 +211,4 @@ Başlığın bir modülün veya bir sınıfın özelliği olup olmadığına ba�
 
 ## Belge Çevirileri
 
-Bakınız [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+See [electron/i18n](https://github.com/electron/i18n#readme)
