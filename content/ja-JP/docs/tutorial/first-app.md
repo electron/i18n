@@ -1,4 +1,4 @@
-# Writing Your First Electron App
+# はじめての Electron アプリ
 
 Electronは、豊富なネイティブ (オペレーティング・システム) APIを備えたランタイムを提供することで、純粋なJavaScriptでデスクトップ・アプリケーションを開発できるようにします。 Webサーバではなく、デスクトップ・アプリケーションに焦点を当てたNode.jsランタイムがElectronであると捉えても構いません。
 
@@ -6,7 +6,7 @@ Electronは、豊富なネイティブ (オペレーティング・システム)
 
 **注意**: このサンプルはリポジトリとして利用できます。 [すぐにダウンロードして実行できます](#trying-this-example)。
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+開発に関しては、Electron は基本的に Node.js アプリケーションです。 開始点は Node.js モジュールと同じ `package.json` です。 最も基本的な Electron アプリは以下のフォルダ階層になるでしょう。
 
 ```text
 your-app/
