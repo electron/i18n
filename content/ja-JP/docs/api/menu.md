@@ -248,9 +248,9 @@ macOS のアプリケーションメニューの最初のアイテムのラベ�
 
 `MenuItem` の `position` 属性は `[placement]=[id]` の形式を取っています。`placement` は `before`、`after`、`endof` のうちの一つで、`id` はアイテムがあるメニュー内の一意なIDです。
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+* `before` - このアイテムをIDが指すアイテムの前に挿入する。IDが指すアイテムが存在しない場合、アイテムはメニューの最後に挿入される。
+* `after` - このアイテムをIDが指すアイテムの後に挿入する。IDが指すアイテムが存在しない場合、アイテムはメニューの最後に挿入される。
+* `endof` - このアイテムを、IDが指すアイテムを含んでいる論理グループの最後に挿入します (グループは区切りアイテムによって作成されます)。 If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
 
 When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
