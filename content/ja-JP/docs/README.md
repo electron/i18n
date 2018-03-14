@@ -1,3 +1,5 @@
+# Official Guides
+
 使用している Electron のバージョンに応じたドキュメントを参照するように確認してください。 ドキュメントのバージョン番号はページの URL の一部となっています。 バージョン番号が URL にない場合は、おそらくご使用の Electron のバージョンと互換性のない API 変更を含んだ development ブランチのドキュメントを参照しているものと思われます。 古いバージョンのドキュメントを読むには、GitHub上で[タグを見て](https://github.com/electron/electron/tree/v1.4.0)みてください。"Switch branches/tags" のドロップダウンメニューを開いて、あなたが使っているバージョンと同じタグを選んでください。
 
 ## FAQ
@@ -60,9 +62,9 @@
   * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
 * [Application Updates](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+  * [アップロードサーバーを配備](tutorial/updates.md#deploying-an-update-server)
+  * [アプリケーションでの更新の実装](tutorial/updates.md#implementing-updates-in-your-app)
+  * [アップデートの適用](tutorial/updates.md#applying-updates)
 
 ## Detailed Tutorials
 
