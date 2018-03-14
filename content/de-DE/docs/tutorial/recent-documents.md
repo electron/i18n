@@ -26,7 +26,7 @@ app.clearRecentDocuments()
 
 ## Bemerkungen zu Windows
 
-Um diese Funktion unter Windows zu nutzen, muss die Anwendung als Handler für den Dateityp des Dokuments registriert sein, ansonsten wird die Datei nicht in der JumpList erscheinen, auch nachdem sie hinzugefügt wurde. You can find everything on registering your application in \[Application Registration\]\[app-registration\].
+Um diese Funktion unter Windows zu nutzen, muss die Anwendung als Handler für den Dateityp des Dokuments registriert sein, ansonsten wird die Datei nicht in der JumpList erscheinen, auch nachdem sie hinzugefügt wurde. Alle Informationen zum Registrieren Ihrer Anwendung finden Sie unter [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
 Sobald ein Nutzer auf eine Datei in der JumpList klickt, wird eine neue Instanz Ihrer Anwendung gestartet mit dem Pfad der Datei als Befehlszeilenargument.
 
