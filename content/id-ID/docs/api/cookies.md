@@ -44,7 +44,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <p>Metode berikut tersedia pada contoh <code> Cookies </ 0> :</p>
 
 <h4><code>cookies.get (filter, callback)`</h4> 
-    * `menyaring` Obyek 
+    * `menyaring` Sasaran 
       * ` url </ 0>  String (opsional) - Mengambil cookie yang dikaitkan dengan
  <code> url </ 0> . Empty berarti mengambil cookies dari semua url.</li>
 <li><code> nama </ 0>  String (opsional) - Menyaring kuki berdasarkan nama.</li>
@@ -60,7 +60,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 
 <h4><code>cookies.set (rincian, callback)`</h4> 
     
-    * `rincian` Obyek 
+    * `rincian` Sasaran 
       * `url`String - Url untuk mengaitkan cookie dengan.
       * `nama` String (opsional) - Nama cookie. Kosongkan secara default jika dihilangkan.
       * `value ` String (opsional) - Nilai cookie. Kosongkan secara default jika dihilangkan.
