@@ -146,8 +146,14 @@ async function parseFile (file) {
 }
 
 function fixMdLinks (md) {
-  return new Promise((resolve) => {
-    remark().use(links).process(md, (err, file) => resolve(file.contents))
+  return new Promise((resolve, reject) => {
+    remark().use(links).process(md, (err, file) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(file.contents)
+      }
+    })
   })
 }
 
