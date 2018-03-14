@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-複数のファイルとディレクトリを選択するダイアログを表示する例:
+複数のファイルとディレクトリを選択するdialogを表示する例:
 
 ```javascript
 const {dialog} = require('electron')
@@ -140,8 +140,8 @@ Windowsでのオプションはより限られており、Win32APIは以下の�
 * `message` は使用されません。OS独自の確認ダイアログを提供します。
 * この確認ダイアログはモーダルウインドウにできないので、`browserWindow` は無視されます。
 
-## Sheets
+## シート
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
+macOSにおいて、`browserWindow` に `BrowserWindow` の参照を指定すると、dialogがウインドウにアタッチされたシートとして表示されます。
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+`BrowserWindow.getCurrentWindow().setSheetOffset(offset)` を呼ぶことで、アタッチされたシートのウインドウフレームからのオフセットを変更できます。
