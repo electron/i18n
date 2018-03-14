@@ -1,10 +1,10 @@
 # clipboard 
 
-> システムのクリップボードを用いてコピーアンドペーストを実行できます。
+> システムのクリップボードでコピーやペーストの操作を行います。
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-以下のようにすると、クリップボードに文字列を書き込むことができます。
+以下の例では、クリップボードに文字列を書き込む方法を示します。
 
 ```javascript
 const {clipboard} = require('electron')
