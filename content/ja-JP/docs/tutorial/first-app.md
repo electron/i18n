@@ -21,7 +21,7 @@ your-app/
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm が基本的な `package.json` ファイルを作るガイドをします。 `main` フィールドで指定されたスクリプトは、メインプロセスを実行するアプリのスタートアップスクリプトです。 `package.json` の例を以下に示します。
 
 ```json
 {
@@ -31,7 +31,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (just like Node.js itself). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**注釈**: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は (Node.js のように) `index.js` の読み込みを試みます。 もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
 
 ```json
 {
@@ -44,7 +44,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+このNodeアプリケーションをElectronアプリケーションにするのは非常に簡単で、単に `node` ランタイムを `electron` ランタイムに置き換えるだけです。
 
 ```json
 {
@@ -57,9 +57,9 @@ Turning this Node application into an Electron application is quite simple - we 
 }
 ```
 
-## Installing Electron
+## Electronのインストール
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+この時点では、`electron` そのものをインストールする必要があります。 そうするのに推奨される方法は、アプリケーションに開発用の依存関係としてインストールすることです。異なる Electron のバージョンで複数アプリの作業ができます。 これを行うには、アプリのディレクトリから次のコマンドを実行します。
 
 ```sh
 npm install --save-dev electron
