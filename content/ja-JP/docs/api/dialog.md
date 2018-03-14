@@ -20,7 +20,7 @@ console.log(dialog)
 
 ## メソッド
 
-`dialog` オブジェクトには以下のメソッドがあります
+`dialog` オブジェクトには以下のメソッドがあります。
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
@@ -36,12 +36,12 @@ console.log(dialog)
     * `multiSelections` - 複数選択を許可する。
     * `showHiddenFiles` - dialog中で隠しファイルを表示する。
     * `createDirectory` - dialog中で新規ディレクトリの作成を許可する。*macOS*
-    * `promptToCreate` - 存在しないパスをdialog中で入力したとき、その作成を促す。 This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
-    * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
-  * `message` String (optional) *macOS* - Message to display above input boxes.
-* `callback` Function (optional) 
-  * `filePaths` String[] - An array of file paths chosen by the user
+    * `promptToCreate` - 存在しないパスをdialog中で入力したとき、その作成を促す。 これは存在しないパスにファイルを作るのではなく、アプリケーションによって作成される予定の存在しないパスを作る。 *Windows*
+    * `noResolveAliases` - パスの解決において自動エイリアス (シンボリックリンク) を無効にする。選択したエイリアスは、それらが指すパスではなくエイリアスのパスを返す。 *macOS*
+    * `treatPackageAsDirectory` - パッケージとして扱われる `.app` フォルダのようなものを、ファイルではなくディレクトリとして扱う。*macOS*
+  * `message` String (任意) *macOS* - 入力ボックス上に表示するメッセージ。
+* `callback` Function (任意) 
+  * `filePaths` String[] - ユーザが選択したファイルパスの配列。
 
 Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
@@ -77,7 +77,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
-* `callback` Function (optional) 
+* `callback` Function (任意) 
   * `filename` String
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
@@ -104,7 +104,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `` will be used as the return value or callback response. This option is ignored on Windows.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. 省略値は `false` です。 Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
-* `callback` Function (optional) 
+* `callback` Function (任意) 
   * `response` Number - The index of the button that was clicked
   * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
 
