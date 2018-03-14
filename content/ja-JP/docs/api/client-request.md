@@ -151,7 +151,7 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 `callback` は、Node.jsのAPIとの類似性を維持する目的で導入された本質的にはダミーのファンクションです。 `chunk` コンテンツがChromiumのネットワークレイヤーに到達した後、すぐに非同期で呼び出されます。 Node.jsの実装とは違って、`callback` が呼び出される前に `chunk` コンテンツが書き込まれていることは保証されません。
 
-リクエストボディにデータのチャンクを追加します。 最初の書き込み操作では、リクエストヘッダーも出力される可能性があります。 After the first write operation, it is not allowed to add or remove a custom header.
+リクエストボディにデータのチャンクを追加します。 最初の書き込み操作では、リクエストヘッダーも出力される可能性があります。 最初の書き込み操作の後、カスタムヘッダーを追加したり、削除したりすることはできません。
 
 #### `request.end([chunk][, encoding][, callback])`
 
@@ -159,11 +159,11 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 * `encoding` String (任意)
 * `callback` Function (任意)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+リクエストデータの最後のチャックを送信します。これ以上の書き込みや終了操作をすることはできません。`finish` イベントが終了操作の直後に発生します。
 
 #### `request.abort()`
 
-Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+現在進行中のHTTPトランザクションをキャンセルします。 リクエストで既に `close` イベントが発生していた場合、中止操作は無効になります。 Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
 
 #### `request.followRedirect()`
 
