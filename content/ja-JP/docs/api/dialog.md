@@ -75,24 +75,24 @@ console.log(dialog)
   * `buttonLabel` String (任意) - 確認ボタンのラベルをカスタマイズする。空にするとデフォルトのラベルが使用される。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
   * `message` String (任意) *macOS* - テキストフィールド上に表示するメッセージ。
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `nameFieldLabel` String (任意) *macOS* - ファイル名のテキストフィールドの手前に表示されるテキストラベルのカスタマイズ。
+  * `showsTagField` Boolean (任意) *macOS* - 入力ボックスにタグを表示する。デフォルトは `true`。
 * `callback` Function (任意) 
   * `filename` String
 
-Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
+戻り値はユーザが選択したファイルパスを `String` で返します。callbackが設けられている場合は `undefined` を返します。
 
 `browserWindow` を渡すと、それを親ウインドウとしてdialogをモーダルウインドウにします。
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+`filters` は、表示されるファイルの種類を指定する配列です。例として `dialog.showOpenDialog` を参照して下さい。
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
+`callback` が渡されると、API呼び出しは非同期になり、 `callback(ファイル名)` を通して結果が渡されます。
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (任意)
 * `options` オブジェクト 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
+  * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"`にできる。 On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
