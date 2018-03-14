@@ -1,3 +1,5 @@
+# Official Guides
+
 Veuillez vous assurer d'utiliser la documentation qui correspond à votre version d'Electron. Le numéro de version doit être une partie de l'URL de la page. Si ce n'est pas le cas, vous utilisez probablement la documentation d'une branche de développement pouvant contenir des modifications de l'API qui ne sont pas compatibles avec votre version d'Electron. Pour consulter les anciennes versions de la documentation, vous pouvez [Parcourir par tag](https://github.com/electron/electron/tree/v1.4.0) sur GitHub en ouvrant la liste déroulante « Switch branches/tags » et sélectionnez le tag qui correspond à votre version.
 
 ## FAQ
@@ -62,7 +64,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Mise à jour de l'Application](tutorial/updates.md) 
   * [Déploiement d’un serveur de mise à jour](tutorial/updates.md#deploying-an-update-server)
   * [Implémentation des mises à jour dans votre application](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Appliquer les mises à jour](tutorial/updates.md#applying-updates)
+  * [Application des mises à jour](tutorial/updates.md#applying-updates)
 
 ## Tutoriels détaillés
 
@@ -78,10 +80,10 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
   * [Branches de stabilisation](tutorial/electron-versioning.md#stabilization-branches)
   * [Versions bêta et corrections de bugs](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [En détail : Empaqueter le code source de l'App avec asar](tutorial/application-packaging.md) 
-  * [Génerer des archives asar](tutorial/application-packaging.md#generating-asar-archives)
+  * [Créer une archive asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Lire une archive asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Ajouter des fichiers non empaquetés dans des archives asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+  * [Ajouter des fichiers non empaquetés dans une archive asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [En détail : Utiliser le plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [En détail : Utiliser le plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
@@ -157,7 +159,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [Documentation Styleguide](styleguide.md)
 * [Contribuer à Electron](../CONTRIBUTING.md)
 * [Issues](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
+* [Proposer une Evolution: Demande de Pull](development/pull-requests.md)
 * [Mettre à jour Chromium](development/upgrading-chromium.md)
 * [Développement Chromium](development/chromium-development.md)
 * [Développement V8](development/v8-development.md)
