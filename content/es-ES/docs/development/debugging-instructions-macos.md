@@ -1,6 +1,6 @@
 # Depuración en macOS
 
-Si tiene accidentes o problemas en Electron que usted crea que no son causados por la aplicación de JavaScript, pero en cambio por el Electron sí mismo, de depuración puede ser un poco difícil, especialmente para los desarrolladores no se utiliza para depuración nativo c/c ++. Sin embargo, al usar lldb, y el código de fuente de Electron, es bastante fácil habilitar la depuración paso a paso con los puntos de quiebre dentro del código de fuente de Electron.
+Si tiene accidentes o problemas en Electron que usted crea que no son causados por la aplicación de JavaScript, pero en cambio por el Electron sí mismo, de depuración puede ser un poco difícil, especialmente para los desarrolladores no se utiliza para depuración nativo c/c ++. Sin embargo, al usar lldb, y el código de fuente de Electron, es bastante fácil habilitar la depuración paso a paso con los puntos de quiebre dentro del código de fuente de Electron. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
 ## Requisitos
 
