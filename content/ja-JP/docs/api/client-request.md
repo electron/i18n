@@ -129,17 +129,17 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 * `name` String - 追加するHTTPヘッダーの名前。
 * `value` Object - 追加するHTTPヘッダーの値。
 
-さらなるHTTPヘッダーを追加します。 The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+さらなるHTTPヘッダーを追加します。 ヘッダー名は小文字にされることなく、そのまま追加されます。 最初の書き込み前のみ呼び出すことができます。 最初の書き込み後にこのメソッドを呼び出すとエラーがスローされます。 渡された値が `String` 型でない場合、最終的な値を得るために `toString()` メソッドが呼び出されます。
 
 #### `request.getHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - 追加したヘッダーの名前を指定します。
 
-Returns `Object` - The value of a previously set extra header name.
+戻り値 `Object` - 先に設定した追加のヘッダーの名前の値。
 
 #### `request.removeHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - 追加したヘッダーの名前を指定します。
 
 Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
