@@ -65,7 +65,7 @@ npm が基本的な `package.json` ファイルを作るガイドをします。
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Electron をインストールする手段は他にもあります。 プロキシ、ミラー、カスタムキャッシュの使用方法については、[インストールガイド](installation.md) を参照して下さい。
 
 ## Electron Development in a Nutshell
 
@@ -167,7 +167,7 @@ app.on('activate', () => {
   </head>
   <body>
     <h1>Hello World!</h1>
-    Node.js <script>document.write(process.versions.node)</script> および
+    node <script>document.write(process.versions.node)</script>、
     Chrome <script>document.write(process.versions.chrome)</script>、
     Electron <script>document.write(process.versions.electron)</script>を使用しています。
   </body>
