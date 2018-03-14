@@ -2,7 +2,7 @@
 
 Electron'un kod kapsamını yüksek tutmayı hedefliyoruz. Bütün pull request'lerin var olan testleri geçmesini ve ideal olarak değişen kodu ve yeni senaryolarını da kapsaması için yeni testler eklemesini istiyoruz. Ensuring that we capture as many code paths and use cases of Electron as possible ensures that we all ship apps with fewer bugs.
 
-Depo birim ve entegrasyon testlerinin yanı sıra JavaScript ve C++ için linting kuralları ile birlikte geliyor. Electron'un kodlama stili hakkında daha fazlasını öğrenmek için lütfen [coding-style(coding-style.md) dökümanına bakın.
+Depo birim ve entegrasyon testlerinin yanı sıra JavaScript ve C++ için linting kuralları ile birlikte geliyor. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
 
 ## Linting
 
