@@ -18,7 +18,7 @@
 
 macOSではアプリケーション メニューとして `menu` を設定します。Windows と Linuxでは、`menu` は各ウィンドウの上部のメニューとして設定されます。
 
-`null`を渡すと、Windows、Linuxではメニューバーを削除しますが削除しますが、macOSでは何も影響を与えません。
+`null`を渡すと、Windows、Linuxではメニューバーを削除しますが、macOSでは何も影響を与えません。
 
 **注:**このAPIは`app`モジュールの`ready`イベントの後に呼び出されます。
 
@@ -26,13 +26,13 @@ macOSではアプリケーション メニューとして `menu` を設定しま
 
 戻り値 `Menu | null` - セットされていれば menu を、そうでなければ `null` を返します。
 
-**注:**返される `メニュー` のインスタンスは、メニュー項目の動的な追加または削除をサポートしていません。 [インスタンス プロパティ](#instance-properties) は動的に変更ができます。
+**注釈:** 返される `Menu` のインスタンスは、メニューアイテムの動的な追加または削除をサポートしていません。 [インスタンス プロパティ](#instance-properties) は動的に変更ができます。
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-`アクション` をアプリケーションの最初のレスポンダーに送信します。 macOS メニューの既定の動作をエミュレートするために使用されます。 通常 [`MenuItem`](menu-item.md) の [`roll`](menu-item.md#roles) プロパティのみを使用します。
+`action` をアプリケーションの最初のレスポンダーに送信します。 macOS メニューの既定の動作をエミュレートするために使用されます。 通常 [`MenuItem`](menu-item.md) の [`roll`](menu-item.md#roles) プロパティのみを使用します。
 
 macOSネイティブなアクションに関しては[macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7)を参照してください。
 
@@ -40,22 +40,22 @@ macOSネイティブなアクションに関しては[macOS Cocoa Event Handling
 
 * `template` MenuItemConstructorOptions[]
 
-Returns `Menu`
+戻り値 `Menu`
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+一般的に、`template` は [MenuItem](menu-item.md) を構築するための `options` の配列です。上記の使用方法を参照できます。
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+`template` の要素に他のフィールドを付けることもでき、それらは構築されたメニューアイテムのプロパティになります。
 
 ### インスタンスメソッド
 
-The `menu` object has the following instance methods:
+`menu` オブジェクトには以下のメソッドがあります。
 
 #### `menu.popup([browserWindow, options])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Object (optional) 
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+* `browserWindow` BrowserWindow (任意) - デフォルトはフォーカス中のウインドウ。
+* `options` Object (任意) 
+  * `x` Number (任意) - デフォルトはマウスカーソルの位置。`y` が宣言されている場合はこれを宣言しなければいけない。
+  * `y` Number (任意) - デフォルトはマウスカーソルの位置。`x` が宣言されている場合はこれを宣言しなければいけない。
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
 
@@ -63,7 +63,7 @@ Pops up this menu as a context menu in the `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` BrowserWindow (任意) - デフォルトはフォーカス中のウインドウ。
 
 Closes the context menu in the `browserWindow`.
 
