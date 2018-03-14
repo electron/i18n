@@ -71,30 +71,30 @@ macOSネイティブなアクションに関しては[macOS Cocoa Event Handling
 
 * `menuItem` MenuItem
 
-Appends the `menuItem` to the menu.
+menu に `menuItem` を追加します。
 
 #### `menu.getMenuItemById(id)`
 
 * `id` String
 
-Returns `MenuItem` the item with the specified `id`
+戻り値 `MenuItem` - 指定した `id` のアイテム。
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` MenuItem
 
-Inserts the `menuItem` to the `pos` position of the menu.
+menu の `pos` の位置に `menuItem` を挿入します。
 
 ### インスタンスプロパティ
 
-`menu` objects also have the following properties:
+`menu` オブジェクトには更に以下のプロパティがあります。
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+menu のアイテムが入った配列 `MenuItem[]`。
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+それぞれの `Menu` は複数の [`MenuItem`](menu-item.md) で構成され、それぞれの `MenuItem` はサブメニューを持つことができます。
 
 ## サンプル
 
