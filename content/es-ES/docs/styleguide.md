@@ -98,7 +98,7 @@ Usando `autoUpdater` como ejemplo:
 * Todos los métodos que tengan un valor de retorno deben empezar su descripción con "Retornos `[TYPE]` - Descripción de retorno" 
   * Si el método devuelve un `Objeto`, su estructura puede ser especificada usando una coma seguida de un salto de línea y luego una lista desordenada de propiedades en el mismo estilo como parámetros de la función.
 * Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
-* Las Propiedades de Instancia deben ser listados bajo un `capítulo de` ### Propiedades de Instancia. 
+* Las Propiedades de Instancia deben ser listados bajo un `### Propiedades de Instancia` ### Propiedades de Instancia. 
   * Las propiedades de instancia deben empezar con "Un [Tipo de Propiedad]..."
 
 Usando las clases `Session` y `Cookies` como ejemplo:
@@ -164,7 +164,7 @@ Debajo, el método es información detallada de cada uno de los argumentos. El t
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Objeto`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * O un tipo personalizado como [`WebContent`](api/web-contents.md) de Electron
@@ -211,4 +211,4 @@ El título puede ser `#` o `#`-niveles dependiendo de si es una propiedad de un 
 
 ## Traducciones de la documentación
 
-Ver [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+See [electron/i18n](https://github.com/electron/i18n#readme)
