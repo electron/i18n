@@ -19,14 +19,14 @@
   * `sublabel` String - (任意)
   * `accelerator` [Accelerator](accelerator.md) (任意)
   * `icon` ([NativeImage](native-image.md) | String) (任意)
-  * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできません。
-  * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなります。
-  * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要があります。
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (任意) - `submenu` の type のメニューアイテムに対してのみ指定する必要があります。 If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
+  * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできない。
+  * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
+  * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
+  * `submenu` (MenuItemConstructorOptions[] | Menu) (任意) - `submenu` の type のメニューアイテムに対してのみ指定する必要がある。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できる。 値が `Menu` でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換される。
+  * `id` String (任意) - 一つの menu 内で一意なもの。これが定義されていれば、position 属性によってこのアイテムへの参照として利用できる。
+  * `position` String (任意) - このフィールドは与えられたメニュー内の特定の場所を細かく定義できる。
 
-### Roles
+### 役割 (roles)
 
 Roles allow menu items to have predefined behaviors.
 
@@ -34,12 +34,12 @@ It is best to specify `role` for any menu item that matches a standard role, rat
 
 The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
 
-The `role` property can have following values:
+`role` プロパティは、以下の値を持つことができます。
 
 * `undo`
 * `redo`
 * `cut`
-* `コピー`
+* `copy`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
