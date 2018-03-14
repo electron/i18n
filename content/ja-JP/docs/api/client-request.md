@@ -118,18 +118,18 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 
 #### `request.chunkedEncoding`
 
-リクエストがHTTPのチャンク形式転送エンコーディングを使用するかどうかを指定する `Boolean`。 省略値は、false です。 The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
+リクエストがHTTPのチャンク形式転送エンコーディングを使用するかどうかを指定する `Boolean`。 省略値は、false です。 プロパティは読み書き可能ですが、HTTPヘッダーがまだ送信されていない最初の書き込み操作の前でしか設定できません。 最初の書き込みの後、`chunkedEncoding` プロパティを設定しようとすると、エラーがスローされます。
 
-Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
+Electronのプロセスメモリの中で内部的にバッファする代わりにデータが細切れにストリーミングされるため、大きいリクエストボディを送信する必要がある場合、チャンク形式エンコーディングを使用するのを強く推奨します。
 
 ### インスタンスメソッド
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `name` String - 追加するHTTPヘッダーの名前。
+* `value` Object - 追加するHTTPヘッダーの値。
 
-Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+さらなるHTTPヘッダーを追加します。 The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
 
 #### `request.getHeader(name)`
 
