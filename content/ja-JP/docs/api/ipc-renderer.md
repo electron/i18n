@@ -4,13 +4,13 @@
 
 プロセス: [レンダラー](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+`ipcRenderer` オブジェクトは [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) クラスのインスタンスの一つです。 レンダラープロセス (ウェブページ) からメインプロセスに同期及び非同期メッセージを送れるように、いくつかのメソッドを提供します。 メインプロセスからの返信を受け取ることもできます。
 
-See [ipcMain](ipc-main.md) for code examples.
+サンプルコードについては [ipcMain](ipc-main.md) を参照して下さい。
 
 ## メソッド
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+`ipcRenderer` オブジェクトは、イベントを受け取り、送るために以下のメソッドがあります。
 
 ### `ipcRenderer.on(channel, listener)`
 
@@ -37,14 +37,14 @@ The `ipcRenderer` module has the following method to listen for events and send 
 
 * `channel` String
 
-Removes all listeners, or those of the specified `channel`.
+指定した `channel` の listener を全て削除します。
 
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+`channel` を介して非同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
 
 The main process handles it by listening for `channel` with `ipcMain` module.
 
