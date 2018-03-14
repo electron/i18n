@@ -1,8 +1,8 @@
 # नियोजित ब्रेकिंग ऐपीआई परिवर्तन
 
-निम्नलिखित सूचि में वे ऐपीआई शामिल हैं जो कि इलेक्ट्रॉन 2.0 में से निकाल दी जायेंगी |
+निम्नलिखित सूचि में वे ऐपीआई शामिल हैं जो कि इलेक्ट्रॉन 3.0 में से निकाल दी जायेंगी |
 
-यह रिलीज़ कब होगा इसकी कोई समय सारिणी नहीं है पर निरस्तीकरण चेतावनियाँ 90 दिन पहले ही जोड़ दी जायेंगी |
+There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
 
 ## `एप्प`
 
@@ -21,15 +21,6 @@ let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
 // इससे बदलें
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
-let windowB = new BrowserWindow(optionsB)
-```
-
-```js
-// निरस्त
-let optionsA = {titleBarStyle: 'hidden-inset'}
-let windowA = new BrowserWindow(optionsA)
-// इससे बदलें
-let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -74,46 +65,25 @@ crashReporter.start({
  })
 ```
 
-## `मेन्यु`
-
-```js
-// निरस्त
-menu.popup(browserWindow, 100, 200, 2)
-// इससे बदलें
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
-```
-
 ## `मूल छवि`
 
 ```js
-// निरस्त
-nativeImage.toPng() 
-// इससे बदलें
-nativeImage.toPNG()
- 
-// निरस्त
-nativeImage.toJpeg() 
-// इससे बदलें
-nativeImage.toJPEG() 
-
-// निरस्त
-nativeImage.createFromBuffer(buffer, 1.0) 
-// इससे बदलें
-nativeImage.createFromBuffer(buffer, {   
-scaleFactor: 1.0 
+// Deprecated
+nativeImage.createFromBuffer(buffer, 1.0)
+// Replace with
+nativeImage.createFromBuffer(buffer, {
+  scaleFactor: 1.0
 })
 ```
 
-## `प्रक्रिया`
+## `स्क्रीन`
 
 ```js
-// निरस्त
-process.versions['atom-shell'] 
-// इससे बदलें
-process.versions.electron
+// Deprecated
+screen.getMenuBarHeight()
+// Replace with
+screen.getPrimaryDisplay().workArea
 ```
-
-* नोड द्वारा सेट की गयी अन्य `process.versions` प्रॉपर्टीज के संग अनुरूपता बनाये रखने के लिए `process.versions.electron` और `process.version.chrome` को रीड-ओनली प्रॉपर्टीज बनाया जायेगा |
 
 ## `सत्र`
 
@@ -152,39 +122,18 @@ webContents.openDevTools({detach: true})
 webContents.openDevTools({mode: 'detach'})
 ```
 
-```js
-// निरस्त
-webContents.setZoomLevelLimits(1, 2) 
-// इससे बदलें
-webContents.setVisualZoomLevelLimits(1, 2)
-```
-
 ## `वेबफ्रेम`
 
 ```js
-// निरस्त
-webFrame.setZoomLevelLimits(1, 2) 
-// इससे बदलें
-webFrame.setVisualZoomLevelLimits(1, 2) 
-
-// निरस्त
-webFrame.registerURLSchemeAsSecure('app') 
-// इससे बदलें
-protocol.registerStandardSchemes(['app'], {secure: true}) 
-
-// निरस्त
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true}) 
-// इससे बदलें
+// Deprecated
+webFrame.registerURLSchemeAsSecure('app')
+// Replace with
 protocol.registerStandardSchemes(['app'], {secure: true})
-```
 
-## `<webview>`
-
-```js
-// निरस्त
-webview.setZoomLevelLimits(1, 2) 
-// इससे बदलें
-webview.setVisualZoomLevelLimits(1, 2)
+// Deprecated
+webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
+// Replace with
+protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## नोड हेडर्स युआरएल
@@ -195,14 +144,6 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 इससे बदलें: https://atom.io/download/electron
 
-## अतिरिक्त ऐआरएम एसेट्स
-
-हर इलेक्ट्रॉन रिलीज़ में थोड़े अलग फाइल नामों के साथ दो समरूप ऐआरएम बिल्डस शामिल होती हैं, जैसे कि `electron-v1.7.3-linux-arm.zip` और `electron-v1.7.3-linux-armv7l.zip` | `v7l` नाम के साथ मौज़ूद एसेट उपयोगकर्ताओं के यह बताने के लिए है कि वह कौन सा ऐआरएम संस्करण समर्थित करता है, और साथ ही उसे भविष्य में आने वाले ऐआरएमवी61 और ऐआरएमवी64 एसेट्स से अलग स्पष्ट करने के लिए |
-
-*बिना v71 नाम के* मौज़ूद फाइल अभी भी प्रकाशित की जा रही है ताकि उसे उपयोग करने वाले सेटअप में कोई त्रुटी न आ जाये | पर 2.0 संस्करण से, बिना v71 नाम के मौज़ूद फाइल प्रकाशित होना बंद हो जायेगी |
-
-और अधिक जानकारी के लिए, देखें [6986](https://github.com/electron/electron/pull/6986) और [7189](https://github.com/electron/electron/pull/7189) |
-
 ## `FIXME` टिप्पणियाँ
 
-कोड टिप्पणियों में `FIXME` स्ट्रिंग का इस्तेमाल उन चीजों को चिन्हित करने के लिए है, जिन्हें 2.0 रिलीज़ में ठीक किया जाना चाहिये | इसे देखें: https://github.com/electron/electron/search?q=fixme
+The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
