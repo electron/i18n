@@ -2,7 +2,7 @@
 
 Istnieje kilka sposobów, aby zaktualizować aplikację Electron. Ten najprostszy i oficjalnie wspierany jest korzystając z wbudowanej struktury [Squirrel](https://github.com/Squirrel) oraz modułu [autoUpdater](../api/auto-updater.md) Electron'a.
 
-## Deploying an Update Server
+## Wdrażanie aktualizacji serwera
 
 To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
 
@@ -68,7 +68,7 @@ Also make sure that errors are [being handled](../api/auto-updater.md#event-erro
 
 ```javascript
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+  console.error('Wystąpił problem podczas aktualizowania aplikacji')
   console.error(message)
 })
 ```

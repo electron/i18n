@@ -19,7 +19,7 @@ L'objet `app` émet les événements suivants :
 
 ### Événement : 'will-finish-launching'
 
-Émis lorsque l'application a terminé son démarrage de base. Sur Windows et Linux, l'événement `will-finish-launching` est le même que l'événement `ready`. Sur macOS, cet événement représente la notification `applicationWillFinishLaunching` de `NSApplication`. Vous allez habituellement mettre en place des écouteurs pour les événements `open-file` et `open-url` ici, et lancer le reporteur d'incident et la mise à jour automatique.
+Émis lorsque l'application a terminé son démarrage de base. Sur Windows et Linux, l'événement `will-finish-launching` est le même que l'événement `ready`. Sur macOS, cet événement représente la notification `applicationWillFinishLaunching` de `NSApplication`. Vous allez habituellement mettre en place des listeners pour les événements `open-file` et `open-url` ici, et lancer le reporteur d'incident et la mise à jour automatique.
 
 Dans la plupart des cas, vous devriez tout faire dans le contrôleur de l'événement `ready`.
 
@@ -594,7 +594,7 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Function 
-  * `argv` String[] - An array of the second instance's command line arguments
+  * `argv` String[] - un tableau d’arguments de la deuxième instance de la ligne de commande
   * `workingDirectory` String - The second instance's working directory
 
 Retourne `Boolean`.

@@ -1,10 +1,10 @@
 ## Class: TouchBarColorPicker
 
-> Create a color picker in the touch bar for native macOS applications
+> 在macOS 应用程序中，为触控栏创建拾色器
 
 线程：[主线程](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarColorPicker(options)` *Experimental*
+### ` new TouchBarColorPicker(可选)` *实验功能*
 
 * `options` Object 
   * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
@@ -14,7 +14,7 @@
 
 ### 实例属性
 
-The following properties are available on instances of `TouchBarColorPicker`:
+以下为` TouchBarColorPicker ` 实例的可用属性:
 
 #### `touchBarColorPicker.availableColors`
 

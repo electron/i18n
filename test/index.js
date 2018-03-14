@@ -192,16 +192,6 @@ describe('API Structures', () => {
     doc.isApiStructureDoc.should.equal(true)
   })
 
-  it('sets crowdinFileId on every doc', () => {
-    const locales = Object.keys(i18n.locales)
-    locales.length.should.be.above(1)
-    locales.forEach(locale => {
-      const docs = Object.keys(i18n.docs[locale]).map(key => i18n.docs[locale][key])
-      docs.length.should.be.above(1)
-      docs.every(doc => doc.crowdinFileId.length).should.equal(true)
-    })
-  })
-
   it('sets expected crowdinFileId', () => {
     const doc = i18n.docs['fr-FR']['/docs/api/structures/gpu-feature-status']
     doc.crowdinFileId.should.equal('128')

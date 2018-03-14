@@ -1,10 +1,10 @@
-## Class: TouchBar
+## 类: TouchBar
 
 > 为原生macOS应用创建TouchBar布局
 
 进程：[主进程](../tutorial/quick-start.md#main-process)
 
-### `new TouchBar(options)` *Experimental*
+### `new TouchBar(options)` *实验功能*
 
 * `选项` 对象 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
@@ -48,7 +48,7 @@ const spin = new TouchBarButton({
   label: '
 ```
 
-### Running the above example
+### 运行以上示例
 
 To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 

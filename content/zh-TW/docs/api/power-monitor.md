@@ -33,8 +33,8 @@ Emitted when the system is suspending.
 
 ### 事件: 'on-ac' *Windows*
 
-Emitted when the system changes to AC power.
+當系統變為用交流電作電源時發出。
 
 ### 事件: 'on-battery' *Windows*
 
-Emitted when system changes to battery power.
+當系統變為用電池作電源時發出。

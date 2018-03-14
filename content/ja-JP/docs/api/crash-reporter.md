@@ -4,7 +4,7 @@
 
 プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+以下は、自動的に外部サーバーにクラッシュレポートを送信する例です。
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -17,35 +17,35 @@ crashReporter.start({
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+クラッシュレポートを受信/処理するサーバーを立てるのに、以下のプロジェクトを使用できます。
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+クラッシュレポートは、アプリケーション固有のローカルの一時フォルダーに保存されます。 `productName`が`YourName`のとき、クラッシュレポートは`YourName Crashes`という名前の一時フォルダ内に格納されます。 クラッシュレポータを起動させる前に`app.setPath('temp', '/あなたの/好きな/一時フォルダ')`を呼ぶことで、この一時フォルダの場所をカスタマイズできます。
 
 ## メソッド
 
-The `crashReporter` module has the following methods:
+`crashReporter` オブジェクトには以下のメソッドがあります。
 
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String (optional)
-  * `submitURL` String - URL that crash reports will be sent to as POST.
-  * `productName` String (optional) - Defaults to `app.getName()`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
-  * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
+  * `companyName` String (任意)
+  * `submitURL` String - POSTとしてクラッシュレポートが送られるURL。
+  * `productName` String (任意) - 省略値は`app.getName()`。
+  * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバに送るかどうか。省略値は`true`。
+  * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は`false`。
+  * `extra` Object (任意) - レポートと共に送信されるように定義できるオブジェクト。 文字列のプロパティだけは正常に送られる。 ネストされたオブジェクト、または名前/値が64文字以上のプロパティはサポートされていない。
+  * `crashesDirectory` String (任意) - クラッシュレポートを格納する一時ディレクトリ (`process.crashReporter.start`を介してクラッシュレポータを起動させるときにのみ使用される)
 
-You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
+クラッシュレポートの収集元となる他の`crashReporter`API、各プロセス(メイン/レンダラー)を使用する前にこのメソッドを呼び出す必要があります。 異なるプロセスから呼び出すときは、`crashReporter.start`に異なるオプションを渡すことができます。
 
-**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Therefore, to collect crash reports from them, use `process.crashReporter.start` instead. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
+**注釈** `child_process`モジュールを介して作成した子プロセスはこのモジュールにアクセスする必要はないでしょう。 その代わりに、それらからクラッシュレポートを収集するために、`process.crashReporter.start`を使用します。 上記のオプションに`crashesDirectory`を加えて渡し、クラッシュレポートを格納する一時ディレクトリを指定して下さい。 子プロセスをクラッシュさせる`process.crash()`を呼ぶことでこれをテストできます。
 
-**Note:** To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace `submitURL`, `productName` and `crashesDirectory` with appropriate values.
+**注釈:** Windowsで子プロセスからクラッシュレポートを集めるには、 このコードを同じように加える必要があります。 これでクラッシュレポートを監視/送信するプロセスが起動します。 `submitURL`、`productName`、`crashesDirectory`を適切な値に置き換えて下さい。
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `setExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**注釈:** もし最初に`start`を呼んだ後に追加/更新した`extra`を送る必要があれば、macOSでは`setExtraParameter`を、LinuxとWindowsでは`start`を新しい`extra`と共に呼び直すことでできます。
 
 ```js
  const args = [
@@ -62,62 +62,62 @@ You are required to call this method before using any other `crashReporter` APIs
  })
 ```
 
-**Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**注釈:** macOSでは、クラッシュレポートの収集と送信に`crashpad`という新しいクライアントが使われます。 もしこのクラッシュレポータを有効にしたい場合は、クラッシュレポートを収集したいかに関係なく、メインプロセスから`crashReporter.start`を用いて`crashpad`を初期化する必要があります。 一度この方法で初期化すると、crashpadは全てのプロセスからクラッシュレポートを収集します。 `companyName`、`productName`、または`extra`以外がレポートされるクラッシュの情報を取得するには、レンダラーや子プロセスからも`crashReporter.start`を呼ぶ必要があります。
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md):
+戻り値: [`CrashReport`](structures/crash-report.md)
 
-Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
+日付とIDが最後のクラッシュレポートを返します。もしクラッシュレポートが送信されていないかクラッシュレポータが起動していない場合、`null`が返されます。
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+戻り値: [`CrashReport[]`](structures/crash-report.md)
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+すべてのアップロードされたクラッシュレポートを返します。各レポートは日付とアップロードIDを含みます。
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+戻り値 `Boolean` - クラッシュレポートがサーバにアップロードされるかどうか。 `start`メソッドか`setUploadToServer`からセットする。
 
-**Note:** This API can only be called from the main process.
+**注釈:** このAPIはメインプロセスからのみ呼び出すことができます。
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+* `uploadToServer` Boolean *macOS* - サーバにクラッシュレポートを提出するかどうか。
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+これは通常ユーザー設定によって制御されるでしょう。`start`が呼ばれる前に呼んでも効果はありません。
 
-**Note:** This API can only be called from the main process.
+**注釈:** このAPIはメインプロセスからのみ呼び出すことができます。
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `key` String - パラメータのキー、64文字未満でなければならない。
+* `value` String - パラメータの値、64文字未満でなければならない。
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+クラッシュレポートで送信されるextraパラメーターをセットします。 `start`を呼ぶときに`extra`オプションを通してセットする、追加で送信される値を指定します。 このAPIはmacOSでのみ使用可能で、もしLinuxとWindowsで最初に`start`を呼んだあとにextraパラメータを追加/更新する必要があれば、`start`を新しい`extra`と共に呼び直すことでできます。
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
+* `key` String - パラメータのキー、64文字未満でなければならない。
 
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+現在のパラメータ群からextraパラメータを削除します。なので、それはクラッシュレポートと共に送信されなくなります。
 
 ### `crashReporter.getParameters()`
 
-See all of the current parameters being passed to the crash reporter.
+クラッシュレポータに渡した現在のパラメータ全てを閲覧します。
 
-## Crash Report Payload
+## クラッシュレポートの内容
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+クラッシュレポータは`submitURL`に`multipart/form-data`の形式で`POST`で以下のデータを送信します。
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+* `ver` String - Electronのバージョン。
+* `platform` String - 'win32'など。
+* `process_type` String - 'renderer'など.
+* `guid` String - '5e1286fc-da97-479e-918b-6bfb0c3d1c72'など。
+* `_version` String - `package.json`内のバージョン。
+* `_productName` String - `crashReporter`の`options`内のproductName。
+* `prod` String - 基底のプロダクト。この場合はElectron。
+* `_companyName` String - `crashReporter`の`options`内のcompanyName。
+* `upload_file_minidump` File - `minidump`フォーマットのクラッシュレポート。
+* `crashReporter`の`options`内の`extra`オブジェクトの全ての最上位プロパティ。

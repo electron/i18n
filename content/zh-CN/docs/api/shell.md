@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+返回 `Boolean` - 文件是否成功显示
 
 在文件管理器中显示给定的文件。如果可以, 选中该文件。
 
@@ -30,7 +30,7 @@ Returns `Boolean` - Whether the item was successfully shown
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+返回 `Boolean` - 文件是否成功打开
 
 以桌面的默认方式打开给定的文件。
 
@@ -56,7 +56,7 @@ Returns `Boolean` - Whether the item was successfully moved to the trash
 
 ### `shell.beep()`
 
-Play the beep sound.
+播放哔哔的声音.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
@@ -75,7 +75,7 @@ Returns `Boolean` - Whether the shortcut was created successfully
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+返回 [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 

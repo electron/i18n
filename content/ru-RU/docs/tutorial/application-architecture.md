@@ -1,10 +1,10 @@
 # Electron Application Architecture
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Перед погружением в API нужно обсудить два доступных в Electron типа процессов. Они фундаментально различаются и их важно понимать. They are fundamentally different and important to understand.
 
 ## Main and Renderer Processes
 
-В Electron процесс, который запускает `package.json` `main` сценарий называется **основной процесс**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+В Electron процесс, который запускает сценарий `package.json` `main` называется **основным процессом**. Сценарий, запускающий главный процесс, может выводить GUI путем создания веб-страниц. В приложениях Electron всегда есть один главный процесс, но не больше.
 
 Так как Electron использует Chromium для отображения веб-страниц, Chromium мульти-процессорная архитектура также используется. Каждая веб-страница электрон выполняется в собственном процессе, который называют **процесс визуализации**.
 

@@ -1,91 +1,89 @@
-# Electron Application Architecture
+# Electron 应用结构
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+在我们深入了解Electron的API之前，我们需要探讨一下在Electron中可能遇到的两种进程类型。 它们是完全不同的，因此理解它们非常重要。
 
-## Main and Renderer Processes
+## 主进程和渲染进程
 
-Electron 运行 `package.json` 的 `main` 脚本的进程被称为**主进程**。 The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Electron 运行 `package.json` 的 `main` 脚本的进程被称为**主进程**。 在主进程中运行的脚本通过创建web页面来展示用户界面。 一个 Electron 应用总是有且只有一个主进程。
 
-由于 Electron 使用 Chromium 来显示 web 页面，所以 Chromium 的多进程架构也是可用的。 每个 Electron 中的 web 页面运行在它的叫**渲染进程**的进程中。
+由于 Electron 使用了 Chromium 来展示 web 页面，所以 Chromium 的多进程架构也被使用到。 每个 Electron 中的 web 页面运行在它自己的**渲染进程**中。
 
-在通常的浏览器内，网页通常运行在一个沙盒的环境挡住并且不能够使用原生的资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些底层交互。
+在普通的浏览器中，web页面通常在一个沙盒环境中运行，不被允许去接触原生的资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些底层交互。
 
 ### 主进程和渲染进程之间的区别
 
 主进程使用 `BrowserWindow` 实例创建页面。 每个 `BrowserWindow` 实例都在自己的渲染进程里运行页面。 当一个 `BrowserWindow` 实例被销毁后，相应的渲染进程也会被终止。
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+主进程管理所有的web页面和它们对应的渲染进程。 每个渲染进程都是独立的，它只关心它所运行的 web 页面。
 
-由于在页面里管理原生 GUI 资源是非常危险而且容易造成资源泄露，所以在页面调用 GUI 相关的 APIs 是不被允许的。 如果你想在网页里使用 GUI 操作，其对应的渲染进程必须与主进程进行通讯，请求主进程进行相关的 GUI 操作。
+在页面中调用与 GUI 相关的原生 API 是不被允许的，因为在 web 页面里操作原生的 GUI 资源是非常危险的，而且容易造成资源泄露。 如果你想在 web 页面里使用 GUI 操作，其对应的渲染进程必须与主进程进行通讯，请求主进程进行相关的 GUI 操作。
 
-> #### Aside: Communication Between Processes
+> #### 题外话：进程间通讯
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> 在 Electron 中, 我们有几种方法可以在主进程和渲染进程之间进行通信。 例如使用[`ipcRenderer`](../api/ipc-renderer.md)和[`ipcMain`](../api/ipc-main.md)模块发送消息，或使用[remote](../api/remote.md)模块进行 RPC 方式的通信。 这里也有一个常见问题解答：[web页面间如何共享数据](../faq.md#how-to-share-data-between-web-pages)。
 
-## Using Electron APIs
+## 使用Electron的API
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+Electron在主进程和渲染进程中提供了大量API去帮助开发桌面应用程序， 在主进程和渲染进程中，你可以通过require的方式将其包含在模块中以此，获取Electron的API
 
 ```javascript
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for the individual API will clearly state which process they can be used from.
+所有Electron的API都被指派给一种进程类型。 许多API只能被用于主进程中，有些API又只能被用于渲染进程，又有一些主进程和渲染进程中都可以使用。 针对特定API 的文档将明确说明可以在哪种进程中使用。
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+Electron中的窗口是使用`BrowserWindow`类型创建的一个实例， 它只能在主进程中使用。
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// 这样写在主进程会有用，但是在渲染进程中会提示'未定义'
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+因为进程之间的通信是被允许的, 所以渲染进程可以调用主进程来执行任务。 Electron调用`remote`模块暴露的API，只有它的API可以在主进程中被获取到。 为了在渲染进程中创建一个`BrowserWindow`的实例，我们通常使用remote模块为中间件：
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+//这样写在渲染进程中时行得通的，但是在主进程中是'未定义'
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## 使用Node.js的API
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron同时在主进程和渲染进程中对Node.js 暴露了所有的接口。 这里有两个重要的定义：
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1)所有在Node.js可以使用的API，在Electron中同样可以使用。 在Electron中调用如下代码是有用的：
 
 ```javascript
 const fs = require('fs')
 
 const root = fs.readdirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// 这会打印出磁盘根级别的所有文件
+// 同时包含'/'和'C:\'。
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+正如您可能已经猜到的那样，如果您尝试加载远程内容， 这会带来重要的安全隐患。 您可以在我们的 [ 安全文档 ](./security.md) 中找到更多有关加载远程内容的信息和指南。
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2)你可以在你的应用程序中使用Node.js的模块。 选择您最喜欢的 npm 模块。 npm 提供了目前世界上最大的开源代码库，那里包含良好的维护、经过测试的代码，提供给服务器应用程序的特色功能也提供给Electron。
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+例如，在你的应用程序中要使用官方的AWS SDK，你需要首先安装它的依赖：
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, simply require and use the module as if you were building a Node.js application:
+然后，在你的Electron应用中，通过简单的require的方式引入并使用模块，就像构建Node.js应用程序那样：
 
 ```javascript
-// A ready-to-use S3 Client
+// 准备好被使用的S3 client模块
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+有一个非常重要的提示: 原生Node.js模块 (即指，需要编译源码过后才能被使用的模块) 需要在编译后才能和Electron一起使用。
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md) (it's easy).
+绝大多数的Node.js模块都*不*是原生的， 只有大概400~650个模块是原生的。 当然了，如果你确实需要原生模块，可以在这里查询指南[如何重新为Electron编译它们](./using-native-node-modules.md)(很简单)。

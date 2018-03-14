@@ -1,8 +1,8 @@
-# Build System Overview
+# نظام البناء نظرة عامة
 
 Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
 
-## Gyp Files
+## ملفات Gyp
 
 Following `gyp` files contain the main rules for building Electron:
 
@@ -11,7 +11,7 @@ Following `gyp` files contain the main rules for building Electron:
 * `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
 * `brightray/brightray.gypi` includes general build configurations about building.
 
-## Component Build
+## مكون البناء
 
 Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
 
@@ -30,19 +30,19 @@ $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
 
-## Two-Phase Project Generation
+## مرحلتى إنتاج المشروع
 
 Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
 
 To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
 
-## Target Names
+## الأسماء المستهدفة
 
 Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
 
 This only affects developers, if you are just building Electron for rebranding you are not affected.
 
-## Tests
+## الاختبارات
 
 Test your changes conform to the project coding style using:
 

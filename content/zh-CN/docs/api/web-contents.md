@@ -2,7 +2,7 @@
 
 > 渲染以及控制 web 页面
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 ` webContents ` 是 [ EventEmitter ](https://nodejs.org/api/events.html#events_class_eventemitter)的实例， 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 访问 `webContents` 对象的例子:
 
@@ -39,7 +39,7 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 
 Returns `WebContents` - 给定 id 的 WebContents 实例。
 
-## Class: WebContents
+## 类: WebContents
 
 > 渲染和控制 BrowserWindow 实例的内容。
 

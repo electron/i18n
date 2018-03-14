@@ -2,7 +2,7 @@
 
 Queste sono le linee guida per scrivere la documentazione di Electron.
 
-## Titles
+## Titoli
 
 * Each page must have a single `#`-level title at the top.
 * Chapters in the same page must have `##`-level titles.
@@ -40,12 +40,12 @@ Using `Quick Start` as example:
 
 For API references, there are exceptions to this rule.
 
-## Markdown rules
+## Regole di Markdown
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Usa `sh` invece di `cmd` nei blocchi di codice (a causa dell'evidenziatore della sintassi).
 * Lines should be wrapped at 80 columns.
 * Nessun elenco di nidificazione più di 2 livelli (a causa del renderizzatore di riduzione).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Tutti i blocchi di codice `js` e `javascript` sono allineati con il [Markdown standard](http://npm.im/standard-markdown).
 
 ## Picking words
 

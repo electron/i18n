@@ -1,10 +1,10 @@
-## 分类: TouchBarSlider
+## 类: TouchBarSlider
 
 > 为本机 macOS 应用程序在触摸栏中创建滑块
 
 线程：[主线程](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSlider(options)` *Experimental*
+### `new TouchBarSlider(options)` *实验功能*
 
 * `options` Object 
   * `label` String (optional) - Label text.

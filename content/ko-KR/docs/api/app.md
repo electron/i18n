@@ -79,7 +79,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
-### Event: 'open-url' *macOS*
+### 이벤트: 'open-url' *macOS*
 
 반환:
 
@@ -90,7 +90,7 @@ Emitted when the user wants to open a URL with the application. Your application
 
 You should call `event.preventDefault()` if you want to handle this event.
 
-### Event: 'activate' *macOS*
+### 이벤트: 'activate' *macOS*
 
 반환:
 
@@ -99,9 +99,9 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
-### Event: 'continue-activity' *macOS*
+### 이벤트: 'continue-activity' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -111,7 +111,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
-### Event: 'will-continue-activity' *macOS*
+### 이벤트: 'will-continue-activity' *macOS*
 
 반환:
 
@@ -120,13 +120,13 @@ A user activity can be continued only in an app that has the same developer Team
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
 
-### Event: 'continue-activity-error' *macOS*
+### 이벤트: 'continue-activity-error' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - A string with the error's localized description.
+* `type` String - 활동을 식별하는 문자열. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - 에러의 변역된 설명 문자열
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
 
@@ -246,7 +246,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### 이벤트: 'login'
 
 반환:
 
@@ -545,7 +545,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
+  { // 이름이 지정됬으니 `type`는 "custom" 입니다.
     name: 'Tools',
     items: [
       {
@@ -569,7 +569,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // 이름과 종류가 없으니 `type`는 "tasks" 입니다.
     items: [
       {
         type: 'task',
@@ -597,7 +597,7 @@ app.setJumpList([
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
-Returns `Boolean`.
+`Boolean`을 반환합니다.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
@@ -609,14 +609,14 @@ This method returns `false` if your process is the primary instance of the appli
 
 On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
-An example of activating the window of primary instance when a second instance starts:
+두 번째 인스턴스가 실행됐을 때 주 인스턴스의 창을 활성화하는 예제입니다.
 
 ```javascript
 const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
+  // 뭔가가 두 번째 인스턴스를 실행했네요, 우리는 우리의 window에 집중합시다.
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
@@ -627,7 +627,7 @@ if (isSecondInstance) {
   app.quit()
 }
 
-// Create myWindow, load the rest of the app, etc...
+// myWindow를 생성합니다, 앱 로드, 기타 등등...
 app.on('ready', () => {
 })
 ```
@@ -665,7 +665,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+[애플리케이션 유저 모델 ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)를 `id`로 변경합니다.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
@@ -860,21 +860,21 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Dock 아이콘을 숨깁니다.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Dock 아이콘을 표시합니다.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+`Boolean`을 반환 - dock 아이콘이 보이는지를 나타냅니다. `app.dock.show()` 요청은 비동기라서 이 메서드는 직후에 바로 실행하면 참을 반환하지 않을 수 있습니다.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+애플리케이션의 [dock 메뉴](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103)를 설정합니다.
 
 ### `app.dock.setIcon(image)` *macOS*
 

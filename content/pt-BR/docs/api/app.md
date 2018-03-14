@@ -21,7 +21,7 @@ O objeto `app` emite os seguintes eventos:
 
 Emitido quando a aplicação termina inicialização básica. No Windows e Linux o evento `will-finish-launching` é o mesmo que o evento `ready`; no macOS, este evento representa a notificação `applicationWillFinishLaunching` de `NSApplication`. Você normalmente poderia escutar os eventos de `open-file` e `open-url` aqui e iniciar o crash reporter e auto atualização.
 
-Na maioria dos casos, você deveria apenas fazer tudo no evento `ready`.
+Na maioria dos casos, dá para fazer tudo no manipulador do evento `ready`.
 
 ### Evento: 'ready'
 
@@ -29,13 +29,13 @@ Retorna:
 
 * `launchInfo` Object *macOS*
 
-Emitido quando Electron tiver concluído a inicialização. No macOS, `launchInfo` possui o `userInfo` do `NSUserNotification` que foi utilizado para inicializar a aplicação quando inicializada do Notification Center. Você pode chamar `app.isReady()` para verificar se este evento já foi acionado.
+Emitido quando Electron tiver concluído a inicialização. No macOS, `launchInfo` possui o `userInfo` do `NSUserNotification` que foi utilizado para inicializar a aplicação, caso tenha sido inicializada a partir do Notification Center. Você pode chamar `app.isReady()` para verificar se este evento já foi acionado.
 
 ### Evento: 'window-all-closed'
 
 Emitido quando todas as janelas foram fechadas.
 
-Se você não escutar esse evento e todas as janelas forem fechadas, o comportamento padrão é fechar a aplicação; No entanto, se você estiver escutando, você controla se a aplicação fecha ou não. Se o usuário pressionou `Cmd + Q` ou o desenvolvedor chamou `app.quit()`, o Electron irá primeiro tentar fechar todas as janelas e então emitir o evento `will-quit` e neste caso, `window-all-closed` não será emitido.
+Se você não escutar esse evento e todas as janelas forem fechadas, o comportamento padrão é fechar a aplicação. No entanto, se você estiver escutando, você controla se a aplicação fecha ou não. Se o usuário pressionou `Cmd + Q` ou o desenvolvedor chamou `app.quit()`, o Electron irá primeiro tentar fechar todas as janelas e então emitir o evento `will-quit` e neste caso, `window-all-closed` não será emitido.
 
 ### Evento: 'before-quit'
 
@@ -45,7 +45,7 @@ Retorna:
 
 Emitido antes de a aplicação começar a fechar suas janelas. Chamar `event.preventDefault()` irá impedir o comportamento padrão, que é encerrar a aplicação.
 
-**Nota:** Se o encerramento da aplicação foi iniciado por `autoUpdater.quitAndInstall()` então `before-quit` é emitido *depois* de lançar o evento `close` em todas as janelas e fecha-las.
+**Nota:** Se o encerramento da aplicação foi iniciado por `autoUpdater.quitAndInstall()`, então `before-quit` é emitido *depois* de lançar o evento `close` em todas as janelas e fechá-las.
 
 ### Evento: 'will-quit'
 
@@ -53,7 +53,7 @@ Retorna:
 
 * `event` Event
 
-Emitido quando todas as janelas foram fechadas e a aplicação irá encerrar. Chamar `event.preventDefault()` irá previnir o comportamento padrão, que é encerrar a aplicação.
+Emitido quando todas as janelas foram fechadas e a aplicação irá encerrar. Chamar `event.preventDefault()` irá impedir o comportamento padrão, que é encerrar a aplicação.
 
 Consulte a descrição do evento `window-all-closed` para as diferenças entre os eventos `will-quit` e `window-all-closed`.
 
@@ -111,26 +111,26 @@ Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/
 
 Uma atividade do usuário pode ser continuada apenas em uma aplicação que tem o mesmo Team ID do desenvolvedor como o aplicativo fonte da atividade e que suporta o tipo da atividade. Tipos de atividade suportadas são especificadas no `Info.plist` do aplicativo sob a chave `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' *macOS*
+### Evento: 'will-continue-activity' *macOS*
 
 Retorna:
 
 * `event` Event
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
+Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) antes de uma atividade em outro dispositivo desejar ser continuada. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
 
-### Event: 'continue-activity-error' *macOS*
+### Evento: 'continue-activity-error' *macOS*
 
 Retorna:
 
 * `event` Event
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - A string with the error's localized description.
+* `error` String - Uma string com a descrição traduzida do erro.
 
 Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando uma atividade de outro dispositivo falha ao ser resumida.
 
-### Event: 'activity-was-continued' *macOS*
+### Evento: 'activity-was-continued' *macOS*
 
 Retorna:
 
@@ -138,9 +138,9 @@ Retorna:
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contém configurações específicas do app armazenadas na atividade.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) depois que uma atividade deste dispositivo foi continuada com sucesso em outro dispositivo.
 
-### Event: 'update-activity-state' *macOS*
+### Evento: 'update-activity-state' *macOS*
 
 Retorna:
 
@@ -148,7 +148,7 @@ Retorna:
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contém configurações específicas do app armazenadas na atividade.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. Se você precisar atualizar o estado a ser transferido, você deve imediatamente chamar `event.preventDefault()`, construir um novo dicionário `userInfo` e chamar `app.updateCurrentActivity()` de forma pontual. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
 
 ### Evento: 'new-window-for-tab' no *macOS*
 
@@ -165,7 +165,7 @@ Retorna:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido quando uma [browserWindow](browser-window.md) é desfocada.
+Emitido quando uma [browserWindow](browser-window.md) fica em segundo plano.
 
 ### Evento: 'browser-window-focus'
 
@@ -174,7 +174,7 @@ Retorna:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido quando [browserWindow](browser-window.md) é focado.
+Emitido quando uma [browserWindow](browser-window.md) fica em primeiro plano.
 
 ### Evento: 'browser-window-created'
 
@@ -183,7 +183,7 @@ Retorna:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido quando um novo [browserWindow](browser-window.md) é criado.
+Emitido quando uma nova [browserWindow](browser-window.md) é criada.
 
 ### Evento: 'web-contents-created'
 
@@ -440,7 +440,7 @@ Retorna `String` - A atual localização da aplicação. Possíveis retornos est
 
 **Nota:** Quando estiver distribuindo seu aplicativo, você também deve entregar a pasta `locales`.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Nota:** No Windows, você deve chamá-la após os eventos `ready` serem emitidos.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -457,75 +457,75 @@ Limpa a lista de documentos recentes.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - O nome do protocolo sem `://`. Se você deseja que sua aplicação manipule links `electron://`, utilize este método com o parâmetro `electron`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (opcional) *Windows* - O padrão é `process.execPath`
+* `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
-Returns `Boolean` - Whether the call succeeded.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Este método define o executável atual como o manipulador padrão de um protocolo (também conhecido como esquema de URI). Com ele, é possível integrar sua aplicação com o sistema operacional de forma mais profunda. Assim que registrado, todos os links com `seu-protocolo://` serão abertos com o executável atual. O link inteiro, incluindo o protocolo, será passado para a sua aplicação como um parâmetro.
 
-On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+No Windows, você pode informar um caminho opcional de parâmetros, o caminho para seu executável e args, um array de argumentos a serem passados ao seu executável quando for iniciado.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Nota:** No macOS, você só pode registrar protocolos que foram adicionados à `info.plist` da sua aplicação, a qual não pode ser modificada em tempo de execução. No entanto, você pode alterar esse arquivo com um editor de texto simples ou um script durante o tempo de compilação. Caso precise de mais detalhes, consulte a [documentação da Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115).
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+A API usa internamente o Registro do Windows e o LSSetDefaultHandlerForURLScheme.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - O nome do protocolo sem `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (opcional) *Windows* - O padrão é `process.execPath`
+* `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
-Returns `Boolean` - Whether the call succeeded.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Esse método verifica se o executável atual é o manipulador padrão de um protocolo (também conhecido como esquema de URI). Caso seja, ele removerá a aplicação como o manipulador padrão.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - O nome do protocolo sem `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (opcional) *Windows* - O padrão é `process.execPath`
+* `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
-Returns `Boolean`
+Retorna `Boolean`
 
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+Esse método verifica se o executável atual é o manipulador padrão de um protocolo (também conhecido como esquema de URI). Caso seja, ele retornará true. Caso contrário, ele retornará false.
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+**Nota:** No macOS, você pode usar este método para verificar se a aplicação foi registrada como o manipulador padrão de um protocolo. Você também pode verificar isso consultando o `~/Library/Preferences/com.apple.LaunchServices.plist` na máquina macOS. Caso precise de mais detalhes, consulte a [documentação da Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme).
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+A API usa internamente o Registro do Windows e o LSCopyDefaultHandlerForURLScheme.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
+* `tasks` [Task[]](structures/task.md) - Um array de objetos `Task`
 
-Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+Adiciona `tasks` à categoria [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) da JumpList no Windows.
 
-`tasks` is an array of [`Task`](structures/task.md) objects.
+`tasks` é um array de objetos [`Task`](structures/task.md).
 
-Returns `Boolean` - Whether the call succeeded.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+**Nota:** Se desejar personalizar ainda mais a Jump List, use `app.setJumpList(categories)` em vez deste método.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Returns `Object`:
+Retorna `Object`:
 
-* `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `minItems` Integer - O número mínimo de itens que serão mostrados na Jump List (para uma descrição mais detalhada deste valor, consulte a [documentação no MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Um array de objetos `JumpListItem` que correspondem aos itens que o usuário explicitamente removeu das categorias personalizadas da Jump List. Estes itens não devem ser adicionados novamente à Jump List na **próxima** chamada a `app.setJumpList()`. O Windows não irá mostrar nenhuma categoria personalizada que tiver qualquer um dos itens removidos.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) ou `null` - Um array de objetos `JumpListCategory`.
 
-Sets or removes a custom Jump List for the application, and returns one of the following strings:
+Define ou remove uma Jump List personalizada para a aplicação e retorna uma das seguintes strings:
 
-* `ok` - Nothing went wrong.
-* `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
-* `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
-* `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
+* `ok` - Nada deu errado.
+* `error` - Um ou mais erros ocorreram. Ative a geração de logs em tempo de execução para descobrir a causa provável.
+* `invalidSeparatorError` - Foi realizada uma tentativa de adicionar um separador a uma categoria personalizada na Jump List. Separadores são permitidos apenas na categoria `Tasks` padrão.
+* `fileTypeRegistrationError` - Foi realizada uma tentativa de adicionar à Jump List um link de arquivo cujo tipo de arquivo não foi registrado para ser manipulado pela aplicação.
+* `customCategoryAccessDeniedError` - Categorias personalizadas não podem ser adicionadas à Jump List devido a restrições de privacidade do usuário ou de políticas de grupo.
 
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
+Se `categories` é `null` a anteriormente Jump List (se houver) definida será substituída por uma lista de atalhos padrão para o app (gerenciado pelo Windows).
 
 **Nota:** Se um objeto `JumpListCategory` não tem o `type` nem a propriedade do `name` definido, então seu `type` é assumido como `tasks`. Se a propriedade do `name` está definida mas a propriedade do `type` é omissa, então o `type` é assumido como `custom`.
 
@@ -705,7 +705,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 

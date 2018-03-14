@@ -6,7 +6,7 @@ Electronのビルド済みバイナリを使用するためには、[`npm`](http
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
+あなたのアプリ内でElectronのバージョンを管理する方法については、[Electronのバージョン管理](./electron-versioning.md)を参照して下さい。
 
 ## グローバルインストール
 
@@ -24,7 +24,7 @@ npm install electron -g
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+アーキテクチャに加えてプラットフォーム(`win32`、`linux`など)も変更する場合は、`--platform`フラグを更に指定できます。
 
 ```shell
 npm install --platform=win32 electron
@@ -34,39 +34,39 @@ npm install --platform=win32 electron
 
 HTTP プロキシを使用する必要がある場合は、[これらの環境変数を設定](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables)してください。
 
-## Custom Mirrors and Caches
+## ミラーとキャッシュのカスタマイズ
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+インストール中に、`electron`モジュールは[`electron-download`](https://github.com/electron-userland/electron-download)を呼び出してあなたのプラットフォームのElectronのプレビルドバイナリをダウンロードするでしょう。 これはGithubのリリースダウンロードページ(`https://github.com/electron/electron/releases/tag/v$VERSION`、 `$VERSION`はElectronの詳細なバージョン)からそうします。
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+もしGithubにアクセス出来ないかカスタムビルドを提供する必要がある場合、他に提供されているミラーや既存のキャッシュからダウンロードできます。
 
-#### Mirror
+#### ミラー
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+基底URL、Electronのバイナリを見つけるためのパス、バイナリのファイル名は、環境変数を用いて上書きできます。 `electron-download`で使われるurlは以下の組み合わせです。
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+例として、中国のミラーを使うにはこうします。
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
-#### Cache
+#### キャッシュ
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+代わりに、ローカルキャッシュを上書きできます。 `electron-download`はあなたのネットワークに負荷がかからないようにダウンロードしたバイナリをローカルディレクトリにキャッシュします。 そのキャッシュフォルダは、Electronのカスタムビルドの提供やネットワークとの接続を回避するために使用できます。
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
+* Linux: `$XDG_CACHE_HOME` または `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Windows: `$LOCALAPPDATA/electron/Cache` または `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+古いバージョンのElectronを使用していた場合は、`~/.electron`内にキャッシュがあるかもしれません。
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+更に `ELECTRON_CACHE` 環境変数を設けることで、ローカルキャッシュの場所を上書きできます。
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+キャッシュには、バージョンの公式のzipファイルと共に、テキストファイルとして格納されているチェックサムが含まれています。典型的なキャッシュは、次のようになっています。
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -89,18 +89,18 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 `npm` 経由でのインストールに失敗する場合、Electronを [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+`EACCESS` エラーでインストールが失敗した場合は、おそらく [npmの権限を修正する](https://docs.npmjs.com/getting-started/fixing-npm-permissions) 必要があります。
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+上記のエラーが継続する場合は、 [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) フラグをtrueにする必要があるかもしれません。
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+速度の遅いネットワークでは、`--verbose`を指定してダウンロード進捗を表示することでなにか役に立つ情報が得られるかもしれません。
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+強制的に再ダウンロードする必要がある場合は、`force_no_cache`環境変数を`true`に設定してください。
