@@ -17,7 +17,7 @@
   * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
 * [Creating your First App](tutorial/first-app.md) 
   * [Electronのインストール](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [3分くらいでわかるElectronアプリ開発](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Running Your App](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
