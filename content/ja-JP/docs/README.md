@@ -71,7 +71,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [In Detail: Installing Electron](tutorial/installation.md) 
   * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
   * [プロキシ環境下](tutorial/installation.md#proxies)
-  * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
+  * [ミラーとキャッシュのカスタマイズ](tutorial/installation.md#custom-mirrors-and-caches)
   * [トラブルシューティング](tutorial/installation.md#troubleshooting)
 * [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
   * [semver（セマンティック バージョニング）](tutorial/electron-versioning.md#semver)

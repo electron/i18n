@@ -486,7 +486,7 @@ Esse método verifica se o executável atual é o manipulador padrão de um prot
 * `path` String (opcional) *Windows* - O padrão é `process.execPath`
 * `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
-Returns `Boolean`
+Retorna `Boolean`
 
 Esse método verifica se o executável atual é o manipulador padrão de um protocolo (também conhecido como esquema de URI). Caso seja, ele retornará true. Caso contrário, ele retornará false.
 
@@ -511,7 +511,7 @@ Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 Retorna `Object`:
 
 * `minItems` Integer - O número mínimo de itens que serão mostrados na Jump List (para uma descrição mais detalhada deste valor, consulte a [documentação no MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Um array de objetos `JumpListItem` que correspondem aos itens que o usuário explicitamente removeu das categorias personalizadas da Jump List. Estes itens não devem ser adicionados novamente à Jump List na **próxima** chamada a `app.setJumpList()`. O Windows não irá mostrar nenhuma categoria personalizada que contiver quaisquer itens removidos.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Um array de objetos `JumpListItem` que correspondem aos itens que o usuário explicitamente removeu das categorias personalizadas da Jump List. Estes itens não devem ser adicionados novamente à Jump List na **próxima** chamada a `app.setJumpList()`. O Windows não irá mostrar nenhuma categoria personalizada que tiver qualquer um dos itens removidos.
 
 ### `app.setJumpList(categories)` *Windows*
 
@@ -525,7 +525,7 @@ Define ou remove uma Jump List personalizada para a aplicação e retorna uma da
 * `fileTypeRegistrationError` - Foi realizada uma tentativa de adicionar à Jump List um link de arquivo cujo tipo de arquivo não foi registrado para ser manipulado pela aplicação.
 * `customCategoryAccessDeniedError` - Categorias personalizadas não podem ser adicionadas à Jump List devido a restrições de privacidade do usuário ou de políticas de grupo.
 
-Se `categories` é `nula` a previamente customizada e definida Jump List (se houver) será substituída por uma lista de atalhos padrão para o app (gerenciado pelo Windows).
+Se `categories` é `null` a anteriormente Jump List (se houver) definida será substituída por uma lista de atalhos padrão para o app (gerenciado pelo Windows).
 
 **Nota:** Se um objeto `JumpListCategory` não tem o `type` nem a propriedade do `name` definido, então seu `type` é assumido como `tasks`. Se a propriedade do `name` está definida mas a propriedade do `type` é omissa, então o `type` é assumido como `custom`.
 

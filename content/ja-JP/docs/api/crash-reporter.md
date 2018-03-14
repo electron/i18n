@@ -26,7 +26,7 @@ crashReporter.start({
 
 ## メソッド
 
-`crashReporter` オブジェクトには以下のメソッドがあります
+`crashReporter` オブジェクトには以下のメソッドがあります。
 
 ### `crashReporter.start(options)`
 
@@ -36,7 +36,7 @@ crashReporter.start({
   * `productName` String (任意) - 省略値は`app.getName()`。
   * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバに送るかどうか。省略値は`true`。
   * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は`false`。
-  * `extra` Object (任意) - レポートと共に送信されるように定義できるオブジェクト。 文字列のプロパティだけは正常に送られる。 ネストされたオブジェクト、または名前と値が64文字以上のプロパティはサポートされていない。
+  * `extra` Object (任意) - レポートと共に送信されるように定義できるオブジェクト。 文字列のプロパティだけは正常に送られる。 ネストされたオブジェクト、または名前/値が64文字以上のプロパティはサポートされていない。
   * `crashesDirectory` String (任意) - クラッシュレポートを格納する一時ディレクトリ (`process.crashReporter.start`を介してクラッシュレポータを起動させるときにのみ使用される)
 
 クラッシュレポートの収集元となる他の`crashReporter`API、各プロセス(メイン/レンダラー)を使用する前にこのメソッドを呼び出す必要があります。 異なるプロセスから呼び出すときは、`crashReporter.start`に異なるオプションを渡すことができます。
@@ -62,62 +62,62 @@ crashReporter.start({
  })
 ```
 
-**注釈:** macOSでは、クラッシュレポートの収集と送信に`crashpad`という新しいクライアントが使われます。 もしこのクラッシュレポータを有効にしたい場合は、クラッシュレポートを収集したいかに関係なく、メインプロセスから`crashReporter.start`を用いて`crashpad`を初期化する必要があります。 一度この方法で初期化すると、crashpadは全てのプロセスからクラッシュレポートを収集します。 You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**注釈:** macOSでは、クラッシュレポートの収集と送信に`crashpad`という新しいクライアントが使われます。 もしこのクラッシュレポータを有効にしたい場合は、クラッシュレポートを収集したいかに関係なく、メインプロセスから`crashReporter.start`を用いて`crashpad`を初期化する必要があります。 一度この方法で初期化すると、crashpadは全てのプロセスからクラッシュレポートを収集します。 `companyName`、`productName`、または`extra`以外がレポートされるクラッシュの情報を取得するには、レンダラーや子プロセスからも`crashReporter.start`を呼ぶ必要があります。
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md):
+戻り値: [`CrashReport`](structures/crash-report.md)
 
-Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
+日付とIDが最後のクラッシュレポートを返します。もしクラッシュレポートが送信されていないかクラッシュレポータが起動していない場合、`null`が返されます。
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+戻り値: [`CrashReport[]`](structures/crash-report.md)
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+すべてのアップロードされたクラッシュレポートを返します。各レポートは日付とアップロードIDを含みます。
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+戻り値 `Boolean` - クラッシュレポートがサーバにアップロードされるかどうか。 `start`メソッドか`setUploadToServer`からセットする。
 
-**Note:** This API can only be called from the main process.
+**注釈:** このAPIはメインプロセスからのみ呼び出すことができます。
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+* `uploadToServer` Boolean *macOS* - サーバにクラッシュレポートを提出するかどうか。
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+これは通常ユーザー設定によって制御されるでしょう。`start`が呼ばれる前に呼んでも効果はありません。
 
-**Note:** This API can only be called from the main process.
+**注釈:** このAPIはメインプロセスからのみ呼び出すことができます。
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `key` String - パラメータのキー、64文字未満でなければならない。
+* `value` String - パラメータの値、64文字未満でなければならない。
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+クラッシュレポートで送信されるextraパラメーターをセットします。 `start`を呼ぶときに`extra`オプションを通してセットする、追加で送信される値を指定します。 このAPIはmacOSでのみ使用可能で、もしLinuxとWindowsで最初に`start`を呼んだあとにextraパラメータを追加/更新する必要があれば、`start`を新しい`extra`と共に呼び直すことでできます。
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
+* `key` String - パラメータのキー、64文字未満でなければならない。
 
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+現在のパラメータ群からextraパラメータを削除します。なので、それはクラッシュレポートと共に送信されなくなります。
 
 ### `crashReporter.getParameters()`
 
-See all of the current parameters being passed to the crash reporter.
+クラッシュレポータに渡した現在のパラメータ全てを閲覧します。
 
-## Crash Report Payload
+## クラッシュレポートの内容
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+クラッシュレポータは`submitURL`に`multipart/form-data`の形式で`POST`で以下のデータを送信します。
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+* `ver` String - Electronのバージョン。
+* `platform` String - 'win32'など。
+* `process_type` String - 'renderer'など.
+* `guid` String - '5e1286fc-da97-479e-918b-6bfb0c3d1c72'など。
+* `_version` String - `package.json`内のバージョン。
+* `_productName` String - `crashReporter`の`options`内のproductName。
+* `prod` String - 基底のプロダクト。この場合はElectron。
+* `_companyName` String - `crashReporter`の`options`内のcompanyName。
+* `upload_file_minidump` File - `minidump`フォーマットのクラッシュレポート。
+* `crashReporter`の`options`内の`extra`オブジェクトの全ての最上位プロパティ。
