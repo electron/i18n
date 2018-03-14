@@ -23,20 +23,20 @@ console.log(clipboard.readText('selection'))
 
 The `clipboard` module has the following methods:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** APIs experimentais são marcadas como tal e podem ser removidas no futuro.
 
 ### `clipboard.readText([type])`
 
 * `type` String (optional)
 
-Returns `String` - The content in the clipboard as plain text.
+Retorna `String` - o conteúdo da área de transferência como texto sem formatação.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (optional)
 
-Writes the `text` into the clipboard as plain text.
+Escreve o `texto` na área de transferência como texto sem formatação.
 
 ### `clipboard.readHTML([type])`
 
@@ -47,7 +47,7 @@ Returns `String` - The content in the clipboard as markup.
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `features` String (opcional)
 
 Writes `markup` to the clipboard.
 
@@ -55,7 +55,7 @@ Writes `markup` to the clipboard.
 
 * `type` String (optional)
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Retorna [`Nativeimage`](native-image.md) - o conteúdo da imagem na área de transferência.
 
 ### `clipboard.writeImage(image[, type])`
 
