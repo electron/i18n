@@ -1,8 +1,8 @@
 # Naplano na Paglabag ng API na mga Pagbabago
 
-Ang mga sumusunod na lista ay kabilang sa mga API na aalisin sa Electron 2.0.
+The following list includes the APIs that will be removed in Electron 3.0.
 
-Walang takdang panahon kung kailan pakakawalan ang release na ito ngunit ang pamumura ng mga babala na ito ay makakadagdag sa hindi bababa sa 90 na araw una pa man.
+There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
 
 ## `app`
 
@@ -24,19 +24,10 @@ let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-```js
-// Deprecated
-let optionsA = {titleBarStyle: 'hidden-inset'}
-let windowA = new BrowserWindow(optionsA)
-// Replace with
-let optionsB = {titleBarStyle: 'hiddenInset'}
-let windowB = new BrowserWindow(optionsB)
-```
-
 ## `clipboard`
 
 ```js
-/ Deprecated
+// Deprecated
 clipboard.readRtf()
 // Replace with
 clipboard.readRTF()
@@ -74,28 +65,9 @@ crashReporter.start({
 })
 ```
 
-## `menu`
-
-```js
-// Deprecated
-menu.popup(browserWindow, 100, 200, 2)
-// Replace with
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
-```
-
 ## `nativeImage`
 
 ```js
-// Deprecated
-nativeImage.toPng()
-// Replace with
-nativeImage.toPNG()
-
-// Deprecated
-nativeImage.toJpeg()
-// Replace with
-nativeImage.toJPEG()
-
 // Deprecated
 nativeImage.createFromBuffer(buffer, 1.0)
 // Replace with
@@ -104,18 +76,16 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `proseso`
+## `magtabi`
 
 ```js
 // Deprecated
-process.versions['atom-shell']
+screen.getMenuBarHeight()
 // Replace with
-process.versions.electron
+screen.getPrimaryDisplay().workArea
 ```
 
-* `process.versions.electron` and `process.version.chrome` ay gagawin para read-only na mga property para palagian ng ibang `proseso.mga bersyon` mga proseso na-i-set ng Node.
-
-## `sesyon`
+## `session`
 
 ```js
 // Deprecated
@@ -151,21 +121,9 @@ webContents.openDevTools({detach: true})
 webContents.openDevTools({mode: 'detach'})
 ```
 
-```js
-// Deprecated
-webContents.setZoomLevelLimits(1, 2)
-// Replace with
-webContents.setVisualZoomLevelLimits(1, 2)
-```
-
 ## `webFrame`
 
 ```js
-// Deprecated
-webFrame.setZoomLevelLimits(1, 2)
-// Replace with
-webFrame.setVisualZoomLevelLimits(1, 2)
-
 // Deprecated
 webFrame.registerURLSchemeAsSecure('app')
 // Replace with
@@ -177,16 +135,7 @@ webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
-## `<webview>`
-
-```js
-// Deprecated
-webview.setZoomLevelLimits(1, 2)
-// Replace with
-webview.setVisualZoomLevelLimits(1, 2)
-```
-
-## Mga URL ng Node Header 
+## Node Headers URL
 
 Ito ang URL na tinukoy bilang `disturl` sa isang `.npmrc` na file o bilang `--dist-url` na utos ng line flag kung bubuo ng mga modyul na Native.
 
@@ -194,14 +143,6 @@ Deprecated: https://atom.io/download/atom-shell
 
 Palitan ng: https://atom.io/download/electron
 
-## Gayahin ang mga ARM Asset
+## `FIXME` comments
 
-Bawat Electron na pakawalan ay kasama sa dalawang kaparehang ARM na mga build na bahagyang naiiba na mga filename, gaya ng `electron-v1.7.3-linux-arm.zip` at `electron-v1.7.3-linux-armv7l.zip`. Ang asset na mayroong `v7l` na prefix ay dinadagdag para linawin sa mga gumagamit kung saang ARM na bersyon ang sinusuportahan, at upang ma-disambiguate ito sa hinaharap galing sa armv6l at arm64 na mga asset na maaaring mabuo.
-
-Ang file na *walang prefix* ay nalathala pa rin para maiwasan ang paglabag ng anomang setup na maaaring naubos. Simula sa 2.0, ang hindi pre-fixed na file ay hindi na maaaring malathala.
-
-Para sa mg detalye, tingnan ang [6986](https://github.com/electron/electron/pull/6986) at [7189](https://github.com/electron/electron/pull/7189).
-
-## `FIXME` na mga comment
-
-Ang `FIXME` na string ay ginagamit sa code na mga comment ya nagpapatunay na sa mga bagay na karapatdapat ayusin para sa 2.0 na release. Tingnan ang https://github.com/electron/electron/search?q=fixme
+The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
