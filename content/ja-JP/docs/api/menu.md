@@ -52,20 +52,20 @@ macOSネイティブなアクションに関しては[macOS Cocoa Event Handling
 
 #### `menu.popup([browserWindow, options])`
 
-* `browserWindow` BrowserWindow (任意) - デフォルトはフォーカス中のウインドウ。
+* `browserWindow` BrowserWindow (任意) - 省略値はフォーカス中のウインドウ。
 * `options` Object (任意) 
   * `x` Number (任意) - デフォルトはマウスカーソルの位置。`y` が宣言されている場合はこれを宣言しなければいけない。
   * `y` Number (任意) - デフォルトはマウスカーソルの位置。`x` が宣言されている場合はこれを宣言しなければいけない。
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `async` Boolean (任意) - `true` にすると即座にメソッドを抜け、`false` にするとメニューが選択されたか閉じた後に処理が戻る。 省略値は `false` 。
+  * `positioningItem` Number (任意) *macOS* - マウスカーソルの位置に配置するメニューアイテムのインデックス。省略値は -1。
 
-Pops up this menu as a context menu in the `browserWindow`.
+この menu を `browserWindow` 内のコンテキストメニューとしてポップアップします。
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (任意) - デフォルトはフォーカス中のウインドウ。
+* `browserWindow` BrowserWindow (任意) - 省略値はフォーカス中のウインドウ。
 
-Closes the context menu in the `browserWindow`.
+`browserWindow` 内のこのコンテキストメニューを閉じます。
 
 #### `menu.append(menuItem)`
 
