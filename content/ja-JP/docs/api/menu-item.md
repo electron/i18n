@@ -47,17 +47,17 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `minimize` - 現在のウィンドウを最小化
 * `close` - 現在のウィンドウを閉じる
 * `quit` - アプリケーションを終了する
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
-* `zoomout` - Zoom out the focused page by 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* `reload` - 現在のウィンドウをリロード
+* `forcereload` - キャッシュを無視して現在のウィンドウをリロード
+* `toggledevtools` - 現在のウィンドウの開発者向けツールのトグル切り替え
+* `togglefullscreen`- 現在のウィンドウの全画面モードのトグル切り替え
+* `resetzoom` - フォーカス中のページのズームレベルを元のサイズにリセット
+* `zoomin` - フォーカス中のページを 10% 拡大
+* `zoomout` - フォーカス中のページを 10% 縮小
+* `editMenu` - デフォルトの"編集"メニュー全体 (元に戻す、コピー、等)
+* `windowMenu` - デフォルトの"ウインドウ"メニュー全体 (最小化、閉じる、等)
 
-The following additional roles are available on macOS:
+以下は macOS で有効な追加の role です。
 
 * `about` - Map to the `orderFrontStandardAboutPanel` action
 * `hide` - Map to the `hide` action
