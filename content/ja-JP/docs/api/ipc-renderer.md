@@ -67,11 +67,11 @@
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `windowid` via `channel`
+`channel` を介して `windowid` のウインドウにメッセージを送ります。
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+`ipcRenderer.send` に似ていますが、イベントはメインプロセスの代わりにホストページの `<webview>` に送信されます。
