@@ -54,7 +54,7 @@ Returns:
 
 Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. Ang `changedMetrics` ay isang array ng mga strings na naglalarawan ng mga pagbabago. Mga posiblen pagbabago sa `bounds`, `workArea`, `scaleFactor` at `rotation`.
 
-## Methods
+## Mga Paraan
 
 Ang `screen` na modyul ay may mga sumusunod na mga paraan:
 
