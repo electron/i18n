@@ -158,7 +158,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [在 Debugger 中設定符號伺服器](development/setting-up-symbol-server.md)
 * [文件編寫風格](styleguide.md)
 * [貢獻 Electron](../CONTRIBUTING.md)
-* [議題](development/issues.md)
+* [議題管理](development/issues.md)
 * [合併請求 (PR)](development/pull-requests.md)
 * [Chromium 升版](development/upgrading-chromium.md)
 * [Chromium 開發](development/chromium-development.md)
