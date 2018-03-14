@@ -26,7 +26,7 @@ app.clearRecentDocuments()
 
 ## Notas de Windows
 
-Para poder usar esta característica en Windows, su aplicación debe ser registrado como un controlador del tipo de archivo del documento; de lo contrario, el archivo no aparecerá en JumpList incluso después de que usted lo haya agregado. You can find everything on registering your application in \[Application Registration\]\[app-registration\].
+Para poder usar esta característica en Windows, su aplicación debe ser registrado como un controlador del tipo de archivo del documento; de lo contrario, el archivo no aparecerá en JumpList incluso después de que usted lo haya agregado. Puedes encontrar todo al registrar su aplicación en [Registro de solicitud](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
 Cuando un usuario hace clic en un archivo de JumpList, una nueva instancia de su aplicación se iniciará con la ruta del archivo agregado como un argumento de línea de comando.
 
