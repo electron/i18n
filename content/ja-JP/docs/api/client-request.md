@@ -129,7 +129,7 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 * `name` String - 追加するHTTPヘッダーの名前。
 * `value` Object - 追加するHTTPヘッダーの値。
 
-さらなるHTTPヘッダーを追加します。 ヘッダー名は小文字にされることなく、そのまま追加されます。 最初の書き込み前のみ呼び出すことができます。 最初の書き込み後にこのメソッドを呼び出すとエラーがスローされます。 渡された値が `String` 型でない場合、最終的な値を得るために `toString()` メソッドが呼び出されます。
+さらなるHTTPヘッダーを追加します。 ヘッダー名は小文字にされることなく、そのまま出力されます。 最初の書き込み前のみ呼び出すことができます。 最初の書き込み後にこのメソッドを呼び出すとエラーがスローされます。 渡された値が `String` 型でない場合、最終的な値を得るために `toString()` メソッドが呼び出されます。
 
 #### `request.getHeader(name)`
 
@@ -149,9 +149,9 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 * `encoding` String (任意) - 文字列のチャンクをBufferオブジェクトに変換するために使用します。省略値は、'utf-8'です。
 * `callback` Function (任意) - 書き込み操作の終了後に呼び出されます。
 
-`callback` は、Node.jsのAPIとの類似性を維持する目的で導入された本質的にはダミーのファンクションです。 It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` は、Node.jsのAPIとの類似性を維持する目的で導入された本質的にはダミーのファンクションです。 `chunk` コンテンツがChromiumのネットワークレイヤーに到達した後、すぐに非同期で呼び出されます。 Node.jsの実装とは違って、`callback` が呼び出される前に `chunk` コンテンツが書き込まれていることは保証されません。
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+リクエストボディにデータのチャンクを追加します。 最初の書き込み操作では、リクエストヘッダーも出力される可能性があります。 After the first write operation, it is not allowed to add or remove a custom header.
 
 #### `request.end([chunk][, encoding][, callback])`
 
