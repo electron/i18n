@@ -135,7 +135,7 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### المنهجية
 
 The methods chapter must be in the following form:
 
@@ -179,7 +179,7 @@ If an argument or a method is unique to certain platforms, those platforms are d
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
-### Events
+### أحداث
 
 The events chapter must be in following form:
 
@@ -197,7 +197,7 @@ The title can be `###` or `####`-levels depending on whether it is an event of a
 
 The arguments of an event follow the same rules as methods.
 
-### Properties
+### الخصائص
 
 The properties chapter must be in following form:
 
