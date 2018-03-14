@@ -1,6 +1,6 @@
 # 计划中的 API 更改
 
-The following list includes the APIs that will be removed in Electron 3.0.
+以下列表包括将在Electron 3.0中删除的API
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
 
@@ -27,37 +27,37 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
+// 过时的
 clipboard.readRtf()
-// Replace with
+// 替换为
 clipboard.readRTF()
 
-// Deprecated
+// 过时的
 clipboard.writeRtf()
-// Replace with
+// 替换为
 clipboard.writeRTF()
 
-// Deprecated
+// 过时的
 clipboard.readHtml()
-// Replace with
+// 替换为
 clipboard.readHTML()
 
-// Deprecated
+// 过时的
 clipboard.writeHtml()
-// Replace with
+//替换为
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// 过时的
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// 替换为
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -88,11 +88,11 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Deprecated
+// 过时的
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// 替换为
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -101,23 +101,23 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// 过时的
 tray.setHighlightMode(true)
-// Replace with
+// 替换为
 tray.setHighlightMode('on')
 
-// Deprecated
+// 过时的
 tray.setHighlightMode(false)
-// Replace with
+// 替换为
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// 过时的
 webContents.openDevTools({detach: true})
-// Replace with
+// 替换为
 webContents.openDevTools({mode: 'detach'})
 ```
 
@@ -143,6 +143,6 @@ protocol.registerStandardSchemes(['app'], {secure: true})
 
 替换为: https://atom.io/download/electron
 
-## `FIXME` comments
+## `FIXME` 注释
 
 The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
