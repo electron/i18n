@@ -67,9 +67,9 @@ npm install --save-dev electron
 
 Electron をインストールする手段は他にもあります。 プロキシ、ミラー、カスタムキャッシュの使用方法については、[インストールガイド](installation.md) を参照して下さい。
 
-## Electron Development in a Nutshell
+## 3分くらいでわかるElectronアプリ開発
 
-Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron アプリは、Node.js 開発にあるものと同じ資産とメソッドを使用して Javascript で開発されています。 Electron 内のすべてのAPIと機能は、他の Node.js モジュールと同じように必要に応じて `electron` オブジェクトを通してアクセスできます。
 
 ```javascript
 const electron = require('electron')
