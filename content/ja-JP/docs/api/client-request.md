@@ -118,7 +118,7 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 
 #### `request.chunkedEncoding`
 
-リクエストがHTTPのチャンク形式転送エンコーディングを使用するかどうかを指定する `Boolean`。 省略値は、false です。 プロパティは読み書き可能ですが、HTTPヘッダーがまだ送信されていない最初の書き込み操作の前でしか設定できません。 最初の書き込みの後、`chunkedEncoding` プロパティを設定しようとすると、エラーがスローされます。
+リクエストがHTTPのチャンク形式転送エンコーディングを使用するかどうかを指定する `Boolean` 型。 省略値は、false です。 プロパティは読み書き可能ですが、HTTPヘッダーがまだ送信されていない最初の書き込み操作の前でしか設定できません。 最初の書き込みの後、`chunkedEncoding` プロパティを設定しようとすると、エラーがスローされます。
 
 Electronのプロセスメモリの中で内部的にバッファする代わりにデータが細切れにストリーミングされるため、大きいリクエストボディを送信する必要がある場合、チャンク形式エンコーディングを使用するのを強く推奨します。
 
@@ -135,13 +135,13 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 * `name` String - 追加したヘッダーの名前を指定します。
 
-戻り値 `Object` - 先に設定した追加のヘッダーの名前の値。
+戻り値 `Object` - 先に設定した追加したヘッダーの名前の値。
 
 #### `request.removeHeader(name)`
 
 * `name` String - 追加したヘッダーの名前を指定します。
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+先に設定した追加したヘッダーの名前を削除します。このメソッドは、最初の書き込み前のみ呼び出すことができます。最初の書き込み後に呼び出そうとするとエラーがスローされます。
 
 #### `request.write(chunk[, encoding][, callback])`
 
