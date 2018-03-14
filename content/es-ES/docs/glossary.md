@@ -64,7 +64,7 @@ Nullsoft Scriptable Install System es un instalador basado en secuencias de coma
 
 El OSR (renderizado fuera de la pantalla) se puede utilizar para cargar un fondo de pantalla pesado y mostrarlo luego (será mucho más rápido). Permite renderizar la página sin mostrarla en pantalla.
 
-### proceso
+### process
 
 Un proceso es una instancia en un programa de computadora que está siendo ejecutado. Aplicaciones de Electron que hacen usan de la [main](#main-process) y uno o muchos procesos [renderer](#renderer-process) están ejecutando varios programas simultáneamente.
 
