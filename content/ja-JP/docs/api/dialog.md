@@ -135,10 +135,10 @@ console.log(dialog)
 
 macOSにおいて、これはメッセージと証明書の情報を表示し、ユーザに信頼/インポートする証明書のオプションを提供します。 `browserWindow` を渡すと、それを親ウインドウとしてdialogをモーダルウインドウにします。
 
-On Windows the options are more limited, due to the Win32 APIs used:
+Windowsでのオプションはより限られており、Win32APIは以下のようになります。
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* `message` は使用されません。OS独自の確認ダイアログを提供します。
+* この確認ダイアログはモーダルウインドウにできないので、`browserWindow` は無視されます。
 
 ## Sheets
 
