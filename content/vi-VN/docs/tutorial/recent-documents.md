@@ -26,7 +26,7 @@ app.clearRecentDocuments()
 
 ## Windows Notes
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in \[Application Registration\]\[app-registration\].
+In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
 When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
 
