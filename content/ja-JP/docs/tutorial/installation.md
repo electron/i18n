@@ -56,17 +56,17 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### キャッシュ
 
-代わりに、ローカルキャッシュを上書きできます。 `electron-download`はあなたのネットワークに負荷がかからないようにダウンロードしたバイナリをローカルディレクトリにキャッシュします。 You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+代わりに、ローカルキャッシュを上書きできます。 `electron-download`はあなたのネットワークに負荷がかからないようにダウンロードしたバイナリをローカルディレクトリにキャッシュします。 そのキャッシュフォルダは、Electronのカスタムビルドの提供やネットワークとの接続を回避するために使用できます。
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
+* Linux: `$XDG_CACHE_HOME` または `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Windows: `$LOCALAPPDATA/electron/Cache` または `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+古いバージョンのElectronを使用していた場合は、`~/.electron`内にキャッシュがあるかもしれません。
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+更に `ELECTRON_CACHE` 環境変数を設けることで、ローカルキャッシュの場所を上書きできます。
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+キャッシュには、バージョンの公式のzipファイルと共に、テキストファイルとして格納されているチェックサムが含まれています。典型的なキャッシュは、次のようになっています。
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -89,7 +89,7 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 `npm` 経由でのインストールに失敗する場合、Electronを [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+`EACCESS` エラーでインストールが失敗した場合は、おそらく [npmの権限を修正する](https://docs.npmjs.com/getting-started/fixing-npm-permissions) 必要があります。
 
 If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
