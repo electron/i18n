@@ -1,8 +1,8 @@
 # Perubahan API Pelacakan Terencana
 
-Daftar berikut mencakup API yang akan dihapus di Electron 2.0.
+Daftar berikut mencakup API yang akan dihapus di Electron 3.0.
 
-Tidak ada jadwal kapan pembebasan ini akan terjadi namun tidak berlaku lagi peringatan akan ditambahkan setidaknya 90 hari sebelumnya.
+There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
 
 ## `aplikasi`
 
@@ -21,15 +21,6 @@ let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
 // Replace with
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
-let windowB = new BrowserWindow(optionsB)
-```
-
-```js
-// Deprecated
-let optionsA = {titleBarStyle: 'hidden-inset'}
-let windowA = new BrowserWindow(optionsA)
-// Replace with
-let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -74,46 +65,25 @@ crashReporter.start({
 })
 ```
 
-## `menu`
+## `gambarasli`
 
 ```js
 // Deprecated
-menu.popup(browserWindow, 100, 200, 2)
-// Replace with
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
-```
-
-## `asli`
-
-```js
-// Tidak berlaku lagi
-nativeImage.toPng()
-// Ubah dengan
-nativeImage.toPNG()
-
-// Tidak berlaku lagi
-nativeImage.toJpeg()
-// Ubah dengan
-nativeImage.toJPEG()
-
-// Ubah dengan
 nativeImage.createFromBuffer(buffer, 1.0)
-// Ubah dengan
+// Replace with
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
 
-## `proses`
+## `layar`
 
 ```js
-// Tidak berlaku lagi
-process.versions ['atom-shell']
-// Ubah dengan
-process.versions.electron
+// Deprecated
+screen.getMenuBarHeight()
+// Replace with
+screen.getPrimaryDisplay().workArea
 ```
-
-* `proses.versi.electron` dan `proses.versi.chrome` akan dibuat properti hanya baca untuk konsistensi dengan proses `proses.versi` properti yang ditetapkan oleh Node.
 
 ## `sesi`
 
@@ -151,20 +121,18 @@ webContents.openDevTools ({detach: true})
 webContents.openDevTools ({mode: 'detach'})
 ```
 
-```js
-// Deprecated webContents.setZoomLevelLimits (1, 2) / / ganti dengan webContents.setVisualZoomLevelLimits (1, 2)
-```
-
 ## `webBingkai`
 
 ```js
-// Deprecated webFrame.setZoomLevelLimits (1, 2) / / ganti dengan webFrame.setVisualZoomLevelLimits (1, 2) / / Deprecated webFrame.registerURLSchemeAsSecure('app') / / ganti dengan protocol.registerStandardSchemes (['app'], {secure: true}) / / Usang webFrame.registerURLSchemeAsPrivileged ('apl', {secure: true}) / / ganti dengan protocol.registerStandardSchemes (['app'], {secure: true})
-```
+// Deprecated
+webFrame.registerURLSchemeAsSecure('app')
+// Replace with
+protocol.registerStandardSchemes(['app'], {secure: true})
 
-## `<webview>`
-
-```js
-// Deprecated webContents.setZoomLevelLimits (1, 2) / / ganti dengan webContents.setVisualZoomLevelLimits (1, 2)
+// Deprecated
+webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
+// Replace with
+protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## URL Node Header
@@ -175,14 +143,6 @@ Tidak berlaku lagi: https://atom.io/download/atom-shell
 
 Ganti dengan: https://atom.io/download/electron
 
-## Aset ARM Duplikat
-
-Setiap rilis Elektron mencakup dua ARM identik yang dibangun dengan sedikit berbeda nama file, seperti `electron-v1.7.3-linux-arm.zip` dan `electron-v1.7.3-linux-armv7l.zip`. Aset dengan awalan `v7l` ditambahkan untuk mengklarifikasi kepada pengguna versi ARM yang didukungnya, dan untuk membedakannya dari aset armv6l dan arm64 masa depan yang mungkin diproduksi.
-
-File *tanpa awalan* masih dipublikasikan untuk menghindari pemutusan setup yang mungkin memakannya Mulai dari 2.0, file yang tidak diawali akan tidak lagi dipublikasikan.
-
-Untuk detailnya, lihat [6986](https://github.com/electron/electron/pull/6986) dan [7189](https://github.com/electron/electron/pull/7189).
-
 ## `FIXME` komentar
 
-`FIXME` string digunakan dalam komentar kode untuk menunjukkan hal-hal yang perlu diperbaiki untuk rilis 2.0. Lihat https://github.com/electron/electron/search?q=fixme
+The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
