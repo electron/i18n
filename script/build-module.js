@@ -14,6 +14,8 @@ const URL = require('url')
 const packageJSON = require('../package.json')
 const GithubSlugger = require('github-slugger')
 const getIds = require('get-crowdin-file-ids')
+const remark = require('remark')
+const links = require('remark-inline-links')
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -85,7 +87,7 @@ async function parseFile (file) {
   }
 
   file.sections = await Promise.all(
-    splitMd(markdown).map(async (section) => {
+    splitMd(await fixMdLinks(markdown)).map(async (section) => {
       const parsed = await hubdown(section.body)
       const $ = cheerio.load(parsed.content || '')
       file.title = file.title ||
@@ -141,6 +143,18 @@ async function parseFile (file) {
 
   // remove empty values
   return cleanDeep(file)
+}
+
+function fixMdLinks (md) {
+  return new Promise((resolve, reject) => {
+    remark().use(links).process(md, (err, file) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(file.contents)
+      }
+    })
+  })
 }
 
 function splitMd (md) {
