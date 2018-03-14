@@ -175,4 +175,4 @@
 
 ## दस्तावेज़ीकरण अनुवाद
 
-[इलेक्ट्रॉन/इलेक्ट्रॉन-i18n](https://github.com/electron/electron-i18n#readme) देखें
+See [electron/i18n](https://github.com/electron/i18n#readme)
