@@ -130,10 +130,10 @@ console.log(dialog)
 * `browserWindow` BrowserWindow (任意)
 * `options` オブジェクト 
   * `certificate` [Certificate](structures/certificate.md) - 信頼/インポートする証明書。
-  * `message` String - The message to display to the user.
+  * `message` String - ユーザに表示するメッセージ。
 * `callback` Function
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+macOSにおいて、これはメッセージと証明書の情報を表示し、ユーザに信頼/インポートする証明書のオプションを提供します。 `browserWindow` を渡すと、それを親ウインドウとしてdialogをモーダルウインドウにします。
 
 On Windows the options are more limited, due to the Win32 APIs used:
 
