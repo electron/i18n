@@ -1,6 +1,6 @@
 # MacOS 에서 디버깅하기
 
-만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. 그렇다 해도, lldb, Electron 소스 코드가 중단점을 통해 순차적으로 쉽게 디버깅할 수 있느 환경을 제공합니다.
+만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. 그렇다 해도, lldb, Electron 소스 코드가 중단점을 통해 순차적으로 쉽게 디버깅할 수 있느 환경을 제공합니다. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
 ## 요구 사항
 
