@@ -1,12 +1,12 @@
 ## クラス: Menu
 
-> ネイティブアプリケーションのメニューとコンテクストメニューを生成します。
+> ネイティブアプリケーションのメニューとコンテキストメニューを作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-新しいメニューを生成します。
+新しいメニューを作成します
 
 ### 静的メソッド
 
@@ -24,7 +24,7 @@ macOSではアプリケーション メニューとして `menu` を設定しま
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+戻り値 `Menu | null` - セットされていれば menu を、そうでなければ `null` を返します。
 
 **注:**返される `メニュー` のインスタンスは、メニュー項目の動的な追加または削除をサポートしていません。 [インスタンス プロパティ](#instance-properties) は動的に変更ができます。
 
