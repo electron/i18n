@@ -40,7 +40,7 @@ Mengembalikan:
 
 Mengembalikan:
 
-* `authInfo` Obyek 
+* `authInfo` Sasaran 
   * ` isProxy </ 0>  Boolean</li>
 <li><code>skema` String
   * `host` String
