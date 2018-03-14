@@ -26,7 +26,7 @@ app.clearRecentDocuments()
 
 ## Windows에서 주의할 점
 
-이 기능을 Windows에서 사용할 땐 운영체제 시스템에 애플리케이션에서 사용하는 파일 확장자가 등록되어 있어야 합니다. 그렇지 않은 경우 파일을 JumpList에 추가해도 추가되지 않습니다. You can find everything on registering your application in \[Application Registration\]\[app-registration\].
+이 기능을 Windows에서 사용할 땐 운영체제 시스템에 애플리케이션에서 사용하는 파일 확장자가 등록되어 있어야 합니다. 그렇지 않은 경우 파일을 JumpList에 추가해도 추가되지 않습니다. 애플리케이션 등록에 관련된 API의 모든 내용은 [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx)에서 찾아볼 수 있습니다.
 
 유저가 JumpList에서 파일을 클릭할 경우 클릭된 파일의 경로가 커맨드 라인 인수로 추가되어 새로운 인스턴스의 애플리케이션이 실행됩니다.
 
