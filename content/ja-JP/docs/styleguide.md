@@ -98,7 +98,7 @@ For modules that are not classes, their methods and events must be listed under 
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
+* Instance Properties must be listed under an `### インスタンスプロパティ` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
@@ -211,4 +211,4 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 
 ## ドキュメントの翻訳
 
-[electron/electron-i18n](https://github.com/electron/electron-i18n#readme) を参照してください
+See [electron/i18n](https://github.com/electron/i18n#readme)
