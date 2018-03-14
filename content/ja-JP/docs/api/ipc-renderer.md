@@ -44,22 +44,22 @@
 * `channel` String
 * `...args` any[]
 
-`channel` を介して非同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+`channel` を介して非同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-The main process handles it by listening for `channel` with `ipcMain` module.
+メインプロセスは `ipcMain` で `channel` を聴いてそれを処理します。
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+戻り値 `any` - [`ipcMain`](ipc-main.md) ハンドラから返された値。
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+`channel` を介して同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
+メインプロセスは `ipcMain` オブジェクトで `channel` を聴いてそれを処理します。そして `event.returnValue` をセットすることで応答します。
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**注釈:** 同期メッセージを送信するとレンダラープロセス全体がブロックされます。何をしているのかをよく理解せずに使用しないで下さい。
 
 ### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
 
