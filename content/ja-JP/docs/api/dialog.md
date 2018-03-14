@@ -71,10 +71,10 @@ console.log(dialog)
 * `browserWindow` BrowserWindow (任意)
 * `options` オブジェクト 
   * `title` String (任意)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (任意) - デフォルトの絶対ディレクトリパス/絶対ファイルパス/ファイル名。
   * `buttonLabel` String (任意) - 確認ボタンのラベルをカスタマイズする。空にするとデフォルトのラベルが使用される。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
-  * `message` String (optional) *macOS* - Message to display above text fields.
+  * `message` String (任意) *macOS* - テキストフィールド上に表示するメッセージ。
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
 * `callback` Function (任意) 
