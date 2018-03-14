@@ -1,6 +1,6 @@
 # Pagde-debug sa macOS
 
-Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron at naniniwala ka na ito'y hindi sanhi ng iyong JavaScript na aplikasyon, sa halip ang problema ay nasa Electron mismo, ang pagde-debug ay posibleng maging medyo nakakalito, lalo na sa mga tagabuo na hindi gumagamit ng native/C++ na pagde-debug. Ganoon pa man, sa paggamit ang lldb at source code ng Electron, ito ay masyadong madali upang paganahin ang isang hakbang-hakbang na pagde-debug kasama ang mga breakpoint sa loob ng source code ng Electron.
+Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron at naniniwala ka na ito'y hindi sanhi ng iyong JavaScript na aplikasyon, sa halip ang problema ay nasa Electron mismo, ang pagde-debug ay posibleng maging medyo nakakalito, lalo na sa mga tagabuo na hindi gumagamit ng native/C++ na pagde-debug. Ganoon pa man, sa paggamit ang lldb at source code ng Electron, ito ay masyadong madali upang paganahin ang isang hakbang-hakbang na pagde-debug kasama ang mga breakpoint sa loob ng source code ng Electron. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
 ## Mga Kinakailangan
 
