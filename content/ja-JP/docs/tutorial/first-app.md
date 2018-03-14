@@ -123,9 +123,10 @@ function createWindow () {
 
   // ウィンドウが閉じられた時に発火
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // ウインドウオブジェクトの参照を外す。
+    // 通常、マルチウインドウをサポートするときは、
+    // 配列にウインドウを格納する。
+    // ここは該当する要素を削除するタイミング。
     win = null
   })
 }
@@ -137,26 +138,27 @@ app.on('ready', createWindow)
 
 // 全てのウィンドウが閉じられた時に終了する
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // macOSでは、ユーザが Cmd + Q で明示的に終了するまで、
+  // アプリケーションとそのメニューバーは有効なままにするのが一般的。
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // macOSでは、ユーザがドックアイコンをクリックしたとき、
+  // そのアプリのウインドウが無かったら再作成するのが一般的。
   if (win === null) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// このファイル内には、
+// 残りのアプリ固有のメインプロセスコードを含めることができます。 
+// 別々のファイルに分割してここで require することもできます。
 ```
 
-最後に、表示させたいページを `index.html` に作成します：
+最後に、`index.html` が表示させたいウェブページです。
 
 ```html
 <!DOCTYPE html>
@@ -174,7 +176,7 @@ app.on('activate', () => {
 </html>
 ```
 
-## Running Your App
+## アプリの実行
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
