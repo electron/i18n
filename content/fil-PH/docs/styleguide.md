@@ -155,4 +155,4 @@ Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamar
 
 ## Ang mga pagsasalin ng dokumentasyon
 
-Tingnan ang mga [elektron/elektron-i18n](https://github.com/electron/electron-i18n#readme)
+See [electron/i18n](https://github.com/electron/i18n#readme)
