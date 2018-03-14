@@ -92,12 +92,12 @@ console.log(dialog)
 
 * `browserWindow` BrowserWindow (任意)
 * `options` オブジェクト 
-  * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"`にできる。 On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` String - Content of the message box.
-  * `detail` String (optional) - Extra information of the message.
+  * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"`にできる。 Windowsでは、`"icon"` オプションを使用してアイコンを設定していない場合、`"question"` は `"info"` と同じアイコンを表示する。 macOSでは、`"warning"` と `"error"` で同じアイコンを表示する。
+  * `buttons` String[] (任意) - ボタンのテキストの配列。Windowsでは、空の配列を渡すと"OK"ボタン一つになる。
+  * `defaultId` Integer (任意) - メッセージボックスが開かれた時に、デフォルトで選択されているボタンのインデックス。
+  * `title` String (任意) - メッセージボックスのタイトル。いくつかのプラットフォームでは表示されない。
+  * `message` String - メッセージボックスの中のテキスト。
+  * `detail` String (任意) - メッセージの追加情報。
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` [NativeImage](native-image.md) (optional)
