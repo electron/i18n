@@ -729,7 +729,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Returns `Object`:
+Retorna `Object`:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
