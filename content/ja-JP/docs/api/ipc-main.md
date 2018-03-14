@@ -64,22 +64,22 @@ ipcRenderer.send('asynchronous-message', 'ping')
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+指定した `channel` の listener 配列から、指定した `listener` を削除します。
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` String
 
-Removes listeners of the specified `channel`.
+指定した `channel` の listener を全て削除します。
 
 ## イベントオブジェクト
 
-The `event` object passed to the `callback` has the following methods:
+`callback` に渡される `event` オブジェクトには以下のメソッドがあります。
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+同期メッセージでの戻り値をこれにセットします。
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+メッセージを送った `webContents` を返します。`event.sender.send` を呼ぶことで、非同期メッセージに返信できます。より詳しくは [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) を参照して下さい。
