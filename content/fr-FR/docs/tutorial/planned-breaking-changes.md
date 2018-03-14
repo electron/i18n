@@ -1,8 +1,8 @@
 # Changements API non rétro-compatible prévus
 
-La liste suivante inclut les APIs qui seront supprimés dans Electron 2.0.
+La liste suivante inclut les APIs qui seront supprimés dans Electron 3.0.
 
-Il n'y a aucune date prévue pour cette prochaine version, mais les avertissements des déprécations seront ajoutés au moins 90 jours à l'avance.
+There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
 
 ## `app`
 
@@ -21,15 +21,6 @@ let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
 // Remplacé par
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
-let windowB = new BrowserWindow(optionsB)
-```
-
-```js
-// Déprécié
-let optionsA = {titleBarStyle: 'hidden-inset'}
-let windowA = new BrowserWindow(optionsA)
-// Remplacé par
-let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -74,46 +65,25 @@ crashReporter.start({
 })
 ```
 
-## `menu`
-
-```js
-// Déprécié
-menu.popup(browserWindow, 100, 200, 2)
-// Remplacé par
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
-```
-
 ## `nativeImage`
 
 ```js
-// Déprécié
-nativeImage.toPng()
-// Remplacé par
-nativeImage.toPNG()
-
-// Déprécié
-nativeImage.toJpeg()
-// Remplacé par
-nativeImage.toJPEG()
-
-// Déprécié
+// Deprecated
 nativeImage.createFromBuffer(buffer, 1.0)
-// Remplacé par
+// Replace with
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
 
-## `processus (process)`
+## `screen`
 
 ```js
-// Déprécié
-process.versions['atom-shell']
-// Remplacé par
-process.versions.electron
+// Deprecated
+screen.getMenuBarHeight()
+// Replace with
+screen.getPrimaryDisplay().workArea
 ```
-
-* `process.versions.electron` et `process.version.chrome` seront mis en lecture seule par souci de cohérence avec la propriété `process.versions` définie par Node.
 
 ## `session`
 
@@ -151,39 +121,18 @@ webContents.openDevTools({detach: true})
 webContents.openDevTools({mode: 'detach'})
 ```
 
-```js
-// Déprécié
-webContents.setZoomLevelLimits(1, 2)
-// Remplacé par
-webContents.setVisualZoomLevelLimits(1, 2)
-```
-
 ## `webFrame`
 
 ```js
-// Déprécié
-webFrame.setZoomLevelLimits(1, 2)
-// Remplacé par
-webFrame.setVisualZoomLevelLimits(1, 2)
-
-// Déprécié
+// Deprecated
 webFrame.registerURLSchemeAsSecure('app')
-// Remplacé par
+// Replace with
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Déprécié
+// Deprecated
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Remplacé par
+// Replace with
 protocol.registerStandardSchemes(['app'], {secure: true})
-```
-
-## `<webview>`
-
-```js
-// Déprécié
-webview.setZoomLevelLimits(1, 2)
-// Remplacé par
-webview.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## Node Headers URL
@@ -194,14 +143,6 @@ Déprécié : https://atom.io/download/atom-shell
 
 Remplacé par : https://atom.io/download/electron
 
-## Versions ARM dupliquées
-
-Chaque version d'Electron comprend deux versions identiques ARM avec des noms légèrement différents, comme `electron-v1.7.3-linux-arm.zip` et `electron-v1.7.3-linux-armv7l.zip`. La version avec le préfix `v7l` a été ajoutée pour clarifier aux utilisateurs quelle version ARM il supporte, et pour éliminer l'ambiguÏté des futures version armv6l et arm64 pouvant être produites.
-
-Le fichier *sans le préfixe* est toujours publié pour éviter d’interrompre les configurations qui peuvent être consommées. À partir de la version 2.0, le fichier non préfixé ne sera plus publié.
-
-Pour plus de détails, voir [6986](https://github.com/electron/electron/pull/6986) et [7189](https://github.com/electron/electron/pull/7189).
-
 ## commentaires `FIXME`
 
-La chaîne de caractère `FIXME` est utilisée dans les commentaires de code pour désigner les choses qu’il convient de fixer pour la version 2.0. Voir https://github.com/electron/electron/search?q=fixme
+The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
