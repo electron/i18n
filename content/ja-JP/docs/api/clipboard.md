@@ -94,7 +94,7 @@ RTFでクリップボードに `text` を書き込みます。
 
 ブックマークとしてクリップボードに `title` と `url` を書き込みます。
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**注:** Windowsの大抵のアプリは、ブックマークのペーストをサポートしていないため、ブックマークと縮退したテキストの両方をクリップボードに書き込むため、`clipboard.write` を使うようにしてください。
 
 ```js
 clipboard.write({
@@ -105,7 +105,7 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+戻り値 `String` - 検索ペーストボードのテキスト。 このメソッドは、レンダラープロセスから呼び出されたとき、同期IPCを使います。 アプリケーションがアクティブにされるたびに、キャッシュされた値は、検索ペーストボードから再読込されます。
 
 ### `clipboard.writeFindText(text)` *macOS*
 
@@ -117,20 +117,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 * `type` String (任意)
 
-Clears the clipboard content.
+クリップボードの内容を消去します。
 
 ### `clipboard.availableFormats([type])`
 
 * `type` String (任意)
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+戻り値 `String[]` - クリップボードがサポートしている形式の `type` の配列。
 
 ### `clipboard.has(format[, type])` *実験的*
 
 * `format` String
 * `type` String (任意)
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+戻り値 `Boolean` - クリップボードが指定した `format` をサポートしているかどうか。
 
 ```javascript
 const {clipboard} = require('electron')
@@ -141,13 +141,13 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `String` - Reads `format` type from the clipboard.
+戻り値 `String` - クリップボードから `format` 形式で読み出します。
 
 ### `clipboard.readBuffer(format)` *実験的*
 
 * `format` String
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+戻り値 `Buffer` - クリップボードから `format` 形式で読み出します。
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *実験的*
 
@@ -155,7 +155,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 * `buffer` Buffer
 * `type` String (任意)
 
-Writes the `buffer` into the clipboard as `format`.
+`format` でクリップボードに `buffer` を書き込みます。
 
 ### `clipboard.write(data[, type])`
 
@@ -172,4 +172,4 @@ const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
 
-Writes `data` to the clipboard.
+クリップボードに `data` を書き込みます。
