@@ -67,14 +67,9 @@ Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
 * `stopspeaking` - Ibalangkas sa mga aksyon ng `stopspeaking`
 * `front` - Ibalangkas sa mga aksyon ng `arrangeInFront`
 * `zoom` - Ibalangkas sa mga aksyon ng `performZoom`
-* `toggletabbar` - Map to the `toggleTabBar` action
-* `selectnexttab` - Map to the `selectNextTab` action
-* `selectprevioustab` - Map to the `selectPreviousTab` action
-* `mergeallwindows` - Map to the `mergeAllWindows` action
-* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - Ang submenu ay isang menu ng "Window"
-* `help` - Ang submenu ay isang menu ng "Help"
-* `services` - Ang submenu ay isang menu ng "Services"
+* `window` - The submenu is a "Window" menu
+* `help` - The submenu is a "Help" menu
+* `services` - The submenu is a "Services" menu
 
 Kapag tinutukoy ang isang `role` sa macOS, ang `label` at ang `accelerator` ay ang tanging opsyon na makaka-apekto sa aytem ng menu. Lahat ng ibang opsyon ay hindi papansinin.
 
