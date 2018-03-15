@@ -1044,7 +1044,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Thay đổi biểu tượng cửa sổ.
 
 #### `win.setAutoHideMenuBar(hide)`
 
@@ -1166,11 +1166,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Đang thử nghiệm*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Đang thử nghiệm*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
