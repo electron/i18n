@@ -96,14 +96,14 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 
 `checkbox` メニューアイテムは、選択された時に `checked` プロパティをオンかオフにトグル切り替えします。
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+`radio` メニューアイテムは、クリックされると `checked` がオンになり、同じメニュー内の隣接するアイテムすべてのこのプロパティをオフにします。
 
-You can add a `click` function for additional behavior.
+更なる動作は、`click` 関数の追加で可能です。
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label
+メニューアイテムに表示されているラベルの `String`。
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event
+MenuItem がクリックイベントを受け取った時に発火される `Function`。
