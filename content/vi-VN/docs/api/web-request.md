@@ -28,7 +28,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Instance Methods
+### Các phương thức riêng
 
 The following methods are available on instances of `WebRequest`:
 
@@ -38,7 +38,7 @@ The following methods are available on instances of `WebRequest`:
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
-    * `id` Integer
+    * `id` Số nguyên
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
@@ -65,7 +65,7 @@ The `callback` has to be called with an `response` object.
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 * `details` Object 
-  * `id` Integer
+  * `id` Số nguyên
   * `url` String
   * `method` String
   * `webContentsId` Integer (optional)
@@ -85,7 +85,7 @@ The `callback` has to be called with an `response` object.
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
-    * `id` Integer
+    * `id` Số nguyên
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
@@ -104,7 +104,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
 * `details` Object 
-  * `id` Integer
+  * `id` Số nguyên
   * `url` String
   * `method` String
   * `webContentsId` Integer (optional)
@@ -127,7 +127,7 @@ The `callback` has to be called with an `response` object.
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
-    * `id` Integer
+    * `id` Số nguyên
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
@@ -146,7 +146,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
-    * `id` Integer
+    * `id` Số nguyên
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
@@ -166,7 +166,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
-    * `id` Integer
+    * `id` Số nguyên
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
@@ -185,7 +185,7 @@ The `listener` will be called with `listener(details)` when a request is complet
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
-    * `id` Integer
+    * `id` Số nguyên
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
