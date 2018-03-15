@@ -72,7 +72,7 @@ Devuelve `Cadena` - El contenido en el portapapeles como RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
-* `texto` Cadena
+* `texto` String
 * `type` Cadena (opcional)
 
 Escribe el `text` en el portapapeles en RTF.
@@ -145,7 +145,7 @@ Devuelve `String` - Lee el tipo de `formato` del portapapeles.
 
 ### `clipboard.readBuffer(format)` *Experimental*
 
-* `formato` Cadena
+* `format` Cadena
 
 Devuelve `Buffer` - Lee el `formato` del portapapeles.
 
