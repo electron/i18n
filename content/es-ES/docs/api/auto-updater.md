@@ -30,63 +30,63 @@ A diferencia de Squirrel, Mac OS, Windows puede recibir actualizaciones sobre S3
 
 ## Eventos
 
-The `autoUpdater` object emits the following events:
+El objeto `app` emite los siguientes eventos:
 
 ### Evento: 'error'
 
-Retorna:
+Devuelve:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Aparece cuando hay un error al actualizar.
 
-### Event: 'checking-for-update'
+### Evento: "comprobar si hay actualizaciones"
 
-Emitted when checking if an update has started.
+Aparece al comprobar si una actualización ya ha empezado.
 
-### Event: 'update-available'
+### Evento: "actualización disponible"
 
-Emitted when there is an available update. The update is downloaded automatically.
+Aparece cuando hay una actualización disponible. La actualización se descargará automáticamente.
 
-### Event: 'update-not-available'
+### Evento: 'update-not-available'
 
-Emitted when there is no available update.
+Aparece cuando no hay una actualización disponible.
 
-### Event: 'update-downloaded'
+### Evento: "actualización descargada"
 
-Retorna:
+Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `releaseNotes` String
 * `releaseName` String
-* `releaseDate` Date
+* `releaseDate` Fecha
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Aparece cuando se ha descargado una actualización.
 
-On Windows only `releaseName` is available.
+Solo esta disponible en Windows `releaseName`.
 
 ## Métodos
 
-The `autoUpdater` object has the following methods:
+El objeto `autoUpdater` tiene los siguientes métodos:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
+* `url` Cadena
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-Sets the `url` and initialize the auto updater.
+Configura el `url` e inicializa la actualización automática.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Devuelve `String` - La actualización actual provee el URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Solicita al servidor si hay actualizaciones. Se debe llamar a `setFeedURL` antes de utilizar esta API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Reinicia la aplicación e instala la actualización luego de que se haya descargado. Solo se debería llamar luego de que aparezca `update-downloaded`.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Note:** `autoUpdater.quitAndInstall()` cerrará todas las aplicaciones de Windows primero y solo emitirá `before-quit` event on `app` después de eso. Esto difiere de la secuencia normal del evento quit.
