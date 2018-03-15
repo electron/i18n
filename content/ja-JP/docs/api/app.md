@@ -111,45 +111,6 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 
 ユーザのアクティビティはアクティビティ元のアプリと同一の開発者チームIDを持ち、アクティビティタイプをサポートするアプリでしか継続させることができません。 サポートされるアクティビティタイプは、アプリの `Info.plist` の `NSUserActivityTypes` キーで指定されています。
 
-### イベント: 'will-continue-activity' *macOS*
-
-戻り値:
-
-* `event` Event
-* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続しようとする前に発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
-
-### イベント: 'continue-activity-error' *macOS*
-
-戻り値:
-
-* `event` Event
-* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `error` String - エラーのローカライズされた説明としての文字列。
-
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続できなかったときに発生します。
-
-### イベント: 'activity-was-continued' *macOS*
-
-戻り値:
-
-* `event` Event
-* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` Object - アクティビティによって保存されたアプリ固有の情報が含まれています。
-
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中にこのデバイスからのアクティビティを他のデバイスで継続させることに成功した後で発生します。
-
-### イベント: 'update-activity-state' *macOS*
-
-戻り値:
-
-* `event` Event
-* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` Object - アクティビティによって保存されたアプリ固有の情報が含まれています。
-
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
-
 ### イベント: 'new-window-for-tab' *macOS*
 
 戻り値:
@@ -163,7 +124,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 戻り値:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 [browserWindow](browser-window.md) のフォーカスが外れたときに発生します。
 
@@ -172,7 +133,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 戻り値:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 [browserWindow](browser-window.md) がフォーカスを得たときに発生します。
 
@@ -181,7 +142,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 戻り値:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 新しい [browserWindow](browser-window.md) が生成されたときに発生します。
 
@@ -190,13 +151,13 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 戻り値:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `webContents` WebContents
 
 新しい [webContents](web-contents.md) が生成されたときに発生します。
 
 ### イベント: 'certificate-error'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -231,7 +192,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (任意)
+  * `certificate` [Certificate](structures/certificate.md) (optional)
 
 クライアント証明書が要求されたときに発生します。
 
@@ -311,7 +272,7 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (任意)
+* `exitCode` Integer (optional)
 
 `exitCode` ですぐに終了します。`exitCode` の省略値は0です。
 
@@ -320,8 +281,8 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 ### `app.relaunch([options])`
 
 * `options` Object (任意) 
-  * `args` String[] - (任意)
-  * `execPath` String (任意)
+  * `args` String[] - (optional)
+  * `execPath` String (optional)
 
 現在のインスタンスが終了したときに、アプリを再起動します。
 
@@ -383,7 +344,6 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 * `music` ユーザのミュージックのディレクトリ。
 * `pictures` ユーザのピクチャのディレクトリ。
 * `videos` ユーザのビデオのディレクトリ。
-* `logs` アプリのログフォルダのディレクトリ。
 * `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -436,11 +396,11 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.getLocale()`
 
-戻り値 `String` - 現在のアプリケーションのロケール。返却される可能性のある値は [ここ](locales.md) に記されています。
+Returns `String` - 現在のアプリケーションロケール。可能な戻り値は[here](locales.md)に記録されています。
 
 **注:** アプリをパッケージ化して配布する場合、`locales` フォルダを同梱する必要があります。
 
-**注:** Windows の場合、`ready` イベントが発生した後で呼び出すようにしてください。
+**Note:**Windows の `準備ができて` のイベントが出力される後を呼び出すことがあります。
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -454,7 +414,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 最近使ったドキュメントのリストをクリアします。
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])`
+### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - `://` を除くプロトコルの名前。 アプリで `electron://` リンクを処理したい場合、パラメータとして `electron` を指定してこのメソッドを呼び出してください。
 * `path` String (任意) *Windows* - 省略値は `process.execPath`
@@ -496,7 +456,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - `Task` オブジェクトの配列
+* `tasks` [Task[]](structures/task.md) - `Task`オブジェクトの配列
 
 Windowsでジャンプリストの [タスク](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに `tasks` を追加します。
 
@@ -648,19 +608,6 @@ app.on('ready', () => {
 
 戻り値 `String` - 現在実行されているアクティビティのタイプ。
 
-### `app.invalidateCurrentActivity()` *macOS*
-
-* `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-
-現在の[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)ユーザアクティビティを無効にします。
-
-### `app.updateCurrentActivity(type, userInfo)` *macOS*
-
-* `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` Object - 別のデバイスで使用するために保存されたアプリ固有の情報。
-
-タイプが `type` と一致した場合、現在のアクティビティを更新し、現在の `userInfo` ディスクショナリに `userInfo` のエントリを統合します。
-
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
@@ -689,7 +636,7 @@ app.on('ready', () => {
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
-### `app.getAppMemoryInfo()` *非推奨*
+### `app.getAppMemoryInfo()` *Deprecated*
 
 戻り値 [`ProcessMetric[]`](structures/process-metric.md): アプリに関連付けられたすべてのプロセスのメモリやCPU使用率の統計情報に対応した `ProcessMetric` オブジェクトの配列。 **注:** このメソッドは非推奨です。代わりに `app.getAppMetrics()` を使ってください。
 
@@ -697,7 +644,7 @@ app.on('ready', () => {
 
 戻り値 [`ProcessMetric[]`](structures/process-metric.md): アプリに関連付けられたすべてのプロセスのメモリやCPU使用率の統計情報に対応した `ProcessMetric` オブジェクトの配列。
 
-### `app.getGPUFeatureStatus()`
+### `app.getGpuFeatureStatus()`
 
 戻り値 [`GPUFeatureStatus`](structures/gpu-feature-status.md) - `chrome://gpu/` から取得したグラフィックス機能のステータス。
 
@@ -772,14 +719,6 @@ app.setLoginItemSettings({
 
 戻り値 `Boolean` - Chromeのユーザ補助機能が有効な場合、`true`、そうでない場合、`false`。 このAPIは、スクリーンリーダーなどの支援技術を使っていることが検出された場合、`true` を返します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
-### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
-
-* `enabled` Boolean - [アクセシビリティツリー](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)レンダリングを有効もしくは無効にします。
-
-手動でChromeのユーザ補助機能を有効にすると、アプリケーションの設定でユーザにアクセシビリティスイッチを出すことができます。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。 既定では無効です。
-
-**注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
-
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
@@ -808,23 +747,11 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 **注:** これは`process.argv` に影響を与えません。
 
-### `app.enableMixedSandbox()` *実験的* *macOS* *Windows*
+### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 アプリで混在サンドボックスモードを有効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
-
-### `app.isInApplicationsFolder()` *macOS*
-
-戻り値 `Boolean` - アプリケーションが現在、システムのアプリケーションフォルダから実行されているかどうか。`app.moveToApplicationsFolder()` と組み合わせて使ってください。
-
-### `app.moveToApplicationsFolder()` *macOS*
-
-戻り値 `Boolean` - 移動が成功したかどうか。 移動が成功した場合、アプリケーションは終了し、再起動されることに注意してください。
-
-既定では、確認ダイアログは表示されません。ユーザに操作の確認をさせたい場合は、[`dialog`](dialog.md) APIを使うと実現できます。
-
-**注:** このメソッドはユーザ以外が移動の失敗を引き起こした場合にもエラーをスローします。 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
 
 ### `app.dock.bounce([type])` *macOS*
 
@@ -860,11 +787,11 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 ### `app.dock.hide()` *macOS*
 
-ドックのアイコンを非表示にします。
+ドックのアイコンを非表示にする
 
 ### `app.dock.show()` *macOS*
 
-ドックのアイコンを表示します。
+ドックのアイコンを表示する
 
 ### `app.dock.isVisible()` *macOS*
 
