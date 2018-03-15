@@ -45,7 +45,7 @@ const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () me
 <h4>Acara : 'melepaskan'</h4>
 
 <ul>
-<li><code>peristiwa` Peristiwa
+<li><code>event` Event
     * ` alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
 </ul>
 
@@ -55,7 +55,7 @@ const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () me
 <h4>Acara : 'pesan'</h4>
 
 <ul>
-<li><code>peristiwa` Peristiwa
+<li><code>event` Event
     *  metode </ 0> String - nama metode.</li>
 <li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
  dalam protokol debugging jarak jauh.</li>
