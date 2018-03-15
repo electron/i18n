@@ -33,9 +33,9 @@ Permet une seule exécution de la fonction `listener` pour cet événement. Ce `
 
 Supprime le `listener` spécifié du tableau d'écouteurs pour le `channel` spécifié.
 
-### `ipcRenderer.removeAllListeners(channel)`
+### `ipcRenderer.removeAllListeners([channel])`
 
-* `channel` String
+* `channel` String (optional)
 
 Supprime tous les écouteurs, ou ceux du `channel` spécifié.
 
@@ -61,17 +61,9 @@ Le processus main récupère cela en écoutant les `channel` avec le module `ipc
 
 **Remarque :** Envoyer un message synchrone permet de bloquer le processus renderer entièrement, sauf si vous savez ce que vous faites, vous ne devez jamais l'utiliser.
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
-
-* `windowId` Number
-* `channel` String
-* `...args` any[]
-
-Envoi un message à une fenêtre avec `windowid` via `channel`
-
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Comme `ipcRenderer.send`, mais l'événement sera envoyé à l'élément `<webview>` dans la page hôte au lieu du processus main.
+Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
