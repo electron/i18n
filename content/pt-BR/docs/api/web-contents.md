@@ -370,6 +370,11 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
+Retorna:
+
+* `event` Event
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+
 #### Event: 'update-target-url'
 
 Retorna:
@@ -442,7 +447,7 @@ Retorna:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Função 
+* `callback` Function 
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -503,6 +508,26 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+
+#### Event: 'did-attach-webview'
+
+Retorna:
+
+* `event` Event
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+
+Emitted when a `<webview>` has been attached to this web contents.
+
+#### Event: 'console-message'
+
+Retorna:
+
+* `level` Integer
+* `message` String
+* `line` Integer
+* `sourceId` String
+
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
 ### Métodos de Instância
 
@@ -687,7 +712,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Função 
+* `callback` Function 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -700,7 +725,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Função 
+* `callback` Function 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -797,7 +822,9 @@ Inserts `text` to the focused element.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -821,21 +848,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `callback` Função 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Função 
+* `callback` Function 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Função 
+* `callback` Function 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -846,12 +873,14 @@ Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options])`
+#### `contents.print([options], [callback])`
 
 * `opções` Objeto (opcional) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+* `callback` Function (optional) 
+  * success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
@@ -867,7 +896,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Função 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
@@ -970,7 +999,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Argumentos serão serializados em JSON internamente e, portanto, nenhuma função ou cadeia de protótipo será incluída.
 
 The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
 
@@ -1060,7 +1089,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`
-* `callback` Função 
+* `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1107,7 +1136,7 @@ win.webContents.on('did-finish-load', () => {
 })
 ```
 
-#### `contents.showDefinitionForSelection()` *macOS*
+#### `contents.showDefinitionForSelection()` no *macOS*
 
 Shows pop-up dictionary that searches the selected word on the page.
 
