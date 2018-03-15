@@ -111,45 +111,6 @@ app.on('window-all-closed', () => {
 
 Діяльність користувача може бути продовжена тільки в застосунку, що має такий самий ідентифікатор групи розробників, як і застосунок-джерело і який підтримує тип діяльності. Підтримувані типу діяльності визначені в `Info.plist` під ключем `NSUserActivityTypes`.
 
-### Подія: 'will-continue-activity' *macOS*
-
-Повертає:
-
-* `event` Event
-* `type` String - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), перед продовженням діяльності з іншого пристрою. Потрібно викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
-
-### Подія: 'continue-activity-error' *macOS*
-
-Повертає:
-
-* `event` Event
-* `type` String - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - Стрічка з локалізованим описом помилки.
-
-Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), коли діяльність з іншого пристрою не буде продовжена.
-
-### Подія: 'activity-was-continued' *macOS*
-
-Повертає:
-
-* `event` Event
-* `type` String - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Містить стан застосунку, збережений діяльністю.
-
-Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), після того як діяльність з цього пристрою була успішно продовжена на іншому.
-
-### Подія: 'update-activity-state' *macOS*
-
-Повертає:
-
-* `event` Event
-* `type` String - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Містить стан застосунку, збережений діяльністю.
-
-Відбувається коли [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) має бути відновлена на іншому пристрої. Якщо вам потрібно оновити статус для передачі, потрібно викликати `event.preventDefault()` негайно, сформувати новий `userInfo` словник та викликати `app.updateCurrentActivity()` в потрібний момент. В іншому випадку операція не виконається і буде викликано `continue-activity-error`.
-
 ### Подія: 'new-window-for-tab' *macOS*
 
 Повертає:
@@ -163,7 +124,7 @@ app.on('window-all-closed', () => {
 Повертає:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Відбувається коли [browserWindow](browser-window.md) втрачає фокус.
 
@@ -172,7 +133,7 @@ app.on('window-all-closed', () => {
 Повертає:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Відбувається коли [browserWindow](browser-window.md) отримує фокус.
 
@@ -181,7 +142,7 @@ app.on('window-all-closed', () => {
 Повертає:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Відбувається коли створено [browserWindow](browser-window.md).
 
@@ -190,7 +151,7 @@ app.on('window-all-closed', () => {
 Повертає:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `webContents` WebContents
 
 Відбувається коли створено [webContents](web-contents.md).
 
@@ -383,7 +344,6 @@ app.exit(0)
 * `music` Дректорія для музики користувача.
 * `pictures` Директорія для зображень користувача.
 * `videos` Директорія для відео користувача.
-* `logs` Директорія для логів вашого застосунку.
 * `pepperFlashSystemPlugin` Повний шлях до системної версії плагіну Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -454,7 +414,7 @@ app.exit(0)
 
 Очищує список останніх документів.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])`
+### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Назва вашого протоколу, без `://`. Якщо ви хочете, щоб ваш застосунок обробляв посилання `electron://`, викличте цей метод з параметром `electron`.
 * `path` String (опціонально) *Windows* - За замовчуванням `process.execPath`
@@ -648,19 +608,6 @@ app.on('ready', () => {
 
 Повертає `String` - Тип поточної діяльності.
 
-### `app.invalidateCurrentActivity()` *macOS*
-
-* `type` String - Унікально визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Розриває поточну [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) діяльність користувача.
-
-### `app.updateCurrentActivity(type, userInfo)` *macOS*
-
-* `type` String - Унікально визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Стан застосунку, збережений для використання іншим пристроєм.
-
-Оновлює потточну діяльність якщо її тип збігається з `type`, об'єднує записи з `userInfo` в поточний `userInfo` словник.
-
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
@@ -697,7 +644,7 @@ app.on('ready', () => {
 
 Повертає [`ProcessMetric[]`](structures/process-metric.md): масив об'єктів `ProcessMetric`, який відповідає статистиці використання пам'яті та ресурсів центрального процесора всіма процесами застосунку.
 
-### `app.getGPUFeatureStatus()`
+### `app.getGpuFeatureStatus()`
 
 Повертає [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Статус функції графіки з `chrome://gpu/`.
 
@@ -772,14 +719,6 @@ app.setLoginItemSettings({
 
 Повертає `Boolean` - `true` якщо спеціальні можливості Chrome увімкнені, `false` в іншому випадку. Це API поверне `true` якщо було виялено використання спеціальних можливостей, наприклад, читач екрану. Дивись https://www.chromium.org/developers/design-documents/accessibility для детвльної інформації.
 
-### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
-
-* `enabled` Boolean - Вмикає чи вимикає рендеринг [дерева спеціальних можливостей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
-
-Вручну вмикає підтримку спеціальних можливостей Chrome, дозволяє відобразити перемикач спеціальних можливостей користувачу в налаштуваннях застосунку. https://www.chromium.org/developers/design-documents/accessibility для більш детальної інформації. Стандартно вимкнено.
-
-**Примітка:** Рендеринг дерева спеціальних можливостей може суттєво вплинути на швидкодію застосунку. Варто його вимикати за замовчуванням.
-
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
@@ -813,18 +752,6 @@ app.setLoginItemSettings({
 Вмикає змішаний режим пісочниці для застосунку.
 
 Цей метод може викликатися лише до готовності застосунку.
-
-### `app.isInApplicationsFolder()` *macOS*
-
-Повертає `Boolean` - Показує чи застосунок запущено з системної директої Застосунки. Використовуйте в крмбінації з `app.moveToApplicationsFolder()`
-
-### `app.moveToApplicationsFolder()` *macOS*
-
-Повертає `Boolean` - Показує чи переміщення було успішним. Буль ласка, майте на увазі, що якщо переміщення було іспішним ваш застосунок зупиниться та перезапуститься.
-
-За замовчуванням, діалогу пітвердження не буде показано, якщо ви хочете дозволити користувачу підтверджувати операцію, потрібно буде використати [`dialog`](dialog.md) API.
-
-**Примітка:** Цей метод викидає помилку, якщо щось окрім користувача спричиняє невдачу переміщення. Якщо користувач скасовує переміщення, метод поверне false. Якщо нам не вдалося копіювання, тоді метод викине помилку. Повідомлення в помилці має бути інформативним і точно пояснити, що пішло не так
 
 ### `app.dock.bounce([type])` *macOS*
 
