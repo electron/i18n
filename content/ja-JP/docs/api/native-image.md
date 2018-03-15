@@ -84,32 +84,32 @@ console.log(appIcon)
 
 テンプレート画像は黒色と透明色 (とアルファチャンネル) で構成されます。 テンプレート画像は単体の画像として使用するものではなく、通常、最終的にさせたい見た目を作成するため、他のコンテンツと混合されます。
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+最も一般的なケースは、メニューバーのアイコンに使用することです。これは明るいメニューバーと暗いメニューバーの両方に適応できます。
 
-**Note:** Template image is only supported on macOS.
+**注釈:** テンプレート画像は macOS でのみサポートされています。
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+画像をテンプレート画像としてマークするには、そのファイル名が `Template` で終わる必要があります。以下が例です。
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
 ## メソッド
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+`nativeImage` オブジェクトには以下のメソッドがあります。いずれも `NativeImage` クラスのインスタンスを返します。
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+戻り値 `NativeImage`
 
-Creates an empty `NativeImage` instance.
+空の `NativeImage` インスタンスを作成します。
 
 ### `nativeImage.createFromPath(path)`
 
 * `path` String
 
-Returns `NativeImage`
+戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+`path` のファイルから新しい `NativeImage` インスタンスを作成します。 このメソッドは、`path` が存在しない、読めない、有効な画像でない場合は、空の画像を返します。
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -123,7 +123,7 @@ console.log(image)
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+戻り値 `NativeImage`
 
 Creates a new `NativeImage` instance from `buffer`.
 
@@ -131,7 +131,7 @@ Creates a new `NativeImage` instance from `buffer`.
 
 * `dataURL` String
 
-Returns `NativeImage`
+戻り値 `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
@@ -140,7 +140,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 * `imageName` String
 * `hslShift` Number[]
 
-Returns `NativeImage`
+戻り値 `NativeImage`
 
 Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
 
