@@ -1,10 +1,10 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> tray や Dock やアプリケーションのアイコンを PNG や JPG ファイルで作成します。
 
 プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+Electron では、画像を取る API において、ファイルパスか `NativeImage` インスタンスのいずれかを渡すことができます。`null` を渡したときは空の画像が使われます。
 
 For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
 
