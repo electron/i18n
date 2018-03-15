@@ -96,9 +96,8 @@ Daftar server yang dipisahkan koma yang otentikasinya telah diaktifkan.
 
 Sebagai contoh:
 
-```bash
---auth-server-whitelist='*example.com, * foobar.com, * baz'
-```
+    --auth-server-whitelist='*example.com, * foobar.com, * baz'
+    
 
 kemudian setiap `url` yang berakhir dengan `example.com`, `foobar.com`, `baz` akan dipertimbangkan untuk otentikasi Terpadu. Tanpa `*` awalan url yang sama persis.
 
