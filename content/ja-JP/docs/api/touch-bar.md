@@ -24,7 +24,7 @@ The following properties are available on instances of `TouchBar`:
 
 The `TouchBarButton` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
 
-## サンプル
+## 例
 
 ボタンといくつかのラベルで構成される、シンプルな TouchBar 向けスロットゲームのコード例を示します。
 
@@ -50,7 +50,7 @@ const spin = new TouchBarButton({
 
 ### 上記のサンプルを実行する
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. 上記のコードを `touchbar.js` として保存する
 2. `npm install electron` と入力し、 Electron をインストールします
