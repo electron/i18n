@@ -4,13 +4,18 @@
 
 Процес: [Main](../glossary.md#main-process)
 
-**Ви можете знайти детальну інструкцію, як здійснювати оновлення вашого застосунку [тут](../tutorial/updates.md).**
+Модуль `autoUpdater` надає інтерфейс для фреймворку [Squirrel](https://github.com/Squirrel).
+
+Ви можете швидко запускати мультиплатформенні релізи для поширення вашого застосунку з використанням одного з цих проектів:
+
+* [nuts](https://github.com/GitbookIO/nuts): *Розумний реліз сервер для ваших застосунків, використовує GitHub як серверну частину. Автооновлюння за допомогою Squirrel (Mac & Windows)*
+* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Повнофункціональний, резидентний реліз сервер для застосунків electron, сумісний з auto-updater*
+* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Простий сервер node.js для Squirrel.Mac та Squirrel.Windows, який використовує GitHub релізи*
+* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Простий PHP застосунок для Squirrel.Windows, який читає оновлення з папки. Підтримка дельта оновлень.*
 
 ## Зауваження
 
-Наразі, підтримуються тільки macOS та Windows. Немає вбудованої підтримки для автооновлення на Linux, тому рекомендовано використовувати наданий пакетний менеджер для оновлення вашого застосунку.
-
-Крім того, є деякі тонкі відмінності на кожноій платформі:
+Хоча `autoUpdater` надає однозначне API для різних платформ, є деякі тонкі відмінності на різних платформах.
 
 ### macOS
 
@@ -27,6 +32,10 @@
 Встановник згенерований Squirrel створить піктограму з [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) у форматі `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, наприклад, `com.squirrel.slack.Slack` чи `com.squirrel.code.Code`. Ви маєте використовувати однакове ID для вашого застосунку з `app.setAppUserModelId` API, в іншому випадку Windows не зможе правильно закріпити ваш застосунок в панелі завдань.
 
 На відміну від Squirrel.Mac, Windows може тримати оновлення на S3 чи будь-якому іншому файловому сховищі. Ви можете прочитати документацію [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) для детальнішої інформації як Squirrel.Windows працює.
+
+### Linux
+
+Немає вбудованої підтримки для автооновлення на Linux, тому рекомендовано використовувати наданий пакетний менеджер для оновлення вашого застосунку.
 
 ## Події (Events)
 
