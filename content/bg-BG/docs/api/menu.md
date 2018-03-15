@@ -24,7 +24,7 @@ Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` w
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Връща `Menu | null` - менюто на приложението, ако е зададено, и `null`, в противен случай.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
