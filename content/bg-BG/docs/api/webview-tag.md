@@ -338,7 +338,7 @@ Injects CSS into the guest page.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default `false`.
-* `обратно повикване` Function (optional) - Called after script has been executed. 
+* `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
@@ -474,7 +474,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `error` Error
   * `data` Buffer
 
