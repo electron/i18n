@@ -4,13 +4,13 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**Uygulamanıza güncelleştirmeleri nasıl uygulayacağınız hakkında ayrıntılı bir rehberi [burada](../tutorial/updates.md) bulabilirsiniz.**
 
-## Platform Notices
+## Platform Bildirimleri
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Şu an için sadece macOS ve Windows desteklenmektedir. Linux'ta otomatik güncelleyici için yerleşik bir destek yok, bu yüzden uygulamanızı güncellemek için dağıtımın paket yöneticisini kullanmanız önerilir.
 
-In addition, there are some subtle differences on each platform:
+Buna ek olarak, bu platformlarda bazı ufak farklar vardır:
 
 ### macOS
 
@@ -30,63 +30,63 @@ Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer 
 
 ## Events
 
-The `autoUpdater` object emits the following events:
+`autoUpdater` nesnesi aşağıdaki olaylarla ortaya çıkarır:
 
 ### Event: 'error'
 
 Dönüşler:
 
-* `error` Hata
+* `error` Error
 
-Emitted when there is an error while updating.
+Güncelleştirilirken bir hata olduğunda ortaya çıkan.
 
 ### Event: 'checking-for-update'
 
-Emitted when checking if an update has started.
+Bir güncellemenin başlatılıp başlatılmadığını kontrol ederken ortaya çıkan.
 
 ### Event: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Kullanılabilir bir güncelleştirme olduğunda ortaya çıkan. Güncelleştirme otomatik olarak karşıdan yüklenir.
 
-### Event: 'update-not-available'
+### Olay: 'update-not-available'
 
-Emitted when there is no available update.
+Mevcut bir güncelleme yokken ortaya çıkan.
 
 ### Event: 'update-downloaded'
 
 Dönüşler:
 
-* `event` Olay
+* `olay` Olay
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Bir güncelleme indirildiğinde ortaya çıkan.
 
-On Windows only `releaseName` is available.
+Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
 ## Metodlar
 
-The `autoUpdater` object has the following methods:
+`autoUpdater` nesnesi aşağıdaki yöntemleri içerir:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `url` Dize
+* `requestHeaders` nesnesi *macOS* (isteğe bağlı) - HTTP başıkları ister.
 
-Sets the `url` and initialize the auto updater.
+`url`'i belirler ve otomatik güncelleyici başlar.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+`String`'i geri döndürür - Geçerli olan akış URL'ini günceller.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Sunucuya bir güncelleştirme olup olmadığını sorar. Bu API'yi kullanmadan önce `setFeedURL`'i çağırmalısınız.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Uygulamayı yeniden başlatır ve indirmeler bittikten sonra güncellemeyi yükler. O yalnızca `update-downloaded` ortaya çıktıktan sonra çağırılmış olmalıdır.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Not:** `autoUpdater.quitAndInstall()` ilk olarak tüm uygulama pencerelerini kapatacak ve bundan sonra `uygulama` üzerinde sadece `before-quit` event'i ortaya çıkacak. Bu normal çıkış event sırasından farklıdır.
