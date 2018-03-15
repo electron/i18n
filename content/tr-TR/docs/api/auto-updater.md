@@ -4,18 +4,13 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-`autoUpdater` modülü [Squirrel](https://github.com/Squirrel) frameworkü için bir arayüz sağlar.
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Uygulamaları dağıtmak için bir çoklu platform yayın sunucusunu bu projelerden birini kullanarak hızlıca başlatabilirsiniz:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts): *Uygulamalarınız için bir akıllı serbest bırakma sunucusudur ve Github'ı backend olarak kullanır. Squirrel ile otomatik güncelleştirmeler (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Tam özellikli, elektron uygulamaları için kendinden barındırmalı serbest bırakma sunucusu, otomatik güncelleme ile uyumludur.*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Squirrel için basit bir node.js sunucusu. Mac ve Squirrel. Windows için GitHub sürümleri kullanılıyor*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): * Squirrel için basit bir PHP uygulamasıdır. Windows güncelleştirmeleri bir klasörden okur. Delta güncelleştirmeleri destekler.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Platform bildirimleri
-
-`autoUpdater` farklı platformlar için tekdüze bir API sağlamasına rağmen hala her platformda ince farklılıklar vardır.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,69 +28,65 @@ Yükleyici Squirrel ile [Application User Model ID](https://msdn.microsoft.com/e
 
 Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer herhangi bir statik dosya ana sisteminde tutabilir. Squirrel.Windows'un nasıl çalıştığı hakkında daha fazla bilgi almak için [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) belgelerini okuyabilirsiniz.
 
-### Linux
-
-Linux'ta otomatik güncelleyici için yerleşik bir destek yok, bu yüzden uygulamanızı güncellemek için dağıtımın paket yöneticisini kullanmanız önerilir.
-
 ## Events
 
-`autoUpdater` nesnesi aşağıdaki olaylarla ortaya çıkarır:
+The `autoUpdater` object emits the following events:
 
 ### Event: 'error'
 
-Returns:
+Dönüşler:
 
-* `error` Error
+* `error` Hata
 
-Güncelleştirilirken bir hata olduğunda ortaya çıkan.
+Emitted when there is an error while updating.
 
 ### Event: 'checking-for-update'
 
-Bir güncellemenin başlatılıp başlatılmadığını kontrol ederken ortaya çıkan.
+Emitted when checking if an update has started.
 
 ### Event: 'update-available'
 
-Kullanılabilir bir güncelleştirme olduğunda ortaya çıkan. Güncelleştirme otomatik olarak karşıdan yüklenir.
+Emitted when there is an available update. The update is downloaded automatically.
 
-### Olay: 'update-not-available'
+### Event: 'update-not-available'
 
-Mevcut bir güncelleme yokken ortaya çıkan.
+Emitted when there is no available update.
 
 ### Event: 'update-downloaded'
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
 * `updateURL` String
 
-Bir güncelleme indirildiğinde ortaya çıkan.
+Emitted when an update has been downloaded.
 
-Windows üzerinde yalnızca `releaseName` kullanılabilir.
+On Windows only `releaseName` is available.
 
 ## Metodlar
 
-`autoUpdater` nesnesi aşağıdaki yöntemleri içerir:
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` nesnesi *macOS* (isteğe bağlı) - HTTP başıkları ister.
+* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-`url`'i belirler ve otomatik güncelleyici başlar.
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-`String`'i geri döndürür - Geçerli olan akış URL'ini günceller.
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Sunucuya bir güncelleştirme olup olmadığını sorar. Bu API'yi kullanmadan önce `setFeedURL`'i çağırmalısınız.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Uygulamayı yeniden başlatır ve indirmeler bittikten sonra güncellemeyi yükler. O yalnızca `update-downloaded` ortaya çıktıktan sonra çağırılmış olmalıdır.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-**Not:** `autoUpdater.quitAndInstall()` ilk olarak tüm uygulama pencerelerini kapatacak ve bundan sonra `uygulama` üzerinde sadece `before-quit` event'i ortaya çıkacak. Bu normal çıkış event sırasından farklıdır.
+**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
