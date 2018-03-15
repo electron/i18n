@@ -529,9 +529,9 @@ Se `categories` for `null`, a Jump List personalizada anteriormente definida (se
 
 **Nota:** Se um objeto `JumpListCategory` não tem o `type` nem a propriedade do `name` definido, então seu `type` é assumido como `tasks`. Se a propriedade do `name` está definida mas a propriedade do `type` é omissa, então o `type` é assumido como `custom`.
 
-**Note:** Os usuários podem remover itens de categorias personalizadas, e o Windows não permitirá que um item removido seja adicionado novamente a uma categoria personalizada até **após** a próxima chamada bem-sucedida a `app.setJumpList(categories)`. Qualquer tentativa de adicionar novamente um item removido de uma categoria personalizada antes disso resultará na omissão da categoria inteira da Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Note:** Os usuários podem remover itens de categorias personalizadas, e o Windows não permitirá que um item removido seja adicionado novamente a uma categoria personalizada até **após** a próxima chamada bem-sucedida a `app.setJumpList(categories)`. Qualquer tentativa de adicionar novamente um item removido de uma categoria personalizada antes disso resultará na omissão da categoria inteira da Jump List. A lista dos itens removidos pode ser obtida usando `app.getJumpListSettings()`.
 
-Here's a very simple example of creating a custom Jump List:
+Aqui vai um exemplo muito simples de como criar uma Jump List personalizada:
 
 ```javascript
 const {app} = require('electron')
@@ -539,52 +539,52 @@ const {app} = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: 'Projetos recentes',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // Como ela tem um nome, `type` já é considerado como "custom"
+    name: 'Ferramentas',
     items: [
       {
         type: 'task',
-        title: 'Tool A',
+        title: 'Ferramenta A',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: 'Executa a ferramenta A'
       },
       {
         type: 'task',
-        title: 'Tool B',
+        title: 'Ferramenta B',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: 'Executa a ferramenta B'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // Como não tem nome nem tipo, `type` é considerado como sendo "tasks"
     items: [
       {
         type: 'task',
-        title: 'New Project',
+        title: 'Novo projeto',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: 'Cria um novo projeto.'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: 'Recuperar projeto',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: 'Recuperar projeto'
       }
     ]
   }
