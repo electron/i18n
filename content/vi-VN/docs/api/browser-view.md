@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+view.webContents.loadURL('https://electron.atom.io')
 ```
 
 ### `new BrowserView([options])` *Đang thử nghiệm*
@@ -35,16 +35,6 @@ view.webContents.loadURL('https://electronjs.org')
   * `webPreferences` Object (không bắt buộc) - Xem [BrowserWindow](browser-window.md).
 
 ### Các phương thức chung
-
-#### `BrowserView.getAllViews()`
-
-Trả về `BrowserView[]` - Một array các BrowserView đã mở.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Trả về `BrowserView ` đang sở hữu `webContents` hoặc trả về `null` nếu webContent không được sở hữu bởi BrowserView.
 
 #### `BrowserView.fromId(id)`
 
