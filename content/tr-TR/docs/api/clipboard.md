@@ -98,7 +98,7 @@ Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren b
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
