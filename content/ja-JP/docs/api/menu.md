@@ -14,7 +14,7 @@
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu | null
+* `menu` Menu
 
 macOSではアプリケーション メニューとして `menu` を設定します。Windows と Linuxでは、`menu` は各ウィンドウの上部のメニューとして設定されます。
 
@@ -24,7 +24,7 @@ macOSではアプリケーション メニューとして `menu` を設定しま
 
 #### `Menu.getApplicationMenu()`
 
-戻り値 `Menu | null` - セットされていれば menu を、そうでなければ `null` を返します。
+Returns `Menu` - The application menu, if set, or `null`, if not set.
 
 **注釈:** 返される `Menu` のインスタンスは、メニューアイテムの動的な追加または削除をサポートしていません。 [インスタンス プロパティ](#instance-properties) は動的に変更ができます。
 
@@ -73,36 +73,30 @@ macOSネイティブなアクションに関しては[macOS Cocoa Event Handling
 
 menu に `menuItem` を追加します。
 
-#### `menu.getMenuItemById(id)`
-
-* `id` String
-
-戻り値 `MenuItem` - 指定した `id` のアイテム。
-
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` MenuItem
 
-menu の `pos` の位置に `menuItem` を挿入します。
+Inserts the `menuItem` to the `pos` position of the menu.
 
 ### インスタンスプロパティ
 
-`menu` オブジェクトには更に以下のプロパティがあります。
+`menu` objects also have the following properties:
 
 #### `menu.items`
 
-menu のアイテムが入った配列 `MenuItem[]`。
+A `MenuItem[]` array containing the menu's items.
 
-それぞれの `Menu` は複数の [`MenuItem`](menu-item.md) で構成され、それぞれの `MenuItem` はサブメニューを持つことができます。
+Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
 ## サンプル
 
-`Menu` クラスはメインプロセスでのみ有効ですが、[`remote`](remote.md) オブジェクトを介してレンダラープロセス内で使うこともできます。
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
 ### メインプロセス (main process)
 
-シンプルなテンプレートAPIを使用して、メインプロセスでアプリケーションメニューを作成するサンプル。
+An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -148,7 +142,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternal('https://electron.atom.io') }
       }
     ]
   }
@@ -170,7 +164,7 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // 編集メニュー
+  // Edit menu
   template[1].submenu.push(
     {type: 'separator'},
     {
@@ -182,7 +176,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // ウインドウメニュー
+  // Window menu
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -198,7 +192,7 @@ Menu.setApplicationMenu(menu)
 
 ### レンダープロセス (render process)
 
-以下はウェブページ (レンダープロセス) で [`remote`](remote.md) オブジェクトを用いて動的にメニューを作成し、ユーザがページを右クリックしたときに表示するサンプルです。
+Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
 ```html
 <!-- index.html -->
@@ -220,11 +214,11 @@ window.addEventListener('contextmenu', (e) => {
 
 ## macOS アプリケーションメニューについて
 
-macOS は、Windows や Linux とは全く異なるスタイルのアプリケーションメニューです。ここにはあなたのアプリのメニューをよりネイティブにするための注意事項があります。
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### 標準メニュー
 
-macOS には、`サービス`や`ウインドウ`のような、いくつものシステム定義な標準メニューがあります。 メニューを標準メニューにするには、メニューの `role` を次のいずれかに設定する必要があります。Electron はそれらを認識して標準メニューにします。
+On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
 * `window`
 * `help`
@@ -232,27 +226,27 @@ macOS には、`サービス`や`ウインドウ`のような、いくつもの�
 
 ### 標準メニューアイテムアクション
 
-macOS はいくつかのメニューアイテムに、`About xxx` や `Hide xxx`、`Hide Others` といった標準アクションを提供しています。 メニューアイテムのアクションを標準アクションに設定するには、メニューアイテムの `role` 属性を設定する必要があります。
+macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
 ### メインメニュー名
 
-macOS のアプリケーションメニューの最初のアイテムのラベルは、設定した名前に関係なく、アプリ名になります。 これを変えるには、アプリのバンドルの `Info.plist` ファイルを変更します。 より詳しくは、[情報プロパティリストファイルについて](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) を参照して下さい。
+On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
 ## 特定のブラウザウインドウのメニューの設定 (*Linux* *Windows*)
 
-ブラウザウインドウの [`setMenu` メソッド](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) は、特定のブラウザウインドウのメニューを設定できます。
+The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
 ## メニューアイテムの位置
 
-`Menu.buildFromTemplate` でメニューを構築するとき、アイテムをどのように配置するかを制御するのに、`position` と `id` を使用できます。
+You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-`MenuItem` の `position` 属性は `[placement]=[id]` の形式を取っています。`placement` は `before`、`after`、`endof` のうちの一つで、`id` はアイテムがあるメニュー内の一意なIDです。
+The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
 
-* `before` - このアイテムをIDが指すアイテムの前に挿入する。IDが指すアイテムが存在しない場合、アイテムはメニューの最後に挿入される。
-* `after` - このアイテムをIDが指すアイテムの後に挿入する。IDが指すアイテムが存在しない場合、アイテムはメニューの最後に挿入される。
-* `endof` - このアイテムを、IDが指すアイテムを含んでいる論理グループの最後に挿入する (グループは区切りアイテムによって作成される)。 指定されたアイテムが存在しない場合は、そのIDを持つ新しいセパレータグループが作成され、このアイテムがそのセパレータの後ろに挿入される。
+* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
 
-アイテムが position で配置されると、新しく position で配置されるまで、他の配置されていないアイテムはそのアイテムの後ろに挿入されます。 なので、同じ位置にメニューアイテムのグループを配置したい場合は、先頭の position を指定するだけで構いません。
+When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
 ### サンプル
 
@@ -270,13 +264,12 @@ Template:
 
 Menu:
 
-```sh
-<br />- 1
-- 2
-- 3
-- 4
-- 5
-```
+    <br />- 1
+    - 2
+    - 3
+    - 4
+    - 5
+    
 
 Template:
 
@@ -293,13 +286,11 @@ Template:
 
 Menu:
 
-```sh
-<br />- ---
-- a
-- b
-- c
-- ---
-- 1
-- 2
-- 3
-```
+    <br />- ---
+    - a
+    - b
+    - c
+    - ---
+    - 1
+    - 2
+    - 3
