@@ -25,7 +25,7 @@ Le module `session` dispose des méthodes suivantes :
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Object (facultatif) 
+* `options` Objet 
   * `cache` Boolean - Si vous voulez activer le cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
@@ -125,13 +125,12 @@ When `pacScript` and `proxyRules` are provided together, the `proxyRules` option
 
 Les `proxyRules` doivent suivre les règles ci-dessous :
 
-```sh
-proxyRules = schemeProxies[";"<schemeProxies>]
-schemeProxies = [<urlScheme>"="]<proxyURIList>
-urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <proxyURL>[","<proxyURIList>]
-proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-```
+    proxyRules = schemeProxies[";"<schemeProxies>]
+    schemeProxies = [<urlScheme>"="]<proxyURIList>
+    urlScheme = "http" | "https" | "ftp" | "socks"
+    proxyURIList = <proxyURL>[","<proxyURIList>]
+    proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+    
 
 Par exemple :
 
@@ -219,11 +218,10 @@ Désactive toute émulation de réseau déjà active pour la `session`. Réiniti
   * `request` Objet 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Résultat de la vérification par Chromium.
-    * `errorCode` Integer - Code d'erreur.
+    * `error` String - Verification result from chromium.
   * `callback` Function 
     * `verificationResult` Integer - La valeur peut être un des codes d'erreur de certificat trouvés [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Mis à part les codes d’erreur de certificat, les codes spéciaux suivants peuvent être utilisés. 
-      * `` - Indique la réussite et désactive la vérification de transparence de certificat.
+      * `` - Indicates success and disables Certificate Transperancy verification.
       * `-2` - Indique l'échec.
       * `-3` - Utilise le résultat de la vérification de Chromium.
 
@@ -247,13 +245,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function | null 
+* `handler` Function 
   * `webContents` [WebContents](web-contents.md) - WebContents qui demandent la permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
     * `permissionGranted` Boolean - Allow or deny the permission
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
+Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
 
 ```javascript
 const {session} = require('electron')
