@@ -53,7 +53,7 @@ El `state` puede ser uno de los siguientes:
 
 #### Evento: "done"
 
-Devuelve:
+Retorna:
 
 * `evento` Evento
 * `state` Cadena
@@ -96,7 +96,7 @@ Reanuda la descarga que ha sido pausada.
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
