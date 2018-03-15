@@ -75,18 +75,18 @@
 * `url` String
 * `requestHeaders` Object *macOS* (可选) - HTTP 请求头.
 
-Sets the `url` and initialize the auto updater.
+设置检查更新的 `url`，并且初始化自动更新。
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+返回 `String` - 获取当前更新的 Feed 链接.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+向服务端查询现在是否有可用的更新。在调用这个方法之前，必须要先调用 `setFeedURL`。
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+在下载完成后，重启当前的应用并且安装更新。这个方法应该仅在 `update-downloaded` 事件触发后被调用。
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**注意:** `autoUpdater.quitAndInstall()` 将先关闭所有应用程序窗口, 并且只在 `app` 上发出 `before-quit`事件。 这和正常退出的事件序列不同。
