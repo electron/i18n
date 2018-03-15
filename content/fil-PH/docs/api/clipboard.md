@@ -2,7 +2,7 @@
 
 > Magsagawa ng mga kopya at idikit ang mga operasyon sa clipboard ng system.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Ang mga sumusunod na halimbawa ay nagpapakita kung paano sumulat ng isang string sa clipboard ng: 
 
@@ -106,7 +106,7 @@ Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
 * `title` String
-* `url` String
+* `url` Pisi
 * `type` String (opsiyonal)
 
 Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
@@ -115,7 +115,7 @@ Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
