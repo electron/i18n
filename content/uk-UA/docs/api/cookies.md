@@ -29,7 +29,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### Події Екземпляру
+### Події екземпляру
 
 The following events are available on instances of `Cookies`:
 
