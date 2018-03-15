@@ -70,8 +70,8 @@ Uygulama kesildiğinde ortaya çıkar.
 
 Dönüşler:
 
-* `event` Olay
-* `path` Dizi
+* `event` Event
+* `path` Dizgi
 
 Kullanıcı uygulama ile bir dosya açmak istediğinde ortaya çıkar. `open-file` olayı genellikle uygulama zaten açık olduğunda ve OS dosyayı açmak için uygulamayı tekrar kullanmak istediğinde yayınlanır. Dock'a bir dosya düştüğünde ve uygulama henüz çalışmadığında da `open-file` yayınlanır. Bu olayı işlemek için (`hazır` olayı yayından önce bile olsa), uygulamanın başlangıç ​​işleminin çok erken bir aşamasında `açık dosya` olayını dinlediğinizden emin olun.
 
@@ -83,7 +83,7 @@ Windows'ta, dosya yolunu almak için (ana süreçte) `process.argv` ayrıştırm
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` String
 
 Kullanıcı uygulama ile bir url açmak istediğinde ortaya çıkar. Uygulamanızın `Info.plist` dosyası, `CFBundleURLTypes` anahtarının içinde url düzenini tanımlamalı ve `NSPrincipalClass` 'ı `AtomApplication` olarak ayarlamalıdır.
@@ -94,7 +94,7 @@ Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gereki
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `hasVisibleWindows` Boolean
 
 Uygulama etkinleştirildiğinde ortaya çıkar. Uygulamayı ilk kez başlatmak, uygulamayı zaten çalıştırırken yeniden başlatmaya çalışmak veya uygulamanın yükleme istasyonu veya görev çubuğu simgesini tıklatmak gibi çeşitli eylemler bu olayı tetikleyebilir.
@@ -103,67 +103,28 @@ Uygulama etkinleştirildiğinde ortaya çıkar. Uygulamayı ilk kez başlatmak, 
 
 Dönüşler:
 
-* `event` Event
-* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
+* `event` Olay
+* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
 * `userInfo` Object - Etkinlik tarafından başka bir aygıta depolanmış uygulamaya özel durum içerir.
 
 Farklı bir cihazdan bir etkinlik sürdürmek istediğinde [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sırasında ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
 Bir kullanıcı etkinliği yalnızca, etkinliğin kaynak uygulamasıyla aynı geliştirici Ekip ID'si olan ve etkinliğin türünü destekleyen bir uygulamada devam edilebilir. Desteklenen etkinlik türleri, uygulamanın `Info.plist` öğesinde `NSUserActivityTypes` anahtarının altında belirtilir.
 
-### Olay: 'will-continue-activity' *macOS*
+### Olay: 'new-window-for-tab' *macOS*
 
 Dönüşler:
 
 * `event` Event
-* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
 
-Farklı bir cihazdan gelen bir etkinlik yeniden başlatılmadan önce [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) o esnada ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
-
-### Olay: 'continue-activity-error' *macOS*
-
-Dönüşler:
-
-* `event` Event
-* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `error` dize - hatanın yerelleştirilmiş açıklamasına sahip bir dizedir.
-
-[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sırasında farklı bir cihazdaki bir etkinliğin başarısız olması durumunda ortaya çıkıyor.
-
-### Etkinlk: 'activity-was-continued' *macOS*
-
-Dönüşler:
-
-* `event` Event
-* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
-
-Bu cihazdan bir etkinlik başarıyla yürütüldüğünde [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) o sırada ortaya çıkıyor.
-
-### Etkinlik: 'activate' *macOS*
-
-Dönütler:
-
-* `event` Etkinlik
-* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
-* `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
-
-[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) başka bir cihazda yeniden başlatılmaya çalışıldığında yayınlanır. Transfer edilecek durumu güncellemeniz gerekiyorsa hemen `event.preventDefault()` girişi yapmanız, yeni bir `userInfo` sözlüğü oluşturmanız ve `app.updateCurrentActiviy()` zamanında aramanız gerekir. Aksi halde işlem başarısız olur ve `continue-activity-error` çağrılır.
-
-### Etkinlik: 'new-window-for-tab' *macOS*
-
-Dönütler:
-
-* `event` Etkinlik
-
-Yerel kullanıcı macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin `tabbingIdentifier` olması durumunda görünür
+Kullanıcı yerel macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin bir `tabbingIdentifier`'ı varsa görünür olur
 
 ### Olay: 'browser-window-blur'
 
 Dönüşler:
 
 * `event` Event
-* `browserView` [BrowserView](browser-window.md)
+* `window` TarayıcıPenceresi
 
 Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 
@@ -171,26 +132,26 @@ Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 
 Dönüşler:
 
-* `event` Olay
-* `browserView` [BrowserView](browser-window.md)
+* `event` Event
+* `window` TarayıcıPenceresi
 
 Bir [borwserWindow](browser-window.md)'a odaklanıldığında ortaya çıkar.
 
 ### Etkinlik: 'tarayıcı-penceresi-yaratıldı'
 
-Dönüşler:
+Dönütler:
 
 * `event` Olay
-* `browserView` [BrowserView](browser-window.md)
+* `window` TarayıcıPenceresi
 
 Yeni bir [borwserWindow](browser-window.md) oluşturulduğunda ortaya çıkar.
 
 ### Etkinlik: 'web-içerikleri-yaratıldı'
 
-Dönüşler:
+Dönütler:
 
-* `event` Olay
-* `webContents` [webİçerikleri](web-contents.md)
+* `event` Event
+* `webContents` Webİçerikleri
 
 Yeni bir [webContents](web-contents.md) oluşturulduğunda ortaya çıkar.
 
@@ -203,7 +164,7 @@ Dönüşler:
 * `url` Dize
 * `error` Dizi - Hata Kodu
 * `certificate` [sertifika](structures/certificate.md)
-* `geri aramak` Function 
+* `geri arama` Function 
   * `isTrusted` Boolean - Sertifikanın güvenilir olup olmadığını göz önünde bulundur
 
 Çıkarıldığında `url` için `certificate` doğrulama hatası oluştu, sertifikaya güvenmek için temel davranışın oluşmasını `event.preventDefault()` ile engelleyin ve `callback(true)` arayın.
@@ -258,7 +219,7 @@ Dönüşler:
   * `referrer` URL
 * `authInfo` Nesne 
   * `isProxy` Boolean
-  * `scheme` String
+  * `scheme` Dizi
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
@@ -283,7 +244,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `killed` Boolean
 
 Gpu işlemi çöktüğünde yada yok olduğunda yayılmaktadır.
@@ -292,7 +253,7 @@ Gpu işlemi çöktüğünde yada yok olduğunda yayılmaktadır.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `accessibilitySupportEnabled` Boolean - `true` Chrome'un ulaşılabilirlik desteği etkinken, o zaman `false`.
 
 Chrome'un erişilebilirlik takviyesi değiştiğinde ortaya çıkar. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. Daha detaylı bilgi için https://www.chromium.org/developers/design-documents/accessibility ziyaret edin.
@@ -319,7 +280,7 @@ Tüm pencereler kullanıcıya sormadan hemen kapatılır, `before-quit` ve `will
 
 ### `app.relaunch([options])`
 
-* `seçenekler` Obje (opsiyonel) 
+* `seçenekler` Obje (isteğe bağlı) 
   * `args` Dizgi[] - (Seçimli)
   * `execPath` Dizgi (Seçimli)
 
@@ -383,19 +344,18 @@ Aşağıdaki yolları isimleriyle talep edebilirsiniz:
 * `Müzik`Bir kullanıcının "Müziklerim" dizini.
 * `pictures` Bir kullanıcının "Resimlerim" dizini.
 * `videos` Bir kullanıcının "Videolarım" dizini.
-* Uygulamanızın günlük klasörü için `logs` dizini.
 * `pepperFlashSystemPlugin` Pepper Flash eklentisinin sistemdeki versiyonuna giden dosya yolu.
 
 ### `app.getFileIcon(path[, options], callback)`
 
-* dizi `yolu`
-* `seçenekler` Obje (opsiyonel) 
-  * `boyut` Dize 
+* `path` Dizi
+* `seçenekler` Nesne (Seçimli) 
+  * `boyut` Dizgi 
     * `küçük` - 16x16
     * `normal` - 32x32
     * `büyük` - *Linux'ta* 48x48, *Windows'ta*32x32, *macOS'de* desteklenmemektedir.
 * `geri aramak` Function 
-  * `error` Error
+  * `error` Hata 
   * `icon` [DoğalGörüntü](native-image.md)
 
 Bir dosya yolunun ilişkili ikonunu çeker.
@@ -410,7 +370,7 @@ Bir dosya yolunun ilişkili ikonunu çeker.
 ### `app.setPath(isim, yol)`
 
 * `name` Dizi
-* dizi `yolu`
+* `path` Dizgi
 
 `name` ile ilişkilendirilen özel bir dizine veya dosyaya giden dosya yolunu (`path`) baştan tanımlar. Eğer dosya yolu varolmayan bir dizine yönlendirilirse, belirtilen dizin bu metodla oluşturulur. Hata durumunda bir `Error` dönütü verir.
 
@@ -431,7 +391,7 @@ Genellikle, ` package.json ` ` ad ` alanı küçük bir kısaltma adıdır npm m
 
 ### `app.setName(name)`
 
-* `name` Dizi
+* `name` Satır
 
 Mevcut uygulamanın ismini geçersiz kılar.
 
@@ -455,10 +415,10 @@ Bu liste OS tarafından yönetilmektedir. Windows'ta görev çubuğundan listeyi
 
 Yakın zamandaki dokümentasyon listesini temizler.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])`
+### `app.setAsDefaultProtocolClient(protokol[, yol, args])` *macOS* *Windows*
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
-* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
+* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
 * `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
 `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
@@ -473,19 +433,19 @@ API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kull
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
 * `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
-* `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
+* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
-Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
 Bu yöntem, geçerli yürütülebilir bir iletişim kuralı (aka URI şeması) için varsayılan işleyici olarak çalışıp çalışmadığını kontrol eder. Eğer öyleyse, varsayılan işleyici olarak uygulamayı kaldırır.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
-* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
-* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
+* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
+* `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
 
 `Boole Değeri` döndürür
 
@@ -503,7 +463,7 @@ Windows'taki `tasks` kategorisini JumpList'teki [Görevler](http://msdn.microsof
 
 `tasks`, [`görevler`](structures/task.md) nesenelerinin bir sırasıdır.
 
-`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
+Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
 
 **Not:** Eğer Jump List'i daha da çok özelleştirmek istiyorsanız yerine `app.setJumpList(categories)` kullanın.
 
@@ -528,7 +488,7 @@ Uygulama için özel bir Atlama Listesi'ni ayarlar veya kaldırır ve aşağıda
 
 `kategorileri` `boş` ise, önceden ayarlanmış Özel Geçiş Listesi (varsa) olacaktır. yerine uygulama için standart Git Listesi (Windows tarafından yönetilen) değiştirildi.
 
-**Not:** Eğer bir `JumpListCategory` nesnesinin ne `type` ne de `name` özelliği ayarlanmamışsa `type` ının `tasks` olduğu varsayılır. Eğer `name` özelliği ayarlanmış fakat `type` göz ardı edilmişse yine `type` ın `custom` olduğu varsayılır.
+** Not<0>: Bir `JumpList Kategori nesnesine` `tipinde`adı</code> içermezse özellik kümesine geçirilirse, `türünün` `görevleri` olduğu varsayılır. `isim özelliği varsa<code>türü` özelliği atlanmışsa `türü` `özel` varsayılır.</p> 
 
 **Not**: Kullanıcılar öğeleri özel kategorilerden kaldırabilir ve Windows kaldırılan bir öğe'nin **tekrar** olana kadar özel bir kategoriye eklenmesine izin verin bir sonraki başarılı çağrı: `app.setJumpList (categories)`. Herhangi bir girişim öğesi kaldırılmış, daha önce özel bir kategoriye yeniden eklemek, tüm özel kategorinin Jump Listesi'nden çıkarılmasıdır. Bu kaldırılan öğelerin listesini `app.getJumpListSettings()`. kullanarak elde edebilirsiniz.
 
@@ -649,20 +609,7 @@ app.on('ready', () => {
 <h3><code>app.getCurrentActivityType()` *macOS*</h3> 
   Döndür ` Dizgi </ 0> - Halen çalışan etkinliğin türü.</p>
 
-<h3><code>app.invalidateCurrentActivity()` *macOS*</h3> 
-  
-  * `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-  
-  Geçerli [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) kullanıcı etkinliğini geçersiz kılar.
-  
-  ### `systemPapp.updateCurrentActivity(type, userInfo)` *macOS*
-  
-  * `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-  * `userInfo` nesne - etkinlik tarafından başka bir aygıta depolanmış uygulamaya özel durum içerir.
-  
-  Türü `type` ile eşleşiyorsa geçerli etkinliği günceller, y`userInfo`'den girişleri geçerli `userInfo` sözlüğe birleştirir.
-  
-  ### `app.setAppUserModelId(id)` *Windows*
+<h3><code>app.setAppUserModelId(id)` *Windows*</h3> 
   
   * `kimlik` dizesi
   
@@ -702,7 +649,7 @@ app.on('ready', () => {
   
   Raporlar ` ProcessMetric []: Uygulamayla ilişkili tüm süreçlerin bellek ve cpu kullanım istatistiklerine karşılık gelen <code> İşlem Metrik nesnelerinin dizisi.</p>
 
-<h3><code>app.getGPUFeatureStatus()`</h3> 
+<h3><code>app.getGpuFeatureStatus()`</h3> 
   
   ` GPU Özellik Durumu'nu döndürür</ 0> - Grafik Özellik Durumu <code> chrome: //gpu/`döndürür.</p> 
   
@@ -711,7 +658,7 @@ app.on('ready', () => {
 <ul>
 <li><code>sayı` tam sayı</li> </ul> 
   
-  `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
+  Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
   
   Sayaç rozet sayısı `` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
   
@@ -735,7 +682,7 @@ app.on('ready', () => {
       
       ` app.setLoginItemSettings öğesine <code> yol ve <code> args seçenekleri sağladıysanız, siz doğru olarak ayarlanması için <code> openAtLogin için aynı bağımsız değişkenleri buraya iletmeniz gerekir.</p>
 
-<p><code>Object` 'i geri getirir:
+<p>İade <code>Nesne`:
       
       * ` openAtLogin` Boole Değeri uygulama giriş yaparken açılırsa `doğru` olur.
       * ` openAsHidden` Boole Değeri uygulama giriş yaparken gizli olarak açık olarak ayarlanırsa `doğru` olur. Bu ayar yalnızca macOS'ta desteklenir.
@@ -755,7 +702,7 @@ app.on('ready', () => {
       
       Uygulamanın giriş seçeneklerini ayarlayın.
       
-      [Sincap](https://github.com/Squirrel/Squirrel.Windows) kullanan Windows'ta Elektronlar `otomatik Güncelleştiri` ile çalışmak için, Update.exe için başlatma yolunu ayarlamak ve uygulamanızı belirten argümanları aktarmak isteyecektir. Örneğin:
+      [Sincap](https://github.com/Squirrel/Squirrel.Windows) kullanan Windows'ta Elektronlar `otomatik Güncelleştiri` ile çalışmak için, Update.exe için başlatma yolunu ayarlamak ve uygulamanızı belirten argümanları aktarmak isteyecektir. Örnek verecek olursak:
       
       ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -778,17 +725,9 @@ const exeName = path.basename(process.execPath)
 
 <p><code>Boole Değeri<code> Chrome'un erişilebilirlik desteği etkinse <code>doğru` aksi halde yanlışa</code> çevirir. Bu API, `doğru` değerini geri döndürür. Yardımcı ekran okuyucuları gibi teknolojiler tespit edilir. Daha detaylar bilgi görmek için https://www.chromium.org/developers/design-documents/accessibility.</p> 
   
-  ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
-  
-  * Mantıksal `enabled` [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) görüntülemeyi etkinleştirir veya devre dışı bırakır
-  
-  Manuel olarak Chrome'un erişilebilirlik desteğini etkinleştirir, erişilebilirlik anahtarını uygulama ayarlarındaki kullanıcılara göstermesine izin verir. daha fazla bilgi için https://www.chromium.org/developers/design-documents/accessibility. Varsayılan: Devre dışı.
-  
-  **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
-  
   ### `app.setAboutPanelOptions(ayarlar)` *macOS*
   
-  * `seçenekler` Nesne 
+  * `ayarlar` Nesne 
     * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
     * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
     * `copyright` String (seçilebilir) - telif bilgisi.
@@ -820,18 +759,6 @@ const exeName = path.basename(process.execPath)
   
   Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
   
-  ### `app.isInApplicationsFolder()` *macOS*
-  
-  `Boolean` Uygulamanın şu anda Sistemler Uygulama klasöründen çalışıp çalışmadığı dönüt veriri. `app.moveToApplicationsFolder()` ile birlikte kullanın
-  
-  ### `app.moveToApplicationsFolder()` *macOS*
-  
-  `Boolean` Taşınmanın başarılı olup olmadığın geri bildirimini sağlar. Eylem başarılı olursa, uygulamanızdan çıkıp yeniden başlatacağını lütfen unutmayın.
-  
-  Kullanıcının [`dialog`](dialog.md) API kullanarak yapmış olduğunuz işlemi onaylamasını istiyorsanız, onay kutusu varsayılan olarak gösterilmeyecektir.
-  
-  **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. Örneğin, kullanıcı yetkilendirme iletişim kutusunu iptal ederse, bu yöntem hata verir. Eğer kopyayı gerçekleştiremezsek bu yöntem bir hata verecektir. Hata mesajı bilgilendirici olmalı ve neyin yanlış gittiğini size söylemeli
-  
   ### `app.dock.bounce([type])` *macOS*
   
   * `type` Dize (İsteğe bağlı) - `critical` veya `informational` olabilir. Varsayılan değer `informational`
@@ -856,7 +783,7 @@ const exeName = path.basename(process.execPath)
   
   ### `app.dock.setBadge(text)` *macOS*
   
-  * `text` String
+  * `text` Dizi
   
   Dock'un rozetleme alanında gösterilecek satırı ayarlar.
   
@@ -884,6 +811,6 @@ const exeName = path.basename(process.execPath)
   
   ### `app.dock.setIcon(image)` *macOS*
   
-  * `image` ([NativeImage](native-image.md) | String)
+  * `image` ([DoğalGörüntü](native-image.md) | Dizi)
   
   Dock simgesiyle ilişkilendirilmiş `image` 'ı ayarlar.
