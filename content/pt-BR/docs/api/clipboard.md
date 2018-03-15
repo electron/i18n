@@ -27,53 +27,53 @@ O módulo `clipboard` possui os seguintes métodos:
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `features` String (opcional)
 
 Retorna `String` - o conteúdo da área de transferência como texto sem formatação.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (opcional)
 
 Escreve o `texto` na área de transferência como texto sem formatação.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional)
+* `type` String (opcional)
 
 Retorna `String` - o conteúdo da área de transferência como marcação.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `features` String (opcional)
+* `type` String (opcional)
 
 Escreve `markup` na área de transferência.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* `features` String (opcional)
 
 Retorna [`Nativeimage`](native-image.md) - o conteúdo da imagem na área de transferência.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (opcional)
+* `features` String (opcional)
 
 Escreve `image` na área de transferência.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* `type` String (opcional)
 
 Retorna `String` - o conteúdo da área de transferência como RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (opcional)
 
 Escreve o `text` na área de transferência em RTF.
 
@@ -90,7 +90,7 @@ Retorna um Objeto que contém as chaves `title` e `url` representando o bookmark
 
 * `title` String
 * `url` String
-* `type` String (opcional)
+* `features` String (opcional)
 
 Escreve o `title` e o `url` na área de transferência como um bookmark.
 
@@ -98,7 +98,7 @@ Escreve o `title` e o `url` na área de transferência como um bookmark.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
@@ -115,20 +115,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* `type` String (opcional)
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* `type` String (opcional)
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional)
+* `type` String (opcional)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -153,7 +153,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* `type` String (opcional)
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -165,7 +165,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* `type` String (opcional)
 
 ```javascript
 const {clipboard} = require('electron')
