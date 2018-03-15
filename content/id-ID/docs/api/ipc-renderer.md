@@ -15,8 +15,8 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 
 <h3><code>ipcRenderer.on (saluran, pendengar)`</h3> 
 
-* ` saluran </ 0>  String</li>
-<li><code> pendengar </ 0> Fungsi</li>
+* `channel` String
+* ` pendengar </ 0> Fungsi</li>
 </ul>
 
 <p>Mendengarkan <code> saluran </ 0> , ketika sebuah pesan baru tiba <code> pendengar </ 0> akan dipanggil dengan
@@ -37,14 +37,14 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 <p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
 
 <h3><code>ipcRenderer.removeAllListeners(channel)`</h3> 
-            * ` saluran </ 0>  String</li>
-</ul>
-
-<p>Menghapus semua pendengar, atau orang-orang dari yang ditentukan <code> saluran </ 0> .</p>
+            * `channel` String
+            
+            Menghapus semua pendengar, atau orang-orang dari yang ditentukan ` saluran </ 0> .</p>
 
 <h3><code>ipcRenderer.kirim (saluran [, arg1] [, arg2] [, ...])`</h3> 
-                * `channel` String
-                * ` ... args </ 0> ada []</li>
+            
+            * `channel` String
+            * ` ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan ke proses utama secara asinkron melalui <code> saluran </ 0> , Anda juga dapat mengirim argumen yang sewenang-wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p>
@@ -52,7 +52,7 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 <p>Proses utama menangani dengan mendengarkan modul <code> saluran </ 0> dengan <code> ipcMain </ 0> .</p>
 
 <h3><code>ipcRenderer.sikron di kirim (saluran [, arg1] [, arg2] [, ...])`</h3> 
-                    * ` saluran </ 0>  String</li>
+                * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
@@ -65,16 +65,16 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 <p><strong> Catatan: </ 0> Mengirimkan pesan sinkron akan memblokir keseluruhan proses perenderan, kecuali jika Anda tahu apa yang Anda lakukan, Anda tidak boleh menggunakannya.</p>
 
 <h3><code>ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`</h3> 
-                        * `windowId` Number
-                        * ` saluran </ 0>  String</li>
+                    * `windowId` Number
+                    * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
 <p>Sends a message to a window with <code>windowid` via `channel`</p> 
-                            ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
-                            
-                            * ` saluran </ 0>  String</li>
+                        ### `ipcRenderer.kirim ke tuan rumah(saluran [, arg1] [, arg2] [, ...])`
+                        
+                        * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Like <code>ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.</p>
+<p>Seperti <code> ipcrenderer.kirim </ 0> tapi acara akan dikirim ke <code><webview>` elemen di tuan rumah halaman bukan proses utama.</p>
