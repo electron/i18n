@@ -98,7 +98,7 @@ RTFでクリップボードに `text` を書き込みます。
 
 ```js
 clipboard.write({
-  text: 'https://electronjs.org',
+  text: 'https://electron.atom.io',
   bookmark: 'Electron Homepage'
 })
 ```
