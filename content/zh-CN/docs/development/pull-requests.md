@@ -165,11 +165,11 @@ Feel free to post a comment in the pull request to ping reviewers if you are awa
 
 所有代码合并请求都需要您修改过的代码的 [ 代码所有者 ](https://github.com/orgs/electron/teams/code-owners) 进行审批以获得执行。 每当维护者审阅一个代码合并请求时, 他们可能请求更改。 这些可能很小, 例如修复一个错字, 或者可能涉及实质性的更改。 此类请求旨在帮助您, 但有时可能会出现突然或无益的情况, 特别是如果它们不包括 * 如何 * 更改它们的具体建议。
 
-尽量不要气馁。 如果你觉得审查是不公平的, 那么说或者寻求另一个项目参与者的投入。 通常, 这种评论是由于审阅者没有足够的时间来审查和无意的。 Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
+尽量不要气馁。 如果你觉得审查是不公平的, 那么说或者寻求另一个项目参与者的投入。 通常, 这种评论是由于审阅者没有足够的时间来审查和无意的。 这样的困难往往可以用一点耐心来解决。 那就是说, 审阅者应该被期望提供有用的反馈。
 
 ### 步骤11: 执行合并
 
-In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
+为了合并代码, 代码合并请求要求必须由至少一个 Electron 代码所有者审查和批准并且通过 CI。 之后, 如果没有其他参与者的异议, 请求可以合并。
 
 恭喜您, 感谢您的贡献!
 
