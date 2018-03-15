@@ -50,7 +50,7 @@ const spin = new TouchBarButton({
 
 ### Menjalankan contoh di atas
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. Simpan file di atas ke komputer Anda sebagai `touchbar.js`
 2. Instal elektron melalui `npm menginstal elektron`
