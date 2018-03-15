@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Instance Events
+### Eventos de instância
 
 The `Tray` module emits the following events:
 
@@ -72,7 +72,6 @@ The `Tray` module emits the following events:
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
-* `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the tray icon is clicked.
 
@@ -162,17 +161,6 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-#### Event: 'mouse-move' *macOS*
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
-
-Emitted when the mouse moves in the tray icon.
-
 ### Métodos de Instância
 
 The `Tray` class has the following methods:
@@ -187,7 +175,7 @@ Destroys the tray icon immediately.
 
 Sets the `image` associated with this tray icon.
 
-#### `tray.setPressedImage(image)` no *macOS*
+#### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
@@ -199,13 +187,13 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 Sets the hover text for this tray icon.
 
-#### `tray.setTitle(title)` no *macOS*
+#### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
 Sets the title displayed aside of the tray icon in the status bar.
 
-#### `tray.setHighlightMode(mode)` no *macOS*
+#### `tray.setHighlightMode(mode)` *macOS*
 
 * `mode` String - Highlight mode with one of the following values: 
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
@@ -237,8 +225,8 @@ win.on('hide', () => {
 
 * `opções` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String
-  * `content` String
+  * `title` String - (optional)
+  * `content` String - (optional)
 
 Displays a tray balloon.
 
