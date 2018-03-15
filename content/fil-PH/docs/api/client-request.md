@@ -41,7 +41,7 @@ const request = net.request({
 
 #### Event: 'response'
 
-Returns:
+Pagbabalik:
 
 * `response` IncomingMessage - Isang bagay na kumakatawan ng HTTP response message.
 
