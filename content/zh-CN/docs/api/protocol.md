@@ -103,7 +103,7 @@ app.on('ready', () => {
 
 该用法与 `registerFileProtocol` 相同, 只是`callback` 会被`Buffer`对象或者带有`data`，`mimeType`和 `charset`属性的对象调用。
 
-例子:
+示例:
 
 ```javascript
 const {protocol} = require('electron')
@@ -118,7 +118,7 @@ protocol.registerBufferProtocol('atom', () => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -142,14 +142,14 @@ protocol.registerBufferProtocol('atom', () => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `redirectRequest` Object 
       * `url` String
       * `method` String
       * `session` Object (可选)
       * `uploadData` Object (可选) 
         * `contentType` String - 内容的MIME类型。
-        * `data` String - 要发送的内容。
+        * `data` String - 发送内容。
 * `completion` Function (可选) 
   * `error` Error
 
@@ -160,6 +160,64 @@ protocol.registerBufferProtocol('atom', () => {
 默认情况下, HTTP 请求会重复使用当前的 session。如果希望请求具有不同的session, 则应将 `session`设置为 `null`.
 
 对于 POST 请求, 必须提供 ` uploadData ` 对象。
+
+### `protocol.registerStreamProtocol(scheme, handler[, completion])`
+
+* `scheme` String
+* `handler` Function 
+  * `request` Object - 过滤器对象，包含过滤参数 
+    * `url` String
+    * `headers` Object
+    * `referrer` String
+    * `method` String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Function (可选) 
+  * `error` Error
+
+Registers a protocol of `scheme` that will send a `Readable` as a response.
+
+The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+
+示例:
+
+```javascript
+const {protocol} = require('electron')
+const {PassThrough} = require('stream')
+
+function createStream (text) {
+  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  rv.push(text)
+  rv.push(null)
+  return rv
+}
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback({
+    statusCode: 200,
+    headers: {
+      'content-type': 'text/html'
+    },
+    data: createStream('<h5>Response</h5>')
+  })
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
+
+It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+
+```javascript
+const {protocol} = require('electron')
+const fs = require('fs')
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback(fs.createReadStream('index.html'))
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
@@ -172,7 +230,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` String
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -180,13 +238,13 @@ The `callback` will be called with a boolean that indicates whether there is alr
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
-  * `request` Object - 过滤器对象，包含过滤参数 
+* `handler` Function 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `filePath` String
 * `completion` Function (可选) 
   * `error` Error
@@ -202,7 +260,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * `data` String (可选)
 * `completion` Function (可选) 
   * `error` Error
@@ -218,7 +276,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `buffer` Buffer (optional)
 * `completion` Function (可选) 
   * `error` Error
@@ -229,7 +287,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Object - 过滤器对象，包含过滤参数 
     * `url` String
     * `referrer` String
     * `method` String
@@ -241,11 +299,28 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `session` Object (可选)
       * `uploadData` Object (可选) 
         * `contentType` String - 内容的MIME类型。
-        * `data` String - 要发送的内容。
+        * `data` String - 发送内容。
 * `completion` Function (可选) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+
+### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
+
+* `scheme` String
+* `handler` Function 
+  * `request` Object - 过滤器对象，包含过滤参数 
+    * `url` String
+    * `headers` Object
+    * `referrer` String
+    * `method` String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Function (可选) 
+  * `error` Error
+
+Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
