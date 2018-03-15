@@ -111,45 +111,6 @@ app.on('window-all-closed', () => {
 
 Активность пользователей может быть продолжена только в приложении, которое имеет ID разработчика команды как активность исходного приложения и который поддерживает этот тип действия. Поддержка типов активности, указаны в приложении `Info.plist` под ключом `NSUserActivityTypes`.
 
-### Событие: 'will-continue-activity' *macOS*
-
-Возвращает:
-
-* `event` Event
-* `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) после возобновления активности на различных устройствах. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
-
-### Событие: 'continue-activity' *macOS*
-
-Возвращает:
-
-* `event` Event
-* `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - cтрока с ошибкой локализованного описания.
-
-Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) при ошибочном возобновлении активности на различных устройствах.
-
-### Событие: 'activity-was-continued' *macOS*
-
-Возвращает:
-
-* `event` Event
-* `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - содержит специфичное состояние приложения, сохраняющегося в хранилище по активности.
-
-Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) после возобновления активности на различных устройствах.
-
-### Событие: 'update-activity-state' *macOS*
-
-Возвращает:
-
-* `event` Event
-* `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - содержит специфичное состояние приложения, сохраняющегося в хранилище по активности.
-
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
-
 ### Событие: 'new-window-for-tab' *macOS*
 
 Возвращает:
@@ -163,7 +124,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 Возвращает:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Возникает, когда [browserWindow](browser-window.md) получает размытие.
 
@@ -172,7 +133,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 Возвращает:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Возникает, когда [browserWindow](browser-window.md) получает фокус.
 
@@ -181,7 +142,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 Возвращает:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Возникает, когда создается новый [browserWindow](browser-window.md).
 
@@ -190,7 +151,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 Возвращает:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `webContents` WebContents
 
 Возникает при создании нового [webContents](web-contents.md).
 
@@ -383,7 +344,6 @@ app.exit(0)
 * `music` каталог пользователя "Music".
 * `pictures` каталог пользователя для фотографии.
 * `videos` каталог пользователя для видео.
-* `logs` директория для логов вашего приложения.
 * `pepperFlashSystemPlugin` полный путь к версии системы плагина Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -454,7 +414,7 @@ app.exit(0)
 
 Очищает список последних документов.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])`
+### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - имя вашего протокола, без `://`. Если вы хотите, чтобы ваше приложение обрабатывала `electron://` ссылки, вызовите этот метод из `electron` в качестве параметра.
 * `path` String (optional) *Windows* - по умолчанию `process.execPath`
@@ -527,7 +487,7 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 Если `categories` - `null`, то ранее установленный настраиваемый Jump List (если таковой имеется) будет заменён стандартным Jump List для приложения (управляется Windows).
 
-**Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
+**Примечание:** Если объект `JumpListCategory` не имеет свойства `type` или `name`, то его `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, то `type` считается `custom`.
 
 **Примечание:** Пользователи могут удалять элементы из настраиваемых категорий, но Windows не будет позволять возвращать удаленный элемент в настраиваемую категорию до **последующего** удачного вызова `app.setJumpList(categories)`. Любая попытка вновь добавить удаленный элемент в настраиваемую категорию раньше, чем это приведёт к созданию всей настраиваемой категории, исключается из Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
@@ -648,19 +608,6 @@ app.on('ready', () => {
 
 Возвращает `String` - тип текущей выполняемой активности.
 
-### `app.invalidateCurrentActivity()` *macOS*
-
-* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Аннулирует текущую [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активность пользователя.
-
-### `app.updateCurrentActivity(type, userInfo)` *macOS*
-
-* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - специфичное для приложение состояние для использование других устроиств.
-
-Обновляет текущую активность, если его тип совпадает `type` слияния записей из `userInfo` в его текущем словаре `userInfo`.
-
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
@@ -697,7 +644,7 @@ app.on('ready', () => {
 
 Возвращает [`ProcessMetric[]`](structures/process-metric.md): массив объектов `ProcessMetric`, которые соответствует статистике использования памяти всех процессов, связанных с приложением.
 
-### `app.getGPUFeatureStatus()`
+### `app.getGpuFeatureStatus()`
 
 Возвращает [`GPUFeatureStatus`](structures/gpu-feature-status.md) - статус функции графики из `chrome://gpu/`.
 
@@ -772,14 +719,6 @@ app.setLoginItemSettings({
 
 Возвращает `Boolean` - `true` если включена поддержка специальных возможностей Chrome, и `false` в противном случае. Этот API будет возвращать `true`, если обнаружено использование вспомогательных технологий, таких как средства чтения с экрана. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
-### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
-
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
-
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
-
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
-
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
@@ -813,18 +752,6 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 Включение смешанного изолированного режима в приложении.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
-
-### `app.isInApplicationsFolder()` *macOS*
-
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
-
-### `app.moveToApplicationsFolder()` *macOS*
-
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
-
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
-
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
