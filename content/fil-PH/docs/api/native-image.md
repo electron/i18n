@@ -1,8 +1,8 @@
-# nativeImage
+# gupitin ng maikli ang mga litrato
 
 > Gumawa ng tray, dock, at aplikasyon na mga icon gamit ang PNG o JPG na mga file.
 
-Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file paths o `NativeImage` na mga instance. Ang walang laman na imahe ay gagamitin kung ang `null` ay maipasa.
 
@@ -93,7 +93,7 @@ Para markahan ang imahe bilang template na imahe, ang filename ay dapat magtatap
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
-## Mga Pamamaraan
+## Mga Paraan
 
 Ang ` nativeimage ` na modyul ay may mga sumusunod na pamamaraan, lahat ng ito ay nagbabalik ng isang instance ng `NativeImage` na klase:
 
@@ -105,7 +105,7 @@ Gumawa ng bakanteng `NativeImage` na instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` na String
+* `path` String
 
 Nagbabalik ng `NativeImage`
 
@@ -135,93 +135,116 @@ Nagbabalik ng `NativeImage`
 
 Gumagawa ng bagong `NativeImage` na instance mula sa `dataURL`.
 
+### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+
+* `imageName` na String
+* `hslShift` Number[]
+
+Nagbabalik ng `NativeImage`
+
+Gumagawa ng isang bagong `NativeImage` na instance mula sa NSImage na nagmamapa sa binigay na pangalan ng imahe. Tingnan ang [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) para sa listahan ng mga posibleng halaga.
+
+Ang `hslShift` ay inaaplay sa imahe na may sumusunod na mga patakaran
+
+* `hsl_shift[0]` (hue): Ang ganap na halaga ng hue para sa imahe - 0 at 1 na minamapa sa 0 at 360 sa pangkulay na gulong ng hue (pula).
+* `hsl_shift[1]` (satyurasyon): Isang satyurasyon na shift para sa imahe kasa ang mga sumusunod na halaga:  
+ 0 = tanggalin lahat ng kulay.  
+ 0.5 = pabayaang hindi binago.  
+ 1 = ganap na i-saturate ang imahe. 
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
+ 0 = remove all lightness (make all pixels black).  
+ 0.5 = leave unchanged.  
+ 1 = full lightness (make all pixels white).
+
+This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+
 ## Class: NativeImage
 
 > Bumabalot ng imahe katulad ng trey, pantala, ang aplikasyon na icon. 
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Instance Methods
+### Mga Pamamaraan ng Instance
 
-The following methods are available on instances of the `NativeImage` class:
+Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase : 
 
 #### `image.toPNG([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng mga imaheng `PNG` encoded data.
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer (**required**) - Between 0 - 100.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng mga imaheng`JPEG` encoded data
 
 #### `image.toBitmap([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng kopya ng mga imaheng hilaw na bitmap pixel data. 
 
 #### `image.toDataURL([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `String` - The data URL of the image.
+Nagbabalik `String` - Ang data URL ng imahe.
 
 #### `image.getBitmap([options])
  `
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng hilaw na bitmap pixel data.
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+Ang pagkakaiba ng `getBitmap()` and `toBitmap()` ay, `getBitmap()` hindi kinukopya ang bitmap data, kaya dapat gumamit ng returned Buffer agad kasalukuyang kaganapang loop tick, kunghindi ay baka magbago o mawasak ang data.
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+Nagbabalik ng `image.getNativeHandle()` [macOS](https://nodejs.org/api/buffer.html#buffer_class_buffer) na nagiimbak ng C pointer na pinagbabatayan ng native handle ng imahe. Sa macOS, ang panturo sa `NSImage` na pagkakataon ay ibinabalik. 
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+Pansinin na ang mga binabalik sa panturo ay mahinang panturo sa pinagbatayang native image sa halip na isang kopya, kaya ikaw * ay dapat * isigurado ng ang mga kaugnayang `nativeImage` pagkakataon ay nasa paligid. 
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+Nagbabalik ng `Boolean` - kung ang imahe ay walang laman.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Nagbabalik [`Size`](structures/size.md) 
 
 #### `image.setTemplateImage(option)`
 
 * `option` Boolean
 
-Marks the image as a template image.
+Nagmamarka ng imahe bilang template image. 
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Nagbabalik `Boolean` - Kung ang imahe ay isang template image. 
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
+* `rect` [Rectangle](structures/rectangle.md) -Ang lugar kung saan ika-crop ang imahe. 
 
-Returns `NativeImage` - The cropped image.
+Nagbabalik sa`NativeImage` - Ang naka-crop na imahe.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (optional) - Default sa lapad ng imahe. * `height` Integer (optional) - Default sa taas ng imahe * `quality` String (optional) - Ang nais na kalidad sa imaheng binago ang laki. Posibleng halaga ay mga `good`, `better` or `best`. Ang default ay `best`. Ang mga halagan ito ay nagpapahayag ng ninais na kalidad/bilis ng tradeooff. Ito ay isinalin sa algorithm-specific na paraan na nag depende sa kapabilidad (CPU, GPU) sa pinagbatayan na platform. Ito ay posible sa lahat ng tatlong pamamaraan na mai-map sa parehong algorithm sa binigay na platform. 
 
-Returns `NativeImage` - The resized image.
+Nagbabalik `NativeImage` - Ang imaheng nibago ang laki.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Kung sana ang `height` or the `width` ay tinutukoy ang kasalukuyang ration ng aspeto ay mapapangalagaan sa imaheng binago ang laki.
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+* `options` Object * `scaleFactor` Double - Ang scale factor para idagdag sa prinisentang imahe para. * `width` Integer (optional) - Defaults to 0. Ito ay kailangan if ang bitmap buffer ay tinutukoy bilang `buffer`. * `height` Integer (optional) - Defaults to 0. Ito ay kailangan if ang bitmap buffer ay tinutukoy bilang `buffer`. * `buffer` Buffer (optional) - Ang buffer ay naglalaman ng mga hilaw na datos ng larawan. * `dataURL` String (optional) - An data URL ay naglalaman ng alinman sa base 64 naka encode PNG o JPEG na imahe.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Magdagdag ng naka presentang larawan para sa tinutukoy na scale factor. Pwede rin itong gamitin para magdagdag ng ibang representasyong scale factor sa isang imahe. Pwede itong tawaging imaheng walang laman.
