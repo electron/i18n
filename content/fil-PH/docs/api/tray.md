@@ -67,6 +67,7 @@ Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
 
 Emitted kapag nag click ang tray icon.
 
@@ -156,6 +157,17 @@ Emitted kapag ang mouse ay pumapasok sa tray icon.
 
 Emitted kapag ang mouse ay lumalabas sa tray icon.
 
+#### Event: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
+
+Emitted when the mouse moves in the tray icon.
+
 ### Halimbawa ng mga pamamaraan
 
 The `Tray` class has the following methods:
@@ -218,10 +230,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Bagay 
+* `pagpipilian` Bagay 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `title` String
+  * `content` String
 
 Displays a tray balloon.
 
