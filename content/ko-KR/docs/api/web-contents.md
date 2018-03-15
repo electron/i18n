@@ -98,7 +98,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 #### Event: 'did-get-redirect-request'
 
-Returns:
+반환:
 
 * `event` Event
 * `oldURL` String
@@ -290,7 +290,7 @@ Emitted when DevTools is focused / opened.
 
 #### Event: 'certificate-error'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -305,7 +305,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### Event: 'select-client-certificate'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` URL
@@ -342,7 +342,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-Returns:
+반환:
 
 * `event` Event
 * `result` Object 
@@ -386,7 +386,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Returns:
+반환:
 
 * `event` Event
 * `type` String
@@ -497,7 +497,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-Returns:
+반환:
 
 * `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -1118,7 +1118,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` 함수 - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
