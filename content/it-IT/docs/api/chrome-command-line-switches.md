@@ -96,9 +96,8 @@ Un elenco di server separati da virgola per i quali è abilitata l'autenticazion
 
 Ad esempio:
 
-```bash
---auth-server-whitelist='*example.com, *foobar.com, *baz'
-```
+    --auth-server-whitelist='*example.com, *foobar.com, *baz'
+    
 
 per cui qualsiasi `url` che termina con `example.com`, `foobar.com`, `baz` verrà preso in considerazione per l'autenticazione integrata. Senza il prefisso `*` l'Url deve corrispondere esattamente.
 
