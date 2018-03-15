@@ -35,7 +35,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Events
+### Eventos de instância
 
 #### Event: 'updated'
 
@@ -96,7 +96,7 @@ Resumes the download that has been paused.
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Resumes `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
