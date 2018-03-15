@@ -531,7 +531,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+반환:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -544,7 +544,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Returns:
+반환:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -600,7 +600,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Returns:
+반환:
 
 * `title` String
 * `explicitSet` Boolean
@@ -625,7 +625,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+반환:
 
 * `level` Integer
 * `message` String
@@ -645,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Returns:
+반환:
 
 * `result` Object 
   * `requestId` Integer
@@ -799,7 +799,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+반환:
 
 * `themeColor` String
 
