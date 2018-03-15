@@ -2,17 +2,17 @@
 
 > Magdagdag ng mga aytem sa likas na aplikasyon ng mga menu at konteksto ng mga menu.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
 
 ### `bagong MenuItem(opsyon)`
 
-* `mga pagpipilian` Bagay 
+* `pagpipilian` Bagay 
   * `i-klik` Punsyon (opsyonal) - Ay tatawagin na may `i-klik ang(menuItem, browserWindow, event)` kapag ang aytem ng menu ay na-klik na. 
-    * `menuItem` MenuItem
+    * `menuItem`MenuItem
     * `browserWindow` ang BrowserWindow
-    * `kaganapan` Kaganapan
+    * `kaganapan` kaganapan
   * `role` String (opsyonal) - tukuyin ang aksyon ng mga aytem ng menu, kapag tinukoy ang katangian `click` ay hindi na papansinin. Tingnan ang [roles](#roles).
   * `type` String (opsyonal) - Ay maaaring `normal`, `separator`, `submenu`, `checkbox` o `radio`.
   * `label` String - (opsyonal)
@@ -67,9 +67,14 @@ Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
 * `stopspeaking` - Ibalangkas sa mga aksyon ng `stopspeaking`
 * `front` - Ibalangkas sa mga aksyon ng `arrangeInFront`
 * `zoom` - Ibalangkas sa mga aksyon ng `performZoom`
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `toggletabbar` - Map to the `toggleTabBar` action
+* `selectnexttab` - Map to the `selectNextTab` action
+* `selectprevioustab` - Map to the `selectPreviousTab` action
+* `mergeallwindows` - Map to the `mergeAllWindows` action
+* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
+* `window` - Ang submenu ay isang menu ng "Window"
+* `help` - Ang submenu ay isang menu ng "Help"
+* `services` - Ang submenu ay isang menu ng "Services"
 
 Kapag tinutukoy ang isang `role` sa macOS, ang `label` at ang `accelerator` ay ang tanging opsyon na makaka-apekto sa aytem ng menu. Lahat ng ibang opsyon ay hindi papansinin.
 
