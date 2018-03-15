@@ -33,7 +33,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
   * ` subtitle `String (可选) 通知的副标题, 将显示在标题下面。* macOS *
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面
   * ` silent `Boolean (可选) 在显示通知时是否发出 OS 提示音
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
+  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
   * ` hasReply `Boolean (可选) 是否向通知中添加内联答复选项。 * macOS *
   * ` replyPlaceholder `String (可选) 内联答复输入字段中的占位符。* macOS *
   * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
@@ -69,7 +69,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 当用户手动关闭通知时触发
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+This event is not guaranteed to be emitted in all cases where the notification is closed.
 
 #### 事件: 'reply' *macOS*
 
@@ -94,6 +94,12 @@ This event is not guarunteed to be emitted in all cases where the notification i
 #### `notification.show()`
 
 立即显示通知给用户，请注意这一点不同于 HTML5通知实现，只实例化一个 `new Notification` 不会马上显示给用户，你需要在OS将要显示它之前调用这个方法将显示它。
+
+If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+
+#### `notification.close()`
+
+Dismisses the notification.
 
 ### 播放声音
 
