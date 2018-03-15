@@ -24,7 +24,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <h4>Acara: 'berubah'</h4>
 
 <ul>
-<li><code>peristiwa` Peristiwa</li> 
+<li><code>event` Event</li> 
 
 * `cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah
 * `sebab` String - Penyebab perubahan dengan salah satu dari nilai berikut: 
