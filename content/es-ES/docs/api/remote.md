@@ -102,14 +102,15 @@ Devuelve `any` - El objeto devuelto por `require(module)` en el proceso principa
 
 por ejemplo.
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // proceso principal: main/index.js
