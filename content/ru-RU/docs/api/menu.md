@@ -14,7 +14,7 @@ Process: [Main](../glossary.md#main-process)
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
@@ -24,7 +24,7 @@ Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` w
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -72,6 +72,12 @@ Pops up this menu as a context menu in the `browserWindow`.
 * `menuItem` MenuItem
 
 Appends the `menuItem` to the menu.
+
+#### `menu.getMenuItemById(id)`
+
+* `id` String
+
+Returns `MenuItem` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -142,7 +148,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -264,12 +270,13 @@ Template:
 
 Menu:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Template:
 
@@ -286,11 +293,13 @@ Template:
 
 Menu:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```
