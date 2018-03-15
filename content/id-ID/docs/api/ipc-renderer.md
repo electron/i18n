@@ -36,8 +36,8 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 
 <p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
 
-<h3><code>ipcRenderer.removeAllListeners(channel)`</h3> 
-            * `channel` String
+<h3><code>ipcRenderer.removeAllListeners([channel])`</h3> 
+            * `channel` String (optional)
             
             Menghapus semua pendengar, atau orang-orang dari yang ditentukan ` saluran </ 0> .</p>
 
@@ -64,17 +64,9 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 
 <p><strong> Catatan: </ 0> Mengirimkan pesan sinkron akan memblokir keseluruhan proses perenderan, kecuali jika Anda tahu apa yang Anda lakukan, Anda tidak boleh menggunakannya.</p>
 
-<h3><code>ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`</h3> 
-                    * `windowId` Number
+<h3><code>ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`</h3> 
                     * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Sends a message to a window with <code>windowid` via `channel`</p> 
-                        ### `ipcRenderer.kirim ke tuan rumah(saluran [, arg1] [, arg2] [, ...])`
-                        
-                        * `channel` String
-                        * ` ... args </ 0> ada []</li>
-</ul>
-
-<p>Seperti <code> ipcrenderer.kirim </ 0> tapi acara akan dikirim ke <code><webview>` elemen di tuan rumah halaman bukan proses utama.</p>
+<p>Like <code>ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.</p>
