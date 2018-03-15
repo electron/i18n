@@ -8,7 +8,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Example
+## Beispiel
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -137,7 +137,7 @@ When this attribute is present the guest page will have web security disabled. W
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electronjs.org" partition="electron"></webview>
+<webview src="https://electron.atom.io" partition="electron"></webview>
 ```
 
 Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
@@ -227,7 +227,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**Beispiel**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -334,10 +334,10 @@ Returns `String` - The user agent for guest page.
 
 Injects CSS into the guest page.
 
-### `<webview>.executeJavaScript(code[, userGesture, callback])`
+### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default `false`.
+* `userGesture` Boolean - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -444,9 +444,7 @@ Inserts `text` to the focused element.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Returns `Integer` - The request id used for the request.
-
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -531,7 +529,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Rückgabewert:
+Kehrt zurück:
 
 * ` URL </ 0>  Zeichenfolge</li>
 <li><code>isMainFrame` Boolean
@@ -544,7 +542,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -555,7 +553,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `isMainFrame` Boolean
 
@@ -571,7 +569,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `status` Boolean
 * `newURL` String
@@ -586,7 +584,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `oldURL` String
 * `newURL` String
@@ -600,7 +598,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `title` String
 * `explicitSet` Boolean
@@ -609,7 +607,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `favicons` String[] - Array of URLs.
 
@@ -625,7 +623,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `level` Integer
 * `message` String
@@ -645,7 +643,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `result` Object 
   * `requestId` Integer
@@ -668,7 +666,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Rückgabewert:
+Kehrt zurück:
 
 * ` URL </ 0>  Zeichenfolge</li>
 <li><code>frameName` String
@@ -693,7 +691,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-Rückgabewert:
+Kehrt zurück:
 
 * ` URL </ 0>  Zeichenfolge</li>
 </ul>
@@ -708,7 +706,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
   
   ### Event: 'did-navigate'
   
-  Rückgabewert:
+  Kehrt zurück:
   
   * ` URL </ 0>  Zeichenfolge</li>
 </ul>
@@ -719,7 +717,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
 or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
     ### Event: 'did-navigate-in-page'
     
-    Rückgabewert:
+    Kehrt zurück:
     
     * `isMainFrame` Boolean
     * ` URL </ 0>  Zeichenfolge</li>
@@ -745,7 +743,7 @@ webview.addEventListener('close', () => {
   
   ### Event: 'ipc-message'
   
-  Rückgabewert:
+  Kehrt zurück:
   
   * `channel` String
   * `args` Array
@@ -782,7 +780,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `name` Zeichenfolge
 * `version` String
@@ -803,7 +801,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `themeColor` String
 
@@ -815,7 +813,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Rückgabewert:
+Kehrt zurück:
 
 *  URL </ 0>  Zeichenfolge</li>
 </ul>
