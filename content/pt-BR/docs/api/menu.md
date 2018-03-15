@@ -14,7 +14,7 @@ A classe `menu` tem os seguintes métodos estáticos:
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu | null
+* `menu` Menu
 
 Define `menu` como o menu de aplicativo no macOS. No Windows e no Linux, o `menu` será definido como menu superior de cada janela.
 
@@ -24,7 +24,7 @@ Passando `null` removerá a barra de menus no Windows e Linux, mas não tem efei
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Returns `Menu` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -73,36 +73,30 @@ Fecha o menu de contexto em `browserWindow`.
 
 Acrescenta o `menuItem` ao menu.
 
-#### `menu.getMenuItemById(id)`
-
-* `id` String
-
-Returns `MenuItem` the item with the specified `id`
-
-#### `menu.Insert(pos, menuItem)`
+#### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` MenuItem
 
-Insere o `menuItem` na posição `pos` do menu.
+Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Propriedades de Instância
 
-Objetos `menu` também possuem as seguintes propriedades:
+`menu` objects also have the following properties:
 
 #### `menu.items`
 
-Um array `MenuItem[]` contendo os itens do menu.
+A `MenuItem[]` array containing the menu's items.
 
-Cada `Menu` consiste de múltiplos [`MenuItem`](menu-item.md)s e cada `MenuItem` pode ter um submenu.
+Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
 ## Exemplos
 
-A classe `Menu` só está disponível no processo principal, mas você também pode usá-lo no processo de renderização através do módulo [`remoto`](remote.md).
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
 ### Processo principal
 
-Um exemplo de criar o menu do aplicativo no processo principal com a API do modelo simples:
+An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -148,7 +142,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternal('https://electron.atom.io') }
       }
     ]
   }
@@ -198,7 +192,7 @@ Menu.setApplicationMenu(menu)
 
 ### Processo de renderização
 
-Abaixo está um exemplo de criação dinâmica de um menu em uma página da web (processo de renderização) usando o módulo [`remoto`](remote.md), e o mostra quando o usuário clica com o botão direito na página:
+Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
 ```html
 <!-- index.html -->
@@ -232,7 +226,7 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 
 ### Ações padronizadas para Item de Menu
 
-O macOS fornece ações padronizadas para alguns itens de menu, como `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
 ### Nome do Menu Principal
 
@@ -256,7 +250,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Exemplos
 
-Modelo:
+Template:
 
 ```javascript
 [
@@ -270,15 +264,14 @@ Modelo:
 
 Menu:
 
-```sh
-<br />- 1
-- 2
-- 3
-- 4
-- 5
-```
+    <br />- 1
+    - 2
+    - 3
+    - 4
+    - 5
+    
 
-Modelo:
+Template:
 
 ```javascript
 [
@@ -293,13 +286,11 @@ Modelo:
 
 Menu:
 
-```sh
-<br />- ---
-- a
-- b
-- c
-- ---
-- 1
-- 2
-- 3
-```
+    <br />- ---
+    - a
+    - b
+    - c
+    - ---
+    - 1
+    - 2
+    - 3
