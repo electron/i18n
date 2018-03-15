@@ -349,12 +349,17 @@ Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebua
 <meta name='theme-color' content='#ff0000'>
 ```
 
-#### Event: 'update-target-url'
-
 Pengembalian:
 
 * `acara` Acara
-* ` url </ 0> String</li>
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+
+#### Event: 'update-target-url'
+
+Mengembalikan:
+
+* `event</ 0> Acara</li>
+<li><code> url </ 0> String</li>
 </ul>
 
 <p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
@@ -364,8 +369,8 @@ Pengembalian:
 <p>Mengembalikan:</p>
 
 <ul>
-<li><code>event</ 0> Acara</li>
-<li><code>type` String
+<li><code>acara` Acara
+* `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
@@ -454,7 +459,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 Mengembalikan:
 
-* `acara` Acara
+* `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -463,6 +468,26 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+
+#### Event: 'did-attach-webview'
+
+Mengembalikan:
+
+* `event` Event
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+
+Emitted when a `<webview>` has been attached to this web contents.
+
+#### Event: 'console-message'
+
+Mengembalikan:
+
+* `level` Integer
+* ` pesan </ 0> String</li>
+<li><code>line` Integer
+* `sourceId` String
+
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
 ### Metode Instance
 
@@ -750,7 +775,9 @@ Sisipan `teks` ke elemen yang terfokus.
   * `wordStart` Boolean - (opsional) Baik untuk melihat hanya pada awal kata-kata. default ke `false`.
   * `medialCapitalAsWordStart` Boolean - (opsional) Bila digabungkan dengan `wordStart`, menerima sebuah pertandingan di tengah sebuah kata jika pertandingan dimulai dengan sebuah huruf besar diikuti huruf kecil atau huruf non. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -794,12 +821,14 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     
     Returns [`PrinterInfo[]`](structures/printer-info.md)
     
-    #### `contents.print([options])`
+    #### `contents.print([options], [callback])`
     
     * `pilihan` Objek (pilihan) 
       * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
       * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
       * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
+    * `callback` Fungsi (opsional) 
+      * success` Boolean - Indicates success of the print call.
     
     Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
     
