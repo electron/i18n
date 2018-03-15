@@ -36,7 +36,6 @@ Ang `crashReporter`module ay merong sumusunod na paraan:
   * `uploadToServer`Boolean(optional) - kung ang mga bagsak na ulat ay dapat ma i-sent sa server. Ang default ay `true`.
   * `ignoreSystemCrashHandler`Boolean (optional) - ang default ay `false`.
   * `extra`Object (optional) - Ang bagay na kaya mong bigyan ng kahulogan ay maisama sa pag submit ng mga report. Ang katangian lang ng string ang maipasa ng wasto. Ang mga bagay na Nested ay hindi suportado at ang pangalan ng ari-arian at ang halaga ay hindi bababa sa 64 na mga character.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
 
 Ikaw ay kailangan na tumawag sa mga pamaraan bago mag gamit ng ibang `crashReporter` APIs at bawas proseso (main/renderer) kung saan ka mangolekta ng mga bagsak na ulat. Puwede kang mag pasa ng iba't-ibang opsyon sa `crashReporter.start`kung tumawag sa iba't-ibang proseso.
 
@@ -89,22 +88,12 @@ This would normally be controlled by user preferences. This has no effect if cal
 
 **Note:** This API can only be called from the main process.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS*
+### `crashReporter.setExtraParameter(key, value)` *macOS*
 
 * `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
 
 Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
-
-### `crashReporter.removeExtraParameter(key)` *macOS*
-
-* `key` String - Parameter key, must be less than 64 characters long.
-
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
-
-### `crashReporter.getParameters()`
-
-See all of the current parameters being passed to the crash reporter.
 
 ## Crash Report Payload
 
