@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *Експериментальний*
@@ -36,40 +36,50 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### Статичні Методи
 
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [WebContents](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Повертає `BrowserView` - Вигляд з отриманим `id`.
+Returns `BrowserView` - The view with the given `id`.
 
 ### Властивості Екземпляра
 
-Об'єкт створений за допомогою `new BrowserView` має наступні властивості:
+Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` *Експериментальна*
+#### `view.webContents` *Experimental*
 
-Об'єкт [`WebContents`](web-contents.md), яким володіє цей вигляд.
+A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *Експериментальна*
+#### `view.id` *Experimental*
 
-`Integer`, яке представляє унікальний ID вигляду.
+A `Integer` representing the unique ID of the view.
 
 ### Методи Екземпляра
 
-Об'єкт створений за допомогою `new BrowserView` має наступні методи:
+Objects created with `new BrowserView` have the following instance methods:
 
-#### `view.setAutoResize(options)` *Експериментальний*
+#### `view.setAutoResize(options)` *Experimental*
 
-* `options` Object 
-  * `width` Boolean - Якщо `true`, ширина вигляду буде збільшуватися і зменшуватися разом з вікном. `false` за замовчуванням.
-  * `width` Boolean - Якщо `true`, висота вигляду буде збільшуватися і зменшуватися разом з вікном. `false` за замовчуванням.
+* `options` Об'єкт 
+  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Експериментальний*
+#### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Змінює розмір і рухає вигляд до переданої межі відносно вікна.
+Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Експериментальний*
+#### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Колір у `#aarrggbb` чи `#argb` формі. Альфа канал є опціональним.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
