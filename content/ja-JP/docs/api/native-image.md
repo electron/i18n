@@ -32,22 +32,22 @@ console.log(appIcon)
 Windows では、ファイルパスから `ICO` アイコンを読み込むこともできます。最高の画質を得るには、少なくとも以下のサイズを含むことを推奨します。
 
 * 小さいアイコン 
- * 16x16 (100% DPI scale)
- * 20x20 (125% DPI scale)
- * 24x24 (150% DPI scale)
- * 32x32 (200% DPI scale)
-* Large icon 
- * 32x32 (100% DPI scale)
- * 40x40 (125% DPI scale)
- * 48x48 (150% DPI scale)
- * 64x64 (200% DPI scale)
+ * 16x16 (DPI スケール 100%)
+ * 20x20 (DPI スケール 125%)
+ * 24x24 (DPI スケール 150%)
+ * 32x32 (DPI スケール 200%)
+* 大きいアイコン 
+ * 32x32 (DPI スケール 100%)
+ * 40x40 (DPI スケール 125%)
+ * 48x48 (DPI スケール 150%)
+ * 64x64 (DPI スケール 200%)
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+[この記事](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx) 内の *サイズ要件* の章を確認して下さい。
 
-## High Resolution Image
+## 高解像度の画像
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+Apple Retina ディスプレイのような高解像度をサポートしているプラットフォームにおいて、画像のファイルネームの後ろに `@2x` を加えることで、高解像度の画像としてマークすることができます。
 
 For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
