@@ -33,9 +33,9 @@ Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir m
 
 Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
 
-### `ipcRenderer.removeAllListeners(channel)`
+### `ipcRenderer.removeAllListeners([channel])`
 
-* `channel` Dizesi
+* `channel` String (optional)
 
 Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 
@@ -61,17 +61,9 @@ Ana işlem `channel` öğesini `ipcMain` modülüyle birlikte ve `event.returnVa
 
 **Note:** Senkronize bir ileti göndermek, eğer ne yaptığınızı bilmiyorsanız kullanamayacağınız sürece tüm işleyici işlemini engeller.
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
-
-* `windowId` Sayı
-* `channel` Dizesi
-* `...args` herhangi[]
-
-Sends a message to a window with `windowid` via `channel`
-
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
-* `...args` herhangi[]
+* `...args` any[]
 
-`ipcRenderer.send` gibi ancak olay ana işlem yerine ana sayfadaki `<webview>` öğesine gönderilecektir.
+Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
