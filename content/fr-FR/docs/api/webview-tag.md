@@ -240,10 +240,10 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` URL
 * `options` Object (facultatif) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `httpReferrer` String (optionnel) - Une URL de référent HTTP.
+  * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
+  * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optionnel)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
@@ -482,7 +482,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -774,7 +774,7 @@ Fired when the renderer process is crashed.
 
 ### Événement : 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+Déclenché lorsque le processus du gpu crash.
 
 ### Événement : 'plugin-crashed'
 
@@ -783,11 +783,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Fired when a plugin process is crashed.
+Déclenché lorsqu’un processus de plugin crash.
 
 ### Événement : 'destroyed'
 
-Fired when the WebContents is destroyed.
+Déclenché lorsque le WebContents est détruit.
 
 ### Événement : 'media-started-playing'
 
@@ -803,7 +803,7 @@ Retourne :
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
 
 ```html
 <meta name='theme-color' content='#ff0000'>
