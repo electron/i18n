@@ -63,24 +63,24 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `hide` - `hide` アクションにマップ
 * `hideothers` - `hideOtherApplications` アクションにマップ
 * `unhide` - `unhideAllApplications` アクションにマップ
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `toggletabbar` - Map to the `toggleTabBar` action
-* `selectnexttab` - Map to the `selectNextTab` action
-* `selectprevioustab` - Map to the `selectPreviousTab` action
-* `mergeallwindows` - Map to the `mergeAllWindows` action
-* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `startspeaking` - `startSpeaking` アクションにマップ
+* `stopspeaking` - `stopSpeaking` アクションにマップ
+* `front` - `arrangeInFront` アクションにマップ
+* `zoom` - `performZoom` アクションにマップ
+* `toggletabbar` - `toggleTabBar` アクションにマップ
+* `selectnexttab` - `selectNextTab` アクションにマップ
+* `selectprevioustab` - `selectPreviousTab` アクションにマップ
+* `mergeallwindows` - `mergeAllWindows` アクションにマップ
+* `movetabtonewwindow` - `moveTabToNewWindow` アクションにマップ
+* `window` - "ウインドウ"サブメニュー
+* `help` - "ヘルプ"サブメニュー
+* `services` - "サービス"サブメニュー
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。ほかのすべてのオプションは無視されます。
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `MenuItem`:
+`MenuItem` のインスタンスには以下のプロパティがあります。
 
 #### `menuItem.enabled`
 
