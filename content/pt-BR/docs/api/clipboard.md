@@ -98,7 +98,7 @@ Escreve o `title` e o `url` na área de transferência como um bookmark.
 
 ```js
 clipboard.write({
-  text: 'https://electronjs.org',
+  text: 'https://electron.atom.io',
   bookmark: 'Electron Homepage'
 })
 ```
