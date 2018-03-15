@@ -111,7 +111,7 @@ clipboard.write({
 
 * `text` String
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+プレーンテキストとして検索ペーストボードに `text` を書き込みます。このメソッドは、レンダラープロセスから呼び出されたとき、同期IPCを使います。
 
 ### `clipboard.clear([type])`
 
