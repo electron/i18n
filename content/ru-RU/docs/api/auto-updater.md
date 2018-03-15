@@ -30,7 +30,7 @@ In addition, there are some subtle differences on each platform:
 
 ## События
 
-The `autoUpdater` object emits the following events:
+Объект `autoUpdater` имеет следующие события:
 
 ### Событие: 'error'
 
@@ -38,21 +38,21 @@ The `autoUpdater` object emits the following events:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Возникает когда происходит ошибка при обновлении.
 
-### Event: 'checking-for-update'
+### Событие: 'checking-for-update'
 
-Emitted when checking if an update has started.
+Возникает при проверке, если обновление началось.
 
-### Event: 'update-available'
+### Событие: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Возникает при наличии доступных обновлений. Обновление загружается автоматически.
 
-### Event: 'update-not-available'
+### Событие: 'update-not-available'
 
-Emitted when there is no available update.
+Возникает, когда нет доступных обновлений.
 
-### Event: 'update-downloaded'
+### Событие: 'update-downloaded'
 
 Возвращает:
 
@@ -62,31 +62,31 @@ Emitted when there is no available update.
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Возникает при загрузке обновления.
 
-On Windows only `releaseName` is available.
+На Windows доступен только `releaseName`.
 
 ## Методы
 
-The `autoUpdater` object has the following methods:
+Объект `autoUpdater` имеет следующие методы:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` Object *macOS* (опиционально) - http-header запроса.
 
-Sets the `url` and initialize the auto updater.
+Задает `url` и инициализирует автоматическое обновление.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+`String` - возвращает URL текущей подписки обновления.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Запрашивает сервер на наличие обновлений. Перед использованием этого API-интерфейса, необходимо вызвать `setFeedURL`.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Перезапускает приложение и устанавливает обновления после того как скачает. Должен вызываться только после того, как возникнет событие `update-downloaded`.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Примечание:** `autoUpdater.quitAndInstall()` сначала закроет все окна приложения и только потом возникнет событие `before-quit` на `app`. Это отличается от нормальной последовательности события выход.
