@@ -192,6 +192,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - 錯誤說明。
 
 The `listener` will be called with `listener(details)` when an error occurs.
