@@ -67,6 +67,11 @@ macOS 上提供了以下附加角色:
 * ` stopspeaking `-映射到 ` stopSpeaking ` 操作
 * ` front `-映射到 ` arrangeInFront ` 操作
 * ` zoom `-映射到 ` performZoom ` 操作
+* `toggletabbar` - Map to the `toggleTabBar` action
+* `selectnexttab` - Map to the `selectNextTab` action
+* `selectprevioustab` - Map to the `selectPreviousTab` action
+* `mergeallwindows` - Map to the `mergeAllWindows` action
+* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
 * `window` - The submenu is a "Window" menu
 * `help` - The submenu is a "Help" menu
 * `services` - The submenu is a "Services" menu
