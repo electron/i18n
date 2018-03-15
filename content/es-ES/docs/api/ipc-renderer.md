@@ -74,4 +74,4 @@ Sends a message to a window with `windowid` via `channel`
 * `channel` Cadena
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+Es como `ipcRenderer.send` pero el evento se enviará al `<webview>`elemento en la página host en vez de el proceso principal.
