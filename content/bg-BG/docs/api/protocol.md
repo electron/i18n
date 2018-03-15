@@ -88,13 +88,13 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Function 
+* `handler` Функция 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Функция 
+  * `обратно повикване` Функция 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -118,13 +118,13 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Function 
+* `handler` Функция 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `обратно повикване` Function 
     * `data` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -136,7 +136,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Function 
+* `handler` Функция 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -230,7 +230,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `схема` Низ
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -238,13 +238,13 @@ The `callback` will be called with a boolean that indicates whether there is alr
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Функция 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Функция 
+  * `обратно повикване` Функция 
     * `filePath` String
 * `completion` Function (optional) 
   * `error` Error
@@ -254,13 +254,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Function 
+* `handler` Функция 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Функция 
+  * `обратно повикване` Функция 
     * `data` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -270,13 +270,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Функция 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Функция 
     * `buffer` Buffer (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -292,7 +292,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Функция 
     * `redirectRequest` Object 
       * `url` String
       * `method` String
