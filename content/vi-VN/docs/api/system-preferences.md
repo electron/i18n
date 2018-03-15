@@ -77,7 +77,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
-* `id` Integer
+* `id` Số nguyên
 
 Removes the subscriber with `id`.
 
@@ -92,7 +92,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
-* `id` Integer
+* `id` Số nguyên
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
