@@ -67,14 +67,9 @@ macOS 上提供了以下附加角色:
 * ` stopspeaking `-映射到 ` stopSpeaking ` 操作
 * ` front `-映射到 ` arrangeInFront ` 操作
 * ` zoom `-映射到 ` performZoom ` 操作
-* ` toggletabbar `-映射到 ` toggleTabBar ` 操作
-* `selectnexttab` - 映射到 `selectNextTab` 操作
-* ` selectprevioustab ` - 映射到 ` selectPreviousTab ` 操作
-* `mergeallwindows` - 映射到 `mergeAllWindows` 操作
-* ` movetabtonewwindow ` - 映射到 ` moveTabToNewWindow ` 操作
-* `window` - 子菜单是"窗口" 菜单
-* ` help `-子菜单是 "帮助" 菜单
-* ` services `-子菜单是 "帮助" 菜单
+* `window` - The submenu is a "Window" menu
+* `help` - The submenu is a "Help" menu
+* `services` - The submenu is a "Services" menu
 
 在 macOS 上指定 ` role ` 时, ` label ` 和 ` accelerator ` 是将影响菜单项的唯一选项。所有其他选项都将被忽略。
 
