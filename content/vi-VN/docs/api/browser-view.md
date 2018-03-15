@@ -38,48 +38,48 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Trả về `BrowserView[]` - Một array các BrowserView đã mở.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Trả về `BrowserView ` đang sở hữu `webContents` hoặc trả về `null` nếu webContent không được sở hữu bởi BrowserView.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Số nguyên
 
-Returns `BrowserView` - The view with the given `id`.
+Trả về `BrowserView` với `id` đã cho.
 
 ### Các Thuộc Tính
 
-Objects created with `new BrowserView` have the following properties:
+Object được tạo bằng `new BrowserView` có các thuộc tính sau đây:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *Đang thử nghiệm*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+[`WebContents`](web-contents.md) object sở hữu bởi view này.
 
-#### `view.id` *Experimental*
+#### `view.id` *Đang thử nghiệm*
 
-A `Integer` representing the unique ID of the view.
+Một `số thực` đại diện cho ID độc nhất của View đó.
 
 ### Các phương thức riêng
 
-Objects created with `new BrowserView` have the following instance methods:
+Object được tạo bằng `new BrowserView` các các phương thức riêng sau đây:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *Đang thử nghiệm*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - Nếu `true`, chiều ngang của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
+  * `height` Boolean - Nếu `true`, chiều dọc của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *Đang thử nghiệm*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Điều chỉnh kích cỡ và di chuyển view.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Đang thử nghiệm*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` Chuỗi - Màu dưới định dạng `#aarrggbb` hoặc `#argb`. Kênh alpha không bắt buộc.
