@@ -170,7 +170,7 @@ console.log(image)
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
 
@@ -182,19 +182,19 @@ Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_bu
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 Returns `String` - The data URL of the image.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
 
