@@ -81,7 +81,7 @@ Jika pengguna tidak mengatur jalur simpan melalui API , Elektron akan menggunaka
 
 <h4><code>download Item.bisa lanjut ()`</h4> 
         
-        Returns `Boolean` - Whether the download can resume.
+        Resumes `Boolean` - Whether the download can resume.
         
         #### `download Item.batal ()`
         
