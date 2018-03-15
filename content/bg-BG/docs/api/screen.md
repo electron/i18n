@@ -57,7 +57,7 @@ The `screen` module emits the following events:
 
 Връща:
 
-* `event` Сътитие
+* `event` Събитие
 * `newDisplay` [Display](structures/display.md)
 
 Emitted when `newDisplay` has been added.
@@ -66,7 +66,7 @@ Emitted when `newDisplay` has been added.
 
 Връща:
 
-* `event` Сътитие
+* `event` Събитие
 * `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
@@ -75,7 +75,7 @@ Emitted when `oldDisplay` has been removed.
 
 Връща:
 
-* `event` Сътитие
+* `event` Събитие
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
