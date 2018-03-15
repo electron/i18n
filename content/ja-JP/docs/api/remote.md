@@ -40,10 +40,10 @@ Electron は、レンダラープロセス内のリモートオブジェクト�
 
 まず、デッドロックを防ぐために、メインプロセスに渡すコールバックは非同期で呼ばれます。メインプロセスが、渡されたコールバックの戻り値を取得することを期待しないで下さい。
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+例えば、メインプロセス内で呼ばれた `Array.map` はレンダラープロセスの関数を使用できません。
 
 ```javascript
-// main process mapNumbers.js
+// メインプロセス mapNumbers.js
 exports.withRendererCallback = (mapper) => {
   return [1, 2, 3].map(mapper)
 }
@@ -54,7 +54,7 @@ exports.withLocalCallback = () => {
 ```
 
 ```javascript
-// renderer process
+// レンダラープロセス
 const mapNumbers = require('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
@@ -63,23 +63,23 @@ console.log(withRendererCb, withLocalCb)
 // [undefined, undefined, undefined], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+このように、レンダラーのコールバックの同期された戻り値は期待通りでなく、メインプロセス内の同一のコールバックの戻り値とは一致しませんでした。
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+次に、メインプロセスに渡されたコールバックは、メインプロセスがそれをガベージコレクションするまで存続します。
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+例えば、以下のコードは一見問題がないようにみえます。リモートオブジェクトに `close` イベントのコールバックをインストールします。
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+  // ウインドウが閉じられた...
 })
 ```
 
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+しかし、明示的にアンインストールするまで、コールバックはメインプロセスに参照されるということを覚えておいて下さい。 もしアンインストールしないと、ウインドウをリロードする度にコールバックが再びインストールされ、その度に一つのコールバックがリークします。
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+`close` イベントが発火されたとき、前にインストールしたコールバックが解放されるので、メインプロセス内で例外が発生され、状況を悪化させます。
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+この問題を避けるため、メインプロセスに渡すレンダラーのコールバックへの参照を、確実にクリーンアップしてください。 This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
 
 ## Accessing built-in modules in the main process
 
