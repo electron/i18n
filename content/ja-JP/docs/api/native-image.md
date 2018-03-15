@@ -147,16 +147,16 @@ console.log(image)
 `hslShift` は以下のルールで画像に適用されます。
 
 * `hsl_shift[0]` (色相): 画像における色相の絶対値 - 0 から 1 が 色相カラーホイール (赤) の 0 から 360 に割り当てられる。
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
- 0 = remove all lightness (make all pixels black).  
- 0.5 = leave unchanged.  
- 1 = full lightness (make all pixels white).
+* `hsl_shift[1]` (彩度): 画像における彩度の変化量。以下のキー値を使用する。  
+ 0 = すべての色が抜かれる。  
+ 0.5 = 変わらないまま。  
+ 1 = 画像の彩度を最大にする。 
+* `hsl_shift[2]` (明度): 画像における明度の変化量。以下のキー値を使用する。  
+ 0 = すべての明度がなくなる (すべてのピクセルが黒になる)。  
+ 0.5 = 変わらないまま。  
+ 1 = 明度が最大になる (すべてのピクセルが白になる)。
 
-This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+つまり、`[-1, 0, 1]` は完全に白い画像になり、`[-1, 1, 0]` は完全に黒い画像になります。
 
 ## クラス: NativeImage
 
