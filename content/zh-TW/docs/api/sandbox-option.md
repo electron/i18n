@@ -39,7 +39,7 @@ To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sand
 ```js
 let win
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  // 沒必要傳入 `sandbox: true`，因為已經透過 `--enable-sandbox` 啟用。
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
