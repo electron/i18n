@@ -1,12 +1,12 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> パフォーマンスボトルネックや遅い操作を見つけるため、Chromiumのコンテンツモジュールからトレースデータを収集します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+このモジュールにはWebインターフェースは含まれないため、結果を閲覧するために `chrome://tracing/` をChromeブラウザーで開いて、生成されたファイルをロードする必要があります。
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**注:** アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
 ```javascript
 const {app, contentTracing} = require('electron')
@@ -31,7 +31,7 @@ app.on('ready', () => {
 
 ## メソッド
 
-The `contentTracing` module has the following methods:
+`contentTracing` モジュールには以下のメソッドがあります。
 
 ### `contentTracing.getCategories(callback)`
 
