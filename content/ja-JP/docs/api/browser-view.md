@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+view.webContents.loadURL('https://electron.atom.io')
 ```
 
 ### `new BrowserView([options])` *実験的*
@@ -35,16 +35,6 @@ view.webContents.loadURL('https://electronjs.org')
   * `webPreferences` Object (任意) - [BrowserWindow](browser-window.md) を参照してください。
 
 ### 静的メソッド
-
-#### `BrowserView.getAllViews()`
-
-戻り値 `BrowserView[]` - 開かれたすべてのBrowserViewの配列。
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-戻り値 `BrowserView | null` - 指定された `webContents` を保持しているBrowserViewまたはコンテンツがBrowserViewによって保持されていない場合、`null`。
 
 #### `BrowserView.fromId(id)`
 
