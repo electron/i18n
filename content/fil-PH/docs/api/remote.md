@@ -102,15 +102,14 @@ Nagbabalik ang `any` - Ang bagay ay nagbalik sa pamamagitan ng `require(module)`
 
 halimbawa.
 
-```sh
-proyekto/
-├── pangunahing
-│   ├── foo.js
-│   └── index.js
-├── package.json
-└── tagabigay
-    └── index.js
-```
+    proyekto/
+    ├── pangunahing
+    │   ├── foo.js
+    │   └── index.js
+    ├── package.json
+    └── tagabigay
+        └── index.js
+    
 
 ```js
 // main process: main/index.js
