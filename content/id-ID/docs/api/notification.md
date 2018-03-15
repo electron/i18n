@@ -55,7 +55,7 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 <p>Returns:</p>
 
 <ul>
-<li><code>peristiwa` Peristiwa
+<li><code>event` Event
 
 Emitted saat pemberitahuan ditunjukkan kepada pengguna, perhatikan bahwa ini dapat dipecat beberapa kali karena pemberitahuan dapat ditampilkan beberapa kali melalui metode ` menunjukan() </ 0> .</p>
 
@@ -85,8 +85,8 @@ is closed.</p>
 <p>Pengembalian:</p>
 
 <ul>
-<li><code>event</ 0> Acara</li>
-<li><code> balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan</li>
+<li><code>acara` Acara
+* ` balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan</li>
 </ul>
 
 <p>Emitted saat pengguna mengklik tombol "Balas" pada notifikasi dengan <code> telah di balas: benar </ 0> .</p>
@@ -116,11 +116,13 @@ shown notification and create a new one with identical properties.</p>
   
   ### Memutar Suara
   
-  On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+  Di macos , Anda dapat menentukan nama suara yang ingin Anda putar saat pemberitahuan ditampilkan. Salah satu suara default (di bawah Preferensi Sistem> Suara) dapat digunakan, selain file suara khusus. Pastikan file suara disalin di bawah kumpulan aplikasi (misalnya, `App kamu .app/isi/sumber daya </ 0> ), atau salah satu dari lokasi berikut:</p>
+
+<ul>
+<li><code>~ / Perpustakaan / Suara`</li> 
   
-  * `~ / Perpustakaan / Suara`
   * `/ Perpustakaan / Suara`
   * `/ Jaringan / Perpustakaan / Suara`
-  * `/ Sistem / Perpustakaan / Suara`
+  * `/ Sistem / Perpustakaan / Suara`</ul> 
   
-  See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+  Lihat dokumen  NS suara </ 0> untuk informasi lebih lanjut.</p>
