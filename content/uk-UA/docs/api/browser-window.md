@@ -138,7 +138,6 @@ child.once('ready-to-show', () => {
   * `alwaysOnTop` Boolean (опціонально) - Чи вікно завжди має залишатися поверх всіх вікон. За замовчуванням `false`.
   * `fullscreen` Boolean (опціонально) - Чи вікно має відображатися в повноекранному режимі. Коли явно встановлено в `false` кнопка повноекранного режиму буде прихована чи недоступна на macOS. За замовчуванням `false`.
   * `fullscreenable` Boolean (опціонально) - Чи вікно можна перевести в повноекранний режим. На macOS, також показує чи кнопка розгортання/збільшення має перемикати повноекранний режим чи розгортати вікно. За замовчуванням `true`.
-  * `simpleFullscreen` Boolean (опціонально) - Використовувати повноекранний режим pre-Lion на macOS. За замовчуванням `false`.
   * `skipTaskbar` Boolean (опціонально) - Чи показувати вікно на панелі завдань. За замовчуванням `false`.
   * `kiosk` Boolean (опціонально) - Повноекранний режим браузера. За замовчуванням `false`.
   * `title` String (опціонально) - Заголовок вікна за замовчуванням. За замовчуванням `"Electron"`.
@@ -151,9 +150,8 @@ child.once('ready-to-show', () => {
   * `disableAutoHideCursor` Boolean (опціонально) - Чи ховати курсор під час вводу. За замовчуванням `false`.
   * `autoHideMenuBar` Boolean (опціонально) - Автоматично ховати панель меню, якщо кнопка `Alt` натиснута. За замовчуванням `false`.
   * `enableLargerThanScreen` Boolean (опціонально) - Дозволяти робити вікно більшим за екран. За замовчуванням `false`.
-  * `backgroundColor` String (опціонально) - колір фону вікна, як шістнадцяткове значення, як `#66CD00` чи `#FFF` чи `#80FFFFFF` (альфа підтримується). За замовчуванням `#FFF` (білий).
+  * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). За замовчуванням `#FFF` (білий).
   * `hasShadow` Boolean (опціонально) - Чи має вікно мати тінь. Реалізовано тільки на macOS. За замовчуванням `true`.
-  * `opacity` Number (опціонально) - Встановити початкову непрозорість вікна, між 0.0 (повність прозоре) та 1.0 (повністю непрозоре). Реалізовано тільки на Windows та macOS.
   * `darkTheme` Boolean (опціонально) - Примусово використовувати темну тему для вікна, працює тільки на деяких середовищах GTK+3. За замовчуванням `false`.
   * `transparent` Boolean (опціонально) - Робить вікно [прозорим](frameless-window.md). За замовчуванням `false`.
   * `type` String (опціонально) - Тип вікна, за замовчуванням нормальне вікно. Дивись детальніше нижче.
@@ -188,8 +186,8 @@ child.once('ready-to-show', () => {
     * `experimentalFeatures` Boolean (опціонально) - Вмикає експериментальні властивості Chromium. За замовчуванням `false`.
     * `experimentalCanvasFeatures` Boolean (опціонально) - Вмикає експериментальні особливості полотна Chromium. За замовчуванням `false`.
     * `scrollBounce` Boolean (опціонально) - Вмикає стрибаючий ефект прокрутки (ефект гумки) на macOS. За замовчуванням `false`.
-    * `blinkFeatures` String (опціонально) - Список особливостей, розділений за допомогою `,`, таких як `CSSVariables,KeyboardEventKey`, доступних для вмикання. Повний список особливостей, що пітримуються, можна знайти в файлі [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70).
-    * `disableBlinkFeatures` String (опціонально) - Список особливостей, розділений за допомогою `,`, таких як `CSSVariables,KeyboardEventKey`, доступних для вимикання. Повний список особливостей, що пітримуються, можна знайти в файлі [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70).
+    * `blinkFeatures` String (опціонально) - Список особливостей, розділений за допомогою `,`, таких як `CSSVariables,KeyboardEventKey`, доступних для вмикання. Повний список особливостей, що пітримуються, можна знайти в файлі [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
+    * `disableBlinkFeatures` String (опціонально) - Список особливостей, розділений за допомогою `,`, таких як `CSSVariables,KeyboardEventKey`, доступних для вимикання. Повний список особливостей, що пітримуються, можна знайти в файлі [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
     * `defaultFontFamily` Object (опціонально) - Встановлює шрифт за замовчуванням для сімейства шрифтів. 
       * `standard` String (опціонально) - За замовчуванням `Times New Roman`.
       * `serif` String (опціонально) -За замовчуванням `Times New Roman`.
@@ -201,7 +199,7 @@ child.once('ready-to-show', () => {
     * `defaultMonospaceFontSize` Integer (опціонально) - За замовчуванням `13`.
     * `minimumFontSize` Integer (опціонально) - За замовчуванням ``.
     * `defaultEncoding` String (опціонально) - За замовчуванням `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (опціонально) - Чи забороняти анімацію і таймери, коли сторінка стає фоновою. Це також впливає на [Page Visibility API](#page-visibility). За замовчуванням `true`.
+    * `backgroundThrottling` Boolean (опціонально) - Чи забороняти анімацію і таймери, коли сторінка стає фоновою. This also affects the \[Page Visibility API\]\[#page-visibility\]. За замовчуванням `true`.
     * `offscreen` Boolean (опціонально) - Чи вмикати позаекранний рендеринг вікна браузера. За замовчуванням `false`. Дивіться [інструкцію позаекранного рендерингу](../tutorial/offscreen-rendering.md) для детальнішої інформації.
     * `contextIsolation` Boolean (опціонально) - Чи запускати API Electron і визначені `preload` скрипти в окремому контексті JavaScript. За замовчуванням `false`. Контекст, в якому будуть запускатися `preload` скрипти, все ще буде мати повний доступ до глобальних `document` і `window`, але буде використовувати власні визначені JavaScript вбудовані конструкції (`Array`, `Object`, `JSON`, тощо) і буде ізольований від змін глобального середовища під час завантаження сторінки. API Electron буде доступне тільки в `preload` скрипті, аое не на завантаженій сторінці. Цю поцію слід використовувати, коли підвантажується потенційно ненадійний контент віддалений, щоб переконатися, що вміст не зможе втрутитися в `preload` скрипт і API Electron не буде використане. Ця опція використовує таку саму техніку як і [Контент Скрипти Chrome](https://developer.chrome.com/extensions/content_scripts#execution-environment). Цей контекст доступний в інтрументах розробника при виборі пункту 'Ізольований Контекст Electron' в полі зі списком вгорі вкладки Консоль. **Примітка:** Ця опція наразі екпериментальна і може бути змінена чи видалена в майбутніх релізах Electron.
     * `nativeWindowOpen` Boolean (опціонально) - Чи використовувати нативну `window.open()`. За замовчуванням `false`. **Примітка:** Ця опція наразі експериментальна.
@@ -217,7 +215,7 @@ child.once('ready-to-show', () => {
   * Тип `desktop` розміщує вікно на рівні фону робочого столу (`kCGDesktopWindowLevel - 1`). Зауважте, що вікно робочого столу не отримає фокус, події клавіаутри чи мишки, але ви можете використати `globalShortcut`, щоб отримати бідний ввід.
 * На Windows, допустимим типом є `toolbar`.
 
-### Події Екземпляру
+### Події екземпляру
 
 Об'єкти створені за допомогою `new BrowserWindow` викликають наступні події:
 
@@ -250,11 +248,9 @@ window.onbeforeunload = (e) => {
   // будь-якого значення буде мовчки скасовувати закриття вікна.
   // Рекомендується використати API діалогу, щоб дозволити користувачу підтвердити закриття
   // застосунку.
-  e.returnValue = false // аналогічно до `return false` але не рекомендовано
+  e.returnValue = false
 }
 ```
-
-***Примітка**: Є тонка різниця між поведінками `window.onbeforeunload = handler` та `window.addEventListener('beforeunload', handler)`. Рекомендується завжди встановлювати `event.returnValue` явно, замість того, щоб просто повертати значення, так як перше працює більш постійно з Electron.*
 
 #### Подія: 'closed'
 
@@ -410,12 +406,6 @@ win.on('app-command', (e, cmd) => {
 * `webContents` [WebContents](web-contents.md)
 
 Повертає `BrowserWindow` - Вікно, яке володіє переданим `webContents`.
-
-#### `BrowserWindow.fromBrowserView(browserView)`
-
-* `browserView` [BrowserView](browser-view.md)
-
-Повертає `BrowserWindow | null` - Вікно, яке володіє переданим `browserView`. Якщо переданий вигляд не прикріплений ні до якого вікна, повертається `null`.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -586,18 +576,6 @@ win.loadURL('https://github.com')
 #### `win.isFullScreen()`
 
 Повертає `Boolean` - Чи вікно в повноекранному режимі.
-
-#### `win.setSimpleFullScreen(flag)` *macOS*
-
-* `flag` Boolean
-
-Входить в чи виходить з простого повноекранного режиму.
-
-Простий повноекранний режим емулює нативну поведінку повноекранного режиму до версії Mac OS X Lion (10.7).
-
-#### `win.isSimpleFullScreen()` *macOS*
-
-Повертає `Boolean` - Чи вікно в простому повноекранному режимі.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -974,16 +952,6 @@ Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to conv
 
 На Windows та Linux завжди повертає `true`.
 
-#### `win.setOpacity(opacity)` *Windows* *macOS*
-
-* `opacity` Number - між 0.0 (повністю прозоре) та 1.0 (повністю непрозоре)
-
-Задає непрозорість вікна. На Linux не робить нічого.
-
-#### `win.getOpacity()` *Windows* *macOS*
-
-Повертає `Number` - між 0.0 (повністю прозоре) та 1.0 (повністю непрозоре)
-
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
@@ -1005,7 +973,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 `flags` це масив, що може містити наступні `String`:
 
 * `enabled` - Кнопка активна та доступна юзеру.
-* `disabled` - Кнопка відключена. Врна присутня, але має вигляд, такої, що не буде реагувати на дії користувача.
+* `disabled` - Кнопка відключена. Вона присутня, але має вигляд, такої, що не буде реагувати на дії користувача.
 * `dismissonclick` - Коли на кнопку натискають, панель мініатюр негайно закривається.
 * `nobackground` - Не малювати границі кнопки, використовувати тільки зображення.
 * `hidden` - Кнопка не відображається користувачу.
@@ -1082,11 +1050,9 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 **Примітка:** Цей API завжди повертає false на Windows.
 
-#### `win.setIgnoreMouseEvents(ignore[, options])`
+#### `win.setIgnoreMouseEvents(ignore)`
 
 * `ignore` Boolean
-* `options` Object (опціонально) 
-  * `forward` Boolean (опціонально) *Windows* - Якщо true, передають повідомлення про рухи мишки в Chromium, в тому числі пов'язані з мишкою події такими як `mouseleave`. Використовується тільки якщо `ignore` дорівнює true. Якщо `ignore` дорівнює false, передавання завжди вимкнене незважаючи на поточне значення.
 
 Примушує вікно ігнорувати всі події мишки.
 
@@ -1126,32 +1092,6 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 Вказує чи приховувати курсор під час друку.
 
-#### `win.selectPreviousTab()` *macOS*
-
-Вибирає попередню вкладку, якщо ввімкнено нативні вкладки та існують інші вкладки у вікні.
-
-#### `win.selectNextTab()` *macOS*
-
-Вибирає наступну вкладку, якщо ввімкнено нативні вкладки та існують інші вкладки у вікні.
-
-#### `win.mergeAllWindows()` *macOS*
-
-Об'єднує всі вікна в одне вікно з вкладками, якщо ввімкнено нативні вкладки та існує більш ніж одне відкрите вікно.
-
-#### `win.moveTabToNewWindow()` *macOS*
-
-Переміщує поточну вкладку в нове вікно, якщо ввімкнено нативні вкладки і існує більш ніж одна вкладка в поточному вікні.
-
-#### `win.toggleTabBar()` *macOS*
-
-Показує чи ховає панелі вкладок, якщо ввімкнено нативні вкладки, і є тільки одна вкладка в поточному вікні.
-
-#### `win.addTabbedWindow(browserWindow)` *macOS*
-
-* `browserWindow` BrowserWindow
-
-Додає вікно як вкладку на цьому вікні, після вкладки вікна екземпляра.
-
 #### `win.setVibrancy(type)` *macOS*
 
 * `type` String - Може бути `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` чи `ultra-dark`. Дивіться [документацію macOS ](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) для деталей.
@@ -1169,9 +1109,5 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 #### `win.setBrowserView(browserView)` *Експериментальний*
 
 * `browserView` [BrowserView](browser-view.md)
-
-#### `win.getBrowserView()` *Експериментальний*
-
-Повертає `BrowserView | null` - прикріплений BrowserView. Повертає `null`, якщо немає прикіпленого.
 
 **Примітка:** BrowserView API наразі є експериментальним і може бути зміненим чи видаленим з майбутніх версій Electron.
