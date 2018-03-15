@@ -9,7 +9,7 @@ The `shell` modul menyediakan fungsi yang berkaitan dengan integrasi desktop.
 Contoh membuka URL di browser default pengguna:
 
 ```javascript
-const {shell} = require('electron')
+onst {shell} = require('electron')
 
 shell.openExternal('https://github.com')
 ```
