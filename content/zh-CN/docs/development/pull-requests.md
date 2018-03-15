@@ -87,20 +87,20 @@ $ git commit
 
 2. 将第二行留空。
 
-3. Wrap all other lines at 72 columns.
+3. 每行文字在72列处换行。
 
-See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
+有关如何编写好的 git 提交消息的更多示例, 请参见 [ 本文 ](https://chris.beams.io/posts/git-commit/)。
 
 ### 步骤6: 合并分支
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+提交更改后, 最好使用 ` git rebase ` (而不是 ` git merge `) 将您的工作与主代码库同步。
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` master.
+这可确保您的工作分支具有来自 ` electron/electron ` master 分支的最新更改。
 
 ### 步骤7: 测试
 
