@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` Dizgi
-* `seçenekler` Nesne (isteğe bağlı) 
+* `seçenekler` Obje (opsiyonel) 
   * `cache` Mantıksal - Önbelleği etkinleştirip etkinleştirmeyeceğini belirtir.
 
 `Oturum` Döndürür - `bölümden` bir oturum örneği metini. Aynı `partition`'a sahip olan `Session` varsa, döndürülecektir; aksi taktirde `Session` örneği `options` ile yaratılacaktır.
@@ -220,11 +220,11 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
   * `istek` Nesne 
     * `hostname` Dizgi
     * `certificate` [sertifika](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` Dizgi - Kromdan doğrulama sonucu.
+    * `errorCode` Tamsayı - Hata kodu.
   * `geri aramak` Function 
     * `doğrulama Sonucu` Tamsayı: Değer sertifika hata kodlarından olabilir [buraya](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
-      * `` - Indicates success and disables Certificate Transparency verification.
+      * `` - Sonucu gösterir ve Sertifika Şeffaflığı doğrulamasını devre dışı bırakır.
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
 
@@ -248,13 +248,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `halledici` Function | null 
+* `halledici` İşlev | boş 
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri aramak` Function 
     * `permissionGranted` Boolean - İzin verme veya reddetme
 
-Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. To clear the handler, call `setPermissionRequestHandler(null)`.
+Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. İşleyiciyi temizlemek için `setPermissionRequestHandler(null)`'i çağırın.
 
 ```javascript
 const {session} = require('electron')
@@ -333,7 +333,7 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 
 Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
 
-### Örnek Özellikleri
+### Örnek Özellikler
 
 Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 
