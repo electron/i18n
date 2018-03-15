@@ -84,7 +84,7 @@ RTFでクリップボードに `text` を書き込みます。
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+クリップボード内のブックマークを表す `title` と `url` のキーを含む Object を返します。 ブックマークが無効なとき、`title` と `url` の値は空文字です。
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -92,7 +92,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 * `url` String
 * `type` String (任意)
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+ブックマークとしてクリップボードに `title` と `url` を書き込みます。
 
 **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
@@ -125,7 +125,7 @@ Clears the clipboard content.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
-### `clipboard.has(format[, type])` (*実験的*)
+### `clipboard.has(format[, type])` *実験的*
 
 * `format` String
 * `type` String (任意)
@@ -137,19 +137,19 @@ const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` (*実験的*)
+### `clipboard.read(format)` *実験的*
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` (*実験的*)
+### `clipboard.readBuffer(format)` *実験的*
 
 * `format` String
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
-### `clipboard.writeBuffer(format, buffer[, type])` (*実験的*)
+### `clipboard.writeBuffer(format, buffer[, type])` *実験的*
 
 * `format` String
 * `buffer` Buffer
@@ -160,11 +160,11 @@ Writes the `buffer` into the clipboard as `format`.
 ### `clipboard.write(data[, type])`
 
 * `data` Object 
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the url at `text`.
+  * `text` String (任意)
+  * `html` String (任意)
+  * `image` [NativeImage](native-image.md) (任意)
+  * `rtf` String (任意)
+  * `bookmark` String (任意) - URLのタイトルの `text`。
 * `type` String (任意)
 
 ```javascript
