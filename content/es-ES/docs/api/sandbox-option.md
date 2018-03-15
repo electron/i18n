@@ -39,7 +39,7 @@ Para habilitar la caja de arena impuesta por el OS en `BrowserWindow` o por el p
 ```js
 let win
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  // no hay necesidad de pasar`sandbox: true` ya que `--enable-sandbox` fue habilitada.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
