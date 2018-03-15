@@ -70,7 +70,7 @@ const constraints = {
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `seçenekler` Nesnesi 
+* `options` Nesnesi 
   * `types` Dizi[] - Yakalanacak masaüstü kaynaklarının türlerini listeleyen dizelerin bir dizisi, kullanılabilir türleri `screen` ve `window`' dir.
   * `thumbnailSize` [Size](structures/size.md) (İsteğe Bağlı) - Ortam kaynağı küçük resminin boyutlandırılacağı boyut. Varsayılan `150` x `150`.
 * `geri aramak` Function 
