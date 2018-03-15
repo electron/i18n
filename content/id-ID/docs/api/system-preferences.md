@@ -174,10 +174,10 @@ bersama dengan notifikasi.&lt;/p>
                       </li>
                     </ul>
                     <p>
-                      Returns <code>any</code> - The value of <code>key</code> in system preferences.
+                      Returns <code>any</code> - The value of <code>key</code> in <code>NSUserDefaults</code>.
                     </p>
                     <p>
-                      This API uses <code>NSUserDefaults</code> on macOS. Some popular <code>key</code> and <code>type</code>s are:
+                      Some popular <code>key</code> and <code>type</code>s are:
                     </p>
                     <ul>
                       <li>
@@ -217,19 +217,30 @@ bersama dengan notifikasi.&lt;/p>
                       </li>
                     </ul>
                     <p>
-                      Set the value of <code>key</code> in system preferences.
+                      Set the value of <code>key</code> in <code>NSUserDefaults</code>.
                     </p>
                     <p>
                       Perhatikan bahwa <code>tipe</code> harus sesuai dengan tipe <code>nilai</code> yang sebenarnya. Sebuah pengecualian dilemparkan jika tidak.
                     </p>
                     <p>
-                      This API uses <code>NSUserDefaults</code> on macOS. Some popular <code>key</code> and <code>type</code>s are:
+                      Some popular <code>key</code> and <code>type</code>s are:
                     </p>
                     <ul>
                       <li>
                         <code>ApplePressAndHoldEnabled</code>: <code>boolean</code>
                       </li>
                     </ul>
+                    <h3>
+                      <code>systemPreferences.removeUserDefault(key)</code> <em>macOS</em>
+                    </h3>
+                    <ul>
+                      <li>
+                        <code>kunci</code> senar
+                      </li>
+                    </ul>
+                    <p>
+                      Removes the <code>key</code> in <code>NSUserDefaults</code>. This can be used to restore the default or global value of a <code>key</code> previously set with <code>setUserDefault</code>.
+                    </p>
                     <h3>
                       <code>systemPreferences.isAeroGlassEnabled()</code> <em>Windows</em>
                     </h3>
