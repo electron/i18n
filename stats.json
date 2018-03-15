@@ -159,14 +159,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9102",
-    "translated": "4528",
+    "translated": "4573",
     "approved": "227",
     "words": "82831",
-    "words_translated": "33462",
+    "words_translated": "33823",
     "words_approved": "1092",
     "translated_progress": 40,
     "approved_progress": 1,
-    "qa_issues": "131"
+    "qa_issues": "134"
   },
   {
     "name": "Korean",
@@ -211,14 +211,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9102",
-    "translated": "3130",
+    "translated": "3135",
     "approved": "76",
     "words": "82831",
-    "words_translated": "20040",
+    "words_translated": "20235",
     "words_approved": "148",
     "translated_progress": 24,
     "approved_progress": 0,
-    "qa_issues": "961"
+    "qa_issues": "962"
   },
   {
     "name": "Russian",
