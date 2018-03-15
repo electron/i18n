@@ -116,14 +116,14 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' *macOS*
 
-* `event` Event
+* `event` Събитие
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
 
-* `event` Event
+* `event` Събитие
 * `text` String - the dropped text string
 
 Emitted when dragged text is dropped in the tray icon.
