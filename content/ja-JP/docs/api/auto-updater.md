@@ -4,18 +4,13 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`autoUpdater` モジュールは [Squirrel](https://github.com/Squirrel) フレームワークのためのインターフェイスを提供します
+**アプリケーションに自動更新を実装する方法についての詳細なガイドは [ここ](../tutorial/updates.md) にあります。**
 
-これらのプロジェクトの 1 つを使用して、アプリケーションを配布するため、マルチプラット フォーム リリース サーバーを迅速に起動できます。
+## プラットフォームに関する注意事項
 
-* [ナッツ](https://github.com/GitbookIO/nuts): 1 A スマート リリース サーバー、アプリケーションのバックエンドとして GitHub を使ってします。リス (Mac ・ Windows) と自動更新</em>
-* [電子リリース サーバー](https://github.com/ArekSredzki/electron-release-server): *A 完全におすすめの電子アプリケーションの自動アップデートと互換性のあるリリース サーバーを自己ホスト型*
-* [リスの更新サーバー](https://github.com/Aluxian/squirrel-updates-server): *Squirrel.Mac と Squirrel.Windows GitHub のリリースを使用しての簡単な node.js サーバー*
-* [リス リリース サーバー](https://github.com/Arcath/squirrel-release-server): 1 A フォルダーから更新プログラムを読み取り、Squirrel.Windows の単純な PHP アプリケーション。 デルタ更新プログラムをサポートしています</em>。
+現在のところ、macOSとWindowsしかサポートされていません。Linuxでは、自動アップデータの組み込みサポートがないので、アプリを更新するためにディストリビューションのパッケージマネージャーを使うことを推奨しています。
 
-## プラットフォームごとの通知
-
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+さらに、各プラットフォームではいくつかの微妙な違いがあります。
 
 ### macOS
 
@@ -33,13 +28,9 @@ Squirrelで作成されたインストーラは、例えば、`com.squirrel.slac
 
 Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイルホストに更新プログラムをホストすることができます。 Squirrel.Windowsの仕組みの詳細については、[Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) のドキュメントをお読みください。
 
-### Linux
-
-Linux では、自動アップデーターの組み込みサポートがないので、ディストリビューションのパッケージ マネージャーを使用してアプリを更新することをお勧め。
-
 ## イベント
 
-`autoUpdater` オブジェクトは以下のイベントを発生させます。
+`autoUpdater` オブジェクトでは以下のイベントが発生します。
 
 ### イベント: 'error'
 
@@ -47,19 +38,19 @@ Linux では、自動アップデーターの組み込みサポートがない�
 
 * `error` Error
 
-更新中にエラーがあるときに出力されます。
+更新中にエラーがあるときに発生します。
 
 ### イベント: 'checking-for-update'
 
-更新が始まったかどうかをチェックするときに放出されます。
+更新処理が開始されたかをチェックするときに発生します。
 
 ### イベント: 'update-available'
 
-利用可能な更新がある場合に生成されます。更新プログラムが自動的にダウンロードされます。
+利用可能な更新プログラムがあるときに発生します。更新プログラムは自動的にダウンロードされます。
 
 ### イベント: 'update-not-available'
 
-利用可能な更新がない場合に出力されます。
+利用可能な更新プログラムがないときに発生します。
 
 ### イベント: 'update-downloaded'
 
@@ -82,7 +73,7 @@ Windowsでは `releaseName` のみ利用可能です。
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders`*MacOS* (オプション) - HTTP リクエスト ヘッダーをオブジェクトします。
+* `requestHeaders` Object *MacOS* (任意) - HTTPリクエストヘッダー。
 
 `url` を設定して自動更新を初期化します。
 
@@ -92,7 +83,7 @@ Windowsでは `releaseName` のみ利用可能です。
 
 ### `autoUpdater.checkForUpdates()`
 
-更新プログラムがあるかどうかをサーバーに要求します。この API を使用する前に `setFeedURL` を呼び出す必要があります。
+更新プログラムがあるかをサーバーに問い合わせます。このAPIを使用する前に `setFeedURL` を呼び出さなければなりません。
 
 ### `autoUpdater.quitAndInstall()`
 
