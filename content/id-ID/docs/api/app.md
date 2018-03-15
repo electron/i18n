@@ -170,43 +170,42 @@ Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untu
   * `event</ 0> Acara</li>
 </ul>
 
-<p>Emitted when the user clicks the native macOS new tab button. The new
-tab button is only visible if the current <code>BrowserWindow` has a `tabbingIdentifier`</p> 
-    ### Event: 'browser-window-blur'
+<p>Emitted saat pengguna mengklik tombol tab baru macOS asli. Tombol tab baru hanya terlihat jika arus <code>BrowserWindow` memiliki `tabbingIdentifier`</p> 
+    ### Acara: 'browser-window-blur'
     
     Pengembalian:
     
     * `event</ 0> Acara</li>
 <li><code>window` [BrowserWindow](browser-window.md)
     
-    Emitted when a [browserWindow](browser-window.md) gets blurred.
+    Emitted ketika [browserWindow](browser-window.md) menjadi kabur.
     
-    ### Event: 'browser-window-focus'
+    ### Acara: 'browser-window-focus'
     
     Pengembalian:
     
     * `event</ 0> Acara</li>
 <li><code>window` [BrowserWindow](browser-window.md)
     
-    Emitted when a [browserWindow](browser-window.md) gets focused.
+    Emitted ketika [browserWindow](browser-window.md) terpusat.
     
-    ### Event: 'browser-window-created'
+    ### Acara: 'browser-window-created'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `acara` Acara
     * `window` [BrowserWindow](browser-window.md)
     
-    Emitted when a new [browserWindow](browser-window.md) is created.
+    Emitted ketika baru [browserWindow](browser-window.md) dibuat.
     
-    ### Event: 'web-contents-created'
+    ### Acara: 'isi web-dibuat'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `event</ 0> Acara</li>
 <li><code>webContents` [WebContents](web-contents.md)
     
-    Emitted when a new [webContents](web-contents.md) is created.
+    Emitted ketika baru [webContents](web-contents.md) dibuat.
     
     ### Acara: 'sertifikat-kesalahan'
     
@@ -214,13 +213,13 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
     
     * `event</ 0> Acara</li>
 <li><code>webContents` [WebContents](web-contents.md)
-    * ` url </ 0> String</li>
-<li><code>error` String - Kode kesalahan
+    * `url` String
+    * `error` String - Kode kesalahan
     * `sertifikat` [Sertifikat](structures/certificate.md)
     * `callback` Fungsi 
-      * `isTrusted` Boolean - Whether to consider the certificate as trusted
+      * `isTrusted` Boolean - Apakah akan mempertimbangkan sertifikat sebagai terpercaya
     
-    Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+    Emitted ketika gagal untuk memverifikasi `certificate` untuk `url`, untuk mempercayai sertifikat Anda harus mencegah perilaku default dengan `event.preventDefault ()` dan memanggil `callback(true)`.
     
     ```javascript
 const {app} = require ('electron') app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
@@ -237,16 +236,17 @@ const {app} = require ('electron') app.on('certificate-error', (event, webConten
 
 Pengembalian:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `event</ 0> Acara</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Sertifikat[]](structures/certificate.md)
 * `callback` Fungsi 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `sertifikat` [Sertifikat](structures/certificate.md) (opsional)
 
 Emitted ketika sertifikat klien diminta.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+The ` url </ 0> sesuai dengan entri navigasi meminta sertifikat klien dan <code> callback </ 0> bisa disebut dengan entri disaring dari daftar. Menggunakan
+ <code>event.preventDefault()` mencegah aplikasi menggunakan sertifikat pertama dari toko.
 
 ```javascript
 const {app} = require('electron') app.on('select-client-certificate', (event, webContents, url, list, callback) => {
@@ -257,15 +257,15 @@ const {app} = require('electron') app.on('select-client-certificate', (event, we
 
 ### Acara: 'login'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Event
+* `acara` Acara
 * `webContents` [WebContents](web-contents.md)
-* `permintaan` Sasaran 
+* `permintaan` Obyek 
   * `method` String
   * `url` URL
   * `perujuk` URL
-* `authInfo` Sasaran 
+* `authInfo` Obyek 
   * ` isProxy </ 0>  Boolean</li>
 <li><code>skema` String
   * `host` String
@@ -277,7 +277,7 @@ Mengembalikan:
 
 Emitted ketika `webContents` ingin melakukan auth dasar.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Perilaku default adalah membatalkan semua otentikasi, untuk menimpa ini Anda harus mencegah perilaku default dengan `event.preventDefault()` dan panggil `callback(nama pengguna, kata sandi)` dengan kredensial.
 
 ```javascript
 const {app} = require('electron') app.on('login', (event, webContents, request, authInfo, callback) => {
@@ -286,59 +286,59 @@ const {app} = require('electron') app.on('login', (event, webContents, request, 
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Acara: 'proses-gpu-jatuh'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Event
+* `acara` Acara
 * `terbunuh` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Emitted saat proses gpu macet atau terbunuh.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Event: 'aksesibilitas-support-changed' *macOS* *Windows*
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `acara` Acara
+* `aksesibilitasSupportEnabled` Boolean - `true` saat dukungan aksesibilitas Chrome diaktifkan, `false` sebaliknya.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Emitted saat dukungan aksesibilitas Chrome berubah. Peristiwa ini terjadi saat teknologi bantu, seperti pembaca layar, diaktifkan atau dinonaktifkan. Lihat https://www.chromium.org/developers/design-documents/accessibility untuk lebih jelasnya.
 
 ## Metode
 
-The `app` object has the following methods:
+The `aplikasi` objek memiliki metode berikut:
 
 **Catatan:** Beberapa metode hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Cobalah untuk menutup semua jendela. The `sebelum-berhenti` acara akan dipancarkan pertama. Jika semua jendela berhasil ditutup, `akan-berhenti` acara akan dipancarkan dan secara default aplikasi akan mengakhiri.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Metode ini menjamin bahwa semua `beforeunload` dan `unload` event handlers dijalankan dengan benar. Ada kemungkinan bahwa sebuah jendela membatalkan berhenti dengan mengembalikan `false` pada pengendali event *Beforeunload</code>.</p> 
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (opsional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Keluar segera dengan `exitCode `. `exitCode` default ke 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Semua jendela akan ditutup segera tanpa meminta pengguna dan `sebelum-berhenti` dan `akan-berhenti` tidak akan dipancarkan.
 
 ### `app.relaunch([options])`
 
-* `pilihan` Objek (pilihan) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `pilihan` Objek (opsional) 
+  * `args` String[] - (opsional)
+  * `execPath` String (opsional)
 
-Relaunches the app when current instance exits.
+Luncurkan ulang aplikasi saat instance saat ini keluar.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Secara default, contoh baru akan menggunakan direktori kerja dan argumen baris perintah yang sama dengan instance saat ini. Bila `args` ditentukan, `args` akan dilewatkan sebagai argumen baris perintah. Ketika `execPath` dispesifikasikan, `execPath` akan dieksekusi untuk diluncurkan kembali alih-alih aplikasi saat ini.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Perhatikan bahwa metode ini tidak berhenti dari aplikasi saat dijalankan, Anda harus memanggil `app.quit` atau `app.exit` setelah memanggil `app.relaunch` ke buat aplikasi restart.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Saat `app.relaunch` dipanggil berkali-kali, beberapa contoh akan dimulai setelah instance saat ini keluar.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Contoh untuk me-restart instance saat ini segera dan menambahkan argumen baris perintah baru ke instance baru:
 
 ```javascript
 const {app} = require ('electron') app.relaunch({args: process.argv.slice(1).concat(['-- relaunch'])}) app.exit(0)
@@ -346,197 +346,198 @@ const {app} = require ('electron') app.relaunch({args: process.argv.slice(1).con
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Mengembalikan `Boolean` - `true` jika Elektron selesai menginisialisasi, `false` sebaliknya.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Di Linux, fokus pada jendela yang pertama terlihat. Di macos, buat aplikasi yang aktif. Pada Windows, fokus pada jendela pertama aplikasi.
 
-### `app.hide()` *macOS*
+### `app.hide()` *macos*
 
-Hides all application windows without minimizing them.
+Menyembunyikan semua jendela aplikasi tanpa meminimalkannya.
 
-### `app.show()` *macOS*
+### `app.show()` *macos*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Menunjukkan jendela aplikasi setelah disembunyikan. Tidak secara otomatis memfokuskannya.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Mengembalikan `String` - Direktori aplikasi saat ini.
 
-### `app.getPath(name)`
+### `app.getPath(nama)`
 
 * `nama` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Mengembalikan `String` - Path ke direktori khusus atau file yang terkait dengan `nama`. Pada kegagalan sebuah `Error` dilempar.
 
-You can request the following paths by the name:
+Anda dapat meminta jalur berikut dengan nama:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
+* `home` Direktori home pengguna.
+* `dataaplikasi` Direktori data aplikasi per pengguna, yang secara default menunjuk ke: 
+  * `%APPDATA%` di Windows
+  * `$XDG_CONFIG_HOME` atau `~/.config` di Linux
+  * `~/Library/Application Support` di macos
+* `userData` Direktori untuk menyimpan file konfigurasi aplikasi Anda, yang secara default merupakan direktori `appData` yang ditambahkan dengan nama aplikasi Anda.
+* `temp` Direktori sementara.
+* `exe` File eksekusi saat ini.
+* `modul` The `libchromiumcontent` perpustakaan.
+* `desktop` Direktori Desktop pengguna saat ini.
+* `dokumen` Direktori untuk "My Documents" pengguna.
+* `download` Direktori untuk download pengguna.
+* `musik` Direktori untuk musik pengguna.
+* `gambar` Direktori untuk gambar pengguna.
+* `video` Direktori untuk video pengguna.
 * `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Path lengkap ke versi sistem plugin Pepper Flash.
+
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `pilihan` Objek (pilihan) 
-  * `ukuran` Tali 
-    * `small` - 16x16
+* `pilihan` Objek (opsional) 
+  * `ukuran` Deretan 
+    * `kecil` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `besar` - 48x48 di *Linux*, 32x32 pada *Windows*, tidak didukung di *macOS*.
 * `callback` Fungsi 
   * Kesalahan `kesalahan`
   * `ikon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Mengambil ikon terkait jalur.
 
-On *Windows*, there a 2 kinds of icons:
+Pada *Windows*, ada 2 macam ikon:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Ikon terkait dengan ekstensi file tertentu, seperti `.mp3`, `.png`, dll.
+* Ikon di dalam file itu sendiri, seperti `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+Pada *Linux* dan *macOS*, ikon bergantung pada aplikasi yang terkait dengan jenis file mime.
 
-### `app.setPath(name, path)`
+### `app.setPath(nama, path)`
 
-* `nama` String
-* `path` String
+* ` nama </ 0>  String</li>
+<li><code> path </ 0>  String</li>
+</ul>
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+<p>Menimpa <code>path` ke direktori khusus atau file yang terkait dengan `nama`. Jika path menentukan direktori yang tidak ada, direktori akan dibuat dengan metode ini. Pada kegagalan sebuah `Error` dilempar.</p> 
+  Anda hanya dapat menimpa jalur dari `nama` didefinisikan dalam `app.getPath`.
+  
+  Secara default, cookie dan cache halaman web akan disimpan di bawah direktori `userData`. Jika Anda ingin mengubah lokasi ini, Anda harus mengganti path `userData` sebelum event `ready` dari modul `app` dipancarkan.
+  
+  ### `app.getVersion()`
+  
+  Mengembalikan `String` - Versi aplikasi yang dimuat. Jika tidak ada versi yang ditemukan di file `package.json` aplikasi, versi dari paket saat ini atau yang dapat dijalankan akan dikembalikan.
+  
+  ### `app.getName()`
+  
+  Mengembalikan `String` - Nama aplikasi saat ini, yang merupakan nama di file `package.json` aplikasi.
+  
+  Biasanya `nama` bidang `package.json` adalah nama lowercased singkat, menurut npm modul spec. Anda juga harus menentukan bidang `productName`, yang merupakan nama lengkap kapitalisasi aplikasi Anda, dan mana yang lebih disukai dari `nama`oleh Elektron.
+  
+  ### `app.setName(nama)`
+  
+  * ` nama </ 0>  String</li>
+</ul>
 
-You can only override paths of a `name` defined in `app.getPath`.
+<p>Mengabaikan nama aplikasi saat ini.</p>
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+<h3><code>app.getLocale()`</h3> 
+    Mengembalikan `String` - Lokal aplikasi saat ini. Nilai pengembalian yang mungkin didokumentasikan [di sini](locales.md).
+    
+    **Catatan:** Saat mendistribusikan aplikasi yang dikemas, Anda juga harus mengirimkan map `locales`.
+    
+    **Catatan:** Pada Windows Anda harus meneleponnya setelah `ready` dipancarkan.
+    
+    ### `app.addRecentDocument(path)` *macOS* *Windows*
+    
+    * ` path </ 0>  String</li>
+</ul>
 
-### `app.getVersion()`
-
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
-
-### `app.getName()`
-
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
-
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
-
-### `app.setName(name)`
-
-* `nama` String
-
-Overrides the current application's name.
-
-### `app.getLocale()`
-
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
-
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
-
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
-
-### `app.addRecentDocument(path)` *macOS* *Windows*
-
-* `path` String
-
-Adds `path` to the recent documents list.
-
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
-
-### `app.clearRecentDocuments()` *macOS* *Windows*
-
-Clears the recent documents list.
-
-### `app.setAsDefaultProtocolClient(protocol[, path, args])`
-
-* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
-
-Mengembalikan `Boolean` - Apakah panggilan berhasil.
-
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
-
-On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
-
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
-
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
-
-### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
-
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
-
-Mengembalikan `Boolean` - Apakah panggilan berhasil.
-
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
-
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
-
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
-
-Returns `Boolean`
-
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
-
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
-
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
-
-### `app.setUserTasks(tasks)` *Windows*
-
-* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
-
-Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
-
-`tasks` is an array of [`Task`](structures/task.md) objects.
-
-Mengembalikan `Boolean` - Apakah panggilan berhasil.
-
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
-
-### `app.getJumpListSettings()` *Windows*
-
-Mengembalikan `Objek`:
-
-* `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
-### `app.setJumpList(categories)` *Windows*
-
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
-
-Sets or removes a custom Jump List for the application, and returns one of the following strings:
-
-* `ok` - Nothing went wrong.
-* `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
-* `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
-* `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
-
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
-
-** Catatan: </ 0> Jika objek ` JumpListCategory </ 1> tidak memiliki <code> tipe </ 1> atau <code> nama </ 1> 
+<p>Menambahkan <code>path` ke daftar dokumen terbaru.</p> 
+      Daftar ini dikelola oleh OS. Pada Windows Anda bisa mengunjungi daftar dari task bar, dan di macos Anda bisa mengunjunginya dari menu dock.
+      
+      ### `app.clearRecentDocuments()` *macOS* *Windows*
+      
+      Bersihkan daftar dokumen terakhir.
+      
+      ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
+      
+      * `protocol` String - Nama protokol Anda, tanpa `://`. Jika Anda ingin aplikasi Anda menangani tautan `elektron://`, hubungi metode ini dengan `elektron` sebagai parameternya.
+      * `path` String (opsional) *Windows* - Default ke `process.execPath`
+      * `args` String[] (opsional) *Windows* - Default ke array kosong
+      
+      Mengembalikan `Boolean` - Apakah panggilan berhasil.
+      
+      Metode ini menetapkan executable saat ini sebagai pengendali default untuk sebuah protokol (alias skema URI). Ini memungkinkan Anda mengintegrasikan aplikasi Anda lebih dalam ke dalam sistem operasi. Setelah terdaftar, semua link dengan `your-protocol://` akan dibuka dengan executable saat ini. Seluruh link, termasuk protokol, akan diteruskan ke aplikasi Anda sebagai parameter.
+      
+      Pada Windows Anda dapat menyediakan jalur parameter opsional, jalur ke executable Anda, dan args, serangkaian argumen yang akan dikirimkan ke executable Anda saat diluncurkan.
+      
+      **Catatan:** Pada macOS, Anda hanya dapat mendaftarkan protokol yang telah ditambahkan ke aplikasi `info.plist`, yang tidak dapat diubah saat runtime. Namun Anda dapat mengubah file dengan editor teks sederhana atau skrip selama waktu pembuatan. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) untuk rincian.
+      
+      The API menggunakan Windows Registry dan LSSetDefaultHandlerForURLScheme internal.
+      
+      ### `app.removeAsDefaultProtocolClient(protokol[, path, args])` *macOS* *Windows*
+      
+      * `protocol` String - Nama protokol Anda, tanpa `://`.
+      * `path` String (opsional) *Windows* - Default ke `process.execPath`
+      * `args` String[] (opsional) *Windows* - Default ke array kosong
+      
+      Mengembalikan `Boolean` - Apakah panggilan berhasil.
+      
+      Metode ini memeriksa apakah saat ini dapat dieksekusi sebagai pengendali default untuk sebuah protokol (alias skema URI). Jika demikian, itu akan menghapus aplikasi sebagai penangan default.
+      
+      ### `app.isDefaultProtocolClient(protokol[, path, args])` *macOS* *Windows*
+      
+      * `protocol` String - Nama protokol Anda, tanpa `://`.
+      * `path` String (opsional) *Windows* - Default ke `process.execPath`
+      * `args` String[] (opsional) *Windows* - Default ke array kosong
+      
+      Mengembalikan `Boolean`
+      
+      Metode ini memeriksa apakah executable saat ini adalah default handler untuk sebuah protokol (alias skema URI). Jika demikian, itu akan kembali benar. Jika tidak, itu akan kembali salah.
+      
+      **Catatan:** Pada macOS, Anda dapat menggunakan metode ini untuk memeriksa apakah aplikasi telah terdaftar sebagai pengendali protokol default untuk sebuah protokol. Anda juga dapat memverifikasi ini dengan memeriksa `~/Library/Preferences/com.apple.LaunchServices.plist` pada mesin macOS. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) untuk rincian.
+      
+      The API menggunakan Windows Registry dan LSCopyDefaultHandlerForURLScheme internal.
+      
+      ### `app.setUserTasks(tugas)` *Windows*
+      
+      * `tugas` [ Tugas[] ](structures/task.md) - Array dari `Tugas` objek
+      
+      Tambahkan `tugas` ke kategori [Tugas](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) JumpList di Windows.
+      
+      `tugas` adalah berbagai dari [`Tugas`](structures/task.md) benda.
+      
+      Mengembalikan `Boolean` - Apakah panggilan berhasil.
+      
+      **Catatan:** Jika Anda ingin menyesuaikan Daftar Langsung gunakan lebih banyak lagi `app.setJumpList(categories)`.
+      
+      ### `app.getJumpListSettings()` *Windows*
+      
+      Mengembalikan `Objek`:
+      
+      * `minItems` Integer - The minimum jumlah item yang akan ditampilkan dalam Daftar Langsung (untuk penjelasan lebih rinci tentang nilai ini melihat [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+      * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array dari `JumpListItem` objek yang sesuai dengan item yang telah dihapus pengguna dari kategori khusus dalam Daftar Langsung. Item ini tidak boleh ditambahkan kembali ke Daftar Langsung di panggilan **berikutnya** ke `app.setJumpList()`, Windows tidak akan menampilkan kategori khusus yang berisi salah satu dari yang dihapus item.
+      ### `app.setJumpList(kategori)` *Windows*
+      
+      * `kategori` [JumpListCategory[]](structures/jump-list-category.md) atau `nol` - Array of `JumpListCategory` benda.
+      
+      Mengatur atau menghapus Daftar Langsung kustom untuk aplikasi, dan mengembalikan salah satu dari string berikut:
+      
+      * `ok` - Tidak ada yang salah.
+      * `error` - Satu atau beberapa kesalahan terjadi, aktifkan logging runtime untuk mengetahui kemungkinan penyebabnya.
+      * `invalidSeparatorError` - Upaya dilakukan untuk menambahkan pemisah ke kategori khusus dalam Daftar Langsung. Pemisah hanya diperbolehkan dalam kategori `Tugas` standar.
+      * `fileTypeRegistrationError` - Upaya dilakukan untuk menambahkan tautan file ke Daftar Langsung untuk jenis file yang tidak terdaftar dalam aplikasi.
+      * `customCategoryAccessDeniedError` - Kategori khusus tidak dapat ditambahkan ke Daftar Langsung karena pengaturan kebijakan privasi atau grup pengguna.
+      
+      Jika `kategori` adalah `null` daftar Jump kustom yang telah ditetapkan sebelumnya (jika ada) akan diganti oleh Daftar Langsung standar untuk aplikasi (dikelola oleh Windows).
+      
+      ** Catatan: </ 0> Jika objek ` JumpListCategory </ 1> tidak memiliki <code> tipe </ 1> atau <code> nama </ 1> 
 properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> . If the <code>name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.</p> 
-
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
-
-Here's a very simple example of creating a custom Jump List:
-
-```javascript
+      
+      **Catatan:** Pengguna dapat menghapus item dari kategori khusus, dan Windows tidak mengizinkan item yang dihapus ditambahkan ke dalam kategori khusus sampai **setelah** panggilan sukses berikutnya ke `app.setJumpList(kategori)`. Setiap usaha untuk menambahkan kembali item yang dihapus ke kategori khusus lebih awal dari pada itu akan mengakibatkan keseluruhan kategori khusus dihilangkan dari Daftar Langsung. Daftar item yang dihapus dapat diperoleh dengan menggunakan `app.getJumpListSettings()`.
+      
+      Berikut adalah contoh sederhana untuk membuat Daftar Langsung kustom:
+      
+      ```javascript
 const {app} = require ('electron') app.setJumpList([
    {
      type: 'custom',
@@ -590,28 +591,28 @@ const {app} = require ('electron') app.setJumpList([
 }
 ])
 ```
-
-### `app.makeSingleInstance(callback)`
-
-* `callback` Fungsi 
-  * `argv` String[] - An array of the second instance's command line arguments
-  * `workingDirectory` String - The second instance's working directory
-
-Returns `Boolean`.
-
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
-
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
-
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
-
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
-
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
-
-An example of activating the window of primary instance when a second instance starts:
-
-```javascript
+  
+  ### `app.makeSingleInstance(callback)`
+  
+  * `panggilan balik` Fungsi 
+    * `argv` String[] - Sebuah array dari argumen baris perintah kedua
+    * `workingDirectory` String - Direktori kerja contoh kedua
+  
+  Mengembalikan `Boolean`.
+  
+  Metode ini membuat aplikasi Anda menjadi Aplikasi Instan Tunggal - alih-alih membiarkan beberapa contoh aplikasi Anda berjalan, ini akan memastikan bahwa hanya satu contoh aplikasi Anda yang berjalan, dan contoh lainnya memberi isyarat contoh ini dan keluar.
+  
+  `callback` akan dipanggil oleh instance pertama dengan `callback(argv, workingDirectory)` ketika instance kedua telah dieksekusi. `argv` adalah argumen argumen baris kedua dari Array, dan `workingDirectory` adalah direktori kerja saat ini. Biasanya aplikasi merespon hal ini dengan membuat jendela utama mereka fokus dan tidak diminimalisir.
+  
+  The `callback` dijamin akan dieksekusi setelah `siap` acara dari `aplikasi` akan dipancarkan.
+  
+  Metode ini mengembalikan `false` jika proses Anda adalah contoh utama aplikasi dan aplikasi Anda harus terus dimuat. Dan mengembalikan `true` jika proses Anda telah mengirimkan parameternya ke instance lain, dan Anda harus segera berhenti.
+  
+  Pada macOS sistem memberlakukan instance tunggal secara otomatis saat pengguna mencoba membuka instance kedua aplikasi Anda di Finder, dan acara `open-file` dan `open-url` akan dipancarkan untuk bahwa. Namun saat pengguna memulai aplikasi Anda di jalur perintah mekanisme contoh tunggal sistem akan dilewati dan Anda harus menggunakan metode ini untuk memastikan satu contoh.
+  
+  Contoh mengaktifkan jendela contoh utama saat instance kedua dimulai:
+  
+  ```javascript
 const {app} = require('electron') biarkan myWindow = null const isSecondInstance = app.makeSingleInstance ((commandLine, workingDirectory) => {
    // Seseorang mencoba untuk menjalankan instance kedua, kita harus memusatkan jendela kita.
   jika (myWindow) {
@@ -624,30 +625,30 @@ app.on('siap', () => {})
 
 ### `app.releaseSingleInstance()`
 
-Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
+Rilis semua kunci yang diciptakan oleh `makeSingleInstance`. Ini akan memungkinkan beberapa contoh aplikasi sekali lagi berjalan berdampingan.
 
-### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
+### `app.setUserAktivitas(ketik, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `ketik` String - Unik mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Objek - Negara khusus aplikasi untuk disimpan untuk digunakan oleh perangkat lain.
+* `webpageURL` String (opsional) - Halaman web dimuat di browser jika tidak ada aplikasi yang sesuai untuk dipasang pada perangkat yang dilanjutkan. Skema ini harus `http` atau `https`.
 
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Membuat `NSUserActivity` dan menetapkannya sebagai aktivitas saat ini. Aktivitas ini memenuhi syarat untuk [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ke perangkat lain sesudahnya.
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Mengembalikan `String` - Jenis aktivitas yang sedang berjalan.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `ketik` String - Unik mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
+* `ketik` String - Unik mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Objek - Negara khusus aplikasi untuk disimpan untuk digunakan oleh perangkat lain.
 
 Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
 
@@ -655,91 +656,91 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Ubah [User ID Model Aplikasi](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) menjadi `id`.
 
-### `app.importCertificate(options, callback)` *LINUX*
+### `app.importCertificate(opsi, callback)` *LINUX*
 
-* `pilihan` Sasaran 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
+* `pilihan` Obyek 
+  * `sertifikat` String - Path untuk berkas pkcs12.
+  * `kata sandi` String - Passphrase untuk sertifikat.
 * `callback` Fungsi 
-  * `result` Integer - Result of import.
+  * `hasil` Integer - Hasil impor.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Impor sertifikat dalam format pkcs12 ke toko sertifikat platform. `callback` dipanggil dengan `hasil` dari operasi impor, nilai `` menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menurut kromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Nonaktifkan akselerasi perangkat keras untuk aplikasi saat ini.
 
-This method can only be called before app is ready.
+Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+Secara default, Chromium menonaktifkan API 3D (misalnya WebGL) sampai dimulai ulang per basis domain jika proses GPU mogok terlalu sering. Fungsi ini menonaktifkan perilaku itu.
 
-This method can only be called before app is ready.
+Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### `app.getAppMemoryInfo()` *Tidak berlaku lagi*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Pengembalian [`ProcessMetric[]`](structures/process-metric.md): Array dari `ProcessMetric` benda-benda yang sesuai dengan memori dan penggunaan cpu statistik dari semua proses yang terkait dengan aplikasi. **Catatan:** Metode ini tidak berlaku lagi, gunakan `app.getAppMetrics()`.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Pengembalian [`ProcessMetric[]`](structures/process-metric.md): Array dari `ProcessMetric` benda-benda yang sesuai dengan memori dan penggunaan cpu statistik dari semua proses yang terkait dengan aplikasi.
 
 ### `app.getGPUFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Mengembalikan [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Status Fitur Gambar dari `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
-* `count` Integer
+* `hitung` Integer
 
 Mengembalikan `Boolean` - Apakah panggilan berhasil.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Menetapkan lencana penghitung untuk aplikasi saat ini. Menetapkan hitungan ke `` akan menyembunyikan lencana.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+Di macOS itu terlihat di ikon dermaga. Di Linux hanya bekerja untuk Unity launcher,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Unity launcher mensyaratkan adanya a `.desktop` file untuk bekerja, untuk informasi lebih lanjut silahkan baca [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Mengembalikan `Integer` - Nilai saat ini ditampilkan di lencana penghitung.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Mengembalikan `Boolean` - Apakah lingkungan desktop saat ini adalah Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `pilihan` Objek (pilihan) 
-  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+* `pilihan` Objek (opsional) 
+  * `path` String (opsional) *Windows* - Jalur yang dapat dieksekusi untuk dibandingkan dengan. Default ke `process.execPath`.
+  * `args` String[] (opsional) *Windows* - Argumen baris perintah untuk membandingkan lawan. Default ke array kosong.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Jika Anda memberikan `path` dan `args` pilihan untuk `app.setLoginItemSettings` maka Anda harus melewati argumen yang sama di sini untuk `openAtLogin` untuk diatur dengan benar.
 
 Mengembalikan `Objek`:
 
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
-* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
-* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+* `openAtLogin` Aljabar Boolean - `benar` jika app diatur untuk membuka di login.
+* `openAsHidden` Boolean - `true` jika aplikasi disetel untuk dibuka sebagai tersembunyi saat masuk. Pengaturan ini hanya didukung pada macOS.
+* `isOpenedAtLogin` Boolean - `true` jika aplikasi dibuka saat masuk secara otomatis. Pengaturan ini hanya didukung pada macOS.
+* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. Ini menunjukkan bahwa aplikasi tidak boleh membuka jendela saat startup. Pengaturan ini hanya didukung pada macOS.
+* `restoreState` Boolean - `true` jika aplikasi dibuka sebagai item masuk yang harus mengembalikan negara dari sesi sebelumnya. Ini menunjukkan bahwa apl harus mengembalikan jendela yang buka terakhir kali aplikasi ditutup. Pengaturan ini hanya didukung pada macOS.
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Catatan:** API ini tidak berpengaruh pada [MAS membangun](../tutorial/mac-app-store-submission-guide.md).
 
-### `app.setLoginItemSettings(settings)` *macOS* *Windows*
+### `app.setLoginItemSettings(pengaturan)` *macOS* *Windows*
 
-* `settings` Sasaran 
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
-  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+* `pengaturan` Obyek 
+  * `openAtLogin` Boolean (opsional) - `true` untuk membuka aplikasi saat masuk, `false` untuk menghapus aplikasi sebagai item masuk. Default ke `false`.
+  * `openAsHidden` Boolean (opsional) - `true` untuk membuka aplikasi sebagai tersembunyi. Default ke `false`. Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi `app.getLoginItemStatus().BeenOpenedAsHidden` harus diperiksa saat aplikasi dibuka untuk mengetahui nilai saat ini. Pengaturan ini hanya didukung pada macOS.
+  * `path` String (opsional) *Windows* - Eksekusi untuk diluncurkan saat login. Default ke `process.execPath`.
+  * `args` String[] (opsional) *Windows* - Argumen baris perintah untuk lolos ke eksekusi. Default ke array kosong. Berhati-hatilah untuk membungkus jalan dengan tanda petik.
 
-Set the app's login item settings.
+Tetapkan setelan item masuk aplikasi.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Sebagai contoh:
+Untuk bekerja dengan < AutoUpdater `Elektron` pada Windows, yang menggunakan [Squirrel](https://github.com/Squirrel/Squirrel.Windows), Anda ingin menyetel jalur peluncuran ke Update.exe, dan meneruskan argumen yang menentukan nama aplikasi Anda. Sebagai contoh:
 
 ```javascript
 const appFolder = path.dirname(process.execPath) const updateExe = path.resolve(appFolder, '..', 'Update.exe') const exeName = path.basename(process.execPath) app.setLoginItemSettings ({
@@ -751,11 +752,11 @@ const appFolder = path.dirname(process.execPath) const updateExe = path.resolve(
    ]})
 ```
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Catatan:** API ini tidak berpengaruh pada [MAS membangun](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Mengembalikan `Boolean` - `true` jika dukungan aksesibilitas Chrome diaktifkan, `salah` sebaliknya. API ini akan mengembalikan `true` jika penggunaan teknologi bantu, seperti pembaca layar, telah terdeteksi. Lihat https://www.chromium.org/developers/design-documents/accessibility untuk lebih jelasnya.
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -765,39 +766,39 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.setAboutPanelOptions(opsi)` *macOS*
 
-* `pilihan` Sasaran 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+* `pilihan` Obyek 
+  * `applicationName` String (opsional) - Nama aplikasi.
+  * `applicationVersion` String (opsional) - Versi aplikasi.
+  * `hak cipta` String (opsional) - Informasi hak cipta.
+  * `kredit` String (opsional) - Informasi kredit.
+  * `version` String (opsional) - Nomor versi pembuatan aplikasi.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Tetapkan opsi tentang panel. Ini akan menimpa nilai yang didefinisikan di file `.plist` aplikasi. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut.
 
-### `app.commandLine.appendSwitch(switch[, value])`
+### `app.commandLine.appendSwitch(beralih [, nilai])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `switch` String - Sakelar baris perintah
+* `value` String (opsional) - Nilai untuk saklar yang diberikan
 
-Append a switch (with optional `value`) to Chromium's command line.
+Tambahkan peralihan (dengan `nilai opsional`) ke baris perintah Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Catatan:** Ini tidak akan mempengaruhi `process.argv`, dan terutama digunakan oleh pengembang untuk mengontrol perilaku Kromium beberapa tingkat rendah.
 
-### `app.commandLine.appendArgument(value)`
+### `app.commandLine.appendArgument(nilai)`
 
-* `value` String - The argument to append to the command line
+* `nilai` String - argumen untuk menambahkan ke baris perintah
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
 
-**Note:** This will not affect `process.argv`.
+**Catatan:** Ini tidak akan mempengaruhi `process.argv`.
 
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableMixedSandbox()` *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Mengaktifkan mode kotak pasir campuran di aplikasi.
 
-This method can only be called before app is ready.
+Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
@@ -811,58 +812,58 @@ No confirmation dialog will be presented by default, if you wish to allow the us
 
 **NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
-### `app.dock.bounce([type])` *macOS*
+### `app.dock.bounce()` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `jenis` String (opsional) - dapat `kritis` atau `informasi`. Default adalah `informasi`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Ketika `kritis` dilewatkan, ikon dermaga akan terpental sampai aplikasi menjadi aktif atau permintaan dibatalkan.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Ketika `informasi` dilewatkan, ikon dermaga akan bangkit untuk satu detik. Namun, permintaan tetap aktif sampai aplikasi menjadi aktif atau permintaan dibatalkan.
 
-Returns `Integer` an ID representing the request.
+Mengembalikan `Integer` ID yang mewakili permintaan.
 
-### `app.dock.cancelBounce(id)` *macOS*
+### `app.dock.cancelBounce(id)` Linux *macOS*
 
 * `identitas` Integer
 
-Cancel the bounce of `id`.
+Membatalkan bouncing `id`.
 
-### `app.dock.downloadFinished(filePath)` *macOS*
+### `app.dock.downloadFinished(filePath)` *Windows*
 
 * `format` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Memantapkan Download stack jika filePath ada di dalam folder Downloads.
 
-### `app.dock.setBadge(text)` *macOS*
+### `app.dock.setBadge (teks)` *macOS*
 
 * `teks` String
 
-Sets the string to be displayed in the dock’s badging area.
+Menetapkan string yang akan ditampilkan di area badging dermaga.
 
-### `app.dock.getBadge()` *macOS*
+### `app.dock.getBadge()` *macos*
 
-Returns `String` - The badge string of the dock.
+Mengembalikan `String` - String badge dari dok.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Sembunyikan ikon dok.
 
-### `app.dock.show()` *macOS*
+### `app.dock.show()` *macos*
 
-Shows the dock icon.
+Tampilkan ikon dok.
 
-### `app.dock.isVisible()` *macOS*
+### `app.dock.isVisible()` *macos*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
 
-### `app.dock.setMenu(menu)` *macOS*
+### `app.dock.setMenu(menu)` *macos*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Mengatur aplikasi [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
-### `app.dock.setIcon(image)` *macOS*
+### `app.dock.setIcon(gambar)` *macOS*
 
 * `gambar` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+Menetapkan `gambar` yang terkait dengan ikon dermaga ini.
