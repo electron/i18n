@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+view.webContents.loadURL('https://electron.atom.io')
 ```
 
 ### `new BrowserView([options])` *Experimental*
@@ -36,19 +36,9 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### Métodos estáticos
 
-#### `BrowserView.getAllViews()`
-
-Returns `BrowserView[]` - An array of all opened BrowserViews.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `Contenidosweb` [Contenidosweb](web-contents.md)
-
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
-
 #### `BrowserView.fromId(id)`
 
-* `id` Íntegro
+* `id` Entero
 
 Devuelve `BrowserView` - La vista con el proveido `id`.
 
@@ -70,7 +60,7 @@ Los objetos creados con `new BrowserView` tiene los siguientes métodos de insta
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `opciones` Object 
+* `options` Objeto 
   * `width` Boolean - If `true`, la anchura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
   * `height` Boolean - If `true`, la altura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
 
