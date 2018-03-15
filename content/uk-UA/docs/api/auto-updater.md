@@ -4,18 +4,13 @@
 
 Процес: [Main](../glossary.md#main-process)
 
-Модуль `autoUpdater` надає інтерфейс для фреймворку [Squirrel](https://github.com/Squirrel).
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Ви можете швидко запускати мультиплатформенні релізи для поширення вашого застосунку з використанням одного з цих проектів:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts): *Розумний реліз сервер для ваших застосунків, використовує GitHub як серверну частину. Автооновлюння за допомогою Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Повнофункціональний, резидентний реліз сервер для застосунків electron, сумісний з auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Простий сервер node.js для Squirrel.Mac та Squirrel.Windows, який використовує GitHub релізи*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Простий PHP застосунок для Squirrel.Windows, який читає оновлення з папки. Підтримка дельта оновлень.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Зауваження
-
-Хоча `autoUpdater` надає однозначне API для різних платформ, є деякі тонкі відмінності на різних платформах.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,13 +28,9 @@
 
 На відміну від Squirrel.Mac, Windows може тримати оновлення на S3 чи будь-якому іншому файловому сховищі. Ви можете прочитати документацію [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) для детальнішої інформації як Squirrel.Windows працює.
 
-### Linux
-
-Немає вбудованої підтримки для автооновлення на Linux, тому рекомендовано використовувати наданий пакетний менеджер для оновлення вашого застосунку.
-
 ## Події (Events)
 
-Об'єкт `autoUpdater` викликає наступні події:
+The `autoUpdater` object emits the following events:
 
 ### Подія: 'error'
 
@@ -47,21 +38,21 @@
 
 * `error` Error
 
-Відбувається коли виникає помилка при оновленні.
+Emitted when there is an error while updating.
 
-### Подія: 'checking-for-update'
+### Event: 'checking-for-update'
 
-Відбувається при перевірці чи стартувало оновлення.
+Emitted when checking if an update has started.
 
-### Подія: 'update-available'
+### Event: 'update-available'
 
-Відбуваєтсья коли доступне оновлення. Воно завантажується автоматично.
+Emitted when there is an available update. The update is downloaded automatically.
 
-### Подія: 'update-not-available'
+### Event: 'update-not-available'
 
-Відбувається коли нема доступних оновлень.
+Emitted when there is no available update.
 
-### Подія: 'update-downloaded'
+### Event: 'update-downloaded'
 
 Повертає:
 
@@ -71,31 +62,31 @@
 * `releaseDate` Date
 * `updateURL` String
 
-Вібдувається коли оновлення завантажено.
+Emitted when an update has been downloaded.
 
-На Windows доступне тільки `releaseName`.
+On Windows only `releaseName` is available.
 
 ## Методи
 
-Об'єкт `autoUpdater` має наступні методи:
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (опціонально) - хедери HTTP запиту.
+* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-Встановлює `url` та ініціалізує автоновлення.
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Повертає `String` - Поточна URL для оновлення.
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Запитує сервер чи доступні оновлення. Потрібно викликати `setFeedURL` перед використанням цього API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Перезавантажує застосунок та встановлює оновлення після їх завантаження. Має викликатися тільки після події `update-downloaded`.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-**Примітка:** `autoUpdater.quitAndInstall()` закриє всі вікна застосунку і викличе тільки подію `before-quit`. Це відмінність від нормальної послідовності подій виходу.
+**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
