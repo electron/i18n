@@ -36,7 +36,7 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 <li><code> subtitle </ 0>  String - (opsional) Sebuah subjudul untuk pemberitahuan, yang akan ditampilkan di bawah judul. <em> macos </ 1></li>
 <li><code> tubuh </ 0> String - bahasa teks visual, yang akan ditampilkan di bawah judul atau subjudul</li>
 <li><code> diam </ 0>  Boolean - (opsional) Baik atau tidak untuk mengeluarkan suara pemberitahuan OS saat menampilkan notifikasi</li>
-<li><code>icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
+<li><code>icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
 * ` hasReply </ 0>  Boolean - (opsional) Baik atau tidak untuk menambahkan opsi jawaban sebaris ke perintah.  <em> macos </ 1></li>
 <li><code>balasan pemegang tempat </ 0>  String - (opsional) pemegang tempat untuk menulis di kolom masukan jawaban inline. <em> macos </ 1></li>
 <li><code> suara </ 0>  String - (opsional) Nama file suara yang akan diputar saat pemberitahuan muncul di layar. <em> macos </ 1></li>
@@ -44,7 +44,7 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 </ul></li>
 </ul>
 
-<h3>Contoh peristiwa</h3>
+<h3>Perihal contoh</h3>
 
 <p>Objek yang dibuat dengan <code> Pemberitahuan baru </ 0> memancarkan peristiwa berikut:</p>
 
@@ -61,7 +61,7 @@ Emitted saat pemberitahuan ditunjukkan kepada pengguna, perhatikan bahwa ini dap
 
 <h4>Acara : 'klik'</h4>
 
-<p>Pengembalian:</p>
+<p>Returns:</p>
 
 <ul>
 <li><code>peristiwa` Peristiwa</li> </ul> 
@@ -77,7 +77,7 @@ Pengembalian:
 
 <p>Emitted saat notifikasi ditutup dengan intervensi manual dari pengguna.</p>
 
-<p>This event is not guarunteed to be emitted in all cases where the notification
+<p>This event is not guaranteed to be emitted in all cases where the notification
 is closed.</p>
 
 <h4>Acara : 'balas' <em> macos </ 0></h4>
@@ -96,7 +96,7 @@ is closed.</p>
 <p>Pengembalian:</p>
 
 <ul>
-<li><code>event` Acara
+<li><code>acara` Acara
 * ` masukkan </ 0>  Nomor - Indeks tindakan yang diaktifkan</li>
 </ul>
 
@@ -107,12 +107,16 @@ is closed.</p>
 <h4><code>pemberitahuan.menunjukkan ()`</h4> 
   Segera tunjukkan notifikasi tersebut kepada pengguna, mohon perhatikan hal ini tidak seperti penerapan Pemberitahuan HTML5, cukup memberi contoh ` Notifikasi baru </ 0> tidak segera menunjukkannya kepada pengguna, Anda perlu memanggil metode ini sebelum OS akan ditampilkan. saya t.</p>
 
-<h3>Memutar Suara</h3>
+<p>If the notification has been shown before, this method will dismiss the previously
+shown notification and create a new one with identical properties.</p>
 
-<p>On macOS, you can specify the name of the sound you'd like to play when the
-notification is shown. Any of the default sounds (under System Preferences >
-Sound) can be used, in addition to custom sound files. Be sure that the sound
-file is copied under the app bundle (e.g., <code>YourApp.app/Contents/Resources`), or one of the following locations:
+<h4><code>notification.close()`</h4> 
+  
+  Dismisses the notification.
+  
+  ### Memutar Suara
+  
+  On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
   
   * `~ / Perpustakaan / Suara`
   * `/ Perpustakaan / Suara`
