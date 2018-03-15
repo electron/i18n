@@ -21,7 +21,7 @@ console.log(clipboard.readText('selection'))
 
 ## メソッド
 
-`clipboard` オブジェクトには以下のメソッドがあります。
+`clipboard` モジュールには以下のメソッドがあります。
 
 **注:** 実験的なAPIにはそのように注記があり、将来的に削除される可能性があります。
 
