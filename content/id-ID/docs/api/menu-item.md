@@ -72,9 +72,9 @@ Peran tambahan berikut tersedia pada macOS:
 * `selectprevioustab` - Map to the `selectPreviousTab` action
 * `mergeallwindows` - Map to the `mergeAllWindows` action
 * `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `jendela` - submenu adalah menu "Jendela"
+* `membantu` - submenu adalah menu "Bantuan"
+* `Layanan` - submenu adalah menu "Layanan"
 
 Ketika menentukan `peran` pada macOS, `label` dan `akselerator` adalah satu-satunya pilihan yang akan mempengaruhi menu item. Semua pilihan lain akan diabaikan.
 
