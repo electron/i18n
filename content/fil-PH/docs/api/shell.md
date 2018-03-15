@@ -36,7 +36,7 @@ Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` Tali
+* `url` String - max 2081 characters on windows, or the function returns false
 * `options` Mga bagay (opsyonal) *macOS* 
   * `activate` Boolean - `true` para maipadala ang nakabukas na "application" sa importante nitong posisyon. Ang "default" ay `true`.
 * `callback` "Function" (opsyunal) - Kung ang tiyak na "function" ay gagana nang hindi sabay-sabay. *macOS* 
