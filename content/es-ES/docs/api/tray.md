@@ -72,6 +72,7 @@ El módulo `Tray` emite los siguientes eventos:
   * `ctrlKey` Booleano
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
+* `position` [Point](structures/point.md) - La posición del evento
 
 Emitido cuando se hace clic en el icono de bandeja.
 
@@ -161,6 +162,17 @@ Emitido cuando el ratón entra en el icono de la bandeja.
 
 Emitido cuando el ratón sale del icono de la bandeja.
 
+#### Event: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Booleano
+  * `shiftKey` Booleano
+  * `ctrlKey` Booleano
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - La posición del evento
+
+Emitted when the mouse moves in the tray icon.
+
 ### Métodos de Instancia
 
 The `Tray` class has the following methods:
@@ -225,8 +237,8 @@ win.on('hide', () => {
 
 * `opciones` Objeto 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `title` String
+  * `content` String
 
 Displays a tray balloon.
 
