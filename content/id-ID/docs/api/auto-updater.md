@@ -4,18 +4,13 @@
 
 Process: [Main](../glossary.md#main-process)
 
-Modul `autoUpdater` menyediakan sebuah antarmuka untuk [kerangka Squirrel](https://github.com/Squirrel).
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Anda dapat dengan cepat meluncurkan server pelepasan multi platform untuk mendistribusikannya aplikasi dengan menggunakan salah satu proyek ini:
+## Platform Notices
 
-* [kacang](https://github.com/GitbookIO/nuts): * Server pelepasan cerdas untuk aplikasi Anda, menggunakan GitHub sebagai backend. Pembaruan otomatis dengan Squirrel (Mac & Windows)*
-* [elektron-release-server](https://github.com/ArekSredzki/electron-release-server): * Fitur lengkap, host rilis self-host untuk aplikasi elektron, kompatibel dengan auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Server node.js sederhana untuk Squirrel.Mac dan Squirrel.Windows yang menggunakan rilis GitHub*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Aplikasi PHP sederhana untuk Squirrel.Windows yang membaca update dari sebuah folder. Mendukung pembaruan delta.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Pemberitahuan platform
-
-Meskipun `autoUpdater` menyediakan API seragam untuk berbagai platform, ada Masih ada beberapa perbedaan halus pada setiap platform.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,69 +28,65 @@ Installer yang dihasilkan dengan Squirrel akan membuat shortcut icon dengan [ID 
 
 Tidak seperti Squirrel.Mac, Windows dapat menginangi update pada S3 atau host file statis lainnya. Anda bisa membaca dokumen [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) untuk mendapatkan rincian lebih lanjut tentang bagaimana Squirrel.Windows bekerja.
 
-### Linux
-
-Tidak ada dukungan built-in untuk auto-updater di Linux, jadi dianjurkan untuk melakukannya gunakan manajer paket distribusi untuk memperbarui aplikasi Anda.
-
 ## Acara
 
-Objek `autoUpdater` memancarkan peristiwa berikut:
+The `autoUpdater` object emits the following events:
 
 ### Acara: 'kesalahan'
 
-Pengembalian:
+Mengembalikan:
 
 * Kesalahan `kesalahan`
 
-Emitted saat ada error saat mengupdate.
+Emitted when there is an error while updating.
 
-### Acara: 'check-for-update'
+### Event: 'checking-for-update'
 
-Emitted saat memeriksa apakah update telah dimulai.
+Emitted when checking if an update has started.
 
-### Acara: 'update-available'
+### Event: 'update-available'
 
-dibunyikan saat ada update yang tersedia. Pembaruan diunduh secara otomatis.
+Emitted when there is an available update. The update is downloaded automatically.
 
-### Acara: 'update-tidak-tersedia'
+### Event: 'update-not-available'
 
-Emitted saat tidak ada update yang tersedia.
+Emitted when there is no available update.
 
-### Acara: 'update-download'
+### Event: 'update-downloaded'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Event
 * `releaseNotes` String
 * `releaseName` String
-* `releaseDate` Tanggal
+* `releaseDate` Date
 * `updateURL` String
 
-Emitted saat update telah didownload.
+Emitted when an update has been downloaded.
 
-Di Windows saja `releaseName` tersedia.
+On Windows only `releaseName` is available.
 
 ## Metode
 
-Objek `autoUpdater` memiliki metode berikut:
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
-* `requestHeader` Objek *macOS* (opsional) - header permintaan HTTP.
+* ` url </ 0> String</li>
+<li><code>requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-Menetapkan `url` dan menginisialisasi updater otomatis.
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Mengembalikan `String` - URL feed pembaruan saat ini.
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Meminta server apakah ada update. Anda harus menghubungi `setFeedURL` sebelumnya menggunakan API ini.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Aktifkan ulang aplikasi dan instal pembaruan setelah diunduh. Saya t seharusnya hanya dipanggil setelah `update-download` telah dipancarkan.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-**Catatan:** `autoUpdater.quitAndInstall()` akan menutup semua jendela aplikasi pertama dan hanya memancarkan `sebelum-berhenti` pada `aplikasi` setelah itu. Ini berbeda dari urutan kejadian berhenti normal.
+**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
