@@ -4,13 +4,13 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**您可以在 [这里](../tutorial/updates.md) 找到一个详细的指南，介绍如何将更新应用到您的应用程序。**
 
-## Platform Notices
+## 跨平台提醒
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+目前，只有 macOS 和 Window 支持该功能。在 Linux 上没有对自动更新程序的内置支持，因此建议使用发行版的包管理器来更新您的应用程序。
 
-In addition, there are some subtle differences on each platform:
+此外，每个平台都有一些细微的差别:
 
 ### macOS
 
@@ -30,7 +30,7 @@ In addition, there are some subtle differences on each platform:
 
 ## 事件
 
-The `autoUpdater` object emits the following events:
+`autoUpdater` 对象会触发以下的事件:
 
 ### Event: 'error'
 
@@ -38,19 +38,19 @@ The `autoUpdater` object emits the following events:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+当更新发生错误的时候触发。
 
 ### Event: 'checking-for-update'
 
-Emitted when checking if an update has started.
+当开始检查更新的时候触发。
 
 ### Event: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+当发现一个可用更新的时候触发，更新包下载会自动开始。
 
 ### Event: 'update-not-available'
 
-Emitted when there is no available update.
+当没有可用更新的时候触发。
 
 ### Event: 'update-downloaded'
 
@@ -62,18 +62,18 @@ Emitted when there is no available update.
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+在更新下载完成的时候触发。
 
-On Windows only `releaseName` is available.
+在 Windows 上只有 `releaseName` 是有效的。
 
 ## 方法
 
-The `autoUpdater` object has the following methods:
+`autoUpdater` 对象具有以下方法:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` Object *macOS* (可选) - HTTP 请求头.
 
 Sets the `url` and initialize the auto updater.
 
