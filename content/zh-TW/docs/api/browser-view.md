@@ -74,12 +74,12 @@ Objects created with `new BrowserView` have the following instance methods:
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *試驗中*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *試驗中*
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
