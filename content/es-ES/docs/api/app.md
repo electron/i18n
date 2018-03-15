@@ -111,49 +111,88 @@ Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/
 
 La actividad de un usuario puede ser continuada solo en una aplicación que tenga la misma identificación de equipo de desarrolladores como la la aplicación fuente de las actividades y que soporte los tipos de actividad. Los tipos de actividades soportadas están en el `Info.plist` de la aplicación bajo la llave `NSUserActivityTypes`.
 
-### Evento: 'new-window-for-tab' *macOS*
+### Event: 'will-continue-activity' *macOS*
+
+Devuelve:
+
+* `event` Evento
+* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
+
+### Event: 'continue-activity-error' *macOS*
+
+Devuelve:
+
+* `event` Evento
+* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` Cadena - Una cadena con la descripción localizada del error.
+
+Emitido durante [Manos Libres](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad desde un dispositivo diferente no se reanuda.
+
+### Event: 'activity-was-continued' *macOS*
+
+Devuelve:
+
+* `event` Evento
+* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `Información de Usuario` Objeto: contiene el estado específico de la aplicación almacenado por la actividad.
+
+Emitido durante [Manos Libres](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) después de que se realiza una actividad con éxito en este dispositivo se reanuda en otro.
+
+### Event: 'update-activity-state' *macOS*
+
+Devuelve:
+
+* `event` Evento
+* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `Información de Usuario` Objeto: contiene el estado específico de la aplicación almacenado por la actividad.
+
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+
+### Evento: "new-window-for-tab" *macOS*
 
 Devuelve:
 
 * `event` Evento
 
-Emitido cuando el usuario hace click en el nuevo botón nativo de madOS. El nuevo botón es visible solamente si el `BrowserWindow` actual tiene `tabbingIdentifier`
+Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
-### Evento: 'browser-window-blur'
-
-Devuelve:
-
-* `event` Evento
-* `window` Navegador Windows
-
-Emitido cuando el [browserWindow](browser-window.md) está borroso.
-
-### Evento: 'browser-window-focus'
+### Event: 'browser-window-blur'
 
 Devuelve:
 
 * `event` Evento
-* `window` Navegador Windows
+* `window` [BrowserWindow](browser-window.md)
 
-Emitido cuando se enfoca un [browserWindow](browser-window.md).
+Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Evento: 'browser-window-created'
-
-Devuelve:
-
-* `event` Evento
-* `window` Navegador Windows
-
-Emitido cuando se crea un [browserWindow](browser-window.md).
-
-### Evento: 'web-contenido-creado'
+### Event: 'browser-window-focus'
 
 Devuelve:
 
 * `event` Evento
-* `Contenidosweb` Contenidos Web
+* `window` [BrowserWindow](browser-window.md)
 
-Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
+Emitted when a [browserWindow](browser-window.md) gets focused.
+
+### Event: 'browser-window-created'
+
+Retorna:
+
+* `event` Evento
+* `window` [BrowserWindow](browser-window.md)
+
+Emitted when a new [browserWindow](browser-window.md) is created.
+
+### Event: 'web-contents-created'
+
+Retorna:
+
+* `event` Evento
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+
+Emitted when a new [webContents](web-contents.md) is created.
 
 ### Evento: 'error-certificado'
 
@@ -161,13 +200,13 @@ Devuelve:
 
 * `event` Evento
 * `Contenidosweb` [Contenidosweb](web-contents.md)
-* `url` cadena
+* `url` String
 * `error` cadena - el error del código
 * `certificate` [certificate](structures/certificate.md)
 * `llamada de vuelta` Función 
-  * `isTrusted` Boleano - Si considera que el certificado como de confianza
+  * `isTrusted` Boolean - Whether to consider the certificate as trusted
 
-Emitido cuando falla la verificación de `certificate` por `url`, al confiar en el certificado usted debe prevenir el comportamiento con `event.preventDefault()` y llamar `callback(true)`.
+Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -187,16 +226,16 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Devuelve:
 
-* `event` Evento
-* `webContents`[WebContents](web-contents.md)
+* `evento` Evento
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `url` URL
 * `certificateList`[Certificate[]](structures/certificate.md)
 * `llamada de vuelta` Función 
-  * `certificate`[Certificate](structures/certificate.md)(opcional)
+  * `certificate` [Certificate](structures/certificate.md) (optional)
 
 Emitido cuando el certificado de un cliente es requerido.
 
-La `url` corresponde a la entrada de navegación requerida al certificado del cliente y `callback` puede ser llamado con una entrada filtrada de la lista. Usando `event.preventDefault()` previene que la aplicación use el primer certificado almacenado.
+The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
 
 ```javascript
 const {app} = require('electron')
@@ -207,29 +246,29 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Evento:'login'
+### Evento: 'login'
 
-Devuelve:
+Retorna:
 
-* `event` Evento
+* `evento` Evento
 * `Contenidosweb` [Contenidosweb](web-contents.md)
-* `request` Object 
+* `request` Objeto 
   * `method` Cuerda
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Objeto 
   * `isProxy` Boolean
   * `esquema` Cadena
   * `anfitrión` Cadena
   * `puerto` Íntegro
   * `realm` Cadena
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `username` Cadena
   * `contraseña` Cadena
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 
-El comportamiento por defecto es cancelar todas las autenticaciones, para anular esto usted debería prevenir el comportamiento por defecto con `event.preventDefault()` y llamar `callback (username, password) ` con las credenciales.
+The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const {app} = require('electron')
@@ -240,59 +279,59 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Evento: 'gpu-process-crashed'
+### Event: 'gpu-process-crashed'
 
-Devuelve:
+Retorna:
 
-* `event` Evento
+* `evento` Evento
 * `killed` Booleano
 
-Es emitido cuando el proceso de la gpu se crashea o es terminado.
+Emitted when the gpu process crashes or is killed.
 
-### Evento: 'accessibility-support-changed' *macOS* *Windows*
+### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Devuelve:
+Retorna:
 
-* `event` Evento
-* `accessibilitySupportEnabled` Booleano - `true` cuando el soporte de accesibilidad de Chrome está activado, de lo contrario `false`.
+* `evento` Evento
+* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
-Es emitido cuando el soporte de accesibilidad de Chrome es modificado. Este evento se dispara cuando las tecnologías de asistencia, como un lector de pantalla, sin activados o desactivados. Vea https://www.chromium.org/developers/design-documents/accessibility para mas información.
+Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ## Métodos
 
-El objeto `app` tiene los siguientes métodos:
+The `app` object has the following methods:
 
 **Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
-Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será producido y por defecto la aplicación se cerrará.
+Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
 
-Este método garantiza que todos los eventos de `beforeunload` y `unload` serán correctamente ejecutados. Es posible que una ventana cancele la salida regresando `falso` en el manipulador de eventos `antes de cargar`.
+This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Íntegro (opcional)
+* `exitCode` Integer (optional)
 
-Cierra inmediatamente con `exitCode`. `exitCode` por defecto a 0.
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
-Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los eventos `before-quit` y `will-quit` no se correrán.
+All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
 
 ### `app.relaunch([options])`
 
 * `opciones` Objecto (opcional) 
-  * `args` Cadena[] - (opcional)
-  * `execPath` Cadena (opcional)
+  * `args` String[] - (optional)
+  * `execPath` String (optional)
 
-Reinicia la aplicación cuando la instancia se cierra.
+Relaunches the app when current instance exits.
 
-Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
+By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
-Note que este método no cierta la aplicación cuando esta es ejecutada, tiene que llamar `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
+Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
-Cuando `app.relaunch` es llamada múltiples veces, múltiples instancias serán iniciadas después de que la actual instancia se cierre.
+When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
 
-Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comando de la nueva instancia:
+An example of restarting current instance immediately and adding a new command line argument to the new instance:
 
 ```javascript
 const {app} = require('electron')
@@ -303,195 +342,196 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo contrario `false`.
+Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
 
 ### `app.focus()`
 
-En Linux, el foco se tiene en la primera ventana visible. En macOS, hace que la aplicación se active. En Windows, el foco se tiene en la primera ventana de la aplicación.
+On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
 
 ### `app.hide()` *macOS*
 
-Oculta todas la ventanas de la aplicación sin minimizar estas.
+Hides all application windows without minimizing them.
 
 ### `app.show()` *macOS*
 
-Muestra las ventanas de la aplicación después e que fueron ocultas. No enfoca automáticamente estas.
+Shows application windows after they were hidden. Does not automatically focus them.
 
 ### `app.getAppPath()`
 
-Devuelve `String` - al directorio de la aplicación actual.
+Returns `String` - The current application directory.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Devuelve `cadena` - Una ruta a un directorio especial o a un archivo asociado con un `nombre`. Cuando hay una falla se lanza un `Error`.
+Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-Usted puede pedir las siguientes direcciones por nombre:
+You can request the following paths by the name:
 
-* `Inicio` Directorio de inicio del usuario.
-* `appData` Directorio de la información de la aplicación por usuario, que lleva por defecto a: 
-  * `%APPDATA%` en Windows
-  * `$XDG_CONFIG_HOME` o `~/.config` en Linux
-  * `~/Library/Application Support` en marcOS
-* `Información del usuario` El directorio para almacenar los archivos de la configuración de su aplicación, que es el directorio `appData` por defecto unida con el nombre de su aplicación.
-* `temp` Directorio temporal.
-* `exe` Archivo ejecutable en curso.
-* `module` la librería `libchromiumcontent`.
-* `escritorio` El directorio del escritorio del usuario en curso.
-* `documentos` Directorio para la carpeta "Mis documentos" del usuario.
-* `descargas` Directorio para las descargas del usuario.
-* `musica` Directorio para la música del usuario.
-* `imágenes` Directorio para las imágenes del usuario.
-* `videos` Directorio para las imágenes del usuario.
-* `pepperFlashSystemPlugin` Camino completo a la versión del sistema del plugin pepper flash.
+* `home` User's home directory.
+* `appData` Per-user application data directory, which by default points to: 
+  * `%APPDATA%` on Windows
+  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
+  * `~/Library/Application Support` on macOS
+* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
+* `temp` Temporary directory.
+* `exe` The current executable file.
+* `module` The `libchromiumcontent` library.
+* `desktop` The current user's Desktop directory.
+* `documents` Directory for a user's "My Documents".
+* `downloads` Directory for a user's downloads.
+* `music` Directory for a user's music.
+* `pictures` Directory for a user's pictures.
+* `videos` Directory for a user's videos.
+* `logs` Directory for your app's log folder.
+* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opciones` Object (opcional) 
-  * `tamaño` String 
-    * `pequeño` - 16x16
+* `opciones` Objecto (opcional) 
+  * `size` String 
+    * `small` - 16x16
     * `normal` - 32x32
-    * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
-* `callback` Función 
+    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+* `llamada de vuelta` Función 
   * `error` Error
-  * `ícono` [NativeImage](native-image.md)
+  * `icon` [NativeImage](native-image.md)
 
-Busca un ícono asociado a la ruta.
+Fetches a path's associated icon.
 
-En *Windows*, Hay dos tipos de íconos:
+On *Windows*, there a 2 kinds of icons:
 
-* Íconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
-* Íconos dentro del archivo mismo, como `.exe`, `.dll`, `.ico`.
+* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
+* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
 
-En *Linux* y *macOS*, los íconos dependen de la aplicación asociada al tipo de archivo.
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
 ### `app.setPath(name, path)`
 
 * `name` String
-* `path` String
+* `path` Cadena
 
-Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. Si el camino especificado a un directorio no existe, el directorio será creado por el siguiente método. En caso de fallar se lanza un `Error`.
+Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
-Solo puede sobre escribir rutas de de un `nombre` definido en `app.getPath`.
+You can only override paths of a `name` defined in `app.getPath`.
 
-Por defecto, las cookies y el caché de una página web serán almacenados en el directorio `userData`. Si quiere cambiar su localización, tiene que reescribir la ruta de `Dato de Usuario` ante que el evento `listo` del módulo de la `app` sea emitido.
+By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
 ### `app.getVersion()`
 
-Regresa `Cadena` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
+Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
 
 ### `app.getName()`
 
-Regresa `Cadena` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
+Returns `String` - The current application's name, which is the name in the application's `package.json` file.
 
-Usualmente el campo `nombre` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones del módulo npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
+Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
 ### `app.setName(name)`
 
 * `name` String
 
-Reescribe el nombre de la aplicación actual.
+Overrides the current application's name.
 
 ### `app.getLocale()`
 
-Regresa `Cadena` - La localización actual de la aplicación. Los valores posibles son documentados [aquí](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
 
-**Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
+**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
-**Nota:** En Windows tiene que llamarlo antes de que el evento `listo` sea emitido.
+**Note:** On Windows you have to call it after the `ready` events gets emitted.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
-* `path` String
+* `path` Cadena
 
-Añade la `ruta` a la lista de documentos recientes.
+Adds `path` to the recent documents list.
 
-Esta lista es administrada por el sistema operativo. En Windows puede visitar la lista desde la barra de tareas, y en macOS puede acceder a ella desde el menú dock.
+This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Borra la lista de documentos recientes.
+Clears the recent documents list.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
-* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
-* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
+* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `path` String (optional) *Windows* - Defaults to `process.execPath`
+* `args` String[] (optional) *Windows* - Defaults to an empty array
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-Este método configura el ejecutable actual como por defecto a utilizar por un protocolo (esquema aka URI). Esto le permite integrar la profundidad de la aplicación dentro del sistema operativo. Una vez registrado, todos los enlaces con `your-protocol://` serán abiertos con el ejecutable. El enlace completo, incluyendo el protocolo, será enviado a su aplicación como un parámetro.
+This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
-En Windows, puede proveer una opción de ruta opcional, la ruta a su ejecutable, y args, un arreglo de argumento para ser pasados a su ejecutable cuando este se lance.
+On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
-**Nota:** En macOS, solo puede registrar protocolos que han sido añadidos a la `info.plist` de su aplicación, que no puede ser modificada mientras la aplicación esté corriendo. Usted también puede modificar el archivo con un editor de texto o script durante su creación. Vea la [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) para mas información.
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
 
-El API usa el registro de Windows y LSSetDefaultHandlerForURLScheme internamente.
+The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
-* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
-* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
+* `protocol` String - The name of your protocol, without `://`.
+* `path` String (optional) *Windows* - Defaults to `process.execPath`
+* `args` String[] (optional) *Windows* - Defaults to an empty array
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-Este método verifica si el ejecutable actual como el manejador por defecto para un protocolo (aka Esquema URI). Si es así, removerá la aplicación como el manejador por defecto.
+This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
-* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
-* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
+* `protocol` String - The name of your protocol, without `://`.
+* `path` String (optional) *Windows* - Defaults to `process.execPath`
+* `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Devuelve `Boolean`
+Returns `Boolean`
 
-Este método verifica si el ejecutable acutal es el manejador por defecto para un protocolo (aka esquema URI). Si es así, regresará verdad. de otra manera, regresará falso.
+This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
-**Nota:** En macOS puede usar este método para verificar si la aplicación ha sido registrada como controladora por defecto para un protocolo. También puedes verificar esto al marcar `~/Library/Preferences/com.apple.LaunchServices.plist` en el dispositivo macOS. Por favor vea la [documentación de Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) para detalles.
+**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
 
-El API usa el registro de Windows y LSCopyDefaultHandlerForURLScheme internamente.
+The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tarea` [Tarea[]](structures/task.md) - Arreglo de objetos `Tarea`
+* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
 
-Añade `tareas` a la categoría [Tareas](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) de la JumpList en Windows.
+Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
 
-`tareas` es un arreglo de objetos [`Task`](structures/task.md).
+`tasks` is an array of [`Task`](structures/task.md) objects.
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-**Nota:** Si quisiese personalizar la lista de saltos aún más use en su lugar `app.setJumpList(categories)`.
+**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
 ### `app.getJumpListSettings()` *Windows*
 
 Devuelve `Objecto`:
 
-* `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `remover elementos` [JumpListItem[]](structures/jump-list-item.md) - Arreglo de los objetos `JumpListItem` a elementos que el usuario ha removido explícitamente de la categoría personalizada en la Jump list. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
+* `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categorías` [categoría Jump list[]](structures/jump-list-category.md) o `nulos` - Arreglo de objetos en la `categoría jump list`.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
 
-Configura o remueve una Jump list personalizada para la aplicación, y devuelve una de las siguientes cadenas:
+Sets or removes a custom Jump List for the application, and returns one of the following strings:
 
-* `ok` - Nada salió mal.
-* `error` - Uno o más errores ocurrieron, habilite el registro del tiempo de corrida para averiguar la causa probable.
-* `Error que no se pudo separar` - se realizó un intento de de añadir un separador a una categoría personalizada de Jump List. Separadores son permitidos solo en la categoría `Tareas`.
-* `Error en el registro del archivo` - Fue realizado un intento de añadir el enlace del archivo a la Jump list para un tipo de archivo que la aplicación no está registrada para controlar.
-* `Error Acceso a categoría personalizada negado` - Cateogrías personalizadas no pueden ser añadidas a la Jump List debido a la privacidad del usuario o a la política del grupo.
+* `ok` - Nothing went wrong.
+* `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
+* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
+* `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
+* `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
 
-Si la `categoría` es `nula` la configuración personalizada previa de la Jump List (si hay alguna) será reemplazada por la Jump List estándar para la aplicación (manejada por Windows).
+If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Nota:** Si un objeto`JumpListCategory` no tiene el `tipo` o el `nombre` configurados apropiadamente, se asume que su `tipo` es `tasks`. Si la propiedad `nombre` es configurada pero la propiedad `tipo` es omitida, se asume que `tipo` es `personalizado`.
+**Nota:** Si un objeto de `JumpListCategory` no tiene ni el `tipo` ni el `nombre` de su conjunto de propiedad, se asume que su `tipo` es `tareas`. Si la propiedad `nombre` está establecida pero la propiedad `tipo` se omite entonces el `tipo` se asume que el tipo es `personalizado`.
 
-**Nota:** Usuarios pueden remover elementos de las categorías personalizadas y Windows no permitirá que un elemento removido sea añadido de nuevo a la categoría personalizada hasta **después** del siguiente llamado exitoso a `app.setJumpList(categories)`. Cualquier intento de añadir nuevamente el elemento a la categoría personalizada antes que eso resultará en que la categoría entera sea omitida de la Jump List. La lista de elemento removidos puede ser obtenida usando `app.getJumpListSettings()`.
+**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
-Aquí hay un ejemplo sencillo de cómo crear una Jump List personalizada:
+Here's a very simple example of creating a custom Jump List:
 
 ```javascript
 const {app} = require('electron')
@@ -552,23 +592,23 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Función 
-  * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
-  * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
+* `llamada de vuelta` Función 
+  * `argv` String[] - An array of the second instance's command line arguments
+  * `workingDirectory` String - The second instance's working directory
 
-Devuelta `Boolean`.
+Returns `Boolean`.
 
-Este método hace de tu aplicación una de segunda instancia - además de permitir que tu aplicación se ejecuta de muchas instancias, esto asegurará que solo una instancia única de tu aplicación se esté ejecutando, y otras señales de instancias a esta instancia y sale.
+This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
-`callback` será llamado por la primera instancia con `callback(argv, workingDirectory)` cuando una segunda instancia ha sido ejecutada. `argv` es un arreglo de las líneas de argumentos de segunda instancia, y `workingDirectory` es su directorio de trabajo actual. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
+`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
 
-El `callback` está garantizado de ser ejecutado luego del evento `ready` de `app` sea emitido.
+The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
-Este método devuelve `false` si tu proceso es la instancia primaria de la aplicación y tu aplicación debería continuar cargando. Y devuelve `true` si tu proceso ha enviado sus parámetros otra instancia y debería retirarse inmediatamente.
+This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
 
-En macOS, el sistema fuerza instancias únicas automáticamente cuando los usuarios intentan abrir una segunda instancia de tu aplicación en Finder, y los eventos `open-file` y `open-url` serán emitidos por eso. Como sea, cuando los usuarios inicien tu aplicación en línea de comando, los mecanismos de instancia única del sistema serán puenteados y tendrás que usar este método para asegurar la única instancia.
+On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
-Un ejemplo de activar la ventana de la instancia primaria cuando una de segunda instancia se inicia:
+An example of activating the window of primary instance when a second instance starts:
 
 ```javascript
 const {app} = require('electron')
@@ -593,109 +633,122 @@ app.on('ready', () => {
 
 ### `app.releaseSingleInstance()`
 
-Suelta todos los bloqueos que fueron creados por `makeSingleInstance`. Esto permitirá que múltiples instancias de la aplicación se ejecuten nuevamente de lado a lado.
+Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` Caden - Raramente identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Objeto - Específicos estados de aplicaciones de la tiendo para usar en otro dispositivo.
-* `webpageURL` Cadena (opcional) - La página web a cargar en un buscador, si no es adecuada para aplicaciones, es instalada en el dispositivo a resumir. El esquema debe ser `http` o`https`.
+* `type` String - Uniquely identifies the activity. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - App-specific state to store for use by another device.
+* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
-Crea un `NSUserActivity` y se establece como la actividad actual. La actividad es elegible para [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) a otro dispositivo luego.
+Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Devuelve `String` - El tipo de la actividad que se está ejecutando actualmente.
+Returns `String` - The type of the currently running activity.
+
+### `app.invalidateCurrentActivity()` *macOS*
+
+* `type` String - Uniquely identifies the activity. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.updateCurrentActivity(type, userInfo)` *macOS*
+
+* `type` String - Uniquely identifies the activity. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - App-specific state to store for use by another device.
+
+Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` Cadena
 
-Cambia el [Id Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) a `id`.
+Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `opciones` Object 
-  * `cetificado` Cadena - camino para el archivo pkcs12.
-  * `contraseña` Cadena - Frase clave para el certificado.
-* `callback` Función 
-  * `resultado` Entero - Resultado del importe.
+* `opciones` Objeto 
+  * `certificate` String - Path for the pkcs12 file.
+  * `password` String - Passphrase for the certificate.
+* `llamada de vuelta` Función 
+  * `result` Integer - Result of import.
 
-Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` es llamado con `result` para importar operaciones, un valor de `` indica que fue exitoso, mientras que otro valor indica un error acorde a chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
-Desactiva la aceleración por hardware para esta aplicación.
+Disables hardware acceleration for current app.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+This method can only be called before app is ready.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-Por defecto, Chromium desactiva 3D APIs (ej., WebGL) hasta reiniciar por dominio si el proceso de GPU crashea frecuentemente. Esta función desactiva ese comportamiento.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+This method can only be called before app is ready.
 
 ### `app.getAppMemoryInfo()` *Deprecated*
 
-Devuelve [`ProcessMetric[]`](structures/process-metric.md): el conjunto de objetos `ProcessMetric` corresponden a las estadísticas de uso de memoria ram y cpu de todos los procesos asociados con la aplicación. **Nota:** Este método está obsoleto, utilice `app.getAppMetrics()` en su lugar.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
 
 ### `app.getAppMetrics()`
 
-Devuelve [`ProcessMetric[]`](structures/process-metric.md): el conjunto de objetos `ProcessMetric` corresponden a las estadísticas de uso de memoria ram y cpu de todos los procesos asociados con la aplicación.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
-### `app.getGpuFeatureStatus()`
+### `app.getGPUFeatureStatus()`
 
-Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de la función de gráficos de `chrome://gpu/`.
+Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
-* `count` Entero
+* `count` Integer
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-Establece el distintivo en contra para la aplicación actual. Establecer la cuenta a `` esconderá el distintivo.
+Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
-En macOS se mostrará en el icono del muelle. En Linux solo funciona para los ejecutadores de Unity
+On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
-**Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Devolver `Entero` - El valor actual establecido en la insignia contraria.
+Returns `Integer` - The current value displayed in the counter badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador de Unity.
+Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `opciones` Objecto (opcional) 
-  * `path` Cadena (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
-  * `args` Cadena[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
+  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
+  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
-Si tú has dado las opciones `path` y `args` a `app.setLoginItemSettings` entonces tú necesitas pasar los mismos argumentos aquí para `openAtLogin` para que se establezca correctamente.
+If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
 Devuelve `Objecto`:
 
-* `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
-* `openAsHidden` Boolean - `true` si la aplicación se establece para que se abra escondida al iniciarse. Este ajuste es solo compatible para macOS.
-* `wasOpenedAtLogin` Boolean - `true` si la aplicación fuera abierta automáticamente. Este ajuste es solo compatible con macOS.
-* `wasOpenedAsHidden` Boolean - `true` si la aplicación fuera abierta como un inicio de objeto escondido. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. Este ajuste es solo compatible con macOS.
-* `restoreState` Boolean - `true` si la aplicación fue abierta como un objeto que debería restaurar el estado de la sesión anterior. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. Este ajuste es solo compatible con macOS.
+* `openAtLogin` Boolean - `true` if the app is set to open at login.
+* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
+* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
+* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
+* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
 
-**Nota:** Este API no tiene efecto en [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `ajustes` Objeto 
-  * `openAtLogin` Boolean (opcional) - `true` para abrir la aplicación al iniciar, `false` para eliminar la aplicación como un objeto de inicio. Por defecto a `false`.
-  * `openAsHidden` Boolean (opcional) - `true` para abrir la aplicación como escondida. Por defecto a `false`. El usuario puede editar este ajuste desde Preferencias del Sistema, así que `app.getLoginItemStatus().wasOpenedAsHidden` debería ser revisado cuando la aplicación sea abierta para saber el valor actual. Este ajuste solo es compatible en macOS.
-  * `path` String (opcional) *Windows* - El ejecutable para iniciar al iniciar. Por defecto a `process.execPath`.
-  * `args` Cadena[] (opcional) *Windows* - Los argumentos de líneas de comando para pasar al ejecutable. Por defecto a un arreglo vacío. Ten cuidado de envolver los caminos en las citas.
+* `settings` Objeto 
+  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
+  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
+  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
+  * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
-Establece los objetos de inicio de ajuste de la aplicación.
+Set the app's login item settings.
 
-Para trabajar con `autoUpdater` de Electron en Windows, el cual usa [Squirrel](https://github.com/Squirrel/Squirrel.Windows), querrás establecer el camino de ejecución de Update.exe, y pasarán los argumentos que especifican el nombre de tu aplicación. Por ejemplo:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Por ejemplo:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -712,98 +765,118 @@ app.setLoginItemSettings({
 })
 ```
 
-**Nota:** Este API no tiene efecto en [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Devuelve `Boolean` - `true` si la accesibilidad de soporte de Chrome es habilitado, o `false` de otra manera. Esta API devolverá `true` si el uso de tecnologías asistivas, como leectores de pantallas, son detectadas. Ver https://www.chromium.org/developers/design-documents/accessibility para más detalles.
+Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+
+### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+
+* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `opciones` Object 
-  * `applicationName` Cadena (opcional) - El nombre de la aplicación.
-  * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
-  * `copyright` Cadena (opcional) - La información de Copyright.
-  * `credits` Cadena (opcional) - Información de crédito.
-  * `version` Cadena (opcional) - Este número de versión de construcción de la aplicación.
+* `opciones` Objeto 
+  * `applicationName` String (optional) - The app's name.
+  * `applicationVersion` String (optional) - The app's version.
+  * `copyright` String (optional) - Copyright information.
+  * `credits` String (optional) - Credit information.
+  * `version` String (optional) - The app's build version number.
 
-Establece el panel de opciones. Esto anulará los valores definidos en el archivo `.plist` de la aplicación. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles.
+Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` Cadena - Un cambio en la línea de comando
-* `value` Cadena (opcional) - Un valor para el cambio dado
+* `switch` String - A command-line switch
+* `value` String (optional) - A value for the given switch
 
-Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
+Append a switch (with optional `value`) to Chromium's command line.
 
-**Nota;** Esto no afectará el `process.argv`, y es primcipalmente usado por los desarrolladores para controlar algunos comportamientos de Chromium de bajo nivel.
+**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `valor` Cadena - El argumento a adjuntar a la línea de comando
+* `value` String - The argument to append to the command line
 
-Adjuntar un argumento a la línea de comando de Chromium. El argumento será citado correctamente.
+Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Nota:** Esto no afectará a `process.argv`.
+**Note:** This will not affect `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Permite modo sandbox mezclado en la aplicación.
+Enables mixed sandbox mode on the app.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+This method can only be called before app is ready.
+
+### `app.isInApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+
+### `app.moveToApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` Cadena (opcional) - Puede ser `critical` o `informational`. El por defecto es `informational`
+* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
 
-Cuando `critical` es pasado, el ícono del punto rebotará hasta que la aplicación se vuelva activa o la petición sea cancelada.
+When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
-Cuando `informational` es pasada, el ícono del punto rebotará por un segundo. Como sea, la petición se mantiene activa hasta que la aplicación se vuelva activa o que la petición sea cancelada.
+When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-Devuelve `Integer` un ID representativo de la petición.
+Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Íntegro
 
-Cancela el rebote de `id`.
+Cancel the bounce of `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Rebota la apilación de descargas si el archivo de camino está dentro de la carpeta de descargas.
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `texto` String
 
-Establece la cadena para ser mostrada en el área de insignia del punto.
+Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-Devuelve `Cadena` - La insignia cadena del punto.
+Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Esconde el icono del punto.
+Hides the dock icon.
 
 ### `app.dock.show()` *macOS*
 
-Muestra el icono del punto.
+Shows the dock icon.
 
 ### `app.dock.isVisible()` *macOS*
 
-Devuelve `Boolean` - Aunque el icono del punto sea visible. El llamado `app.dock.show()` es asincrónico, así que este método podría no volver inmediatamente luego de ese llamado.
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Establece el [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) de la aplicación.
+Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
 ### `app.dock.setIcon(image)` *macOS*
 
-* `image` ([NativeImage](native-image.md) | Cadena)
+* `image` ([NativeImage](native-image.md) | String)
 
-Establece la `image` asociada con el ícono del punto.
+Sets the `image` associated with this dock icon.
