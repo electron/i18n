@@ -96,9 +96,8 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 例如：
 
-```bash
---auth-server-whitelist='*example.com, *foobar.com, *baz'
-```
+    --auth-server-whitelist='*example.com, *foobar.com, *baz'
+    
 
 则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. 没有`*`前缀，则url必须完全匹配.
 
