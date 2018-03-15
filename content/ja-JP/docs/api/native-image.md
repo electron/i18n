@@ -160,13 +160,13 @@ console.log(image)
 
 ## クラス: NativeImage
 
-> Natively wrap images such as tray, dock, and application icons.
+> tray や Dock やアプリケーションアイコンのような画像を、ネイティブにラップします。
 
 プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 ### インスタンスメソッド
 
-The following methods are available on instances of the `NativeImage` class:
+`NativeImage` クラスのインスタンスには、以下のメソッドがあります。
 
 #### `image.toPNG([options])`
 
