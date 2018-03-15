@@ -96,9 +96,8 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 例:
 
-```bash
---auth-server-whitelist='*example.com, *foobar.com, *baz'
-```
+    --auth-server-whitelist='*example.com, *foobar.com, *baz'
+    
 
 末尾が `example.com`、`foobar.com`、`baz` である `url` は、統合認証の対象になります。 `*` のプリフィックスがない場合は、URLは厳密に一致する必要があります。
 
