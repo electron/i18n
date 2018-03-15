@@ -133,6 +133,29 @@ Mengembalikan ` gambar asli </ 0></p>
 
 <p>Menciptakan yang baru <code>Gambar Asli` contoh dari `dataURL`.
 
+### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+
+* `imageName` String
+* `hslShift` Number[]
+
+Mengembalikan ` gambar asli </ 0></p>
+
+<p>Creates a new <code>NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+
+The `hslShift` is applied to the image with the following rules
+
+* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
+ 0 = remove all color.  
+ 0.5 = leave unchanged.  
+ 1 = fully saturate the image. 
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
+ 0 = remove all lightness (make all pixels black).  
+ 0.5 = leave unchanged.  
+ 1 = full lightness (make all pixels white).
+
+This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+
 ## Kelas: Gambar asli
 
 > Bungkus gambar seperti nampan, dermaga, dan ikon aplikasi.
