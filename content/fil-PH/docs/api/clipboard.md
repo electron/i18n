@@ -34,10 +34,7 @@ Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
 Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format. 
 
-### `clipboard.writeText(text[, type])
- 
-
-`
+### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (opsiyonal)
@@ -84,10 +81,7 @@ Pagsulat `image` sa klipboard.
 
 Returns `String` - Ang nilalaman ng klipboard bilang RTF.
 
-### `clipboard.writeRTF(text[, type])
- 
-
-`
+### `clipboard.writeRTF(text[, type])`
 
 * `text` String
 * `type` String (opsiyonal)
@@ -106,7 +100,7 @@ Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
 * `title` String
-* `url` Pisi
+* `url` Tali
 * `type` String (opsiyonal)
 
 Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
