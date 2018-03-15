@@ -33,9 +33,9 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 
 Removes the specified `listener` from the listener array for the specified `channel`.
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` String (optional)
+* `channel` String
 
 Removes all listeners, or those of the specified `channel`.
 
@@ -44,7 +44,7 @@ Removes all listeners, or those of the specified `channel`.
 * `channel` String
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Argumentos serão serializados em JSON internamente e, portanto, nenhuma função ou cadeia de protótipo será incluída.
 
 The main process handles it by listening for `channel` with `ipcMain` module.
 
@@ -60,6 +60,14 @@ Envie uma mensagem ao processo principal de forma síncrona via `channel`, você
 The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
 
 **Nota:**O envio de uma mensagem síncrona bloqueará todo o processo de renderização, a menos que você saiba o que está fazendo, você nunca deve usá-lo.
+
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` String
+* `...args` any[]
+
+Sends a message to a window with `windowid` via `channel`
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
