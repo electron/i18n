@@ -4,13 +4,13 @@
 
 Процес: [Main](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**Ви можете знайти детальну інструкцію, як здійснювати оновлення вашого застосунку [тут](../tutorial/updates.md).**
 
-## Platform Notices
+## Зауваження
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Наразі, підтримуються тільки macOS та Windows. Немає вбудованої підтримки для автооновлення на Linux, тому рекомендовано використовувати наданий пакетний менеджер для оновлення вашого застосунку.
 
-In addition, there are some subtle differences on each platform:
+Крім того, є деякі тонкі відмінності на кожноій платформі:
 
 ### macOS
 
@@ -30,7 +30,7 @@ In addition, there are some subtle differences on each platform:
 
 ## Події (Events)
 
-The `autoUpdater` object emits the following events:
+Об'єкт `autoUpdater` викликає наступні події:
 
 ### Подія: 'error'
 
@@ -38,21 +38,21 @@ The `autoUpdater` object emits the following events:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Відбувається коли виникає помилка при оновленні.
 
-### Event: 'checking-for-update'
+### Подія: 'checking-for-update'
 
-Emitted when checking if an update has started.
+Відбувається при перевірці чи стартувало оновлення.
 
-### Event: 'update-available'
+### Подія: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Відбуваєтсья коли доступне оновлення. Воно завантажується автоматично.
 
-### Event: 'update-not-available'
+### Подія: 'update-not-available'
 
-Emitted when there is no available update.
+Відбувається коли нема доступних оновлень.
 
-### Event: 'update-downloaded'
+### Подія: 'update-downloaded'
 
 Повертає:
 
@@ -62,31 +62,31 @@ Emitted when there is no available update.
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Вібдувається коли оновлення завантажено.
 
-On Windows only `releaseName` is available.
+На Windows доступне тільки `releaseName`.
 
 ## Методи
 
-The `autoUpdater` object has the following methods:
+Об'єкт `autoUpdater` має наступні методи:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` Object *macOS* (опціонально) - хедери HTTP запиту.
 
-Sets the `url` and initialize the auto updater.
+Встановлює `url` та ініціалізує автоновлення.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Повертає `String` - Поточна URL для оновлення.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Запитує сервер чи доступні оновлення. Потрібно викликати `setFeedURL` перед використанням цього API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Перезавантажує застосунок та встановлює оновлення після їх завантаження. Має викликатися тільки після події `update-downloaded`.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Примітка:** `autoUpdater.quitAndInstall()` закриє всі вікна застосунку і викличе тільки подію `before-quit`. Це відмінність від нормальної послідовності подій виходу.
