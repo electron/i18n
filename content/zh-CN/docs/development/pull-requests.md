@@ -114,7 +114,7 @@ $ npm run test
 
 请确保 linter 不报告任何问题, 并且所有测试都通过。 请不要提交失败的修补程序或检查。
 
-If you are updating tests and just want to run a single spec to check it:
+如果您正在更新测试并且只想运行单个规范来检查它:
 
 ```sh
 $ npm run test -match=menu
