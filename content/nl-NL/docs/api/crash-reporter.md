@@ -37,7 +37,6 @@ The `crashReporter` module has the following methods:
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
   * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
   * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
 
@@ -90,28 +89,18 @@ This would normally be controlled by user preferences. This has no effect if cal
 
 **Note:** This API can only be called from the main process.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS*
+### `crashReporter.setExtraParameter(key, value)` *macOS*
 
 * `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
 
 Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
-
-### `crashReporter.removeExtraParameter(key)` *macOS*
-
-* `key` String - Parameter key, must be less than 64 characters long.
-
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
-
-### `crashReporter.getParameters()`
-
-See all of the current parameters being passed to the crash reporter.
 
 ## Crash Report Payload
 
 The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
-* `ver` String - de versie van Electron.
+* `ver` String - The version of Electron.
 * `platform` String - e.g. 'win32'.
 * `process_type` String - e.g. 'renderer'.
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
