@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * Objeto `webPreferences` (opcional) - vea [BrowserWindow](browser-window.md).
 
 ### Métodos estáticos
@@ -50,36 +50,36 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 * `id` Íntegro
 
-Returns `BrowserView` - The view with the given `id`.
+Devuelve `BrowserView` - La vista con el proveido `id`.
 
 ### Propiedades de Instancia
 
-Objects created with `new BrowserView` have the following properties:
+Los objetos creados con `new BrowserView` tienen las siguientes propiedades:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Un objeto [`WebContents`](web-contents.md), que pertenece a esta vista.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+Un `Integer` representa el id único de la vista.
 
 ### Métodos de Instancia
 
-Objects created with `new BrowserView` have the following instance methods:
+Los objetos creados con `new BrowserView` tiene los siguientes métodos de instancia:
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `opciones` Objeto 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+* `opciones` Object 
+  * `width` Boolean - If `true`, la anchura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
+  * `height` Boolean - If `true`, la altura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Redimensiona y mueve la vista a los limites proporcionados en relación a la ventana.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - Color en forma `#aarrggbb` o `#argb`. El canal alfa es opcional.
