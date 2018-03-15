@@ -36,7 +36,7 @@ Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` Dizge - Windows üzerinde max 2081 karakter veya işlev kopya değerini gönderir
+* `url` String
 * `seçenekler` Obje (opsiyonel) *macOS* 
   * `activate` Mantıksal - `true` açık uygulamayı ön plana getirmek için. Varsayılan `true`'dır.
 * `geri aramak` Fonksiyon (isteğe bağlı) - belirtilen açık zaman uyumsuz olarak gerçekleştirir. *macOS* 
