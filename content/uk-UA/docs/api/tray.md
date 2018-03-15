@@ -72,7 +72,6 @@ Creates a new tray icon associated with the `image`.
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
-* `position` [Point](structures/point.md) - The position of the event
 
 Генерується коли значок контекстного меню натиснутий.
 
@@ -162,17 +161,6 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-#### Event: 'mouse-move' *macOS*
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
-
-Emitted when the mouse moves in the tray icon.
-
 ### Методи Екземпляра
 
 The `Tray` class has the following methods:
@@ -235,10 +223,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `options` Об'єкт 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String
-  * `content` String
+  * `title` String - (optional)
+  * `content` String - (optional)
 
 Displays a tray balloon.
 
