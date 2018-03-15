@@ -128,7 +128,7 @@ Pano içeriğini temizler.
 ### `clipboard.has(format[, type])` *Deneysel*
 
 * `format` String
-* `type` Dize (isteğe bağlı)
+* `type` String (isteğe bağlı)
 
 `Boolean` - Panoda belirtilen `format` komutunun desteklenip desteklenmediğini gösterir.
 
