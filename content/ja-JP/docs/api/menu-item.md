@@ -84,17 +84,17 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+アイテムが有効かどうかを示す `Boolean`。このプロパティは動的に変更できます。
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+アイテムが見えるかどうかを示す `Boolean`。このプロパティは動的に変更できます。
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+アイテムがチェックされたかどうかを示す `Boolean`。このプロパティは動的に変更できます。
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+`checkbox` メニューアイテムは、選択された時に `checked` プロパティをオンかオフにトグル切り替えします。
 
 A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
