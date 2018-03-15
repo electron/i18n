@@ -212,7 +212,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+回傳 [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
