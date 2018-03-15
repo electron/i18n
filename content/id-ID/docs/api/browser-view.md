@@ -12,7 +12,7 @@ A `lihat browser` dapat digunakan untuk menyematkan konten web tambahan ke `jend
 
 ```javascript
 // In the main process.
-const {BrowserView, BrowserWindow} = require('elektron') nyalakan = baru BrowserWindow ({width: 800, height: 600}) win.on('tertutup', () => {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300 }) view.webContents.loadURL('https://electronjs.org')
+const {BrowserView, BrowserWindow} = require('elektron') nyalakan = baru BrowserWindow ({width: 800, height: 600}) win.on('tertutup', () => {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300 }) view.webContents.loadURL('https://electron.atom.io')
 ```
 
 ### `baru lihat browser([options])` *Eksperimental*
@@ -22,19 +22,9 @@ const {BrowserView, BrowserWindow} = require('elektron') nyalakan = baru Browser
 
 ### Metode Statis
 
-#### `BrowserView.getAllViews()`
-
-Returns `BrowserView[]` - An array of all opened BrowserViews.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
-
 #### `Lihat Browser.fromId(id)`
 
-* `identitas` Integer
+* `id` Bilangan bulat
 
 Kembali `lihat Browser` - Tampilan dengan `id` yang diberikan.
 
@@ -56,7 +46,7 @@ Objek yang dibuat dengan `lihat Browser baru` memiliki metode contoh berikut:
 
 #### `lihat.set otomatis ubah ukuran (pilihan)` *Eksperimental*
 
-* `pilihan` Obyek 
+* `pilihan` Objek 
   * `lebar` Boolean - Jika `benar`, lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. `false` secara default.
   * `tinggi` Boolean - Jika `benar `, tinggi tampilan akan tumbuh dan menyusut bersamaan dengan jendela. `salah` secara default.
 
