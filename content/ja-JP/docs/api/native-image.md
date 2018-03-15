@@ -91,7 +91,7 @@ console.log(appIcon)
 画像をテンプレート画像としてマークするには、そのファイル名が `Template` で終わる必要があります。以下が例です。
 
 * `xxxTemplate.png`
-* `xxxTemplate@2x.png`
+* `xxxTemplate.png`
 
 ## メソッド
 
@@ -121,11 +121,11 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (任意) * `width` Integer (任意) - ビットマップバッファに必要。 * `height` Integer (任意) - ビットマップバッファに必要。 * `scaleFactor` Double (任意) - 省略値は1.0。
 
 戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`.
+`buffer` から `NativeImage` の新しいインスタンスを作成します。
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -133,7 +133,7 @@ Creates a new `NativeImage` instance from `buffer`.
 
 戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from `dataURL`.
+`dataURL` から `NativeImage` の新しいインスタンスを作成します。
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
