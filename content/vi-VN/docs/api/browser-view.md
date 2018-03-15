@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *Đang thử nghiệm*
@@ -36,40 +36,50 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### Các phương thức chung
 
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [WebContents](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+
 #### `BrowserView.fromId(id)`
 
-* `id` Số nguyên
+* `id` Integer
 
-Trả về `BrowserView` với `id` đã cho.
+Returns `BrowserView` - The view with the given `id`.
 
 ### Các Thuộc Tính
 
-Object được tạo bằng `new BrowserView` có các thuộc tính sau đây:
+Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` *Đang thử nghiệm*
+#### `view.webContents` *Experimental*
 
-[`WebContents`](web-contents.md) object sở hữu bởi view này.
+A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *Đang thử nghiệm*
+#### `view.id` *Experimental*
 
-Một `số thực` đại diện cho ID độc nhất của View đó.
+A `Integer` representing the unique ID of the view.
 
 ### Các phương thức riêng
 
-Object được tạo bằng `new BrowserView` các các phương thức riêng sau đây:
+Objects created with `new BrowserView` have the following instance methods:
 
-#### `view.setAutoResize(options)` *Đang thử nghiệm*
+#### `view.setAutoResize(options)` *Experimental*
 
 * `options` Object 
-  * `width` Boolean - Nếu `true`, chiều ngang của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
-  * `height` Boolean - Nếu `true`, chiều dọc của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
+  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Đang thử nghiệm*
+#### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Điều chỉnh kích cỡ và di chuyển view.
+Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Đang thử nghiệm*
+#### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` Chuỗi - Màu dưới định dạng `#aarrggbb` hoặc `#argb`. Kênh alpha không bắt buộc.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
