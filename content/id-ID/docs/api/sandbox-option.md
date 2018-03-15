@@ -19,14 +19,14 @@ Perbedaan lainnya adalah perender yang disanbox tidak memodifikasi API bawaan Ja
 Untuk membuat jendela yang disanbox, secara sederhana saja lewatkan nilai `sandbox: true` ke `webPreferences`:
 
 ```js
-let win 
+let win
 app.on('ready', () => {
-   win = new BrowserWindow({     
-     webPreferences: {       
-        sandbox: true     
-      }   
-    })   
-   win.loadURL('http://google.com') 
+  win = new BrowserWindow({
+    webPreferences: {
+      sandbox: true
+    }
+  })
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -39,17 +39,16 @@ Untuk mengaktifkan sandbox yang dipaksa oleh OS pada `BrowserWindow` atau `webvi
 ```js
 let win
 app.on('ready', () => {
-  // tidak perlu untuk melewatkan `sandbox: true` karena `--enable-sandbox` diaktifkan.
+  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
   win = new BrowserWindow()
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
 Perhatikan bahwa tidak cukup untuk memanggil `app.commandLine.appendSwitch('--enable-sandbox')`, karena kode startup elektron/node yang berjalan setelahnya memungkinkan untuk melakukan perubahan pada pengaturan kotak sandbox chromium. Pergantian harus dilewatkan ke elektron pada baris-perintah:
 
-```sh
-electron --enable-sandbox app.js
-```
+    electron --enable-sandbox app.js
+    
 
 Adalah tidak mungkin untuk memiliki OS sandbox yang aktif hanya untuk beberapa perender, jika `--enable-sandbox` diaktifkan, jendela elektron normal tidak dapat dibuat.
 
@@ -68,7 +67,7 @@ app.on('ready', () => {
       preload: 'preload.js'
     }
   })
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -104,23 +103,18 @@ Hal penting untuk dicatat dalam skrip pramuat:
 
 Untuk membuat bundel browserify dan menggunakannya sebagai skrip pramuat, sesuatu seperti berikut ini harus digunakan:
 
-```sh
-  browserify preload/index.js \
-    -x electron \
-    -x fs \
-    --insert-global-vars=__filename,__dirname -o preload.js
-```
+    browserify preload/index.js \
+      -x electron \
+      -x fs \
+      --insert-global-vars=__filename,__dirname -o preload.js
+    
 
 Bendera `-x` harus digunakan bersama modul yang dibutuhkan yang sudah terekspos dalam lingkup pramuat, dan memberitahukan browserify untuk menggunakan fungsi `require` terlampir, untuknya. `--insert-global-vars` akan memastikan bahwa `proses`, `Buffer` dan `setImmediate` juga diambil dari lingkup yang melekat (biasanya browserify menyuntikkan kode untuk mereka).
 
 Saat ini fungsi `require` yang disediakan dalam lingkup pramuat memaparkan modul sebagai berikut:
 
 - `child_process`
-- `electron` 
-  - `kerusakanReporter`
-  - `remot`
-  - `ipcRenderer`
-  - `webBingkai`
+- `electron` (crashReporter, remote and ipcRenderer)
 - `fs`
 - `os`
 - `timer`
