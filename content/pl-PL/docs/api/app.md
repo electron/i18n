@@ -53,11 +53,11 @@ Zwraca:
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitowane gdy wszystkie okna zostają zamknięte oraz gdy aplikacja się zamyka. Odwołanie do `event.preventDefault()` zapobiegnie domyślnemu zachowaniu, które zamyka aplikacje.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+Zobacz opisy `window-all-closed` zdarzeń oraz rózice między zdarzeniami `will-quit` i `window-all-closed`.
 
-### Event: 'quit'
+### Zdarzenie: 'quit'
 
 Zwraca:
 
