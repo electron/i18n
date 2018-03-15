@@ -37,6 +37,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
   * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Booleano (opcional) - Por defecto es `false`.
   * `extra` Objeto (opcional) - Un objeto que se puede definir que será enviado a través del informe. Solo las propiedades de la cadena son enviadas correctamente. No se admiten objetos anidados y los nombres de propiedades y valores tener menos de 64 caracteres.
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
 
 Es necesario llamar este método antes de utilizar cualquier otra API `crashReporter` y en cada proceso (main/renderer) del cual se quiera recopilar los informes de fallos. Se puede pasar diferentes opciones al `crashReporter.start` al llamar desde diferentes procesos.
 
@@ -89,12 +90,22 @@ Esto es controlado normalmente por las preferencias del usuario. Esto no tiene e
 
 **Nota:** Esta API sólo se puede llamar desde el proceso principal.
 
-### `crashReporter.setExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` Cadena - La clave del parámetro debe tener menos de 64 caracteres.
-* `value` Cadena - El valor del parámetro debe tener menos de 64 caracteres. Especificar `null` o `undefined`eliminará la clave de los parámetros adicionales.
+* `value` String - Parameter value, must be less than 64 characters long.
 
 Establecer un parámetro adicional que se enviará con el informe de fallos. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+
+### `crashReporter.removeExtraParameter(key)` *macOS*
+
+* `key` Cadena - La clave del parámetro debe tener menos de 64 caracteres.
+
+Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+
+### `crashReporter.getParameters()`
+
+See all of the current parameters being passed to the crash reporter.
 
 ## Carga útil del informe de fallos
 
