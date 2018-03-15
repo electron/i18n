@@ -67,6 +67,11 @@ Los siguientes roles adicionales están disponibles para macOS:
 * `detener el habla` - Mapa de acción de `detener el habla`
 * `frente` - Mapa de acción de `Arreglo del frente`
 * `zoom` - mapa de acción de `Realizar zoom`
+* `toggletabbar` - Map to the `toggleTabBar` action
+* `selectnexttab` - Map to the `selectNextTab` action
+* `selectprevioustab` - Map to the `selectPreviousTab` action
+* `mergeallwindows` - Map to the `mergeAllWindows` action
+* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
 * `window` - The submenu is a "Window" menu
 * `help` - The submenu is a "Help" menu
 * `services` - The submenu is a "Services" menu
