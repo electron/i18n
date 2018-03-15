@@ -33,7 +33,7 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
   * `subtitle` Cadena - (opcional) Un subtítulo para la notificación, la cual aparecerá debajo del título. *macOS*
   * `body` Cadena - El cuerpo del texto de la notificación, el cual aparecerá debajo del título o subtítulo
   * `silent` Booleano - (opcional) Si se emite o no un sonido de notificación del sistema operativo cuando aparece la notificación
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
+  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
   * `hasReply` Booleano - (opcional) Si se agrega o no una opción de respuesta insertada en la notificación. *macOS*
   * `replyPlaceholder` Cadena- (opcional) El marcador de posición para escribir en el campo insertado de entrada de respuesta. *macOS*
   * `sound` Cadena - (opcional) El nombre del archivo de sonido que se reproduce cuando se muestra la notificación. *macOS*
@@ -69,7 +69,7 @@ Devuelve:
 
 Se emite cuando se cierra la notificación por medio de la intervención manual del usuario.
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+This event is not guaranteed to be emitted in all cases where the notification is closed.
 
 #### Evento: "reply" *macOS*
 
@@ -94,6 +94,12 @@ Los objetos creados con `new Notification` tienen los siguientes métodos de ins
 #### `notification.show()`
 
 Muestra inmediatamente la notificación al usuario, por favor tenga en cuenta que esto significa que a diferencia de la implementación HTML5 Notification, solamente creando una instancia `new Notification` no lo muestra inmediatamente al usuario. Es necesario llamar a este método antes de que el sistema operativo lo muestre en pantalla.
+
+If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+
+#### `notification.close()`
+
+Dismisses the notification.
 
 ### Reproducción de Sonidos
 
