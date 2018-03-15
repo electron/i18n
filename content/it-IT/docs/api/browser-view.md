@@ -4,7 +4,7 @@
 
 **Nota:** La VistaBrowser API è attualmente sperimentale e potrebbe cambiare o essere rimossa nei rilasci futuri di Electron.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 Una `VistaBrowser` può essere usato per incorporare contenuti web aggiuntivi nella `FinestraBrowsee`. È come una finestra piccola, eccetto per il fatto che è posta in parentela alla finestra propria. È considerato essere un alternativa al tag `vistaweb`.
 
@@ -12,21 +12,21 @@ Una `VistaBrowser` può essere usato per incorporare contenuti web aggiuntivi ne
 
 ```javascript
 // Nel processo principale.
-const {BrowserView, BrowserWindow} = require('electron')
+const {VistaBrowser, FinestraBrowser} = richiedi('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
+vinci = nuova FinestraBrowser({larghezza: 800, altezza: 600})
+vinci.su('chiuso', () => {
+  vinci = nullo
 })
 
-let view = new BrowserView({
-  webPreferences: {
-    nodeIntegration: false
+visualizza = nuova VistaBrowswr({
+  Preferenzeweb: {
+    Integrazionenodo: false
   }
 })
-win.setBrowserView(view)
-view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+vinci.impostaVistaBrowser(vista)
+vista.impostaRimbalzi({ x: 0, y: 0, larghezza: 300, altezza: 300 })
+vista.Contenutiweb.caricaURL('https://electron.atom.io')
 ```
 
 ### `nuova VistaBrowser([options])` *Sperimentale*
@@ -35,16 +35,6 @@ view.webContents.loadURL('https://electronjs.org')
   * `Preferenzeweb` Oggetto (opzionale) - Vedi [FinestraBrowser](browser-window.md).
 
 ### Metodi Statici
-
-#### `BrowserView.getAllViews()`
-
-Returns `BrowserView[]` - An array of all opened BrowserViews.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `ContenutiWeb` [ContenutiWeb](web-contents.md)
-
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `VistaBrowser.daId(id)`
 
