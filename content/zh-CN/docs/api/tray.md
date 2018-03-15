@@ -72,7 +72,6 @@ app.on('ready', () => {
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
-* `position` [Point](structures/point.md) - The position of the event
 
 当该图标被点击时触发。
 
@@ -162,30 +161,19 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-#### Event: 'mouse-move' *macOS*
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
-
-Emitted when the mouse moves in the tray icon.
-
 ### 实例方法
 
 The `Tray` class has the following methods:
 
 #### `tray.destroy()`
 
-立即销毁该任务栏图标
+Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-设置`image`作为托盘中显示的图标
+Sets the `image` associated with this tray icon.
 
 #### `tray.setPressedImage(image)` *macOS*
 
@@ -235,10 +223,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `选项` Object 
-  * `icon` ([NativeImage](native-image.md) | String) - (可选)
-  * `title` String
-  * `content` String
+* `选项` Object - 过滤器对象，包含过滤参数 
+  * `icon` ([NativeImage](native-image.md) | String) - (optional)
+  * `title` String - (optional)
+  * `content` String - (optional)
 
 Displays a tray balloon.
 
@@ -265,4 +253,4 @@ The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-返回 `Boolean` -判断托盘图标是否被销毁
+Returns `Boolean` - Whether the tray icon is destroyed.
