@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *Deneysel*
@@ -36,40 +36,50 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### Statik Yöntemler
 
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [webİçerikleri](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+
 #### `BrowserView.fromId(id)`
 
-* `id` Tamsayı
+* `id` tamsayı
 
-`BrowserView` döner - `id` ile birlikte girilen view.
+Returns `BrowserView` - The view with the given `id`.
 
 ### Örnek özellikleri
 
-`new BrowserView` şeklinde yaratılan objeler, aşağıdaki özelliklere sahiptir:
+Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` *Deneysel*
+#### `view.webContents` *Experimental*
 
-Bu view tarafından sahip olunan bir [`WebContents`](web-contents.md).
+A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *Deneysel*
+#### `view.id` *Experimental*
 
-View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
+A `Integer` representing the unique ID of the view.
 
 ### Örnek yöntemler
 
-`new BrowserView` ile yaratılan objeler aşağıdaki metodlara sahiptir:
+Objects created with `new BrowserView` have the following instance methods:
 
-#### `view.setAutoResize(options)` *Deneysel*
+#### `view.setAutoResize(options)` *Experimental*
 
-* `seçenekler` Obje 
-  * `width` Boolean - `true` ise, view'in uzunluğu pencere ile birlikte büyür ve küçülür. Varsayılan değeri `false`.
-  * `height` Boolean - `true` ise, view'in yüksekliği pencere ile birlikte büyür ve küçülür. Varsayılan değeri `false`.
+* `seçenekler` Nesne 
+  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Deneysel*
+#### `view.setBounds(bounds)` *Experimental*
 
-* `bounds` [Dikdörtgen](structures/rectangle.md)
+* `bounds` [Rectangle](structures/rectangle.md)
 
-Verilen sınırlarla görünümü göreceli olarak yeniden şekillendirir ve taşır.
+Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Deneysel*
+#### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` Katar - `#aarrggbb` ya da `#argb` formunda renk kodu. Alfa kanalı opsiyonel.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
