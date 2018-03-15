@@ -72,6 +72,7 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
+* `position` [Point](structures/point.md) - event'ın pozisyonu
 
 Tray simgesi tıklandığında çıkar.
 
@@ -161,6 +162,17 @@ Fare tepsi simgesine girdiğinde ortaya çıkar.
 
 Fare tepsi simgesinden çıktığında ortaya çıkar.
 
+#### Event: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - event'ın pozisyonu
+
+Emitted when the mouse moves in the tray icon.
+
 ### Örnek Yöntemleri
 
 The `Tray` class has the following methods:
@@ -225,8 +237,8 @@ win.on('hide', () => {
 
 * `seçenekler` Nesne 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `title` String
+  * `content` String
 
 Displays a tray balloon.
 
@@ -241,7 +253,7 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menü
+* `menu` Menu
 
 Sets the context menu for this icon.
 
