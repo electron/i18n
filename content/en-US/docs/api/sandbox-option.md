@@ -47,7 +47,7 @@ app.on('ready', () => {
       sandbox: true
     }
   })
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -69,7 +69,7 @@ let win
 app.on('ready', () => {
   // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
   win = new BrowserWindow()
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -78,7 +78,7 @@ Note that it is not enough to call
 code runs after it is possible to make changes to chromium sandbox settings. The
 switch must be passed to electron on the command-line:
 
-```sh
+```
 electron --enable-sandbox app.js
 ```
 
@@ -104,7 +104,7 @@ app.on('ready', () => {
       preload: 'preload.js'
     }
   })
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -151,12 +151,10 @@ Important things to notice in the preload script:
 To create a browserify bundle and use it as a preload script, something like
 the following should be used:
 
-```sh
-  browserify preload/index.js \
-    -x electron \
-    -x fs \
-    --insert-global-vars=__filename,__dirname -o preload.js
-```
+    browserify preload/index.js \
+      -x electron \
+      -x fs \
+      --insert-global-vars=__filename,__dirname -o preload.js
 
 The `-x` flag should be used with any required module that is already exposed in
 the preload scope, and tells browserify to use the enclosing `require` function
@@ -168,11 +166,7 @@ Currently the `require` function provided in the preload scope exposes the
 following modules:
 
 - `child_process`
-- `electron`
-  - `crashReporter`
-  - `remote`
-  - `ipcRenderer`
-  - `webFrame`
+- `electron` (crashReporter, remote and ipcRenderer)
 - `fs`
 - `os`
 - `timers`

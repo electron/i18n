@@ -40,9 +40,9 @@ only the next time a message is sent to `channel`, after which it is removed.
 Removes the specified `listener` from the listener array for the specified
 `channel`.
 
-### `ipcRenderer.removeAllListeners(channel)`
+### `ipcRenderer.removeAllListeners([channel])`
 
-* `channel` String
+* `channel` String (optional)
 
 Removes all listeners, or those of the specified `channel`.
 
@@ -73,14 +73,6 @@ and replies by setting `event.returnValue`.
 
 **Note:** Sending a synchronous message will block the whole renderer process,
 unless you know what you are doing you should never use it.
-
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
-
-* `windowId` Number
-* `channel` String
-* `...args` any[]
-
-Sends a message to a window with `windowid` via `channel`
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

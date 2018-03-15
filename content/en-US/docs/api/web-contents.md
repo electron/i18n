@@ -403,11 +403,6 @@ a meta tag:
 <meta name='theme-color' content='#ff0000'>
 ```
 
-Returns:
-
-* `event` Event
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
-
 #### Event: 'update-target-url'
 
 Returns:
@@ -580,28 +575,6 @@ that can't be set via `<webview>` attributes.
 
 **Note:** The specified `preload` script option will be appear as `preloadURL`
 (not `preload`) in the `webPreferences` object emitted with this event.
-
-#### Event: 'did-attach-webview'
-
-Returns:
-
-* `event` Event
-* `webContents` WebContents - The guest web contents that is used by the
-  `<webview>`.
-
-Emitted when a `<webview>` has been attached to this web contents.
-
-#### Event: 'console-message'
-
-Returns:
-
-* `level` Integer
-* `message` String
-* `line` Integer
-* `sourceId` String
-
-Emitted when the associated window logs a console message. Will not be emitted
-for windows with *offscreen rendering* enabled.
 
 ### Instance Methods
 
@@ -918,10 +891,10 @@ Inserts `text` to the focused element.
     uppercase letter followed by a lowercase or non-letter.
     Accepts several other intra-word matches, defaults to `false`.
 
-Returns `Integer` - The request id used for the request.
-
-Starts a request to find all matches for the `text` in the web page. The result of the request
-can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Starts a request to find all matches for the `text` in the web page and returns
+an `Integer` representing the request id used for the request. The result of
+the request can be obtained by subscribing to
+[`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -977,15 +950,13 @@ Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options], [callback])`
+#### `contents.print([options])`
 
 * `options` Object (optional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of
     the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
-* `callback` Function (optional)
-  * success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick
 the system's default printer if `deviceName` is empty and the default settings
