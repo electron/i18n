@@ -389,12 +389,12 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 * `event` Event
 * `type` String
-* `image` NativeImage (optional)
+* `image` NativeImage (選用)
 * `scale` Float (optional) - scaling factor for the custom cursor
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+Emitted when the cursor's type changes. `type` 參數可以是 `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` 或 `custom`。
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
@@ -533,7 +533,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -687,7 +687,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *試驗中*
 
 * `ignore` Boolean
 
@@ -870,7 +870,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 Get the system printer list.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+回傳 [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
@@ -1065,8 +1065,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**必填**)
+* `y` Integer (**必填**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`
 * `globalX` Integer
 * `globalY` Integer
@@ -1087,7 +1087,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`
+* `onlyDirty` Boolean (選用) - 預設值是 `false`
 * `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1112,7 +1112,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
-* `fullPath` String - The full file path.
+* `fullPath` String - 檔案完整路徑。
 * `saveType` String - Specify the save type. 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
