@@ -34,13 +34,14 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filtrar` Objeto 
+* `filtrar` Object - (optional) 
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
     * `id` Íntegro
     * `url` String
     * `method` Cuerda
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `subir información` [Subir Información[]](structures/upload-data.md)
@@ -57,7 +58,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filtrar` Objeto 
+* `filtrar` Object - (optional) 
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `listener` Función
 
@@ -67,6 +68,7 @@ El `oyente` se llamará con `listener(details, callback)` Antes de enviar la sol
   * `id` Íntegro
   * `url` String
   * `method` Cuerda
+  * `webContentsId` Integer (optional)
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
@@ -79,13 +81,14 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filtrar` Objeto 
+* `filtrar` Object - (optional) 
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
     * `id` Íntegro
     * `url` String
     * `method` Cuerda
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
@@ -94,16 +97,17 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filtrar` Objeto 
+* `filtrar` Object - (optional) 
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `listener` Función
 
 El `oyente` será cancelado con `listener(details, callback)` cuando la respuesta HTTP de los encabezados de de una solicitud hayan sido recibidos.
 
 * `details` Object 
-  * `id` Cadena
+  * `id` Íntegro
   * `url` String
   * `method` Cuerda
+  * `webContentsId` Integer (optional)
   * `resourceType` String
   * `timestamp` Double
   * `statusLine` String
@@ -119,13 +123,14 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filtrar` Objeto 
+* `filtrar` Object - (optional) 
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
     * `id` Íntegro
     * `url` String
     * `method` Cuerda
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `headers de respuesta` objeto
@@ -137,13 +142,14 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filtrar` Objeto 
+* `filtrar` Object - (optional) 
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
-    * `id` Cadena
+    * `id` Íntegro
     * `url` String
     * `method` Cuerda
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
@@ -156,13 +162,14 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filtrar` Objeto 
+* `filtrar` Object - (optional) 
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
     * `id` Íntegro
     * `url` String
     * `method` Cuerda
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `headers de respuesta` objeto
@@ -174,13 +181,14 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filtrar` Objeto 
+* `filtrar` Object - (optional) 
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
     * `id` Íntegro
     * `url` Cadena
     * `method` Cuerda
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
