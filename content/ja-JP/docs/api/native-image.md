@@ -144,9 +144,9 @@ console.log(image)
 
 指定した画像名にマップされる NSImage から `NativeImage` の新しいインスタンスを作成します。 使用可能な値のリストは、[`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) を参照してください。
 
-The `hslShift` is applied to the image with the following rules
+`hslShift` は以下のルールで画像に適用されます。
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[0]` (色相): 画像における色相の絶対値 - 0 から 1 が 色相カラーホイール (赤) の 0 から 360 に割り当てられる。
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
  0 = remove all color.  
  0.5 = leave unchanged.  
