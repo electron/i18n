@@ -404,7 +404,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 Повертає:
 
 * `event` Event
-* `params` Об'єкт 
+* `params` Object 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -535,11 +535,11 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` String
 * `options` Object (опціонально) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `httpReferrer` String (опціонально) - HTTP URL вІдправника.
+  * `userAgent` String (опціонально) - User agent відправника запиту.
+  * `extraHeaders` String (опціонально) - Додаткові заголовки, розділені "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (опціонально)
+  * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. Це необхідно, лише якщо вказане `url` є посилання на дані і потребує завантаження інших файлів.
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
@@ -688,7 +688,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Експериментальний*
 
 * `ignore` Boolean
 
@@ -890,7 +890,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Об'єкт 
+* `options` Object 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -1034,7 +1034,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Об'єкт 
+* `parameters` Object 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
@@ -1054,7 +1054,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` Об'єкт 
+* `event` Object 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1105,7 +1105,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Об'єкт 
+* `item` Object 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1144,7 +1144,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Об'єкт 
+* `options` Object 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer
