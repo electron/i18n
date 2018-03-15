@@ -5,9 +5,9 @@
 
 ## Platform / Suporta ng Aksyon
 
-| Uri ng Aksyon | Suporta ng Platform | Kagamitan ng `text`                | Default `text` | Limitasyons                                                                                                                                                         |
-| ------------- | ------------------- | ---------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pindutan`    | macOS               | Ginagamit bilang tanda ng pindutan | "Ipakita"      | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Uri ng Aksyon | Suporta ng Platform | Kagamitan ng `text`                | Default `text` | Limitasyons                                                                                                                                                          |
+| ------------- | ------------------- | ---------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pindutan`    | macOS               | Ginagamit bilang tanda ng pindutan | "Ipakita"      | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Suporta ng pindutan sa macOS
 
