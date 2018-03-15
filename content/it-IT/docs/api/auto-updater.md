@@ -4,18 +4,13 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-Il modulo `autoAggiornatore` fornisce un'un'interfaccia per il framework [Squirrel](https://github.com/Squirrel).
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Puoi brevemente lanciare un rilascio su più piattaforme del server per distribuire la tua app usando uno dei seguenti progetti:
+## Platform Notices
 
-* [nut](https://github.com/GitbookIO/nuts): *Un software release intelligente per le tue app, usando GitHub come sfondo. Auto-aggiornamenti con Squirrel (Mac & Windows)*
-* [electron-rilascio-server](https://github.com/ArekSredzki/electron-release-server): *Un totalmente accessoriato auto-ospitato rilascio server per le app electron, compatibile con l'auto-aggiornatore*
-* [squirrel-aggiornamenti-server](https://github.com/Aluxian/squirrel-updates-server): *Un semplice server node.js per Squirrel.Mac e Squirrel.Windows che usa i rilasci GitHub*
-* [squirrel-rilascio-server](https://github.com/Arcath/squirrel-release-server): *Una semplice applicazione PHP per Squirrel.Windows che legge gli aggiornamenti da una cartella. Supporta aggiornamenti delta.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Avvisi di piattaforma
-
-`autoAggiornatore` fornisce una API uniforme per varie piattaforme, ci sono alcune differenze sottili su ogni piattaforma.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,13 +28,9 @@ Su Windows si deve installare la propria app in una macchina utente prima di pot
 
 Diversamente da Squirrel.Mac, Windows può ospitare aggiornamenti si S3 o alcuni altri file ospiti statici. Puoi leggere i documenti do [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) per ottenere ulteriori dettagli su come lavora Squirrel.Windows.
 
-### Linux
-
-Non esiste un supporto incorporato per l'auto-Aggiornatore, si raccomanda l'uso del pacchetto gestionale di distribuzione all'aggiornamento della propria app.
-
 ## Eventi
 
-L'oggetto `autoAggiornatore` emette i seguenti eventi:
+The `autoUpdater` object emits the following events:
 
 ### Evento: 'errore'
 
@@ -47,55 +38,55 @@ Restituisce:
 
 * `errore` Errore
 
-Emesso quando avviene un errore in aggiornamento.
+Emitted when there is an error while updating.
 
-### Evento: 'controllando_per_aggiornamenti'
+### Event: 'checking-for-update'
 
-Emesso quando controlla se si è avviato un aggiornamento.
+Emitted when checking if an update has started.
 
-### Evemto: 'aggiornamento-disponibile'
+### Event: 'update-available'
 
-Emesso quando c'è un aggiornamento disponibile. L'aggiornamento è automaticamente scaricato.
+Emitted when there is an available update. The update is downloaded automatically.
 
-### Evento: 'aggiornamento-non-disponibile'
+### Event: 'update-not-available'
 
-Emesso quando non ci sono aggiornamenti disponibili.
+Emitted when there is no available update.
 
-### Evento: 'aggiornamento-scaricato'
+### Event: 'update-downloaded'
 
 Restituisce:
 
 * `event` Evento
-* `NoteRilascio` Stringa
-* `Nomerilascio` Stringa
-* `Datarilascio` Data
-* `aggiornaURL` Stringa
+* `releaseNotes` String
+* `releaseName` String
+* `releaseDate` Date
+* `updateURL` String
 
-Emesso quando un aggiornamento è stato scaricato.
+Emitted when an update has been downloaded.
 
-Solo su Windows `rilascioNome` è disponibile.
+On Windows only `releaseName` is available.
 
 ## Metodi
 
-L'oggetto `autoAggiornatore` ha i seguenti metodi:
+The `autoUpdater` object has the following methods:
 
-### `autoAggiornatore.impostaFeedURL(url[, richiediTestate])`
+### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` Stringa
-* `richiestaTestate` Oggetto *macOS* (opzionale) - HTTP richiesta testate.
+* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-Imposta l'`url` e inizializza l'auto aggiornatore.
+Sets the `url` and initialize the auto updater.
 
-### `autoAggiornatore.ottieniFeedURL()`
+### `autoUpdater.getFeedURL()`
 
-Restituisci `Stringa` 'L'attuale feed URL di aggiornamento.
+Returns `String` - The current update feed URL.
 
-### `autoAggiornatore.controllaPerAggiornamenti()`
+### `autoUpdater.checkForUpdates()`
 
-Chiedi il server se c'è un aggiornamento. Devi chiamare `impostaFeedURL` prima di usare questa API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
-### `autoaAggiornatore.esciEInstalla()`
+### `autoUpdater.quitAndInstall()`
 
-Riavvia l'app ed installa l'aggiornamento dopo che è stato scaricato. Potrebbe solo essere chiamato dopo l'emissione di `aggiornamento-scaricato.</p>
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-<p><strong>Nota:</strong> <code>autoAggiornatore.esciEInstalla()` chiuderà tutte le finestre dell'app prima ed emetterà l'evento `prima-esci` dell'`app` dopo questo. Questo è diverso dalla normale sequenza di eventi di uscita.
+**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
