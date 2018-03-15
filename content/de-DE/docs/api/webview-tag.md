@@ -137,7 +137,7 @@ When this attribute is present the guest page will have web security disabled. W
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electron.atom.io" partition="electron"></webview>
+<webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
 Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
@@ -334,10 +334,10 @@ Returns `String` - The user agent for guest page.
 
 Injects CSS into the guest page.
 
-### `<webview>.executeJavaScript(code, userGesture, callback)`
+### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean (optional) - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -444,7 +444,9 @@ Inserts `text` to the focused element.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -529,7 +531,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` URL </ 0>  Zeichenfolge</li>
 <li><code>isMainFrame` Boolean
@@ -542,7 +544,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -553,7 +555,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `isMainFrame` Boolean
 
@@ -569,7 +571,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `status` Boolean
 * `newURL` String
@@ -584,7 +586,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `oldURL` String
 * `newURL` String
@@ -598,7 +600,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `title` String
 * `explicitSet` Boolean
@@ -607,7 +609,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `favicons` String[] - Array of URLs.
 
@@ -623,7 +625,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `level` Integer
 * `message` String
@@ -643,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `result` Object 
   * `requestId` Integer
@@ -666,7 +668,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` URL </ 0>  Zeichenfolge</li>
 <li><code>frameName` String
@@ -691,7 +693,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` URL </ 0>  Zeichenfolge</li>
 </ul>
@@ -706,7 +708,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
   
   ### Event: 'did-navigate'
   
-  Kehrt zurück:
+  Rückgabewert:
   
   * ` URL </ 0>  Zeichenfolge</li>
 </ul>
@@ -717,7 +719,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
 or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
     ### Event: 'did-navigate-in-page'
     
-    Kehrt zurück:
+    Rückgabewert:
     
     * `isMainFrame` Boolean
     * ` URL </ 0>  Zeichenfolge</li>
@@ -743,7 +745,7 @@ webview.addEventListener('close', () => {
   
   ### Event: 'ipc-message'
   
-  Kehrt zurück:
+  Rückgabewert:
   
   * `channel` String
   * `args` Array
@@ -780,7 +782,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `name` Zeichenfolge
 * `version` String
@@ -801,7 +803,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `themeColor` String
 
@@ -813,7 +815,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Kehrt zurück:
+Rückgabewert:
 
 *  URL </ 0>  Zeichenfolge</li>
 </ul>
