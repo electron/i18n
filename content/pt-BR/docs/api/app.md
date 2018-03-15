@@ -213,7 +213,7 @@ const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Verificação de lógica.
+    // Lógica de verificação.
     event.preventDefault()
     callback(true)
   } else {
@@ -584,7 +584,7 @@ app.setJumpList([
         title: 'Recuperar projeto',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recuperar projeto'
+        description: 'Recupera um projeto'
       }
     ]
   }
