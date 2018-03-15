@@ -12,21 +12,21 @@ Una `VistaBrowser` può essere usato per incorporare contenuti web aggiuntivi ne
 
 ```javascript
 // Nel processo principale.
-const {VistaBrowser, FinestraBrowser} = richiedi('electron')
+const {BrowserView, BrowserWindow} = require('electron')
 
-vinci = nuova FinestraBrowser({larghezza: 800, altezza: 600})
-vinci.su('chiuso', () => {
-  vinci = nullo
+let win = new BrowserWindow({width: 800, height: 600})
+win.on('closed', () => {
+  win = null
 })
 
-visualizza = nuova VistaBrowswr({
-  Preferenzeweb: {
-    Integrazionenodo: false
+let view = new BrowserView({
+  webPreferences: {
+    nodeIntegration: false
   }
 })
-vinci.impostaVistaBrowser(vista)
-vista.impostaRimbalzi({ x: 0, y: 0, larghezza: 300, altezza: 300 })
-vista.Contenutiweb.caricaURL('https://electron.atom.io')
+win.setBrowserView(view)
+view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `nuova VistaBrowser([options])` *Sperimentale*
@@ -36,40 +36,50 @@ vista.Contenutiweb.caricaURL('https://electron.atom.io')
 
 ### Metodi Statici
 
-#### `VistaBrowser.daId(id)`
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+
+#### `BrowserView.fromId(id)`
 
 * `id` Numero Intero
 
-Restituisce `VistaBrowser` - La vista con l'`id` dato.
+Returns `BrowserView` - The view with the given `id`.
 
 ### Proprietà Istanza
 
-Oggetti creato con `nuova VistaBrowser` hanno le seguenti proprietà:
+Objects created with `new BrowserView` have the following properties:
 
-#### `vista.Contenutiweb` *Sperimentale*
+#### `view.webContents` *Experimental*
 
-Un oggetto [`ContenutiWeb`](web-contents.md) da questa vista.
+A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `vista.id` *Sperimentale*
+#### `view.id` *Experimental*
 
-Un numero `Intero` rappresentante l'unico ID di visualizzazione.
+A `Integer` representing the unique ID of the view.
 
 ### Metodi Istanza
 
-Oggetti creati con `nuova VistaBrowser` hanno i seguenti metodi d'istanza:
+Objects created with `new BrowserView` have the following instance methods:
 
-#### `vedi.impostaRidimensionaAutomaticamente(opzioni` *Sperimentale*
+#### `view.setAutoResize(options)` *Experimental*
 
 * `opzioni` Oggetto 
-  * `larghezza` Booleano - Se `true` la larghezza della vista crescerà e si contrarrà insieme alla finestra. `false` di default.
-  * `altezza` Booleano - Se `true`, la vista dell'altezza crescerà e si contrarrà con la finestra. `false` di default.
+  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `vista.impostaLimiti(limiti)` *Sperimentale*
+#### `view.setBounds(bounds)` *Experimental*
 
 * `limiti` [Rettangolo](structures/rectangle.md)
 
-Ridimensiona e muovi la vista ai limiti forniti relativamente alla finestra.
+Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `vista.impostaColoreSfondo(colore)` *Sperimentale*
+#### `view.setBackgroundColor(color)` *Experimental*
 
-* `colore` Stringa - Colore in forma `#aarrggbb` o `#argb`. Il canale alpha opzionale.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
