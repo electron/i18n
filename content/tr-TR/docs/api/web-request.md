@@ -42,7 +42,7 @@ Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
     * `url` Dize
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
@@ -69,7 +69,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
   * `url` Dize
   * `method` String
   * `webContentsId` Integer (optional)
-  * `resourceType` String
+  * `resourceType` Dize
   * `timestamp` Double
   * `requestHeaders` Object
 * `callback` Fonksiyon 
@@ -87,9 +87,9 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
-    * `method` String
+    * `method` Dizi
     * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -99,7 +99,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 
 * `filter` Object - (optional) 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
-* `listener` fonksiyon
+* `listener` Fonksiyon
 
 İsteklerin HTTP cevap başlıkları alındığında `listener` `listener(details, callback)` ile birlikte çağırılacak.
 
@@ -108,7 +108,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
   * `url` Dize
   * `method` Dizi
   * `webContentsId` Integer (optional)
-  * `resourceType` String
+  * `resourceType` Dize
   * `timestamp` Double
   * `statusLine` String
   * `statusCode` Tamsayı
@@ -129,12 +129,12 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
-    * `method` String
+    * `method` Dizi
     * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `responseHeaders` Object
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `fromCache` Boolean - Yanıtın disk önbelleğinden getirilip getirilmediğini gösterir.
     * `statusCode` Tamsayı
     * `statusLine` String
 
@@ -150,11 +150,11 @@ Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` i
     * `url` Dize
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Tamsayı
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `ip` String (isteğe bağlı) - Gönderilen isteğin olduğu sunucu IP adresi.
     * `fromCache` Boolean
     * `responseHeaders` Object
 
@@ -170,7 +170,7 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
     * `url` Dize
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
@@ -189,9 +189,9 @@ Bir istek tamamlandığında `listener` `listener(details)` ile birlikte çağı
     * `url` Dize
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - Hata açıklaması.
 
 Bir hata oluştuğunda `listener` `listener(details)` ile birlikte çağırılacaktır.
