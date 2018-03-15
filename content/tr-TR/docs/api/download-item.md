@@ -96,7 +96,7 @@ Durdurulmuş indirmeyi devam ettirir.
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
