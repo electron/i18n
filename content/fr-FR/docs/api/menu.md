@@ -256,7 +256,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Exemples
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -268,7 +268,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- 1
@@ -278,7 +278,7 @@ Menu:
 - 5
 ```
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -291,7 +291,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- ---
