@@ -2,7 +2,7 @@
 
 > Контролира жизнения цикъл със събития на вашето приложение.
 
-Процес: [Main / Главен](../glossary.md#main-process)
+Процеса: [основни](../glossary.md#main-process)
 
 Следния пример показва как да излезем от приложението, когато последния прозорец се затвори:
 
@@ -41,7 +41,7 @@ app.on('window-all-closed', () => {
 
 Връща:
 
-* `event` Сътитие
+* `event` Събитие
 
 Излъчва се преди приложението да започне да затваря всички те си прозорци. Изпълнявайки `event.preventDefault()` ще предотврати поведението по подразбиране, което е терминиране на приложението.
 
@@ -111,45 +111,6 @@ app.on('window-all-closed', () => {
 
 Активност на потребителя може да продължи само в приложение, което има същия Team ID - записан като произход на активността на приложението, което също поддържа типа на активността. Поддържани типове на активност са специализирани в `Info.plist` на приложението, под ключа `NSUserActivityTypes`.
 
-### Събитие: 'will-continue-activity' *macOS*
-
-Връща:
-
-* `event` Събитие
-* `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), преди активността на друго устройство иска да се извърши отново. Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
-
-### Събитие: 'continue-activity-error' *macOS*
-
-Връща:
-
-* `event` Събитие
-* `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - Локализиран надпис с установената грешка.
-
-Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когато активност на друго устройство не може да се извърши отново.
-
-### Събитие: 'activity-was-continued' *macOS*
-
-Връща:
-
-* `event` Събитие
-* `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Съдържа запис на специфичното състояние на приложението като активност.
-
-Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), след активността на това устройство е извършена отново успешно от друго устройство.
-
-### Събитие: 'update-activity-state' *macOS*
-
-Връща:
-
-* `event` Събитие
-* `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Съдържа запис на специфичното състояние на приложението като активност.
-
-Излъчено, когато [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) тъкмо ще бъде подновено на друго устройство. Ако желаете да обновите състоянието, което ще бъде трансферирано, трябва да извикате веднага `event.preventDefault()`, да конструирате нов речник `userInfo` и да извикате `app.updateCurrentActivity()` след определено време. В противен случай операцията ще се провали и `continue-activity-error` ще бъде излъчено.
-
 ### Събитие: 'new-window-for-tab' *macOS*
 
 Връща:
@@ -163,7 +124,7 @@ app.on('window-all-closed', () => {
 Връща:
 
 * `event` Събитие
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Излъчено, когато [browserWindow](browser-window.md) стане замъглен - вече не е на фокус.
 
@@ -172,7 +133,7 @@ app.on('window-all-closed', () => {
 Връща:
 
 * `event` Събитие
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Излъчено, когато [browserWindow](browser-window.md) стане на фокус.
 
@@ -181,7 +142,7 @@ app.on('window-all-closed', () => {
 Връща:
 
 * `event` Събитие
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Излъчено, когато е създаден нов [browserWindow](browser-window.md).
 
@@ -190,7 +151,7 @@ app.on('window-all-closed', () => {
 Връща:
 
 * `event` Събитие
-* `webContents` [WebContents](web-contents.md)
+* `webContents` WebContents
 
 Излъчено, когато е създаден нов [webContents](web-contents.md).
 
@@ -230,7 +191,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `обратно повикване` Function 
   * `certificate` [Certificate](structures/certificate.md) (по избор)
 
 Излъчено, когато е поискан клиентски сертификат.
@@ -246,7 +207,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Събитие: 'login'
+### Събитие: "вход"
 
 Връща:
 
@@ -257,14 +218,14 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `url` URL
   * `referrer` URL
 * `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
-* `callback` Function 
-  * `username` String
-  * `password` String
+  * `isProxy` Булев
+  * `схема` Низ
+  * `домакин` Низ
+  * `порт` Цяло число
+  * `царство` Низ
+* `callback` Функция 
+  * `потребителско име` Низ
+  * `парола` Низ
 
 Излъчено, когато `webContents` иска да направи базово удостоверяване.
 
@@ -319,7 +280,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### `app.relaunch([options])`
 
-* `options` Object (по избор) 
+* `опции` Object (по избор) 
   * `args` String[] - (по избор)
   * `execPath` String (по избор)
 
@@ -362,7 +323,7 @@ app.exit(0)
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` String - Име
 
 Връща `String` - Път към специална папка или файл, асоцииран с `name`. При грешка бива хвърлен `Error`.
 
@@ -383,18 +344,17 @@ app.exit(0)
 * `music` Папка за музиката на потребителя.
 * `pictures` Папка за снимките на потребителя.
 * `videos` Папка за видеота на потребителя.
-* `logs` Папка за логовете на вашето приложение.
 * `pepperFlashSystemPlugin` Пълният път до системната версия на Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (по избор) 
+* `опции` Object (по избор) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не се поддържа на *macOS*.
-* `callback` Function 
+* `обратно повикване` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -409,7 +369,7 @@ app.exit(0)
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` String - Име
 * `path` String
 
 Презаписва стойността на `path` към специална папка или файл свързан с `name`. Ако пътят определя директория, която не съществува, директорията ще бъде създаден от този метод. При неуспех `Error` е хвърлена.
@@ -430,7 +390,7 @@ app.exit(0)
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` String - Име
 
 Замества името на текущото приложение.
 
@@ -454,7 +414,7 @@ app.exit(0)
 
 Изчиства списъка на последните документи.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])`
+### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Името на протокола, без `://`. Ако искате вашето приложение да се справят `electron://` връзките, извикайте този метод с `electron` като параметър.
 * `path` String (по избор) *Windows* - По подразбиране е `process.execPath`
@@ -648,19 +608,6 @@ app.on('ready', () => {
 
 Връща `String` - Видът на текущата изпълняваща се дейност.
 
-### `app.invalidateCurrentActivity()` *macOS*
-
-* `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Прави не валидна текущата [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активност на потребителя.
-
-### `app.updateCurrentActivity(type, userInfo)` *macOS*
-
-* `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Състояние специфично за приложението, което да бъде използвано от друго приложение.
-
-Текущата дейност се актуализира, ако нейния тип съвпада с `type`, слива записи от `userInfo` в нейния текущ речник `userInfo`.
-
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
@@ -669,10 +616,10 @@ app.on('ready', () => {
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `опции` Object 
   * `certificate` String - Път към файла pkcs12.
   * `password` String - Паролата на сертификата.
-* `callback` Function 
+* `callback` Функция 
   * `result` Integer - Резултата на импортирането.
 
 Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` е извикана с `result` от импортиращата операция, стойност от `` показва успех, докато всяка друга стойност показва провал следващ chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -697,7 +644,7 @@ app.on('ready', () => {
 
 Връща [`ProcessMetric[]`](structures/process-metric.md): масив от `ProcessMetric` обекти, които съответстват на памет и статистика на cpu потреблението на всички процеси, свързани с приложението.
 
-### `app.getGPUFeatureStatus()`
+### `app.getGpuFeatureStatus()`
 
 Връща [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Състоянието на функцията графика от `chrome://gpu/`.
 
@@ -723,7 +670,7 @@ app.on('ready', () => {
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (по избор) 
+* `опции` Object (по избор) 
   * `path` String (по избор) *Windows* - Изпълнимият път, който ще бъде ползван за сравнение. По подразбиране е `process.execPath`.
   * `args` String[] (по избор) *Windows* - Листът с аргументи от командния ред, с който ще се сравнява. По подразбиране е празен масив.
 
@@ -772,14 +719,6 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
-
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
-
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
-
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
-
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
@@ -813,18 +752,6 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 Enables mixed sandbox mode on the app.
 
 Този метод може да бъде извикван само преди приложението да е готово.
-
-### `app.isInApplicationsFolder()` *macOS*
-
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
-
-### `app.moveToApplicationsFolder()` *macOS*
-
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
-
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
-
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
