@@ -72,6 +72,7 @@ Moduł `Tray` emituje następujące zdarzenia:
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the tray icon is clicked.
 
@@ -161,6 +162,17 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
+#### Event: 'mouse-move' *macOS*
+
+* `wydarzenie` Wydarzenie 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - The position of the event
+
+Emitted when the mouse moves in the tray icon.
+
 ### Metody instancji
 
 The `Tray` class has the following methods:
@@ -185,7 +197,7 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Ustawia tekst w dymku ikony w zasobniku systemowym.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -225,10 +237,10 @@ win.on('hide', () => {
 
 * `options` Obiekt 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `title` String
+  * `content` String
 
-Displays a tray balloon.
+Wyświetla dymek w zasobniku systemowym.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
