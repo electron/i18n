@@ -58,7 +58,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 例:
 
 * `test_MyTest*`,
-* `test_MyTest*,test_OtherStuff`,
+* `test_MyTest*`,
 * `"-excluded_category1,-excluded_category2`
 
 `traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
