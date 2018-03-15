@@ -14,7 +14,7 @@ Kelas ` BrowserWindow ` memiliki metode statis berikut:
 
 #### `Menu.set Aaplikasi Menu (menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Set ` menu </ 0> sebagai menu aplikasi pada macOS. Pada Windows dan Linux,
  <code> menu </ 0> akan ditetapkan sebagai menu atas setiap jendela.</p>
@@ -25,7 +25,7 @@ Set ` menu </ 0> sebagai menu aplikasi pada macOS. Pada Windows dan Linux,
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu.  Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
 
@@ -77,6 +77,12 @@ Menutup menu konteks di `browserWindow`.
 * `menu` Menu
 
 Appends the `menuItem` to the menu.
+
+#### `menu.getMenuItemById(id)`
+
+* `id` String
+
+Returns `MenuItem` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -147,7 +153,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -263,12 +269,13 @@ Template:
 
 Menu:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Template:
 
@@ -285,11 +292,13 @@ Template:
 
 Menu:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```
