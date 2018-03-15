@@ -4,13 +4,18 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-**您可以在 [这里](../tutorial/updates.md) 找到一个详细的指南，介绍如何将更新应用到您的应用程序。**
+The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
 
-## 跨平台提醒
+You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
 
-目前，只有 macOS 和 Window 支持该功能。在 Linux 上没有对自动更新程序的内置支持，因此建议使用发行版的包管理器来更新您的应用程序。
+* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
+* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
+* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
+* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
 
-此外，每个平台都有一些细微的差别:
+## 平台相关的提示
+
+Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
 
 ### macOS
 
@@ -28,29 +33,33 @@
 
 与 Squirrel.Mac 不同，Windows 版可以将更新文件放在 S3 或者其他静态主机上。 你可以阅读 [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)的文档来获得更多详细信息。
 
+### Linux
+
+There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+
 ## 事件
 
-`autoUpdater` 对象会触发以下的事件:
+The `autoUpdater` object emits the following events:
 
-### error事件：
+### Event: 'error'
 
 返回:
 
 * `error` Error
 
-当更新发生错误的时候触发。
+Emitted when there is an error while updating.
 
 ### Event: 'checking-for-update'
 
-当开始检查更新的时候触发。
+Emitted when checking if an update has started.
 
 ### Event: 'update-available'
 
-当发现一个可用更新的时候触发，更新包下载会自动开始。
+Emitted when there is an available update. The update is downloaded automatically.
 
 ### Event: 'update-not-available'
 
-当没有可用更新的时候触发。
+Emitted when there is no available update.
 
 ### Event: 'update-downloaded'
 
@@ -62,31 +71,31 @@
 * `releaseDate` Date
 * `updateURL` String
 
-在更新下载完成的时候触发。
+Emitted when an update has been downloaded.
 
-在 Windows 上只有 `releaseName` 是有效的。
+On Windows only `releaseName` is available.
 
 ## 方法
 
-`autoUpdater` 对象具有以下方法:
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (可选) - HTTP 请求头.
+* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-设置检查更新的 `url`，并且初始化自动更新。
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-返回 `String` - 获取当前更新的 Feed 链接.
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-向服务端查询现在是否有可用的更新。在调用这个方法之前，必须要先调用 `setFeedURL`。
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-在下载完成后，重启当前的应用并且安装更新。这个方法应该仅在 `update-downloaded` 事件触发后被调用。
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-**注意:** `autoUpdater.quitAndInstall()` 将先关闭所有应用程序窗口, 并且只在 `app` 上发出 `before-quit`事件。 这和正常退出的事件序列不同。
+**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
