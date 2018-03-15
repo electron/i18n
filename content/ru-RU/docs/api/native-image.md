@@ -135,29 +135,6 @@ Creates a new `NativeImage` instance from `buffer`.
 
 Creates a new `NativeImage` instance from `dataURL`.
 
-### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
-
-* `imageName` String
-* `hslShift` Number[]
-
-Возвращает `NativeImage`
-
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
-
-The `hslShift` is applied to the image with the following rules
-
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
- 0 = remove all lightness (make all pixels black).  
- 0.5 = leave unchanged.  
- 1 = full lightness (make all pixels white).
-
-This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
-
 ## Класс: NativeImage
 
 > Natively wrap images such as tray, dock, and application icons.
@@ -166,7 +143,7 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 ### Методы экземпляра
 
-Для экземпляров класса `NativeImage` доступны следующие методы:
+The following methods are available on instances of the `NativeImage` class:
 
 #### `image.toPNG([options])`
 
@@ -208,11 +185,11 @@ Notice that the returned pointer is a weak pointer to the underlying native imag
 
 #### `image.isEmpty()`
 
-Возвращает `Boolean` - признак того что изображение пустое.
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Возвращает [`Size`](structures/size.md)
+Returns [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
@@ -226,9 +203,9 @@ Returns `Boolean` - Whether the image is a template image.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - область изображения до которой нужно обрезать
+* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
 
-Возвращает `NativeImage` - обрезанное изображение.
+Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
@@ -240,7 +217,7 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 #### `image.getAspectRatio()`
 
-Возвращает `Float` - пропорции изображения.
+Returns `Float` - The image's aspect ratio.
 
 #### `image.addRepresentation(options)`
 
