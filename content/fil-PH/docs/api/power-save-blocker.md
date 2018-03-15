@@ -2,7 +2,7 @@
 
 > Hahadlangan ang sistema sa pagpasok mula sa moda ng low-power (pagtulog).
 
-Process: [Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 For example:
 
