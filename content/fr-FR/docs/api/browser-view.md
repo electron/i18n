@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+view.webContents.loadURL('https://electron.atom.io')
 ```
 
 ### `new BrowserView([options])` *Experimental*
@@ -35,16 +35,6 @@ view.webContents.loadURL('https://electronjs.org')
   * `webPreferences` Object (facultatif) - Voir [BrowserWindow](browser-window.md).
 
 ### Méthodes statiques
-
-#### `BrowserView.getAllViews()`
-
-Retourne `BrowserView[]` - Un tableau de tous les BrowserViews ouverts.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Retourne `BrowserView | null` - Le BrowserView qui possède le contenu donné `webContents` ou `null` si le contenu n'est pas possédé par un BrowserView.
 
 #### `BrowserView.fromId(id)`
 
@@ -58,7 +48,7 @@ Les objets créés avec `new BrowserView` ont les propriétés suivantes :
 
 #### `view.webContents` *Experimental*
 
-Un objet [`WebContents`](web-contents.md) appartient à cette vue.
+Un objet [`WebContents`](web-contents.md) appartenant à cette vue.
 
 #### `view.id` *Experimental*
 
@@ -71,8 +61,8 @@ Les objets créés avec `new BrowserView` ont les méthodes d’instance suivant
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Objet 
-  * `width` Boolean - Si `true`, la largeur de la vue va se redimensionner pour être de la même largeur que la fenêtre. `false` par défaut.
-  * `height` Boolean - Si `true`, la hauteur de la vue va se redimensionner pour être de la même hauteur que la fenêtre. `false` par défaut.
+  * `width` Boolean - Si `true`, la largeur de la vue augmentera et rétrécira avec la fenêtre. `false` par défaut.
+  * `height` Boolean - Si `true`, la hauteur de la vue augmentera et rétrécira avec la fenêtre. `false` par défaut.
 
 #### `view.setBounds(bounds)` *Experimental*
 
