@@ -179,4 +179,4 @@ Congratulations and thanks for your contribution!
 
 理想情况下, 代码合并请求将在 CI 的所有平台上通过测试 ("变成绿色")。 这意味着所有测试都通过, 并且没有 linting 错误。 However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). 必须手动检查每个 CI 故障以确定原因。
 
-Ci 在打开请求时自动启动, 但只有 [ 发布者 ](https://github.com/orgs/electron/teams/releasers/members) 才能重新启动 ci 运行。 If you believe CI is giving a false negative, ask a Releaser to restart the tests.
+Ci 在打开请求时自动启动, 但只有 [ 发布者 ](https://github.com/orgs/electron/teams/releasers/members) 才能重新启动 ci 运行。 如果你认为 CI 给出了错误的否定, 请求发布者重新启动测试。
