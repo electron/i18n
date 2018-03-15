@@ -96,7 +96,7 @@ Pagbabalik sa pagproseso ng "download" na pansamantalang inihinto.
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Resumes `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
