@@ -103,7 +103,7 @@ Efface le cache HTTP de la session.
   * `origin` String - (optionnel) Devrait suivre la représentation de `window.location.origin` : `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optionnel) Le type de quotas à vider, peut contenir: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
+* `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée.
 
 Efface les données de stockage du web.
 
@@ -117,7 +117,7 @@ Writes any unwritten DOMStorage data to disk.
   * `pacScript` String - The URL associated with the PAC file.
   * `proxyRules` String - Rules indicating which proxies to use.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+* `callback` Function - Appelée lorsque l’opération est effectuée.
 
 Indique les paramètres de proxy.
 
@@ -219,11 +219,11 @@ Désactive toute émulation de réseau déjà active pour la `session`. Réiniti
   * `request` Objet 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` String - Résultat de la vérification par Chromium.
+    * `errorCode` Integer - Code d'erreur.
   * `callback` Function 
     * `verificationResult` Integer - La valeur peut être un des codes d'erreur de certificat trouvés [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Mis à part les codes d’erreur de certificat, les codes spéciaux suivants peuvent être utilisés. 
-      * `` - Indicates success and disables Certificate Transparency verification.
+      * `` - Indique la réussite et désactive la vérification de transparence de certificat.
       * `-2` - Indique l'échec.
       * `-3` - Utilise le résultat de la vérification de Chromium.
 
@@ -328,7 +328,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée
+* `callback` Function (optionnel) - Appelée quand l'opération est terminée
 
 Vide le cache d'authentification HTTP de la session.
 
