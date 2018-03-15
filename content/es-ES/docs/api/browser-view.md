@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *Experimental*
@@ -36,40 +36,50 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### Métodos estáticos
 
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+
 #### `BrowserView.fromId(id)`
 
-* `id` Entero
+* `id` Íntegro
 
-Devuelve `BrowserView` - La vista con el proveido `id`.
+Returns `BrowserView` - The view with the given `id`.
 
 ### Propiedades de Instancia
 
-Los objetos creados con `new BrowserView` tienen las siguientes propiedades:
+Objects created with `new BrowserView` have the following properties:
 
 #### `view.webContents` *Experimental*
 
-Un objeto [`WebContents`](web-contents.md), que pertenece a esta vista.
+A [`WebContents`](web-contents.md) object owned by this view.
 
 #### `view.id` *Experimental*
 
-Un `Integer` representa el id único de la vista.
+A `Integer` representing the unique ID of the view.
 
 ### Métodos de Instancia
 
-Los objetos creados con `new BrowserView` tiene los siguientes métodos de instancia:
+Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `options` Objeto 
-  * `width` Boolean - If `true`, la anchura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
-  * `height` Boolean - If `true`, la altura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
+* `opciones` Objeto 
+  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Redimensiona y mueve la vista a los limites proporcionados en relación a la ventana.
+Resizes and moves the view to the supplied bounds relative to the window.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Color en forma `#aarrggbb` o `#argb`. El canal alfa es opcional.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
