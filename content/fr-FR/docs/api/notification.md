@@ -33,7 +33,7 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
   * `subtitle` String - (facultatif) Un sous-titre pour la notification, qui s'affichera en dessous du titre. *macOS*
   * `body` String - Le corps de texte de la notification, qui s'affichera sous le titre ou le sous-titre
   * `silent` Boolean - (facultatif) Émet ou non le signal sonore d'une notification lors de l'affichage de la notification
-  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
+  * `icon` (String | [NativeImage](native-image.md)) - (facultatif) Icône à utiliser dans la notification
   * `hasReply` Boolean - (facultatif) Ajoute ou non une ligne de réponse en option à la notification. *macOS*
   * `replyPlaceholder` String - (facultatif) Le texte d'exemple à afficher dans le champ de saisie de réponse. *macOS*
   * `sound` String - (facultatif) Le nom du fichier son à jouer lorsque la notification est affichée. *macOS*
@@ -69,7 +69,7 @@ Renvoie :
 
 Émis lorsque la notification est fermée manuellement par l'utilisateur.
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+Cet événement ne garantit pas d'être émis dans tous les cas de fermeture de la notification.
 
 #### Événement : 'reply' *macOS*
 
@@ -95,19 +95,19 @@ Les objets créés avec `new Notification` ont les méthodes d'instance suivante
 
 Affiche immédiatement la notification à l'utilisateur, veuillez notez que cela signifie, contrairement à l'implémentation des Notifications HTML5, que simplement instancier un `new Notification` ne va pas afficher immédiatement la notification à l'utilisateur. Pour que l'OS l'affiche à l'écran, vous devez appeler cette méthode.
 
-If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+Si la notification a déjà été affichée auparavant, cette méthode rejettera la notification précédemment affichée et en créera une nouvelle avec des propriétés identiques.
 
 #### `notification.close()`
 
-Dismisses the notification.
+Rejette la notification.
 
 ### Lire un son
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'affichage de la notification. Tous les sons par défaut (dans préférences système > Son) peuvent être utilisés, en plus des fichiers audio personnalisés. Assurez-vous que le fichier audio soit copié dans l'"app bundle" (par exemple, `VotreApp.app/Contents/Resources`), ou l'un des emplacements suivants :
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Consultez la documentation de [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) pour plus d'informations.
