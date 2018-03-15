@@ -61,31 +61,31 @@ $ git checkout -b my-branch -t upstream/master
 
 ### 步骤5: 提交更改
 
-建议将更改按逻辑分组在每个独立提交中。 其他贡献者可以从拆分多个提交中更容易的检查代码的改变。 There is no limit to the number of commits in a pull request.
+建议将更改按逻辑分组在每个独立提交中。 其他贡献者可以从拆分多个提交中更容易的检查代码的改变。 合并请求没有限制提交的数量。
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Note that multiple commits often get squashed when they are landed.
+请注意, 在最后执行合并代码时多个提交通常会被合并。
 
 #### 提交代码说明的指导
 
-A good commit message should describe what changed and why.
+好的提交说明应描述更改的内容和原因。
 
-1. The first line should:
+1. 第一行应该是:
   
-  * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+  * 包含一个对代码改变的简短说明 (最好是50个字符或更少, 不超过72个字符)
+  * 完全使用小写, 除了适当的名词, 缩写, 和引用代码的单词, 如函数/变量名
     
-    示例
+    示例：
   
   * `updated osx build documentation for new sdk`
   
   * `fixed typos in atom_api_menu.h`
 
-2. Keep the second line blank.
+2. 将第二行留空。
 
 3. Wrap all other lines at 72 columns.
 
