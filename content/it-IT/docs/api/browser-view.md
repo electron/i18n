@@ -46,40 +46,40 @@ Returns `BrowserView[]` - An array of all opened BrowserViews.
 
 Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
-#### `BrowserView.fromId(id)`
+#### `VistaBrowser.daId(id)`
 
 * `id` Numero Intero
 
-Returns `BrowserView` - The view with the given `id`.
+Restituisce `VistaBrowser` - La vista con l'`id` dato.
 
 ### Proprietà Istanza
 
-Objects created with `new BrowserView` have the following properties:
+Oggetti creato con `nuova VistaBrowser` hanno le seguenti proprietà:
 
-#### `view.webContents` *Experimental*
+#### `vista.Contenutiweb` *Sperimentale*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Un oggetto [`ContenutiWeb`](web-contents.md) da questa vista.
 
-#### `view.id` *Experimental*
+#### `vista.id` *Sperimentale*
 
-A `Integer` representing the unique ID of the view.
+Un numero `Intero` rappresentante l'unico ID di visualizzazione.
 
 ### Metodi Istanza
 
-Objects created with `new BrowserView` have the following instance methods:
+Oggetti creati con `nuova VistaBrowser` hanno i seguenti metodi d'istanza:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `vedi.impostaRidimensionaAutomaticamente(opzioni` *Sperimentale*
 
 * `opzioni` Oggetto 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `larghezza` Booleano - Se `true` la larghezza della vista crescerà e si contrarrà insieme alla finestra. `false` di default.
+  * `altezza` Booleano - Se `true`, la vista dell'altezza crescerà e si contrarrà con la finestra. `false` di default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `vista.impostaLimiti(limiti)` *Sperimentale*
 
 * `limiti` [Rettangolo](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Ridimensiona e muovi la vista ai limiti forniti relativamente alla finestra.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `vista.impostaColoreSfondo(colore)` *Sperimentale*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `colore` Stringa - Colore in forma `#aarrggbb` o `#argb`. Il canale alpha opzionale.
