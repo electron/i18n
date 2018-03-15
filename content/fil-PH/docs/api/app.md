@@ -2,7 +2,7 @@
 
 > Kontrolin ang event lifecycle ng iyong aplikasyon.
 
-Process: [Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang sumusunod na halimbawa ay nagpapakita kung paano ihinto ang aplikasyon kapag ang huling window ay isinara na:
 
@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Mga Pangyayari
+## Pangyayari
 
 Ang bagay ng `app` ay naglalabas ng mga sumusunod na mga event:
 
@@ -25,7 +25,7 @@ Sa karamihan, dapat mo lang gawin ang lahat sa mga `ready` handler ng event.
 
 ### Mga event: 'ready'
 
-Returns:
+Pagbabalik:
 
 * `launchInfo` Mga bagay *MacOS*
 
@@ -39,9 +39,9 @@ Kung ikaw ay hindi nag-subscribe sa event na ito at ang lahat ng mga window ay s
 
 ### Ang event: 'before-quit'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `event` Event
+* `event` na Kaganapan
 
 Ilalabas bago magsimula ang aplikasyon sa pagsasara ng mga window nito. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag-aalis ng aplikasyon.
 
@@ -49,7 +49,7 @@ Ilalabas bago magsimula ang aplikasyon sa pagsasara ng mga window nito. Ang pagt
 
 ### Event: 'will-quit'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `event` na Pangyayari
 
@@ -59,7 +59,7 @@ Tingnan ang deskripsyon ng event ng `window-all-closed` para sa mga pagkakaiba s
 
 ### Event: 'quit'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `exitCode` Integer
@@ -68,10 +68,10 @@ Lalabas kung humihinto ang aplikasyon.
 
 ### Event: 'open-file' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
-* `path` String
+* `path` na String
 
 Lalabas kung ang gusto ng user na mag-bukas ng isang file gamit ang aplikasyon. Ang event ng `open-file` ay kadalasang lumalabas kung ang aplikasyon ay bukas na at ang OS ay gustong muling gumamit ng aplikasyon para buksan ang file. Ang `open-file` ay ilalabas din kapag ang file ay ilinaglag sa dock at ang aplikasyon ay hindi pa gumagana. Siguraduhin na pinapakinggan ang event ng `open-file` sa maagang startup ng iyong application para mapamahalaan ang sitwasyon na ito (kahit bago pa ang event ng `ready` ay lumabas).
 
@@ -81,10 +81,10 @@ Sa Windows, kailangan mong i-parse ang `process.argv` (sa pangunahing proseso) p
 
 ### Event: 'open-url' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
-* `url` String
+* `kaganapan` Kaganapan
+* `url` Tali
 
 Lalabas kapag ang user ay gustong buksan ang isang URL kasama ang aplikasyon. Ang `info.plist` file ng iyong aplikasyon ay dapat tukuyin ang url scheme sa loob ng key ng `CFBundleURLTypes`, at i-set ang `NSPrincipalClass` sa `AtomApplication`.
 
@@ -92,7 +92,7 @@ Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang even
 
 ### Event: 'activate' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `hasVisibleWindows` Boolean
@@ -103,7 +103,7 @@ Lalabas kapag ang aplikasyon ay naka-aktibeyt. Iba't-ibang mga aksyon ang maaari
 
 Ibabalik:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Naglalaman ng espesipikong estado ng app na itinago sa pamamagitan ng aktibidad sa ibang aparato.
 
@@ -111,99 +111,60 @@ Lalabas sa panahon ng [Handoff](https://developer.apple.com/library/ios/document
 
 Ang aktibidad ng isang user ay maaari lamang magpatuloy sa isang app na may kaparehong developer Team ID bilang source app ng aktibidad at kung ito ay sumusuporta sa uri ng aktibidad. Ang sinuportahan na mga uri ng aktibidad ay tinukoy sa `Info.plist` ng app sa ilalim ng key ng `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' *macOS*
-
-Ibinabalika ang:
-
-* `kaganapan` Kaganapan
-* `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Napalabas habang [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) bago ang aktibidad galing sa ibang device na gustong mapagpatuloy. Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang event na ito.
-
-### Event: 'continue-activity-error' *macOS*
-
-Ibinabalika ang:
-
-* `kaganapan` Kaganapan
-* `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - Ang string na may error sa localized na deskripsyon.
-
-Napalabas habang [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) kung ang aktibidad galing sa ibang device ay nabigo na mapagpatuloy.
-
-### Event: 'activity-was-continued' *macOS*
-
-Ibinabalika ang:
-
-* `kaganapan` Kaganapan
-* `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Naglalaman ng app-specific na estado na nakaimbak ng aktibidad.
-
-Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)pagkatapos ang aktibidad galing sa ibang matagumpay na naibalik ang isa pa.
-
-### Event: 'update-activity-state' *macOS*
-
-Ibinabalika ang:
-
-* `kaganapan` Kaganapan
-* `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Naglalaman ng app-specific na estado na nakaimbak ng aktibidad.
-
-Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ay malapit na ipagpatuloy sa isa pang device. Kung kailangan mong i-update ang estado na ililipat, dapat kang tumawag ng `event.preventDefault()` kaagad, gumawa ng bagong `userInfo` diksyonaryo at tawag `app.updateCurrentActiviy()` sa isang napapanahong paraan. Kung hindi, ang operasyon ay mabibigo at `continue-activity-error` ay tatawagin.
-
 ### Event: 'new-window-for-tab' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 
 Lalabas kapag ang user ay nag-klik sa natural na pindutan ng bagong tab sa macOS. Ang bagong tab na pindutan ay makikita lamang kung ang kasalukuyang `BrowserWindow` ay may `tabbingIdentifier`
 
 ### Mga event: 'browser-window-blur'
 
-Ibinabalika ang:
+Ibinabalik:
 
-* `kaganapan` kaganapan
-* `window` [BrowserWindow](browser-window.md)
+* `kaganapan` Kaganapan
+* `window` BrowserWindow
 
 Lalabas kapag ang [browserWIndow](browser-window.md) ay nagiging malabo.
 
 ### Mga event: 'browser-window-focus'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Lalabas kapag ang [browserWindow](browser-window.md) ay ipopokus.
 
 ### Event: 'browser-window-created'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
-* `window` [BrowserWindow](browser-window.md)
+* `kaganapan` kaganapan
+* `window` BrowserWindow
 
 Lalabas kapag ang bagong [browserWindow](browser-window.md) ay nagawa na.
 
 ### Event: 'web-contents-created'
 
-Ibinabalika ang:
+Ibinabalik:
 
-* `kaganapan` kaganapan
-* `webContents` [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `webContents` WebContents
 
 Lalabas kapag ang bagong [webContents](web-contents.md) ay nagawa na.
 
 ### Mga event: 'certificate-error'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `webContents` [WebContents](web-contents.md)
 * `url` String
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Punsyon 
   * `isTrusted` Boolean - Kung isinasa-alang-alang ang sertipiko bilang mapagkakatiwalaan
 
 Lalabas kapag nabigo ang pag-beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
@@ -224,13 +185,13 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
 * `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Punsyon 
+* `ganting-tawag` Function 
   * `certificate` [Certificate](structures/certificate.md) (opsyonal)
 
 Lalabas kapag ang sertipiko ng kliyente ay hiniling.
@@ -248,13 +209,13 @@ app.on('select-client-certificate', (mga event, mga webContents, mga url, mga ta
 
 ### Event: 'login'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
 * `kahilingan` Bagay 
   * `method` String
-  * `url` Ang URL
+  * `url` URL
   * `referrer`Ang URL
 * `ang authInfo` Bagay 
   * `isProxy` Ang Boolean
@@ -262,7 +223,7 @@ Ibinabalika ang:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Ang Punsyon 
+* `mulingtawag` Punsyon 
   * `username` String
   * `password` String
 
@@ -281,7 +242,7 @@ app.on('login', (mga event, mga webContents, mga kahilingan, mga authInfo, mga m
 
 ### Event: 'gpu-process-crashed'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `killed` Ang Boolean
@@ -290,14 +251,14 @@ Lalabas kapag ang proseso na gpu ay nasira o pinatay.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `accessibilitySupportEnabled` Boolean - `true` kapag ang parating na suporta ng Chrome ay pinagana, `false` kung hindi.
 
 Lalabas kapag ang parating na suporta ng Chrome ay nabago. Ang event na ito ay sisimulan kapag ang assistive na teknologhiya, kagaya ng mga screen reader, ay naka-enable o hindi. Tingnan ang https://www.chromium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
-## Mga Pamamaraan
+## Mga Paraan
 
 Ang `app` na object ay maroong mga sumusunod na mga method:
 
@@ -383,7 +344,6 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 * `music` Direktoryo ng musika para sa gumagamit.
 * `pictures` Direktoryo ng mga larawan para sa gumagamit.
 * `videos` Direktoryo ng mga video para sa gumagamit.
-* `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin` Buong landas sa bersyon ng sistema sa plugin ng Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -394,7 +354,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 sa *Linux*, 32x32 sa *Windows*, hindi suportado sa *macOS*.
-* `callback` Punsyon 
+* `tumawag muli` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -454,13 +414,13 @@ Ang listahan na ito ay pinamamahalaan ng OS. Sa Windows maaari mong bisitahin an
 
 Buburahin ang listahan ng mga bagong dokumento.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])`
+### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Ang pangalan ng iyong protocol, walang `://`. Kung gusto mo ang iyong app na maghandle ng `electron://` na mga link, tawagin mo ang method na mayroong `electron` bilang parameter.
 * `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
 * `args` String[] (opsyonal) *Windows* - Magdedefault sa isang walang laman na array
 
-Returns `Boolean` - Kung ang tawag ay nagtagumpay.
+Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
 Ang paraan na ito ay nagtatakda sa kasalukuyang maipapatupad bilang ang default handler para sa isang protocol (aka pamamaraan ng URI). Ito ay nagpapahintulot sa iyo na isama ang iyong app pailalim patungo sa operating system. Sakaling marehistro, ang lahat ng links na may `your-protocol://` ay mabubuksan ng kasalukuyang pagpapatupad. Ang kabuuang link, kasama ang protocol, ay makakalampas sa iyong aplikasyon bilang isang parameter.
 
@@ -476,7 +436,7 @@ Ang API ay ginagamit ang Windows Registry at ang LSSetDefaultHandlerForURLScheme
 * `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
 * `args` String[] (opsyonal) *Windows* - Magdedefault sa isang walang laman na array
 
-Returns `Boolean` - Kung ang tawag ay naging matagumpay.
+Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
 Ang mga paraan na ito ay sinusuri kung ang kasalukuyang naipapatupad bilang default handler para sa isang protocol (aka URI scheme), Kung gayon, tatanggalin nito ang app bilang default handler.
 
@@ -502,13 +462,13 @@ Idinadagdag ng `tasks` sa mga [Tasks](http://msdn.microsoft.com/en-us/library/wi
 
 `tasks` ay isang hanay ng [`Task`](structures/task.md) na mga bagay.
 
-Returns `Boolean` - Kung ang tawag ay nagtagumpay.
+Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
 **Note:** Kung gusto mo pang ipasadya ang Jump List ng higit pa gamitin sa halip ang `app.setJumpList(categories)`.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng halaga nito tingnan ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Isang hanay ng mga bagay sa `JumpListItem` na tumutugma sa mga item na tahasang tinanggal ng gumagamit galing sa ipinasadyang mga kategorya ng Jump List. Ang mga item na ito ay hindi dapat maidagdag na muli sa Jump List sa **next** na tawag sa `app.setJumpList()`, ang Windows ay hindi magpapakita ng kahit anong pasadyang kategorya na maglalaman ng kahit anong natanggal ng mga item.
@@ -527,7 +487,7 @@ Naglalagay o nagtatanggal ng isang pasadyang Jump List para sa aplikasyon, at ib
 
 Kung ang `categories` ay `null`, ang dati ng naitakda na pasadyang Jump List (kung mayroon man) ay mapapalitan ng standard na Jump List para sa app (na pinamamahalaan ng Windows).
 
-**Note:** Kung ang `JumpListCategory` ang bagay ay hindi ang `type` o ang `name` itinakda ang katangian pagkatapos ito ay `type` ay ipinapalagay na `tasks`. Kung ang `name` ang katangian ay itinakda ngunit ang `type` ang katangian ay tinanggal pagkatapos ang `type` ay ipinalagay na `custom`.
+**Note:** Kung ang isang bagay sa `JumpListCategory` ay wala ang `type` ni ang `name` itinakdang property pagkatapos nito `type` ay ipinapalagay na `tasks`. Kung ang property ng `name` ay naitakda ngunit ang property ng `type` ay tinanggal pagkatapos ang `type` ay ipinapalagay na `custom`.
 
 **Note:** Ang mga user ay maaaring magtanggal ng mga item mula sa mga pasadyang kategorya, at ang Windows ay hindi pinapayagan na ang tinggal na aytem ay ibalik na muli sa pasadyang kategorya hanggang **after**ang susunod na matagumpay na pagtawag sa `app.setJumpList(categories)`. Kahit na anong pagtatangka na muling idagdag ang isang tinanggal na aytem nang mas maaga pa ay magreresulta na ang buong pasadyang kategorya ay tinanggal na mula sa Jump List. Ang listahan ng mga natanggal na aytem ay maaring makuha gamit ang `app.getJumpListSettings()`.
 
@@ -593,7 +553,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Tungkulin 
+* `callback` Function 
   * `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
   * `workingDirectory` String - Ang working directory ng ikalawang pagkakataon
 
@@ -607,9 +567,9 @@ Ang `callback` ay siguradong i-eexecute pagkatapos ibrobrodkast ang `ready` even
 
 Ang method na ito ay magbabalik ng `false` kung ang proseso mo ay ang primary instance ng application at ang iyong app ay dapat nag-concontinue magload. At magbabalik ng `true` kung ang iyong proseso ay nagpadala ng mga parameter nito sa ibang insance, at dapat mong agarang ihinto.
 
-Sa macOS ang system ay awtomatikong pipilitin na mag-single instance kung ang user ay magtatangkang magbukas na ikalawang instance ng iyong app sa Finder, at ang `open-file` at `open-url` na mga event ay ibrobrodkast para doon. Gayunpaman kapag ang mga user ay binuksan ang iyong app sa linya ng command ang isahang instansyang mekanismo ng sistema ay mababalewala at kailangan mong gamitin ang pamamaraang ito para masiguro ang isahang instansya.
+Sa macOS ang system ay awtomatikong pipilitin na mag-single instance kung ang user ay magtatangkang magbukas na ikalawang instance ng iyong app sa Finder, at ang `open-file` at `open-url` na mga event ay ibrobrodkast para doon. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
-Ang isang halimbawa ng pag-aktibeyt ng window ng pangunahing instansya ay kapag nagsimula na ang ikalawang instansya:
+An example of activating the window of primary instance when a second instance starts:
 
 ```javascript
 const {app} = require('electron')
@@ -634,122 +594,109 @@ app.on('ready', () => {
 
 ### `app.releaseSingleInstance()`
 
-Binuksan ang lahat ng mga trangka na ginawa ng `makeSingleInstance`. Pinapayagan nito ang maramihang mga instansya ng mga aplikasyon na gumanang muli ng magkakatabi.
+Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Kakaibang pagkakilala sa aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userinfo` Object - App-tiyak na estado para itago upang magamit ng ibang aparato.
-* `webpageURL` String (opsyonal) - ay ang webpage sa isang browser na ilo-load kung walang angkop na app ang naka-install sa aparatong nagpasimulang muli. Ang dapat na pamamaraan ay `http` o `https`.
+* `type` String - Uniquely identifies the activity. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - App-specific state to store for use by another device.
+* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
-Ay lumilikha ng isang `NSUserActivity` at ito ang nagtatakda bilang kasalukuyang aktibidad. Ang aktibidad ay karapat-dapat para sa [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sa iba pang aparato pagkatapos nito.
+Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Nagbabalik ang `String` - Ang uri ng kasalukuyang aktibidad na tumatakbo.
-
-### `app.invalidateCurrentActivity()` *macOS*
-
-* `type` String - Kakaibang pagkakilala sa aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
-
-### `app.updateCurrentActivity(type, userInfo)` *macOS*
-
-* `type` String - Kakaibang pagkakilala sa aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userinfo` Object - App-tiyak na estado para itago upang magamit ng ibang aparato.
-
-Ini-update ang kasalukuyang aktibidad kung tumutugma ito`type`, pinagsamasama ang mga entry mula sa `userInfo` sa kasalukuyan nitong diksyonaryo ng `userInfo`.
+Returns `String` - The type of the currently running activity.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` String
+* `id` na String
 
-Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) tungo sa `id`.
+Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
 * `options` Bagay 
-  * `certificate` String - Ang landas para sa mga file ng pkcs12.
-  * `password` String - Ang passphrase para sa mga sertipiko.
-* `callback` Punsyon 
-  * `result` Integer - Ang resulta ng pag-import.
+  * `certificate` String - Path for the pkcs12 file.
+  * `password` String - Passphrase for the certificate.
+* `callback` Function 
+  * `result` Integer - Result of import.
 
-Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. Ang `callback` ay tinatawag na kasama ng `result` ng operasyon ng pag-import, ang halaga ng `` ay nagpapahiwatig ng tagumpay samantalang ang iba pang mga halaga ay nagpapahiwatig ng kabiguan ayon sa [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) ng chromium.
+Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-### `ang app.disableHardwareAcceleration()`
+### `app.disableHardwareAcceleration()`
 
-Hindi pinagana ang akselerasyon ng hardware para sa kasalukuyang app.
+Disables hardware acceleration for current app.
 
-Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
+This method can only be called before app is ready.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-Sa pamamagitan ng default, hindi pinagana ng Chromium ang mga 3D API (hal.WebGL) hanggang sa muling pagbukas sa bawat domain na basehan kung ang mga proseso ng GPU ay masyadong madalas bumagsak. Ang punsyon na ito ay hindi pinapagana ang ganoong katangian.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
-Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
+This method can only be called before app is ready.
 
-### `app.getAppMemoryinfo()` *Deprecated*
+### `app.getAppMemoryInfo()` *Deprecated*
 
-Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app. **Note:** Ang pamamaraang ito ay hindi na magagamit, sa halip ay gumamit ng `app.getAppMetrics()`.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
 
-### `ang app.getAppMetrics()`
+### `app.getAppMetrics()`
 
-Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
-### `ang app.getGPUFeatureStatus()`
+### `app.getGpuFeatureStatus()`
 
-Nagbabalik ang [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Ang mga Tampok na Katayuan ng mga Grapiko mula sa `chrome://gpu/`.
+Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
-### `app.setBadgeCount(bilangin)` *Linux* *macOS*
+### `app.setBadgeCount(count)` *Linux* *macOS*
 
-* ang `count` Integer
+* `count` Integer
 
-Returns `Boolean` - Kung ang tawag ay nagtagumpay.
+Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
-Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge kapag ang itinatakdang bilang ay ``.
+Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
-Sa macOS ipinapakita ito sa dock icon. Sa Linux ito ay gumagalaw lamang para sa tagapaglunsad ng Unity,
+On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
-**Note:** Ang tagalunsad ng Unity ay nangangailangan ng pagkakaroon ng isang file na `.desktop` para gumana, para sa karagdagan impormasyon mangyaring basahin ang [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Nagbabalik ang `Integer` - Ang kasalukuyang halaga ay ipinapakita sa mga tagabilang ng badge.
+Returns `Integer` - The current value displayed in the counter badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Unity.
+Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Bagay (opsyonal) 
-  * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
-  * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
+* `options` Object (optional) 
+  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
+  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
-Kung ibinigay mo ang mga opsyon ng mga `path` at mga `args` sa `app.setLoginItemSettings` kung gayon dapat mong ipasa ang mga parehong argumento dito para mai-set ng tama ang `openAtLogin`.
+If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
-* `openAtLogin` Boolean - `true` kung ang app ay naka-set na bumukas sa pag-login.
-* `openAsHidden` Boolean - `true` Kung ang app ay naka-set na bumukas bilang nakatago sa pag-login. Ang setting na ito ay sinusuportahan lamang sa macOS.
-* `wasOpenedAtLogin` Boolean - `true` kung ang app ay awtomatikong bumukas sa pag-login. Ang setting na ito ay sinusuportahan lamang sa macOS.
-* `wasOpenedAsHidden` Boolean - `true` kung ang app ay bumukas bilang isang nakatagong item sa pag-login. Nagpapahiwatig ito na ang app ay hindi dapat magbukas ng kahit anong window sa startup. Ang setting na ito ay sinusuportahan lamang sa macOS.
-* `restoreState` Boolean - `true` kung ang app ay bumukas bilang aytem sa pag-login na dapat i-restore ang estado mula sa dating sesyon. Nagpapahiwatig ito na ang app ay dapat i-restore ang windows na bukas sa huling beses na ang app ay isinara. Ang setting na ito ay sinusuportahan lamang sa macOS.
+* `openAtLogin` Boolean - `true` if the app is set to open at login.
+* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
+* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
+* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
+* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
 
-**Note:** Ang API na ito ay walang epekto sa [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `mga setting` Bagay 
-  * `openAtLogin` Boolean (opsyonal) - `true` para buksan ang app sa pag-login, `false` para tanggalin ang app bilang aytem sa pag-login. Mga default sa `false`.
-  * `openAsHidden` Boolean (opsyonal) - `true` para buksan ang app bilang nakatago. Mga default sa `false`. Maaaring i-edit ng user ang setting na ito mula sa System Preferences kaya `app.getLoginitemStatus().wasOpenedAsHidden` ay dapat namasuri kapag ang app ay nabuksan para malaman ang kasalukuyang halaga. Ang setting na ito ay sinusuportahan lamang sa macOS.
-  * `path` String (opsyonal) *Windows* - Ang maipapatupad para maglunsad sa login. Ay mga default sa `process.execPath`.
-  * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ipapasa sa ipinapatupad. Mga default sa isang walang lamang hanay. Alalayan para isama ang mga landas sa mga quote.
+* `settings` Bagay 
+  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
+  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
+  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
+  * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
-I-set ang mga login aytem setting ng app.
+Set the app's login item settings.
 
-Makipagtulungan sa `autoUpdater` ng Electron sa Windows,kung saan gumagamit ng [Squirrel](https://github.com/Squirrel/Squirrel.Windows),gusto mong i-set ang landas ng pag-launch patungo sa Update.exe, at ipasa ang mga argumento na nagsasaad ng pangalan ng iyong aplikasyon. Halimbawa:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -768,118 +715,98 @@ app.setLoginItemSettings({
 Context | Request Context
 ```
 
-**Note:** Ang API na ito ay walang epekto sa [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `false` kung hindi naman. Ang API na ito ay babalik sa `true` kung ang paggamit ng nakatutulong na teknolohiya, tulad ng mga screen reader, ay nakita. Tingnan ang https://www.chrmium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
-
-### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
-
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
-
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
-
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `mga opsyon` Bagay 
-  * `applicationName` String (opsyonal) - Ang pangalan ng app.
-  * `applicationVersion` String (opsyonal) - Ang bersyon ng app.
-  * `copyright` String (opsyonal) - Ang impormasyon ng copyright.
-  * `credits` String (opsyonal) - Ang impormasyon ng credit.
-  * `version` String (opsyonal) - Ang build version number ng app.
+* `options` Bagay 
+  * `applicationName` String (optional) - The app's name.
+  * `applicationVersion` String (optional) - The app's version.
+  * `copyright` String (optional) - Copyright information.
+  * `credits` String (optional) - Credit information.
+  * `version` String (optional) - The app's build version number.
 
-I-set ang mga pagpipilian tungkol sa panel. Ipinapawang-bisa nito ang halaga ng ipinaliwanag na `.plist` na file ng app. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye.
+Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - Ang swits ng command-line
-* `value` String (opsyonal) - Ang halaga para sa ibinigay na swits
+* `switch` String - A command-line switch
+* `value` String (optional) - A value for the given switch
 
-Ilapit ang swits (na may opsyonal `value`) sa linya ng command ng Chromium.
+Append a switch (with optional `value`) to Chromium's command line.
 
-**Note:** Ito ay hindi makaka-apekto sa `process.argv`, at ito ay pangunahing ginagamit ng mga developer para kontrolin ang ilang mabababang mga katangian ng Chromium.
+**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
 
-### `app.commandLine.appendArgument(halaga)`
+### `app.commandLine.appendArgument(value)`
 
-* `value` String - Ang argumento ay ilakip sa linya ng command
+* `value` String - The argument to append to the command line
 
-Ilakip ang isang argumento sa linya ng command ng Chromium Ang argumento ay iko-qoute ng tama.
+Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Note:** Ito ay hindi makaka-apekto sa `process.argv`.
+**Note:** This will not affect `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Ang pinaghalong paraan ng sandbox sa app ay pinagana.
+Enables mixed sandbox mode on the app.
 
-Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
-
-### `app.isInApplicationsFolder()` *macOS*
-
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
-
-### `app.moveToApplicationsFolder()` *macOS*
-
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
-
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
-
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+This method can only be called before app is ready.
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (opsyonal) - ay maaaring `critical` o `informational`. Ang default ay `informational`
+* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
 
-Kapag ang `critical` ay lumipas, ang icon ng dock ay tatalon hanggang alinman sa mga aplikasyon ay naging aktibo o ang kahilingan ay kinansela.
+When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
-Kapag ang `informational` ay lumipas na, ang icon ng dock ay tatalon ng isang segundo. Gayunpaman, ang kahilingan ay nananatiling aktibo hanggang alinman sa mga aplikasyon ay nagiging aktibo o ang kahilingan ay kinansela.
+When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-Nagbabalik ang `integer` ang isang ID na kumakatawan sa mga kahilingan.
+Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
-* `id` Integer
+* `id` na Integer
 
-Kanselahin ang pagtalon ng `id`.
+Cancel the bounce of `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Pinatatalon ang mga istak ng Download kung ang filePath ay nasa loob ng folder ng mga Download.
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Ise-set ang string upang maipakita sa badging area ng dock.
+Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-Nagbabalik ang `String` - Ang string ng badge ng dock.
+Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Itinatago ang icon ng dock.
+Hides the dock icon.
 
 ### `app.dock.show()` *macOS*
 
-Ipinapakita ang icon ng dock.
+Shows the dock icon.
 
 ### `app.dock.isVisible()` *macOS*
 
-Nagbabalik ang `Boolean` - Kung ang mga icon sa dock ay nakikita. Ang tawag ng `app.dock.show()` ay asynchronous kaya ang pamamaraan na ito ay hindi babalik na totoo agad-agad matapos ang tawag na iyon.
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-I-set ang [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) ng aplikasyon.
+Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` [NativeImage](native-image.md) (String)
 
-I-set ang `image` na may kaugnayan sa dock icon na ito.
+Sets the `image` associated with this dock icon.
