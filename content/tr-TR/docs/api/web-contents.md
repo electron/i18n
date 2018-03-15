@@ -370,11 +370,16 @@ Bir sayfanın tema rengi değiştiğinde ortaya çıkar. Bu genellikle karşıla
 <meta name='theme-color' content='#ff0000'>
 ```
 
+Dönüşler:
+
+* `event` Event
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+
 #### Etkinlik: 'update-target-url'
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` String
 
 Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
@@ -383,7 +388,7 @@ Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odak
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
@@ -398,7 +403,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `params` Nesne 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
@@ -440,7 +445,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Fonksiyon 
   * `deviceId` String
@@ -470,7 +475,7 @@ app.on('ready', () => {
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -503,6 +508,26 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+
+#### Event: 'did-attach-webview'
+
+Dönüşler:
+
+* `event` Olay
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+
+Emitted when a `<webview>` has been attached to this web contents.
+
+#### Etkinlik: 'console-message'
+
+Dönüşler:
+
+* `level` Integer
+* `message` String
+* `line` Integer
+* `sourceId` String
+
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
 ### Örnek yöntemleri
 
@@ -797,7 +822,9 @@ Odaklanmış öğeye `metin` ekler.
   * `wordStart` Boolean - (isteğe bağlı) Sadece kelime başlarına bakılıp bakılmayacağı, varsayılan olarak `false`'tur.
   * `medialCapitalAsWordStart` Boolean - (İsteğe bağlı) `wordStart` ile birleştirildiğinde, eğer eşleşme büyük harfle başlayıp küçük harf veya harf olmayan ifadeyle devam ediyorsa, eşleşmeyi kabul eder. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -846,12 +873,14 @@ Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options])`
+#### `contents.print([options], [callback])`
 
 * `seçenekler` Nesne (isteğe bağlı) 
   * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
   * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
   * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
+* `callback` Fonksiyon (isteğe bağlı) 
+  * success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
