@@ -60,7 +60,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Funkcja 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
@@ -84,7 +84,7 @@ Removes the subscriber with `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Funkcja 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
@@ -101,9 +101,9 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificati
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Returns `any` - The value of `key` in system preferences.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -119,13 +119,19 @@ This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 * `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` String
 
-Set the value of `key` in system preferences.
+Set the value of `key` in `NSUserDefaults`.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
+
+### `systemPreferences.removeUserDefault(key)` *macOS*
+
+* `key` String
+
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
@@ -169,7 +175,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - One of the following values: 
+* `kolor` String - One of the following values: 
   * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
   * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
   * `3d-highlight` - Highlight color for three-dimensional display elements.
