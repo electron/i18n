@@ -16,29 +16,29 @@ win.loadURL('https://github.com')
 
 **注釈:** 逆 (メインプロセスからレンダラープロセスにアクセスする) の場合は、 [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback) が使用できます。
 
-## Remote Objects
+## リモートオブジェクト
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+`remote` モジュールによって返される各オブジェクト (関数を含む) は、メインプロセスのオブジェクトを表しています (リモートオブジェクト、リモート関数と呼びます)。 リモートオブジェクトのメソッドを呼び出すとき、リモート関数を呼ぶとき、リモートコンストラクタ (関数) で新しいオブジェクトを作成するとき、実際にはプロセス間の同期メッセージが送信されています。
 
-In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+上記のサンプルでは、`BrowserWindow` と `win` の両方がリモートオブジェクトで、レンダラープロセス内の `new BrowserWindow` では、`BrowserWindow` オブジェクトは作成されていません。 代わりに、`BrowserWindow` オブジェクトはメインプロセス内で作成され、レンダラープロセス内の対応するリモートオブジェクト、すなわち `win` オブジェクトを返しました。
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+**注釈:** リモートオブジェクトが最初に参照された時に存在する、[列挙可能なプロパティ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)だけが、remote を経由してアクセスできます。
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+**注釈:** `remote` を経由してアクセスしたとき、配列とバッファは IPC でコピーされます。 それらをレンダラープロセス内で変更しても、メインプロセス内のものは変更されません。
 
-## Lifetime of Remote Objects
+## リモートオブジェクトの有効期間
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Electron は、レンダラープロセス内のリモートオブジェクトが存続している (つまり、ガベージコレクションされていない) 限り、メインプロセス内の対応するオブジェクトは解放されません。 リモートオブジェクトがガベージコレクションされたとき、対応するメインプロセス内のオブジェクトの参照が外れます。
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+もしレンダラープロセス内でリモートオブジェクトがリークした場合 (map に格納したが開放されていないなど)、対応するメインプロセス内のオブジェクトもリークするので、リモートオブジェクトのリークには十分注意して下さい。
 
-Primary value types like strings and numbers, however, are sent by copy.
+ただし、文字列や数などの主な値型は、コピーして送信されます。
 
-## Passing callbacks to the main process
+## メインプロセスにコールバックを渡す
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+メインプロセス内のコードでは、レンダラー (例えば `remote` モジュール) からのコールバックを受け取ることができますが、この機能を使用するときは非常に注意する必要があります。
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+まず、デッドロックを防ぐために、メインプロセスに渡すコールバックは非同期で呼ばれます。メインプロセスが、渡されたコールバックの戻り値を取得することを期待しないで下さい。
 
 For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
 
