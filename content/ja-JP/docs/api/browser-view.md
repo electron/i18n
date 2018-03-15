@@ -38,48 +38,48 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+戻り値 `BrowserView[]` - 開かれたすべてのBrowserViewの配列。
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+戻り値 `BrowserView | null` - 指定された `webContents` を保持しているBrowserViewまたはコンテンツがBrowserViewによって保持されていない場合、`null`。
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+戻り値 `BrowserView` - 指定された `id` のビュー。
 
 ### インスタンスプロパティ
 
-Objects created with `new BrowserView` have the following properties:
+`new BrowserView` で作成されたオブジェクトは、以下のプロパティを持っています。
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *実験的*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+このビューによって保持されている [`WebContents`](web-contents.md) オブジェクト。
 
-#### `view.id` *Experimental*
+#### `view.id` *実験的*
 
-A `Integer` representing the unique ID of the view.
+ビューの一意のIDを表す `Integer`。
 
 ### インスタンスメソッド
 
-Objects created with `new BrowserView` have the following instance methods:
+`new BrowserView` で作成されたオブジェクトは、次のインスタンスメソッドを持っています。
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *実験的*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。省略値は、`false` です。
+  * `height` Boolean - `true` の場合、ビューの高さはウインドウと一緒に伸び縮みします。省略値は、`false` です。
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *実験的*
 
 * `bounds` [Rectangle](structures/rectangle.md) 
 
-Resizes and moves the view to the supplied bounds relative to the window.
+ウインドウを基準に指定された境界までビューをリサイズしたり、移動させたりします。
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *実験的*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - `#aarrggbb` や `#argb` といった形式の色。アルファチャンネルは任意です。
