@@ -2,7 +2,7 @@
 
 > レンダラープロセスからメインプロセスのモジュールを使用します。
 
-プロセス: [レンダラー](../glossary.md#renderer-process)
+プロセス: [Renderer](../glossary.md#renderer-process)
 
 `remote` モジュールは、レンダラープロセス (ウェブページ) とメインプロセスの間で、簡単にプロセス間通信 (IPC) をする方法を提供します。
 
@@ -102,14 +102,15 @@ console.log(app)
 
 e.g.
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // main process: main/index.js
