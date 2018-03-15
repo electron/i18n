@@ -171,7 +171,7 @@ Try not to be discouraged. If you feel that a review is unfair, say so or seek t
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
-Congratulations and thanks for your contribution!
+恭喜您, 感谢您的贡献!
 
 ### 持续集成测试
 
