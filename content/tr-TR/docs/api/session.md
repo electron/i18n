@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` Dizgi
-* `seçenekler` Nesne 
+* `seçenekler` Nesne (isteğe bağlı) 
   * `cache` Mantıksal - Önbelleği etkinleştirip etkinleştirmeyeceğini belirtir.
 
 `Oturum` Döndürür - `bölümden` bir oturum örneği metini. Aynı `partition`'a sahip olan `Session` varsa, döndürülecektir; aksi taktirde `Session` örneği `options` ile yaratılacaktır.
@@ -126,78 +126,79 @@ Oturumun HTTP önbelleğini temizler.
   
   `proxyRules` aşağıdaki kurallara uymak zorundadır:
   
-      proxyRules = schemeProxies[";"<schemeProxies>]
-      schemeProxies = [<urlScheme>"="]<proxyURIList>
-      urlScheme = "http" | "https" | "ftp" | "socks"
-      proxyURIList = <proxyURL>[","<proxyURIList>]
-      proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-      
+  ```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
+
+Örneğin:
+
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, ve HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Tüm URL'ler için HTTP proxy `foopy:80`'yi kullanın.
+* `foopy:80,bar,direct://` - tüm URL'ler için HTTP proxy `foopy:80` kullanın, `foopy:80` kullanılamıyorsa `bar`'e kadar başarısız olur ve bundan sonra proxy kullanamaz.
+* `socks4://foopy` - Tüm URL'ler için SOCKS v4 proxy `foopy:1080`'yi kullanın.
+* `http=foopy,socks5://bar.com` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` yoksa SOCKS5 proxy `bar.com`'e başarısız olunur.
+* `http=foopy,direct://` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` kullanılamazsa proxy kullanmayın.
+* `http=foopy;socks=foopy2` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve diğer tüm URL'ler için `socks4://foopy2` kullanın.
+
+`proxyBypassRules` yapısı aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
+
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  Örneğin:
+  HOSTNAME_PATTERN kalıbıyla eşleşen tüm ana makine adlarını eşleştirin.
   
-  * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, ve HTTP proxy `foopy2:80` for `ftp://` URLs.
-  * `foopy:80` - Tüm URL'ler için HTTP proxy `foopy:80`'yi kullanın.
-  * `foopy:80,bar,direct://` - tüm URL'ler için HTTP proxy `foopy:80` kullanın, `foopy:80` kullanılamıyorsa `bar`'e kadar başarısız olur ve bundan sonra proxy kullanamaz.
-  * `socks4://foopy` - Tüm URL'ler için SOCKS v4 proxy `foopy:1080`'yi kullanın.
-  * `http=foopy,socks5://bar.com` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` yoksa SOCKS5 proxy `bar.com`'e başarısız olunur.
-  * `http=foopy,direct://` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` kullanılamazsa proxy kullanmayın.
-  * `http=foopy;socks=foopy2` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve diğer tüm URL'ler için `socks4://foopy2` kullanın.
+  Örnekler: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
-  `proxyBypassRules` yapısı aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
-  
-  * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    HOSTNAME_PATTERN kalıbıyla eşleşen tüm ana makine adlarını eşleştirin.
+    Belirli bir alanın son ekiyle eşleşir.
     
-    Örnekler: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-    
-    * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-      
-      Belirli bir alanın son ekiyle eşleşir.
-      
-      Örnekler: ".google.com", ".com", "http://.google.com"
+    Örnekler: ".google.com", ".com", "http://.google.com"
+
+* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-    
-    IP adresi değişmez olan URL'leri eşleştirin.
-    
-    Örnekler: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  IP adresi değişmez olan URL'leri eşleştirin.
   
-  * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
-    
-    Belirtilen aralık arasında kalan bir IP sabiti olan herhangi bir URL'yi eşleştirin. IP aralığı CIDR gösterimi kullanılarak belirtilir.
-    
-    Örnekler: "192.168.1.1/16", "fefe:13::abc/33".
+  Örnekler: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
-  * `<local>`
-    
-    Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+  Belirtilen aralık arasında kalan bir IP sabiti olan herhangi bir URL'yi eşleştirin. IP aralığı CIDR gösterimi kullanılarak belirtilir.
   
-  #### `ses.resolveProxy(url, callback)`
+  Örnekler: "192.168.1.1/16", "fefe:13::abc/33".
+
+* `<local>`
   
-  * `url` URL
-  * `geri aramak` Function 
-    * `proxy` Dizgi
-  
-  `url` Urlsinin proksi bilgisini çözümler. `callback`, `callback(proxy)` istek geldiğinde çağrılacaktır.
-  
-  #### `ses.setDownloadPath(path)`
-  
-  * `yol` String - İndirme konumu
-  
-  İndirme, kaydetme dizini ayarlar. Varsayılan olarak, karşıdan yükleme dizini `İndirilenler` uygulama klasörü altındadır.
-  
-  #### `ses.enableNetworkEmulation(options)`
-  
-  * `seçenekler` Nesne 
-    * `offline` Boolean (İsteğe Bağlı) - Ağ bağlantısının kopmasını taklit eder. Varsayılan değer False.
-    * `latency` Double (İsteğe Bağlı) - RTT (ms cinsinden) Varsayılan değer 0, gecikmenin azaltılmasını devre dışı bırakır.
-    * `downloadThroughput` Double (isteğe bağlı) - Bps' de indirme hızı. Varsayılan değer 0, indirme hız sınırlamalarını devre dışı bırakır.
-    * `uploadThroughput` Double (isteğe bağlı) - Bps' de yükleme hızı. Varsayılan değer 0, yükleme sınırlamalarını devre dışı bırakır.
-  
-  Emulates ağı için verilen yapılandırmayla `session`.
-  
-  ```javascript
+  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+
+#### `ses.resolveProxy(url, callback)`
+
+* `url` URL
+* `geri aramak` Function 
+  * `proxy` Dizgi
+
+`url` Urlsinin proksi bilgisini çözümler. `callback`, `callback(proxy)` istek geldiğinde çağrılacaktır.
+
+#### `ses.setDownloadPath(path)`
+
+* `yol` String - İndirme konumu
+
+İndirme, kaydetme dizini ayarlar. Varsayılan olarak, karşıdan yükleme dizini `İndirilenler` uygulama klasörü altındadır.
+
+#### `ses.enableNetworkEmulation(options)`
+
+* `seçenekler` Nesne 
+  * `offline` Boolean (İsteğe Bağlı) - Ağ bağlantısının kopmasını taklit eder. Varsayılan değer False.
+  * `latency` Double (İsteğe Bağlı) - RTT (ms cinsinden) Varsayılan değer 0, gecikmenin azaltılmasını devre dışı bırakır.
+  * `downloadThroughput` Double (isteğe bağlı) - Bps' de indirme hızı. Varsayılan değer 0, indirme hız sınırlamalarını devre dışı bırakır.
+  * `uploadThroughput` Double (isteğe bağlı) - Bps' de yükleme hızı. Varsayılan değer 0, yükleme sınırlamalarını devre dışı bırakır.
+
+Emulates ağı için verilen yapılandırmayla `session`.
+
+```javascript
 // GPRS bağlantısını 50kbps çıkış ve 500 ms gecikme ile taklit etmek.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
@@ -219,10 +220,11 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
   * `istek` Nesne 
     * `hostname` Dizgi
     * `certificate` [sertifika](structures/certificate.md)
-    * `error` String - Verification result from chromium.
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `geri aramak` Function 
     * `doğrulama Sonucu` Tamsayı: Değer sertifika hata kodlarından olabilir [buraya](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
-      * `` - Indicates success and disables Certificate Transperancy verification.
+      * `` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
 
@@ -246,13 +248,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `halledici` Fonksiyon 
+* `halledici` Function | null 
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri aramak` Function 
     * `permissionGranted` Boolean - İzin verme veya reddetme
 
-Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder.
+Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
