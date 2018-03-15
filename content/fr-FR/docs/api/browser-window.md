@@ -138,6 +138,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
   * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Default is `false`.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
+  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
   * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
   * `title` String (optional) - Default window title. Default is `"Electron"`.
@@ -150,8 +151,9 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
+  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
@@ -186,8 +188,8 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
     * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
     * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
-    * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
-    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+    * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
+    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
     * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
       * `standard` String (optional) - Defaults to `Times New Roman`.
       * `serif` String (optional) - Defaults to `Times New Roman`.
@@ -199,7 +201,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
     * `minimumFontSize` Integer (optional) - Defaults to ``.
     * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the \[Page Visibility API\]\[#page-visibility\]. Defaults to `true`.
+    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
@@ -248,91 +250,93 @@ window.onbeforeunload = (e) => {
   // a non-void value will silently cancel the close.
   // It is recommended to use the dialog API to let the user confirm closing the
   // application.
-  e.returnValue = false
+  e.returnValue = false // equivalent to `return false` but not recommended
 }
 ```
 
+***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+
 #### Événement : 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Émis lorsque la fenêtre est fermée. Après avoir reçu cet évenement, vous devriez enlever la référence à la fenêtre et éviter de l'utiliser à nouveau.
 
 #### Événement : 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Émis lorsque la session va se terminer à cause d'une redémarage, un éteignage forcé ou une déconnexion.
 
 #### Événement : 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Émis lorsque la page web cesse de répondre.
 
 #### Événement : 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+Émis lorsque la page web répond à nouveau.
 
 #### Événement : 'blur'
 
-Emitted when the window loses focus.
+Émis lorsque la fenêtre perd le focus.
 
 #### Événement : 'focus'
 
-Emitted when the window gains focus.
+Émis lorsque la fenêtre obtient le focus.
 
 #### Événement : 'show'
 
-Emitted when the window is shown.
+Émis lorsque la fenêtre est affichée.
 
 #### Événement : 'hide'
 
-Emitted when the window is hidden.
+Émis lorsque la fenêtre est masquée.
 
 #### Événement : 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Émis lorsque la page web à été chargée (tout en n'était pas affichée) et la fenêtre peut être affichée sans flash visuel.
 
 #### Événement : 'maximize'
 
-Emitted when window is maximized.
+Émis lorsque la fenêtre est agrandie.
 
 #### Événement : 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+Émis lorsque la fenêtre quitte un état maximisé.
 
 #### Événement : 'minimize'
 
-Emitted when the window is minimized.
+Émis lorsque la fenêtre est réduite.
 
 #### Événement : 'restore'
 
-Emitted when the window is restored from a minimized state.
+Émis lorsque la fenêtre est restaurée à partir d’un état réduit.
 
 #### Événement : 'resize'
 
-Emitted when the window is being resized.
+Émis lorsque la fenêtre est redimensionnée.
 
 #### Événement : 'move'
 
-Emitted when the window is being moved to a new position.
+Émis lorsque la fenêtre est déplacée vers une nouvelle position.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Note** : Sous macOS, cet événement est simplement un alias de `moved`.
 
 #### Événement : 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
 
 #### Événement : 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Émis lorsque la fenêtre passe à un état de plein écran.
 
 #### Événement : 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Émis lorsque la fenêtre revient d'un état de plein écran.
 
 #### Événement : 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Émis lorsque la fenêtre entre dans un état de plein écran déclenchée par l’API HTML.
 
 #### Événement : 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Émis lorsque la fenêtre revient d'un état de plein écran déclenchée par l’API HTML.
 
 #### Événement : 'app-command' *Windows*
 
@@ -358,15 +362,15 @@ win.on('app-command', (e, cmd) => {
 
 #### Événement : 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+Émis lorsque l’événement scroll de la souris a commencé.
 
 #### Événement : 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+Émis lorsque l’événement scroll de la souris est terminée.
 
 #### Événement : 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Émis lorsque l’événement scroll de la souris arrive au bord d'un élément.
 
 #### Événement : 'swipe' *macOS*
 
@@ -379,11 +383,11 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 #### Événement : 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Émis lorsque la fenêtre ouvre une feuille.
 
 #### Événement : 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Émis lorsque la fenêtre a fermé une feuille.
 
 #### Événement : 'new-window-for-tab' *macOS*
 
@@ -406,6 +410,12 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
 * `webContents` [WebContents](web-contents.md)
 
 Returns `BrowserWindow` - The window that owns the given `webContents`.
+
+#### `BrowserWindow.fromBrowserView(browserView)`
+
+* `browserView` [BrowserView](browser-view.md)
+
+Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -576,6 +586,18 @@ Sets whether the window should be in fullscreen mode.
 #### `win.isFullScreen()`
 
 Returns `Boolean` - Whether the window is in fullscreen mode.
+
+#### `win.setSimpleFullScreen(flag)` *macOS*
+
+* `flag` Boolean
+
+Enters or leaves simple fullscreen mode.
+
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+
+#### `win.isSimpleFullScreen()` *macOS*
+
+Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -951,6 +973,16 @@ Returns `Boolean` - Whether the window has a shadow.
 
 On Windows and Linux always returns `true`.
 
+#### `win.setOpacity(opacity)` *Windows* *macOS*
+
+* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+
+Sets the opacity of the window. On Linux does nothing.
+
+#### `win.getOpacity()` *Windows* *macOS*
+
+Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
@@ -1049,9 +1081,11 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 **Note:** This API always returns false on Windows.
 
-#### `win.setIgnoreMouseEvents(ignore)`
+#### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
+* `options` Object (facultatif) 
+  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Makes the window ignore all mouse events.
 
@@ -1091,6 +1125,32 @@ Returns `BrowserWindow[]` - All child windows.
 
 Controls whether to hide cursor when typing.
 
+#### `win.selectPreviousTab()` *macOS*
+
+Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+
+#### `win.selectNextTab()` *macOS*
+
+Selects the next tab when native tabs are enabled and there are other tabs in the window.
+
+#### `win.mergeAllWindows()` *macOS*
+
+Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+
+#### `win.moveTabToNewWindow()` *macOS*
+
+Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+
+#### `win.toggleTabBar()` *macOS*
+
+Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+
+#### `win.addTabbedWindow(browserWindow)` *macOS*
+
+* `browserWindow` BrowserWindow
+
+Adds a window as a tab on this window, after the tab for the window instance.
+
 #### `win.setVibrancy(type)` *macOS*
 
 * `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
@@ -1108,5 +1168,9 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 #### `win.setBrowserView(browserView)` *Experimental*
 
 * `browserView` [BrowserView](browser-view.md)
+
+#### `win.getBrowserView()` *Experimental*
+
+Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
 **Remarque :** L’API BrowserView est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
