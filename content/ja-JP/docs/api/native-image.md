@@ -232,15 +232,15 @@ console.log(image)
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (任意) - 省略値は画像の高さ。 * `quality` String (任意) - リサイズされた画像の希望する解像度。 値は `good`、`better`、または `best` にできる。 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (任意) - 省略値は画像の高さ。 * `quality` String (任意) - リサイズされた画像の希望する解像度。 値は `good`、`better`、または `best` にできる。 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 これらは、基になるプラットフォームの機能 (CPU、GPU) に依存するアルゴリズム固有のメソッドに変換される。 3つのメソッドすべてを、特定のプラットフォーム上の同じアルゴリズムに割り当てることも可能です。
 
-Returns `NativeImage` - The resized image.
+戻り値 `NativeImage` - リサイズされた画像。
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+`height` または `width` のどちらかのみが指定された場合、アスペクト比はリサイズされた画像でも保持されます。
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+戻り値 `Float` - イメージのアスペクト比。
 
 #### `image.addRepresentation(options)`
 
