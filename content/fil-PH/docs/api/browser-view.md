@@ -4,7 +4,7 @@
 
 **Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang isang `BrowserView` ay maaaring magamit para i-embed ang karagdagang nilalaman ng web patungo sa isang `BrowserWindow`. Ito ay katulad ng isang batang window, maliban na ito ay naka-posisyon kaugnay sa kanyang angking window. Ito ay sinadya na maging isang alternatibo ng mga tag ng `webview`.
 
@@ -26,15 +26,25 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *Experimental*
 
-* `options` Object (optional) 
+* `pagpipilian` Na Bagay (opsyonal) 
   * `webPreferences` Bagay (opsyonal) - Tingnan ang [BrowserWindow](browser-window.md).
 
 ### Mga istatikong pamamaraan
+
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [WebContents](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `BrowserView.fromId(id)`
 
@@ -54,13 +64,13 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Mga halimbawa ng pamamaraan
+### Instance Methods
 
 Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `options` Bagay 
+* `pagpipilian` Bagay 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
