@@ -6,7 +6,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *Experimental*
 
-* `options` Object 
+* `опции` Object 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
 
@@ -24,7 +24,7 @@ The following properties are available on instances of `TouchBar`:
 
 The `TouchBarButton` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
 
-## Examples
+## Примери
 
 Below is an example of a simple slot machine touch bar game with a button and some labels.
 
@@ -50,7 +50,7 @@ const spin = new TouchBarButton({
 
 ### Running the above example
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. Save the above file to your computer as `touchbar.js`
 2. Install Electron via `npm install electron`
