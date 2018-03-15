@@ -29,12 +29,12 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "9102",
-    "translated": "7229",
+    "translated": "7329",
     "approved": "44",
     "words": "82831",
-    "words_translated": "63243",
+    "words_translated": "64194",
     "words_approved": "270",
-    "translated_progress": 76,
+    "translated_progress": 77,
     "approved_progress": 0,
     "qa_issues": "170"
   },
@@ -159,14 +159,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9102",
-    "translated": "4626",
+    "translated": "4712",
     "approved": "227",
     "words": "82831",
-    "words_translated": "34329",
+    "words_translated": "35121",
     "words_approved": "1092",
-    "translated_progress": 41,
+    "translated_progress": 42,
     "approved_progress": 1,
-    "qa_issues": "136"
+    "qa_issues": "140"
   },
   {
     "name": "Korean",
@@ -198,14 +198,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "9102",
-    "translated": "2466",
+    "translated": "2470",
     "approved": "49",
     "words": "82831",
-    "words_translated": "13737",
+    "words_translated": "13803",
     "words_approved": "83",
     "translated_progress": 16,
     "approved_progress": 0,
-    "qa_issues": "619"
+    "qa_issues": "620"
   },
   {
     "name": "Portuguese, Brazilian",
