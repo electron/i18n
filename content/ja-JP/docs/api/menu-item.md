@@ -1,4 +1,4 @@
-## クラス: MenuItem
+## Class: MenuItem
 
 > ネイティブアプリケーションメニューとコンテキストメニューに項目を追加します。
 
@@ -8,7 +8,7 @@
 
 ### `new MenuItem(options)`
 
-* `options` オブジェクト 
+* `options` Object 
   * `click` Function (任意) - メニューアイテムがクリックされると、 `click(menuItem, browserWindow, event)` と呼ばれる。 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
@@ -67,14 +67,9 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `stopspeaking` - `stopSpeaking` アクションにマップ
 * `front` - `arrangeInFront` アクションにマップ
 * `zoom` - `performZoom` アクションにマップ
-* `toggletabbar` - `toggleTabBar` アクションにマップ
-* `selectnexttab` - `selectNextTab` アクションにマップ
-* `selectprevioustab` - `selectPreviousTab` アクションにマップ
-* `mergeallwindows` - `mergeAllWindows` アクションにマップ
-* `movetabtonewwindow` - `moveTabToNewWindow` アクションにマップ
-* `window` - "ウインドウ"サブメニュー
-* `help` - "ヘルプ"サブメニュー
-* `services` - "サービス"サブメニュー
+* `window` - The submenu is a "Window" menu
+* `help` - The submenu is a "Help" menu
+* `services` - The submenu is a "Services" menu
 
 macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。ほかのすべてのオプションは無視されます。
 
