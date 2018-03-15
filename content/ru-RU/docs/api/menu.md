@@ -98,7 +98,7 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 ## Примеры
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
 
 ### Основной (main) процесс
 
@@ -256,7 +256,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Примеры
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -268,7 +268,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
 ```sh
 <br />- 1
@@ -278,7 +278,7 @@ Menu:
 - 5
 ```
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -291,7 +291,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
 ```sh
 <br />- ---
