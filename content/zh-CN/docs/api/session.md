@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `选项` Object (可选) 
+* `选项` Object - 过滤器对象，包含过滤参数 
   * `cache` Boolean - 是否可以使用缓存.
 
 Returns `Session` - 根据`partition`字符串产生的session实例。 当这里已存在一个`Session`具有相同的`partition`, 它将被返回; 否则一个新的`Session`实例将根据`options`被创建。
@@ -125,13 +125,12 @@ Callback会被调用，参数是session的当前缓存大小。
 
 `proxyRules` 要遵循以下规则:
 
-```sh
-proxyRules = schemeProxies[";"<schemeProxies>]
-schemeProxies = [<urlScheme>"="]<proxyURIList>
-urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <proxyURL>[","<proxyURIList>]
-proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-```
+    proxyRules = schemeProxies[";"<schemeProxies>]
+    schemeProxies = [<urlScheme>"="]<proxyURIList>
+    urlScheme = "http" | "https" | "ftp" | "socks"
+    proxyURIList = <proxyURL>[","<proxyURIList>]
+    proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+    
 
 例如：
 
@@ -219,11 +218,10 @@ Disables any network emulation already active for the `session`. Resets to the o
   * `request` Object 
     * `hostname` String
     * `certificate` [证书](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `error` String - Verification result from chromium.
   * `callback` Function - 回调函数 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transparency verification.
+      * `` - Indicates success and disables Certificate Transperancy verification.
       * `-2` - Indicates failure.
       * `-3` - Uses the verification result from chromium.
 
@@ -247,13 +245,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function | null 
+* `handler` Function 
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
     * `permissionGranted` Boolean - Allow or deny the permission
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
+Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
 
 ```javascript
 const {session} = require('electron')
