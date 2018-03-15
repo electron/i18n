@@ -36,15 +36,15 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 
 <p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
 
-<h3><code>ipcRenderer.removeAllListeners([channel])`</h3> 
-            * `channel` String (optional)
-            
-            Menghapus semua pendengar, atau orang-orang dari yang ditentukan ` saluran </ 0> .</p>
+<h3><code>ipcRenderer.removeAllListeners(channel)`</h3> 
+            * ` saluran </ 0>  String</li>
+</ul>
+
+<p>Menghapus semua pendengar, atau orang-orang dari yang ditentukan <code> saluran </ 0> .</p>
 
 <h3><code>ipcRenderer.kirim (saluran [, arg1] [, arg2] [, ...])`</h3> 
-            
-            * ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+                * `channel` String
+                * ` ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan ke proses utama secara asinkron melalui <code> saluran </ 0> , Anda juga dapat mengirim argumen yang sewenang-wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p>
@@ -52,8 +52,8 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 <p>Proses utama menangani dengan mendengarkan modul <code> saluran </ 0> dengan <code> ipcMain </ 0> .</p>
 
 <h3><code>ipcRenderer.sikron di kirim (saluran [, arg1] [, arg2] [, ...])`</h3> 
-                * `channel` String
-                * ` ... args </ 0> ada []</li>
+                    * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
 </ul>
 
 <p>Mengembalikan <code> sembarang </ 0> - Nilai dikirim kembali oleh handler <a href="ipc-main.md"><code> ipcMain </ 1> .</p>
@@ -64,8 +64,16 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 
 <p><strong> Catatan: </ 0> Mengirimkan pesan sinkron akan memblokir keseluruhan proses perenderan, kecuali jika Anda tahu apa yang Anda lakukan, Anda tidak boleh menggunakannya.</p>
 
-<h3><code>ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`</h3> 
-                    * ` saluran </ 0>  String</li>
+<h3><code>ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`</h3> 
+                        * `windowId` Number
+                        * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
+
+<p>Sends a message to a window with <code>windowid` via `channel`</p> 
+                            ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
+                            
+                            * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
