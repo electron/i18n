@@ -112,7 +112,7 @@ Ketika atribut ini hadir semua halaman akan memiliki web keamanan dinonaktifkan.
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electron.atom.io" partition="electron"></webview>
+<webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
 Menetapkan sesi yang digunakan oleh halaman. Jika `partisi` diawali dengan `bertahan:`, halaman akan menggunakan sesi terus-menerus tersedia untuk semua halaman di app dengan `partisi` yang sama. jika tidak ada awalan `bertahan:`, halaman akan menggunakan a sesi dalam memori. Dengan menugaskan yang sama `partisi`, beberapa halaman dapat berbagi sesi yang sama. Jika `partisi` disetel maka sesi app default akan digunakan.
@@ -303,10 +303,10 @@ Mengembalikan `String` - Agen pengguna untuk halaman tamu.
 
 Menyuntikkan CSS ke halaman tamu.
 
-### `<webview>.executeJavaScript(code, userGesture, callback)`
+### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * ` kode </ 0> String</li>
-<li><code>userGesture` Boolean - Default `false`.
+<li><code>userGesture` Boolean (optional) - Default `false`.
 * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `hasil` Ada
 
@@ -413,7 +413,9 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
     * `wordStart` Boolean - (opsional) Baik untuk melihat hanya pada awal kata-kata. default ke `false`.
     * `medialCapitalAsWordStart` Boolean - (opsional) Bila digabungkan dengan `wordStart`, menerima sebuah pertandingan di tengah sebuah kata jika pertandingan dimulai dengan sebuah huruf besar diikuti huruf kecil atau huruf non. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
   
-  Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+  Returns `Integer` - The request id used for the request.
+  
+  Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
   
   ### `<webview>.stopFindInPage(action)`
   
