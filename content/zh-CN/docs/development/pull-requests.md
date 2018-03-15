@@ -39,11 +39,11 @@ $ git fetch upstream
 * [在 Linux 上构建](https://electronjs.org/docs/development/build-instructions-linux)
 * [在 Windows 上构建](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+一旦您在本地构建了项目, 就可以开始进行更改了!
 
 ### 步骤3: 分支
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+为了保持您的开发环境的组织, 创建本地分支来保存您的工作。 应该直接从 ` master ` 分支上创建您的分支。
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
