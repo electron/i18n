@@ -26,29 +26,19 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+view.webContents.loadURL('https://electron.atom.io')
 ```
 
 ### `new BrowserView([options])` *Deneysel*
 
-* `seçenekler` Object (isteğe bağlı) 
+* `seçenekler` Nesne (isteğe bağlı) 
   * `webPreferences` Obje (opsiyonel) - [BrowserWindow](browser-window.md)'a bakın.
 
 ### Statik Yöntemler
 
-#### `BrowserView.getAllViews()`
-
-`BrowserView[]` - açılan tüm BrowserViews dizisinin değerini gönderir.
-
-#### `BrowserWiew.fromWebContents(webContents)`
-
-* `webContents` [webİçerikleri](web-contents.md)
-
-Dönüt `BrowserView | null`-BrowserView içeriği tarafından bir BrowserView ait sahip olmayan, verilen `webContents` veya `null` sahip.
-
 #### `BrowserView.fromId(id)`
 
-* `id` tamsayı
+* `id` Tamsayı
 
 `BrowserView` döner - `id` ile birlikte girilen view.
 
@@ -70,7 +60,7 @@ View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
 
 #### `view.setAutoResize(options)` *Deneysel*
 
-* `seçenekler` Nesne 
+* `seçenekler` Obje 
   * `width` Boolean - `true` ise, view'in uzunluğu pencere ile birlikte büyür ve küçülür. Varsayılan değeri `false`.
   * `height` Boolean - `true` ise, view'in yüksekliği pencere ile birlikte büyür ve küçülür. Varsayılan değeri `false`.
 
