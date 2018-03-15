@@ -33,7 +33,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
   * ` subtitle `String (可选) 通知的副标题, 将显示在标题下面。* macOS *
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面
   * ` silent `Boolean (可选) 在显示通知时是否发出 OS 提示音
-  * `icon` (String | [NativeImage](native-image.md)) - (可选) 用于通知的图标
+  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
   * ` hasReply `Boolean (可选) 是否向通知中添加内联答复选项。 * macOS *
   * ` replyPlaceholder `String (可选) 内联答复输入字段中的占位符。* macOS *
   * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
@@ -69,7 +69,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 当用户手动关闭通知时触发
 
-当通知关闭后，这个事件不能保证在所有情况下都会触发。
+This event is not guarunteed to be emitted in all cases where the notification is closed.
 
 #### 事件: 'reply' *macOS*
 
@@ -95,19 +95,13 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 立即显示通知给用户，请注意这一点不同于 HTML5通知实现，只实例化一个 `new Notification` 不会马上显示给用户，你需要在OS将要显示它之前调用这个方法将显示它。
 
-如果以前已显示通知, 则此方法将忽略以前显示的通知，并创建具有相同属性的新通知
-
-#### `notification.close()`
-
-忽略这条通知
-
 ### 播放声音
 
-在 macOS 上, 您可以指定在显示通知时要播放的声音的名称。 除了自定义声音文件之外, 还可以使用任何默认声音 ("系统首选项" > "声音")。 请确保声音文件是在应用程序包(例如, ` YourApp.app/Contents/Resources`) 内存在副本, 或者是下列位置之一:
+On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-有关详细信息, 请参见 [` NSSound `](https://developer.apple.com/documentation/appkit/nssound) 文档。
+See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
