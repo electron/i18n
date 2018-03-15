@@ -75,7 +75,7 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `reply` Cadena - La cadena que ingreso el usuario dentro del campo de respuesta insertado
 
 Se emite cuando el usuario hace clic en el botón "Reply" en una notificación con `hasReply: true`.
@@ -103,11 +103,11 @@ Dismisses the notification.
 
 ### Reproducción de Sonidos
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+En macOS, se puede especificar el nombre del sonido que se desee reproducir cuando se muestre la notificación. Cualquier sonido por defecto, además de los archivos de sonido personalizados, (en Preferencias del sistema > Sonido) puede ser utilizados. Asegúrese de que el archivo de sonido sea copiado en el paquete de la aplicación (por ejemplo, `YourApp.app/Contents/Resources`), o uno de los siguientes direcciones:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Ver la documentación [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) para más información.
