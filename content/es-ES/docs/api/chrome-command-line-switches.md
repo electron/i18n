@@ -96,9 +96,8 @@ Una lista de servidores separadas por comas por los que la autentificación inte
 
 Por ejemplo:
 
-```bash
---auth-server-whitelist='*example.com, *foobar.com, *baz'
-```
+    --auth-server-whitelist='*example.com, *foobar.com, *baz'
+    
 
 entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será considerada por la autentificación integrada. Sin el prefijo `*` la url tiene que corresponder exactamente.
 
