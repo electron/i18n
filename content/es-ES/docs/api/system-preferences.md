@@ -101,9 +101,9 @@ Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotifica
 * `llave` Cadena
 * `type` Cadena - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Returns `any` - The value of `key` in system preferences.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -119,13 +119,19 @@ This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 * `type` Cadena - Ver [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` Cadena
 
-Set the value of `key` in system preferences.
+Set the value of `key` in `NSUserDefaults`.
 
 Nota que `type` debería coincidir el tipo actual de `value`. Una excepción es arrojada si no es así.
 
-This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
+
+### `systemPreferences.removeUserDefault(key)` *macOS*
+
+* `llave` Cadena
+
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
