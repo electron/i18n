@@ -111,6 +111,45 @@ Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/
 
 Uma atividade do usuário pode ser continuada apenas em uma aplicação que tem o mesmo Team ID do desenvolvedor como o aplicativo fonte da atividade e que suporta o tipo da atividade. Tipos de atividade suportadas são especificadas no `Info.plist` do aplicativo sob a chave `NSUserActivityTypes`.
 
+### Evento: 'will-continue-activity' *macOS*
+
+Retorna:
+
+* `event` Event
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) antes de uma atividade em outro dispositivo desejar ser continuada. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
+
+### Evento: 'continue-activity-error' *macOS*
+
+Retorna:
+
+* `event` Event
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - Uma string com a descrição traduzida do erro.
+
+Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando uma atividade de outro dispositivo falha ao ser resumida.
+
+### Evento: 'activity-was-continued' *macOS*
+
+Retorna:
+
+* `event` Event
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contém configurações específicas do app armazenadas na atividade.
+
+Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) depois que uma atividade deste dispositivo foi continuada com sucesso em outro dispositivo.
+
+### Evento: 'update-activity-state' *macOS*
+
+Retorna:
+
+* `event` Event
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contém configurações específicas do app armazenadas na atividade.
+
+Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. Se você precisar atualizar o estado a ser transferido, você deve imediatamente chamar `event.preventDefault()`, construir um novo dicionário `userInfo` e chamar `app.updateCurrentActivity()` de forma pontual. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
+
 ### Evento: 'new-window-for-tab' no *macOS*
 
 Retorna:
@@ -124,34 +163,34 @@ Emitido quando o usuáro clica no botão de nova guia nativo do macOS. O botão 
 Retorna:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
-Emitido quando uma [browserWindow](browser-window.md) é desfocada.
+Emitido quando uma [browserWindow](browser-window.md) fica em segundo plano.
 
 ### Evento: 'browser-window-focus'
 
 Retorna:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
-Emitido quando [browserWindow](browser-window.md) é focado.
+Emitido quando uma [browserWindow](browser-window.md) fica em primeiro plano.
 
 ### Evento: 'browser-window-created'
 
 Retorna:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
-Emitido quando um novo [browserWindow](browser-window.md) é criado.
+Emitido quando uma nova [browserWindow](browser-window.md) é criada.
 
 ### Evento: 'web-contents-created'
 
 Retorna:
 
 * `event` Event
-* `webContents` WebContents
+* `webContents` [WebContents](web-contents.md)
 
 Emitido quando um novo [webContents](web-contents.md) é criado.
 
@@ -311,7 +350,7 @@ No Linux, foca na primeira janela visível. No macOS, torna o aplicativo a aplic
 
 ### `app.hide()` no *macOS*
 
-Oculta todas as janelas do aplicativo sem minimizá-las.
+Oculta todas as janelas do aplicativo sem minimizar-las. 
 
 ### `app.show()` no *macOS*
 
@@ -344,12 +383,13 @@ Você pode solicitar os seguintes caminhos pelo o nome:
 * `music` Diretório para a música de um usuário.
 * `pictures` Diretório para as imagens de um usuário.
 * `videos` Diretório para os vídeos de um usuário.
+* `logs` Diretório que armazena os logs da aplicação.
 * `pepperFlashSystemPlugin` Caminho completo até a versão do sistema do plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (opcional) 
+* `opções` Objeto (opcional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -414,7 +454,7 @@ Esta lista é gerenciada pelo SO. No Windows você pode acessá-la a partir da b
 
 Limpa a lista de documentos recentes.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - O nome do protocolo sem `://`. Se você deseja que sua aplicação manipule links `electron://`, utilize este método com o parâmetro `electron`.
 * `path` String (opcional) *Windows* - O padrão é `process.execPath`
@@ -608,6 +648,19 @@ Creates an `NSUserActivity` and sets it as the current activity. The activity is
 
 Returns `String` - The type of the currently running activity.
 
+### `app.invalidateCurrentActivity()` no *macOS*
+
+* `type` String - Uniquely identifies the activity. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.updateCurrentActivity(type, userInfo)` *macOS*
+
+* `type` String - Uniquely identifies the activity. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - App-specific state to store for use by another device.
+
+Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
@@ -644,7 +697,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
-### `app.getGpuFeatureStatus()`
+### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
@@ -719,6 +772,14 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
+### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+
+* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
 ### `app.setAboutPanelOptions(options)` no *macOS*
 
 * `opções` Object 
@@ -752,6 +813,18 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 Enables mixed sandbox mode on the app.
 
 This method can only be called before app is ready.
+
+### `app.isInApplicationsFolder()` no *macOS*
+
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+
+### `app.moveToApplicationsFolder()` no *macOS*
+
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
