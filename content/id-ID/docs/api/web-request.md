@@ -33,13 +33,14 @@ Metode berikut tersedia pada contoh `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `menyaring` Sasaran 
+* `menyaring` Object - (optional) 
   * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
 * `pendengar` Fungsi 
   * `rincian` Obyek 
     * `identitas` Integer
     * ` url </ 0> String</li>
 <li><code>method` String
+    * `webContentsId` Integer (optional)
     * `TipeSumberdaya` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -56,7 +57,7 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `menyaring` Sasaran 
+* `menyaring` Object - (optional) 
   * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
 * ` pendengar </ 0> Fungsi</li>
 </ul>
@@ -66,6 +67,7 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     * `identitas` Integer
     * `url` String
     * `method` String
+    * `webContentsId` Integer (optional)
     * `TipeSumberdaya` String
     * `timestamp` Double
     * `requestHeaders` Object
@@ -78,13 +80,14 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
   
   #### `webRequest.onSendHeaders([filter, ]listener)`
   
-  * `menyaring` Sasaran 
+  * `menyaring` Object - (optional) 
     * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
   * `pendengar` Fungsi 
     * `rincian` Obyek 
       * `identitas` Integer
       * `url` String
       * `method` String
+      * `webContentsId` Integer (optional)
       * `TipeSumberdaya` String
       * `timestamp` Double
       * `requestHeaders` Object
@@ -93,16 +96,17 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
   
   #### `webRequest.onHeadersReceived([filter, ]pendengar)`
   
-  * `menyaring` Sasaran 
+  * `menyaring` Object - (optional) 
     * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
   * ` pendengar </ 0> Fungsi</li>
 </ul>
 
 <p><code>pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.</p> 
     * `rincian` Object 
-      * `id` String
+      * `identitas` Integer
       * ` url </ 0> String</li>
 <li><code>method` String
+      * `webContentsId` Integer (optional)
       * `TipeSumberdaya` String
       * `timestamp` Double
       * `statusLine` String
@@ -118,13 +122,14 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     
     #### `webRequest.onResponseStarted([filter, ]pendengar)`
     
-    * `menyaring` Sasaran 
+    * `menyaring` Object - (optional) 
       * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `identitas` Integer
         * `url` String
         * `method` String
+        * `webContentsId` Integer (optional)
         * `TipeSumberdaya` String
         * `timestamp` Double
         * `responseHeaders` Objek
@@ -136,13 +141,14 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     
     #### `webRequest.onBeforeRedirect([filter, ]listener)`
     
-    * `menyaring` Sasaran 
+    * `menyaring` Object - (optional) 
       * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
-        * `id` String
+        * `identitas` Integer
         * `url` String
         * `method` String
+        * `webContentsId` Integer (optional)
         * `TipeSumberdaya` String
         * `timestamp` Double
         * `redirectURL` String
@@ -155,13 +161,14 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     
     #### `webRequest.onCompleted([filter, ]listener)`
     
-    * `menyaring` Sasaran 
+    * `menyaring` Object - (optional) 
       * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `identitas` Integer
         * ` url </ 0> String</li>
 <li><code>method` String
+        * `webContentsId` Integer (optional)
         * `TipeSumberdaya` String
         * `timestamp` Double
         * `responseHeaders` Objek
@@ -173,13 +180,14 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     
     #### `webRequest.onErrorOccurred([filter, ]listener)`
     
-    * `menyaring` Sasaran 
+    * `menyaring` Object - (optional) 
       * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `identitas` Integer
         * `url` String
         * `method` String
+        * `webContentsId` Integer (optional)
         * `TipeSumberdaya` String
         * `timestamp` Double
         * `fromCache` Boolean
