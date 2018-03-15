@@ -28,18 +28,18 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 ### `new Notification([options])` *Experimental*
 
-* `seçenekler` Nesnesi 
+* `options` Nesnesi 
   * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı
   * `altyazı` Metin - (isteğe bağlı) Başlığın altında görüntülenen bildirim için bir altyazı. *macOS*
   * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir
   * `sessiz` Boolean - (isteğe bağlı) Bildirim gösterilirken bir İşetim Sistemi bildirim sesi yayınlayıp yayınlamayacağım
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
+  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
   * `hasReply` Boolean - (İsteğe bağlı) Bildirimler için satır içi cevap seçeneği eklemek isteyip istemediğinizi gösterir. *macOS*
   * `replyPlaceholder` Dizi - (İsteğe Bağlı) - Satır içerisindeki açıklama alanları için yer tutucu özelliği vardır. *macOS*
   * `sound` Dizi - (İsteğe Bağlı) Bildirim geldiğinde çalacak ses dosyasının adı yer alır.*macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (İsteğe Bağlı) Bildirimlere eylem eklenebilir. Lütfen `NotificationAction` belgelerinde mevcut eylem ve sınırlamarı okuyunuz. *macOS*
 
-### Örnek Events
+### Örnek Olaylar
 
 `yeni Bildirim` ile yaratılan nesneler aşağıdaki olayları belirtir:
 
@@ -69,7 +69,7 @@ Dönüşler:
 
 Bildirim, kullanıcı tarafından manuel müdahale edilerek kapatıldığında ortaya çıkar.
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+This event is not guaranteed to be emitted in all cases where the notification is closed.
 
 #### Etkinlik: 'hızlı kaydır' *macOS*
 
@@ -94,6 +94,12 @@ Dönüşler:
 #### `notification.show()`
 
 Bildirimi kullanıcıya anında gösterir, lütfen bu, HTML5 Bildirim uygulamasının aksine, `new Notification` ın basit bir örneğini hemen kullanıcıya göstermediğini, OS'nin bunu görüntülemeden önce bu yöntemi aramanız gerektiğini unutmayın.
+
+If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+
+#### `notification.close()`
+
+Dismisses the notification.
 
 ### Çalınan sesler
 
