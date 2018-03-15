@@ -98,7 +98,7 @@ Writes the `title` and `url` into the clipboard as a bookmark.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
@@ -137,13 +137,13 @@ const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Експериментальний*
+### `clipboard.read(format)` *Експериментальна*
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *Експериментальна*
+### `clipboard.readBuffer(format)` *Експериментальний*
 
 * `format` String
 
