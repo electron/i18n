@@ -74,7 +74,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <p>Menuliskan <code> teks </ 0> ke clipboard di RTF.</p>
 
-<h3><code>clipboard.readBookmark()` *macOS * * Windows*</h3> 
+<h3><code>clipboard.readBookmark()` *macOS* *Windows*</h3> 
                 Mengembalikan `Objek`:
                 
                 * ` judul</ 0>  String</li>
@@ -96,7 +96,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 <p><strong> Catatan: </ 0> Sebagian besar aplikasi di Windows tidak mendukung penandaan bookmark ke dalamnya sehingga Anda dapat menggunakan <code> clipboard.write </ 1> untuk menulis teks bookmark dan fallback ke clipboard.</p>
 
 <pre><code class="js">clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 `</pre> 
