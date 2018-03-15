@@ -370,9 +370,14 @@ Emitido cuando el color de tema de una página cambia. Esto usualmente se debe a
 <meta name='theme-color' content='#ff0000'>
 ```
 
+Devuelve:
+
+* `event` Evento
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+
 #### Evento: 'update-target-url'
 
-Devuelve:
+Retorna:
 
 * `event` Evento
 * `url` String
@@ -494,7 +499,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 Retorna:
 
-* `event` Evento
+* `evento` Evento
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -504,12 +509,32 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
+#### Event: 'did-attach-webview'
+
+Retorna:
+
+* `evento` Evento
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+
+Emitted when a `<webview>` has been attached to this web contents.
+
+#### Evento: 'console-message'
+
+Retorna:
+
+* `level` Íntegro
+* `message` String
+* `line` Íntegro
+* `sourceId` Cadena
+
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+
 ### Métodos de Instancia
 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `httpReferrer` String (opcional) - Un url de HTTP referencial.
   * `userAgent` String (opcional) - Un agente de usuario originando el pedido.
   * `extraHeaders` String (opcional) - Cabeceras extras separadas por "\n"
@@ -790,14 +815,16 @@ Inserta `texto` en el elemento enfocado.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - El contenido para ser buscado, no debe quedar en blanco.
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `forward` Boolean - (opcional) Si buscar hacia adelante o hacia atrás. Por defecto es `true`.
   * `findNext` Boolean - (optional) Si la operación se solicita de primero o después. Por defecto es `false`.
   * `matchCase` Boolean - (optional) Si la búsqueda es en mayúsculas o minúsculas. Por defecto es `false`.
   * `wordStart` Boolean - (optional) Si solo se desea ver al comienzo de las palabras. Por defecto es `false`.
   * `medialCapitalAsWordStart` Boolean - (opcional) Cuando se combina con `wordStart`, acepta una coincidencia en el medio de una palabra si la coincidencia comienza con una letra mayúscula seguida de una minúscula o algún caracter que no se letra. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -846,12 +873,14 @@ Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options])`
+#### `contents.print([options], [callback])`
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
   * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
+* `llamada de vuelta` Función (opcional) 
+  * success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
@@ -933,7 +962,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
