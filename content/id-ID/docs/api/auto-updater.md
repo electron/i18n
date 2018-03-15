@@ -30,63 +30,63 @@ Tidak seperti Squirrel.Mac, Windows dapat menginangi update pada S3 atau host fi
 
 ## Acara
 
-The `autoUpdater` object emits the following events:
+Objek `autoUpdater` memancarkan peristiwa berikut:
 
 ### Acara: 'kesalahan'
 
-Mengembalikan:
+Pengembalian:
 
 * Kesalahan `kesalahan`
 
-Emitted when there is an error while updating.
+Emitted saat ada error saat mengupdate.
 
-### Event: 'checking-for-update'
+### Acara: 'check-for-update'
 
-Emitted when checking if an update has started.
+Emitted saat memeriksa apakah update telah dimulai.
 
-### Event: 'update-available'
+### Acara: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+dibunyikan saat ada update yang tersedia. Pembaruan diunduh secara otomatis.
 
-### Event: 'update-not-available'
+### Acara: 'update-tidak-tersedia'
 
-Emitted when there is no available update.
+Emitted saat tidak ada update yang tersedia.
 
-### Event: 'update-downloaded'
+### Acara: 'update-download'
 
-Mengembalikan:
+Pengembalian:
 
 * `event` Event
 * `releaseNotes` String
 * `releaseName` String
-* `releaseDate` Date
+* `releaseDate` Tanggal
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Emitted saat update telah didownload.
 
-On Windows only `releaseName` is available.
+Di Windows saja `releaseName` tersedia.
 
 ## Metode
 
-The `autoUpdater` object has the following methods:
+Objek `autoUpdater` memiliki metode berikut:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * ` url </ 0> String</li>
-<li><code>requestHeaders` Object *macOS* (optional) - HTTP request headers.
+<li><code>requestHeader` Objek *macOS* (opsional) - header permintaan HTTP.
 
-Sets the `url` and initialize the auto updater.
+Menetapkan `url` dan menginisialisasi updater otomatis.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Mengembalikan `String` - URL feed pembaruan saat ini.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Meminta server apakah ada update. Anda harus menghubungi `setFeedURL` sebelumnya menggunakan API ini.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Aktifkan ulang aplikasi dan instal pembaruan setelah diunduh. Saya t seharusnya hanya dipanggil setelah `update-download` telah dipancarkan.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Catatan:** `autoUpdater.quitAndInstall()` akan menutup semua jendela aplikasi pertama dan hanya memancarkan `sebelum-berhenti` pada `aplikasi` setelah itu. Ini berbeda dari urutan kejadian berhenti normal.
