@@ -5,9 +5,9 @@
 
 ## 平台 / 行为支持
 
-| 行为类型     | 平台支持  | `text` 参数    | `text` 参数默认值 | 局限性                                                                                                                                                                 |
-| -------- | ----- | ------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button` | macOS | button 显示的内容 | "Show"       | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| 行为类型     | 平台支持  | `text` 参数    | `text` 参数默认值 | 局限性                                                                                                                                                                  |
+| -------- | ----- | ------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button` | macOS | button 显示的内容 | "Show"       | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### MacOS系统上的按钮支持
 
