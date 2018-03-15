@@ -102,15 +102,14 @@ Mengembalikan `sembarang` - Objek dikembalikan oleh `require (module)` pada pros
 
 misalnya
 
-```sh
-proyek/
-├── utama
-│ ├── foo.js
-│ └── index.js
-├── package.json
-└── renderer
-    └── index.js
-```
+    proyek/
+    ├── utama
+    │ ├── foo.js
+    │ └── index.js
+    ├── package.json
+    └── renderer
+        └── index.js
+    
 
 ```js
 // proses utama: main/index.js
