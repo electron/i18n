@@ -79,7 +79,7 @@ Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+Връща `Object`:
 
 * `title` String
 * `url` String
@@ -98,7 +98,7 @@ Writes the `title` and `url` into the clipboard as a bookmark.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
