@@ -296,7 +296,7 @@ Zwraca:
 * `url` String
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Funkcja 
+* `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -310,7 +310,7 @@ Zwraca:
 * `event` Event
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Funkcja 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
 Emitowane, kiedy certyfikat klienta jest wymagany.
@@ -332,7 +332,7 @@ Zwraca:
   * `host` String
   * `port` Integer
   * `dziedzina` String
-* `callback` Funkcja 
+* `callback` Function 
   * `Nazwa użytkownika` String
   * `Hasło` String
 
@@ -369,6 +369,11 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 ```html
 <meta name='theme-color' content='#ff0000'>
 ```
+
+Zwraca:
+
+* `event` Event
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 #### Event: 'update-target-url'
 
@@ -504,6 +509,26 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
+#### Event: 'did-attach-webview'
+
+Zwraca:
+
+* `event` Event
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+
+Emitted when a `<webview>` has been attached to this web contents.
+
+#### Event: 'console-message'
+
+Zwraca:
+
+* `level` Integer
+* `message` String
+* `line` Integer
+* `sourceId` String
+
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+
 ### Metody instancji
 
 #### `contents.loadURL(url[, options])`
@@ -581,7 +606,7 @@ Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Przeładowuje obecną stronę i ignoruje cache.
 
 #### `contents.canGoBack()`
 
@@ -673,7 +698,7 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+Wycisza audio na obecnej stronie internetowej.
 
 #### `contents.isAudioMuted()`
 
@@ -797,11 +822,13 @@ Inserts `text` to the focused element.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
-* `czynność` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `czynność` String - Specifies the action to take place when ending [`webContents.findInPage`] żądanie. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -846,12 +873,14 @@ Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options])`
+#### `contents.print([options], [callback])`
 
 * `options` Obiekt (opcjonalne) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+* `callback` Funkcja (opcjonalne) 
+  * success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
@@ -1005,7 +1034,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Obiekt 
+* `parametry` Obiekt 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
@@ -1076,7 +1105,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Obiekt 
+* `produkt` Obiekt 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1116,7 +1145,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
 * `options` Obiekt 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+  * `normalny` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer
 
@@ -1158,9 +1187,9 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy. 
+* `polityka` String - Specify the WebRTC IP Handling Policy. 
   * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. To nie odkrywa żadnych lokalnych adresów.
   * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
