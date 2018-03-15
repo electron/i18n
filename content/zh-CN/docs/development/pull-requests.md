@@ -61,7 +61,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### 步骤5: 提交更改
 
-It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
+建议将更改按逻辑分组在每个独立提交中。 其他贡献者可以从拆分多个提交中更容易的检查代码的改变。 There is no limit to the number of commits in a pull request.
 
 ```sh
 $ git add my/changed/files
