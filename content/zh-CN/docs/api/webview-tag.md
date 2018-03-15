@@ -137,7 +137,7 @@ Assigning `src` its own value will reload the current page.
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electronjs.org" partition="electron"></webview>
+<webview src="https://electron.atom.io" partition="electron"></webview>
 ```
 
 Sets the session used by the page. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
@@ -334,10 +334,10 @@ Returns `String` - The user agent for guest page.
 
 Injects CSS into the guest page.
 
-### `<webview>.executeJavaScript(code[, userGesture, callback])`
+### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default `false`.
+* `userGesture` Boolean - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -444,9 +444,7 @@ Executes editing command `replaceMisspelling` in page.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Returns `Integer` - The request id used for the request.
-
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -486,16 +484,16 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 * `callback` Function - 回调函数 
   * `image` [NativeImage](native-image.md)
 
-捕获 `requestFullScreen` 的页面的一个快照，类似于 `webContents.capturePage([rect, ]callback)`。
+Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 渲染进程可以通过 `ipcRenderer` 模块去监听 `channel` 事件，从而处理发过来的这些信息
+通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
-示例请进传送门： [webContents.send](web-contents.md#webcontentssendchannel-args) 
+See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -527,7 +525,7 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 
 ## DOM 事件
 
-`webview` 标签具有以下有效的 DOM 事件：
+The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
@@ -536,11 +534,11 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 * `url` String
 * `isMainFrame` Boolean
 
-发生load 加载时触发。 这包括当前文档中的导航以及子框架文档级加载(subframe document-level loads)，但不包括异步资源加载。
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### Event: 'did-finish-load'
 
-导航完成时触发，即选项卡的旋转器将停止旋转，并指派` onload `事件后。（译者：网页加载的过程中，并不是所有的浏览器都是转圈圈，而且浏览器版本不同，加载效果也有可能不一样。其中 ie 和 chrome 是转圈圈，safari 是进度条，firefox是一个小点左右来回移动--20180103）
+Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
 ### Event: 'did-fail-load'
 
@@ -551,7 +549,7 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 
+This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
 ### Event: 'did-frame-finish-load'
 
