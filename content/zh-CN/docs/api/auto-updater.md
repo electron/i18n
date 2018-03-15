@@ -4,18 +4,13 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## 平台相关的提示
-
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -32,10 +27,6 @@ Though `autoUpdater` provides a uniform API for different platforms, there are s
 使用Squirrel生成的安装程序将以`com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`,的格式创建一个带有[Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 的快捷图标,例子是 `com.squirrel.slack.Slack` 和 `com.squirrel.code.Code`.。 你应该在自己的应用中使用 `app.setAppUserModelId` API 方法设置相同的 API和ID，不然 Windows 将不能正确地把你的应用固定在任务栏上。
 
 与 Squirrel.Mac 不同，Windows 版可以将更新文件放在 S3 或者其他静态主机上。 你可以阅读 [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)的文档来获得更多详细信息。
-
-### Linux
-
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
 ## 事件
 
