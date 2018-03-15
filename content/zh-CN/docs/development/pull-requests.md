@@ -175,8 +175,8 @@ Congratulations and thanks for your contribution!
 
 ### 持续集成测试
 
-Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
+每个请求都在连续集成 (CI) 系统上进行测试, 以确认它在 Electron 支持的平台上工作。
 
-Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
+理想情况下, 代码合并请求将在 CI 的所有平台上通过测试 ("变成绿色")。 这意味着所有测试都通过, 并且没有 linting 错误。 However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). 必须手动检查每个 CI 故障以确定原因。
 
-CI starts automatically when you open a pull request, but only [Releasers](https://github.com/orgs/electron/teams/releasers/members) can restart a CI run. If you believe CI is giving a false negative, ask a Releaser to restart the tests.
+Ci 在打开请求时自动启动, 但只有 [ 发布者 ](https://github.com/orgs/electron/teams/releasers/members) 才能重新启动 ci 运行。 If you believe CI is giving a false negative, ask a Releaser to restart the tests.
