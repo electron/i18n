@@ -33,9 +33,9 @@ Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir m
 
 Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` String (optional)
+* `channel` Dizesi
 
 Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 
@@ -60,6 +60,14 @@ Ana işleme `channel` içinden senkronlu mesaj gönder, ayrıca matematiksel kur
 Ana işlem `channel` öğesini `ipcMain` modülüyle birlikte ve `event.returnValue` ayarını yanıtlayarak işleme alır.
 
 **Note:** Senkronize bir ileti göndermek, eğer ne yaptığınızı bilmiyorsanız kullanamayacağınız sürece tüm işleyici işlemini engeller.
+
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` Dizesi
+* `...args` any[]
+
+Sends a message to a window with `windowid` via `channel`
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
