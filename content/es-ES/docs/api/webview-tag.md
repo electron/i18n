@@ -138,7 +138,7 @@ Cuando este atributo está presente, la página de invitado tendrá la seguridad
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electron.atom.io" partition="electron"></webview>
+<webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
 Establece la sesión usada por la página. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Al asignar la misma `partition`, las páginas múltiples pueden compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
@@ -335,10 +335,10 @@ Devuelve `String` - El agente usuario para la página de invitado.
 
 Inyecta CSS en la página de invitado.
 
-### `<webview>.executeJavaScript(code, userGesture, callback)`
+### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * `codigo` String
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean (optional) - Default `false`.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
@@ -445,7 +445,9 @@ Inserta `texto` en el elemento enfocado.
   * `wordStart` Boolean - (optional) Si solo se desea ver al comienzo de las palabras. Por defecto es `false`.
   * `medialCapitalAsWordStart` Boolean - (opcional) Cuando se combina con `wordStart`, acepta una coincidencia en el medio de una palabra si la coincidencia comienza con una letra mayúscula seguida de una minúscula o algún caracter que no se letra. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
