@@ -14,7 +14,7 @@ The `menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu | null
+* `menu` Menu
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
@@ -24,7 +24,7 @@ Passing `null` will remove the menu bar on Windows and Linux but has no effect o
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Returns `Menu` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -72,12 +72,6 @@ Closes the context menu in the `browserWindow`.
 * `menuItem` MenuItem
 
 Appends the `menuItem` to the menu.
-
-#### `menu.getMenuItemById(id)`
-
-* `id` String
-
-Returns `MenuItem` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -148,7 +142,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternal('https://electron.atom.io') }
       }
     ]
   }
@@ -256,7 +250,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Exemples
 
-Modèle :
+Template:
 
 ```javascript
 [
@@ -268,17 +262,16 @@ Modèle :
 ]
 ```
 
-Menu :
+Menu:
 
-```sh
-<br />- 1
-- 2
-- 3
-- 4
-- 5
-```
+    <br />- 1
+    - 2
+    - 3
+    - 4
+    - 5
+    
 
-Modèle :
+Template:
 
 ```javascript
 [
@@ -291,15 +284,13 @@ Modèle :
 ]
 ```
 
-Menu :
+Menu:
 
-```sh
-<br />- ---
-- a
-- b
-- c
-- ---
-- 1
-- 2
-- 3
-```
+    <br />- ---
+    - a
+    - b
+    - c
+    - ---
+    - 1
+    - 2
+    - 3
