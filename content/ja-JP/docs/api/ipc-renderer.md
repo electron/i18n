@@ -33,9 +33,9 @@
 
 指定した `channel` の listener 配列から、指定した `listener` を削除します。
 
-### `ipcRenderer.removeAllListeners(channel)`
+### `ipcRenderer.removeAllListeners([channel])`
 
-* `channel` String
+* `channel` String (optional)
 
 指定した `channel` の listener を全て削除します。
 
@@ -61,17 +61,9 @@
 
 **注釈:** 同期メッセージを送信するとレンダラープロセス全体がブロックされます。何をしているのかをよく理解せずに使用しないで下さい。
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
-
-* `windowId` Number
-* `channel` String
-* `...args` any[]
-
-`channel` を介して `windowid` のウインドウにメッセージを送ります。
-
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-`ipcRenderer.send` に似ていますが、イベントはメインプロセスの代わりにホストページの `<webview>` に送信されます。
+Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
