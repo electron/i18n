@@ -35,7 +35,7 @@ Returns `WebContents` - The web contents that is focused in this application, ot
 
 ### `webContents.fromId(id)`
 
-* `id` Integer
+* `id` Số nguyên
 
 Returns `WebContents` - A WebContents instance with the given ID.
 
@@ -529,7 +529,7 @@ Trả về:
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
-### Instance Methods
+### Các phương thức riêng
 
 #### `contents.loadURL(url[, options])`
 
@@ -688,7 +688,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Đang thử nghiệm*
 
 * `ignore` Boolean
 
@@ -965,11 +965,11 @@ Removes the specified path from DevTools workspace.
 * `options` Object (không bắt buộc) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
-Opens the devtools.
+Mở devtools.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Đóng devtools.
 
 #### `contents.isDevToolsOpened()`
 
@@ -1006,7 +1006,7 @@ The renderer process can handle the message by listening to `channel` with the `
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// Trong main process.
+// Trong tiến trình main.
 const {app, BrowserWindow} = require('electron')
 let win = null
 
@@ -1199,7 +1199,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### Các Thuộc Tính
 
 #### `contents.id`
 
