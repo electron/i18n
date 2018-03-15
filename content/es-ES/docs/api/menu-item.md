@@ -72,9 +72,9 @@ Los siguientes roles adicionales están disponibles para macOS:
 * `selectprevioustab` - Map to the `selectPreviousTab` action
 * `mergeallwindows` - Map to the `mergeAllWindows` action
 * `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `ventana` - El submenú es un menú de la "ventana"
+* `ayuda` - el submenú es un menú de "ayuda"
+* `Servicios` - El submenú es un menú de "servicios"
 
 Cuando se especifica un `rol` en macOS, la `etiqueta` y el `acelerador` son solo opciones que afectarán a los elementos del menú. Todas las demás opciones serán ignoradas.
 
