@@ -70,7 +70,7 @@ Emitido cuando la aplicación está saliendo.
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `path` Cadena
 
 Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y que el sistema operativo quiere reusar que la aplicación abra el archivo. `open-file` también es emitido cuando el archivo es arrojado dentro del dock y la aplicación no está corriendo todavía. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para controlar este caso (incluso antes de que el evento `ready` esté emitido).
@@ -103,7 +103,7 @@ Emitido cuando la aplicación está activada. Varias acciones puede activar este
 
 Devuelve:
 
-* `event` Event
+* `event` Evento
 * `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Objecto - Contiene el estado específico de la aplicación almacenado por la actividad de otro artefacto.
 
@@ -111,46 +111,7 @@ Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/
 
 La actividad de un usuario puede ser continuada solo en una aplicación que tenga la misma identificación de equipo de desarrolladores como la la aplicación fuente de las actividades y que soporte los tipos de actividad. Los tipos de actividades soportadas están en el `Info.plist` de la aplicación bajo la llave `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' *macOS*
-
-Devuelve:
-
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
-
-### Event: 'continue-activity-error' *macOS*
-
-Devuelve:
-
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` Cadena - Una cadena con la descripción localizada del error.
-
-Emitido durante [Manos Libres](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad desde un dispositivo diferente no se reanuda.
-
-### Event: 'activity-was-continued' *macOS*
-
-Devuelve:
-
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `Información de Usuario` Objeto: contiene el estado específico de la aplicación almacenado por la actividad.
-
-Emitido durante [Manos Libres](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) después de que se realiza una actividad con éxito en este dispositivo se reanuda en otro.
-
-### Event: 'update-activity-state' *macOS*
-
-Devuelve:
-
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `Información de Usuario` Objeto: contiene el estado específico de la aplicación almacenado por la actividad.
-
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
-
-### Event: 'new-window-for-tab' *macOS*
+### Evento: 'new-window-for-tab' *macOS*
 
 Devuelve:
 
@@ -158,21 +119,21 @@ Devuelve:
 
 Emitido cuando el usuario hace click en el nuevo botón nativo de madOS. El nuevo botón es visible solamente si el `BrowserWindow` actual tiene `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### Evento: 'browser-window-blur'
 
 Devuelve:
 
 * `event` Evento
-* `window` [BrowserWindow](browser-window.md)
+* `window` Navegador Windows
 
 Emitido cuando el [browserWindow](browser-window.md) está borroso.
 
-### Event: 'browser-window-focus'
+### Evento: 'browser-window-focus'
 
 Devuelve:
 
 * `event` Evento
-* `window` [BrowserWindow](browser-window.md)
+* `window` Navegador Windows
 
 Emitido cuando se enfoca un [browserWindow](browser-window.md).
 
@@ -181,29 +142,29 @@ Emitido cuando se enfoca un [browserWindow](browser-window.md).
 Devuelve:
 
 * `event` Evento
-* `window` [BrowserWindow](browser-window.md)
+* `window` Navegador Windows
 
 Emitido cuando se crea un [browserWindow](browser-window.md).
 
-### Event: 'web-contents-created'
+### Evento: 'web-contenido-creado'
 
 Devuelve:
 
 * `event` Evento
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `Contenidosweb` Contenidos Web
 
 Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
 
-### Event: 'certificate-error'
+### Evento: 'error-certificado'
 
 Devuelve:
 
 * `event` Evento
 * `Contenidosweb` [Contenidosweb](web-contents.md)
-* `url` Cadena
+* `url` cadena
 * `error` cadena - el error del código
 * `certificate` [certificate](structures/certificate.md)
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `isTrusted` Boleano - Si considera que el certificado como de confianza
 
 Emitido cuando falla la verificación de `certificate` por `url`, al confiar en el certificado usted debe prevenir el comportamiento con `event.preventDefault()` y llamar `callback(true)`.
@@ -222,15 +183,15 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Evento: 'select--client-certificate'
 
 Devuelve:
 
 * `event` Evento
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `webContents`[WebContents](web-contents.md)
 * `url` URL
 * `certificateList`[Certificate[]](structures/certificate.md)
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `certificate`[Certificate](structures/certificate.md)(opcional)
 
 Emitido cuando el certificado de un cliente es requerido.
@@ -246,7 +207,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event:'login'
+### Evento:'login'
 
 Devuelve:
 
@@ -279,7 +240,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Evento: 'gpu-process-crashed'
 
 Devuelve:
 
@@ -288,7 +249,7 @@ Devuelve:
 
 Es emitido cuando el proceso de la gpu se crashea o es terminado.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Evento: 'accessibility-support-changed' *macOS* *Windows*
 
 Devuelve:
 
@@ -319,7 +280,7 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los ev
 
 ### `app.relaunch([options])`
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `args` Cadena[] - (opcional)
   * `execPath` Cadena (opcional)
 
@@ -383,14 +344,13 @@ Usted puede pedir las siguientes direcciones por nombre:
 * `musica` Directorio para la música del usuario.
 * `imágenes` Directorio para las imágenes del usuario.
 * `videos` Directorio para las imágenes del usuario.
-* `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin` Camino completo a la versión del sistema del plugin pepper flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opciones` Objecto (opcional) 
-  * `size` String 
+* `opciones` Object (opcional) 
+  * `tamaño` String 
     * `pequeño` - 16x16
     * `normal` - 32x32
     * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
@@ -454,7 +414,7 @@ Esta lista es administrada por el sistema operativo. En Windows puede visitar la
 
 Borra la lista de documentos recientes.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])`
+### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
 * `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
@@ -508,7 +468,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `remover elementos` [JumpListItem[]](structures/jump-list-item.md) - Arreglo de los objetos `JumpListItem` a elementos que el usuario ha removido explícitamente de la categoría personalizada en la Jump list. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
@@ -527,7 +487,7 @@ Configura o remueve una Jump list personalizada para la aplicación, y devuelve 
 
 Si la `categoría` es `nula` la configuración personalizada previa de la Jump List (si hay alguna) será reemplazada por la Jump List estándar para la aplicación (manejada por Windows).
 
-**Nota:** Si un objeto de `JumpListCategory` no tiene ni el `tipo` ni el `nombre` de su conjunto de propiedad, se asume que su `tipo` es `tareas`. Si la propiedad `nombre` está establecida pero la propiedad `tipo` se omite entonces el `tipo` se asume que el tipo es `personalizado`.
+**Nota:** Si un objeto`JumpListCategory` no tiene el `tipo` o el `nombre` configurados apropiadamente, se asume que su `tipo` es `tasks`. Si la propiedad `nombre` es configurada pero la propiedad `tipo` es omitida, se asume que `tipo` es `personalizado`.
 
 **Nota:** Usuarios pueden remover elementos de las categorías personalizadas y Windows no permitirá que un elemento removido sea añadido de nuevo a la categoría personalizada hasta **después** del siguiente llamado exitoso a `app.setJumpList(categories)`. Cualquier intento de añadir nuevamente el elemento a la categoría personalizada antes que eso resultará en que la categoría entera sea omitida de la Jump List. La lista de elemento removidos puede ser obtenida usando `app.getJumpListSettings()`.
 
@@ -647,19 +607,6 @@ Crea un `NSUserActivity` y se establece como la actividad actual. La actividad e
 
 Devuelve `String` - El tipo de la actividad que se está ejecutando actualmente.
 
-### `app.invalidateCurrentActivity()` *macOS*
-
-* `type` Caden - Raramente identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Invalida la actividad actual [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) del usuario.
-
-### `app.updateCurrentActivity(type, userInfo)` *macOS*
-
-* `type` Caden - Raramente identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Objeto - Específicos estados de aplicaciones de la tiendo para usar en otro dispositivo.
-
-Actualiza la actividad actual si su tipo coincide `type`, fusionando las entradas de `userInfo` en su actual diccionario `userInfo`.
-
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` Cadena
@@ -686,7 +633,7 @@ Este método solo puede ser llamado despues de iniciada la aplicación.
 
 Por defecto, Chromium desactiva 3D APIs (ej., WebGL) hasta reiniciar por dominio si el proceso de GPU crashea frecuentemente. Esta función desactiva ese comportamiento.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.getAppMemoryInfo()` *Deprecated*
 
@@ -696,7 +643,7 @@ Devuelve [`ProcessMetric[]`](structures/process-metric.md): el conjunto de objet
 
 Devuelve [`ProcessMetric[]`](structures/process-metric.md): el conjunto de objetos `ProcessMetric` corresponden a las estadísticas de uso de memoria ram y cpu de todos los procesos asociados con la aplicación.
 
-### `app.getGPUFeatureStatus()`
+### `app.getGpuFeatureStatus()`
 
 Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de la función de gráficos de `chrome://gpu/`.
 
@@ -722,13 +669,13 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `path` Cadena (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
   * `args` Cadena[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
 
 Si tú has dado las opciones `path` y `args` a `app.setLoginItemSettings` entonces tú necesitas pasar los mismos argumentos aquí para `openAtLogin` para que se establezca correctamente.
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
 * `openAsHidden` Boolean - `true` si la aplicación se establece para que se abra escondida al iniciarse. Este ajuste es solo compatible para macOS.
@@ -740,7 +687,7 @@ Devuelve `Objeto`:
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `ajustes` Object 
+* `ajustes` Objeto 
   * `openAtLogin` Boolean (opcional) - `true` para abrir la aplicación al iniciar, `false` para eliminar la aplicación como un objeto de inicio. Por defecto a `false`.
   * `openAsHidden` Boolean (opcional) - `true` para abrir la aplicación como escondida. Por defecto a `false`. El usuario puede editar este ajuste desde Preferencias del Sistema, así que `app.getLoginItemStatus().wasOpenedAsHidden` debería ser revisado cuando la aplicación sea abierta para saber el valor actual. Este ajuste solo es compatible en macOS.
   * `path` String (opcional) *Windows* - El ejecutable para iniciar al iniciar. Por defecto a `process.execPath`.
@@ -770,14 +717,6 @@ app.setLoginItemSettings({
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
 Devuelve `Boolean` - `true` si la accesibilidad de soporte de Chrome es habilitado, o `false` de otra manera. Esta API devolverá `true` si el uso de tecnologías asistivas, como leectores de pantallas, son detectadas. Ver https://www.chromium.org/developers/design-documents/accessibility para más detalles.
-
-### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
-
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
-
-Manualmente habilita el soporte de accesibilidad de Chrome, lo que permite exponer el interruptor de accesibilidad a los usuarios en la configuración de la aplicación. https://www.chromium.org/developers/design-documents/accessibility para más detalles. Desactivado por defecto.
-
-**Nota:** Renderizar el árbol de accesibilidad puede afectar significativamente al rendimiento de su aplicación. No debería estar activado por defecto.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -811,19 +750,7 @@ Adjuntar un argumento a la línea de comando de Chromium. El argumento será cit
 
 Permite modo sandbox mezclado en la aplicación.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
-
-### `app.isInApplicationsFolder()` *macOS*
-
-Devuelve `Boolean` - Si la aplicación se está ejecutando actualmente desde la carpeta Aplicación de sistemas. Usar en combinación con `app.moveToApplicationsFolder()`
-
-### `app.moveToApplicationsFolder()` *macOS*
-
-Devuelve `Boolean` - Si la movida fue exitosa. Tenga en cuenta que si la movida es exitosa su aplicación dejará de funcionar y se relanzará.
-
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
-
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.dock.bounce([type])` *macOS*
 
@@ -849,7 +776,7 @@ Rebota la apilación de descargas si el archivo de camino está dentro de la car
 
 ### `app.dock.setBadge(text)` *macOS*
 
-* `texto` Cadena
+* `texto` String
 
 Establece la cadena para ser mostrada en el área de insignia del punto.
 
@@ -877,6 +804,6 @@ Establece el [dock menu](https://developer.apple.com/library/mac/documentation/C
 
 ### `app.dock.setIcon(image)` *macOS*
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` ([NativeImage](native-image.md) | Cadena)
 
 Establece la `image` asociada con el ícono del punto.
