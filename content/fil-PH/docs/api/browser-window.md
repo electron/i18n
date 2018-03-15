@@ -2,7 +2,7 @@
 
 > Paglikha at pag-kontrol ng browser windows.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 ```javascript
 // Sa mga pangunahing proseso.
@@ -110,7 +110,7 @@ Ang Inirerekomenda na i-hinto mo ang mga mahahalagang operasyon kapag ang may ka
 
 > Paglikha at pag-kontrol ng browser windows.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 `BrowserWindow` ay ang [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -118,7 +118,7 @@ Ito ay gumagawa ng panibagong `BrowserWindow` na may likas na mga ari-arian na i
 
 ### `ang bagong BrowserWindow([pag-pipilian])`
 
-* `options` Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) -ioffset ang kaliwang Window mula sa screen. Idefault ang window sa sentro.
@@ -139,33 +139,35 @@ Ito ay gumagawa ng panibagong `BrowserWindow` na may likas na mga ari-arian na i
   * `fullscreen`Boolean(opsyonal)- Dapat ipakita ang window sa fullscreen. Kailan explicitly set to ` false </ 0> ang fullscreen na pintdutan ay hindi makikita o hindi pinagana
 sa macOS. Ang default ay <code>false`.
   * `fullscreenable` Boolean (optional) -Ang Window ay pwedeng ilagay sa fullscreen mode. Sa macOS, pwede din kung ang maximize/Pag papalaki o pag papaliit na buton ay kailangang maging toggle full screen mode o mas malaking window. Ng default ay `tama`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
-    * `default` - Results in the standard gray opaque Mac title bar.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-    * `hidden-inset` - Deprecated, use `hiddenInset` instead.
-    * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
-  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Ng default ay `tama`.
-  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Ang default ay `false`.
+  * `simpleFullscreen` Boolean (optional) - Gamitin ang pre-Lion fullscreen sa macOS. Ang default ay `false`.
+  * `skipTaskbar` Boolean (opsyonal) - o kung gustong ipakita ang window sa taskbar. Ang default ay `false`. <0>false</0>.
+  * `kiosk` Boolean (optional) - Ang kiosk mode. Ang Default ay `false`.
+  * `title` String (opsyonal) - Pamagat ng default na window, Ang default ay `"Electron"`.
+  * `icon` ([NativeImage](native-image.md) | String) (opsyonal) - Ang icon ng window. Sa windos mismo ay nirerekomenda na gamitin ang `ICO` para makakuha ng magandang mga effects ay pwede mong gawin lagyan ito ng guhit sa ilalim nang sa ganun ito ay maeexecute at ang icon ay pwede ng magamit.
+  * `show` Boolean (opsyonal) - kapag kinakailangang ipakita ang window kapag ginawa. Ang default ay `true`.
+  * `frame` Boolean (opsyonal) - Tukuyin ang `false` para lumikha ng isang [Frameless Window](frameless-window.md). Ang default ay `true`.
+  * `parent` BrowserWindow (opsyonal) - Tukuyin ang pinagmulang window. Ang default ay `null`.
+  * `modal` Boolean (opsyonal) -kapag ito ay isang modal ng window. tumatakbo lamang ito kapag ang mga window ay isang window ng child. Ang default ay `mali`.
+  * `acceptFirstMouse` Boolean (opsyonal) - kapag natanggap ng web view ang nag-iisa. Mouse-down na mangyayari sa sabay na maging-aktibo ang window. Ang default ay `mali`.
+  * `disableAutoHideCursor` Boolean (opsyonal) - Kung itinago ang cursor kapag nagta-type. Ang default ay `false`.
+  * `autoHideMenuBar` Boolean (opsyonal) - Awtomatikong itago ang bar ng menu maliban kung ang teklado ng `Alt` ay pinindot. Ang default ay `false`.
+  * `enableLargerThanScreen` Boolean (opsyonal) - Paganahin ang window na palakihin ng mas malaki kaysa sa iskrin. Ang default ay `false`.
+  * `backgroundColor` String (optional) - Ang kulay ng Window's Background ay nasa hexadecimal na balyu, tulas ng `#66CD00` or `#FFF` or `#80FFFFFF` (ang alpha ay supportado). Ang default ay `#FFF` (puti).
+  * `hasShadow` Boolean (opsyonal) - Kung ang window ay mayroong anino. Ito ay ipinapatupad lamang sa macOS. Ang default ay `true`.
+  * `opacity` Number (opsyonal) - Itakda ang paunang opacity sa bintana, sa gitna ng 0.0 (fully transparent) and 1.0 (fully opaque). Ito ay pinatutupad lamang sa Windows at macOS.
+  * `darkTheme` Boolean (opsyonal) - Puwersahang gumagamit ng madilim na theme para sa window, gumagana lamang sa ilang mga kapaligiran ng GTK+3 desktop. Ang default ay `false`.
+  * `transparent` Boolean (opsyonal) - Ginagawa ang window na [transparent](frameless-window.md). Ang default ay `false`.
+  * `type` String (opsyonal) - Ang uri ng window, ang default aynormal na window. Tingnan ang mas maraming tungkol dito sa ibaba.
+  * `ang titleBarStyle` String (opsyonal) - Ang istilo ng title bar ng window. Ang default ay `default`Ang posibleng mga halaga ay: 
+    * `default` - Ang mga resulta sa standard na gray opaque na title bar ng Mac.
+    * `hidden` - Ang mga resulta sa isang nakatagong title bar at isang buong sukat na laman ng window, gayon pa man ang title bar ay mayroon ding mga karaniwang mga kontrol ng window (mga ilaw ng trapiko) sa kaliwang itaas.
+    * `hidden-inset` - Hindi na ginagamit, sa halip gamitin ang `hiddenInset`.
+    * `hiddenInset` - Ang mga resulta sa isang nakatagong title bar na may isang alternatibong hitsura kung saan ang mga pindutan ng ilaw ng trapiko ay bahagyang nakasingit sa gilid ng window.
+    * `customButtonsOnHover` Boolean (optional) - Gumuhit ng pasadyang sarado, paliitin, at mga buong screen button sa macOS frameless windows. Ang mga pindutan na ito ay hindi ipapakita maliban kung ang hovered sa itaas sa kaliwang itaas ng window. Ang pasadyang ito Ang mga pindutan ay maiiwasan ang mga problema sa mga pang-yayari ng mouse na nangyayari sa pamantayan Mga kasangkapanng bar sa pindutan ng window. **Note:** Ang opsyon na ito ay kasalukuyang eksperimental.
+  * `fullscreenWindowTitle` Boolean (opsyonal) - Ipinapakita ang pamagat sa mga tile bar sa buong iskrin na moda sa macOS para sa lahat ng mga opsyon ng `titleBarStyle`. Ang default ay `false`.
+  * `thickFrame` Boolean (opsyonal) - Gamitin ang istilo ng `WS_THICKFRAME` para sa walang kaayusang windows sa Windows, kung saan nagdadagdag ng karaniwang ayos ng window. Ang tagpo nito sa `false`ay tanggalin ang window shadow at animation window. Ng default ay `tama`.
+  * `vibrancy` String (opsyonal) - Ang pag-dagdag ng isang tipo ng epekto ng vibrancy sa window, lamang sa Mac Os. Ay maaaring maging `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` o `ultra-dark`.
+  * `zoomToPageWidth` Boolean (opsyonal) Ito ay may kakayahang mag control ng behavior ng macOS kapag opsyonal na pag pindot ng berdeng hintong ilaw na buton na makikita sa toolbar o pag pinindot ang Window >Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Ang default ay `false`.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
   * `webPreferences` Object (optional) - Settings of web page's features. 
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Ng default ay `tama`.
@@ -187,8 +189,8 @@ sa macOS. Ang default ay <code>false`.
     * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
     * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
     * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
-    * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
-    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+    * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
+    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
     * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
       * `standard` String (optional) - Defaults to `Times New Roman`.
       * `serif` String (optional) - Defaults to `Times New Roman`.
@@ -200,7 +202,7 @@ sa macOS. Ang default ay <code>false`.
     * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
     * `minimumFontSize` Integer (optional) - Defaults to ``.
     * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the \[Page Visibility API\]\[#page-visibility\]. Defaults to `true`.
+    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Naka-default sa `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
@@ -224,18 +226,18 @@ Nilikha ang mga bagay with `new BrowserWindow` naglalabas ng mga sumusunod na pa
 
 #### Event: 'page-title-updated'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `title` String
 
 Napalabas kapag binago ng dokumento ang pamagat nito, na nagtawag sa `event.preventDefault()` ay maiiwasan ang pamagat ng katutubong window sa pagbabago.
 
 #### Event: 'close'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `event` Event
+* `kaganapan` Kaganapan
 
 Napalabas kapag ang window ay sarado. Ito ay pinalabas bago ang `beforeunload` at `mag-alis ng buo` kaganapan ng DOM. Pagtawag `event.preventDefault()` kanselahin ang malapit.
 
@@ -248,9 +250,11 @@ window.onbeforeunload = (e) => {
 // ang hindi-void na balyu ay tahimik na kakanselahin ang pag sirado.
   // Inerekomenda na gumamit ng dialog API upang hayaan ang gumagamit na kompirmahin ang pagsirado
 // aplikasyon.
-  e.returnValue = false
+  e.returnValue = false // equivalent to `return false` but not recommended
 }
 ```
+
+***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
 
 #### Kaganapan: 'i-minimize'
 
@@ -407,6 +411,12 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
 
 Returns `BrowserWindow` - The window that owns the given `webContents`.
 
+#### `BrowserWindow.fromBrowserView(browserView)`
+
+* `browserView` [BrowserView](browser-view.md)
+
+Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+
 #### `BrowserWindow.fromId(id)`
 
 * `id` na Integer
@@ -472,7 +482,7 @@ console.log(installed)
 
 **noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
-### Mga Katangian ng Instansya
+### Katangian ng pagkakataon
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -493,7 +503,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Halimbawa ng mga pamamaraan
+### Mga Pamamaraan ng Instance
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -577,6 +587,18 @@ Sets whether the window should be in fullscreen mode.
 #### `win.isFullScreen()`
 
 Returns `Boolean` - Whether the window is in fullscreen mode.
+
+#### `win.setSimpleFullScreen(flag)` *macOS*
+
+* `flag` Boolean
+
+Enters or leaves simple fullscreen mode.
+
+Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+
+#### `win.isSimpleFullScreen()` *macOS*
+
+Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -875,7 +897,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * `url` Tali
-* `options` Object (optional) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `httpReferrer` Pisi (opsyonal) - Isang HTTP Referrer url.
   * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
   * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
@@ -922,7 +944,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Bagay (opsyonal) 
+* `pagpipilian` Na Bagay (opsyonal) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -951,6 +973,16 @@ Sets whether the window should have a shadow. On Windows and Linux does nothing.
 Returns `Boolean` - Whether the window has a shadow.
 
 On Windows and Linux always returns `true`.
+
+#### `win.setOpacity(opacity)` *Windows* *macOS*
+
+* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+
+Sets the opacity of the window. On Linux does nothing.
+
+#### `win.getOpacity()` *Windows* *macOS*
+
+Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -993,7 +1025,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `options` Bagay 
+* `pagpipilian` Bagay 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
@@ -1050,9 +1082,11 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 **Note:** This API always returns false on Windows.
 
-#### `win.setIgnoreMouseEvents(ignore)`
+#### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `huwag pansinin` Boolean
+* `pagpipilian` Na Bagay (opsyonal) 
+  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Makes the window ignore all mouse events.
 
@@ -1092,6 +1126,32 @@ Returns `BrowserWindow[]` - All child windows.
 
 Controls whether to hide cursor when typing.
 
+#### `win.selectPreviousTab()` *macOS*
+
+Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+
+#### `win.selectNextTab()` *macOS*
+
+Selects the next tab when native tabs are enabled and there are other tabs in the window.
+
+#### `win.mergeAllWindows()` *macOS*
+
+Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+
+#### `win.moveTabToNewWindow()` *macOS*
+
+Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+
+#### `win.toggleTabBar()` *macOS*
+
+Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+
+#### `win.addTabbedWindow(browserWindow)` *macOS*
+
+* `browserWindow` ang BrowserWindow
+
+Adds a window as a tab on this window, after the tab for the window instance.
+
 #### `win.setVibrancy(type)` *macOS*
 
 * `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
@@ -1109,5 +1169,9 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 #### `win.setBrowserView(browserView)` *Experimental*
 
 * `browserView` [BrowserView](browser-view.md)
+
+#### `win.getBrowserView()` *Experimental*
+
+Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
 **Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
