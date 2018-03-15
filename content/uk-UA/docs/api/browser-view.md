@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+view.webContents.loadURL('https://electron.atom.io')
 ```
 
 ### `new BrowserView([options])` *Експериментальний*
@@ -35,16 +35,6 @@ view.webContents.loadURL('https://electronjs.org')
   * `webPreferences` Object (опціонально) - Дивись [BrowserWindow](browser-window.md).
 
 ### Статичні Методи
-
-#### `BrowserView.getAllViews()`
-
-Повертає `BrowserView[]` - Масив всіх відкритих BrowserViews.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Повертає `BrowserView | null` - BrowserView, який володіє переданим `webContents` чи `null`, якщо контент не належить BrowserView.
 
 #### `BrowserView.fromId(id)`
 
