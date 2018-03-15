@@ -215,7 +215,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` Function - 回调函数 
   * `request` Object 
     * `hostname` String
     * `certificate` [证书](structures/certificate.md)
@@ -328,7 +328,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - Called when operation is done
+* `callback` Function (optional) - 会在操作完成后被调用
 
 Clears the session’s HTTP authentication cache.
 
