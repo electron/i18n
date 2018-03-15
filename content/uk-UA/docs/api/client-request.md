@@ -34,7 +34,7 @@ const request = net.request({
 })
 ```
 
-### Події Екземпляру
+### Події екземпляру
 
 #### Event: 'response'
 
