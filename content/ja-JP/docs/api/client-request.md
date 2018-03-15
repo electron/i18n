@@ -145,8 +145,8 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - リクエストボディのデータのチャンク。文字列の場合、指定されたエンコーディングを使用してBufferに変換されます。
-* `encoding` String (任意) - 文字列のチャンクをBufferオブジェクトに変換するために使用します。省略値は、'utf-8'です。
+* `chunk` (String | Buffer) - リクエストボディのデータのチャンク。文字列の場合、指定されたエンコーディングを使用して Buffer に変換されます。
+* `encoding` String (任意) - 文字列のチャンクをBufferオブジェクトに変換するために使用します。省略値は、'utf-8' です。
 * `callback` Function (任意) - 書き込み操作の終了後に呼び出されます。
 
 `callback` は、Node.jsのAPIとの類似性を維持する目的で導入された本質的にはダミーのファンクションです。 `chunk` コンテンツがChromiumのネットワークレイヤーに到達した後、すぐに非同期で呼び出されます。 Node.jsの実装とは違って、`callback` が呼び出される前に `chunk` コンテンツが書き込まれていることは保証されません。
