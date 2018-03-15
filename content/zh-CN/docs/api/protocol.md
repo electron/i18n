@@ -165,20 +165,20 @@ protocol.registerBufferProtocol('atom', () => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object - 过滤器对象，包含过滤参数 
+  * `request` Object 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Readable` as a response.
+注册一个 `scheme` 协议, 将 ` Readable `作为响应发送
 
-The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+该用法类似于 `register{Any}Protocol` ，只是`callback` 会被` Readable `对象或者带有`data`, `statusCode` 和 `headers` 属性的对象调用。
 
 示例:
 
@@ -206,7 +206,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+可以传递任何可读取流 API 的对象(`data`/`end`/`error` 事件)。以下是如何返回文件的方法示例:
 
 ```javascript
 const {protocol} = require('electron')
@@ -225,7 +225,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (可选) 
   * `error` Error
 
-Unregisters the custom protocol of `scheme`.
+取消对自定义`scheme`的注册
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
@@ -233,7 +233,7 @@ Unregisters the custom protocol of `scheme`.
 * `callback` Function - 回调函数 
   * `error` Error
 
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+`callback` 会被调用，带有布尔值，表示是否已经有`scheme` 的处理程序。
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
@@ -249,7 +249,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个file。
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -265,35 +265,35 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个`String`。
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (可选)
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个`Buffer`。
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object - 过滤器对象，包含过滤参数 
+* `handler` Function - 回调函数 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `redirectRequest` Object - 过滤器对象，包含过滤参数 
+  * `callback` Function - 回调函数 
+    * `redirectRequest` Object 
       * `url` String
       * `method` String
       * `session` Object (可选)
@@ -303,24 +303,24 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (可选) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个新 HTTP 请求。
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object - 过滤器对象，包含过滤参数 
+  * `request` Object 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+它与 ` registerStreamProtocol `方法相同, 不过它是用来替换现有的protocol处理方式。
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -328,4 +328,4 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 * `completion` Function (可选) 
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+移除为 ` scheme ` 安装的拦截器，并还原其原始处理方式。
