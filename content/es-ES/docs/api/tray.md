@@ -164,7 +164,7 @@ Emitido cuando el ratón sale del icono de la bandeja.
 
 #### Event: 'mouse-move' *macOS*
 
-* `event` Event 
+* `event` Evento 
   * `altKey` Booleano
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
@@ -175,46 +175,46 @@ Emitted when the mouse moves in the tray icon.
 
 ### Métodos de Instancia
 
-The `Tray` class has the following methods:
+La clase `Tray` tiene los siguientes métodos:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Destruye inmediatamente el icono de la bandeja.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Configura la `image` asociada con este icono de bandeja.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+En macOS, configura la `image` asociada con este icono de bandeja cuando se presiona.
 
 #### `tray.setToolTip(toolTip)`
 
-* `toolTip` String
+* `toolTip` Cadena
 
-Sets the hover text for this tray icon.
+Configura la activación de texto para este icono de bandeja.
 
 #### `tray.setTitle(title)` *macOS*
 
-* `title` String
+* `title` Cadena
 
-Sets the title displayed aside of the tray icon in the status bar.
+Establece el título mostrado a un lado del icono de la bandeja en la barra de estado.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` Cadena - Modo de resaltado con uno de los siguientes valores: 
+  * `selection` - Resalta el icono de la bandeja cuando se hace clic sobre él y también cuando se abre su menú de contexto. Esta es la opción por defecto.
+  * `always` - Siempre resalta el icono de la bandeja.
+  * `never` - Nunca resalta el icono de la bandeja.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Establece cuando se resalta (en azul) el fondo del icono de la bandeja.
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Nota:** Puede utilizarse `highlightMode` con una [`BrowserWindow`](browser-window.md) al alternar entre los modos `'never'` y `'always'` cuando la visibilidad de la ventana cambia.
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -235,34 +235,34 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `opciones` Objeto 
+* `opciones` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String
+  * `title` Cadena
   * `content` String
 
-Displays a tray balloon.
+Muestra un globo de la bandeja.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
 * `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `position` [Point](structures/point.md) (optional) - La posición del elemento emergente.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Aparece el menú de contexto del icono de la bandeja. Cuando se pasa `menu`, el `menu` se mostrará en lugar el menú de contexto del icono de la bandeja.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+La `position` solo está disponible en Windows, y por defecto es (0, 0).
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu
 
-Sets the context menu for this icon.
+Configura el menú de contexto para este icono.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Los `bounds` de este icono de la bandeja como `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Devuelve `Boolean` - Si el icono de la bandeja es destruido o no.
