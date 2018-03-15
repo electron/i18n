@@ -33,9 +33,9 @@
 
 为特定的 channel 从监听队列中删除特定的 listener 监听者.
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` String (optional)
+* `channel` String
 
 移除所有的监听器，当指定 `channel` 时只移除与其相关的所有监听器。
 
@@ -60,6 +60,14 @@
 主进程可以使用 `ipcMain` 监听 `channel` 来接收这些消息，并通过设置 `event.returnValue` 回复消息。
 
 **注意:** 发送同步消息将会阻塞整个渲染进程，你应该避免使用这种方式 - 除非你知道你在做什么。
+
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` String
+* `...args` any[]
+
+Sends a message to a window with `windowid` via `channel`
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
