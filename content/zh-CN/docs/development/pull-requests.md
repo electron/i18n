@@ -124,7 +124,7 @@ $ npm run test -match=menu
 
 ### 步骤8: 推送代码
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+一旦您的提交准备就绪--通过测试和 linting--将您的工作分支推送到您在 GitHub 上复制的分支, 然后开始开启合并代码请求的过程。
 
 ```sh
 $ git push origin my-branch
@@ -132,7 +132,7 @@ $ git push origin my-branch
 
 ### 步骤9: 新建一个合并代码请求
 
-From within GitHub, opening a new pull request will present you with a template that should be filled out:
+从 GitHub 中, 开启一个新的合并代码请求将为您呈现一个模板，这应填写如下:
 
 ```markdown
 <!--
@@ -145,11 +145,11 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 -->
 ```
 
-### Step 10: Discuss and update
+### 步骤10: 讨论和更新
 
-You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+您可能会得到反馈或请求更改您的请求。 这是提交过程的重要部分, 所以不要气馁! 有些贡献者可能会立刻签署请求。 其他人可能有详细的评论或反馈。 这是过程的必要部分, 以便评估更改是否正确和必要。
 
-To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
+要更改现有的请求, 请对本地分支进行更改, 添加新的提交, 并将这些更改推送到您的分支。 GitHub 将自动更新请求。
 
 ```sh
 $ git add my/changed/files
