@@ -37,6 +37,7 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
   * `uploadToServer` Boolean (opsiyonel) - Çökme raporları sunucuya yollansın mı? Varsayılan `true`.
   * `ignoreSystemCrashHandler` Boolean (opsiyonel) - Varsayılan değeri `false`.
   * `extra` Obje (opsiyonel) - Raporla beraber yollanabilir şekilde tanımlayabileceğiniz bir obje. Sadece katar tipinde özellikler düzgün şekilde yollanır. Iç içe objeler desteklenmez, özellik isimleri ve değerleri 64 karakterden küçük olmalıdır.
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
 
 `crashReporter` API'lerini kullanmak için ve süreçlerin çökme raporlarını almak için her süreçte (main/renderer) bu metodu çağırmalısınız. Farklı süreçlerden farklı opsiyonları `crashReporter.start`'a geçebilirsiniz.
 
@@ -90,12 +91,22 @@ Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start
 
 **Not:** Bu API sadece ana süreç tarafından çağrılabilir.
 
-### `crashReporter.setExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
-* `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
+* `value` String - Parameter value, must be less than 64 characters long.
 
 Çökme raporu ile birlikte gönderilmesi için bir ek parametre girin. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+
+### `crashReporter.removeExtraParameter(key)` *macOS*
+
+* `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
+
+Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+
+### `crashReporter.getParameters()`
+
+See all of the current parameters being passed to the crash reporter.
 
 ## Çökme Raporu Verisi
 
