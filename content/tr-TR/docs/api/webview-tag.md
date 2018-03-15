@@ -137,7 +137,7 @@ Bu özellik bulunduğunda, misafir sayfasında web güvenliği devre dışı bı
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electronjs.org" partition="electron"></webview>
+<webview src="https://electron.atom.io" partition="electron"></webview>
 ```
 
 Sayfanın kullandığı oturumu ayarlar. `partition` starts with `persist:`ile başlıyorsa, sayfa, uygulamanın aynı `partition` bölümüne sahip tüm sayfalar için kalıcı bir oturum kullanacaktır. hiçbir ` persist`: öneki yoksa, sayfa bellek içi oturumu. Aynı `partition`, değişkenine değer atayarak birden çok sayfada aynı oturumu paylaşabilirsiniz. `partition` ayıklanırsa, uygulamanın varsayılan oturumu kullanılır.
@@ -334,10 +334,10 @@ Returns `String` - Misafir sayfası için kullanıcı aracı.
 
 CSS'i misafir sayfasının içine yerleştirir.
 
-### `<webview>.executeJavaScript(code[, userGesture, callback])`
+### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default `false`.
+* `userGesture` Boolean - Default `false`.
 * `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
@@ -444,9 +444,7 @@ Odaklanmış öğeye `metin` ekler.
   * `wordStart` Boolean - (isteğe bağlı) Sadece kelime başlarına bakılıp bakılmayacağı, varsayılan olarak `false`'tur.
   * `medialCapitalAsWordStart` Boolean - (İsteğe bağlı) `wordStart` ile birleştirildiğinde, eğer eşleşme büyük harfle başlayıp küçük harf veya harf olmayan ifadeyle devam ediyorsa, eşleşmeyi kabul eder. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
 
-Returns `Integer` - The request id used for the request.
-
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -455,7 +453,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
   * `keepSelection` - Seçimi normal bir seçime çevirir.
   * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
 
-`action` ile sağlanan `webview` için herhangi `findInPage` isteğini durdurur.
+Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
@@ -464,7 +462,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
   * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
   * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
 
-`webview`'ün web sayfasını yazdırır. Tıpkı `webContents.print([options])` gibi.
+Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
@@ -478,7 +476,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
   * `error` Error
   * `data` Buffer
 
-`webview`'ün web sayfasını PDF olarak yazdırır, tıpkı `webContents.printToPDF(options, callback)` gibi.
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -486,24 +484,24 @@ Starts a request to find all matches for the `text` in the web page. The result 
 * `geri aramak` Function 
   * `image` [NativeImage](native-image.md)
 
-`webview` sayfasının anlık görüntüsünü alır. Tıpkı `webContents.capturePage([rect, ]callback)` gibi.
+Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
 * `...args` herhangi[]
 
-İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. Renderer işlemi, mesajları `ipcRenderer` modülü ile `channel` etkinliğini dinleyerek halledebilir.
+İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
-Örnekler için [webContents.send](web-contents.md#webcontentssendchannel-args) 'i ziyaret edin.
+See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
 * `event` Object
 
-`event` girdisini sayfaya yollar.
+Sends an input `event` to the page.
 
-`event` nesnesinin detaylı açıklaması için [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) 'i ziyaret edin.
+See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -523,11 +521,11 @@ Sayfadan seçilen sözcüğü arayan bir pop-up sözlük gösterir.
 
 ### `<webview>.getWebContents()`
 
-Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişkilendirilmiştir.
+Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
 ## DOM etkinlikleri
 
-Aşağıdaki DOM etkinlikleri `webview` etiketinde kullanılabilir:
+The following DOM events are available to the `webview` tag:
 
 ### Etkinlik: 'load-commit'
 
@@ -536,11 +534,11 @@ Dönüşler:
 * `url` Dize
 * `isMainFrame` Boolean
 
-Bir yükleme işlendiğinde tetiklenir. Bu, subframe belge düzeyi yüklemeleri içinde olduğu kadar, mevcut belge içinde de gezinmeyi içerir, ancak eş zamanlı olmayan kaynak yüklemelerini içermez.
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### Olay: 'did-finish-load'
 
-Gezinme bittiğinde tetiklenir, diğer bir ifadeyle sekmedeki topaç dönmeyi durduracaktır ve `onload` etkinliği gönderilecektir.
+Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
 ### Olay: 'did-fail-load'
 
@@ -551,7 +549,7 @@ Dönüşler:
 * `validatedURL` Koşul
 * `isMainFrame` Boolean
 
-Bu etkinlik `did-finish-load` gibidir, fakat yükleme başarısız olduğunda veya iptal edildiğinde, örneğin: `window.stop()` çağrılır.
+This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
 ### Olay: 'did-frame-finish-load'
 
@@ -559,15 +557,15 @@ Dönüşler:
 
 * `isMainFrame` Boolean
 
-Bir kare, navigasyonunu tamamladığında tetiklenir.
+Fired when a frame has done navigation.
 
 ### Olay: 'did-start-loading'
 
-Sekmenin döndürücüsünün dönmeye başladığı andaki noktalara karşılık gelir.
+Corresponds to the points in time when the spinner of the tab starts spinning.
 
 ### Olay: 'did-stop-loading'
 
-Sekmenin döndürücüsünün dönmeyi durdurduğu andaki noktalara karşılık gelir.
+Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Olay: 'did-get-response-details'
 
@@ -582,7 +580,7 @@ Dönüşler:
 * `headers` Nesne
 * `resourceType` Dize
 
-İstenen bir kaynağın geçerli olduğuyla ilgili ayrıntılar geldiğinde tetiklenir. `status` kaynağı yüklemek için olan soket bağlantısını belirtir.
+Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
 ### Olay: 'did-get-redirect-request'
 
@@ -592,11 +590,11 @@ Dönüşler:
 * `newURL` Dize
 * `isMainFrame` Boolean
 
-Bir kaynak sorgulanırken yönlendirme alınırsa tetiklenir.
+Fired when a redirect was received while requesting a resource.
 
 ### Olay: 'dom-ready'
 
-Verilen karedeki belge yüklendiğinde tetiklenir.
+Fired when document in the given frame is loaded.
 
 ### Etkinlik: 'sayfa-başlığı-güncellendi'
 
@@ -605,7 +603,7 @@ Dönüşler:
 * `title` String
 * `explicitSet` Boolean
 
-Gezinme sırasında sayfa başlığı ayarlanırsa tetiklenir. Başlık dosya url'inden sentezlenmişse `explicitSet` yanlıştır.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Olay: 'page-favicon-updated'
 
@@ -613,15 +611,15 @@ Dönüşler:
 
 * `favicons` Dize[] - URL dizisi.
 
-Sayfa favicon url'lerini aldığında tetiklenir.
+Fired when page receives favicon urls.
 
 ### Etkinlik: 'enter-html-full-screen'
 
-Tam ekran HTML API tarafından etkinleştirildiğinde ateşlenir.
+Fired when page enters fullscreen triggered by HTML API.
 
 ### Etkinlik: 'leave-html-full-screen'
 
-Tam ekran HTML API tarafından çıkıldığında ateşlenir.
+Fired when page leaves fullscreen triggered by HTML API.
 
 ### Etkinlik: 'console-message'
 
@@ -632,9 +630,9 @@ Dönüşler:
 * `line` Integer
 * `sourceId` String
 
-Misafir pencere konsol mesajı girdiğinde ateşlenir.
+Fired when the guest window logs a console message.
 
-Aşağıdaki örnek kod, günlük düzeyini veya diğer özellikleri dikkate almadan tüm günlük iletilerini karıştırıcının konsoluna iletir.
+The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -654,7 +652,7 @@ Dönüşler:
   * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
   * `finalUpdate` Boolean
 
-Bir sonuç [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) isteği için geçerli hale geldiğinde tetiklenir.
+Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -675,9 +673,9 @@ Dönüşler:
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` Object - Bu seçenekler yeni `BrowserWindow` oluşturulacağı zaman kullanılmalıdır.
 
-Misafir sayfası yeni bir tarayıcı penceresi açmaya çalıştığında tetiklenir.
+Fired when the guest page attempts to open a new browser window.
 
-Aşağıdaki örnek kod, sistemin varsayılan tarayıcısında yeni url'yi açar.
+The following example code opens the new url in system's default browser.
 
 ```javascript
 const {shell} = require('electron')
@@ -699,11 +697,11 @@ Dönüşler:
 
 Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
-Bu olay navigasyon programlı bir şekilde `<webview>.loadURL` ve `<webview>.back` API gibi başlatıldığında sinyal yaymaz.
+This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
-Sayfa içi navigasyon sırasında, çapa linklere tıklama ya da `window.location.hash` güncellendiğindede sinyal yaymaz. `did*navigate-in-page` olayını bu amaçla kullanınız.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-`event.preventDefault()` öğesinin çağırılmasının herhangi bir etkisi **yoktur**.
+Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Olay: 'did-navigate'
 
@@ -728,9 +726,9 @@ Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın 
 
 ### Etkinlik: 'kapalı'
 
-Misafir sayfası kendisini kapatmaya çalıştığında tetiklenir.
+Fired when the guest page attempts to close itself.
 
-Misafir kapatmaya çalıştığında örnek kod `webview`, `about:blank` arasında dolaşmaya başlar.
+The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -746,9 +744,9 @@ Dönüşler:
 * `channel` Dizesi
 * `args` Array
 
-Ziyaretçi sayfası, katıştırıcı sayfasına bir eşzamansız mesaj gönderdiğinde tetiklenir.
+Fired when the guest page has sent an asynchronous message to embedder page.
 
-`sendToHost` yöntemi ve `ipc-message` etkinliği ile misafir sayfa ve gömülü sayfa arasında kolayca geçiş yapabilirsiniz:
+With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
 
 ```javascript
 // In embedder page.
@@ -770,11 +768,11 @@ ipcRenderer.on('ping', () => {
 
 ### Etkinlik: 'çöktü'
 
-Renderer işlemi çöktüğünde tetiklenir.
+Fired when the renderer process is crashed.
 
 ### Etkinlik: 'gpu-çöktü'
 
-Gpu işlemi çöktüğünde tetiklenir.
+Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
@@ -783,11 +781,11 @@ Dönüşler:
 * `name` Dizi
 * `versiyon` String
 
-Plugin işlemi çöktüğünde tetiklenir.
+Fired when a plugin process is crashed.
 
 ### Etkinlik: 'yıkıldı'
 
-WebContents işlemi çöktüğünde tetiklenir.
+Fired when the WebContents is destroyed.
 
 ### Olay: Medya oynamaya başladı
 
@@ -803,7 +801,7 @@ Dönüşler:
 
 * `themeColor` String
 
-Sayfanın tema rengi değiştiğinde belirtilir. Bu, genellikle bir meta etiketi ile karşılaşılmasından dolayıdır:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
