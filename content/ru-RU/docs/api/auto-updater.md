@@ -4,18 +4,13 @@
 
 Process: [Main](../glossary.md#main-process)
 
-`autoUpdater` модуль предоставляющий интерфейс для [Squirrel](https://github.com/Squirrel) фреймворка.
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Вы можете быстро запустить серверный релиз мульти-платформы для распространения вашего приложения используя один из проектов:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts): * Смарт-релиз сервера для ваших приложений, используя GitHub как бэкэнд. Авто обновления с Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Полнофункциональный, резидентный серверный релиз для приложения Electron, совместимый с auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Простой node.js сервер для Squirrel.Mac и Squirrel.Windows с использованием GitHub релизов*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Простое PHP приложение для Squirrel.Windows, которая читает обновления из папки. Поддержка дельта обновлений.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Платформа заметок
-
-Хотя `autoUpdater` предоставляет единый API для разных платформ, есть еще некоторые тонкие различия на каждой платформе.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,13 +28,9 @@ Process: [Main](../glossary.md#main-process)
 
 В отличие от Squirrel.Mac, Windows обновления можно размещать на S3 или любом другом хостинге статических файлов. Вы можете прочитать документы [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) для получения более подробной информации о том, как работает Squirrel.Windows.
 
-### Linux
-
-Не существует встроенной поддержки для автоматического обновления на Linux, поэтому рекомендуется использовать дистрибутив пакетного менеджера для обновления вашего приложения.
-
 ## События
 
-Объект `autoUpdater` имеет следующие события:
+The `autoUpdater` object emits the following events:
 
 ### Событие: 'error'
 
@@ -47,21 +38,21 @@ Process: [Main](../glossary.md#main-process)
 
 * `error` Error
 
-Возникает когда происходит ошибка при обновлении.
+Emitted when there is an error while updating.
 
-### Событие: 'checking-for-update'
+### Event: 'checking-for-update'
 
-Возникает при проверке, если обновление началось.
+Emitted when checking if an update has started.
 
-### Событие: 'update-available'
+### Event: 'update-available'
 
-Возникает при наличии доступных обновлений. Обновление загружается автоматически.
+Emitted when there is an available update. The update is downloaded automatically.
 
-### Событие: 'update-not-available'
+### Event: 'update-not-available'
 
-Возникает, когда нет доступных обновлений.
+Emitted when there is no available update.
 
-### Событие: 'update-downloaded'
+### Event: 'update-downloaded'
 
 Возвращает:
 
@@ -71,31 +62,31 @@ Process: [Main](../glossary.md#main-process)
 * `releaseDate` Date
 * `updateURL` String
 
-Возникает при загрузке обновления.
+Emitted when an update has been downloaded.
 
-На Windows доступен только `releaseName`.
+On Windows only `releaseName` is available.
 
 ## Методы
 
-Объект `autoUpdater` имеет следующие методы:
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (опиционально) - http-header запроса.
+* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-Задает `url` и инициализирует автоматическое обновление.
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-`String` - возвращает URL текущей подписки обновления.
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Запрашивает сервер на наличие обновлений. Перед использованием этого API-интерфейса, необходимо вызвать `setFeedURL`.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Перезапускает приложение и устанавливает обновления после того как скачает. Должен вызываться только после того, как возникнет событие `update-downloaded`.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-**Примечание:** `autoUpdater.quitAndInstall()` сначала закроет все окна приложения и только потом возникнет событие `before-quit` на `app`. Это отличается от нормальной последовательности события выход.
+**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
