@@ -341,7 +341,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>command` String
@@ -375,7 +375,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>direction` String
@@ -998,7 +998,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * ` Icon ` [ NativeImage ](native-image.md)-das Symbol zeigt in Thumbnail Leiste.
   * ` Klicken Sie auf ` Funktion
   * ` Tooltip ` String (optional)-der Text der Tooltip der Schaltfläche.
   * ` Flags ` String [] (optional)-Steuern Sie bestimmte Zustände und Verhaltensweisen der Schalt. Standardmäßig ist es ` [' Enabled '] `.
@@ -1166,10 +1166,10 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Experimentell*
 
 * `browserView` [BrowserView](browser-view.md)
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Experimentell*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
