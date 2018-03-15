@@ -26,7 +26,7 @@ app.on('ready', () => {
       sandbox: true
     }
   })
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -39,17 +39,16 @@ Para habilitar la caja de arena impuesta por el OS en `BrowserWindow` o por el p
 ```js
 let win
 app.on('ready', () => {
-  // no hay necesidad de pasar`sandbox: true` ya que `--enable-sandbox` fue habilitada.
+  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
   win = new BrowserWindow()
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
 Note que esto no es suficiente para llamar `app.commandLine.appendSwitch('--enable-sandbox')` como Electron/nodo código de inicio corre después si es posible para hacer cambios a la configuración de la caja de aren de Chromium. El cambio debe ser pasado por la linea de comando de electron:
 
-```sh
-electron --enable-sandbox app.js
-```
+    electron --enable-sandbox app.js
+    
 
 No es posible tener el OS caja de arena activo solo por algunos renderizadores, si `--enable-sandbox` está habilitado, no se puede crear una ventana normal de Electron.
 
@@ -68,7 +67,7 @@ app.on('ready', () => {
       preload: 'preload.js'
     }
   })
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -106,23 +105,18 @@ Cosas importantes que notar en el script precargado:
 
 Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
 
-```sh
-  browserify preload/index.js \
-    -x electron \
-    -x fs \
-    --insert-global-vars=__filename,__dirname -o preload.js
-```
+    browserify preload/index.js \
+      -x electron \
+      -x fs \
+      --insert-global-vars=__filename,__dirname -o preload.js
+    
 
 La bandera `-x`debe ser usada con cualquier modulo requerido que ya está expuesto en un ambiente precargado, y le dice a browserify que use la función que la encierra `require` para ello. `--insert-global-vars` Asegurará que `process`, `Buffer` y `setImmediate` también sean llevado para el ambiente cerrado (normalmente browsefiry inyecta códigos para ellos).
 
 Actualmente la function `require` proveída en el ambiente de precargado expone los siguiente módulos:
 
 - `child_process`
-- `electron` 
-  - `crashReporter`
-  - `remote`
-  - `ipcRenderer`
-  - `webFrame`
+- `electron` (crashReporter, remote and ipcRenderer)
 - `fs`
 - `os`
 - `contadores`
