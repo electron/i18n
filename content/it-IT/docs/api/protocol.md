@@ -161,64 +161,6 @@ By default the HTTP request will reuse the current session. If you want the requ
 
 For POST requests the `uploadData` object must be provided.
 
-### `protocol.registerStreamProtocol(scheme, handler[, completion])`
-
-* `schema` Stringa
-* `handler` Funzione 
-  * `richiesta` Oggetto 
-    * `url` Stringa
-    * `headers` Object
-    * `referrer` String
-    * `metodo` Stringa
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `completion` Function (optional) 
-  * `errore` Errore
-
-Registers a protocol of `scheme` that will send a `Readable` as a response.
-
-The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
-
-Esempio:
-
-```javascript
-const {protocol} = require('electron')
-const {PassThrough} = require('stream')
-
-function createStream (text) {
-  const rv = new PassThrough()  // PassThrough is also a Readable stream
-  rv.push(text)
-  rv.push(null)
-  return rv
-}
-
-protocol.registerStreamProtocol('atom', (request, callback) => {
-  callback({
-    statusCode: 200,
-    headers: {
-      'content-type': 'text/html'
-    },
-    data: createStream('<h5>Response</h5>')
-  })
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
-})
-```
-
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
-
-```javascript
-const {protocol} = require('electron')
-const fs = require('fs')
-
-protocol.registerStreamProtocol('atom', (request, callback) => {
-  callback(fs.createReadStream('index.html'))
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
-})
-```
-
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `schema` Stringa
@@ -304,23 +246,6 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
-
-### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
-
-* `schema` Stringa
-* `handler` Funzione 
-  * `richiesta` Oggetto 
-    * `url` Stringa
-    * `headers` Object
-    * `referrer` String
-    * `metodo` Stringa
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `completion` Function (optional) 
-  * `errore` Errore
-
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
