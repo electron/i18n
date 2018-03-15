@@ -172,13 +172,13 @@ console.log(image)
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+戻り値 `Buffer` - `PNG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* `quality` Integer (**必須**) - 0 ~ 100。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+戻り値 `Buffer` - `JPEG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toBitmap([options])`
 
