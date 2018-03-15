@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *実験的*
@@ -36,40 +36,50 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### 静的メソッド
 
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [WebContents](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-戻り値 `BrowserView` - 指定された `id` のビュー。
+Returns `BrowserView` - The view with the given `id`.
 
 ### インスタンスプロパティ
 
-`new BrowserView` で作成されたオブジェクトは、以下のプロパティを持っています。
+Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` *実験的*
+#### `view.webContents` *Experimental*
 
-このビューによって保持されている [`WebContents`](web-contents.md) オブジェクト。
+A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *実験的*
+#### `view.id` *Experimental*
 
-ビューの一意のIDを表す `Integer`。
+A `Integer` representing the unique ID of the view.
 
 ### インスタンスメソッド
 
-`new BrowserView` で作成されたオブジェクトは、次のインスタンスメソッドを持っています。
+Objects created with `new BrowserView` have the following instance methods:
 
-#### `view.setAutoResize(options)` *実験的*
+#### `view.setAutoResize(options)` *Experimental*
 
 * `options` Object 
-  * `width` Boolean - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。省略値は、`false` です。
-  * `height` Boolean - `true` の場合、ビューの高さはウインドウと一緒に伸び縮みします。省略値は、`false` です。
+  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *実験的*
+#### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md) 
 
-ウインドウを基準に指定された境界までビューをリサイズしたり、移動させたりします。
+Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *実験的*
+#### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - `#aarrggbb` や `#argb` といった形式の色。アルファチャンネルは任意です。
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
