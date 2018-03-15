@@ -53,11 +53,11 @@ $ git checkout -b my-branch -t upstream/master
 
 ### 步骤4: 编写代码
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+大多数提交后被`electron/electron`仓库拒绝的合并代码请求都包括对 `atom/` 或 `brightray/` 文件夹中的 c/c++ 代码，`lib` 文件夹中的 JavaScript 代码， `docs/api/` 中的文档或在 `spec/` 文件夹中的测试代码的更改。
 
-Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
+请确保都运行 ` npm run lint ` 在任何代码更改后, 以确保它们遵循项目的代码样式。
 
-See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
+在项目的不同部分修改代码时, 有关最佳实践的更多信息, 请参见 [ 编码样式 ](https://electronjs.org/docs/development/coding-style)。
 
 ### 步骤5: 提交更改
 
