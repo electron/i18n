@@ -37,6 +37,7 @@ crashReporter.start({
   * `uploadToServer` 布尔型(可选) - 控制是否将崩溃日志发送给服务器，默认为`true`.
   * `ignoreSystemCrashHandler` 布尔型(可选) - 默认为`false`.
   * `extra` 对象(可选) - 一个随崩溃日志发送的对象. 只有字符串属性能够被正确发送. 不支持发送嵌套对象，且属性名称和属性值必须小于64个字符长度.
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
 
 你需要调用任何其他的`crashReporter` API，您必须调用此方法. 在每个需要收集崩溃日志的进程 (主进程 / 渲染器进程) 中，也必须先调用此方法. 从不同的进程调用时, 可以传不同的配置给 ` crashReporter. start `。
 
@@ -89,12 +90,22 @@ crashReporter.start({
 
 **注意：** 这个API仅可从主进程调用。
 
-### `crashReporter.setExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` String - 参数键，长度必须小于64个字符
-* `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
+* `value` String - Parameter value, must be less than 64 characters long.
 
 设置一个在发送崩溃报告时将额外包含的参数。 The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+
+### `crashReporter.removeExtraParameter(key)` *macOS*
+
+* `key` String - 参数键，长度必须小于64个字符
+
+Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+
+### `crashReporter.getParameters()`
+
+See all of the current parameters being passed to the crash reporter.
 
 ## 崩溃报告内容
 
