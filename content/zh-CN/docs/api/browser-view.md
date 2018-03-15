@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+view.webContents.loadURL('https://electron.atom.io')
 ```
 
 ### `new BrowserView([可选])` *实验功能*
@@ -36,50 +36,40 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### 静态方法
 
-#### `BrowserView.getAllViews()`
-
-返回 `BrowserWindow[]` - 所有打开的窗口的数组
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-返回 `BrowserView | null` - 如果内容不属于BrowserView，则它拥有返回的`webContents`或`null`。
-
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-返回 `BrowserView` - 带有`id`的视图.
+Returns `BrowserView` - The view with the given `id`.
 
 ### 实例属性
 
-使用 `new BrowserView` 创建的对象具有以下属性:
+Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` *实验功能*
+#### `view.webContents` *Experimental*
 
-视图的[`WebContents`](web-contents.md) 对象
+A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *实验功能*
+#### `view.id` *Experimental*
 
-视图的唯一ID `Integer`.
+A `Integer` representing the unique ID of the view.
 
 ### 实例方法
 
-使用 `new BrowserView`创建的对象具有以下实例方法:
+Objects created with `new BrowserView` have the following instance methods:
 
-#### `view.setAutoResize(options)` *实验功能*
+#### `view.setAutoResize(options)` *Experimental*
 
-* `选项` Object 
-  * `width` Boolean - 如果为`true`，视图宽度跟随窗口变化. 默认为 `false`.
-  * `height` Boolean - 如果为`true`，视图高度跟随窗口变化. 默认为 `false`.
+* `选项` Object - 过滤器对象，包含过滤参数 
+  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *实验功能*
+#### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-调整视图的大小，并将它移动到窗口边界
+Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *实验功能*
+#### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - 颜色值格式为 `#aarrggbb` 或 `#argb`, 透明度为可选参数.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
