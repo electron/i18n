@@ -104,15 +104,15 @@ $ git rebase upstream/master
 
 ### 步骤7: 测试
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Bug 修复和功能应始终与测试一起进行。 提供了 [ 测试指南 ](https://electronjs.org/docs/development/testing) 使流程更容易。 看其他测试, 看看它们应该如何结构化也会有帮助。
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+当提交您的改变到合并代码请求前, 请始终运行完整的测试套件。 运行测试:
 
 ```sh
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+请确保 linter 不报告任何问题, 并且所有测试都通过。 请不要提交失败的修补程序或检查。
 
 If you are updating tests and just want to run a single spec to check it:
 
