@@ -44,6 +44,7 @@ Modul `Tray` memancarkan peristiwa berikut:
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
+* `posisi` [Point](structures/point.md) - posisi acara
 
 Emitted saat ikon baki diklik.
 
@@ -133,6 +134,17 @@ Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
+#### Event: 'mouse-move' *macOS*
+
+* `peristiwa` Peristiwa 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `posisi` [Point](structures/point.md) - posisi acara
+
+Emitted when the mouse moves in the tray icon.
+
 ### Metode Instance
 
 The `Tray` class has the following methods:
@@ -155,28 +167,28 @@ Sets the `image` associated with this tray icon.
 <p>Sets the <code>image` associated with this tray icon when pressed on macOS.</p> 
   #### `tray.setToolTip(toolTip)`
   
-  * `toolTip` String
-  
-  Sets the hover text for this tray icon.
-  
-  #### `tray.setTitle(title)` *macOS*
-  
   * ` judul </ 0> String</li>
+</ul>
+
+<p>Sets the hover text for this tray icon.</p>
+
+<h4><code>tray.setTitle(title)` *macOS*</h4> 
+    * ` judul</ 0>  String</li>
 </ul>
 
 <p>Sets the title displayed aside of the tray icon in the status bar.</p>
 
 <h4><code>tray.setHighlightMode(mode)` *macOS*</h4> 
-    * `modus` String - Highlight mode with one of the following values: 
-      * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-      * `always` - Always highlight the tray icon.
-      * `never` - Never highlight the tray icon.
-    
-    Sets when the tray's icon background becomes highlighted (in blue).
-    
-    **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
-    
-    ```javascript
+      * `modus` String - Highlight mode with one of the following values: 
+        * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+        * `always` - Always highlight the tray icon.
+        * `never` - Never highlight the tray icon.
+      
+      Sets when the tray's icon background becomes highlighted (in blue).
+      
+      **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+      
+      ```javascript
 const {BrowserWindow, Tray} = require ('electron')
 
 const win = new BrowserWindow ({width: 800, height: 600})
@@ -192,37 +204,37 @@ win.on ('hide', () = > {
   tray.setHighlightMode ('tidak pernah')
 })
 ```
-
-#### `tray.displayBalloon(options)` *Windows*
-
-* `pilihan` Sasaran 
-  * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
-
-Displays a tray balloon.
-
-#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
-
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
-
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
-
-The `position` is only available on Windows, and it is (0, 0) by default.
-
-#### `tray.setContextMenu(menu)`
-
-* `menu` Menu
-
-Sets the context menu for this icon.
-
-#### `tray.getBounds()` *macOS* *Windows*
-
-Kembali [`Rectangle`](structures/rectangle.md)
-
-The `bounds` of this tray icon as `Object`.
-
-#### `tray.isDestroyed()`
-
-Returns `Boolean` - Whether the tray icon is destroyed.
+  
+  #### `tray.displayBalloon(options)` *Windows*
+  
+  * `pilihan` Sasaran 
+    * `icon` ([NativeImage](native-image.md) | String) - (optional)
+    * ` judul</ 0>  String</li>
+<li><code>content` String
+  
+  Displays a tray balloon.
+  
+  #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+  
+  * `menu` Menu (optional)
+  * `position` [Point](structures/point.md) (optional) - The pop up position.
+  
+  Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+  
+  The `position` is only available on Windows, and it is (0, 0) by default.
+  
+  #### `tray.setContextMenu(menu)`
+  
+  * `menu` Menu
+  
+  Sets the context menu for this icon.
+  
+  #### `tray.getBounds()` *macOS* *Windows*
+  
+  Kembali [`Rectangle`](structures/rectangle.md)
+  
+  The `bounds` of this tray icon as `Object`.
+  
+  #### `tray.isDestroyed()`
+  
+  Returns `Boolean` - Whether the tray icon is destroyed.
