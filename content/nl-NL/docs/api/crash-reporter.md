@@ -111,7 +111,7 @@ See all of the current parameters being passed to the crash reporter.
 
 The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
-* `ver` String - The version of Electron.
+* `ver` String - de versie van Electron.
 * `platform` String - e.g. 'win32'.
 * `process_type` String - e.g. 'renderer'.
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
