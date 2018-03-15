@@ -137,7 +137,7 @@ Habang itong katangian mayroon ang pahina ng panauhin hindi pinagana ang segurid
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electronjs.org" partition="electron"></webview>
+<webview src="https://electron.atom.io" partition="electron"></webview>
 ```
 
 Itakda ang sesyon na ginamit sa pahina. Kapag `partition` ay nagsimula sa `persist:`, ang pahina ay gagamit ng masugid na sesyon na magagamit sa lahat ng pahina sa app na may kaparihang `partition`. kung wala ang unlaping `persist`, ang pahina ay gagamit ng isang nasa memoryang sesyon. Sa pag-aatas ng kaparehong `partition`, maramihang mga pahina ang maaaring magsalo-salo sa magkaparehong sesyon. Kung ang `partition` ay di pa na set pagkatapos ang default na sesyon ng app ay magagamit.
@@ -334,10 +334,10 @@ Nagbabalik `String` - Ang gumagamit na ahente para sa pahina ng panauhin.
 
 Paglagay ng CSS sa pahina ng panauhin.
 
-### `<webview>.executeJavaScript(code[, userGesture, callback])`
+### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default `false`.
+* `userGesture` Boolean - Default `false`.
 * `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
   * `resulta` Anuman
 
@@ -444,9 +444,7 @@ Ipasok ang `teksto` sa nakatutok na elemento.
   * `wordStart` Boolean - (opsyonal) Kung saan maghahanap ka lang ng simula ng salita. mga defaults sa `false`.
   * `medialCapitalAsWordStart` Boolean - (opsyonal) Kung ang pinagsama na may `wordStart`, tinatanggap ang kapareha sa gitna ng salita at kung ang kapareha nag nagsimula ng malaking titik at sinundan ng maliit na titik o walang-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
 
-Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
-
-Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `text` sa pahina ng web. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -455,7 +453,7 @@ Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `te
   * `keepSelection` - I-translate ang mga napili para maging normal.
   * `activateSelection` - Ipukos at iclick ang node ng napili.
 
-Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang `aksyon`.
+Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
@@ -464,7 +462,7 @@ Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
 
-Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
+Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
@@ -478,7 +476,7 @@ Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
   * `error` Error
   * `data` Buffer
 
-Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printToPDF(options, callback)`.
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -486,24 +484,24 @@ Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printTo
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Kumukuha ng larawan sa page ng `webview`. Pareho sa `webContents.capturePage([rect, ]callback)`.
+Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` anuman[]
 
-Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. Ang magsasagawa ng proseso ay kayang i-handle ang mensahe sa pamamagitan ng pakikinig sa `channel` event kasama ang modulo ng `ipcRenderer`.
+Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
-Tignan ang [webContents.send](web-contents.md#webcontentssendchannel-args) bilang mga halimbawa.
+See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
 * `event` Objek
 
-Nagpapadala ng input na `event` sa page.
+Sends an input `event` to the page.
 
-Tignan ang [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) para sa mga detalyadong paglalarawan ng objek na `event`.
+See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -523,55 +521,55 @@ Pinapakita ang pop-up na diksyonaryo na naghahanap ng mga napiling salita sa pag
 
 ### `<webview>.getWebContents()`
 
-Bumalik sa [`WebContents`](web-contents.md) - Ang laman ng web ay naka-ugnay sa `webview`.
+Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
 ## Mga event ng DOM
 
-Ang mga sumusunod na event ng DOM ay nasa tanda ng `webview`:
+The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `url` Tali
 * `ay pangunahing kuwadro` Boolean
 
-Itinitigil agad kapag nacommit ang load. Sinasama nito ang nabigasyon na nasa kasalukuyang dokumento pati na ang mga load ng subframe na nasa lebel ng dokumento, pero di kasama ang mga load ng asynchronous resource.
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### Kaganapan: 'ginawa-tapusin-dala'
 
-Itigil kapag natapos na ang nabigasyon, i.e. ang taga-ikot ng tab ay huminto sa pag-ikot, at ang event na `onload` ay na-dispatch.
+Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
 ### Kaganapan: 'ginawa-mabibigo-dala'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `pagkakamalingCode`kabuuan
 * `Paglalarawan ng pagkakamali`tali
 * `napatunayan sa Url`tali
 * `isMainFrame` Boolean
 
-Ang event na ito ay tulad ng `did-finish-load`, pero natigil nung nag-fail ang load o nakansela, e.g. `window.stop()` ay na-invoke.
+This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
 ### Kaganapan: 'ginawa-frame-finish-load'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `isMainFrame` Boolean
 
-Itigil kapag natapos na ang nabigasyon ng frame.
+Fired when a frame has done navigation.
 
 ### Kaganapan: 'did-start-loading'
 
-Tumutugon sa mga puntos ng oras kung kailan nagsimulang umikot ang taga-ikot ng tab.
+Corresponds to the points in time when the spinner of the tab starts spinning.
 
 ### Kaganapan: 'did-stop-loading'
 
-Tumutugon sa mga puntos ng oras kung kailan huminto sa pag-ikot ang taga-ikot ng tab.
+Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Kaganapan: 'ginawa-kumuha-tugon-detalye'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `katayuan` Boolean
 * `newURL` String
@@ -582,59 +580,59 @@ Ibinabalika ang:
 * `header` Bagay
 * `resourceType` Tali
 
-Itigil kapag ang mga detalye tungol sa hinihinging resource ay nahanap na. Ang `status` ay tumutukoy sa socket connection sa pagdownload ng resource.
+Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
 ### Kaganapan: 'did-get-redirect-request'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `oldURL` Pisi
 * `newURL` String
 * `isMainFrame` Boolean
 
-Itigil kapag nakatanggap ng redirect habang himihingi ng resource.
+Fired when a redirect was received while requesting a resource.
 
 ### Kaganapan: 'dom-ready'
 
-Itigil kapag ang dokumento ng sinasabing frame ay na-load.
+Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `title` String
 * `explicitSet` Boolean
 
-Itigil kapag ang titulo ng page ay naitakdang habang naka-nabigasyon. Ang `explicitSet` ay di totoo kapag ang titulo ay nabuo mula sa file url.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Kaganapan: 'pahina-favicon-updated'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `favicons` String [] - Mga array ng mga URL.
 
-Itigil kapag nakatanggap ang page ng mga url na favicon.
+Fired when page receives favicon urls.
 
 ### Event: 'enter-html-full-screen'
 
-Itigil kapag ang page ay naka-fullscreen na dulot ng HTML API.
+Fired when page enters fullscreen triggered by HTML API.
 
 ### Event: 'leave-html-full-screen'
 
-Itigil kapag ang page ay hindi na naka-fullscreen na dulot ng HTML API.
+Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `level` Integer
 * `message` String
 * `line` Integer
 * `sourceId` String
 
-Itigil kapag ang guest window ay nagtalaga ng mensahe na konsol.
+Fired when the guest window logs a console message.
 
-Ang mga sumunod na halimbawa na mga code ay pinapasa ang lahat ng mga mensaheng nakatalaga sa konsol ng embedder na hindi nakapaloob sa nakatalagang lebel o iba pang mga katangian.
+The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -645,7 +643,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Kaganapan: 'natagpuan-sa-pahina'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `resulta` Bagay 
   * `requestId` Integer
@@ -654,7 +652,7 @@ Ibinabalika ang:
   * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
   * `finalUpdate` Boolean
 
-Itigil kung meron ng resulta sa hinihingi ng [`webview.findInPage`](webview-tag.md#webviewtagfindinpage).
+Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -668,16 +666,16 @@ console.log(requestId)
 
 ### Kaganapan: 'bagong-bintana'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `url` Tali
 * `frameName` Pisi
 * `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
 * `options` Objek - Ang mga opsyon na kailangang gamitin para makagawa ng bagong `BrowserWindow`.
 
-Itigil kapag ang guest page ay sinusubukang magbukas ng bagong browser window.
+Fired when the guest page attempts to open a new browser window.
 
-Ang mga sumusunod na halimbawa na code ay nagbubukas ng bagong url sa nakadefault na browser sa sistema.
+The following example code opens the new url in system's default browser.
 
 ```javascript
 const {shell} = require('electron')
@@ -693,21 +691,21 @@ webview.addEventListener('new-window', (e) => {
 
 ### Kaganapan: 'mag-navigate'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `url` String
 
 Ilabas kapang ang user o ang mismong page ay gustong magsimula ng nabigasyon. Ito'y pwedeng mangyari kapag ang `window.location` ng objek ay nabago o ang kiniclick ng user ang link sa page.
 
-Itong event na ito ay hindi ilalabas kapag ang nabigasyon ay na-istart na ang gamit ay programa na may mga API tulad ng `<webview>.loadURL` and `<webview>.back`.
+This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
-Ito ay hindi rin ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Tinatawag ang `event.preventDefault()` na may **NOT** mga epekto.
+Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Kaganapan: 'ginawa-navigate'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `url` String
 
@@ -717,20 +715,20 @@ Ang event na ito ay hindi ilalabas habang nasa nabigasyon sa loog ng page, gaya 
 
 ### Kaganapan: 'ginawa-navigate-in-page'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `isMainFrame` Boolean
 * `url` String
 
-Inilalabas kapag nangyari ang pag-navigate sa pahina.
+Ilalabas kapag nangyari ang nabigasyon sa loob ng page.
 
-Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
+Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Mga halimbawa ng mga pangyayaring ito ay kapag ang naka-ankor na mga link ay naclick o kung ang mga na DOM na `hashchange` ay natrigger.
 
 ### Event: 'close'
 
-Itigil kung ang guest page ay sinubukang isara ang sarili.
+Fired when the guest page attempts to close itself.
 
-Ang mga sumusunod na halimbawa na mga code ay ninanavigate ang `webview` sa `about:blank` kapag ang bisita ay sinubukang isara ang sarili.
+The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -741,14 +739,14 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `channel` String
 * `args` Array
 
-Itigil kapag ang guest page ay nagpadala ng mensahe na asynchronous sa embedder page.
+Fired when the guest page has sent an asynchronous message to embedder page.
 
-Kasama ang paraang `sendToHost` at event na `ipc-message` magiging madali nalang ang iyong pakikipag-ugnayan sa pagitan ng guest page at embedder page:
+With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
 
 ```javascript
 // In embedder page.
@@ -770,24 +768,24 @@ ipcRenderer.on('ping', () => {
 
 ### Kaganapan: 'nag-crash'
 
-Itigil kapag ang nag-crash ang proseso na nagsumite.
+Fired when the renderer process is crashed.
 
 ### Event: 'gpu-crashed'
 
-Itigil kapag ang ang proseso ng gpu ay nag-crash.
+Fired when the gpu process is crashed.
 
 ### Kaganapan: 'plugin-nag-crash'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `name` String
 * `Bersyon` Pisi
 
-Itigil kapag ang proseso na plug-in ay nagcrash.
+Fired when a plugin process is crashed.
 
 ### Kaganapan: 'nawasak'
 
-Itigil kapag ang nasira ang mga WebContent.
+Fired when the WebContents is destroyed.
 
 ### Kaganapan: 'media-started-playing'
 
@@ -799,11 +797,11 @@ Ilabas kapag ang medya ay nahinto o natapos na.
 
 ### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `themeColor` String
 
-Ilabas kung ang kulay ng tema ng page ay nabago. Ito ay kadalasang dahil sa na-icounter ang tanda na meta:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -811,7 +809,7 @@ Ilabas kung ang kulay ng tema ng page ay nabago. Ito ay kadalasang dahil sa na-i
 
 ### Kaganapan: 'update-target-url'
 
-Ibinabalika ang:
+Pagbabalik:
 
 * `url` String
 
