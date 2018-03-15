@@ -172,7 +172,7 @@ For POST requests the `uploadData` object must be provided.
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (選用)
 * `completion` Function (選用) 
   * `error` Error
 
@@ -187,7 +187,7 @@ const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  const rv = new PassThrough()  // PassThrough 也是一個 Readable 的 stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -202,7 +202,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     data: createStream('<h5>Response</h5>')
   })
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('通訊協定註冊失敗')
 })
 ```
 
@@ -215,7 +215,7 @@ const fs = require('fs')
 protocol.registerStreamProtocol('atom', (request, callback) => {
   callback(fs.createReadStream('index.html'))
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('通訊協定註冊失敗')
 })
 ```
 
@@ -277,7 +277,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (選用)
 * `completion` Function (選用) 
   * `error` Error
 
@@ -297,7 +297,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` String
       * `method` String
       * `session` Object (選用)
-      * `uploadData` 物件 (選用) 
+      * `uploadData` Object (選用) 
         * `contentType` String - 內容的 MIME 類型。
         * `data` String - 要傳送的內容。
 * `completion` Function (選用) 
@@ -316,7 +316,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (選用)
 * `completion` Function (選用) 
   * `error` Error
 
