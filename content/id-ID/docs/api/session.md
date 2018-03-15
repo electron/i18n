@@ -19,7 +19,7 @@ Modul ` sesi ` memiliki metode berikut:
 ### `sesi.daripartisi(partisi[, pilihan])`
 
 * `partisi` Tali
-* `pilihan` Sasaran 
+* `pilihan` Objek (pilihan) 
   * `cache` Boolean - Baik untuk mengaktifkan cache.
 
 Kembali ` Sesi </ 0> - Contoh sesi dari <code> partisi </ 0> senar. Bila sudah ada
@@ -112,12 +112,13 @@ Ketika `pacScript` dan `proxyRules` disediakan bersama, `proxyRules` pilihan dia
 
 `proxyRules` harus mengikuti aturan di bawah ini:
 
-    proxyRules = schemeProxies[";"<schemeProxies>]
-    schemeProxies = [<urlScheme>"="]<proxyURIList>
-    urlScheme = "http" | "https" | "ftp" | "socks"
-    proxyURIList = <proxyURL>[","<proxyURIList>]
-    proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-    
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
 
 Sebagai contoh:
 
@@ -203,10 +204,11 @@ Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi
   * `permintaan` Obyek 
     * `nama host` String
     * `sertifikat` [Sertifikat](structures/certificate.md)
-    * `error` String - Verification result from chromium.
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `callback` Fungsi 
     * `verificationResult` Bulat - nilai dapat menjadi salah satu kode kesalahan sertifikat dari [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Terlepas dari kode kesalahan sertifikat, kode khusus berikut dapat digunakan. 
-      * `` - Indicates success and disables Certificate Transperancy verification.
+      * `` - Indicates success and disables Certificate Transparency verification.
       * `-2` - menunjukkan kegagalan.
       * `-3` - menggunakan hasil verifikasi dari kromium.
 
@@ -220,13 +222,13 @@ const {BrowserWindow} = require('electron') membiarkan memenangkan = win.webCont
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Fungsi 
+* `handler` Function | null 
   * `webContents` [WebContents](web-contents.md) - WebContents meminta izin.
   * `izin` String - Enum 'media', 'geolocation', 'pemberitahuan', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Fungsi 
     * `permissionGranted` Boolean - mengizinkan atau menolak izin
 
-Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Memanggil `callback(true)` akan memungkinkan izin dan `callback(false)` akan menolaknya.
+Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Memanggil `callback(true)` akan memungkinkan izin dan `callback(false)` akan menolaknya. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron') session.fromPartition('some-partition').setPermissionRequestHandler ((webContents, izin, callback) = > {jika (webContents.getURL() === 'beberapa-host' & & izin === 'pemberitahuan') {}     kembali callback(false) / / ditolak.
