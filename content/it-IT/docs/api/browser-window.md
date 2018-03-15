@@ -993,8 +993,8 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Button` Oggetto 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+* `Pulsante` Oggetto 
+  * `icona` [ImmagineNativa](native-image.md) - L'icona mostrata nella barra degli strumenti miniaturizzata.
   * `click` Funzione
   * `aiuto` Stringa (opzionale) - Il testo del pulsante di aiuto.
   * `bandiere` Stringa[] (opzionale) - Controlla specifici comportamenti e stati del pulsante. Di default é `['abilitato']`.
