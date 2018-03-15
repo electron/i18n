@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### Các phương thức riêng
 
 The following methods are available on instances of `Session`:
 
@@ -332,7 +332,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### Các Thuộc Tính
 
 The following properties are available on instances of `Session`:
 
