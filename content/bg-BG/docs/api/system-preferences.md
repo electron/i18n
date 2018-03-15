@@ -24,13 +24,13 @@ The `systemPreferences` object emits the following events:
 
 Връща:
 
-* `event` Event
+* `event` Сътитие
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
 ## Методи
@@ -60,7 +60,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `обратно повикване` Функция 
+* `обратно повикване` Function 
   * `event` String
   * `userInfo` Object
 
