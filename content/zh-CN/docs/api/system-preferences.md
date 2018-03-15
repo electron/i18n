@@ -60,7 +60,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `event` String
   * `userInfo` Object
 
