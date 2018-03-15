@@ -120,7 +120,7 @@ $ npm run test
 $ npm run test -match=menu
 ```
 
-The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
+上述操作只运行与 ` menu ` 匹配的规范模块, 这对于那些在测试周期的末尾进行测试的任何人都很有用。
 
 ### 步骤8: 推送代码
 
