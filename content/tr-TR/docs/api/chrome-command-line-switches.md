@@ -96,9 +96,8 @@ Tümleşik kimlik doğrulamanın etkinleştirildiği virgülle ayrılmış sunuc
 
 Örneğin:
 
-```bash
---auth-server-whitelist='*example.com, *foobar.com, *baz'
-```
+    --auth-server-whitelist='*example.com, *foobar.com, *baz'
+    
 
 o zaman `example.com`, ` foobar.com`, `baz` ile biten herhangi bir `url` entegre kimlik doğrulama için kabul edilmiş olacaktır. `*` öneki olmadan Url'nin tam olarak eşleşmesi gerekir.
 
