@@ -35,7 +35,7 @@ Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
 #### Kaganapan: 'nagbago'
 
-* `event` Event
+* `event` na Kaganapan
 * `cookie` [Cookie](structures/cookie.md) - Ang "cookie" na binago
 * `sanhi` String - Ang mga sanhi ng mga pagbabago sa isa't isa sa mga sumusunod na mga halaga: 
   * `explicit` - Ang cookie ay direktang nagbago sa pamamagitan ng pagkilos ng isang mamimili.
