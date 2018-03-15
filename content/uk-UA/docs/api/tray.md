@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Події екземпляру
+### Події Екземпляру
 
 Модуль `Tray` генерує наступні події:
 
@@ -235,7 +235,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Об'єкт 
+* `options` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String
   * `content` String
