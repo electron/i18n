@@ -2,7 +2,7 @@
 
 > Mag-isyu ng mga kahilingan ng HTTP/HTTPS gamit ang natural na networking library ng Chromium
 
-Process: [Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang modyul ng `net` ay isang client-side API para sa pag-i-isyu ng mga kahilingan ng HTTP(S). Ito ay katulad sa [HTTP](https://nodejs.org/api/http.html) at [HTTPS](https://nodejs.org/api/https.html) na mga modyul ng Node.js ngunit gumagamit ng sinaunang networking library ng Chromium sa halip na ang implementasyon ng Node.js, na nagbibigay ng magandang suporta para sa mga proksi ng web.
 
