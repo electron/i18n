@@ -2,7 +2,7 @@
 
 > Use main process modules from the renderer process.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
 The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
 
@@ -102,14 +102,15 @@ Returns `any` - The object returned by `require(module)` in the main process. Mo
 
 e.g.
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // main process: main/index.js
