@@ -26,7 +26,7 @@ app.on('ready', () => {
       sandbox: true
     }
   })
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -37,17 +37,18 @@ Ito ay mahalaga na tandaan na ang opsyun nito na nag-iisa ay hindi nkapagpapagan
 Upang paganahin ang OS-enforced sandbox sa `BrowserWindow` o `webview` na proseso na may `sandbox:tama` na walang sanhi ng buong app sa sandbox, `--enable-mixed-sandbox` utos-sa-linya ay dapat maipasa sa elektron. Ang opsyun na ito ay kasalukuyang suportado sa macOS at Windows lamang.
 
 ```js
-hayaan manalo ang app.on('ready',() => { // hindi kailangan na maipasa 'sandbox: tama 'sapagkat ' --enable-sandbox' ay gumagana.
-win = newBrowerWindow()
-win.loadURL('http://google.com')
+let win
+app.on('ready', () => {
+  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  win = new BrowserWindow()
+  w.loadURL('http://google.com')
 })
 ```
 
 Tandaan na ito ay hindi sapat upang tawagin ang `app.commandLine.appendSwitch('--enable-sandbox')`, bilang elektron o node startup code na tumatakbo pagkatapos ito ay posibleng gumawa ng mga pagbabago sa mga settings ng chromium sandbox. Ang switch ay dapat dumaan sa elektron sa mga command-line:
 
-```sh
-elektron --enable-sandbox app.js
-```
+    elektron --enable-sandbox app.js
+    
 
 Ito ay hindi posible na magkaroon ng OS sandbox na aktibo lamang para sa ilang mga renderers, kung `--enable-sandbox` ay gumagana, ang normal na elektron windows ay hindi malilikha.
 
@@ -60,13 +61,13 @@ Ang app na ito ay maaaring makapagcustomize sa sandboxed renderers gamit ang pre
 ```js
 let win
 app.on('ready', () => {
-win = new BrowserWindow({
-   webPreferences: { 
-     sandbox: true, 
-     preload: 'preload.js'
- }
-})
-win.loadURL('http://google.com')
+  win = new BrowserWindow({
+    webPreferences: {
+      sandbox: true,
+      preload: 'preload.js'
+    }
+  })
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -102,23 +103,18 @@ Mahahalagang bagay na mapapansin sa preload script:
 
 Sa paglikha ng isang bungkos ng browserify at gamitin ito bilang isang preload na iskrip, ang sumusunod ay dapat gamitin:
 
-```sh
-  browserify preload/index.js \
-    -x electron \
-    -x fs \
-    --insert-global-vars=__filename,__dirname -o preload.js
-```
+    browserify preload/index.js \
+      -x electron \
+      -x fs \
+      --insert-global-vars=__filename,__dirname -o preload.js
+    
 
 Ang `-x` na watawat ay dapat gamitin sa anumang modyul na kasalukuyang nka-ekspos sa preload na saklaw, at nagsasabi sa browserify na gamitin ang enclosing na `require` na function nito. `--paningit-global-vars` ay tinitiyak na `proseso`, `Buffer` at `setlmmediate` ay nakukuha rin mula sa nka-enclose na saklaw(normally browserify injects code para sa mga).
 
 Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na inilalantad sa mga sumusunod na mga modyul:
 
 - `child_process`
-- `electron` 
-  - `kalabog ng tagapagbalita`
-  - `kamuntik`
-  - `ipcrenderer`
-  - `lumikha ng bahay-alalawa`
+- `electron` (crashReporter, remote and ipcRenderer)
 - `fs`
 - `os`
 - `mga timers`
