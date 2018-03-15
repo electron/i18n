@@ -1,16 +1,21 @@
-# autoAggiornatore
+# autoUpdater
 
 > Abilita le app ad aggiornarsi automaticamente.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
-**Puoi trovare una guida dettagliata su come impementare gli aggiornamenti nella tua applicazione [qui](../tutorial/updates.md).**
+Il modulo `autoAggiornatore` fornisce un'un'interfaccia per il framework [Squirrel](https://github.com/Squirrel).
 
-## Avvisi Piattaforma
+Puoi brevemente lanciare un rilascio su più piattaforme del server per distribuire la tua app usando uno dei seguenti progetti:
 
-Attualmente, solo macOS e Windows sono supportati. Non c'è un supporto incorporato per l'aggiornamento automatico su Linux, quindi si raccomanda di usare il pacchetto di distribuzione gestionale per aggiornare la tua app.
+* [nut](https://github.com/GitbookIO/nuts): *Un software release intelligente per le tue app, usando GitHub come sfondo. Auto-aggiornamenti con Squirrel (Mac & Windows)*
+* [electron-rilascio-server](https://github.com/ArekSredzki/electron-release-server): *Un totalmente accessoriato auto-ospitato rilascio server per le app electron, compatibile con l'auto-aggiornatore*
+* [squirrel-aggiornamenti-server](https://github.com/Aluxian/squirrel-updates-server): *Un semplice server node.js per Squirrel.Mac e Squirrel.Windows che usa i rilasci GitHub*
+* [squirrel-rilascio-server](https://github.com/Arcath/squirrel-release-server): *Una semplice applicazione PHP per Squirrel.Windows che legge gli aggiornamenti da una cartella. Supporta aggiornamenti delta.*
 
-In aggiunta, ci sono alcune sottili differenze su ogni piattaforma:
+## Avvisi di piattaforma
+
+`autoAggiornatore` fornisce una API uniforme per varie piattaforme, ci sono alcune differenze sottili su ogni piattaforma.
 
 ### macOS
 
@@ -28,13 +33,17 @@ Su Windows si deve installare la propria app in una macchina utente prima di pot
 
 Diversamente da Squirrel.Mac, Windows può ospitare aggiornamenti si S3 o alcuni altri file ospiti statici. Puoi leggere i documenti do [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) per ottenere ulteriori dettagli su come lavora Squirrel.Windows.
 
+### Linux
+
+Non esiste un supporto incorporato per l'auto-Aggiornatore, si raccomanda l'uso del pacchetto gestionale di distribuzione all'aggiornamento della propria app.
+
 ## Eventi
 
 L'oggetto `autoAggiornatore` emette i seguenti eventi:
 
 ### Evento: 'errore'
 
-Restituiti:
+Restituisce:
 
 * `errore` Errore
 
@@ -54,9 +63,9 @@ Emesso quando non ci sono aggiornamenti disponibili.
 
 ### Evento: 'aggiornamento-scaricato'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `NoteRilascio` Stringa
 * `Nomerilascio` Stringa
 * `Datarilascio` Data
