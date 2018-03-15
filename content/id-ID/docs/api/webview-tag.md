@@ -111,7 +111,8 @@ Ketika atribut ini hadir semua halaman akan memiliki web keamanan dinonaktifkan.
 ### `partisi`
 
 ```html
-<webview src="https://github.com" partition="persist:github"></webview> <webview src="https://electronjs.org" partition="electron"></webview>
+<webview src="https://github.com" partition="persist:github"></webview>
+<webview src="https://electron.atom.io" partition="electron"></webview>
 ```
 
 Menetapkan sesi yang digunakan oleh halaman. Jika `partisi` diawali dengan `bertahan:`, halaman akan menggunakan sesi terus-menerus tersedia untuk semua halaman di app dengan `partisi` yang sama. jika tidak ada awalan `bertahan:`, halaman akan menggunakan a sesi dalam memori. Dengan menugaskan yang sama `partisi`, beberapa halaman dapat berbagi sesi yang sama. Jika `partisi` disetel maka sesi app default akan digunakan.
@@ -302,10 +303,10 @@ Mengembalikan `String` - Agen pengguna untuk halaman tamu.
 
 Menyuntikkan CSS ke halaman tamu.
 
-### `<webview>.executeJavaScript(code[, userGesture, callback])`
+### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * ` kode </ 0> String</li>
-<li><code>userGesture` Boolean (optional) - Default `false`.
+<li><code>userGesture` Boolean - Default `false`.
 * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `hasil` Ada
 
@@ -412,9 +413,7 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
     * `wordStart` Boolean - (opsional) Baik untuk melihat hanya pada awal kata-kata. default ke `false`.
     * `medialCapitalAsWordStart` Boolean - (opsional) Bila digabungkan dengan `wordStart`, menerima sebuah pertandingan di tengah sebuah kata jika pertandingan dimulai dengan sebuah huruf besar diikuti huruf kecil atau huruf non. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
   
-  Returns `Integer` - The request id used for the request.
-  
-  Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+  Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
   
   ### `<webview>.stopFindInPage(action)`
   
@@ -423,7 +422,7 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
     * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
     * `activateSelection` - fokus dan klik seleksi simpul.
   
-  Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
+  Stops any `findInPage` request for the `webview` with the provided `action`.
   
   ### `<webview>.print([options])`
   
@@ -432,7 +431,7 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
     * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
     * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
   
-  Prints `webview` 's web page. Same as `webContents.print ([options])`.
+  Prints `webview`'s web page. Same as `webContents.print([options])`.
   
   ### `<webview>.printToPDF(options, callback)`
   
@@ -446,7 +445,7 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
     * Kesalahan `kesalahan`
     * `data` nomor
   
-  Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
+  Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
   
   ### `<webview>.capturePage ([rect,] callback)`
   
@@ -456,7 +455,7 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
 </ul></li>
 </ul>
 
-<p>Menangkap cuplikan halaman <code>webview`. Sama seperti `webContents.capturePage ([rect,] callback) `.</p> 
+<p>Captures a snapshot of the <code>webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.</p> 
       ### `<webview>.send (saluran [, arg1] [, arg2] [, ...])`
       
       * `channel` String
@@ -464,13 +463,13 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.</p> 
-        Melihat [](web-contents.md#webcontentssendchannel-args)Menu untuk contoh.
+        See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
         
         ### `<webview>.sendInputEvent(event)`
         
         * `event` Objek
         
-        Mengirim masukan `event` ke halaman.
+        Sends an input `event` to the page.
         
         See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
         
@@ -492,55 +491,55 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
         
         ### `<webview>.getWebContents()`
         
-        Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
+        Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
         
         ## DOM events
         
-        Peristiwa DOM berikut tersedia untuk tag `webview`:
+        The following DOM events are available to the `webview` tag:
         
         ### Event: 'load-commit'
         
-        Pengembalian:
+        Mengembalikan:
         
         * `url` String
         * `adalah Bingkai Utama` Boolean
         
-        Fired when a load has committed. This includes a document-level loads, but does not include asynchronous resource loads.
+        Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
         
         ### Event: 'Apakah-selesai-load'
         
-        Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
+        Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
         
         ### Peristiwa: 'Apakah-gagal-beban'
         
-        Pengembalian:
+        Mengembalikan:
         
         * `kode kesalahan` Bilangan bulat
         * `Deskripsi kesalahan` Tali
         * `memvalidasi URL` Tali
         * `adalah Bingkai Utama` Boolean
         
-        Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil.
+        This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
         
         ### Peristiwa: 'Apakah-frame-selesai-beban'
         
-        Pengembalian:
+        Mengembalikan:
         
         * `adalah Bingkai Utama` Boolean
         
-        Dibunyikan apabila bingkai telah melakukan navigasi.
+        Fired when a frame has done navigation.
         
         ### Peristiwa: 'Apakah-mulai-pemuatan'
         
-        Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
+        Corresponds to the points in time when the spinner of the tab starts spinning.
         
         ### Peristiwa: 'Apakah-stop-pemuatan'
         
-        Sesuai dengan poin pada saat pemintal tab berhenti berputar.
+        Corresponds to the points in time when the spinner of the tab stops spinning.
         
         ### Peristiwa: 'Apakah-mendapatkan-tanggapan-rincian'
         
-        Pengembalian:
+        Mengembalikan:
         
         * `status` Boolean
         * `URL baru` Tali
@@ -551,59 +550,59 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
         * `header` Obyek
         * `TipeSumberdaya` String
         
-        Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
+        Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
         
         ### Peristiwa: 'apakah-mendapatkan-pengalihan-permintaan'
         
-        Pengembalian:
+        Mengembalikan:
         
         * `URL lama` Tali
         * `URL baru` Tali
         * `adalah Bingkai Utama` Boolean
         
-        Emitted ketika redirect diterima saat meminta resource.
+        Fired when a redirect was received while requesting a resource.
         
         ### Peristiwa: 'lokal-siap'
         
-        Emitted saat dokumen dalam bingkai yang diberikan dimuat.
+        Fired when document in the given frame is loaded.
         
         ### Acara : 'halaman-judul-diperbarui'
         
-        Pengembalian:
+        Mengembalikan:
         
         * ` judul</ 0>  String</li>
 <li><code>explicitSet` Boolean
         
-        Dipecat bila judul halaman diatur saat navigasi. `explicitSet` salah ketika judul disintesis dari file url.
+        Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
         
         ### Peristiwa: 'halaman-favicon-diperbarui '
         
-        Pengembalian:
+        Mengembalikan:
         
         * `favicons` Tali [] - serangkaian URL.
         
-        Dibunyikan saat halaman menerima url favicon.
+        Fired when page receives favicon urls.
         
         ### Acara : 'enter-html-full-screen'
         
-        Dipecat saat halaman memasuki layar penuh yang dipicu oleh HTML API.
+        Fired when page enters fullscreen triggered by HTML API.
         
         ### Acara : 'leave-html-full-screen'
         
-        Dipecat saat halaman daun layar penuh dipicu oleh HTML API.
+        Fired when page leaves fullscreen triggered by HTML API.
         
         ### Event: 'console-message'
         
-        Pengembalian:
+        Mengembalikan:
         
         * `level` Integer
         * `pesan` String
         * `line` Integer
         * `sourceId` String
         
-        Dipecat saat jendela tamu membuka pesan konsol.
+        Fired when the guest window logs a console message.
         
-        Contoh kode berikut meneruskan semua pesan log ke konsol embedder tanpa memperhatikan tingkat log atau properti lainnya.
+        The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
         
         ```javascript
 const webview = document.querySelector ('webview') webview.addEventListener ('console-message', (e) = > {console.log ('Halaman tamu mencatat pesan:', e.message)})
@@ -611,7 +610,7 @@ const webview = document.querySelector ('webview') webview.addEventListener ('co
     
     ### Event: 'ditemukan-di-halaman'
     
-    Pengembalian:
+    Mengembalikan:
     
     * `hasil` Obyek 
       * `requestId` Bilangan bulat
@@ -620,47 +619,48 @@ const webview = document.querySelector ('webview') webview.addEventListener ('co
       * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
       * `finalUpdate` Boolean
     
-    Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
-
-<pre><code class="javascript">const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
-`</pre> 
-    
-    ### Peristiwa: 'baru-jendela'
-    
-    Pengembalian:
-    
-    * ` url </ 0> String</li>
-<li><code>nama bingkai` tali
-    * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
-    * `options` Object - The options which should be used for creating the new `BrowserWindow`.
-    
-    Fired when the guest page attempts to open a new browser window.
-    
-    Contoh kode berikut membuka url baru di browser default sistem.
+    Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
     
     ```javascript
+const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
+```
+
+### Peristiwa: 'baru-jendela'
+
+Mengembalikan:
+
+* ` url </ 0> String</li>
+<li><code>nama bingkai` tali
+* `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
+* `options` Object - The options which should be used for creating the new `BrowserWindow`.
+
+Fired when the guest page attempts to open a new browser window.
+
+The following example code opens the new url in system's default browser.
+
+```javascript
 const {shell} = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
 ```
 
 ### Peristiwa: 'akan navigasi'
 
-Pengembalian:
+Mengembalikan:
 
 * `url` String
 
 dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek ` jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
 </p>
 
-<p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
-API seperti <code>webContents.loadURL` dan `webContents.back`.
+<p>This event will not emit when the navigation is started programmatically with
+APIs like <code><webview>.loadURL` and `<webview>.back`.
 
-Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
+Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Peristiwa: 'akan navigasi'
 
-Pengembalian:
+Mengembalikan:
 
 * ` url </ 0> String</li>
 </ul>
@@ -670,7 +670,7 @@ Pengembalian:
 <p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
   ### peristiwa: 'Apakah-menavigasi-di halaman'
   
-  Pengembalian:
+  Mengembalikan:
   
   * `adalah Bingkai Utama` Boolean
   * ` url </ 0> String</li>
@@ -683,9 +683,9 @@ navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link
 diklik atau saat peristiwa hash <code>perubahan hash` dipicu.</p> 
     ### Acara : 'dekat'
     
-    Dipecat saat halaman tamu mencoba menutup diri.
+    Fired when the guest page attempts to close itself.
     
-    The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
+    The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
     
     ```javascript
 const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
@@ -693,12 +693,12 @@ const webview = document.querySelector ('webview') webview.addEventListener ('cl
 
 ### Event: 'ipc-message'
 
-Pengembalian:
+Mengembalikan:
 
 * `channel` String
 * `args` Array
 
-Fired when the guest page has sent an asynchronous message to the embedder page.
+Fired when the guest page has sent an asynchronous message to embedder page.
 
 With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
 
@@ -712,24 +712,24 @@ With `sendToHost` method and `ipc-message` event you can easily communicate betw
 
 ### Peristiwa: 'jatuh'
 
-Dipecat saat proses renderer jatuh.
+Fired when the renderer process is crashed.
 
 ### Event: 'jatuh'
 
-Dipecat saat proses gpu jatuh.
+Fired when the gpu process is crashed.
 
 ### Peristiwa: 'plugin-jatuh'
 
-Pengembalian:
+Mengembalikan:
 
 * ` nama </ 0>  String</li>
 <li><code>Versi` String
 
-Dibunyikan ketika proses plugin telah jatuh.
+Fired when a plugin process is crashed.
 
 ### Event: 'menghancurkan'
 
-Dipecat saat WebContents hancur.
+Fired when the WebContents is destroyed.
 
 ### Event: 'media-mulai-bermain''
 
@@ -741,11 +741,11 @@ Emitted saat media dijeda atau dilakukan bermain.
 
 ### Event: 'apakah-ganti-tema-warna'
 
-Pengembalian:
+Mengembalikan:
 
 * `themeColor` String
 
-Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -753,7 +753,7 @@ Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebua
 
 ### Event: 'update-target-url'
 
-Pengembalian:
+Mengembalikan:
 
 *  url </ 0> String</li>
 </ul>
