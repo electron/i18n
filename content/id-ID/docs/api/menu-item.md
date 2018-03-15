@@ -67,14 +67,9 @@ Melihat [`Menu`](menu.md) untuk contoh.
   * `stopspeaking` - peta tindakan `stopSpeaking`
   * `depan` - peta tindakan `arrangeInFront`
   * `zoom` - peta tindakan `performZoom`
-  * `toggletabbar` - Map to the `toggleTabBar` action
-  * `selectnexttab` - Map to the `selectNextTab` action
-  * `selectprevioustab` - Map to the `selectPreviousTab` action
-  * `mergeallwindows` - Map to the `mergeAllWindows` action
-  * `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-  * `jendela` - submenu adalah menu "Jendela"
-  * `membantu` - submenu adalah menu "Bantuan"
-  * `Layanan` - submenu adalah menu "Layanan"
+  * `window` - The submenu is a "Window" menu
+  * `help` - The submenu is a "Help" menu
+  * `services` - The submenu is a "Services" menu
   
   Ketika menentukan `peran` pada macOS, `label` dan `akselerator` adalah satu-satunya pilihan yang akan mempengaruhi menu item. Semua pilihan lain akan diabaikan.
   
