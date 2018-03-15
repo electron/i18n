@@ -39,11 +39,11 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
 * `oyente` Función 
   * `details` Object 
     * `id` Íntegro
-    * `url` String
+    * `url` Cadena
     * `method` Cuerda
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
+    * `fecha y hora` Doble
     * `subir información` [Subir Información[]](structures/upload-data.md)
   * `callback` Función 
     * `respuesta` Object 
@@ -66,12 +66,12 @@ El `oyente` se llamará con `listener(details, callback)` Antes de enviar la sol
 
 * `details` Objeto 
   * `id` Íntegro
-  * `url` String
+  * `url` Cadena
   * `method` Cuerda
   * `webContentsId` Integer (optional)
   * `resourceType` String
-  * `timestamp` Double
-  * `requestHeaders` Object
+  * `fecha y hora` Doble
+  * `Encabezado de solicitud` Objecto
 * `callback` Función 
   * `respuesta` Object 
     * `cancelar` Booleano (opcional)
@@ -90,8 +90,8 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `method` Cuerda
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
-    * `requestHeaders` Object
+    * `fecha y hora` Doble
+    * `Encabezado de solicitud` Objecto
 
 El`oyente` Será llamado con `listener(details)` justo antes que una solicitud vaya a ser enviada al servidor, modificaciones de previas respuestas `onBeforeSendHeaders` son visibles en el momento que este oyente esté en funcionamiento.
 
@@ -109,8 +109,8 @@ El `oyente` será cancelado con `listener(details, callback)` cuando la respuest
   * `method` Cuerda
   * `webContentsId` Integer (optional)
   * `resourceType` String
-  * `timestamp` Double
-  * `statusLine` String
+  * `fecha y hora` Doble
+  * `linea de estatus` Cadena
   * `Estatus de código` entero
   * `headers de respuesta` objeto
 * `callback` Función 
@@ -132,11 +132,11 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `method` Cuerda
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
+    * `fecha y hora` Doble
     * `headers de respuesta` objeto
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `Desde Cache` Booleano - Indica cuando al respuesta fue obtenida desde la memoria caché.
     * `Estatus de código` entero
-    * `statusLine` String
+    * `linea de estatus` Cadena
 
 El `oyente` será cancelado con `listener(details)` cuando se reciba el primer byte del cuerpo de la respuesta. Para las solicitudes HTTP, esto significa que la línea de estado y los encabezados de respuesta están disponibles.
 
@@ -151,11 +151,11 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `method` Cuerda
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
+    * `fecha y hora` Doble
     * `redirectURL` String
     * `Estatus de código` entero
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
-    * `fromCache` Boolean
+    * `ip` Cadena (opcional) - La dirección IP del servidor al cual fue enviada en realidad la solicitud.
+    * `Desde cache` Booleano
     * `headers de respuesta` objeto
 
 El `oyente` Será cancelado con `listener(details)` cuando la redirección del servidor esté por ocurrir.
@@ -171,11 +171,11 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
     * `method` Cuerda
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
+    * `fecha y hora` Doble
     * `headers de respuesta` objeto
-    * `fromCache` Boolean
+    * `Desde cache` Booleano
     * `Estatus de código` entero
-    * `statusLine` String
+    * `linea de estatus` Cadena
 
 The `listener` will be called with `listener(details)` when a request is completed.
 
@@ -190,8 +190,8 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `method` Cuerda
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
-    * `fromCache` Boolean
-    * `error` String - The error description.
+    * `fecha y hora` Doble
+    * `Desde cache` Booleano
+    * `error` Cadena - la descripción del error.
 
 El `oyente` será cancelado con `listener(details)` cuando ocurra un error.
