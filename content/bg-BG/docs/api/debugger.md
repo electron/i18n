@@ -2,7 +2,7 @@
 
 > An alternate transport for Chrome's remote debugging protocol.
 
-Процес: [Main / Главен](../glossary.md#main-process)
+Процеса: [основни](../glossary.md#main-process)
 
 Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
@@ -61,14 +61,14 @@ Send given command to the debugging target.
 
 #### Event: 'detach'
 
-* `event` Сътитие
+* `event` Събитие
 * `reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Event: 'message'
 
-* `event` Сътитие
+* `event` Събитие
 * `method` String - Method name.
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
