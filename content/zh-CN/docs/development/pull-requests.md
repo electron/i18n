@@ -163,9 +163,9 @@ Feel free to post a comment in the pull request to ping reviewers if you are awa
 
 #### 批准和请求更改工作流程
 
-所有代码合并请求都需要您修改过的代码的 [ 代码所有者 ](https://github.com/orgs/electron/teams/code-owners) 进行审批以获得执行。 Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+所有代码合并请求都需要您修改过的代码的 [ 代码所有者 ](https://github.com/orgs/electron/teams/code-owners) 进行审批以获得执行。 每当维护者审阅一个代码合并请求时, 他们可能请求更改。 这些可能很小, 例如修复一个错字, 或者可能涉及实质性的更改。 此类请求旨在帮助您, 但有时可能会出现突然或无益的情况, 特别是如果它们不包括 * 如何 * 更改它们的具体建议。
 
-Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
+尽量不要气馁。 如果你觉得审查是不公平的, 那么说或者寻求另一个项目参与者的投入。 通常, 这种评论是由于审阅者没有足够的时间来审查和无意的。 Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
 ### 步骤11: 执行合并
 
