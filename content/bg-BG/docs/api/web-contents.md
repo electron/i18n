@@ -55,7 +55,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 Връща:
 
-* `event` Event
+* `event` Сътитие
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -67,7 +67,7 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `isMainFrame` Boolean
 
 Emitted when a frame has done navigation.
@@ -84,7 +84,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
@@ -100,7 +100,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -115,7 +115,7 @@ Emitted when a redirect is received while requesting a resource.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 
 Emitted when the document in the given frame is loaded.
 
@@ -123,7 +123,7 @@ Emitted when the document in the given frame is loaded.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `favicons` String[] - Array of URLs
 
 Emitted when page receives favicon urls.
@@ -132,7 +132,7 @@ Emitted when page receives favicon urls.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `url` String
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
@@ -159,7 +159,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `url` String
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
@@ -174,7 +174,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `url` String
 
 Emitted when a navigation is done.
@@ -185,7 +185,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `url` String
 * `isMainFrame` Boolean
 
@@ -197,7 +197,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -226,7 +226,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
@@ -235,7 +235,7 @@ Emitted when the renderer process crashes or is killed.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `name` String - Име
 * `version` String
 
@@ -249,7 +249,7 @@ Emitted when `webContents` is destroyed.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `input` Object - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -288,32 +288,32 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### Събитие: 'certificate-error'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `url` String
-* `error` String - The error code
+* `error` String - Кодът на грешката
 * `certificate` [Certificate](structures/certificate.md)
-* `обратно повикване` Функция 
+* `обратно повикване` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 
 Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### Събитие: 'select-client-certificate'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `обратно повикване` Функция 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Излъчено, когато е поискан клиентски сертификат.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -321,7 +321,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `request` Object 
   * `method` String
   * `url` URL
@@ -336,7 +336,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `потребителско име` Низ
   * `парола` Низ
 
-Emitted when `webContents` wants to do basic auth.
+Излъчено, когато `webContents` иска да направи базово удостоверяване.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
@@ -344,7 +344,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
@@ -372,14 +372,14 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 #### Event: 'update-target-url'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `url` String
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
@@ -388,7 +388,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
@@ -403,7 +403,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `params` Object 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
@@ -445,7 +445,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `обратно повикване` Функция 
   * `deviceId` String - Идентификационен номер на устройството
@@ -475,7 +475,7 @@ app.on('ready', () => {
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -712,7 +712,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -848,7 +848,7 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
@@ -862,7 +862,7 @@ Checks if any ServiceWorker is registered and returns a boolean as response to `
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -896,7 +896,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `error` Error
   * `data` Buffer
 
@@ -1118,7 +1118,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `обратно повикване` Function - `(error) => {}`. 
+* `обратно повикване` Функция - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
@@ -1199,7 +1199,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### Инстантни свойства
 
 #### `contents.id`
 
