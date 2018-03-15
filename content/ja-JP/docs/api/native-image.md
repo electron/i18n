@@ -184,21 +184,21 @@ console.log(image)
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+戻り値 `Buffer` - 生のビットマップ画像のピクセルデータのコピーを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toDataURL([options])`
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `String` - The data URL of the image.
+戻り値 `String` - 画像のデータURL。
 
 #### `image.getBitmap([options])`
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+戻り値 `Buffer` - 生のビットマップ画像のピクセルデータを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+`getBitmap()` と `toBitmap()` の違いは、`getBitmap()` はビットマップをコピーしないので、現在のイベントループティックで即座に使用しなければ、そのデータが変更または破棄される可能性があります。
 
 #### `image.getNativeHandle()` *macOS*
 
