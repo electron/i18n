@@ -53,7 +53,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `errorCode` Integer
@@ -65,7 +65,7 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 #### Event: 'did-frame-finish-load'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `isMainFrame` Boolean
@@ -82,7 +82,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'did-get-response-details'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `status` Boolean
@@ -98,7 +98,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 #### Event: 'did-get-redirect-request'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `oldURL` String
@@ -113,7 +113,7 @@ Emitted when a redirect is received while requesting a resource.
 
 #### Event: 'dom-ready'
 
-戻り値：
+戻り値:
 
 * `event` Event
 
@@ -121,7 +121,7 @@ Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-favicon-updated'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `favicons` String[] - Array of URLs
@@ -130,7 +130,7 @@ Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `url` String
@@ -143,7 +143,7 @@ Emitted when the page requests to open a new window for a `url`. It could be req
 
 By default a new `BrowserWindow` will be created for the `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. For example:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. 例:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -157,7 +157,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 #### Event: 'will-navigate'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `url` String
@@ -172,7 +172,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-navigate'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `url` String
@@ -183,7 +183,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `url` String
@@ -195,7 +195,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-戻り値：
+戻り値:
 
 * `event` Event
 
@@ -224,7 +224,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `killed` Boolean
@@ -233,7 +233,7 @@ Emitted when the renderer process crashes or is killed.
 
 #### Event: 'plugin-crashed'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `name` String
@@ -247,7 +247,7 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `input` Object - Input properties 
@@ -290,7 +290,7 @@ Emitted when DevTools is focused / opened.
 
 #### イベント: 'certificate-error'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `url` String
@@ -305,7 +305,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### イベント: 'select-client-certificate'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `url` URL
@@ -313,13 +313,13 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+クライアント証明書が要求されたときに発生します。
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
 #### イベント: 'login'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `request` Object 
@@ -336,13 +336,13 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+`webContents` がBasic認証を要求すると発生します。
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `result` Object 
@@ -370,9 +370,14 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
+戻り値:
+
+* `event` Event
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+
 #### Event: 'update-target-url'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `url` String
@@ -385,7 +390,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 * `event` Event
 * `type` String
-* `image` NativeImage (optional)
+* `image` NativeImage (任意)
 * `scale` Float (optional) - scaling factor for the custom cursor
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
@@ -504,17 +509,37 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
+#### Event: 'did-attach-webview'
+
+戻り値:
+
+* `event` Event
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+
+Emitted when a `<webview>` has been attached to this web contents.
+
+#### Event: 'console-message'
+
+戻り値:
+
+* `level` Integer
+* `message` String
+* `line` Integer
+* `sourceId` String
+
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+
 ### インスタンスメソッド
 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
 * `options` Object (任意) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `httpReferrer` String (任意) - HTTPリファラのURL。
+  * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
+  * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (任意)
+  * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
@@ -663,7 +688,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *実験的*
 
 * `ignore` Boolean
 
@@ -797,7 +822,9 @@ Inserts `text` to the focused element.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -846,12 +873,14 @@ Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options])`
+#### `contents.print([options], [callback])`
 
 * `options` Object (任意) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+* `callback` Function (任意) 
+  * success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
