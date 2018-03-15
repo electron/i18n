@@ -82,7 +82,7 @@ console.log(appIcon)
 
 ## テンプレート画像
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+テンプレート画像は黒色と透明色 (とアルファチャンネル) で構成されます。 テンプレート画像は単体の画像として使用するものではなく、通常、最終的にさせたい見た目を作成するため、他のコンテンツと混合されます。
 
 The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
 
