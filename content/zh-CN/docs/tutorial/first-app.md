@@ -6,7 +6,7 @@ Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) AP
 
 ** 注意 **: 此示例还有可用的仓库, 您可以 [ 立即下载并运行 ](#trying-this-example)。
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+从开发的角度来看, Electron application 本质上是一个 Node. js 应用程序。 The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
 ```text
 your-app/
