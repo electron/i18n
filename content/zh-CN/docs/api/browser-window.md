@@ -240,7 +240,7 @@ child.once('ready-to-show', () => {
 
 在窗口要关闭的时候触发。 它在DOM 的`beforeunload` 和 `unload` 事件之前触发. 调用`event.preventDefault()`将阻止这个操作。
 
-通常你想通过 `beforeunload`处理器来决定是否关闭窗口，但是它也会在窗口重载的时候触发. 在 Electron 里，返回处 `undefined`之外的任何值都将取消关闭. 例如：
+通常你想通过 `beforeunload`处理器来决定是否关闭窗口，但是它也会在窗口重载的时候触发. 在 Electron 里，返回除 `undefined`之外的任何值都将取消关闭. 例如：
 
 ```javascript
 window.onbeforeunload = (e) => {
