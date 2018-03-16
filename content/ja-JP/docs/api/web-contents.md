@@ -229,9 +229,9 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `event` Event
 * `killed` Boolean
 
-Emitted when the renderer process crashes or is killed.
+レンダラープロセスがクラッシュしたり、強制終了されたりしたときに発行されます。
 
-#### Event: 'plugin-crashed'
+#### イベント: 'plugin-crashed'
 
 戻り値:
 
@@ -239,26 +239,26 @@ Emitted when the renderer process crashes or is killed.
 * `name` String
 * `version` String
 
-Emitted when a plugin process has crashed.
+プラグインプロセスがクラッシュしたときに発行されます。
 
-#### Event: 'destroyed'
+#### イベント: 'destroyed'
 
-Emitted when `webContents` is destroyed.
+`webContents` が破棄されたときに発生します。
 
-#### Event: 'before-input-event'
+#### イベント: 'before-input-event'
 
 戻り値:
 
 * `event` Event
-* `input` Object - Input properties 
-  * `type` String - Either `keyUp` or `keyDown`
-  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+* `input` Object - プロパティ入力 
+  * `type` String - `keyUp` か `keyDown`。
+  * `key` String - [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
+  * `code` String - [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
+  * `isAutoRepeat` Boolean - [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
+  * `shift` Boolean - [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
+  * `control` Boolean - [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
+  * `alt` Boolean - [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
+  * `meta` Boolean - [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
