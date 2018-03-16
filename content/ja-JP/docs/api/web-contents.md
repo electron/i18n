@@ -364,7 +364,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 #### イベント: 'did-change-theme-color'
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+ページのテーマカラーが変更されたときに発行されます。これはよく、このような meta タグによって発生します。
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -373,29 +373,29 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 戻り値:
 
 * `event` Event
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `color` (String | null) - '#rrggbb' のフォーマットのテーマカラー。テーマカラーが設定されていないと `null`。
 
-#### Event: 'update-target-url'
+#### イベント: 'update-target-url'
 
 戻り値:
 
 * `event` Event
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+マウスをリンクにマウスオーバーしたり、キーボードでリンクにフォーカスしたときに発行されます。
 
-#### Event: 'cursor-changed'
+#### イベント: 'cursor-changed'
 
 戻り値:
 
 * `event` Event
 * `type` String
 * `image` NativeImage (任意)
-* `scale` Float (optional) - scaling factor for the custom cursor
-* `size` [Size](structures/size.md) (optional) - the size of the `image`
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+* `scale` Float (任意) - カスタムカーソルの拡大率。
+* `size` [Size](structures/size.md) (任意) - `image` のサイズ。
+* `hotspot` [Point](structures/point.md) (任意) - カスタムカーソルのホットスポットの座標。
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+カーソルの種類が変更されたときに発行されます。 `type` は `default`、`crosshair`、`pointer`、`text`、`wait`、`help`、`e-resize`、`n-resize`,`ne-resize`、`nw-resize`、`s-resize`、`se-resize`、`sw-resize`、`w-resize`,`ns-resize`、`ew-resize`、`nesw-resize`、`nwse-resize`、`col-resize`,`row-resize`、`m-panning`、`e-panning`、`n-panning`、`ne-panning`、`nw-panning`,`s-panning`、`se-panning`、`sw-panning`、`w-panning`、`move`、`vertical-text`,`cell`、`context-menu`、`alias`、`progress`、`nodrop`、`copy`、`none`,`not-allowed`、`zoom-in`、`zoom-out`、`grab`、`grabbing`、`custom` になります。
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
