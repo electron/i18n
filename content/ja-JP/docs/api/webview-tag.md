@@ -768,7 +768,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### イベント: 'crashed'
 
 Fired when the renderer process is crashed.
 
@@ -776,7 +776,7 @@ Fired when the renderer process is crashed.
 
 Fired when the gpu process is crashed.
 
-### Event: 'plugin-crashed'
+### イベント: 'plugin-crashed'
 
 戻り値:
 
@@ -785,7 +785,7 @@ Fired when the gpu process is crashed.
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### イベント: 'destroyed'
 
 Fired when the WebContents is destroyed.
 
