@@ -679,7 +679,7 @@ console.log(currentURL)
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+実行されたコードの結果が Promise の場合、コールバックの結果は Promise の解決された値になります。返された Promise を使用して、Promise を生成するコードを処理することを推奨します。
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
