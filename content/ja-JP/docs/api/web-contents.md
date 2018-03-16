@@ -139,11 +139,11 @@ console.log(webContents)
 * `options` Object - 新しい `BrowserWindow` を作成するのに使われるオプション。
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+ページが `url` の新しいウインドウを開くリクエストをするときに発行されます。`window.open` か `<a target='_blank'>` のようなリンクによってリクエストされる可能があります。
 
-By default a new `BrowserWindow` will be created for the `url`.
+デフォルトでは、`url` の新しい `BrowserWindow` が作成されます。
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. 例:
+`event.preventDefault()` を呼ぶと、Electron が自動的に新しい `BrowserWindow` を作成するのを防ぎます。 If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. 例:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
