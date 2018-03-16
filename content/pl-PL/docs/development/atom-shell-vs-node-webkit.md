@@ -18,7 +18,7 @@ Electron działa bardziej jak w czasie wykonywania Node.js Interfejsy API Electr
 
 W celu uniknięcia złożoności budowania całego Chromium, Electron używa [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) aby mieć dostęp do Zawartości Chromium Interfejsu API. `libchromiumcontent` jest to pojedyncza współdzielona biblioteka która zawiera moduł Chromium Content oraz wszystkie jego zależności. Użytkownicy nie potrzebują potężnych maszyn, aby zbudować Electron'a.
 
-**3. Node Integration**
+**3. Integracja node'a**
 
 In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
 
