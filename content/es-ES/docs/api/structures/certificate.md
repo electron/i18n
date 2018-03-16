@@ -1,4 +1,4 @@
-# El objeto Certificate
+# Objeto Certificate
 
 * `data` String - Datos cifrados en formato PEM
 * `issuer` [CertificatePrincipal](certificate-principal.md) - Emisor principal
