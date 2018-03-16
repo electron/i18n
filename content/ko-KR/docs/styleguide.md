@@ -213,4 +213,4 @@ Returns:
 
 ## 문서 번역
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+[electron/i18n](https://github.com/electron/i18n#readme) 을 참조하세요.
