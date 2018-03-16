@@ -280,13 +280,13 @@ win.webContents.on('before-input-event', (event, input) => {
 
 開発者向けツールが開かれたときに発行されます。
 
-#### Event: 'devtools-closed'
+#### イベント: 'devtools-closed'
 
-Emitted when DevTools is closed.
+開発者向けツールが閉じられたときに発行されます。
 
-#### Event: 'devtools-focused'
+#### イベント: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+開発者向けツールがフォーカスされた / 開かれたときに発行されます。
 
 #### イベント: 'certificate-error'
 
@@ -297,7 +297,7 @@ Emitted when DevTools is focused / opened.
 * `error` String - エラーコード
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
+  * `isTrusted` Boolean - 証明書が信頼できるとみなされるかどうかを示す。
 
 Emitted when failed to verify the `certificate` for `url`.
 
