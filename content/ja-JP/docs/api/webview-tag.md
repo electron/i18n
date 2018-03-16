@@ -643,15 +643,15 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### イベント: 'found-in-page'
 
 戻り値:
 
 * `result` Object 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - アクティブなマッチの位置。
+  * `matches` Integer - マッチの個数。
+  * `selectionArea` Object - 最初のマッチ領域の座標。
   * `finalUpdate` Boolean
 
 Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
@@ -789,15 +789,15 @@ Fired when a plugin process is crashed.
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### イベント: 'media-started-playing'
 
-Emitted when media starts playing.
+メディアの再生を開始するときに発行されます。
 
-### Event: 'media-paused'
+### イベント: 'media-paused'
 
-Emitted when media is paused or done playing.
+メディアが一時停止、または再生が終了したときに発行されます。
 
-### Event: 'did-change-theme-color'
+### イベント: 'did-change-theme-color'
 
 戻り値:
 
