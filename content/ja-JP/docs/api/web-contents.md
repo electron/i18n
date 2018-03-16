@@ -1,10 +1,10 @@
 # webContents
 
-> Render and control web pages.
+> ウェブページを描画、制御します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) の一つです。 [`BrowserWindow`](browser-window.md) オブジェクトのプロパティには、ウェブページを描画し、制御する責任があります。 以下は、`webContents` オブジェクトにアクセスする例です。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,7 +18,7 @@ console.log(contents)
 
 ## メソッド
 
-These methods can be accessed from the `webContents` module:
+これらのメソッドは、`webContents` モジュールからアクセスできます。
 
 ```javascript
 const {webContents} = require('electron')
@@ -27,7 +27,7 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+戻り値 `WebContents[]` - すべての `WebContents` インスタンスの配列。 これには、すべてのウインドウ、開かれた開発者向けツール、開発者向けツールのバックグラウンド拡張のページが含まれます。
 
 ### `webContents.getFocusedWebContents()`
 
