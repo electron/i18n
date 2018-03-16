@@ -51,9 +51,9 @@ app.on('ready', () => {
 
 すべてのプロセスで記録を開始します。
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。 一度、すべての子プロセスが `startRecording` リクエストを受諾したら、`callback` が呼び出されます。
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter` はどのカテゴリグループをトレースする必要があるかを制御するフィルターです。 フィルターには、一致するカテゴリを含むカテゴリグループを除外するオプションの `-` プレフィックスをつけることができます。 同一のリストに、含めるカテゴリパターンと除外するカテゴリパターンの両方を入れるのは、サポートされません。
 
 例:
 
