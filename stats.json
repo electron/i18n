@@ -114,7 +114,7 @@
     "words_approved": "73",
     "translated_progress": 16,
     "approved_progress": 0,
-    "qa_issues": "867"
+    "qa_issues": "865"
   },
   {
     "name": "Hindi",
@@ -146,10 +146,10 @@
     "name": "Italian",
     "code": "it",
     "phrases": "9102",
-    "translated": "2210",
+    "translated": "2211",
     "approved": "3",
     "words": "82839",
-    "words_translated": "14324",
+    "words_translated": "14364",
     "words_approved": "43",
     "translated_progress": 17,
     "approved_progress": 0,
@@ -159,27 +159,27 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9102",
-    "translated": "4899",
+    "translated": "5134",
     "approved": "220",
     "words": "82839",
-    "words_translated": "36728",
+    "words_translated": "38697",
     "words_approved": "1060",
-    "translated_progress": 44,
+    "translated_progress": 46,
     "approved_progress": 1,
-    "qa_issues": "144"
+    "qa_issues": "147"
   },
   {
     "name": "Korean",
     "code": "ko",
     "phrases": "9102",
-    "translated": "3052",
+    "translated": "3150",
     "approved": "82",
     "words": "82839",
-    "words_translated": "23140",
+    "words_translated": "23702",
     "words_approved": "187",
-    "translated_progress": 27,
+    "translated_progress": 28,
     "approved_progress": 0,
-    "qa_issues": "1322"
+    "qa_issues": "1367"
   },
   {
     "name": "Persian",
@@ -238,13 +238,13 @@
     "code": "es-ES",
     "phrases": "9102",
     "translated": "8165",
-    "approved": "173",
+    "approved": "198",
     "words": "82839",
     "words_translated": "73506",
-    "words_approved": "1884",
+    "words_approved": "2073",
     "translated_progress": 88,
     "approved_progress": 2,
-    "qa_issues": "3190"
+    "qa_issues": "3176"
   },
   {
     "name": "Spanish, Venezuela",

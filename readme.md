@@ -36,9 +36,11 @@ The following languages are currently being translated, but we can
 - [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
-- [čeština (Czech)](https://crowdin.com/project/electron/cs)
 - [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
+- [čeština (Czech)](https://crowdin.com/project/electron/cs)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
+- [Wikang Tagalog (Tagalog)](https://crowdin.com/project/electron/tl)
+- [Español (Spanish)](https://crowdin.com/project/electron/es-VE)
 <!-- end language-table -->
 
 ## Installation
