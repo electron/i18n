@@ -479,7 +479,7 @@ app.on('ready', () => {
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - フレーム全体の画像データ。
 
-Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
+新しいフレームが生成されたときに発行されます。操作した領域のみがバッファに渡されます。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -491,11 +491,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### イベント: 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
+開発者向けツールウインドウが webContents にリロードを指示したときに発行されます。
 
-#### Event: 'will-attach-webview'
+#### イベント: 'will-attach-webview'
 
 戻り値:
 
