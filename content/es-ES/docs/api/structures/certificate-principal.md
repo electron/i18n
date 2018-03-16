@@ -1,4 +1,4 @@
-# Objecto CertificatePrincipal
+# Certificado Principal del Objeto
 
 * `commonName` String - Nombre común
 * `organizations` String[] - Nombres de la organización
