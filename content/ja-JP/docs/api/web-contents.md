@@ -299,9 +299,9 @@ win.webContents.on('before-input-event', (event, input) => {
 * `callback` Function 
   * `isTrusted` Boolean - 証明書が信頼できるとみなされるかどうかを示す。
 
-Emitted when failed to verify the `certificate` for `url`.
+`url` の `certificate` の認証に失敗したときに発行されます。
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+使い方は、[`app` の `certificate-error` イベント](app.md#event-certificate-error) と同じです。
 
 #### イベント: 'select-client-certificate'
 
@@ -311,11 +311,11 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
+  * `certificate` [Certificate](structures/certificate.md) - 指定されたリストの証明書でなければならない。
 
 クライアント証明書が要求されたときに発生します。
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+使い方は、[`app` の `select-client-certificate` イベント](app.md#event-select-client-certificate) と同じです。
 
 #### イベント: 'login'
 
@@ -338,31 +338,31 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 `webContents` がBasic認証を要求すると発生します。
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+使い方は、[`app` の `login` イベント](app.md#event-login) と同じです。
 
-#### Event: 'found-in-page'
+#### イベント: 'found-in-page'
 
 戻り値:
 
 * `event` Event
 * `result` Object 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - アクティブなマッチの位置。
+  * `matches` Integer - マッチの個数。
+  * `selectionArea` Object - 最初のマッチ領域の座標。
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+[`webContents.findINPage`] リクエストの結果が有効なときに発行されます。
 
-#### Event: 'media-started-playing'
+#### イベント: 'media-started-playing'
 
-Emitted when media starts playing.
+メディアの再生を開始するときに発行されます。
 
-#### Event: 'media-paused'
+#### イベント: 'media-paused'
 
-Emitted when media is paused or done playing.
+メディアが一時停止、または再生が終了したときに発行されます。
 
-#### Event: 'did-change-theme-color'
+#### イベント: 'did-change-theme-color'
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
