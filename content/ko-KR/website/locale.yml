@@ -73,7 +73,7 @@ quick_start:
   dive_deeper: 혹은 <a href='/docs'>문서</a>를 더 깊이 읽어보세요.
 need_help:
   title: 도움이 필요하신가요?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: <a href='https://discuss.atom.io/c/electron'>토론</a>포럼이나<a href="http://atom-slack.herokuapp.com/"> Slack </a> 채널에서 질문하실 수 있습니다. 중요한 알림을 받으시려면 트위터에서 <a href="https://twitter.com/electronjs"> @electronjs </a>를 팔로우하세요. 개인적으로 연락을 원하시나요? <a href="mailto:info@electronjs.org"> info@electronjs.org</a>로 메일을 보내주세요.
 headings:
   languages: 언어
 taglines:
