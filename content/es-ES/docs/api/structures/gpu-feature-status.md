@@ -3,8 +3,8 @@
 * `2d_canvas` String - Canvas
 * `flash_3d` String - Flash
 * `flash_stage3d` String - Flash Stage3D
-* `flash_stage3d_baseline` Cadena - Perfil básico Flash Stage3D
-* `gpu_compositing` Cadena - Composicionamiento
+* `flash_stage3d_baseline` String - Perfil básico Flash Stage3D
+* `gpu_compositing` String - Composición
 * `multiple_raster_threads` Cadena - Múltiples Hilos Raster
 * `native_gpu_memory_buffers` Cadena - GpuMemoryBuffers Nativo
 * `rasterization` Cadena - Rasterización
