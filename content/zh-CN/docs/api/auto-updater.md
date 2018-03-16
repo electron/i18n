@@ -32,7 +32,7 @@
 
 `autoUpdater` 对象会触发以下的事件:
 
-### error事件：
+### Event: 'error'
 
 返回:
 

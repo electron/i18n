@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-Процес: [Main / Главен](../glossary.md#main-process)
+Процеса: [основни](../glossary.md#main-process)
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -116,14 +116,14 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' *macOS*
 
-* `event` Event
+* `event` Събитие
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
 
-* `event` Event
+* `event` Събитие
 * `text` String - the dropped text string
 
 Emitted when dragged text is dropped in the tray icon.
@@ -235,7 +235,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `опции` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String
   * `content` String

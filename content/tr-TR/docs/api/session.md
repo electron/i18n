@@ -333,7 +333,7 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 
 Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
 
-### Örnek Özellikleri
+### Örnek Özellikler
 
 Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 

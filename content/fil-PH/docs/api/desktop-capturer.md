@@ -70,10 +70,10 @@ Ang modyul sa `desktopCapturer` ay mayroong mga sumusunod na paraan:
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `mga pagpipilian` Bagay 
+* `pagpipilian` Bagay 
   * `types` String[] - Ang array ng "Strings" na naglilista ng iba't-ibang uri ng mga "source" ng "desktop" na kukunin, ang mga maaaring gamitin na uri ay `screen` at `window`.
   * `thumbnailSize` [Ang laki](structures/size.md) (opsyonal) - ang laki ng media sourceay thumbnail dapat sukatan. Default ay `150` x `150`.
-* `callback` Punsyon 
+* `callback` Function 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 

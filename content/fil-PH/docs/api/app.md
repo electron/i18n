@@ -2,7 +2,7 @@
 
 > Kontrolin ang event lifecycle ng iyong aplikasyon.
 
-Process: [Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang sumusunod na halimbawa ay nagpapakita kung paano ihinto ang aplikasyon kapag ang huling window ay isinara na:
 
@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Mga Pangyayari
+## Pangyayari
 
 Ang bagay ng `app` ay naglalabas ng mga sumusunod na mga event:
 
@@ -25,7 +25,7 @@ Sa karamihan, dapat mo lang gawin ang lahat sa mga `ready` handler ng event.
 
 ### Mga event: 'ready'
 
-Returns:
+Pagbabalik:
 
 * `launchInfo` Mga bagay *MacOS*
 
@@ -39,9 +39,9 @@ Kung ikaw ay hindi nag-subscribe sa event na ito at ang lahat ng mga window ay s
 
 ### Ang event: 'before-quit'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `event` Event
+* `event` na Kaganapan
 
 Ilalabas bago magsimula ang aplikasyon sa pagsasara ng mga window nito. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag-aalis ng aplikasyon.
 
@@ -49,7 +49,7 @@ Ilalabas bago magsimula ang aplikasyon sa pagsasara ng mga window nito. Ang pagt
 
 ### Event: 'will-quit'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `event` na Pangyayari
 
@@ -59,7 +59,7 @@ Tingnan ang deskripsyon ng event ng `window-all-closed` para sa mga pagkakaiba s
 
 ### Event: 'quit'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `exitCode` Integer
@@ -68,10 +68,10 @@ Lalabas kung humihinto ang aplikasyon.
 
 ### Event: 'open-file' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
-* `path` String
+* `kaganapan` Kaganapan
+* `path` na String
 
 Lalabas kung ang gusto ng user na mag-bukas ng isang file gamit ang aplikasyon. Ang event ng `open-file` ay kadalasang lumalabas kung ang aplikasyon ay bukas na at ang OS ay gustong muling gumamit ng aplikasyon para buksan ang file. Ang `open-file` ay ilalabas din kapag ang file ay ilinaglag sa dock at ang aplikasyon ay hindi pa gumagana. Siguraduhin na pinapakinggan ang event ng `open-file` sa maagang startup ng iyong application para mapamahalaan ang sitwasyon na ito (kahit bago pa ang event ng `ready` ay lumabas).
 
@@ -81,10 +81,10 @@ Sa Windows, kailangan mong i-parse ang `process.argv` (sa pangunahing proseso) p
 
 ### Event: 'open-url' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
-* `url` String
+* `kaganapan` Kaganapan
+* `url` Tali
 
 Lalabas kapag ang user ay gustong buksan ang isang URL kasama ang aplikasyon. Ang `info.plist` file ng iyong aplikasyon ay dapat tukuyin ang url scheme sa loob ng key ng `CFBundleURLTypes`, at i-set ang `NSPrincipalClass` sa `AtomApplication`.
 
@@ -92,9 +92,9 @@ Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang even
 
 ### Event: 'activate' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `hasVisibleWindows` Boolean
 
 Lalabas kapag ang aplikasyon ay naka-aktibeyt. Iba't-ibang mga aksyon ang maaaring mag-trigger ng event na ito, tulad ng pagla-launch ng aplikasyon para sa unang pagkakataon, sinusubukang muling i-launch ang aplikasyon kahit ito ay tumatakbo na, o pagpindot sa icon ng dock o taskbar ng aplikasyon.
@@ -103,7 +103,7 @@ Lalabas kapag ang aplikasyon ay naka-aktibeyt. Iba't-ibang mga aksyon ang maaari
 
 Ibabalik:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Naglalaman ng espesipikong estado ng app na itinago sa pamamagitan ng aktibidad sa ibang aparato.
 
@@ -113,7 +113,7 @@ Ang aktibidad ng isang user ay maaari lamang magpatuloy sa isang app na may kapa
 
 ### Event: 'will-continue-activity' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -122,7 +122,7 @@ Napalabas habang [Handoff](https://developer.apple.com/library/ios/documentation
 
 ### Event: 'continue-activity-error' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -132,9 +132,9 @@ Napalabas habang [Handoff](https://developer.apple.com/library/ios/documentation
 
 ### Event: 'activity-was-continued' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Naglalaman ng app-specific na estado na nakaimbak ng aktibidad.
 
@@ -142,9 +142,9 @@ Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'update-activity-state' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Naglalaman ng app-specific na estado na nakaimbak ng aktibidad.
 
@@ -152,33 +152,33 @@ Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 
 Lalabas kapag ang user ay nag-klik sa natural na pindutan ng bagong tab sa macOS. Ang bagong tab na pindutan ay makikita lamang kung ang kasalukuyang `BrowserWindow` ay may `tabbingIdentifier`
 
 ### Mga event: 'browser-window-blur'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `window` [BrowserWindow](browser-window.md)
 
 Lalabas kapag ang [browserWIndow](browser-window.md) ay nagiging malabo.
 
 ### Mga event: 'browser-window-focus'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `window` [BrowserWindow](browser-window.md)
 
 Lalabas kapag ang [browserWindow](browser-window.md) ay ipopokus.
 
 ### Event: 'browser-window-created'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `window` [BrowserWindow](browser-window.md)
@@ -187,23 +187,23 @@ Lalabas kapag ang bagong [browserWindow](browser-window.md) ay nagawa na.
 
 ### Event: 'web-contents-created'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
 
 Lalabas kapag ang bagong [webContents](web-contents.md) ay nagawa na.
 
 ### Mga event: 'certificate-error'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `webContents` [WebContents](web-contents.md)
-* `url` String
+* `url` Tali
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Punsyon 
   * `isTrusted` Boolean - Kung isinasa-alang-alang ang sertipiko bilang mapagkakatiwalaan
 
 Lalabas kapag nabigo ang pag-beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
@@ -224,13 +224,13 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
 * `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Punsyon 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (opsyonal)
 
 Lalabas kapag ang sertipiko ng kliyente ay hiniling.
@@ -248,21 +248,21 @@ app.on('select-client-certificate', (mga event, mga webContents, mga url, mga ta
 
 ### Event: 'login'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
 * `kahilingan` Bagay 
-  * `method` String
+  * `method` na String
   * `url` Ang URL
   * `referrer`Ang URL
 * `ang authInfo` Bagay 
   * `isProxy` Ang Boolean
-  * `scheme` Ang string
+  * `scheme` na String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Ang Punsyon 
+* `callback` Function 
   * `username` String
   * `password` String
 
@@ -281,7 +281,7 @@ app.on('login', (mga event, mga webContents, mga kahilingan, mga authInfo, mga m
 
 ### Event: 'gpu-process-crashed'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `killed` Ang Boolean
@@ -290,14 +290,14 @@ Lalabas kapag ang proseso na gpu ay nasira o pinatay.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `accessibilitySupportEnabled` Boolean - `true` kapag ang parating na suporta ng Chrome ay pinagana, `false` kung hindi.
 
 Lalabas kapag ang parating na suporta ng Chrome ay nabago. Ang event na ito ay sisimulan kapag ang assistive na teknologhiya, kagaya ng mga screen reader, ay naka-enable o hindi. Tingnan ang https://www.chromium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
-## Mga Pamamaraan
+## Mga Paraan
 
 Ang `app` na object ay maroong mga sumusunod na mga method:
 
@@ -394,7 +394,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 sa *Linux*, 32x32 sa *Windows*, hindi suportado sa *macOS*.
-* `callback` Punsyon 
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -508,7 +508,7 @@ Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng halaga nito tingnan ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Isang hanay ng mga bagay sa `JumpListItem` na tumutugma sa mga item na tahasang tinanggal ng gumagamit galing sa ipinasadyang mga kategorya ng Jump List. Ang mga item na ito ay hindi dapat maidagdag na muli sa Jump List sa **next** na tawag sa `app.setJumpList()`, ang Windows ay hindi magpapakita ng kahit anong pasadyang kategorya na maglalaman ng kahit anong natanggal ng mga item.
@@ -663,7 +663,7 @@ Ini-update ang kasalukuyang aktibidad kung tumutugma ito`type`, pinagsamasama an
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` String
+* `id` na String
 
 Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) tungo sa `id`.
 
@@ -672,7 +672,7 @@ Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/lib
 * `options` Bagay 
   * `certificate` String - Ang landas para sa mga file ng pkcs12.
   * `password` String - Ang passphrase para sa mga sertipiko.
-* `callback` Punsyon 
+* `callback` Function 
   * `result` Integer - Ang resulta ng pag-import.
 
 Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. Ang `callback` ay tinatawag na kasama ng `result` ng operasyon ng pag-import, ang halaga ng `` ay nagpapahiwatig ng tagumpay samantalang ang iba pang mga halaga ay nagpapahiwatig ng kabiguan ayon sa [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) ng chromium.
@@ -723,13 +723,13 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Bagay (opsyonal) 
+* `mga opsyon` Bagay (opsyonal) 
   * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
 Kung ibinigay mo ang mga opsyon ng mga `path` at mga `args` sa `app.setLoginItemSettings` kung gayon dapat mong ipasa ang mga parehong argumento dito para mai-set ng tama ang `openAtLogin`.
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `openAtLogin` Boolean - `true` kung ang app ay naka-set na bumukas sa pag-login.
 * `openAsHidden` Boolean - `true` Kung ang app ay naka-set na bumukas bilang nakatago sa pag-login. Ang setting na ito ay sinusuportahan lamang sa macOS.
@@ -784,7 +784,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `applicationName` String (opsyonal) - Ang pangalan ng app.
   * `applicationVersion` String (opsyonal) - Ang bersyon ng app.
   * `copyright` String (opsyonal) - Ang impormasyon ng copyright.

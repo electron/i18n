@@ -105,7 +105,7 @@ app.on('ready', () => {
 <p>Registers a protocol of <code>scheme` that will send a `Buffer` as a response.</p> 
         The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
         
-        Example:
+        Beispiel:
         
         ```javascript
 const {protocol} = require('electron')
@@ -185,7 +185,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 <p>Registers a protocol of <code>scheme` that will send a `Readable` as a response.</p> 
                 The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
                 
-                Example:
+                Beispiel:
                 
                 ```javascript
 const {protocol} = require('electron')

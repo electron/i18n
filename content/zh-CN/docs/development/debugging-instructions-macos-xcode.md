@@ -1,4 +1,4 @@
-## Debugging with XCode
+## 使用 XCode 调试
 
 ### Build Debug Electron with Release libchromiumcontent
 

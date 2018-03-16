@@ -67,7 +67,7 @@ Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal ata
 
 Pengembalian:
 
-* `event` Event
+* `acara` Acara
 * `adalah Bingkai Utama` Boolean
 
 Dibunyikan apabila bingkai telah melakukan navigasi.
@@ -132,9 +132,9 @@ Dibunyikan saat halaman menerima url favicon.
 
 Pengembalian:
 
-* `event</ 0> Acara</li>
-<li><code>url` String
-* `nama bingkai` tali
+* `event` Acara
+* ` url </ 0> String</li>
+<li><code>nama bingkai` tali
 * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
 * `pilihan` Objek - pilihan yang akan digunakan untuk menciptakan baru `jendela peramban`.
 * `fitur tambahan` String [] - fitur tidak-standar (fitur tidak ditangani oleh Kromium atau elektron) diberikan kepada `jendela terbuka()`.
@@ -154,52 +154,52 @@ JendelaPerambansay isiweb.on ('window baru ', (acara, url) = > {peristiwa.menceg
 Pengembalian:
 
 * `acara` Acara
-* `url` String
+* ` url </ 0> String</li>
+</ul>
 
-dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek ` jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
+<p>dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek <code> jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
 </p>
 
 <p>Peristiwa ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
-API seperti <code>isi web memuat URL` dan `isi web kembali`.
-
-Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `jendela.lokasi.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-
-Memanggil `peristiwa.mencegah Default()` akan mencegah navigasi.
-
-#### Peristiwa: 'akan navigasi'
-
-Pengembalian:
-
-* `acara` Acara
-* `url` String
-
-Dibunyikan apabila navigasi dilakukan.
-
-Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-
-#### peristiwa: 'Apakah-menavigasi-di halaman'
-
-Pengembalian:
-
-* `acara` Acara
-* ` url </ 0> String</li>
-<li><code>adalah Bingkai Utama` Boolean
-
-Dibunyikan saat navigasi dalam halaman terjadi.
-
-Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
-
-#### Peristiwa: 'akan-mencegah-membongkar'
-
-Pengembalian:
-
-* `acara` Acara
-
-Dibunyikan apabila `sebelumnya` event handler adalah mencoba untuk membatalkan halaman membongkar.
-
-Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
-
-```javascript
+API seperti <code>isi web memuat URL` dan `isi web kembali`.</p> 
+  Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `jendela.lokasi.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+  
+  Memanggil `peristiwa.mencegah Default()` akan mencegah navigasi.
+  
+  #### Peristiwa: 'akan navigasi'
+  
+  Pengembalian:
+  
+  * `event</ 0> Acara</li>
+<li><code>url` String
+  
+  Dibunyikan apabila navigasi dilakukan.
+  
+  Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+  
+  #### peristiwa: 'Apakah-menavigasi-di halaman'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `url` String
+  * `adalah Bingkai Utama` Boolean
+  
+  Dibunyikan saat navigasi dalam halaman terjadi.
+  
+  Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
+  
+  #### Peristiwa: 'akan-mencegah-membongkar'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  
+  Dibunyikan apabila `sebelumnya` event handler adalah mencoba untuk membatalkan halaman membongkar.
+  
+  Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
+  
+  ```javascript
 const {BrowserWindow, dialog} = require ('electron') const win = new BrowserWindow ({width: 800, height: 600}) win.webContents.on ('akan-mencegah-membongkar', (event) = > { const choice = dialog.showMessageBox (menang, {type: 'question', buttons: ['Leave', 'Stay'], title: 'Apakah Anda ingin meninggalkan situs ini?', pesan: 'Perubahan yang Anda buat mungkin tidak disimpan. ', defaultId: 0, cancelId: 1}) const leave = (pilihan === 0) if (leave) {event.preventDefault ()}})
 ```
 
@@ -216,8 +216,8 @@ Dipancarkan ketika proses perender penembak atau terbunuh.
 
 Pengembalian:
 
-* `acara` Acara
-* ` nama </ 0>  String</li>
+* `event</ 0> Acara</li>
+<li><code> nama </ 0>  String</li>
 <li><code>Versi` String
 
 Dibunyikan ketika proses plugin telah jatuh.
@@ -300,8 +300,8 @@ Penggunaannya sama dengan [the `pilih-sertifikat-klien` acara `app`](app.md#even
 
 Pengembalian:
 
-* `acara` Acara
-* `permintaan` Obyek 
+* `event</ 0> Acara</li>
+<li><code>permintaan` Obyek 
   * `method` String
   * `url` URL
   * `perujuk` URL
@@ -323,8 +323,8 @@ Penggunaannya sama dengan [the `masuk` event of `app`](app.md#event-login).
 
 Pengembalian:
 
-* `acara` Acara
-* `hasil` Obyek 
+* `event</ 0> Acara</li>
+<li><code>hasil` Obyek 
   * `requestId` Bilangan bulat
   * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
   * `pertandingan` Bulat - jumlah pertandingan.
@@ -353,13 +353,12 @@ Pengembalian:
 
 * `acara` Acara
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
-
 #### Event: 'update-target-url'
 
 Pengembalian:
 
-* `event</ 0> Acara</li>
-<li><code> url </ 0> String</li>
+* `acara` Acara
+* ` url </ 0> String</li>
 </ul>
 
 <p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
@@ -442,8 +441,8 @@ const {app, webContents} = require('electron') app.commandLine.appendSwitch('ena
 
 Pengembalian:
 
-* `acara` Acara
-* `dirtyRect` [Persegi panjang](structures/rectangle.md)
+* `event</ 0> Acara</li>
+<li><code>dirtyRect` [Persegi panjang](structures/rectangle.md)
 * `gambar` [NativeImage](native-image.md) - Data gambar dari keseluruhan frame.
 
 Emitted ketika bingkai baru dihasilkan. Hanya area kotor yang dilewati di penyangga.
@@ -460,8 +459,8 @@ Dibunyikan apabila jendela devtools memerintahkan webContents untuk reload
 
 Pengembalian:
 
-* `event</ 0> Acara</li>
-<li><code>webPreferences` Objek - preferensi web yang akan digunakan oleh semua halaman. Objek ini dapat dimodifikasi untuk menyesuaikan preferensi untuk semua halaman.
+* `acara` Acara
+* `webPreferences` Objek - preferensi web yang akan digunakan oleh semua halaman. Objek ini dapat dimodifikasi untuk menyesuaikan preferensi untuk semua halaman.
 * `params` Obyek - `<webview>`parameter lain seperti `src` URL. Objek ini dapat dimodifikasi untuk menyesuaikan parameter halaman tamu.
 
 Dipancarkan ketika `<webview>`isi web yang melekat pada isi web ini. Memanggil `event.preventDefault()` akan menghancurkan semua halaman.
@@ -474,8 +473,8 @@ Acara ini dapat digunakan untuk mengkonfigurasi `webPreferences` untuk `webConte
 
 Pengembalian:
 
-* `acara` Acara
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* `event</ 0> Acara</li>
+<li><code>webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
 
@@ -484,8 +483,8 @@ Emitted when a `<webview>` has been attached to this web contents.
 Pengembalian:
 
 * `level` Integer
-* `pesan` String
-* `line` Integer
+* ` pesan </ 0> String</li>
+<li><code>line` Integer
 * `sourceId` String
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
@@ -750,22 +749,22 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman web.
 
 #### `isi.replace(teks)`
 
+* `teks` String
+
+Jalankan perintah pengeditan `ganti` di halaman web.
+
+#### `contents.replaceMisspelling(teks)`
+
+* `teks` String
+
+Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
+
+#### `konten.mencaritek()`
+
 * ` teks </ 0>  String</li>
 </ul>
 
-<p>Jalankan perintah pengeditan <code>ganti` di halaman web.</p> 
-  #### `contents.replaceMisspelling(teks)`
-  
-  * `teks` String
-  
-  Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
-  
-  #### `konten.mencaritek()`
-  
-  * `teks` String
-  
-  Sisipan `teks` ke elemen yang terfokus.
-  
+<p>Sisipan <code>teks` ke elemen yang terfokus.</p> 
   #### `contents.findInPage(teks[, pilihan])`
   
   * `text` String - Konten yang akan dicari, tidak boleh kosong.
@@ -841,7 +840,7 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     
     * `pilihan` Obyek 
       * `marginType` Integer - (opsional) Menentukan jenis margin yang akan digunakan. Menggunakan 0 untuk margin default, 1 tanpa margin, dan 2 untuk margin minimum.
-      * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
+      * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
       * `printBackground` Boolean - (opsional) Baik untuk mencetak latar belakang CSS.
       * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
       * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
@@ -920,8 +919,8 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
     
     #### `contents.send (saluran [, arg1][, arg2][, ...])`
     
-    * ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+    * `channel` String
+    * ` ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 

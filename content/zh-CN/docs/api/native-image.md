@@ -193,15 +193,15 @@ console.log(image)
 
 #### `image.toDataURL([options])`
 
-* `options` Object (可选) 
- * `scaleFactor` Double (可选) - 默认值为 1.0.
+* `options` Object (optional) 
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` String `-图像的数据 URL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (可选) 
- * `scaleFactor` Double (可选) - 默认值为 1.0.
+* `options` Object (optional) 
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
@@ -253,4 +253,4 @@ Returns [`Size`](structures/size.md)
 
 * `options` Object * `scaleFactor` Double - 要添加图像的缩放系数. * `width` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `height` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区. * `dataURL` String (可选) - data URL 可以为 base 64 编码的 PNG 或 JPEG 图像.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+添加特定比例的图像表示。这可以明确地用来向图像添加不同的比例表示。这可以在空图像上调用。

@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-Процес: [Main / Главен](../glossary.md#main-process)
+Процеса: [основни](../glossary.md#main-process)
 
 **You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
@@ -56,7 +56,7 @@ Emitted when there is no available update.
 
 Връща:
 
-* `event` Event
+* `event` Сътитие
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date

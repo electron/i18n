@@ -1,20 +1,20 @@
 # ipcMain
 
-> Communicate asynchronously from the main process to renderer processes.
+> メインプロセスからレンダラープロセスに非同期通信をします。
 
 プロセス: [Main](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+`ipcMain` オブジェクトは [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) クラスのインスタンスの一つです。 メインプロセスで使用される場合、レンダラープロセス (ウェブページ) から送られる非同期及び同期メッセージを処理します。 レンダラーから送信されたメッセージは、このモジュールに送られます。
 
 ## メッセージ送信
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+また、メインプロセスからレンダラープロセスにメッセージを送ることもできます。より詳しくは [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) を参照して下さい。
 
-* When sending a message, the event name is the `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+* メッセージを送信しているとき、イベント名は `channel` です。
+* 同期メッセージに返信をするには、`event.returnValue` を設定する必要があります。
+* 非同期メッセージを送信元に返信するには、`event.sender.send(...)` を使用できます。
 
-An example of sending and handling messages between the render and main processes:
+レンダラー/メインプロセス間のメッセージの送信と処理の例:
 
 ```javascript
 // メインプロセス
@@ -43,43 +43,43 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## メソッド
 
-The `ipcMain` module has the following method to listen for events:
+`ipcMain` オブジェクトは、イベントを受け取るために以下のメソッドがあります。
 
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+`channel` に新しいメッセージが来たときに `listener` が `listener(event, args...)` として呼ばれます、
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+一回だけの `listener` イベント関数を追加します。この `listener` は次に `channel` にメッセージが送信された後にのみ呼び出され、その後削除されます。
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+指定した `channel` の listener 配列から、指定した `listener` を削除します。
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` String
 
-Removes listeners of the specified `channel`.
+指定した `channel` の listener を全て削除します。
 
 ## イベントオブジェクト
 
-The `event` object passed to the `callback` has the following methods:
+`callback` に渡される `event` オブジェクトには以下のメソッドがあります。
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+同期メッセージでの戻り値をこれにセットします。
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+メッセージを送った `webContents` を返します。`event.sender.send` を呼ぶことで、非同期メッセージに返信できます。より詳しくは [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) を参照して下さい。

@@ -12,13 +12,13 @@ W NW.js punkt wejścia głównego aplikacji to strona sieci web lub skrypt JS. O
 
 W Electron, głównym punktem jest skrypt JavaScript. Zamiast podawać adres URL bezpośrednio, możesz ręcznie tworzyć okno przeglądarki i ładować pliki HTML przy użyciu interfejsu API. Musisz również nasłuchiwać zdarzeń w oknie aby decydować kiedy zamknąć aplikacje.
 
-Electron dziala bardziej jak w czasie wykonywania Node.js Interfejsy API elektronu są na niższym poziomie, więc możesz używać go do testowania zamiast [PhantomJS](http://phantomjs.org/).
+Electron działa bardziej jak w czasie wykonywania Node.js Interfejsy API Electron'a są na niższym poziomie, więc możesz używać go do testowania zamiast [PhantomJS](http://phantomjs.org/).
 
 **2. Budowanie systemu**
 
-W celu uniknięcia złożoności budowania całego Chromium, Electron używa [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) aby mieć dostęp do Zawartości Chromium Interfejsu API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+W celu uniknięcia złożoności budowania całego Chromium, Electron używa [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) aby mieć dostęp do Zawartości Chromium Interfejsu API. `libchromiumcontent` jest to pojedyncza współdzielona biblioteka która zawiera moduł Chromium Content oraz wszystkie jego zależności. Użytkownicy nie potrzebują potężnych maszyn, aby zbudować Electron'a.
 
-**3. Node Integration**
+**3. Integracja node'a**
 
 In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
 

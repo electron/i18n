@@ -2,7 +2,7 @@
 
 > Control file downloads from remote sources.
 
-Процес: [Main / Главен](../glossary.md#main-process)
+Процеса: [основни](../glossary.md#main-process)
 
 `DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
@@ -55,7 +55,7 @@ The `state` can be one of following:
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `state` String
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.

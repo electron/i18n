@@ -74,7 +74,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <p>Menuliskan <code> teks </ 0> ke clipboard di RTF.</p>
 
-<h3><code>clipboard.readBookmark()` *macOS * * Windows*</h3> 
+<h3><code>clipboard.readBookmark()` *macOS* *Windows*</h3> 
                 Mengembalikan `Objek`:
                 
                 * ` judul</ 0>  String</li>

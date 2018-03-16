@@ -62,6 +62,6 @@ If both commands printed a version number, you are all set! Before you get start
 
 ## Dobry Edytor
 
-Możemy zasugerować dwa darmowe i popularne edytory zbudowane na Electronie: [Atom](https://atom.io/) od GitHuba i [Visual Studio Code](https://code.visualstudio.com/) od Microsoftu. Oba z nich mają doskonałą obsługą JavaScript.
+Możemy zasugerować dwa darmowe i popularne edytory zbudowane na Electronie: [Atom](https://atom.io/) od GitHuba i [Visual Studio Code](https://code.visualstudio.com/) od Microsoftu. Oba świetnie obsługują JavaScript.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Jeśli jesteś jednym z wielu doświadczonych programistów wiesz, że praktycznie każdy IDE i edytor tekstu obsługuje dzisiaj JavaScript.

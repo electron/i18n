@@ -99,7 +99,7 @@ Bir görüntüyü şablon görüntüsü olarak işaretmek için, dosya ismi `Tem
 
 ### `nativeImage.createEmpty()`
 
-`NativeImage` döndürür
+`NativeImage` Çevir
 
 Boş bir `NativeImage` örneği oluşturur.
 

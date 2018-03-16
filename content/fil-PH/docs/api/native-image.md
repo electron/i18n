@@ -1,8 +1,8 @@
-# nativeImage
+# gupitin ng maikli ang mga litrato
 
 > Gumawa ng tray, dock, at aplikasyon na mga icon gamit ang PNG o JPG na mga file.
 
-Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file paths o `NativeImage` na mga instance. Ang walang laman na imahe ay gagamitin kung ang `null` ay maipasa.
 
@@ -93,7 +93,7 @@ Para markahan ang imahe bilang template na imahe, ang filename ay dapat magtatap
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
-## Mga Pamamaraan
+## Mga Paraan
 
 Ang ` nativeimage ` na modyul ay may mga sumusunod na pamamaraan, lahat ng ito ay nagbabalik ng isang instance ng `NativeImage` na klase:
 
@@ -105,7 +105,7 @@ Gumawa ng bakanteng `NativeImage` na instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` na String
+* `path` String
 
 Nagbabalik ng `NativeImage`
 
@@ -162,9 +162,9 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 > Bumabalot ng imahe katulad ng trey, pantala, ang aplikasyon na icon. 
 
-Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Halimbawa ng mga pamamaraan
+### Mga Pamamaraan ng Instance
 
 Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase : 
 

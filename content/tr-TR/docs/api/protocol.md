@@ -69,7 +69,7 @@ app.on('ready', () => {
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` Dizi
+    * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `execPath` Dizgi (isteğe bağlı)
@@ -86,12 +86,12 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (isteğe bağlı)
@@ -116,7 +116,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
@@ -124,7 +124,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `rtf` Dizge (İsteğe Bağlı)
+    * `data` Dizge (İsteğe Bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -134,17 +134,17 @@ Kullanımı `registerFileProtocol` ile aynıdır, ancak `callback` `String` veya
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` Dizi
+    * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `talebi yönlendir` Nesne 
       * `url` Dize
-      * `method` Dizi
+      * `method` String
       * `session` Obje isteğe bağlı
       * `bilgiyi yükle` Obje (opsiyonel) 
         * `contentType` Dize - İçeriğin MIME türünü gösterir.
@@ -162,13 +162,13 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
     * `headers` Nesne
     * `referrer` Dize
-    * `method` Dizi
+    * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
@@ -220,7 +220,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -257,7 +257,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` Dizi
+    * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `data` Dizge (İsteğe Bağlı)
@@ -289,12 +289,12 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` Dizi
+    * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `talebi yönlendir` Nesne 
       * `url` Dize
-      * `method` Dizi
+      * `method` String
       * `session` Obje isteğe bağlı
       * `bilgiyi yükle` Obje (opsiyonel) 
         * `contentType` Dize - İçeriğin MIME türünü gösterir.
@@ -312,7 +312,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `url` Dize
     * `headers` Nesne
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (isteğe bağlı)

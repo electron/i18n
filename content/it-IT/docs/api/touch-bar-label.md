@@ -1,14 +1,14 @@
-## Class: TouchBarLabel
+## Classe: EtichettaBarraTocco
 
-> Create a label in the touch bar for native macOS applications
+> Crea un'etichetta nella barra di tocco per applicazioni native macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processo: [Principale](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `nuovo EtichettaBarraTocco(opzioni)` *Sperimentale*
 
 * `opzioni` Oggetto 
-  * `label` String (optional) - Text to display.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+  * `etichetta` Stringa(opzionale) - Testo da mostrare.
+  * `ColoreTesto` Stringa (opzionale) - Colore del testo Hex, come `#ABCDEF`.
 
 ### Proprietà Istanza
 

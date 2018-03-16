@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Deneysel*
 
-* `seçenekler` Object (isteğe bağlı) 
+* `seçenekler` Nesne (isteğe bağlı) 
   * `webPreferences` Obje (opsiyonel) - [BrowserWindow](browser-window.md)'a bakın.
 
 ### Statik Yöntemler

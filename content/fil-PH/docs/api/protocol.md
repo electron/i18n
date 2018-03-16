@@ -2,7 +2,7 @@
 
 > Irehistro ang isang karaniwang protokol at harangin ang umiiral na kahilingang protokol.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang isang halimbawa ng pagpapatupad ng isang protokol na may kaparehas na epekto katulad ng `file://` na protokol:
 
@@ -22,14 +22,14 @@ app.on('ready', () => {
 
 **Note:** Ang lahat ng mga pamamaraan maliban sa mga tinukoy ay maaari lamang gamitin pagkatapos ng paglabas ng event na `ready` ng modyul ng `app`.
 
-## Mga Pamamaraan
+## Mga Paraan
 
 Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` na String[] - Ang karaniwang panukala na irerehistro bilang mga istandard na iskema.
-* `mga opsyon` Bagay (opsyonal) 
+* `mga pagpipilian` Na Bagay (opsyonal) 
   * `secure` na Boolean (opsyonal) - `true` upang irehistro ang iskema bilang ligtas. Ang default ay `false`.
 
 Ang isang standard na iskema ay sumasang-ayon sa kung tawagin ng RFC 3986 ay [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Halimbawa ang `http` at ang `https` ay mga istandard na iskema, samantalang ang `file` ay hindi.
@@ -68,14 +68,14 @@ app.on('ready', () => {
 * `scheme` na String
 * `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` na String
-    * `referrer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+    * `url` Tali
+    * `referer` String
+    * `method` String
+    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+  * `callback` Punsyon 
     * `filePath` na String (opsyonal)
-* `pagkumpleto` Function (opsyonal) 
-  * `error` na Kamalian
+* `ang pagkumpleto` Function (opsyonal) 
+  * `error` Error
 
 Nagrerehistro ang isang protokol ng `scheme` na magpapadala sa file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
 
@@ -87,17 +87,17 @@ Batay sa default ang `scheme` ay tinatrato katulad ng `http`, na sinusuri ng kak
 
 ### `protocol.registerBufferProtocol(iskema, tagahawak[, pagkumpleto])`
 
-* `scheme` na string
-* `tagahawak` Function 
+* `scheme` na String
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
-    * `url` na String
-    * `referrer` na String
+    * `url` Tali
+    * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsyonal)
 * `pagkumpleto` Function (opsyonal) 
-  * `error` na Kamalian
+  * `error` Error
 
 Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `Buffer` bilang isang tugon.
 
@@ -117,17 +117,17 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
 
-* `scheme` na string
-* `tagahawak` Function 
+* `scheme` na String
+* `tagahawak` function 
   * `kahilingan` Bagay 
-    * `url` na String
-    * `referrer` na String
+    * `url` Tali
+    * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `data` na String (opsyonal)
 * `pagkumpleto` Function (opsyonal) 
-  * `error` na Kamalian
+  * `error` Error
 
 Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `String` bilang isang tugon.
 
@@ -135,22 +135,22 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
 
 ### `ang protocol.registerHttpProtocol(panukala, tagahawak[, pagkumpleto])`
 
-* `scheme` Ang string
-* `ang tagahawak` na Function 
+* `scheme` na String
+* `tagahawak` Ang Function 
   * `kahilingan` Bagay 
     * `url` Tali
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+    * `referer` String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `ang redirectRequest` Bagay 
-      * `url` String
-      * `method` String
+      * `url` Tali
+      * `method` na String
       * `session` Bagay (opsyonal)
-      * `ang uploadData` Mga bagay (opsyonal) 
+      * `ang uploadData` Bagay (opsyonal) 
         * `contentType` String - Ang uri ng MIME ng mga nilalaman.
         * `data` String - Mga nilalaman na ipapadala.
-* `ang pagkumpleto` Ang Punsyon (opsyonal) 
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang HTTP na kahilingan bilang isang tugon.
@@ -163,17 +163,17 @@ For POST requests the `uploadData` object must be provided.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
-* `scheme` Ang string
-* `ang tagahawak` Punsyon 
+* `scheme` na String
+* `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` String
-    * `headers` Objek
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+    * `url` Tali
+    * `header` Bagay
+    * `referer` String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `ang pagkumpleto` Function (opsyonal) 
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `Readable` as a response.
@@ -221,111 +221,111 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
-* `scheme` Ang string
-* `ang pagkumpleto` Function (opsyonal) 
+* `scheme` na String
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolHandled(scheme,callback)`
 
-* `scheme` Ang string
-* `callback` Ang Punsyon 
+* `scheme` na String
+* `callback` Punsyon 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
-* `scheme` Ang string
-* `ang tagahawak` Punsyon 
+* `scheme` na String
+* `tagahawak` Function 
   * `kahilingan` Bagay 
     * `url` Tali
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Ang Punsyon 
+    * `referer` String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Punsyon 
     * `filePath` String
-* `ang pagkumpleto` Function (opsyonal) 
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
-* `scheme` Ang string
-* `ang tagahawak` Punsyon 
+* `scheme` na String
+* `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` String
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `data` String (opsyonal)
-* `ang pagkumpleto` Function (opsyonal) 
+    * `url` Tali
+    * `referer` String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Punsyon 
+    * `data` na String (opsyonal)
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` Ang string
-* `ang tagahawak` Function 
+* `scheme` na String
+* `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` String
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+    * `url` Tali
+    * `referer` String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Punsyon 
     * `buffer` Buffer (optional)
-* `ang pagkumpleto` Function (opsyonal) 
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` Ang string
-* `ang tagahawak` Punsyon 
+* `scheme` na String
+* `tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` String
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+    * `url` Tali
+    * `referer` String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Punsyon 
     * `ang redirectRequest` Bagay 
       * `url` Tali
-      * `method` String
+      * `method` na String
       * `session` Bagay (opsyonal)
-      * `ang uploadData` Mga bagay (opsyonal) 
+      * `ang uploadData` Bagay (opsyonal) 
         * `contentType` String - Ang uri ng MIME ng mga nilalaman.
         * `data` String - Mga nilalaman na ipapadala.
-* `ang pagkumpleto` Function (opsyonal) 
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
-* `scheme` Ang string
-* `ang tagahawak` Punsyon 
+* `scheme` na String
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
     * `headers` Objek
-    * ang `referer` String
-    * `method` String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Ang Punsyon 
+    * `referer` String
+    * `method` na String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `ang pagkumpleto` Function (opsyonal) 
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
-* `scheme` Ang string
-* `ang pagkumpleto` Function (opsyonal) 
+* `scheme` na String
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Remove the interceptor installed for `scheme` and restore its original handler.

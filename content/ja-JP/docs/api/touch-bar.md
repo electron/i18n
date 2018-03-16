@@ -24,7 +24,7 @@ The following properties are available on instances of `TouchBar`:
 
 The `TouchBarButton` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
 
-## サンプル
+## 例
 
 ボタンといくつかのラベルで構成される、シンプルな TouchBar 向けスロットゲームのコード例を示します。
 

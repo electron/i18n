@@ -13,14 +13,14 @@ const {jendela Browser} = memerlukan (' electron ') misalkan win = jendela baru 
   item.setSavePath ('/ tmp / save.pdf') item.on ('util', (acara, negara bagian) = & gt; {jika (negara === 'terputus') {console.log ('Download terputus & dapat kembali ')} jika lain (negara ===' berkembang ') {jika (item.isPaused ()) {console.log (' Downl ownload berhenti ')} lain {console.log (' menerima byte: $ {item .getReceivedBytes ()} ')}}}) item.once (' dilakukan ', (acara, negara bagian) = & gt; {jika (negara ===' selesai ') {console.log (' Download berhasil ')} lain {console.log ('Download gagal: $ {state}')}})})
 `</pre> 
 
-### Contoh peristiwa
+### Instance Events
 
 #### Acara : 'diperbarui'
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code> negara </ 0>  String</li>
+* `event` Event
+* ` negara </ 0>  String</li>
 </ul>
 
 <p>Emitted saat download telah di perbarui dan belum selesai.</p>
@@ -34,10 +34,10 @@ Pengembalian:
 
 <h4>Acara : 'selesai'</h4>
 
-<p>Pengembalian:</p>
+<p>Mengembalikan:</p>
 
 <ul>
-<li><code>acara` Acara
+<li><code>peristiwa` Peristiwa
 * ` negara </ 0>  String</li>
 </ul>
 

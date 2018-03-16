@@ -550,7 +550,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
@@ -558,7 +558,7 @@ Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es 
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Disparado cuando un frame ha terminado la navegación.
 
@@ -575,7 +575,7 @@ Corresponde a los puntos en tiempo cuando el girador del tabulador termina de gi
 Devuelve:
 
 * `status` Boolean
-* `nuevoURL` String
+* `newURL` String
 * `originalURL` String
 * `httpResponseCode` Entero
 * `requestMethod` String
@@ -591,7 +591,7 @@ Devuelve:
 
 * `viejoURL` String
 * `newURL` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 
 Disparado cuando una redirección fue recibida mientras se solicitaba una fuente.
 
@@ -710,7 +710,7 @@ Llamar a `event.preventDefault()`, **NO** tiene ningún efecto.
 
 Devuelve:
 
-* `url` String
+* `url` Cadena
 
 Emitido cuando la navegación es finalizada.
 
@@ -720,7 +720,7 @@ Este evento no es emitido para navegaciones dentro de la página, como hacerle c
 
 Devuelve:
 
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `url` String
 
 Emitido cuando una navegación dentro de la página sucede.
@@ -824,7 +824,7 @@ Emitido cuando DevTools es abierto.
 
 ### Evento: 'devtools-closed'
 
-Emitido cuando DevTools es cerrado.
+Emitido cuando Devtools es cerrado.
 
 ### Evento: 'devtools-focused'
 

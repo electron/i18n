@@ -113,7 +113,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `statusLine` String
   * `statusCode` Integer
   * `responseHeaders` Object
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `response` Object 
     * `cancel` Boolean
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
@@ -164,7 +164,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 * `filter` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -183,7 +183,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `filter` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
     * `url` String

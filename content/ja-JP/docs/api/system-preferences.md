@@ -15,20 +15,20 @@ The `systemPreferences` object emits the following events:
 
 ### Event: 'accent-color-changed' *Windows*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
 
-戻り値：
+戻り値:
 
 * `event` Event
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.

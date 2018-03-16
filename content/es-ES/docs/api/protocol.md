@@ -69,7 +69,7 @@ app.on('ready', () => {
 * `manejador` Función 
   * `request` Objeto 
     * `url` Cadena
-    * `referrer` String
+    * `referencia` String
     * `method` Cuerda
     * `subir información` [Subir Información[]](structures/upload-data.md)
   * `callback` Función 
@@ -166,7 +166,7 @@ Para solicitudes POST el objeto `uploadData` debe ser proporcionado.
 * `esquema` Cadena
 * `manejador` Función 
   * `request` Object 
-    * `url` String
+    * `url` Cadena
     * `headers` Objeto
     * `referrer` Cadena
     * `method` Cuerda
@@ -256,7 +256,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nu
 * `esquema` Cadena
 * `manejador` Función 
   * `request` Object 
-    * `url` String
+    * `url` Cadena
     * `referrer` Cadena
     * `method` Cuerda
     * `subir información` [Subir Información[]](structures/upload-data.md)
@@ -310,7 +310,7 @@ Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlado
 * `esquema` Cadena
 * `manejador` Función 
   * `request` Object 
-    * `url` Cadena
+    * `url` String
     * `headers` Objeto
     * `referrer` Cadena
     * `method` Cuerda

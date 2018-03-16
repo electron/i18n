@@ -2,7 +2,7 @@
 
 > Kunin ang impormasyon tungkol sa laki ng screen, display, cursor posisyon, at iba pa.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
 
@@ -28,33 +28,33 @@ Ang `screen` na modyul na naglalabas ng mga sumusunod na pangyayari:
 
 ### Pangyayari: 'display-added'
 
-Returns:
+Pagbabalik:
 
-* `event` Event
+* `event` na Kaganapan
 * `newDisplay` [Display](structures/display.md)
 
 Naglalabas kapag `newDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-removed'
 
-Returns:
+Pagbabalik:
 
-* `event` Event
+* `event` na Kaganapan
 * `oldDisplay` [Display](structures/display.md)
 
 Naglalabas kapag `oldDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-metrics-changed'
 
-Returns:
+Pagbabalik:
 
-* `event` Event
+* `event` na Kaganapan
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
 Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. Ang `changedMetrics` ay isang array ng mga strings na naglalarawan ng mga pagbabago. Mga posiblen pagbabago sa `bounds`, `workArea`, `scaleFactor` at `rotation`.
 
-## Methods
+## Mga Paraan
 
 Ang `screen` na modyul ay may mga sumusunod na mga paraan:
 

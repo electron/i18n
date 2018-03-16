@@ -20,7 +20,7 @@ docs:
     propose_change: Pomozte vylepšit tuto dokumentaci
     version_history: Historie verzí
     translate: Přeložte tuto dokumentaci
-    view_all_docs: All Docs on One Page
+    view_all_docs: Veškerá dokumentace na jedné stránce
 languages:
   choose_language: Zvolte jazykovou mutaci
   translation_progress: Zpracování překladů
@@ -61,7 +61,7 @@ get_started:
   description: Chcete-li začít s Electronem, podívejte se na níže uvedené zdroje. Zjistěte, jak obalit vaši web. stránku Electronem, komunikovat přes API a generovat instalátory.
 explore:
   title: Prozkoumat Electron API
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Demo</a> interaktivně demonstruje nejdůležitější funkce Electron API. Podívejte se, co je možné s Electronem udělat za pomoci příkladů kódu a užitečných tipů pro vývoj vaší aplikace."
 download_from_github: Stáhnout z GitHubu
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> Zobrazit všechny releasy</a> na GitHubu
 quick_start:
@@ -73,7 +73,7 @@ quick_start:
   dive_deeper: Nebo se ponořte hlouběji a přečtěte si <a href='/docs'>dokumentaci</a>.
 need_help:
   title: Potřebujete pomoc?
-  description: Ptejte se na otázky v <a href='https://discuss.atom.io/c/electron'> diskuzním fóru</a> nebo na našem <a href='http://atom-slack.herokuapp.com/'> Slacku</a>. Sledujte <a href="https://twitter.com/electronjs"> @electronjs</a> na Twitteru pro důležité oznámení. Potřebujete neco soukromého? Napište nám E-mail <a href="mailto:electron@github.com"> electron@github.com</a>.
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Jazyky
 taglines:
@@ -134,7 +134,7 @@ pages:
     description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron je open source framework pro snadné psaní integračních testů pro vaší Electron aplikaci. Spectron je postaven na ChromeDriver a WebDriverIO.
 _404:
   page_not_found: Stránka nenalezena.
 search:

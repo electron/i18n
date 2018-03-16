@@ -73,7 +73,7 @@ The ` desktopCapturer </ 0> modul memiliki metode berikut:</p>
   * `jenis `String [] - Kumpulan String yang mencantumkan jenis sumber desktop yang akan ditangkap, jenis yang tersedia adalah`layar `dan`jendela </ 0>.</li>
 <li><code> thumbnail ukuran</ 0>  <a href="structures/size.md"> Ukuran </ 1> (opsional) - Ukuran gambar thumbnail sumber media harus diskalakan. Defaultnya adalah <code> 150 </ 0> x <code> 150 </ 0> .</li>
 </ul></li>
-<li><code>callback` Fungsi 
+<li><code>panggilkembali` Fungsi 
     * Kesalahan `kesalahan`
     *  sumber </ 0>  <a href="structures/desktop-capturer-source.md"> DesktopCapturerSource [] </ 1></li>
 </ul></li>

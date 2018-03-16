@@ -2,7 +2,7 @@
 
 > Display external web content in an isolated frame and process.
 
-プロセス: [レンダラー](../tutorial/quick-start.md#renderer-process)
+プロセス: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -140,7 +140,7 @@ When this attribute is present the guest page will have web security disabled. W
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
+Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -239,12 +239,12 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (optional) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+* `options` Object (任意) 
+  * `httpReferrer` String (任意) - HTTPリファラのURL。
+  * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
+  * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (任意)
+  * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
@@ -437,7 +437,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Object (任意) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -459,7 +459,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (optional) 
+* `options` Object (任意) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -531,20 +531,20 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-戻り値：
+戻り値:
 
 * `url` String
 * `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Event: 'did-finish-load'
+### イベント: 'did-finish-load'
 
 Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
-### Event: 'did-fail-load'
+### イベント: 'did-fail-load'
 
-戻り値：
+戻り値:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -553,25 +553,25 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Event: 'did-frame-finish-load'
+### イベント: 'did-frame-finish-load'
 
-戻り値：
+戻り値:
 
 * `isMainFrame` Boolean
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### イベント: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### イベント: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### イベント: 'did-get-response-details'
 
-戻り値：
+戻り値:
 
 * `status` Boolean
 * `newURL` String
@@ -584,9 +584,9 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### イベント: 'did-get-redirect-request'
 
-戻り値：
+戻り値:
 
 * `oldURL` String
 * `newURL` String
@@ -594,22 +594,22 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 Fired when a redirect was received while requesting a resource.
 
-### Event: 'dom-ready'
+### イベント: 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
 ### イベント: 'page-title-updated'
 
-戻り値：
+戻り値:
 
 * `title` String
 * `explicitSet` Boolean
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### イベント: 'page-favicon-updated'
 
-戻り値：
+戻り値:
 
 * `favicons` String[] - Array of URLs.
 
@@ -625,7 +625,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-戻り値：
+戻り値:
 
 * `level` Integer
 * `message` String
@@ -643,15 +643,15 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### イベント: 'found-in-page'
 
-戻り値：
+戻り値:
 
 * `result` Object 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - アクティブなマッチの位置。
+  * `matches` Integer - マッチの個数。
+  * `selectionArea` Object - 最初のマッチ領域の座標。
   * `finalUpdate` Boolean
 
 Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
@@ -666,13 +666,13 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### イベント: 'new-window'
 
-戻り値：
+戻り値:
 
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
 Fired when the guest page attempts to open a new browser window.
@@ -691,13 +691,13 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### イベント: 'will-navigate'
 
-戻り値：
+戻り値:
 
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+ユーザまたはページがナビゲーションを開始したいときに発行されます。 `window.location` オブジェクトが変更されるか、ユーザがページ内のリンクをクリックしたときに発生します。
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
@@ -705,26 +705,26 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### イベント: 'did-navigate'
 
-戻り値：
+戻り値:
 
 * `url` String
 
-Emitted when a navigation is done.
+ナビゲーションが完了したときに発行されます。
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
-### Event: 'did-navigate-in-page'
+### イベント: 'did-navigate-in-page'
 
-戻り値：
+戻り値:
 
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+ページ内ナビゲーションが発生したときに発行されます。
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+ページ内ナビゲーションが行われるとき、ページのURLは変更されますがページ外でのナビゲーションは発生しません。 これが発生する例は、アンカーリンクがクリックされたときや、DOM の `hashchange` イベントがトリガーされたときです。
 
 ### イベント: 'close'
 
@@ -741,7 +741,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-戻り値：
+戻り値:
 
 * `channel` String
 * `args` Array
@@ -768,7 +768,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### イベント: 'crashed'
 
 Fired when the renderer process is crashed.
 
@@ -776,30 +776,30 @@ Fired when the renderer process is crashed.
 
 Fired when the gpu process is crashed.
 
-### Event: 'plugin-crashed'
+### イベント: 'plugin-crashed'
 
-戻り値：
+戻り値:
 
 * `name` String
 * `version` String
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### イベント: 'destroyed'
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### イベント: 'media-started-playing'
 
-Emitted when media starts playing.
+メディアの再生を開始するときに発行されます。
 
-### Event: 'media-paused'
+### イベント: 'media-paused'
 
-Emitted when media is paused or done playing.
+メディアが一時停止、または再生が終了したときに発行されます。
 
-### Event: 'did-change-theme-color'
+### イベント: 'did-change-theme-color'
 
-戻り値：
+戻り値:
 
 * `themeColor` String
 
@@ -809,22 +809,22 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### イベント: 'update-target-url'
 
-戻り値：
+戻り値:
 
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+マウスをリンクにマウスオーバーしたり、キーボードでリンクにフォーカスしたときに発行されます。
 
-### Event: 'devtools-opened'
+### イベント: 'devtools-opened'
 
-Emitted when DevTools is opened.
+開発者向けツールが開かれたときに発行されます。
 
-### Event: 'devtools-closed'
+### イベント: 'devtools-closed'
 
-Emitted when DevTools is closed.
+開発者向けツールが閉じられたときに発行されます。
 
-### Event: 'devtools-focused'
+### イベント: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+開発者向けツールがフォーカスされた / 開かれたときに発行されます。

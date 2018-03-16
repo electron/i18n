@@ -1,6 +1,6 @@
 # Naplano na Paglabag ng API na mga Pagbabago
 
-The following list includes the APIs that will be removed in Electron 3.0.
+Ang mga sumusunod na lista ay kabilang sa mga API na aalisin sa Electron 3.0.
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
 
@@ -13,7 +13,7 @@ app.getAppMemoryInfo()
 app.getAppMetrics()
 ```
 
-## `BrowserWindow`
+## `Ang Browser ng Window`
 
 ```js
 // Deprecated
@@ -24,10 +24,10 @@ let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `clipboard`
+## `iipit sa tabla`
 
 ```js
-// Deprecated
+/ Deprecated
 clipboard.readRtf()
 // Replace with
 clipboard.readRTF()
@@ -48,7 +48,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+## `kalabog ng tagapagbalita`
 
 ```js
 // Deprecated
@@ -65,7 +65,7 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+## `gupitin ng maikli ang mga litrato`
 
 ```js
 // Deprecated
@@ -85,7 +85,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-## `session`
+## `sesyon`
 
 ```js
 // Deprecated
@@ -121,7 +121,7 @@ webContents.openDevTools({detach: true})
 webContents.openDevTools({mode: 'detach'})
 ```
 
-## `webFrame`
+## `lumikha ng bahay-alalawa`
 
 ```js
 // Deprecated
@@ -135,7 +135,7 @@ webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
-## Node Headers URL
+## Mga URL ng Node Header 
 
 Ito ang URL na tinukoy bilang `disturl` sa isang `.npmrc` na file o bilang `--dist-url` na utos ng line flag kung bubuo ng mga modyul na Native.
 
@@ -143,6 +143,6 @@ Deprecated: https://atom.io/download/atom-shell
 
 Palitan ng: https://atom.io/download/electron
 
-## `FIXME` comments
+## `FIXME` na mga comment
 
 The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme

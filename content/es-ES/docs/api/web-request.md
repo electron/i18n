@@ -39,7 +39,7 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
 * `oyente` Función 
   * `details` Object 
     * `id` Íntegro
-    * `url` String
+    * `url` Cadena
     * `method` Cuerda
     * `webContentsId` Integer (optional)
     * `resourceType` String
@@ -66,7 +66,7 @@ El `oyente` se llamará con `listener(details, callback)` Antes de enviar la sol
 
 * `details` Objeto 
   * `id` Íntegro
-  * `url` String
+  * `url` Cadena
   * `method` Cuerda
   * `webContentsId` Integer (optional)
   * `resourceType` String

@@ -1,12 +1,12 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> tray や Dock やアプリケーションのアイコンを PNG や JPG ファイルで作成します。
 
 プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+Electron では、画像を取る API において、ファイルパスか `NativeImage` インスタンスのいずれかを渡すことができます。`null` を渡したときは空の画像が使われます。
 
-For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+例として、tray を作ったりウインドウのアイコンを設定したりするとき、`String` で画像ファイルパスを渡せます。
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -16,7 +16,7 @@ let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+clipboard から画像を読む場合は `NativeImage` が返されます。
 
 ```javascript
 const {clipboard, Tray} = require('electron')
@@ -25,33 +25,33 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Supported Formats
+## サポートされているフォーマット
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+現在、`PNG` と `JPEG` 画像フォーマットがサポートされています。`PNG` は透過や可逆圧縮をサポートするため推奨します。
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
+Windows では、ファイルパスから `ICO` アイコンを読み込むこともできます。最高の画質を得るには、少なくとも以下のサイズを含むことを推奨します。
 
-* Small icon 
- * 16x16 (100% DPI scale)
- * 20x20 (125% DPI scale)
- * 24x24 (150% DPI scale)
- * 32x32 (200% DPI scale)
-* Large icon 
- * 32x32 (100% DPI scale)
- * 40x40 (125% DPI scale)
- * 48x48 (150% DPI scale)
- * 64x64 (200% DPI scale)
+* 小さいアイコン 
+ * 16x16 (DPI スケール 100%)
+ * 20x20 (DPI スケール 125%)
+ * 24x24 (DPI スケール 150%)
+ * 32x32 (DPI スケール 200%)
+* 大きいアイコン 
+ * 32x32 (DPI スケール 100%)
+ * 40x40 (DPI スケール 125%)
+ * 48x48 (DPI スケール 150%)
+ * 64x64 (DPI スケール 200%)
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+[この記事](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx) 内の *サイズ要件* の章を確認して下さい。
 
-## High Resolution Image
+## 高解像度の画像
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+Apple Retina ディスプレイのような高解像度をサポートしているプラットフォームにおいて、画像のファイルネームの後ろに `@2x` を加えることで、高解像度の画像としてマークすることができます。
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+例えば `icon.png` が通常の標準解像度の画像であれば、`icon@2x.png` が2倍のピクセル密度を持つ高解像度の画像として扱われます。
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+同時に異なるピクセル密度のディスプレイをサポートしたい場合、同じフォルダ内に異なるサイズの画像を置き、DPI 接尾子無しでファイル名を使用して下さい。
 
 ```text
 images/
@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+以下の DPI 接尾子がサポートされています。
 
 * `@1x`
 * `@1.25x`
@@ -80,36 +80,36 @@ Following suffixes for DPI are also supported:
 * `@4x`
 * `@5x`
 
-## Template Image
+## テンプレート画像
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+テンプレート画像は黒色と透明色 (とアルファチャンネル) で構成されます。 テンプレート画像は単体の画像として使用するものではなく、通常、最終的にさせたい見た目を作成するため、他のコンテンツと混合されます。
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+最も一般的なケースは、メニューバーのアイコンに使用することです。これは明るいメニューバーと暗いメニューバーの両方に適応できます。
 
-**Note:** Template image is only supported on macOS.
+**注釈:** テンプレート画像は macOS でのみサポートされています。
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+画像をテンプレート画像としてマークするには、そのファイル名が `Template` で終わる必要があります。以下が例です。
 
 * `xxxTemplate.png`
-* `xxxTemplate@2x.png`
+* `xxxTemplate.png`
 
 ## メソッド
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+`nativeImage` オブジェクトには以下のメソッドがあります。いずれも `NativeImage` クラスのインスタンスを返します。
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+戻り値 `NativeImage`
 
-Creates an empty `NativeImage` instance.
+空の `NativeImage` インスタンスを作成します。
 
 ### `nativeImage.createFromPath(path)`
 
 * `path` String
 
-Returns `NativeImage`
+戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+`path` のファイルから新しい `NativeImage` インスタンスを作成します。 このメソッドは、`path` が存在しない、読めない、有効な画像でない場合は、空の画像を返します。
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -121,129 +121,129 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (任意) * `width` Integer (任意) - ビットマップバッファに必要。 * `height` Integer (任意) - ビットマップバッファに必要。 * `scaleFactor` Double (任意) - 省略値は1.0。
 
-Returns `NativeImage`
+戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`.
+`buffer` から `NativeImage` の新しいインスタンスを作成します。
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
 * `dataURL` String
 
-Returns `NativeImage`
+戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from `dataURL`.
+`dataURL` から `NativeImage` の新しいインスタンスを作成します。
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
 * `imageName` String
 * `hslShift` Number[]
 
-Returns `NativeImage`
+戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+指定した画像名にマップされる NSImage から `NativeImage` の新しいインスタンスを作成します。 使用可能な値のリストは、[`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) を参照してください。
 
-The `hslShift` is applied to the image with the following rules
+`hslShift` は以下のルールで画像に適用されます。
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
- 0 = remove all lightness (make all pixels black).  
- 0.5 = leave unchanged.  
- 1 = full lightness (make all pixels white).
+* `hsl_shift[0]` (色相): 画像における色相の絶対値 - 0 から 1 が 色相カラーホイール (赤) の 0 から 360 に割り当てられる。
+* `hsl_shift[1]` (彩度): 画像における彩度の変化量。以下のキー値を使用する。  
+ 0 = すべての色が抜かれる。  
+ 0.5 = 変わらないまま。  
+ 1 = 画像の彩度を最大にする。 
+* `hsl_shift[2]` (明度): 画像における明度の変化量。以下のキー値を使用する。  
+ 0 = すべての明度がなくなる (すべてのピクセルが黒になる)。  
+ 0.5 = 変わらないまま。  
+ 1 = 明度が最大になる (すべてのピクセルが白になる)。
 
-This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+つまり、`[-1, 0, 1]` は完全に白い画像になり、`[-1, 1, 0]` は完全に黒い画像になります。
 
 ## クラス: NativeImage
 
-> Natively wrap images such as tray, dock, and application icons.
+> tray や Dock やアプリケーションアイコンのような画像を、ネイティブにラップします。
 
 プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 ### インスタンスメソッド
 
-The following methods are available on instances of the `NativeImage` class:
+`NativeImage` クラスのインスタンスには、以下のメソッドがあります。
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+戻り値 `Buffer` - `PNG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* `quality` Integer (**必須**) - 0 ~ 100。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+戻り値 `Buffer` - `JPEG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+戻り値 `Buffer` - 生のビットマップ画像のピクセルデータのコピーを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `String` - The data URL of the image.
+戻り値 `String` - 画像のデータURL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+戻り値 `Buffer` - 生のビットマップ画像のピクセルデータを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+`getBitmap()` と `toBitmap()` の違いは、`getBitmap()` はビットマップをコピーしないので、現在のイベントループティックで即座に使用しなければ、そのデータが変更または破棄される可能性があります。
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+戻り値 `Buffer` - 画像の元になるネイティブハンドルへの C ポインタを格納する [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。 macOS では、`NSImage` のインスタンスのポインタが返されます。
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+返されるポインタは、コピーではなく、元のネイティブな画像へのウィークポインタであることに注意して下さい。関連する `nativeImage` インスタンスが確実に*保持されなければなりません*。
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+戻り値 `Boolean` - 画像が空かどうか。
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+戻り値 [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
 * `option` Boolean
 
-Marks the image as a template image.
+画像をテンプレート画像としてマークします。
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+戻り値 `Boolean` - 画像がテンプレート画像かどうか。
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
+* `rect` [Rectangle](structures/rectangle.md) - 画像をトリミングする領域。
 
-Returns `NativeImage` - The cropped image.
+戻り値 `NativeImage` - トリミングされた画像。
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (任意) - 省略値は画像の高さ。 * `quality` String (任意) - リサイズされた画像の希望する解像度。 値は `good`、`better`、または `best` にできる。 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 これらは、基になるプラットフォームの機能 (CPU、GPU) に依存するアルゴリズム固有のメソッドに変換される。 3つのメソッドすべてを、特定のプラットフォーム上の同じアルゴリズムに割り当てることも可能です。
 
-Returns `NativeImage` - The resized image.
+戻り値 `NativeImage` - リサイズされた画像。
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+`height` または `width` のどちらかのみが指定された場合、アスペクト比はリサイズされた画像でも保持されます。
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+戻り値 `Float` - イメージのアスペクト比。
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+* `options` Object * `scaleFactor` Double - 画像を表現する際の拡大倍率。 * `width` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `height` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `buffer` Buffer (任意) - 生の画像データを含むバッファ。 * `dataURL` String (任意) - Base64 でエンコードされた PNG または JPEG 画像を含むデータURL。
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+特定の倍率における画像表現を追加します。これは異なる倍率表現を画像に明示的に追加するために使用できます。これは空の画像でも呼び出すことができます。

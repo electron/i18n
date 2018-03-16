@@ -18,7 +18,7 @@ Quá trình: [Main](../glossary.md#main-process)
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### Các phương thức chung
 
 The `Notification` class has the following static methods:
 
@@ -87,7 +87,7 @@ Trả về:
 * `event` Event
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### Các phương thức riêng
 
 Objects created with `new Notification` have the following instance methods:
 

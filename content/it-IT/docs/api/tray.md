@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Instance Events
+### Eventi dell'istanza
 
 The `Tray` module emits the following events:
 
@@ -116,14 +116,14 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' *macOS*
 
-* `evento` Evento
+* `event` Evento
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
 
-* `evento` Evento
+* `event` Evento
 * `text` String - the dropped text string
 
 Emitted when dragged text is dropped in the tray icon.

@@ -100,7 +100,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `oldURL` Dize
 * `newURL` Dize
 * `isMainFrame` Boolean
@@ -226,7 +226,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Dönüşler:
 
-* `event` Event
+* `event` Etkinlik
 * `killed` Boolean
 
 Oluşturucu işlemi çöker veya yok olduğunda yayımlanır.
@@ -235,7 +235,7 @@ Oluşturucu işlemi çöker veya yok olduğunda yayımlanır.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `name` Dizi
 * `versiyon` String
 
@@ -292,7 +292,7 @@ DevTools odaklandığında / açıldığında ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` Dize
 * `error` Dizi - Hata Kodu
 * `certificate` [sertifika](structures/certificate.md)
@@ -321,14 +321,14 @@ Kullanımı [the `select-client-certificate` olayı `app`](app.md#event-select-c
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `istek` Nesne 
   * `method` Dizi
   * `url` URL
   * `referrer` URL
 * `authInfo` Nesne 
   * `isProxy` Boolean
-  * `scheme` String
+  * `scheme` Dizi
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
@@ -372,7 +372,7 @@ Bir sayfanın tema rengi değiştiğinde ortaya çıkar. Bu genellikle karşıla
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `color` (String | null) - Tema rengi '#rrggbb' biçiminde. Tema rengi ayarlanmadığında `null`'dir.
 
 #### Etkinlik: 'update-target-url'
@@ -445,7 +445,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `geri aramak` Function 
   * `deviceId` String
@@ -513,7 +513,7 @@ Bu event, `<webview>` yüklenmeden önce ` webContents`'inin `webPreferences<0>'
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
@@ -529,7 +529,7 @@ Dönüşler:
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
 #### `contents.loadURL(url[, options])`
 
@@ -538,7 +538,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
   * `httpReferrer` Dizgi (isteğe bağlı) - Bir HTTP başvuru bağlantısı.
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` Dizgi (isteğe bağlı) - "\n" ile ayrılan ek sayfa başlıkları
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (isteğe bağlı)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsiyonel)
   * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
 `url`'yi pencereye yükler. `url` bir protokol önadı içermek zorundadır, Örneğin `http://` veya `file://`. Eğer yüklemenin http önbelleğini atlaması gerekiyorsa, atlatmak için `pragma` başlığını kullanın.
@@ -598,7 +598,7 @@ Web sayfasına odaklanır.
 
 #### `contents.stop()`
 
-Bekleyen gezinmeyi durdurur.
+Bekleyen gezinmeleri durdurur.
 
 #### `contents.reload()`
 
@@ -670,12 +670,12 @@ Yürürlükteki web sayfasına CSS ekler.
 
 * `code` String
 * `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
-* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
+* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
-`Promise` döner - Çalıştırılan kodun sonucuyla çözülen veya eğer kod sonucu promise reddedildiyse reddedilen bir promise.
+`Promise` döndürür - çalışan kodun sonucuyla çözülen bir söz veya kodun sonucu reddedilen bir söz ise reddedilir.
 
-Sayfadaki `code`'u değerlendirir.
+Sayfadaki `code`'u ölçer.
 
 Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
 
@@ -769,7 +769,7 @@ Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düz
 
 #### `contents.copyImageAt(x, y)`
 
-* `x` Integer
+* `x` Tamsayı
 * `x` Integer
 
 Verilen pozisyondaki görüntüyü panoya kopyalar.
@@ -810,16 +810,16 @@ Verilen pozisyondaki görüntüyü panoya kopyalar.
 
 * `text` Dizi
 
-Odaklanılan öğeye `text`'i yerleştirir.
+Odaklanmış öğeye `metin` ekler.
 
 #### `contents.findInPage(text[, options])`
 
-* `text` Dizgi - Araştırılacak içerik, boş bırakılmaması zorunludur.
+* `text` Dizi - Aranacak içerik; boş olmamalıdır.
 * `seçenekler` Obje (opsiyonel) 
   * `forward` Boolean - (isteğe bağlı) İleriye veya geriye doğru arama yapılacağı, varsayılan olarak `true`'dur.
   * `findNext` Boolean - (İsteğe bağlı) İşlemin ilk istek veya takip isteği olduğu, varsayılan olarak `false`'tur.
-  * `matchCase` Boolean - (isteğe bağlı) Arama harfe duyarlı olmalıysa, `false` varsayılan olur.
-  * `wordStart` Boolean - (isteğe bağlı) Kelimelerin sadece başına bakılmalıysa, `false` varsayılan olur.
+  * `matchCase` Boolean - (İsteğe bağlı) Aramanın büyük-küçük harfe duyarlı olup olmayacağı, varsayılan olarak `false`'dur.
+  * `wordStart` Boolean - (isteğe bağlı) Sadece kelime başlarına bakılıp bakılmayacağı, varsayılan olarak `false`'tur.
   * `medialCapitalAsWordStart` Boolean - (İsteğe bağlı) `wordStart` ile birleştirildiğinde, eğer eşleşme büyük harfle başlayıp küçük harf veya harf olmayan ifadeyle devam ediyorsa, eşleşmeyi kabul eder. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
 
 Returns `Integer` - The request id used for the request.
@@ -829,7 +829,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 #### `contents.stopFindInPage(action)`
 
 * `hareket` Dize - Bitişteki hareketi belirler`webContents.findInPage`] istek. 
-  * `clearSelection` - Seçimi temizler.
+  * `clearSelection` - Seçimi silin.
   * `keepSelection` - Seçimi normal bir seçime çevirir.
   * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
 
@@ -894,7 +894,7 @@ Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stili
   * `marginsType` Integer - (isteğe bağlı) Kullanılacak kenar tipini belirler. Varsayılan kenar için 0, kenarsız olması için 1 ve en az kenar için 2'yi kullanır.
   * `pageSize` Dizgi - (İsteğe bağlı) üretilecek PDF'in sayfa boyutunu belirler. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
   * `printBackground` Boolean - (İsteğe bağlı) CSS arkaplanlarının yazdırılıp yazdırılmayacağı.
-  * `printSelectionOnly` Boolean - (isteğe bağlı) - Sadece seçim yeri yazdırılırsa.
+  * `printSelectionOnly` Boolean - (İsteğe bağlı) Sadece seçimin yazdırılıp yazdırılmayacağı.
   * `landscape` Boolean - (isteğe bağlı) manzara için `true`, portre için `false`.
 * `geri aramak` Function 
   * `error` Error
@@ -985,7 +985,7 @@ Geliştirme araçlarına geçiş yapar.
 
 #### `contents.inspectElement(x, y)`
 
-* `x` Integer
+* `x` Tamsayı
 * `x` Integer
 
 (`x`,`y`) pozisyonundaki ögeyi incelemeye başlar.
@@ -1147,7 +1147,7 @@ Sayfanın boyutunu ayarlayın. Bu yalnızca `<webview>` konuk içerikler için d
 * `seçenekler` Nesne 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) webgörünümü misafir içeriğine verilecek özelliği belirle. 
     * `width` Tamsayı
-    * `height` Tamsayı
+    * `height` Integer
 
 #### `contents.isOffscreen()`
 

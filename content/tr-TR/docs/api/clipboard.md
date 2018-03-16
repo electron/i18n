@@ -27,7 +27,7 @@ Pano modülü aşağıdaki yöntemleri içerir:
 
 ### `clipboard.readText([type])`
 
-* `type` String (isteğe bağlı)
+* `type` Dize (isteğe bağlı)
 
 `String` döndürür - Panodaki içeriği düz metin olarak.
 
@@ -47,7 +47,7 @@ Panoya `text`'i düz yazı olarak yazar.
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` Dize (isteğe bağlı)
+* `type` String (isteğe bağlı)
 
 Yazar `markup` panoya.
 
@@ -60,7 +60,7 @@ Yazar `markup` panoya.
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` Dize (isteğe bağlı)
+* `type` String (isteğe bağlı)
 
 `image`'i panoya yazar.
 
@@ -72,8 +72,8 @@ Yazar `markup` panoya.
 
 ### `clipboard.writeRTF(text[, type])`
 
-* `text` Dizi
-* `type` String (isteğe bağlı)
+* `text` String
+* `type` Dize (isteğe bağlı)
 
 Panoya `text`'i RTF olarak yazar.
 
@@ -90,7 +90,7 @@ Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren b
 
 * `title` String
 * `url` Dize
-* `type` String (isteğe bağlı)
+* `type` Dize (isteğe bağlı)
 
 `title` ve `url`'yi panoya sayfa işaretçisi olarak yazar.
 
@@ -128,7 +128,7 @@ Pano içeriğini temizler.
 ### `clipboard.has(format[, type])` *Deneysel*
 
 * `format` String
-* `type` Dize (isteğe bağlı)
+* `type` String (isteğe bağlı)
 
 `Boolean` - Panoda belirtilen `format` komutunun desteklenip desteklenmediğini gösterir.
 
@@ -153,7 +153,7 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 * `arabellek` Arabellek
-* `type` String (isteğe bağlı)
+* `type` Dize (isteğe bağlı)
 
 `buffer`' ı `format` olarak panoya yazar.
 
@@ -165,7 +165,7 @@ console.log(clipboard.has('<p>selection</p>'))
   * `image` [NativeImage](native-image.md) (isteğe bağlı)
   * `rtf` Dizi (İsteğe Bağlı)
   * `bookmark` Dizi (İsteğe bağlı) - `text` ' da url nin başlığı yer alır.
-* `type` Dize (isteğe bağlı)
+* `type` String (isteğe bağlı)
 
 ```javascript
 const {clipboard} = require('electron')

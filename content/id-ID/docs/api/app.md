@@ -41,10 +41,10 @@ Emitted ketika Elektron selesai menginisialisasi. Di macos , ` launchInfo </ 0> 
 
 <h3>Acara : 'sebelum-berhenti'</h3>
 
-<p>Pengembalian:</p>
+<p>Returns:</p>
 
 <ul>
-<li><code>peristiwa` Peristiwa</li> </ul> 
+<li><code>event` Event</li> </ul> 
 
 Emitted sebelum aplikasi mulai menutup jendela-jendelanya. Memanggil ` event.preventDefault () </ 0> akan mencegah perilaku default, yang mengakhiri aplikasi.</p>
 
@@ -116,8 +116,8 @@ Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untu
   
   Pengembalian:
   
-  * `acara` Acara
-  * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+  * `event</ 0> Acara</li>
+<li><code>ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
   * `userInfo` Objek - Berisi status spesifik aplikasi yang disimpan oleh aktivitas di perangkat lain.
   
   Emitted selama [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) saat aktivitas dari perangkat lain ingin dilanjutkan. Anda harus menghubungi `event.preventDefault()` jika Anda ingin menangani acara ini.
@@ -128,8 +128,8 @@ Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untu
   
   Pengembalian:
   
-  * `event</ 0> Acara</li>
-<li><code>ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+  * `acara` Acara
+  * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
   
   Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Anda harus menghubungi `event.preventDefault()` jika Anda ingin menangani acara ini.
   
@@ -147,8 +147,8 @@ Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untu
   
   Pengembalian:
   
-  * `acara` Acara
-  * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+  * `event</ 0> Acara</li>
+<li><code>ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
   * `userInfo` Object - Contains app-specific state stored by the activity.
   
   Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
@@ -157,8 +157,8 @@ Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untu
   
   Pengembalian:
   
-  * `event</ 0> Acara</li>
-<li><code>ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+  * `acara` Acara
+  * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
   * `userInfo` Object - Contains app-specific state stored by the activity.
   
   Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
@@ -167,61 +167,61 @@ Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untu
   
   Pengembalian:
   
-  * `acara` Acara
-  
-  Emitted saat pengguna mengklik tombol tab baru macOS asli. Tombol tab baru hanya terlihat jika arus `BrowserWindow` memiliki `tabbingIdentifier`
-  
-  ### Acara: 'browser-window-blur'
-  
-  Pengembalian:
-  
-  * `acara` Acara
-  * `window` [BrowserWindow](browser-window.md)
-  
-  Emitted ketika [browserWindow](browser-window.md) menjadi kabur.
-  
-  ### Acara: 'browser-window-focus'
-  
-  Pengembalian:
-  
-  * `acara` Acara
-  * `window` [BrowserWindow](browser-window.md)
-  
-  Emitted ketika [browserWindow](browser-window.md) terpusat.
-  
-  ### Acara: 'browser-window-created'
-  
-  Pengembalian:
-  
-  * `acara` Acara
-  * `window` [BrowserWindow](browser-window.md)
-  
-  Emitted ketika baru [browserWindow](browser-window.md) dibuat.
-  
-  ### Acara: 'isi web-dibuat'
-  
-  Pengembalian:
-  
-  * `acara` Acara
-  * `webContents` [WebContents](web-contents.md)
-  
-  Emitted ketika baru [webContents](web-contents.md) dibuat.
-  
-  ### Acara: 'sertifikat-kesalahan'
-  
-  Pengembalian:
-  
-  * `acara` Acara
-  * `webContents` [WebContents](web-contents.md)
-  * `url` String
-  * `error` String - Kode kesalahan
-  * `sertifikat` [Sertifikat](structures/certificate.md)
-  * `callback` Fungsi 
-    * `isTrusted` Boolean - Apakah akan mempertimbangkan sertifikat sebagai terpercaya
-  
-  Emitted ketika gagal untuk memverifikasi `certificate` untuk `url`, untuk mempercayai sertifikat Anda harus mencegah perilaku default dengan `event.preventDefault ()` dan memanggil `callback(true)`.
-  
-  ```javascript
+  * `event</ 0> Acara</li>
+</ul>
+
+<p>Emitted saat pengguna mengklik tombol tab baru macOS asli. Tombol tab baru hanya terlihat jika arus <code>BrowserWindow` memiliki `tabbingIdentifier`</p> 
+    ### Acara: 'browser-window-blur'
+    
+    Pengembalian:
+    
+    * `event</ 0> Acara</li>
+<li><code>window` [BrowserWindow](browser-window.md)
+    
+    Emitted ketika [browserWindow](browser-window.md) menjadi kabur.
+    
+    ### Acara: 'browser-window-focus'
+    
+    Pengembalian:
+    
+    * `event</ 0> Acara</li>
+<li><code>window` [BrowserWindow](browser-window.md)
+    
+    Emitted ketika [browserWindow](browser-window.md) terpusat.
+    
+    ### Acara: 'browser-window-created'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * `window` [BrowserWindow](browser-window.md)
+    
+    Emitted ketika baru [browserWindow](browser-window.md) dibuat.
+    
+    ### Acara: 'isi web-dibuat'
+    
+    Pengembalian:
+    
+    * `event</ 0> Acara</li>
+<li><code>webContents` [WebContents](web-contents.md)
+    
+    Emitted ketika baru [webContents](web-contents.md) dibuat.
+    
+    ### Acara: 'sertifikat-kesalahan'
+    
+    Pengembalian:
+    
+    * `event</ 0> Acara</li>
+<li><code>webContents` [WebContents](web-contents.md)
+    * `url` String
+    * `error` String - Kode kesalahan
+    * `sertifikat` [Sertifikat](structures/certificate.md)
+    * `callback` Fungsi 
+      * `isTrusted` Boolean - Apakah akan mempertimbangkan sertifikat sebagai terpercaya
+    
+    Emitted ketika gagal untuk memverifikasi `certificate` untuk `url`, untuk mempercayai sertifikat Anda harus mencegah perilaku default dengan `event.preventDefault ()` dan memanggil `callback(true)`.
+    
+    ```javascript
 const {app} = require ('electron') app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
    if (url === 'https://github.com') {
      // Verifikasi logika.
@@ -290,8 +290,8 @@ const {app} = require('electron') app.on('login', (event, webContents, request, 
 
 Pengembalian:
 
-* `event</ 0> Acara</li>
-<li><code>terbunuh` Boolean
+* `acara` Acara
+* `terbunuh` Boolean
 
 Emitted saat proses gpu macet atau terbunuh.
 
@@ -594,7 +594,7 @@ const {app} = require ('electron') app.setJumpList([
   
   ### `app.makeSingleInstance(callback)`
   
-  * `callback` Fungsi 
+  * `panggilan balik` Fungsi 
     * `argv` String[] - Sebuah array dari argumen baris perintah kedua
     * `workingDirectory` String - Direktori kerja contoh kedua
   
@@ -830,40 +830,40 @@ Membatalkan bouncing `id`.
 
 ### `app.dock.downloadFinished(filePath)` *Windows*
 
-* `fullPath` String
+* `format` String
 
 Memantapkan Download stack jika filePath ada di dalam folder Downloads.
 
 ### `app.dock.setBadge (teks)` *macOS*
 
-* ` teks </ 0>  String</li>
-</ul>
+* `teks` String
 
-<p>Menetapkan string yang akan ditampilkan di area badging dermaga.</p>
+Menetapkan string yang akan ditampilkan di area badging dermaga.
 
-<h3><code>app.dock.getBadge()` *macos*</h3> 
-  Mengembalikan `String` - String badge dari dok.
-  
-  ### `app.dock.hide()` *macOS*
-  
-  Sembunyikan ikon dok.
-  
-  ### `app.dock.show()` *macos*
-  
-  Tampilkan ikon dok.
-  
-  ### `app.dock.isVisible()` *macos*
-  
-  Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
-  
-  ### `app.dock.setMenu(menu)` *macos*
-  
-  * `menu` [Menu](menu.md)
-  
-  Mengatur aplikasi [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
-  
-  ### `app.dock.setIcon(gambar)` *macOS*
-  
-  * `gambar` ([NativeImage](native-image.md) | String)
-  
-  Menetapkan `gambar` yang terkait dengan ikon dermaga ini.
+### `app.dock.getBadge()` *macos*
+
+Mengembalikan `String` - String badge dari dok.
+
+### `app.dock.hide()` *macOS*
+
+Sembunyikan ikon dok.
+
+### `app.dock.show()` *macos*
+
+Tampilkan ikon dok.
+
+### `app.dock.isVisible()` *macos*
+
+Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
+
+### `app.dock.setMenu(menu)` *macos*
+
+* `menu` [Menu](menu.md)
+
+Mengatur aplikasi [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+
+### `app.dock.setIcon(gambar)` *macOS*
+
+* `gambar` ([NativeImage](native-image.md) | String)
+
+Menetapkan `gambar` yang terkait dengan ikon dermaga ini.

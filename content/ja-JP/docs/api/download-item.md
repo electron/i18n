@@ -39,7 +39,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### Event: 'updated'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `state` String
@@ -53,7 +53,7 @@ The `state` can be one of following:
 
 #### Event: 'done'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `state` String

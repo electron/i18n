@@ -43,7 +43,7 @@ The `role` property can have following values:
 * `wklej`
 * `pasteandmatchstyle`
 * `selectall`
-* `usuń`
+* `delete`
 * `minimize` - Minimize current window
 * `close` - Close current window
 * `quit`- Quit the application

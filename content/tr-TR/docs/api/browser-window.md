@@ -114,12 +114,12 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
 
 ### `yeni Tarayıcı Penceresi ([options])`
 
-* `seçenekler` Obje (opsiyonel) 
+* `options` Obje (opsiyonel) 
   * `width` Integer (isteğe bağlı) - Pencerenin pixel olarak genişliği. Varsayılan `800`'dür.
   * `height` Integer (isteğe bağlı) - Pencerenin pixel olarak yüksekliği. Varsayılan `600`'dür.
   * `x` Integer (isteğe bağlı) (**gerekli** eğer y kullanılmışsa) - Pencerenin ekrandan sol offseti. Varsayılan pencere ortasıdır.
   * `y` Integer (isteğe bağlı) (**required** eğer x kullanılmışsa) - Pencerenin ekrandan üst offseti. Varsayılan pencere ortasıdır.
-  * `useContentSize` Boolean (isteğe bağlı) - `Genişlik` ve `yüksekliğin` web sayfasının boyutu olarak kullanılması gerçek pencerenin boyutunun, pencere çerçevesinin boyutunu ve biraz daha fazlasını içereceği anlamına gelmektedir. Varsayılan `false`'dur.
+  * `useContentSize` Boolean (isteğe bağlı) - `Genişlik` ve `yüksekliğin` web sayfasının boyutu olarak kullanılması gerçek pencerenin boyutunun, pencere çerçevesinin boyutunu ve biraz daha fazlasını içereceği anlamına gelmektedir. Varsayılanı `false`.
   * `center` Boolean (isteğe bağlı) - Pencereyi ekranın ortasında gösterin.
   * `minWidth` Integer (isteğe bağlı) - Pencerenin minimum genişliği. Varsayılan ``'dır.
   * `minHeight` Integer (isteğe bağlı) - Pencerenin minimum yüksekliği. Varsayılan ``'dır.
@@ -132,7 +132,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
   * `closable` Boolean (isteğe bağlı) - Pencerenin kapatılıp kapatılamayacağıdır. Bu Linux'ta uygulanmaz. Varsayılan `true`'dur.
   * `focusable` Boolean (isteğe bağlı) - Pencerenin odaklanıp odaklanamayacağını belirtir. Varsayılan `true`'dur. Windows'ta `focusable: false` ayarı `skipTaskbar: true` anlamına da gelir. Linux ayarlarında `focusable: false` pencerenin wm ile olan etkileşimi durdurur, bu yüzden pencere her zaman tüm çalışma alanlarının en üstünde durur.
   * `alwaysOnTop` Boolean (isteğe bağlı) - Pencerenin her zaman diğer pencerelerin üstünde kalıp kalmaması gerekliliği. Varsayılan `false`'dur.
-  * `fullscreen` Boolean (isteğe bağlı) - Pencerenin tam ekranda gösterilip gösterilmeyeceği. MacOS'ta özellikle değer `false` olarak ayarlandığında tam ekran düğmesi görünmez veya devre dışı olacaktır. Varsayılan `false`'dur.
+  * `fullscreen` Boolean (isteğe bağlı) - Pencerenin tam ekranda gösterilip gösterilmeyeceği. MacOS'ta özellikle değer `false` olarak ayarlandığında tam ekran düğmesi görünmez veya devre dışı olacaktır. Varsayılanı `false`.
   * `fullscreenable` Boolean (isteğe bağlı) - Pencerenin tam ekrana moduna alınıp alınamayacağı. MacOs'ta, Ekranı Kapla/Yakınlaştır düğmesinin tam ekran modunu veya Ekranı Kapla penceresini değiştirip değiştirmeyeceği de belirtmektedir. Varsayılanı `true`.
   * `simpleFullscreen` Mantıksal (isteğe bağlı) - macOS'ta Lion öncesi tam ekran kullanın. Varsayılan değer `false`.
   * `skipTaskbar` Boolean (isteğe bağlı) - Pencerenin görev çubuğunda görünüp görünmeyeceği. Varsayılan `false`'dur.
@@ -175,7 +175,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * `bölüm` Satır (isteğe bağlı) - Sayfanın kullandığı oturumu. oturumun bölümlenmiş satırına göre ayarlar. Eğer `bölümü` ile başlarsa `persist:`, sayfa ile uygulamadaki tüm sayfalar için kalıcı bir oturum kullanacaktır aynı `bölümü`. Hiçbir ` persist`: öneki yoksa, sayfa bellek içi oturumu. Aynı `partition`, değişkenine değer atayarak birden çok sayfada aynı oturumu paylaşabilirsiniz. Varsayılan oturumun varsayılanıdır.
     * `zoomFactor` sayısı (isteğe bağlı) - Sayfanın varsayılan yakınlaştırma faktörü `3.0`temsil eder `300%`. Varsayılan değer `1.0` 'dır.
     * `javascript` Boolean (isteğe bağlı) - JavaScript desteğini etkinleştirir. Varsayılan `doğrudur`.
-    * `webSecurity`Boolean (optional) -`false`olduğunda, aynı kaynak ilkesini devre dışı bırakır (genellikle kişiler deneme web sitelerini kullanılır) ve kullanıcı tarafından ayarlanmamışsa bu seçenekleri `allowRunningInsecureContent` `true` ayarlayın,. Varsayılan `true`'dur.
+    * `webSecurity`Boolean (optional) -`false`olduğunda, aynı kaynak ilkesini devre dışı bırakır (genellikle kişiler deneme web sitelerini kullanılır) ve kullanıcı tarafından ayarlanmamışsa bu seçenekleri `allowRunningInsecureContent` `true` ayarlayın,. Varsayılanı `true`.
     * `allowRunningInsecureContent` Boolean (isteğe bağlı) - Bir https sayfasının çalışmasına izin ver Http URL'lerden JavaScript, CSS veya eklentiler. Varsayılan değer `yanlış`.
     * `görüntüleri` Boolean (isteğe bağlı) - Görüntü desteğini etkinleştirir. Varsayılan `doğrudur`.
     * `textAreasAreResizable` Boolean (isteğe bağlı) - TextArea öğelerini yeniden boyutlandırılabilir yapın. Varsayılan `doğru` ise.
@@ -224,7 +224,7 @@ Minimum veya maksimum pencere boyutunu ` min ile ayarlarken Genişlik` / ` maks 
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `title` String
 
 Belge, başlığını değiştirdiğinde ifade edilir, `event.preventDefault()` kullanmak doğal windows başlığının değişmesine engel olur.
@@ -233,7 +233,7 @@ Belge, başlığını değiştirdiğinde ifade edilir, `event.preventDefault()` 
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 
 Pencere kapatıldığında ortaya çıkmaktadır. DOM 'un `beforeunload` ve `unload` etkinliklerinden önce ifade edilir. ` olayı.preventDefault ()`öğesini çağırma kapanış iptal edecek.
 
@@ -373,7 +373,7 @@ Kaydırma tekerleği etkinlik aşamasının öğenin kenarına ulaşmasıyla kay
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `direction` Dizi
 
 3-parmakla hızlı kaydırmada ifade edilir. Mümkün yönergeler: `up`, `right`, `down`, `left`.
@@ -479,7 +479,7 @@ console.log(installed)
 
 **Note:** BU API `hazır` olayı `app` modülü yayılmadan çağrılamaz.
 
-### Örnek Özellikler
+### Örnek Özellikleri
 
 `yeni BrowserWindow` ile oluşturulan nesneler aşağıdaki özelliklere sahiptir:
 
@@ -618,7 +618,7 @@ Belirli bir yoldaki bir dosyayı önizlemek için [Hızlı Bakış](https://en.w
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Dikdörtgen](structures/rectangle.md)
+* `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (isteğe bağlı) *macOS*
 
 Pencereyi yeniden boyutlandırır ve sağlanan sınırlara taşır
@@ -630,7 +630,7 @@ Pencereyi yeniden boyutlandırır ve sağlanan sınırlara taşır
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` [Dikdörtgen](structures/rectangle.md)
 * `animate` Boolean (isteğe bağlı) *macOS*
 
 Pencerenin müşteri alanını (örneğin, Web sayfası) boyutlandırmakta,taşımakta ve verilen sınırlara getirmektedir.
@@ -643,7 +643,7 @@ Pencerenin müşteri alanını (örneğin, Web sayfası) boyutlandırmakta,taş�
 `
 
 * `width` Tamsayı
-* `height` Integer
+* `height` Tamsayı
 * `animate` Boolean (isteğe bağlı) *macOS*
 
 Pencereyi `genişlik` ve `yükseklik` olarak yeniden boyutlandırır.
@@ -666,8 +666,8 @@ Pencerenin istemci alanını yeniden boyutlandırır (e.g. the web page) to `wid
 
 #### `win.setMinimumSize(width, height)`
 
-* `width` Integer
-* `height` Integer
+* `width` Tamsayı
+* `height` Tamsayı
 
 Pencerenin minimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
 
@@ -677,8 +677,8 @@ Pencerenin minimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
 
 #### `win.setMaximumSize(width, height)`
 
-* `width` Tamsayı
-* `height` Integer
+* `width` Integer
+* `height` Tamsayı
 
 Pencereni maksimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
 
@@ -718,7 +718,7 @@ Pencerenin kullanıcı tarafından el ile simge durumuna küçültülebilir olup
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından manuel olarak küçültülüp küçültülmediği
 
-Linux'ta daima geri dönüyor `true`.
+Linux üzerinde her zaman `true` döndürür.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -752,7 +752,7 @@ Pencerenin kullanıcı tarafından el ile kapatılıp bırakılmayacağını tan
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından manuel olarak kapatılıp kapatılmayacağı.
 
-Linux'ta daima geri dönüyor `true`.
+Linux üzerinde her zaman `true` döndürür.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -901,7 +901,7 @@ Window's belgelerinin düzenlenip düzenlenmediğini belirtir ve `true` olarak a
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` Dizgi (isteğe bağlı) - "\n" ile ayrılan ek sayfa başlıkları
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsiyonel)
-  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Bu, yalnızca belirtilen `url` veri url'si ve diğer dosyaları yüklemek gerekiyorsa gereklidir.
+  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
 `webContents.loadURL(url[, options])` İle aynı.
 

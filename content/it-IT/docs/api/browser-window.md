@@ -2,7 +2,7 @@
 
 > Crea e controlla finestre browser.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 ```javascript
 // Nel processo principale.
@@ -107,7 +107,7 @@ Si raccomanda di mettere in pausa le operazioni dispendiose quando lo stato di v
 
 > Crea e controlla finestre browser.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 `FinestraBrowser` è un [EmettitoreEventi](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -214,7 +214,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
   * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
-### Instance Events
+### Eventi dell'istanza
 
 Objects created with `new BrowserWindow` emit the following events:
 
@@ -222,18 +222,18 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `title` String
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
 #### Event: 'close'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
@@ -337,9 +337,9 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `command` String
 
 Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
@@ -371,9 +371,9 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
@@ -422,7 +422,7 @@ Returns `BrowserWindow` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
-* `percorso` Stringa
+* `path` Stringa
 
 Adds Chrome extension located at `path`, and returns extension's name.
 
@@ -446,7 +446,7 @@ Returns `Object` - The keys are the extension names and each value is an Object 
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
-* `percorso` Stringa
+* `path` Stringa
 
 Adds DevTools extension located at `path`, and returns extension's name.
 

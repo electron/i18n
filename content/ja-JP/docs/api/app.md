@@ -196,7 +196,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 
 ### イベント: 'certificate-error'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)

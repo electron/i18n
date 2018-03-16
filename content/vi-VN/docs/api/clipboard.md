@@ -137,13 +137,13 @@ const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` *Đang thử nghiệm*
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` *Đang thử nghiệm*
 
 * `format` String
 

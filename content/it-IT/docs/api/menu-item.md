@@ -2,7 +2,7 @@
 
 > Add items to native application menus and context menus.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 See [`Menu`](menu.md) for examples.
 
@@ -12,7 +12,7 @@ See [`Menu`](menu.md) for examples.
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
-    * `evento` Evento
+    * `event` Evento
   * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
   * `label` String - (optional)
@@ -39,7 +39,7 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `copy`
+* `copia`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`

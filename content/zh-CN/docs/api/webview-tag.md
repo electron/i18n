@@ -227,7 +227,7 @@ win.on('resize', () => {
 
 ** 注意: **使用方法之前 <0>webview</0> 元素必须已被加载。
 
-**例子**
+**示例**
 
 ```javascript
 const webview = document.querySelector('webview')

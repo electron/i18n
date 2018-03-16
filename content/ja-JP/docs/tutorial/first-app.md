@@ -21,7 +21,7 @@ your-app/
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm が基本的な `package.json` ファイルを作るガイドをします。 `main` フィールドで指定されたスクリプトは、メインプロセスを実行するアプリのスタートアップスクリプトです。 `package.json` の例を以下に示します。
 
 ```json
 {
@@ -31,7 +31,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (just like Node.js itself). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**注釈**: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は (Node.js のように) `index.js` の読み込みを試みます。 もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
 
 ```json
 {
@@ -44,7 +44,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+このNodeアプリケーションをElectronアプリケーションにするのは非常に簡単で、単に `node` ランタイムを `electron` ランタイムに置き換えるだけです。
 
 ```json
 {
@@ -57,28 +57,30 @@ Turning this Node application into an Electron application is quite simple - we 
 }
 ```
 
-## Installing Electron
+## Electronのインストール
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+この時点では、`electron` そのものをインストールする必要があります。 そうするのに推奨される方法は、アプリケーションに開発用の依存関係としてインストールすることです。異なる Electron のバージョンで複数アプリの作業ができます。 これを行うには、アプリのディレクトリから次のコマンドを実行します。
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Electron をインストールする手段は他にもあります。 プロキシ、ミラー、カスタムキャッシュの使用方法については、[インストールガイド](installation.md) を参照して下さい。
 
-## Electron Development in a Nutshell
+## 3分くらいでわかるElectronアプリ開発
 
-Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron アプリは、Node.js 開発にあるものと同じ資産とメソッドを使用して Javascript で開発されています。 Electron 内のすべてのAPIと機能は、他の Node.js モジュールと同じように必要に応じて `electron` オブジェクトを通してアクセスできます。
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might just wait for the application to be ready and open a window:
+`electron` オブジェクトは名前空間内の機能を公開します。 例として、`electron.app` を通じてアプリケーションのライフサイクルを管理したり、`electron.BrowserWindow` クラスを使用してウインドウを作成することができます。 この簡単な `main.js` ファイルは、アプリケーションの準備ができるまで待機してから、ウインドウを開くだけです。
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
+const path = require('path')
+const url = require('url')
 
 function createWindow () {
   // Create the browser window.
@@ -95,7 +97,7 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+`main.js` は、ウインドウを作成し、アプリケーションが遭遇する全てのシステムイベントを処理する必要があります。 上記の例より完全なバージョンでは、ユーザがドック内のアプリアイコンをクリックすると、開発者向けツールが開いたり、ウインドウが閉じられたのを処理したり、macOSにおいてウインドウを再作成したりします。
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -123,9 +125,10 @@ function createWindow () {
 
   // ウィンドウが閉じられた時に発火
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // ウインドウオブジェクトの参照を外す。
+    // 通常、マルチウインドウをサポートするときは、
+    // 配列にウインドウを格納する。
+    // ここは該当する要素を削除するタイミング。
     win = null
   })
 }
@@ -137,26 +140,27 @@ app.on('ready', createWindow)
 
 // 全てのウィンドウが閉じられた時に終了する
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // macOSでは、ユーザが Cmd + Q で明示的に終了するまで、
+  // アプリケーションとそのメニューバーは有効なままにするのが一般的。
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // macOSでは、ユーザがドックアイコンをクリックしたとき、
+  // そのアプリのウインドウが無かったら再作成するのが一般的。
   if (win === null) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// このファイル内には、
+// 残りのアプリ固有のメインプロセスコードを含めることができます。 
+// 別々のファイルに分割してここで require することもできます。
 ```
 
-最後に、表示させたいページを `index.html` に作成します：
+最後に、`index.html` が表示させたいウェブページです。
 
 ```html
 <!DOCTYPE html>
@@ -167,20 +171,20 @@ app.on('activate', () => {
   </head>
   <body>
     <h1>Hello World!</h1>
-    Node.js <script>document.write(process.versions.node)</script> および
+    node <script>document.write(process.versions.node)</script>、
     Chrome <script>document.write(process.versions.chrome)</script>、
     Electron <script>document.write(process.versions.electron)</script>を使用しています。
   </body>
 </html>
 ```
 
-## Running Your App
+## アプリの実行
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+最初の `main.js`、`index.html`、そして `package.json` ファイルを作成したら、アプリケーションのディレクトリから `npm start` を実行して、あなたのアプリをテストできます。
 
-## Trying this Example
+## このサンプルを試す
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+このチュートリアルのコードを [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) リポジトリからクローンして、実行してみてください。
 
 **注意**: これを実行するには[Git](https://git-scm.com)が必要です。
 
@@ -195,4 +199,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+ボイラープレートのリストと開発プロセスに弾みをつけるツールについては、[ボイラープレートとCLIのドキュメント](./boilerplates-and-clis.md) を参照してください。

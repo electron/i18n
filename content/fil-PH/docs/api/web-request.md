@@ -2,7 +2,7 @@
 
 > Pagkuha at pagbago ng mga nilalaman ng hiling at ng ibat ibang antas ng kanyang buhay.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 May ilang pagkakataon na ang `WebRequests` class ay mapupuntahan gamit ang `WebRequests` na katangian ng isang `Session`.
 
@@ -36,15 +36,15 @@ The following methods are available on instances of `WebRequest`:
 
 * `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Punsyon 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
-    * `method` String
+    * `method` na String
     * `webContentsId` Integer (optional)
     * `resourceType` Tali
     * `timestamp` Double
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+    * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `response` Bagay 
       * `cancel` Boolean (optional)
@@ -66,13 +66,13 @@ The `listener` will be called with `listener(details, callback)` before sending 
 
 * `ang mga detalye` Bagay 
   * `id` Integer
-  * `url` String
-  * `method` String
+  * `url` Tali
+  * `method` na String
   * `webContentsId` Integer (optional)
   * `resourceType` Tali
   * `timestamp` Double
   * `requestHeaders` Object
-* `callback` Ang Punsyon 
+* `callback` Function 
   * `response` Bagay 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
@@ -86,10 +86,10 @@ The `callback` has to be called with an `response` object.
 * `listener` Punsyon 
   * `ang mga detalye` Bagay 
     * `id` Integer
-    * `url` String
-    * `method` String
+    * `url` Tali
+    * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `resourceType` Tali
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -105,15 +105,15 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
 
 * `ang mga detalye` Bagay 
   * `id` Integer
-  * `url` String
-  * `method` String
+  * `url` Tali
+  * `method` na String
   * `webContentsId` Integer (optional)
-  * `resourceType` String
+  * `resourceType` Tali
   * `timestamp` Double
   * `statusLine` String
   * `statusCode` Integer
   * `responseHeaders` Object
-* `callback` na Function 
+* `callback` Ang Function 
   * `response` Bagay 
     * `cancel` Boolean
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
@@ -125,11 +125,11 @@ The `callback` has to be called with an `response` object.
 
 * `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Ang Punsyon 
+* `listener` Function 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
-    * `method` String
+    * `method` na String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
@@ -144,11 +144,11 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Ang Punsyon 
+* `listener` Function 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
-    * `method` String
+    * `method` na String
     * `webContentsId` Integer (optional)
     * `resourceType` Tali
     * `timestamp` Double
@@ -167,10 +167,10 @@ The `listener` will be called with `listener(details)` when a server initiated r
 * `listener` Function 
   * `ang mga detalye` Bagay 
     * `id` Integer
-    * `url` String
-    * `method` String
+    * `url` Tali
+    * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
@@ -183,11 +183,11 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Ang Punsyon 
+* `listener` Punsyon 
   * `ang mga detalye` Bagay 
     * `id` Integer
-    * `url` String
-    * `method` String
+    * `url` Tali
+    * `method` na String
     * `webContentsId` Integer (optional)
     * `resourceType` Tali
     * `timestamp` Double

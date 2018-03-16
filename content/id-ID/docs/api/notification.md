@@ -44,7 +44,7 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 </ul></li>
 </ul>
 
-<h3>Contoh peristiwa</h3>
+<h3>Perihal contoh</h3>
 
 <p>Objek yang dibuat dengan <code> Pemberitahuan baru </ 0> memancarkan peristiwa berikut:</p>
 
@@ -55,13 +55,13 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 <p>Returns:</p>
 
 <ul>
-<li><code>peristiwa` Peristiwa
+<li><code>event` Event
 
 Emitted saat pemberitahuan ditunjukkan kepada pengguna, perhatikan bahwa ini dapat dipecat beberapa kali karena pemberitahuan dapat ditampilkan beberapa kali melalui metode ` menunjukan() </ 0> .</p>
 
 <h4>Acara : 'klik'</h4>
 
-<p>Pengembalian:</p>
+<p>Returns:</p>
 
 <ul>
 <li><code>peristiwa` Peristiwa</li> </ul> 
@@ -85,8 +85,8 @@ is closed.</p>
 <p>Pengembalian:</p>
 
 <ul>
-<li><code>event</ 0> Acara</li>
-<li><code> balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan</li>
+<li><code>acara` Acara
+* ` balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan</li>
 </ul>
 
 <p>Emitted saat pengguna mengklik tombol "Balas" pada notifikasi dengan <code> telah di balas: benar </ 0> .</p>
@@ -96,7 +96,7 @@ is closed.</p>
 <p>Pengembalian:</p>
 
 <ul>
-<li><code>event` Acara
+<li><code>acara` Acara
 * ` masukkan </ 0>  Nomor - Indeks tindakan yang diaktifkan</li>
 </ul>
 

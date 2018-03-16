@@ -531,7 +531,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+반환:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -544,7 +544,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Returns:
+반환:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -571,7 +571,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-반환:
+Returns:
 
 * `status` Boolean
 * `newURL` String
@@ -586,7 +586,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-반환:
+Returns:
 
 * `oldURL` String
 * `newURL` String
@@ -625,7 +625,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+반환:
 
 * `level` Integer
 * `message` String
@@ -645,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Returns:
+반환:
 
 * `result` Object 
   * `requestId` Integer
@@ -668,7 +668,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-반환:
+Returns:
 
 * `url` String
 * `frameName` String
@@ -778,7 +778,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
 * PrinterInfo Object
 * `version` String

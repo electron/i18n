@@ -100,7 +100,7 @@ Emite cuando los detalles acerca de un recurso solicitado está disponible. `est
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `viejoURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -132,7 +132,7 @@ Emite cuando la página recibe urls de favicon.
 
 Devuelve:
 
-* `event` Event
+* `event` Evento
 * `url` String
 * `frameName` Cadena
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
@@ -160,7 +160,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 Devuelve:
 
 * `event` Evento
-* `url` String
+* `url` Cadena
 
 Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
 
@@ -380,7 +380,7 @@ Devuelve:
 Devuelve:
 
 * `event` Evento
-* `url` Cadena
+* `url` String
 
 Emitido cuando el mouse se mueve sobre un link o el teclado se mueve el concentrado a un link.
 
@@ -535,11 +535,11 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` String
 * `opciones` Object (opcional) 
-  * `httpReferrer` String (opcional) - Un url de HTTP referencial.
+  * `httpReferrer` Cadena (opcional) - Un url de HTTP referencial.
   * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
-  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n"
+  * `extraHeaders` String (opcional) - Cabeceras extras separadas por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opcional)
-  * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
+  * `baseURLForDataURL` Cadena (opcional) - url base (con arrastrar separadores de camino) para archivos a ser cargados por la data del url. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Carga el `url` en la ventana. El `url` debe contener el prefijo de protocolo. Por ejemplo `http://` o `file://`. Si la carga debe omitir el caché http entonces hay que utilizar el encabezado `pragma` para lograrlo.
 
@@ -644,11 +644,11 @@ Navigates browser to the specified absolute web page index.
 
 * `offset` Íntegro
 
-Navega hacia el offset especificado desde "la entrada actual".
+Navega a la compensación especifica desde la "entrada actual".
 
 #### `contents.isCrashed()`
 
-Devuelve `Boolean` - Si el proceso de renderizado ha fallado.
+Devuelve `Boolean` - Aunque el proceso del renderizador se haya arruinado.
 
 #### `contents.setUserAgent(userAgent)`
 
@@ -669,7 +669,7 @@ Inserta CSS en la página web actual.
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `codigo` String
-* `userGesture` Boolean (opcional) - Por de `false`.
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
@@ -677,7 +677,7 @@ Devolver `Promesa`: una promesa se resuelve con el resultado del código ejecuta
 
 Evalúa el `código` en la página.
 
-En la ventana del buscador, algunas APIs HTML como `requestFullScreen` solo pueden ser invocadas por un gesto del usuario. Configurar `userGesture` a `true` eliminará esta limitación.
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
 Si el resultado del código ejecutado es un compromiso, el callback resultante será el valor resuelto del compromiso. Se recomienda utilizar el compromiso devuelto para manejar el código que resulte en un Compromiso.
 
@@ -769,8 +769,8 @@ Ejecuta el comando de edición `copy` en la página web.
 
 #### `contents.copyImageAt(x, y)`
 
-* `x` Íntegro
-* `y` Integer
+* `x` Integer
+* `y` Íntegro
 
 Copia la imagen en la posición determinada al portapapeles.
 
@@ -796,7 +796,7 @@ Ejecuta el comando de edición `unselect` en la página web.
 
 #### `contents.replace(text)`
 
-* `texto` Cadena
+* `texto` String
 
 Ejecuta el comando de edición `replace` en la página web.
 
@@ -808,18 +808,18 @@ Ejecuta el comando de edición `replaceMisspelling` en página web.
 
 #### `contents.insertText(text)`
 
-* `texto` String
+* `texto` Cadena
 
-Inserta `texto` al elemento centrado.
+Inserta `texto` en el elemento enfocado.
 
 #### `contents.findInPage(text[, options])`
 
 * `text` String - El contenido para ser buscado, no debe quedar en blanco.
-* `opciones` Objecto (opcional) 
-  * `forward` Boolean - (opcional) Aunque busques adelante o hacia atrás, por defecto a `true`.
+* `opciones` Object (opcional) 
+  * `forward` Boolean - (opcional) Si buscar hacia adelante o hacia atrás. Por defecto es `true`.
   * `findNext` Boolean - (optional) Si la operación se solicita de primero o después. Por defecto es `false`.
   * `matchCase` Boolean - (optional) Si la búsqueda es en mayúsculas o minúsculas. Por defecto es `false`.
-  * `wordStart` Boolean - (optional) Si solo se desea ver al comienzo de las palabras. Por defecto es `false`.
+  * `wordStart` Boolean - (opcional) Aunque mires solo al principio de las palabras.. Por defecto a `falso`.
   * `medialCapitalAsWordStart` Boolean - (opcional) Cuando se combina con `wordStart`, acepta una coincidencia en el medio de una palabra si la coincidencia comienza con una letra mayúscula seguida de una minúscula o algún caracter que no se letra. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
 Returns `Integer` - The request id used for the request.
@@ -893,7 +893,7 @@ Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza un
 * `opciones` Object 
   * `marginsType` Íntegro (opcional) Especifica el tipo de márgenes a usar. Usa por defecto el margen 0, 1 para ningún margen y 2 para el margen mínimo.
   * `pageSize` String - (opcional) Especifica el tamaño de la página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height` y `width` en micron.
-  * `printBackground` Boolean - (opcional) Si se imprime o no los fondos CCS.
+  * `printBackground` Boolean - (opcional) Aunque imprima fondos CSS.
   * `printSelectionOnly` Boolean - (opcional) Aunque imprima solo la selección.
   * `landscape` Boolean - (opcional) `true` para paisajes, `false` para retratos.
 * `callback` Función 
@@ -962,7 +962,7 @@ Elimina la ruta especificada del espacio de trabajo de DevTools.
 
 #### `contents.openDevTools([options])`
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado de dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
 
 Abre las herramientas del desarrolador.
@@ -1146,7 +1146,7 @@ Configura el tamaño de la página. Esto sólo es compatible con el `<webview>` 
 
 * `opciones` Object 
   * `normal` Object (opcional) - Tamaño normal de la página. Esto también se puede utilizar en combinación con el [`disableguestresize`](web-view-tag.md#disableguestresize) atributo para redimensionar manualmente el contenido de invitado en la vista web. 
-    * `ancho` Entero
+    * `width` Integer
     * `alto` Entero
 
 #### `contents.isOffscreen()`

@@ -51,7 +51,7 @@ El proceso principal lo maneja al escuchar por el `canal` con `ipcMain` módulo.
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
 * `channel` Cadena
-* `...args` any[]
+* `...args` cualquiera[]
 
 Devuelve `any` - El valor enviado de vuelta por el controlador [`ipcMain`](ipc-main.md).
 

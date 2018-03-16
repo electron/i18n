@@ -41,7 +41,7 @@ Si vous n'être pas abonné à cet événement et que toutes les fenêtres sont 
 
 Renvoie :
 
-* `event` Event
+* `event` Événement
 
 Émis avant que l'application ferme ses fenêtres. Appeler `event.preventDefault()` permet de stopper le comportement par défaut, qui quitte l'application.
 
@@ -51,7 +51,7 @@ Renvoie :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 
 Émis quand toutes les fenêtres ont été fermées et que l'application va se fermer. Appeler `event.prevendDefault()` permet de stopper le comportement par défaut, qui quitte l'application.
 
@@ -124,7 +124,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `error` String - Une chaîne de caractères avec la description localisée de l'erreur.
 
@@ -250,7 +250,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `request` Objet 
   * `method` String
@@ -292,7 +292,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `accessibilitySupportEnabled` Boolean - `true` quand le support de l'accessibilité de Chrome est activé, sinon `false`.
 
 Émis lorsque le support de l’accessibilité du Chrome change. Cet événement se déclenche lorsque les technologies d’assistance, tels que les lecteurs d’écran sont activés ou désactivés. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.

@@ -82,7 +82,7 @@ Paggamit ng mga `autoUpdater` bilang isang halimbawa:
 * Lahat ng mga pamamaraan na magkaroon ng isang pagbalik na halaga ay dapat nagsimula ng kanilang deskripsyon sa "Returns `[TYPE]` -Bumalik sa deskrpsyon" 
   * Kung ang paraan na ito ay nagbabalik ng isang `bagay`. ng istraktura nito ay tinukoy gamit ang isang colon kasunod ng newline at ang unordered na listahan ng mga katangian sa parehong estilo bilang function ng mga parameters.
 * Ang mga Kaganapan ng Instance ay dapat na nakalista sa ilalim ng kabanata ng `### Instance Events `.
-* Instance Properties ay dapat nakalista sa ilalim ng isang `### Instance Properties` kabanata. 
+* Instance Properties ay dapat nakalista sa ilalim ng isang `### Katangian ng pagkakataon` kabanata. 
   * Instance properties ay dapat nagsimula ng "A [Property Type] ..."
 
 Gamit ang `Session`at`Cookies`classes bilang halimbawa:
@@ -92,7 +92,7 @@ Gamit ang `Session`at`Cookies`classes bilang halimbawa:
 ### Mga Halimbawa ng Pamamaraan #### `ses.getCacheSize (callback)` ### Instance Properties #### `ses.cookies` ## Klase: Mga Cookies ### Mga Halimbawa ng Pamamaraan #### `cookies.get (filter, callback)`
 ```
 
-### Methods
+### Mga Paraan
 
 Ang pamamaraan ng kabanata ay dapat nasa sumusunod na form:
 
@@ -116,7 +116,7 @@ Sa ibaba ng paraan ay mas detalyadong impormasyon sa bawat isa sa mga argumento.
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Bilang`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Bagay`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * O isang pasadyang uri tulad ng elektron [`WebContent`](api/web-contents.md)
@@ -143,7 +143,7 @@ Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamar
 
 Ang mga argumento ng isang pangyayaring sundin ang parehong patakaran bilang pamamaraan.
 
-### Properties
+### Mga Katangian
 
 Ang mga katangian ng kabanata ay dapat nasa sumusunod na form:
 

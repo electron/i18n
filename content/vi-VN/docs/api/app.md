@@ -838,7 +838,7 @@ Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
-* `id` Integer
+* `id` Số nguyên
 
 Cancel the bounce of `id`.
 

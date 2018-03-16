@@ -2,7 +2,7 @@
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -56,13 +56,13 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Eventi dell'istanza
 
 The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-* `evento` Evento
+* `event` Evento
 * `item` [DownloadItem](download-item.md)
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
 

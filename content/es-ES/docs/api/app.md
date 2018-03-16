@@ -70,7 +70,7 @@ Emitido cuando la aplicación está saliendo.
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `path` Cadena
 
 Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y que el sistema operativo quiere reusar que la aplicación abra el archivo. `open-file` también es emitido cuando el archivo es arrojado dentro del dock y la aplicación no está corriendo todavía. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para controlar este caso (incluso antes de que el evento `ready` esté emitido).
@@ -103,7 +103,7 @@ Emitido cuando la aplicación está activada. Varias acciones puede activar este
 
 Devuelve:
 
-* `event` Event
+* `event` Evento
 * `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Objecto - Contiene el estado específico de la aplicación almacenado por la actividad de otro artefacto.
 
@@ -200,7 +200,7 @@ Devuelve:
 
 * `event` Evento
 * `Contenidosweb` [Contenidosweb](web-contents.md)
-* `url` Cadena
+* `url` String
 * `error` cadena - el error del código
 * `certificate` [certificate](structures/certificate.md)
 * `callback` Función 
@@ -319,7 +319,7 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los ev
 
 ### `app.relaunch([options])`
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `args` Cadena[] - (opcional)
   * `execPath` Cadena (opcional)
 
@@ -389,7 +389,7 @@ Usted puede pedir las siguientes direcciones por nombre:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `size` String 
     * `pequeño` - 16x16
     * `normal` - 32x32
@@ -722,7 +722,7 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `path` Cadena (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
   * `args` Cadena[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
 
@@ -811,7 +811,7 @@ Adjuntar un argumento a la línea de comando de Chromium. El argumento será cit
 
 Permite modo sandbox mezclado en la aplicación.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
@@ -849,7 +849,7 @@ Rebota la apilación de descargas si el archivo de camino está dentro de la car
 
 ### `app.dock.setBadge(text)` *macOS*
 
-* `texto` Cadena
+* `texto` String
 
 Establece la cadena para ser mostrada en el área de insignia del punto.
 

@@ -56,7 +56,7 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Eventos de instância
 
 The following events are available on instances of `Session`:
 

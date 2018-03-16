@@ -90,7 +90,7 @@ const app = kailangan('electron').remote.app
 console.log(app)
 ```
 
-## Pamamaraan
+## Mga Paraan
 
 Ang modyul ng `remote` ay mayroon ng mga sumusunod na pamamaraan:
 

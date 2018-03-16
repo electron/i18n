@@ -4,9 +4,9 @@ Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) AP
 
 这不意味着 Electron 是绑定了 (GUI) 库的 JavaScript。 相反，Electron 使用 web 页面作为它的 GUI，所以你能把它看作成一个被 JavaScript 控制的，精简版的 Chromium 浏览器。
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+** 注意 **: 此示例还有可用的仓库, 您可以 [ 立即下载并运行 ](#trying-this-example)。
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+从开发的角度来看, Electron application 本质上是一个 Node. js 应用程序。 The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
 ```text
 your-app/
@@ -15,7 +15,7 @@ your-app/
 └── index.html
 ```
 
-为你的新Electron应用创建一个新的空文件夹。 Open up your command line client and run `npm init` from that very folder.
+为你的新Electron应用创建一个新的空文件夹。 打开你的命令行工具，然后从该文件夹运行`npm init`
 
 ```sh
 npm init
@@ -67,7 +67,7 @@ npm install --save-dev electron
 
 Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
 
-## Electron Development in a Nutshell
+## 开发一个简易的 Electron
 
 Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
 
@@ -79,6 +79,8 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
+const path = require('path')
+const url = require('url')
 
 function createWindow () {
   // Create the browser window.
@@ -173,7 +175,7 @@ app.on('activate', () => {
 </html>
 ```
 
-## Running Your App
+## 启动你的应用
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 

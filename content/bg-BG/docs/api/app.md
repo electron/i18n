@@ -2,7 +2,7 @@
 
 > Контролира жизнения цикъл със събития на вашето приложение.
 
-Процес: [Main / Главен](../glossary.md#main-process)
+Процеса: [основни](../glossary.md#main-process)
 
 Следния пример показва как да излезем от приложението, когато последния прозорец се затвори:
 
@@ -41,7 +41,7 @@ app.on('window-all-closed', () => {
 
 Връща:
 
-* `event` Сътитие
+* `event` Събитие
 
 Излъчва се преди приложението да започне да затваря всички те си прозорци. Изпълнявайки `event.preventDefault()` ще предотврати поведението по подразбиране, което е терминиране на приложението.
 
@@ -230,7 +230,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Функция 
   * `certificate` [Certificate](structures/certificate.md) (по избор)
 
 Излъчено, когато е поискан клиентски сертификат.
@@ -262,7 +262,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Функция 
   * `username` String
   * `password` String
 
@@ -319,7 +319,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### `app.relaunch([options])`
 
-* `options` Object (по избор) 
+* `опции` Object (по избор) 
   * `args` String[] - (по избор)
   * `execPath` String (по избор)
 
@@ -362,7 +362,7 @@ app.exit(0)
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` String - Име
 
 Връща `String` - Път към специална папка или файл, асоцииран с `name`. При грешка бива хвърлен `Error`.
 
@@ -389,7 +389,7 @@ app.exit(0)
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (по избор) 
+* `опции` Object (по избор) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -409,7 +409,7 @@ app.exit(0)
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` String - Име
 * `path` String
 
 Презаписва стойността на `path` към специална папка или файл свързан с `name`. Ако пътят определя директория, която не съществува, директорията ще бъде създаден от този метод. При неуспех `Error` е хвърлена.
@@ -430,7 +430,7 @@ app.exit(0)
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` String - Име
 
 Замества името на текущото приложение.
 
@@ -669,10 +669,10 @@ app.on('ready', () => {
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `опции` Object 
   * `certificate` String - Път към файла pkcs12.
   * `password` String - Паролата на сертификата.
-* `callback` Function 
+* `обратно повикване` Функция 
   * `result` Integer - Резултата на импортирането.
 
 Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` е извикана с `result` от импортиращата операция, стойност от `` показва успех, докато всяка друга стойност показва провал следващ chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -782,7 +782,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Object 
+* `опции` Object 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.

@@ -5,7 +5,7 @@
 Quá trình: [Main](../glossary.md#main-process)
 
 ```javascript
-// Trong main process.
+// Trong tiến trình main.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -393,7 +393,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### Các phương thức chung
 
 The `BrowserWindow` class has the following static methods:
 
@@ -419,7 +419,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Integer
+* `id` Số nguyên
 
 Returns `BrowserWindow` - The window with the given `id`.
 
@@ -482,7 +482,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Các Thuộc Tính
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -503,7 +503,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Các phương thức riêng
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -1166,11 +1166,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Đang thử nghiệm*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Đang thử nghiệm*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 

@@ -1,10 +1,10 @@
-## Class: TouchBarGroup
+## Classe: Gruppo Barra di Tocco
 
-> Create a group in the touch bar for native macOS applications
+> Crea un gruppo nella barra di tocco per applicazioni macOS native
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processo: [Principale](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarGroup(options)` *Experimental*
+### `nuovo GruppoBarraTocco(opzioni)` *Sperimentale*
 
 * `opzioni` Oggetto 
-  * `items` [TouchBar](touch-bar.md) - Items to display as a group.
+  * `elementi` [BarraTocco](touch-bar.md) - Elementi da mostrare come un gruppo.

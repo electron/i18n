@@ -177,36 +177,35 @@ Calling `event.preventDefault()` will prevent the navigation.
 Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
-<li><code> URL </ 0>  Zeichenfolge</li>
-</ul>
+<li><code>url` String
 
-<p>Emitted when a navigation is done.</p>
+Emitted when a navigation is done.
 
-<p>This event is not emitted for in-page navigations, such as clicking anchor links
-or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
-  #### Event: 'did-navigate-in-page'
-  
-  Rückgabewert:
-  
-  * ` Ereignis </ 0>  Ereignis</li>
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+
+#### Event: 'did-navigate-in-page'
+
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
 <li><code> URL </ 0>  Zeichenfolge</li>
 <li><code>isMainFrame` Boolean
-  
-  Emitted when an in-page navigation happened.
-  
-  When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
-  
-  #### Event: 'will-prevent-unload'
-  
-  Rückgabewert:
-  
-  * ` Ereignis </ 0>  Ereignis</li>
+
+Emitted when an in-page navigation happened.
+
+When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+
+#### Event: 'will-prevent-unload'
+
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
 </ul>
 
 <p>Emitted when a <code>beforeunload` event handler is attempting to cancel a page unload.</p> 
-    Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
-    
-    ```javascript
+  Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+  
+  ```javascript
 const {BrowserWindow, dialog} = require('electron')
 const win = new BrowserWindow({width: 800, height: 600})
 win.webContents.on('will-prevent-unload', (event) => {
@@ -452,7 +451,7 @@ Rückgabewert:
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Funktion 
-  * `GeräteName` Zeichenfolge
+  * `GeräteID` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 

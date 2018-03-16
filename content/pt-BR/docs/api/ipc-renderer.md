@@ -44,7 +44,7 @@ Removes all listeners, or those of the specified `channel`.
 * `channel` String
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Argumentos serão serializados em JSON internamente e, portanto, nenhuma função ou cadeia de protótipo será incluída.
 
 The main process handles it by listening for `channel` with `ipcMain` module.
 

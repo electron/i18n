@@ -8,7 +8,7 @@ Quá trình: [Main](../glossary.md#main-process)
 
 Creates a new menu.
 
-### Static Methods
+### Các phương thức chung
 
 The `menu` class has the following static methods:
 
@@ -46,7 +46,7 @@ Generally, the `template` is just an array of `options` for constructing a [Menu
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Instance Methods
+### Các phương thức riêng
 
 The `menu` object has the following instance methods:
 
@@ -86,7 +86,7 @@ Returns `MenuItem` the item with the specified `id`
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Instance Properties
+### Các Thuộc Tính
 
 `menu` objects also have the following properties:
 

@@ -87,7 +87,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
-    * `method` String
+    * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
@@ -99,7 +99,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 
 * `filter` Object - (optional) 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
-* `listener` fonksiyon
+* `listener` Fonksiyon
 
 İsteklerin HTTP cevap başlıkları alındığında `listener` `listener(details, callback)` ile birlikte çağırılacak.
 
@@ -129,7 +129,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
-    * `method` String
+    * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double

@@ -75,7 +75,7 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `reply` Cadena - La cadena que ingreso el usuario dentro del campo de respuesta insertado
 
 Se emite cuando el usuario hace clic en el botón "Reply" en una notificación con `hasReply: true`.

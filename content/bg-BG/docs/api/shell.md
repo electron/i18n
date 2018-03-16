@@ -37,7 +37,7 @@ Open the given file in the desktop's default manner.
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String - max 2081 characters on windows, or the function returns false
-* `options` Object (optional) *macOS* 
+* `опции` Object (по избор) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `обратно повикване` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error

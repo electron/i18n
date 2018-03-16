@@ -103,7 +103,7 @@ Efface le cache HTTP de la session.
   * `origin` String - (optionnel) Devrait suivre la représentation de `window.location.origin` : `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optionnel) Le type de quotas à vider, peut contenir: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
+* `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée.
 
 Efface les données de stockage du web.
 
@@ -117,7 +117,7 @@ Writes any unwritten DOMStorage data to disk.
   * `pacScript` String - The URL associated with the PAC file.
   * `proxyRules` String - Rules indicating which proxies to use.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+* `callback` Function - Appelée lorsque l’opération est effectuée.
 
 Indique les paramètres de proxy.
 
@@ -328,7 +328,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée
+* `callback` Function (optionnel) - Appelée quand l'opération est terminée
 
 Vide le cache d'authentification HTTP de la session.
 

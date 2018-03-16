@@ -236,7 +236,7 @@ Emitted when the renderer process crashes or is killed.
 Returns:
 
 * `event` Event
-* `name` String
+* اسم الجهاز
 * `version` String
 
 Emitted when a plugin process has crashed.

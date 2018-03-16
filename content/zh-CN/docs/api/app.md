@@ -203,7 +203,7 @@ app.on('window-all-closed', () => {
 * `url` String
 * `error` String - 错误码
 * `certificate` [证书](structures/certificate.md)
-* `callback` Function 
+* `callback` Function - 回调函数 
   * ` isTrusted `Boolean-是否将证书视为可信的
 
 当对 `url` 的 `certificate` 证书验证失败的时候发出。如果需要信任这个证书，你需要阻止默认行为 `event.preventDefault()` 并且调用 `callback(true)`。
@@ -230,7 +230,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [证书[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `certificate` [证书](structures/certificate.md) (可选)
 
 当一个客户证书被请求的时候发出。
@@ -394,7 +394,7 @@ app.exit(0)
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - *Linux*上是 48x48, *Windows* 上是 32x32, *macOS* 中无效
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -508,7 +508,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 ### `app.getJumpListSettings()` *Windows*
 
-返回 `Object`:
+返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - `JumpListItem` 对象组成的数组，对应用户在跳转列表中明确删除的项目。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
@@ -729,7 +729,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置正确的参数。
 
-返回 ` Object `:
+返回 `Object`:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
 * ` openAsHidden ` Boolean - 如果应用程序在登录时设置为隐藏, 则为 ` true `。此设置仅在 macOS 上支持。

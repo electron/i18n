@@ -53,11 +53,11 @@ Zwraca:
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitowane gdy wszystkie okna zostają zamknięte oraz gdy aplikacja się zamyka. Odwołanie do `event.preventDefault()` zapobiegnie domyślnemu zachowaniu, które zamyka aplikacje.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+Zobacz opisy `window-all-closed` zdarzeń oraz rózice między zdarzeniami `will-quit` i `window-all-closed`.
 
-### Event: 'quit'
+### Zdarzenie: 'quit'
 
 Zwraca:
 
@@ -203,7 +203,7 @@ Zwraca:
 * `url` String
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Funkcja 
+* `callback` Function 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
 
 Emitowany gdy nie powiedzie się weryfikacja certyfikatu `certificate` dla `url`, aby certyfikat przeszedł weryfikację powinieneś zapobiec domyślnemu zachowaniu aplikacji przy pomocy `event.preventDefault()` i wywołać `callback(true)`.
@@ -230,7 +230,7 @@ Zwraca:
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Funkcja 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
 Emitowane, kiedy certyfikat klienta jest wymagany.
@@ -262,7 +262,7 @@ Zwraca:
   * `host` String
   * `port` Integer
   * `dziedzina` String
-* `callback` Funkcja 
+* `callback` Function 
   * `Nazwa użytkownika` String
   * `Hasło` String
 
@@ -394,7 +394,7 @@ Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
-* `callback` Funkcja 
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -593,7 +593,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Funkcja 
+* `callback` Function 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
@@ -672,7 +672,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `options` Obiekt 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Funkcja 
+* `callback` Function 
   * `result` Integer - Result of import.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).

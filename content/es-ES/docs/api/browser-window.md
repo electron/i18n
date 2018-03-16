@@ -232,7 +232,7 @@ Devuelve:
 
 Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie.
 
-#### Evento: 'close'
+#### Evento: "close"
 
 Devuelve:
 
@@ -655,8 +655,8 @@ Devuelve `Integer[]` - Contiene la anchura y altura de la ventana.
 
 #### `win.setContentSize(width, height[, animate])`
 
-* `ancho` Integer
-* `alto` Integer
+* `width` Integer
+* `height` Integer
 * `animate` Boolean (opcional) *macOS*
 
 Cambia el área del cliente de la ventana (por ejemplo, la página web) a la `width` y `height`.
@@ -668,7 +668,7 @@ Devuelve `Integer[]` - Contiene la anchura y altura del área del cliente de la 
 #### `win.setMinimumSize(width, height)`
 
 * `ancho` Entero
-* `alto` Entero
+* `alto` Integer
 
 Establece el tamaño mínimo de la ventana a `width`y `height`.
 
@@ -678,8 +678,8 @@ Devuelve `Integer[]` - Contiene la anchura y altura mínima de la ventana.
 
 #### `win.setMaximumSize(width, height)`
 
-* `ancho` Entero
-* `alto` Integer
+* `width` Integer
+* `alto` Entero
 
 Establece el tamaño máximo de la ventana a `width`y `height`.
 
@@ -773,7 +773,7 @@ Mueve la ventana al centro de la pantalla.
 
 #### `win.setPosition(x, y[, animate])`
 
-* `x` Íntegro
+* `x` Integer
 * `y` Íntegro
 * `animate` Boolean (opcional) *macOS*
 
@@ -895,13 +895,13 @@ Es igual a `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
-* `url` String
+* `url` Cadena
 * `opciones` Objecto (opcional) 
-  * `httpReferrer` String (opcional) - Un url de HTTP referencial.
+  * `httpReferrer` Cadena (opcional) - Un url de HTTP referencial.
   * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
   * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opcional)
-  * `baseURLForDataURL` Cadena (opcional) - url base (con arrastrar separadores de camino) para archivos a ser cargados por la data del url. Esto es necesitado únicamente si el `url` especificado es data de url y necesia cargar otros archivos.
+  * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Es igual a `webContents.loadURL(url[, options])`.
 
@@ -944,7 +944,7 @@ Establece el `menú` como la barra del menú de la ventana, estableciéndolo a `
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `mode` String *Windows* - Modo para la barra de progreso. Puede ser `none`, `normal`, `indeterminate`, `error`, o `paused`.
 
 Establece el valor del progreso en la barra de progreso. El rango válido es [0, 1.0].
@@ -1019,7 +1019,7 @@ Establece la región de la ventana para mostrar como la vista previa de la image
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
-* `toolTip` Cadena
+* `toolTip` String
 
 Configura la descripción emergente que se muestra cuando se pasa sobre la vista previa de la ventana en la barra de tareas.
 

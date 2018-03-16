@@ -2,7 +2,7 @@
 
 > I-monitor ang mga pagbabago sa estado ng power.
 
-Process: [Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
 

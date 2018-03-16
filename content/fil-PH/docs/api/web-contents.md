@@ -2,7 +2,7 @@
 
 > Ibigay at kontrolin ang mga web page.
 
-Proseso: [Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 `WebContents ` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ito ay responsable sa pag-render at pagkontrol sa isang web page at bagay na ari-arian ng [`BrowserWindow`](browser-window.md). Isang halimbawa ng pag-access sa `webContents` bagay:
 
@@ -43,7 +43,7 @@ Ibinabalik ang `WebContents` - Halimbawa ng WebContents na may ibinigay na ID.
 
 > Ibigay at kontrolin ang mga nilalaman na halimbawa ng BrowserWindow.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 ### Halimbawa ng mga Event
 
@@ -53,9 +53,9 @@ Binubuwag kapag ang nabigasyon ay tapos na, i.e. ang spinner ng tab ay tumigil U
 
 #### Event: 'did-fail-load'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `event` na Pangyayari
+* `event` na Kaganapan
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -65,7 +65,7 @@ Ang kaganapang ito ay tulad ng `did-finish-load` ngunit inilalabas kapag nabigo 
 
 #### Event: 'did-frame-finish-load'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `event` na Pangyayari
 * `ay pangunahing kuwadro` Boolean
@@ -98,7 +98,7 @@ Pinapalabas kapag may mga detalye tungkol sa hiniling na mapagkukunan at magagam
 
 #### Event: 'did-get-redirect-request'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `oldURL` String
@@ -113,7 +113,7 @@ Pinapalabas kapag natanggap ang pag-redirect habang humihiling ng mapagkukuhanan
 
 #### Event: 'dom-ready'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `event` Event
 
@@ -121,7 +121,7 @@ Napalabas kapag ang dokumento na ibinigay sa frame ay na-load.
 
 #### Event: 'page-favicon-updated'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `event` Event
 * `favicons` String[] - Hanay ng mga URL
@@ -130,10 +130,10 @@ Pinapalabas kapag natanggap ng pahina ang mga url ng favicon.
 
 #### Event: 'new-window'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
-* `url` String
+* `kaganapan` kaganapan
+* `url` Tali
 * `frameName` String
 * `disposition` String- Pwedeng `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `mga pagpipilian` Object - Ang mga pagpipilian na gagamitin para sa paglikha ng bagong `BrowserWindow`.
@@ -157,10 +157,10 @@ myBrowserWindow.webContents.on('bagong-window', (event, url) => {
 
 #### Event: 'will-navigate'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
-* `url` String
+* `kaganapan` kaganapan
+* `url` Tali
 
 Ilabas kapang ang user o ang mismong page ay gustong magsimula ng nabigasyon. Ito'y pwedeng mangyari kapag ang `window.location` ng objek ay nabago o ang kiniclick ng user ang link sa page.
 
@@ -172,10 +172,10 @@ Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang nabigasyon.
 
 #### Event: 'did-navigate'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
-* `url` String
+* `url` Tali
 
 Nilalabas kapag natapos na ang nabigasyon.
 
@@ -183,7 +183,7 @@ Ang event na ito ay hindi ilalabas habang nasa nabigasyon sa loog ng page, gaya 
 
 #### Event: 'did-navigate-in-page'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `url` Tali
@@ -195,9 +195,9 @@ Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero 
 
 #### Kaganapan: 'will-prevent-unload'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 
 Naipalalabas kapag ang `beforeunload` ay sinusubukan ng tagahawak ng kaganapan na kanselahin ang pag-unload ng pahina.
 
@@ -224,16 +224,16 @@ manalo.webContents.on('will-prevent-unload', (kaganapan) => {
 
 #### Event: 'crashed'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `killed` Ang Boolean
 
 Lumalabas kapag ang proseso ng tagapag-render ay nasira o pinatay.
 
 #### Event: 'plugin-crashed'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `name` String
@@ -247,7 +247,7 @@ Nagpapalabas kapag ang `webContents` ay nawasak.
 
 #### Kaganapan: 'bago-input-kaganapan'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `input` Bagay - Input properties 
@@ -290,13 +290,13 @@ Ilabas kapag ang mga DevTool ay napukos / nabuksan.
 
 #### Mga event: 'certificate-error'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `url` Tali
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
-* `mulingtawag` Function 
+* `mulingtawag` Punsyon 
   * `isTrusted` Boolean - ay nagpapahiwatig kung ang sertipiko ay maaaring ituring na pinagkakatiwalaan
 
 Naipalalabas kapag nabigo upang i-verify ang `sertipiko` para sa `url`.
@@ -305,9 +305,9 @@ Ang paggamit ay pareho sa [ang kaganapan `certificate-error` ng `app` ](app.md#e
 
 #### Event: 'select-client-certificate'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Punsyon 
@@ -319,20 +319,20 @@ Ang paggamit ay pareho sa [ang kaganapan `piliin-client-sertipiko`ng `app`](app.
 
 #### Event: 'login'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `event` Ang event
 * `kahilingan` Bagay 
-  * `method` String
+  * `method` na String
   * `url` Ang URL
   * `referrer`Ang URL
 * `ang authInfo` Bagay 
   * `isProxy` Ang Boolean
-  * `scheme` Ang string
+  * `scheme` na String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Punsyon 
   * `username` String
   * `password` String
 
@@ -342,7 +342,7 @@ Ang paggamit ay pareho sa [ang kaganapan `login` ng `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `resulta` Bagay 
@@ -370,23 +370,23 @@ Naipalalabas kapag nagbago ang kulay ng tema ng pahina. Ito ay kadalasan dahil s
 <meta name='theme-color' content='#ff0000'>
 ```
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `kulay` (String | null) - Ang kulay ng tema ay nasa format na '#rrggbb'. Ito ay `null` kapag walang kulay ng tema na naka-set.
 
 #### Event: 'update-target-url'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
-* `url` String
+* `kaganapan` kaganapan
+* `url` Tali
 
-Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.
+Ilabas kapag ang mouse ay napunta sa link o ang keyboard ay nagalaw ang pukos sa link.
 
 #### Kaganapan: 'cursor-changed'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `uri` Pisi
@@ -401,7 +401,7 @@ Kung ang `uri` ng parameter ay `pasadya`, ang `imahe` ng parameter ang hahawak s
 
 #### Kaganapan: 'context-menu'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `params` Bagay 
@@ -443,7 +443,7 @@ Lumabas kapag mayroong isang bagong menu ng konteksto na kailangang hawakan.
 
 #### Kaganapan: 'select-bluetooth-device'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `Mga aparato` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -473,7 +473,7 @@ app.on ('handa', () => {
 
 #### Kaganapan: 'pintura'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `dirtyRect` [Parihaba](structures/rectangle.md)
@@ -496,9 +496,9 @@ Binubuwag kapag ang window ng devtools ay nagtuturo sa webContents na kargahan m
 
 #### Kaganapan: 'naisin-isama-webview'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `webPreferences` Layunin - Ang mga kagustuhan sa web na gagamitin ng bisita ng pahina. Ang bagay na ito ay maaaring mabago upang ayusin ang mga kagustuhan para sa bisita ng pahina.
 * `params` Layunin - Ang iba pang mga `<webview>` parameter tulad ng `src` URL. Ang bagay na ito ay maaaring baguhin upang ayusin ang mga parameter ng pahina ng bisita.
 
@@ -510,7 +510,7 @@ Maaaring gamitin ang kaganapang ito upang i-configure ang `webPreferences` para 
 
 #### Kaganapan: 'ginawa-ilakip-webview'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `WebContents` WebContents - Ang mga nilalaman ng bisita ng web na ginagamit ang `<webview>`.
@@ -532,8 +532,8 @@ Pinapalabas kapag nag-log ang nauugnay na window sa isang mensahe ng console. Hi
 
 #### `contents.loadURL(url[, mga pagpipilian])`
 
-* `url` String
-* `options` Mga bagay (opsyonal) 
+* `url` Tali
+* `options` Bagay (opsyonal) 
   * `httpReferrer` Pisi (opsyonal) - Isang HTTP Referrer url.
   * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
   * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
@@ -597,7 +597,7 @@ Ibinabalik `Boolean` - Kung naghihintay ang pahina ng web para sa unang tugon mu
 
 #### `mga nilalaman.ihinto()`
 
-Nagtitigil ng anumang nakabingbing na nabigasyon.
+Hinihinto ang anumang nakabinbing nabigasyon.
 
 #### `mga nilalaman.reload()`
 
@@ -661,7 +661,7 @@ Ibinabalik`Pisi` - Ang ahenteng gumagamit para sa pahina ng web na ito.
 
 #### `mga nilalaman.insertCSS(css)`
 
-* `css` Pisi
+* `css` String
 
 Mga pagturok ng CSS sa kasalukuyang pahina ng web.
 
@@ -670,7 +670,7 @@ Mga pagturok ng CSS sa kasalukuyang pahina ng web.
 * `code` String
 * `userGesture` Boolean (opsyonal) - Default ay `huwad`.
 * `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
-  * `result` Any
+  * `resulta` Anuman
 
 Ibinabalik ang mga `Pangako` - Ang isang pangako na lumulutas sa resulta ng naipatupad na code o tinanggihan kung ang resulta ng code ay isang tinanggihang pangako.
 
@@ -706,7 +706,7 @@ Bumalik `Boolean` - Kung naka-mute ang pahinang ito.
 
 #### `mga nilalaman.setZoomFactor(kadahilanan)`
 
-* `kadahilanan`Numero - Zoom factor.
+* `factor` Numero - paktor ng zoom.
 
 Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay porsiyento ng zoom na hinati sa 100, so 300% = 3.0.
 
@@ -848,21 +848,21 @@ console.log(requestId)
 #### `mga nilalaman.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin
-* `tumawag muli` Punsyon 
+* `callback` Punsyon 
   * `imahe` [NativeImage](native-image.md)
 
 Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. Ang `imahe` ay isang halimbawa ng [NativeImage](native-image.md) na nag-iimbak ng data ng snapshot. Umupo `rect` ay kukunin ang buong nakikitang pahina.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Ang Punsyon 
+* `callback` Punsyon 
   * `hasWorker` Boolean
 
 Sinusuri kung ang anumang ServiceWorker ay nakarehistro at nagbabalik ng isang boolean bilang tugon sa `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Ang Punsyon 
+* `callback` Function 
   * `tagumpay` Boolean
 
 Unregister ang anumang ServiceWorker kung kasalukuyan at nagbabalik ng isang boolean bilang tugon sa `callback` kapag ang pangako ng JS ay natupad o hindi totoo kapag ang pangako ng JS ay tinanggihan.
@@ -875,7 +875,7 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `mga nilalaman.print([options], [callback])`
 
-* `mga opsyon` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
@@ -886,7 +886,7 @@ Nagpiprint ng pahina ng web sa mga window. Kapag ang `tahimik` ay naka-set sa `t
 
 Pagtawag sa `window.print()` sa pahina ng web ay katumbas ng pagtawag sa `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
 
-Gamitin ang `pahina-pahinga-bago: laging;` istilo ng CSS upang pilitin na i-print sa isang bagong pahina.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
@@ -896,7 +896,7 @@ Gamitin ang `pahina-pahinga-bago: laging;` istilo ng CSS upang pilitin na i-prin
   * `printBackground` Boolean - (opsyonal) Pwedeng i-imprinta ang mga background ng CSS.
   * `printSelectionOnly` Boolean - (opsyonal) Pwedeng i-imprinta ang mga napili lamang.
   * `landscape` Boolean - (opsyonal) `true` para sa landscape, `false` para sa portrait.
-* `callback` Ang Punsyon 
+* `callback` Punsyon 
   * `error` Error
   * `data` Buffer
 
@@ -917,7 +917,7 @@ Bilang default, ang isang walang laman na `mga pagpipilian` ay itinuturing na:
 }
 ```
 
-Gamitin ang `pahina-pahinga-bago: laging;` istilo ng CSS upang pilitin na i-print sa isang bagong pahina.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
 Isang halimbawa ng `webContents.printToPDF`:
 

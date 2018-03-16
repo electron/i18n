@@ -2,7 +2,7 @@
 
 > Intercept and modify the contents of a request at various stages of its lifetime.
 
-Процес: [Main / Главен](../glossary.md#main-process)
+Процеса: [основни](../glossary.md#main-process)
 
 Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
@@ -45,7 +45,7 @@ The following methods are available on instances of `WebRequest`:
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Функция 
     * `response` Object 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
@@ -125,7 +125,7 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Функция 
+* `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String

@@ -29,7 +29,7 @@ Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir m
 ### `ipcRenderer.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` Fonksiyon
 
 Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
 

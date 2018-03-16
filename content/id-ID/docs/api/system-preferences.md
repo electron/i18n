@@ -9,7 +9,7 @@ const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Events
+## Kejadian
 
 Objek 
 
@@ -37,7 +37,7 @@ Aksen warna.&lt;/li>
 &lt;p>Pengembalian:&lt;/p>
 
 &lt;ul>
-&lt;li>&lt;code>event</code> Event
+&lt;li>&lt;code>peristiwa</code> Peristiwa
       </li>
     </ul>
     
@@ -50,7 +50,7 @@ Aksen warna.&lt;/li>
       
       <ul>
         <li>
-          <code>peristiwa</code> Peristiwa
+          <code>acara</code> Acara
         </li>
         <li>
           <code>invertedColorScheme</code> Boolean - <code>true</code> if an inverted color scheme, such as a high contrast theme, is being used, <code>false</code> otherwise.

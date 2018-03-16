@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 프로세스:[Main](../glossary.md#main-process)
 
-### Instance Events
+### 인스턴스 이벤트
 
 #### Event: 'did-finish-load'
 
@@ -98,7 +98,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 #### Event: 'did-get-redirect-request'
 
-Returns:
+반환:
 
 * `event` Event
 * `oldURL` String
@@ -290,7 +290,7 @@ Emitted when DevTools is focused / opened.
 
 #### Event: 'certificate-error'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -305,7 +305,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### Event: 'select-client-certificate'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` URL
@@ -342,7 +342,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-Returns:
+반환:
 
 * `event` Event
 * `result` Object 
@@ -386,7 +386,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Returns:
+반환:
 
 * `event` Event
 * `type` String
@@ -473,7 +473,7 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-반환:
+Returns:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -511,7 +511,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### Event: 'did-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.

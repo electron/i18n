@@ -2,7 +2,7 @@
 
 > Register a custom protocol and intercept existing protocol requests.
 
-Процес: [Main / Главен](../glossary.md#main-process)
+Процеса: [основни](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -29,7 +29,7 @@ The `protocol` module has the following methods:
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - Custom schemes to be registered as standard schemes.
-* `options` Object (optional) 
+* `опции` Object (по избор) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
@@ -72,7 +72,7 @@ app.on('ready', () => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `обратно повикване` Function 
     * `filePath` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -103,7 +103,7 @@ Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+Пример:
 
 ```javascript
 const {protocol} = require('electron')
@@ -124,7 +124,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `обратно повикване` Function 
     * `data` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -147,7 +147,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (optional) 
+      * `uploadData` Object (по избор) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
@@ -180,7 +180,7 @@ Registers a protocol of `scheme` that will send a `Readable` as a response.
 
 The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
 
-Example:
+Пример:
 
 ```javascript
 const {protocol} = require('electron')
@@ -230,7 +230,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `схема` Низ
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -238,7 +238,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Функция 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -270,13 +270,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Функция 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Функция 
     * `buffer` Buffer (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -292,12 +292,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Функция 
     * `redirectRequest` Object 
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (optional) 
+      * `uploadData` Object (по избор) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 

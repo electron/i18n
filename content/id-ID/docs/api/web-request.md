@@ -31,7 +31,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 Metode berikut tersedia pada contoh `WebRequest`:
 
-#### `webRequest.onBeforeRequest([filter, ]listener)`
+#### `webRequest.onBeforeRequest([filter, ]pendengar)`
 
 * `menyaring` Object - (optional) 
   * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
@@ -41,7 +41,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
     * ` url </ 0> String</li>
 <li><code>method` String
     * `webContentsId` Integer (optional)
-    * `Jenissumberdaya` Tali
+    * `TipeSumberdaya` String
     * `timestamp` Duakali
     * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -56,7 +56,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
   
   `panggilan kembali` harus dipanggil dengan `respon` objek.
   
-  #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
+  #### `webRequest.onBeforeSendHeaders([filter, ]pendengar)`
   
   * `menyaring` Object - (optional) 
     * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
@@ -66,8 +66,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
 <p>Seorang <code>pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` sebelum mengirim Permintaan HTTP, setelah header permintaan tersedia. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.</p> 
     * `rincian` Objek 
       * `identitas` Integer
-      * `url` String
-      * `method` String
+      * ` url </ 0> String</li>
+<li><code>method` String
       * `webContentsId` Integer (optional)
       * `TipeSumberdaya` String
       * `timestamp` Duakali
@@ -86,8 +86,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `identitas` Integer
-        * `url` String
-        * `method` String
+        * ` url </ 0> String</li>
+<li><code>method` String
         * `webContentsId` Integer (optional)
         * `Jenissumberdaya` Tali
         * `timestamp` Duakali
@@ -105,8 +105,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
 <p><code>pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.</p> 
       * `rincian` Object 
         * `identitas` Integer
-        * ` url </ 0> String</li>
-<li><code>method` String
+        * `url` String
+        * `method` String
         * `webContentsId` Integer (optional)
         * `TipeSumberdaya` String
         * `timestamp` Duakali
@@ -121,7 +121,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       
       `panggilan kembali` harus dipanggil dengan `respon` objek.
       
-      #### `webRequest.onResponseStarted([filter, ]pendengar)`
+      #### `webRequest.onResponseStarted([filter, ]listener)`
       
       * `menyaring` Object - (optional) 
         * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
@@ -147,8 +147,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `pendengar` Fungsi 
         * `rincian` Obyek 
           * `identitas` Integer
-          * `url` String
-          * `method` String
+          * ` url </ 0> String</li>
+<li><code>method` String
           * `webContentsId` Integer (optional)
           * `TipeSumberdaya` String
           * `timestamp` Duakali
@@ -167,8 +167,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `pendengar` Fungsi 
         * `rincian` Obyek 
           * `identitas` Integer
-          * ` url </ 0> String</li>
-<li><code>method` String
+          * `url` String
+          * `method` String
           * `webContentsId` Integer (optional)
           * `TipeSumberdaya` String
           * `timestamp` Duakali
@@ -186,10 +186,10 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `pendengar` Fungsi 
         * `rincian` Obyek 
           * `identitas` Integer
-          * `url` String
-          * `method` String
+          * ` url </ 0> String</li>
+<li><code>method` String
           * `webContentsId` Integer (optional)
-          * `TipeSumberdaya` String
+          * `Jenissumberdaya` Tali
           * `timestamp` Duakali
           * `dariCache` Boolean
           * `kesalahan` String - deskripsi kesalahan.

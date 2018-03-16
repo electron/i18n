@@ -12,7 +12,7 @@ const {webFrame} = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Methods
+## Mga Paraan
 
 The `webFrame` module has the following methods:
 
@@ -61,7 +61,7 @@ Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi v
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Object 
+* `provider` Bagay 
   * `spellCheck` Function - Returns `Boolean` 
     * `text` String
 
@@ -97,7 +97,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (optional) 
+* `pagpipilian` Na Bagay (opsyonal) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
   * `allowServiceWorkers` Boolean - (optional) Default true.

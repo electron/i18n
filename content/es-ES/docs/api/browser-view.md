@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * Objeto `webPreferences` (opcional) - vea [BrowserWindow](browser-window.md).
 
 ### Métodos estáticos

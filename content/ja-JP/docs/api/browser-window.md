@@ -123,7 +123,7 @@ child.once('ready-to-show', () => {
   * `height` Integer (任意) - ピクセル単位でのウインドウの高さ。省略値は、`600` です。
   * `x` Integer (任意) (yが使われている場合は、**必須**) - ウインドウの画面左のオフセット。 省略値では、ウインドウが中央になるようになっています。
   * `y` Integer (任意) (xが使われている場合は、**必須**) - ウインドウの画面上のオフセット。 省略値では、ウインドウが中央になるようになっています。
-  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は `false` です。
+  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は `false` 。
   * `center` Boolean (任意) - ウインドウを画面中央に表示します。
   * `minWidth` Integer (任意) - ウインドウの最小の幅。省略値は、`` です。
   * `minHeight` Integer (任意) - ウィンドウの最小の高さ。省略値は、`` です。
@@ -633,7 +633,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md) 
-* `animate` Boolean (任意) *macOS*
+* `animate` Boolean (optional) *macOS*
 
 指定した境界までウインドウのクライアント領域 (例えば、Webページ) のサイズを変更して移動します。
 
@@ -645,7 +645,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (任意) *macOS*
+* `animate` Boolean (optional) *macOS*
 
 ウインドウのサイズを `width` と `height` に変更します。
 
@@ -657,7 +657,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (任意) *macOS*
+* `animate` Boolean (optional) *macOS*
 
 ウインドウのクライアント領域 (例えば、Webページ) のサイズを `width` と `height` に変更します。
 
@@ -775,7 +775,7 @@ Linuxでは常に `true` を返します。
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (任意) *macOS*
+* `animate` Boolean (optional) *macOS*
 
 ウインドウを `x` と `y` に移動します。
 

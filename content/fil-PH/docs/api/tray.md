@@ -2,7 +2,7 @@
 
 > Magdagdag ng mga icons at mga context menu sa notification area ng sistema.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang`Tray`ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -61,7 +61,7 @@ Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
 
 #### Event: 'klik'
 
-* `event` Event 
+* `kaganapan` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -111,14 +111,14 @@ Emitted kapag ang anumang dragged na mga items ay ibinagsak sa tray icon.
 
 #### Event: 'drop-files' *macOS*
 
-* `event` Event
+* `kaganapan` Kaganapan
 * `files` String[] -Ang mga landas ng mga binitiwang mga file.
 
 Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 
 #### Event: 'drop-text' *macOS*
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `text` String -ang mga binitiwang text string
 
 Emitted kapag ang dragged text ay ibinagsak sa tray icon.
@@ -168,7 +168,7 @@ Emitted kapag ang mouse ay lumalabas sa tray icon.
 
 Emitted when the mouse moves in the tray icon.
 
-### Halimbawa ng mga pamamaraan
+### Mga Pamamaraan ng Instance
 
 Ang 0>Tray</code>class ay may mga sumusunod na mga pamamaraan:
 
@@ -230,7 +230,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String
   * `content` String

@@ -53,7 +53,7 @@ El `state` puede ser uno de los siguientes:
 
 #### Evento: "done"
 
-Devuelve:
+Retorna:
 
 * `evento` Evento
 * `state` Cadena

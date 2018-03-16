@@ -56,7 +56,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date

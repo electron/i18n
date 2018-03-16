@@ -53,7 +53,7 @@ El objeto`menu` tiene los siguientes métodos de instancia:
 #### `menu.popup([browserWindow, options])`
 
 * `browserWindow` BrowserWindow (opcional) - Por defecto es la ventana enfocada.
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `x` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
   * `y` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
   * `async` Boolean (opcional) - Se establece a `true` para devolver este método llamado inmediatamente. `false` para devolver luego de que el menú ha sido seleccionado o cerrado. Por defecto es `false`.

@@ -2,7 +2,7 @@
 
 > Lumikha ng mga paunawa sa OS ng desktop
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 ## Ginagamit sa mga proseso ng tagasalin
 
@@ -12,7 +12,7 @@ Kung gusto mong ipakita ang mga Paunawa mula sa proseso ng tagasalin kailangan m
 
 > Lumikha ng mga paunawa sa OS ng desktop
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang `Notification` ay isang [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -28,7 +28,7 @@ Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusupor
 
 ### Ang `new Notification([options])` ay *Experimental*
 
-* `mga pagpipilian` Bagay 
+* `pagpipilian` Bagay 
   * Ang `title` String - Ang isang pamagat sa mga paunawa, kung saan ay ipinakita sa ibabaw ng window ng paunawa kung saan ito ipinakita
   * Ang `subtitle` String - (opsyonal) Ang pangalawang pamagat para sa paunawa, kung saan ay makikita sa ilalim ng pamagat. *macOS*
   * Ang `body` String - Ang kabuuang teksto ng mga paunawa, kung saan ay makikita sa ilalim ng pamagat o pangalawang pamagat
@@ -39,7 +39,7 @@ Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusupor
   * Ang `sound` String - (opsyonal) Ang pangalan ng file ng tunog ay tutunog kapag ang paunawa ay ipinakita. *macOS*
   * Ang `actions` [NotificationAction[]](structures/notification-action.md) - (opsyonal) Ang mga aksyon na idadagdag sa mga paunawa. Pakiusap basahin ang magagamit na mga aksyon at mga limitasyon sa mga dokumentasyon ng `NotificationAction` sa *macOS*
 
-### Halimbawa ng mga Kaganapan
+### Mga Instance na Kaganapan
 
 Ang mga bagay na nilikha na may `new Notification` ay naglalabas ng mga sumusunod na mga event:
 
@@ -47,23 +47,23 @@ Ang mga bagay na nilikha na may `new Notification` ay naglalabas ng mga sumusuno
 
 #### Kaganapan: 'ipakita'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan`Kaganapan
+* `event` na Kaganapan
 
 Ay lalabas kapag ang paunawa ay ipinakita sa mga gumagamit, tandaan na ito ay ititira ng maraming beses bilang isang paunawa na maaaring ipakita ng maraming beses sa pamamagitan ng pamamaraan ng `show()`.
 
 #### Event: 'click'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` na Pangyayari
 
 Ay lalabas kapag ang paunawa ay na-klik na ng gumagamit.
 
 #### Event: 'close'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 
@@ -73,7 +73,7 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 #### Event: 'sumagot' sa *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `reply` String - Ang string na ipinasok ng gumagamit sa field ng nasa linyang pagtugon
@@ -82,12 +82,12 @@ Ay lalabas kapag ang gumagamit ay na-klik ang pindutan ng "Reply" sa paunawa na 
 
 #### Event: 'aksyon' sa *macOS*
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` Event
 * Ang `index` Number - Ang indise ng mga aksyon na na-aktibeyt na
 
-### Mga halimbawa ng pamamaraan
+### Mga pamamaraan ng pagkakataon
 
 Ang mga bagay na ginawa na may `new Notification` ay may mga sumusunod na pamamaraan ng instansya:
 

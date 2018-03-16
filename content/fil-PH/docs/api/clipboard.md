@@ -2,7 +2,7 @@
 
 > Magsagawa ng mga kopya at idikit ang mga operasyon sa clipboard ng system.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Ang mga sumusunod na halimbawa ay nagpapakita kung paano sumulat ng isang string sa clipboard ng: 
 
@@ -34,10 +34,7 @@ Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
 Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format. 
 
-### `clipboard.writeText(text[, type])
- 
-
-`
+### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (opsiyonal)
@@ -84,10 +81,7 @@ Pagsulat `image` sa klipboard.
 
 Returns `String` - Ang nilalaman ng klipboard bilang RTF.
 
-### `clipboard.writeRTF(text[, type])
- 
-
-`
+### `clipboard.writeRTF(text[, type])`
 
 * `text` String
 * `type` String (opsiyonal)
@@ -106,7 +100,7 @@ Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
 * `title` String
-* `url` String
+* `url` Tali
 * `type` String (opsiyonal)
 
 Pagsulat ng `title` and `url` sa klipbord bilang bookmark.

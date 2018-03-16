@@ -36,7 +36,7 @@ The following methods are available on instances of `WebRequest`:
 
 * `filtr` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `słuchacz` Funkcja 
+* `słuchacz` Function 
   * `detale` Obiekt 
     * `id` Integer
     * `url` String
@@ -45,7 +45,7 @@ The following methods are available on instances of `WebRequest`:
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funkcja 
+  * `callback` Function 
     * `odpowiedź` Obiekt 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
@@ -72,7 +72,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
-* `callback` Funkcja 
+* `callback` Function 
   * `odpowiedź` Obiekt 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
@@ -83,7 +83,7 @@ The `callback` has to be called with an `response` object.
 
 * `filtr` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `słuchacz` Funkcja 
+* `słuchacz` Function 
   * `detale` Obiekt 
     * `id` Integer
     * `url` String
@@ -113,7 +113,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `statusLine` String
   * `statusCode` Integer
   * `responseHeaders` Object
-* `callback` Funkcja 
+* `callback` Function 
   * `odpowiedź` Obiekt 
     * `cancel` Boolean
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
@@ -125,7 +125,7 @@ The `callback` has to be called with an `response` object.
 
 * `filtr` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `słuchacz` Funkcja 
+* `słuchacz` Function 
   * `detale` Obiekt 
     * `id` Integer
     * `url` String
@@ -144,7 +144,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `filtr` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `słuchacz` Funkcja 
+* `słuchacz` Function 
   * `detale` Obiekt 
     * `id` Integer
     * `url` String
@@ -164,7 +164,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 * `filtr` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `słuchacz` Funkcja 
+* `słuchacz` Function 
   * `detale` Obiekt 
     * `id` Integer
     * `url` String
@@ -183,7 +183,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `filtr` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `słuchacz` Funkcja 
+* `słuchacz` Function 
   * `detale` Obiekt 
     * `id` Integer
     * `url` String

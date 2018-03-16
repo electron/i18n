@@ -103,7 +103,7 @@ app.on('ready', () => {
 
 该用法与 `registerFileProtocol` 相同, 只是`callback` 会被`Buffer`对象或者带有`data`，`mimeType`和 `charset`属性的对象调用。
 
-例子:
+示例:
 
 ```javascript
 const {protocol} = require('electron')
@@ -118,7 +118,7 @@ protocol.registerBufferProtocol('atom', () => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -142,14 +142,14 @@ protocol.registerBufferProtocol('atom', () => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `redirectRequest` Object 
       * `url` String
       * `method` String
       * `session` Object (可选)
       * `uploadData` Object (可选) 
         * `contentType` String - 内容的MIME类型。
-        * `data` String - 要发送的内容。
+        * `data` String - 发送内容。
 * `completion` Function (可选) 
   * `error` Error
 
@@ -171,7 +171,7 @@ protocol.registerBufferProtocol('atom', () => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
@@ -180,7 +180,7 @@ protocol.registerBufferProtocol('atom', () => {
 
 该用法类似于 `register{Any}Protocol` ，只是`callback` 会被` Readable `对象或者带有`data`, `statusCode` 和 `headers` 属性的对象调用。
 
-例子:
+示例:
 
 ```javascript
 const {protocol} = require('electron')
@@ -270,13 +270,13 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `buffer` Buffer (可选)
 * `completion` Function (可选) 
   * `error` Error
@@ -286,13 +286,13 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `redirectRequest` Object 
       * `url` String
       * `method` String

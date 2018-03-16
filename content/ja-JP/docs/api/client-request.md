@@ -118,40 +118,40 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 
 #### `request.chunkedEncoding`
 
-A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Defaults to false. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
+リクエストがHTTPのチャンク形式転送エンコーディングを使用するかどうかを指定する `Boolean` 型。 省略値は、false です。 プロパティは読み書き可能ですが、HTTPヘッダーがまだ送信されていない最初の書き込み操作の前でしか設定できません。 最初の書き込みの後、`chunkedEncoding` プロパティを設定しようとすると、エラーがスローされます。
 
-Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
+Electronのプロセスメモリの中で内部的にバッファする代わりにデータが細切れにストリーミングされるため、大きなリクエストボディを送信する必要がある場合、チャンク形式のエンコーディングを使用することを強く推奨します。
 
 ### インスタンスメソッド
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `name` String - 追加するHTTPヘッダーの名前。
+* `value` Object - 追加するHTTPヘッダーの値。
 
-Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+さらなるHTTPヘッダーを追加します。 ヘッダー名は小文字にされることなく、そのまま出力されます。 最初の書き込み前のみ呼び出すことができます。 最初の書き込み後にこのメソッドを呼び出すとエラーがスローされます。 渡された値が `String` 型でない場合、最終的な値を得るために `toString()` メソッドが呼び出されます。
 
 #### `request.getHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - 追加したヘッダーの名前を指定します。
 
-Returns `Object` - The value of a previously set extra header name.
+戻り値 `Object` - 先に設定した追加したヘッダーの名前の値。
 
 #### `request.removeHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - 追加したヘッダーの名前を指定します。
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+先に設定した追加したヘッダーの名前を削除します。このメソッドは、最初の書き込み前のみ呼び出すことができます。最初の書き込み後に呼び出そうとするとエラーがスローされます。
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `chunk` (String | Buffer) - リクエストボディのデータのチャンク。文字列の場合、指定されたエンコーディングを使用して Buffer に変換されます。
+* `encoding` String (任意) - 文字列のチャンクをBufferオブジェクトに変換するために使用します。省略値は、'utf-8' です。
+* `callback` Function (任意) - 書き込み操作の終了後に呼び出されます。
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` は、Node.jsのAPIとの類似性を維持する目的で導入された本質的にはダミーのファンクションです。 `chunk` コンテンツがChromiumのネットワークレイヤーに到達した後、すぐに非同期で呼び出されます。 Node.jsの実装とは違って、`callback` が呼び出される前に `chunk` コンテンツが書き込まれていることは保証されません。
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+リクエストボディにデータのチャンクを追加します。 最初の書き込み操作では、リクエストヘッダーも出力される可能性があります。 最初の書き込み操作の後、カスタムヘッダーを追加したり、削除したりすることはできません。
 
 #### `request.end([chunk][, encoding][, callback])`
 
@@ -159,12 +159,12 @@ Adds a chunk of data to the request body. The first write operation may cause th
 * `encoding` String (任意)
 * `callback` Function (任意)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+リクエストデータの最後のチャックを送信します。これ以上の書き込みや終了操作をすることはできません。`finish` イベントが終了操作の直後に発生します。
 
 #### `request.abort()`
 
-Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+現在進行中のHTTPトランザクションをキャンセルします。 リクエストで既に `close` イベントが発生していた場合、中止操作は無効になります。 そうでない場合、進行中のイベントでは、`abort` と `close` イベントが発生します。 さらに、処理中のレスポンスオブジェクトがある場合、`aborted` イベントが発生します。
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+リダイレクトモードが、`manual` のとき、遅延しているリダイレクトリクエストを続行します。

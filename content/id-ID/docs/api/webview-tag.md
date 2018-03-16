@@ -549,7 +549,7 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
         * `metode permintaan` Tali
         * `pengarah` String
         * `header` Obyek
-        * `TipeSumberdaya` String
+        * `Jenissumberdaya` Tali
         
         Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
         
@@ -597,8 +597,8 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
         Pengembalian:
         
         * `level` Integer
-        * `pesan` String
-        * `line` Integer
+        * ` pesan </ 0> String</li>
+<li><code>line` Integer
         * `sourceId` String
         
         Dipecat saat jendela tamu membuka pesan konsol.
@@ -629,8 +629,8 @@ const webview = document.querySelector ('webview') webview.addEventListener ('co
     
     Pengembalian:
     
-    * ` url </ 0> String</li>
-<li><code>nama bingkai` tali
+    * `url` String
+    * `nama bingkai` tali
     * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
     * `options` Object - The options which should be used for creating the new `BrowserWindow`.
     
@@ -646,28 +646,28 @@ const {shell} = require ('electron') const webview = document.querySelector ('we
 
 Pengembalian:
 
-* `url` String
-
-dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek ` jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
-</p>
-
-<p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
-API seperti <code>webContents.loadURL` dan `webContents.back`.
-
-Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-
-Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
-
-### Peristiwa: 'akan navigasi'
-
-Pengembalian:
-
 * ` url </ 0> String</li>
 </ul>
 
-<p>Dibunyikan apabila navigasi dilakukan.</p>
+<p>dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek <code> jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
+</p>
 
-<p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
+<p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
+API seperti <code>webContents.loadURL` dan `webContents.back`.</p> 
+  Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+  
+  Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
+  
+  ### Peristiwa: 'akan navigasi'
+  
+  Pengembalian:
+  
+  * `url` String
+  
+  Dibunyikan apabila navigasi dilakukan.
+  
+  Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+  
   ### peristiwa: 'Apakah-menavigasi-di halaman'
   
   Pengembalian:
@@ -755,19 +755,18 @@ Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebua
 
 Pengembalian:
 
-*  url </ 0> String</li>
-</ul>
+* `url` String
 
-<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
+Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
 
-<h3>Event: 'devtools-dibuka'</h3>
+### Event: 'devtools-dibuka'
 
-<p>Emitted saat DevTools dibuka.</p>
+Emitted saat DevTools dibuka.
 
-<h3>Event: 'devtools-ditutup'</h3>
+### Event: 'devtools-ditutup'
 
-<p>Emitted saat DevTools ditutup.</p>
+Emitted saat DevTools ditutup.
 
-<h3>Event: 'fokus devtools'</h3>
+### Event: 'fokus devtools'
 
-<p>Emitted saat DevTools difokuskan / dibuka.</p>
+Emitted saat DevTools difokuskan / dibuka.

@@ -29,7 +29,7 @@ Nagdadagdag ng isang beses na function ng `listener` para sa event. Ang `listene
 ### `ipcRenderer.removeListener(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Punsyon
+* `listener` Function
 
 Tatanggalin ang mga tinukoy na `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
@@ -39,7 +39,7 @@ Tatanggalin ang mga tinukoy na `listener` mula sa hanay ng mga tagapakinig para 
 
 Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
 
-### `ipcRenderer.send(channel[,arg1][, arg2][, ...])`
+### `ipcRenderer.send(channel[, arg1][,arg2][, ...])`
 
 * `channel` String
 * `...args` anuman[]

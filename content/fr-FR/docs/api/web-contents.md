@@ -55,7 +55,7 @@ Processus : [Main](../glossary.md#main-process)
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -67,7 +67,7 @@ Cet événement est comme `did-finish-load`, mais il est émis lorsque le charge
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `isMainFrame` Boolean
 
 Émis lorsqu'un frame a fini sa navigation.
@@ -115,7 +115,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 
 Émis lorsque le document dans le frame donné est chargé.
 
@@ -235,7 +235,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `name` String
 * `version` String
 
@@ -249,7 +249,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `input` Object - propriétés de l'input 
   * `type` String - `keyUp` ou `keyDown`
   * `key` String - Équivalent à [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -307,7 +307,7 @@ L'utilisation est pareil que [l'événement `certificate-error` de `app`](app.md
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -344,7 +344,7 @@ L'utilisation est pareil que [l'événement `login` de `app`](app.md#event-login
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `result` Objet 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position du résultat actif.
@@ -403,7 +403,7 @@ Si le paramètre `type` est `custom`, le paramètre `image` aura l'image du curs
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `params` Objet 
   * `x` Integer - coordonnée x
   * `y` Integer - coordonée y
@@ -513,7 +513,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` WebContents - Les contenus web invités qui sont utilisés par `<webview>`.
 
 Émis quand un `<webview>` a été rattaché à ce contenu web.

@@ -254,7 +254,7 @@ Ang katangiang `position` ng `MenuItem` ay may anyo na `[placement]=[id]`, kung 
 
 Kapag ang aytem ay nakaposisyon na, lahat ng hindi nakaposisyon na mga aytem ay ilalagay pagkatapos nito hanggang ang isang bagong aytem ay naiposisyon na. Kaya kung gusto mong iposisyon ang isang grupo ng mga aytem ng menu sa kaparehas na lokasyon kailangan mo lang tukuyin ang posisyon para sa unang aytem.
 
-### Mga Halimbawa
+### Halimbawa
 
 Ang Template:
 

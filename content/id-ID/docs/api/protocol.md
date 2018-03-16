@@ -55,8 +55,8 @@ protocol.registerStandardSchemes (['atom']) app.on('siap', () => {protocol.regis
 * `skema` String
 * `handler` Fungsi 
   * `permintaan` Obyek 
-    * ` url </ 0> String</li>
-<li><code>pengarah` Tali
+    * `url` String
+    * `pengarah` Tali
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Fungsi 
@@ -126,15 +126,15 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
         * `skema` String
         * `handler` Fungsi 
           * `permintaan` Obyek 
-            * ` url </ 0> String</li>
-<li><code>pengarah` String
+            * `url` String
+            * `pengarah` String
             * `method` String
             * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>callback` Fungsi 
               * `redirectRequest` Obyek 
-                * ` url </ 0> String</li>
-<li><code>method` String
+                * `url` String
+                * `method` String
                 * `sesi` Objek (opsional)
                 * `uploadData` Objek (opsional) 
                   * `contentType` String - jenis konten MIME.
@@ -230,8 +230,8 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `skema` String
     * `handler` Fungsi 
       * `permintaan` Obyek 
-        * ` url </ 0> String</li>
-<li><code>pengarah` String
+        * `url` String
+        * `pengarah` String
         * `method` String
         * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -247,8 +247,8 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
       * `skema` String
       * `handler` Fungsi 
         * `permintaan` Obyek 
-          * `url` String
-          * `pengarah` String
+          * ` url </ 0> String</li>
+<li><code>pengarah` String
           * `method` String
           * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -264,8 +264,8 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
         * `skema` String
         * `handler` Fungsi 
           * `permintaan` Obyek 
-            * `url` String
-            * `pengarah` String
+            * ` url </ 0> String</li>
+<li><code>pengarah` String
             * `method` String
             * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -281,15 +281,15 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
           * `skema` String
           * `handler` Fungsi 
             * `permintaan` Obyek 
-              * ` url </ 0> String</li>
-<li><code>pengarah` String
+              * `url` String
+              * `pengarah` String
               * `method` String
               * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>callback` Fungsi 
                 * `redirectRequest` Obyek 
-                  * ` url </ 0> String</li>
-<li><code>method` String
+                  * `url` String
+                  * `method` String
                   * `sesi` Objek (opsional)
                   * `uploadData` Objek (opsional) 
                     * `contentType` String - jenis konten MIME.

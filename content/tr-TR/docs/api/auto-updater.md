@@ -32,7 +32,7 @@ Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer 
 
 `autoUpdater` nesnesi aşağıdaki olaylarla ortaya çıkarır:
 
-### Olay: 'error'
+### Event: 'error'
 
 Dönüşler:
 

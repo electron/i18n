@@ -2,7 +2,7 @@
 
 > Paganahin ang app na awtomatikong mag-update ang kanilang sarili.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 **You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
@@ -32,9 +32,9 @@ Hindi gaya ng sa Squirrel.Mac, ang Windows ay kayang mag-host ng update sa S3 o 
 
 Ang `autoUpdater` maglalabas ng mga ganitong pangyayari:
 
-### Event: 'error'
+### Pangyayari: 'error'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `error` Error
 
@@ -54,9 +54,9 @@ Napalabas kapag walang available na pag-update.
 
 ### Pangyayari: 'update-downloaded'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `kaganapan`Kaganapan
+* `event` na Kaganapan
 * `releaseNotes` Lupid
 * `releaseNotes` Lubid
 * `releaseDate` Petsa
@@ -72,7 +72,7 @@ Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
+* `url` Tali
 * `requestHeaders` Onject *macOS* (opsyonal) - kahilingan sa ulunan ng HTTP.
 
 Tinatakda ang `url` at nagpapasimula ng auto-updater.

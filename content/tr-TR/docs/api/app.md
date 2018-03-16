@@ -49,7 +49,7 @@ Uygulama pencerelerini kapatmaya başlamadan önce ortaya çıkar. `event.preven
 
 ### Etkinlik: 'çıkış-yapılacak'
 
-Dönüşler:
+Returns:
 
 * `event` Event
 
@@ -70,8 +70,8 @@ Uygulama kesildiğinde ortaya çıkar.
 
 Dönüşler:
 
-* `event` Olay
-* `path` Dizi
+* `event` Event
+* `path` Dizgi
 
 Kullanıcı uygulama ile bir dosya açmak istediğinde ortaya çıkar. `open-file` olayı genellikle uygulama zaten açık olduğunda ve OS dosyayı açmak için uygulamayı tekrar kullanmak istediğinde yayınlanır. Dock'a bir dosya düştüğünde ve uygulama henüz çalışmadığında da `open-file` yayınlanır. Bu olayı işlemek için (`hazır` olayı yayından önce bile olsa), uygulamanın başlangıç ​​işleminin çok erken bir aşamasında `açık dosya` olayını dinlediğinizden emin olun.
 
@@ -83,7 +83,7 @@ Windows'ta, dosya yolunu almak için (ana süreçte) `process.argv` ayrıştırm
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` String
 
 Kullanıcı uygulama ile bir url açmak istediğinde ortaya çıkar. Uygulamanızın `Info.plist` dosyası, `CFBundleURLTypes` anahtarının içinde url düzenini tanımlamalı ve `NSPrincipalClass` 'ı `AtomApplication` olarak ayarlamalıdır.
@@ -94,7 +94,7 @@ Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gereki
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `hasVisibleWindows` Boolean
 
 Uygulama etkinleştirildiğinde ortaya çıkar. Uygulamayı ilk kez başlatmak, uygulamayı zaten çalıştırırken yeniden başlatmaya çalışmak veya uygulamanın yükleme istasyonu veya görev çubuğu simgesini tıklatmak gibi çeşitli eylemler bu olayı tetikleyebilir.
@@ -103,8 +103,8 @@ Uygulama etkinleştirildiğinde ortaya çıkar. Uygulamayı ilk kez başlatmak, 
 
 Dönüşler:
 
-* `event` Event
-* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
+* `event` Olay
+* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
 * `userInfo` Object - Etkinlik tarafından başka bir aygıta depolanmış uygulamaya özel durum içerir.
 
 Farklı bir cihazdan bir etkinlik sürdürmek istediğinde [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sırasında ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
@@ -115,7 +115,7 @@ Bir kullanıcı etkinliği yalnızca, etkinliğin kaynak uygulamasıyla aynı ge
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
 
 Farklı bir cihazdan gelen bir etkinlik yeniden başlatılmadan önce [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) o esnada ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
@@ -124,7 +124,7 @@ Farklı bir cihazdan gelen bir etkinlik yeniden başlatılmadan önce [Handoff](
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
 * `error` dize - hatanın yerelleştirilmiş açıklamasına sahip bir dizedir.
 
@@ -144,7 +144,7 @@ Bu cihazdan bir etkinlik başarıyla yürütüldüğünde [Handoff](https://deve
 
 Dönütler:
 
-* `event` Etkinlik
+* `event` Olay
 * xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
 * `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
 
@@ -154,7 +154,7 @@ Dönütler:
 
 Dönütler:
 
-* `event` Etkinlik
+* `event` Event
 
 Yerel kullanıcı macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin `tabbingIdentifier` olması durumunda görünür
 
@@ -162,7 +162,7 @@ Yerel kullanıcı macOS yeni sekme düğmesini tıklattığında ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `browserView` [BrowserView](browser-window.md)
 
 Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
@@ -189,7 +189,7 @@ Yeni bir [borwserWindow](browser-window.md) oluşturulduğunda ortaya çıkar.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `webContents` [webİçerikleri](web-contents.md)
 
 Yeni bir [webContents](web-contents.md) oluşturulduğunda ortaya çıkar.
@@ -226,7 +226,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `webContents` [webİçerikleri](web-contents.md)
 * `url` URL
 * `certificateList` [Sertifika[]](structures/certificate.md)
@@ -253,12 +253,12 @@ Dönüşler:
 * `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `istek` Nesne 
-  * `method` Dizi
+  * `method` String
   * `url` URL
   * `referrer` URL
 * `authInfo` Nesne 
   * `isProxy` Boolean
-  * `scheme` String
+  * `scheme` Dizi
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
@@ -292,7 +292,7 @@ Gpu işlemi çöktüğünde yada yok olduğunda yayılmaktadır.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `accessibilitySupportEnabled` Boolean - `true` Chrome'un ulaşılabilirlik desteği etkinken, o zaman `false`.
 
 Chrome'un erişilebilirlik takviyesi değiştiğinde ortaya çıkar. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. Daha detaylı bilgi için https://www.chromium.org/developers/design-documents/accessibility ziyaret edin.
@@ -457,7 +457,7 @@ Yakın zamandaki dokümentasyon listesini temizler.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı. Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
 * `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
 * `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
@@ -473,7 +473,7 @@ API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kull
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
 * `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
 * `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
 
@@ -483,8 +483,8 @@ Bu yöntem, geçerli yürütülebilir bir iletişim kuralı (aka URI şeması) i
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
-* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
+* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
 * `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
 `Boole Değeri` döndürür

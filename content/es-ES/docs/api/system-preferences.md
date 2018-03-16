@@ -30,7 +30,7 @@ Devuelve:
 
 Devuelve:
 
-* `event` Evento
+* `evento` Evento
 * `EsquemaColorinvertido` Boolean ' `verdad` si un color de esquema invertido, como un tema de alto contraste, está siendo usando, o de lo contrario `falso`.
 
 ## Métodos

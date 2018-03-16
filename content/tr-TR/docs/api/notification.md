@@ -28,7 +28,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 ### `new Notification([options])` *Experimental*
 
-* `seçenekler` Nesnesi 
+* `options` Nesnesi 
   * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı
   * `altyazı` Metin - (isteğe bağlı) Başlığın altında görüntülenen bildirim için bir altyazı. *macOS*
   * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir
@@ -39,7 +39,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
   * `sound` Dizi - (İsteğe Bağlı) Bildirim geldiğinde çalacak ses dosyasının adı yer alır.*macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (İsteğe Bağlı) Bildirimlere eylem eklenebilir. Lütfen `NotificationAction` belgelerinde mevcut eylem ve sınırlamarı okuyunuz. *macOS*
 
-### Örnek Events
+### Örnek Olaylar
 
 `yeni Bildirim` ile yaratılan nesneler aşağıdaki olayları belirtir:
 
@@ -84,7 +84,7 @@ Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bi
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `index` Numara - Etkin olan eylem dizinini gösterir
 
 ### Sınıf örneği metodları

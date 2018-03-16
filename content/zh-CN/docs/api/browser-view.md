@@ -8,7 +8,7 @@
 
 `BrowserView`被用来让`BrowserWindow`嵌入更多的 web 内容。 它就像一个子窗口，除了它的位置是相对于父窗口。 这意味着可以替代`webview`标签.
 
-## 例子
+## 示例
 
 ```javascript
 // 在主进程中.

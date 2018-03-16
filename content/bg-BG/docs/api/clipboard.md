@@ -79,7 +79,7 @@ Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+Връща `Object`:
 
 * `title` String
 * `url` String

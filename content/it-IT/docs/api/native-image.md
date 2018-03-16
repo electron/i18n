@@ -105,7 +105,7 @@ Creates an empty `NativeImage` instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `percorso` Stringa
+* `path` Stringa
 
 Returns `NativeImage`
 

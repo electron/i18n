@@ -221,7 +221,7 @@ win.on('resize', () => {
 })
 ```
 
-## Pamamaraan
+## Mga Paraan
 
 Nag `webview` na tag ay may mga susmusunod na pamamaraan:
 
@@ -239,7 +239,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` Ang URL
-* `mga opsyon` Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `httpReferrer` Pisi (opsyonal) - Isang HTTP Referrer url.
   * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
   * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
@@ -320,7 +320,7 @@ Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
 
 ### `<webview>.setUserAgent(userAgent)`
 
-* `userAgent` String
+* `userAgent` na String
 
 Pumupatong sa gumagamit na ahente para sa pahina ng panauhin.
 
@@ -437,7 +437,7 @@ Ipasok ang `teksto` sa nakatutok na elemento.
 ### `<webview>.findInPage(text[, options])`
 
 * `teksto` String - Ang nilalaman na hahanapin, ay hindi dapat walang laman.
-* `options` Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `abanti` Boolean - (opsyonal) Kung mananaliksik ka ng paabanti o patalikod, defaults sa `true`.
   * `findNext` Boolean - (opsyonal) Kung ang operasyon isang kahilingan o isang pagsasagawang kasunod, mga defaults sa `false`.
   * `matchCase` Boolean - (opsyonal) Kung saan ang paghahanap ay dapat case-sensitive, mga defaults sa `false`.
@@ -446,20 +446,20 @@ Ipasok ang `teksto` sa nakatutok na elemento.
 
 Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
 
-Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `text` sa pahina ng web. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `text` sa pahina ng web. Ang resulta ng kahilingan ay maaaring makuha sa pamamagitan ng pag-subscribe sa [`found-in-page`](webview-tag.md#event-found-in-page) kaganapan.
 
 ### `<webview>.stopFindInPage(action)`
 
-* `aksyon` String - Tinitiyak ang aksyon na mangyayari sa katapusan [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) kahilingan. 
+* `aksyon` String - Tinutukoy ang aksyon upang maganap kapag nagtatapos [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) kahilingan. 
   * `clearSelection` - Tanggalin ang mga napili.
-  * `keepSelection` - I-translate ang mga napili para maging normal.
-  * `activateSelection` - Ipukos at iclick ang node ng napili.
+  * `keepSelection` - Isalin ang seleksyon sa isang normal na seleksyon.
+  * `activateSelect` - Tumuon at i-click ang node ng pagpili.
 
 Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang `aksyon`.
 
 ### `<webview>.print([options])`
 
-* `mga opsyon` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
@@ -468,13 +468,13 @@ Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `options` Bagay 
+* `options` Object 
   * `marginsType` Integer - (opsyonal) Itinatakda ang uri ng mga margin na gagamitin. Gumagamit ng 0 para sa naka-default na margin, 1 para sa walang margin, at 2 para sa pinakamaliit na maaaring gawing margin.
   * `pageSize` String - (opsyonal) Itinatakda ang sukat ng page ng nalilikhang PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
   * `printBackground` Boolean - (opsyonal) Pwedeng i-imprinta ang mga background ng CSS.
   * `printSelectionOnly` Boolean - (opsyonal) Pwedeng i-imprinta ang mga napili lamang.
   * `landscape` Boolean - (opsyonal) `true` para sa landscape, `false` para sa portrait.
-* `callback` Ang Punsyon 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
@@ -531,7 +531,7 @@ Ang mga sumusunod na event ng DOM ay nasa tanda ng `webview`:
 
 ### Event: 'load-commit'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `url` Tali
 * `ay pangunahing kuwadro` Boolean
@@ -544,20 +544,20 @@ Itigil kapag natapos na ang nabigasyon, i.e. ang taga-ikot ng tab ay huminto sa 
 
 ### Kaganapan: 'ginawa-mabibigo-dala'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `pagkakamalingCode`kabuuan
 * `Paglalarawan ng pagkakamali`tali
 * `napatunayan sa Url`tali
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 
 Ang event na ito ay tulad ng `did-finish-load`, pero natigil nung nag-fail ang load o nakansela, e.g. `window.stop()` ay na-invoke.
 
 ### Kaganapan: 'ginawa-frame-finish-load'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 
 Itigil kapag natapos na ang nabigasyon ng frame.
 
@@ -571,14 +571,14 @@ Tumutugon sa mga puntos ng oras kung kailan huminto sa pag-ikot ang taga-ikot ng
 
 ### Kaganapan: 'ginawa-kumuha-tugon-detalye'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `katayuan` Boolean
 * `newURL` String
 * `orihinalURL` String
 * `httpResponseCode` Integer
 * `requestMethod` String
-* ang `referer` String
+* `referer` String
 * `header` Bagay
 * `resourceType` Tali
 
@@ -586,7 +586,7 @@ Itigil kapag ang mga detalye tungol sa hinihinging resource ay nahanap na. Ang `
 
 ### Kaganapan: 'did-get-redirect-request'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `oldURL` Pisi
 * `newURL` String
@@ -600,7 +600,7 @@ Itigil kapag ang dokumento ng sinasabing frame ay na-load.
 
 ### Event: 'page-title-updated'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `title` String
 * `explicitSet` Boolean
@@ -609,7 +609,7 @@ Itigil kapag ang titulo ng page ay naitakdang habang naka-nabigasyon. Ang `expli
 
 ### Kaganapan: 'pahina-favicon-updated'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `favicons` String [] - Mga array ng mga URL.
 
@@ -623,14 +623,14 @@ Itigil kapag ang page ay naka-fullscreen na dulot ng HTML API.
 
 Itigil kapag ang page ay hindi na naka-fullscreen na dulot ng HTML API.
 
-### Event: 'console-message'
+### Kaganapan'console-mensahe'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `level` Integer
-* `message` String
-* `line` Integer
-* `sourceId` String
+* `mensahe` Tali
+* `linya` Integer
+* `sourceId` Pisi
 
 Itigil kapag ang guest window ay nagtalaga ng mensahe na konsol.
 
@@ -645,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Kaganapan: 'natagpuan-sa-pahina'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `resulta` Bagay 
   * `requestId` Integer
@@ -668,7 +668,7 @@ console.log(requestId)
 
 ### Kaganapan: 'bagong-bintana'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `url` Tali
 * `frameName` Pisi
@@ -693,9 +693,9 @@ webview.addEventListener('new-window', (e) => {
 
 ### Kaganapan: 'mag-navigate'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `url` String
+* `url` Tali
 
 Ilabas kapang ang user o ang mismong page ay gustong magsimula ng nabigasyon. Ito'y pwedeng mangyari kapag ang `window.location` ng objek ay nabago o ang kiniclick ng user ang link sa page.
 
@@ -707,26 +707,26 @@ Tinatawag ang `event.preventDefault()` na may **NOT** mga epekto.
 
 ### Kaganapan: 'ginawa-navigate'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `url` String
+* `url` Tali
 
-Nilalabas kapag natapos na ang nabigasyon.
+Nilalabas kapag ang nabigasyon ay natapos na.
 
 Ang event na ito ay hindi ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
 
 ### Kaganapan: 'ginawa-navigate-in-page'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `isMainFrame` Boolean
-* `url` String
+* `ay pangunahing kuwadro` Boolean
+* `url` Tali
 
 Inilalabas kapag nangyari ang pag-navigate sa pahina.
 
-Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
+Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Mga halimbawa ng mga pangyayaring ito ay kapag ang naka-ankor na mga link ay naclick o kung ang mga na DOM na `hashchange` ay natrigger.
 
-### Event: 'close'
+### Event: 'isara'
 
 Itigil kung ang guest page ay sinubukang isara ang sarili.
 
@@ -741,7 +741,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `channel` String
 * `args` Array
@@ -778,7 +778,7 @@ Itigil kapag ang ang proseso ng gpu ay nag-crash.
 
 ### Kaganapan: 'plugin-nag-crash'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `name` String
 * `Bersyon` Pisi
@@ -795,11 +795,11 @@ Ilabas kapag ang medya ay nagsimula.
 
 ### Kaganapan: 'media-paused'
 
-Ilabas kapag ang medya ay nahinto o natapos na.
+Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
 ### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `themeColor` String
 
@@ -811,11 +811,11 @@ Ilabas kung ang kulay ng tema ng page ay nabago. Ito ay kadalasang dahil sa na-i
 
 ### Kaganapan: 'update-target-url'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `url` String
+* `url` Tali
 
-Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.
+Ilabas kapag ang mouse ay napunta sa link o ang keyboard ay nagalaw ang pukos sa link.
 
 ### Kaganapan: 'devtools-binuksan'
 

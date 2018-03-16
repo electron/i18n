@@ -1,12 +1,12 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> パフォーマンスボトルネックや遅い操作を見つけるため、Chromiumのコンテンツモジュールからトレースデータを収集します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+このモジュールにはWebインターフェースは含まれないため、結果を閲覧するために `chrome://tracing/` をChromeブラウザーで開いて、生成されたファイルをロードする必要があります。
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**注:** アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
 ```javascript
 const {app, contentTracing} = require('electron')
@@ -31,16 +31,16 @@ app.on('ready', () => {
 
 ## メソッド
 
-The `contentTracing` module has the following methods:
+`contentTracing` モジュールには以下のメソッドがあります。
 
 ### `contentTracing.getCategories(callback)`
 
 * `callback` Function 
   * `categories` String[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+カテゴリグループのセットを取得します。新しいコードパスに到達したら、カテゴリグループは変更できます。
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+一度、すべての子プロセスが `getCategories` リクエストを受諾したら、カテゴリグループの配列で `callback` が呼び出されます。
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -49,19 +49,19 @@ Once all child processes have acknowledged the `getCategories` request the `call
   * `traceOptions` String
 * `callback` Function
 
-Start recording on all processes.
+すべてのプロセスで記録を開始します。
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。 一度、すべての子プロセスが `startRecording` リクエストを受諾したら、`callback` が呼び出されます。
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter` はどのカテゴリグループをトレースする必要があるかを制御するフィルターです。 フィルターには、一致するカテゴリを含むカテゴリグループを除外するオプションの `-` プレフィックスをつけることができます。 同一のリストに、含めるカテゴリパターンと除外するカテゴリパターンの両方を入れるのは、サポートされません。
 
 例:
 
 * `test_MyTest*`,
-* `test_MyTest*,test_OtherStuff`,
+* `test_MyTest*`,
 * `"-excluded_category1,-excluded_category2`
 
-`traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
+`traceOptions` は、どのトレースの種類を有効にするかを制御する、コンマ区切りのリストです。使用可能なオプションは以下の通りです。
 
 * `record-until-full`
 * `record-continuously`
@@ -69,9 +69,9 @@ Recording begins immediately locally and asynchronously on child processes as so
 * `enable-sampling`
 * `enable-systrace`
 
-The first 3 options are trace recording modes and hence mutually exclusive. If more than one trace recording modes appear in the `traceOptions` string, the last one takes precedence. If none of the trace recording modes are specified, recording mode is `record-until-full`.
+最初の3つのオプションは、トレース記録モードであり、それ故に相互に排他的です。 `traceOptions` の文字列に1つ以上のトレース記録モードが見つかった場合、最後の1つが優先されます。 トレース記録モードが何も指定されない場合、記録モードは、`record-until-full` です。
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+トレースオプションは、`traceOptions` から解析されたオプションが適用されるまで、最初にデフォルトのオプション (`record_mode` は、`record-until-full` に設定、`enable_sampling` と `enable_systrace` は、`false` に設定) にリセットされます。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 

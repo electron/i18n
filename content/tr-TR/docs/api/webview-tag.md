@@ -791,11 +791,11 @@ WebContents işlemi çöktüğünde tetiklenir.
 
 ### Olay: Medya oynamaya başladı
 
-Medya oynamaya başladığında belirir.
+Medya oynatılmaya başladığında yayınlanır.
 
 ### Etkinlik: 'medya-duraklatıldı'
 
-Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
+Medya duraklatıldığında veya oynatıldığında yaydır.
 
 ### Olay: tema rengi değiştirildi
 

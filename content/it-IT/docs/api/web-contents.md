@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,9 +43,9 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-Processo: [Principale](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
-### Instance Events
+### Eventi dell'istanza
 
 #### Event: 'did-finish-load'
 
@@ -53,9 +53,9 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -65,9 +65,9 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 #### Event: 'did-frame-finish-load'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `isMainFrame` Boolean
 
 Emitted when a frame has done navigation.
@@ -82,9 +82,9 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'did-get-response-details'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
@@ -98,9 +98,9 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 #### Event: 'did-get-redirect-request'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -113,26 +113,26 @@ Emitted when a redirect is received while requesting a resource.
 
 #### Event: 'dom-ready'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 
 Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-favicon-updated'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `favicons` String[] - Array of URLs
 
 Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `url` Stringa
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
@@ -157,9 +157,9 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 #### Event: 'will-navigate'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `url` Stringa
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
@@ -172,9 +172,9 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-navigate'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `url` Stringa
 
 Emitted when a navigation is done.
@@ -183,9 +183,9 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `url` Stringa
 * `isMainFrame` Boolean
 
@@ -195,9 +195,9 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -224,18 +224,18 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `ucciso` Booleano
 
 Emitted when the renderer process crashes or is killed.
 
 #### Event: 'plugin-crashed'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `nome` Stringa
 * `version` String
 
@@ -247,9 +247,9 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `input` Object - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -290,9 +290,9 @@ Emitted when DevTools is focused / opened.
 
 #### Evento: 'certificato-errore'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `url` Stringa
 * `errore` Stringa - Il codice d'errore
 * `certificato` [Certificato](structures/certificate.md)
@@ -305,9 +305,9 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### Evento: 'selezione-certificato-client'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `url` URL
 * `Listacertificati` [Certificati[]](structures/certificate.md)
 * `callback` Funzione 
@@ -319,9 +319,9 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 #### Evento: 'accedi'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `richiesta` Oggetto 
   * `metodo` Stringa
   * `url` URL
@@ -342,9 +342,9 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `result` Oggetto 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
@@ -370,25 +370,25 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 #### Event: 'update-target-url'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `url` Stringa
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
@@ -401,9 +401,9 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `params` Oggetto 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
@@ -443,9 +443,9 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Funzione 
   * `diapositivold` Stringa
@@ -473,9 +473,9 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -497,9 +497,9 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -511,16 +511,16 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### Event: 'did-attach-webview'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
-Restituiti:
+Restituisce:
 
 * `level` Integer
 * `messaggio` Stringa
@@ -942,7 +942,7 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.addWorkSpace(path)`
 
-* `percorso` Stringa
+* `path` Stringa
 
 Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
@@ -956,7 +956,7 @@ win.webContents.on('devtools-opened', () => {
 
 #### `contents.removeWorkSpace(path)`
 
-* `percorso` Stringa
+* `path` Stringa
 
 Removes the specified path from DevTools workspace.
 

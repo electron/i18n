@@ -104,10 +104,10 @@ Emesso quando l'applicazione è attivata. Varie azioni possono generare questo e
 Restituisce:
 
 * `event` Evento
-* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` Stringa - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Oggetto - Contiene stati specifici dell'applicazione immagazzinati per attività su un altro dispositivo.
 
-Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Se vuoi gestire questo evento dovresti chiamare `event.preventDefault()`.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
 Un'attività dell'utente può essere continuata solo in un app con lo stesso developer Team ID come l'attività dell'app di riferimento e che supporti il tipo di attività. I tipi di attività supportati sono specificati nell'`Info.plist` dell'applicazione sotto la chiave `NSUserActivityTypes`.
 
@@ -122,83 +122,83 @@ Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Evento: 'continue-activity-error' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `tipo` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `event` Evento
+* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `error` Stringa - Una stringa contenente la descrizione localizzata dell'errore.
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
 
 ### Event: 'activity-was-continued' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `event` Evento
+* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contains app-specific state stored by the activity.
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
 
 ### Event: 'update-activity-state' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
-* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `event` Evento
+* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contains app-specific state stored by the activity.
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
 
 ### Evento: 'nuova-finestra-per-scheda' *macOS*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 
 Emesso quando l'utente clicca il pulsante macOS nativo nuova scheda. Il pulsante nuova scheda è visibile solo se l'attuale `FinestraBrowser` ha un `Identificatoreschede`
 
 ### Evento: 'browser-finestra-sfocatura'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `window` [BrowserWindow](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è sfocata.
 
 ### Evento: 'browser-finestra-focalizza'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `window` [BrowserWindow](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
 
 ### Evento: 'broser-finestra-creata'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `window` [BrowserWindow](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è creata.
 
 ### Evento: 'web-contenuto-creato'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
 
 Emesso quando un nuovo [ContenutoWeb](web-contents.md) è creato.
 
 ### Evento: 'certificato-errore'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `url` Stringa
 * `errore` Stringa - Il codice d'errore
@@ -225,9 +225,9 @@ app.on ('certificato-errore', (eventi, Contenutiweb, url, errori, certificato, c
 
 ### Evento: 'selezione-certificato-client'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `url` URL
 * `Listacertificati` [Certificati[]](structures/certificate.md)
@@ -250,9 +250,9 @@ app.on ('seleziona-certificato-client', evento, Contenutiweb, url, lista, callba
 
 ### Evento: 'accedi'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `richiesta` Oggetto 
   * `metodo` Stringa
@@ -284,18 +284,18 @@ app.on('login', evento, Contenutiweb, richiesta, Infoaut, callback) => {
 
 ### Evento: 'processi-gpu-crashati'
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `ucciso` Booleano
 
 Emesso quando i processi gpu crashano o soni uccisi.
 
 ### Evento: 'accessibilità-supporto-cambiata' *macOS* *Windows*
 
-Restituiti:
+Restituisce:
 
-* `evento` Evento
+* `event` Evento
 * `SupportoAccessibilitàAbilitato` Booleano - `true` quando il supporto all'accessibilità a Chrome è abilitato, `false` altrimenti.
 
 Emesso quando cambia il supporto accessibilità di Chrome. Questo evento avviene quando le tecnologie d'assistenza, come lettore schermo, sono abilitate o disabilitate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
@@ -392,7 +392,7 @@ Puoi richiedere i seguenti percorsi dal nome:
 
 ### `app.ottieniIconaFile(percorso[, opxioni], callback)`
 
-* `percorso` Stringa
+* `path` Stringa
 * `opzioni` Oggetto (opzionale) 
   * `dimensioni` Stringa 
     * `piccola` - 16x16
@@ -416,7 +416,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     ### `app.impostaPercorso(nome, percorso)`
     
     * `nome` Stringa
-    * `percorso` Stringa
+    * `path` Stringa
     
     Sostituisce il `percorso` ad una directory speciale o ad un file associato con `nome`. Se il percorso specifica una directory che non esiste, la directory sarà creata da questo metodo. In caso di fallimento viene generato un `Errore`.
     
@@ -450,7 +450,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     ### `app.aggoimgoRecenteDocumento(percorso)` *macOS* *Windows*
     
-    * `percorso` Stringa
+    * `path` Stringa
     
     Aggiungi `percorso` alla lista documenti recenti.
     
@@ -643,7 +643,7 @@ Rilascia tutti i blocchi creati da `faIstanzaSingola`. Permetterà alle istanze 
 
 ### `app.impostaUtenteAttività(tipo, userInfo[, Urlpaginaweb])` *macOS*
 
-* `tipo` Stringa - Unicamente identifica l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Oggetto - Stato app specifico al magazzino per usare da altro dispositivo.
 * `Urlpaginaweb` Stringa (opzionale) - La pagina web da caricare nel browser se non sono installate app adatte nel dispositivo ripristinante. Lo schema deve essere `http` o `https`.
 
@@ -655,13 +655,13 @@ Restituisce `Stringa` - Il tipo di attività al momento in esecuzione.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `tipo` Stringa - Unicamente identifica l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
-* `tipo` Stringa - Unicamente identifica l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Oggetto - Stato app specifico al magazzino per usare da altro dispositivo.
 
 Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.

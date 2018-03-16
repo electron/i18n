@@ -4,7 +4,7 @@
 
 **Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang isang `BrowserView` ay maaaring magamit para i-embed ang karagdagang nilalaman ng web patungo sa isang `BrowserWindow`. Ito ay katulad ng isang batang window, maliban na ito ay naka-posisyon kaugnay sa kanyang angking window. Ito ay sinadya na maging isang alternatibo ng mga tag ng `webview`.
 
@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `options` Object (optional) 
+* `pagpipilian` Na Bagay (opsyonal) 
   * `webPreferences` Bagay (opsyonal) - Tingnan ang [BrowserWindow](browser-window.md).
 
 ### Mga istatikong pamamaraan
@@ -64,13 +64,13 @@ Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na it
 
 Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
 
-### Mga halimbawa ng pamamaraan
+### Instance Methods
 
 Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamaraan ng pagkakataon:
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `width` Boolean - Kung ang `true`, ang lapad ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
   * `height` Boolean - Kung ang `true`, ang taas ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
 

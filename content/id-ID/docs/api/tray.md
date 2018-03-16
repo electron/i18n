@@ -88,15 +88,15 @@ Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
 
 #### Event: 'drop-file' *macOS*
 
-* `acara` Acara
+* `event` Acara
 * `file` String [] - path file menjatuhkan.
 
 Disuarakan saat file terseret dijatuhkan di ikon baki.
 
 #### Event: 'drop-teks' *macOS*
 
-* `event</ 0> Acara</li>
-<li><code>teks` String - string teks menjatuhkan
+* `event` Acara
+* `teks` String - string teks menjatuhkan
 
 Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
 
