@@ -140,10 +140,10 @@ const foo = require('electron').remote.require('./foo') // bar
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+戻り値 `any` - メインプロセス内の `name` (例: `global[name]`) のグローバル変数。
 
 ## プロパティ
 
 ### `remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+メインプロセス内の `process` オブジェクト。これは `remote.getGlobal('process')` と同じですが、キャッシュされます。
