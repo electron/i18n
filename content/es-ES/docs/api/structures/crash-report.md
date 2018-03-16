@@ -1,4 +1,4 @@
 # Objeto CrashReport
 
 * `date` String
-* `ID` Numero entero
+* `ID` Integer
