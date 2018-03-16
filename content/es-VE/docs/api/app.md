@@ -319,7 +319,7 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
+* `opciones` Object (opcional) 
   * `args` String[] - (optional)
   * `execPath` String (optional)
 
@@ -389,7 +389,7 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `opciones` Object (opcional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -669,7 +669,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `opciones` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
@@ -723,7 +723,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `opciones` Object (opcional) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -782,7 +782,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Object 
+* `opciones` Object 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
