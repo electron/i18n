@@ -1,4 +1,4 @@
-# Official Guides
+# 공식 가이드
 
 자신의 Electron 버전과 일치하는 문서를 사용했는지 확인하세요. 버전 번호는 페이지 URL 의 일부여야 합니다. 그렇지 않은 경우, Electron 버전과 호환되지 않는 API 변경 사항이 포함될 수 있는 개발 브랜치의 문서를 사용하고 있을 수 있습니다. 문서의 이전 버전을 보려면, GitHub 에서 "Switch branches/tags" 드롭다운을 열고 버전과 일치하는 태그를 선택하여 [태그로 찾아](https://github.com/electron/electron/tree/v1.4.0) 볼 수 있습니다.
 
@@ -34,19 +34,19 @@
 * 여러분의 앱에 기능 추가하기 
   * [알림](tutorial/notifications.md)
   * [최근 문서](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
-  * [Application Progress](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
-  * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
-  * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
+  * [애플리케이션 진행 상황](tutorial/progress-bar.md)
+  * [커스텀 Dock 메뉴](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [커스텀 Windows 작업 표시줄](tutorial/windows-taskbar.md)
+  * [커스텀 Linux 데스크톱 동작](tutorial/linux-desktop-actions.md)
   * [키보드 단축기](tutorial/keyboard-shortcuts.md)
-  * [Offline/Online Detection](tutorial/online-offline-events.md)
+  * [오프라인/온라인 감지](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
-* [Application Accessibility](tutorial/accessibility.md) 
+  * [기본 파일 드래그 & 드랍](tutorial/native-file-drag-drop.md)
+* [애플리케이션 접근성](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [접근성 활성화](tutorial/accessibility.md#enabling-accessibility)
-* [Application Testing and Debugging](tutorial/application-debugging.md) 
+* [애플리케이션 테스팅과 디버깅](tutorial/application-debugging.md) 
   * [메인 프로세스 디버깅하기](tutorial/debugging-main-process.md)
   * [Selenium 과 WebDriver 사용하기](tutorial/using-selenium-and-webdriver.md)
   * [헤드리스 CI 시스템 (트래비스, 젠킨스) 테스트](tutorial/testing-on-headless-ci.md)
@@ -54,26 +54,26 @@
 * [응용 프로그램 배포](tutorial/application-distribution.md) 
   * [지원되는 플랫폼](tutorial/supported-platforms.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
-  * [Windows Store](tutorial/windows-store-guide.md)
+  * [Windows 스토어](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Application Security](tutorial/security.md) 
+* [애플리케이션 보안](tutorial/security.md) 
   * [보안 문제 제보](tutorial/security.md#reporting-security-issues)
   * [Chromium 보안 문제와 업그레이드](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron 보안 경고](tutorial/security.md#electron-security-warnings)
-  * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
-* [Application Updates](tutorial/updates.md) 
+  * [보안 점검표](tutorial/security.md#checklist-security-recommendations)
+* [애플리케이션 업데이트](tutorial/updates.md) 
   * [서버에 업데이트 배포](tutorial/updates.md#deploying-an-update-server)
   * [앱에 업데이트 구현하기](tutorial/updates.md#implementing-updates-in-your-app)
   * [업데이트 적용](tutorial/updates.md#applying-updates)
 
 ## 자세한 튜토리얼
 
-These individual tutorials expand on topics discussed in the guide above.
+이 가이드는 위에서 설명된 주제의 확장입니다.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
+* [자세히 설명된 Electron 설치](tutorial/installation.md) 
+  * [전역 설치 vs 로컬 설치](tutorial/installation.md#global-versus-local-installation)
   * [Proxies](tutorial/installation.md#proxies)
-  * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
+  * [커스텀 미러와 캐시](tutorial/installation.md#custom-mirrors-and-caches)
   * [문제 해결](tutorial/installation.md#troubleshooting)
 * [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
