@@ -418,10 +418,10 @@ win.webContents.on('before-input-event', (event, input) => {
   * `selectionText` String - コンテキストメニューが呼び出されたときの選択テキスト。
   * `titleText` String - コンテキストが呼び出されたときの選択要素の、タイトルまたは alt テキスト。
   * `misspelledWord` String - カーソルの下のスペルミスした単語 (もしあるならば)。
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
+  * `frameCharset` String - メニューが呼び出されたときのフレームのテキストエンコーディング。
+  * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
+  * `menuSourceType` String - コンテキストメニューが呼び出されたときの入力ソース. `none`、`mouse`、`keyboard`、`touch`、`touchMenu` になれる。
+  * `mediaFlags` Object - コンテキストメニューが呼び出されたメディア要素のフラグ。 
     * `inError` Boolean - Whether the media element has crashed.
     * `isPaused` Boolean - Whether the media element is paused.
     * `isMuted` Boolean - Whether the media element is muted.
