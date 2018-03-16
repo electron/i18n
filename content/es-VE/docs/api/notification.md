@@ -28,7 +28,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Object 
+* `opciones` Object 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
   * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle
