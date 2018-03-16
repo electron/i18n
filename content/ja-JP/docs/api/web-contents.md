@@ -439,9 +439,9 @@ win.webContents.on('before-input-event', (event, input) => {
     * `canDelete` Boolean - レンダラーが、削除できると信頼しているかどうか。
     * `canSelectAll` Boolean - レンダラーが、全選択できると信頼しているかどうか。
 
-Emitted when there is a new context menu that needs to be handled.
+処理が必要な新しいコンテキストメニューがあるときに発行されます。
 
-#### Event: 'select-bluetooth-device'
+#### イベント: 'select-bluetooth-device'
 
 戻り値:
 
@@ -450,7 +450,7 @@ Emitted when there is a new context menu that needs to be handled.
 * `callback` Function 
   * `deviceId` String
 
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+`navigator.bluetooth.requestDevice` を呼ぶうえで、Bluetooth デバイスを選択する必要があるときに発行されます。 `navigator.bluetooth` を使用するには、`webBluetooth` API を有効にする必要があります。 もし `event.preventDefault` が呼ばれなければ、最初に有効なデバイスが選択されます。 `callback` は選択された `deviceId` で呼ばれます。リクエストがキャンセルされると、`callbback` に空文字列が渡されます。
 
 ```javascript
 const {app, webContents} = require('electron')
@@ -471,13 +471,13 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### イベント: 'paint'
 
 戻り値:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - The image data of the whole frame.
+* `image` [NativeImage](native-image.md) - フレーム全体の画像データ。
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 
