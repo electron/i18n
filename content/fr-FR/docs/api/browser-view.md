@@ -68,6 +68,14 @@ Un`Integer` représentant l’ID unique de la vue.
 
 Les objets créés avec `new BrowserView` ont les méthodes d’instance suivant :
 
+#### `view.destroy()`
+
+Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+
+#### `view.isDestroyed()`
+
+Returns `Boolean` - Whether the view is destroyed.
+
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Objet 
