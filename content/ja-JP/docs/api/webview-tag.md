@@ -538,11 +538,11 @@ The following DOM events are available to the `webview` tag:
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Event: 'did-finish-load'
+### イベント: 'did-finish-load'
 
 Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
-### Event: 'did-fail-load'
+### イベント: 'did-fail-load'
 
 戻り値:
 
@@ -553,7 +553,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Event: 'did-frame-finish-load'
+### イベント: 'did-frame-finish-load'
 
 戻り値:
 
@@ -561,15 +561,15 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### イベント: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### イベント: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### イベント: 'did-get-response-details'
 
 戻り値:
 
