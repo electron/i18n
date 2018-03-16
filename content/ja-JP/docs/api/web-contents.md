@@ -820,9 +820,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   * `findNext` Boolean - (任意) 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
   * `matchCase` Boolean - (任意) 大文字と小文字を区別する検索かどうか。省略値は `false`。
   * `wordStart` Boolean - (任意) 単語の始めだけを見るかどうか。省略値は `false`。
-  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean - (任意) `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
-Returns `Integer` - The request id used for the request.
+戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
 Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
