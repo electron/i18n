@@ -5,12 +5,12 @@
 * `flash_stage3d` String - Flash Stage3D
 * `flash_stage3d_baseline` String - Perfil básico Flash Stage3D
 * `gpu_compositing` String - Composición
-* `multiple_raster_threads` Cadena - Múltiples Hilos Raster
-* `native_gpu_memory_buffers` Cadena - GpuMemoryBuffers Nativo
-* `rasterization` Cadena - Rasterización
-* `video_decode` Cadena - Decodificación de vídeo
-* `video_encode` Cadena - Codificación de vídeo
-* `vpx_decode` Cadena - Decodificación de vídeo VPx
+* `multiple_raster_threads` String - Múltiples Hilos Raster
+* `native_gpu_memory_buffers` String - GpuMemoryBuffers Nativo
+* `rasterization` String - Rasterización
+* `video_decode` String - Decodificación de vídeo
+* `video_encode` String - Codificación de vídeo
+* `vpx_decode` String - Decodificación de vídeo VPx
 * `webgl` String - WebGL
 * `webgl2` String - WebGL2
 
