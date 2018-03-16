@@ -684,7 +684,7 @@ console.log(currentURL)
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+    console.log(result) // フェッチ呼び出しの JSON オブジェクトになります
   })
 ```
 
@@ -692,57 +692,57 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `ignore` Boolean
 
-Ignore application menu shortcuts while this web contents is focused.
+この WebContents がフォーカスされている間、アプリケーションのメニューショートカットを無視します。
 
 #### `contents.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+現在のウェブページのオーディオをミュートします。
 
 #### `contents.isAudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+戻り値 `Boolean` - このページがミュートされているかどうか。
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - 拡大率。
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+指定の倍率に拡大率を変更します。拡大率は百分率なので、300% = 3.0 です。
 
 #### `contents.getZoomFactor(callback)`
 
 * `callback` Function 
   * `zoomFactor` Number
 
-Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+現在の拡大率を取得するリクエストを送ります。`callback` が `callback(zoomFactor)` で呼ばれます。
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - 拡大レベル。
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。
 
 #### `contents.getZoomLevel(callback)`
 
 * `callback` Function 
   * `zoomLevel` Number
 
-Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+現在の拡大レベルを取得するリクエストを送ります。`callback` が `callback(zoomLevel)` で呼ばれます。
 
 #### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**非推奨:** 視覚拡大レベルの制限を設定するには、代わりに `setVisualZoomLevelLimits` を呼びます。このメソッドは Electron 2.0 で削除されます。
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+ピンチによる拡大レベルの最大値と最小値を設定します。
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
