@@ -79,11 +79,11 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 
 `close` イベントが発火されたとき、前にインストールしたコールバックが解放されるので、メインプロセス内で例外が発生され、状況を悪化させます。
 
-この問題を避けるため、メインプロセスに渡すレンダラーのコールバックへの参照を、確実にクリーンアップしてください。 This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+この問題を避けるため、メインプロセスに渡すレンダラーのコールバックへの参照を、確実にクリーンアップしてください。 これをするには、イベントハンドラをクリーンアップするか、メインプロセスからのコールバックを明示的に参照外しするように指示されているか、を確認するようにしてください。
 
-## Accessing built-in modules in the main process
+## メインプロセスの組み込みモジュールへのアクセス
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+メインプロセスの組み込みモジュールは、`remote` モジュール内のゲッターとして扱われるので、`electron` モジュールのように直接使用できます。
 
 ```javascript
 const app = require('electron').remote.app
@@ -98,22 +98,22 @@ console.log(app)
 
 * `module` String
 
-`any` - のメインプロセスに `require(module)` によって返されるオブジェクトを返します。 Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+戻り値 `any` - メインプロセス内の `require(module)` によって返されるオブジェクト。 相対パスで指定したモジュールは、メインプロセスのエントリポイントを基準に解決します。
 
-e.g.
+例
 
 ```sh
 project/
 ├── main
-│   ├── foo.js
-│   └── index.js
+│   ├── foo.js
+│   └── index.js
 ├── package.json
 └── renderer
     └── index.js
 ```
 
 ```js
-// main process: main/index.js
+// メインプロセス: main/index.js
 const {app} = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
