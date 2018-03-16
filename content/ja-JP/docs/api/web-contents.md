@@ -143,7 +143,7 @@ console.log(webContents)
 
 デフォルトでは、`url` の新しい `BrowserWindow` が作成されます。
 
-`event.preventDefault()` を呼ぶと、Electron が自動的に新しい `BrowserWindow` を作成するのを防ぎます。 If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. 例:
+`event.preventDefault()` を呼ぶと、Electron が自動的に新しい `BrowserWindow` を作成するのを防ぎます。 もし `event.preventDefault()` を呼び、新しい `BrowserWindow` を手動で作る場合、新しい `BrowserWindow` インスタンスの参照を `event.newGuest` にセットしなければ、予期しない動作になる可能性があります。 例:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -155,18 +155,18 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 })
 ```
 
-#### Event: 'will-navigate'
+#### イベント: 'will-navigate'
 
 戻り値:
 
 * `event` Event
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+ユーザまたはページがナビゲーションを開始したいときに発行されます。 `window.location` オブジェクトが変更されるか、ユーザがページ内のリンクをクリックしたときに発生します。
 
-This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
+このイベントは、 `webContents.loadURL` や `webContents.back` のような API によって、プログラム上から開始されるナビゲーションのときには発行されません。
 
-It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでも発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
 Calling `event.preventDefault()` will prevent the navigation.
 
