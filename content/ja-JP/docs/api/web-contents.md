@@ -541,7 +541,7 @@ win.loadURL('http://github.com')
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-ウインドウ内に `url` を読み込みます。 `url` は、`http://` や `file://` のようなプロトコルの接頭子を含まなければなりません。 If the load should bypass http cache then use the `pragma` header to achieve it.
+ウインドウ内に `url` を読み込みます。 `url` は、`http://` や `file://` のようなプロトコルの接頭子を含まなければなりません。 HTTP キャッシュをバイパスする必要があるロードの場合は、`pragma` ヘッダを使用してそれを実現します。
 
 ```javascript
 const {webContents} = require('electron')
@@ -553,11 +553,11 @@ webContents.loadURL('https://github.com', options)
 
 * `url` String
 
-Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
+ナビゲーションせずに、`url` のリソースのダウンロードを開始します。`session` の`will-download` イベントがトリガーされます。
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+戻り値 `String` - 現在のウェブページの URL。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -570,43 +570,43 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+戻り値 `String` - 現在のウェブページのタイトル。
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+戻り値 `Boolean` - ウェブページが破棄されているかどうか。
 
 #### `contents.focus()`
 
-Focuses the web page.
+ウェブページにフォーカスします。
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+戻り値 `Boolean` - ウェブページがフォーカスされているかどうか。
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+戻り値 `Boolean` - ウェブページがまだリソースを読み込んでいるかどうか。
 
 #### `contents.isLoadingMainFrame()`
 
-Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+戻り値 `Boolean` - メインフレーム (iframe やフレーム内のフレームだけではない) がまだ読み込んでいるかどうか。
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+戻り値 `Boolean` - ウェブページが、ページのメインリソースからの最初の応答を待機しているかどうか。
 
 #### `contents.stop()`
 
-Stops any pending navigation.
+保留中のナビゲーションを停止します。
 
 #### `contents.reload()`
 
-Reloads the current web page.
+現在のページを再読み込みします。
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+現在のページを、キャッシュを無視して再読み込みします。
 
 #### `contents.canGoBack()`
 
