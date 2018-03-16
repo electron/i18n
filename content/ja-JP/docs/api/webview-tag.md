@@ -809,13 +809,13 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### イベント: 'update-target-url'
 
 戻り値:
 
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+マウスをリンクにマウスオーバーしたり、キーボードでリンクにフォーカスしたときに発行されます。
 
 ### イベント: 'devtools-opened'
 
