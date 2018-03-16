@@ -31,27 +31,27 @@ console.log(webContents)
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+戻り値 `WebContents` - このアプリケーション内でフォーカス中の WebContents。無ければ `null`。
 
 ### `webContents.fromId(id)`
 
 * `id` Integer
 
-Returns `WebContents` - A WebContents instance with the given ID.
+戻り値 `WebContents` - 指定した ID の WebContents インスタンス。
 
-## Class: WebContents
+## クラス: WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> BrowserWindow インスタンスのコンテンツを、描画し、制御します。
 
 プロセス: [Main](../glossary.md#main-process)
 
 ### インスタンスイベント
 
-#### Event: 'did-finish-load'
+#### イベント: 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+ナビゲーションが終了した時、すなわち、タブのくるくるが止まったときや、`onload` イベントが送られた後に、発行されます。
 
-#### Event: 'did-fail-load'
+#### イベント: 'did-fail-load'
 
 戻り値:
 
@@ -61,26 +61,26 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+このイベントは `did-finish-load` のようですが、ロードが失敗した、キャンセルされた、`window.stop()` が呼び出されたなどで、発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
 
-#### Event: 'did-frame-finish-load'
+#### イベント: 'did-frame-finish-load'
 
 戻り値:
 
 * `event` Event
 * `isMainFrame` Boolean
 
-Emitted when a frame has done navigation.
+フレームのナビゲーションが終了したときに発行されます。
 
-#### Event: 'did-start-loading'
+#### イベント: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+タブのくるくるが始まったタイミングに対応しています。
 
-#### Event: 'did-stop-loading'
+#### イベント: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+タブのくるくるが止まったタイミングに対応しています。
 
-#### Event: 'did-get-response-details'
+#### イベント: 'did-get-response-details'
 
 戻り値:
 
