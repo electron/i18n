@@ -610,67 +610,67 @@ console.log(currentURL)
 
 #### `contents.canGoBack()`
 
-Returns `Boolean` - Whether the browser can go back to previous web page.
+戻り値 `Boolean` - ブラウザが前のウェブページへ戻れるかどうか。
 
 #### `contents.canGoForward()`
 
-Returns `Boolean` - Whether the browser can go forward to next web page.
+戻り値 `Boolean` - ブラウザが次のウェブページへ進めるかどうか。
 
 #### `contents.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the web page can go to `offset`.
+戻り値 `Boolean` - `offset` 番目のウェブページへ行けるかどうか。
 
 #### `contents.clearHistory()`
 
-Clears the navigation history.
+ナビゲーション履歴を消去します。
 
 #### `contents.goBack()`
 
-Makes the browser go back a web page.
+ブラウザを前のページへ戻させます。
 
 #### `contents.goForward()`
 
-Makes the browser go forward a web page.
+ブラウザを次のページへ進めさせます。
 
 #### `contents.goToIndex(index)`
 
 * `index` Integer
 
-Navigates browser to the specified absolute web page index.
+ブラウザを指定した絶対ウェブページインデックスへナビゲーションします。
 
 #### `contents.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+現在のエントリから指定したオフセットへナビゲーションします。
 
 #### `contents.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+戻り値 `Boolean` - レンダラープロセスがクラッシュしたかどうか。
 
 #### `contents.setUserAgent(userAgent)`
 
 * `userAgent` String
 
-Overrides the user agent for this web page.
+このウェブページのユーザエージェントをオーバーライドします。
 
 #### `contents.getUserAgent()`
 
-Returns `String` - The user agent for this web page.
+戻り値 `String` - このウェブページのユーザエージェント。
 
 #### `contents.insertCSS(css)`
 
 * `css` String
 
-Injects CSS into the current web page.
+現在のウェブページへ CSS を注入します。
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `userGesture` Boolean (任意) - 省略値は `false`。
+* `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
