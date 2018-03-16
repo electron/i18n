@@ -209,9 +209,9 @@ const win = new BrowserWindow({width: 800, height: 600})
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
-    buttons: ['離れる', '残る'],
+    buttons: ['このページを離れる', 'キャンセル'],
     title: 'このサイトを離れてもよろしいですか?',
-    message: '変更は保存されません。',
+    message: '行った変更が保存されない可能性があります。',
     defaultId: 0,
     cancelId: 1
   })
@@ -270,15 +270,15 @@ const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600})
 
 win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+  // 例えば、Ctrl / Cmd が押下されているときのみ、
+  // アプリケーションのメニューキーボードショートカットを有効にします。
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
 
-#### Event: 'devtools-opened'
+#### イベント: 'devtools-opened'
 
-Emitted when DevTools is opened.
+開発者向けツールが開かれたときに発行されます。
 
 #### Event: 'devtools-closed'
 
