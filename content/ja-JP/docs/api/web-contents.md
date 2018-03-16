@@ -433,11 +433,11 @@ win.webContents.on('before-input-event', (event, input) => {
   * `editFlags` Object - これらのフラグは、レンダラーが対応するアクションを実行できると信頼しているかどうかを示す。 
     * `canUndo` Boolean - レンダラーが、undo できると信頼しているかどうか。
     * `canUndo` Boolean - レンダラーが、redo できると信頼しているかどうか。
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+    * `canCut` Boolean - レンダラーが、カットできると信頼しているかどうか。
+    * `canCopy` Boolean - レンダラーが、コピーできると信頼しているかどうか。
+    * `canPaste` Boolean - レンダラーが、ペーストできると信頼しているかどうか。
+    * `canDelete` Boolean - レンダラーが、削除できると信頼しているかどうか。
+    * `canSelectAll` Boolean - レンダラーが、全選択できると信頼しているかどうか。
 
 Emitted when there is a new context menu that needs to be handled.
 
