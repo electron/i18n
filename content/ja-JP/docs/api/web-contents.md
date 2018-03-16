@@ -109,35 +109,35 @@ console.log(webContents)
 * `referrer` String
 * `headers` Object
 
-Emitted when a redirect is received while requesting a resource.
+リソースのリクエスト中にリダイレクトを受けたときに発行されます。
 
-#### Event: 'dom-ready'
-
-戻り値:
-
-* `event` Event
-
-Emitted when the document in the given frame is loaded.
-
-#### Event: 'page-favicon-updated'
+#### イベント: 'dom-ready'
 
 戻り値:
 
 * `event` Event
-* `favicons` String[] - Array of URLs
 
-Emitted when page receives favicon urls.
+指定のフレームの document が読み込まれたときに発行されます。
 
-#### Event: 'new-window'
+#### イベント: 'page-favicon-updated'
+
+戻り値:
+
+* `event` Event
+* `favicons` String[] - URLの配列。
+
+ページがファビコンの URL を受け取ると発行されます。
+
+#### イベント: 'new-window'
 
 戻り値:
 
 * `event` Event
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which will be used for creating the new `BrowserWindow`.
-* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
+* `options` Object - 新しい `BrowserWindow` を作成するのに使われるオプション。
+* `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 
 Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
