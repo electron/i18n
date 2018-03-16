@@ -8,7 +8,7 @@
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## 최근 문서
 
 See [Recent Documents documentation](recent-documents.md).
 
