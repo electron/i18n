@@ -54,6 +54,14 @@ A `bilangan bulat` mewakili ID unik dari tampilan.
 
 Objek yang dibuat dengan `lihat Browser baru` memiliki metode contoh berikut:
 
+#### `view.destroy()`
+
+Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+
+#### `view.isDestroyed()`
+
+Returns `Boolean` - Whether the view is destroyed.
+
 #### `lihat.set otomatis ubah ukuran (pilihan)` *Eksperimental*
 
 * `pilihan` Obyek 
