@@ -422,17 +422,17 @@ win.webContents.on('before-input-event', (event, input) => {
   * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
   * `menuSourceType` String - コンテキストメニューが呼び出されたときの入力ソース. `none`、`mouse`、`keyboard`、`touch`、`touchMenu` になれる。
   * `mediaFlags` Object - コンテキストメニューが呼び出されたメディア要素のフラグ。 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
-    * `hasAudio` Boolean - Whether the media element has audio.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
+    * `inError` Boolean - メディア要素がクラッシュしたかどうか。
+    * `isPaused` Boolean - メディア要素が一時停止されているかどうか。
+    * `isMuted` Boolean - メディア要素がミュートされているかどうか。
+    * `hasAudio` Boolean - メディア要素に音声があるかどうか。
+    * `isLooping` Boolean - メディア要素をループしているかどうか。
+    * `isControlsVisible` Boolean - メディア要素のコントロールが見えるかどうか。
+    * `canToggleControls` Boolean - メディア要素のコントロールがトグル切り替えできるかどうか。
+    * `canRotate` Boolean - メディア要素を回転できるかどうか。
+  * `editFlags` Object - これらのフラグは、レンダラーが対応するアクションを実行できると信頼しているかどうかを示す。 
+    * `canUndo` Boolean - レンダラーが、undo できると信頼しているかどうか。
+    * `canUndo` Boolean - レンダラーが、redo できると信頼しているかどうか。
     * `canCut` Boolean - Whether the renderer believes it can cut.
     * `canCopy` Boolean - Whether the renderer believes it can copy
     * `canPaste` Boolean - Whether the renderer believes it can paste.
