@@ -4,9 +4,9 @@
 
 ### ASAR
 
-ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR는 Atom Shell Archive Format의 약자입니다. [asar](https://github.com/electron/asar) 아카이브는 `tar`과 비슷한 포맷으로, 모든 리소스를 단일 파일로 만듭니다. 그리고 Electron은 압축해제 없이 임의로 모든 파일을 읽어들일 수 있습니다.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+ASAR 포맷은 Windows에서의 성능 향상을 목적으로 만들어졌습니다... [작성 중]
 
 ### Brightray
 
