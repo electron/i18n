@@ -821,10 +821,10 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 開発者向けツールが開かれたときに発行されます。
 
-### Event: 'devtools-closed'
+### イベント: 'devtools-closed'
 
-Emitted when DevTools is closed.
+開発者向けツールが閉じられたときに発行されます。
 
-### Event: 'devtools-focused'
+### イベント: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+開発者向けツールがフォーカスされた / 開かれたときに発行されます。
