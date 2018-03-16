@@ -2,4 +2,4 @@
 
 * `id` String - El identificador de una ventana o pantalla que puede ser usado como una restricción de `chromeMediaSourceId` cuando se llama a [`navigator.webkitGetUserMedia`]. El formato del identificador sera `window:XX` o `screen:XX`, donde `XX` es un número generado aleatoriamente.
 * `name` String - Un origen de pantalla sera nombrado como `Entire Screen` o `Screen <index>`, mientras que el nombre del origen de ventana coincidirá con el título de la ventana.
-* `thumbnail` [NativeImage](../native-image.md) - Una imagen en miniatura. **Nota:** No hay garantia que el tamaño de la miniatura sea el mismo que de `thumbnailSize` especificado en las opciones `options` escritas en `desktopCapturer.getSources`. El tamaño real depende de la escala de la pantalla o ventana.
+* `thumbnail` [NativeImage](../native-image.md) - Una imagen en miniatura. **Nota:** No hay garantía que el tamaño de la imagen en miniatura sea el mismo como el `thumbnailSize` especificado en las opciones `options` pasadas en `desktopCapturer.getSources`. El tamaño real depende de la escala de la pantalla o ventana.
