@@ -505,20 +505,20 @@ win.loadURL('http://github.com')
 
 `<webview>` の webContents がこの webContents に適用されようとしているときに発行されます。`event.preventDefault()` を呼ぶとゲストページを破棄します。
 
-This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
+このイベントは、 `webContents` の `<webview>` が読み込まれる前に `webPreferences` を設定するのに使用でき、`<webview>` の属性を通して設定できない設定を、設定する機能を提供します。
 
-**Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+**注釈:** 指定された `preload` スクリプトオプションは、このイベントが発行された `webPreferences` オブジェクト内の、`preloadURL` (`preload` ではない) として現れます。
 
-#### Event: 'did-attach-webview'
+#### イベント: 'did-attach-webview'
 
 戻り値:
 
 * `event` Event
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* `webContents` WebContents - `<webview>` で使われるゲスト WebContents。
 
-Emitted when a `<webview>` has been attached to this web contents.
+`<webview>` がこの webContents に適用されたときに発行されます。
 
-#### Event: 'console-message'
+#### イベント: 'console-message'
 
 戻り値:
 
