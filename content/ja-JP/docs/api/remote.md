@@ -119,22 +119,22 @@ app.on('ready', () => { /* ... */ })
 ```
 
 ```js
-// some relative module: main/foo.js
-module.exports = 'bar'
+// 相対的に指定するちょっとしたモジュール: main/foo.js
+module.exports = 'bar
 ```
 
 ```js
-// renderer process: renderer/index.js
+// レンダラープロセス: renderer/index.js
 const foo = require('electron').remote.require('./foo') // bar
 ```
 
 ### `remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+戻り値 [`BrowserWindow`](browser-window.md) - このウェブページが属するウインドウ。
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+戻り値 [`WebContents`](web-contents.md) - このウェブページの webContents。
 
 ### `remote.getGlobal(name)`
 
