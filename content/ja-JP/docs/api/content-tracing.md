@@ -71,7 +71,7 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 最初の3つのオプションは、トレース記録モードであり、それ故に相互に排他的です。 `traceOptions` の文字列に1つ以上のトレース記録モードが見つかった場合、最後の1つが優先されます。 トレース記録モードが何も指定されない場合、記録モードは、`record-until-full` です。
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+トレースオプションは、`traceOptions` から解析されたオプションが適用されるまで、最初にデフォルトのオプション (`record_mode` は、`record-until-full` に設定、`enable_sampling` と `enable_systrace` は、`false` に設定) にリセットされます。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
