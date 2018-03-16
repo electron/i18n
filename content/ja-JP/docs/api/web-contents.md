@@ -749,77 +749,77 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
 #### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+ウェブページの `undo` 編集コマンドを実行します。
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+ウェブページの `redo` 編集コマンドを実行します。
 
 #### `contents.cut()`
 
-Executes the editing command `cut` in web page.
+ウェブページの `cut` 編集コマンドを実行します。
 
 #### `contents.copy()`
 
-Executes the editing command `copy` in web page.
+ウェブページの `copy` 編集コマンドを実行します。
 
 #### `contents.copyImageAt(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Copy the image at the given position to the clipboard.
+指定した位置の画像をクリップボードにコピーします。
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+ウェブページの `paste` 編集コマンドを実行します。
 
 #### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+ウェブページの `pasteAndMatchStyle` 編集コマンドを実行します。
 
 #### `contents.delete()`
 
-Executes the editing command `delete` in web page.
+ウェブページの `delete` 編集コマンドを実行します。
 
 #### `contents.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+ウェブページの `selectAll` 編集コマンドを実行します。
 
 #### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
+ウェブページの `unselect` 編集コマンドを実行します。
 
 #### `contents.replace(text)`
 
 * `text` String
 
-Executes the editing command `replace` in web page.
+ウェブページの `replace` 編集コマンドを実行します。
 
 #### `contents.replaceMisspelling(text)`
 
 * `text` String
 
-Executes the editing command `replaceMisspelling` in web page.
+ウェブページの `replaceMisspelling` 編集コマンドを実行します。
 
 #### `contents.insertText(text)`
 
 * `text` String
 
-Inserts `text` to the focused element.
+フォーカスされた要素に `text` を挿入します。
 
 #### `contents.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` String - 検索するコンテンツ。空にしてはいけません。
 * `options` Object (任意) 
-  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
+  * `forward` Boolean - (任意) 前方または後方を検索するかどうか。省略値は `true`。
+  * `findNext` Boolean - (任意) 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
+  * `matchCase` Boolean - (任意) 大文字と小文字を区別する検索かどうか。省略値は `false`。
+  * `wordStart` Boolean - (任意) 単語の始めだけを見るかどうか。省略値は `false`。
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
