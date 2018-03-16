@@ -705,26 +705,26 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### イベント: 'did-navigate'
 
 戻り値:
 
 * `url` String
 
-Emitted when a navigation is done.
+ナビゲーションが完了したときに発行されます。
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
-### Event: 'did-navigate-in-page'
+### イベント: 'did-navigate-in-page'
 
 戻り値:
 
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+ページ内ナビゲーションが発生したときに発行されます。
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+ページ内ナビゲーションが行われるとき、ページのURLは変更されますがページ外でのナビゲーションは発生しません。 これが発生する例は、アンカーリンクがクリックされたときや、DOM の `hashchange` イベントがトリガーされたときです。
 
 ### イベント: 'close'
 
