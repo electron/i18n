@@ -817,9 +817,9 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-### Event: 'devtools-opened'
+### イベント: 'devtools-opened'
 
-Emitted when DevTools is opened.
+開発者向けツールが開かれたときに発行されます。
 
 ### Event: 'devtools-closed'
 
