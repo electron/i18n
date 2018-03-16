@@ -199,9 +199,9 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 * `event` Event
 
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
+`beforeunload` イベントハンドラがページのアンロードをキャンセルしようとしたときに発行されます。
 
-Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+`event.preventDefault()` を呼ぶと、`beforeunload` イベントハンドラが無視され、 ページをアンロードできます。
 
 ```javascript
 const {BrowserWindow, dialog} = require('electron')
@@ -209,9 +209,9 @@ const win = new BrowserWindow({width: 800, height: 600})
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+    buttons: ['離れる', '残る'],
+    title: 'このサイトを離れてもよろしいですか?',
+    message: '変更は保存されません。',
     defaultId: 0,
     cancelId: 1
   })
@@ -222,7 +222,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed'
+#### イベント: 'crashed'
 
 戻り値:
 
