@@ -413,11 +413,11 @@ win.webContents.on('before-input-event', (event, input) => {
   * `frameURL` String - コンテキストメニューが呼び出されたサブフレームの URL。
   * `srcURL` String - コンテキストメニューが呼び出された要素のソース URL。ソース URL を持つ要素は、img、audio、video です。
   * `mediaType` String - コンテキストメニューが呼び出されたノードの種類。 `none`、`image`、`audio`、`video`、`canvas`、`file`、`plugin` になれる。
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
-  * `misspelledWord` String - The misspelled word under the cursor, if any.
+  * `hasImageContents` Boolean - 空でないコンテンツ画像の上でコンテキストメニューが呼び出されたかどうか。
+  * `isEditable` Boolean - コンテキストが編集可能かどうか。
+  * `selectionText` String - コンテキストメニューが呼び出されたときの選択テキスト。
+  * `titleText` String - コンテキストが呼び出されたときの選択要素の、タイトルまたは alt テキスト。
+  * `misspelledWord` String - カーソルの下のスペルミスした単語 (もしあるならば)。
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
