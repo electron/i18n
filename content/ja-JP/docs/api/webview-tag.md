@@ -584,7 +584,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### イベント: 'did-get-redirect-request'
 
 戻り値:
 
