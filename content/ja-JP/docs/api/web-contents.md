@@ -94,9 +94,9 @@ console.log(webContents)
 * `headers` Object
 * `resourceType` String
 
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+要求されたリソースに関する詳細が利用可能なときに発行されます。`status` はリソースをダウンロードするためのソケット接続状態を示します。
 
-#### Event: 'did-get-redirect-request'
+#### イベント: 'did-get-redirect-request'
 
 戻り値:
 
