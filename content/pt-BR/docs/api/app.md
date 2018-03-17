@@ -603,11 +603,11 @@ Este método transforma sua aplicação em uma aplicação de instância única 
 
 `callback` será chamada pela primeira instância com `callback(argv, workingDirectory)` quando uma segunda instância for executada. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+É garantido que a `callback` será executada após o evento `ready` do objeto `app` ser emitido.
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+Este método retorna `false` se seu processo for a instância principal da sua aplicação e, nesse caso, seu app deve continuar carregando. E retorna `true` se seu processo enviou seus parâmetros para outra instância; dessa forma, você deve encerrá-lo imediatamente.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+No macOS, o sistema impõe o uso de instância única automaticamente quando os usuários tentam abrir uma segunda instância do seu aplicativo no Finder, e os eventos `open-file` e `open-url` serão emitidos nesse caso. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
 An example of activating the window of primary instance when a second instance starts:
 
