@@ -642,17 +642,17 @@ Desfaz todas as restrições que foram criadas pelo `makeSingleInstance`. Isso i
 * `userInfo` Object - Estado específico do app a ser armazenado para uso em outro dispositivo.
 * `webpageURL` String (opcional) - A página da Web a ser carregada em um navegador caso nenhum aplicativo adequado para a atividade esteja instalado no dispositivo que irá continuá-la. O esquema deve ser `http` ou `https`.
 
-Cria um `NSUserActivity` e o define como a atividade atual. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Cria um `NSUserActivity` e o define como a atividade atual. A atividade, então, é qualificada para ser repassada (via [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)) a outro dispositivo de agora em diante.
 
-### `app.getCurrentActivityType()` no *macOS*
+### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Retorna `String` - O tipo da atividade atualmente em execução.
 
-### `app.invalidateCurrentActivity()` no *macOS*
+### `app.invalidateCurrentActivity()` *macOS*
 
 * `type` String - Identificação única da atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+Invalida a atividade de usuário atual do [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html).
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
