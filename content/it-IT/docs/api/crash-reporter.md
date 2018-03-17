@@ -17,7 +17,7 @@ crashReporter.start({
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Per impostare il server in modo che accetti e processi il report del crash, puoi usare i seguenti progetti:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
