@@ -599,9 +599,9 @@ app.setJumpList([
 
 Retorna `Boolean`.
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+Este método transforma sua aplicação em uma aplicação de instância única - em vez de permitir várias instâncias do seu app rodando ao mesmo tempo, isso irá garantir que apenas uma única instância do seu app seja executada. Quaisquer outras instâncias irão apontar para esta instância e, então, serão finalizadas.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`callback` será chamada pela primeira instância com `callback(argv, workingDirectory)` quando uma segunda instância for executada. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
 
 The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
