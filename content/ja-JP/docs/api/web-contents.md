@@ -877,16 +877,16 @@ console.log(requestId)
 
 * `options` Object (任意) 
   * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。省略値は `false`。
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `printBackground` Boolean (任意) - ウェブページの背景色と画像も印刷するかどうか。省略値は `false`。
+  * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
 * `callback` Function (任意) 
-  * success` Boolean - Indicates success of the print call.
+  * success` Boolean - 印刷呼び出しの成功を示す。
 
-Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+ウインドウのウェブページを印刷する。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
-Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
+ウェブページ内の `window.print()` を呼ぶことは、`webContents.print({silent: false, printBackground: false, deviceName: ''})` と同等です。
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+`page-break-before: always;` CSS スタイルを使用して、強制的に改ページして印刷できます。
 
 #### `contents.printToPDF(options, callback)`
 
@@ -917,7 +917,7 @@ By default, an empty `options` will be regarded as:
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+`page-break-before: always;` CSS スタイルを使用して、強制的に改ページして印刷できます。
 
 An example of `webContents.printToPDF`:
 
