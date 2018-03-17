@@ -829,11 +829,11 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 #### `contents.stopFindInPage(action)`
 
 * `action` String - [`webContents.findInPage`] リクエストを終了するときに実行するアクションを指定する。 
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
+  * `clearSelection` - 選択を消去する。
+  * `keepSelection` - その選択を通常の選択に変換する。
+  * `activateSelection` - 選択ノードをフォーカスして、クリックする。
 
-Stops any `findInPage` request for the `webContents` with the provided `action`.
+指定された `action` で、`webContents` の `findInPage` リクエストを停止します。
 
 ```javascript
 const {webContents} = require('electron')
@@ -847,18 +847,18 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+`rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 `image` はスナップショットのデータを格納する [NativeImage](native-image.md) のインスタンスです。 `rect` を省略すると、表示されているページ全体をキャプチャします。
 
 #### `contents.hasServiceWorker(callback)`
 
 * `callback` Function 
   * `hasWorker` Boolean
 
-Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
+何らかの ServiceWorker が登録されれいる場合、反応として Boolean を `callback` に返します。
 
 #### `contents.unregisterServiceWorker(callback)`
 
