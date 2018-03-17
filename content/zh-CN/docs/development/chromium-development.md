@@ -41,7 +41,7 @@ $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 
 `depot_tools` has an undocumented option that allows the developer to set a global cache for all git objects of Chromium + dependencies. 此选项使用 ` git clone --shared ` 可在同一存储库的多个克隆上节省带宽/空间。
 
-On electron/libchromiumcontent, this option is exposed through the `LIBCHROMIUMCONTENT_GIT_CACHE` environment variable. If you intend to have several libchromiumcontent build trees on the same machine(to work on different branches for example), it is recommended to set the variable to speed up the download of Chromium source. 例如：
+electron/libchromiumcontent 上, 此选项可通过 ` LIBCHROMIUMCONTENT_GIT_CACHE ` 环境变量来设置。 如果您打算在同一台机器上有几个 libchromiumcontent 构建树 (例如, 要在不同的分支上工作), 建议设置该变量以加速下载Chromium代码。 例如：
 
 ```sh
 $ mkdir ~/.chromium-git-cache
