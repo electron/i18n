@@ -105,19 +105,19 @@ crashReporter.start({
 
 ### `crashReporter.getParameters()`
 
-クラッシュレポータに渡した現在のパラメータ全てを閲覧します。
+クラッシュレポーターに渡されているすべての現在のパラメータを参照します。
 
 ## クラッシュレポートの内容
 
-クラッシュレポータは`submitURL`に`multipart/form-data`の形式で`POST`で以下のデータを送信します。
+クラッシュレポーターは、以下のデータを `submitURL` に `multipart/form-data` の `POST` で送信します。
 
 * `ver` String - Electronのバージョン。
-* `platform` String - 'win32'など。
-* `process_type` String - 'renderer'など.
-* `guid` String - '5e1286fc-da97-479e-918b-6bfb0c3d1c72'など。
-* `_version` String - `package.json`内のバージョン。
-* `_productName` String - `crashReporter`の`options`内のproductName。
-* `prod` String - 基底のプロダクト。この場合はElectron。
-* `_companyName` String - `crashReporter`の`options`内のcompanyName。
-* `upload_file_minidump` File - `minidump`フォーマットのクラッシュレポート。
+* `platform` String - 例えば、'win32'。
+* `process_type` String - 例えば、'renderer'。
+* `guid` String - 例えば、'5e1286fc-da97-479e-918b-6bfb0c3d1c72'。
+* `_version` String - `package.json` のバージョン。
+* `_productName` String - `crashReporter` の `options` のプロダクト名。
+* `prod` String - 基底にあるプロダクトの名前。この場合は、Electronです。
+* `_companyName` String - `crashReporter` の `options` の会社名。
+* `upload_file_minidump` File - `minidump` 形式でのクラッシュレポート。
 * `crashReporter`の`options`内の`extra`オブジェクトの全ての最上位プロパティ。
