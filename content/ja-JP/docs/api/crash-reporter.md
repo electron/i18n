@@ -17,16 +17,16 @@ crashReporter.start({
 })
 ```
 
-クラッシュレポートを受信して処理するサーバーをセットアップするのには、以下のプロジェクトを使用することができます。
+クラッシュレポートを受信して処理するサーバーをセットアップするには、以下のプロジェクトを使用することができます。
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-クラッシュレポートは、アプリケーション固有のローカルの一時フォルダーに保存されます。 `productName`が`YourName`のとき、クラッシュレポートは`YourName Crashes`という名前の一時フォルダ内に格納されます。 クラッシュレポータを起動させる前に`app.setPath('temp', '/あなたの/好きな/一時フォルダ')`を呼ぶことで、この一時フォルダの場所をカスタマイズできます。
+クラッシュレポートは、アプリケーション固有の一時ディレクトリフォルダーの中にローカルで保存されます。 `YourName` という `productName` の場合、クラッシュレポートは一時ディレクトリの中の `YourName Crashes` という名前のフォルダに保存されます。 クラッシュレポーターを開始する前に `app.setPath('temp', '/my/custom/temp')` APIを呼び出すことで、アプリのこの一時ディレクトリをカスタマイズすることができます。
 
 ## メソッド
 
-`crashReporter` オブジェクトには以下のメソッドがあります。
+`crashReporter` モジュールには以下のメソッドがあります。
 
 ### `crashReporter.start(options)`
 
