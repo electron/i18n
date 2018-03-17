@@ -120,4 +120,4 @@ crashReporter.start({
 * `prod` String - 基底にあるプロダクトの名前。この場合は、Electronです。
 * `_companyName` String - `crashReporter` の `options` の会社名。
 * `upload_file_minidump` File - `minidump` 形式でのクラッシュレポート。
-* `crashReporter`の`options`内の`extra`オブジェクトの全ての最上位プロパティ。
+* `crashReporter` の `options` オブジェクトにある `extra` オブジェクトのすべてのレベル1プロパティ。
