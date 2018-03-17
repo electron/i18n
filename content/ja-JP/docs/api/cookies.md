@@ -38,18 +38,18 @@ session.defaultSession.cookies.set(cookie, (error) => {
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - 変更されたクッキー
 * `cause` String - 以下のいずれかの値となる変更の原因。 
-  * `explicit` - クッキーはユーザーのアクションによって直接変更されました。
-  * `overwrite` - 上書きする挿入操作のため、クッキーは自動的に削除されました。
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+  * `explicit` - ユーザーのアクションによってクッキーが直接変更されました。
+  * `overwrite` - 上書きする挿入操作のため、クッキーが自動的に削除されました。
+  * `expired` - 有効期限切れのため、クッキーが自動的に削除されました。
+  * `evicted` - ガベージコレクション中にクッキーが自動的に削除されました。
+  * `expired-overwrite` - クッキーが既に期限切れの有効期限で上書きされました。
+* `removed` Boolean - クッキーが削除された場合、`true`、それ以外は、`false`。
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+追加されたり、編集されたり、削除されたり、有効期限が切れたりすることによってクッキーが変更されたときに発生します。
 
 ### インスタンスメソッド
 
-The following methods are available on instances of `Cookies`:
+`Cookies` のインスタンスでは、以下のメソッドが利用できます。
 
 #### `cookies.get(filter, callback)`
 
