@@ -789,34 +789,34 @@ app.setLoginItemSettings({
   * `credits` String (по избор) - Информация за авторите.
   * `version` String (по избор) - Номерът на изграждане на приложението.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Вижте панелът с опции about. Това ще презапише стойностите, дефинирани в `.plist` файла на приложението. Вижте [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) за повече детайли.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `switch` String - Превключвате от командния ред
+* `value` String (по избор) - Стойност за дадения превключвател
 
-Append a switch (with optional `value`) to Chromium's command line.
+Добавете превключвател (с `value` по избор) към командния ред на Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Забележка:** Това няма да повлияе на `process.argv`, и е основно използвано от разработчици да контролират ниското ниво на държане на Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `value` String - The argument to append to the command line
+* `value` String - Аргументът, който ще бъде добавен в командния ред
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Добави аргумент към командния ред на Chromium. Аргументът ще бъде коректно обграден с кавички.
 
-**Note:** This will not affect `process.argv`.
+**Забележка:** Това няма да повлияе на `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Включва смесен тестови мод на приложението.
 
 Този метод може да бъде извикван само преди приложението да е готово.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+Връща `Boolean` - Показва дали приложението в момента се изпълнява от системната папка на приложението. Използвайте в комбинация с `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
