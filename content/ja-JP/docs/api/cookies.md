@@ -41,7 +41,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * `explicit` - ユーザーのアクションによってクッキーが直接変更されました。
   * `overwrite` - 上書きする挿入操作のため、クッキーが自動的に削除されました。
   * `expired` - 有効期限切れのため、クッキーが自動的に削除されました。
-  * `evicted` - ガベージコレクション中にクッキーが自動的に削除されました。
+  * `evicted` - ガベージコレクション中にクッキーが自動的に破棄されました。
   * `expired-overwrite` - クッキーが既に期限切れの有効期限で上書きされました。
 * `removed` Boolean - クッキーが削除された場合、`true`、それ以外は、`false`。
 
@@ -64,7 +64,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+`filter` と一致するすべてのクッキーを取得するリクエストを送信します。完了時に `callback(error, cookies)` で `callback` が呼び出されます。
 
 #### `cookies.set(details, callback)`
 
@@ -76,22 +76,22 @@ Sends a request to get all cookies matching `details`, `callback` will be called
   * `path` String (optional) - The path of the cookie. Empty by default if omitted.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Function 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+`details` でクッキーを設定します。完了時に `callback(error)` で `callback` が呼び出されます。
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - クッキーに関連付けられたURL。
+* `name` String - 削除するクッキーの名前。
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+`url` と `name` に一致するクッキーを削除します。完了時に `callback()` で `callback` が呼び出されます。
 
 #### `cookies.flushStore(callback)`
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+未書き込みのクッキーのデータをディスクに書き込みます。
