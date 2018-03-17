@@ -832,52 +832,52 @@ app.setLoginItemSettings({
 
 Когато е изпратено `critical`, иконката на дока ще подскоча докато или приложението не стане активно или заявката не бъде спряна.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Когато е изпратено `informational`, иконката на дока ще подскочи една секунда. Обаче, заявката остава активна докато или приложението не стане активно или заявката не бъде спряна.
 
-Returns `Integer` an ID representing the request.
+Връща `Integer` идентификационен номер, който представлява приложението.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Спира подскачането на `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Подскача Downloads ако е включен filePath в папката за сваляне.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Поставя низ, който да бъде показан в областта на дока.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Връща `String` - Низът от дока.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Скрива иконката на дока.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Показва иконката на дока.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Връща `Boolean` - Показва дали иконката на дока е видима. Извикването на `app.dock.show()` е асинхронно, за това този метод може да не върне true веднага след извикване.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+[dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) на приложението.
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+Слага `image` асоцииран с тази иконка на дока.
