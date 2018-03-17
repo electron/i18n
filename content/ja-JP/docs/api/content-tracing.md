@@ -94,9 +94,9 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
   * `traceOptions` String
 * `callback` Function
 
-Start monitoring on all processes.
+すべてのプロセスで監視を開始します。
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+`startMonitoring` リクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に監視が開始されます。
 
 一度、すべての子プロセスが `startMonitoring` リクエストを受諾したら、`callback` が呼び出されます。
 
@@ -104,9 +104,9 @@ Monitoring begins immediately locally and asynchronously on child processes as s
 
 * `callback` Function
 
-Stop monitoring on all processes.
+すべてのプロセスで監視を停止します。
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+一度、すべての子プロセスが `stopMonitoring` リクエストを受諾したら、`callback` が呼び出されます。
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
@@ -114,11 +114,11 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 * `callback` Function 
   * `resultFilePath` String
 
-Get the current monitoring traced data.
+現在、監視しているトレースデータを取得します。
 
-子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 これは、IPC越しにトレースデータを送信するのは高負荷な操作になりうることとトレースによる不必要なランタイムオーバーヘッドを回避したいことによります。 そのため、トレースを終了するには、すべての子プロセスに保留中のトレースデータを書き出すように非同期で指示しなければなりません。
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+一度、すべての子プロセスが `captureMonitoringSnapshot` リクエストを受諾したら、トレースデータを含むファイルと一緒に `callback` が呼び出されます。
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
