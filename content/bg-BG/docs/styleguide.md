@@ -175,4 +175,4 @@
 
 ## Превод на документацията
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Виж [electron/electron-i18n](https://github.com/electron/i18n#readme)
