@@ -211,4 +211,4 @@ Returns:
 
 ## 文档翻译
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+请参见 [ electron/i18n ](https://github.com/electron/i18n#readme)
