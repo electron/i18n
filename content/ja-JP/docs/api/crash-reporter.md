@@ -1,10 +1,10 @@
 # crashReporter
 
-> クラッシュレポートをリモートサーバーに送信します
+> クラッシュレポートをリモートサーバーに送信します。
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-以下は、自動的に外部サーバーにクラッシュレポートを送信する例です。
+以下は、リモートサーバーにクラッシュレポートを自動的に送信する例です。
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -17,7 +17,7 @@ crashReporter.start({
 })
 ```
 
-クラッシュレポートを受信/処理するサーバーを立てるのに、以下のプロジェクトを使用できます。
+クラッシュレポートを受信して処理するサーバーをセットアップするのには、以下のプロジェクトを使用することができます。
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
@@ -66,13 +66,13 @@ crashReporter.start({
 
 ### `crashReporter.getLastCrashReport()`
 
-戻り値: [`CrashReport`](structures/crash-report.md)
+戻り値 [`CrashReport`](structures/crash-report.md):
 
 日付とIDが最後のクラッシュレポートを返します。もしクラッシュレポートが送信されていないかクラッシュレポータが起動していない場合、`null`が返されます。
 
 ### `crashReporter.getUploadedReports()`
 
-戻り値: [`CrashReport[]`](structures/crash-report.md)
+戻り値 [`CrashReport[]`](structures/crash-report.md):
 
 すべてのアップロードされたクラッシュレポートを返します。各レポートは日付とアップロードIDを含みます。
 
