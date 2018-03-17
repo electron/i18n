@@ -93,15 +93,15 @@ crashReporter.start({
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` String - パラメータキー。長さは、64文字未満でなければなりません。
-* `value` String - パラメータの値、64文字未満でなければならない。
+* `value` String - パラメータの値。長さは、64文字未満でなければなりません。
 
-クラッシュレポートで送信されるextraパラメーターをセットします。 `start`を呼ぶときに`extra`オプションを通してセットする、追加で送信される値を指定します。 このAPIはmacOSでのみ使用可能で、もしLinuxとWindowsで最初に`start`を呼んだあとにextraパラメータを追加/更新する必要があれば、`start`を新しい`extra`と共に呼び直すことでできます。
+クラッシュレポートで送信される追加のパラメータを設定します。 ここで指定された値は、`start` が呼び出されたときに `extra` オプション経由で設定された値と一緒に送信されます。 このAPIはmacOSでのみ利用可能です。LinuxとWindowsで最初の `start` の呼び出しの後、追加/更新した追加のパラメーターを送信する必要がある場合、更新した `extra` オプションと一緒に `start` を再度、呼び出してください。
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
-* `key` String - パラメータのキー、64文字未満でなければならない。
+* `key` String - パラメータキー。長さは、64文字未満でなければなりません。
 
-現在のパラメータ群からextraパラメータを削除します。なので、それはクラッシュレポートと共に送信されなくなります。
+クラッシュレポートと一緒に送信されないように、現在のパラメータセットから追加したパラメータを削除します。
 
 ### `crashReporter.getParameters()`
 
