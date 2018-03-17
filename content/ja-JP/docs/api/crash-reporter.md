@@ -32,12 +32,12 @@ crashReporter.start({
 
 * `options` Object 
   * `companyName` String (任意)
-  * `submitURL` String - POSTとしてクラッシュレポートが送られるURL。
-  * `productName` String (任意) - 省略値は`app.getName()`。
-  * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバに送るかどうか。省略値は`true`。
-  * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は`false`。
-  * `extra` Object (任意) - レポートと共に送信されるように定義できるオブジェクト。 文字列のプロパティだけは正常に送られる。 ネストされたオブジェクト、または名前/値が64文字以上のプロパティはサポートされていない。
-  * `crashesDirectory` String (任意) - クラッシュレポートを格納する一時ディレクトリ (`process.crashReporter.start`を介してクラッシュレポータを起動させるときにのみ使用される)
+  * `submitURL` String - POSTでクラッシュレポートが送信されるURL。
+  * `productName` String (任意) - 省略値は、`app.getName()` です。
+  * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバーに送信するかどうか。省略値は、`true` です。
+  * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は、`false` です。
+  * `extra` Object (任意) - レポートと一緒に送信される定義可能なオブジェクト。 文字列のプロパティだけしか正しく送信されません。 ネストしたオブジェクトはサポートされておらず、プロパティの名前と値の長さは、64文字未満にするようにしてください。
+  * `crashesDirectory` String (任意) - クラッシュレポートを一時的に保存するディレクトリ (クラッシュレポーターが `process.crashReporter.start` 経由で起動されたときのみ使用されます)
 
 クラッシュレポートの収集元となる他の`crashReporter`API、各プロセス(メイン/レンダラー)を使用する前にこのメソッドを呼び出す必要があります。 異なるプロセスから呼び出すときは、`crashReporter.start`に異なるオプションを渡すことができます。
 
