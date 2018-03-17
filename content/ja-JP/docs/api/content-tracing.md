@@ -126,4 +126,4 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+完全な形式のパーセンテージとして、トレースバッファーのプロセス間の最大使用率を取得します。TraceBufferUsageの値が確定したとき、`callback` が呼び出されます。
