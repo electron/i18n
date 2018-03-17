@@ -71,7 +71,7 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 最初の3つのオプションは、トレース記録モードであり、それ故に相互に排他的です。 `traceOptions` の文字列に1つ以上のトレース記録モードが見つかった場合、最後の1つが優先されます。 トレース記録モードが何も指定されない場合、記録モードは、`record-until-full` です。
 
-トレースオプションは、`traceOptions` から解析されたオプションが適用されるまで、最初にデフォルトのオプション (`record_mode` は、`record-until-full` に設定、`enable_sampling` と `enable_systrace` は、`false` に設定) にリセットされます。
+トレースオプションは、`traceOptions` から解析されたオプションが適用されるまで、最初にデフォルトのオプション (`record_mode` は、`record-until-full` に設定され、`enable_sampling` と `enable_systrace` は、`false` に設定されます) にリセットされます。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -79,7 +79,7 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 * `callback` Function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+すべてのプロセスで記録を停止します。
 
 Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
