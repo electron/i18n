@@ -74,9 +74,9 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * `value` String (任意) - クッキーの値。省略した場合、既定では空です。
   * `domain` String (任意) - クッキーのドメイン。省略した場合、既定では空です。
   * `path` String (任意) - クッキーのパス。省略した場合、既定では空です。
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * `secure` Boolean (任意) - クッキーにSecure属性がついているかどうか。省略値は、falseです。
+  * `httpOnly` Boolean (任意) - クッキーにHttpOnly属性がついているかどうか。省略値は、falseです。
+  * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 省略した場合、クッキーはセッションクッキーになり、セッション間では保持されなくなります。
 * `callback` Function 
   * `error` Error
 
