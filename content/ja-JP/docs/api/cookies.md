@@ -6,7 +6,7 @@
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
-For example:
+例:
 
 ```javascript
 const {session} = require('electron')
@@ -31,9 +31,9 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### インスタンスイベント
 
-次のイベントは、`クッキー` のインスタンス。
+`Cookies` のインスタンスでは、以下のイベントが利用できます。
 
-#### Event: 'changed'
+#### イベント: 'changed'
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
