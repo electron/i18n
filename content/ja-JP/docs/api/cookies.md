@@ -1,6 +1,6 @@
 ## クラス: Cookies
 
-> Query and modify a session's cookies.
+> セッションのクッキーをクエリーしたり、変更したりします。
 
 プロセス: [Main](../glossary.md#main-process)
 
