@@ -882,7 +882,7 @@ console.log(requestId)
 * `callback` Function (任意) 
   * success` Boolean - 印刷呼び出しの成功を示す。
 
-ウインドウのウェブページを印刷する。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
+ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
 ウェブページ内の `window.print()` を呼ぶことは、`webContents.print({silent: false, printBackground: false, deviceName: ''})` と同等です。
 
@@ -900,11 +900,11 @@ console.log(requestId)
   * `error` Error
   * `data` Buffer
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+Chromium の印刷のカスタム設定のプレビューで、PDF としてウインドウのウェブページを出力します。
 
-The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+完了すると、`callback` が `callback(error, data)` で呼ばれます。`data` は生成された PDF データを含む `Buffer` です。
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+`@page` CSS ルールがウェブページ内で使われている場合、`landscape` は無視されます。
 
 By default, an empty `options` will be regarded as:
 
