@@ -742,12 +742,12 @@ app.on('ready', () => {
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
-  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `openAtLogin` Boolean (по избор) - `true` за да отвори приложението след влизане, `false` за да премахне приложението като елемент след влизане. По подразбиране е `false`.
+  * `openAsHidden` Boolean (по избор) - `true` за да отвори приложението като скрито. По подразбиране е `false`. Потребителят може да редактира тази настройка от системните настройки, така че `app.getLoginItemStatus().wasOpenedAsHidden` трябва да се провери, когато приложението се отваря, за да се знае текущата стойност. Тази настройка се поддържа само за macOS.
+  * `path` String (по избор) *Windows* - Изпълнимият път, който ще бъде стартиран при влизане. По подразбиране е `process.execPath`.
+  * `args` String[] (по избор) *Windows* - Аргументите от командния ред, които ще бъдат изпратени към изпълнимия файл. По подразбиране е празен масив. Имайте в предвид да поставите пътя в кавички.
 
-Set the app's login item settings.
+Вижте настройките на приложението за елементи при влизане.
 
 To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Например:
 
