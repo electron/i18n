@@ -858,25 +858,25 @@ console.log(requestId)
 * `callback` Function 
   * `hasWorker` Boolean
 
-何らかの ServiceWorker が登録されれいる場合、反応として Boolean を `callback` に返します。
+何らかの ServiceWorker が登録されれいる場合、応答として Boolean を `callback` に返します。
 
 #### `contents.unregisterServiceWorker(callback)`
 
 * `callback` Function 
   * `success` Boolean
 
-Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
+存在すれば、ServiceWorker の登録を解除し、JS の Promise が成功した (fulfilled) ならば応答として `callback` へ Boolean を返し、JS の Promise が失敗した (rejected) ならば false を返します。
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+システムプリンタのリストを取得します。
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+戻り値 [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
 * `options` Object (任意) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
+  * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。省略値は `false`。
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 * `callback` Function (任意) 
