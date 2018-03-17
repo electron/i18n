@@ -824,11 +824,11 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+ウェブページ内の `text` のすべてのマッチを探すリクエストを開始します。 リクエストの結果は [`found-in-page`](web-contents.md#event-found-in-page) イベントを読むことで取得できます。
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `action` String - [`webContents.findInPage`] リクエストを終了するときに実行するアクションを指定する。 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
