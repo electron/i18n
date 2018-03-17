@@ -54,26 +54,26 @@ session.defaultSession.cookies.set(cookie, (error) => {
 #### `cookies.get(filter, callback)`
 
 * `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+  * `url` String (任意) - `url` と関連付けられたクッキーを取得します。空は、すべてのURLのクッキーを取得することを意味します。
+  * `name` String (任意) - 名前でクッキーをフィルタリングします。
+  * `domain` String (任意) - クッキーのドメインと一致するか、ドメインが `domains` のサブドメインであるクッキーを取得します。
+  * `path` String (任意) - クッキーのパスが `path` と一致するクッキーを取得します。
+  * `secure` Boolean (任意) - Secureプロパティでクッキーをフィルタリングします。
+  * `session` Boolean (任意) - セッションまたは永続的クッキーでフィルタリングします。
 * `callback` Function 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - クッキーオブジェクトの配列。
 
 `filter` と一致するすべてのクッキーを取得するリクエストを送信します。完了時に `callback(error, cookies)` で `callback` が呼び出されます。
 
 #### `cookies.set(details, callback)`
 
 * `details` Object 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
+  * `url` String - クッキーに関連付けられるURL。
+  * `name` String (任意) - クッキーの名前。省略した場合、既定では空です。
+  * `value` String (任意) - クッキーの値。省略した場合、既定では空です。
+  * `domain` String (任意) - クッキーのドメイン。省略した場合、既定では空です。
+  * `path` String (任意) - クッキーのパス。省略した場合、既定では空です。
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 If omitted then the cookie becomes a session cookie and will not be retained between sessions.
