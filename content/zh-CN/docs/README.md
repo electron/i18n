@@ -1,4 +1,4 @@
-# Official Guides
+# 官方指南
 
 请确认你所使用的文档与你的 Electron 版本匹配。 你可以在页面的 URL 中找到对应的版本号。 如果没有，你可能正在使用开发版本分支里的文档，这个分支可能包含了一些与你的 Electron 版本不兼容的 API。 如果想要访问旧版本的文档，你可以[浏览标签](https://github.com/electron/electron/tree/v1.4.0)： 通过在GitHub 中打开下拉菜单“Switch branches/tags”中选择与你的版本匹配的分支。
 
