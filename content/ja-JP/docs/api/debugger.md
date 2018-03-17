@@ -1,4 +1,4 @@
-## Class: Debugger
+## クラス: Debugger
 
 > An alternate transport for Chrome's remote debugging protocol.
 
@@ -59,14 +59,14 @@ Send given command to the debugging target.
 
 ### インスタンスイベント
 
-#### Event: 'detach'
+#### イベント: 'detach'
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### イベント: 'message'
 
 * `event` Event
 * `method` String - Method name.
