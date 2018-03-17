@@ -62,7 +62,7 @@ crashReporter.start({
  })
 ```
 
-**注:** macOSでは、Electronはクラッシュの収集とレポートに新しい `crashpad` クライアントを使用します。 もしこのクラッシュレポータを有効にしたい場合は、クラッシュレポートを収集したいかに関係なく、メインプロセスから`crashReporter.start`を用いて`crashpad`を初期化する必要があります。 一度この方法で初期化すると、crashpadは全てのプロセスからクラッシュレポートを収集します。 `companyName`、`productName`、または`extra`以外がレポートされるクラッシュの情報を取得するには、レンダラーや子プロセスからも`crashReporter.start`を呼ぶ必要があります。
+**注:** macOSでは、Electronはクラッシュの収集とレポートに新しい `crashpad` クライアントを使用します。 クラッシュレポートを有効にしたい場合、どのプロセスからクラッシュを収集したいかに関わらず、メインプロセスから `crashReporter.start` を使用して `crashpad` を初期化する必要があります。 一度、この方法で初期化されると、crashpadのハンドラーはすべてのプロセスからクラッシュを収集します。 依然として、レンダラーや子プロセスから `crashReporter.start` を呼び出す必要があります。そうでない場合、それらからのクラッシュは、`companyName`、`productName` やすべての `extra` 情報なしでレポートされてしまいます。
 
 ### `crashReporter.getLastCrashReport()`
 
