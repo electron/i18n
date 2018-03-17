@@ -906,7 +906,7 @@ Chromium の印刷のカスタム設定のプレビューで、PDF としてウ�
 
 `@page` CSS ルールがウェブページ内で使われている場合、`landscape` は無視されます。
 
-By default, an empty `options` will be regarded as:
+デフォルトでは、空の `options` は以下のようにみなされます。
 
 ```javascript
 {
@@ -919,7 +919,7 @@ By default, an empty `options` will be regarded as:
 
 `page-break-before: always;` CSS スタイルを使用して、強制的に改ページして印刷できます。
 
-An example of `webContents.printToPDF`:
+これは `webContents.printToPDF` の例です。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -929,12 +929,12 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // Use default printing options
+  // デフォルトの印刷オプションを使用する
   win.webContents.printToPDF({}, (error, data) => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
       if (error) throw error
-      console.log('Write PDF successfully.')
+      console.log('正常にPDFを書き込みました。')
     })
   })
 })
