@@ -70,11 +70,11 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+強制的にビューを閉じます。`unload` と `beforeunload` は、Webページで発生しません。 ビューでやることが終わった後、メモリや他のリソースを解放するため、できるだけ早くこのファンクションを呼び出してください。
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+戻り値 `Boolean` - ビューが破棄されているかどうか。
 
 #### `view.setAutoResize(options)` *実験的*
 
