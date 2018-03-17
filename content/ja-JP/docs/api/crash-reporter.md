@@ -62,37 +62,37 @@ crashReporter.start({
  })
 ```
 
-**注:** macOSでは、Electronはクラッシュの収集とレポートに新しい `crashpad` クライアントを使用します。 クラッシュレポートを有効にしたい場合、どのプロセスからクラッシュを収集したいかに関わらず、メインプロセスから `crashReporter.start` を使用して `crashpad` を初期化する必要があります。 一度、この方法で初期化されると、crashpadのハンドラーはすべてのプロセスからクラッシュを収集します。 依然として、レンダラーや子プロセスから `crashReporter.start` を呼び出す必要があります。そうでない場合、それらからのクラッシュは、`companyName`、`productName` やすべての `extra` 情報なしでレポートされてしまいます。
+**注:** macOSでは、Electronはクラッシュの収集とレポートに新しい `crashpad` クライアントを使用します。 クラッシュレポートを有効にしたい場合、どのプロセスからクラッシュを収集したいかに関わらず、メインプロセスから `crashReporter.start` を使用して `crashpad` を初期化する必要があります。 一度、この方法で初期化されると、crashpadのハンドラーはすべてのプロセスからクラッシュを収集します。 依然として、レンダラーや子プロセスから `crashReporter.start` を呼び出す必要があります。そうでない場合、それらからのクラッシュは、`companyName`、`productName` やすべての `extra` 情報なしでレポートされます。
 
 ### `crashReporter.getLastCrashReport()`
 
 戻り値 [`CrashReport`](structures/crash-report.md):
 
-日付とIDが最後のクラッシュレポートを返します。もしクラッシュレポートが送信されていないかクラッシュレポータが起動していない場合、`null`が返されます。
+最後のクラッシュレポートの日付とIDを返します。クラッシュレポートが送信されていないか、クラッシュレポートが開始されていない場合、`null` が返されます。
 
 ### `crashReporter.getUploadedReports()`
 
 戻り値 [`CrashReport[]`](structures/crash-report.md):
 
-すべてのアップロードされたクラッシュレポートを返します。各レポートは日付とアップロードIDを含みます。
+すべてのアップロードされたクラッシュレポートを返します。各レポートには日付とアップロードされたIDを含まれます。
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-戻り値 `Boolean` - クラッシュレポートがサーバにアップロードされるかどうか。 `start`メソッドか`setUploadToServer`からセットする。
+戻り値 `Boolean` - レポートがサーバーに送信されるかどうか。`start` メソッドまたは `setUploadToServer` を通じて設定してください。
 
-**注釈:** このAPIはメインプロセスからのみ呼び出すことができます。
+**注:** このAPIは、メインプロセスからしか呼び出すことができません。
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - サーバにクラッシュレポートを提出するかどうか。
+* `uploadToServer` Boolean *macOS* - レポートがサーバーに送信されるかどうか
 
-これは通常ユーザー設定によって制御されるでしょう。`start`が呼ばれる前に呼んでも効果はありません。
+通常、ユーザプリファレンスによって制御されます。`start` が呼び出される前に呼び出しても無効です。
 
-**注釈:** このAPIはメインプロセスからのみ呼び出すことができます。
+**注:** このAPIは、メインプロセスからしか呼び出すことができません。
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
-* `key` String - パラメータのキー、64文字未満でなければならない。
+* `key` String - パラメータキー。長さは、64文字未満でなければなりません。
 * `value` String - パラメータの値、64文字未満でなければならない。
 
 クラッシュレポートで送信されるextraパラメーターをセットします。 `start`を呼ぶときに`extra`オプションを通してセットする、追加で送信される値を指定します。 このAPIはmacOSでのみ使用可能で、もしLinuxとWindowsで最初に`start`を呼んだあとにextraパラメータを追加/更新する必要があれば、`start`を新しい`extra`と共に呼び直すことでできます。
