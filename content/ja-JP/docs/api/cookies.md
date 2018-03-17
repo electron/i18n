@@ -11,18 +11,18 @@
 ```javascript
 const {session} = require('electron')
 
-// すべてのクッキーをクエリします。
+// すべてのクッキーをクエリーします。
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// 特定のURLに関連付けられているすべてのクッキーをクエリします。
+// 特定のURLに関連付けられているすべてのクッキーをクエリーします。
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
 // 指定したクッキーのデータでクッキーを設定します。
-// 存在する場合、同じクッキーを上書きする可能性があります。
+// 同一のクッキーが存在する場合、上書きする可能性があります。
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
@@ -36,10 +36,10 @@ session.defaultSession.cookies.set(cookie, (error) => {
 #### イベント: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
+* `cookie` [Cookie](structures/cookie.md) - 変更されたクッキー
+* `cause` String - 以下のいずれかの値となる変更の原因。 
+  * `explicit` - クッキーはユーザーのアクションによって直接変更されました。
+  * `overwrite` - 上書きする挿入操作のため、クッキーは自動的に削除されました。
   * `expired` - The cookie was automatically removed as it expired.
   * `evicted` - The cookie was automatically evicted during garbage collection.
   * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
