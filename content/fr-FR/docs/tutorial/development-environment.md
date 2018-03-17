@@ -1,8 +1,8 @@
-# Developer Environment
+# Environnement de développement
 
 Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
 
-## Setting up macOS
+## Mise en place sur macOS
 
 > Electron supports Mac OS X 10.9 (and all versions named macOS) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
 
@@ -13,16 +13,16 @@ Once downloaded, execute the installer and let the installation wizard guide you
 Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by simply search for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```sh
-# This command should print the version of Node.js
+# Cette commande devrait afficher la version de Node.js
 node -v
 
-# This command should print the version of npm
+1 Cette commande devrait afficher la version de npm
 npm -v
 ```
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## Setting up Windows
+## Mise en place sur Windows
 
 > Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
@@ -33,16 +33,16 @@ On the screen that allows you to configure the installation, make sure to select
 Once installed, confirm that everything works as expected. Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
-# This command should print the version of Node.js
+# Cette commande devrait afficher la version de Node.js
 node -v
 
-# This command should print the version of npm
+1 Cette commande devrait afficher la version de npm
 npm -v
 ```
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## Setting up Linux
+## Mise en place sur Linux
 
 > Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
 
@@ -51,16 +51,16 @@ First, install a recent version of Node.js. Depending on your Linux distribution
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-# This command should print the version of Node.js
+# Cette commande devrait afficher la version de Node.js
 node -v
 
-# This command should print the version of npm
+1 Cette commande devrait afficher la version de npm
 npm -v
 ```
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## A Good Editor
+## Un bon éditeur
 
 We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
 
