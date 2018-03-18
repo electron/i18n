@@ -9,7 +9,7 @@ This doesn't mean Electron is a JavaScript binding to graphical user interface (
 As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
 ```text
-your-app/
+twoja-aplikacja
 ├── package.json
 ├── main.js
 └── index.html
