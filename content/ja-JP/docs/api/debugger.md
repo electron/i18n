@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (任意) - 要求したデバッグプロトコルのバージョン。
+* `protocolVersion` String (任意) - リクエストしたデバッグプロトコルのバージョン。
 
 `webContents` にデバッガーをアタッチします。
 
@@ -49,10 +49,10 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
-* `callback` Function (optional) - Response 
-  * `error` Object - Error message indicating the failure of the command.
+* `method` String - メソッド名。リモートデバッグプロトコルで定義されているメソッドの1つである必要があります。
+* `commandParams` Object (任意) - リクエストパラメータのJSONオブジェクト。
+* `callback` Function (任意) - レスポンス 
+  * `error` Object - コマンドの実行に失敗したことを示すエラーメッセージ。
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
 
 Send given command to the debugging target.
