@@ -1,6 +1,6 @@
 ## クラス: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Chromeのリモートデバッグプロトコルに対する代替機能。
 
 プロセス: [Main](../glossary.md#main-process)
 
