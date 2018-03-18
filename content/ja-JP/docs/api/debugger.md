@@ -1,6 +1,6 @@
 ## クラス: Debugger
 
-> Chromeのリモートデバッグプロトコルに対する代替機能。
+> Chromeのリモートデバッグプロトコルに対する選択肢。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -53,9 +53,9 @@ win.webContents.debugger.sendCommand('Network.enable')
 * `commandParams` Object (任意) - リクエストパラメータのJSONオブジェクト。
 * `callback` Function (任意) - レスポンス 
   * `error` Object - コマンドの実行に失敗したことを示すエラーメッセージ。
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+  * `result` Any - リモートデバッグプロトコルのコマンド説明の 'returns' 属性で定義されているレスポンス。
 
-Send given command to the debugging target.
+指定したコマンドをデバッグ対象に送信します。
 
 ### インスタンスイベント
 
