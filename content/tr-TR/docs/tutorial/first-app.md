@@ -21,11 +21,11 @@ Electron uygulamanız için yeni bir dosya oluşturun. Komut satırı istemciniz
 npm init
 ```
 
-npm sizi basit bir `package.json` dosyası oluşturacaktır. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm sizi basit bir `package.json` dosyası oluşturacaktır. `main` bölümünün belirttiği program uygulamanızın ana işlemde çalışacak başlangıç programıdır. `package.json` dosyanızın bir örneği aşağıdaki gibidir:
 
 ```json
 {
-  "name": "your-app",
+  "name": "uygulamanın-adı",
   "version": "0.1.0",
   "main": "main.js"
 }
@@ -35,7 +35,7 @@ npm sizi basit bir `package.json` dosyası oluşturacaktır. The script specifie
 
 ```json
 {
-  "name": "your-app",
+  "name": "uygulamanın-adı",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
@@ -48,7 +48,7 @@ Turning this Node application into an Electron application is quite simple - we 
 
 ```json
 {
-  "name": "your-app",
+  "name": "uygulamanın-adı",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
@@ -67,7 +67,7 @@ npm install --save-dev electron
 
 Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
 
-## Kabukta Electron Geliştirme
+## Özetçe Elektron için Geliştirme
 
 Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
 
