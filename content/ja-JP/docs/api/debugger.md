@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-Chromeの開発者ツールは、ページと相互にやり取りをしたり、ページを最適化したりすることのできるJavaScriptランタイムに[特別なバインディング](https://developer.chrome.com/devtools/docs/debugger-protocol)を持っています。
+Chromeの開発者ツールは、ページと相互にやり取りをしたり、ページを調整したりすることのできるJavaScriptランタイムに[特別なバインディング](https://developer.chrome.com/devtools/docs/debugger-protocol)を持っています。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -52,7 +52,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 * `method` String - メソッド名。リモートデバッグプロトコルで定義されているメソッドの1つである必要があります。
 * `commandParams` Object (任意) - リクエストパラメータのJSONオブジェクト。
 * `callback` Function (任意) - レスポンス 
-  * `error` Object - コマンドの実行に失敗したことを示すエラーメッセージ。
+  * `error` Object - コマンドに失敗したことを示すエラーメッセージ。
   * `result` Any - リモートデバッグプロトコルのコマンド説明の 'returns' 属性で定義されているレスポンス。
 
 指定したコマンドをデバッグ対象に送信します。
@@ -72,4 +72,4 @@ win.webContents.debugger.sendCommand('Network.enable')
 * `method` String - メソッド名。
 * `params` Object - リモートデバッグプロトコルの 'parameters' 属性で定義されたイベントパラメータ。
 
-Emitted whenever debugging target issues instrumentation event.
+デバッグ対象で計測イベントが生じる毎に発生します。
