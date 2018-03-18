@@ -1,10 +1,10 @@
 ## クラス: Debugger
 
-> Chromeのリモートデバッグプロトコルに対する選択肢。
+> Chromeのリモートデバッグプロトコルに対する選択肢の1つ。
 
 プロセス: [Main](../glossary.md#main-process)
 
-Chromeのデベロッパーツールは、ページと相互にやり取りをしたり、ページを最適化したりすることのできるJavaScriptランタイムに[特別なバインディング](https://developer.chrome.com/devtools/docs/debugger-protocol)を持っています。
+Chromeの開発者ツールは、ページと相互にやり取りをしたり、ページを最適化したりすることのできるJavaScriptランタイムに[特別なバインディング](https://developer.chrome.com/devtools/docs/debugger-protocol)を持っています。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -62,14 +62,14 @@ win.webContents.debugger.sendCommand('Network.enable')
 #### イベント: 'detach'
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - デバッガーがデタッチする理由。
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+デバッグセッションが終了するときに発生します。これは、`webContents` がクローズされるか、アタッチしていた `webContents` に対して開発者ツールが呼び出されるときに発生します。
 
 #### イベント: 'message'
 
 * `event` Event
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `method` String - メソッド名。
+* `params` Object - リモートデバッグプロトコルの 'parameters' 属性で定義されたイベントパラメータ。
 
 Emitted whenever debugging target issues instrumentation event.
