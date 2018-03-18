@@ -52,41 +52,41 @@
 
 Излъчено, когато няма достъпно обновяване.
 
-### Event: 'update-downloaded'
+### Събитие: 'update-downloaded'
 
 Връща:
 
-* `event` Сътитие
+* `event` Event
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Излъчено, когато обновяването е свалено.
 
-On Windows only `releaseName` is available.
+Само на Windows е налично `releaseName`.
 
 ## Методи
 
-The `autoUpdater` object has the following methods:
+Обектът `autoUpdater` има следните методи:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` Object *macOS* (по избор) - HTTP request headers.
 
-Sets the `url` and initialize the auto updater.
+Поставя `url` и инициализира автоматичното обновяване.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Връща `String` - Текущият URL на обновяването.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Пита сървъра за налично обновяване. Трябва да извикате `setFeedURL` преди да използвате този API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Връща приложението и инсталира обновяването, след като е било свалено. Може да бъде извикано само след като `update-downloaded` е било излъчено.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Забележка:** `autoUpdater.quitAndInstall()` първо ще затвори всички прозорци на приложението и тогава ще излъчи събитието `before-quit` на `app`. Това е различно от нормалната поредица събития при излизане.
