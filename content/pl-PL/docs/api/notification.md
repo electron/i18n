@@ -14,7 +14,7 @@ Jeśli chcesz wyświetlać powiadomienia z procesu renderowania należy użyć i
 
 Proces: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` jest [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
