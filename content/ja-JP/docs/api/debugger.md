@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chromeのデベロッパーツールは、ページと相互にやり取りをしたり、ページを最適化したりすることのできるJavaScriptランタイムに[特別なバインディング](https://developer.chrome.com/devtools/docs/debugger-protocol)を持っています。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -35,17 +35,17 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (任意) - 要求したデバッグプロトコルのバージョン。
 
-Attaches the debugger to the `webContents`.
+`webContents` にデバッガーをアタッチします。
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+戻り値 `Boolean` - `webContents` にデバッガーがアタッチされているかどうか。
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+`webContents` からデバッガーをデタッチします。
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
