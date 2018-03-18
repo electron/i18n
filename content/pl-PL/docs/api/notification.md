@@ -1,16 +1,16 @@
 # Powiadomienie
 
-> Create OS desktop notifications
+> Tworzenie powiadomień na pulpicie
 
 Proces: [Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## Używając proces renderowania
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+Jeśli chcesz wyświetlać powiadomienia z procesu renderowania należy użyć interfejsu [HTML5 Notification API](../tutorial/notifications.md)
 
 ## Klasa: Powiadomienie
 
-> Create OS desktop notifications
+> Tworzenie powiadomień na pulpicie
 
 Proces: [Main](../glossary.md#main-process)
 
