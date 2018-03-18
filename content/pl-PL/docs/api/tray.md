@@ -64,7 +64,7 @@ Tworzy nową ikonę skojarzoną z `image`.
 
 Moduł `Tray` emituje następujące zdarzenia:
 
-#### Event: 'click'
+#### Zdarzenie: 'click'
 
 * `wydarzenie` Wydarzenie 
   * `altKey` Boolean
