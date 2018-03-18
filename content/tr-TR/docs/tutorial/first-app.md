@@ -177,23 +177,23 @@ Kullandığınız Node'un sürümü: <script>document.write(process.versions.nod
 
 ## Uygulamanızı Çalıştırma
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+`main.js`, `index.html`, ve `package.json` dosyalarını oluşturduktan sonra, Uygulamayı dizinindeyken `npm start` komutunu çalıştırarak deneyebilirsiniz.
 
-## Trying this Example
+## Bu Örneği Deneme
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Klonlayın ve bu eğitimdeki kodu [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) deposunu (repository) kullanarak çalıştırın.
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**Not**: Bunu çalıştırmak [Git](https://git-scm.com)'i gerektirir.
 
 ```sh
 # Depoyı klonla
-$ git klonu https://github.com/electron/electron-quick-start 
+$ git clone https://github.com/electron/electron-quick-start 
 # Depoya git
-$ Cd electron-quick-start 
+$ cd electron-quick-start 
 # Gereklilikleri yükle
-$ npm yükle
-# Aplikasyonu yürüt
-$ npm Başlat
+$ npm install
+# Aplikasyonu başlat
+$ npm start
 ```
 
 For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
