@@ -8,7 +8,7 @@ Follow the guidelines below for building Electron on macOS.
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](https://nodejs.org) (external)
 
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+Jeśli używasz Python pobranego przez Homebrew, musisz również zainstalować następujące moduły Pythona:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
@@ -30,7 +30,7 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 
 - Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
 - Set the `MinimumSDKVersion` to `10.10`
-- Save the file
+- Zapisz plik
 
 ## Dostawanie kodu
 
