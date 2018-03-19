@@ -1043,8 +1043,8 @@ app.on('ready', () => {
   * `deviceScaleFactor` Integer - デバイスの拡大率の設定 (ゼロなら元々のデバイスの拡大率) (省略値: ``)
   * `screenSize` [Size](structures/size.md) - エミュレートされるビューのサイズの設定 (空は上書きしないことを意味する)
   * `fitToView` Boolean - 有効なスペースにフィットさせる必要があるときに、エミュレートするビューを縮小させるかどうか。(省略値: `false`)
-  * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
-  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
+  * `offset` [Point](structures/point.md) - 有効なスペース内のエミュレートするビューのオフセット。 (表示モードにフィットしない) (省略値: `{x: 0, y: 0}`)
+  * `scale` Float - 有効なスペース内のエミュレートするビューの拡大率。 (表示モードにフィットしない) (省略値: `1`)
 
 Enable device emulation with the given parameters.
 
