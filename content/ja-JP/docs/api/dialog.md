@@ -102,8 +102,8 @@ console.log(dialog)
   * `checkboxChecked` Boolean (任意) - チェックボックスの初期のチェック状態。既定では、`false` です。
   * `icon` [NativeImage](native-image.md) (任意)
   * `cancelId` Integer (任意) - `Esc` キー経由でダイアログをキャンセルするのに使用されるボタンのインデックス。 既定では、これはラベルとして "cancel" または "no" の付いた最初のボタンに割り当てられます。 そのようにラベル付けされたボタンがなく、このオプションが設定されていない場合、`` が戻り値またはコールバックレスポンスとして使用されます。 このオプションはWindowsでは無視されます。
-  * `noLink` Boolean (任意) - WindowsのElectronでは、`buttons` のうちのどれが("キャンセル"や"はい"の様な) 一般的なボタンなのか把握しようとし、他のダイアログ内のボタンはアクセスキーとして表示しようとする。 これでモダンなWindowsアプリのスタイルで表示させることができる。 もしこの挙動が気に入らない場合、`noLink` を `true` に設定できる。
-  * `normalizeAccessKeys` Boolean (任意) - プラットフォーム間でのキーボードアクセスキーの正規化。 省略値は `false` 。 これを有効にすると、キーボードショートカットアクセスキーの配置用のボタンラベルに `&` が使われ、各プラットフォーム間で正常に動作するようにラベルが変換されます。macOSでは `&` 文字は削除され、Linuxでは `_` に変換され、Windowsでは変換されません。 例えば、ボタンラベルが `Vie&w` のとき、Linuxでは `Vie_w` に、macOSでは `View` に、WindowsとLinuxでは `Alt-W` で選択できるようになります。
+  * `noLink` Boolean (任意) - WindowsでElectronはどの `buttons` が ("Cancel" や "Yes" のような) 一般的なボタンかを把握し、その他をダイアログでコマンドリンクとして表示しようとします。 これにより、モダンなWindowsアプリのスタイルでダイアログを表示させることができます。 この動作が気に入らない場合、`noLink` を `true` に設定することができます。
+  * `normalizeAccessKeys` Boolean (任意) - プラットフォーム間でキーボードのアクセスキーを正規化します。 省略値は、`false` です。 これを有効にすると、キーボードショートカットアクセスキーの配置用のボタンラベルに `&` が使われ、各プラットフォーム間で正常に動作するようにラベルが変換されます。macOSでは `&` 文字は削除され、Linuxでは `_` に変換され、Windowsでは変換されません。 例えば、ボタンラベルが `Vie&w` のとき、Linuxでは `Vie_w` に、macOSでは `View` に、WindowsとLinuxでは `Alt-W` で選択できるようになります。
 * `callback` Function (任意) 
   * `response` Number - クリックされたボタンのインデックス
   * `checkboxChecked` Boolean - `checkboxLabel` で設定したチェックボックスの状態。無ければ `false`。
