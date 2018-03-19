@@ -493,7 +493,7 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
+`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
 See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
 
