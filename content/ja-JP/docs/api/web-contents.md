@@ -944,7 +944,7 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` String
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+指定したパスを開発者向けツールのワークスペースに追加します。開発者向けツールが作成された後に使用しなければいけません。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -958,7 +958,7 @@ win.webContents.on('devtools-opened', () => {
 
 * `path` String
 
-Removes the specified path from DevTools workspace.
+開発者向けツールのワークスペースから指定したパスを削除します。
 
 #### `contents.openDevTools([options])`
 
