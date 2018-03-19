@@ -1,4 +1,4 @@
-# El objeto Rectangle
+# Objeto Rectangle
 
 * `x` Number - La coordenada x del origen del rectángulo (debe ser un entero)
 * `y` Number - La coordenada y del origen del rectángulo (debe ser un entero)
