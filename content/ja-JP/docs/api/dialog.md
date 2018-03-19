@@ -11,7 +11,7 @@ const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-dialogはElectronのメインスレッドから開かれます。もしレンダラープロセスからdialogオブジェクトを使用したければ、remoteを用いてアクセスするようにして下さい。
+Dialogは、Electronのメインスレッドから開かれます。dialogオブジェクトをレンダラープロセスから使用したい場合、remoteを使用してアクセスするようにしてください。
 
 ```javascript
 const {dialog} = require('electron').remote
@@ -28,7 +28,7 @@ console.log(dialog)
 * `options` Object 
   * `title` String (任意)
   * `defaultPath` String (任意)
-  * `buttonLabel` String (任意) - 確認ボタンのラベルをカスタマイズする。空にするとデフォルトのラベルが使用される。
+  * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、デフォルトのラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
   * `properties` String[] (任意) - dialogのどの機能を使うべきかの配列。以下の値をサポートする。 
     * `openFile` - ファイル選択を許可する。
@@ -72,7 +72,7 @@ console.log(dialog)
 * `options` Object 
   * `title` String (任意)
   * `defaultPath` String (任意) - デフォルトの絶対ディレクトリパス/絶対ファイルパス/ファイル名。
-  * `buttonLabel` String (任意) - 確認ボタンのラベルをカスタマイズする。空にするとデフォルトのラベルが使用される。
+  * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、デフォルトのラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
   * `message` String (任意) *macOS* - テキストフィールド上に表示するメッセージ。
   * `nameFieldLabel` String (任意) *macOS* - ファイル名のテキストフィールドの手前に表示されるテキストラベルのカスタマイズ。
