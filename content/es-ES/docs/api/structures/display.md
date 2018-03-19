@@ -9,4 +9,4 @@
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-El objeto `Display` representa una pantalla física conectada al sistema. Un `Display` falso puede existir en un sistema sin pantalla, o un `Display` puede corresponder a una pantalla virtual remota.
+El objeto `Display` representa una pantalla física conectada al sistema. Puede existir un `Display` falso en un sistema sin entorno gráfico, o un `Display` puede corresponder a una pantalla virtual remota.
