@@ -1,6 +1,6 @@
-# Objeto Rectangle
+# El objeto Rectangle
 
-* `x` Número - La coordenada x del origen del rectángulo (debe ser un entero)
-* `y` Número - La coordenada y del origen del rectángulo (debe ser un entero)
-* `ancho` Número - El ancho del rectángulo (debe ser un entero)
-* `alto` Número - El alto del rectángulo (debe ser un entero)
+* `x` Number - La coordenada x del origen del rectángulo (debe ser un entero)
+* `y` Number - La coordenada y del origen del rectángulo (debe ser un entero)
+* `width` Number - El ancho del rectángulo (debe ser un entero)
+* `height` Number - El alto del rectángulo (debe ser un entero)
