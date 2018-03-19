@@ -60,18 +60,18 @@ console.log(dialog)
 }
 ```
 
-`extensions` の配列には、ワイルドカードやドットを含む拡張子 (例えば、`'png'` は大丈夫ですが、`'.png'` や `'*.png'` はダメです) を入れないで下さい。 すべてのファイルを表示するには、`'*'` ワイルドカードを使用して下さい (その他のワイルドカードはサポートされていません)。
+`extensions` の配列には、ワイルドカードやドットを含む拡張子 (例えば、`'png'` は問題ありませんが、`'.png'` や `'*.png'` はいけません) を入れないで下さい。 すべてのファイルを表示するには、`'*'` ワイルドカードを使用して下さい (その他のワイルドカードはサポートされていません)。
 
-`callback` が渡されると、API呼び出しは非同期になり、 `callback(filenames)` を通して結果が渡されます。
+`callback` が渡されると、APIの呼び出しが非同期になり、`callback(filenames)` 経由で結果が渡されます。
 
-**注釈:** WindowsとLinuxではオープンダイアログはファイルとディレクトリ両方のセレクタになれません。なので、もし `properties` に `['openFile', 'openDirectory']` とセットした場合、これらのプラットフォームではディレクトリのセレクタとして表示されます。
+**注:** WindowsとLinuxのオープンダイアログでは、ファイルとディレクトリの両方を選択することはできません。そのため、これらのプラットフォームで `properties` に `['openFile', 'openDirectory']` を設定すると、ディレクトリの選択が表示されます。
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (任意)
 * `options` Object 
   * `title` String (任意)
-  * `defaultPath` String (任意) - デフォルトの絶対ディレクトリパス/絶対ファイルパス/ファイル名。
+  * `defaultPath` String (任意) - 既定で使用される絶対ディレクトリパス、絶対ファイルパスもしくはファイル名。
   * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
   * `message` String (任意) *macOS* - テキストフィールド上に表示するメッセージ。
@@ -80,7 +80,7 @@ console.log(dialog)
 * `callback` Function (任意) 
   * `filename` String
 
-戻り値はユーザが選択したファイルパスを `String` で返します。callbackが設けられている場合は `undefined` を返します。
+ユーザーによって選択されたファイルのパスである `String` を返します。callbackが指定されている場合、`undefined` を返します。
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
