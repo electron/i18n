@@ -1,4 +1,4 @@
-## Class: DownloadItem
+## クラス: DownloadItem
 
 > Control file downloads from remote sources.
 
@@ -37,7 +37,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### インスタンスイベント
 
-#### Event: 'updated'
+#### イベント: 'updated'
 
 戻り値:
 
@@ -51,7 +51,7 @@ The `state` can be one of following:
 * `progressing` - The download is in-progress.
 * `interrupted` - The download has interrupted and can be resumed.
 
-#### Event: 'done'
+#### イベント: 'done'
 
 戻り値:
 
