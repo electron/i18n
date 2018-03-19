@@ -42,7 +42,7 @@ Every app's main process file is specified in the `main` property in `package.js
 
 In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Vedi anche: [processo](#process), [processo di rendering](#renderer-process)
 
 ### MAS
 
