@@ -123,19 +123,19 @@ console.log(dialog)
 
 エラーメッセージを表示するモーダルダイアログを表示します。
 
-このAPIは `app` オブジェクトの `ready` イベントが発行される前に、安全に呼べます。起動時の初期段階でのエラーの報告によく使われます。 Linuxにおいて、appの `ready` イベントが発行される前に呼んだ場合、メッセージは stderr に吐かれて、GUIのダイアログは表示されません。
+`app` モジュールで `ready` イベントが発生する前でも、このAPIは安全に呼び出すことができます。これは、起動の初期段階でのエラーを報告するのによく使用されます。 Linuxで、appの `ready` イベントの前に呼び出すと、メッセージは標準エラーに出力され、GUIのダイアログは表示されません。
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` BrowserWindow (任意)
 * `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - 信頼/インポートする証明書。
-  * `message` String - ユーザに表示するメッセージ。
+  * `message` String - ユーザーに表示するメッセージ。
 * `callback` Function
 
-macOSにおいて、これはメッセージと証明書の情報を表示し、ユーザに信頼/インポートする証明書のオプションを提供します。 `browserWindow` を渡すと、それを親ウインドウとしてdialogをモーダルウインドウにします。
+macOSでは、これはメッセージと証明書情報を表示するモーダルダイアログを表示し、ユーザーに証明書を信頼/インポートする選択肢を提供します。 `browserWindow` の引数を指定すると、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
-Windowsでのオプションはより限られており、Win32APIは以下のようになります。
+Windowsでは、使用されているWin32 APIのため、オプションはより限定的です。
 
 * `message` は使用されません。OS独自の確認ダイアログを提供します。
 * この確認ダイアログはモーダルウインドウにできないので、`browserWindow` は無視されます。
