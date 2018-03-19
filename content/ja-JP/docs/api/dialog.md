@@ -137,11 +137,11 @@ macOSでは、これはメッセージと証明書情報を表示するモーダ
 
 Windowsでは、使用されているWin32 APIのため、オプションはより限定的です。
 
-* `message` は使用されません。OS独自の確認ダイアログを提供します。
-* この確認ダイアログはモーダルウインドウにできないので、`browserWindow` は無視されます。
+* OSが独自の確認ダイアログを提供しているため、`message` の引数は使用されません。
+* この確認ダイアログをモーダル表示にすることができないため、`browserWindow` の引数は無視されます。
 
 ## シート
 
-macOSにおいて、`browserWindow` に `BrowserWindow` の参照を指定すると、dialogがウインドウにアタッチされたシートとして表示されます。
+macOSでは、`browserWindow` のパラメータに `BrowserWindow` の参照を指定した場合、ダイアログは、ウインドウにアタッチされたシートとして表示されます。ウインドウを指定しない場合、モーダルで表示されます。
 
-`BrowserWindow.getCurrentWindow().setSheetOffset(offset)` を呼ぶことで、アタッチされたシートのウインドウフレームからのオフセットを変更できます。
+`BrowserWindow.getCurrentWindow().setSheetOffset(offset)` を呼び出すことで、シートがアタッチされるウインドウフレームからのオフセットを変更することができます。
