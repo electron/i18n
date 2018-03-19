@@ -1001,9 +1001,9 @@ win.webContents.on('devtools-opened', () => {
 
 `channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
+レンダラープロセスは `ipcRenderer` モジュールで `channel` を聞いてメッセージを処理できます。
 
-An example of sending messages from the main process to the renderer process:
+以下はメインプロセスからレンダラープロセスにメッセージを送る例です。
 
 ```javascript
 // メインプロセス
@@ -1035,10 +1035,10 @@ app.on('ready', () => {
 #### `contents.enableDeviceEmulation(parameters)`
 
 * `parameters` Object 
-  * `screenPosition` String - Specify the screen type to emulate (default: `desktop、`) 
-    * `desktop` - Desktop screen type
-    * `mobile` - Mobile screen type
-  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
+  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop`) 
+    * `desktop` - デスクトップ画面タイプ
+    * `mobile` - モバイル画面タイプ
+  * `screenSize` [Size](structures/size.md) - エミュレートされる画面サイズの設定 (screenPosition == mobile)
   * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
   * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
