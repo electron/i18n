@@ -963,43 +963,43 @@ win.webContents.on('devtools-opened', () => {
 #### `contents.openDevTools([options])`
 
 * `options` Object (任意) 
-  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+  * `mode` String - 指定したドック状態で開発者向けツールを開く。`right`、`bottom`、`undocked`、`detach` にできる。 省略値は最後に使用したときのドック状態。 `undocked` モードではドックを後ろにやれる。 `detach` モードではできない。
 
-Opens the devtools.
+開発者向けツールを開く。
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+開発者向けツールを閉じる。
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+戻り値 `Boolean` - 開発者向けツールが開かれているかどうか。
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+戻り値 `Boolean` - 開発者向けツールがフォーカスされているかどうか。
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+開発者向けツールをトグル切り替えします。
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+(`x`, `y`) の位置の要素の検査を開始します。
 
 #### `contents.inspectServiceWorker()`
 
-Opens the developer tools for the service worker context.
+サービスワーカコンテキストの開発者向けツールを開きます。
 
 #### `contents.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
 The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
 
