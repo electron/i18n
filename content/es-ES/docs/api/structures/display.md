@@ -1,6 +1,6 @@
 # Objeto Display
 
-* `id` Number - El identificador único asociado con la pantalla.
+* `id` Number - El identificador único asociado a la pantalla.
 * `rotation` Number - Puede ser 0, 90, 180 o 270, representa la rotación de la pantalla en grados según las agujas del reloj.
 * `scaleFactor` Number - Factor de escalado de píxeles del dispositivo de salida.
 * `touchSupport` String - Puede tener los siguientes valores: `available`, `unavailable`, `unknown`.
