@@ -1,10 +1,10 @@
 # dialog
 
-> ファイルを開く、保存する、通知する等のためのネイティブなダイアログを表示します。
+> ファイルを開いたり、保存したり、アラートを出したりするために、ネイティブのシステムダイアログを表示します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-複数のファイルとディレクトリを選択するdialogを表示する例:
+複数のファイルやディレクトリを選択するダイアログを表示する例:
 
 ```javascript
 const {dialog} = require('electron')
@@ -69,7 +69,7 @@ console.log(dialog)
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (任意)
-* `options` オブジェクト 
+* `options` Object 
   * `title` String (任意)
   * `defaultPath` String (任意) - デフォルトの絶対ディレクトリパス/絶対ファイルパス/ファイル名。
   * `buttonLabel` String (任意) - 確認ボタンのラベルをカスタマイズする。空にするとデフォルトのラベルが使用される。
@@ -91,7 +91,7 @@ console.log(dialog)
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (任意)
-* `options` オブジェクト 
+* `options` Object 
   * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"`にできる。 Windowsでは、`"icon"` オプションを使用してアイコンを設定していない場合、`"question"` は `"info"` と同じアイコンを表示する。 macOSでは、`"warning"` と `"error"` で同じアイコンを表示する。
   * `buttons` String[] (任意) - ボタンのテキストの配列。Windowsでは、空の配列を渡すと"OK"ボタン一つになる。
   * `defaultId` Integer (任意) - メッセージボックスが開かれた時に、デフォルトで選択されているボタンのインデックス。
@@ -128,7 +128,7 @@ console.log(dialog)
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` BrowserWindow (任意)
-* `options` オブジェクト 
+* `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - 信頼/インポートする証明書。
   * `message` String - ユーザに表示するメッセージ。
 * `callback` Function
