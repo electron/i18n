@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-複数のファイルやディレクトリを選択するダイアログを表示する例:
+複数のファイルとディレクトリを選択するdialogを表示する例:
 
 ```javascript
 const {dialog} = require('electron')
