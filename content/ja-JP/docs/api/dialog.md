@@ -20,12 +20,12 @@ console.log(dialog)
 
 ## メソッド
 
-`dialog` オブジェクトには以下のメソッドがあります。
+`dialog` モジュールには以下のメソッドがあります。
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (任意)
-* `options` オブジェクト 
+* `options` Object 
   * `title` String (任意)
   * `defaultPath` String (任意)
   * `buttonLabel` String (任意) - 確認ボタンのラベルをカスタマイズする。空にするとデフォルトのラベルが使用される。
