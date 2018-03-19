@@ -92,13 +92,13 @@ console.log(dialog)
 
 * `browserWindow` BrowserWindow (任意)
 * `options` Object 
-  * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` オプションを使用してアイコンを設定していない場合、`"question"` は `"info"` と同じアイコンを表示する。 macOSでは、`"warning"` と `"error"` で同じアイコンを表示する。
-  * `buttons` String[] (任意) - ボタンのテキストの配列。Windowsでは、空の配列を渡すと"OK"ボタン一つになる。
-  * `defaultId` Integer (任意) - メッセージボックスが開かれた時に、デフォルトで選択されているボタンのインデックス。
-  * `title` String (任意) - メッセージボックスのタイトル。いくつかのプラットフォームでは表示されない。
-  * `message` String - メッセージボックスの中のテキスト。
+  * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` のオプションを使用してアイコンを設定しない場合、`"question"` は、`"info"` と同じアイコンを表示します。 macOSでは、`"warning"` と `"error"` の両方で同じ警告アイコンを表示します。
+  * `buttons` String[] (任意) - ボタンのテキストの配列。Windowsでは、空の配列だと、"OK" というラベルのついた1つのボタンだけになります。
+  * `defaultId` Integer (任意) - メッセージボックスを開いたとき、既定で選択されるボタンの配列の中のボタンのインデックス。
+  * `title` String (任意) - メッセージボックスのタイトル。いくつかのプラットフォームでは表示されません。
+  * `message` String - メッセージボックスの内容。
   * `detail` String (任意) - メッセージの追加情報。
-  * `checkboxLabel` String (任意) - 指定した場合、この文字列のラベル付きのチェックボックスがメッセージボックスに含まれる。チェックボックスの状態は `callback` を使用するときのみ取得できる。
+  * `checkboxLabel` String (任意) - 指定した場合、メッセージボックスには、指定したラベルを持つチェックボックスが含まれます。チェックボックスの状態は、`callback` を使用するときしか確認することができません。
   * `checkboxChecked` Boolean (任意) - チェックボックスの初期状態。デフォルトは `false` 。
   * `icon` [NativeImage](native-image.md) (任意)
   * `cancelId` Integer (任意) - `Esc` キーを介して、dialogをキャンセルするボタンのインデックス。 デフォルトは"キャンセル"または"いいえ"のラベルで最初のボタンに割り当てられる。 もしそのようなラベルのボタンがなく、このオプションが設定されていない場合、`` が戻り値やコールバックのresponseとして使われる。 このオプションはWindowsでは無視される。
