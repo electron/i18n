@@ -43,9 +43,9 @@ console.log(dialog)
 * `callback` Function (任意) 
   * `filePaths` String[] - ユーザーによって選択されたファイルパスの配列
 
-戻り値はユーザが選択したファイルパスの配列を `String[]` で返します。callbackが設けられている場合は `undefined` を返します。
+ユーザーによって選択されたファイルパスの配列である `String[]` を返します。callbackが指定されている場合、`undefined` を返します。
 
-`browserWindow` を渡すと、それを親ウインドウとしてdialogをモーダルウインドウにします。
+`browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
 `filters` は、表示されるファイルの種類や、ユーザーに選択してほしい種類の制限を指定する配列です。例:
 
@@ -82,7 +82,7 @@ console.log(dialog)
 
 戻り値はユーザが選択したファイルパスを `String` で返します。callbackが設けられている場合は `undefined` を返します。
 
-`browserWindow` を渡すと、それを親ウインドウとしてdialogをモーダルウインドウにします。
+`browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
 `filters` は、表示されるファイルの種類を指定する配列です。例として `dialog.showOpenDialog` を参照して下さい。
 
@@ -112,7 +112,7 @@ console.log(dialog)
 
 メッセージボックスが閉じられるまでプロセスをブロックして、メッセージボックスを表示します。クリックされたボタンのインデックスを返します。
 
-`browserWindow` を渡すと、それを親ウインドウとしてdialogをモーダルウインドウにします。
+`browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
 `callback` が渡されると、API呼び出しは非同期になり、 `callback(response)` を通して結果が渡されます。
 
