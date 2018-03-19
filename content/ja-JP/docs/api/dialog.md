@@ -38,10 +38,10 @@ console.log(dialog)
     * `createDirectory` - ダイアログから新しいディレクトリを作成するのを許可します。*macOS*
     * `promptToCreate` - ダイアログで入力されたファイルパスが存在しない場合、作成するように促します。 これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。 *Windows*
     * `noResolveAliases` - 自動エイリアス (シンボリックリンク) によるパス解決を無効にします。これにより、選択したエイリアスは、本体のパスの代わりにエイリアスのパスを返します。*macOS*
-    * `treatPackageAsDirectory` - パッケージとして扱われる `.app` フォルダのようなものを、ファイルではなくディレクトリとして扱う。*macOS*
-  * `message` String (任意) *macOS* - 入力ボックス上に表示するメッセージ。
+    * `treatPackageAsDirectory` - `.app` フォルダのようなパッケージをファイルとする代わりにディレクトリとして扱います。*macOS*
+  * `message` String (任意) *macOS* - 入力ボックスの上に表示するメッセージ。
 * `callback` Function (任意) 
-  * `filePaths` String[] - ユーザが選択したファイルパスの配列。
+  * `filePaths` String[] - ユーザーによって選択されたファイルパスの配列
 
 戻り値はユーザが選択したファイルパスの配列を `String[]` で返します。callbackが設けられている場合は `undefined` を返します。
 
