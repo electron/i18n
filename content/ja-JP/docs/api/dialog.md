@@ -28,15 +28,15 @@ console.log(dialog)
 * `options` Object 
   * `title` String (任意)
   * `defaultPath` String (任意)
-  * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、デフォルトのラベルが使用されます。
+  * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
-  * `properties` String[] (任意) - dialogのどの機能を使うべきかの配列。以下の値をサポートする。 
-    * `openFile` - ファイル選択を許可する。
-    * `openDirectory` - ディレクトリ選択を許可する。
-    * `multiSelections` - 複数選択を許可する。
-    * `showHiddenFiles` - dialog中で隠しファイルを表示する。
-    * `createDirectory` - dialog中で新規ディレクトリの作成を許可する。*macOS*
-    * `promptToCreate` - 存在しないパスをdialog中で入力したとき、その作成を促す。 これは存在しないパスにファイルを作るのではなく、アプリケーションによって作成される予定の存在しないパスを作る。 *Windows*
+  * `properties` String[] (任意) - ダイアログでどの機能を使用するか。以下の値がサポートされます。 
+    * `openFile` - ファイルを選択するのを許可します。
+    * `openDirectory` - ディレクトリを選択するのを許可します。
+    * `multiSelections` - 複数のパスを選択するのを許可します。
+    * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
+    * `createDirectory` - ダイアログから新しいディレクトリを作成するのを許可します。*macOS*
+    * `promptToCreate` - ダイアログで入力されたファイルパスが存在しない場合、作成するように促します。 これは存在しないパスにファイルを作るのではなく、アプリケーションによって作成される予定の存在しないパスを作る。 *Windows*
     * `noResolveAliases` - パスの解決において自動エイリアス (シンボリックリンク) を無効にする。選択したエイリアスは、それらが指すパスではなくエイリアスのパスを返す。 *macOS*
     * `treatPackageAsDirectory` - パッケージとして扱われる `.app` フォルダのようなものを、ファイルではなくディレクトリとして扱う。*macOS*
   * `message` String (任意) *macOS* - 入力ボックス上に表示するメッセージ。
@@ -72,7 +72,7 @@ console.log(dialog)
 * `options` Object 
   * `title` String (任意)
   * `defaultPath` String (任意) - デフォルトの絶対ディレクトリパス/絶対ファイルパス/ファイル名。
-  * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、デフォルトのラベルが使用されます。
+  * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
   * `message` String (任意) *macOS* - テキストフィールド上に表示するメッセージ。
   * `nameFieldLabel` String (任意) *macOS* - ファイル名のテキストフィールドの手前に表示されるテキストラベルのカスタマイズ。
