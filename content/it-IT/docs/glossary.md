@@ -70,7 +70,7 @@ Un processo è un'istanza di un programma che è in fase di esecuzione. Electron
 
 In Node.js and Electron, each running process has a `process` object. Questo oggetto è un globale che fornisce informazioni e controlla il processo corrente. As a global, it is always available to applications without using require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Vedi anche: [processo principale](#main-process), [processo di rendering](#renderer-process)
 
 ### processo di rendering
 
@@ -78,7 +78,7 @@ Il processo di rendering è una finestra del browser nella tua app. A differenza
 
 Nei browser normali, le pagine web vengono eseguite in un ambiente circoscritto nel quale non è consentito l'accesso alle risorse native. Gli utenti di Electron, tuttavia, hanno il potere di usare le API di Node.js nelle pagine web consentendo interazioni di sistema operativo di livello inferiore.
 
-See also: [process](#process), [main process](#main-process)
+Vedi anche: [processo](#process), [processo principale](#main-process)
 
 ### Squirrel
 
@@ -92,11 +92,11 @@ Come Node, Electron si concentra sull'avere un piccolo set di API che fornisce t
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 è l'engine JavaScript open source di Google. È scritto in C++ ed è usato in Google Chrome. V8 può essere eseguito standalone o può essere incorporato in qualsiasi applicazione in C++.
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+I numeri delle versioni di V8 corrispondono sempre a quelli di Google Chrome. Chrome 59 include V8 5.9, Chrome 58 include V8 5.8, ecc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
