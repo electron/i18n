@@ -1,4 +1,4 @@
-# Size Object
+# 크기 오브젝트
 
-* `width` Number
-* `width` Number
+* `width` 숫자
+* `height` 숫자
