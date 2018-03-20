@@ -190,7 +190,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 #### `ses.enableNetworkEmulation(options)`
 
 * `选项` Object 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (optional) - 是否模拟网络中断、离线。默认 否。
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
