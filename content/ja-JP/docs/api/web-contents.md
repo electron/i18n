@@ -1058,7 +1058,7 @@ app.on('ready', () => {
   * `type` String (**必須**) - イベントのタイプ。`mouseDown`、`mouseUp`、`mouseEnter`、`mouseLeave`、`contextMenu`、`mouseWheel`、`mouseMove`、`keyDown`、`keyUp`、`char` にできる。
   * `modifiers` String[] - イベントの修飾子の配列。`shift`、`control`、`alt`、`meta`、`isKeypad`、`isAutoRepeat`、`leftButtonDown`、`middleButtonDown`、`rightButtonDown`、`capsLock`、`numLock`、`left`、`right` を含めることができる。
 
-Sends an input `event` to the page. **Note:** The `BrowserWindow` containing the contents needs to be focused for `sendInputEvent()` to work.
+ページへ `event` 入力イベントを送信します。 **注釈:** `sendInputEvent()` が動くには、そのコンテツを含む `BrowserWindow` がフォーカスされている必要があります。
 
 For keyboard events, the `event` object also have following properties:
 
