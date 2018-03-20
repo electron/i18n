@@ -10,7 +10,7 @@
 
 ### GPU アクセラレーション
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+GPU アクセラレーションレンダリングとは、GPU が構成に使用されることを意味します。 GPU からフレームをコピーする必要があるために、より高いパフォーマンスを要求するので、このモードは他のフレームよりかなり遅くなります。 The benefit of this mode that WebGL and 3D CSS animations are supported.
 
 ### ソフトウェア出力デバイス
 
