@@ -1,6 +1,6 @@
-# session
+# 세션
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> 브라우저 세션, 쿠키, 캐시, 프록시 설정 등을 관리합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
