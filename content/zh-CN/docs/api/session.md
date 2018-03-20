@@ -190,12 +190,12 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 #### `ses.enableNetworkEmulation(options)`
 
 * `选项` Object 
-  * `offline` Boolean (optional) - 是否模拟网络中断、离线。默认 否。
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+  * `offline` Boolean (可选) - 是否模拟网络中断、离线。默认 否。
+  * `latency` Double (可选) - RTT时延毫秒值. 默认为0将禁用时延调节。
+  * `downloadThroughput ` Double (可选) - 指定下载Bps速率。默认为0将禁用下载限速。
+  * `uploadThroughput` Double (可选) - 指定上传Bps速率. 默认0将禁用上传速率限制。
 
-Emulates network with the given configuration for the `session`.
+通过指定的配置为 `session` 模拟网络。
 
 ```javascript
 // To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
