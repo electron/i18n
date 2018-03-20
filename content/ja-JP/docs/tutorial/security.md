@@ -22,15 +22,15 @@ Electron は新しいバージョンの Chromium を出来るだけ早くサポ�
 
 > :警告: Node integration が有効な環境で、リモートコードの読み込みと実行を行ってはいけません。 代わりに、Node.js コードの実行にはローカルファイル (アプリケーションと一緒にパッケージ化されているもの) だけを使用してください。 リモートコンテンツを表示するには、[`webview`](../api/web-view.md) タグを使用して、`nodeIntegration` を無効にしてください。
 
-## Electron Security Warnings
+## Electron のセキュリティ警告
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
+Electron 2.0 からでは、開発者は、開発者コンソールに出力される警告と推奨を見られます。 バイナリ名が Electron の場合にのみ表示され、開発者が現在コンソールを見ていることを示しています。
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+これらの警告を、 `process.env` または `window` オブジェクトに`ELECTRON_ENABLE_SECURITY_WARNINGS` または `ELECTRON_DISABLE_SECURITY_WARNINGS` を設定することで、強制的に有効または無効にできます。
 
-## Checklist: Security Recommendations
+## チェックリスト: セキュリティ推奨事項
 
-This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+これは攻撃を防ぐわけではありませんが、最低限、アプリケーションのセキュリティを改善するためにこれらの手順に従って下さい。
 
 1. [Only load secure content](#only-load-secure-content)
 2. [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
