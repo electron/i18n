@@ -1060,9 +1060,9 @@ app.on('ready', () => {
 
 ページへ `event` 入力イベントを送信します。 **注釈:** `sendInputEvent()` が動くには、そのコンテツを含む `BrowserWindow` がフォーカスされている必要があります。
 
-For keyboard events, the `event` object also have following properties:
+キーボードイベントでは、`event` オブジェクトは以下のプロパティも持ちます。
 
-* `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
+* `keyCode` String (**必須**) - キーボードイベントとして送られる文字。[Accelerator](accelerator.md) で有効なキーコードのみを使用しなければいけません。
 
 For mouse events, the `event` object also have following properties:
 
