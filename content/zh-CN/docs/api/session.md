@@ -211,21 +211,21 @@ window.webContents.session.enableNetworkEmulation({offline: true})
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+禁用所有为 `session` 模拟的已激活网络。重置为原始网络配置。
 
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function - 回调函数 
   * `request` Object 
     * `hostname` String
-    * `certificate` [证书](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `certificate` [Certificate](structures/certificate.md)
+    * `verificationResult` String - chromium证书验证结果
+    * `errorCode` Integer - 错误代码
   * `callback` Function - 回调函数 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transparency verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+    * `verificationResult` Integer - 证书错误代码之一，来自 [这里](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)。 除了证书错误代码外，还可以使用以下特殊代码。 
+      * `-0` - 表示成功并禁用证书透明度验证
+      * `-2` - 表示失败
+      * `-3` - 使用chromium的验证结果
 
 Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
