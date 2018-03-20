@@ -30,7 +30,7 @@ Returns [`BrowserWindowProxy`](browser-window-proxy.md) - 创建一个新窗口�
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+将消息发送给指定来源的父窗口，如果未指定来源则发送给`*`，即所有窗口。
 
 ### 使用 Chrome 的 `window.open()`
 
