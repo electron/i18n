@@ -38,13 +38,13 @@ Sends a message to the parent window with the specified origin or `*` for no ori
 
 原生 ` window.open () ` 允许同步打开窗口, 因此可以方便的选择是对话框还是首选项窗口。
 
-This option can also be set on `<webview>` tags as well:
+该选项也可以设置在`<webview>`标签上：
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+` BrowserWindow `的创建可通过` WebContents ` 的 ` new-window `事件进行定制 。
 
 ```javascript
 // main process
