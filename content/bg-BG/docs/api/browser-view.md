@@ -38,35 +38,35 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Връща `[BrowserView]` - Масив с всички отворени BrowserViews.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Връща `BrowserView | null`-BrowserView, което притежава даден `webContents` или `null`, ако съдържанието не е собственост на BrowserView.
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Връща `BrowserView` - Изгледът на съответното `id`.
 
 ### Инстантни свойства
 
-Objects created with `new BrowserView` have the following properties:
+Обекти създадени с `new BrowserView` имат следните свойства:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Обект [`WebContents`](web-contents.md) собственост на този изглед.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+`Integer` представляващ уникално ID на изгледа.
 
-### Instance Methods
+### Инстантни методи
 
-Objects created with `new BrowserView` have the following instance methods:
+Обекти създадени с `new BrowserView` имат следните методи:
 
 #### `view.destroy()`
 
