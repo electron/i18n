@@ -1169,15 +1169,15 @@ win.webContents.on('did-finish-load', () => {
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+もし *オフスクリーンレンダリング* が有効であれば指定された数字にフレームレートをセットします。1 から 60 の値のみを受け取ります。
 
 #### `contents.getFrameRate()`
 
-Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在のフレームレートを返します。
 
 #### `contents.invalidate()`
 
-Schedules a full repaint of the window this web contents is in.
+このウェブコンテンツが入っているウインドウの完全な再描画をスケジュールします。
 
 If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
 
