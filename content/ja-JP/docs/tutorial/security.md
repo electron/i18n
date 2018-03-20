@@ -32,20 +32,20 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 
 これは攻撃を防ぐわけではありませんが、最低限、アプリケーションのセキュリティを改善するためにこれらの手順に従って下さい。
 
-1. [Only load secure content](#only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
-4. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する。](#handle-session-permission-requests-from-remote-content)
-5. [Do not disable `webSecurity`](#do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
-8. [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
-9. [Do not enable experimental features](#do-not-enable-experimental-features)
-10. [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
+1. [セキュアなコンテンツのみを読み込む](#only-load-secure-content)
+2. [リモートコンテンツを表示する全てのレンダラーで、Node.js integration を無効にする](#disable-node.js-integration-for-remote-content)
+3. [リモートコンテンツを表示するすべてのレンダラーで、コンテキストイソレーションを有効にする](#enable-context-isolation-for-remote-content)
+4. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する](#handle-session-permission-requests-from-remote-content)
+5. [`webSecurity` を無効にしない](#do-not-disable-websecurity)
+6. [`Content-Security-Policy` を定義](#define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
+7. 文字列をコードとして実行できる [`eval` を書き換えて無効にする](#override-and-disable-eval)。
+8. [`allowRunningInsecureContent` を `true` にしない](#do-not-set-allowRunningInsecureContent-to-true)
+9. [実験的な機能を有効にしない](#do-not-enable-experimental-features)
+10. [`blinkFeatures` を使用しない](#do-not-use-blinkfeatures)
 11. [WebViews: `allowpopups`を使用しない](#do-not-use-allowpopups)
-12. [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+12. [WebViews: すべての `<webview>` タグのオプションとパラメータを認証する。](#verify-webview-options-before-creation)
 
-## 1) Only Load Secure Content
+## 1) セキュアなコンテンツのみを読み込む
 
 Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
