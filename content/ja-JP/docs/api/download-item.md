@@ -92,7 +92,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 一時停止されたダウンロードを再開します。
 
-**注:** 再開可能なダウンロードを有効にするには、ダウンロードしているサーバーがRangeリクエストをサポートしており、`Last-Modified` と `ETag` の両方のヘッダーの値を提供していなければなりません。 そうでなければ、`resume()` は、前回受信したバイトを破棄し、最初からダウンロードを再開します。
+**注:** 再開可能なダウンロードを有効にするには、ダウンロードしているサーバーがRangeリクエストをサポートしており、`Last-Modified` と `ETag` の両方のヘッダーの値を提供していなければなりません。 そうでなければ、`resume()` は、前回受信したバイト数を無視して、最初からダウンロードを再開します。
 
 #### `downloadItem.canResume()`
 
@@ -118,27 +118,27 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 戻り値 `String` - ダウンロードアイテムのファイル名。
 
-**注:** ファイル名は常にローカルディスクに保存したものと同じではありません。 If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**注:** ファイル名は常にローカルディスクに保存したものと同じではありません。 ユーザーが表示されたダウンロード保存ダイアログでファイル名を変更した場合、保存されたファイルの実際の名前は異なります。
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+戻り値 `Integer` - ダウンロードアイテムのバイト単位での合計サイズ。
 
-If the size is unknown, it returns 0.
+サイズが不明な場合、0を返します。
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+戻り値 `Integer` - ダウンロードアイテムの受信したバイト数。
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+戻り値 `String` - レスポンスヘッダーのContent-Dispositionフィールド。
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+戻り値 `String` - 現在の状態。`progressing`、`completed`、`cancelled` または `interrupted` のいずれかです。
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**注:** 以下のメソッドは、セッションが再開されたときに `cancelled` アイテムを再開するのに特に有用です。
 
 #### `downloadItem.getURLChain()`
 
