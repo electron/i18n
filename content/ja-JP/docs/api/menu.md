@@ -256,7 +256,7 @@ macOS のアプリケーションメニューの最初のアイテムのラベ�
 
 ### サンプル
 
-Template:
+テンプレート:
 
 ```javascript
 [
@@ -278,7 +278,7 @@ Menu:
 - 5
 ```
 
-Template:
+テンプレート:
 
 ```javascript
 [
