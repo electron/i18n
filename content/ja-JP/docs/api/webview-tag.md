@@ -519,7 +519,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Shows pop-up dictionary that searches the selected word on the page.
+ページ上の選択された単語を検索するポップアップ辞書を表示します。
 
 ### `<webview>.getWebContents()`
 
