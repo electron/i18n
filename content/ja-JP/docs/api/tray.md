@@ -29,84 +29,84 @@ app.on('ready', () => {
 * アプリインジゲータのみがある Linux ディストリビューションでは、tray アイコンを動かすために `libappindicator1` をインストールする必要があります。
 * アプリインジゲータはコンテキストメニューがあるときのみ表示されます。
 * Linux でアプリインジゲータが使用されるとき、`click` イベントは無視されます。
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Linux では、個々の `MenuItem` に加えられた変更を有効にするには、`setContextMenu` を再び呼ぶ必要があります。以下は例です。
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
 
 let appIcon = null
 app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
+  appIcon = new Tray('/自分の/アイコンへの/パス')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'}
+    {label: 'アイテム1', type: 'radio'},
+    {label: 'アイテム2', type: 'radio'}
   ])
 
-  // Make a change to the context menu
+  // コンテキストメニューに変更を加える
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
+  // コンテキストメニューを変更したので、Linux のためにこれを呼び直す
   appIcon.setContextMenu(contextMenu)
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Windows では、最適な視覚効果を得るために `ICO` アイコンの使用が推奨されています。
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+すべてのプラットフォームでまったく同じ動作を維持したい場合は、`click` イベントに頼らず、tray アイコンに常にコンテキストメニューを適用して下さい。
 
 ### `new Tray(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Creates a new tray icon associated with the `image`.
+`image` に関連する新しい tray アイコンを作成します。
 
 ### インスタンスイベント
 
-The `Tray` module emits the following events:
+`tray` モジュールには以下のイベントがあります。
 
-#### Event: 'click'
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
-* `position` [Point](structures/point.md) - The position of the event
-
-Emitted when the tray icon is clicked.
-
-#### Event: 'right-click' *macOS* *Windows*
+#### イベント: 'click'
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
+* `position` [Point](structures/point.md) - イベントの位置。
 
-Emitted when the tray icon is right clicked.
+tray アイコンがクリックされたときに発行されます。
 
-#### Event: 'double-click' *macOS* *Windows*
+#### イベント: 'right-click' *macOS* *Windows*
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
-Emitted when the tray icon is double clicked.
+tray アイコンが右クリックされたときに発行されます。
 
-#### Event: 'balloon-show' *Windows*
+#### イベント: 'double-click' *macOS* *Windows*
 
-Emitted when the tray balloon shows.
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
-#### Event: 'balloon-click' *Windows*
+tray アイコンがダブルクリックされたときに発行されます。
 
-Emitted when the tray balloon is clicked.
+#### イベント: 'balloon-show' *Windows*
 
-#### Event: 'balloon-closed' *Windows*
+tray バルーンを表示するときに発行されます。
+
+#### イベント: 'balloon-click' *Windows*
+
+tray バルーンがクリックされたときに発行されます。
+
+#### イベント: 'balloon-closed' *Windows*
 
 Emitted when the tray balloon is closed because of timeout or user manually closes it.
 
