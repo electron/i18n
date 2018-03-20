@@ -78,25 +78,25 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+戻り値 `String` - ダウンロードアイテムの保存先のパス。これは、`downloadItem.setSavePath(path)` 経由で設定されたパスか、表示された保存ダイアログで選択されたパスのいずれかです。
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+ダウンロードを一時停止します。
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+戻り値 `Boolean` - ダウンロードが一時停止しているかどうか。
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+一時停止されたダウンロードを再開します。
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**注:** 再開可能なダウンロードを有効にするには、ダウンロードしているサーバーがRangeリクエストをサポートしており、`Last-Modified` と `ETag` の両方のヘッダーの値を提供していなければなりません。 そうでなければ、`resume()` は、前回受信したバイトを破棄し、最初からダウンロードを再開します。
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+戻り値 `Boolean` - ダウンロードを再開できるかどうか。
 
 #### `downloadItem.cancel()`
 
