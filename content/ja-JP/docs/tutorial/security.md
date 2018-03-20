@@ -2,17 +2,17 @@
 
 Web開発者として、私たちは通常、ブラウザの強力なセキュリティ網を享受しています――私たちが書いたコードによるリスクは比較的小さいのです。 私たちのウェブサイトにはサンドボックスに限られた権限が与えられており、ユーザーは新たに発見されたセキュリティ上の脅威に迅速に対応できる、大規模なエンジニアチームによって構築されたブラウザを享受していると考えています。
 
-Electron で開発する時、Electron はブラウザではないということを意識することが重要です。 使い慣れたウェブ技術を使用して、機能あふれるデスクトップアプリケーションを構築できますが、あなたのコードの方がはるかに大きな力を発揮します。 JavaScriptがファイルシステムやシェルなどにアクセスできます。 This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+Electron で開発する時、Electron はブラウザではないということを意識することが重要です。 使い慣れたウェブ技術を使用して、機能あふれるデスクトップアプリケーションを構築できますが、あなたのコードの方がはるかに大きな力を発揮します。 JavaScript はファイルシステム、ユーザシェルなどにアクセスできます。 これはつまり、高品質のネイティブアプリケーションを構築することができることに対して、固有のセキュリティリスクは、コードに付与された追加の権限に応じて増加します。
 
-そのことを頭に入れて、信頼できないソースから得られた任意の内容を表示することは、Electronが意図しない重要なセキュリティリスクを生み出すことに注意してください。 実際、Atom, Slack, Visual Studio Codeといった人気のあるElectronアプリケーションは、主にローカル（あるいは信頼されており、なおかつNode integrationを使用しないリモート）のコンテンツを取り扱います。もしあなたのアプリケーションがオンライン上のリソースからコードを実行する場合、あなたの責任の下でそのコードが悪意のあるものではないことを確認する必要があります。
+それを念頭に置いて、信頼できないソースからの任意のコンテンツを表示するということは、Electron が扱うことを意図しない重大なセキュリティリスクを引き起こすということに注意してください。 実際、人気のある Electron アプリ (Atom、Slack、Visual Studio Code、等) は、主にローカル (あるいは信頼されており、なおかつ Node integration を使用しないリモート) のコンテンツを取り扱います。もしあなたのアプリケーションがオンライン上のリソースからコードを実行する場合、あなたの責任の下でそのコードが悪意のあるものではないことを確認する必要があります。
 
 ## セキュリティ問題の報告
 
-Electronの脆弱性を報告する正しい方法については[SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md) を参照してください。
+Electron の脆弱性を報告する正しい方法については [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md) を参照してください。
 
-## Chromiumのセキュリティ問題とアップグレード
+## Chromium のセキュリティ問題とアップグレード
 
-Electronは新しいバージョンのChromiumを出来るだけ早くサポートするように努力をしてはいますが、アップグレードは数十、時には数百のファイルの編集を含む大変な作業であることをご理解ください。 たくさんのリソースと貢献を受けていますが、ElectronはChromium最新版に追いついてないこともあり、数日・数週間遅れることがあります。
+Electron は新しいバージョンの Chromium を出来るだけ早くサポートするように努力をしてはいますが、アップグレードは数十、時には数百のファイルの編集を含む大変な作業であることをご理解ください。 今日ではたくさんのリソースと貢献を受けていますが、Electron は Chromium 最新版に追いついてないこともあり、数日もしくは数週間遅れることがあります。
 
 We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. 我々は、Electronを使用する個々のケースに関する意見をいただきたいと思っています。 この件に関するPull requestと貢献をいつでも歓迎します。
 
