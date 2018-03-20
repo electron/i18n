@@ -70,24 +70,24 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+Насила затваря изгледа, събитията `unload` и `beforeunload` няма да бъдат излъчени за уеб страницата. Когато сте готови с изгледа, извикайте тази функция, за да освободите памет и други ресурси възможно най-скоро.
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+Връща `Boolean` - Показва дали изгледа е унищожен.
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(опции)` *Experimental*
 
 * `опции` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - Ако е `true`, дължината на изгледа ще се разширява и смалява заедно с основния прозорец. По подразбиране не е `false`.
+  * `height` Boolean - Ако е `true`, ширината на изгледа ще се разширява и смалява заедно с основния прозорец. По подразбиране не е `false`.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Преоразмерява и премества изгледа към предоставените границите спрямо прозореца.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - Цвят в `#aarrggbb` или `#argb` формат. Алфа канала е задължителен.
