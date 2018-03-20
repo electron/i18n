@@ -70,7 +70,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+强制关闭视图, 不会为网页发出 ` unload ` 和 ` beforeunload ` 事件。 完成视图后, 请调用此函数, 以便尽快释放内存和其他资源。
 
 #### `view.isDestroyed()`
 
