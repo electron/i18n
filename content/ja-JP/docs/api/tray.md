@@ -207,14 +207,14 @@ macOS において、この tray アイコンが押されたときの関連付�
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` String - 以下の値のうちの一つの、強調表示モード。 
+  * `selection` - tray アイコンがクリックされ、コンテキストメニューも開かれたとき、それを強調表示します。これはデフォルトです。
+  * `always` - tray アイコンを常に強調表示します。
+  * `never` - tray アイコンを強調表示することはありません。
 
-Sets when the tray's icon background becomes highlighted (in blue).
+tray のアイコンの背景を、いつ青く強調表示するかを設定します。
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**注釈:** ウインドウの見た目が変更されたときは、`'never'` と `'always'` 間をトグル切り替えすることで、`highlightMode` を [`BrowserWindow`](browser-window.md) で使用できます。
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
