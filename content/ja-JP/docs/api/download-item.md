@@ -142,16 +142,16 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+戻り値 `String[]` - すべてのリダイレクトを含むアイテムの完全なURLチェーン。
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+戻り値 `String` - Last-Modifiedのヘッダーの値。
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+戻り値 `String` - ETagのヘッダーの値。
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+戻り値 `Double` - ダウンロードが開始されたUNIXエポックからの秒数。
