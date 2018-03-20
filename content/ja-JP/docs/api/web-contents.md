@@ -1203,22 +1203,22 @@ WebRTC IP ハンドリングポリシーを設定すると、WebRTC を介して
 
 #### `contents.id`
 
-A `Integer` representing the unique ID of this WebContents.
+この WebContents の一意のIDを表す `Integer`。
 
 #### `contents.session`
 
-A [`Session`](session.md) used by this webContents.
+この webContents で使われる [`Session`](session.md)。
 
 #### `contents.hostWebContents`
 
-A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+この `WebContents` を所有するかもしれない [`WebContents`](web-contents.md) インスタンス。
 
 #### `contents.devToolsWebContents`
 
-A `WebContents` of DevTools for this `WebContents`.
+この `WebContents` の開発者向けツールの `WebContents` インスタンス。
 
-**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+**注釈:** 開発者向けツールが閉じられたときに `null` になる可能性があるので、このオブジェクトは決して格納しないで下さい。
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+この webContents の [Debugger](debugger.md)。
