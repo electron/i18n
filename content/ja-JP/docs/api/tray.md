@@ -11,24 +11,24 @@ const {app, Menu, Tray} = require('electron')
 
 let tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
+  tray = new Tray('/自分の/アイコンへの/パス')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'},
-    {label: 'Item3', type: 'radio', checked: true},
-    {label: 'Item4', type: 'radio'}
+    {label: 'アイテム1', type: 'radio'},
+    {label: 'アイテム2', type: 'radio'},
+    {label: 'アイテム3', type: 'radio', checked: true},
+    {label: 'アイテム4', type: 'radio'}
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('これは自分のアプリケーション。')
   tray.setContextMenu(contextMenu)
 })
 ```
 
 **プラットフォームによる制限:**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
+* Linux では、アプリインジゲータがサポートされている場合はそれが使用され、それ以外では `GtkStatusIcon` が代わりに使用されます。
+* アプリインジゲータのみがある Linux ディストリビューションでは、tray アイコンを動かすために `libappindicator1` をインストールする必要があります。
+* アプリインジゲータはコンテキストメニューがあるときのみ表示されます。
+* Linux でアプリインジゲータが使用されるとき、`click` イベントは無視されます。
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
 
 ```javascript
