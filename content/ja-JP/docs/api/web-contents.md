@@ -1093,21 +1093,21 @@ app.on('ready', () => {
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
+プレゼンテーションイベントとキャプチャされたフレームの監視を開始し、プレゼンテーションイベントがあれば、`callbabck` が `callback(frameBuffer, dirtyRect)` で呼ばれます。
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).
+`frameBuffer` は生のピクセルデータを含む `Buffer` です。 ほとんどのマシンでは、ピクセルデータは 32bit BGRA 形式で効果的に格納されますが、実際の表示はプロセッサのエンディアンに依存します (ほとんどのプロセッサはリトルエンディアンで、ビッグエンディアンのプロセッサでのデータは 32bit ARGB 形式です)。
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+`dirtyRect` は 再描画されたページの部分を示す `x, y, width, height` プロパティのオブジェクトです。 もし `onlyDirty` が `true` にセットされている場合、`frameBuffer` は再描画された領域だけを含みます。 `onlyDirty` の省略値は `false` です。
 
 #### `contents.endFrameSubscription()`
 
-End subscribing for frame presentation events.
+フレームプレゼンテーションイベントの監視を終了します。
 
 #### `contents.startDrag(item)`
 
 * `item` Object 
-  * `file` String or `files` Array - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
+  * `file` String 又は `files` Array - ドラッグが開始されたファイルへのパス。
+  * `icon` [NativeImage](native-image.md) - macOS では空にできない画像。
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
