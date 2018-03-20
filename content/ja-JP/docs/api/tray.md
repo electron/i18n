@@ -108,102 +108,102 @@ tray バルーンがクリックされたときに発行されます。
 
 #### イベント: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+tray バルーンが、タイムアウトかユーザの手動で、閉じられたときに発行されます。
 
-#### Event: 'drop' *macOS*
+#### イベント: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+tray アイコン上に何かのドラッグされたアイテムがドロップされたときに発行されます。
 
-#### Event: 'drop-files' *macOS*
-
-* `event` Event
-* `files` String[] - The paths of the dropped files.
-
-Emitted when dragged files are dropped in the tray icon.
-
-#### Event: 'drop-text' *macOS*
+#### イベント: 'drop-files' *macOS*
 
 * `event` Event
-* `text` String - the dropped text string
+* `files` String[] - ドロップされたファイルのパス。
 
-Emitted when dragged text is dropped in the tray icon.
+tray アイコン上にドラッグされたファイルがドロップされたときに発行されます。
 
-#### Event: 'drag-enter' *macOS*
+#### イベント: 'drop-text' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+* `event` Event
+* `text` String - ドロップされたテキスト文字列。
 
-#### Event: 'drag-leave' *macOS*
+tray アイコン上にドラッグされたテキストがドロップされたときに発行されます。
 
-Emitted when a drag operation exits the tray icon.
+#### イベント: 'drag-enter' *macOS*
 
-#### Event: 'drag-end' *macOS*
+ドラッグ操作が tray アイコン内に入ったときに発行されます。
 
-Emitted when a drag operation ends on the tray or ends at another location.
+#### イベント: 'drag-leave' *macOS*
 
-#### Event: 'mouse-enter' *macOS*
+ドラッグ操作が tray アイコン内から出たときに発行されます。
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+#### イベント: 'drag-end' *macOS*
 
-Emitted when the mouse enters the tray icon.
+ドラッグ操作が、tray 上か他の場所で終了したときに発行されます。
 
-#### Event: 'mouse-leave' *macOS*
+#### イベント: 'mouse-enter' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `position` [Point](structures/point.md) - イベントの位置。
 
-Emitted when the mouse exits the tray icon.
+マウスが tray アイコン内に入ったときに発行されます。
 
-#### Event: 'mouse-move' *macOS*
+#### イベント: 'mouse-leave' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `position` [Point](structures/point.md) - イベントの位置。
 
-Emitted when the mouse moves in the tray icon.
+マウスが tray アイコン内から出たときに発行されます。
+
+#### イベント: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - イベントの位置。
+
+マウスが tray アイコン内で動いたときに発行されます。
 
 ### インスタンスメソッド
 
-The `Tray` class has the following methods:
+`Tray` クラスは以下のメソッドを持ちます。
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+tray アイコンを即座に削除します。
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+この tray アイコンに関連付けられた `image` を設定します。
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+macOS において、この tray アイコンが押されたときの関連付けられた `image` を設定します。
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+この tray アイコンのホバーテキストを設定します。
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar.
+ステータスバー内の tray アイコンの脇に表示されるタイトルを設定します。
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
