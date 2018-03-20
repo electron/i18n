@@ -74,7 +74,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+返回 `Boolean` -判断窗口是否被销毁
 
 #### `view.setAutoResize(options)` *实验功能*
 
