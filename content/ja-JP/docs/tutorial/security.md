@@ -1,8 +1,8 @@
 # セキュリティ・ネイティブ機能・あなたの責任
 
-As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+Web開発者として、私たちは通常、ブラウザの強力なセキュリティ網を享受しています――私たちが書いたコードによるリスクは比較的小さいのです。 私たちのウェブサイトにはサンドボックスに限られた権限が与えられており、ユーザーは新たに発見されたセキュリティ上の脅威に迅速に対応できる、大規模なエンジニアチームによって構築されたブラウザを享受していると考えています。
 
-Electronで開発を行う時、「Electronはブラウザではない」ということを認識する必要があります。 使い慣れたWeb技術を用いて豊富な機能を持つデスクトップアプリケーションを作成することができますが、Webアプリを書く時に比べて、あなたの書くコードが大きな力を持つことになります。 JavaScriptがファイルシステムやシェルなどにアクセスできます。 This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+Electron で開発する時、Electron はブラウザではないということを意識することが重要です。 使い慣れたウェブ技術を使用して、機能あふれるデスクトップアプリケーションを構築できますが、あなたのコードの方がはるかに大きな力を発揮します。 JavaScriptがファイルシステムやシェルなどにアクセスできます。 This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
 
 そのことを頭に入れて、信頼できないソースから得られた任意の内容を表示することは、Electronが意図しない重要なセキュリティリスクを生み出すことに注意してください。 実際、Atom, Slack, Visual Studio Codeといった人気のあるElectronアプリケーションは、主にローカル（あるいは信頼されており、なおかつNode integrationを使用しないリモート）のコンテンツを取り扱います。もしあなたのアプリケーションがオンライン上のリソースからコードを実行する場合、あなたの責任の下でそのコードが悪意のあるものではないことを確認する必要があります。
 
