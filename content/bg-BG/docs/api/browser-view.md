@@ -1,17 +1,17 @@
-## Class: BrowserView
+## Клас: BrowserView
 
-> Create and control views.
+> Създаване и контрол на изгледи.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Забележка:** API на BrowserView в момента е експериментално и може да се промени или да бъде отстранено в бъдещо издание на Електрон.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView` може да се използва за вграждане на допълнителни уеб съдържание в `BrowserWindow`. Това е като дете прозорец, освен че е разположен спрямо основния му прозорец. Той е предназначен да бъде алтернатива на `webview` маркер.
 
 ## Пример
 
 ```javascript
-// In the main process.
+// В процеса main.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -29,10 +29,10 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([опции])` *Experimental*
 
 * `опции` Object (по избор) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+  * `webPreferences` Object (по избор) - виж [BrowserWindow](browser-window.md).
 
 ### Статични член функции
 
