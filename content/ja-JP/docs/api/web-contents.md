@@ -1179,7 +1179,7 @@ win.webContents.on('did-finish-load', () => {
 
 このウェブコンテンツが入っているウインドウの完全な再描画をスケジュールします。
 
-If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+もし *オフスクリーンレンダリング* が有効であれば、フレームを無効にし、`'paint'` を通して新しいフレームを生成します。
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
