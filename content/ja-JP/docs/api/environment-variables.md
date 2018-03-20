@@ -18,7 +18,7 @@ Windows console example:
 > electron
 ```
 
-## Production Variables
+## 製品用の変数
 
 The following environment variables are intended primarily for use at runtime in packaged Electron applications.
 
@@ -50,7 +50,7 @@ Don't attach to the current console session.
 
 Don't use the global menu bar on Linux.
 
-## 開発変数
+## 開発用の変数
 
 The following environment variables are intended primarily for development and debugging purposes.
 
