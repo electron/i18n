@@ -2,7 +2,7 @@
 
 オフスクリーンレンダリングは、ブラウザウインドウのコンテンツをビットマップで取得させるので、3D シーン中のテクスチャのように、どこにでも描画できます。 Electron のオフスクリーンレンダリングは、 [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) プロジェクトと似たアプローチを使用します。
 
-2つの描画モードを使用でき、また、より効果的に描画するために、`'paint'` イベント内では変更された領域だけが渡されます。 The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, just performance loss.
+2つの描画モードを使用でき、また、より効果的に描画するために、`'paint'` イベント内では変更された領域だけが渡されます。 描画は停止でき、設定されたフレームレートで再開できます。 指定のフレームレートは上限値で、ウェブページ上で何も発生しなかった場合、フレームは生成されません。 The maximum frame rate is 60, because above that there is no benefit, just performance loss.
 
 **Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
