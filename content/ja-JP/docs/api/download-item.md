@@ -100,25 +100,25 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+ダウンロード操作をキャンセルします。
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+戻り値 `String` - アイテムがダウンロードされた元のURL。
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+戻り値 `String` - ファイルのMIMEタイプ。
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+戻り値 `Boolean` - ダウンロードにユーザージェスチャがあるかどうか。
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+戻り値 `String` - ダウンロードアイテムのファイル名。
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**注:** ファイル名は常にローカルディスクに保存したものと同じではありません。 If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
 #### `downloadItem.getTotalBytes()`
 
