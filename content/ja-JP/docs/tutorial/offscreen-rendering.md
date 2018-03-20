@@ -14,9 +14,9 @@ GPU アクセラレーションレンダリングとは、GPU が構成に使用
 
 ### ソフトウェア出力デバイス
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+このモードでは、CPU にレンダリングするソフトウェア出力デバイスが使用されているため、フレーム生成は非常に高速です。したがって、このモードは GPU アクセラレーションよりも優先されます。
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+このモードを有効にするには、[`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API を呼び出して GPU アクセラレーションを無効にする必要があります。
 
 ## 使い方
 
