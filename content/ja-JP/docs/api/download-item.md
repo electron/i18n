@@ -4,14 +4,14 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`DownloadItem` は、Electronでダウンロードアイテムを表す `EventEmitter` です。 It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` は、Electronでダウンロードアイテムを表す `EventEmitter` です。 これは、`Session` クラスの `will-download` イベントで使用されており、ユーザーがダウンロードアイテムを制御できるようにします。
 
 ```javascript
 // メインプロセス
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+  // Electronが保存ダイアログを表示しないようにするために、保存先のパスを設定します。
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
@@ -44,12 +44,12 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `state` String
 
-Emitted when the download has been updated and is not done.
+ダウンロードが更新され、まだ未完了であるときに発生します。
 
-The `state` can be one of following:
+`state` は、次のいずれかになります。
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - ダウンロードが進行中です。
+* `interrupted` - ダウンロードが中断されましたが、再開することができます。
 
 #### イベント: 'done'
 
@@ -60,7 +60,7 @@ The `state` can be one of following:
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
-The `state` can be one of following:
+`state` は、次のいずれかになります。
 
 * `completed` - The download completed successfully.
 * `cancelled` - The download has been cancelled.
