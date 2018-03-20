@@ -1138,32 +1138,32 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.showDefinitionForSelection()` *macOS*
 
-Shows pop-up dictionary that searches the selected word on the page.
+ページ上の選択された単語を検索するポップアップ辞書を表示します。
 
 #### `contents.setSize(options)`
 
-Set the size of the page. This is only supported for `<webview>` guest contents.
+ページのサイズを設定します。`<webview>` のゲストコンテンツでのみサポートされています。
 
 * `options` Object 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+  * `normal` Object (任意) - ページのノーマルサイズ。これを [`disableguestresize`](web-view-tag.md#disableguestresize) 属性と組み合わせて使用すると、webview のゲストコンテンツを手動でリサイズできます。 
     * `width` Integer
     * `height` Integer
 
 #### `contents.isOffscreen()`
 
-Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+戻り値 `Boolean` - *オフスクリーンレンダリング* が有効にされているかどうかを示す。
 
 #### `contents.startPainting()`
 
-If *offscreen rendering* is enabled and not painting, start painting.
+もし *オフスクリーンレンダリング* が有効かつ描画中でなければ、描画を開始します。
 
 #### `contents.stopPainting()`
 
-If *offscreen rendering* is enabled and painting, stop painting.
+もし *オフスクリーンレンダリング* が有効かつ描画中であれば、描画を終了します。
 
 #### `contents.isPainting()`
 
-Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在描画中かどうかを返します。
 
 #### `contents.setFrameRate(fps)`
 
