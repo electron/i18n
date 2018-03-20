@@ -1067,15 +1067,15 @@ app.on('ready', () => {
 マウスイベントでは、`event` オブジェクトは以下のプロパティも持ちます。
 
 * `x` Integer (**必須**)
-* `y` Integer (**required**)
-* `button` String - The button pressed, can be `left`, `middle`, `right`
+* `y` Integer (**必須**)
+* `button` String - 押されたボタン。`left`、`middle`、`right` にできる。
 * `globalX` Integer
 * `globalY` Integer
 * `movementX` Integer
 * `movementY` Integer
 * `clickCount` Integer
 
-For the `mouseWheel` event, the `event` object also have following properties:
+`mouseWheel` イベントでは、`event` オブジェクトは以下のプロパティも持ちます。
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -1088,7 +1088,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`
+* `onlyDirty` Boolean (任意) - 省略値は `false`。
 * `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
