@@ -227,9 +227,9 @@ window.webContents.session.enableNetworkEmulation({offline: true})
       * `-2` - 表示失败
       * `-3` - 使用chromium的验证结果
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+每当一个服务器证书请求验证，`proc` 将被这样 `proc(request, callback)` 调用，为 `session` 设置证书验证过程。 回调函数 `callback(0)` 接受证书，`callback(-2)` 驳回证书。
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+调用 ` setCertificateVerifyProc（null）`将恢复为默认证书验证过程。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -328,15 +328,15 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - 会在操作完成后被调用
+* `callback` Function (可选) - 会在操作完成后被调用
 
 Clears the session’s HTTP authentication cache.
 
 ### 实例属性
 
-The following properties are available on instances of `Session`:
+以下属性在` Session </ 0>实例上可用：</p>
 
-#### `ses.cookies`
+<h4><code>ses.cookies`</h4> 
 
 此会话的 [ cookie ](cookies.md) 对象。
 
