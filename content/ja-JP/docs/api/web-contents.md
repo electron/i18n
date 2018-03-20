@@ -1109,19 +1109,19 @@ app.on('ready', () => {
   * `file` String 又は `files` Array - ドラッグが開始されたファイルへのパス。
   * `icon` [NativeImage](native-image.md) - macOS では空にできない画像。
 
-Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
+現在の D&D 操作のドラッグアイテムに `item` をセットします。`file` はドラッグされるファイルへの絶対パスで、`icon` はドラッグするときにカーソルの下に表示される画像です。
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
-* `fullPath` String - The full file path.
-* `saveType` String - Specify the save type. 
-  * `HTMLOnly` - Save only the HTML of the page.
-  * `HTMLComplete` - Save complete-html page.
-  * `MHTML` - Save complete-html page as MHTML.
+* `fullPath` String - 完全なファイルパス。
+* `saveType` String - 保存タイプの指定。 
+  * `HTMLOnly` - ページの HTML だけを保存する。
+  * `HTMLComplete` - 完全な HTML ページを保存する。
+  * `MHTML` - MHTML として完全な HTML ページを保存する。
 * `callback` Function - `(error) => {}`. 
   * `error` Error
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
+戻り値 `Boolean` - ページ保存のプロセスが正常に開始された場合に true。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -1131,7 +1131,7 @@ win.loadURL('https://github.com')
 
 win.webContents.on('did-finish-load', () => {
   win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+    if (!error) console.log('ページ保存成功')
   })
 })
 ```
