@@ -6,7 +6,7 @@ Electron은 순수 JavaScript를 사용하여 풍부한 네이티브(운영 체�
 
 **참고**: 이 예제의 저장소는 [내려받아 바로 실행](#trying-this-example) 가능합니다.
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. 대체로 기본적인 Electron 앱은 다음과 같은 폴더 구조를 가집니다.
+As far as development is concerned, an Electron application is essentially a Node.js application. Node.js 모듈과 마찬가지로 시작점은 `package.json` 입니다. 대체로 기본적인 Electron 앱은 다음과 같은 폴더 구조를 가집니다.
 
 ```text
 your-app/
