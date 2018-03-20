@@ -1,16 +1,16 @@
-# Notification
+# 알림
 
-> Create OS desktop notifications
+> 운영체제의 알림을 생성합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## 렌더러 프로세스에서 사용하기
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+만약 렌더러 프로세스에서 알림을 보여주고 싶다면 [HTML5 알림 API](../tutorial/notifications.md)를 사용해야 합니다.
 
 ## Class: Notification
 
-> Create OS desktop notifications
+> 운영체제의 알림을 생성합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
@@ -26,7 +26,7 @@ The `Notification` class has the following static methods:
 
 Returns `Boolean` - Whether or not desktop notifications are supported on the current system
 
-### `new Notification([options])` *Experimental*
+### `new Notification([options])` *실험적*
 
 * `options` Object 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
