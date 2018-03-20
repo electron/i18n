@@ -1064,9 +1064,9 @@ app.on('ready', () => {
 
 * `keyCode` String (**必須**) - キーボードイベントとして送られる文字。[Accelerator](accelerator.md) で有効なキーコードのみを使用しなければいけません。
 
-For mouse events, the `event` object also have following properties:
+マウスイベントでは、`event` オブジェクトは以下のプロパティも持ちます。
 
-* `x` Integer (**required**)
+* `x` Integer (**必須**)
 * `y` Integer (**required**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`
 * `globalX` Integer
