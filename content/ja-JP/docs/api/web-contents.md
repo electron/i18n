@@ -1046,7 +1046,7 @@ app.on('ready', () => {
   * `offset` [Point](structures/point.md) - 有効なスペース内のエミュレートするビューのオフセット。 (表示モードにフィットしない) (省略値: `{x: 0, y: 0}`)
   * `scale` Float - 有効なスペース内のエミュレートするビューの拡大率。 (表示モードにフィットしない) (省略値: `1`)
 
-Enable device emulation with the given parameters.
+与えられた引数でデバイスのエミュレートを有効にします
 
 #### `contents.disableDeviceEmulation()`
 
