@@ -387,19 +387,19 @@ const mainWindow = new BrowserWindow()
 
 ## 12) 作成前に WebView のオプションを認証する
 
-Node.js integration が有効になっていないレンダラープロセスで作成された WebView は、integration 自体を有効にすることはできません。 しかし、WebViewは常に独自の `webPreferences` を使用して、独立したレンダラープロセスを作成します。
+Node.js integration が有効になっていないレンダラープロセスで作成された WebView は、integration 自体を有効にすることはできません。 しかし、WebView は常に独自の `webPreferences` を使用して、独立したレンダラープロセスを作成します。
 
-It is a good idea to control the creation of new [`WebViews`](../api/web-view.md) from the main process and to verify that their webPreferences do not disable security features.
+メインプロセスから新しい [`WebView`](../api/web-view.md) の作成を制御し、webPreferences でセキュリティ機能を無効にしていないことを確認することを推奨します。
 
 ### なんで？
 
-Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+WebView は DOM 内に存在するので、Node.js integration が無効になっていても、WebView はウェブサイトで実行されているスクリプトによって作成できます。
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](../api/web-view.md) tags.
+Electron では、開発者はレンダラープロセスを制御するさまざまなセキュリティ機能を無効にすることができます。 ほとんどの場合、開発者はこれらの機能を無効にする必要はありません。したがって、新しく作成した [`<WebView>`](../api/web-view.md) タグを使用します。
 
 ### どうすればいいの？
 
-Before a [`<WebView>`](../api/web-view.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
+[ `<WebView>`](../api/web-view.md) タグが適用される前に、Electron は `will-attach-webview` イベントを `webContents` ホスト上で発火します。 安全性の低いオプションを使用して WebView を作成しないようにするには、このイベントを使用します。
 
 ```js
 app.on('web-contents-created', (event, contents) => {
