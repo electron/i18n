@@ -27,28 +27,28 @@ Windowsコンソールの例:
 Electron には、Google のジオコーディングウェブサービスへのリクエストを行うためのハードコードされた API キーが含まれています。 この API キーはすべてのバージョンの Electron に含まれているため、容量の制限を超えることがよくあります。 この問題を回避するには、環境内に独自の Google API キーを指定します。 ジオコーディングリクエストをするブラウザウィンドウを開く前に、メインプロセスファイルに以下のコードを挿入します。
 
 ```javascript
-process.env.GOOGLE_API_KEY = 'キー_を_ここに'
+process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
 Google API キーを取得する方法については、[このページ](https://www.chromium.org/developers/how-tos/api-keys) を参照して下さい。
 
-デフォルトでは、新しく生成された Google API キーではジオコーディングリクエストを作成できない場合があります。 ジオコーディングリクエストを有効にするには、[このページ](https://console.developers.google.com/apis/api/geolocation/overview) を参照して下さい。
+デフォルトでは、新しく生成された Google API キーではジオコーディングリクエストを作成できない場合があります。 ジオコーディングリクエストを有効にするには、[このページ](https://console.developers.google.com/apis/api/geolocation/overview)を参照して下さい。
 
 ### `ELECTRON_NO_ASAR`
 
-ASAR サポートを無効にします。 この変数は、`ELECTRON_RUN_AS_NODE` を設定する、フォークされた子プロセスと生成された子プロセスでのみサポートされます。
+ASARサポートを無効にします。 この変数は、`ELECTRON_RUN_AS_NODE` を設定したフォークされた子プロセスと生成された子プロセスでのみサポートされます。
 
 ### `ELECTRON_RUN_AS_NODE`
 
-通常の Node.js プロセスとしてプロセスを開始します。
+通常のNode.jsプロセスとしてプロセスを開始します。
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-現在のコンソールセッションを適用しません。
+現在のコンソールセッションにアタッチしません。
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Linux のグローバルメニューバーを使用しません。
+Linuxのグローバルメニューバーを使用しません。
 
 ## 開発用の変数
 
@@ -56,7 +56,7 @@ Linux のグローバルメニューバーを使用しません。
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-コンソールへ Chrome の内部ログを出力します。
+コンソールにChromeの内部ログを出力します。
 
 ### `ELECTRON_LOG_ASAR_READS`
 
