@@ -42,7 +42,7 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 8. [`allowRunningInsecureContent` を `true` にしない](#do-not-set-allowRunningInsecureContent-to-true)
 9. [実験的な機能を有効にしない](#do-not-enable-experimental-features)
 10. [`blinkFeatures` を使用しない](#do-not-use-blinkfeatures)
-11. [WebViews: `allowpopups`を使用しない](#do-not-use-allowpopups)
+11. [WebViews: `allowpopups` を使用しない](#do-not-use-allowpopups)
 12. [WebViews: すべての `<webview>` タグのオプションとパラメータを認証する。](#verify-webview-options-before-creation)
 
 ## 1) セキュアなコンテンツのみを読み込む
@@ -347,12 +347,12 @@ Blink は、Chromium のバックグラウンドにあるレンダリングエ�
 
 ### なんで？
 
-一般に、機能がデフォルトで有効になっていない場合は、よい理由が考えられます。 Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+一般に、機能がデフォルトで有効になっていない場合は、よい理由が考えられます。 その機能を有効にするための、正しい使用方法は存在します。 開発者は、機能を有効にする必要がある理由、影響の内容、アプリケーションのセキュリティにどのように影響するかを正確に把握する必要があります。 どのような場合においても、機能を推論的に有効にするべきではありません。
 
 ### どうすればいいの？
 
 ```js
-// Bad
+// NG
 const mainWindow = new BrowserWindow({
   webPreferences: {
     blinkFeatures: ['ExecCommandInJavaScript']
@@ -365,7 +365,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 11) Do Not Use `allowpopups`
+## 11) `allowpopups` を使用しない
 
 *Electron のデフォルトを推奨しています*
 
