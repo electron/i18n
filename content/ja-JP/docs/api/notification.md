@@ -93,21 +93,21 @@
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+HTML5 Notification の実装とは異なり、`new Notification` で簡単にインスタンス化するだけでは、すぐにユーザに表示されないことに注意してください。OS が表示するためにこのメソッドを呼び出す必要があります。
 
-If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+以前にその通知が表示されている場合、このメソッドはその通知を閉じ、同じプロパティを持つ新しい通知を作成します。
 
 #### `notification.close()`
 
-Dismisses the notification.
+通知を閉じます。
 
-### Playing Sounds
+### サウンドの再生
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+macOS では、通知が表示されたときに再生したいサウンドの名前を指定することができます。 カスタムサウンドファイルに加えて、(システム環境設定 > サウンド にある) デフォルトサウンドのいずれかを使用することができます。 サウンドファイルがアプリバンドル (`YourApp.app/Contents/Resources` など) または以下のいずれかの場所にコピーされることに留意してください。
 
-* `~/Library/Sounds`
-* `/Library/Sounds`
-* `/Network/Library/Sounds`
-* `/System/Library/Sounds`
+* `~/ライブラリ/Sounds`
+* `/ライブラリ/Sounds`
+* `/ネットワーク/ライブラリ/Sounds`
+* `/システム/ライブラリ/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+より詳しくは、[`NSSound`](https://developer.apple.com/documentation/appkit/nssound) ドキュメントを参照して下さい。
