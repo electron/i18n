@@ -144,22 +144,4 @@
 
 ## 开发
 
-* [编码风格](development/coding-style.md)
-* [在 C++ 代码中使用 clang-format 工具](development/clang-format.md)
-* [测试](development/testing.md)
-* [源码目录结构](development/source-code-directory-structure.md)
-* [与 NW.js（原 node-webkit）在技术上的差异](development/atom-shell-vs-node-webkit.md)
-* [构建系统概览](development/build-system-overview.md)
-* [构建步骤（macOS）](development/build-instructions-osx.md)
-* [构建步骤（Windows）](development/build-instructions-windows.md)
-* [构建步骤（Linux）](development/build-instructions-linux.md)
-* [调试步骤 (macOS)](development/debugging-instructions-macos.md)
-* [调试步骤 (Windows)](development/debug-instructions-windows.md)
-* [在调试中使用 Symbol Server](development/setting-up-symbol-server.md)
-* [文档风格指南](styleguide.md)
-* [贡献到 Electron](../CONTRIBUTING.md)
-* [问题](development/issues.md)
-* [拉取请求](development/pull-requests.md)
-* [升级 Chromium](development/upgrading-chromium.md)
-* [Chromium 开发](development/chromium-development.md)
-* [V8 开发](development/v8-development.md)
+See <development/README.md>
