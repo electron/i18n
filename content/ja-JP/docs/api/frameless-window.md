@@ -69,7 +69,7 @@ win.show()
 
 ## クリックスルーウィンドウ
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
+クリックスルーウィンドウを作成する、つまりウインドウですべてのマウスイベントを無視するには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API を呼び出します。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -77,9 +77,9 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-### Forwarding
+### 転送
 
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+マウスのメッセージを無視すると、ウェブページにマウスの動きが気付かれず、マウスの動きのイベントは発行されません。 Windows オペレーティングシステムでは、オプションのパラメータを使用してマウス移動メッセージをウェブページに転送し、`mouseleave` などのイベントを発行することができます。
 
 ```javascript
 let win = require('electron').remote.getCurrentWindow()
@@ -92,11 +92,11 @@ el.addEventListener('mouseleave', () => {
 })
 ```
 
-This makes the web page click-through when over `el`, and returns to normal outside it.
+`el` 内ではウェブページをクリックスルーし、その外では通常の状態に戻ります。
 
 ## ドラッグ可能地域
 
-By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+デフォルトでは、フレームレスウインドウはドラッグ不可能です。 Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
 
 Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
 
