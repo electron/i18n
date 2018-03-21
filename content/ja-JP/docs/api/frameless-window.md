@@ -115,11 +115,11 @@ button {
 }
 ```
 
-If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+カスタムタイトルバーをドラッグ可能に設定する場合は、タイトルバーのすべてのボタンをドラッグできないようにする必要があります。
 
 ## テキスト選択
 
-In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+フレームレスウィンドウのドラッグの挙動はテキストの選択と競合します。 たとえば、タイトルバーをドラッグすると、誤ってタイトルバーのテキストを選択することがあります。 To prevent this, you need to disable text selection within a draggable area like this:
 
 ```css
 .titlebar {
