@@ -29,25 +29,25 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('No more data in response.')
+      console.log('もう応答にデータはないよ。')
     })
   })
   request.end()
 })
 ```
 
-By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
+ところで、これは Node.js の [HTTP](https://nodejs.org/api/http.html) / [HTTPS](https://nodejs.org/api/https.html) モジュールを通常どおりに使用する方法とほぼ同じです。
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+`net` API は、アプリケーションが `ready` イベントを発行した後にのみ使用できます。 `ready` イベントの前にモジュールを使用しようとすると、エラーが発生します。
 
 ## メソッド
 
-The `net` module has the following methods:
+`net` モジュールには以下のメソッドがあります。
 
 ### `net.request(options)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Object | String) - `ClientRequest` のコンストラクタのオプション。
 
-Returns [`ClientRequest`](./client-request.md)
+戻り値 [`ClientRequest`](./client-request.md)
 
 Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
