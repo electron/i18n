@@ -144,22 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## 開發
 
-* [程式碼撰寫風格](development/coding-style.md)
-* [在 C++ 程式碼中使用 Clang-Format](development/clang-format.md)
-* [測試](development/testing.md)
-* [原始碼目錄結構](development/source-code-directory-structure.md)
-* [與 NW.js (原名 node-webkit) 的技術差異](development/atom-shell-vs-node-webkit.md)
-* [建置系統概述](development/build-system-overview.md)
-* [建置步驟 (macOS)](development/build-instructions-osx.md)
-* [建置步驟 (Windows)](development/build-instructions-windows.md)
-* [建置步驟 (Linux)](development/build-instructions-linux.md)
-* [Debug 步驟 (macOS)](development/debugging-instructions-macos.md)
-* [Debug 步驟 (Windows)](development/debug-instructions-windows.md)
-* [在 Debugger 中設定符號伺服器](development/setting-up-symbol-server.md)
-* [文件編寫風格](styleguide.md)
-* [貢獻 Electron](../CONTRIBUTING.md)
-* [議題管理](development/issues.md)
-* [合併請求 (PR)](development/pull-requests.md)
-* [Chromium 升版](development/upgrading-chromium.md)
-* [Chromium 開發](development/chromium-development.md)
-* [V8 開發](development/v8-development.md)
+See <development/README.md>
