@@ -194,24 +194,24 @@ session
     const url = webContents.getURL()
 
     if (permission === 'notifications') {
-      // Approves the permissions request
+      // 権限リクエストを承認する
       callback(true)
     }
 
     if (!url.startsWith('https://my-website.com')) {
-      // Denies the permissions request
+      // 権限リクエストを拒否する
       return callback(false)
     }
   })
 ```
 
-## 5) Do Not Disable WebSecurity
+## 5) webSecurity を無効にしない
 
-*Recommendation is Electron's default*
+*推奨されているものは Electron のデフォルトです*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) disables crucial security features.
+レンダラープロセス ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`WebView`](../api/web-view.md)) の`webSecurity` プロパティを無効にすることは、 重要なセキュリティ機能を無効にすることです。
 
-Do not disable `webSecurity` in production applications.
+製品としてのアプリケーションで `webSecurity` を無効にしないでください。
 
 ### なんで？
 
@@ -285,7 +285,7 @@ window.eval = global.eval = function () {
 
 ## 8) Do Not Set `allowRunningInsecureContent` to `true`
 
-*Recommendation is Electron's default*
+*推奨されているものは Electron のデフォルトです*
 
 By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -313,7 +313,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 9) Do Not Enable Experimental Features
 
-*Recommendation is Electron's default*
+*推奨されているものは Electron のデフォルトです*
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
 
@@ -341,7 +341,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 10) Do Not Use `blinkFeatures`
 
-*Recommendation is Electron's default*
+*推奨されているものは Electron のデフォルトです*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -367,7 +367,7 @@ const mainWindow = new BrowserWindow()
 
 ## 11) Do Not Use `allowpopups`
 
-*Recommendation is Electron's default*
+*推奨されているものは Electron のデフォルトです*
 
 If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
