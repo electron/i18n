@@ -113,9 +113,9 @@ mainWindow.loadURL('https://my-website.com')
 <webview src="page.html"></webview>
 ```
 
-Node.js integration を無効にすると、Node.js モジュールまたは機能を使用する API をウェブサイトへ公開することができます。 Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+Node.js integration を無効にすると、ウェブサイトへ Node.js モジュールまたは機能を使用する API を確認することができます。 プリロードスクリプトは引き続き `require` と他の Node.js の機能にアクセスできるため、開発者はコンテンツをリモートにロードするカスタム API を確認します。
 
-In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
+次のプレロードスクリプトの例では、後でロードされたWebサイトは `window.readConfig()` メソッドにアクセスできますが、Node.js の機能は使用できません。
 
 ```js
 const { readFileSync } = require('fs')
