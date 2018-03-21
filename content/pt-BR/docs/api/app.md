@@ -699,15 +699,15 @@ Retorna [`ProcessMetric[]`](structures/process-metric.md): Um array de objetos `
 
 ### `app.getGPUFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Retorna [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Os status de recursos gráficos descritos em `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
 * `count` Integer
 
-Retorna `Boolean` - Se a chamada foi realizada com sucesso.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso ou não.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Muda o selo contador do aplicativo atual. Definí-lo como `` irá ocultar o selo.
 
 On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
