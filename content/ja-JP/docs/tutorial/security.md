@@ -369,25 +369,25 @@ const mainWindow = new BrowserWindow()
 
 *Electron のデフォルトを推奨しています*
 
-If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
+[`WebViews`](../api/web-view.md) を使用している場合、新しいウィンドウを開くには、`<webview>` タグにページとスクリプトをロードする必要があります。 `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindows`](../api/browser-window.md) を作成することができるようにします。 それ以外の場合、`WebViews` は新しいウインドウを作成できません。
 
 ### なんで？
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](../api/browser-window.md) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+ポップアップが必要ない場合は、デフォルトでは新しい [`BrowserWindows`](../api/browser-window.md) の作成を許可しないほうがよいでしょう。 これは必要最低限なアクセスの原則に従っています。ウェブサイトにその機能が必要でない限り、新しいポップアップを作成させないでください。
 
 ### どうすればいいの？
 
 ```html
-<!-- Bad -->
+<!-- NG -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- OK -->
 <webview src="page.html"></webview>
 ```
 
-## 12) Verify WebView Options Before Creation
+## 12) 作成前に WebView のオプションを認証する
 
-A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+Node.js integration が有効になっていないレンダラープロセスで作成された WebView は、integration 自体を有効にすることはできません。 しかし、WebViewは常に独自の `webPreferences` を使用して、独立したレンダラープロセスを作成します。
 
 It is a good idea to control the creation of new [`WebViews`](../api/web-view.md) from the main process and to verify that their webPreferences do not disable security features.
 
