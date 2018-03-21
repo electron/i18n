@@ -144,22 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## Ontwikkeling
 
-* [Codeerstijl](development/coding-style.md)
-* [Het gebruik van clang-format op C++ Code](development/clang-format.md)
-* [Testen](development/testing.md)
-* [Bron Code Directory-structuur](development/source-code-directory-structure.md)
-* [Technische verschillen met NW.js (voorheen node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Bouwen Systeemoverzicht](development/build-system-overview.md)
-* [Bouwen van instructies (macOS)](development/build-instructions-osx.md)
-* [Bouwen van instructies (Windows)](development/build-instructions-windows.md)
-* [Bouwen van instructies (Linux)](development/build-instructions-linux.md)
-* [Debug instructies (macOS)](development/debugging-instructions-macos.md)
-* [Debug instructies (Windows)](development/debug-instructions-windows.md)
-* [Het instellen van Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentatie Styleguide](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
-* [Upgraden Chromium](development/upgrading-chromium.md)
-* [Chromium ontwikkeling](development/chromium-development.md)
-* [V8 ontwikkeling](development/v8-development.md)
+See <development/README.md>
