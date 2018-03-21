@@ -1,22 +1,22 @@
-# Notification
+# 通知
 
 > デスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## レンダラープロセスでの使い方
 
-レンダラープロセスから通知を表示したい場合[HTML5 通知 API](../tutorial/notifications.md) を使用する必要があります
+レンダラープロセスから通知を表示したい場合は、[HTML5 Notification API](../tutorial/notifications.md) を使用する必要があります
 
-## Class: Notification
+## クラス: Notification
 
-> デスクトップ通知を作成します。
+> OSのデスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` は [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) です。
 
-`Notification` によって設定されたネイティブプロパティで新しい `BrowserWindow` を生成します。
+`options` によって設定されたネイティブプロパティで新しい `Notification` を生成します。
 
 ### 静的メソッド
 
@@ -24,9 +24,9 @@
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+戻り値 `Boolean` - 現在のシステムでデスクトップ通知がサポートされているかどうか。
 
-### `new Notification([options])` *Experimental*
+### `new Notification([options])` *実験的*
 
 * `options` オブジェクト 
   * `title` String - 通知ウィンドウの上部に表示される通知のタイトル
