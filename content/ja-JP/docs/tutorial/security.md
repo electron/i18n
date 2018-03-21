@@ -83,18 +83,18 @@ browserWindow.loadURL('https://my-website.com')
 
 ### なんで？
 
-A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+クロスサイトスクリプティング (XSS) 攻撃は、攻撃者がレンダラープロセスを飛び越えてユーザのコンピュータ上でコードを実行できる場合、より危険です。 クロスサイトスクリプティングの攻撃はかなり一般的――かつ問題が発生している間、通常では、その力は実行されているウェブサイトをめちゃくちゃにするだけです。 Node.js integration を無効にすることは、XSS が昇華され、いわゆる "遠隔コード実行" (RCE) 攻撃になるのを防ぐのに役立ちます。
 
 ### どうすればいいの？
 
 ```js
-// Bad
+// NG
 const mainWindow = new BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
+// OK
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
@@ -106,10 +106,10 @@ mainWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- NG -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<!-- OK -->
 <webview src="page.html"></webview>
 ```
 
