@@ -44,19 +44,19 @@ ASAR サポートを無効にします。 この変数は、`ELECTRON_RUN_AS_NOD
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-現在のコンソールセッションには適用しないでください。
+現在のコンソールセッションを適用しません。
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Don't use the global menu bar on Linux.
+Linux のグローバルメニューバーを使用しません。
 
 ## 開発用の変数
 
-The following environment variables are intended primarily for development and debugging purposes.
+以下の環境変数は、主に開発とデバッグを目的としています。
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+コンソールへ Chrome の内部ログを出力します。
 
 ### `ELECTRON_LOG_ASAR_READS`
 
