@@ -67,29 +67,29 @@
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+ユーザの手によって手動で通知が閉じられたときに発行されます。
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+このイベントは、通知が閉じられたすべての状況で発行されることは保証されていません。
 
-#### Event: 'reply' *macOS*
-
-戻り値:
-
-* `event` Event
-* `reply` String - The string the user entered into the inline reply field
-
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
-
-#### Event: 'action' *macOS*
+#### イベント: 'reply' *macOS*
 
 戻り値:
 
 * `event` Event
-* `index` Number - The index of the action that was activated
+* `reply` String - ユーザが埋め込み返信フィールドに入力した文字列
+
+`hasReply: true` の通知上で、ユーザが "返信" ボタンをクリックしたときに発行されます。
+
+#### イベント: 'action' *macOS*
+
+戻り値:
+
+* `event` Event
+* `index` Number - アクティベートされたアクションのインデックス
 
 ### インスタンスメソッド
 
-Objects created with `new Notification` have the following instance methods:
+`new Notification` で作成されたオブジェクトは、次のインスタンスメソッドを持っています。
 
 #### `notification.show()`
 
