@@ -1,6 +1,7 @@
 tagline: Изграждайте приложения за множество платформи с JavaScript, HTML и CSS
 nav:
   docs: Документация
+  donors: Donors
   blog: Блог
   community: Общество
   apps: Приложения
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron е рамка с отворен код за лесно писане на интеграционни тестове за вашето Електрон приложение. Spectron е създадена на основата на ChromeDriver и WebDriverIO.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: Страницата не е намерена.
 search:
