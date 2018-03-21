@@ -58,28 +58,28 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 ### どうすればいいの？
 
 ```js
-// Bad
+// NG
 browserWindow.loadURL('http://my-website.com')
 
-// Good
+// OK
 browserWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- NG -->
 <script crossorigin src="http://cdn.com/react.js"></script>
 <link rel="stylesheet" href="http://cdn.com/style.css">
 
-<!-- Good -->
+<!-- OK -->
 <script crossorigin src="https://cdn.com/react.js"></script>
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## 2) Disable Node.js Integration for Remote Content
+## 2) リモートコンテンツで、Node.js integration を無効にする
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+リモートコンテンツをロードするレンダラー ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`WebView`](../api/web-view.md)) で Node.js integration を無効にすることが重要です。 リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+その後、特定のホストに対して追加の権限を与えることができます。 For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
 
 ### なんで？
 
