@@ -16,8 +16,8 @@ The following languages are currently being translated, but we can
 [easily add more]((https://github.com/electron/i18n/issues/new?title=new%20language%20request)):
 
 <!-- start language-table -->
-- [Indonesian](https://crowdin.com/project/electron/id)
 - [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
+- [Indonesian](https://crowdin.com/project/electron/id)
 - [Filipino](https://crowdin.com/project/electron/fil)
 - [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
@@ -29,18 +29,17 @@ The following languages are currently being translated, but we can
 - [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
 - [українська (Ukrainian)](https://crowdin.com/project/electron/uk)
 - [हिन्दी (Hindi)](https://crowdin.com/project/electron/hi)
-- [Italiano (Italian)](https://crowdin.com/project/electron/it)
 - [język polski (Polish)](https://crowdin.com/project/electron/pl)
-- [Deutsch (German)](https://crowdin.com/project/electron/de)
+- [Italiano (Italian)](https://crowdin.com/project/electron/it)
 - [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
+- [Deutsch (German)](https://crowdin.com/project/electron/de)
 - [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
-- [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
+- [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [Wikang Tagalog (Tagalog)](https://crowdin.com/project/electron/tl)
-- [Español (Spanish)](https://crowdin.com/project/electron/es-VE)
 <!-- end language-table -->
 
 ## Installation
