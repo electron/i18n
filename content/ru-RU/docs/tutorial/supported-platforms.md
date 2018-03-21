@@ -16,9 +16,9 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Pleas
 
 Предварительные сборки `ia32` (`i686`) и `x64` (`amd64`) Electron основаны на Ubuntu 12.04, сборка `armv7l` собрана против ARM v7 с прошитым ABI и NEON для Debian Wheezy.
 
-[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/tutorial/planned-breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Оба двоичных файла идентичны.
+[До релиза Electron 2.0](https://github.com/electron/electron/blob/master/docs/tutorial/planned-breaking-changes.md#duplicate-arm-assets), Electron также будет продолжать выпуск бинаркой сборки `armv7l` с простым `arm` суффиксом. Оба двоичных файла идентичны.
 
-Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
+Будет ли готовая бинарная сборка включена в дистрибутив, зависит от того, включает ли дистрибутив библиотеки, с которыми связан Electron на компилирруемой платформе, поэтому гарантируется работа только в Ubuntu 12.04, но следующие платформы также проверяются, чтобы иметь возможность запускать прекомпилированные сборки Electron:
 
 * Ubuntu 12.04 и позднее
 * Fedora 21
