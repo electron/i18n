@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-ウインドウの左上にカーソルを置いたときに表示される、カスタム描画された、閉じる、最小化、フルスクリーンのボタンを使用します。 These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+ウインドウの左上にカーソルを置いたときに表示される、カスタム描画された、閉じる、最小化、フルスクリーンのボタンを使用します。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 このオプションは、フレームレスウィンドウにのみ適用されます。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -48,9 +48,9 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## 透明ウィンドウ
+## 透明ウインドウ
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+`transparent` オプションを `true` に設定することで、フレームレスウインドウを透明にすることもできます。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -60,10 +60,10 @@ win.show()
 
 ### 制限事項
 
-* You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
-* The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
-* On Windows operating systems, transparent windows will not work when DWM is disabled.
+* 透過された領域越しにクリックすることはできません。 これを解決するためにウィンドウシェイプを設定するための API を紹介します。詳しくは [このissue](https://github.com/electron/electron/issues/1335) を参照して下さい。
+* 透明ウインドウはリサイズできません。`resizable` を `true` に設定すると、一部のプラットフォームで透明なウィンドウが動作しなくなることがあります。
+* `blur` フィルタはウェブページにのみ適用されるため、ウインドウの下のコンテンツ (つまり、ユーザのシステム上に開いている他のアプリケーション) にぼかし効果を適用する方法はありません。
+* Windows オペレーティングシステムでは、DWMが無効の場合、透過ウインドウは機能しません。
 * On Linux users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
 * On Mac the native window shadow will not be shown on a transparent window.
 
