@@ -6,7 +6,7 @@ Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) AP
 
 ** 注意 **: 此示例还有可用的仓库, 您可以 [ 立即下载并运行 ](#trying-this-example)。
 
-从开发的角度来看, Electron application 本质上是一个 Node. js 应用程序。 The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+从开发的角度来看, Electron application 本质上是一个 Node. js 应用程序。 应用启动的入口是一个与 Node.js 模块相同的 `package.json` 文件。 一个最基本的 Electron 应用一般来说会有如下的目录结构：
 
 ```text
 your-app/
@@ -21,7 +21,7 @@ your-app/
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm 会帮助你创建一个基本的 `package.json` 文件。 其中的 `main` 字段所表示的脚本为应用的启动脚本，它将会在主进程中执行。 An example of your `package.json` might look like this:
 
 ```json
 {
