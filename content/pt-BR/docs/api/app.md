@@ -671,9 +671,9 @@ Muda o [Application User Model ID](https://msdn.microsoft.com/en-us/library/wind
 
 * `options` Object 
   * `certificate` String - Caminho para o arquivo pkcs12.
-  * `password` String - Passphrase for the certificate.
+  * `password` String - Senha do certificado.
 * `callback` Function 
-  * `result` Integer - Result of import.
+  * `result` Integer - Resultado da importação.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
