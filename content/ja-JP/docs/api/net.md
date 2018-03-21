@@ -10,12 +10,12 @@
 
 * システムプロキシ設定の自動管理、WPAD プロトコルとプロキシの PAC 設定ファイルのサポート。
 * HTTPS リクエストの自動トンネリング。
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Basic、Digest、NTLM、Kerberosを使用したプロキシの認証、またはネゴシエート認証スキームをサポート。
+* アクセス制御および監視に使用される、Fiddler のようなトラフィック監視プロキシのサポート。
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+`net` モジュール API は、馴染みの Node.js API を可能な限り模倣するように特別に設計されています。 クラス、メソッド、プロパティ、イベント名などの API コンポーネントは、Node.js で一般的に使用されているものと同様です。
 
-For instance, the following example quickly shows how the `net` API might be used:
+例として、次のサンプルは簡単な `net` API の使用方法を示します。
 
 ```javascript
 const {app} = require('electron')
