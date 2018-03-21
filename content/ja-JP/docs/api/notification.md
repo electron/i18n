@@ -1,22 +1,22 @@
-# Notification
+# 通知
 
 > デスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## レンダラープロセスでの使い方
 
-レンダラープロセスから通知を表示したい場合[HTML5 通知 API](../tutorial/notifications.md) を使用する必要があります
+レンダラープロセスから通知を表示したい場合は、[HTML5 Notification API](../tutorial/notifications.md) を使用する必要があります
 
-## Class: Notification
+## クラス: Notification
 
-> デスクトップ通知を作成します。
+> OSのデスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` は [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) です。
 
-`Notification` によって設定されたネイティブプロパティで新しい `BrowserWindow` を生成します。
+`options` によって設定されたネイティブプロパティで新しい `Notification` を生成します。
 
 ### 静的メソッド
 
@@ -24,24 +24,24 @@
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+戻り値 `Boolean` - 現在のシステムでデスクトップ通知がサポートされているかどうか。
 
-### `new Notification([options])` *Experimental*
+### `new Notification([options])` *実験的*
 
-* `options` オブジェクト 
+* `options` Object 
   * `title` String - 通知ウィンドウの上部に表示される通知のタイトル
-  * `subtitle` String - (optional) は、タイトルの下が表示されます、通知のサブタイトルです。*macOS*
-  * `body` String - タイトルやサブタイトルの下に表示さる、本文
-  * `silent` Boolean - (optional) 通知を表示するときに音を鳴らしてOSが通知するかどうか決めます
-  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
-  * `hasReply` Boolean - (optional) インラインを追加するかどうかの返信通知するオプションです。 *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
-  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * `subtitle` String - (任意) タイトルの下に表示される、通知のサブタイトル。*macOS*
+  * `body` String - タイトルやサブタイトルの下に表示さる、通知の本文。
+  * `silent` Boolean - (任意) 通知を表示するときにOSが通知音を鳴らすかどうか。
+  * `icon` (String | [NativeImage](native-image.md)) - (任意) 通知に使用されるアイコン。
+  * `hasReply` Boolean - (任意) 通知に埋め込み返信オプションを追加するかどうか。*macOS*
+  * `replyPlaceholder` String - (任意) 埋め込み返信入力フィールド内に書かれるプレースホルダ。*macOS*
+  * `sound` String - (任意) 通知が表示されるときに再生される音声ファイルの名前。*macOS*
+  * `actions` [NotificationAction[]](structures/notification-action.md) - (任意) 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。*macOS*
 
 ### インスタンスイベント
 
-Objects created with `new Notification` emit the following events:
+`new Notification` で作成されたオブジェクトでは以下のイベントが発生します。
 
 **注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
@@ -51,15 +51,15 @@ Objects created with `new Notification` emit the following events:
 
 * `event` Event
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+通知がユーザーに表示されたときに発行されます。`show()` メソッドを使用して通知を複数回表示できることに注意して下さい。
 
-#### Event: 'click'
+#### イベント: 'click'
 
-戻り値：
+戻り値:
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+ユーザによって通知がクリックされたときに発行されます。
 
 #### イベント: 'close'
 
@@ -67,47 +67,47 @@ Emitted when the notification is clicked by the user.
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+ユーザの手によって手動で通知が閉じられたときに発行されます。
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+このイベントは、通知が閉じられたすべての状況で発行されることは保証されていません。
 
-#### Event: 'reply' *macOS*
-
-戻り値:
-
-* `event` Event
-* `reply` String - The string the user entered into the inline reply field
-
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
-
-#### Event: 'action' *macOS*
+#### イベント: 'reply' *macOS*
 
 戻り値:
 
 * `event` Event
-* `index` Number - The index of the action that was activated
+* `reply` String - ユーザが埋め込み返信フィールドに入力した文字列
+
+`hasReply: true` の通知上で、ユーザが "返信" ボタンをクリックしたときに発行されます。
+
+#### イベント: 'action' *macOS*
+
+戻り値:
+
+* `event` Event
+* `index` Number - アクティベートされたアクションのインデックス
 
 ### インスタンスメソッド
 
-Objects created with `new Notification` have the following instance methods:
+`new Notification` で作成されたオブジェクトは、次のインスタンスメソッドを持っています。
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+HTML5 Notification の実装とは異なり、`new Notification` で簡単にインスタンス化するだけでは、すぐにユーザに表示されないことに注意してください。OS が表示するためにこのメソッドを呼び出す必要があります。
 
-If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+以前にその通知が表示されている場合、このメソッドはその通知を閉じ、同じプロパティを持つ新しい通知を作成します。
 
 #### `notification.close()`
 
-Dismisses the notification.
+通知を閉じます。
 
-### Playing Sounds
+### サウンドの再生
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+macOS では、通知が表示されたときに再生したいサウンドの名前を指定することができます。 カスタムサウンドファイルに加えて、(システム環境設定 > サウンド にある) デフォルトサウンドのいずれかを使用することができます。 サウンドファイルがアプリバンドル (`YourApp.app/Contents/Resources` など) または以下のいずれかの場所にコピーされることに留意してください。
 
-* `~/Library/Sounds`
-* `/Library/Sounds`
-* `/Network/Library/Sounds`
-* `/System/Library/Sounds`
+* `~/ライブラリ/Sounds`
+* `/ライブラリ/Sounds`
+* `/ネットワーク/ライブラリ/Sounds`
+* `/システム/ライブラリ/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+より詳しくは、[`NSSound`](https://developer.apple.com/documentation/appkit/nssound) ドキュメントを参照して下さい。

@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `optionen` Object (optional) 
+* `options` Object (optional) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### Static Methods
@@ -52,7 +52,7 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 Returns `BrowserView` - The view with the given `id`.
 
-### Fall Eigenschaften
+### Instanz Eigenschaften
 
 Objects created with `new BrowserView` have the following properties:
 
@@ -68,9 +68,17 @@ A `Integer` representing the unique ID of the view.
 
 Objects created with `new BrowserView` have the following instance methods:
 
+#### `view.destroy()`
+
+Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+
+#### `view.isDestroyed()`
+
+Returns `Boolean` - Whether the view is destroyed.
+
 #### `view.setAutoResize(options)` *Experimentell*
 
-* `optionen` Object 
+* `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 

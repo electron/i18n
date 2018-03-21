@@ -68,6 +68,14 @@ view.webContents.loadURL('https://electronjs.org')
 
 `new BrowserView` で作成されたオブジェクトは、次のインスタンスメソッドを持っています。
 
+#### `view.destroy()`
+
+強制的にビューを閉じます。`unload` と `beforeunload` イベントは、Webページで発生しません。 ビューでやることが終わった後、メモリや他のリソースを解放するため、できるだけ早くこのファンクションを呼び出してください。
+
+#### `view.isDestroyed()`
+
+戻り値 `Boolean` - ビューが破棄されているかどうか。
+
 #### `view.setAutoResize(options)` *実験的*
 
 * `options` Object 

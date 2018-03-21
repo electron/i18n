@@ -68,6 +68,14 @@ view.webContents.loadURL('https://electronjs.org')
 
 使用 `new BrowserView`创建的对象具有以下实例方法:
 
+#### `view.destroy()`
+
+强制关闭视图, 不会为网页发出 ` unload ` 和 ` beforeunload ` 事件。 完成视图后, 请调用此函数, 以便尽快释放内存和其他资源。
+
+#### `view.isDestroyed()`
+
+返回 `Boolean` -判断窗口是否被销毁
+
 #### `view.setAutoResize(options)` *实验功能*
 
 * `选项` Object 

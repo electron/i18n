@@ -59,7 +59,7 @@
 * [Application Security](tutorial/security.md) 
   * [セキュリティ問題の報告](tutorial/security.md#reporting-security-issues)
   * [Chromiumのセキュリティ問題とアップグレード](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
+  * [Electron のセキュリティ警告](tutorial/security.md#electron-security-warnings)
   * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
 * [Application Updates](tutorial/updates.md) 
   * [アップロードサーバーを配備](tutorial/updates.md#deploying-an-update-server)

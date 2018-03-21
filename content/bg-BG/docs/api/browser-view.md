@@ -1,17 +1,17 @@
-## Class: BrowserView
+## Клас: BrowserView
 
-> Create and control views.
+> Създаване и контрол на изгледи.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Забележка:** API на BrowserView в момента е експериментално и може да се промени или да бъде отстранено в бъдещо издание на Електрон.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView` може да се използва за вграждане на допълнителни уеб съдържание в `BrowserWindow`. Това е като дете прозорец, освен че е разположен спрямо основния му прозорец. Той е предназначен да бъде алтернатива на `webview` маркер.
 
 ## Пример
 
 ```javascript
-// In the main process.
+// В процеса main.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -29,57 +29,65 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([опции])` *Experimental*
 
 * `опции` Object (по избор) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+  * `webPreferences` Object (по избор) - виж [BrowserWindow](browser-window.md).
 
 ### Статични член функции
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Връща `[BrowserView]` - Масив с всички отворени BrowserViews.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Връща `BrowserView | null`-BrowserView, което притежава даден `webContents` или `null`, ако съдържанието не е собственост на BrowserView.
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Връща `BrowserView` - Изгледът на съответното `id`.
 
 ### Инстантни свойства
 
-Objects created with `new BrowserView` have the following properties:
+Обекти създадени с `new BrowserView` имат следните свойства:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Обект [`WebContents`](web-contents.md) собственост на този изглед.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+`Integer` представляващ уникално ID на изгледа.
 
-### Instance Methods
+### Инстантни методи
 
-Objects created with `new BrowserView` have the following instance methods:
+Обекти създадени с `new BrowserView` имат следните методи:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.destroy()`
+
+Насила затваря изгледа, събитията `unload` и `beforeunload` няма да бъдат излъчени за уеб страницата. Когато сте готови с изгледа, извикайте тази функция, за да освободите памет и други ресурси възможно най-скоро.
+
+#### `view.isDestroyed()`
+
+Връща `Boolean` - Показва дали изгледа е унищожен.
+
+#### `view.setAutoResize(опции)` *Experimental*
 
 * `опции` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - Ако е `true`, дължината на изгледа ще се разширява и смалява заедно с основния прозорец. По подразбиране не е `false`.
+  * `height` Boolean - Ако е `true`, ширината на изгледа ще се разширява и смалява заедно с основния прозорец. По подразбиране не е `false`.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Преоразмерява и премества изгледа към предоставените границите спрямо прозореца.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - Цвят в `#aarrggbb` или `#argb` формат. Алфа канала е задължителен.

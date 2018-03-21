@@ -6,7 +6,7 @@ Prozess: [Haupt](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *Experimental*
 
-* `optionen` Object 
+* `options` Object 
   * `label` String (optional) - Label text.
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.

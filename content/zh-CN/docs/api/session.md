@@ -190,12 +190,12 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 #### `ses.enableNetworkEmulation(options)`
 
 * `选项` Object 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+  * `offline` Boolean (可选) - 是否模拟网络中断、离线。默认 否。
+  * `latency` Double (可选) - RTT时延毫秒值. 默认为0将禁用时延调节。
+  * `downloadThroughput ` Double (可选) - 指定下载Bps速率。默认为0将禁用下载限速。
+  * `uploadThroughput` Double (可选) - 指定上传Bps速率. 默认0将禁用上传速率限制。
 
-Emulates network with the given configuration for the `session`.
+通过指定的配置为 `session` 模拟网络。
 
 ```javascript
 // To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
@@ -211,25 +211,25 @@ window.webContents.session.enableNetworkEmulation({offline: true})
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+禁用所有为 `session` 模拟的已激活网络。重置为原始网络配置。
 
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function - 回调函数 
   * `request` Object 
     * `hostname` String
-    * `certificate` [证书](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `certificate` [Certificate](structures/certificate.md)
+    * `verificationResult` String - chromium证书验证结果
+    * `errorCode` Integer - 错误代码
   * `callback` Function - 回调函数 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transparency verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+    * `verificationResult` Integer - 证书错误代码之一，来自 [这里](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)。 除了证书错误代码外，还可以使用以下特殊代码。 
+      * `-0` - 表示成功并禁用证书透明度验证
+      * `-2` - 表示失败
+      * `-3` - 使用chromium的验证结果
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+每当一个服务器证书请求验证，`proc` 将被这样 `proc(request, callback)` 调用，为 `session` 设置证书验证过程。 回调函数 `callback(0)` 接受证书，`callback(-2)` 驳回证书。
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+调用 ` setCertificateVerifyProc（null）`将恢复为默认证书验证过程。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -328,15 +328,15 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - 会在操作完成后被调用
+* `callback` Function (可选) - 会在操作完成后被调用
 
 Clears the session’s HTTP authentication cache.
 
 ### 实例属性
 
-The following properties are available on instances of `Session`:
+以下属性在` Session </ 0>实例上可用：</p>
 
-#### `ses.cookies`
+<h4><code>ses.cookies`</h4> 
 
 此会话的 [ cookie ](cookies.md) 对象。
 

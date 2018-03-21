@@ -444,9 +444,9 @@ Inserts `text` to the focused element.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Returns `Integer` - The request id used for the request.
+戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+ウェブページ内の `text` のすべてのマッチを探すリクエストを開始します。 The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -493,7 +493,7 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
+`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
 See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
 
@@ -519,7 +519,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Shows pop-up dictionary that searches the selected word on the page.
+ページ上の選択された単語を検索するポップアップ辞書を表示します。
 
 ### `<webview>.getWebContents()`
 

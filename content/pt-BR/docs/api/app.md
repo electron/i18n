@@ -527,7 +527,7 @@ Define ou remove uma Jump List personalizada para a aplicação e retorna uma da
 
 Se `categories` for `null`, a Jump List personalizada anteriormente definida (se houver) será substituída por uma Jump List padrão para o app (gerenciada pelo Windows).
 
-**Nota:** Se um objeto `JumpListCategory` não tem o `type` nem a propriedade do `name` definido, então seu `type` é assumido como `tasks`. Se a propriedade do `name` está definida mas a propriedade do `type` é omissa, então o `type` é assumido como `custom`.
+**Nota:** Se um objeto `JumpListCategory` não tem o `type` nem a propriedade do `name` definido, então seu `type` é assumido como `tasks`. Se a propriedade `name` está definida mas a propriedade `type` é omissa, então o `type` é assumido como `custom`.
 
 **Note:** Os usuários podem remover itens de categorias personalizadas, e o Windows não permitirá que um item removido seja adicionado novamente a uma categoria personalizada até **após** a próxima chamada bem-sucedida a `app.setJumpList(categories)`. Qualquer tentativa de adicionar novamente um item removido de uma categoria personalizada antes disso resultará na omissão da categoria inteira da Jump List. A lista dos itens removidos pode ser obtida usando `app.getJumpListSettings()`.
 
@@ -594,29 +594,29 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Function 
-  * `argv` String[] - An array of the second instance's command line arguments
-  * `workingDirectory` String - The second instance's working directory
+  * `argv` String[] - Um array dos argumentos da linha de comando da segunda instância
+  * `workingDirectory` String - O diretório de trabalho da segunda instância
 
 Retorna `Boolean`.
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+Este método transforma sua aplicação em uma aplicação de instância única - em vez de permitir várias instâncias do seu app rodando ao mesmo tempo, isso irá garantir que apenas uma única instância do seu app seja executada. Quaisquer outras instâncias irão apontar para esta instância e, então, serão finalizadas.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`callback` será chamada pela primeira instância com `callback(argv, workingDirectory)` quando uma segunda instância for executada. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+É garantido que a `callback` será executada após o evento `ready` do objeto `app` ser emitido.
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+Este método retorna `false` se seu processo for a instância principal da sua aplicação e, nesse caso, seu app deve continuar carregando. E retorna `true` se seu processo enviou seus parâmetros para outra instância; dessa forma, você deve encerrá-lo imediatamente.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+No macOS, o sistema impõe o uso de instância única automaticamente quando os usuários tentam abrir uma segunda instância do seu aplicativo no Finder, e os eventos `open-file` e `open-url` serão emitidos nesse caso. Porém, se os usuários iniciarem seu app através da linha de comando, o mecanismo de instância única do sistema será contornado. Por isso, você tem que usar este método para reforçar o uso de instância única.
 
-An example of activating the window of primary instance when a second instance starts:
+Aqui vai um exemplo de como ativar a janela da instância principal quando uma segunda instância for iniciada:
 
 ```javascript
 const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
+  // Alguém tentou executar uma segunda instância - devemos colocar nossa janela em primeiro plano.
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
@@ -627,87 +627,87 @@ if (isSecondInstance) {
   app.quit()
 }
 
-// Create myWindow, load the rest of the app, etc...
+// Cria myWindow, carrega o resto do app, etc...
 app.on('ready', () => {
 })
 ```
 
 ### `app.releaseSingleInstance()`
 
-Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
+Desfaz todas as restrições que foram criadas pelo `makeSingleInstance`. Isso irá permitir que várias instâncias da aplicação possam ser executadas simultaneamente mais uma vez.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `type` String - Identificação única da atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Estado específico do app a ser armazenado para uso em outro dispositivo.
+* `webpageURL` String (opcional) - A página da Web a ser carregada em um navegador caso nenhum aplicativo adequado para a atividade esteja instalado no dispositivo que irá continuá-la. O esquema deve ser `http` ou `https`.
 
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Cria um `NSUserActivity` e o define como a atividade atual. A atividade, então, é qualificada para ser repassada (via [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)) a outro dispositivo de agora em diante.
 
-### `app.getCurrentActivityType()` no *macOS*
+### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Retorna `String` - O tipo da atividade atualmente em execução.
 
-### `app.invalidateCurrentActivity()` no *macOS*
+### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - Uniquely identifies the activity. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Identificação única da atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+Invalida a atividade de usuário atual do [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html).
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
-* `type` String - Uniquely identifies the activity. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
+* `type` String - Identificação única da atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Estado específico do app a ser armazenado para uso em outro dispositivo.
 
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+Atualiza a atividade atual se seu tipo corresponder a `type`, mesclando as entradas de `userInfo` ao seu dicionário `userInfo` atual.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Muda o [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) para `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `opções` Object 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
+* `options` Object 
+  * `certificate` String - Caminho para o arquivo pkcs12.
+  * `password` String - Passphrase do certificado.
 * `callback` Function 
-  * `result` Integer - Result of import.
+  * `result` Integer - Resultado da importação.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa o certificado em formato pkcs12 ao armazenamento de certificados da plataforma. `callback` é chamada com o `result` da operação de importação. O valor `` indica sucesso, enquanto que qualquer outro valor indica falha de acordo com a [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) do Chromium.
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Desativa a aceleração de hardware para o aplicativo atual.
 
-This method can only be called before app is ready.
+Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+Por padrão, o Chromium desativa APIs 3D (p. ex: WebGL) em domínios individuais - até o aplicativo ser reiniciado - caso os processos de GPU sofram falhas (crashes) muito frequentes. Esta função desativa este comportamento.
 
-This method can only be called before app is ready.
+Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### `app.getAppMemoryInfo()` *Descontinuado*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Retorna [`ProcessMetric[]`](structures/process-metric.md): Um array de objetos `ProcessMetric` que correspondem às estatísticas de uso de memória e CPU de todos os processos associados ao aplicativo. **Nota:** Este método foi descontinuado. Ao invés dele, use `app.getAppMetrics()`.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Retorna [`ProcessMetric[]`](structures/process-metric.md): Um array de objetos `ProcessMetric` que correspondem às estatísticas de uso de memória e CPU de todos os processos associados ao aplicativo.
 
 ### `app.getGPUFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Retorna [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Os status de recursos gráficos descritos em `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
 * `count` Integer
 
-Retorna `Boolean` - Se a chamada foi realizada com sucesso.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso ou não.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Muda o selo contador do aplicativo atual. Definí-lo como `` irá ocultar o selo.
 
 On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
@@ -812,7 +812,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
 ### `app.isInApplicationsFolder()` no *macOS*
 

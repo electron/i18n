@@ -8,4 +8,4 @@
 * `secure` Boolean (任意) - CookieにSecure属性がついているか。
 * `httpOnly` Boolean (任意) - CookieにHttpOnly属性がついているか。
 * `session` Boolean (任意) - CookieがセッションCookieまたは有効期限のある永続的Cookieであるか。
-* `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。セッションCookieでは設定されません。
+* `expirationDate` Double (任意) - UNIXエポックからの秒数によるCookieの有効期限。セッションCookieでは設定されません。

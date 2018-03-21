@@ -1,10 +1,10 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> [`navigator.mediaDevices.getUserMedia`] APIを使用して、デスクトップからオーディオとビデオをキャプチャするのに使用できるメディアソースに関する情報にアクセスします。
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+以下の例では、タイトルが `Electron` であるデスクトップウインドウからビデオをキャプチャする方法を示します。
 
 ```javascript
 // レンダラープロセス
@@ -45,9 +45,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+`desktopCapturer` によって提供されるソースからビデオをキャプチャするには、[`navigator.mediaDevices.getUserMedia`] に渡される制約に、`chromeMediaSource: 'desktop'` と `audio: false` を含めなければなりません。
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+デスクトップ全体からオーディオとビデオの両方をキャプチャするには、[`navigator.mediaDevices.getUserMedia`] に渡される制約に、`audio` と `video` の両方に対して `chromeMediaSource: 'desktop'` を含めなければなりませんが、`chromeMediaSourceId` の制約を含める必要はありません。
 
 ```javascript
 const constraints = {
@@ -66,17 +66,17 @@ const constraints = {
 
 ## メソッド
 
-The `desktopCapturer` module has the following methods:
+`desktopCapturer` モジュールには以下のメソッドがあります。
 
 ### `desktopCapturer.getSources(options, callback)`
 
 * `options` オブジェクト 
-  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
+  * `types` String[] - キャプチャされるデスクトップソースの種別を列挙した文字列の配列。指定できる種別は、`screen` と `window` です。
+  * `thumbnailSize` [Size](structures/size.md) (任意) - メディアソースのサムネイルを拡大縮小するサイズ。省略値は、`150` x `150` です。
 * `callback` Function 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
-Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.
+すべての利用可能なデスクトップのメディアソースに関する情報の収集を開始し、完了時に `callback(error, sources)` を呼び出します。
 
-`sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+`sources` は、[`DesktopCapturerSource`](structures/desktop-capturer-source.md) オブジェクトの配列で、各 `DesktopCapturerSource` は、キャプチャすることのできる画面または個々のウインドウを表します。

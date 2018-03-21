@@ -1,10 +1,10 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> Invia un report del crash a un server in remoto.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+Di seguito c'è un esempio di invio automatico di un report del crash a un server in remoto:
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -17,7 +17,7 @@ crashReporter.start({
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Per impostare il server in modo che accetti e processi il report del crash, puoi usare i seguenti progetti:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)

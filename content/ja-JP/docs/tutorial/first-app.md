@@ -83,7 +83,7 @@ const path = require('path')
 const url = require('url')
 
 function createWindow () {
-  // Create the browser window.
+  // ブラウザウインドウの作成
   win = new BrowserWindow({width: 800, height: 600})
 
   // アプリの index.html を読み込む

@@ -1,62 +1,62 @@
 # 環境変数
 
-> Control application configuration and behavior without changing code.
+> コードを変更することなくアプリケーションの設定と動作を制御します。
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+いくつかのElectronの動作は、コマンドラインのフラグやアプリのコードよりも早く初期化されるため、環境変数によって制御されます。
 
-POSIX shell example:
+POSIXシェルの例:
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Windowsコンソールの例:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
 > electron
 ```
 
-## Production Variables
+## 製品用の変数
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+以下の環境変数は、主にパッケージ化されたElectronアプリケーションで実行時に使用するためのものです。
 
 ### `GOOGLE_API_KEY`
 
-Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Electronには、GoogleのジオコーディングWebサービスへのリクエストを行うためのハードコードされたAPIキーが含まれています。 この API キーはすべてのバージョンの Electron に含まれているため、容量の制限を超えることがよくあります。 この問題を回避するには、環境内に独自の Google API キーを指定します。 ジオコーディングリクエストをするブラウザウィンドウを開く前に、メインプロセスファイルに以下のコードを挿入します。
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
+Google APIキーを取得する方法については、[このページ](https://www.chromium.org/developers/how-tos/api-keys)を参照して下さい。
 
-By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
+既定では、新たに生成されたGoogle APIキーでは、ジオコーディングリクエストを行うことができないことがあります。 ジオコーディングリクエストを有効にするには、[このページ](https://console.developers.google.com/apis/api/geolocation/overview)を参照して下さい。
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+ASARサポートを無効にします。 この変数は、`ELECTRON_RUN_AS_NODE` を設定したフォークされた子プロセスと生成された子プロセスでのみサポートされます。
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+通常のNode.jsプロセスとしてプロセスを開始します。
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-Don't attach to the current console session.
+現在のコンソールセッションにアタッチしません。
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Don't use the global menu bar on Linux.
+Linuxのグローバルメニューバーを使用しません。
 
-## 開発変数
+## 開発用の変数
 
-The following environment variables are intended primarily for development and debugging purposes.
+以下の環境変数は、主に開発とデバッグを目的としています。
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+コンソールにChromeの内部ログを出力します。
 
 ### `ELECTRON_LOG_ASAR_READS`
 

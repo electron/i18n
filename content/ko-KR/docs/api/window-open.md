@@ -1,6 +1,6 @@
 # `window.open` 함수
 
-> Open a new window and load a URL.
+> 새창을 열고 URL을 로드합니다.
 
 When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 

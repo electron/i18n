@@ -1,28 +1,28 @@
 ## クラス: Cookies
 
-> Query and modify a session's cookies.
+> セッションのクッキーをクエリーしたり、変更したりします。
 
 プロセス: [Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+`Cookies` クラスのインスタンスには、`Session` の `cookies` プロパティを使用してアクセスします。
 
-For example:
+例:
 
 ```javascript
 const {session} = require('electron')
 
-// Query all cookies.
+// すべてのクッキーをクエリーします。
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Query all cookies associated with a specific url.
+// 特定のURLに関連付けられているすべてのクッキーをクエリーします。
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// 指定したクッキーのデータでクッキーを設定します。
+// 同一のクッキーが存在する場合、上書きする可能性があります。
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
@@ -31,67 +31,67 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### インスタンスイベント
 
-次のイベントは、`クッキー` のインスタンス。
+`Cookies` のインスタンスでは、以下のイベントが利用できます。
 
-#### Event: 'changed'
+#### イベント: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `cookie` [Cookie](structures/cookie.md) - 変更されたクッキー
+* `cause` String - 以下のいずれかの値となる変更の原因。 
+  * `explicit` - ユーザーのアクションによってクッキーが直接変更されました。
+  * `overwrite` - 上書きする挿入操作のため、クッキーが自動的に削除されました。
+  * `expired` - 有効期限切れのため、クッキーが自動的に削除されました。
+  * `evicted` - ガベージコレクション中にクッキーが自動的に破棄されました。
+  * `expired-overwrite` - クッキーが既に期限切れの有効期限で上書きされました。
+* `removed` Boolean - クッキーが削除された場合、`true`、それ以外は、`false`。
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+追加されたり、編集されたり、削除されたり、有効期限が切れたりすることによってクッキーが変更されたときに発生します。
 
 ### インスタンスメソッド
 
-The following methods are available on instances of `Cookies`:
+`Cookies` のインスタンスでは、以下のメソッドが利用できます。
 
 #### `cookies.get(filter, callback)`
 
 * `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+  * `url` String (任意) - `url` と関連付けられたクッキーを取得します。空は、すべてのURLのクッキーを取得することを意味します。
+  * `name` String (任意) - 名前でクッキーをフィルタリングします。
+  * `domain` String (任意) - クッキーのドメインと一致するか、ドメインが `domains` のサブドメインであるクッキーを取得します。
+  * `path` String (任意) - クッキーのパスが `path` と一致するクッキーを取得します。
+  * `secure` Boolean (任意) - Secureプロパティでクッキーをフィルタリングします。
+  * `session` Boolean (任意) - セッションまたは永続的クッキーでフィルタリングします。
 * `callback` Function 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - クッキーオブジェクトの配列。
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+`filter` と一致するすべてのクッキーを取得するリクエストを送信します。完了時に `callback(error, cookies)` で `callback` が呼び出されます。
 
 #### `cookies.set(details, callback)`
 
 * `details` Object 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * `url` String - クッキーに関連付けられるURL。
+  * `name` String (任意) - クッキーの名前。省略した場合、既定では空です。
+  * `value` String (任意) - クッキーの値。省略した場合、既定では空です。
+  * `domain` String (任意) - クッキーのドメイン。省略した場合、既定では空です。
+  * `path` String (任意) - クッキーのパス。省略した場合、既定では空です。
+  * `secure` Boolean (任意) - クッキーにSecure属性がついているかどうか。省略値は、falseです。
+  * `httpOnly` Boolean (任意) - クッキーにHttpOnly属性がついているかどうか。省略値は、falseです。
+  * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 省略した場合、クッキーはセッションクッキーになり、セッション間では保持されなくなります。
 * `callback` Function 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+`details` でクッキーを設定します。完了時に `callback(error)` で `callback` が呼び出されます。
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - クッキーに関連付けられたURL。
+* `name` String - 削除するクッキーの名前。
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+`url` と `name` に一致するクッキーを削除します。完了時に `callback()` で `callback` が呼び出されます。
 
 #### `cookies.flushStore(callback)`
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+未書き込みのクッキーのデータをディスクに書き込みます。

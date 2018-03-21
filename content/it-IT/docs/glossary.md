@@ -42,15 +42,15 @@ Every app's main process file is specified in the `main` property in `package.js
 
 In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Vedi anche: [processo](#process), [processo di rendering](#renderer-process)
 
 ### MAS
 
 Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-### native modules
+### moduli nativi
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Moduli nativi (chiamati anche [addons](https://nodejs.org/api/addons.html) in Node.js) sono moduli scritti in C o C++ che possono essere caricati in Node.js o in Electron usando la funzione require(),usandolo proprio come se fosse un modulo normale di Node.js. Sono usati principalmente per fornire un'interfaccia tra JavaScript in esecuzione in Node.js e librerie C/C++.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
@@ -70,7 +70,7 @@ Un processo è un'istanza di un programma che è in fase di esecuzione. Electron
 
 In Node.js and Electron, each running process has a `process` object. Questo oggetto è un globale che fornisce informazioni e controlla il processo corrente. As a global, it is always available to applications without using require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Vedi anche: [processo principale](#main-process), [processo di rendering](#renderer-process)
 
 ### processo di rendering
 
@@ -78,7 +78,7 @@ Il processo di rendering è una finestra del browser nella tua app. A differenza
 
 Nei browser normali, le pagine web vengono eseguite in un ambiente circoscritto nel quale non è consentito l'accesso alle risorse native. Gli utenti di Electron, tuttavia, hanno il potere di usare le API di Node.js nelle pagine web consentendo interazioni di sistema operativo di livello inferiore.
 
-See also: [process](#process), [main process](#main-process)
+Vedi anche: [processo](#process), [processo principale](#main-process)
 
 ### Squirrel
 
@@ -92,11 +92,11 @@ Come Node, Electron si concentra sull'avere un piccolo set di API che fornisce t
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 è l'engine JavaScript open source di Google. È scritto in C++ ed è usato in Google Chrome. V8 può essere eseguito standalone o può essere incorporato in qualsiasi applicazione in C++.
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+I numeri delle versioni di V8 corrispondono sempre a quelli di Google Chrome. Chrome 59 include V8 5.9, Chrome 58 include V8 5.8, ecc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)

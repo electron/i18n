@@ -1,21 +1,21 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Chromium のネイティブのネットワークライブラリを使用して、 HTTP/HTTPS リクエストを発行します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+`net` モジュールは HTTP(S) リクエストを発行するクライアントサイド API です。 これは Node.js の [HTTP](https://nodejs.org/api/http.html) および [HTTPS](https://nodejs.org/api/https.html) モジュールに似ていますが、Node.js 実装の代わりに Chromium のネイティブネットワークライブラリを使用し、ウェブプロキシをより効果的にサポートします。
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+以下は、完全に網羅しているわけではありませんが、ネイティブ Node.js モジュールの代わりに `net` モジュールを使用することを検討する理由のリストです。
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* システムプロキシ設定の自動管理、WPAD プロトコルとプロキシの PAC 設定ファイルのサポート。
+* HTTPS リクエストの自動トンネリング。
+* Basic、Digest、NTLM、Kerberosを使用したプロキシの認証、またはネゴシエート認証スキームをサポート。
+* アクセス制御および監視に使用される、Fiddler のようなトラフィック監視プロキシのサポート。
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+`net` モジュール API は、馴染みの Node.js API を可能な限り模倣するように特別に設計されています。 クラス、メソッド、プロパティ、イベント名などの API コンポーネントは、Node.js で一般的に使用されているものと同様です。
 
-For instance, the following example quickly shows how the `net` API might be used:
+例として、次のサンプルは簡単な `net` API の使用方法を示します。
 
 ```javascript
 const {app} = require('electron')
@@ -29,25 +29,25 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('No more data in response.')
+      console.log('もう応答にデータはないよ。')
     })
   })
   request.end()
 })
 ```
 
-By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
+ところで、これは Node.js の [HTTP](https://nodejs.org/api/http.html) / [HTTPS](https://nodejs.org/api/https.html) モジュールを通常どおりに使用する方法とほぼ同じです。
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+`net` API は、アプリケーションが `ready` イベントを発行した後にのみ使用できます。 `ready` イベントの前にモジュールを使用しようとすると、エラーが発生します。
 
 ## メソッド
 
-The `net` module has the following methods:
+`net` モジュールには以下のメソッドがあります。
 
 ### `net.request(options)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Object | String) - `ClientRequest` のコンストラクタのオプション。
 
-Returns [`ClientRequest`](./client-request.md)
+戻り値 [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+`ClientRequest` コンストラクタに直接転送される `options` を使用して[`ClientRequest`](./client-request.md) インスタンスを作成します。 `net.request` メソッドは、`options` オブジェクト内の指定されたプロトコルにしたがって、セキュアとインセキュア両方の HTTP リクエストを発行するために使用されます。

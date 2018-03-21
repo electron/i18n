@@ -218,7 +218,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 Objects created with `new BrowserWindow` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Nota:** Alcuni metodi sono disponibili solo su sistemi operativi specifici e sono etichettati come tali.
 
 #### Event: 'page-title-updated'
 

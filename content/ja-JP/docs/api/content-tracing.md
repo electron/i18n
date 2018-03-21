@@ -71,7 +71,7 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 最初の3つのオプションは、トレース記録モードであり、それ故に相互に排他的です。 `traceOptions` の文字列に1つ以上のトレース記録モードが見つかった場合、最後の1つが優先されます。 トレース記録モードが何も指定されない場合、記録モードは、`record-until-full` です。
 
-トレースオプションは、`traceOptions` から解析されたオプションが適用されるまで、最初にデフォルトのオプション (`record_mode` は、`record-until-full` に設定、`enable_sampling` と `enable_systrace` は、`false` に設定) にリセットされます。
+トレースオプションは、`traceOptions` から解析されたオプションが適用されるまで、最初にデフォルトのオプション (`record_mode` は、`record-until-full` に設定され、`enable_sampling` と `enable_systrace` は、`false` に設定されます) にリセットされます。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -79,13 +79,13 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 * `callback` Function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+すべてのプロセスで記録を停止します。
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 そのため、トレースを終了するには、すべての子プロセスに保留中のトレースデータを書き出すように非同期で指示しなければなりません。
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+一度、すべての子プロセスが `startRecording` リクエストを受諾したら、トレースデータを含むファイルと一緒に `callback` が呼び出されます。
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+空でない場合は `resultFilePath`、そうでない場合、一時ファイルにトレースデータは書き込まれます。実際のファイルパスは `null` でない場合、`callback` に渡されます。
 
 ### `contentTracing.startMonitoring(options, callback)`
 
@@ -94,19 +94,19 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
   * `traceOptions` String
 * `callback` Function
 
-Start monitoring on all processes.
+すべてのプロセスで監視を開始します。
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+`startMonitoring` リクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に監視が開始されます。
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+一度、すべての子プロセスが `startMonitoring` リクエストを受諾したら、`callback` が呼び出されます。
 
 ### `contentTracing.stopMonitoring(callback)`
 
 * `callback` Function
 
-Stop monitoring on all processes.
+すべてのプロセスで監視を停止します。
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+一度、すべての子プロセスが `stopMonitoring` リクエストを受諾したら、`callback` が呼び出されます。
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
@@ -114,11 +114,11 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 * `callback` Function 
   * `resultFilePath` String
 
-Get the current monitoring traced data.
+現在、監視しているトレースデータを取得します。
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 これは、IPC越しにトレースデータを送信するのは高負荷な操作になりうることとトレースによる不必要なランタイムオーバーヘッドを回避したいことによります。 そのため、トレースを終了するには、すべての子プロセスに保留中のトレースデータを書き出すように非同期で指示しなければなりません。
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+一度、すべての子プロセスが `captureMonitoringSnapshot` リクエストを受諾したら、トレースデータを含むファイルと一緒に `callback` が呼び出されます。
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
@@ -126,4 +126,4 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+完全な形式のパーセンテージとして、トレースバッファーのプロセス間の最大使用率を取得します。TraceBufferUsageの値が確定したとき、`callback` が呼び出されます。

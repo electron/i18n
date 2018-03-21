@@ -1,12 +1,12 @@
 # フレームレスウィンドウ
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> ツールバー、ボーダー、その他 "Chrome" なグラフィックのないウインドウを開きます。
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+フレームレスウインドウは、ツールバーのような、ウェブページの部品ではない、[Chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome) のウインドウの部品を持たないウインドウです。 これらは、[`BrowserWindow`](browser-window.md) クラスのオプションです。
 
 ## フレームレスウィンドウを作成
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+フレームレスウインドウを作るには、[BrowserWindow](browser-window.md) の `options` 内で `frame` を `false` にする必要があります。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -16,11 +16,11 @@ win.show()
 
 ### MacOSの代替
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+macOS 10.9 Mavericks 以降では、クロムレスウィンドウを指定する別の方法があります。 タイトルバーとウィンドウコントロールの両方を無効にする `frame` を `false` に設定するのではなく、タイトルバーを非表示にしてコンテンツを完全なウィンドウサイズに拡張します。標準ウインドウアクションのために、ウインドウコントロール ("赤黄青の信号ボタン") は保持されます。 `titleBarStyle` オプションを指定することでそうできます。
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+タイトルバーが隠され、フルサイズのコンテンツウィンドウが表示されますが、タイトルバーには左上に標準のウィンドウコントロール ("信号ボタン") があります。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+タイトルバーが隠され、信号ボタンがウィンドウの端からわずかに内側にあります。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, miniaturize, and fullscreen buttons that display when hovering in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+ウインドウの左上にカーソルを置いたときに表示される、カスタム描画された、閉じる、最小化、フルスクリーンのボタンを使用します。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 このオプションは、フレームレスウィンドウにのみ適用されます。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -48,9 +48,9 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## 透明ウィンドウ
+## 透明ウインドウ
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+`transparent` オプションを `true` に設定することで、フレームレスウインドウを透明にすることもできます。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -60,16 +60,16 @@ win.show()
 
 ### 制限事項
 
-* You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
-* The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
-* On Windows operating systems, transparent windows will not work when DWM is disabled.
-* On Linux users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-* On Mac the native window shadow will not be shown on a transparent window.
+* 透過された領域越しにクリックすることはできません。 これを解決するためにウィンドウシェイプを設定するための API を紹介します。詳しくは [このissue](https://github.com/electron/electron/issues/1335) を参照して下さい。
+* 透明ウインドウはリサイズできません。`resizable` を `true` に設定すると、一部のプラットフォームで透明なウィンドウが動作しなくなることがあります。
+* `blur` フィルタはウェブページにのみ適用されるため、ウインドウの下のコンテンツ (つまり、ユーザのシステム上に開いている他のアプリケーション) にぼかし効果を適用する方法はありません。
+* Windows オペレーティングシステムでは、DWMが無効の場合、透過ウインドウは機能しません。
+* Linux ユーザは、コマンドラインに `--enable-transparent-visuals --disable-gpu` を入れて GPU を無効にし、ARGB が透過ウィンドウを作成できるようにする必要があります。[アルファチャンネルは Linux の一部の NVidia ドライバでは動作しません](https://code.google.com/p/chromium/issues/detail?id=369209)。
+* Macでは、ネイティブウインドウの影は透明なウインドウに表示されません。
 
 ## クリックスルーウィンドウ
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
+クリックスルーウィンドウを作成する、つまりウインドウですべてのマウスイベントを無視するには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API を呼び出します。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -77,9 +77,9 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-### Forwarding
+### 転送
 
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+マウスのメッセージを無視すると、ウェブページにマウスの動きが気付かれず、マウスの動きのイベントは発行されません。 Windows オペレーティングシステムでは、オプションのパラメータを使用してマウス移動メッセージをウェブページに転送し、`mouseleave` などのイベントを発行することができます。
 
 ```javascript
 let win = require('electron').remote.getCurrentWindow()
@@ -92,22 +92,22 @@ el.addEventListener('mouseleave', () => {
 })
 ```
 
-This makes the web page click-through when over `el`, and returns to normal outside it.
+`el` 内ではウェブページをクリックスルーし、その外では通常の状態に戻ります。
 
 ## ドラッグ可能地域
 
-By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+デフォルトでは、フレームレスウインドウはドラッグ不可能です。 アプリでは、どこがドラッグ可能領域であるか (OS標準のタイトルバーなど) を伝えるために、CSSで `-webkit-app-region: drag` を指定する必要があります。また、アプリは `-webkit-app-region: no-drag` を付加して、ドラッグ不可能領域をドラッグ可能領域から除外できます。 現在では長方形の概形のみがサポートされていることに注意してください。
 
-Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
+注釈: `-webkit-app-region: drag` は開発者向けツールを開いている間、問題があることが知られています。 回避策を含む詳細については、この [GitHub issue](https://github.com/electron/electron/issues/3647) を参照してください。
 
-To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
+ウインドウ全体をドラッグ可能にするために、`body` のスタイルとして `-webkit-app-region: drag` を追加できます。
 
 ```html
 <body style="-webkit-app-region: drag">
 </body>
 ```
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+また、ウインドウ全体をドラッグ可能にした場合は、ボタンをドラッグ不可能としてマークする必要があります。そうしないと、ユーザがボタンをクリックできなくなります。
 
 ```css
 button {
@@ -115,11 +115,11 @@ button {
 }
 ```
 
-If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+カスタムタイトルバーをドラッグ可能に設定する場合は、タイトルバーのすべてのボタンをドラッグできないようにする必要があります。
 
 ## テキスト選択
 
-In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+フレームレスウィンドウのドラッグの挙動はテキストの選択と競合します。 たとえば、タイトルバーをドラッグすると、誤ってタイトルバーのテキストを選択することがあります。 これを防ぐには、このようなドラッグ可能な領域内でのテキスト選択を無効にする必要があります。
 
 ```css
 .titlebar {
@@ -130,4 +130,4 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 
 ## コンテキストメニュー
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+一部のプラットフォームでは、ドラッグ可能領域は非クライアントフレームとして扱われるため、右クリックするとシステムメニューがポップアップします。 コンテキストメニューがすべてのプラットフォームで正しく動作するようにするには、ドラッグ可能な領域でカスタムコンテキストメニューを使用しないようにしてください。

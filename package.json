@@ -33,6 +33,7 @@
     "mocha": "^3.3.0",
     "npm-run-all": "^4.1.2",
     "require-yaml": "^0.0.1",
+    "rimraf": "^2.6.2",
     "semantic-release": "^8.2.3",
     "standard": "^10.0.2",
     "walk-sync": "^0.3.2"

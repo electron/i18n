@@ -4,9 +4,9 @@
 
 A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
 
-## Create a frameless window
+## Tworzenie bezramkowego okna
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+Aby utworzyć bezramowe okno, należy ustawić `frame` na `false` w [BrowserWindow](browser-window.md) `options`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -14,7 +14,7 @@ let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
 ```
 
-### Alternatives on macOS
+### Alternatywy na macOS
 
 On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
 
@@ -48,7 +48,7 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## Transparent window
+## Przezroczyste okno
 
 By setting the `transparent` option to `true`, you can also make the frameless window transparent:
 
@@ -117,7 +117,7 @@ button {
 
 If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
-## Text selection
+## Zaznaczanie tekstu
 
 In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
 

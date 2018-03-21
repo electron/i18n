@@ -1,10 +1,10 @@
-## Class: Debugger
+## クラス: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Chromeのリモートデバッグプロトコルに対する選択肢の1つ。
 
 プロセス: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chromeの開発者ツールは、ページと相互にやり取りをしたり、ページを調整したりすることのできるJavaScriptランタイムに[特別なバインディング](https://developer.chrome.com/devtools/docs/debugger-protocol)を持っています。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -35,41 +35,41 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (任意) - リクエストしたデバッグプロトコルのバージョン。
 
-Attaches the debugger to the `webContents`.
+`webContents` にデバッガーをアタッチします。
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+戻り値 `Boolean` - `webContents` にデバッガーがアタッチされているかどうか。
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+`webContents` からデバッガーをデタッチします。
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
-* `callback` Function (optional) - Response 
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+* `method` String - メソッド名。リモートデバッグプロトコルで定義されているメソッドの1つである必要があります。
+* `commandParams` Object (任意) - リクエストパラメータのJSONオブジェクト。
+* `callback` Function (任意) - レスポンス 
+  * `error` Object - コマンドに失敗したことを示すエラーメッセージ。
+  * `result` Any - リモートデバッグプロトコルのコマンド説明の 'returns' 属性で定義されているレスポンス。
 
-Send given command to the debugging target.
+指定したコマンドをデバッグ対象に送信します。
 
 ### インスタンスイベント
 
-#### Event: 'detach'
+#### イベント: 'detach'
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - デバッガーがデタッチする理由。
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+デバッグセッションが終了するときに発生します。これは、`webContents` がクローズされるか、アタッチしていた `webContents` に対して開発者ツールが呼び出されるときに発生します。
 
-#### Event: 'message'
+#### イベント: 'message'
 
 * `event` Event
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `method` String - メソッド名。
+* `params` Object - リモートデバッグプロトコルの 'parameters' 属性で定義されたイベントパラメータ。
 
-Emitted whenever debugging target issues instrumentation event.
+デバッグ対象で計測イベントが生じる毎に発生します。

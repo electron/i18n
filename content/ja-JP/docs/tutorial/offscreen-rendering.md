@@ -1,22 +1,22 @@
 # オフスクリーンレンダリング
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+オフスクリーンレンダリングは、ブラウザウインドウのコンテンツをビットマップで取得させるので、3D シーン中のテクスチャのように、どこにでも描画できます。 Electron のオフスクリーンレンダリングは、 [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) プロジェクトと似たアプローチを使用します。
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, just performance loss.
+2つの描画モードを使用でき、また、より効果的に描画するために、`'paint'` イベント内では変更された領域だけが渡されます。 描画は停止でき、設定されたフレームレートで再開できます。 指定のフレームレートは上限値で、ウェブページ上で何も発生しなかった場合、フレームは生成されません。 最大フレームレートは 60 です。それ以上はパフォーマンスが低下するだけで、利点はありません。
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**注釈:** オフスクリーンウインドウは、常に [フレームレスウインドウ](../api/frameless-window.md) として作成されます。
 
-## Rendering Modes
+## レンダリングモード
 
 ### GPU アクセラレーション
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+GPU アクセラレーションレンダリングとは、GPU が構成に使用されることを意味します。 GPU からフレームをコピーする必要があるために、より高いパフォーマンスを要求するので、このモードは他のフレームよりかなり遅くなります。 このモードのメリットは、WebGL と 3D CSS アニメーションがサポートされていることです。
 
 ### ソフトウェア出力デバイス
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+このモードでは、CPU にレンダリングするソフトウェア出力デバイスが使用されているため、フレーム生成は非常に高速です。したがって、このモードは GPU アクセラレーションよりも優先されます。
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+このモードを有効にするには、[`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API を呼び出して GPU アクセラレーションを無効にする必要があります。
 
 ## 使い方
 

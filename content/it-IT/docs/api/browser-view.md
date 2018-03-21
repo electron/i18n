@@ -68,6 +68,14 @@ Un numero `Intero` rappresentante l'unico ID di visualizzazione.
 
 Oggetti creati con `nuova VistaBrowser` hanno i seguenti metodi d'istanza:
 
+#### `view.destroy()`
+
+Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+
+#### `view.isDestroyed()`
+
+Returns `Boolean` - Whether the view is destroyed.
+
 #### `vedi.impostaRidimensionaAutomaticamente(opzioni` *Sperimentale*
 
 * `opzioni` Oggetto 

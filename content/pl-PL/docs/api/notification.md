@@ -1,20 +1,20 @@
 # Powiadomienie
 
-> Create OS desktop notifications
+> Tworzy powiadomienia na pulpicie
 
 Proces: [Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## Używając proces renderowania
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+Jeśli chcesz wyświetlać powiadomienia z procesu renderowania należy użyć interfejsu [HTML5 Notification API](../tutorial/notifications.md)
 
 ## Klasa: Powiadomienie
 
-> Create OS desktop notifications
+> Tworzenie powiadomień na pulpicie
 
 Proces: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` jest [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
@@ -45,7 +45,7 @@ Objects created with `new Notification` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'show'
+#### Zdarzenie: 'show'
 
 Zwraca:
 
@@ -53,7 +53,7 @@ Zwraca:
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
-#### Event: 'click'
+#### Zdarzenie: 'click'
 
 Zwraca:
 
@@ -61,7 +61,7 @@ Zwraca:
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### Zdarzenie: 'close'
 
 Zwraca:
 
@@ -110,4 +110,4 @@ On macOS, you can specify the name of the sound you'd like to play when the noti
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Zobacz dokumentacje [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) po więcej informacji.

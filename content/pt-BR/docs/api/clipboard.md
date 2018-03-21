@@ -8,7 +8,7 @@ O exemplo a seguir mostra como gravar uma sequência de caracteres para a área 
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String')
+clipboard.writeText('Exemplo de string')
 ```
 
 Nos sistemas X Window, há também uma área de transferência da seleção. Para manipulá-la você precisa passar a `selection` para cada método:
@@ -36,7 +36,7 @@ Retorna `String` - o conteúdo da área de transferência como texto sem formata
 * `text` String
 * `type` String (opcional)
 
-Escreve o `texto` na área de transferência como texto sem formatação.
+Escreve o `text` na área de transferência como texto sem formatação.
 
 ### `clipboard.readHTML([type])`
 

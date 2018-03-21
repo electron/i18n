@@ -1,14 +1,14 @@
 # 更新应用程序
 
-有多种方法可以更新Electron应用. 最简单并且官方支持的是一个利用内置的[Squirrel](https://github.com/Squirrel)框架和Electron的[autoUpdater](../api/auto-updater.md)模块.
+有多种方法可以更新Electron应用. 最简单并且获得官方支持的方法是利用内置的[Squirrel](https://github.com/Squirrel)框架和Electron的[autoUpdater](../api/auto-updater.md)模块。
 
 ## 部署更新服务器
 
-开始前, 你首先需要部署一个服务器用来更新下载[autoUpdater](../api/auto-updater.md)模块.
+开始前, 你首先需要部署一个服务器，[autoUpdater](../api/auto-updater.md) 模块将从这个服务器来下载更新。
 
 根据你的需要，你可以从下方选择：
 
-- [Hazel](https://github.com/zeit/hazel) – 更新私人或开源应用的服务器，可以在 [Now](https://zeit.co/now) 上免费使用。. 它从[GitHub Releases](https://help.github.com/articles/creating-releases/)中拉取并利用GitHub CDN的强大功能。
+- [Hazel](https://github.com/zeit/hazel) – 用于私人或开源应用的更新服务器，可以在 [Now](https://zeit.co/now) 上免费部署。 它从[GitHub Releases](https://help.github.com/articles/creating-releases/)中拉取更新文件，并且利用 GitHub CDN 的强大性能。
 - [Nuts](https://github.com/GitbookIO/nuts)－同样使用[GitHub Releases](https://help.github.com/articles/creating-releases/), 但得在磁盘上缓存应用程序更新并支持私有存储库.
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – 提供一个用于处理发布的仪表板，并且不需要在GitHub上发布发布。
 - [Nucleus](https://github.com/atlassian/nucleus) – 一个由Atlassian维护的 Electron 应用程序的完整更新服务器。 支持多种应用程序和渠道; 使用静态文件存储来降低服务器成本.

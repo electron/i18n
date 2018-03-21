@@ -49,7 +49,7 @@ Emitted when a cookie is changed because it was added, edited, removed, or expir
 
 ### Metodi Istanza
 
-The following methods are available on instances of `Cookies`:
+I seguenti metodi sono disponibili sulle istanze dei `Cookie`:
 
 #### `cookies.get(filter, callback)`
 

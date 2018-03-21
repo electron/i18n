@@ -1,17 +1,17 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> Wykonywanie operacji kopiuj i wklej w Schowku systemu.
 
 Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+Poniższy przykład pokazuje, jak zapisać ciąg znaków do schowka:
 
 ```javascript
 const {clipboard} = require('electron')
 clipboard.writeText('Example String')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+W systemach X Window jest również wybór Schowka. Do manipulowania nim, musisz przekazać `selection` do każdej metody:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -21,7 +21,7 @@ console.log(clipboard.readText('selection'))
 
 ## Metody
 
-The `clipboard` module has the following methods:
+Moduł `clipboard` posiada następujące metody:
 
 **Note:** Experimental APIs are marked as such and could be removed in future.
 

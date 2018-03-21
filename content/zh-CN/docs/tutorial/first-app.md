@@ -2,11 +2,11 @@
 
 Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) APIs 来创造桌面应用。 你可以把它看作一个专注于桌面应用的 Node. js 的变体，而不是 Web 服务器。
 
-这不意味着 Electron 是绑定了 (GUI) 库的 JavaScript。 相反，Electron 使用 web 页面作为它的 GUI，所以你能把它看作成一个被 JavaScript 控制的，精简版的 Chromium 浏览器。
+这不意味着 Electron 是某个图形用户界面（GUI）库的 JavaScript 版本。 相反，Electron 使用 web 页面作为它的 GUI，所以你能把它看作成一个被 JavaScript 控制的，精简版的 Chromium 浏览器。
 
 ** 注意 **: 此示例还有可用的仓库, 您可以 [ 立即下载并运行 ](#trying-this-example)。
 
-从开发的角度来看, Electron application 本质上是一个 Node. js 应用程序。 The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+从开发的角度来看, Electron application 本质上是一个 Node. js 应用程序。 应用启动的入口是一个与 Node.js 模块相同的 `package.json` 文件。 一个最基本的 Electron 应用一般来说会有如下的目录结构：
 
 ```text
 your-app/
@@ -21,7 +21,7 @@ your-app/
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm 会帮助你创建一个基本的 `package.json` 文件。 其中的 `main` 字段所表示的脚本为应用的启动脚本，它将会在主进程中执行。 如下片段是一个 `package.json` 的示例：
 
 ```json
 {
@@ -31,7 +31,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (just like Node.js itself). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**注意**：如果 `main` 字段没有在 `package.json` 中出现，那么 Electron 将会尝试加载 `index.js` 文件（就像 Node.js 自身那样）。 如果你实际开发的是一个简单的 Node 应用，那么你需要添加一个 `start` 脚本来指引 `node` 去执行当前的 package：
 
 ```json
 {
@@ -44,7 +44,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+把这个 Node 应用转换成一个 Electron 应用也是非常简单的，我们只不过是把 `node` 运行时替换成了 `electron` 运行时。
 
 ```json
 {
