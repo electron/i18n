@@ -153,34 +153,35 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Preload script
+// プリロードスクリプト
 
-// Set a variable in the page before it loads
+// ロードする前にページ内の変数を設定
 webFrame.executeJavaScript('window.foo = "foo";')
 
-// The loaded page will not be able to access this, it is only available
-// in this context
+// ロードされたページはこの変数にアクセスできない
+// このコンテキスト内でのみ有効
 window.bar = 'bar'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Will log out 'undefined' since window.foo is only available in the main
-  // context
+  // window.foo はメインコンテキストでのみ使用可能なため
+  // ログアウトすると 'undefined' になる
   console.log(window.foo)
 
-  // Will log out 'bar' since window.bar is available in this context
+  // window.bar はこのコンテキスト内で使用可能なため
+  // ログアウトしても 'bar'
   console.log(window.bar)
 })
 ```
 
-## 4) Handle Session Permission Requests From Remote Content
+## 4) リモートのコンテンツからセッション権限リクエストを利用する
 
-You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
+Chromeを使用しているときに許可リクエストが表示されていることがあります――ユーザーが手動で承認する必要がある機能 (通知など) をウェブサイトが使用しようとするたびにポップアップが表示されます。
 
-The API is based on the [Chromium permissions API](https://developer.chrome.com/extensions/permissions) and implements the same types of permissions.
+API は [Chromium 権限 API](https://developer.chrome.com/extensions/permissions) に基づいており、同じ種類のアクセス許可を実装しています。
 
 ### なんで？
 
-By default, Electron will automatically approve all permission requests unless the developer has manually configured a custom handler. While a solid default, security-conscious developers might want to assume the very opposite.
+デフォルトでは、開発者がカスタムハンドラを手動で設定していない限り、Electron はすべての権限リクエストを自動的に承認します。 セキュリティを意識した開発者は、堅実なデフォルトとしては、まったく反対のことを想定したかもしれません。
 
 ### どうすればいいの？
 
