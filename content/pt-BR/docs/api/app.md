@@ -671,23 +671,23 @@ Muda o [Application User Model ID](https://msdn.microsoft.com/en-us/library/wind
 
 * `options` Object 
   * `certificate` String - Caminho para o arquivo pkcs12.
-  * `password` String - Senha do certificado.
+  * `password` String - Passphrase do certificado.
 * `callback` Function 
   * `result` Integer - Resultado da importação.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa o certificado em formato pkcs12 ao armazenamento de certificados da plataforma. `callback` é chamada com o `result` da operação de importação. O valor `` indica sucesso, enquanto que qualquer outro valor indica falha de acordo com a [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) do Chromium.
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Desativa a aceleração de hardware para o aplicativo atual.
 
-This method can only be called before app is ready.
+Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
-This method can only be called before app is ready.
+Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
 ### `app.getAppMemoryInfo()` *Deprecated*
 
@@ -812,7 +812,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
 ### `app.isInApplicationsFolder()` no *macOS*
 
