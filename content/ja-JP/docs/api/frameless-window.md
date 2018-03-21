@@ -16,11 +16,11 @@ win.show()
 
 ### MacOSの代替
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+macOS 10.9 Mavericks 以降では、クロムレスウィンドウを指定する別の方法があります。 タイトルバーとウィンドウコントロールの両方を無効にする `frame` を `false` に設定するのではなく、タイトルバーを非表示にしてコンテンツを完全なウィンドウサイズに拡張します。標準ウインドウアクションのために、ウインドウコントロール ("赤黄青の信号ボタン") は保持されます。 `titleBarStyle` オプションを指定することでそうできます。
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+タイトルバーが隠され、フルサイズのコンテンツウィンドウが表示されますが、タイトルバーには左上に標準のウィンドウコントロール ("信号ボタン") があります。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+タイトルバーが隠され、信号ボタンがウィンドウの端からわずかに内側にあります。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, miniaturize, and fullscreen buttons that display when hovering in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+ウインドウの左上にカーソルを置いたときに表示される、カスタム描画された、閉じる、最小化、フルスクリーンのボタンを使用します。 These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
 const {BrowserWindow} = require('electron')
