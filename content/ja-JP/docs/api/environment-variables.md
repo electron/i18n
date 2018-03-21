@@ -2,16 +2,16 @@
 
 > コードを変更することなくアプリケーションの設定と動作を制御します。
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+いくつかのElectronの動作は、コマンドラインのフラグやアプリのコードよりも早く初期化されるため、環境変数によって制御されます。
 
-POSIX shell example:
+POSIXシェルの例:
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Windowsコンソールの例:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
@@ -20,7 +20,7 @@ Windows console example:
 
 ## 製品用の変数
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+以下の環境変数は、主にパッケージ化されたElectronアプリケーションで実行時に使用するためのものです。
 
 ### `GOOGLE_API_KEY`
 
