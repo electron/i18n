@@ -289,16 +289,16 @@ window.eval = global.eval = function () {
 
 デフォルトでは、Electron は、`HTTPS` 上でロードされたウェブサイト上でのみ、安全でないソース (`HTTP`) からスクリプト、CSS、またはプラグインを読み込んで実行できるようにします。 `allowRunningInsecureContent` プロパティを `true` にすることで、その保護を無効にします。
 
-Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
+`HTTPS` 経由でウェブサイトの初期 HTML を読み込んで、`HTTP` 経由で後続のリソースを読み込もうとすることを "混合コンテンツ" といいます。
 
 ### なんで？
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
+簡単に言えば、`HTTPS` を介してコンテンツをロードすると、トラフィック自体を暗号化しながら、ロードされたリソースの信憑性と完全性が保証されます。 より詳しくは、[セキュアなコンテンツのみを表示する](#only-display-secure-content) を参照して下さい。
 
 ### どうすればいいの？
 
 ```js
-// Bad
+// NG
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -307,7 +307,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// OK
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -335,7 +335,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// OK
 const mainWindow = new BrowserWindow({})
 ```
 
