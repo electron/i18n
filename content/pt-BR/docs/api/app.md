@@ -659,7 +659,7 @@ Invalida a atividade de usuário atual do [Handoff](https://developer.apple.com/
 * `type` String - Identificação única da atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Estado específico do app a ser armazenado para uso em outro dispositivo.
 
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+Atualiza a atividade atual se seu tipo corresponder a `type`, mesclando as entradas de `userInfo` ao seu dicionário `userInfo` atual.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
