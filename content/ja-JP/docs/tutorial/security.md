@@ -276,18 +276,18 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ### どうすればいいの？
 
 ```js
-// ESLint will warn about any use of eval(), even this one
-// eslint-disable-next-line
+// ESLint は eval() の使用について警告する
+// これも eslint-disable-next-line
 window.eval = global.eval = function () {
-  throw new Error(`Sorry, this app does not support window.eval().`)
+  throw new Error('ごめんね。window.eval() はこのアプリでサポートされてないよ。')
 }
 ```
 
-## 8) Do Not Set `allowRunningInsecureContent` to `true`
+## 8) `allowRunningInsecureContent` を `true` にしない
 
 *推奨されているものは Electron のデフォルトです*
 
-By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
+デフォルトでは、Electron は、`HTTPS` 上でロードされたウェブサイト上でのみ、安全でないソース (`HTTP`) からスクリプト、CSS、またはプラグインを読み込んで実行できるようにします。 `allowRunningInsecureContent` プロパティを `true` にすることで、その保護を無効にします。
 
 Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
 
