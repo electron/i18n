@@ -144,22 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## विकास
 
-* [कोडिंग शैली](development/coding-style.md)
-* [सी++ कोड पर क्लैंग-फॉर्मेट इस्तेमाल करना](development/clang-format.md)
-* [जाँच करना](development/testing.md)
-* [स्रोत कोड निर्देशिका संरचना](development/source-code-directory-structure.md)
-* [एनडब्ल्यू.जेएस (पूर्व में नोड-वेबकिट) से तकनीकी अंतर](development/atom-shell-vs-node-webkit.md)
-* [सिस्टम अवलोकन बिल्ड](development/build-system-overview.md)
-* [बिल्ड निर्देश (मैकओएस)](development/build-instructions-osx.md)
-* [बिल्ड निर्देश (विंडोज)](development/build-instructions-windows.md)
-* [बिल्ड निर्देश (लिनक्स)](development/build-instructions-linux.md)
-* [दोषमुक्ति निर्देश (मैकओएस)](development/debugging-instructions-macos.md)
-* [दोषमुक्ति निर्देश (विंडोज)](development/debug-instructions-windows.md)
-* [डीबग्गर में सिंबल सर्वर सेट करना](development/setting-up-symbol-server.md)
-* [प्रलेखन स्टाइलगाइड](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
-* [क्रोमियम अपग्रेड करना](development/upgrading-chromium.md)
-* [क्रोमियम विकास](development/chromium-development.md)
-* [वी8 विकास](development/v8-development.md)
+See <development/README.md>
