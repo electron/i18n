@@ -5,7 +5,7 @@
 ## 基本要求
 
 * Windows 7 / Server 2008 R2 或更高
-* Visual Studio 2015 Update 3 - [下载免费的 VS 2015 Community Edition ](https://www.visualstudio.com/vs/older-downloads/)
+* Visual Studio 2017 - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
