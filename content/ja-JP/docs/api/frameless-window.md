@@ -119,7 +119,7 @@ button {
 
 ## テキスト選択
 
-フレームレスウィンドウのドラッグの挙動はテキストの選択と競合します。 たとえば、タイトルバーをドラッグすると、誤ってタイトルバーのテキストを選択することがあります。 To prevent this, you need to disable text selection within a draggable area like this:
+フレームレスウィンドウのドラッグの挙動はテキストの選択と競合します。 たとえば、タイトルバーをドラッグすると、誤ってタイトルバーのテキストを選択することがあります。 これを防ぐには、このようなドラッグ可能な領域内でのテキスト選択を無効にする必要があります。
 
 ```css
 .titlebar {
@@ -130,4 +130,4 @@ button {
 
 ## コンテキストメニュー
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+一部のプラットフォームでは、ドラッグ可能領域は非クライアントフレームとして扱われるため、右クリックするとシステムメニューがポップアップします。 コンテキストメニューがすべてのプラットフォームで正しく動作するようにするには、ドラッグ可能な領域でカスタムコンテキストメニューを使用しないようにしてください。
