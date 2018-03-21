@@ -1,10 +1,10 @@
 # 更新应用程序
 
-有多种方法可以更新Electron应用. 最简单并且官方支持的是一个利用内置的[Squirrel](https://github.com/Squirrel)框架和Electron的[autoUpdater](../api/auto-updater.md)模块.
+有多种方法可以更新Electron应用. 最简单并且获得官方支持的方法是利用内置的[Squirrel](https://github.com/Squirrel)框架和Electron的[autoUpdater](../api/auto-updater.md)模块。
 
 ## 部署更新服务器
 
-开始前, 你首先需要部署一个服务器用来更新下载[autoUpdater](../api/auto-updater.md)模块.
+开始前, 你首先需要部署一个服务器，[autoUpdater](../api/auto-updater.md) 模块将从这个服务器来下载更新。
 
 根据你的需要，你可以从下方选择：
 
