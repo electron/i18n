@@ -1,6 +1,7 @@
 tagline: Tvořte multiplatformní desktopové aplikace pomocí jazyku Javascript, HTML a CSS
 nav:
   docs: Dokumentace
+  donors: Donors
   blog: Blog
   community: Komunita
   apps: Aplikace
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron je open source framework pro snadné psaní integračních testů pro vaší Electron aplikaci. Spectron je postaven na ChromeDriver a WebDriverIO.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: Stránka nenalezena.
 search:
