@@ -1,12 +1,12 @@
 # フレームレスウィンドウ
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> ツールバー、ボーダー、その他 "Chrome" なグラフィックのないウインドウを開きます。
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+フレームレスウインドウは、ツールバーのような、ウェブページの部品ではない、[Chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome) のウインドウの部品を持たないウインドウです。 これらは、[`BrowserWindow`](browser-window.md) クラスのオプションです。
 
 ## フレームレスウィンドウを作成
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+フレームレスウインドウを作るには、[BrowserWindow](browser-window.md) の `options` 内で `frame` を `false` にする必要があります。
 
 ```javascript
 const {BrowserWindow} = require('electron')
