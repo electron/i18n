@@ -43,7 +43,7 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 9. [実験的な機能を有効にしない](#do-not-enable-experimental-features)
 10. [`blinkFeatures` を使用しない](#do-not-use-blinkfeatures)
 11. [WebViews: `allowpopups` を使用しない](#do-not-use-allowpopups)
-12. [WebViews: すべての `<webview>` タグのオプションとパラメータを認証する。](#verify-webview-options-before-creation)
+12. [WebViews: すべての `<webview>` タグのオプションとパラメータを確認する。](#verify-webview-options-before-creation)
 
 ## 1) セキュアなコンテンツのみを読み込む
 
@@ -385,7 +385,7 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## 12) 作成前に WebView のオプションを認証する
+## 12) 作成前に WebView のオプションを確認する
 
 Node.js integration が有効になっていないレンダラープロセスで作成された WebView は、integration 自体を有効にすることはできません。 しかし、WebView は常に独自の `webPreferences` を使用して、独立したレンダラープロセスを作成します。
 
@@ -404,14 +404,14 @@ Electron では、開発者はレンダラープロセスを制御するさま�
 ```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
+    // 未使用のプリロードスクリプトを削除するか、その場所が正当であることを確認する
     delete webPreferences.preload
     delete webPreferences.preloadURL
 
-    // Disable Node.js integration
+    // Node.js integration を無効にする
     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
+    // ロードされる URL を確認する
     if (!params.src.startsWith('https://yourapp.com/')) {
       event.preventDefault()
     }
@@ -419,4 +419,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。ただ単にWebサイトを表示するという目的であれば、Electronアプリケーションよりもブラウザを利用した方がよりセキュアでしょう。
+繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。ただ単にウェブサイトを表示するという目的であれば、Electron アプリケーションよりもブラウザを利用した方がよりセキュアでしょう。
