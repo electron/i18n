@@ -8,7 +8,7 @@
 
 根据你的需要，你可以从下方选择：
 
-- [Hazel](https://github.com/zeit/hazel) – 更新私人或开源应用的服务器，可以在 [Now](https://zeit.co/now) 上免费使用。. 它从[GitHub Releases](https://help.github.com/articles/creating-releases/)中拉取并利用GitHub CDN的强大功能。
+- [Hazel](https://github.com/zeit/hazel) – 用于私人或开源应用的更新服务器，可以在 [Now](https://zeit.co/now) 上免费部署。 它从[GitHub Releases](https://help.github.com/articles/creating-releases/)中拉取更新文件，并且利用 GitHub CDN 的强大性能。
 - [Nuts](https://github.com/GitbookIO/nuts)－同样使用[GitHub Releases](https://help.github.com/articles/creating-releases/), 但得在磁盘上缓存应用程序更新并支持私有存储库.
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – 提供一个用于处理发布的仪表板，并且不需要在GitHub上发布发布。
 - [Nucleus](https://github.com/atlassian/nucleus) – 一个由Atlassian维护的 Electron 应用程序的完整更新服务器。 支持多种应用程序和渠道; 使用静态文件存储来降低服务器成本.
