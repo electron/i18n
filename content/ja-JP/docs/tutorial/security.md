@@ -343,11 +343,11 @@ const mainWindow = new BrowserWindow({})
 
 *Electron のデフォルトを推奨しています*
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink は、Chromium のバックグラウンドにあるレンダリングエンジンの名前です。 `experimentalFeatures` と同様に、`blinkFeatures` プロパティを使用すると、デフォルトで無効になっている機能を有効にすることができます。
 
 ### なんで？
 
-Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+一般に、機能がデフォルトで有効になっていない場合は、よい理由が考えられます。 Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
 
 ### どうすればいいの？
 
