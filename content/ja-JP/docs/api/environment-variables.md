@@ -24,27 +24,27 @@ Windowsコンソールの例:
 
 ### `GOOGLE_API_KEY`
 
-Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Electron には、Google のジオコーディングウェブサービスへのリクエストを行うためのハードコードされた API キーが含まれています。 この API キーはすべてのバージョンの Electron に含まれているため、容量の制限を超えることがよくあります。 この問題を回避するには、環境内に独自の Google API キーを指定します。 ジオコーディングリクエストをするブラウザウィンドウを開く前に、メインプロセスファイルに以下のコードを挿入します。
 
 ```javascript
-process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
+process.env.GOOGLE_API_KEY = 'キー_を_ここに'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
+Google API キーを取得する方法については、[このページ](https://www.chromium.org/developers/how-tos/api-keys) を参照して下さい。
 
-By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
+デフォルトでは、新しく生成された Google API キーではジオコーディングリクエストを作成できない場合があります。 ジオコーディングリクエストを有効にするには、[このページ](https://console.developers.google.com/apis/api/geolocation/overview) を参照して下さい。
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+ASAR サポートを無効にします。 この変数は、`ELECTRON_RUN_AS_NODE` を設定する、フォークされた子プロセスと生成された子プロセスでのみサポートされます。
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+通常の Node.js プロセスとしてプロセスを開始します。
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-Don't attach to the current console session.
+現在のコンソールセッションには適用しないでください。
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
