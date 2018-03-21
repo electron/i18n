@@ -665,12 +665,12 @@ Atualiza a atividade atual se seu tipo corresponder a `type`, mesclando as entra
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Muda o [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) para `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `opções` Object 
-  * `certificate` String - Path for the pkcs12 file.
+* `options` Object 
+  * `certificate` String - Caminho para o arquivo pkcs12.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
   * `result` Integer - Result of import.
