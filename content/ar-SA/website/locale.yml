@@ -1,6 +1,7 @@
 tagline: اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS
 nav:
   docs: التوثيقات
+  donors: Donors
   blog: المدونة
   community: المجتمع
   apps: التطبيقات
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: سبيكترون إطار مفتوح المصدر يسهل كتابة اختبارات التكامل الخاصة بتطبيق إلكترون، وهو مبني بالاتماد على ChromeDriver و WebDriverIO.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: الصفحة غير موجودة.
 search:
