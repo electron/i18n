@@ -107,7 +107,7 @@ el.addEventListener('mouseleave', () => {
 </body>
 ```
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+また、ウインドウ全体をドラッグ可能にした場合は、ボタンをドラッグ不可能としてマークする必要があります。そうしないと、ユーザがボタンをクリックできなくなります。
 
 ```css
 button {
