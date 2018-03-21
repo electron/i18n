@@ -8,8 +8,8 @@
 
 以下は、完全に網羅しているわけではありませんが、ネイティブ Node.js モジュールの代わりに `net` モジュールを使用することを検討する理由のリストです。
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
+* システムプロキシ設定の自動管理、WPAD プロトコルとプロキシの PAC 設定ファイルのサポート。
+* HTTPS リクエストの自動トンネリング。
 * Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
 * Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
 
