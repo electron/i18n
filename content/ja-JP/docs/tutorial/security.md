@@ -215,12 +215,12 @@ session
 
 ### なんで？
 
-Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
+` webSecurity` を無効にすると、同一オリジンポリシーが無効になり、`allowRunningInsecureContent` プロパティが `true` に設定されます。 つまり、異なるドメインからの安全でないコードの実行を可能にしてしまいます。
 
 ### どうすればいいの？
 
 ```js
-// Bad
+// NG
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -229,21 +229,21 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// OK
 const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Bad -->
+<!-- NG -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<!-- OK -->
 <webview src="page.html"></webview>
 ```
 
-## 6) Define a Content Security Policy
+## 6) Content-Security-Policy を定義する
 
-A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
+Content Security Policy (CSP) は、クロスサイトスクリプティング攻撃やデータインジェクション攻撃から保護する副層です。 Electron 内でロードする任意のウェブサイトで有効にすることを推奨します。
 
 ### なんで？
 
@@ -361,7 +361,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// OK
 const mainWindow = new BrowserWindow()
 ```
 
