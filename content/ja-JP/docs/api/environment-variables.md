@@ -1,6 +1,6 @@
 # 環境変数
 
-> Control application configuration and behavior without changing code.
+> コードを変更することなくアプリケーションの設定と動作を制御します。
 
 Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
 
