@@ -144,22 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## التطوير
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [اختبار](development/testing.md)
-* [بنية الدليل التعليمات البرمجية المصدر](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [نظام البناء نظرة عامة](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
-* [ترقية الكروميوم](development/upgrading-chromium.md)
-* [تطوير الكروميوم](development/chromium-development.md)
-* [تطوير V8](development/v8-development.md)
+See <development/README.md>
