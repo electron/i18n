@@ -159,7 +159,7 @@
 required[, optional]
 ```
 
-Ниже метода объявляется более подробная информация о каждом из аргументов. Тип аргумента нотируется из общих типов:
+Методы ниже объявляют более подробную информацию каждом из аргументов. Тип аргумента нотируется из общих типов:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -210,4 +210,4 @@ Returns:
 
 ## Переводы документации
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Смотрите [electron/i18n](https://github.com/electron/i18n#readme)
