@@ -263,15 +263,15 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
-## 7) Override and Disable `eval`
+## 7) `eval` を書き換えて無効にする
 
-`eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
+`eval()` は、文字列から JavaScript を実行できるコア JavaScript メソッドです。これを無効にすると、事前にわかっていない JavaScript を評価するアプリの機能が無効になります。
 
 ### なんで？
 
-The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+`eval()` メソッドは確かな1つの役割――JavaScript として一連の文字を評価し、それを実行する――があります。 これは、事前に知ることができないコードを評価する必要がある場合に、必要なメソッドです。 正しい使用方法は他のコードジェネレータと同様に存在しますが、`eval()` ははっきりさせづらいです。
 
-Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
+一般的に言えば、`eval()` を完全に無効にする方が、攻撃を防ぐには簡単です。 したがって、必要がない場合は、無効にすることを推奨します。
 
 ### どうすればいいの？
 
