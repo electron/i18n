@@ -28,20 +28,20 @@
 
 ### `new Notification([options])` *実験的*
 
-* `options` オブジェクト 
+* `options` Object 
   * `title` String - 通知ウィンドウの上部に表示される通知のタイトル
-  * `subtitle` String - (optional) は、タイトルの下が表示されます、通知のサブタイトルです。*macOS*
-  * `body` String - タイトルやサブタイトルの下に表示さる、本文
-  * `silent` Boolean - (optional) 通知を表示するときに音を鳴らしてOSが通知するかどうか決めます
-  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
-  * `hasReply` Boolean - (optional) インラインを追加するかどうかの返信通知するオプションです。 *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
-  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * `subtitle` String - (任意) タイトルの下に表示される、通知のサブタイトル。*macOS*
+  * `body` String - タイトルやサブタイトルの下に表示さる、通知の本文。
+  * `silent` Boolean - (任意) 通知を表示するときにOSが通知音を鳴らすかどうか。
+  * `icon` (String | [NativeImage](native-image.md)) - (任意) 通知に使用されるアイコン。
+  * `hasReply` Boolean - (任意) 通知に埋め込み返信オプションを追加するかどうか。*macOS*
+  * `replyPlaceholder` String - (任意) 埋め込み返信入力フィールド内に書かれるプレースホルダ。*macOS*
+  * `sound` String - (任意) 通知が表示されるときに再生される音声ファイルの名前。*macOS*
+  * `actions` [NotificationAction[]](structures/notification-action.md) - (任意) 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。*macOS*
 
 ### インスタンスイベント
 
-Objects created with `new Notification` emit the following events:
+`new Notification` で作成されたオブジェクトでは以下のイベントが発生します。
 
 **注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
@@ -51,15 +51,15 @@ Objects created with `new Notification` emit the following events:
 
 * `event` Event
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+通知がユーザーに表示されたときに発行されます。`show()` メソッドを使用して通知を複数回表示できることに注意して下さい。
 
-#### Event: 'click'
+#### イベント: 'click'
 
-戻り値：
+戻り値:
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+ユーザによって通知がクリックされたときに発行されます。
 
 #### イベント: 'close'
 
