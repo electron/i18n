@@ -1,14 +1,14 @@
 # Поддерживаемые платформы
 
-Following platforms are supported by Electron:
+Следующие платформы поддерживаются Electron:
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+Только 64-разрядные двоичные файлы предоставляются для macOS, и минимальный macOS версии поддерживается macOS 10.9. Для MacOS предусмотрены только 64-битные двоичные файлы, а минимальная поддерживаемая версия macOS - 10.9.
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+Поддерживаются Windows 7 и более поздние версии, более старые операционные системы не поддерживаются (и не работают).
 
 Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Please note, the `ARM` version of Windows is not supported for now.
 
@@ -20,6 +20,6 @@ The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built 
 
 Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-* Ubuntu 12.04 and later
+* Ubuntu 12.04 и позднее
 * Fedora 21
 * Debian 8
