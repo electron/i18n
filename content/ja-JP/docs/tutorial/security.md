@@ -247,19 +247,19 @@ Content Security Policy (CSP) は、クロスサイトスクリプティング�
 
 ### なんで？
 
-CSP を使用すると、コンテンツを提供するサーバーが、指定されたウェブページに Electron がロードできるリソースを、制限および制御できます。 `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your applications security.
+CSP を使用すると、コンテンツを提供するサーバーが、指定されたウェブページに Electron がロードできるリソースを、制限および制御できます。 `https://your-page.com` は、`https://evil.attacker.com` からのスクリプトは許可せず、定義したオリジンのスクリプトを読み込むことを許可して実行する必要があります。 CSP を定義することは、アプリケーションのセキュリティを向上させる簡単な方法です。
 
 ### どうすればいいの？
 
-Electron respects [the `Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the respective `<meta>` tag.
+Electron は [`Content-Security-Policy` HTTP ヘッダー](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) とそれぞれの `<meta>` タグを尊重します。
 
-The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
+以下の CSP は、Electron が現在のウェブサイトと `apis.mydomain.com` からスクリプトを実行できるようにします。
 
 ```txt
-// Bad
+// NG
 Content-Security-Policy: '*'
 
-// Good
+// OK
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
