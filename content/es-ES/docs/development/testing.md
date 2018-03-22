@@ -18,4 +18,5 @@ No hay mucho de Python en este repositorio, pero también se rige por las reglas
 
 Para ejecutar todas las pruebas de unidad, ejecute `npm run test`. Las pruebas de unidad son una aplicación de Electrón(¡sorpresa!) que puede encontrarse en la carpeta de `spec`. Tenga en cuenta que tiene su propio `package.json` y que sus dependencias por lo tanto no se definen en el nivel superior `package.json`.
 
-Para ejecutar solo un número seleccionado de pruebas, ejecute `npm run test -match=NAME`, reemplazando el `NAME` con el nombre de archivo del conjunto de pruebas que desea ejecutar. Como ejemplo: Si desea ejecutar sólo suites IPC, ejecutarias `npm run test -match=ipc`.
+To run only specific tests matching a pattern, run `npm run test --
+-g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
