@@ -144,22 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## Development
 
-* [Phong cách lập trình](development/coding-style.md)
-* [Sử dụng clang-format trên Code C++](development/clang-format.md)
-* [Kiểm thử](development/testing.md)
-* [Cấu trúc cây thư mục của Source Code](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (tiền thân là node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Tổng qua về Hệ thống cần thiết để Build](development/build-system-overview.md)
-* [Hướng dẫn build (macOS)](development/build-instructions-osx.md)
-* [Hướng dẫn build (Windows)](development/build-instructions-windows.md)
-* [Hướng dẫn build (Linux)](development/build-instructions-linux.md)
-* [Các hướng dẫn debug (macOS)](development/debugging-instructions-macos.md)
-* [Các hướng dẫn debug (Windows)](development/debug-instructions-windows.md)
-* [Cài đặt Symbol Server trên debugger](development/setting-up-symbol-server.md)
-* [Tài liệu về Styleguide](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
-* [Nâng cấp Chromium](development/upgrading-chromium.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+See <development/README.md>
