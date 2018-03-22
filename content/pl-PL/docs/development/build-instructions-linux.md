@@ -134,13 +134,13 @@ Zobacz [przegląd budowy systemu: Testy](build-system-overview.md#tests)
 
 Domyślne tworzenie konfiguracji jest celem dla głównej dystrybucji pulpitu Linux. Aby zbudować dla konkretnej dystrybucji lub urządzenia, następujące informacje mogą ci pomóc.
 
-### Budowanie `libchromiumcontent`lokalnie
+### Budowanie `libchromiumcontent` lokalnie
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Aby uniknąć używania gotowych binarek `libchromiumcontent`, można zbudować `libchromiumcontent` lokalnie. Aby to zrobić, wykonaj następujące kroki:
 
 1. Instaluj [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. Instaluj [dodatkowe zależności kompilacji](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Fetch the git submodules:
+3. Sprowadź submoduły z gita:
 
 ```sh
 $ git submodule update --init --recursive
@@ -198,4 +198,4 @@ Apart from `CC` and `CXX`, you can also set the following environment variables 
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+Zmienne środowiskowe muszą być ustawione podczas wykonywania skryptu `bootstrap.py`, to nie będzie działać w skrypcie `build.py`.
