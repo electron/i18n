@@ -1,6 +1,7 @@
 tagline: สร้างแอปที่ใช้งานข้ามแพลตฟอร์มได้ด้วย JavaScript, HTML และ CSS
 nav:
   docs: เอกสาร
+  donors: Donors
   blog: บล็อก
   community: ชุมชน
   apps: แอป
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron เป็นโอเพนซอร์ซเฟรมเวิร์ก ที่ใช้งานในการเขียนทดสอบแอป อิเล็กตรอนของคุณ สร้างขึ้นโดยบน ChromeDriver และ WebDriverIO
+  '/donors':
+    title: Donors
 _404:
   page_not_found: ไม่พบหน้าที่ต้องการ
 search:
