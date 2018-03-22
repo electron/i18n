@@ -6,7 +6,7 @@ Repositori ini dilengkapi dengan aturan linting untuk JavaScript dan C ++ - sert
 
 ## Linting
 
-Untuk memastikan bahwa JavaScript Anda sesuai dengan gaya pengkodean Elektron, jalankan  npm jalankan lint-js </ 0>, yang akan menjalankan <code> standar </ 0> terhadap kedua Elektron itu sendiri sekaligus sebagai bagian tes. Jika Anda menggunakan editor dengan plugin/addon sistem, Anda mungkin ingin menggunakan salah satu dari banyak <a href="https://standardjs.com/#are-there-text-editor-plugins"> StandardJS addons</a> untuk mengetahui pengkodean pelanggaran gaya sebelum Anda pernah melakukan mereka.</p>
+Untuk memastikan bahwa JavaScript Anda sesuai dengan gaya pengkodean Elektron, jalankan ` npm jalankan lint-js </ 0>, yang akan menjalankan <code> standar </ 0> terhadap kedua Elektron itu sendiri sekaligus sebagai bagian tes. Jika Anda menggunakan editor dengan plugin/addon sistem, Anda mungkin ingin menggunakan salah satu dari banyak <a href="https://standardjs.com/#are-there-text-editor-plugins"> StandardJS addons</a> untuk mengetahui pengkodean pelanggaran gaya sebelum Anda pernah melakukan mereka.</p>
 
 <p>Untuk menjalankan <code> standar </ 0> dengan parameter-parameternya, jalankan <code> npm run lint-js - </ 0> lalu diikuti oleh
 argumen yang Anda inginkan untuk melewati ke <code> standar </ 0>.</p>
@@ -26,7 +26,5 @@ aplikasi (surprise!) yang bisa ditemukan di folder <code> spasi </ 0>. Perhatika
 <code> package.json </ 0> dan karena itu dependensinya tidak didefinisikan
 di level atas <code> package.json </ 0>.</p>
 
-<p>Untuk menjalankan hanya sejumlah tes yang dipilih, jalankan <code> npm run test -match = NAMA </ 0>,
-ganti dengan <code> NAMA </ 0> dengan nama file dari tes suite yang anda inginkan
-untuk dijalankan. Sebagai contoh: Jika Anda hanya ingin menjalankan suite IPC, Anda harus menjalankannya
-<code> npm jalankan tes - kecocokan = ipc </ 0>.</p>
+<p>To run only specific tests matching a pattern, run <code>npm run test --
+-g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
