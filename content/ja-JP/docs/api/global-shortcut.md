@@ -59,8 +59,8 @@ accelerator がすでに他のアプリケーションによって使用され�
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+`accelerator` のグローバルショートカットを登録解除します。
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+すべてのグローバルショートカットを登録解除します。
