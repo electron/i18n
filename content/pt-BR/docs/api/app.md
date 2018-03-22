@@ -709,13 +709,13 @@ Retorna `Boolean` - Se a chamada foi realizada com sucesso ou não.
 
 Muda o selo contador do aplicativo atual. Definí-lo como `` irá ocultar o selo.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+No macOS, ele é mostrado no ícone da dock. No Linux, ele só funciona no lançador Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Nota:** O lançador Unity launcher requer a existência de um arquivo `.desktop` para que isso funcione. Para mais detalhes, leia a [Integração com Ambiente de Trabalho](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Retorna `Integer` - O valor sendo atualmente mostrado no selo contador.
 
 ### `app.isUnityRunning()` *Linux*
 
