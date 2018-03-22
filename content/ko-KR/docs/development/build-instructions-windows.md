@@ -5,7 +5,7 @@
 ## 빌드전 요구 사양
 
 * Windows 7 / Server 2008 R2 또는 최신 버전
-* Visual Studio 2015 Update 3 - [VS 2015 커뮤니티 에디션 무료 다운로드](https://www.visualstudio.com/vs/older-downloads/)
+* Visual Studio 2017 - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
