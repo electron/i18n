@@ -144,22 +144,4 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 
 ## Pag-unlad
 
-* [Paraan sa pagkukudigo](development/coding-style.md)
-* [Paggamit ng kumakalat na-format C++ Code](development/clang-format.md)
-* [Pagsusuri](development/testing.md)
-* [Ang Direktoryo ng Istraktura ng "Source Code"](development/source-code-directory-structure.md)
-* [Alituntunin ng mga diperensya ng NW.js (dating ukol sa-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Pagbuo ng Buod ng Sistema](development/build-system-overview.md)
-* [Pagbuo ng mga tagubilin (macOS)](development/build-instructions-osx.md)
-* ["Build Instructions" (Windows)](development/build-instructions-windows.md)
-* ["Build Instructions (Linux)"](development/build-instructions-linux.md)
-* [Mga Tagubilin ng Debug (macOS)](development/debugging-instructions-macos.md)
-* [Mga Tagubilin ng Debug (Windows)](development/debug-instructions-windows.md)
-* [Pag-se-set up ng Simbolo ng Debugger](development/setting-up-symbol-server.md)
-* [Dekumentasyon ng patnubay ng Estilo](styleguide.md)
-* [Makadagdag sa elektron](../CONTRIBUTING.md)
-* [Mga Isyu](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
-* [Pagpapaganda ng Chromium](development/upgrading-chromium.md)
-* [Pagpapaunlad ng Chromium](development/chromium-development.md)
-* [V8 Pag-unlad](development/v8-development.md)
+See <development/README.md>
