@@ -71,7 +71,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+I do międzyplatformowej kompilacji dla celów `arm` lub `ia32`, należy przekazać parametr `--target_arch` do skryptu `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -79,7 +79,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Kompilowanie
 
-Jeśli chcesz zbudować oba `Wydanie` i `Debugowanie` celów:
+Jeśli chcesz zbudować oba `Release` i `Debug` celów:
 
 ```sh
 $ ./script/build.py
