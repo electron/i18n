@@ -38,7 +38,7 @@ async function parseDocs () {
 
   console.time('parsed docs in')
   const markdownFiles = walk.entries(contentDir)
-    .filter(file => file.relativePath.endsWith('.md') && !file.relativePath.includes('README'))
+    .filter(file => file.relativePath.endsWith('.md'))
   console.log(`processing ${markdownFiles.length} files in ${Object.keys(locales).length} locales`)
   let docs = await Promise.all(markdownFiles.map(parseFile))
 
