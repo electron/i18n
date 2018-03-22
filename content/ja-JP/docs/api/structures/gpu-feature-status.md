@@ -6,7 +6,7 @@
 * `flash_stage3d_baseline` String - Flash Stage3D 標準プロファイル
 * `gpu_compositing` String - 合成
 * `multiple_raster_threads` String - 多重ラスタースレッド
-* `native_gpu_memory_buffers` String - ネイティブのGpuMemoryBuffers
+* `native_gpu_memory_buffers` String - ネイティブの GpuMemoryBuffers
 * `rasterization` String - ラスター化
 * `video_decode` String - ビデオデコード
 * `video_encode` String - ビデオエンコード
@@ -22,7 +22,7 @@
 * `unavailable_software` - ソフトウェアのみ。ハードウェアアクセラレーションは使用不可 (黄色)
 * `unavailable_off` - 使用不可 (赤)
 * `unavailable_off_ok` - 使用不可 (黄色)
-* `enabled_readback` - ハードウェアでアクセラレーションされていますが、低パフォーマンス (黄色)
+* `enabled_readback` - ハードウェアアクセラレーションがされていますが、低パフォーマンス (黄色)
 * `enabled_force` - 全てのページでハードウェアアクセラレーションされています (緑)
 * `enabled` - ハードウェアアクセラレーションされています (緑)
 * `enabled_on` - 有効 (緑)
