@@ -4,9 +4,9 @@ The native Node modules are supported by Electron, but since Electron is very li
 
 ## How to install native modules
 
-Three ways to install native modules:
+Trzy sposoby instalacji natywnych modułów:
 
-### Using `npm`
+### Używając `npm`
 
 By setting a few environment variables, you can use `npm` to install modules directly.
 
