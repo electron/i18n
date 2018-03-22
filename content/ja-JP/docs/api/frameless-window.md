@@ -1,12 +1,12 @@
 # フレームレスウィンドウ
 
-> ツールバー、ボーダー、その他 "Chrome" なグラフィックのないウインドウを開きます。
+> ツールバー、境界やその他のグラフィカルな"枠"のないウインドウを開きます。
 
-フレームレスウインドウは、ツールバーのような、ウェブページの部品ではない、[Chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome) のウインドウの部品を持たないウインドウです。 これらは、[`BrowserWindow`](browser-window.md) クラスのオプションです。
+フレームレスウインドウは、Webページの一部ではないツールバーのようなウインドウの部品である [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome) を持たないウインドウです。 これらは、[`BrowserWindow`](browser-window.md) クラスのオプションです。
 
 ## フレームレスウィンドウを作成
 
-フレームレスウインドウを作るには、[BrowserWindow](browser-window.md) の `options` 内で `frame` を `false` にする必要があります。
+フレームレスウインドウを作成するには、[BrowserWindow](browser-window.md) の `options` で `frame` を `false` に設定する必要があります。
 
 ```javascript
 const {BrowserWindow} = require('electron')
