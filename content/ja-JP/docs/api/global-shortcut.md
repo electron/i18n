@@ -1,18 +1,18 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> アプリケーションにキーボードフォーカスがないときにキーボードイベントを検出します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+`globalShortcut` モジュールは、さまざまなショートカットの操作をカスタマイズできるように、グローバルキーボードショートカットをオペレーティングシステムに登録/登録解除できます。
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**注釈:** ショートカットはグローバル――アプリにキーボードフォーカスがない場合でも動作します。 このモジュールは、アプリケーションモジュールの `ready` イベントが発行されるまで使用しないでください。
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // 'CommandOrControl+X' をショートカットリスナーに登録する。
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
@@ -21,22 +21,22 @@ app.on('ready', () => {
     console.log('registration failed')
   }
 
-  // Check whether a shortcut is registered.
+  // ショートカットが登録されているかどうかチェックする。
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
+  // ショートカットを登録解除する。
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  // すべてのショートカットを登録解除する。
   globalShortcut.unregisterAll()
 })
 ```
 
 ## メソッド
 
-The `globalShortcut` module has the following methods:
+`globalShortcut` モジュールには以下のメソッドがあります。
 
 ### `globalShortcut.register(accelerator, callback)`
 
