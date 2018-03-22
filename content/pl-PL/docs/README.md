@@ -63,7 +63,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Lista kontrolna zabezpieczeń](tutorial/security.md#checklist-security-recommendations)
 * [Aktualizacje aplikacji](tutorial/updates.md) 
   * [Wdrażanie aktualizacji serwera](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Wdrażanie aktualizacji do twojej aplikacji](tutorial/updates.md#implementing-updates-in-your-app)
   * [Stosowanie aktualizacji](tutorial/updates.md#applying-updates)
 
 ## Szczegółowe poradniki
@@ -75,7 +75,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
   * [Proxy](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Rozwiązywanie problemów](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [Szczegółowo: Schemat Wersjonowania Electrona](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Stabilizacja gałęzi](tutorial/electron-versioning.md#stabilization-branches)
   * [Wersje beta i poprawki błędów](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
@@ -84,7 +84,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
   * [Używanie Archiwów asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ograniczenia](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Dodawanie rozpakowanych Plików do Archiwów asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Szczegółowo: Używanie Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
 
