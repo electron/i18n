@@ -144,22 +144,4 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 
 ## Développement
 
-* [Style de Codage](development/coding-style.md)
-* [Utilisation du clang-format sur du code C++](development/clang-format.md)
-* [Test](development/testing.md)
-* [Structure du répertoire du Code Source](development/source-code-directory-structure.md)
-* [Différences Techniques de NW.js (anciennement node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Aperçu du Système de compilation](development/build-system-overview.md)
-* [Instructions de Build (macOS)](development/build-instructions-osx.md)
-* [Instructions de Build (Windows)](development/build-instructions-windows.md)
-* [Instructions de Build (Linux)](development/build-instructions-linux.md)
-* [Instructions de Debug (macOS)](development/debugging-instructions-macos.md)
-* [Instructions de Debug (Windows)](development/debug-instructions-windows.md)
-* [Installer un Serveur de Symbol dans le debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Contribuer à Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
-* [Proposer une Evolution: Demande de Pull](development/pull-requests.md)
-* [Mettre à jour Chromium](development/upgrading-chromium.md)
-* [Développement Chromium](development/chromium-development.md)
-* [Développement V8](development/v8-development.md)
+See <development/README.md>
