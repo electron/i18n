@@ -719,13 +719,13 @@ Retorna `Integer` - O valor sendo atualmente mostrado no selo contador.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Retorna `Boolean` - Indica se o ambiente de trabalho atual é o Unity ou não.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `opções` Objeto (opcional) 
-  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+* `options` Object (opcional) 
+  * `path` String (opcional) *Windows* - O caminho do executável a ser comparado. O padrão é `process.execPath`.
+  * `args` String[] (opcional) *Windows* - Os argumentos de linha de comando a serem comparados. O padrão é um array vazio.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
