@@ -144,22 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## Pengembangan
 
-* [Model coding](development/coding-style.md)
-* [Menggunakan dentang-format pada kode C++ Code](development/clang-format.md)
-* [Pengujian](development/testing.md)
-* [Struktur direktori sumber kode](development/source-code-directory-structure.md)
-* [Perbedaan teknis untuk NW.js (sebelumnya node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Membangun sistem Tinjauan](development/build-system-overview.md)
-* [Membangun petunjuk (macOS)](development/build-instructions-osx.md)
-* [Membangun petunjuk (Windows)](development/build-instructions-windows.md)
-* [Membangun petunjuk (Linux)](development/build-instructions-linux.md)
-* [Debug petunjuk (macOS)](development/debugging-instructions-macos.md)
-* [Debug petunjuk (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Server simbol di debugger](development/setting-up-symbol-server.md)
-* [Dokumentasi Styleguide](styleguide.md)
-* [berkontribusi ke electron](../CONTRIBUTING.md)
-* [Isu](development/issues.md)
-* [Ajukan Permintaan](development/pull-requests.md)
-* [Mengupgrade Chromium](development/upgrading-chromium.md)
-* [Kromium pengembangan](development/chromium-development.md)
-* [Pengembangan V8](development/v8-development.md)
+See <development/README.md>

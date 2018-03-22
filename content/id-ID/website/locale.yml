@@ -1,6 +1,7 @@
 tagline: Membangun lintas platform aplikasi desktop dengan JavaScript, HTML dan CSS
 nav:
   docs: Dokumentasi
+  donors: Donors
   blog: Blog
   community: Komunitas
   apps: Aplikasi
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron adalah kerangka kerja open source untuk memudahkan pengujian integrasi untuk aplikasi Elektron Anda. Dibangun di atas ChromeDriver dan WebDriverIO.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: Halaman tidak ditemukan.
 search:

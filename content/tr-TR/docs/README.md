@@ -17,7 +17,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Bir Editör Seçme](tutorial/development-environment.md#a-good-editor)
 * [İlk Uygulamanızı Oluşturma](tutorial/first-app.md) 
   * [Electron'u Yükleme](tutorial/first-app.md#installing-electron)
-  * [Kabukta Electron Geliştirme](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Özetçe Elektron için Geliştirme](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Uygulamanızı Çalıştırma](tutorial/first-app.md#running-your-app)
 * [Demirbaşlar ve KSA'lar](tutorial/boilerplates-and-clis.md) 
   * [Demirbaş KSA'a Karşı](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
@@ -144,22 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## Geliştirme
 
-* [Kodlama Stili](development/coding-style.md)
-* [C++ Kodunda Clang-Format Kullanma](development/clang-format.md)
-* [Test Etme](development/testing.md)
-* [Kaynak Kodu Dizin Yapısı](development/source-code-directory-structure.md)
-* [NW.js (eski adı node-webkit)'le Teknik Farklılıkları](development/atom-shell-vs-node-webkit.md)
-* [Sistem Genel Bakışı Oluşturma](development/build-system-overview.md)
-* [İnşaa Talimatları (macOS)](development/build-instructions-osx.md)
-* [İnşaa Talimatları (Windows)](development/build-instructions-windows.md)
-* [İnşaa Talimatları (Linux)](development/build-instructions-linux.md)
-* [Hata Ayıklama Talimatları (macOS)](development/debugging-instructions-macos.md)
-* [Hata Ayıklama Talimatları (Windows)](development/debug-instructions-windows.md)
-* [Hata Ayıklayıcı'daki Sembol Sunucu Kurulumu](development/setting-up-symbol-server.md)
-* [Stil Kılavuz Dokümantasyonu](styleguide.md)
-* [Elektrona Katkıda Bulunmak](../CONTRIBUTING.md)
-* [Sorunlar](development/issues.md)
-* [Değişiklik İsteği](development/pull-requests.md)
-* [Chromium yükseltiliyor](development/upgrading-chromium.md)
-* [Chromium Geliştirme](development/chromium-development.md)
-* [V8 Geliştirme](development/v8-development.md)
+See <development/README.md>

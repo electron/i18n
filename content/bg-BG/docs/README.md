@@ -144,22 +144,4 @@
 
 ## Разработка
 
-* [Стандарти за писане на код](development/coding-style.md)
-* [Как да използваме clang форматиране при работа със C++ код](development/clang-format.md)
-* [Тестване](development/testing.md)
-* [Структура на проекта](development/source-code-directory-structure.md)
-* [Технически разлики с NW.js (познато преди като node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Обзор на системата за изграждане](development/build-system-overview.md)
-* [Инструкции за изграждане (macOS)](development/build-instructions-osx.md)
-* [Инструкции за изграждане (Windows)](development/build-instructions-windows.md)
-* [Инструкции за изграждане (Linux)](development/build-instructions-linux.md)
-* [Инструкции за намиране на грешки (macOS)](development/debugging-instructions-macos.md)
-* [Инструкции за намиране на грешки (Windows)](development/debug-instructions-windows.md)
-* [Настройване на Symbol сървър при търсене на грешки](development/setting-up-symbol-server.md)
-* [Стилове за писане на Electron документацията](styleguide.md)
-* [Допринасяне към Електрон](../CONTRIBUTING.md)
-* [Проблеми](development/issues.md)
-* [Заявки за сливане](development/pull-requests.md)
-* [Обновяване на Chromium](development/upgrading-chromium.md)
-* [Разработка с Chromium](development/chromium-development.md)
-* [Разработка на V8](development/v8-development.md)
+See <development/README.md>

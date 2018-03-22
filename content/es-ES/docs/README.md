@@ -144,22 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## Desarrollo
 
-* [Estilo de código](development/coding-style.md)
-* [Usar clang-format en código C++](development/clang-format.md)
-* [Pruebas](development/testing.md)
-* [Estructura del directorio de código fuente](development/source-code-directory-structure.md)
-* [Diferencias técnicas con NW.js (antes node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Resumen de compilación de sistemas](development/build-system-overview.md)
-* [Instrucciones de compilación (macOS)](development/build-instructions-osx.md)
-* [Instrucciones de compilación (Windows)](development/build-instructions-windows.md)
-* [Instrucciones de compilación (Linux)](development/build-instructions-linux.md)
-* [Instrucciones de depuración (macOS)](development/debugging-instructions-macos.md)
-* [Instrucciones de depuración (Windows)](development/debug-instructions-windows.md)
-* [Configurando el Symbol Server en el depurador](development/setting-up-symbol-server.md)
-* [Documentación guía de estilos](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
-* [Problemas](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
-* [Actualizando Chomium](development/upgrading-chromium.md)
-* [Desarrollo de Chromium](development/chromium-development.md)
-* [Desarrollo de V8](development/v8-development.md)
+See <development/README.md>

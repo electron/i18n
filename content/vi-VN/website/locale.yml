@@ -1,6 +1,7 @@
 tagline: Xây dựng ứng dụng máy tính đa nền tảng với HTML, CSS và JavaScript
 nav:
   docs: Tài liệu
+  donors: Donors
   blog: Blog
   community: Cộng đồng
   apps: Ứng dụng
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: Không tìm thấy trang.
 search:

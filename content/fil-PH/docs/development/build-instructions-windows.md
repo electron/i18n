@@ -5,7 +5,7 @@ Sundin ang mga sumusunod na patnubuay para sa pagbuo ng Elektron sa "Windows".
 ## Mga Pangunahing Kailangan
 
 * Windows 7 / Server 2008 R2 o mas mataas pa
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
+* Visual Studio 2017 - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -17,7 +17,7 @@ Ang pagbuo ng Elektron ay nangyayari lamang sa "command-line scripts" at hindi m
 
 **Tandaan:** Kahit pa ang "Visual Studio" ay 'di ginagamit sa pagbuo ng Elektron, ito ay **kailangan** pa rin upang magamit ang kinakailangan na "toolchains" galing dito.
 
-## Pagkuha ng code
+## Ang Pagkuha ng "Code"
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -25,22 +25,22 @@ $ git clone https://github.com/electron/electron.git
 
 ## "Bootstrapping"
 
-Ang bootstrap script ay kinukuha (download) ang lahat ng mahahalagang dependencies at lumilikha ng pagbuo ng proyekto sa files. Pansinin ang ginagamit na `ninja` para sa pagbuo ng "Electron", ay humahadlang upang walang proyekto ng "Visual Studio" ang mabuo dito.
+Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Pansinin ang ginagamit na `ninja` para sa pagbuo ng "Electron", ay humahadlang upang walang proyekto ng "Visual Studio" ang mabuo dito.
 
 ```powershell
 $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Pagbuo
+## Ang Pagbubuo
 
-Ang pagbuo ng parehong pinupuntirya na "Release" at "Debug":
+Bumuo pareho ng Release at Debug:
 
 ```powershell
 $ python script\build.py
 ```
 
-Maaari rin naman na buuin lamang ang pinupuntirya na "Debug":
+Maaari rin namang bumuo lamang ng Debug:
 
 ```powershell
 $ python script\build.py -c D
@@ -86,7 +86,7 @@ Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo 
 
 <p>Tingnan ang <a href="build-system-overview.md#tests"> Buod ng Pagbuo ng Sistema: Mga Pagsusuri </a></p>
 
-<h2>Paghahanap ng Problema</h2>
+<h2>Paghahanap ng ProblemaPaghahanap ng Problema</h2>
 
 <h3>"Command xxxx" ay 'di mahanap</h3>
 

@@ -1,6 +1,7 @@
 tagline: Створюйте прикладні програми з JavaScript, HTML та CSS для будь-якої платформи
 nav:
   docs: Документація
+  donors: Donors
   blog: Блог
   community: Спільнота
   apps: Застосунки
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron - це фреймворк з відкритим кодом для полегшеного написання інтеграційних тестів для вашого застосунку Electron. Цей фреймворк раздробленный на базі ChromeDriver та WebDriverIO.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: Сторінку не знайдено.
 search:

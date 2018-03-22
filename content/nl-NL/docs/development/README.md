@@ -1,0 +1,26 @@
+# Developing Electron
+
+These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+
+* [Gedragscode](../../CODE_OF_CONDUCT.md)
+* [Contributing to Electron](../../CONTRIBUTING.md)
+* [Issues](issues.md)
+* [Pull Requests](pull-requests.md)
+* [Documentatie Styleguide](styleguide.md)
+* [Bron Code Directory-structuur](source-code-directory-structure.md)
+* [Codeerstijl](coding-style.md)
+* [Het gebruik van clang-format op C++ Code](clang-format.md)
+* [Bouwen Systeemoverzicht](build-system-overview.md)
+* [Bouwen van instructies (macOS)](build-instructions-osx.md)
+* [Bouwen van instructies (Windows)](build-instructions-windows.md)
+* [Bouwen van instructies (Linux)](build-instructions-linux.md)
+* [Chromium ontwikkeling](chromium-development.md)
+* [V8 ontwikkeling](v8-development.md)
+* [Testen](testing.md)
+* [Debugging on Windows](debug-instructions-windows.md)
+* [Debugging on macOS](debugging-instructions-macos.md)
+* [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
+* [Upgraden Chromium](upgrading-chromium.md)
+* [Upgrading Crashpad](upgrading-crashpad.md)
+* [Upgrading Node](upgrading-node.md)
+* [Releasing](releasing.md)

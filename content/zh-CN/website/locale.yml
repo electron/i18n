@@ -1,6 +1,7 @@
 tagline: 使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用
 nav:
   docs: 文档
+  donors: Donors
   blog: 博客
   community: 社区
   apps: 应用
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron 是一个开放源码的框架, 便于为您的Electron应用程序编写集成测试. 其建在 ChromeDriver 和 WebDriverIO 的顶部。
+  '/donors':
+    title: Donors
 _404:
   page_not_found: 页面找不到了。
 search:

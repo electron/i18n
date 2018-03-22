@@ -1,6 +1,7 @@
 tagline: Maak cross-platform desktop apps met JavaScript, HTML en CSS
 nav:
   docs: Documentatie
+  donors: Donors
   blog: Blog
   community: Gemeenschap
   apps: Apps
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron is een open source framework voor het gemakkelijk schrijven van integraties tests voor uw elektron app. Gebouwd op basis van ChromeDriver en WebDriverIO.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: Pagina niet gevonden.
 search:

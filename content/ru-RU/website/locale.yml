@@ -1,6 +1,7 @@
 tagline: Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS
 nav:
   docs: Документация
+  donors: Donors
   blog: Блог
   community: Сообщество
   apps: Приложения
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Спектрон является фреймворком с открытым исходным кодом для легкого написания, интеграции тестов для вашего приложения Electron. Построен на вершине ChromeDriver и WebDriverIO.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: Страница не найдена.
 search:

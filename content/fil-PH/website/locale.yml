@@ -1,6 +1,7 @@
 tagline: Bumuo ng platform desktop na mga app na may JavaScript, HTML, at CSS
 nav:
   docs: Docs
+  donors: Donors
   blog: Blog
   community: Komonidad
   apps: Mga App
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Ang Spectron ay isang open source framework para mapadaling maisulat ang mga integrasyon na mga test sa iyong Electron app. Binuo sa tuktok ng ChromeDriver at WebDriverIO.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: Hindi matagpuan ang pahina.
 search:

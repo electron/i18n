@@ -1,6 +1,7 @@
 tagline: Plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS entwickeln
 nav:
   docs: Dokumentation
+  donors: Donors
   blog: Blog
   community: Community
   apps: Apps
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron ist ein Open-Source-Framework um sehr einfach Integrationstests für deine Electron-App zu schreiben. Das Framework beruht auf ChromeDriver und WebDriverIO.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: Seite nicht gefunden.
 search:

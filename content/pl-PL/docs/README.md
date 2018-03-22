@@ -144,22 +144,4 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
 ## Rozwój
 
-* [Styl Kodowania](development/coding-style.md)
-* [Używanie formatu clang w kodzie C++](development/clang-format.md)
-* [Testowanie](development/testing.md)
-* [Struktura Ścieżki Kodu Źródłowego](development/source-code-directory-structure.md)
-* [Techniczne Różnice wobec NW.js (wcześniej node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Przegląd Systemu Budowania](development/build-system-overview.md)
-* [Instrukcje Budowania (macOS)](development/build-instructions-osx.md)
-* [Instrukcje Budowania (Windows)](development/build-instructions-windows.md)
-* [Instrukcje Budowania (Linux)](development/build-instructions-linux.md)
-* [Instrukcje Debugowania (macOS)](development/debugging-instructions-macos.md)
-* [Instrukcje Debugowania (Windows)](development/debug-instructions-windows.md)
-* [Ustawianie Serwera Symboli w Debuggerze](development/setting-up-symbol-server.md)
-* [Formatowanie Dokumentacji](styleguide.md)
-* [Przyczyń się dla Electron'a](../CONTRIBUTING.md)
-* [Zgłoszenia](development/issues.md)
-* [Oczekujące zmiany](development/pull-requests.md)
-* [Aktualizacja Chromium](development/upgrading-chromium.md)
-* [Programowanie Chrome](development/chromium-development.md)
-* [Rozwój V8](development/v8-development.md)
+See <development/README.md>

@@ -1,0 +1,26 @@
+# Developing Electron
+
+These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+
+* [Quy tắc ứng xử](../../CODE_OF_CONDUCT.md)
+* [Contributing to Electron](../../CONTRIBUTING.md)
+* [Issues](issues.md)
+* [Pull Requests](pull-requests.md)
+* [Tài liệu về Styleguide](styleguide.md)
+* [Cấu trúc cây thư mục của Source Code](source-code-directory-structure.md)
+* [Phong cách lập trình](coding-style.md)
+* [Sử dụng clang-format trên Code C++](clang-format.md)
+* [Tổng qua về Hệ thống cần thiết để Build](build-system-overview.md)
+* [Hướng dẫn build (macOS)](build-instructions-osx.md)
+* [Hướng dẫn build (Windows)](build-instructions-windows.md)
+* [Hướng dẫn build (Linux)](build-instructions-linux.md)
+* [Chromium Development](chromium-development.md)
+* [V8 Development](v8-development.md)
+* [Kiểm thử](testing.md)
+* [Gỡ lỗi trên Windows](debug-instructions-windows.md)
+* [Debugging on macOS](debugging-instructions-macos.md)
+* [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
+* [Nâng cấp Chromium](upgrading-chromium.md)
+* [Upgrading Crashpad](upgrading-crashpad.md)
+* [Upgrading Node](upgrading-node.md)
+* [Phát hành](releasing.md)

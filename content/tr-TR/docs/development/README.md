@@ -1,0 +1,26 @@
+# Developing Electron
+
+These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+
+* [Davranış Kodu](../../CODE_OF_CONDUCT.md)
+* [Elektrona Katkıda Bulunmak](../../CONTRIBUTING.md)
+* [Sorunlar](issues.md)
+* [Değişiklik İsteği](pull-requests.md)
+* [Stil Kılavuz Dokümantasyonu](styleguide.md)
+* [Kaynak Kodu Dizin Yapısı](source-code-directory-structure.md)
+* [Kodlama Stili](coding-style.md)
+* [C++ Kodunda Clang-Format Kullanma](clang-format.md)
+* [Sistem Genel Bakışı Oluşturma](build-system-overview.md)
+* [İnşaa Talimatları (macOS)](build-instructions-osx.md)
+* [İnşaa Talimatları (Windows)](build-instructions-windows.md)
+* [İnşaa Talimatları (Linux)](build-instructions-linux.md)
+* [Chromium Geliştirme](chromium-development.md)
+* [V8 Geliştirme](v8-development.md)
+* [Test Etme](testing.md)
+* [Windowsta hata ayıklama](debug-instructions-windows.md)
+* [macOs'da Hata Ayıklama](debugging-instructions-macos.md)
+* [Hata Ayıklayıcıda Sembol Sunucusunu Kurma](setting-up-symbol-server.md)
+* [Chromium yükseltiliyor](upgrading-chromium.md)
+* [Crashpad güncelleniyor](upgrading-crashpad.md)
+* [Node Yükseltmesi](upgrading-node.md)
+* [Yayınlanma](releasing.md)

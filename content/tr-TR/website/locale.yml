@@ -1,6 +1,7 @@
 tagline: JavaScript, HTML ve CSS ile platformlar arası masaüstü uygulamaları geliştirin
 nav:
   docs: Dokümanlar
+  donors: Donors
   blog: Blog
   community: Topluluk
   apps: Uygulamalar
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron, Electron uygulamanıza, kolaylıkla test entegrasyonu yazılmasını sağlayan, açık kaynak kodlu kütüphanedir. ChromeDriver ve WebDriverIO ya geliştirilmiştir.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: Sayfa bulunamadı.
 search:
