@@ -45,13 +45,13 @@ Devuelve:
 
 Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamar a `event.preventDefault()` evitará el comportamiento por defecto, que es cerrar la aplicación.
 
-**Nota:** Si aplicación cerrar fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitida *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
+**Nota:** Si el cierre de la aplicación fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitido *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
 
 ### Evento: 'will-quit'
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 
 Emitido cuando todas las ventanas han sido cerradas y la aplicación se cerrará. Llamando `event.preventDefault()` se evitará el comportamiento por defecto, que es cerrar la aplicación.
 
@@ -61,19 +61,19 @@ Consulte la descripción del evento `window-all-closed` por las diferencias con 
 
 Devuelve:
 
-* `event` Evento
-* `exitCode` Íntegro
+* `event` Event
+* `exitCode` Integer
 
-Emitido cuando la aplicación está saliendo.
+Emitido cuando la aplicación se está cerrando.
 
 ### Evento: 'open-file' *macOS*
 
 Devuelve:
 
 * `event` Event
-* `path` Cadena
+* `path` String
 
-Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y que el sistema operativo quiere reusar que la aplicación abra el archivo. `open-file` también es emitido cuando el archivo es arrojado dentro del dock y la aplicación no está corriendo todavía. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para controlar este caso (incluso antes de que el evento `ready` esté emitido).
+Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y el sistema operativo quiere reusar la aplicación para abrir el archivo. `open-file` también es emitido cuando el archivo es arrojado dentro del dock y la aplicación no está corriendo todavía. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para controlar este caso (incluso antes de que el evento `ready` esté emitido).
 
 Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
