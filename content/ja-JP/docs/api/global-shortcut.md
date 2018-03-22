@@ -45,13 +45,13 @@ app.on('will-quit', () => {
 
 `accelerator` のグローバルショートカットを登録します。登録されたショートカットがユーザによって押されたときに `callbback` が呼ばれます。
 
-accelerator がすでに他のアプリケーションによって使用されている場合、この呼び出しは音沙汰無く失敗します。 This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+accelerator がすでに他のアプリケーションによって使用されている場合、この呼び出しは音沙汰無く失敗します。 この動作は、アプリケーションがグローバルショートカットのために競合しないようにするため、オペレーティングシステムが意図しています。
 
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+戻り値 `Boolean` - このアプリケーションが `accelerator` を登録したかどうか。
 
 When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
