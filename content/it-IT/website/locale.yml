@@ -1,7 +1,7 @@
 tagline: Costruisci applicazioni desktop multipiattaforma in JavaScript, HTML e CSS
 nav:
   docs: Documentazione
-  donors: Donors
+  donors: Donatori
   blog: Blog
   community: Community
   apps: Applicazioni
@@ -103,16 +103,16 @@ pages:
     description: Applicazioni sviluppate con Electron
   '/docs':
     title: Documentazione
-    description: Guides and API reference documentation for the latest Electron release
+    description: Guide e documentazioni sulle API di riferimento per l'ultima versione di Electron
   '/docs/all':
     title: Tutti i documenti di Electron!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: Tutte le guide e le documentazioni sulle API di Electron, in una singola pagina.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: Documentazioni sulle API di riferimento per l'ultima versione di Electron
   '/docs/development':
     title: Sviluppo
-    description: Developing with Electron
+    description: Sviluppare con Electron
   '/docs/tutorial':
     title: Tutorial
     description: Guide e tutorial per l'ultima versione di Electron
@@ -137,11 +137,11 @@ pages:
     title: Spectron
     description: Spectron è un framework open source per scrivere facilmente test di integrazione per la tua app Electron. Costruito sulla base di ChromeDriver e WebDriverIO.
   '/donors':
-    title: Donors
+    title: Donatori
 _404:
   page_not_found: Pagina non trovata.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
+  description_all: Cerca le risorse per Electron dalla <a href="/search/docs">documentazione</a>, dai <a href="/search/npmPackages">pacchetti npm</a> e dalle <a href="/search/repos">repository su GitHub</a>.
   description_docs: Trova le risorse di Electron dalla documentazione.
   description_npm: Trova le risorse di Electron dai pacchetti npm.
   description_repos: Trova le risorse di Electron dai repository GitHub.
