@@ -26,7 +26,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Architektura aplikacji](tutorial/application-architecture.md) 
-  * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Proces główny i renderer](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Używanie z API Electrona](tutorial/application-architecture.md#using-electron-apis)
   * [Używanie z API Node.js](tutorial/application-architecture.md#using-node.js-apis)
   * [Używanie Natywnych Modułów Node.js](tutorial/using-native-node-modules.md)
