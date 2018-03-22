@@ -58,4 +58,3 @@ parseGlossaryDoc().then(results => {
   fs.writeFileSync(glossaryFile, JSON.stringify(glossary, null, 2))
   console.log(`Wrote ${glossaryFile} with ${glossary.length} entries.`)
 })
-

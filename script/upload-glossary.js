@@ -3,7 +3,6 @@
 require('dotenv-safe').load()
 
 const fs = require('fs')
-const path = require('path')
 const {post} = require('got')
 const FormData = require('form-data')
 const tmp = require('tmp')
@@ -15,7 +14,7 @@ const form = new FormData()
 
 // make strings safe for writing to a CSV file
 function csvify (string) {
-  return '"' + string.replace(/\"/g, '\"') + '"'
+  return '"' + string.replace(/"/g, '"') + '"'
 }
 
 // Crowdin expects CSV files
