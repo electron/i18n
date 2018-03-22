@@ -43,7 +43,7 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Това събитие обикновено е излъчено след събитието `did-finish-load`, но за страници с много външни ресурси, то може да бъде излъчено преди събитието `did-finish-load`.
 
 ### Setting `backgroundColor`
 
