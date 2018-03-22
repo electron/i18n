@@ -4,7 +4,7 @@ Electron umożliwia ci tworzenie aplikacji komputerowych przy użyciu czystego J
 
 Stary dokument "Szybki start", który kiedyś tu był, został podzielony na dwa dokumenty:
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* Aby sprawdzić, jak prosto jest Electron zbudowany, zobacz [Pisanie Swojej Pierwszej Aplikacji Używając Electron](./first-app.md)
+* Aby sprawdzić, architekturę procesu, zobacz [Proces główny i renderer](./application-architecture.md#main-and-renderer-processes).
 
-If you just came here to learn about Electron, check out the [official guides](../README.md).
+Jeśli przyszedłeś tu, aby nauczyć się o Electronie, zobacz [oficjalne poradniki](../README.md).
