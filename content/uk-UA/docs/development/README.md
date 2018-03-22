@@ -1,0 +1,26 @@
+# Developing Electron
+
+These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+
+* [Норми поведінки](../../CODE_OF_CONDUCT.md)
+* [Доповнення до Electron](../../CONTRIBUTING.md)
+* [Проблеми](issues.md)
+* [Пул Реквести](pull-requests.md)
+* [Стиль документації](styleguide.md)
+* [Структура Каталогу з Вихідним Кодом](source-code-directory-structure.md)
+* [Стиль Коду](coding-style.md)
+* [Використання clang-format в C++ Коді](clang-format.md)
+* [Огляд Системи Збірки](build-system-overview.md)
+* [Інструкція Збірки (macOS)](build-instructions-osx.md)
+* [Інструкція Збірки (Windows)](build-instructions-windows.md)
+* [Інструкція Збірки (Linux)](build-instructions-linux.md)
+* [Розробка Chromium](chromium-development.md)
+* [Розробка V8](v8-development.md)
+* [Тестування](testing.md)
+* [Debugging on Windows](debug-instructions-windows.md)
+* [Debugging on macOS](debugging-instructions-macos.md)
+* [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
+* [Оновлення Chromium](upgrading-chromium.md)
+* [Upgrading Crashpad](upgrading-crashpad.md)
+* [Upgrading Node](upgrading-node.md)
+* [Releasing](releasing.md)
