@@ -1,14 +1,14 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Създава и контролира браузър прозорци.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
 ```javascript
 // В процеса main.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// Или използвайте `remote` от процеса renderer.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Създава и контролира браузър прозорци.
 
 Процеса: [основни](../glossary.md#main-process)
 
@@ -503,7 +503,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Инстантни методи
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
