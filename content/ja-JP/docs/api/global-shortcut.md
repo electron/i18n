@@ -43,9 +43,9 @@ app.on('will-quit', () => {
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+`accelerator` のグローバルショートカットを登録します。登録されたショートカットがユーザによって押されたときに `callbback` が呼ばれます。
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+accelerator がすでに他のアプリケーションによって使用されている場合、この呼び出しは音沙汰無く失敗します。 This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
 ### `globalShortcut.isRegistered(accelerator)`
 
