@@ -1,6 +1,7 @@
 tagline: ساخت برنامه‌های چندسکویی دسکتاپ با JavaScript، HTML، و CSS
 nav:
   docs: مستندات
+  donors: Donors
   blog: وبلاگ
   community: جامعه
   apps: برنامه‌ها
@@ -135,6 +136,8 @@ pages:
   '/spectron':
     title: اسپکترون
     description: Spectron یک چارچوب متن باز برای نوشتن تست های یک پارچه برای برنامه ی الکترون شما است. Spectron بر پایه ی ChromeDriver و WebDriverIO ساخته شده است.
+  '/donors':
+    title: Donors
 _404:
   page_not_found: صفحه یافت نشد.
 search:
