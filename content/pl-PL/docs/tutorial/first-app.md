@@ -2,7 +2,7 @@
 
 Electron umożliwia ci tworzenie aplikacji komputerowych przy użyciu czystego JavaScript przez zapewnienie środowiska wykonawczego z bogatymi natywnymi interfejsami API (systemu operacyjnego). Możesz to sobie wyobrazić jako odmiana środowiska wykonawczego Node.js, która jest skupiona na programach komputerowych zamiast na serwerach sieci web.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Zamiast tego Electron używa stron internetowych jako GUI, więc możesz też myśleć o tym jak o minimalnej przeglądarce Chromium, sterowanej przez JavaScript.
+To nie znaczy, że Electron jest powiązaniem JavaScript z bibliotekami graficznego interfejsu użytkownika (GUI). Zamiast tego Electron używa stron internetowych jako GUI, więc możesz też myśleć o tym jak o minimalnej przeglądarce Chromium, sterowanej przez JavaScript.
 
 **Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
