@@ -211,4 +211,4 @@ Tytuł może być `###` lub `####`- poziomowy zależnie od tego, czy jest to met
 
 ## Tłumaczenia dokumentacji
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Zobacz [electron/i18n](https://github.com/electron/i18n#readme)
