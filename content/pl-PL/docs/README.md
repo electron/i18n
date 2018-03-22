@@ -144,4 +144,4 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
 ## Rozwój
 
-See <development/README.md>
+Zobacz <development/README.md>
