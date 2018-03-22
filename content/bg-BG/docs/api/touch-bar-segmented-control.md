@@ -26,7 +26,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
     * `selectedIndex` Integer - The index of the segment the user selected.
     * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
 
-### Instance Properties
+### Инстантни свойства
 
 The following properties are available on instances of `TouchBarSegmentedControl`:
 
