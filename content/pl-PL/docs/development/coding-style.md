@@ -4,7 +4,7 @@ To są wytyczne dotyczące stylów kodowania w Electron.
 
 You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
 
-## General Code
+## Ogólny kod
 
 * End files with a newline.
 * Place requires in the following order: 
