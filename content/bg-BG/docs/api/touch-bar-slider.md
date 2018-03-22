@@ -14,7 +14,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `change` Function (optional) - Function to call when the slider is changed. 
     * `newValue` Number - The value that the user selected on the Slider
 
-### Instance Properties
+### Инстантни свойства
 
 The following properties are available on instances of `TouchBarSlider`:
 
