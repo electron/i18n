@@ -64,12 +64,12 @@ ElectronがASARファイルから読み取るとき、読み取りオフセッ�
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Electron がクラッシュすると、コンソールへスタックトレースを出力するようにします。
+Electronがクラッシュすると、コンソールにスタックトレースを出力します。
 
-`crashReporter` を起動した場合、この環境変数は機能しません。
+`crashReporter` が開始されている場合、この環境変数は機能しません。
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Electron がクラッシュすると、Windows のクラッシュダイアログを表示するようにします。
+Electronがクラッシュすると、Windowsのクラッシュダイアログを表示します。
 
-`crashReporter` を起動した場合、この環境変数は機能しません。
+`crashReporter` が開始されている場合、この環境変数は機能しません。
