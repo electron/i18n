@@ -529,7 +529,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
-### Instance Methods
+### Инстантни методи
 
 #### `contents.loadURL(url[, options])`
 
