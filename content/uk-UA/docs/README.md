@@ -144,22 +144,4 @@
 
 ## Розробка
 
-* [Стиль Коду](development/coding-style.md)
-* [Використання clang-format в C++ Коді](development/clang-format.md)
-* [Тестування](development/testing.md)
-* [Структура Каталогу з Вихідним Кодом](development/source-code-directory-structure.md)
-* [Технічні відмінності NW.js (раніше node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Огляд Системи Збірки](development/build-system-overview.md)
-* [Інструкція Збірки (macOS)](development/build-instructions-osx.md)
-* [Інструкція Збірки (Windows)](development/build-instructions-windows.md)
-* [Інструкція Збірки (Linux)](development/build-instructions-linux.md)
-* [Інструкція Відлагодження (macOS)](development/debugging-instructions-macos.md)
-* [Інструкція Відлагодження (Windows)](development/debug-instructions-windows.md)
-* [Налаштування Серверу Символів в Налагоджувачі](development/setting-up-symbol-server.md)
-* [Стиль документації](styleguide.md)
-* [Доповнення до Electron](../CONTRIBUTING.md)
-* [Проблеми](development/issues.md)
-* [Пул Реквести](development/pull-requests.md)
-* [Оновлення Chromium](development/upgrading-chromium.md)
-* [Розробка Chromium](development/chromium-development.md)
-* [Розробка V8](development/v8-development.md)
+See <development/README.md>
