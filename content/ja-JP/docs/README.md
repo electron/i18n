@@ -58,7 +58,7 @@
   * [Snapcraft](tutorial/snapcraft.md)
 * [Application Security](tutorial/security.md) 
   * [セキュリティ問題の報告](tutorial/security.md#reporting-security-issues)
-  * [Chromiumのセキュリティ問題とアップグレード](tutorial/security.md#chromium-security-issues-and-upgrades)
+  * [Chromium のセキュリティ問題とアップグレード](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron のセキュリティ警告](tutorial/security.md#electron-security-warnings)
   * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
 * [Application Updates](tutorial/updates.md) 
@@ -144,22 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## 開発
 
-* [コーディング スタイル](development/coding-style.md)
-* [C++のコードにclang-formatを使用する](development/clang-format.md)
-* [テスト](development/testing.md)
-* [ソースコードのディレクトリ構造](development/source-code-directory-structure.md)
-* [NW.js(node-webkit) との技術的違い](development/atom-shell-vs-node-webkit.md)
-* [ビルドシステムの概要](development/build-system-overview.md)
-* [ビルド手順 (macOS)](development/build-instructions-osx.md)
-* [ビルド手順 (Windows)](development/build-instructions-windows.md)
-* [ビルド手順 (Linux)](development/build-instructions-linux.md)
-* [デバッグ手順 (macOS)](development/debugging-instructions-macos.md)
-* [デバッグ手順 (Windows)](development/debug-instructions-windows.md)
-* [デバッガーでシンボルサーバーを設定](development/setting-up-symbol-server.md)
-* [ドキュメントガイド](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
-* [Chromiumをアップグレードする](development/upgrading-chromium.md)
-* [Chromium開発](development/chromium-development.md)
-* [V8 開発](development/v8-development.md)
+See <development/README.md>
