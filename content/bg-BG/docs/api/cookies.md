@@ -47,7 +47,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods
+### Инстантни методи
 
 The following methods are available on instances of `Cookies`:
 
