@@ -4,7 +4,7 @@ Follow the guidelines below for building Electron on Linux.
 
 ## Wymagania
 
-* At least 25GB disk space and 8GB RAM.
+* Co najmniej 25GB pamięci dyskowej i 8GB pamięci RAM.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 * Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Spróbuj repozytoriów takich jak [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 lub nowszy.
@@ -105,7 +105,7 @@ After building is done, you can find the `electron` debug binary under `out/D`.
 Aby wyczyścić pliki kompilacji:
 
 ```sh
-$ npm działa bez problemu
+$ npm run clean
 ```
 
 Aby oczyścić tylko `z` i `dist`katalogów:
@@ -169,7 +169,7 @@ $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### Używanie kompilatorów innych niż `clang`
 
 To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
