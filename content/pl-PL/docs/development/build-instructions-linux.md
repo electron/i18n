@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Na Fedora, zainstalować należy poniższe biblioteki:
+Na Fedorze, zainstalować należy poniższe biblioteki:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
@@ -55,16 +55,16 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Cross compilation
+### Kompilacja międzyplatformowa
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Jeśli chcesz zbudować dla `arm` należy również zainstalować następujące zależności:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Podobnie dla `arm64`, zainstalować następujące elementy:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
@@ -108,7 +108,7 @@ Aby wyczyścić pliki kompilacji:
 $ npm run clean
 ```
 
-Aby oczyścić tylko `z` i `dist`katalogów:
+Aby oczyścić tylko `z` i `dist` katalogów:
 
 ```sh
 $ npm run clean-build
@@ -120,7 +120,7 @@ $ npm run clean-build
 
 ### Wystąpił błąd podczas ładowania biblioteki współdzielenia: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Prekompilowany `clang` będzie próbował powiązać z `libtinfo.so.5`. W zależności od architektury hosta, dowiązanie symboliczne do odpowiednich `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
