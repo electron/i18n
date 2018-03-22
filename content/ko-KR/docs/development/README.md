@@ -1,0 +1,26 @@
+# Developing Electron
+
+These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+
+* [윤리 강령](../../CODE_OF_CONDUCT.md)
+* [Electron에 기여하기](../../CONTRIBUTING.md)
+* [이슈](issues.md)
+* [풀 리퀘스트](pull-requests.md)
+* [문서 스타일 안내](styleguide.md)
+* [소스 코드 디렉토리 구조](source-code-directory-structure.md)
+* [코딩 스타일](coding-style.md)
+* [C++ 코드에서 clang 형식 사용하기](clang-format.md)
+* [빌드 시스템 개요](build-system-overview.md)
+* [빌드 명령 (macOS)](build-instructions-osx.md)
+* [빌드 명령 (윈도)](build-instructions-windows.md)
+* [빌드 명령 (Linux)](build-instructions-linux.md)
+* [크롬 개발](chromium-development.md)
+* [V8 개발](v8-development.md)
+* [테스트](testing.md)
+* [Windows에서 Electron 디버깅하기](debug-instructions-windows.md)
+* [MacOS 에서 디버깅하기](debugging-instructions-macos.md)
+* [디버거에서 디버그 심볼 서버 설정](setting-up-symbol-server.md)
+* [Chromium 업그레이드](upgrading-chromium.md)
+* [Upgrading Crashpad](upgrading-crashpad.md)
+* [Upgrading Node](upgrading-node.md)
+* [릴리즈](releasing.md)
