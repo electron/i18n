@@ -46,7 +46,7 @@ Returns `Menu`
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Instance Methods
+### Инстантни методи
 
 The `menu` object has the following instance methods:
 
