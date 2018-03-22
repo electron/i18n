@@ -18,4 +18,5 @@
 
 要运行所有单元测试，请运行 `npm run test`。 单元测试是一个 Electron 应用程序(惊喜！)，可以在`spec`文件夹中找到。 请注意，它有自己的 `package.json`，因此它的依赖关系没有在顶层`package.json`中定义。
 
-要仅运行选定数量的测试，请运行`npm run test -match=NAME`，将`NAME`替换为您要运行的测试套件的文件名。 举个例子：如果你只想运行IPC套件，你可以运行`npm run test -match=ipc`。
+To run only specific tests matching a pattern, run `npm run test --
+-g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
