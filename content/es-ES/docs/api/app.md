@@ -2,7 +2,7 @@
 
 > Controla el ciclo de vida de los eventos de su aplicación.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
 Los siguientes ejemplos muestran como salir de la aplicación cuando la última ventana está cerrada:
 
