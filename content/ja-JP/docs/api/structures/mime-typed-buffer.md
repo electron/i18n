@@ -1,4 +1,4 @@
 # MimeTypedBuffer オブジェクト
 
-* `mimeType` String - 送信するBufferのMIMEタイプ。
-* `data` Buffer - 実際のBuffer内容。
+* `mimeType` String - 送信する Buffer の MIME タイプ
+* `data` Buffer - 実際の Buffer コンテンツ
