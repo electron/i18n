@@ -180,7 +180,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_cl
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### Zmienne Środowiskowe
 
 Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
