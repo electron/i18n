@@ -1,14 +1,14 @@
 # Instrukcje Budowania (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Postępuj zgodnie z wytycznymi poniżej do zbudowania Electrona dla Linuxa.
 
 ## Wymagania
 
 * Co najmniej 25GB pamięci dyskowej i 8GB pamięci RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Spróbuj repozytoriów takich jak [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Python 2.7.x. Niektóre dystrybucje jak CentOS 6.x nadal używają Python 2.6.x, więc może trzeba sprawdzić wersję Pythona przez `python -V`.
+* Node.js. Istnieją różne sposoby instalacji Node. Możesz pobrać kod źródłowy z [nodejs.org](https://nodejs.org) i go skompilować. Doing so permits installing Node on your own home directory as a standard user. Spróbuj repozytoriów takich jak [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 lub nowszy.
-* Development headers of GTK+ and libnotify.
+* Nagłówki rozwoju GTK+ i libnotify.
 
 Na Ubuntu zainstalować należy następujące biblioteki:
 
