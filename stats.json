@@ -198,14 +198,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "9116",
-    "translated": "2828",
+    "translated": "2841",
     "approved": "49",
     "words": "82913",
-    "words_translated": "15162",
+    "words_translated": "15273",
     "words_approved": "83",
     "translated_progress": 18,
     "approved_progress": 0,
-    "qa_issues": "765"
+    "qa_issues": "768"
   },
   {
     "name": "Portuguese, Brazilian",
