@@ -1,8 +1,8 @@
-# Electron Application Architecture
+# Architektura aplikacji Electron
 
 Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
 
-## Main and Renderer Processes
+## Proces główny i renderer
 
 W Electronie proces, który wykonuje skrypt `main` z pliku `package.json` nazywa się **proces główny**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
