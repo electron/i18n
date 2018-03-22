@@ -144,22 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## การพัฒนา
 
-* [ลักษณะการเขียนโค้ด](development/coding-style.md)
-* [การใช้รูปแบบ clang ในโค้ด C++](development/clang-format.md)
-* [Testing](development/testing.md)
-* [โครงสร้างของไดเรกทอรี่ของรหัสต้นฉบับ](development/source-code-directory-structure.md)
-* [ความแตกต่างทางเทคนิคระหว่าง NW.js (node-webkit ในอดีต)](development/atom-shell-vs-node-webkit.md)
-* [สร้างภาพรวมของระบบ](development/build-system-overview.md)
-* [คำแนะนำการสร้าง (macOS)](development/build-instructions-osx.md)
-* [คำแนะนำการสร้าง (Windows)](development/build-instructions-windows.md)
-* [คำแนะนำการสร้าง (Linux)](development/build-instructions-linux.md)
-* [คำแนะนำการดีบัก (macOS)](development/debugging-instructions-macos.md)
-* [คำแนะนำการดีบัก (Windows)](development/debug-instructions-windows.md)
-* [การตั้งค่าเซิร์ฟเวอร์ในตัวดีบักเกอร์](development/setting-up-symbol-server.md)
-* [เอกสารประกอบแนวทางลักษณะ](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
-* [Pull Requests](development/pull-requests.md)
-* [Upgrading Chromium](development/upgrading-chromium.md)
-* [การพัฒนาโครเมี่ยม](development/chromium-development.md)
-* [การพัฒนา V8](development/v8-development.md)
+See <development/README.md>
