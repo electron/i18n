@@ -18,7 +18,7 @@ win.loadURL('https://github.com')
 
 ## Zdalne Objekty
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+Każdy obiekt (w tym funkcje) zwraca przez `remote` moduł reprezentujący obiekt w głównym procesie (nazywamy to obiekt zdalny lub funkcja zdalna). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
 
 In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
 
@@ -26,7 +26,7 @@ In the example above, both `BrowserWindow` and `win` were remote objects and `ne
 
 **Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
 
-## Lifetime of Remote Objects
+## Okres istnienia Zdalnych Obiektów
 
 Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
 
@@ -92,7 +92,7 @@ console.log(app)
 
 ## Metody
 
-The `remote` module has the following methods:
+Moduł `remote` posiada następujące metody:
 
 ### `remote.require(module)`
 
@@ -100,7 +100,7 @@ The `remote` module has the following methods:
 
 Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
-e.g.
+np.
 
 ```sh
 project/
@@ -113,7 +113,7 @@ project/
 ```
 
 ```js
-// main process: main/index.js
+// główny proces: main/index.js
 const {app} = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
@@ -134,7 +134,7 @@ Returns [`BrowserWindow`](browser-window.md) - The window to which this web page
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Zwraca [`WebContents`](web-contents.md) - Zawartość internetowa tej strony.
 
 ### `remote.getGlobal(name)`
 
