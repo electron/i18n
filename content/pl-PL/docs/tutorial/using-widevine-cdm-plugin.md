@@ -8,7 +8,7 @@ Electron doesn't ship with the Widevine CDM plugin for license reasons, to get i
 
 **Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
 
-### Windows & macOS
+### Windows i macOS
 
 Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` directory.
 
