@@ -66,14 +66,14 @@ Zwraca:
 
 Emitowane kiedy aplikacja jest wyłączana.
 
-### Event: 'open-file' *macOS*
+### Zdarzenie 'open-file' *macOs*
 
 Zwraca:
 
 * `event` Event
 * `path` String
 
-Emitowany kiedy użytkownik chce otworzyć plik za pomocą aplikacji. `open-file` Zdarzenie jest zazwyczaj emitowane gdy aplikacja jest już otwarta i system operacyjny chce użyć jej ponownie do otwarcia pliku. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Emitowany kiedy użytkownik chce otworzyć plik za pomocą aplikacji. `open-file` Zdarzenie jest zazwyczaj emitowane gdy aplikacja jest już otwarta i system operacyjny chce użyć jej ponownie do otwarcia pliku. `open-file` również jest emitowane, gdy plik został przerzucony do stacji dokującej, a aplikacja nie jest jeszcze uruchomiona. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
 
 Powinieneś wywołać `event.preventDefault()` jeśli chcesz obsłużyć zdarzenie.
 
