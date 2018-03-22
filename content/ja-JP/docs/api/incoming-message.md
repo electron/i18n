@@ -1,22 +1,22 @@
-## Class: IncomingMessage
+## クラス: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> HTTP/HTTPS リクエストへの応答を処理します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest` は [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) インターフェースを実装しているため、[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
 ### インスタンスイベント
 
-#### Event: 'data'
+#### イベント: 'data'
 
-戻り値：
+戻り値:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - 応答の本文のデータのチャンク。
 
-The `data` event is the usual method of transferring response data into applicative code.
+`data` イベントは、アプリケーションコードにデータを転送するよくある方法です。
 
-#### Event: 'end'
+#### イベント: 'end'
 
 Indicates that response body has ended.
 
