@@ -2,7 +2,7 @@
 
 > キーボードショートカットを定義します。
 
-Acceleratorは、`+` によって結合された複数の修飾キーとキーコードを含む文字列で、アプリケーション全体でキーボードショートカットを定義するために使われます。
+Accelerator は、`+` によって結合された複数の修飾キーとキーコードを含む文字列で、アプリケーション全体でキーボードショートカットを定義するために使われます。
 
 例:
 
@@ -15,7 +15,7 @@ Acceleratorは、`+` によって結合された複数の修飾キーとキー�
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // 'CommandOrControl+Y' ショートカットリスナーに登録します。
+  // 'CommandOrControl+Y' をショートカットリスナーに登録します。
   globalShortcut.register('CommandOrControl+Y', () => {
     // Y と Command/Control のいずれかが押下されると、処理を行います。
   })
