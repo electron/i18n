@@ -37,7 +37,7 @@
     "require-yaml": "^0.0.1",
     "rimraf": "^2.6.2",
     "semantic-release": "^8.2.3",
-    "standard": "^10.0.2",
+    "standard": "^11.0.1",
     "tmp": "^0.0.33",
     "walk-sync": "^0.3.2"
   },
