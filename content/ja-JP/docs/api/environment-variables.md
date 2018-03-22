@@ -60,16 +60,16 @@ Linuxのグローバルメニューバーを使用しません。
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Electron が ASAR ファイルから読み込むときは、読み込みオフセットとファイルパスを `tmpdir` システムに記録します。 結果のファイルを ASAR モジュールに提供するので、ファイルの順序を最適化することができます。
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Electron がクラッシュすると、コンソールへスタックトレースを出力するようにします。
 
-This environment variable will not work if the `crashReporter` is started.
+`crashReporter` を起動した場合、この環境変数は機能しません。
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Electron がクラッシュすると、Windows のクラッシュダイアログを表示するようにします。
 
-This environment variable will not work if the `crashReporter` is started.
+`crashReporter` を起動した場合、この環境変数は機能しません。
