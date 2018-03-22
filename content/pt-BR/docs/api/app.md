@@ -747,9 +747,9 @@ Retorna `Object`:
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
-Set the app's login item settings.
+Define as opções de execução do aplicativo na após o login do usuário.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+Para funcionar com o `autoUpdater` do Electron no Windows, o qual usa o [Squirrel](https://github.com/Squirrel/Squirrel.Windows), recomendamos definir o caminho de inicialização para Update.exe e passar a ele os argumentos que especificam o nome do seu aplicativo. For example:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
