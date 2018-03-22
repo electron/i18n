@@ -144,22 +144,4 @@
 
 ## 개발
 
-* [코딩 스타일](development/coding-style.md)
-* [C++ 코드에서 clang 형식 사용하기](development/clang-format.md)
-* [테스트](development/testing.md)
-* [소스 코드 디렉토리 구조](development/source-code-directory-structure.md)
-* [NW.js (node-webkit 이었던) 와 기술 차이](development/atom-shell-vs-node-webkit.md)
-* [빌드 시스템 개요](development/build-system-overview.md)
-* [빌드 명령 (macOS)](development/build-instructions-osx.md)
-* [빌드 명령 (Windows)](development/build-instructions-windows.md)
-* [빌드 명령 (Linux)](development/build-instructions-linux.md)
-* [디버그 명령 (macOS)](development/debugging-instructions-macos.md)
-* [디버그 명령 (Windows)](development/debug-instructions-windows.md)
-* [디버거에서 기호 서버 설정 하기](development/setting-up-symbol-server.md)
-* [문서 스타일 안내](styleguide.md)
-* [Electron에 기여하기](../CONTRIBUTING.md)
-* [문제](development/issues.md)
-* [풀 리퀘스트](development/pull-requests.md)
-* [Chromium 업그레이드](development/upgrading-chromium.md)
-* [Chromium 개발](development/chromium-development.md)
-* [V8 개발](development/v8-development.md)
+See <development/README.md>
