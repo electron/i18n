@@ -6,7 +6,7 @@ Istnieje kilka sposobów, aby zaktualizować aplikację Electron. Ten najprostsz
 
 To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
 
-Depending on your needs, you can choose from one of these:
+W zależności od potrzeb można wybrać z jednego z tych:
 
 - [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
 - [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
