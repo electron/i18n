@@ -16,24 +16,24 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Зареди външен URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Или зареди локален HTML файл
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Прозорец без рамка
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+За да създадете прозорец без Chrome или прозрачен прозорец в някаква форма, може да използвате [Frameless Window](frameless-window.md) API.
 
-## Showing window gracefully
+## Грациозно показване на прозорец
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Когато зареждате страница директно в прозореца, потребителите може да видят, че страницата се зарежда на части, което не е добре за родно/native приложение. За да накарате прозореца да се покаже без визуално премигване, има две решения за различните ситуации.
 
-### Using `ready-to-show` event
+### Използване на събитие `ready-to-show`
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+Когато зареждате страницата, събитието `ready-to-show` ще бъде излъчено, когато рендиращият процес е рендирал страницата за първи път ако прозореца не е бил вече показан. Показването на прозореца след това събитие няма да има визуално премигване:
 
 ```javascript
 const {BrowserWindow} = require('electron')
