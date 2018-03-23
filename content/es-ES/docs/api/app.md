@@ -148,13 +148,13 @@ Devuelve:
 * `type` String - Una cadena que identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object: contiene el estado específico de la aplicación almacenado por la actividad.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Emitido cuando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va a ser reanudado en otro artefacto. Si necesita actualizar el estado que va a transferir, debería llamar a `event.preventDefault()` inmediatamente, construir un nuevo diccionario `userInfo` y llamar a `app.updateCurrentActivity()` de forma adecuada. De otra forma, la operación fallará y se llamará a `continue-activity-error`.
 
-### Event: 'new-window-for-tab' *macOS*
+### Evento: 'new-window-for-tab' *macOS*
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 
 Emitido cuando el usuario hace click en el nuevo botón nativo de madOS. El nuevo botón es visible solamente si el `BrowserWindow` actual tiene `tabbingIdentifier`
 
