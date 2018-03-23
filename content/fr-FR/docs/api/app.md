@@ -462,11 +462,11 @@ Efface la liste des documents récents.
 
 Retourne `Boolean` - Si l'appel a réussi.
 
-Cette méthode définit l'exécutable courant comme gestionnaire par défaut pour un protocole. (par exemple le schéma URI). Il vous permet d'intégrer votre application plus en profondeur dans le système d'exploitation. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Cette méthode définit l'exécutable courant comme gestionnaire par défaut pour un protocole. (par exemple le schéma URI). Il vous permet d'intégrer votre application plus en profondeur dans le système d'exploitation. Une fois enregistré, tous les liens avec `votre-protocole://` seront ouverts avec l'exécutable courant. L'ensemble du lien, y compris le protocole, sera transmis en paramètre à votre application.
 
-On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+Sous Windows, vous pouvez fournir des paramètres optionnels, le chemin d'accès à votre exécutable, et args, un tableau d'arguments à passer à votre exécutable lorsqu'il se lance.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Remarque:** Sur macOS, vous ne pouvez enregistrer que les protocoles qui ont été ajoutés à votre application `info.plist`, qui ne peut pas être modifié au moment de l'exécution. Vous pouvez cependant changer le fichier avec un simple éditeur de texte ou un script pendant la compilation. Veuillez vous référer à la [documentation d'Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) pour plus de détails.
 
 L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerForURLScheme.
 
