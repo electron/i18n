@@ -504,14 +504,14 @@ Ajoute `tasks` dans la catégorie [Tasks](http://msdn.microsoft.com/en-us/librar
 
 Returns `Boolean` - Si l'appel a réussi.
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+**Remarque :** Si vous souhaitez personnaliser encore plus la JumpList, utilisez `app.setJumpList(categories)` à la place.
 
 ### `app.getJumpListSettings()` *Windows*
 
 Retourne `Object`:
 
-* `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `minItems` Integer - Le nombre minimum d'éléments qui seront affichés dans la JumpList (pour une description plus détaillée de cette valeur, voir les [documentations MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Tableau d'objets `JumpListItem` qui correspondent à des éléments que l'utilisateur a explicitement retirés des catégories personnalisées de la JumpList. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
 
 ### `app.setJumpList(categories)` *Windows*
 
@@ -616,7 +616,7 @@ const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
+  // Quelqu'un a essayé de lancer une deuxième instance, nous devrions focaliser notre fenêtre.
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
@@ -627,7 +627,7 @@ if (isSecondInstance) {
   app.quit()
 }
 
-// Create myWindow, load the rest of the app, etc...
+// Créer myWindow, charge le reste d'app, etc...
 app.on('ready', () => {
 })
 ```
