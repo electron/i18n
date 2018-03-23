@@ -33,7 +33,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Inter-Process Communication](tutorial/application-architecture.md#)
 * Adding Features to Your App 
   * [Notificaciones](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Documentos recientes](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
   * [Application Progress](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
   * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
