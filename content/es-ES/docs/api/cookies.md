@@ -35,7 +35,7 @@ Los siguientes eventos están disponibles en las instancias de `Cookies`:
 
 #### Evento: "changed"
 
-* `evento` Evento
+* `event` Event
 * `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado
 * `cause` Cadena - La causa del cambio con uno de los siguientes valores: 
   * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
