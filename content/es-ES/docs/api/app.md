@@ -19,7 +19,7 @@ El objeto `app` emite los siguientes eventos:
 
 ### Evento: 'will-finish-launching'
 
-Emitido cuando la aplicación ha terminado su iniciación básica. En windows y Linux el evento `will-finish-launching` es el mismo que el evento `ready`; en macOS este evento representa la notificación `applicationWillFinishLaunching` de `NSApplication`. Normalmente configurará aquí los detectores para los eventos `open-file` y `open-url`, e iniciará el informador de errores y el actualizador automático.
+Emitido cuando la aplicación ha terminado su iniciación básica. En windows y Linux el evento `will-finish-launching` es el mismo que el evento `ready`; en macOS este evento representa la notificación `applicationWillFinishLaunching` de `NSApplication`. Normalmente configurará aquí los receptores para los eventos `open-file` y `open-url`, e iniciará el informador de errores y el actualizador automático.
 
 En la mayoría de los casos, debería hacerse todo en el controlador del evento `ready`.
 
@@ -29,21 +29,21 @@ Devuelve:
 
 * `launchInfo` Object *macOS*
 
-Emitido cuando Electron se ha terminado de iniciar. En macOS, `launchInfo` almacena el `userInfo</0 de <code>NSUserNotification` que fue usado para abrir la aplicación, si fue lanzado desde el centro de notificaciones. Puede usar `app.isReady()` para verificar si el evento ya fue disparado.
+Emitido cuando Electron se ha terminado de iniciar. En macOS, `launchInfo` almacena el `userInfo</0 de <code>NSUserNotification` que fue usado para abrir la aplicación, si fue lanzado desde el centro de notificaciones. Puede usar `app.isReady()` para verificar si el evento ya fue emitido.
 
 ### Evento: 'window-all-closed'
 
 Emitido cuando todas las ventanas han sido cerradas.
 
-Si no se subscribe a este evento y todas las ventanas están cerradas, el comportamiento por defecto es salir de la aplicación; sin embargo, si se subscribe, usted controla si la aplicación se cierra o no. Si el usuario presionó `Cmd + Q`, o el desarrollador llamó a `app.quit()`, Electron primero tratará de cerrar todas las ventanas y emitir el evento `will-quit`, y en este caso el evento `window-all-closed` no será emitido.
+Si no se subscribe a este evento y todas las ventanas están cerradas, el comportamiento por defecto es salir de la aplicación; sin embargo, si se subscribe, usted controla si la aplicación se cierra o no. Si el usuario presionó `Cmd + Q`, o el desarrollador llamó a `app.quit()`, Electron primero tratará de cerrar todas las ventanas y entonces emitir el evento `will-quit`, y en este caso el evento `window-all-closed` no será emitido.
 
 ### Evento: 'before-quit'
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 
-Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamar a `event.preventDefault()` evitará el comportamiento por defecto, que es cerrar la aplicación.
+Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamando a `event.preventDefault()` evitará el comportamiento por defecto, que es cerrar la aplicación.
 
 **Nota:** Si el cierre de la aplicación fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitido *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
 
@@ -73,7 +73,7 @@ Devuelve:
 * `event` Event
 * `path` String
 
-Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y el sistema operativo quiere reusar la aplicación para abrir el archivo. `open-file` también es emitido cuando el archivo es arrojado dentro del dock y la aplicación no está corriendo todavía. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para capturarlo (incluso antes de que el evento `ready` sea emitido).
+Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y el sistema operativo quiere reusar la aplicación para abrir el archivo. `open-file` también es emitido cuando el archivo es soltado dentro del dock y la aplicación todavía no se está ejecutando. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para capturarlo (incluso antes de que el evento `ready` sea emitido).
 
 Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
