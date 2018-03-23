@@ -73,9 +73,9 @@ Devuelve:
 * `event` Event
 * `path` String
 
-Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y el sistema operativo quiere reusar la aplicación para abrir el archivo. `open-file` también es emitido cuando el archivo es arrojado dentro del dock y la aplicación no está corriendo todavía. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para controlar este caso (incluso antes de que el evento `ready` esté emitido).
+Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y el sistema operativo quiere reusar la aplicación para abrir el archivo. `open-file` también es emitido cuando el archivo es arrojado dentro del dock y la aplicación no está corriendo todavía. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para capturarlo (incluso antes de que el evento `ready` sea emitido).
 
-Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
+Usted debe llamar a `event.preventDefault()` si quiere capturar este evento.
 
 En Windows, tiene que analizar gramaticalmente `process.argv` (en el proceso principal) para encontrar la ruta del archivo.
 
@@ -83,19 +83,19 @@ En Windows, tiene que analizar gramaticalmente `process.argv` (en el proceso pri
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 * `url` String
 
 Emitido cuando el usuario quiere abrir una URL con la aplicación. El archivo `Info.plist` de su aplicación debe definir el esquema de url en la llave `CFBundleURLTypes`, y configurar `NSPrincipalClass` para `AtomApplication`.
 
-Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
+Usted debe llamar a `event.preventDefault()` si quiere capturar este evento.
 
 ### Evento: 'activate' *macOS*
 
 Devuelve:
 
-* `event` Evento
-* `hasVisibleWindows` Buleano
+* `event` Event
+* `hasVisibleWindows` Boolean
 
 Emitido cuando la aplicación está activada. Varias acciones puede activar este evento, como iniciar la aplicación por primera vez, intentar relanzar la aplicación cuando ya está corriendo, o hacer click en el dock de la aplicación o en el ícono de la barra de tareas.
 
@@ -103,8 +103,8 @@ Emitido cuando la aplicación está activada. Varias acciones puede activar este
 
 Devuelve:
 
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `event` Event
+* `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Objecto - Contiene el estado específico de la aplicación almacenado por la actividad de otro artefacto.
 
 Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
