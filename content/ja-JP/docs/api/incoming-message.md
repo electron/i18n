@@ -18,19 +18,19 @@
 
 #### イベント: 'end'
 
-Indicates that response body has ended.
+応答の本文が終了したことを示します。
 
-#### Event: 'aborted'
+#### イベント: 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+現在進行中の HTTP のトランザクション中に、リクエストが取り消されたときに発行されます。
 
 #### イベント: 'error'
 
-戻り値：
+戻り値:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` Error - 通常は、根本的な原因を特定するエラー文字列を保持します。
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+応答データのイベントをストリーミング中に、エラーが発生したときに発行されます。 For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
 ### インスタンスプロパティ
 
