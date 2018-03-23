@@ -93,7 +93,7 @@ Emitido cuando la `solicitud` es abortada. El evento `abortar` no será disparad
 
 #### Evento: 'error'
 
-Retorna:
+Devuelve:
 
 * `error` Error - un objeto error proporciona cierta información sobre la falla.
 
@@ -105,7 +105,7 @@ Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. El
 
 #### Evento: "redirigir"
 
-Retorna:
+Devuelve:
 
 * `Estatus de código` entero
 * `method` Cuerda
