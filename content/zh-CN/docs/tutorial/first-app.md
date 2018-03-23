@@ -59,7 +59,7 @@ npm 会帮助你创建一个基本的 `package.json` 文件。 其中的 `main` 
 
 ## 安装 Electron
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+现在，你需要安装`electron`。 我们推荐的安装方法是把它作为您app中的开发依赖项，这使您可以在不同的app中使用不同的Electron版本。 在您的app所在文件夹中运行下面的命令：
 
 ```sh
 npm install --save-dev electron
