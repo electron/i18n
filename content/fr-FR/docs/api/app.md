@@ -707,9 +707,9 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - L'état des fon
 
 Returns `Boolean` - Si l'appel a réussi.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Définit le badge du compteur pour l'application courante. Régler le compte à `0>0` masquera le badge.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+Sous macOS, il apparaît sur l'icône du dock. Sous Linux, il ne fonctionne que pour le launcher Unity.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
