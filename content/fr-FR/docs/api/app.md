@@ -456,13 +456,13 @@ Efface la liste des documents récents.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - Le nom de votre protocole, sans le préfixe `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - Le nom de votre protocole, sans le préfixe `://`. Si vous voulez que votre application gère les liens `electron://`, appelez cette méthode avec `electron` comme paramètre.
+* `path` String (facultatif) *Windows* - `process.execPath` par défaut
+* `args` String[] (facultatif) *Windows* - Un tableau vide par défaut
 
-Returns `Boolean` - Si l'appel a réussi.
+Retourne `Boolean` - Si l'appel a réussi.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Cette méthode définit l'exécutable courant comme gestionnaire par défaut pour un protocole. (par exemple le schéma URI). Il vous permet d'intégrer votre application plus en profondeur dans le système d'exploitation. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
 On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
@@ -473,8 +473,8 @@ L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerFor
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Le nom de votre protocole, sans le préfixe `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (facultatif) *Windows* - `process.execPath` par défaut
+* `args` String[] (facultatif) *Windows* - Un tableau vide par défaut
 
 Returns `Boolean` - Si l'appel a réussi.
 
@@ -483,8 +483,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Le nom de votre protocole, sans le préfixe `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (facultatif) *Windows* - `process.execPath` par défaut
+* `args` String[] (facultatif) *Windows* - Un tableau vide par défaut
 
 Retourne `Boolean`
 
