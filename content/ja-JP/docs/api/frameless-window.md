@@ -64,12 +64,12 @@ win.show()
 * 透明なウインドウのサイズを変更することはできません。`resizable` を `true` に設定すると、いくつかのプラットフォームでは透明なウインドウが機能しなくなることがあります。
 * `blur` フィルターはWebページにしか適用されないため、ウインドウの下にあるコンテンツ (すなわち、ユーザーのシステムで開かれた他のアプリケーション) にぼかし効果を適用する方法はありません。
 * Windowsオペレーティングシステムでは、DWMが無効なとき、透明なウインドウは機能しません。
-* Linux ユーザは、コマンドラインに `--enable-transparent-visuals --disable-gpu` を入れて GPU を無効にし、ARGB が透過ウィンドウを作成できるようにする必要があります。[アルファチャンネルは Linux の一部の NVidia ドライバでは動作しません](https://code.google.com/p/chromium/issues/detail?id=369209)。
+* Linuxでは、GPUを無効にしてARGBが透明なウインドウを作成できるようにするため、ユーザーがコマンドラインに `--enable-transparent-visuals --disable-gpu` を指定しなければなりません。これは、Linuxの[いくつかのNVidiaドライバーでアルファチャンネルが機能しません](https://code.google.com/p/chromium/issues/detail?id=369209)という上流のバグによるものです。
 * Macでは、ネイティブウインドウの影は、透明なウインドウには表示されません。
 
-## クリックスルーウィンドウ
+## クリックスルーウインドウ
 
-クリックスルーウィンドウを作成する、つまりウインドウですべてのマウスイベントを無視するには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API を呼び出します。
+クリックスルーウインドウを作成する、すなわち、ウインドウにすべてのマウスイベントを無視させるには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) APIを呼び出して下さい。
 
 ```javascript
 const {BrowserWindow} = require('electron')
