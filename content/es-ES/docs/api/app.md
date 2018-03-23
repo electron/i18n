@@ -75,7 +75,7 @@ Devuelve:
 
 Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y el sistema operativo quiere reusar la aplicación para abrir el archivo. `open-file` también es emitido cuando el archivo es arrojado dentro del dock y la aplicación no está corriendo todavía. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para capturarlo (incluso antes de que el evento `ready` sea emitido).
 
-Usted debe llamar a `event.preventDefault()` si quiere capturar este evento.
+Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
 En Windows, tiene que analizar gramaticalmente `process.argv` (en el proceso principal) para encontrar la ruta del archivo.
 
@@ -88,7 +88,7 @@ Devuelve:
 
 Emitido cuando el usuario quiere abrir una URL con la aplicación. El archivo `Info.plist` de su aplicación debe definir el esquema de url en la llave `CFBundleURLTypes`, y configurar `NSPrincipalClass` para `AtomApplication`.
 
-Usted debe llamar a `event.preventDefault()` si quiere capturar este evento.
+Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
 ### Evento: 'activate' *macOS*
 
@@ -105,7 +105,7 @@ Devuelve:
 
 * `event` Event
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Objecto - Contiene el estado específico de la aplicación almacenado por la actividad de otro artefacto.
+* `userInfo` Object - Contiene el estado específico de la aplicación almacenado por la actividad de otro artefacto.
 
 Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
 
@@ -115,18 +115,18 @@ La actividad de un usuario puede ser continuada solo en una aplicación que teng
 
 Devuelve:
 
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `event` Event
+* `type` String - Una cadena que identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
+Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
 
 ### Event: 'continue-activity-error' *macOS*
 
 Devuelve:
 
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` Cadena - Una cadena con la descripción localizada del error.
+* `event` Event
+* `type` String - Una cadena que identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - Una cadena en el idioma local con la descripción del error.
 
 Emitido durante [Manos Libres](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad desde un dispositivo diferente no se reanuda.
 
