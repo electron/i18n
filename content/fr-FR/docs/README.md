@@ -144,4 +144,4 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 
 ## Développement
 
-See <development/README.md>
+Voir <development/README.md>
