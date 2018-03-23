@@ -462,7 +462,7 @@ Efface la liste des documents récents.
 
 Retourne `Boolean` - Si l'appel a réussi.
 
-Cette méthode définit l'exécutable courant comme gestionnaire par défaut pour un protocole. (par exemple le schéma URI). Il vous permet d'intégrer votre application plus en profondeur dans le système d'exploitation. Une fois enregistré, tous les liens avec `votre-protocole://` seront ouverts avec l'exécutable courant. L'ensemble du lien, y compris le protocole, sera transmis en paramètre à votre application.
+Cette méthode définit l'exécutable courant comme gestionnaire par défaut pour un protocole. (par exemple le modèle URI). Il vous permet d'intégrer votre application plus en profondeur dans le système d'exploitation. Une fois enregistré, tous les liens avec `votre-protocole://` seront ouverts avec l'exécutable courant. L'ensemble du lien, y compris le protocole, sera transmis en paramètre à votre application.
 
 Sous Windows, vous pouvez fournir des paramètres optionnels, le chemin d'accès à votre exécutable, et args, un tableau d'arguments à passer à votre exécutable lorsqu'il se lance.
 
@@ -478,7 +478,7 @@ L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerFor
 
 Returns `Boolean` - Si l'appel a réussi.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Cette méthode vérifie si l'application actuel est l'application par défaut pour un protocole (par exemple le modèle URI). Si c'est le cas, il retirera l’application comme application par défaut.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -488,17 +488,17 @@ This method checks if the current executable as the default handler for a protoc
 
 Retourne `Boolean`
 
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+Cette méthode vérifie si l'exécutable courant est le gestionnaire par défaut d'un protocole (par exemple le modèle URI). Si c'est le cas, il retournera true. Sinon, il retournera false.
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+**Remarque:** Sur macOS, vous pouvez utiliser cette méthode pour vérifier si l'application a bien été enregistré comme gestionnaire de protocole par défaut pour un protocole. Vous pouvez également confirmer cela en vérifiant `~/Library/Preferences/com.apple.LaunchServices.plist` sur votre machine macOS. Veuillez vous référer à la [documentation d'Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) pour plus de détails.
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+L'API utilise en interne le registre de Windows ainsi que LSCopyDefaultHandlerForURLScheme.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
 * `tasks` [Task[]](structures/task.md) - Tableau d'objets `Task`
 
-Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+Ajoute `tasks` dans la catégorie [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) de la JumpList sur Windows.
 
 `tasks` est un tableau d’objets [`Task`](structures/task.md).
 
