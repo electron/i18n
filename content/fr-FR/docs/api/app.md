@@ -522,14 +522,14 @@ Définit ou supprime une JumpList personnalisée pour l'application et renvoie l
 * `ok` - Tout s'est bien passé.
 * `error` - Une ou plusieurs erreurs se sont produites, activez la journalisation de la durée d'exécution pour déterminer la cause probable.
 * `invalidSeparatorError` - Une tentative d'ajout d'un séparateur à une catégorie personnalisée dans la JumpList. Les séparateurs ne sont autorisés que dans la catégorie standard `Tasks`.
-* `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
-* `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
+* `fileTypeRegistrationError` - Tentative d'ajout d'un lien de fichier dans la JumpList pour un type de fichier que l'application n'est pas enregistrée pour gérer.
+* `customCategoryAccessDeniedError` - Les catégories personnalisées ne peuvent pas être ajoutées à la JumpList en raison de la confidentialité de l'utilisateur ou des paramètres de politique de groupe.
 
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
+Si `cetagories` est `null`, la JumpList personnalisée précédemment définie (si existante) sera remplacée par la JumpList standard de l'application (gérée par Windows).
 
 **Remarque :** Si un objet `JumpListCategory` n'a ni de `type` ni de propriété `name` de défini, alors le `type` est assumé être `tasks`. Si la propriété `name` est définie mais que le `type` est omis, alors le `type` est assumé être `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Remarque :** Les utilisateurs peuvent supprimer des éléments des catégories personnalisées, et Windows n'autorisera pas l'ajout d'un élément supprimé dans une catégorie personnalisée avant le **prochain** appel réussi à `app.setJumpList(categories)`. Toute tentative de réajouter un élément supprimé à une catégorie personnalisée plus tôt, cela entraînera l'omission de toute la catégorie personnalisée dans la JumpList. La liste des éléments supprimés peut être obtenue à l'aide de `app.getJumpListSettings()`.
 
 Voici un exemple très simple de la création d'une JumpList personnalisé :
 
@@ -650,7 +650,7 @@ Retourne `String` - le type de l’activité en cours d’exécution.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - Uniquely identifies the activity. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
 
@@ -665,13 +665,13 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Change le [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) à `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
 * `options` Objet 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
+  * `certificate` String - Chemin pour le fichier pkcs12.
+  * `password` String - La Passphrase pour le certificat.
 * `callback` Function 
   * `result` Integer - Résultat de l'importation.
 
@@ -679,7 +679,7 @@ Imports the certificate in pkcs12 format into the platform certificate store. `c
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Désactive l'accélération matérielle pour l'application courante.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
 
@@ -699,7 +699,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 ### `app.getGPUFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - L'état des fonctions graphiques de `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -715,11 +715,11 @@ On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Retourne `Integer` - La valeur actuelle affichée sur le badge du compteur.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Retourne `Boolean` - Si l'environnement de bureau actuel est Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
