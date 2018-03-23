@@ -1,4 +1,4 @@
 # شئ ScrubberItem
 
-* `label` String - (optional) The text to appear in this item
+* <;0>;برچسب<;/0>; رشته - (اختیاری) متنی که در این مورد نمایش داده میشود
 * `icon` NativeImage - (optional) The image to appear in this item
