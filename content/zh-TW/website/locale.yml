@@ -1,7 +1,7 @@
 tagline: 使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式
 nav:
   docs: 文件
-  donors: Donors
+  donors: 贊助者
   blog: 部落格
   community: 社群
   apps: 應用程式
@@ -137,7 +137,7 @@ pages:
     title: Spectron
     description: Spectron 是能讓你輕鬆寫出 Electron 整合測試案例的開放原始碼框架。架構在 ChromeDriver 及 WebDriverIO 之上。
   '/donors':
-    title: Donors
+    title: 贊助者
 _404:
   page_not_found: 找不到頁面。
 search:
