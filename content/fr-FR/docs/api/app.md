@@ -609,7 +609,7 @@ This method returns `false` if your process is the primary instance of the appli
 
 On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
-An example of activating the window of primary instance when a second instance starts:
+Un exemple d'activation de la fenêtre de l'instance primaire lorsqu'une seconde instance démarre :
 
 ```javascript
 const {app} = require('electron')
@@ -652,12 +652,12 @@ Retourne `String` - le type de l’activité en cours d’exécution.
 
 * `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+Invalide l'activité [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) courante de l'utilisateur.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
-* `type` String - Uniquely identifies the activity. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
+* `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - État spécifique de l'application à stocker pour une utilisation par un autre périphérique.
 
 Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
 
@@ -731,7 +731,7 @@ If you provided `path` and `args` options to `app.setLoginItemSettings` then you
 
 Retourne `Object`:
 
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
+* `openAtLogin` Boolean - `true` si l'application est configurée pour s'ouvrir à la connexion.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
 * `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
 * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
