@@ -2,7 +2,7 @@
 
 La liste suivante inclut les APIs qui seront supprimés dans Electron 3.0.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
+Il n'y a pas de planning pour la sortie de cette version, mais des avertissements de dépréciation seront ajoutés au moins [une version majeure ](electron-versioning.md#semver)au préalable.
 
 ## `app`
 
@@ -68,9 +68,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// Déprécié
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Remplacé par
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -79,9 +79,9 @@ nativeImage.createFromBuffer(buffer, {
 ## `screen`
 
 ```js
-// Deprecated
+// Déprécié
 screen.getMenuBarHeight()
-// Replace with
+// Remplacé par
 screen.getPrimaryDisplay().workArea
 ```
 
@@ -124,14 +124,14 @@ webContents.openDevTools({mode: 'detach'})
 ## `webFrame`
 
 ```js
-// Deprecated
+// Déprécié
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Remplacé par
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// Déprécié
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// Remplacé par
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
@@ -145,4 +145,4 @@ Remplacé par : https://atom.io/download/electron
 
 ## commentaires `FIXME`
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
+La chaîne de caractère `FIXME` est utilisée dans les commentaires de code pour désigner les choses qu’il convient de fixer pour la version 3.0. Voir https://github.com/electron/electron/search?q=fixme
