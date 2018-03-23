@@ -15,7 +15,7 @@ app.on('window-all-closed', () => {
 
 ## Eventos
 
-El objeto `app` produce los siguientes eventos:
+El objeto `app` emite los siguientes eventos:
 
 ### Evento: 'will-finish-launching'
 
