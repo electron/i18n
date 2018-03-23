@@ -8,7 +8,7 @@ Esta guía explica cómo integrar su aplicación en los entornos de esas computa
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Documentos recientes
 
 See [Recent Documents documentation](recent-documents.md).
 
