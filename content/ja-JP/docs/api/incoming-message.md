@@ -49,12 +49,12 @@ HTTP ステータスメッセージを表す `String`。
 HTTP 応答ヘッダを表す `Object`。`headers` オブジェクトのフォーマットは以下のとおりです。
 
 * すべてのヘッダ名は小文字です。
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* 各ヘッダ名は、ヘッダオブジェクトに配列値のプロパティを生成します。
+* 各ヘッダの値は、そのヘッダ名に関連付けられている配列にプッシュされます。
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+HTTP プロトコルのバージョン番号を示す `String`。 よくある値は '1.0' や '1.1'。 Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
 
 #### `response.httpVersionMajor`
 
