@@ -30,25 +30,25 @@
 
 `error` Error - 通常は、根本的な原因を特定するエラー文字列を保持します。
 
-応答データのイベントをストリーミング中に、エラーが発生したときに発行されます。 For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+応答データのイベントをストリーミング中に、エラーが発生したときに発行されます。 たとえば、応答のストリーミング中にサーバーがその元をクローズした場合、`error` イベントが応答オブジェクトに発行され、`close` イベントがリクエストオブジェクトに続いて実行されます。
 
 ### インスタンスプロパティ
 
-An `IncomingMessage` instance has the following readable properties:
+`IncomingMessage` のインスタンスには、以下の読み取り可能なプロパティがあります。
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+HTTP 応答ステータスコードを表す `Integer`。
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+HTTP ステータスメッセージを表す `String`。
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+HTTP 応答ヘッダを表す `Object`。`headers` オブジェクトのフォーマットは以下のとおりです。
 
-* All header names are lowercased.
+* すべてのヘッダ名は小文字です。
 * Each header name produces an array-valued property on the headers object.
 * Each header value is pushed into the array associated with its header name.
 
