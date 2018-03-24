@@ -28,7 +28,7 @@ console.log(ses.getUserAgent())
 * `options` Object (任意) 
   * `cache` Boolean - キャッシュを有効にするかどうか。
 
-戻り値 `Session` - `partition` 文字列からの Session のインスタンス。 When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+戻り値 `Session` - `partition` 文字列からの Session のインスタンス。 同じ `partition` を持つ既存の `session` が存在する場合は、それが返されます。 それ以外の場合は、`options` で新しい `session` インスタンスが作成されます。
 
 If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
