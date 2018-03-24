@@ -129,9 +129,9 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `completion` Function (任意) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+`String` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
+使用法は `registerFileProtocol` と同じですが、 `callback` を `String` オブジェクト、または `data`、`mimeType` 、`charset` プロパティを持つオブジェクトで呼び出す必要があります。
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
@@ -146,10 +146,10 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `redirectRequest` Object 
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (任意)
       * `uploadData` Object (任意) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` String - コンテンツの MIME タイプ。
+        * `data` String - 送信されるコンテンツ。
 * `completion` Function (任意) 
   * `error` Error
 
@@ -296,10 +296,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `redirectRequest` Object 
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (任意)
       * `uploadData` Object (任意) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` String - コンテンツの MIME タイプ。
+        * `data` String - 送信されるコンテンツ。
 * `completion` Function (任意) 
   * `error` Error
 
