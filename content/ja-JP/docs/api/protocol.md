@@ -320,7 +320,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (任意) 
   * `error` Error
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+`protocol.registerStreamProtocol` と同じですが、既存のプロトコルハンドラを置き換える点が異なります。
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -328,4 +328,4 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 * `completion` Function (任意) 
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+`scheme` のためにインストールされた傍受するハンドラを削除し、元のハンドラを復元します。
