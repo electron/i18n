@@ -54,12 +54,12 @@ HTTPレスポンスヘッダを表す `Object`。`headers` オブジェクトは
 
 #### `response.httpVersion`
 
-HTTPプロトコルのバージョン番号を示す `String`。 典型的な値は、'1.0'や'1.1'です。 さらに、`httpVersionMajor` と `httpVersionMinor` は、2つともIntegerの値を返す読み取り専用プロパティで、それぞれHTTPのメジャーとマイナーのバージョン番号を返します。
+HTTPプロトコルのバージョン番号を示す `String`。 典型的な値は、'1.0'や'1.1'です。 さらに、`httpVersionMajor` と `httpVersionMinor`は、それぞれ HTTP のメジャーバージョン番号とマイナーバージョン番号を返す、2つの読み取り可能な整数値のプロパティです。
 
 #### `response.httpVersionMajor`
 
-HTTPプロトコルのメジャーバージョン番号を示す `Integer`。
+HTTP プロトコルのメジャーバージョン番号を示す `Integer`。
 
 #### `response.httpVersionMinor`
 
-HTTPプロトコルのマイナーバージョン番号を示す `Integer`。
+HTTP プロトコルのマイナーバージョン番号を示す `Integer`。
