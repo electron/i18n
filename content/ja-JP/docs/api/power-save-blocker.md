@@ -1,10 +1,10 @@
 # powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> システムが省電力 (スリープ) モードに入るのを防ぎます。
 
 プロセス: [Main](../glossary.md#main-process)
 
-For example:
+例:
 
 ```javascript
 const {powerSaveBlocker} = require('electron')
@@ -17,12 +17,12 @@ powerSaveBlocker.stop(id)
 
 ## メソッド
 
-The `powerSaveBlocker` module has the following methods:
+`powerSaveBlocker` モジュールには以下のメソッドがあります。
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Power save blocker type. 
-  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
+* `type` String - powerSaveBlocker のタイプ。 
+  * `prevent-app-suspension` - アプリケーションが中断されるのを防ぎます。システムをアクティブに保ちますが、画面はオフにすることができます。使用例: ファイルのダウンロードや音声の再生。
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
 Returns `Integer` - The blocker ID that is assigned to this power blocker
