@@ -30,25 +30,25 @@ console.log(ses.getUserAgent())
 
 戻り値 `Session` - `partition` 文字列からの Session のインスタンス。 同じ `partition` を持つ既存の `session` が存在する場合は、それが返されます。 それ以外の場合は、`options` で新しい `session` インスタンスが作成されます。
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+`partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 `partition` が空の場合は、アプリのデフォルトのセッションが返されます。
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+`options` で `Session` を作成するには、以前に `partition` との `Session` が使用されていないことを確認する必要があります。 既存の `Session` オブジェクトの `options` を変更する方法はありません。
 
 ## プロパティ
 
-The `session` module has the following properties:
+`session` モジュールには以下のプロパティがあります。
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+アプリのデフォルトの `Session` オブジェクト。
 
-## Class: Session
+## クラス: Session
 
-> Get and set properties of a session.
+> セッションのプロパティを取得し、設定します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+`session` モジュールでは、`Session` オブジェクトを作成できます。
 
 ```javascript
 const {session} = require('electron')
@@ -58,15 +58,15 @@ console.log(ses.getUserAgent())
 
 ### インスタンスイベント
 
-The following events are available on instances of `Session`:
+`Session` のインスタンスでは、以下のイベントが利用できます。
 
-#### Event: 'will-download'
+#### イベント: 'will-download'
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Electron が `webContents` 内で `item` をダウンロードするときに発生します。
 
 Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
 
