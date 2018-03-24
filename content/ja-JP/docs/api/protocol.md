@@ -81,9 +81,9 @@ app.on('ready', () => {
 
 `request` を処理するには、`callback` を、ファイルのパスまたは `path` プロパティを持つオブジェクトのいずれかを使用して、例えば、`callback(filePath)` や `callback({path: filePath})` で呼び出す必要があります。
 
-引数なし、数、または `error` プロパティを持つオブジェクトで `callback` が呼び出されると、 `request` は指定した `error` 番号で失敗します。 For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+引数なし、数、または `error` プロパティを持つオブジェクトで `callback` が呼び出されると、 `request` は指定した `error` 番号で失敗します。 使用できる利用可能なエラー番号については、[net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) を参照してください。
 
-By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`, so you probably want to call `protocol.registerStandardSchemes` to have your scheme treated as a standard scheme.
+デフォルトでは、`scheme` は `http:` のように扱われます。これは、`file:` のような "Generic URI Syntax" に従うプロトコルとは違って解析されるため、`protocol.registerStandardSchemes` を呼び出し、あなたのスキームを標準スキームとして扱おうとします。
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
@@ -95,13 +95,13 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (任意)
 * `completion` Function (任意) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Buffer` as a response.
+`Buffer` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
+使用法は `registerFileProtocol` と同じですが、 `callback` を `Buffer` オブジェクト、または `data`、`mimeType` 、`charset` プロパティを持つオブジェクトで呼び出す必要があります。
 
 サンプル:
 
@@ -111,7 +111,7 @@ const {protocol} = require('electron')
 protocol.registerBufferProtocol('atom', (request, callback) => {
   callback({mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>')})
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('プロトコルの登録に失敗しました')
 })
 ```
 
@@ -125,7 +125,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` String (optional)
+    * `data` String (任意)
 * `completion` Function (任意) 
   * `error` Error
 
@@ -261,7 +261,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` String (optional)
+    * `data` String (任意)
 * `completion` Function (任意) 
   * `error` Error
 
