@@ -1,10 +1,10 @@
-# Represented File for macOS BrowserWindows
+# Representação de Arquivo para o macOS BrowserWindows
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+No macOS, uma janela pode definir a representação do arquivo para mostra na barra de título quando o usar o Command-Clique ou Control-Clique sobre o título do caminho, um popup vai ser exibido.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Você também pode definir o estado de editado de uma janela para que o ícone do arquivo possa indicar se o documento nesta janela foi modificado.
 
-**Represented file popup menu:**
+**Representação de arquivo em popup menu:**
 
 ![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
