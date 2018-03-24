@@ -107,15 +107,15 @@ Electron のバージョン文字列を表す `String`。
 戻り値 `Object`:
 
 * `total` Integer - システムで利用可能な物理メモリの合計量 (キロバイト)。
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
-* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
+* `free` Integer - アプリケーションまたはディスクキャッシュで使用されていないメモリの合計量。
+* `swapTotal` Integer - システムが使用できるスワップメモリの合計量 (キロバイト)。*Windows* *Linux*
+* `swapFree` Integer - システムが使用できるスワップメモリの使用されていない合計量 (キロバイト)。*Windows* *Linux*
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+システム全体に関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+現在のプロセスのメインスレッドでハングを発生させます。
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
