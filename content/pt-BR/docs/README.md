@@ -144,4 +144,4 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 
 ## Desenvolvimento
 
-See <development/README.md>
+Veja <development/README.md>
