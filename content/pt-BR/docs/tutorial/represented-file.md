@@ -6,9 +6,9 @@ Você também pode definir o estado de editado de uma janela para que o ícone d
 
 **Representação de arquivo em popup menu:**
 
-![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
+![Representação de Arquivo](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+Para definir uma representação de arquivo de uma janela, você pode usar as APIs [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) e [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos):
 
 ```javascript
 const { BrowserWindow } = require('electron')
