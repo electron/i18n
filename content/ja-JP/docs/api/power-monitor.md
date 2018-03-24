@@ -4,9 +4,9 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+`app` モジュールの `ready` イベントが発生するまでは、このモジュールを require、または使用できません。
 
-For example:
+例:
 
 ```javascript
 const electron = require('electron')
@@ -21,20 +21,20 @@ app.on('ready', () => {
 
 ## イベント
 
-The `powerMonitor` module emits the following events:
+`powerMonitor` モジュールでは以下のイベントが発生します。
 
-### Event: 'suspend'
+### イベント: 'suspend'
 
-Emitted when the system is suspending.
+システムがサスペンドするときに発生します。
 
-### Event: 'resume'
+### イベント: 'resume'
 
-Emitted when system is resuming.
+システムが再開するときに発生します。
 
-### Event: 'on-ac' *Windows*
+### イベント: 'on-ac' *Windows*
 
-Emitted when the system changes to AC power.
+システムが AC 電源に切り替わったときに発生します。
 
-### Event: 'on-battery' *Windows*
+### イベント: 'on-battery' *Windows*
 
-Emitted when system changes to battery power.
+システムがバッテリー電源に切り替わったときに発生します。
