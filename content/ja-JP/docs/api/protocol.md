@@ -1,6 +1,6 @@
 # protocol
 
-> カスタムプロトコルを登録し、既存のプロトコルリクエストを遮ります。
+> カスタムプロトコルを登録し、既存のプロトコルリクエストを傍受します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -233,7 +233,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `callback` Function 
   * `error` Error
 
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+`scheme` のハンドラがすでにあるかどうかを示す Boolean で `callback` が呼び出されます。
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
@@ -249,7 +249,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 * `completion` Function (任意) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+`scheme` プロトコルを傍受し、ファイルをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -265,7 +265,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (任意) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+`scheme` プロトコルを傍受し、`String` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -277,11 +277,11 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (任意)
 * `completion` Function (任意) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+`scheme` プロトコルを傍受し、`Buffer` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
@@ -303,7 +303,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (任意) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+`scheme` プロトコルを傍受し、新しい HTTP リクエストをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
