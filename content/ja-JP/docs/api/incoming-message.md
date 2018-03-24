@@ -46,15 +46,15 @@ HTTPステータスメッセージを表す `String`。
 
 #### `response.headers`
 
-HTTP 応答ヘッダを表す `Object`。`headers` オブジェクトのフォーマットは以下のとおりです。
+HTTPレスポンスヘッダを表す `Object`。`headers` オブジェクトは、以下のようにフォーマットされます。
 
 * すべてのヘッダ名は小文字です。
-* 各ヘッダ名は、ヘッダオブジェクトに配列値のプロパティを生成します。
-* 各ヘッダの値は、そのヘッダ名に関連付けられている配列にプッシュされます。
+* 各ヘッダー名ごとに配列の値を返すプロパティがヘッダーオブジェクトに生成されます。
+* 各ヘッダーの値はヘッダー名に関連付けられた配列に格納されます。
 
 #### `response.httpVersion`
 
-HTTP プロトコルのバージョン番号を示す `String`。 よくある値は '1.0' や '1.1'。 Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+HTTPプロトコルのバージョン番号を示す `String`。 典型的な値は、'1.0'や'1.1'です。 さらに、`httpVersionMajor` と `httpVersionMinor` は、2つとも整数値の読み取り専用プロパティで、それぞれHTTPのメジャーとマイナーのバージョン番号を返します。
 
 #### `response.httpVersionMajor`
 
