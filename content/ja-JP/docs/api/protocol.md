@@ -30,7 +30,7 @@ app.on('ready', () => {
 
 * `schemes` String[] - 標準スキームとして登録されるカスタムスキーム。
 * `options` Object (任意) 
-  * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
+  * `secure` Boolean (任意) - `true` でセキュアとしてスキームを登録します。省略値は `false`。
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
