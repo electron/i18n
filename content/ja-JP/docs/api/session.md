@@ -1,12 +1,12 @@
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> ブラウザーセッション、クッキー、キャッシュ、プロキシの設定などを管理します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+`session` モジュールは、新しい `session` オブジェクトを作成するのに使用できます。
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+[`WebContents`](web-contents.md) の `session` プロパティ、または `session` モジュールから、既存のページの `session` にアクセスすることもできます 。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -20,15 +20,15 @@ console.log(ses.getUserAgent())
 
 ## メソッド
 
-The `session` module has the following methods:
+`session` モジュールには以下のメソッドがあります。
 
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
 * `options` Object (任意) 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - キャッシュを有効にするかどうか。
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+戻り値 `Session` - `partition` 文字列からの Session のインスタンス。 When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
 If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
