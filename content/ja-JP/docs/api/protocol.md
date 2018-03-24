@@ -1,10 +1,10 @@
 # protocol
 
-> Register a custom protocol and intercept existing protocol requests.
+> カスタムプロトコルを登録し、既存のプロトコルリクエストを遮ります。
 
 プロセス: [Main](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+`file://` プロトコルと同じ効果を持つプロトコルの実装の例:
 
 ```javascript
 const {app, protocol} = require('electron')
@@ -15,20 +15,20 @@ app.on('ready', () => {
     const url = request.url.substr(7)
     callback({path: path.normalize(`${__dirname}/${url}`)})
   }, (error) => {
-    if (error) console.error('Failed to register protocol')
+    if (error) console.error('プロトコルの登録に失敗しました')
   })
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**注釈:** 指定されていないすべてのメソッドは、`app` モジュールの `ready` イベントが発生した後にのみ使用できます。
 
 ## メソッド
 
-The `protocol` module has the following methods:
+`protocol` モジュールには以下のメソッドがあります。
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
-* `schemes` String[] - Custom schemes to be registered as standard schemes.
+* `schemes` String[] - 標準スキームとして登録されるカスタムスキーム。
 * `options` Object (任意) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
