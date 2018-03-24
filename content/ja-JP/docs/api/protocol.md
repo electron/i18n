@@ -153,13 +153,13 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `completion` Function (任意) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+HTTP リクエストをレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
+使用法は `registerFileProtocol` と同じですが、 `callback` を `redirectRequest` オブジェクト、または `url`、`method` 、`referrer`、`uploadData`、`session` プロパティを持つオブジェクトで呼び出す必要があります。
 
-By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
+デフォルトでは、HTTP リクエストは現在のセッションを再利用します。リクエストが別のセッションであるようにするには、`session` を `null` に設定する必要があります。
 
-For POST requests the `uploadData` object must be provided.
+POST リクエストの場合、`uploadData` オブジェクトを提供する必要があります。
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
@@ -172,11 +172,11 @@ For POST requests the `uploadData` object must be provided.
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (任意)
 * `completion` Function (任意) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Readable` as a response.
+`Readable` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
 The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
 
@@ -316,7 +316,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (任意)
 * `completion` Function (任意) 
   * `error` Error
 
