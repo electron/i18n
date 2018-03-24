@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`ClientRequest` は [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) インターフェースを実装しているため、[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
+`IncomingMessage` は [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) インターフェースを実装しているため、[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
 ### インスタンスイベント
 
@@ -12,23 +12,23 @@
 
 戻り値:
 
-* `chunk` Buffer - 応答の本文のデータのチャンク。
+* `chunk` Buffer - レスポンスボディのデータのチャンク。
 
-`data` イベントは、アプリケーションコードにデータを転送するよくある方法です。
+`data` イベントはレスポンスデータを実用的なコードに移す常套手段です。
 
 #### イベント: 'end'
 
-応答の本文が終了したことを示します。
+レスポンスボディが終了したことを示します。
 
 #### イベント: 'aborted'
 
-現在進行中の HTTP のトランザクション中に、リクエストが取り消されたときに発行されます。
+現在進行しているHTTPのやり取り中にリクエストがキャンセルされたときに発生します。
 
 #### イベント: 'error'
 
 戻り値:
 
-`error` Error - 通常は、根本的な原因を特定するエラー文字列を保持します。
+`error` Error - 通常、失敗の根本的な原因を識別するエラー文字列を保持しています。
 
 応答データのイベントをストリーミング中に、エラーが発生したときに発行されます。 たとえば、応答のストリーミング中にサーバーがその元をクローズした場合、`error` イベントが応答オブジェクトに発行され、`close` イベントがリクエストオブジェクトに続いて実行されます。
 
