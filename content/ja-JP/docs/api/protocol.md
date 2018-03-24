@@ -206,7 +206,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+Readable ストリーム API (`data` / `end` / `error` イベントが発生する) を実装するオブジェクトを渡すことは可能です。例として、ファイルを返す方法を以下に示します。
 
 ```javascript
 const {protocol} = require('electron')
@@ -215,7 +215,7 @@ const fs = require('fs')
 protocol.registerStreamProtocol('atom', (request, callback) => {
   callback(fs.createReadStream('index.html'))
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('プロトコルの登録に失敗しました')
 })
 ```
 
@@ -225,7 +225,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (任意) 
   * `error` Error
 
-Unregisters the custom protocol of `scheme`.
+`scheme` のカスタムプロトコルを登録解除します。
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
