@@ -4,15 +4,15 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`globalShortcut` モジュールは、さまざまなショートカットの操作をカスタマイズできるように、グローバルキーボードショートカットをオペレーティングシステムに登録/登録解除できます。
+`globalShortcut` モジュールは、オペレーティングシステムに対してグローバルショートカットを登録/登録解除することができます。そのため、様々なショートカットに対する操作をカスタマイズすることができます。
 
-**注釈:** ショートカットはグローバル――アプリにキーボードフォーカスがない場合でも動作します。 このモジュールは、アプリケーションモジュールの `ready` イベントが発行されるまで使用しないでください。
+**注:** ショートカットはグローバルです。アプリにキーボードフォーカスがない場合でも機能します。 アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // 'CommandOrControl+X' をショートカットリスナーに登録する。
+  // 'CommandOrControl+X' をショートカットリスナーに登録します。
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
@@ -21,15 +21,15 @@ app.on('ready', () => {
     console.log('registration failed')
   }
 
-  // ショートカットが登録されているかどうかチェックする。
+  // ショートカットが登録されているかどうかをチェックします。
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // ショートカットを登録解除する。
+  // ショートカットを登録解除します。
   globalShortcut.unregister('CommandOrControl+X')
 
-  // すべてのショートカットを登録解除する。
+  // すべてのショートカットを登録解除します。
   globalShortcut.unregisterAll()
 })
 ```
@@ -43,7 +43,7 @@ app.on('will-quit', () => {
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-`accelerator` のグローバルショートカットを登録します。登録されたショートカットがユーザによって押されたときに `callbback` が呼ばれます。
+`accelerator` のグローバルショートカットを登録します。登録されたショートカットがユーザーによって押下されるときに `callback` が呼び出されます。
 
 accelerator がすでに他のアプリケーションによって使用されている場合、この呼び出しは音沙汰無く失敗します。 この動作は、アプリケーションがグローバルショートカットのために競合しないようにするため、オペレーティングシステムが意図しています。
 
