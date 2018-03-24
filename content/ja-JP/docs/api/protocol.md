@@ -178,7 +178,7 @@ POST リクエストの場合、`uploadData` オブジェクトを提供する�
 
 `Readable` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+使用法は `register{Any}Protocol` と同じですが、 `callback` を `Readable` オブジェクト、または `data`、`statusCode` 、`headers` プロパティを持つオブジェクトで呼び出す必要があります。
 
 サンプル:
 
