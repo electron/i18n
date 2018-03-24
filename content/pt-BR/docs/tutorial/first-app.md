@@ -83,7 +83,7 @@ const path = require('path')
 const url = require('url')
 
 function createWindow () {
-  // Create the browser window.
+  // Criar uma janela (browser window).
   win = new BrowserWindow({width: 800, height: 600})
 
   // e carrega index.html do app.
