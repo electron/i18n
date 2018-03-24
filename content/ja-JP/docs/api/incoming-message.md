@@ -1,6 +1,6 @@
 ## クラス: IncomingMessage
 
-> HTTP/HTTPS リクエストへの応答を処理します。
+> HTTP/HTTPSリクエストに対するレスポンスを処理します。
 
 プロセス: [Main](../glossary.md#main-process)
 
