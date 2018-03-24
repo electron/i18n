@@ -1,6 +1,6 @@
 # powerMonitor
 
-> Monitor power state changes.
+> 電源の状態の変化をモニターします。
 
 プロセス: [Main](../glossary.md#main-process)
 
