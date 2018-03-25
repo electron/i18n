@@ -24,7 +24,7 @@ Puoi leggere ulteriori informazioni su questa funzione nella [documentazione di 
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+In Devtron, c'è una nuova scheda di accessibilità che vi permetterà di controllare una pagina nella tua app, ordinare e filtrare i risultati.
 
 ![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
