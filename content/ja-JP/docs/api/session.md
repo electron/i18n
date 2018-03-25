@@ -68,7 +68,7 @@ console.log(ses.getUserAgent())
 
 Electron が `webContents` 内で `item` をダウンロードするときに発生します。
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+`event.preventDefault()` を呼び出すと、ダウンロードをキャンセルし、`item` はプロセスの次のティックから使用できなくなります。
 
 ```javascript
 const {session} = require('electron')
@@ -82,25 +82,25 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 ### インスタンスメソッド
 
-The following methods are available on instances of `Session`:
+`Session` のインスタンスでは、以下のメソッドが利用できます。
 
 #### `ses.getCacheSize(callback)`
 
 * `callback` Function 
-  * `size` Integer - Cache size used in bytes.
+  * `size` Integer - キャッシュサイズのバイト数。
 
-Callback is invoked with the session's current cache size.
+callback はセッションの現在のキャッシュサイズで呼ばれます。
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `callback` Function - 操作が完了したときに呼ばれる
 
-Clears the session’s HTTP cache.
+セッションの HTTP キャッシュをクリアします。
 
 #### `ses.clearStorageData([options, callback])`
 
 * `options` Object (任意) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `origin` String - (任意) `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optional) - Called when operation is done.
