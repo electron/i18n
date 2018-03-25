@@ -26,7 +26,7 @@ All'interno di Electron, Node.js e Chromium condividono una singola istanza di V
 
 ### Versionamento
 
-A partire dalla versione 2.0 Electron [segue `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+A partire dalla versione 2.0 Electron [segue `semver`](https://semver.org). Per la maggior parte delle applicazione è possibile utilizzare la versione più recente di npm, lanciando ` npm installare Electron` che farà la cosa giusta.
 
 The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
