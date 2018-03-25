@@ -211,7 +211,7 @@ window.webContents.session.enableNetworkEmulation({offline: true})
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+`session` に対して既にアクティブなネットワークエミュレーションを無効にします。元のネットワーク構成にリセットします。
 
 #### `ses.setCertificateVerifyProc(proc)`
 
@@ -219,13 +219,13 @@ Disables any network emulation already active for the `session`. Resets to the o
   * `request` Object 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` String - Chromium からの認証結果。
+    * `errorCode` Integer - エラーコード。
   * `callback` Function 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transparency verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+    * `verificationResult` Integer - 値は [ここ](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)の証明書エラーコードの1つです。 証明書エラーコードの他に、以下の特別なコードを使用することができます。 
+      * `` - 成功を示し、証明書の透明性の検証を無効にします。
+      * `-2` - 失敗を示します。
+      * `-3` - Chromium からの認証結果を使用します。
 
 Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
