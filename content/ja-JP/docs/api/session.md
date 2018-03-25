@@ -253,13 +253,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permissionGranted` Boolean - 権限の許可か拒否
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
+`session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。
 
 ```javascript
 const {session} = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+    return callback(false) // 拒否。
   }
 
   callback(true)
@@ -270,11 +270,11 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `callback` Function (任意) - 操作が完了したときに呼ばれる。
 
-Clears the host resolver cache.
+ホスト解決のキャッシュをクリアします。
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `domains` String - 統合認証が有効であるサーバーのコンマ区切りのリスト。
 
 Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
