@@ -279,12 +279,12 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Evento: 'gpu-process-crashed'
 
 Devuelve:
 
-* `event` Evento
-* `killed` Booleano
+* `event` Event
+* `killed` Boolean
 
 Es emitido cuando el proceso de la gpu se crashea o es terminado.
 
