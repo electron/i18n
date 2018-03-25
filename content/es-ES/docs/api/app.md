@@ -307,25 +307,25 @@ El objeto `app` tiene los siguientes métodos:
 
 Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será emitido y por defecto la aplicación se cerrará.
 
-Este método asegura que todos los controladores para los eventos `beforeunload` y `unload` se ejecutan correctamente. Es posible que una ventana cancele la salida regresando `falso` en el manipulador de eventos `antes de cargar`.
+Este método asegura que todos los controladores para los eventos `beforeunload` y `unload` se ejecutan correctamente. Es posible que una ventana cancele la salida devolviendo `falso` en el controlador de eventos `beforeunload`.
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Íntegro (opcional)
+* `exitCode` Integer (opcional)
 
-Cierra inmediatamente con `exitCode`. `exitCode` por defecto a 0.
+Cierra inmediatamente con `exitCode`. El valor por defecto de `exitCode` será 0.
 
-Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los eventos `before-quit` y `will-quit` no se correrán.
+Tods las ventanas se cerrarán inmediatamente sin preguntar al usuario y los eventos `before-quit` y `will-quit` no se emitirán.
 
 ### `app.relaunch([options])`
 
-* `opciones` Objecto (opcional) 
-  * `args` Cadena[] - (opcional)
-  * `execPath` Cadena (opcional)
+* `opciones` Object (opcional) 
+  * `args` String[] - (opcional)
+  * `execPath` String (opcional)
 
-Reinicia la aplicación cuando la instancia se cierra.
+Reinicia la aplicación cuando la instancia actual se cierra.
 
-Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
+Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos que la instancia actual. Cuando se especifican `args`, entonces `args` se pasarán como argumentos de línea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
 
 Note que este método no cierta la aplicación cuando esta es ejecutada, tiene que llamar `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
 
