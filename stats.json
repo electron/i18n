@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "9116",
-    "translated": "496",
+    "translated": "498",
     "approved": "0",
     "words": "82912",
-    "words_translated": "2295",
+    "words_translated": "2301",
     "words_approved": "0",
     "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": "168"
+    "qa_issues": "169"
   },
   {
     "name": "Bulgarian",
@@ -159,14 +159,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9116",
-    "translated": "6062",
+    "translated": "6290",
     "approved": "247",
     "words": "82912",
-    "words_translated": "48313",
+    "words_translated": "50542",
     "words_approved": "1197",
-    "translated_progress": 58,
+    "translated_progress": 60,
     "approved_progress": 1,
-    "qa_issues": "197"
+    "qa_issues": "201"
   },
   {
     "name": "Korean",
@@ -198,10 +198,10 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "9116",
-    "translated": "3034",
+    "translated": "3035",
     "approved": "49",
     "words": "82912",
-    "words_translated": "17114",
+    "words_translated": "17118",
     "words_approved": "83",
     "translated_progress": 20,
     "approved_progress": 0,
@@ -211,14 +211,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9116",
-    "translated": "3290",
+    "translated": "3326",
     "approved": "76",
     "words": "82912",
-    "words_translated": "21284",
+    "words_translated": "21771",
     "words_approved": "148",
-    "translated_progress": 25,
+    "translated_progress": 26,
     "approved_progress": 0,
-    "qa_issues": "1022"
+    "qa_issues": "1038"
   },
   {
     "name": "Russian",
