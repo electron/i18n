@@ -14,13 +14,13 @@ Electron è mantenuto da un team di GitHub, nonché da un gruppo di [Collaborato
 
 ## Versioni
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Electron rilascia](https://github.com/electron/electron/releases) spesso. Rilasciamo quando ci sono significative correzioni di errori, nuove API o ci sono nuove versioni di aggiornamento di Chromium o Node.js.
 
-### Updating Dependencies
+### Aggiornamento delle Dipendenze
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+La versione di Chromium di Electron è generalmente aggiornata entro una o due settimane dal un nuovo rilascio stabile di Chromium, a seconda dello sforzo richiesto per l'aggiornamento.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Quando viene rilasciata una nuova versione di Nodw.js, Electron normalmente attende circa un mese prima di rilasciare l'aggiornamento al fine di includere una versione più stabile.
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
