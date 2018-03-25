@@ -1,6 +1,6 @@
-# Accessibility
+# Accessibilità
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Realizzare applicazioni accessibili è importante e siamo lieti di presentare nuove funzionalità per [Devtron](https://electronjs.org/devtron) e [Spectron](https://electronjs.org/spectron) che forniscono agli sviluppatori l'opportunità di rendere le loro app migliori per tutti.
 
 * * *
 
