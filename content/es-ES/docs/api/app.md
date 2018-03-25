@@ -162,37 +162,37 @@ Emitido cuando el usuario hace click en el nuevo botón nativo de madOS. El nuev
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido cuando el [browserWindow](browser-window.md) está borroso.
+Emitido cuando un [browserWindow](browser-window.md) pierde el foco.
 
 ### Event: 'browser-window-focus'
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido cuando se enfoca un [browserWindow](browser-window.md).
+Emitido cuando un [browserWindow](browser-window.md) obtiene el foco.
 
 ### Evento: 'browser-window-created'
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
 Emitido cuando se crea un [browserWindow](browser-window.md).
 
-### Event: 'web-contents-created'
+### Evento: 'web-contents-created'
 
 Devuelve:
 
-* `event` Evento
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 
-Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
+Emitido cuando un nuevo [webContents](web-contents.md) es creado.
 
 ### Event: 'certificate-error'
 
