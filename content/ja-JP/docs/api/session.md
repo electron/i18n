@@ -323,30 +323,30 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
   * `eTag` String - ヘッダの ETag の値。
   * `startTime` Double (任意) - ダウンロードが開始されたときの UNIX エポックからの秒数。
 
-以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - Called when operation is done
+* `callback` Function (任意) - 操作が完了したときに呼ばれる
 
-Clears the session’s HTTP authentication cache.
+セッションの HTTP 認証キャッシュをクリアします。
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `Session`:
+`Session` のインスタンスには以下のプロパティがあります。
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+このセッションの [Cookies](cookies.md) オブジェクト。
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+このセッションの [WebRequest](web-request.md) オブジェクト。
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+このセッションの [Protocol](protocol.md) オブジェクト。
 
 ```javascript
 const {app, session} = require('electron')
@@ -358,7 +358,7 @@ app.on('ready', function () {
     var url = request.url.substr(7)
     callback({path: path.normalize(`${__dirname}/${url}`)})
   }, function (error) {
-    if (error) console.error('Failed to register protocol')
+    if (error) console.error('プロトコルの登録に失敗しました')
   })
 })
 ```
