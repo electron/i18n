@@ -194,19 +194,19 @@ Devuelve:
 
 Emitido cuando un nuevo [webContents](web-contents.md) es creado.
 
-### Event: 'certificate-error'
+### Evento: 'certificate-error'
 
 Devuelve:
 
-* `event` Evento
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` cadena - el error del código
-* `certificate` [certificate](structures/certificate.md)
-* `callback` Función 
-  * `isTrusted` Boleano - Si considera que el certificado como de confianza
+* `error` String - El código de error
+* `certificate` [Certificate](structures/certificate.md)
+* `callback` Function 
+  * `isTrusted` Boolean - Si se considera que el certificado es de confianza
 
-Emitido cuando falla la verificación de `certificate` por `url`, al confiar en el certificado usted debe prevenir el comportamiento con `event.preventDefault()` y llamar `callback(true)`.
+Emitido cuando falla la verificación de `certificate` por `url`, para confiar en el certificado usted debe prevenir el comportamiento por defecto con `event.preventDefault()` y llamar a `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -222,20 +222,20 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Evento: 'select-client-certificate'
 
 Devuelve:
 
-* `event` Evento
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList`[Certificate[]](structures/certificate.md)
-* `callback` Función 
+* `callback` Function 
   * `certificate`[Certificate](structures/certificate.md)(opcional)
 
 Emitido cuando el certificado de un cliente es requerido.
 
-La `url` corresponde a la entrada de navegación requerida al certificado del cliente y `callback` puede ser llamado con una entrada filtrada de la lista. Usando `event.preventDefault()` previene que la aplicación use el primer certificado almacenado.
+La `url` corresponde a la entrada de navegación que requiere el certificado de cliente y `callback` puede ser llamada con una entrada filtrada de la lista. Usando `event.preventDefault()` previene que la aplicación use el primer certificado almacenado.
 
 ```javascript
 const {app} = require('electron')
@@ -246,25 +246,25 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event:'login'
+### Evento: 'login'
 
 Devuelve:
 
-* `event` Evento
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 * `request` Object 
-  * `method` Cuerda
+  * `method` String
   * `url` URL
   * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
-  * `esquema` Cadena
-  * `anfitrión` Cadena
-  * `puerto` Íntegro
-  * `realm` Cadena
-* `callback` Función 
-  * `username` Cadena
-  * `contraseña` Cadena
+  * `scheme` String
+  * `host` String
+  * `port` Integer
+  * `realm` String
+* `callback` Function 
+  * `username` String
+  * `password` String
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 
