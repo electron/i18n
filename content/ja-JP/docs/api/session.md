@@ -276,26 +276,26 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `domains` String - 統合認証が有効であるサーバーのコンマ区切りのリスト。
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+HTTP NTLM またはネゴシエート認証の資格情報を常に送信するかどうかを動的に設定します。
 
 ```javascript
 const {session} = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// 統合認証に、`example.com`、`foobar.com`、`baz`
+// で終わる URL を考えます。
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// 統合認証に、すべての URL を考えます。
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (任意)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+このセッションの `userAgent` と `acceptLanguages` をオーバーライドします。
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+`acceptLanguages` は、言語コードのカンマ区切りリスト (例: `"en-US, fr, de, ko, zh-CN, ja"`) でなければなりません。
 
 This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
 
