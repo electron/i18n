@@ -101,29 +101,29 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
 
 * `options` Object (任意) 
   * `origin` String - (任意) `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
-  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
+  * `storages` String[] - (任意) ストレージをクリアするタイプ。`appcache`、`cookies`、`filesystem`、`indexdb`、`localstorage`、`shadercache`、`websql`、`serviceworkers` を含めます。
+  * `quotas` String[] - (任意) クォータをクリアするタイプ。`temporary`、`persistent`、`syncable` を含めます。
+* `callback` Function (任意) - 操作が完了したときに呼ばれる。
 
-Clears the data of web storages.
+ウェブストレージのデータをクリアします。
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+未書き込みの DOM ストレージのデータをディスクに書き込みます。
 
 #### `ses.setProxy(config, callback)`
 
 * `config` Object 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+  * `pacScript` String - PAC ファイルに関連付けられたURL。
+  * `proxyRules` String - 使用するプロキシを示すルール。
+  * `proxyBypassRules` String - プロキシ設定をバイパスするURLを示すルール。
+* `callback` Function - 操作が完了したときに呼ばれる。
 
-Sets the proxy settings.
+プロキシ設定を設定します。
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+`pacScript` と `proxyRules` が一緒に提供されると、`proxyRules` オプションは無視され、`pacScript` コンフィグが適用されます。
 
-The `proxyRules` has to follow the rules below:
+`proxyRules` は以下のルールに従う必要があります。
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
@@ -135,7 +135,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 例:
 
-* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `http=foopy:80;ftp=foopy2` - `http://` URL には HTTP プロキシ `foopy:80` を、`ftp://` URL には HTTP プロキシ `foopy2:80` を使用する。
 * `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
 * `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
 * `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
@@ -268,7 +268,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (任意) - 操作が完了したときに呼ばれる。
 
 Clears the host resolver cache.
 
