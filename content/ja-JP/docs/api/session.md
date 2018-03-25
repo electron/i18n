@@ -297,33 +297,33 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 `acceptLanguages` は、言語コードのカンマ区切りリスト (例: `"en-US, fr, de, ko, zh-CN, ja"`) でなければなりません。
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+これは既存の `WebContents` には影響しません。それぞれの `WebContents` は `webContents.setUserAgent` を使用してセッション全体のユーザーエージェントをオーバーライドできます。
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+戻り値 `String` - このセッションのユーザエージェント。
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identifier` String - 有効な UUID。
 * `callback` Function 
-  * `result` Buffer - Blob data.
+  * `result` Buffer - Blob データ。
 
-Returns `Blob` - The blob data associated with the `identifier`.
+戻り値 `Blob` - `identifier` に関連付けられた Blob データ。
 
 #### `ses.createInterruptedDownload(options)`
 
 * `options` オブジェクト 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `path` String - ダウンロードの絶対パス。
+  * `urlChain` String[] - ダウンロードの完全な URL チェーン。
+  * `mimeType` String (任意)
+  * `offset` Integer - ダウンロードの範囲の始端。
+  * `length` Integer - ダウンロードの長さ。
+  * `lastModified` String - ヘッダの最終更新日の値。
+  * `eTag` String - ヘッダの ETag の値。
+  * `startTime` Double (任意) - ダウンロードが開始されたときの UNIX エポックからの秒数。
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
