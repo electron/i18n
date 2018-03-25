@@ -383,29 +383,29 @@ Usted puede pedir las siguientes direcciones por nombre:
 * `music` Directorio para la música del usuario.
 * `pictures` Directorio para las imágenes del usuario.
 * `videos` Directorio para los vídeos del usuario.
-* `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Camino completo a la versión del sistema del plugin pepper flash.
+* `logs` Directorio para los archivos de registro de la aplicación.
+* `pepperFlashSystemPlugin` Ruta completa a la versión del sistema del plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opciones` Object (opcional) 
+* `options` Object (opcional) 
   * `size` String 
-    * `pequeño` - 16x16
+    * `small` - 16x16
     * `normal` - 32x32
-    * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
-* `callback` Función 
+    * `large` - 48x48 en *Linux*, 32x32 en *Windows*, no soportado *macOS*.
+* `callback` Function 
   * `error` Error
-  * `ícono` [NativeImage](native-image.md)
+  * `icon` [NativeImage](native-image.md)
 
-Busca un ícono asociado a la ruta.
+Obtiene el icono asociado a la ruta.
 
-En *Windows*, Hay dos tipos de íconos:
+En *Windows*, Hay dos tipos de iconos:
 
-* Íconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
-* Íconos dentro del archivo mismo, como `.exe`, `.dll`, `.ico`.
+* Iconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
+* Iconos dentro del propio archivo, como `.exe`, `.dll`, `.ico`.
 
-En *Linux* y *macOS*, los íconos dependen de la aplicación asociada al tipo de archivo.
+En *Linux* y *macOS*, los iconos dependen de la aplicación asociada al tipo mime de archivo.
 
 ### `app.setPath(name, path)`
 
