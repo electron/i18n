@@ -358,31 +358,31 @@ Muestra las ventanas de la aplicación después de que fueran ocultadas. No esta
 
 ### `app.getAppPath()`
 
-Devuelve `String` - al directorio de la aplicación actual.
+Devuelve `String` - El directorio actual de la aplicación.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Devuelve `cadena` - Una ruta a un directorio especial o a un archivo asociado con un `nombre`. Cuando hay una falla se lanza un `Error`.
+Devuelve `String` - Una ruta a un directorio especial o a un archivo asociado con un `name`. Cuando se produce un `Error` se dispara una excepción.
 
 Usted puede pedir las siguientes direcciones por nombre:
 
-* `Inicio` Directorio de inicio del usuario.
-* `appData` Directorio de la información de la aplicación por usuario, que lleva por defecto a: 
+* `home` Directorio personal del usuario.
+* `appData` Directorio de la información de aplicación por usuario, que lleva por defecto a: 
   * `%APPDATA%` en Windows
   * `$XDG_CONFIG_HOME` o `~/.config` en Linux
   * `~/Library/Application Support` en marcOS
-* `Información del usuario` El directorio para almacenar los archivos de la configuración de su aplicación, que es el directorio `appData` por defecto unida con el nombre de su aplicación.
+* `userData` El directorio para almacenar los archivos de configuración de su aplicación, que es por defecto, el directorio `appData` seguido del nombre de su aplicación.
 * `temp` Directorio temporal.
-* `exe` Archivo ejecutable en curso.
-* `module` la librería `libchromiumcontent`.
-* `escritorio` El directorio del escritorio del usuario en curso.
-* `documentos` Directorio para la carpeta "Mis documentos" del usuario.
-* `descargas` Directorio para las descargas del usuario.
-* `musica` Directorio para la música del usuario.
-* `imágenes` Directorio para las imágenes del usuario.
-* `videos` Directorio para las imágenes del usuario.
+* `exe` El archivo ejecutable actual.
+* `module` La librería `libchromiumcontent`.
+* `desktop` El escritorio actual del usuario.
+* `documents` Directorio "Mis documentos" del usuario.
+* `downloads` Directorio para las descargas del usuario.
+* `music` Directorio para la música del usuario.
+* `pictures` Directorio para las imágenes del usuario.
+* `videos` Directorio para los vídeos del usuario.
 * `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin` Camino completo a la versión del sistema del plugin pepper flash.
 
