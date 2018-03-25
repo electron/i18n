@@ -28,11 +28,11 @@ All'interno di Electron, Node.js e Chromium condividono una singola istanza di V
 
 A partire dalla versione 2.0 Electron [segue `semver`](https://semver.org). Per la maggior parte delle applicazione è possibile utilizzare la versione più recente di npm, lanciando ` npm installare Electron` che farà la cosa giusta.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Il processo di aggiornamento delle versioni è dettagliato esplicitamente nel nostro [Documento di versionamento](electron-versioning.md).
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Il supporto a lungo termine delle versioni precedenti di Electron attualmente non esistono. Se la vostra versione di Electron funziona bene, puoi mantenerla per tutto il tempo che desideri. If you want to make use of new features as they come in you should upgrade to a newer version.
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
