@@ -4,13 +4,13 @@
 
 Electron nasce nel 2013 come framework sul quale è stato costruito [Atom](https://atom.io), l'editor di testo di GitHub. Entrambi furono resi open source nella Primavera del 2014.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+Da allora è diventato uno strumento popolare utilizzato da sviluppatori open source, Start-up e società consolidate. [Guarda chi sta contribuendo su Electron](https://electronjs.org/apps).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Continua le leggere per sapere di più sui contributi e i rilasci di Electron o inizia a costruire con Electron attraverso la [Guida introduttiva](quick-start.md).
 
-## Core Team and Contributors
+## Squadra e collaboratori
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron è mantenuto da un team di GitHub, nonché da un gruppo di [Collaboratori attivi](https://github.com/electron/electron/graphs/contributors) della community. Alcuni dei collaboratori lavorano in proprio, altri fanno parte di grandi aziende che stanno sviluppando soluzioni con Electron. Siamo lieti di aggiungere collaboratori al progetto come manutentori. Per saperne di più su come [contribuire a Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Versioni
 
