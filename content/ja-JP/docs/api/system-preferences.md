@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> システムの環境設定を取得します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -11,37 +11,37 @@ console.log(systemPreferences.isDarkMode())
 
 ## イベント
 
-The `systemPreferences` object emits the following events:
+`systemPreferences` オブジェクトは以下のイベントを発生させます。
 
-### Event: 'accent-color-changed' *Windows*
-
-戻り値:
-
-* `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
-
-### Event: 'color-changed' *Windows*
+### イベント: 'accent-color-changed' *Windows*
 
 戻り値:
 
 * `event` Event
+* `newColor` String - ユーザがシステムのアクセントカラーに割り当てる新しいRGBAカラー。
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### イベント: 'color-changed' *Windows*
 
 戻り値:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+
+### イベント: 'inverted-color-scheme-changed' *Windows*
+
+戻り値:
+
+* `event` Event
+* `invertedColorScheme` Boolean - ハイコントラストテーマなどの反転した配色が使用されている場合は `true`、そうでない場合は `false`。
 
 ## メソッド
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+戻り値 `Boolean` - システムがダークモードかどうか。
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+戻り値 `Boolean` - ページ間をスワイプの設定がオンかどうか。
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
