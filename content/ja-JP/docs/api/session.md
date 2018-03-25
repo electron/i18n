@@ -191,21 +191,21 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `options` Object 
   * `offline` Boolean (任意) - ネットワークの停止をエミュレートするかどうか。デフォルトは false。
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+  * `latency` Double (任意) - RTT 毎 ms。デフォルトは0で、これだとレイテンシの抑制が無効になります。
+  * `downloadThroughput` Double (任意) - 下りレート (Bps)。デフォルトは0で、これにより、ダウンロードの抑制が無効になります。
+  * `downloadThroughput` Double (任意) - 上りレート (Bps)。デフォルトは0で、これにより、アップロードの抑制が無効になります。
 
-Emulates network with the given configuration for the `session`.
+`session` の指定された構成でネットワークをエミュレートします。
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+// 50kbps のスループットと 500ms の待ち時間で GPRS 接続をエミュレートする。
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+// ネットワークの停止をエミュレートする。
 window.webContents.session.enableNetworkEmulation({offline: true})
 ```
 
