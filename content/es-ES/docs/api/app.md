@@ -325,13 +325,13 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuario y los eve
 
 Reinicia la aplicación cuando la instancia actual se cierra.
 
-Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos que la instancia actual. Cuando se especifican `args`, entonces `args` se pasarán como argumentos de línea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
+Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos que la instancia actual. Cuando se especifican `args`, entonces `args` se pasarán como argumentos de línea de comandos. Si se especifica `execPath`, entonces `execPath` se ejecutará como reinicio de la aplicación en vez de la aplicación actual.
 
-Note que este método no cierta la aplicación cuando esta es ejecutada, tiene que llamar `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
+Note que este método no finaliza la aplicación cuando se ejecuta, debe llamar a `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
 
-Cuando `app.relaunch` es llamada múltiples veces, múltiples instancias serán iniciadas después de que la actual instancia se cierre.
+Cuando `app.relaunch` se llama múltiples veces, se iniciarán múltiples instancias después de que la instancia actual finalice.
 
-Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comando de la nueva instancia:
+Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comandos de la nueva instancia:
 
 ```javascript
 const {app} = require('electron')
@@ -342,19 +342,19 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo contrario `false`.
+Devuelve `Boolean` - `true` Si Electron ha terminado de inicializarse, de lo contrario `false`.
 
 ### `app.focus()`
 
-En Linux, el foco se tiene en la primera ventana visible. En macOS, hace que la aplicación se active. En Windows, el foco se tiene en la primera ventana de la aplicación.
+En Linux, se establece el foco en la primera ventana visible. En macOS, convierte la aplicación en la aplicación activa. En Windows, el foco se establece en la primera ventana de la aplicación.
 
 ### `app.hide()` *macOS*
 
-Oculta todas la ventanas de la aplicación sin minimizar estas.
+Oculta todas la ventanas de la aplicación sin minimizarlas.
 
 ### `app.show()` *macOS*
 
-Muestra las ventanas de la aplicación después e que fueron ocultas. No enfoca automáticamente estas.
+Muestra las ventanas de la aplicación después de que fueran ocultadas. No establece el foco en ellas automáticamente.
 
 ### `app.getAppPath()`
 
