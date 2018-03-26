@@ -26,19 +26,19 @@ Puoi leggere ulteriori informazioni su questa funzione nella [documentazione di 
 
 In Devtron, c'è una nuova scheda di accessibilità che vi permetterà di controllare una pagina nella tua app, ordinare e filtrare i risultati.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![screenshot di devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
 Entrambi questi strumenti utilizzano la libreria degli [Strumenti di sviluppo di accessibilità](https://github.com/GoogleChrome/accessibility-developer-tools) costruita da Google per Chrome. Puoi saperne di più sull'accessibilità delle regole di controllo che questa libreria utilizza sulla [wiki del repository](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
+Se conosci altri fantastici strumenti di accessibilità per Electron, aggiungili alla documentazione di accessibilità con una richiesta di pull.
 
-## Enabling Accessibility
+## Attivazione dell'accessibilità
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Le applicazioni Electron mantengono l'accessibilità disabilitata di default per ragioni di prestazioni ma ci sono molti modi per abilitarla.
 
-### Inside Application
+### All'interno dell'applicazione
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+Utilizzando [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), puoi mostrare lo switch di accessibilità agli utenti nelle preferenze dell'applicazione. User's system assistive utilities have priority over this setting and will override it.
 
 ### Assistive Technology
 
