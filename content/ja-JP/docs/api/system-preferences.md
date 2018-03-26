@@ -103,7 +103,7 @@ console.log(systemPreferences.isDarkMode())
 
 戻り値 `any` - `NSUserDefaults` 内の `key` の値。
 
-Some popular `key` and `type`s are:
+いくつかの一般的な `key` と `value` は以下です。
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -116,14 +116,14 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] を参照
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+`NSUserDefaults` 内の `key` の値を設定します。
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+`type` は `value` の実際の型と一致する必要があります。そうでない場合は例外がスローされます。
 
-Some popular `key` and `type`s are:
+いくつかの一般的な `key` と `value` は以下です。
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
