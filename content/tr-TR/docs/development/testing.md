@@ -18,4 +18,5 @@ There is not a lot of Python in this repository, but it too is governed by codin
 
 Bütün birim testlerini koşmak için, `npm run test` komutunu çalıştırın. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
 
-Yalnızca belli sayıda test koşmak için `npm run test -match=NAME` komutunu çalıştırın, `NAME`'i koşmak istediğiniz test suitinin dosya ismiyle değiştirin. Örnek olarak: Eğer sadece IPC suitlerini koşmak istiyorsanız `npm run test -match=ipc` komutunu çalıştırmalısınız.
+To run only specific tests matching a pattern, run `npm run test --
+-g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.

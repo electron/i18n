@@ -2,7 +2,7 @@
 
 > キーボードショートカットを定義します。
 
-Acceleratorは、`+` によって結合された複数の修飾キーとキーコードを含む文字列で、アプリケーション全体でキーボードショートカットを定義するために使われます。
+Accelerator は、`+` によって結合された複数の修飾キーとキーコードを含む文字列で、アプリケーション全体でキーボードショートカットを定義するために使われます。
 
 例:
 
@@ -15,20 +15,20 @@ Acceleratorは、`+` によって結合された複数の修飾キーとキー�
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // 'CommandOrControl+Y' ショートカットリスナーに登録します。
+  // 'CommandOrControl+Y' をショートカットリスナーに登録します。
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Y と Command/Control のいずれかが押下されると、処理を行います。
+    // Y と Command/Control が押下されたときに処理を行います。
   })
 })
 ```
 
 ## プラットフォームに関する注意事項
 
-LinuxとWindowsの場合、`Command` キーは効果がないため、Acceleratorを定義するため、macOSでは `Command`、LinuxとWindowsでは `Control` を表す `CommandOrControl` を使うようにしてください。
+Linux と Windows の場合、`Command` キーは効果がありません。Accelerator を定義するのに、macOS では `Command`、Linux と Windows では `Control` を表す、`CommandOrControl` を使うようにしてください。
 
 `Option` の代わりに `Alt` を使うようにしてください。`Option` キーはmacOSにしか存在しませんが、`Alt` キーは全てのプラットフォームで利用可能です。
 
-`Super` キーは、WindowsとLinuxの場合、`Windows` キー、macOSの場合、`Cmd` にマッピングされます。
+`Super` キーは、WindowsとLinuxの場合は `Windows` キー、macOSの場合は `Cmd` にマッピングされます。
 
 ## 利用可能な修飾キー
 

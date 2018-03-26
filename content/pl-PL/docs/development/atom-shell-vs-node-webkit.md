@@ -1,4 +1,4 @@
-# Techniczne różnice pomiędzy elektronami i NW.js (dawniej węzłami-webkit)
+# Techniczne różnice pomiędzy electronem a NW.js (dawniej node-webkit)
 
 **Uwaga: Electron wcześniej nazywał się Atom Shell.**
 

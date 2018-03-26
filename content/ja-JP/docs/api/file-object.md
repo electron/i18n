@@ -1,14 +1,14 @@
-# `File`オブジェクト
+# `File` オブジェクト
 
-> Use the HTML5 `File` API to work natively with files on the filesystem.
+> ファイルシステム上のファイルでネイティブに機能するHTML5 `File` APIを使用します。
 
-The DOM's File interface provides abstraction around native files in order to let users work on native files directly with the HTML5 file API. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
+DOMのファイルインターフェースは、ユーザーがHTML5ファイルAPIで直接ネイティブファイルを扱えるように、ネイティブファイルを抽象化します。 Electronは、`File` インターフェースにファイルシステム上のファイルの実際のパスを公開する `path` 属性を追加しています。
 
-Example of getting a real path from a dragged-onto-the-app file:
+アプリの上にドラッグされたファイルから実際のパスを取得する例:
 
 ```html
 <div id="holder">
-  ファイルをここにドロップしてください
+  ここにファイルをドラッグしてください
 </div>
 
 <script>

@@ -144,4 +144,4 @@
 
 ## Разработка
 
-See <development/README.md>
+См. <development/README.md>

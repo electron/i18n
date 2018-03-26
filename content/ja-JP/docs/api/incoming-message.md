@@ -1,65 +1,65 @@
-## Class: IncomingMessage
+## クラス: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> HTTP/HTTPSリクエストに対するレスポンスを処理します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`IncomingMessage` は [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) インターフェースを実装しているため、[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
 ### インスタンスイベント
 
-#### Event: 'data'
+#### イベント: 'data'
 
-戻り値：
+戻り値:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - レスポンスボディのデータのチャンク。
 
-The `data` event is the usual method of transferring response data into applicative code.
+`data` イベントはレスポンスデータを実用的なコードに移す常套手段です。
 
-#### Event: 'end'
+#### イベント: 'end'
 
-Indicates that response body has ended.
+レスポンスボディが終了したことを示します。
 
-#### Event: 'aborted'
+#### イベント: 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+現在進行している HTTP のやり取り中にリクエストがキャンセルされたときに発生します。
 
 #### イベント: 'error'
 
-戻り値：
+戻り値:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` Error - 通常は、根本的な原因を識別するエラー文字列を保持します。
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+レスポンスデータのイベントをストリーミングしている最中にエラーが発生したときに発生します。 例えば、レスポンスのストリーミング中にサーバーがその基をクローズした場合、`error` イベントがレスポンスオブジェクトで発生し、続いて `close` イベントがリクエストオブジェクトで発生します。
 
 ### インスタンスプロパティ
 
-An `IncomingMessage` instance has the following readable properties:
+`IncomingMessage` のインスタンスには、以下の読み取り可能なプロパティがあります。
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+HTTP レスポンスステータスコードを表す `Integer`。
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+HTTPステータスメッセージを表す `String`。
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+HTTP レスポンスヘッダを表す `Object`。`headers` オブジェクトは以下のとおりにフォーマットされます。
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* すべてのヘッダ名は小文字です。
+* 各ヘッダー名ごとに配列の値を返すプロパティがヘッダーオブジェクトに生成されます。
+* 各ヘッダーの値はヘッダー名に関連付けられた配列に格納されます。
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+HTTPプロトコルのバージョン番号を示す `String`。 典型的な値は、'1.0'や'1.1'です。 さらに、`httpVersionMajor` と `httpVersionMinor`は、それぞれ HTTP のメジャーバージョン番号とマイナーバージョン番号を返す、2つの読み取り可能な整数値のプロパティです。
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+HTTP プロトコルのメジャーバージョン番号を示す `Integer`。
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+HTTP プロトコルのマイナーバージョン番号を示す `Integer`。

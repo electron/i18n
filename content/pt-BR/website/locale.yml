@@ -1,7 +1,7 @@
 tagline: Construa aplicativos desktop multiplataforma com JavaScript, HTML e CSS
 nav:
   docs: Documentação
-  donors: Donors
+  donors: Doadores
   blog: Blog
   community: Comunidade
   apps: Aplicativos
@@ -74,7 +74,7 @@ quick_start:
   dive_deeper: Ou você pode ir mais fundo e ler a <a href='/docs'>documentação</a>.
 need_help:
   title: Precisa de Ajuda?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Faça perguntas no <a href='https://discuss.atom.io/c/electron'>Discuss</a> fórum ou nosso canal do <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:info@electronjs.org">nfo@electronjs.org</a>.
 headings:
   languages: Idiomas
 taglines:
@@ -137,7 +137,7 @@ pages:
     title: Spectron
     description: Spectron é uma framework de código aberto para facilmente escrever testes de integração para seu aplicativo. Construído em cima do ChromeDriver e WebDriverIO.
   '/donors':
-    title: Donors
+    title: Doadores
 _404:
   page_not_found: Página não encontrada.
 search:

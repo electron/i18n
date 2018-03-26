@@ -1,6 +1,6 @@
 # مسرع
 
-> Define keyboard shortcuts.
+> حدد اختصارات لوحة المفاتيح
 
 Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
@@ -41,13 +41,13 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `العالي`
 * `Super`
 
-## Available key codes
+## اختصارات لوحة المفاتيح المتاحة
 
 * `` to `9`
 * `A` to `Z`
 * `F1` to `F24`
 * Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `علامة الجمع`
+* `Plus`
 * `الفضاء`
 * `التبويب`
 * `امسح حرف`

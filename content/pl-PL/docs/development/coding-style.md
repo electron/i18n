@@ -4,7 +4,7 @@ To są wytyczne dotyczące stylów kodowania w Electron.
 
 You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
 
-## General Code
+## Ogólny kod
 
 * End files with a newline.
 * Place requires in the following order: 
@@ -55,4 +55,4 @@ Electron APIs uses the same capitalization scheme as Node.js:
 * When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
 * For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
 
-When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. Istnieje [dyskusja](https://github.com/electron/electron/issues/46) na ten temat.

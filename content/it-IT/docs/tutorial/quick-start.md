@@ -2,9 +2,9 @@
 
 Electron consente di creare applicazioni desktop in JavaScript fornendo un eseguibile inclusivo di numerose API native (sistema operativo). Puoi immaginarlo come una variante di Node.js che si focalizza su applicazioni desktop invece dei web server.
 
-The old "Quick Start" document that used to live here has been split up into two documents:
+Il vecchio documento "Avvio Veloce" che viveva qui è stato separato in due documenti:
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* Per controllare come una app Electron semplice è costruita, vedi [Scrivendo la Tua Prima App Electron](./first-app.md)
+* Per controllare l'architettura del processo, vedi [Processi Principali e di Rendering](./application-architecture.md#main-and-renderer-processes).
 
-If you just came here to learn about Electron, check out the [official guides](../README.md).
+Se sei venuto qui solo per imparare su Electron, controlla le [guide ufficiali](../README.md).

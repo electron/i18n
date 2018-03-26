@@ -1,50 +1,50 @@
-## Class: BrowserWindowProxy
+## Клас: BrowserWindowProxy
 
-> Manipulate the child browser window
+> Манипулиране на новосъздадения браузър прозорец
 
-Process: [Renderer](../glossary.md#renderer-process)
+Процес: [Renderer](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+Обекта на `BrowserWindowProxy` се връща от `window.open` и осигурява ограничена функционалност с новосъздадения прозорец.
 
-### Instance Methods
+### Инстантни методи
 
-The `BrowserWindowProxy` object has the following instance methods:
+Обекта `BrowserWindowProxy` има следните инстантни методи:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Премахва фокуса от новосъздадения прозорец.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+Насилствено затваря новия прозорец без да излъчи неговото unload събитие.
 
 #### `win.eval(code)`
 
 * `code` String
 
-Evaluates the code in the child window.
+Оценява кода в новия прозорец.
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+Фокусира новия прозорец (показва прозореца отпред).
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+Извиква диалоговия прозорец в новия прозорец.
 
 #### `win.postMessage(message, targetOrigin)`
 
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Изпраща съобщение до новия прозорец с определен произход или `*` ако няма предпочитание към произхода.
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+В допълнение към тези методи новия прозорец реализира обект `window.opener` без свойства и един единствен метод.
 
-### Instance Properties
+### Инстантни свойства
 
-The `BrowserWindowProxy` object has the following instance properties:
+Обекта `BrowserWindowProxy` има следните инстантни свойства:
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+`Boolean`, има стойност true след като новия прозорец става затворен.

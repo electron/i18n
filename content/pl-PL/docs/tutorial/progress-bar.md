@@ -1,6 +1,6 @@
-# Progress Bar in Taskbar (Windows, macOS, Unity)
+# Pasek postępu w pasku zadań (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+W systemie Windows przycisk paska zadań może służyć do wyświetlania paska postępu. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
 On macOS the progress bar will be displayed as a part of the dock icon.
 
@@ -14,7 +14,7 @@ All three cases are covered by the same API - the `setProgressBar()` method avai
 
 Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
 
-See the [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress).
+Zobacz [Dokumentacje API dla większej liczby opcji i trybów](../api/browser-window.md#winsetprogressbarprogress).
 
 ```javascript
 const { BrowserWindow } = require('electron')

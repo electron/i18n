@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> システムの環境設定を取得します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -11,51 +11,51 @@ console.log(systemPreferences.isDarkMode())
 
 ## イベント
 
-The `systemPreferences` object emits the following events:
+`systemPreferences` オブジェクトは以下のイベントを発生させます。
 
-### Event: 'accent-color-changed' *Windows*
-
-戻り値:
-
-* `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
-
-### Event: 'color-changed' *Windows*
+### イベント: 'accent-color-changed' *Windows*
 
 戻り値:
 
 * `event` Event
+* `newColor` String - ユーザがシステムのアクセントカラーに割り当てる新しいRGBAカラー。
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### イベント: 'color-changed' *Windows*
 
 戻り値:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+
+### イベント: 'inverted-color-scheme-changed' *Windows*
+
+戻り値:
+
+* `event` Event
+* `invertedColorScheme` Boolean - ハイコントラストテーマなどの反転した配色が使用されている場合は `true`、そうでない場合は `false`。
 
 ## メソッド
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+戻り値 `Boolean` - システムがダークモードかどうか。
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+戻り値 `Boolean` - ページ間をスワイプの設定がオンかどうか。
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
 * `event` String
 * `userInfo` Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+`event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` String
 * `userInfo` Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+`event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
@@ -64,11 +64,11 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
   * `event` String
   * `userInfo` Object
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+対応する `event` が発生したときに、macOS のネイティブ通知を監視し、`callback` が `callback(event, userInfo)` で呼ばれます。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+`event` の登録を解除するために使用できる、監視者の `id` が返されます。
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+このAPIの下で、`NSDistributedNotificationCenter` に登録します。`event` の値の例は以下になります。
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -79,7 +79,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 * `id` Integer
 
-Removes the subscriber with `id`.
+`id` の監視者を削除します。
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
@@ -88,22 +88,22 @@ Removes the subscriber with `id`.
   * `event` String
   * `userInfo` Object
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
+`subscribeNotification` と同じですが、ローカルデフォルトでは `NSNotificationCenter` を使用します。これは、`NSUserDefaultsDidChangeNotification` などのイベントに必要です。
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+`unsubscribeNotification` と同じですが、`NSNotificationCenter` から監視者を削除します。
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array`、`dictionary` にできます。
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+戻り値 `any` - `NSUserDefaults` 内の `key` の値。
 
-Some popular `key` and `type`s are:
+いくつかの一般的な `key` と `value` は以下です。
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -116,14 +116,14 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] を参照
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+`NSUserDefaults` 内の `key` の値を設定します。
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+`type` は `value` の実際の型と一致する必要があります。そうでない場合は例外がスローされます。
 
-Some popular `key` and `type`s are:
+いくつかの一般的な `key` と `value` は以下です。
 
 * `ApplePressAndHoldEnabled`: `boolean`
 

@@ -10,7 +10,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `label` String (optional) - Text to display.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
-### Instance Properties
+### Инстантни свойства
 
 The following properties are available on instances of `TouchBarLabel`:
 

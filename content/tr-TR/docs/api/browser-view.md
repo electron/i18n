@@ -4,7 +4,7 @@
 
 **Not:** BrowserView API şu an deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
 
-İşlem: [Ana](../glossary.md#main-process)
+İşlem: [Main](../glossary.md#main-process)
 
 `BrowserView`, `BrowserWindow`'a ek ağ içeriği gömmek için kullanılır. Çocuk pencere gibidir ama sahibi pencereye göre göreceli konumlandırılır. `webview` etiketine bir alternatif olarak düşünülebilir.
 

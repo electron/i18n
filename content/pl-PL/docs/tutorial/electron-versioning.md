@@ -1,6 +1,6 @@
 # Wersjonowanie Electrona
 
-> A detailed look at our versioning policy and implementation.
+> Szczegółowe spojrzenie na nasze zasady dotyczące wersjonowania i wdrażania.
 
 As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
 
@@ -14,7 +14,7 @@ To update an existing project to use the latest stable version:
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## Wersja 1.x
 
 Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
@@ -62,7 +62,7 @@ We allow for multiple stabilization branches to exist simultaneously, and intend
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
-# Beta Releases and Bug Fixes
+# Wersje beta i poprawki błędów
 
 Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
