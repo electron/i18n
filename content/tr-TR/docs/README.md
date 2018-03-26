@@ -1,4 +1,4 @@
-# Official Guides
+# Resmi Rehberler
 
 Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin olunuz. Sürüm numarası, sayfa URL'inin bir parçası olmalıdır. Eğer değilse, muhtemelen kullandığınız bir geliştirme dal dokümantasyonu, Electron sürümünüzle uyumlu olmayan API değişikliklerini içeriyor olabilir. Dokümantasyonun eski sürümlerini görüntülemek için, [etikete göre gözatın](https://github.com/electron/electron/tree/v1.4.0) ile GitHub'da "Switch branches/tags" seçeneklerini açarak, sürümünüzle eşleşen etiketi seçebilirsiniz.
 
@@ -46,21 +46,21 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Erişilebilirliği Etkinleştirmek](tutorial/accessibility.md#enabling-accessibility)
-* [Application Testing and Debugging](tutorial/application-debugging.md) 
+* [Uygulamanın Test Edilmesi ve Hata Ayıklama](tutorial/application-debugging.md) 
   * [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
   * [Selenyum ve WebDriver Kullanma](tutorial/using-selenium-and-webdriver.md)
   * [Headless CI Sistemlerinde (Travis, Jenkins) Test Etme](tutorial/testing-on-headless-ci.md)
   * [DevTools Eklentisi](tutorial/devtools-extension.md)
 * [Uygulama Dağıtımı](tutorial/application-distribution.md) 
   * [Desteklenen Platformlar](tutorial/supported-platforms.md)
-  * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
-  * [Windows Store](tutorial/windows-store-guide.md)
+  * [Mac Uygulama Mağazası](tutorial/mac-app-store-submission-guide.md)
+  * [Windows Mağaza](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Application Security](tutorial/security.md) 
   * [Güvenlik sorunlarını raporlama](tutorial/security.md#reporting-security-issues)
   * [Chromium Güvenlik Sorunları ve Yükseltmeleri](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
-  * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
+  * [Güvenlik Kontrol Listesi](tutorial/security.md#checklist-security-recommendations)
 * [Application Updates](tutorial/updates.md) 
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
