@@ -60,5 +60,5 @@
     "glossary:upload": "node script/upload-glossary.js"
   },
   "electronLatestStableTag": "v1.8.4",
-  "electronMasterBranchCommit": "95cbd69e48fde434ea4298ab74b0b4af4d537210"
+  "electronMasterBranchCommit": "2e5cb930de80e79000887ba02372960fe1efbb20"
 }

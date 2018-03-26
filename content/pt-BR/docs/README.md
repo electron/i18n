@@ -1,4 +1,4 @@
-# Official Guides
+# Guia Oficial
 
 Certifique-se de usar a documentação correspondente a versão do Electron que você esta usando. A versão faz parte da URL desta página. Se não, você provavelmente esta usando a documentação da branch de desenvolvimento qual pode conter mudanças da API que pode não ser compatível com a sua versão do Electron. Para ver a documentação de versões anteriores, você pode [procurar pelas tags](https://github.com/electron/electron/tree/v1.4.0) no GitHub, para isso, abra o menu "Switch branches/tags" e selecione a tag da versão que você gostaria de ver.
 
@@ -144,4 +144,4 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 
 ## Desenvolvimento
 
-See <development/README.md>
+Veja <development/README.md>

@@ -1,4 +1,4 @@
-# Official Guides
+# Guides officiels
 
 Veuillez vous assurer d'utiliser la documentation qui correspond à votre version d'Electron. Le numéro de version doit être une partie de l'URL de la page. Si ce n'est pas le cas, vous utilisez probablement la documentation d'une branche de développement pouvant contenir des modifications de l'API qui ne sont pas compatibles avec votre version d'Electron. Pour consulter les anciennes versions de la documentation, vous pouvez [Parcourir par tag](https://github.com/electron/electron/tree/v1.4.0) sur GitHub en ouvrant la liste déroulante « Switch branches/tags » et sélectionnez le tag qui correspond à votre version.
 
@@ -144,4 +144,4 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 
 ## Développement
 
-See <development/README.md>
+Voir <development/README.md>

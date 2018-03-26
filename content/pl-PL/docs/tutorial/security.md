@@ -58,19 +58,19 @@ Any resources not included with your application should be loaded using a secure
 ### Jak?
 
 ```js
-// Bad
+// Źle
 browserWindow.loadURL('http://my-website.com')
 
-// Good
+// Dobrze
 browserWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- Źle -->
 <script crossorigin src="http://cdn.com/react.js"></script>
 <link rel="stylesheet" href="http://cdn.com/style.css">
 
-<!-- Good -->
+<!-- Dobrze -->
 <script crossorigin src="https://cdn.com/react.js"></script>
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
@@ -88,13 +88,13 @@ A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump ou
 ### Jak?
 
 ```js
-// Bad
+// Źle
 const mainWindow = new BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
+// Dobrze
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
@@ -106,10 +106,10 @@ mainWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- Źle -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<!-- Dobrze -->
 <webview src="page.html"></webview>
 ```
 
@@ -219,7 +219,7 @@ Disabling `webSecurity` will disable the same-origin policy and set `allowRunnin
 ### Jak?
 
 ```js
-// Bad
+// Źle
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -228,15 +228,15 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Dobrze
 const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Bad -->
+<!-- Źle -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<!-- Dobrze -->
 <webview src="page.html"></webview>
 ```
 
@@ -255,10 +255,10 @@ Electron respects [the `Content-Security-Policy` HTTP header](https://developer.
 The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
 
 ```txt
-// Bad
+// Źle
 Content-Security-Policy: '*'
 
-// Good
+// Dobrze
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
@@ -297,7 +297,7 @@ Simply put, loading content over `HTTPS` assures the authenticity and integrity 
 ### Jak?
 
 ```js
-// Bad
+// Źle
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -306,7 +306,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Dobrze
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -325,7 +325,7 @@ Legitimate use cases exist, but unless you know what you are doing, you should n
 ### Jak?
 
 ```js
-// Bad
+// Źle
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -334,7 +334,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Dobrze
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -351,7 +351,7 @@ Generally speaking, there are likely good reasons if a feature was not enabled b
 ### Jak?
 
 ```js
-// Bad
+// Źle
 const mainWindow = new BrowserWindow({
   webPreferences: {
     blinkFeatures: ['ExecCommandInJavaScript']
@@ -360,7 +360,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Dobrze
 const mainWindow = new BrowserWindow()
 ```
 
@@ -377,10 +377,10 @@ If you do not need popups, you are better off not allowing the creation of new [
 ### Jak?
 
 ```html
-<!-- Bad -->
+<!-- Źle -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- Dobrze -->
 <webview src="page.html"></webview>
 ```
 

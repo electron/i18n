@@ -2,7 +2,7 @@
 
 > Invia un report del crash a un server in remoto.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Vedi anche: [Principale](../glossary.md#main-process), [Rendering](../glossary.md#renderer-process)
 
 Di seguito c'è un esempio di invio automatico di un report del crash a un server in remoto:
 

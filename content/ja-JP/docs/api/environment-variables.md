@@ -24,7 +24,7 @@ Windowsコンソールの例:
 
 ### `GOOGLE_API_KEY`
 
-Electronには、GoogleのジオコーディングWebサービスへのリクエストを行うためのハードコードされたAPIキーが含まれています。 この API キーはすべてのバージョンの Electron に含まれているため、容量の制限を超えることがよくあります。 この問題を回避するには、環境内に独自の Google API キーを指定します。 ジオコーディングリクエストをするブラウザウィンドウを開く前に、メインプロセスファイルに以下のコードを挿入します。
+Electronには、GoogleのジオコーディングWebサービスへのリクエストを行うためのハードコードされたAPIキーが含まれています。 このAPIキーはすべてのバージョンのElectronに含まれているため、利用制限を超えることがよくあります。 この問題を回避するには、環境に独自のGoogle APIキーを指定することができます。 ジオコーディングリクエストを行うブラウザーウインドウを開く前に、メインプロセスファイルに以下のコードを記述します。
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
@@ -60,16 +60,16 @@ Linuxのグローバルメニューバーを使用しません。
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+ElectronがASARファイルから読み取るとき、読み取りオフセットとファイルパスをシステムの `tmpdir` に記録します。出力されたファイルは、ASARモジュールのファイル順序を最適化するために使用できます。
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Electronがクラッシュすると、コンソールにスタックトレースを出力します。
 
-This environment variable will not work if the `crashReporter` is started.
+`crashReporter` が開始されている場合、この環境変数は機能しません。
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Electronがクラッシュすると、Windowsのクラッシュダイアログを表示します。
 
-This environment variable will not work if the `crashReporter` is started.
+`crashReporter` が開始されている場合、この環境変数は機能しません。

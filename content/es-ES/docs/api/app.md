@@ -2,7 +2,7 @@
 
 > Controla el ciclo de vida de los eventos de su aplicación.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
 Los siguientes ejemplos muestran como salir de la aplicación cuando la última ventana está cerrada:
 
@@ -15,43 +15,43 @@ app.on('window-all-closed', () => {
 
 ## Eventos
 
-El objeto `app` produce los siguientes eventos:
+El objeto `app` emite los siguientes eventos:
 
 ### Evento: 'will-finish-launching'
 
-Emitido cuando la aplicación ha terminado su iniciación básica. En windows y Linux el evento `will-finish-launching` es el mismo que el evento `ready`; en macOS este evento representa la notificación `applicationWillFinishLaunching` de `NSApplication`. Generalmente configurará escuchas para los eventos `open-file` y `open-url` aquí, y empieza la alerta de accidente y la actualización automática.
+Emitido cuando la aplicación ha terminado su iniciación básica. En windows y Linux el evento `will-finish-launching` es el mismo que el evento `ready`; en macOS este evento representa la notificación `applicationWillFinishLaunching` de `NSApplication`. Normalmente configurará aquí los receptores para los eventos `open-file` y `open-url`, e iniciará el informador de errores y el actualizador automático.
 
-En la mayoría de los casos, usted debe hacer todo en el controlador del evento `ready`.
+En la mayoría de los casos, debería hacerse todo en el controlador del evento `ready`.
 
 ### Evento: 'ready'
 
-Retorna:
+Devuelve:
 
-* `launchInfo` Objecto *macOS*
+* `launchInfo` Object *macOS*
 
-Emitido cuando Electron se ha terminado de iniciar. En macOS, `launchInfo` soporta el `userInfo</0 de <code>NSUserNotification` que fue usado para abrir la aplicación, si fue lanzado con el centro de notificaciones. Puede usar `app.isReady()` para verificar si el evento ya fue disparado.
+Emitido cuando Electron se ha terminado de iniciar. En macOS, `launchInfo` almacena el `userInfo</0 de <code>NSUserNotification` que fue usado para abrir la aplicación, si fue lanzado desde el centro de notificaciones. Puede usar `app.isReady()` para verificar si el evento ya fue emitido.
 
 ### Evento: 'window-all-closed'
 
 Emitido cuando todas las ventanas han sido cerradas.
 
-Si no se subscribe a este evento y todas las ventanas están cerradas, el comportamiento por defecto es salir de la aplicación; sin embargo, si se subscribe, usted controla si la aplicación de cierra o no. Si el usuario presionó `Cmd + Q`, o el desarrollador llamó a `app.quit()`, Electron primero tratará de cerrar todas las ventanas y emitir el evento `will-quit`, y en este caso el evento `window-all-closed` no será emitido.
+Si no se subscribe a este evento y todas las ventanas están cerradas, el comportamiento por defecto es salir de la aplicación; sin embargo, si se subscribe, usted controla si la aplicación se cierra o no. Si el usuario presionó `Cmd + Q`, o el desarrollador llamó a `app.quit()`, Electron primero tratará de cerrar todas las ventanas y entonces emitir el evento `will-quit`, y en este caso el evento `window-all-closed` no será emitido.
 
 ### Evento: 'before-quit'
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 
-Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamar a `event.preventDefault()` evitará el comportamiento por defecto, que es cerrar la aplicación.
+Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamando a `event.preventDefault()` evitará el comportamiento por defecto, que es cerrar la aplicación.
 
-**Nota:** Si aplicación cerrar fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitida *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
+**Nota:** Si el cierre de la aplicación fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitido *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
 
 ### Evento: 'will-quit'
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 
 Emitido cuando todas las ventanas han sido cerradas y la aplicación se cerrará. Llamando `event.preventDefault()` se evitará el comportamiento por defecto, que es cerrar la aplicación.
 
@@ -61,29 +61,29 @@ Consulte la descripción del evento `window-all-closed` por las diferencias con 
 
 Devuelve:
 
-* `event` Evento
-* `exitCode` Íntegro
+* `event` Event
+* `exitCode` Integer
 
-Emitido cuando la aplicación está saliendo.
+Emitido cuando la aplicación se está cerrando.
 
 ### Evento: 'open-file' *macOS*
 
 Devuelve:
 
 * `event` Event
-* `path` Cadena
+* `path` String
 
-Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y que el sistema operativo quiere reusar que la aplicación abra el archivo. `open-file` también es emitido cuando el archivo es arrojado dentro del dock y la aplicación no está corriendo todavía. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para controlar este caso (incluso antes de que el evento `ready` esté emitido).
+Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y el sistema operativo quiere reusar la aplicación para abrir el archivo. `open-file` también es emitido cuando el archivo es soltado dentro del dock y la aplicación todavía no se está ejecutando. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para manejar este caso (incluso antes de que el evento `ready` sea emitido).
 
 Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
-En Windows, tiene que analizar gramaticalmente `process.argv` (en el proceso principal) para encontrar la ruta del archivo.
+En Windows, tiene que analizar `process.argv` (en el proceso principal) para encontrar la ruta del archivo.
 
 ### Evento: 'open-url' *macOS*
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 * `url` String
 
 Emitido cuando el usuario quiere abrir una URL con la aplicación. El archivo `Info.plist` de su aplicación debe definir el esquema de url en la llave `CFBundleURLTypes`, y configurar `NSPrincipalClass` para `AtomApplication`.
@@ -94,8 +94,8 @@ Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
 Devuelve:
 
-* `event` Evento
-* `hasVisibleWindows` Buleano
+* `event` Event
+* `hasVisibleWindows` Boolean
 
 Emitido cuando la aplicación está activada. Varias acciones puede activar este evento, como iniciar la aplicación por primera vez, intentar relanzar la aplicación cuando ya está corriendo, o hacer click en el dock de la aplicación o en el ícono de la barra de tareas.
 
@@ -103,58 +103,58 @@ Emitido cuando la aplicación está activada. Varias acciones puede activar este
 
 Devuelve:
 
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Objecto - Contiene el estado específico de la aplicación almacenado por la actividad de otro artefacto.
+* `event` Event
+* `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contiene el estado específico de la aplicación almacenado por la actividad de otro artefacto.
 
 Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
 
 La actividad de un usuario puede ser continuada solo en una aplicación que tenga la misma identificación de equipo de desarrolladores como la la aplicación fuente de las actividades y que soporte los tipos de actividad. Los tipos de actividades soportadas están en el `Info.plist` de la aplicación bajo la llave `NSUserActivityTypes`.
 
-### Event: 'will-continue-activity' *macOS*
+### Evento: 'will-continue-activity' *macOS*
 
 Devuelve:
 
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `event` Event
+* `type` String - Una cadena que identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
+Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
 
-### Event: 'continue-activity-error' *macOS*
-
-Devuelve:
-
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` Cadena - Una cadena con la descripción localizada del error.
-
-Emitido durante [Manos Libres](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad desde un dispositivo diferente no se reanuda.
-
-### Event: 'activity-was-continued' *macOS*
+### Evento: 'continue-activity-error' *macOS*
 
 Devuelve:
 
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `Información de Usuario` Objeto: contiene el estado específico de la aplicación almacenado por la actividad.
+* `event` Event
+* `type` String - Una cadena que identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - Una cadena en el idioma local con la descripción del error.
 
-Emitido durante [Manos Libres](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) después de que se realiza una actividad con éxito en este dispositivo se reanuda en otro.
+Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad desde un artefacto diferente falla al ser reanudada.
 
-### Event: 'update-activity-state' *macOS*
-
-Devuelve:
-
-* `event` Evento
-* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `Información de Usuario` Objeto: contiene el estado específico de la aplicación almacenado por la actividad.
-
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
-
-### Event: 'new-window-for-tab' *macOS*
+### Evento: 'activity-was-continued' *macOS*
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
+* `type` String- Una cadena que identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object: contiene el estado específico de la aplicación almacenado por la actividad.
+
+Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) después de que una actividad de este artefacto haya sido reanudado con éxito en otro.
+
+### Evento: 'update-activity-state' *macOS*
+
+Devuelve:
+
+* `event` Event
+* `type` String - Una cadena que identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object: contiene el estado específico de la aplicación almacenado por la actividad.
+
+Emitido cuando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va a ser reanudado en otro artefacto. Si necesita actualizar el estado que va a transferir, debería llamar a `event.preventDefault()` inmediatamente, construir un nuevo diccionario `userInfo` y llamar a `app.updateCurrentActivity()` de forma adecuada. De otra forma, la operación fallará y se llamará a `continue-activity-error`.
+
+### Evento: 'new-window-for-tab' *macOS*
+
+Devuelve:
+
+* `event` Event
 
 Emitido cuando el usuario hace click en el nuevo botón nativo de madOS. El nuevo botón es visible solamente si el `BrowserWindow` actual tiene `tabbingIdentifier`
 
@@ -162,51 +162,51 @@ Emitido cuando el usuario hace click en el nuevo botón nativo de madOS. El nuev
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido cuando el [browserWindow](browser-window.md) está borroso.
+Emitido cuando un [browserWindow](browser-window.md) pierde el foco.
 
 ### Event: 'browser-window-focus'
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido cuando se enfoca un [browserWindow](browser-window.md).
+Emitido cuando un [browserWindow](browser-window.md) obtiene el foco.
 
 ### Evento: 'browser-window-created'
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
 Emitido cuando se crea un [browserWindow](browser-window.md).
 
-### Event: 'web-contents-created'
+### Evento: 'web-contents-created'
 
 Devuelve:
 
-* `event` Evento
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 
-Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
+Emitido cuando un nuevo [webContents](web-contents.md) es creado.
 
-### Event: 'certificate-error'
+### Evento: 'certificate-error'
 
 Devuelve:
 
-* `event` Evento
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` cadena - el error del código
-* `certificate` [certificate](structures/certificate.md)
-* `callback` Función 
-  * `isTrusted` Boleano - Si considera que el certificado como de confianza
+* `error` String - El código de error
+* `certificate` [Certificate](structures/certificate.md)
+* `callback` Function 
+  * `isTrusted` Boolean - Si se considera que el certificado es de confianza
 
-Emitido cuando falla la verificación de `certificate` por `url`, al confiar en el certificado usted debe prevenir el comportamiento con `event.preventDefault()` y llamar `callback(true)`.
+Emitido cuando falla la verificación de `certificate` por `url`, para confiar en el certificado usted debe prevenir el comportamiento por defecto con `event.preventDefault()` y llamar a `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -222,20 +222,20 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Evento: 'select-client-certificate'
 
 Devuelve:
 
-* `event` Evento
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList`[Certificate[]](structures/certificate.md)
-* `callback` Función 
+* `callback` Function 
   * `certificate`[Certificate](structures/certificate.md)(opcional)
 
 Emitido cuando el certificado de un cliente es requerido.
 
-La `url` corresponde a la entrada de navegación requerida al certificado del cliente y `callback` puede ser llamado con una entrada filtrada de la lista. Usando `event.preventDefault()` previene que la aplicación use el primer certificado almacenado.
+La `url` corresponde a la entrada de navegación que requiere el certificado de cliente y `callback` puede ser llamada con una entrada filtrada de la lista. Usando `event.preventDefault()` previene que la aplicación use el primer certificado almacenado.
 
 ```javascript
 const {app} = require('electron')
@@ -246,25 +246,25 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event:'login'
+### Evento: 'login'
 
 Devuelve:
 
-* `event` Evento
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 * `request` Object 
-  * `method` Cuerda
+  * `method` String
   * `url` URL
   * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
-  * `esquema` Cadena
-  * `anfitrión` Cadena
-  * `puerto` Íntegro
-  * `realm` Cadena
-* `callback` Función 
-  * `username` Cadena
-  * `contraseña` Cadena
+  * `scheme` String
+  * `host` String
+  * `port` Integer
+  * `realm` String
+* `callback` Function 
+  * `username` String
+  * `password` String
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 
@@ -279,59 +279,59 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Evento: 'gpu-process-crashed'
 
 Devuelve:
 
-* `event` Evento
-* `killed` Booleano
+* `event` Event
+* `killed` Boolean
 
-Es emitido cuando el proceso de la gpu se crashea o es terminado.
+Se emite cuando se produce una excepción en el proceso de gpu o es finalizado de forma inesperada.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Evento: 'accessibility-support-changed' *macOS* *Windows*
 
 Devuelve:
 
-* `event` Evento
-* `accessibilitySupportEnabled` Booleano - `true` cuando el soporte de accesibilidad de Chrome está activado, de lo contrario `false`.
+* `event` Event
+* `accessibilitySupportEnabled` Boolean - `true` cuando el soporte de accesibilidad de Chrome está activado, de lo contrario `false`.
 
-Es emitido cuando el soporte de accesibilidad de Chrome es modificado. Este evento se dispara cuando las tecnologías de asistencia, como un lector de pantalla, sin activados o desactivados. Vea https://www.chromium.org/developers/design-documents/accessibility para mas información.
+Es emitido cuando se modifica el soporte de accesibilidad de Chrome. Este evento se dispara cuando las tecnologías de asistencia, como un lector de pantalla, es activado o desactivado. Vea https://www.chromium.org/developers/design-documents/accessibility para mas información.
 
 ## Métodos
 
 El objeto `app` tiene los siguientes métodos:
 
-**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
+**Nota:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
-Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será producido y por defecto la aplicación se cerrará.
+Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será emitido y por defecto la aplicación se cerrará.
 
-Este método garantiza que todos los eventos de `beforeunload` y `unload` serán correctamente ejecutados. Es posible que una ventana cancele la salida regresando `falso` en el manipulador de eventos `antes de cargar`.
+Este método asegura que todos los controladores para los eventos `beforeunload` y `unload` se ejecutan correctamente. Es posible que una ventana cancele la salida devolviendo `falso` en el controlador de eventos `beforeunload`.
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Íntegro (opcional)
+* `exitCode` Integer (opcional)
 
-Cierra inmediatamente con `exitCode`. `exitCode` por defecto a 0.
+Cierra inmediatamente con `exitCode`. El valor por defecto de `exitCode` será 0.
 
-Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los eventos `before-quit` y `will-quit` no se correrán.
+Tods las ventanas se cerrarán inmediatamente sin preguntar al usuario y los eventos `before-quit` y `will-quit` no se emitirán.
 
 ### `app.relaunch([options])`
 
-* `opciones` Objecto (opcional) 
-  * `args` Cadena[] - (opcional)
-  * `execPath` Cadena (opcional)
+* `opciones` Object (opcional) 
+  * `args` String[] - (opcional)
+  * `execPath` String (opcional)
 
-Reinicia la aplicación cuando la instancia se cierra.
+Reinicia la aplicación cuando la instancia actual se cierra.
 
-Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
+Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos que la instancia actual. Cuando se especifican `args`, entonces `args` se pasarán como argumentos de línea de comandos. Si se especifica `execPath`, entonces `execPath` se ejecutará como reinicio de la aplicación en vez de la aplicación actual.
 
-Note que este método no cierta la aplicación cuando esta es ejecutada, tiene que llamar `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
+Note que este método no finaliza la aplicación cuando se ejecuta, debe llamar a `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
 
-Cuando `app.relaunch` es llamada múltiples veces, múltiples instancias serán iniciadas después de que la actual instancia se cierre.
+Cuando `app.relaunch` se llama múltiples veces, se iniciarán múltiples instancias después de que la instancia actual finalice.
 
-Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comando de la nueva instancia:
+Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comandos de la nueva instancia:
 
 ```javascript
 const {app} = require('electron')
@@ -342,91 +342,91 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo contrario `false`.
+Devuelve `Boolean` - `true` Si Electron ha terminado de inicializarse, de lo contrario `false`.
 
 ### `app.focus()`
 
-En Linux, el foco se tiene en la primera ventana visible. En macOS, hace que la aplicación se active. En Windows, el foco se tiene en la primera ventana de la aplicación.
+En Linux, se establece el foco en la primera ventana visible. En macOS, convierte la aplicación en la aplicación activa. En Windows, el foco se establece en la primera ventana de la aplicación.
 
 ### `app.hide()` *macOS*
 
-Oculta todas la ventanas de la aplicación sin minimizar estas.
+Oculta todas la ventanas de la aplicación sin minimizarlas.
 
 ### `app.show()` *macOS*
 
-Muestra las ventanas de la aplicación después e que fueron ocultas. No enfoca automáticamente estas.
+Muestra las ventanas de la aplicación después de que fueran ocultadas. No establece el foco en ellas automáticamente.
 
 ### `app.getAppPath()`
 
-Devuelve `String` - al directorio de la aplicación actual.
+Devuelve `String` - El directorio actual de la aplicación.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Devuelve `cadena` - Una ruta a un directorio especial o a un archivo asociado con un `nombre`. Cuando hay una falla se lanza un `Error`.
+Devuelve `String` - Una ruta a un directorio especial o a un archivo asociado con un `name`. Cuando se produce un `Error` se dispara una excepción.
 
 Usted puede pedir las siguientes direcciones por nombre:
 
-* `Inicio` Directorio de inicio del usuario.
-* `appData` Directorio de la información de la aplicación por usuario, que lleva por defecto a: 
+* `home` Directorio personal del usuario.
+* `appData` Directorio de la información de aplicación por usuario, que lleva por defecto a: 
   * `%APPDATA%` en Windows
   * `$XDG_CONFIG_HOME` o `~/.config` en Linux
   * `~/Library/Application Support` en marcOS
-* `Información del usuario` El directorio para almacenar los archivos de la configuración de su aplicación, que es el directorio `appData` por defecto unida con el nombre de su aplicación.
+* `userData` El directorio para almacenar los archivos de configuración de su aplicación, que es por defecto, el directorio `appData` seguido del nombre de su aplicación.
 * `temp` Directorio temporal.
-* `exe` Archivo ejecutable en curso.
-* `module` la librería `libchromiumcontent`.
-* `escritorio` El directorio del escritorio del usuario en curso.
-* `documentos` Directorio para la carpeta "Mis documentos" del usuario.
-* `descargas` Directorio para las descargas del usuario.
-* `musica` Directorio para la música del usuario.
-* `imágenes` Directorio para las imágenes del usuario.
-* `videos` Directorio para las imágenes del usuario.
-* `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Camino completo a la versión del sistema del plugin pepper flash.
+* `exe` El archivo ejecutable actual.
+* `module` La librería `libchromiumcontent`.
+* `desktop` El escritorio actual del usuario.
+* `documents` Directorio "Mis documentos" del usuario.
+* `downloads` Directorio para las descargas del usuario.
+* `music` Directorio para la música del usuario.
+* `pictures` Directorio para las imágenes del usuario.
+* `videos` Directorio para los vídeos del usuario.
+* `logs` Directorio para los archivos de registro de la aplicación.
+* `pepperFlashSystemPlugin` Ruta completa a la versión del sistema del plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opciones` Object (opcional) 
+* `options` Object (opcional) 
   * `size` String 
-    * `pequeño` - 16x16
+    * `small` - 16x16
     * `normal` - 32x32
-    * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
-* `callback` Función 
+    * `large` - 48x48 en *Linux*, 32x32 en *Windows*, no soportado *macOS*.
+* `callback` Function 
   * `error` Error
-  * `ícono` [NativeImage](native-image.md)
+  * `icon` [NativeImage](native-image.md)
 
-Busca un ícono asociado a la ruta.
+Obtiene el icono asociado a la ruta.
 
-En *Windows*, Hay dos tipos de íconos:
+En *Windows*, Hay dos tipos de iconos:
 
-* Íconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
-* Íconos dentro del archivo mismo, como `.exe`, `.dll`, `.ico`.
+* Iconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
+* Iconos dentro del propio archivo, como `.exe`, `.dll`, `.ico`.
 
-En *Linux* y *macOS*, los íconos dependen de la aplicación asociada al tipo de archivo.
+En *Linux* y *macOS*, los iconos dependen de la aplicación asociada al tipo mime de archivo.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. Si el camino especificado a un directorio no existe, el directorio será creado por el siguiente método. En caso de fallar se lanza un `Error`.
+Reemplaza el `path` a un directorio especial o un archivo asociado con `name`. Si la ruta especifica un directorio que no existe, el directorio se creará por este método. En caso de fallo se emite un `Error`.
 
-Solo puede sobre escribir rutas de de un `nombre` definido en `app.getPath`.
+Solo puede sobrescribir rutas de un `name` definido en `app.getPath`.
 
-Por defecto, las cookies y el caché de una página web serán almacenados en el directorio `userData`. Si quiere cambiar su localización, tiene que reescribir la ruta de `Dato de Usuario` ante que el evento `listo` del módulo de la `app` sea emitido.
+Por defecto, las cookies y el caché de una página web serán almacenados en el directorio `userData`. Si quiere cambiar su localización, tiene que sobrescribir la ruta de `userData` ante de que el evento `ready` del módulo `app` se emita.
 
 ### `app.getVersion()`
 
-Regresa `Cadena` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
+Devuelve `String` - La versión de la aplicación cargada. Si no se encuentra la versión en el fichero `package.json` de la aplicación, se devuelve la versión del paquete o ejecutable.
 
 ### `app.getName()`
 
-Regresa `Cadena` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
+Devuelve `String` - El nombre actual de la aplicación, que se corresponde con el nombre especificado en el fichero `package.json` de la aplicación.
 
-Usualmente el campo `nombre` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones del módulo npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
+Usualmente el campo `name` del fichero `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones del módulo npm. Normalmente debe especificar un `productName` también, el cual es el nombre de su aplicación en mayúsculas, y que será preferido por Electron sobre `name`.
 
 ### `app.setName(name)`
 
@@ -773,7 +773,7 @@ Devuelve `Boolean` - `true` si la accesibilidad de soporte de Chrome es habilita
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+* `enabled` Boolean - Activa o desactiva el renderizado del [árbol de accesibilidad](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
 Manualmente habilita el soporte de accesibilidad de Chrome, lo que permite exponer el interruptor de accesibilidad a los usuarios en la configuración de la aplicación. https://www.chromium.org/developers/design-documents/accessibility para más detalles. Desactivado por defecto.
 
@@ -821,9 +821,9 @@ Devuelve `Boolean` - Si la aplicación se está ejecutando actualmente desde la 
 
 Devuelve `Boolean` - Si la movida fue exitosa. Tenga en cuenta que si la movida es exitosa su aplicación dejará de funcionar y se relanzará.
 
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+Por defecto no se presentará un díalogo de confirmación, si prefiere que el usuario confirme la operación debe hacerlo usando la API [`dialog`](dialog.md).
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. Por consiguiente, si el usuario cancela el diálogo de autorización, este método devuelve falso. Si se produce un fallo al realizar la copia, este método emite un error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado
 
 ### `app.dock.bounce([type])` *macOS*
 

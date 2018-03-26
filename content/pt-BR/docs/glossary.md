@@ -38,7 +38,7 @@ Uma biblioteca compartilhada que inclui o [Chromium Content module](https://www.
 
 O processo principal, normalmente fica em um arquivo chamando `main.js`, é o ponto de entrada para cada app em Electron. Isso controla a vida do app, de aberto para fechado. Isso também é gerencia elementos nativos, como o Menu, Barra de Menus, Dock, Bandeja e etc. O processo principal é resposável por criar cada novo processo rederizado no app. Todo o Node API está cronstruído.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+O arquivo de processo principal de toda aplicação é especificado na propriedade `main` dentro do arquivo `package.json`. É desta maneira que o `electron .` sabe qual arquivo executar ao iniciar.
 
 No Chromium, este processo é referido assim como o "Processo do Browser". Ele é renomeado no Electron para evitar confusões com os processos de renderizações.
 

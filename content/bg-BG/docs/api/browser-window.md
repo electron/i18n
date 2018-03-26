@@ -1,14 +1,14 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Създава и контролира браузър прозорци.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
 ```javascript
 // В процеса main.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// Или използвайте `remote` от процеса renderer.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,24 +16,24 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Зареди външен URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Или зареди локален HTML файл
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Прозорец без рамка
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+За да създадете прозорец без Chrome или прозрачен прозорец в някаква форма, може да използвате [Frameless Window](frameless-window.md) API.
 
-## Showing window gracefully
+## Грациозно показване на прозорец
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Когато зареждате страница директно в прозореца, потребителите може да видят, че страницата се зарежда на части, което не е добре за родно/native приложение. За да накарате прозореца да се покаже без визуално премигване, има две решения за различните ситуации.
 
-### Using `ready-to-show` event
+### Използване на събитие `ready-to-show`
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+Когато зареждате страницата, събитието `ready-to-show` ще бъде излъчено, когато рендиращият процес е рендирал страницата за първи път ако прозореца не е бил вече показан. Показването на прозореца след това събитие няма да има визуално премигване:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -43,7 +43,7 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Това събитие обикновено е излъчено след събитието `did-finish-load`, но за страници с много външни ресурси, то може да бъде излъчено преди събитието `did-finish-load`.
 
 ### Setting `backgroundColor`
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Създава и контролира браузър прозорци.
 
 Процеса: [основни](../glossary.md#main-process)
 
@@ -503,7 +503,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Инстантни методи
 
 Objects created with `new BrowserWindow` have the following instance methods:
 

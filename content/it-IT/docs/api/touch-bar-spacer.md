@@ -1,13 +1,13 @@
-## Class: TouchBarSpacer
+## Classe: SpaziatoreBarraTouch
 
-> Create a spacer between two items in the touch bar for native macOS applications
+> Crea uno spaziatore tra due elementi nella barra touch per applicazioni macOS native
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processo: [Principale](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSpacer(options)` *Experimental*
+### `nuovo SpaziatoreTouchBar(opzioni)` *Sperimentale*
 
 * `opzioni` Oggetto 
-  * `dimensioni` String (optional) - Size of spacer, possible values are: 
-    * `small` - Small space between items.
-    * `large` - Large space between items.
-    * `flexible` - Take up all available space.
+  * `dimensioni` Stringa (opzionale) - Taglia dello spaziatore, valori possibili sono: 
+    * `piccolo` - Piccolo spazio tra elementi.
+    * `grande` - Grande spazio tra elementi.
+    * `flessibile` - Occupa tutto lo spazio disponibile.

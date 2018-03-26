@@ -61,7 +61,7 @@ Envía el comando al objetivo de la depuración.
 
 #### Evento: 'detach'
 
-* `evento` Evento
+* `event` Event
 * `reason` Cadena - Razón para desasociar el depurador.
 
 Aparece cuando la sesión del depurador es finalizada. Esto sucede ya sea cuando se cierra `webContents` o cuando se invoca las herramientas del desarrollador para el adjunto `webContents`.

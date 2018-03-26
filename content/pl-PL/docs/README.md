@@ -1,4 +1,4 @@
-# Official Guides
+# Oficialny Poradnik
 
 Upewnij się, że dokumentacja dotyczy twojej wersji Electrona. Numer wersji powinien być zawarty w URL tej strony. Jeżeli nie jest, prawdopodobnie przeglądasz dokumentację gałęzi deweloperskiej, która może zawierać zmiany w API, które nie są kompatybilne z twoją wersją Electrona. Aby przeglądać starsze wersje dokumentacji, możesz [przeglądać tagami](https://github.com/electron/electron/tree/v1.4.0) na GitHubie, rozwijając pole "Zmień gałąź/tagi" oraz wybierając tag, który odpowiada twojej wersji.
 
@@ -19,24 +19,24 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Instalowanie Electrona](tutorial/first-app.md#installing-electron)
   * [Rozwój Electrona w pigułce](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Uruchamianie Twojej aplikacji](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
-  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+* [Standardowe teksty i CLI](tutorial/boilerplates-and-clis.md) 
+  * [Teskt standardowy vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+  * [Inne narzędzia i teksty standardowe](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Architektura aplikacji](tutorial/application-architecture.md) 
-  * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Proces główny i renderer](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Używanie z API Electrona](tutorial/application-architecture.md#using-electron-apis)
   * [Używanie z API Node.js](tutorial/application-architecture.md#using-node.js-apis)
   * [Używanie Natywnych Modułów Node.js](tutorial/using-native-node-modules.md)
-  * [Inter-Process Communication](tutorial/application-architecture.md#)
-* Adding Features to Your App 
+  * [Komunikacja między procesami](tutorial/application-architecture.md#)
+* Dodawanie funkcji do aplikacji 
   * [Powiadomienia](tutorial/notifications.md)
   * [Ostatnie dokumenty](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
   * [Postęp aplikacji](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
-  * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
+  * [Niestandardowe Menu Docka](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Niestandardowy Pasek Zadań systemu Windows](tutorial/windows-taskbar.md)
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Skróty Klawiszowe](tutorial/keyboard-shortcuts.md)
   * [Wykrywanie trybu offline/Online](tutorial/online-offline-events.md)
@@ -47,7 +47,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Włączanie ułatwień dostępu](tutorial/accessibility.md#enabling-accessibility)
 * [Testowanie i debugowanie aplikacji](tutorial/application-debugging.md) 
-  * [Debugging the Main Process](tutorial/debugging-main-process.md)
+  * [Debugowanie Głównego Wątku](tutorial/debugging-main-process.md)
   * [Używanie Selenium oraz WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Rozszerzenie DevTools](tutorial/devtools-extension.md)
@@ -57,34 +57,34 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Sklep Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Bezpieczeństwo aplikacji](tutorial/security.md) 
-  * [Reporting Security Issues](tutorial/security.md#reporting-security-issues)
+  * [Zgłaszanie Błędów Bezpieczeństwa](tutorial/security.md#reporting-security-issues)
   * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Lista kontrolna zabezpieczeń](tutorial/security.md#checklist-security-recommendations)
 * [Aktualizacje aplikacji](tutorial/updates.md) 
   * [Wdrażanie aktualizacji serwera](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+  * [Wdrażanie aktualizacji do twojej aplikacji](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Stosowanie aktualizacji](tutorial/updates.md#applying-updates)
 
 ## Szczegółowe poradniki
 
 Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
 * [Szczegółowo: Instalowanie Electrona](tutorial/installation.md) 
-  * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
+  * [Globalna a Lokalna instalacja](tutorial/installation.md#global-versus-local-installation)
   * [Proxy](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Rozwiązywanie problemów](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [Szczegółowo: Schemat Wersjonowania Electrona](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+  * [Stabilizacja gałęzi](tutorial/electron-versioning.md#stabilization-branches)
+  * [Wersje beta i poprawki błędów](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [Szczegółowo: Pakowanie Kodu Źródłowego z asar](tutorial/application-packaging.md) 
+  * [Generowanie Archiwów asar](tutorial/application-packaging.md#generating-asar-archives)
+  * [Używanie Archiwów asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ograniczenia](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+  * [Dodawanie rozpakowanych Plików do Archiwów asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Szczegółowo: Używanie Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
 
@@ -144,4 +144,4 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
 ## Rozwój
 
-See <development/README.md>
+Zobacz <development/README.md>

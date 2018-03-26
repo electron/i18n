@@ -1,4 +1,4 @@
-# Multithreading
+# Wielowątkowość
 
 With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
 

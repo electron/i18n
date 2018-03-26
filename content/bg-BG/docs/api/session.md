@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### Инстантни методи
 
 The following methods are available on instances of `Session`:
 

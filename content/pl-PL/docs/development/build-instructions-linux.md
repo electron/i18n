@@ -1,14 +1,14 @@
 # Instrukcje Budowania (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Postępuj zgodnie z wytycznymi poniżej do zbudowania Electrona dla Linuxa.
 
 ## Wymagania
 
-* At least 25GB disk space and 8GB RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Spróbuj repozytoriów takich jak [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* Co najmniej 25GB pamięci dyskowej i 8GB pamięci RAM.
+* Python 2.7.x. Niektóre dystrybucje jak CentOS 6.x nadal używają Python 2.6.x, więc może trzeba sprawdzić wersję Pythona przez `python -V`.
+* Node.js. Istnieją różne sposoby instalacji Node. Możesz pobrać kod źródłowy z [nodejs.org](https://nodejs.org) i go skompilować. Ten sposób pozwala na instalowanie Node na swój własny katalog domowy jako użytkownik standardowy. Lub spróbuj repozytoriów takich jak [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* [clang](https://clang.llvm.org/get_started.html) 3.4 lub nowszy.
+* Nagłówki rozwoju GTK+ i libnotify.
 
 Na Ubuntu zainstalować należy następujące biblioteki:
 
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Na Fedora, zainstalować należy poniższe biblioteki:
+Na Fedorze, zainstalować należy poniższe biblioteki:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
@@ -55,23 +55,23 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Cross compilation
+### Kompilacja międzyplatformowa
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Jeśli chcesz zbudować dla `arm` należy również zainstalować następujące zależności:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Podobnie dla `arm64`, zainstalować następujące elementy:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+I do międzyplatformowej kompilacji dla celów `arm` lub `ia32`, należy przekazać parametr `--target_arch` do skryptu `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -79,7 +79,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Kompilowanie
 
-Jeśli chcesz zbudować oba `Wydanie` i `Debugowanie` celów:
+Jeśli chcesz zbudować oba `Release` i `Debug` celów:
 
 ```sh
 $ ./script/build.py
@@ -105,10 +105,10 @@ After building is done, you can find the `electron` debug binary under `out/D`.
 Aby wyczyścić pliki kompilacji:
 
 ```sh
-$ npm działa bez problemu
+$ npm run clean
 ```
 
-Aby oczyścić tylko `z` i `dist`katalogów:
+Aby oczyścić tylko `z` i `dist` katalogów:
 
 ```sh
 $ npm run clean-build
@@ -120,7 +120,7 @@ $ npm run clean-build
 
 ### Wystąpił błąd podczas ładowania biblioteki współdzielenia: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Prekompilowany `clang` będzie próbował powiązać z `libtinfo.so.5`. W zależności od architektury hosta, dowiązanie symboliczne do odpowiednich `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -134,13 +134,13 @@ Zobacz [przegląd budowy systemu: Testy](build-system-overview.md#tests)
 
 Domyślne tworzenie konfiguracji jest celem dla głównej dystrybucji pulpitu Linux. Aby zbudować dla konkretnej dystrybucji lub urządzenia, następujące informacje mogą ci pomóc.
 
-### Budowanie `libchromiumcontent`lokalnie
+### Budowanie `libchromiumcontent` lokalnie
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Aby uniknąć używania gotowych binarek `libchromiumcontent`, można zbudować `libchromiumcontent` lokalnie. Aby to zrobić, wykonaj następujące kroki:
 
 1. Instaluj [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. Instaluj [dodatkowe zależności kompilacji](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Fetch the git submodules:
+3. Sprowadź submoduły z gita:
 
 ```sh
 $ git submodule update --init --recursive
@@ -169,7 +169,7 @@ $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### Używanie kompilatorów innych niż `clang`
 
 To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
@@ -180,7 +180,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_cl
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### Zmienne Środowiskowe
 
 Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
@@ -198,4 +198,4 @@ Apart from `CC` and `CXX`, you can also set the following environment variables 
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+Zmienne środowiskowe muszą być ustawione podczas wykonywania skryptu `bootstrap.py`, to nie będzie działać w skrypcie `build.py`.

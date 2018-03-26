@@ -1,18 +1,18 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> アプリケーションにキーボードフォーカスがないときにキーボードイベントを検出します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+`globalShortcut` モジュールは、オペレーティングシステムに対してグローバルショートカットを登録/登録解除することができます。そのため、様々なショートカットに対する操作をカスタマイズすることができます。
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**注:** ショートカットはグローバルです。そのため、アプリにキーボードフォーカスがない場合でも機能します。 アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // 'CommandOrControl+X' をショートカットリスナーに登録します。
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
@@ -21,46 +21,46 @@ app.on('ready', () => {
     console.log('registration failed')
   }
 
-  // Check whether a shortcut is registered.
+  // ショートカットが登録されているかどうかをチェックします。
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
+  // ショートカットを登録解除します。
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  // すべてのショートカットを登録解除します。
   globalShortcut.unregisterAll()
 })
 ```
 
 ## メソッド
 
-The `globalShortcut` module has the following methods:
+`globalShortcut` モジュールには以下のメソッドがあります。
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+`accelerator` のグローバルショートカットを登録します。登録されたショートカットがユーザーによって押下されるときに `callback` が呼び出されます。
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+アクセラレータが他のアプリケーションによってすでに使用されている場合、この呼び出しは何も通知することなく失敗します。 この動作は、アプリケーションにグローバルショートカットの取り合いをさせたくないため、オペレーティングシステムによって意図されたものです。
 
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+戻り値 `Boolean` - このアプリケーションが `accelerator` を登録したかどうか。
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+アクセラレータが他のアプリケーションによってすでに使用されている場合、この呼び出しは `false` を返すはずです。 この動作は、アプリケーションにグローバルショートカットの取り合いをさせたくないため、オペレーティングシステムによって意図されたものです。
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+`accelerator` のグローバルショートカットを登録解除します。
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+すべてのグローバルショートカットを登録解除します。

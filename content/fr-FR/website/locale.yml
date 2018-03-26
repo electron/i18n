@@ -1,7 +1,7 @@
 tagline: Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS
 nav:
   docs: Documentation
-  donors: Donors
+  donors: Donateurs
   blog: Blog
   community: Communauté
   apps: Apps
@@ -137,7 +137,7 @@ pages:
     title: Spectron
     description: Spectron est un framework open source pour écrire facilement des tests d'intégrations pour votre application Electron. Intégré dans ChromeDriver et WebDriverIO.
   '/donors':
-    title: Donors
+    title: Donateurs
 _404:
   page_not_found: Page non trouvée.
 search:

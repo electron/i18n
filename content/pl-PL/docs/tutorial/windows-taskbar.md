@@ -1,6 +1,6 @@
-# Windows Taskbar
+# Pasek zadań Windows
 
-Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar-windows), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Elektron posiada API, aby skonfigurować ikonę aplikacji na pasku zadań systemu Windows. Obsługiwane są [tworzenie `JumpList`](#jumplist), [niestandardowe miniatury i paski narzędzi](#thumbnail-toolbars), [ikony nakładki](#icon-overlays-in-taskbar-windows) i tak zwany ["Flash Frame" effect](#flash-frame), ale Electron również używa ikony dokowania aplikacji do wdrożenia funkcji między-platformowej, takich jak [Ostatnie dokumenty](./recent-documents.md) i [postęp aplikacji](./progress-bar.md).
 
 ## JumpList
 
