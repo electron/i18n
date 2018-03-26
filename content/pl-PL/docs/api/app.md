@@ -86,7 +86,7 @@ Zwraca:
 * `event` Event
 * `url` String
 
-Emitowany, gdy użytkownik chce otworzyć adres URL za pomocą aplikacji. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Emitowany, gdy użytkownik chce otworzyć adres URL za pomocą aplikacji. Plik `Info.plist` Twojej aplikacji musi zdefiniować schemat adresu url w kluczu `CFBundleURLTypes` oraz ustawić `NSPrincipalClass` na `AtomApplication`.
 
 Powinieneś wywołać `event.preventDefault()` jeśli chcesz obsłużyć zdarzenie.
 
@@ -126,7 +126,7 @@ Zwraca:
 
 * `event` Event
 * `type` String - Ciąg identyfikujący działania. Mapuje do [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - A string with the error's localized description.
+* `error` String - Łańcuch znaków z przetłumaczonym opisem błędu.
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
 
@@ -266,7 +266,7 @@ Zwraca:
   * `Nazwa użytkownika` String
   * `Hasło` String
 
-Emitted when `webContents` wants to do basic auth.
+Emitowane gdy `webContents` żąda podstawowej autoryzacji.
 
 The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
@@ -320,8 +320,8 @@ Wszystkie okna zostaną natychmiast zamknięte bez pytania się użytkownika ora
 ### `app.relaunch([options])`
 
 * `options` Obiekt (opcjonalne) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+  * `args` String[] - (opcjonalne)
+  * `execPath` String (opcjonalne)
 
 Relaunches the app when current instance exits.
 
