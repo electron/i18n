@@ -83,6 +83,22 @@ describe('i18n.docs', () => {
   })
 })
 
+describe('i18n.glossary', () => {
+  it('is an object with locales as keys', () => {
+    const locales = Object.keys(i18n.glossary)
+    locales.should.include('en-US')
+    locales.should.include('fr-FR')
+    locales.length.should.be.above(10)
+  })
+
+  it('contains localized glossaries', () => {
+    const glossary = i18n.glossary['en-US']
+    glossary.should.be.an('object')
+    const entry = glossary['DMG']
+    entry.should.be.an('object')
+  })
+})
+
 describe('i18n.website', () => {
   it('is an object with locales as keys', () => {
     const locales = Object.keys(i18n.website)
