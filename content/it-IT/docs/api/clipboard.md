@@ -44,55 +44,55 @@ Scrive il `testo` negli Appunti come testo normale.
 
 Restituisce la `stringa` - il contenuto negli Appunti come markup.
 
-### `clipboard.writeHTML(markup[, type])`
+### `clipboard.writeHTML(markup[, tipo])`
 
-* `markup` String
-* `tipo` String (optional)
+* `markup` Stringa
+* `tipo` Stringa (opzionale)
 
-Writes `markup` to the clipboard.
+Scrive il `markup` negli appunti.
 
-### `clipboard.readImage([type])`
+### `clipboard.readText([type])`
 
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Restituisce [`NativeImage`](native-image.md) - l'immagine contenuta negli appunti.
 
-### `clipboard.writeImage(image[, type])`
+### `clipboard.writeImage(image[, tipo])`
 
 * `image` [NativeImage](native-image.md)
+* `tipo` Stringa (opzionale)
+
+Scrive la `image` negli appunti.
+
+### `clipboard.readRTF([tipo])`
+
 * `tipo` String (optional)
 
-Writes `image` to the clipboard.
+Restituisce la `stringa` - il contenuto negli Appunti come RTF.
 
-### `clipboard.readRTF([type])`
-
-* `tipo` String (optional)
-
-Returns `String` - The content in the clipboard as RTF.
-
-### `clipboard.writeRTF(text[, type])`
+### `clipboard.writeRTF(text[, tipo])`
 
 * `testo` Stringa
 * `tipo` String (optional)
 
-Writes the `text` into the clipboard in RTF.
+Scrive il `testo` negli Appunti come RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
-* `title` String
+* `Titolo` Stringa
 * `url` Stringa
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Restituisce un oggetto contenente `titolo` e `url` chiavi rappresentative del segnaposto negli appunti. I valori di `titolo` e `url` saranno vuoti quando i bookmark non sono disponibili.
 
-### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
+### `clipboard.writeBookmark(title, url[, tipo])` *macOS* *Windows*
 
-* `title` String
+* `Titolo` Stringa
 * `url` Stringa
 * `tipo` String (optional)
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Scrivere il `titolo` e `url` negli appunti come un segnaposto.
 
 **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
