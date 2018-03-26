@@ -64,7 +64,7 @@ console.log(systemPreferences.isDarkMode())
   * `event` String
   * `userInfo` Object
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+対応する `event` が発生したときに、macOS のネイティブ通知を監視し、`callback` が `callback(event, userInfo)` で呼ばれます。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
 The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
