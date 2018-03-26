@@ -28,7 +28,7 @@ In Devtron, c'è una nuova scheda di accessibilità che vi permetterà di contro
 
 ![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Entrambi questi strumenti utilizzano la libreria degli [Strumenti di sviluppo di accessibilità](https://github.com/GoogleChrome/accessibility-developer-tools) costruita da Google per Chrome. Puoi saperne di più sull'accessibilità delle regole di controllo che questa libreria utilizza sulla [wiki del repository](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
 If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
