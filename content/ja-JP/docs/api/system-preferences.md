@@ -68,7 +68,7 @@ console.log(systemPreferences.isDarkMode())
 
 `event` の登録を解除するために使用できる、監視者の `id` が返されます。
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+このAPIの下で、`NSDistributedNotificationCenter` に登録します。`event` の値の例は以下になります。
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -79,7 +79,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 * `id` Integer
 
-Removes the subscriber with `id`.
+`id` の監視者を削除します。
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
@@ -88,7 +88,7 @@ Removes the subscriber with `id`.
   * `event` String
   * `userInfo` Object
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
+`subscribeNotification` と同じですが、ローカルデフォルトでは `NSNotificationCenter` を使用します。これは、`NSUserDefaultsDidChangeNotification` などのイベントに必要です。
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
