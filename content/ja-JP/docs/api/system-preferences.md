@@ -66,7 +66,7 @@ console.log(systemPreferences.isDarkMode())
 
 対応する `event` が発生したときに、macOS のネイティブ通知を監視し、`callback` が `callback(event, userInfo)` で呼ばれます。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+`event` の登録を解除するために使用できる、監視者の `id` が返されます。
 
 Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
 
