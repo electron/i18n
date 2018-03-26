@@ -138,9 +138,9 @@ Restituisce:
 * `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `Infoutente` Oggetto - Contiene uno stato specifico per l'app archiviato dall'attività.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) dopo che un'attività da questo dispositivo è stata ripristinata con successo su un altro.
 
-### Event: 'update-activity-state' *macOS*
+### Evento: 'aggiorna-stato-attività' *macOS*
 
 Restituisce:
 
@@ -148,7 +148,7 @@ Restituisce:
 * `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `Infoutente` Oggetto - Contiene uno stato specifico per l'app archiviato dall'attività.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti aggiornare lo stato da trasferire, potresti chiamare `evento.previeniDefault()` immediatamente, costruirne un nuovo dizionario `Infoutente` e chiamare `app.aggiornaAttivitàCorrente()` tempestivamente. Altrimenti l'operazione fallirà e sarà chiamato l'`errore-attività-continua`.
 
 ### Evento: 'nuova-finestra-per-scheda' *macOS*
 
@@ -163,7 +163,7 @@ Emesso quando l'utente clicca il pulsante macOS nativo nuova scheda. Il pulsante
 Restituisce:
 
 * `event` Evento
-* `window` [BrowserWindow](browser-window.md)
+* `finestra` [FinestraBrowser](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è sfocata.
 
@@ -172,7 +172,7 @@ Emesso quando una [Finestrabrowser](browser-window.md) è sfocata.
 Restituisce:
 
 * `event` Evento
-* `window` [BrowserWindow](browser-window.md)
+* `finestra` [FinestraBrowser](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
 
@@ -181,7 +181,7 @@ Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
 Restituisce:
 
 * `event` Evento
-* `window` [BrowserWindow](browser-window.md)
+* `finestra` [FinestraBrowser](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è creata.
 
@@ -387,7 +387,7 @@ Puoi richiedere i seguenti percorsi dal nome:
 * `musica` La directory per la musica dell'utente.
 * `immagini` La directory per le immagini dell'utente.
 * `video` La directory per i video dell'utente.
-* `logs` Directory for your app's log folder.
+* `registri` La directory per la cartella registro della tua app.
 * `pepperFlashSystemPlugin` Percorso intero alla versione di sistema del plugin Pepper Flash.
 
 ### `app.ottieniIconaFile(percorso[, opxioni], callback)`
@@ -460,7 +460,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Pulisce la lista documenti recenti.
     
-    ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
+    ### `app.impostaComeClientProtocolloDefault(protocollo[, percorso, argomenti])`
     
     * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`. Se vuoi che la tua app gestisca i link `electron://` chiama questo metodo con `electron` come parametro.
     * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
@@ -657,14 +657,14 @@ Restituisce `Stringa` - Il tipo di attività al momento in esecuzione.
 
 * `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+Invalida l'attività [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) corrente dell'utente.
 
-### `app.updateCurrentActivity(type, userInfo)` *macOS*
+### `app.aggiornaAttivitàCorrente(tipo, Infoutente)` *macOS*
 
 * `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Oggetto - Stato app specifico al magazzino per usare da altro dispositivo.
 
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+Aggiorna l'attività corrente se il suo tipo corrisponde al `tipo`, fondendo le voci da `Infoutente` nel suo dizionario corrente `Infoutente`.
 
 ### `app.impostaModelloIdAppUtente(id)` *Windows*
 
@@ -777,13 +777,13 @@ app.setLoginItemSettings({
 
 Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
-### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+### `app.impostaSupportoAccessibilitàAbilitato(abilitato)` *macOS* *Windows*
 
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+* `abilitato` Booleano - Abilita o disabilita il rendering dell'[albero accessibilità](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre gli scambi di accessibilità ad utenti nelle impostazioni applicazione. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabilitato di default.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
 
 ### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
 
@@ -821,11 +821,11 @@ Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+Restituisce `Booleano` - Se l'app è in esecuzione dalla cartella Applicazione. Usa in combinazione con `app.muoviACartellaApplicazioni()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+Restituisce `Booleano` - Se la mossa ha avuto successo. Si prega di notare che se la mossa ha successo la tua applicazione si chiuderà e riavvierà.
 
 No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
 
