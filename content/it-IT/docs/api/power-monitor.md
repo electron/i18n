@@ -21,20 +21,20 @@ app.on('ready', () => {
 
 ## Eventi
 
-The `powerMonitor` module emits the following events:
+Il modulo `Monitorapotenza` emette i seguenti eventi:
 
-### Event: 'suspend'
+### Evento: 'sospendi'
 
-Emitted when the system is suspending.
+Emesso quando il sistema è in sospensione.
 
-### Event: 'resume'
+### Evento: "riprendi'
 
-Emitted when system is resuming.
+Emesso quando il sistema sta ripartendo.
 
-### Event: 'on-ac' *Windows*
+### Evento: 'on-ac' *Windows*
 
-Emitted when the system changes to AC power.
+Emesso quando il sistema cambia potenza AC.
 
-### Event: 'on-battery' *Windows*
+### Evento: 'su-batteria' *Windows*
 
-Emitted when system changes to battery power.
+Emesso quando il sistema cambia a potenza batteria.
