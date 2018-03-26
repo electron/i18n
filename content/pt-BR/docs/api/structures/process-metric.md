@@ -1,4 +1,4 @@
-# ProcessMetric Object
+# ProcessMetric Objeto
 
 * `pid` Inteiro - id de processo do processo.
 * ` tipo` String - Tipo de Processo (Browser ou guia ou GPU etc).
