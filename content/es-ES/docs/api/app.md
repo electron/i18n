@@ -412,7 +412,7 @@ En *Linux* y *macOS*, los iconos dependen de la aplicación asociada al tipo mim
 * `name` String
 * `path` String
 
-Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. Si el camino especificado a un directorio no existe, el directorio será creado por el siguiente método. En caso de fallar se lanza un `Error`.
+Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. Si la ruta especifica un directorio que no existe, el directorio se creará por este método. En caso de fallo se emite un `Error`.
 
 Solo puede sobre escribir rutas de de un `nombre` definido en `app.getPath`.
 
