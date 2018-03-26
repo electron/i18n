@@ -412,7 +412,7 @@ En *Linux* y *macOS*, los iconos dependen de la aplicación asociada al tipo mim
 * `name` String
 * `path` String
 
-Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. Si la ruta especifica un directorio que no existe, el directorio se creará por este método. En caso de fallo se emite un `Error`.
+Reemplaza el `path` a un directorio especial o un archivo asociado con `name`. Si la ruta especifica un directorio que no existe, el directorio se creará por este método. En caso de fallo se emite un `Error`.
 
 Solo puede sobrescribir rutas de un `name` definido en `app.getPath`.
 
@@ -420,13 +420,13 @@ Por defecto, las cookies y el caché de una página web serán almacenados en el
 
 ### `app.getVersion()`
 
-Devuelve `String` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
+Devuelve `String` - La versión de la aplicación cargada. Si no se encuentra la versión en el fichero `package.json` de la aplicación, se devuelve la versión del paquete o ejecutable.
 
 ### `app.getName()`
 
-Regresa `Cadena` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
+Devuelve `String` - El nombre actual de la aplicación, que se corresponde con el nombre especificado en el fichero `package.json` de la aplicación.
 
-Usualmente el campo `nombre` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones del módulo npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
+Usualmente el campo `name` del fichero `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones del módulo npm. Normalmente debe especificar un `productName` también, el cual es el nombre de su aplicación en mayúsculas, y que será preferido por Electron sobre `name`.
 
 ### `app.setName(name)`
 
@@ -773,7 +773,7 @@ Devuelve `Boolean` - `true` si la accesibilidad de soporte de Chrome es habilita
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+* `enabled` Boolean - Activa o desactiva el renderizado del [árbol de accesibilidad](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
 Manualmente habilita el soporte de accesibilidad de Chrome, lo que permite exponer el interruptor de accesibilidad a los usuarios en la configuración de la aplicación. https://www.chromium.org/developers/design-documents/accessibility para más detalles. Desactivado por defecto.
 
@@ -821,7 +821,7 @@ Devuelve `Boolean` - Si la aplicación se está ejecutando actualmente desde la 
 
 Devuelve `Boolean` - Si la movida fue exitosa. Tenga en cuenta que si la movida es exitosa su aplicación dejará de funcionar y se relanzará.
 
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+Por defecto no se presentará un díalogo de confirmación, si prefiere que el usuario confirme la operación debe hacerlo usando la API [`dialog`](dialog.md).
 
 **NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
