@@ -1,79 +1,79 @@
-# clipboard
+# appunti
 
-> Perform copy and paste operations on the system clipboard.
+> Eseguire copia e incolla con gli appunti di sistema.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Vedi anche: [Principale](../glossary.md#main-process), [Rendering](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+Nell'esempio seguente viene illustrato come scrivere una stringa negli Appunti:
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String')
+clipboard.writeText('Stringa di esempio')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+Nei sistemi X Window, ci sono anche gli appunti di selezione. Per utilizzarli è necessario passare la `selezione` ad ogni metodo:
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('Stringa di esempio', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
 ## Metodi
 
-The `clipboard` module has the following methods:
+Il modulo di `Appunti` ha i seguenti metodi:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** Le API sperimentali sono contrassegnate come tali e potrebbero essere rimosse in futuro.
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `tipo` String (optional)
 
-Returns `String` - The content in the clipboard as plain text.
+Restituisce la `stringa` - il contenuto degli Appunti come testo normale.
 
-### `clipboard.writeText(text[, type])`
+### `clipboard.writeText(text[, tipo])`
 
 * `testo` Stringa
-* `type` String (optional)
+* `tipo` String (optional)
 
-Writes the `text` into the clipboard as plain text.
+Scrive il `testo` negli Appunti come testo normale.
 
-### `clipboard.readHTML([type])`
+### `clipboard.readHTML([tipo])`
 
-* `type` String (optional)
+* `tipo` Stringa (opzionale)
 
-Returns `String` - The content in the clipboard as markup.
+Restituisce la `stringa` - il contenuto negli Appunti come markup.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `tipo` String (optional)
 
 Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* `tipo` String (optional)
 
 Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* `tipo` String (optional)
 
 Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* `tipo` String (optional)
 
 Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `testo` Stringa
-* `type` String (optional)
+* `tipo` String (optional)
 
 Writes the `text` into the clipboard in RTF.
 
@@ -90,7 +90,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 
 * `title` String
 * `url` Stringa
-* `type` String (optional)
+* `tipo` String (optional)
 
 Writes the `title` and `url` into the clipboard as a bookmark.
 
@@ -115,20 +115,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* `tipo` String (optional)
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* `tipo` String (optional)
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional)
+* `tipo` String (optional)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -153,7 +153,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* `tipo` String (optional)
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -165,7 +165,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* `tipo` String (optional)
 
 ```javascript
 const {clipboard} = require('electron')
