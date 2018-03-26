@@ -1,37 +1,37 @@
-# Debugging the Main Process in VSCode
+# Debuggando il Processo Principale in CodiceVS
 
-### 1. Open an Electron project in VSCode.
+### 1. Apri un progetto Electron in CodiceVS.
 
 ```sh
-$ git clone git@github.com:electron/electron-quick-start.git
-$ code electron-quick-start
+$ git clone git@github.com:electron/electron-avvio-veloce.git
+$ codice electron-avvio-veloce
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Aggiungi un file `.codicevs/lancia.json` con la configurazione seguente:
 
 ```json
 {
-  "version": "0.2.0",
-  "configurations": [
+  "versione": "0.2.0",
+  "configurationi": [
     {
-      "name": "Debug Main Process",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceRoot}",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-      "windows": {
-        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+      "nome": "Debug Processo Principale",
+      "tipo": "nodo",
+      "richiesta": "lancio",
+      "cwd": "${Radicespaziolavoro)",
+      "tempoesecuzioneEseguibile": "${workspaceRoot}/nodo_moduli/.bin/electron",
+      "finestre": {
+        "tempoesecuzioneEseguibile": "${Radicespaziolavoro}/nodo_modules/.bin/electron.cmd"
       },
-      "args" : ["."]
+      "argomenti" : ["."]
     }
   ]
 }
 ```
 
-**Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
+**Nota:** Per Windows usa `"${Radicespazialavoro}/nodo_moduli/.bin/electron.cmd"` per `tempoesecuzioneEseguibile`.
 
 ### 3. Debugging
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+Imposta alcuni punti di rottura in `principale.js` e avvia il debugging in [Vista Debug](https://code.visualstudio.com/docs/editor/debugging). Dovresti poter colpire i punti di rottura.
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Qui un progetto preconfigurato che puoi scaricare e debuggare direttamente in CodiceVS: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
