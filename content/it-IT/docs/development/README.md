@@ -1,6 +1,6 @@
-# Developing Electron
+# Sviluppare Electron
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Queste guide sono destinate alle persone che lavorano al progetto stesso di Electron. Per le guide sullo sviluppo di app Electron, vedi [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [Codice di Condotta](../../CODE_OF_CONDUCT.md)
 * [Contribuire a Electron](../../CONTRIBUTING.md)
