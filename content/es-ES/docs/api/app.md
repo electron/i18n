@@ -414,13 +414,13 @@ En *Linux* y *macOS*, los iconos dependen de la aplicación asociada al tipo mim
 
 Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. Si la ruta especifica un directorio que no existe, el directorio se creará por este método. En caso de fallo se emite un `Error`.
 
-Solo puede sobre escribir rutas de de un `nombre` definido en `app.getPath`.
+Solo puede sobrescribir rutas de un `name` definido en `app.getPath`.
 
-Por defecto, las cookies y el caché de una página web serán almacenados en el directorio `userData`. Si quiere cambiar su localización, tiene que reescribir la ruta de `Dato de Usuario` ante que el evento `listo` del módulo de la `app` sea emitido.
+Por defecto, las cookies y el caché de una página web serán almacenados en el directorio `userData`. Si quiere cambiar su localización, tiene que sobrescribir la ruta de `userData` ante de que el evento `ready` del módulo `app` se emita.
 
 ### `app.getVersion()`
 
-Regresa `Cadena` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
+Devuelve `String` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
 
 ### `app.getName()`
 
