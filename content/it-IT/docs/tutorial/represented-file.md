@@ -1,19 +1,19 @@
-# Represented File for macOS BrowserWindows
+# File Rappresentato per le FinestreBrowser macOS
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Su macOS una finestra può impostare il suo file rappresentato, così l'icona del file può mostrare nella barra del titolo e quando gli utenti Cmd-Cliccano o Ctrl-Cliccano sul titolo, un popup del percorso sarà mostrato.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Puoi anche impostare lo stato personalizzato di una finestra cosicchè l'icona del file possa indicare se il documento in questa finestra è stato modificato.
 
-**Represented file popup menu:**
+**Menu popup file rappresentato:**
 
-![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
+![File Rappresentato](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+Per impostare il file rappresentato della finestra, puoi usare le API [FinestraBrowser.impostanomeFileRappresentato](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) e [FinestraBrowser.impostaDocumentoPersonalizzato](../api/browser-window.md#winsetdocumenteditededited-macos):
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = richiede('electron')
 
-const win = new BrowserWindow()
+const win = nuova FinestraBrowser()
 win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
