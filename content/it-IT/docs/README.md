@@ -119,7 +119,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
-* [powerMonitor](api/power-monitor.md)
+* [Monitorapotenza](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocollo](api/protocol.md)
 * [sessione](api/session.md)
