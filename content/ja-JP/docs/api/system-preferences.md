@@ -94,14 +94,14 @@ console.log(systemPreferences.isDarkMode())
 
 * `id` Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+`unsubscribeNotification` と同じですが、`NSNotificationCenter` から監視者を削除します。
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array`、`dictionary` にできます。
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+戻り値 `any` - `NSUserDefaults` 内の `key` の値。
 
 Some popular `key` and `type`s are:
 
