@@ -702,7 +702,7 @@ Restituisce [`ProcessoMetrico[]`](structures/process-metric.md): Insieme di ogge
 
 Restituisce [`ProcessoMetrico[]`](structures/process-metric.md): Insieme di oggetti `ProcessoMetrico` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app.
 
-### `app.getGPUFeatureStatus()`
+### `app.ottieniStatoFunzioneGPU()`
 
 Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
 
