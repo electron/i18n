@@ -827,9 +827,9 @@ Restituisce `Booleano` - Se l'app è in esecuzione dalla cartella Applicazione. 
 
 Restituisce `Booleano` - Se la mossa ha avuto successo. Si prega di notare che se la mossa ha successo la tua applicazione si chiuderà e riavvierà.
 
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+Nessun dialogo di conferma sarà presentato di default, se vuoi permettere all'utente di confermare l'operazione potresti farlo usando l'API di [`dialogo`](dialog.md).
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**NOTA:** Questo metodo lancia errori se ogni altro dall'utente causa un fallimento della mossa. Per istanza se l'utente annulla il dialogo di autorizzazione questo metodo restituisce falso. Se falliamo nel performare la copia questo metodo lancerà un errore. Il messaggio nell'errore dovrebbe essere informativo e dirti esattamente cosa è andato storto
 
 ### `app.dock.bounce([type])` *macOS*
 
