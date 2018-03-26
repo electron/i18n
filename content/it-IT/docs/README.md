@@ -45,7 +45,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [Application Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
+  * [Attivazione dell'accessibilità](tutorial/accessibility.md#enabling-accessibility)
 * [Application Testing and Debugging](tutorial/application-debugging.md) 
   * [Debugging the Main Process](tutorial/debugging-main-process.md)
   * [Uso di Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
