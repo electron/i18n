@@ -40,7 +40,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Scorciatoie da tastiera](tutorial/keyboard-shortcuts.md)
   * [Offline/Online Detection](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [File Rappresentato per le FinestreBrowser macOS](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
 * [Application Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
