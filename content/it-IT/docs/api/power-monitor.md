@@ -1,20 +1,20 @@
-# powerMonitor
+# Monitorapotenza
 
-> Monitor power state changes.
+> Monitora cambiamenti stato potenza.
 
 Processo: [Main](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Non puoi richiedere o usare questo modulo finchè l'evento `pronto` del modulo `app` non è emesso.
 
 Ad esempio:
 
 ```javascript
-const electron = require('electron')
+const electron = richiede('electron')
 const {app} = electron
 
 app.on('ready', () => {
-  electron.powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
+  electron.Monitorapotenz.on('sospendi', () => {
+    console.log('Il sistema sta andando a dormire')
   })
 })
 ```
