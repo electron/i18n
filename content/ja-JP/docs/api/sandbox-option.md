@@ -32,20 +32,20 @@ app.on('ready', () => {
 
 上記のコードでは、作成された `BrowserWindow` では Node.js が無効になっており、IPC 経由でのみ通信できます。 このオプションを使用すると、Electron がレンダラー内の Node.js ランタイムを作成しなくなります。 また、この新しいウィンドウ内では、`window.open` はネイティブの動作に従います (デフォルトで Electron は `BrowserWindow` を作成し、`window.open` を介してこれへプロキシを返します)。
 
-It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
+このオプションだけでは OS が施行するサンドボックスが有効にならないことに注意することが重要です。 この機能を有効にするには、`--enable-sandbox` コマンドライン引数を電子に渡す必要があります。これにより、すべての `BrowserWindow` インスタンスに対して `sandbox: true` が強制されます。
 
-To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
+アプリをサンドボックス内に置かずに、`sandbox:true` で `BrowserWindow` または `webview` プロセスで OS が施行するサンドボックスを有効にするには、 `--enable-mixed-sandbox` コマンドライン引数を Electron に渡す必要があります。 このオプションは現在 macOS と Windows でのみのサポートされています。
 
 ```js
 let win
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  // `--enable-sandbox` を有効にしてからは `sandbox: true` を渡す必要はない
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
+Chromium サンドボックスの設定を変更した後に Electron / Node のスタートアップコードが実行されるため、`app.commandLine.appendSwitch('--enable-sandbox')` を呼び出すだけでは不十分であることに注意して下さい。 The switch must be passed to electron on the command-line:
 
 ```sh
 electron --enable-sandbox app.js
