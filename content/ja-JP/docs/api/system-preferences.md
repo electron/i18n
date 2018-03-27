@@ -131,7 +131,7 @@ console.log(systemPreferences.isDarkMode())
 
 * `key` String
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+`NSUserDefaults` の `key` を削除します。 これは、以前に `setUserDefault`で設定された `key` のデフォルトまたはグローバル値を復元するために使用できます。
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
