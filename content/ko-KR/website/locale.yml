@@ -1,7 +1,7 @@
 tagline: JavaScript, HTML, CSS를 이용하여 크로스 플랫폼 데스크탑 앱을 만들어보세요
 nav:
   docs: 문서
-  donors: Donors
+  donors: 후원자
   blog: 블로그
   community: 커뮤니티
   apps: 앱
@@ -137,7 +137,7 @@ pages:
     title: Spectron
     description: Spectron은 ChromeDriver 와 WebDriverIO 기반으로 만들어진 오픈 소스 프레임워크로, 여러분의 Electron 앱을 위한 통합 테스트 코드를 쉽게 작성할 수 있습니다.
   '/donors':
-    title: Donors
+    title: 후원자
 _404:
   page_not_found: 페이지를 찾을 수 없습니다.
 search:

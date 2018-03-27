@@ -2,15 +2,15 @@
 
 > Aktifkan aplikasi untuk memperbarui dirinya secara otomatis.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**Anda dapat menemukan petunjuk lebih lanjut mengenai penerapan pembaharuan ke dalam aplikasi anda [disini.](../tutorial/updates.md).**
 
 ## Platform Notices
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Saat ini, hanya di macOS dan Windows Yang masih mendukung. Tidak ada dukungan untuk pembaharuan automatis pada linux, sehingga disarankan untuk menggunakan paket distribusi manejer untuk memperbaharui aplikasi anda.
 
-In addition, there are some subtle differences on each platform:
+Sebagai tambahan, ada beberapa perbedaan kecil pada setiap platform:
 
 ### macOS
 
@@ -28,35 +28,35 @@ Installer yang dihasilkan dengan Squirrel akan membuat shortcut icon dengan [ID 
 
 Tidak seperti Squirrel.Mac, Windows dapat menginangi update pada S3 atau host file statis lainnya. Anda bisa membaca dokumen [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) untuk mendapatkan rincian lebih lanjut tentang bagaimana Squirrel.Windows bekerja.
 
-## Acara
+## Events
 
-Objek `autoUpdater` memancarkan peristiwa berikut:
+Objek `autoUpdater` mengirimkan sinyal berikut:
 
-### Acara: 'kesalahan'
+### Sinyal: 'Error'
 
-Pengembalian:
+Mengirimkan:
 
 * Kesalahan `kesalahan`
 
-Emitted saat ada error saat mengupdate.
+Dikirimkan saat ada kesalahan saat mengupdate.
 
-### Acara: 'check-for-update'
+### Sinyal: 'check-for-update'
 
-Emitted saat memeriksa apakah update telah dimulai.
+Dikirimkan saat memeriksa apakah update telah dimulai.
 
-### Acara: 'update-available'
+### Sinyal: 'update-available'
 
-dibunyikan saat ada update yang tersedia. Pembaruan diunduh secara otomatis.
+Dikirimkan saat ada update yang tersedia. Pembaruan diunduh secara otomatis.
 
-### Acara: 'update-tidak-tersedia'
+### Sinyal: 'update-not-available'
 
-Emitted saat tidak ada update yang tersedia.
+Dikirimkan saat tidak ada update yang tersedia.
 
-### Acara: 'update-download'
+### Sinyal: 'update-download'
 
-Pengembalian:
+Mengirimkan:
 
-* `event` Event
+* `event` Sinyal
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Tanggal
@@ -64,7 +64,7 @@ Pengembalian:
 
 Emitted saat update telah didownload.
 
-Di Windows saja `releaseName` tersedia.
+`releaseName` hanya tersedia pada Windows.
 
 ## Metode
 
@@ -87,6 +87,6 @@ Meminta server apakah ada update. Anda harus menghubungi `setFeedURL` sebelumnya
 
 ### `autoUpdater.quitAndInstall()`
 
-Aktifkan ulang aplikasi dan instal pembaruan setelah diunduh. Saya t seharusnya hanya dipanggil setelah `update-download` telah dipancarkan.
+Menjalankan ulang app dan menginstall pembaharuan setelah selesai di unduh. hanya di gunakan setelah sinyal `update-downloaded` telah di kirimkan.
 
 **Catatan:** `autoUpdater.quitAndInstall()` akan menutup semua jendela aplikasi pertama dan hanya memancarkan `sebelum-berhenti` pada `aplikasi` setelah itu. Ini berbeda dari urutan kejadian berhenti normal.

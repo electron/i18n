@@ -1,14 +1,14 @@
 # 概要
 
-> Node.jsとElectron APIを使用する方法。
+> Node.js と Electron API を使用する方法。
 
-[Node.jsのすべての組み込みモジュール](https://nodejs.org/api/)は、Electronおよびサードパーティの node モジュール（[ネイティブモジュール](../tutorial/using-native-node-modules.md)を含む）でも完全にサポートされています。
+[Node.js の組み込みモジュール](https://nodejs.org/api/) のすべては、Electron およびサードパーティの Node モジュール ([ネイティブモジュール](../tutorial/using-native-node-modules.md) を含む) でも完全にサポートされています。
 
-Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
+Electron はネイティブのデスクトップアプリケーションを開発するためのモジュールもいくつか追加しています。 一部のモジュールはメインプロセスでのみ使用でき、一部はレンダラープロセス (ウェブページ) でのみ使用でき、一部は両方のプロセスで使用できます。
 
-The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
+基本的なルールはとしては、モジュールが [GUI](https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%82%AB%E3%83%AB%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9) または低レベルのシステムに関わる場合、メインプロセスでのみ使用可能にする必要があります。 これらのモジュールを使用できるようにするには、[メインプロセスと レンダラプロセス](../tutorial/quick-start.md#main-process) のスクリプトの概念に精通している必要があります。
 
-The main process script is just like a normal Node.js script:
+メインプロセスのスクリプトは、通常の Node.js スクリプトと同じです。
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+レンダラープロセスは、Node モジュールを使用する追加の機能を除いて、通常のウェブページと変わりません。
 
 ```html
 <!DOCTYPE html>
@@ -34,11 +34,11 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+アプリを実行するには、[アプリを実行](../tutorial/quick-start.md#run-your-app) 参照してください。
 
-## Destructuring assignment
+## 分割代入
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+0.37から、[分割代入](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) を使用して組み込みモジュールを使いやすくすることができます。
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -51,7 +51,7 @@ app.on('ready', () => {
 })
 ```
 
-If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+`electron` モジュール全体が必要な場合は、それを require してから、`electron` から個々のモジュールにアクセスするために分割することができます。
 
 ```javascript
 const electron = require('electron')
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+これは以下のコードと同等です。
 
 ```javascript
 const electron = require('electron')
