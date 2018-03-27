@@ -143,20 +143,20 @@ console.log(systemPreferences.isDarkMode())
 const {BrowserWindow, systemPreferences} = require('electron')
 let browserOptions = {width: 1000, height: 800}
 
-// Make the window transparent only if the platform supports it.
+// プラットフォームがサポートしている場合にのみウインドウを透明にする。
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
 }
 
-// Create the window.
+// ウインドウを作成。
 let win = new BrowserWindow(browserOptions)
 
-// Navigate.
+// 移動。
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
-  // No transparency, so we load a fallback that uses basic styles.
+  // 透明化がないので、基本的なスタールを使用するフォールバックを読み込む。
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 ```
