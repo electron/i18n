@@ -176,9 +176,9 @@ const alpha = color.substr(6, 2) // "dd"
 ### `systemPreferences.getColor(color)` *Windows*
 
 * `color` String - 以下の値の一つ。 
-  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
-  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
-  * `3d-highlight` - Highlight color for three-dimensional display elements.
+  * `3d-dark-shadow` - 3D 表示要素の暗い影。
+  * `3d-face` - 3D 表示要素とダイアログボックスの背景の表面の色。
+  * `3d-highlight` - 3D 表示要素のハイライト色。
   * `3d-light` - Light color for three-dimensional display elements.
   * `3d-shadow` - Shadow color for three-dimensional display elements.
   * `active-border` - Active window border.
