@@ -1,23 +1,23 @@
-## Class: TouchBarLabel
+## クラス: TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> ネイティブ macOS アプリケーション用のタッチバー内にラベルを作成する
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `new TouchBarLabel(options)` *実験的*
 
 * `options` オブジェクト 
-  * `label` String (optional) - Text to display.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+  * `label` String (任意) - 表示するテキスト。
+  * `textColor` String (任意) - 16進数形式、即ち `#ABCDEF` のテキスト色。
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBarLabel`:
+`TouchBarLabel` のインスタンスには以下のプロパティがあります。
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+ラベルの現在のテキストを表す `String`。この値を変更すると、タッチバーのラベルがすぐに更新されます。
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+ラベルの現在のテキスト色の16進数コードの `String`。この値を変更すると、タッチバーのラベルがすぐに更新されます。
