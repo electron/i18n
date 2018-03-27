@@ -188,8 +188,8 @@ const alpha = color.substr(6, 2) // "dd"
   * `button-text` - 押しボタンのテキスト色。
   * `caption-text` - キャプション、サイズボックス、スクロールバー、矢印ボックス内のテキスト色。
   * `desktop` - デスクトップ背景色。
-  * `disabled-text` - Grayed (disabled) text.
-  * `highlight` - Item(s) selected in a control.
+  * `disabled-text` - グレーの (無効化された) テキスト色。
+  * `highlight` - コントロール内で選択されたアイテム色。
   * `highlight-text` - Text of item(s) selected in a control.
   * `hotlight` - Color for a hyperlink or hot-tracked item.
   * `inactive-border` - Inactive window border.
