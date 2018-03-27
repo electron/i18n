@@ -190,15 +190,15 @@ const alpha = color.substr(6, 2) // "dd"
   * `desktop` - デスクトップ背景色。
   * `disabled-text` - グレーの (無効化された) テキスト色。
   * `highlight` - コントロール内で選択されたアイテム色。
-  * `highlight-text` - Text of item(s) selected in a control.
-  * `hotlight` - Color for a hyperlink or hot-tracked item.
-  * `inactive-border` - Inactive window border.
-  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
-  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
-  * `inactive-caption-text` - Color of text in an inactive caption.
-  * `info-background` - Background color for tooltip controls.
-  * `info-text` - Text color for tooltip controls.
-  * `menu` - Menu background.
+  * `highlight-text` - コントロール内で選択されたアイテムのテキスト色。
+  * `hotlight` - ハイパーリンクかホットトラックされたアイテムの色。
+  * `inactive-border` - 非アクティブなウインドウの縁。
+  * `inactive-caption` - 非アクティブなウインドウのキャプション。グラデーション効果が有効な場合は、その左側の色になります。
+  * `inactive-caption-gradient` - 非アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
+  * `inactive-caption-text` - 非アクティブなキャプション内のテキストの色。
+  * `info-background` - ツールチップコントロールの背景色。
+  * `info-text` - ツールチップコントロールのテキスト色。
+  * `menu` - メニューの背景色。
   * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
   * `menubar` - The background color for the menu bar when menus appear as flat menus.
   * `menu-text` - Text in menus.
