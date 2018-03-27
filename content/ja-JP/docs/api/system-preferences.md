@@ -183,11 +183,11 @@ const alpha = color.substr(6, 2) // "dd"
   * `3d-shadow` - 3D 表示要素の影の色。
   * `active-border` - アクティブなウインドウの縁。
   * `active-caption` - アクティブなウインドウのタイトルバー。グラデーション効果が有効な場合は、その左側の色になります。
-  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
-  * `app-workspace` - Background color of multiple document interface (MDI) applications.
-  * `button-text` - Text on push buttons.
-  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
-  * `desktop` - Desktop background color.
+  * `active-caption-gradient` - アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
+  * `app-workspace` - マルチドキュメントインターフェース (MDI) アプリケーションの背景色。
+  * `button-text` - 押しボタンのテキスト色。
+  * `caption-text` - キャプション、サイズボックス、スクロールバー、矢印ボックス内のテキスト色。
+  * `desktop` - デスクトップ背景色。
   * `disabled-text` - Grayed (disabled) text.
   * `highlight` - Item(s) selected in a control.
   * `highlight-text` - Text of item(s) selected in a control.
