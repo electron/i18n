@@ -1,26 +1,26 @@
 ## クラス: TouchBarScrubber
 
-> Create a scrubber (a scrollable selector)
+> スクラバー (スクロールできるセレクタ) を作成します。
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarScrubber(options)` *Experimental*
+### `new TouchBarScrubber(options)` *実験的*
 
 * `options` オブジェクト 
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
-    * `selectedIndex` Integer - The index of the item the user selected
-  * `highlight` Function - Called when the user taps any item 
-    * `highlightedIndex` Integer - The index of the item the user touched
-  * `selectedStyle` String - Selected item style. Defaults to `null`.
-  * `overlayStyle` String - Selected overlay item style. Defaults to `null`.
-  * `showArrowButtons` Boolean - Defaults to `false`.
-  * `mode` String - Defaults to `free`.
-  * `continuous` Boolean - Defaults to `true`.
+  * `items` [ScrubberItem[]](structures/scrubber-item.md) - このスクラバーに配置するアイテムの配列
+  * `select` Function - ユーザーが最後にタップしたアイテムではないアイテムをタップすると呼ばれる 
+    * `selectedIndex` Integer - ユーザが選択したアイテムのインデックス
+  * `highlight` Function - ユーザが任意のアイテムをタップしたときに呼ばれる 
+    * `highlightedIndex` Integer - ユーザがタッチしたアイテムのインデックス
+  * `selectedStyle` String - 選択したアイテムのスタイル。省略値は `null`。
+  * `overlayStyle` String - 選択して重なったアイテムのスタイル。省略値は `null`。
+  * `showArrowButtons` Boolean - 省略値は `false`。
+  * `mode` String - 省略値は `free`。
+  * `continuous` Boolean - 省略値は `true`。
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBarScrubber`:
+`TouchBarScrubber` のインスタンスには以下のプロパティがあります。
 
 #### `touchBarScrubber.items`
 
