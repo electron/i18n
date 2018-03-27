@@ -176,13 +176,13 @@ const alpha = color.substr(6, 2) // "dd"
 ### `systemPreferences.getColor(color)` *Windows*
 
 * `color` String - 以下の値の一つ。 
-  * `3d-dark-shadow` - 3D 表示要素の暗い影。
+  * `3d-dark-shadow` - 3D 表示要素の暗い影の色。
   * `3d-face` - 3D 表示要素とダイアログボックスの背景の表面の色。
   * `3d-highlight` - 3D 表示要素のハイライト色。
   * `3d-light` - 3D 表示要素の光源色。
   * `3d-shadow` - 3D 表示要素の影の色。
-  * `active-border` - アクティブなウインドウの縁。
-  * `active-caption` - アクティブなウインドウのタイトルバー。グラデーション効果が有効な場合は、その左側の色になります。
+  * `active-border` - アクティブなウインドウの縁の色。
+  * `active-caption` - アクティブなウインドウのタイトルバー色。グラデーション効果が有効な場合は、その左側の色になります。
   * `active-caption-gradient` - アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
   * `app-workspace` - マルチドキュメントインターフェース (MDI) アプリケーションの背景色。
   * `button-text` - 押しボタンのテキスト色。
@@ -192,20 +192,20 @@ const alpha = color.substr(6, 2) // "dd"
   * `highlight` - コントロール内で選択されたアイテム色。
   * `highlight-text` - コントロール内で選択されたアイテムのテキスト色。
   * `hotlight` - ハイパーリンクかホットトラックされたアイテムの色。
-  * `inactive-border` - 非アクティブなウインドウの縁。
-  * `inactive-caption` - 非アクティブなウインドウのキャプション。グラデーション効果が有効な場合は、その左側の色になります。
+  * `inactive-border` - 非アクティブなウインドウの縁の色。
+  * `inactive-caption` - 非アクティブなウインドウのキャプション色。グラデーション効果が有効な場合は、その左側の色になります。
   * `inactive-caption-gradient` - 非アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
   * `inactive-caption-text` - 非アクティブなキャプション内のテキストの色。
   * `info-background` - ツールチップコントロールの背景色。
   * `info-text` - ツールチップコントロールのテキスト色。
   * `menu` - メニューの背景色。
-  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
-  * `menubar` - The background color for the menu bar when menus appear as flat menus.
-  * `menu-text` - Text in menus.
-  * `scrollbar` - Scroll bar gray area.
-  * `window` - Window background.
-  * `window-frame` - Window frame.
-  * `window-text` - Text in windows.
+  * `menu-highlight` - メニューがフラットメニューとして表示されたときにメニュー項目をハイライト表示するために使用される色。
+  * `menubar` - メニューがフラットメニューとして表示されたときのメニューの背景色。
+  * `menu-text` - メニューのテキスト色。
+  * `scrollbar` - スクロールバーのグレーの領域の色。
+  * `window` - ウインドウの背景色。
+  * `window-frame` - ウインドウフレームの色。
+  * `window-text` - ウインドウ内のテキスト色。
 
 Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
 
