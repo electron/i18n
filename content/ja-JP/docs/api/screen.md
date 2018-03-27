@@ -1,16 +1,16 @@
 # screen
 
-> Retrieve information about screen size, displays, cursor position, etc.
+> 画面サイズ、ディスプレイ、カーソルの位置などについての情報を取得します。
 
 プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 `app` モジュールの `ready` イベントが発生するまでは、このモジュールを require、または使用できません。
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**注釈:** レンダラー / 開発者向けツールでは、`window.screen` は予約済みの DOM プロパティなので、`let {screen} = require('electron')` と書くことはできません。
 
-An example of creating a window that fills the whole screen:
+以下は画面全体を埋めるウインドウを作成する例です。
 
 ```javascript
 const electron = require('electron')
@@ -25,7 +25,7 @@ app.on('ready', () => {
 })
 ```
 
-Another example of creating a window in the external display:
+以下は外部ディスプレイにウィンドウを作成するもう一つの例です。
 
 ```javascript
 const electron = require('electron')
@@ -51,35 +51,35 @@ app.on('ready', () => {
 
 ## イベント
 
-The `screen` module emits the following events:
+`screen` モジュールには以下のイベントがあります。
 
-### Event: 'display-added'
+### イベント: 'display-added'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+`newDisplay` が追加されたときに発生します。
 
-### Event: 'display-removed'
+### イベント: 'display-removed'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+`oldDisplay` が削除されたときに発生します。
 
-### Event: 'display-metrics-changed'
+### イベント: 'display-metrics-changed'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+`display` 内の一つ以上の寸法が変化したときに発生します。 `changedMetrics` は、変化を示す文字列の配列です。 `bounds`、`workArea`、`scaleFactor`、`rotation` に変化できます。
 
 ## メソッド
 
