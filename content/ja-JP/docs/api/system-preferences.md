@@ -207,8 +207,8 @@ const alpha = color.substr(6, 2) // "dd"
   * `window-frame` - ウインドウフレームの色。
   * `window-text` - ウインドウ内のテキスト色。
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳細については、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) を参照してください。
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+戻り値 `Boolean` - ハイコントラストテーマなどの反転したカラースキームがアクティブな場合は `true`、そうでない場合は `false` です。
