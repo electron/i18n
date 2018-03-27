@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarGroup(options)` *（実験的）*
+### `new TouchBarGroup(options)` *実験的*
 
-* `options` オブジェクト 
-  * `items` [TouchBar](touch-bar.md) - Items to display as a group.
+* `options` Object 
+  * `items` [TouchBar](touch-bar.md) - グループとして表示するアイテム。
