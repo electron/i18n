@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**Anda dapat menemukan petunjuk lebih lanjut mengenai penerapan pembaharuan ke dalam aplikasi anda disini.</strong></p> 
 
 ## Platform Notices
 
