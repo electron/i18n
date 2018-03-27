@@ -18,8 +18,8 @@
 
 #### `touchBarColorPicker.availableColors`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+選択するカラーピッカーの使用可能な色を表す`String[]` 配列。この値を変更すると、すぐにタッチバーのカラーピッカーが更新されます。
 
 #### `touchBarColorPicker.selectedColor`
 
-A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
+カラーピッカーの現在選択された色を表す16進数コードの `String`。この値を変更すると、すぐにタッチバーのカラーピッカーが更新されます。
