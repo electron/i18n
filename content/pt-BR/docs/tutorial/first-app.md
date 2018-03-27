@@ -4,9 +4,9 @@ Electron permite criar aplicações desktop com JavaScript puro, fornecendo em t
 
 Isso não significa que o Electron é uma ligação de Javascript a bibliotecas de interface gráfica de usuário (GUI). Pelo contrário, o Electron utiliza páginas web como sua interface gráfica, de modo que você pode vê-lo como um simples navegador Chromium, controlado por Javascript.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Nota**: Este exemplo também está disponível em um repositório você pode [baixa-lo e executa-lo imediatamente](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+As far as development is concerned, an Electron application is essentially a Node.js application. O pronto de entrada é o `package.json`, semelhante ao módulos do node.js. Uma aplicação Electron simples terá a estrutura abaixo:
 
 ```text
 seu-app/
