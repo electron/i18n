@@ -130,7 +130,7 @@ browserify バンドルを作成してプリロードスクリプトとして使
 
 より多くの Electron API をサンドボックスに公開するために、必要に応じて追加することができますが、メインプロセスのどのモジュールも `electron.remote.require` で既に使用できます。
 
-## Status
+## 状況
 
 まだ実験的な機能なので、`sandbox` オプションは慎重に使用してください。 プリロードスクリプトにいくつかの Electron レンダラー API を公開することによるセキュリティの影響をまだ確認していませんが、信頼できないコンテンツをレンダリングする前に考慮すべき点がいくつかあります。
 
@@ -139,4 +139,4 @@ browserify バンドルを作成してプリロードスクリプトとして使
 
 信頼できないコンテンツを Electron で描画することはまだ未知の領域なので、サンドボックスプリロードスクリプトに公開されている API は他の Electron API よりも不安定であるとみなされ、セキュリティ上の問題を修正するための変更が行われる可能性があります。
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+計画されている、セキュリティを大幅に強化する機能の1つは、デフォルトでサンドボックス化したレンダラーからの IPC メッセージをブロックし、レンダラーが送信できるメッセージセットをメインプロセスが明示的に定義できるようにするものです。
