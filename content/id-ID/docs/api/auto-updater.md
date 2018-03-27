@@ -2,15 +2,15 @@
 
 > Aktifkan aplikasi untuk memperbarui dirinya secara otomatis.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
-**Anda dapat menemukan petunjuk lebih lanjut mengenai penerapan pembaharuan ke dalam aplikasi anda disini.</strong></p> 
+**Anda dapat menemukan petunjuk lebih lanjut mengenai penerapan pembaharuan ke dalam aplikasi anda [disini.](../tutorial/updates.md).**
 
 ## Platform Notices
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Saat ini, hanya di macOS dan Windows Yang masih mendukung. Tidak ada dukungan untuk pembaharuan automatis pada linux, sehingga disarankan untuk menggunakan paket distribusi manejer untuk memperbaharui aplikasi anda.
 
-In addition, there are some subtle differences on each platform:
+Sebagai tambahan, ada beberapa perbedaan kecil pada setiap platform:
 
 ### macOS
 
@@ -28,9 +28,9 @@ Installer yang dihasilkan dengan Squirrel akan membuat shortcut icon dengan [ID 
 
 Tidak seperti Squirrel.Mac, Windows dapat menginangi update pada S3 atau host file statis lainnya. Anda bisa membaca dokumen [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) untuk mendapatkan rincian lebih lanjut tentang bagaimana Squirrel.Windows bekerja.
 
-## Acara
+## Events
 
-Objek `autoUpdater` memancarkan peristiwa berikut:
+Objek `autoUpdater` mengirimkan sinyal berikut:
 
 ### Acara: 'kesalahan'
 
