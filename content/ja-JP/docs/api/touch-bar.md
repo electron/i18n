@@ -6,11 +6,11 @@
 
 ### `new TouchBar(options)` *（実験的）*
 
-* `options` オブジェクト 
+* `options` Object 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
 
-タッチバーに指定した新たなアイテムを作成する。`BrowserWindow.setTouchBar`でウィンドウに` TouchBar ` を追加することができます。
+指定したアイテムで新たなタッチバーを作成します。`BrowserWindow.setTouchBar` でウインドウに `TouchBar` を追加することができます。
 
 **Note:** TouchBar API は現在実験的な機能です。将来的には変更されたり削除されたりする可能性があります。
 
