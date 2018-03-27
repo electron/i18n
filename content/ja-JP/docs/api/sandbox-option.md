@@ -16,7 +16,7 @@ Electron の大きな特徴は、レンダラープロセスで Node.js を実�
 
 ## サンプル
 
-To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
+サンドボックス化されたウインドウを作成するには、単に `webPreferences` へ `sandbox: true` を渡して下さい。
 
 ```js
 let win
@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-In the above code the `BrowserWindow` that was created has node.js disabled and can communicate only via IPC. The use of this option stops electron from creating a node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
+上記のコードでは、作成された `BrowserWindow` では Node.js が無効になっており、IPC 経由でのみ通信できます。 このオプションを使用すると、Electron がレンダラー内の Node.js ランタイムを作成しなくなります。 また、この新しいウィンドウ内では、`window.open` はネイティブの動作に従います (デフォルトで Electron は `BrowserWindow` を作成し、`window.open` を介してこれへプロキシを返します)。
 
 It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
 
