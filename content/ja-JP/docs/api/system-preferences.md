@@ -179,10 +179,10 @@ const alpha = color.substr(6, 2) // "dd"
   * `3d-dark-shadow` - 3D 表示要素の暗い影。
   * `3d-face` - 3D 表示要素とダイアログボックスの背景の表面の色。
   * `3d-highlight` - 3D 表示要素のハイライト色。
-  * `3d-light` - Light color for three-dimensional display elements.
-  * `3d-shadow` - Shadow color for three-dimensional display elements.
-  * `active-border` - Active window border.
-  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+  * `3d-light` - 3D 表示要素の光源色。
+  * `3d-shadow` - 3D 表示要素の影の色。
+  * `active-border` - アクティブなウインドウの縁。
+  * `active-caption` - アクティブなウインドウのタイトルバー。グラデーション効果が有効な場合は、その左側の色になります。
   * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
   * `app-workspace` - Background color of multiple document interface (MDI) applications.
   * `button-text` - Text on push buttons.
