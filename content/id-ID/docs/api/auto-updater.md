@@ -32,31 +32,31 @@ Tidak seperti Squirrel.Mac, Windows dapat menginangi update pada S3 atau host fi
 
 Objek `autoUpdater` mengirimkan sinyal berikut:
 
-### Acara: 'kesalahan'
+### Sinyal: 'Error'
 
-Pengembalian:
+Mengirimkan:
 
 * Kesalahan `kesalahan`
 
-Emitted saat ada error saat mengupdate.
+Dikirimkan saat ada kesalahan saat mengupdate.
 
-### Acara: 'check-for-update'
+### Sinyal: 'check-for-update'
 
-Emitted saat memeriksa apakah update telah dimulai.
+Dikirimkan saat memeriksa apakah update telah dimulai.
 
-### Acara: 'update-available'
+### Sinyal: 'update-available'
 
-dibunyikan saat ada update yang tersedia. Pembaruan diunduh secara otomatis.
+Dikirimkan saat ada update yang tersedia. Pembaruan diunduh secara otomatis.
 
-### Acara: 'update-tidak-tersedia'
+### Sinyal: 'update-not-available'
 
-Emitted saat tidak ada update yang tersedia.
+Dikirimkan saat tidak ada update yang tersedia.
 
-### Acara: 'update-download'
+### Sinyal: 'update-download'
 
-Pengembalian:
+Mengirimkan:
 
-* `event` Event
+* `event` Sinyal
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Tanggal
