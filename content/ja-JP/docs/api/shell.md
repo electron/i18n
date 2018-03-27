@@ -1,12 +1,12 @@
 # shell
 
-> Manage files and URLs using their default applications.
+> デフォルトのアプリケーションを使用してファイルと URL を管理します。
 
 プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
-The `shell` module provides functions related to desktop integration.
+`shell` モジュールは、デスクトップの統合に関する機能を提供します。
 
-An example of opening a URL in the user's default browser:
+以下はユーザの既定のブラウザで URL を開く例です。
 
 ```javascript
 const {shell} = require('electron')
@@ -16,27 +16,27 @@ shell.openExternal('https://github.com')
 
 ## メソッド
 
-The `shell` module has the following methods:
+`shell` モジュールには以下のメソッドがあります。
 
 ### `shell.showItemInFolder(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+戻り値 `Boolean` - アイテムが正常に表示されているかどうか
 
-Show the given file in a file manager. If possible, select the file.
+指定したファイルをファイルマネージャに表示します。可能であれば、ファイルを選択します。
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+戻り値 `Boolean` - アイテムが正常に開かれているかどうか.
 
-Open the given file in the desktop's default manner.
+指定したファイルをデスクトップの既定の方法で開きます。
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false
+* `url` String - Windows では最大2081文字で、そうでないと関数は false を返します。
 * `options` Object (任意) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
