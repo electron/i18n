@@ -75,8 +75,8 @@ shell.openExternal('https://github.com')
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+戻り値 [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+`shortcutPath` のショートカットリンクを解決します。
 
-An exception will be thrown when any error happens.
+エラーが発生すると、例外がスローされます。
