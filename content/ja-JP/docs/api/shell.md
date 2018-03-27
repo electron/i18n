@@ -38,38 +38,38 @@ shell.openExternal('https://github.com')
 
 * `url` String - Windows では最大2081文字で、そうでないと関数は false を返します。
 * `options` Object (任意) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+  * `activate` Boolean - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。
+* `callback` Function (任意) - 指定されている場合は、非同期で開く処理をします。 *macOS* 
   * `error` Error
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+戻り値 `Boolean` - アプリケーションが URL を開けたかどうか。callback が指定されている場合、常に true を返します。
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+指定された外部プロトコル URL をデスクトップの既定の方法で開きます (たとえば、ユーザのデフォルトメールエージェントの mailto: URL)。
 
 ### `shell.moveItemToTrash(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash
+戻り値 `Boolean` - アイテムが正常にゴミ箱に移動されたかどうか
 
-Move the given file to trash and returns a boolean status for the operation.
+指定されたファイルをゴミ箱に移動し、操作の状態の Boolean を返します。
 
 ### `shell.beep()`
 
-Play the beep sound.
+通知音を再生します。
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+* `operation` String (任意) - 省略値は `create`。以下のいずれかにできます。 
+  * `create` - 新しいショートカットを作成し、必要であれば上書きします。
+  * `update` - 既にあるショートカットのみを、指定したプロパティで更新します。
+  * `replace` - 既にあるショートカットを上書きし、存在しなければ失敗します。
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully
+戻り値 `Boolean` - ショートカットが正常に作成されたかどうか
 
-Creates or updates a shortcut link at `shortcutPath`.
+`shortcutPath` のショートカットリンクを作成か更新します。
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
