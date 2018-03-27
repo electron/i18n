@@ -64,7 +64,7 @@ Mengirimkan:
 
 Emitted saat update telah didownload.
 
-Di Windows saja `releaseName` tersedia.
+`releaseName` hanya tersedia pada Windows.
 
 ## Metode
 
