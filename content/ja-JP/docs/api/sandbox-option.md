@@ -53,11 +53,11 @@ electron --enable-sandbox app.js
 
 `--enable-sandbox` が有効の場合、通常の Electron ウィンドウを作成できず、一部のレンダラーに対してのみ OS サンドボックスをアクティブにすることはできません。
 
-サンドボックスレンダラーと非サンドボックスレンダラーを1つのアプリケーションで混在させる必要がある場合は、単に `--enable-sandbox` 引数を省略します。 Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+サンドボックスレンダラーと非サンドボックスレンダラーを1つのアプリケーションで混在させる必要がある場合は、単に `--enable-sandbox` 引数を省略します。 この引数がなければ、`sandbox: true` で作成されたウインドウは Node.js を無効にし、IPC 経由でのみ通信します。それ自体で既にセキュリティ POV における利得です。
 
 ## プリロード
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+アプリは、プリロードスクリプトを使用してサンドボックス化されたレンダラーをカスタマイズすることができます。以下はサンプルです。
 
 ```js
 let win
@@ -72,12 +72,12 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+そして preload.js は、
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of electron renderer APIs. We must be
-// careful to not leak any objects into the global scope!
+// Javascript のコンテキストを作成するときにこのファイルが読み込まれます。 
+// Electron レンダラー API のサブセットにアクセスできるプライベートスコープで動作します。 
+// グローバルスコープにオブジェクトをリークしないように注意する必要があります。
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
@@ -98,7 +98,7 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+以下はプリロードスクリプトで注意すべき重要な点です。
 
 - Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
