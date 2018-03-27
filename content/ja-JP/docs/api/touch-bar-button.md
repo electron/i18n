@@ -4,22 +4,22 @@
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarButton(options)` *（実験的）*
+### `new TouchBarButton(options)` *実験的*
 
 * `options` オブジェクト 
-  * `label` String (optional) - Button text.
-  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
+  * `label` String (任意) - ボタンのテキスト。
+  * `backgroundColor` String (任意) - 16進数形式、即ち `#ABCDEF` のボタンの背景色。
+  * `icon` [NativeImage](native-image.md) (任意) - ボタンのアイコン。
+  * `iconPosition` String (任意) - `left`、`right`、`overlay` にできます。
+  * `click` Function (任意) - ボタンがクリックされたときに呼ぶ関数。
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBarButton`:
+`TouchBarButton` のインスタンスには以下のプロパティがあります。
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+ボタンの現在のテキストを表す `String`。この値を変更すると、タッチバーのボタンがすぐに更新されます。
 
 #### `touchBarButton.backgroundColor`
 
