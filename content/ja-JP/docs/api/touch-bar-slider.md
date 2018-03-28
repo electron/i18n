@@ -16,20 +16,20 @@
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBarSlider`:
+`TouchBarSlider` のインスタンスには以下のプロパティがあります。
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在のテキストを表す `String`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在の値を表す `Number`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在の最小値を表す `Number`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在の最大値を表す `Number`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
