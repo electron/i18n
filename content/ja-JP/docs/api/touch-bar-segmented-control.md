@@ -1,25 +1,25 @@
-## Class: TouchBarSegmentedControl
+## クラス: TouchBarSegmentedControl
 
-> Create a segmented control (a button group) where one button has a selected state
+> 1つのボタンが選択状態になっているセグメントコントロール (ボタングループ) を作成します
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSegmentedControl(options)` *Experimental*
+### `new TouchBarSegmentedControl(options)` *実験的*
 
-* `options` オブジェクト 
-  * `segmentStyle` String - (optional) Style of the segments: 
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
-    * `rounded` - The control is displayed using the rounded style.
-    * `textured-rounded` - The control is displayed using the textured rounded style.
-    * `round-rect` - The control is displayed using the round rect style.
-    * `textured-square` - The control is displayed using the textured square style.
-    * `capsule` - The control is displayed using the capsule style
-    * `small-square` - The control is displayed using the small square style.
-    * `separated` - The segments in the control are displayed very close to each other but not touching.
-  * `mode` String - (optional) The selection mode of the control: 
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
-    * `multiple` - Multiple items can be selected at a time.
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
+* `options` Object 
+  * `segmentStyle` String - (任意) セグメントのスタイル。 
+    * `automatic` - デフォルト。セグメント化されたコントロールの見た目は、コントロールが表示されているウインドウのタイプとウインドウ内の位置に基づいて自動的に決定されます。
+    * `rounded` - コントロールは丸みのあるスタイルで表示されます。
+    * `textured-rounded` - コントロールは、テクスチャ付きの丸みのあるスタイルで表示されます。
+    * `round-rect` - コントロールは丸角のスタイルで表示されます。
+    * `textured-rounded` - コントロールは、テクスチャ付きの丸角のスタイルで表示されます。
+    * `capsule` - コントロールはカプセル状のスタイルで表示されます。
+    * `small-square` - コントロールは小さな正方形のスタイルで表示されます。
+    * `separated` - コントロール内のセグメントは、互いに非常に近く表示されますが、接触しません。
+  * `mode` String - (任意) コントロールの選択モード。 
+    * `single` - デフォルト。一度に1つのアイテムを選択し、1つを選択すると、前に選択したアイテムの選択が解除されます。
+    * `multiple` - 一度に複数のアイテムを選択できます。
+    * `buttons` - セグメントをボタンとして動作させ、各セグメントを押して離すことができますが、アクティブとしてマークされることはありません。
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
   * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
   * `change` Function - Called when the user selects a new segment 
