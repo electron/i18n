@@ -24,20 +24,20 @@
   * `selectedIndex` Integer (任意) - ユーザの操作によって自動的に更新される、現在選択されているセグメントのインデックス。 multiple モードでは、最後に選択したアイテムになります。
   * `change` Function - ユーザが新しいセグメントを選択したときに呼ばれる 
     * `selectedIndex` Integer - ユーザが選択したセグメントのインデックス。
-    * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
+    * `isSelected` Boolean - ユーザの選択結果として、セグメントが選択されたかどうか。
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBarSegmentedControl`:
+`TouchBarSegmentedControl` のインスタンスには以下のプロパティがあります。
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+コントロールの現在のセグメントのスタイルを表す `String`。この値を変更すると、タッチバーのコントロールがすぐに更新されます。
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. この値を更新すると、タッチバーのコントロールがすぐに更新されます。 この配列の要素の中のプロパティを更新しても **タッチバーは更新されません**。
+このコントロールのセグメントを表す `SegmentedControlSegment[]` 配列。 この値を更新すると、タッチバーのコントロールがすぐに更新されます。 この配列の要素の中のプロパティを更新しても **タッチバーは更新されません**。
 
 #### `touchBarSegmentedControl.selectedIndex`
 
-An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.
+現在選択されているセグメントを表す `Integer`。 この値を変更すると、タッチバーのコントロールがすぐに更新されます。 User interaction with the touch bar will update this value automatically.
