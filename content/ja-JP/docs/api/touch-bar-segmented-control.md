@@ -20,10 +20,10 @@
     * `single` - デフォルト。一度に1つのアイテムを選択し、1つを選択すると、前に選択したアイテムの選択が解除されます。
     * `multiple` - 一度に複数のアイテムを選択できます。
     * `buttons` - セグメントをボタンとして動作させ、各セグメントを押して離すことができますが、アクティブとしてマークされることはありません。
-  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
-  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
-  * `change` Function - Called when the user selects a new segment 
-    * `selectedIndex` Integer - The index of the segment the user selected.
+  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - このコントロールに配置するセグメントの配列。
+  * `selectedIndex` Integer (任意) - ユーザの操作によって自動的に更新される、現在選択されているセグメントのインデックス。 multiple モードでは、最後に選択したアイテムになります。
+  * `change` Function - ユーザが新しいセグメントを選択したときに呼ばれる 
+    * `selectedIndex` Integer - ユーザが選択したセグメントのインデックス。
     * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
 
 ### インスタンスプロパティ
