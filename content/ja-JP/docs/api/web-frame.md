@@ -65,11 +65,11 @@ webFrame.setZoomFactor(2)
   * `spellCheck` Function - 戻り値 `Boolean` 
     * `text` String
 
-Sets a provider for spell checking in input fields and text areas.
+入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+`provider` は、渡された単語が正しいかどうかを返すメソッド `spellCheck` を持つオブジェクトでなければいけません。
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+[node-spellchecker](https://github.com/atom/node-spellchecker) をプロバイダとして使用するサンプルです。
 
 ```javascript
 const {webFrame} = require('electron')
@@ -84,29 +84,29 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Registers the `scheme` as secure scheme.
+セキュアなスキームとして `scheme` を登録します。
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+セキュアなスキームは、混在するコンテンツの警告をトリガーしません。 たとえば、`https` と `data` は、アクティブなネットワーク攻撃者によって壊されないため、セキュアなスキームです。
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+現在のページのコンテンツセキュリティポリシーに関係なく、この `scheme` からリソースが読み込まれます。
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
 * `options` Object (任意) 
-  * `secure` Boolean - (optional) Default true.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+  * `secure` Boolean - (任意) 省略値は true。
+  * `bypassCSP` Boolean - (任意) 省略値は true。
+  * `allowServiceWorkers` Boolean - (任意) 省略値は true。
+  * `supportFetchAPI` Boolean - (任意) 省略値は true。
+  * `corsEnabled` Boolean - (任意) 省略値は true。
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+`scheme` をセキュアとして登録し、リソースのコンテンツセキュリティポリシーをバイパスし、ServiceWorker の登録を許可し、フェッチ API をサポートします。
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+`false` の値を指定してオプションを指定すると、その登録が省略されます。以下は Content Security Policy をバイパスすることなく、特権スキームを登録する例です。
 
 ```javascript
 const {webFrame} = require('electron')
@@ -117,12 +117,12 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+フォーカスされた要素に `text` を挿入します。
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` Boolean (任意) - 省略値は `false`。
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
