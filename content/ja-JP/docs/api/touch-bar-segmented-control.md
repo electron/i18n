@@ -36,7 +36,7 @@ A `String` representing the controls current segment style. Updating this value 
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+A `SegmentedControlSegment[]` array representing the segments in this control. この値を更新すると、タッチバーのコントロールがすぐに更新されます。 この配列の要素の中のプロパティを更新しても **タッチバーは更新されません**。
 
 #### `touchBarSegmentedControl.selectedIndex`
 
