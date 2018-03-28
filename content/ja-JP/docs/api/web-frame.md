@@ -1,10 +1,10 @@
 # webFrame
 
-> Customize the rendering of the current web page.
+> 現在のウェブページの描画をカスタマイズします。
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+現在のページを 200% にズームするサンプルです。
 
 ```javascript
 const {webFrame} = require('electron')
@@ -14,23 +14,23 @@ webFrame.setZoomFactor(2)
 
 ## メソッド
 
-The `webFrame` module has the following methods:
+`webFrame` モジュールには以下のメソッドがあります。
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - 拡大率。
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+指定の倍率に拡大率を変更します。拡大率は百分率なので、300% = 3.0 です。
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+戻り値 `Number` - 現在の拡大率。
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - 拡大レベル。
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。
 
 ### `webFrame.getZoomLevel()`
 
