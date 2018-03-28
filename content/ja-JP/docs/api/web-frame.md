@@ -123,14 +123,14 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `code` String
 * `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+戻り値 `Promise` - 実行されたコードの結果で解決される Promise、またはコードの結果が拒否された Promise である場合の拒否された Promise。
 
-Evaluates `code` in page.
+ページ内の `code` を評価します。
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
 ### `webFrame.getResourceUsage()`
 
@@ -142,14 +142,14 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Blink の内部メモリキャッシュの使用情報を記述しているオブジェクトを返します。
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+これが生成されます。
 
 ```javascript
 {
@@ -158,15 +158,15 @@ This will generate:
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* same with "images" */ },
-  xslStyleSheets: { /* same with "images" */ },
-  fonts: { /* same with "images" */ },
-  other: { /* same with "images" */ }
+  cssStyleSheets: { /* "images" と同じ */ },
+  xslStyleSheets: { /* "images" と同じ */ },
+  fonts: { /* "images" と同じ */ },
+  other: { /* "images" と同じ" */ }
 }
 ```
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+以前使用していたメモリを解放しようとします (以前のナビゲーションの画像など)。
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+このメソッドを盲目的に呼び出すと、空になったキャッシュを補充する必要があるため、Electron の処理速度が遅くなる可能性があることに注意してください。アプリ内のイベントが発生してページの実際のメモリ使用量が少なくなったと思われる場合にのみ呼び出すようにしてください (即ち、とても重いページから空のページへナビゲートし、そこにとどまるとき)。
