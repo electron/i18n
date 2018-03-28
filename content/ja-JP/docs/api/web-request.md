@@ -1,10 +1,10 @@
 ## クラス: WebRequest
 
-> Intercept and modify the contents of a request at various stages of its lifetime.
+> ライフタイムのさまざまな段階でリクエストのコンテンツを傍受し、変更します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
+`WebRequest` クラスのインスタンスには、`Session` の `webRequest` プロパティを使用してアクセスします。
 
 The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
 
