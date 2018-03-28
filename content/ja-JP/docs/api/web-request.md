@@ -177,7 +177,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when a request is completed.
+`listener` は、リクエストが終了したときに `listener(details)` で呼ばれます。
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
@@ -192,6 +192,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - エラーの内容。
 
-The `listener` will be called with `listener(details)` when an error occurs.
+`listener` は、エラーが発生したときに `listener(details)` で呼ばれます。
