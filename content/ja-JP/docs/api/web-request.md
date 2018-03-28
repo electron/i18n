@@ -62,7 +62,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
-リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 This may occur after a TCP connection is made to the server, but before any http data is sent.
+リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
 
 * `details` Object 
   * `id` Integer
@@ -75,7 +75,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 * `callback` Function 
   * `response` Object 
     * `cancel` Boolean (任意)
-    * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
+    * `requestHeaders` Object (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
 
 `callback` は、`response` オブジェクトで呼ぶ必要があります。
 
@@ -93,7 +93,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `timestamp` Double
     * `requestHeaders` Object
 
-The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
+`listener` は、リクエストがサーバに送信される直前に `listener(details)` で呼び出され、以前の `onBeforeSendHeaders` レスポンスの変更は、このリスナが起動される時までに表示されます。
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
