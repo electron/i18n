@@ -6,7 +6,7 @@
 
 `WebRequest` クラスのインスタンスには、`Session` の `webRequest` プロパティを使用してアクセスします。
 
-The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
+`WebRequest` のメソッドは、任意の `filter` と `listener` を受け取ります。 `listener` は、API のイベントが発生したときに `listener(details)` で呼ばれます。 The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
 
 The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
 
