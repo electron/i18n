@@ -48,13 +48,13 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `callback` Function 
     * `response` Object 
       * `cancel` Boolean (任意)
-      * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
+      * `redirectURL` String (任意) - 元のリクエストは送信または終了されず、代わりに指定された URL にリダイレクトされます。
 
-The `listener` will be called with `listener(details, callback)` when a request is about to occur.
+`listener` は、リクエストが発生しようとしているときに `listener(details, callback)` で呼ばれます。
 
-The `uploadData` is an array of `UploadData` objects.
+`uploadData` は、`UploadData` オブジェクトの配列です。
 
-The `callback` has to be called with an `response` object.
+`callback` は、`response` オブジェクトで呼ぶ必要があります。
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
@@ -62,7 +62,7 @@ The `callback` has to be called with an `response` object.
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
+リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 * `details` Object 
   * `id` Integer
@@ -77,7 +77,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
     * `cancel` Boolean (任意)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
-The `callback` has to be called with an `response` object.
+`callback` は、`response` オブジェクトで呼ぶ必要があります。
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -119,7 +119,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
     * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
-The `callback` has to be called with an `response` object.
+`callback` は、`response` オブジェクトで呼ぶ必要があります。
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
