@@ -6,18 +6,18 @@
 
 `WebRequest` クラスのインスタンスには、`Session` の `webRequest` プロパティを使用してアクセスします。
 
-`WebRequest` のメソッドは、任意の `filter` と `listener` を受け取ります。 `listener` は、API のイベントが発生したときに `listener(details)` で呼ばれます。 The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
+`WebRequest` のメソッドは、任意の `filter` と `listener` を受け取ります。 `listener` は、API のイベントが発生したときに `listener(details)` で呼ばれます。 `details` オブジェクトはリクエストについて記述します。 `listener` として `null` を渡すとイベントから登録解除します。
 
-The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
+`filter` オブジェクトには、`urls` プロパティがあります。これは、URL パターンと一致しないリクエストをフィルタリングするために使用される URL パターンの配列です。 `filter` を省略するとすべてのリクエストがマッチします。
 
-For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
+特定のイベントでは、`listener` には `callback` が渡されます。これは、`listener` が処理を終えたときに `response` オブジェクトとともに呼び出される必要があります。
 
-An example of adding `User-Agent` header for requests:
+以下はリクエストに `User-Agent` ヘッダーを追加する例です。
 
 ```javascript
 const {session} = require('electron')
 
-// Modify the user agent for all requests to the following urls.
+// 以下の URL へのすべてのリクエストのユーザエージェントを変更します。
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
@@ -30,24 +30,24 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 ### インスタンスメソッド
 
-The following methods are available on instances of `WebRequest`:
+`WebRequest` のインスタンスでは、以下のメソッドが利用できます。
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Object - (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `filter` Object - (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (任意)
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `response` Object 
-      * `cancel` Boolean (optional)
+      * `cancel` Boolean (任意)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
 The `listener` will be called with `listener(details, callback)` when a request is about to occur.
@@ -58,8 +58,8 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object - (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `filter` Object - (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
@@ -68,27 +68,27 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `id` Integer
   * `url` String
   * `method` String
-  * `webContentsId` Integer (optional)
+  * `webContentsId` Integer (任意)
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
 * `callback` Function 
   * `response` Object 
-    * `cancel` Boolean (optional)
+    * `cancel` Boolean (任意)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
 The `callback` has to be called with an `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object - (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `filter` Object - (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (任意)
     * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
@@ -97,8 +97,8 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Object - (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `filter` Object - (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
@@ -107,7 +107,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `id` Integer
   * `url` String
   * `method` String
-  * `webContentsId` Integer (optional)
+  * `webContentsId` Integer (任意)
   * `resourceType` String
   * `timestamp` Double
   * `statusLine` String
@@ -123,14 +123,14 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Object - (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `filter` Object - (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (任意)
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
@@ -142,14 +142,14 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Object - (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `filter` Object - (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (任意)
     * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
@@ -162,14 +162,14 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Object - (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `filter` Object - (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (任意)
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
@@ -181,14 +181,14 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Object - (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `filter` Object - (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (任意)
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
