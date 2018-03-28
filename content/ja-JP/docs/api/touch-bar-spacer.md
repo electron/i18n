@@ -1,13 +1,13 @@
-## Class: TouchBarSpacer
+## クラス: TouchBarSpacer
 
-> Create a spacer between two items in the touch bar for native macOS applications
+> ネイティブ macOS アプリケーション用のタッチバー内に2つのアイテム間のスペーサーを作成する
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSpacer(options)` *Experimental*
+### `new TouchBarSpacer(options)` *実験的*
 
-* `options` オブジェクト 
-  * `size` String (optional) - Size of spacer, possible values are: 
-    * `small` - Small space between items.
-    * `large` - Large space between items.
-    * `flexible` - Take up all available space.
+* `options` Object 
+  * `size` String (任意) - スペーサーのサイズ。以下の値にできます。 
+    * `small` - アイテム間の小さいスペース。
+    * `large` - アイテム間の大きいスペース。
+    * `flexible` - 利用可能なスペース全てを埋める。
