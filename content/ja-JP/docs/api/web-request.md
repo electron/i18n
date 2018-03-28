@@ -101,7 +101,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
-The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
+`listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
 
 * `details` Object 
   * `id` Integer
@@ -116,8 +116,8 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
 * `callback` Function 
   * `response` Object 
     * `cancel` Boolean
-    * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
-    * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
+    * `responseHeaders` Object (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
+    * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
 
 `callback` は、`response` オブジェクトで呼ぶ必要があります。
 
@@ -134,11 +134,11 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `fromCache` Boolean - レスポンスがディスクキャッシュからフェッチされたかどうかを示します。
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+`listener` は、レスポンスボディの最初のバイトを受信したときに `listener(details)` で呼ばれます。 HTTP リクエストの場合、これはステータスラインとレスポンスヘッダが使用可能であることを意味します。
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
@@ -154,11 +154,11 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `ip` String (任意) - リクエストが実際に送信されたサーバーの IP アドレス。
     * `fromCache` Boolean
     * `responseHeaders` Object
 
-The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
+`listener` は、サーバーが始めたリダイレクトが発生しようとしているときに `listener(details)` で呼ばれます。
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
