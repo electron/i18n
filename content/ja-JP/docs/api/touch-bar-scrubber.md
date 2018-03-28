@@ -28,30 +28,30 @@
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+スクラバー内の選択したアイテムのスタイルを表す `String`。この値を更新すると、すぐにタッチバーのコントロールが更新されます。 以下は取りうる値です。
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles
+* `background` - `[NSScrubberSelectionStyle roundedBackgroundStyle]` に割り当て
+* `outline` - `[NSScrubberSelectionStyle outlineOverlayStyle]` に割り当て
+* `null` - ヌル文字列ではなく、本物の null で、すべてのスタイルを削除します
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Possible values:
+スクラバー内の選択したアイテムのスタイルを表す `String`。 このスタイルは、その後ろに置かれるのではなく、スクラバーアイテムの上に重ねられます。 この値を更新すると、タッチバーのコントロールがすぐに更新されます。 以下は取りうる値です。
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles
+* `background` - `[NSScrubberSelectionStyle roundedBackgroundStyle]` に割り当て
+* `outline` - `[NSScrubberSelectionStyle outlineOverlayStyle]` に割り当て
+* `null` - ヌル文字列ではなく、本物の null で、すべてのスタイルを削除します
 
 #### `touchBarScrubber.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+このスクラバーに左 / 右の選択矢印を表示するかどうかを表す `Boolean`。この値を更新すると、すぐにタッチバーのコントロールが更新されます。
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Possible values:
+このスクラバのモードを表す `String`。この値を更新すると、すぐにタッチバーのコントロールが更新されます。以下は取りうる値です。
 
-* `fixed` - Maps to `NSScrubberModeFixed`
-* `free` - Maps to `NSScrubberModeFree`
+* `fixed` - `NSScrubberModeFixed` に割り当て
+* `free` - `NSScrubberModeFree` に割り当て
 
 #### `touchBarScrubber.continuous`
 
