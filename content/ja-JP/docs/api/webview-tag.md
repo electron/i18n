@@ -338,10 +338,10 @@ Injects CSS into the guest page.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+ページ内の `code` を評価します。 If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
 ### `<webview>.openDevTools()`
 
@@ -432,7 +432,7 @@ Executes editing command `replaceMisspelling` in page.
 
 * `text` String
 
-Inserts `text` to the focused element.
+フォーカスされた要素に `text` を挿入します。
 
 ### `<webview>.findInPage(text[, options])`
 
