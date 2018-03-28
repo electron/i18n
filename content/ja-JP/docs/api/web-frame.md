@@ -34,35 +34,35 @@ webFrame.setZoomFactor(2)
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+戻り値 `Number` - 現在の拡大レベル。
 
 ### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**非推奨:** 視覚拡大レベルの制限を設定するには、代わりに `setVisualZoomLevelLimits` を呼びます。このメソッドは Electron 2.0 で削除されます。
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+ピンチによる拡大レベルの最大値と最小値を設定します。
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` オブジェクト 
-  * `spellCheck` Function - Returns `Boolean` 
+* `provider` Object 
+  * `spellCheck` Function - 戻り値 `Boolean` 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
