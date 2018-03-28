@@ -1,4 +1,4 @@
-## Class: WebRequest
+## クラス: WebRequest
 
 > Intercept and modify the contents of a request at various stages of its lifetime.
 
