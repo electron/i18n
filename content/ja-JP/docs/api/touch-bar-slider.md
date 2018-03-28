@@ -1,18 +1,18 @@
-## Class: TouchBarSlider
+## クラス: TouchBarSlider
 
-> Create a slider in the touch bar for native macOS applications
+> ネイティブ macOS アプリケーション用のタッチバー内にスライダーを作成する
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSlider(options)` *Experimental*
+### `new TouchBarSlider(options)` *実験的*
 
 * `options` オブジェクト 
-  * `label` String (optional) - Label text.
-  * `value` Integer (optional) - Selected value.
-  * `minValue` Integer (optional) - Minimum value.
-  * `maxValue` Integer (optional) - Maximum value.
-  * `change` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider
+  * `label` String (任意) - ラベルのテキスト。
+  * `value` Integer (任意) - 選択されている値。
+  * `minValue` Integer (任意) - 最小値。
+  * `maxValue` Integer (任意) - 最大値。
+  * `change` Function (任意) - スライダーが変更されたときに呼ぶ関数。 
+    * `newValue` Number - Slider 上でユーザが選択した値。
 
 ### インスタンスプロパティ
 
