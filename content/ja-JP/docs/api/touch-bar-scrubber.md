@@ -55,4 +55,4 @@
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Updating this value immediately updates the control in the touch bar.
+このスクラバーが連続的であるかどうかを表す `Boolean`。この値を更新すると、すぐにタッチバーのコントロールが更新されます。
