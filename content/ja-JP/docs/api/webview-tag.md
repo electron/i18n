@@ -184,9 +184,9 @@ webview で設定するウェブ環境設定を指定する `,` 区切りの文�
 <webview src="https://www.github.com/" guestinstance="3"></webview>
 ```
 
-A value that links the webview to a specific webContents. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
+webview を特定の webContents にリンクする値。 webview が最初に新しい webContents をロードすると、この属性はそのインスタンス識別子に設定されます。 この属性を新規または既存の webview に設定すると、現在別の webview でレンダリングされている既存の webContents にリンクされます。
 
-The existing webview will see the `destroy` event and will then create a new webContents when a new url is loaded.
+既存の webview は `destroy` イベントを監視して、新しい URL がロードされたときに新しい webContents を作成します。
 
 ### `disableguestresize`
 
@@ -194,7 +194,7 @@ The existing webview will see the `destroy` event and will then create a new web
 <webview src="https://www.github.com/" disableguestresize></webview>
 ```
 
-When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
+この属性が存在すると、`webview` 要素自体のサイズが変更されたときに、`webview` のコンテンツのリサイズができなくなります。
 
 This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
 
