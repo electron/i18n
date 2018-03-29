@@ -158,9 +158,9 @@
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-webview で設定するウェブ環境設定を指定する文字列 `,` 区切りのリスト。 サポートされている設定の文字列の完全なリストは、[BrowserWindow](browser-window.md#new-browserwindowoptions) にあります。
+webview で設定するウェブ環境設定を指定する `,` 区切りの文字列リスト。 サポートされている設定の文字列の完全なリストは、[BrowserWindow](browser-window.md#new-browserwindowoptions) にあります。
 
-この文字列は、`window.open` の features 文字列と同じ形式に従います。 名前自体には `true` のブール値が与えられます。 設定は、`=` とそれに続く値を含めることによって別の値に設定できます。 Special values `yes` and `1` are interpreted as `true`, while `no` and `` are interpreted as `false`.
+この文字列は、`window.open` の features 文字列と同じ形式に従います。 名前自体には `true` のブール値が与えられます。 設定は、`=` とそれに続く値を含めることによって別の値に設定できます。 特殊な値として、`yes` と `1` は `true` として解釈され、`no` と `` は `false` として解釈されます。
 
 ### `blinkfeatures`
 
@@ -168,7 +168,7 @@ webview で設定するウェブ環境設定を指定する文字列 `,` 区切�
 <webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+有効にする Blink 機能を指定する `,` 区切りの文字列リスト。 The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
 
 ### `disableblinkfeatures`
 
