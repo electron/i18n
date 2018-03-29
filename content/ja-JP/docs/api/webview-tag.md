@@ -95,9 +95,9 @@
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+この属性が存在する場合、`webview` 内のゲストページはブラウザのプラグインを使用することができます。プラグインはデフォルトでは無効です。
 
-### `プリロード`
+### `preload`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
