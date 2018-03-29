@@ -40,9 +40,9 @@
 
 ## CSS スタイルの注意事項
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+`webview` タグのスタイルでは、子の `object` 要素が、古典的かつフレックスボックスなレイアウトを使用するとき (v0.36.11 以降)、`webview` コンテナの高さと幅を完全に埋めるのに、内部的に `display:flex;` を使用していることに注意して下さい。 `display:inline-flex;` をインラインレイアウトに指定しない限り、デフォルトの`display:flex;` CSS プロパティを上書きしないでください。
 
-`webview` has issues being hidden using the `hidden` attribute or using `display: none;`. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
+`webview` には、`hidden` 属性を使用する、及び `display: none;` を使用して非表示にする際に問題があります。 `browserplugin` オブジェクト内で異常なレンダリング動作が発生し、`webview` が非表示にされるときにウェブページがリロードされます。 推奨される手段は、`visibility: hidden` を使用して `webview` を隠すことです。
 
 ```html
 <style>
@@ -57,9 +57,9 @@ Please note that the `webview` tag's style uses `display:flex;` internally to en
 </style>
 ```
 
-## Tag Attributes
+## タグの属性
 
-The `webview` tag has the following attributes:
+`webview` タグには以下の属性があります。
 
 ### `src`
 
@@ -67,9 +67,9 @@ The `webview` tag has the following attributes:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Returns the visible URL. Writing to this attribute initiates top-level navigation.
+見える URL を返します。 この属性に書き込むと、トップレベルのナビゲーションが開始されます。
 
-Assigning `src` its own value will reload the current page.
+`src` に独自の値を代入すると、現在のページがリロードされます。
 
 The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
