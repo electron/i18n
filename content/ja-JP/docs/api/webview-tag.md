@@ -103,11 +103,11 @@
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
+ゲストのページで他のスクリプトを実行する前に読み込まれるスクリプトを指定します。 スクリプトの URL のプロトコルは、`file:` または `asar:` のいずれかでなければなりません。これは、ゲストページ内で `require` によってロードされるためです。
 
-When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
+ゲストページに Node Integration がない場合、このスクリプトはすべての Node APIにアクセスできますが、Node によって挿入されたグローバルオブジェクトはこのスクリプトの実行が終了した後に削除されます。
 
-**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**注釈:** このオプションは、`will-attach-webview` イベントに指定された `webPreferences` に `preloadURL` (`preload` ではない) として表示されます。
 
 ### `httpreferrer`
 
@@ -115,7 +115,7 @@ When the guest page doesn't have node integration this script will still have ac
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Sets the referrer URL for the guest page.
+ゲストページの参照先 URL を設定します。
 
 ### `useragent`
 
@@ -123,7 +123,7 @@ Sets the referrer URL for the guest page.
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
+ページがナビゲートされる前にゲストページ用のユーザーエージェントを設定します。 一度ページがロードされた場合は、`setUserAgent` メソッドを使用してユーザーエージェントを変更します。
 
 ### `disablewebsecurity`
 
@@ -131,7 +131,7 @@ Sets the user agent for the guest page before the page is navigated to. Once the
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+この属性が存在すると、ゲストページでウェブセキュリティが無効になります。ウェブセキュリティはデフォルトで有効になっています。
 
 ### `partition`
 
@@ -140,9 +140,9 @@ When this attribute is present the guest page will have web security disabled. W
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 If the `partition` is unset then default session of the app will be used.
+ページで使用されるセッションを設定します。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 `partition` が設定されていない場合は、アプリのデフォルトのセッションが使用されます。
 
-This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
+アクティブなレンダラープロセスのセッションは変更できないため、この値は最初のナビゲーションの前にのみ変更できます。 その後の値の変更は、DOM 例外によって失敗します。
 
 ### `allowpopups`
 
@@ -150,7 +150,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+この属性が存在すると、ゲストページは新しいウィンドウを開くことが許可されます。 ポップアップはデフォルトで無効になっています。
 
 ### `webpreferences`
 
@@ -158,9 +158,9 @@ When this attribute is present the guest page will be allowed to open new window
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-A list of strings which specifies the web preferences to be set on the webview, separated by `,`. The full list of supported preference strings can be found in [BrowserWindow](browser-window.md#new-browserwindowoptions).
+webview で設定するウェブ環境設定を指定する文字列 `,` 区切りのリスト。 サポートされている設定の文字列の完全なリストは、[BrowserWindow](browser-window.md#new-browserwindowoptions) にあります。
 
-The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `` are interpreted as `false`.
+この文字列は、`window.open` の features 文字列と同じ形式に従います。 名前自体には `true` のブール値が与えられます。 設定は、`=` とそれに続く値を含めることによって別の値に設定できます。 Special values `yes` and `1` are interpreted as `true`, while `no` and `` are interpreted as `false`.
 
 ### `blinkfeatures`
 
