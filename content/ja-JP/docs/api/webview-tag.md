@@ -196,7 +196,7 @@ webview を特定の webContents にリンクする値。 webview が最初に�
 
 この属性が存在すると、`webview` 要素自体のサイズが変更されたときに、`webview` のコンテンツのリサイズができなくなります。
 
-This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
+これを [`webContents.setSize`](web-contents.md#contentssetsizeoptions) と組み合わせて使用すると、ウインドウサイズの変更に応じて webview のコンテンツのサイズを手動で変更できます。 This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
 
 ```javascript
 const {webContents} = require('electron')
