@@ -1,35 +1,35 @@
-## Class: TouchBarSlider
+## クラス: TouchBarSlider
 
-> Create a slider in the touch bar for native macOS applications
+> ネイティブ macOS アプリケーション用のタッチバー内にスライダーを作成する
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSlider(options)` *Experimental*
+### `new TouchBarSlider(options)` *実験的*
 
 * `options` オブジェクト 
-  * `label` String (optional) - Label text.
-  * `value` Integer (optional) - Selected value.
-  * `minValue` Integer (optional) - Minimum value.
-  * `maxValue` Integer (optional) - Maximum value.
-  * `change` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider
+  * `label` String (任意) - ラベルのテキスト。
+  * `value` Integer (任意) - 選択されている値。
+  * `minValue` Integer (任意) - 最小値。
+  * `maxValue` Integer (任意) - 最大値。
+  * `change` Function (任意) - スライダーが変更されたときに呼ぶ関数。 
+    * `newValue` Number - Slider 上でユーザが選択した値。
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBarSlider`:
+`TouchBarSlider` のインスタンスには以下のプロパティがあります。
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在のテキストを表す `String`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在の値を表す `Number`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在の最小値を表す `Number`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+スライダーの現在の最大値を表す `Number`。この値を変更すると、タッチバーのスライダーがすぐに更新されます。

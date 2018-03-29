@@ -1,25 +1,25 @@
-## Class: TouchBarPopover
+## クラス: TouchBarPopover
 
-> Create a popover in the touch bar for native macOS applications
+> ネイティブ macOS アプリケーション用のタッチバー内にポップオーバーを作成する
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarPopover(options)` *Experimental*
+### `new TouchBarPopover(options)` *実験的*
 
-* `options` オブジェクト 
-  * `label` String (optional) - Popover button text.
-  * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
-  * `items` [TouchBar](touch-bar.md) (optional) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Default is `true`.
+* `options` Object 
+  * `label` String (任意) - ポップオーバーするボタンのテキスト。
+  * `icon` [NativeImage](native-image.md) (任意) - ポップオーバーするボタンのアイコン。
+  * `items` [TouchBar](touch-bar.md) (任意) - ポップオーバー内に表示するアイテム。
+  * `showCloseButton` Boolean (任意) - `true` にするとポップオーバーの左に閉じるボタンを表示し、`false` にすると表示しません。省略値は `true` です。
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBarPopover`:
+`TouchBarPopover` のインスタンスには以下のプロパティがあります。
 
 #### `touchBarPopover.label`
 
-A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
+ポップオーバーの現在のボタンのテキストを表す `String`。この値を変更すると、タッチバーのポップオーバーがすぐに更新されます。
 
 #### `touchBarPopover.icon`
 
-A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
+ポップオーバーの現在のボタンのアイコンを表す `NativeImage`。この値を変更すると、タッチバーのポップオーバーがすぐに更新されます。

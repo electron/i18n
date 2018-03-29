@@ -1,10 +1,10 @@
 # webFrame
 
-> Customize the rendering of the current web page.
+> 現在のウェブページの描画をカスタマイズします。
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+現在のページを 200% にズームするサンプルです。
 
 ```javascript
 const {webFrame} = require('electron')
@@ -14,62 +14,62 @@ webFrame.setZoomFactor(2)
 
 ## メソッド
 
-The `webFrame` module has the following methods:
+`webFrame` モジュールには以下のメソッドがあります。
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - 拡大率。
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+指定の倍率に拡大率を変更します。拡大率は百分率なので、300% = 3.0 です。
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+戻り値 `Number` - 現在の拡大率。
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - 拡大レベル。
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+戻り値 `Number` - 現在の拡大レベル。
 
 ### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**非推奨:** 視覚拡大レベルの制限を設定するには、代わりに `setVisualZoomLevelLimits` を呼びます。このメソッドは Electron 2.0 で削除されます。
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+ピンチによる拡大レベルの最大値と最小値を設定します。
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` オブジェクト 
-  * `spellCheck` Function - Returns `Boolean` 
+* `provider` Object 
+  * `spellCheck` Function - 戻り値 `Boolean` 
     * `text` String
 
-Sets a provider for spell checking in input fields and text areas.
+入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+`provider` は、渡された単語が正しいかどうかを返すメソッド `spellCheck` を持つオブジェクトでなければいけません。
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+[node-spellchecker](https://github.com/atom/node-spellchecker) をプロバイダとして使用するサンプルです。
 
 ```javascript
 const {webFrame} = require('electron')
@@ -84,29 +84,29 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Registers the `scheme` as secure scheme.
+セキュアなスキームとして `scheme` を登録します。
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+セキュアなスキームは、混在するコンテンツの警告をトリガーしません。 たとえば、`https` と `data` は、アクティブなネットワーク攻撃者によって壊されないため、セキュアなスキームです。
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+現在のページのコンテンツセキュリティポリシーに関係なく、この `scheme` からリソースが読み込まれます。
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
 * `options` Object (任意) 
-  * `secure` Boolean - (optional) Default true.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+  * `secure` Boolean - (任意) 省略値は true。
+  * `bypassCSP` Boolean - (任意) 省略値は true。
+  * `allowServiceWorkers` Boolean - (任意) 省略値は true。
+  * `supportFetchAPI` Boolean - (任意) 省略値は true。
+  * `corsEnabled` Boolean - (任意) 省略値は true。
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+`scheme` をセキュアとして登録し、リソースのコンテンツセキュリティポリシーをバイパスし、ServiceWorker の登録を許可し、フェッチ API をサポートします。
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+`false` の値を指定してオプションを指定すると、その登録が省略されます。以下は Content Security Policy をバイパスすることなく、特権スキームを登録する例です。
 
 ```javascript
 const {webFrame} = require('electron')
@@ -117,20 +117,20 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+フォーカスされた要素に `text` を挿入します。
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `userGesture` Boolean (任意) - 省略値は `false`。
+* `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+戻り値 `Promise` - 実行されたコードの結果で解決される Promise、またはコードの結果が拒否された Promise である場合の拒否された Promise。
 
-Evaluates `code` in page.
+ページ内の `code` を評価します。
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
 ### `webFrame.getResourceUsage()`
 
@@ -142,14 +142,14 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Blink の内部メモリキャッシュの使用情報を記述しているオブジェクトを返します。
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+これが生成されます。
 
 ```javascript
 {
@@ -158,15 +158,15 @@ This will generate:
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* same with "images" */ },
-  xslStyleSheets: { /* same with "images" */ },
-  fonts: { /* same with "images" */ },
-  other: { /* same with "images" */ }
+  cssStyleSheets: { /* "images" と同じ */ },
+  xslStyleSheets: { /* "images" と同じ */ },
+  fonts: { /* "images" と同じ */ },
+  other: { /* "images" と同じ" */ }
 }
 ```
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+以前使用していたメモリを解放しようとします (以前のナビゲーションの画像など)。
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+このメソッドを盲目的に呼び出すと、空になったキャッシュを補充する必要があるため、Electron の処理速度が遅くなる可能性があることに注意してください。アプリ内のイベントが発生してページの実際のメモリ使用量が少なくなったと思われる場合にのみ呼び出すようにしてください (即ち、とても重いページから空のページへナビゲートし、そこにとどまるとき)。

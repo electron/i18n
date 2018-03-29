@@ -1,25 +1,25 @@
-## Class: TouchBarColorPicker
+## クラス: TouchBarColorPicker
 
-> Create a color picker in the touch bar for native macOS applications
+> ネイティブ macOS アプリケーション用のタッチバー内にカラーピッカーを作成する
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarColorPicker(options)` *Experimental*
+### `new TouchBarColorPicker(options)` *実験的*
 
 * `options` オブジェクト 
-  * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
-  * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
-  * `change` Function (optional) - Function to call when a color is selected. 
-    * `color` String - The color that the user selected from the picker
+  * `availableColors` String[] (任意) - 選択可能な色として表示される、16進数の色の文字列の配列。
+  * `selectedColor` String (任意) - 16進数形式、即ち `#ABCDEF` の選択された色。
+  * `change` Function (任意) - 色が選択されたときに呼ぶ関数。 
+    * `color` String - ユーザがピッカーから選択した色
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBarColorPicker`:
+`TouchBarColorPicker` のインスタンスには以下のプロパティがあります。
 
 #### `touchBarColorPicker.availableColors`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+選択するカラーピッカーの使用可能な色を表す`String[]` 配列。この値を変更すると、すぐにタッチバーのカラーピッカーが更新されます。
 
 #### `touchBarColorPicker.selectedColor`
 
-A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
+カラーピッカーの現在選択された色を表す16進数コードの `String`。この値を変更すると、すぐにタッチバーのカラーピッカーが更新されます。
