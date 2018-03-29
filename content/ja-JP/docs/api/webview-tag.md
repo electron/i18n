@@ -71,7 +71,7 @@
 
 `src` に独自の値を代入すると、現在のページがリロードされます。
 
-The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
+`src` 属性は、`data:text/plain,Hello, world!` などのデータ URL を受け取ることもできます。
 
 ### `autosize`
 
