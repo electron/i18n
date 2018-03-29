@@ -6,7 +6,7 @@ Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa gra
 
 **Tandaan**: Ang halimbawang ito ay isang repository na pwedeng [i-download at subukan kaagad](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+As far as development is concerned, an Electron application is essentially a Node.js application. Ang panimula ay `package.json` na katulad sa node.js module. A pinaka simpleng Electron app ay merong sumusunod na folder na struktura:
 
 ```text
 iyong-app/
@@ -15,13 +15,13 @@ iyong-app/
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+Gumawa ng bagong folder na walang laman para sa iyong Electron Application. Buksan ang iyong command line client at i-sulat ang `npm init` mula sa iyong folder.
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+gagabayan ka ni npm mula sa pinaka basic na `package.json` file. Ang script na tinutukoy sa `main` ay isang panimulang script ng iyong app, kung saan umaandar ang pangunahing proseso. Isang halimbawa ng iyong `package.json` ay pwedeng maging katulad nito:
 
 ```json
 {
