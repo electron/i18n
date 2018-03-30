@@ -540,7 +540,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### イベント: 'did-finish-load'
 
-Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+ナビゲーションが終了した時、すなわち、タブのくるくるが止まったときや、`onload` イベントが送られた後に、発行されます。
 
 ### イベント: 'did-fail-load'
 
@@ -551,7 +551,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+このイベントは `did-finish-load` のようですが、ロードが失敗した、キャンセルされた、`window.stop()` が呼び出されたなどで発生します。
 
 ### イベント: 'did-frame-finish-load'
 
@@ -559,15 +559,15 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 * `isMainFrame` Boolean
 
-Fired when a frame has done navigation.
+フレームのナビゲーションが終了したときに発行されます。
 
 ### イベント: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab starts spinning.
+タブのくるくるが始まるタイミングに対応しています。
 
 ### イベント: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stops spinning.
+タブのくるくるが止まるタイミングに対応しています。
 
 ### イベント: 'did-get-response-details'
 
@@ -582,7 +582,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 * `headers` Object
 * `resourceType` String
 
-Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+要求されたリソースに関する詳細が利用可能なときに発行されます。`status` はリソースをダウンロードするためのソケット接続状態を示します。
 
 ### イベント: 'did-get-redirect-request'
 
@@ -592,11 +592,11 @@ Fired when details regarding a requested resource is available. `status` indicat
 * `newURL` String
 * `isMainFrame` Boolean
 
-Fired when a redirect was received while requesting a resource.
+リソースのリクエスト中にリダイレクトを受けたときに発行されます。
 
 ### イベント: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+指定のフレームの document が読み込まれたときに発行されます。
 
 ### イベント: 'page-title-updated'
 
@@ -605,23 +605,23 @@ Fired when document in the given frame is loaded.
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+ナビゲーション中にページタイトルが設定されたときに発生します。 `explicitSet` は、タイトルがファイル URL から合成されている場合に false になります。
 
 ### イベント: 'page-favicon-updated'
 
 戻り値:
 
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - URLの配列。
 
-Fired when page receives favicon urls.
+ページがファビコンの URL を受け取ると発行されます。
 
 ### イベント: 'enter-html-full-screen'
 
-Fired when page enters fullscreen triggered by HTML API.
+HTML API にトリガーされてページがフルスクリーンになるときに発生します。
 
 ### イベント: 'leave-html-full-screen'
 
-Fired when page leaves fullscreen triggered by HTML API.
+HTML API にトリガーされてページがフルスクリーンから抜けるときに発生します。
 
 ### Event: 'console-message'
 
@@ -632,7 +632,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 * `line` Integer
 * `sourceId` String
 
-Fired when the guest window logs a console message.
+ゲストウィンドウがコンソールメッセージをロギングすると発行されます。
 
 The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
 
