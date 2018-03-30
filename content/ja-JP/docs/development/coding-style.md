@@ -37,11 +37,11 @@ C++ コードは多くの Chromium の抽象クラスと型を使用している
 ## JavaScript
 
 * [standard](https://npm.im/standard) の JavaScript 形式で記述します。
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
+* ファイル名は、`_` の代わりに `-` で連結する必要があります。[github/atom](https://github.com/github/atom) モジュール名は通常は `module-name` の形式になるので、`file_name.js` ではなく、`file-name.js` としてください。 このルールは、`.js` ファイルにのみ適用されます。
+* 必要に応じて、より新しい ES6/ES2015 構文を使用します 
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) は require とその他の定数に
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) は変数の定義に
+  * [アロー関数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) で `function () { }` を代替する
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
 
 ## 命名
