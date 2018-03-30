@@ -48,9 +48,9 @@ C++ コードは多くの Chromium の抽象クラスと型を使用している
 
 Electron API では、Node.js と同じ大文字表記が使用されます。
 
-* When the module itself is a class like `BrowserWindow`, use `CamelCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
-* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* モジュール自体が `BrowserWindow` のようなクラスである場合は、`CamelCase` を使用します。
+* モジュールが `globalShortcut` のような API のセットである場合は、`mixedCase` を使用します。
+* API がオブジェクトのプロパティで、`win.webContents` のような別の章に分けられるほど複雑な場合は、`mixedCase` を使用します。
+* 他の非モジュール API の場合は、`<webview>タグ` や `プロセスオブジェクト` などの自然なタイトルを使用します。
 
-When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+新しい API を作成する場合は、jQuery の one 関数スタイルの代わりに getter と setter を使用することを推奨します。 例えば、`.text([text])` より、`.getText()` と `.setText(text)` を優先します。 こちらに、これついての [ディスカッション](https://github.com/electron/electron/issues/46) があります。
