@@ -47,7 +47,7 @@ Chrome の組み込み `window.open()` 実装を使用する場合は、`webPref
 `BrowserWindow` の作成は `WebContents` の `new-window` イベントを介してカスタマイズできます。
 
 ```javascript
-// main process
+// メインプロセス
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -57,7 +57,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // open window as modal
+    // モーダルとしてウインドウを開きます
     event.preventDefault()
     Object.assign(options, {
       modal: true,
@@ -71,7 +71,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// レンダラープロセス (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
