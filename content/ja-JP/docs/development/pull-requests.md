@@ -1,15 +1,15 @@
-# Pull Requests
+# プルリクエスト
 
-* [Dependencies](#dependencies)
-* [Setting up your local environment](#setting-up-your-local-environment) 
-  * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes) 
-  * [Step 4: Code](#step-4-code)
-  * [Step 5: Commit](#step-5-commit) 
-    * [Commit message guidelines](#commit-message-guidelines)
-  * [Step 6: Rebase](#step-6-rebase)
+* [依存関係](#dependencies)
+* [ローカル環境のセットアップ](#setting-up-your-local-environment) 
+  * [ステップ1: フォーク](#step-1-fork)
+  * [ステップ2: ビルド](#step-2-build)
+  * [ステップ3: ブランチ](#step-3-branch)
+* [変更を加える](#making-changes) 
+  * [ステップ4: コーディング](#step-4-code)
+  * [ステップ5: コミット](#step-5-commit) 
+    * [コミットメッセージのガイドライン](#commit-message-guidelines)
+  * [ステップ6: リベース](#step-6-rebase)
   * [Step 7: Test](#step-7-test)
   * [Step 8: Push](#step-8-push)
   * [Step 9: Opening the Pull Request](#step-8-opening-the-pull-request)
@@ -18,9 +18,9 @@
   * [Step 11: Landing](#step-10-landing)
   * [Continuous Integration Testing](#continuous-integration-testing)
 
-## Setting up your local environment
+## ローカル環境のセットアップ
 
-### Step 1: Fork
+### ステップ1: フォーク
 
 Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
 
@@ -31,7 +31,7 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Step 2: Build
+### ステップ2: ビルド
 
 Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
 
@@ -41,7 +41,7 @@ Build steps and dependencies differ slightly depending on your operating system.
 
 Once you've built the project locally, you're ready to start making changes!
 
-### Step 3: Branch
+### ステップ3: ブランチ
 
 To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
 
@@ -49,9 +49,9 @@ To keep your development environment organized, create local branches to hold yo
 $ git checkout -b my-branch -t upstream/master
 ```
 
-## Making Changes
+## 変更を加える
 
-### Step 4: Code
+### ステップ4: コーディング
 
 Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
@@ -59,7 +59,7 @@ Please be sure to run `npm run lint` from time to time on any code changes to en
 
 See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
 
-### Step 5: Commit
+### ステップ5: コミット
 
 It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
 
@@ -70,7 +70,7 @@ $ git commit
 
 Note that multiple commits often get squashed when they are landed.
 
-#### Commit message guidelines
+#### コミットメッセージのガイドライン
 
 A good commit message should describe what changed and why.
 
@@ -91,7 +91,7 @@ A good commit message should describe what changed and why.
 
 See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
 
-### Step 6: Rebase
+### ステップ6: リベース
 
 Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
 
