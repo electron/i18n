@@ -1,6 +1,6 @@
 # `window.open`関数
 
-> Open a new window and load a URL.
+> 新しいウインドウを開き、URL をロードします。
 
 When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
