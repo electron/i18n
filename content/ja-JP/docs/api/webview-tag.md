@@ -746,7 +746,7 @@ webview.addEventListener('close', () => {
 * `channel` String
 * `args` Array
 
-Fired when the guest page has sent an asynchronous message to embedder page.
+ゲストページが埋め込みページに非同期メッセージを送信したときに発生します。
 
 With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
 
