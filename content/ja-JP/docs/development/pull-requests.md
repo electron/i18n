@@ -1,28 +1,28 @@
-# Pull Requests
+# プルリクエスト
 
-* [Dependencies](#dependencies)
-* [Setting up your local environment](#setting-up-your-local-environment) 
-  * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes) 
-  * [Step 4: Code](#step-4-code)
-  * [Step 5: Commit](#step-5-commit) 
-    * [Commit message guidelines](#commit-message-guidelines)
-  * [Step 6: Rebase](#step-6-rebase)
-  * [Step 7: Test](#step-7-test)
-  * [Step 8: Push](#step-8-push)
-  * [Step 9: Opening the Pull Request](#step-8-opening-the-pull-request)
-  * [Step 10: Discuss and Update](#step-9-discuss-and-update) 
-    * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
-  * [Step 11: Landing](#step-10-landing)
-  * [Continuous Integration Testing](#continuous-integration-testing)
+* [依存関係](#dependencies)
+* [ローカル環境のセットアップ](#setting-up-your-local-environment) 
+  * [ステップ1: フォーク](#step-1-fork)
+  * [ステップ2: ビルド](#step-2-build)
+  * [ステップ3: ブランチ](#step-3-branch)
+* [変更を加える](#making-changes) 
+  * [ステップ4: コーディング](#step-4-code)
+  * [ステップ5: コミット](#step-5-commit) 
+    * [コミットメッセージのガイドライン](#commit-message-guidelines)
+  * [ステップ6: リベース](#step-6-rebase)
+  * [ステップ7: テスト](#step-7-test)
+  * [ステップ8: プッシュ](#step-8-push)
+  * [ステップ9: プルリクエストを開く](#step-8-opening-the-pull-request)
+  * [ステップ10: 議論と更新](#step-9-discuss-and-update) 
+    * [承認とリクエストの変更ワークフロー](#approval-and-request-changes-workflow)
+  * [ステップ11: 取り込み](#step-10-landing)
+  * [継続的インテグレーションテスト](#continuous-integration-testing)
 
-## Setting up your local environment
+## ローカル環境のセットアップ
 
-### Step 1: Fork
+### ステップ1: フォーク
 
-Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
+[GitHub](https://github.com/electron/electron) でプロジェクトをフォークし、ローカルでフォークをクローンします。
 
 ```sh
 $ git clone git@github.com:username/electron.git
@@ -31,53 +31,53 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Step 2: Build
+### ステップ2: ビルド
 
-Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
+ビルド手順と依存関係は、オペレーティングシステムによって若干異なります。 Electron をローカルに構築する際は、これらの詳細なガイドを参照してください。
 
-* [Building on MacOS](https://electronjs.org/docs/development/build-instructions-osx)
-* [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [macOS 上でビルド](https://electronjs.org/docs/development/build-instructions-osx)
+* [Linux 上でビルド](https://electronjs.org/docs/development/build-instructions-linux)
+* [Windows 上でビルド](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+プロジェクトをローカルに構築したら、変更を始める準備が整います！
 
-### Step 3: Branch
+### ステップ3: ブランチ
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+開発環境を整理しておくために、作業を支えるローカルのブランチを作りましょう。 これらは、`master` ブランチから直接分岐する必要があります。
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
 ```
 
-## Making Changes
+## 変更を加える
 
-### Step 4: Code
+### ステップ4: コーディング
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+`electron/electron` リポジトリに対して開かれたほとんどのプルリクエストには、`atom/` フォルダや `brightray` フォルダの C/C++ コード、`lib/` フォルダの JavaScript コード、`docs/api/` のドキュメント、`spec/` フォルダのテストの変更が含まれます。
 
-Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
+コードの変更時に `npm run lint` を実行して、プロジェクトのコードスタイルに従うようにしてください。
 
-See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
+プロジェクトのさまざまな部分でコードを変更する際のベストプラクティスの詳細については、[コーディングスタイル](https://electronjs.org/docs/development/coding-style) を参照してください。
 
-### Step 5: Commit
+### ステップ5: コミット
 
-It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
+変更を個々のコミット内で論理的にグループ化しておくことを推奨します。 貢献者の多くが、複数のコミットに分割された変更をより簡単に確認できます。 プルリクエストのコミット数に制限はありません。
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Note that multiple commits often get squashed when they are landed.
+複数のコミットは、取り込み時にしばしば縮められることに注意してください。
 
-#### Commit message guidelines
+#### コミットメッセージのガイドライン
 
-A good commit message should describe what changed and why.
+良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。
 
-1. The first line should:
+1. 最初の行は、以下の通りにしてください。
   
-  * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+  * 変更の簡単な説明が含まれている (50文字以下が好ましく、72文字未満である)
+  * 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
     
     例:
   
@@ -85,13 +85,13 @@ A good commit message should describe what changed and why.
   
   * `fixed typos in atom_api_menu.h`
 
-2. Keep the second line blank.
+2. 2行目は空にしてください。
 
-3. Wrap all other lines at 72 columns.
+3. 他のすべての行は72列で折り返します。
 
-See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
+良い git commit メッセージを書く方法の例については、[この記事](https://chris.beams.io/posts/git-commit/) を参照してください。
 
-### Step 6: Rebase
+### ステップ6: リベース
 
 Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
 
@@ -102,7 +102,7 @@ $ git rebase upstream/master
 
 This ensures that your working branch has the latest changes from `electron/electron` master.
 
-### Step 7: Test
+### ステップ7: テスト
 
 Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
@@ -122,7 +122,7 @@ $ npm run test -match=menu
 
 The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
 
-### Step 8: Push
+### ステップ8: プッシュ
 
 Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
@@ -130,7 +130,7 @@ Once your commits are ready to go -- with passing tests and linting -- begin the
 $ git push origin my-branch
 ```
 
-### Step 9: Opening the Pull Request
+### ステップ9: プルリクエストを開く
 
 From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
@@ -161,19 +161,19 @@ There are a number of more advanced mechanisms for managing commits using `git r
 
 Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
-#### Approval and Request Changes Workflow
+#### 承認とリクエストの変更ワークフロー
 
 All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
-### Step 11: Landing
+### ステップ11: 取り込み
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
 Congratulations and thanks for your contribution!
 
-### Continuous Integration Testing
+### 継続的インテグレーションテスト
 
 Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 

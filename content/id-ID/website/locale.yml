@@ -5,29 +5,29 @@ nav:
   blog: Blog
   community: Komunitas
   apps: Aplikasi
-  userland: Tanah pengguna
+  userland: Userland
   releases: Rilis
   contact: Kontak
-  languages: bahasa
+  languages: Bahasa
   code_of_conduct: Kode etik
   search: pencarian
 docs:
-  title: Dokumentasi Elektron
-  description: Lihat semua <a href="/dokumen/semua"> dokumen pada satu laman </a> atau lihat <a href="/dokumen/format"> FORMAT </a>.
+  title: Dokumentasi Electron
+  description: Lihat semua <a href="/docs/all">dokumentasi di satu halaman</a> atau lihat <a href="/docs/faq">FAQ</a>.
   guides: Panduan
   api_reference: Referensi API
   advanced: Peningkatan
   footer:
     propose_change: Meningkatkan sebuah dokumen
     version_history: Riwayat cerita
-    translate: Terjamahkan dokumen ini
-    view_all_docs: Semua dokumen pada satu halaman
+    translate: Terjemahkan dokumen ini
+    view_all_docs: Semua dokumentasi di satu halaman
 languages:
   choose_language: Pilih Bahasa Situs Anda
   translation_progress: alur terjemahan
   current: pilihan saat ini
 community:
-  title: Komunitas Elektron
+  title: Komunitas Electron
   description: 'Alat, boiler plates, video, dan yang lainnya dari kontributor sumber terbuka dari Elektron <a href="https://github.com/sindresorhus/mengagumkan-elektron"> mengagumkan </a>. Temukan atau tambahkan <a href="/komunitas#pertemuan"> meetups </a> di dekat Anda.'
   tools: Alat
   boilerplates: Piring boiler

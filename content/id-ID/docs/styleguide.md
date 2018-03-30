@@ -211,4 +211,4 @@ Judul bisa `###` atau `####`-levels tergantung pada apakah itu adalah properti d
 
 ## Dokumentasi Penerjemahan
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Lihat [electron/i18n](https://github.com/electron/i18n#readme)

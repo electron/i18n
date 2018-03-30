@@ -5,7 +5,7 @@ These guides are intended for people working on the Electron project itself. For
 * [行動規範](../../CODE_OF_CONDUCT.md)
 * [Contributing to Electron](../../CONTRIBUTING.md)
 * [Issues](issues.md)
-* [Pull Requests](pull-requests.md)
+* [プルリクエスト](pull-requests.md)
 * [ドキュメントガイド](styleguide.md)
 * [ソースコードのディレクトリ構造](source-code-directory-structure.md)
 * [コーディング スタイル](coding-style.md)

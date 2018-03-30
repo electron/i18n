@@ -93,7 +93,7 @@ clipboard:
   copy: 복사
   copy_to_clipboard: 클립보드에 복사하기
   copied: 복사됨
-or: or
+or: 또는
 pages:
   '/':
     title: Electron | 자바스크립트, HTML, CSS를 이용해 크로스 플랫폼 데스크톱 앱을 만들어보세요.
@@ -115,7 +115,7 @@ pages:
     description: 일렉트론으로 개발하기
   '/docs/tutorial':
     title: 튜토리얼
-    description: 최신 일렉트론 릴리즈에 대한 가이드와 튜토리얼
+    description: 최신 Electron 출시에 대한 가이드와 튜토리얼
   '/blog':
     title: Electron 블로그
     description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
