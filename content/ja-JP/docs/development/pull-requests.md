@@ -61,23 +61,23 @@ $ git checkout -b my-branch -t upstream/master
 
 ### ステップ5: コミット
 
-It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
+変更を個々のコミット内で論理的にグループ化しておくことを推奨します。 貢献者の多くが、複数のコミットに分割された変更をより簡単に確認できます。 プルリクエストのコミット数に制限はありません。
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Note that multiple commits often get squashed when they are landed.
+複数のコミットは、取り込み時にしばしば縮められることに注意してください。
 
 #### コミットメッセージのガイドライン
 
-A good commit message should describe what changed and why.
+良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。
 
-1. The first line should:
+1. 最初の行は、以下の通りにしてください。
   
-  * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+  * 変更の簡単な説明が含まれている (50文字以下が好ましく、72文字未満である)
+  * 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
     
     例:
   
@@ -85,11 +85,11 @@ A good commit message should describe what changed and why.
   
   * `fixed typos in atom_api_menu.h`
 
-2. Keep the second line blank.
+2. 2行目は空にしてください。
 
-3. Wrap all other lines at 72 columns.
+3. 他のすべての行は72列で折り返します。
 
-See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
+良い git commit メッセージを書く方法の例については、[この記事](https://chris.beams.io/posts/git-commit/) を参照してください。
 
 ### ステップ6: リベース
 
