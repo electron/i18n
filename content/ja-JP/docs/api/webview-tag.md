@@ -478,32 +478,32 @@ webview.addEventListener('dom-ready', () => {
   * `error` Error
   * `data` Buffer
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+`webview` のウェブページを PDF として印刷します。`webContents.printToPDF(options, callback)` と同じです。
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
+`webview` のページのスナップショットを取得します。`webContents.capturePage([rect, ]callback)` と同じです。
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
+`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 レンダラープロセスは `ipcRenderer` モジュールで `channel` イベントを聞いてメッセージを処理できます。
 
-See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
+サンプルについては [webContents.send](web-contents.md#webcontentssendchannel-args) を参照して下さい。
 
 ### `<webview>.sendInputEvent(event)`
 
 * `event` Object
 
-Sends an input `event` to the page.
+入力 `event` をページに送ります。
 
-See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
+`event` オブジェクトの詳細については、[webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) を参照してください。
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -523,20 +523,20 @@ See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent)
 
 ### `<webview>.getWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
 
-## DOM events
+## DOM イベント
 
-The following DOM events are available to the `webview` tag:
+`webview` タグでは、以下の DOM イベントを使用できます。
 
-### Event: 'load-commit'
+### イベント: 'load-commit'
 
 戻り値:
 
 * `url` String
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+ロードがコミットされたときに発生します。これには、現在のドキュメント内のナビゲーションとサブフレームのドキュメントレベルの読み込みが含まれますが、非同期のリソース読み込みは含まれません。
 
 ### イベント: 'did-finish-load'
 
