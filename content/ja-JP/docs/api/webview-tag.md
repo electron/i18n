@@ -223,9 +223,9 @@ win.on('resize', () => {
 
 ## メソッド
 
-The `webview` tag has the following methods:
+`webview` タグには以下のメソッドがあります。
 
-**Note:** The webview element must be loaded before using the methods.
+**注釈:** メソッドを使用する前に webview 要素をロードする必要があります。
 
 **サンプル**
 
@@ -246,19 +246,19 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
+`url` を webview にロードします。`url` には、`http://` または `file://` のような、プロトコルのプレフィックスを含みます。
 
 ### `<webview>.getURL()`
 
-Returns `String` - The URL of guest page.
+戻り値 `String` - ゲストページの URL。
 
 ### `<webview>.getTitle()`
 
-Returns `String` - The title of guest page.
+戻り値 `String` - ゲストページのタイトル。
 
 ### `<webview>.isLoading()`
 
-Returns `Boolean` - Whether guest page is still loading resources.
+戻り値 `Boolean` - ゲストページがまだリソースを読み込んでいるかどうか。
 
 ### `<webview>.isWaitingForResponse()`
 
