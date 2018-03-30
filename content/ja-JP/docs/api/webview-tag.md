@@ -262,86 +262,86 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
+戻り値 `Boolean` - ゲストページが、ページのメインリソースからの最初の応答を待機しているかどうか。
 
 ### `<webview>.stop()`
 
-Stops any pending navigation.
+保留中のナビゲーションを停止します。
 
 ### `<webview>.reload()`
 
-Reloads the guest page.
+ゲストページを再読み込みします。
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+ゲストページを、キャッシュを無視して再読み込みします。
 
 ### `<webview>.canGoBack()`
 
-Returns `Boolean` - Whether the guest page can go back.
+戻り値 `Boolean` - ゲストページが前に戻れるかどうか。
 
 ### `<webview>.canGoForward()`
 
-Returns `Boolean` - Whether the guest page can go forward.
+戻り値 `Boolean` - ゲストページが次に進めるかどうか。
 
 ### `<webview>.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the guest page can go to `offset`.
+戻り値 `Boolean` - `offset` 番目のゲストページへ行けるかどうか。
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+ナビゲーション履歴を消去します。
 
 ### `<webview>.goBack()`
 
-Makes the guest page go back.
+ゲストページを前に戻します。
 
 ### `<webview>.goForward()`
 
-Makes the guest page go forward.
+ゲストページを次に進めます。
 
 ### `<webview>.goToIndex(index)`
 
 * `index` Integer
 
-Navigates to the specified absolute index.
+指定した絶対インデックスへナビゲーションします。
 
 ### `<webview>.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+現在のエントリから指定したオフセットへナビゲーションします。
 
 ### `<webview>.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+戻り値 `Boolean` - レンダラープロセスがクラッシュしたかどうか。
 
 ### `<webview>.setUserAgent(userAgent)`
 
 * `userAgent` String
 
-Overrides the user agent for the guest page.
+ゲストページページのユーザエージェントをオーバーライドします。
 
 ### `<webview>.getUserAgent()`
 
-Returns `String` - The user agent for guest page.
+戻り値 `String` - ゲストページのユーザエージェント。
 
 ### `<webview>.insertCSS(css)`
 
 * `css` String
 
-Injects CSS into the guest page.
+ゲストページへ CSS を注入します。
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default `false`.
+* `userGesture` Boolean (任意) - 省略値は `false`。
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-ページ内の `code` を評価します。 If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+ページ内の `code` を評価します。 `userGesture` が設定されている場合、ページのユーザジェスチャコンテキストが作成されます。 HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
 ### `<webview>.openDevTools()`
 
