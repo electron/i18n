@@ -26,17 +26,17 @@ C++ と Python の場合、Chromium の [コーディングスタイル](https:/
 
 我たちの使用している現在の Python のバージョンは、Python 2.7 です。
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+C++ コードは多くの Chromium の抽象クラスと型を使用しているため、それらを知ることを推奨します。 始めるには、Chromiumの [重要な抽象クラスとデータ構造](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) ドキュメントが良いです。 このドキュメントでは、いくつかの特別な型、スコープ付きの型 (スコープ外に出たときに自動的にメモリを解放する) 、ロギングのメカニズムなどについて記述しています。
 
 ## ドキュメント
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style
+* [remark](https://github.com/remarkjs/remark) のマークダウン形式で記述します
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+`npm run lint-docs` を実行して、ドキュメントの変更が正しくフォーマットされていることを確認できます。
 
 ## JavaScript
 
-* Write [standard](https://npm.im/standard) JavaScript style.
+* [standard](https://npm.im/standard) の JavaScript 形式で記述します。
 * File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
 * Use newer ES6/ES2015 syntax where appropriate 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
