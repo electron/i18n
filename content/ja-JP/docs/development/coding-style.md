@@ -14,17 +14,17 @@
 * 以下の順番でクラスのプロパティを配置してください。 
   * クラスメソッドとプロパティ (`@` で始まるメソッド)
   * インスタンスメソッドとプロパティ
-* Avoid platform-dependent code: 
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
-* Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null`, or `undefined`
+* プラットフォーム依存なコードは避けてください。 
+  * `path.join()` を使用してファイル名を連結します。
+  * 一時ディレクトリを参照する必要がある場合は、`/tmp` ではなく `os.tmpdir()` を使用してください。
+* 関数の終わりで明示的に戻るときは、そのままの `return` を使用します。 
+  * `return null`、`return undefined`、`null` や、`undefined` ではありません
 
-## C++ および Python
+## C++ と Python
 
-For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+C++ と Python の場合、Chromium の [コーディングスタイル](https://www.chromium.org/developers/coding-style) に従います。 C++ のコードを自動的にフォーマットするのに、[clang-format](clang-format.md) が使用できます。 また、`script/cpplint.py` というスクリプトがあり、すべてのファイルが適しているかどうかを確認します。
 
-The Python version we are using now is Python 2.7.
+我たちの使用している現在の Python のバージョンは、Python 2.7 です。
 
 The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
 
