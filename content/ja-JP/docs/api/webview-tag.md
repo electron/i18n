@@ -748,20 +748,20 @@ webview.addEventListener('close', () => {
 
 ゲストページが埋め込みページに非同期メッセージを送信したときに発生します。
 
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+`sendToHost` メソッドと `ipc-message` イベントを使用すると、ゲストページと埋め込みページの間で簡単に通信できます。
 
 ```javascript
-// In embedder page.
+// 埋め込みページ。
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
   console.log(event.channel)
-  // Prints "pong"
+  // "pong" と出力される
 })
 webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// ゲストページ。
 const {ipcRenderer} = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -770,11 +770,11 @@ ipcRenderer.on('ping', () => {
 
 ### イベント: 'crashed'
 
-Fired when the renderer process is crashed.
+レンダラープロセスがクラッシュしたときに発生します。
 
-### Event: 'gpu-crashed'
+### イベント: 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+GPU のプロセスがクラッシュしたときに発生します。
 
 ### イベント: 'plugin-crashed'
 
@@ -783,11 +783,11 @@ Fired when the gpu process is crashed.
 * `name` String
 * `version` String
 
-Fired when a plugin process is crashed.
+プラグインプロセスがクラッシュしたときに発行されます。
 
 ### イベント: 'destroyed'
 
-Fired when the WebContents is destroyed.
+webContents が破棄されたときに発生します。
 
 ### イベント: 'media-started-playing'
 
@@ -803,7 +803,7 @@ Fired when the WebContents is destroyed.
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+ページのテーマカラーが変更されたときに発行されます。これはよく、このような meta タグによって発生します。
 
 ```html
 <meta name='theme-color' content='#ff0000'>
