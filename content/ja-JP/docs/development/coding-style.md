@@ -1,19 +1,19 @@
-# コーディング スタイル
+# コーディングスタイル
 
-These are the style guidelines for coding in Electron.
+これらは Electron のコーディングスタイルのガイドラインです。
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+`npm run lint` を実行すると、`cpplint` と `eslint` で検出されたスタイルの問題を表示できます。
 
-## General Code
+## 一般的なコード
 
-* End files with a newline.
-* Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order: 
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
+* ファイルを改行で終えてください。
+* 以下の順番で require を配置してください。 
+  * 組み込み Node モジュール (`path` など)
+  * 組み込み Electron モジュール (`ipc`、`app` など)
+  * ローカルモジュール (相対パスを使用したもの)
+* 以下の順番でクラスのプロパティを配置してください。 
+  * クラスメソッドとプロパティ (`@` で始まるメソッド)
+  * インスタンスメソッドとプロパティ
 * Avoid platform-dependent code: 
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
