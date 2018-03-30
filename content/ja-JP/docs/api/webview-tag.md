@@ -196,18 +196,18 @@ webview を特定の webContents にリンクする値。 webview が最初に�
 
 この属性が存在すると、`webview` 要素自体のサイズが変更されたときに、`webview` のコンテンツのリサイズができなくなります。
 
-これを [`webContents.setSize`](web-contents.md#contentssetsizeoptions) と組み合わせて使用すると、ウインドウサイズの変更に応じて webview のコンテンツのサイズを手動で変更できます。 This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
+これを [`webContents.setSize`](web-contents.md#contentssetsizeoptions) と組み合わせて使用すると、ウインドウサイズの変更に応じて webview のコンテンツのサイズを手動で変更できます。 これにより、webview 要素の矩形を使用してコンテンツのサイズを自動的に変更するのに比べて、サイズ変更を高速化できます。
 
 ```javascript
 const {webContents} = require('electron')
 
-// We assume that `win` points to a `BrowserWindow` instance containing a
-// `<webview>` with `disableguestresize`.
+// `win`は、`disableguestresize` を持つ `<webview>`を含む
+// `BrowserWindow` インスタンスを指していると仮定します。
 
 win.on('resize', () => {
   const [width, height] = win.getContentSize()
   for (let wc of webContents.getAllWebContents()) {
-    // Check if `wc` belongs to a webview in the `win` window.
+    // `wc` が ` win` ウインドウの webview に属しているかどうか確認します。
     if (wc.hostWebContents &&
         wc.hostWebContents.id === win.webContents.id) {
       wc.setSize({
