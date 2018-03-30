@@ -730,7 +730,7 @@ webview.addEventListener('new-window', (e) => {
 
 ゲストのページ自身が閉じようとしたときに発生します。
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+以下のサンプルコードは、ゲストが自身を閉じるときに `webview` を `about:blank` にナビゲートします。
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -739,7 +739,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Event: 'ipc-message'
+### イベント: 'ipc-message'
 
 戻り値:
 
