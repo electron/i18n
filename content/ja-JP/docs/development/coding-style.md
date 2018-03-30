@@ -42,11 +42,11 @@ C++ コードは多くの Chromium の抽象クラスと型を使用している
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) は require とその他の定数に
   * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) は変数の定義に
   * [アロー関数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) で `function () { }` を代替する
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+  * [テンプレート文字列](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) で + を使用した文字列連結を代替する `+`
 
 ## 命名
 
-Electron APIs uses the same capitalization scheme as Node.js:
+Electron API では、Node.js と同じ大文字表記が使用されます。
 
 * When the module itself is a class like `BrowserWindow`, use `CamelCase`.
 * When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
