@@ -23,28 +23,28 @@
 * Node integration は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
 * コンテキストイソレーションは、親ウィンドウで有効になっている場合は、開いた `window` で常に有効になります。
 * JavaScript は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
+* `features` で指定された非標準機能 (Chromium や Electron によって処理されない) は、`additionalFeatures` 引数内の登録された `webContents` の `new-window` イベントハンドラに渡されます。
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+指定したオリジンか、オリジン未設定を意味する `*` で、親ウインドウにメッセージを送信します。
 
-### Using Chrome's `window.open()` implementation
+### Chrome の `window.open()` 実装の使用
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Chrome の組み込み `window.open()` 実装を使用する場合は、`webPreferences` オプションオブジェクトで `nativeWindowOpen` を `true` に設定します。
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+ネイティブの `window.open()` は、開いたウィンドウに同期アクセスを許可するので、ダイアログや環境設定ウィンドウを開く必要がある場合に便利です。
 
-This option can also be set on `<webview>` tags as well:
+このオプションは `<webview>` タグでも設定できます。
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+`BrowserWindow` の作成は `WebContents` の `new-window` イベントを介してカスタマイズできます。
 
 ```javascript
 // main process
