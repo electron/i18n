@@ -2,27 +2,27 @@
 
 > 新しいウインドウを開き、URL をロードします。
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+ウェブページで新しいウィンドウを作成するために `window.open` が呼び出されると、`BrowserWindow` の新しいインスタンスが `url` に対して作成され、 ページの制御が制限されるように、プロキシが `window.open` に返されます。
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+プロキシは、従来のウェブページと互換性があるように実装された、限定された標準機能を有します。 新しいウィンドウを完全に制御するには、`BrowserWindow` を直接作成する必要があります。
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+新しく作成された `BrowserWindow` は、デフォルトで親ウィンドウのオプションを継承します。 継承されたオプションをオーバーライドするには、`features` 文字列で設定することができます。
 
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (optional)
-* `features` String (optional)
+* `frameName` String (任意)
+* `features` String (任意)
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+戻り値 [`BrowserWindowProxy`](browser-window-proxy.md) - 新しいウインドウを作成し、`BrowserWindowProxy` クラスのインスタンスを返します。
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+`features` 文字列は、標準ブラウザの形式に従いますが、各機能は `BrowserWindow` のオプションのフィールドになっていければなりません。
 
-**Notes:**
+**注釈:**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
+* Node integration は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
+* コンテキストイソレーションは、親ウィンドウで有効になっている場合は、開いた `window` で常に有効になります。
+* JavaScript は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
 * Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
 
 ### `window.opener.postMessage(message, targetOrigin)`
