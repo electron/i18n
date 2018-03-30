@@ -144,4 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## Pengembangan
 
-See <development/README.md>
+Lihat <development/README.md>
