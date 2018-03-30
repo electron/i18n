@@ -1,6 +1,6 @@
-# Official Guides
+# Panduan Resmi
 
-Pastikan Anda menggunakan dokumen yang sesuai dengan versi Elektron Anda . Versi nomor harus menjadi bagian dari halaman URL. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . Untuk melihat yang lebih tua versi dokumentasi, Anda bisa [telusuri menurut tag](https://github.com/electron/electron/tree/v1.4.0) di GitHub dengan membuka drop-down "Switch branches/tags" dan memilih tag yang cocok dengan versimu.
+Pastikan Anda menggunakan dokumen yang sesuai dengan versi Electron Anda. Nomor versi harus menjadi bagian dari URL halaman. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . Untuk melihat yang lebih tua versi dokumentasi, Anda bisa [telusuri menurut tag](https://github.com/electron/electron/tree/v1.4.0) di GitHub dengan membuka drop-down "Switch branches/tags" dan memilih tag yang cocok dengan versimu.
 
 ## Pertanyaan Umum
 
@@ -21,9 +21,9 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Menjalankan Aplikasi Anda](tutorial/first-app.md#running-your-app)
 * [Boilerplates dan CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [elektron-penempa](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [elektron-bereaksi-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Alat dan Boilerplate lainnya](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Application Architecture](tutorial/application-architecture.md) 
   * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
