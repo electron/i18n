@@ -10,11 +10,11 @@
   * [ステップ5: コミット](#step-5-commit) 
     * [コミットメッセージのガイドライン](#commit-message-guidelines)
   * [ステップ6: リベース](#step-6-rebase)
-  * [Step 7: Test](#step-7-test)
-  * [Step 8: Push](#step-8-push)
-  * [Step 9: Opening the Pull Request](#step-8-opening-the-pull-request)
-  * [Step 10: Discuss and Update](#step-9-discuss-and-update) 
-    * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
+  * [ステップ7: テスト](#step-7-test)
+  * [ステップ8: プッシュ](#step-8-push)
+  * [ステップ9: プルリクエストを開く](#step-8-opening-the-pull-request)
+  * [ステップ10: 議論と更新](#step-9-discuss-and-update) 
+    * [承認とリクエストの変更ワークフロー](#approval-and-request-changes-workflow)
   * [Step 11: Landing](#step-10-landing)
   * [Continuous Integration Testing](#continuous-integration-testing)
 
@@ -102,7 +102,7 @@ $ git rebase upstream/master
 
 This ensures that your working branch has the latest changes from `electron/electron` master.
 
-### Step 7: Test
+### ステップ7: テスト
 
 Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
@@ -122,7 +122,7 @@ $ npm run test -match=menu
 
 The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
 
-### Step 8: Push
+### ステップ8: プッシュ
 
 Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
@@ -130,7 +130,7 @@ Once your commits are ready to go -- with passing tests and linting -- begin the
 $ git push origin my-branch
 ```
 
-### Step 9: Opening the Pull Request
+### ステップ9: プルリクエストを開く
 
 From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
@@ -161,7 +161,7 @@ There are a number of more advanced mechanisms for managing commits using `git r
 
 Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
-#### Approval and Request Changes Workflow
+#### 承認とリクエストの変更ワークフロー
 
 All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
