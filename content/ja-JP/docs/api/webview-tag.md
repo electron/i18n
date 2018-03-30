@@ -634,12 +634,12 @@ HTML API にトリガーされてページがフルスクリーンから抜け�
 
 ゲストウィンドウがコンソールメッセージをロギングすると発行されます。
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+以下のサンプルコードは、ログレベルやその他のプロパティに関係なく、すべてのログメッセージを埋め込みのコンソールに転送します。
 
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message)
+  console.log('ゲストページのメッセージログ:', e.message)
 })
 ```
 
@@ -654,7 +654,7 @@ webview.addEventListener('console-message', (e) => {
   * `selectionArea` Object - 最初のマッチ領域の座標。
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
+[`webview.findInPage`](webview-tag.md#webviewtagfindinpage) リクエストの結果が有効なときに発行されます。
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -673,11 +673,11 @@ console.log(requestId)
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
-* `options` Object - The options which should be used for creating the new `BrowserWindow`.
+* `options` Object - 新しい `BrowserWindow` を作成するのに使われるオプション。
 
-Fired when the guest page attempts to open a new browser window.
+ゲストページが新しいブラウザウィンドウを開くときに発生します。
 
-The following example code opens the new url in system's default browser.
+以下のサンプルコードは、システムのデフォルトブラウザで新しい URL を開きます。
 
 ```javascript
 const {shell} = require('electron')
@@ -699,11 +699,11 @@ webview.addEventListener('new-window', (e) => {
 
 ユーザまたはページがナビゲーションを開始したいときに発行されます。 `window.location` オブジェクトが変更されるか、ユーザがページ内のリンクをクリックしたときに発生します。
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+このイベントは、 `<webview>.loadURL` や `<webview>.back` のような、API によってプログラム上から開始されるナビゲーションのときには発行されません。
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでも発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+`event.preventDefault()` を呼んでも効果は **ありません**。
 
 ### イベント: 'did-navigate'
 
@@ -728,7 +728,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### イベント: 'close'
 
-Fired when the guest page attempts to close itself.
+ゲストのページ自身が閉じようとしたときに発生します。
 
 The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
 
