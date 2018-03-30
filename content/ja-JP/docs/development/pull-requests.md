@@ -15,14 +15,14 @@
   * [ステップ9: プルリクエストを開く](#step-8-opening-the-pull-request)
   * [ステップ10: 議論と更新](#step-9-discuss-and-update) 
     * [承認とリクエストの変更ワークフロー](#approval-and-request-changes-workflow)
-  * [Step 11: Landing](#step-10-landing)
-  * [Continuous Integration Testing](#continuous-integration-testing)
+  * [ステップ11: 取り込み](#step-10-landing)
+  * [継続的インテグレーションテスト](#continuous-integration-testing)
 
 ## ローカル環境のセットアップ
 
 ### ステップ1: フォーク
 
-Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
+[GitHub](https://github.com/electron/electron) でプロジェクトをフォークし、ローカルでフォークをクローンします。
 
 ```sh
 $ git clone git@github.com:username/electron.git
@@ -33,17 +33,17 @@ $ git fetch upstream
 
 ### ステップ2: ビルド
 
-Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
+ビルド手順と依存関係は、オペレーティングシステムによって若干異なります。 Electron をローカルに構築する際は、これらの詳細なガイドを参照してください。
 
-* [Building on MacOS](https://electronjs.org/docs/development/build-instructions-osx)
-* [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [macOS 上でビルド](https://electronjs.org/docs/development/build-instructions-osx)
+* [Linux 上でビルド](https://electronjs.org/docs/development/build-instructions-linux)
+* [Windows 上でビルド](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+プロジェクトをローカルに構築したら、変更を始める準備が整います！
 
 ### ステップ3: ブランチ
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+開発環境を整理しておくために、作業を支えるローカルのブランチを作りましょう。 これらは、`master` ブランチから直接分岐する必要があります。
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
@@ -53,11 +53,11 @@ $ git checkout -b my-branch -t upstream/master
 
 ### ステップ4: コーディング
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+`electron/electron` リポジトリに対して開かれたほとんどのプルリクエストには、`atom/` フォルダや `brightray` フォルダの C/C++ コード、`lib/` フォルダの JavaScript コード、`docs/api/` のドキュメント、`spec/` フォルダのテストの変更が含まれます。
 
-Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
+コードの変更時に `npm run lint` を実行して、プロジェクトのコードスタイルに従うようにしてください。
 
-See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
+プロジェクトのさまざまな部分でコードを変更する際のベストプラクティスの詳細については、[コーディングスタイル](https://electronjs.org/docs/development/coding-style) を参照してください。
 
 ### ステップ5: コミット
 
@@ -167,13 +167,13 @@ All pull requests require approval from a [Code Owner](https://github.com/orgs/e
 
 Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
-### Step 11: Landing
+### ステップ11: 取り込み
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
 Congratulations and thanks for your contribution!
 
-### Continuous Integration Testing
+### 継続的インテグレーションテスト
 
 Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 
