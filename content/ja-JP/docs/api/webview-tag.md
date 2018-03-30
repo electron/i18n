@@ -341,92 +341,92 @@ webview.addEventListener('dom-ready', () => {
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-ページ内の `code` を評価します。 `userGesture` が設定されている場合、ページのユーザジェスチャコンテキストが作成されます。 HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+ページ内の `code` を評価します。 `userGesture` が設定されている場合、ページのユーザジェスチャコンテキストが作成されます。 `requestFullScreen` のようなユーザの操作を必要とする HTML API は、このオプションを自動化に利用できます。
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+ゲストページの開発者向けツールウインドウを開きます。
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+ゲストページの開発者向けツールウインドウを閉じます。
 
 ### `<webview>.isDevToolsOpened()`
 
-Returns `Boolean` - Whether guest page has a DevTools window attached.
+戻り値 `Boolean` - ゲストページに開発者向けツールウインドウが適用されているかどうか。
 
 ### `<webview>.isDevToolsFocused()`
 
-Returns `Boolean` - Whether DevTools window of guest page is focused.
+戻り値 `Boolean` - ゲストページの開発者向けツールウインドウがフォーカスされているかどうか。
 
 ### `<webview>.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`) of guest page.
+ゲストページの (`x`, `y`) の位置の要素の検査を開始します。
 
 ### `<webview>.inspectServiceWorker()`
 
-Opens the DevTools for the service worker context present in the guest page.
+ゲストページに表示されているサービスワーカコンテキストの開発者向けツールを開きます。
 
 ### `<webview>.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Set guest page muted.
+ゲストページをミュートに設定します。
 
 ### `<webview>.isAudioMuted()`
 
-Returns `Boolean` - Whether guest page has been muted.
+戻り値 `Boolean` - ゲストページがミュートされているかどうか。
 
 ### `<webview>.undo()`
 
-Executes editing command `undo` in page.
+ページの `undo` 編集コマンドを実行します。
 
 ### `<webview>.redo()`
 
-Executes editing command `redo` in page.
+ページの `redo` 編集コマンドを実行します。
 
 ### `<webview>.cut()`
 
-Executes editing command `cut` in page.
+ページの `cut` 編集コマンドを実行します。
 
 ### `<webview>.copy()`
 
-Executes editing command `copy` in page.
+ページの `copy` 編集コマンドを実行します。
 
 ### `<webview>.paste()`
 
-Executes editing command `paste` in page.
+ページの `paste` 編集コマンドを実行します。
 
 ### `<webview>.pasteAndMatchStyle()`
 
-Executes editing command `pasteAndMatchStyle` in page.
+ページの `pasteAndMatchStyle` 編集コマンドを実行します。
 
 ### `<webview>.delete()`
 
-Executes editing command `delete` in page.
+ページの `delete` 編集コマンドを実行します。
 
 ### `<webview>.selectAll()`
 
-Executes editing command `selectAll` in page.
+ページの `selectAll` 編集コマンドを実行します。
 
 ### `<webview>.unselect()`
 
-Executes editing command `unselect` in page.
+ページの `unselect` 編集コマンドを実行します。
 
 ### `<webview>.replace(text)`
 
 * `text` String
 
-Executes editing command `replace` in page.
+ページの `replace` 編集コマンドを実行します。
 
 ### `<webview>.replaceMisspelling(text)`
 
 * `text` String
 
-Executes editing command `replaceMisspelling` in page.
+ページの `replaceMisspelling` 編集コマンドを実行します。
 
 ### `<webview>.insertText(text)`
 
@@ -436,44 +436,44 @@ Executes editing command `replaceMisspelling` in page.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` String - 検索するコンテンツ。空にしてはいけません。
 * `options` Object (任意) 
-  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+  * `forward` Boolean - (任意) 前方または後方を検索するかどうか。省略値は `true`。
+  * `findNext` Boolean - (任意) 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
+  * `matchCase` Boolean - (任意) 大文字と小文字を区別する検索かどうか。省略値は `false`。
+  * `wordStart` Boolean - (任意) 単語の始めだけを見るかどうか。省略値は `false`。
+  * `medialCapitalAsWordStart` Boolean - (任意) `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
-ウェブページ内の `text` のすべてのマッチを探すリクエストを開始します。 The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+ウェブページ内の `text` のすべてのマッチを探すリクエストを開始します。 リクエストの結果は [`found-in-page`](webview-tag.md#event-found-in-page) イベントを読むことで取得できます。
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
+* `action` String - [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) リクエストの終了時に実行されるアクションを指定します。 
+  * `clearSelection` - 選択を消去する。
+  * `keepSelection` - その選択を通常の選択に変換する。
+  * `activateSelection` - 選択ノードをフォーカスして、クリックする。
 
-Stops any `findInPage` request for the `webview` with the provided `action`.
+指定された `action` で、`webview` の `findInPage` リクエストを停止します。
 
 ### `<webview>.print([options])`
 
 * `options` Object (任意) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。省略値は `false`。
+  * `printBackground` Boolean (任意) - ウェブページの背景色と画像も印刷するかどうか。省略値は `false`。
+  * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
 
-Prints `webview`'s web page. Same as `webContents.print([options])`.
+`webview` のウェブページを印刷します。`webContents.print([options])` と同じです。
 
 ### `<webview>.printToPDF(options, callback)`
 
 * `options` Object 
-  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
+  * `marginsType` Integer - (任意) 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
+  * `pageSize` String - (任意) 生成する PDF のページサイズを指定する。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `printBackground` Boolean - (任意) CSS 背景を印刷するかどうか。
+  * `printSelectionOnly` Boolean - (任意) 選択部分だけを印刷するかどうか。
+  * `landscape` Boolean - (任意) `true` で横向き、`false` で縦向き。
 * `callback` Function 
   * `error` Error
   * `data` Buffer
