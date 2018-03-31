@@ -6,15 +6,15 @@ Electron の API に入る前に、Electron で利用可能な2つのプロセ�
 
 Electron において、`package.json` の `main` で指定されたスクリプトを実行するプロセスを **メインプロセス** と呼びます。 メインプロセスで実行されるスクリプトは、ウェブページを生成することで GUI を表示できます。 Electron アプリには常に1つのメインプロセスがありますが、これ以上はありません。
 
-Electron はウェブページを表示するために Chromium を使用しているため、 Chromium のマルチプロセスアーキテクチャも使用されます。 Electronにおける各 Web ページはそれぞれのプロセスとして動作します。これを**レンダラプロセス** (renderer process) と呼びます。
+Electron はウェブページを表示するために Chromium を使用しているため、 Chromium のマルチプロセスアーキテクチャも使用されます。 Electronにおける各ウェブページはそれぞれのプロセスとして動作します。これを **レンダラープロセス** と呼びます。
 
-通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electronを使用している場合は、Node.js APIをウェブページ内で使用して、OSへ作用できる低レベルAPIを使用することが出来ます。
+通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electron を使用している場合は、Node.js API をウェブページ内で使用して、OS へ作用できるローレベル API を使用することが出来ます。
 
-### メインプロセスとレンダラプロセスの違い
+### メインプロセスとレンダラープロセスの違い
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+メインプロセスは `BrowserWindow` インスタンスを作成してウェブページを作成します。 各 `BrowserWindow` インスタンスは、独自のレンダラープロセスでウェブページを実行します。 `BrowserWindow` インスタンスが破棄されると、対応するレンダラープロセスも終了します。
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+メインプロセスは、すべてのウェブページとそれに対応するレンダラープロセスを管理します。 各レンダラープロセスは独立しており、その中で実行されているウェブページのみに注力します。
 
 In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
