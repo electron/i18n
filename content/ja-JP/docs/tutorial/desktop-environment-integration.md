@@ -2,7 +2,7 @@
 
 アプリケーションをOSのデスクトップ環境に統合するための機能は、OSによって異なりますが、様々なものが用意されています。 例えば、Windows においてはアプリケーションはタスクバーのジャンプリスト内にショートカットを配置できます。また、 macOS においてはアプリケーションは Dock メニュー内にカスタムメニューを配置できます。
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+このガイドでは Electron API でデスクトップ環境にアプリケーションを統合する方法を説明します。
 
 ## 通知
 

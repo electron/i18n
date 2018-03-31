@@ -1,8 +1,8 @@
-# Developer Environment
+# 開発環境
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Electron の開発は基本的に Node.js 開発です。 オペレーティング システムを、Electron のデスクトップ アプリケーション開発環境に変えるには、Node.js、npm、好みのコード エディター、オペレーティング システムのコマンド ライン クライアントへの初歩的な理解が必要です。
 
-## Setting up macOS
+## macOS をセット アップ
 
 > Electron supports Mac OS X 10.9 (and all versions named macOS) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
 
@@ -22,46 +22,46 @@ npm -v
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## Setting up Windows
+## Windows をセット アップ
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron は Windows 7 とそれ以降のバージョンをサポートし、それ以前の Windows で Electron アプリケーションを開発しようとしても動作しません。 Microsoft は開発者のための無料の [Windows 10 仮想マシン イメージ](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) を提供しています。
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+まず、最新バージョンの Node.js をインストールします。 利用可能な最新の `LTS` もしくは `Current` バージョンのいずれかをインストールすることをお勧めします。 [Node.js のダウンロード ページ](https://nodejs.org/en/download/)にアクセスし `Windows Installer` を選択します。 Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+インストール構成の場面では、`Node.js runtime`、`npm package manager`、`Add to PATH` オプションを選択してください。
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+インストールを完了したら、すべて正常に動作することを確認します。 スタート メニューを開き `PowerShell` を入力して Windows PowerShell を検索します。 `PowerShell` か別のお好みのコマンド ライン クライアントを起動して、`node` と `npm` が利用できることを確認します:
 
 ```powershell
-# This command should print the version of Node.js
+# このコマンドで Node.js のバージョンが印刷される必要があります
 node -v
 
-# This command should print the version of npm
+# このコマンドで npm のバージョンが印刷される必要があります
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディター](#a-good-editor) をインストールするといいでしょう。
 
-## Setting up Linux
+## Linux をセット アップ
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> 一般的に Electron は Ubuntu 12.04、Fedora 21、Debian 8 とそれ以降をサポートします。
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+まず、最新バージョンの Node.js をインストールします。 あなたの Linux ディストリビューション次第で、インストール手順が異なる場合があります。 `apt` や `pacman` のようなパッケージ マネージャーを使用し通常通りにソフトウェアをインストールすると想定して、公式の [Linux 上の Node.js インストール ガイダンス](https://nodejs.org/en/download/package-manager/) を利用します。
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Linux を実行しているので、コマンド ライン クライアントの操作方法はすでにご存知でしょう。 お好みのクライアントを起動して `node` と `npm` がグローバルに利用できることを確認します:
 
 ```sh
-# This command should print the version of Node.js
+# このコマンドで Node.js のバージョンが印刷される必要があります
 node -v
 
-# This command should print the version of npm
+# このコマンドで npm のバージョンが印刷される必要があります
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディター](#a-good-editor) をインストールするといいでしょう。
 
-## A Good Editor
+## 好ましいエディター
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+私たちは Electron で構築された 2 つの無料の人気エディターをお勧めするでしょう。 GitHub の [Atom](https://atom.io/) と Microsoft の [Visual Studio Code](https://code.visualstudio.com/) です。 どちらも優れた JavaScript サポートを備えています。
 
 If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.

@@ -1,4 +1,4 @@
-# Official Guides
+# 公式ガイド
 
 使用している Electron のバージョンに応じたドキュメントを参照するように確認してください。 ドキュメントのバージョン番号はページの URL の一部となっています。 バージョン番号が URL にない場合は、おそらくご使用の Electron のバージョンと互換性のない API 変更を含んだ development ブランチのドキュメントを参照しているものと思われます。 古いバージョンのドキュメントを読むには、GitHub上で[タグを見て](https://github.com/electron/electron/tree/v1.4.0)みてください。"Switch branches/tags" のドロップダウンメニューを開いて、あなたが使っているバージョンと同じタグを選んでください。
 
@@ -8,14 +8,14 @@
 
 * [Electron FAQ](faq.md)
 
-## Guides and Tutorials
+## ガイドとチュートリアル
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
+* [開発環境のセットアップ](tutorial/development-environment.md) 
+  * [macOS でセットアップ](tutorial/development-environment.md#setting-up-macos)
+  * [Windows でセットアップ](tutorial/development-environment.md#setting-up-windows)
+  * [Linux でセットアップ](tutorial/development-environment.md#setting-up-linux)
+  * [エディターの選択](tutorial/development-environment.md#a-good-editor)
+* [初めてのアプリ制作](tutorial/first-app.md) 
   * [Electronのインストール](tutorial/first-app.md#installing-electron)
   * [3分くらいでわかるElectronアプリ開発](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [アプリの実行](tutorial/first-app.md#running-your-app)
@@ -26,7 +26,7 @@
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Application Architecture](tutorial/application-architecture.md) 
-  * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [メインプロセスとレンダラープロセス](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
   * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
@@ -144,4 +144,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## 開発
 
-See <development/README.md>
+<development/README.md> を参照してください

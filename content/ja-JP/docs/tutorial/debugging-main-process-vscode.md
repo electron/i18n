@@ -28,10 +28,10 @@ $ code electron-quick-start
 }
 ```
 
-**Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
+**Note:** Windows では `runtimeExecutable` に `"${workspaceRoot}/node_modules/.bin/electron.cmd"` を使用してください。
 
 ### 3. デバッグする
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+`main.js` にいくつかブレークポイントを設定し 、[デバッグ ビュー](https://code.visualstudio.com/docs/editor/debugging) からデバッグを開始します。このとき設定したブレークポイントにヒットするはずです。
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+ここではダウンロードして直接 VSCode 内でデバッグできる構成済みのプロジェクトを用意しています: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start

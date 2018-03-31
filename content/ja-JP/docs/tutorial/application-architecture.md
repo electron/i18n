@@ -1,36 +1,36 @@
-# Electron Application Architecture
+# Electron アプリケーションアーキテクチャ
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Electron の API に入る前に、Electron で利用可能な2つのプロセスタイプについて議論する必要があります。 それらは根本的に異なっており、理解することが重要です。
 
-## Main and Renderer Processes
+## メインプロセスとレンダラープロセス
 
-Electronにおいて、`package.json` の `main` で指定されたスクリプトを実行するプロセスを **メインプロセス** (main process) と呼びます。 The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Electron において、`package.json` の `main` で指定されたスクリプトを実行するプロセスを **メインプロセス** と呼びます。 メインプロセスで実行されるスクリプトは、ウェブページを生成することで GUI を表示できます。 Electron アプリには常に1つのメインプロセスがありますが、これ以上はありません。
 
-Electron は Web ページを表示するために Chromium を使用しているため、 Chromium のマルチプロセス・アーキテクチャも使用されます。 Electronにおける各 Web ページはそれぞれのプロセスとして動作します。これを**レンダラプロセス** (renderer process) と呼びます。
+Electron はウェブページを表示するために Chromium を使用しているため、 Chromium のマルチプロセスアーキテクチャも使用されます。 Electronにおける各ウェブページはそれぞれのプロセスとして動作します。これを **レンダラープロセス** と呼びます。
 
-通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electronを使用している場合は、Node.js APIをウェブページ内で使用して、OSへ作用できる低レベルAPIを使用することが出来ます。
+通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electron を使用している場合は、Node.js API をウェブページ内で使用して、OS へ作用できるローレベル API を使用することが出来ます。
 
-### メインプロセスとレンダラプロセスの違い
+### メインプロセスとレンダラープロセスの違い
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+メインプロセスは `BrowserWindow` インスタンスを作成してウェブページを作成します。 各 `BrowserWindow` インスタンスは、独自のレンダラープロセスでウェブページを実行します。 `BrowserWindow` インスタンスが破棄されると、対応するレンダラープロセスも終了します。
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+メインプロセスは、すべてのウェブページとそれに対応するレンダラープロセスを管理します。 各レンダラープロセスは独立しており、その中で実行されているウェブページのみに注力します。
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+ウェブページでは、ネイティブ GUI 関連の API を呼び出すことは許可されていません。これは、ウェブページがネイティブ GUI リソースを管理することは非常に危険であり、リソースをリークさせるのは容易いからです。 ウェブページで GUI 操作を実行する場合、ウェブページのレンダラープロセスはメインプロセスと通信して、メインプロセスがそれらの操作を実行するよう要求する必要があります。
 
-> #### Aside: Communication Between Processes
+> #### 余談: プロセス間通信
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> Electron では、メインプロセスとレンダラープロセスの間で通信するのにいくつかの方法があります。 メッセージ送信用の [`ipcRenderer`](../api/ipc-renderer.md) および [`ipcMain`](../api/ipc-main.md) モジュールと、RPC スタイルの通信用の [remote](../api/remote.md) モジュールなどがあります。 また、[ウェブページ間でデータを共有する方法](../faq.md#how-to-share-data-between-web-pages) についての FAQ エントリもあります。
 
-## Using Electron APIs
+## Electron API を使用する
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+Electron は、メインプロセスとレンダラープロセスの両方でデスクトップアプリケーションの開発をサポートするいくつかの API を提供しています。 両方のプロセスで、Electron の API にアクセスするには、それが含まれているモジュールが必要です。
 
 ```javascript
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for the individual API will clearly state which process they can be used from.
+すべての Electron API にはプロセスタイプが割り当てられています。 それらの多くはメインプロセスからのみ使用することができ、レンダラープロセスからのものや、両方からのものなどがあります。 個々の API のドキュメントには、どのプロセスで使用できるかが明確に記載されています。
 
 A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
 

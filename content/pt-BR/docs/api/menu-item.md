@@ -1,40 +1,40 @@
 ## Class: MenuItem
 
-> Add items to native application menus and context menus.
+> Adicione itens para menus e menus de contexto para aplicações nativas.
 
 Processo: [Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+Veja [`Menu`](menu.md) para exemplos.
 
-### `new MenuItem(options)`
+### `new MenuItem(opcoes)`
 
 * `opções` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `click` Function(opcional) Vai ser chamado com `click(menuItem, browserWindow, event)` quando o item de menu for clicado. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
-  * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
-  * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
-  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
+  * `role` String (opcional) - Define a ação do click no menu, quando especificado a propriedade `click` será ignorada. Veja [roles](#roles).
+  * `type` String (opcional) - Pode ser `normal`, `separator`, `submenu`, `checkbox` ou `radio`.
+  * `label` String - (opcional)
+  * `sublabel` String - (opcional)
+  * `accelerator` [Accelerator](accelerator.md) (opcional) - Atalho
+  * `icon` ([NativeImage](native-image.md) | String) (opcional)
+  * `enabled` Boolean (optional) - Se falso, o item do menu vai ser não-clicável e cinza.
+  * `visible` Boolean (opcional) - Se falso, o item do menu será inteiramente escondido.
+  * `checked` Boolean (opcinal) - Deve ser especificado apenas para `checkbox` ou `radio` tipos de item de menu.
+  * `submenu` (MenuItemConstructorOptions[] | Menu) (opcional) - Deve ser especificado para os tipos de menu `submenu`. Se `submenu` for especificado, o `type: 'submenu'` pode ser omitido. Se o valor não for um `Menu` então ele será automaticamente convertido para um, utilizando `Menu.buildFromTemplate`.
+  * `id` String (opcional) - Unico em um menu. Se definido, pode então ser utilizado como uma referencia para esse item pelo atributo de posição.
+  * `position` String (opcional) - Esse campo permite definição estrita da localização específica dentro de um dado menu.
 
 ### Roles
 
-Roles allow menu items to have predefined behaviors.
+Roles permitem itens de menu items terem funcionamentos pré-definidos.
 
-It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
+É melhor especificar `role` para qualquer item de menu que utiliza uma role padrão, ao invés de tentar implementar manualmente um funcionamento em uma função de `click`. O funcionamento built-in `role` dará a melhor experiência nativa.
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+O valor de `label` e de `accelerator`são opcionais quando utilizando uma `role` e lhes serão dados valores padrão apropriados para cada plataforma.
 
-The `role` property can have following values:
+A propriedade `role` pode ter os seguintes valores:
 
 * `undo`
 * `redo`
@@ -44,51 +44,51 @@ The `role` property can have following values:
 * `pasteandmatchstyle`
 * `selectall`
 * `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
-* `zoomout` - Zoom out the focused page by 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* `minimize` - Minimiza a janela atual
+* `close` - Fecha a janela atual
+* `quit`- Fecha a aplicação
+* `reload` - Recarrega a janela atual
+* `forcereload` - Recarrega a janela atual, ignorando o cache.
+* `toggledevtools` - Alterna ferramentas de desenvolvedor na janela atual
+* `togglefullscreen`- Alterna o modo de tela cheia na janela atual
+* `resetzoom` - Reseta o zoom da pagina focada para seu valor original
+* `zoomin` - O zoom na pagina focada é aumentado em 10%
+* `zoomout` - O zoom na pagina focada é diminuido em 10%
+* `editMenu` - Menu "Edit" padrão inteiro (Desfazer, Copiar, etc.)
+* `windowMenu` - Menu "Window" padrão inteiro (Minimizar, Fechar, etc.)
 
-The following additional roles are available on macOS:
+As seguintes roles adicionais estão disponíveis no macOS:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
-* `hideothers` - Map to the `hideOtherApplications` action
-* `unhide` - Map to the `unhideAllApplications` action
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `toggletabbar` - Map to the `toggleTabBar` action
-* `selectnexttab` - Map to the `selectNextTab` action
-* `selectprevioustab` - Map to the `selectPreviousTab` action
-* `mergeallwindows` - Map to the `mergeAllWindows` action
-* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `about` - Mapeia para a ação `orderFrontStandardAboutPanel`
+* `hide` - Mapeia para a ação `hide`
+* `hideothers` - Mapeia para a ação `hideOtherApplications`
+* `hideothers` - Mapeia para a ação `unhideAllApplications`
+* `startspeaking` - Mapeia para a ação `startSpeaking`
+* `startspeaking` - Mapeia para a ação `stopSpeaking`
+* `hide` - Mapeia para a ação `arrangeInFront`
+* `zoom` - Mapeia para a ação `performZoom`
+* `toggletabbar` - Mapeia para a ação `toggleTabBar`
+* `selectnexttab` - Mapeia para a ação `selectNextTab`
+* `selectprevioustab` - Mapeia para a ação `selectPreviousTab`
+* `mergeallwindows` - Mapeia para a ação `mergeAllWindows`
+* `movetabtonewwindow` - Mapeia para a ação `moveTabToNewWindow`
+* `window` -O submenu é um menu "Window"
+* `help` - O submenu é um menu "Help"
+* `services` - O submenu é um menu "Services"
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+Quando especificando uma `role` no macOS, `label` e `accelerator` são as únicas opções que irão afetar o item de menu. Todas as outras opções serão ignoradas.
 
 ### Propriedades da Instância
 
-The following properties are available on instances of `MenuItem`:
+As seguintes propriedades estão disponíveis em instâncias de `MenuItem`:
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Um `Boolean` indicando se o item está ativo, essa propriedade pode ser alterada dinamicamente.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Um `Boolean` indicando se o item está visível, essa propriedade pode ser alterada dinamicamente.
 
 #### `menuItem.checked`
 
