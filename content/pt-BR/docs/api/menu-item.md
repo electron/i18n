@@ -9,7 +9,7 @@ Veja [`Menu`](menu.md) para exemplos.
 ### `new MenuItem(opcoes)`
 
 * `opções` Object 
-  * `click` Function(opcional) Vai ser chamado com `click(menuItem, browserWindow, event)` quando o item de menu for clicado. 
+  * `click` Function (opcional) - Vai ser chamado com `click(menuItem, browserWindow, event)` quando o item de menu for clicado. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
