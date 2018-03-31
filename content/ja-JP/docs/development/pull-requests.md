@@ -112,15 +112,15 @@ $ git rebase upstream/master
 $ npm run test
 ```
 
-リンターが問題を報告していないこと、そしてすべてのテストが合格していることを確認してください。 Please do not submit patches that fail either check.
+リンターが問題を報告していないこと、そしてすべてのテストが合格していることを確認してください。 いずれかのチェックに失敗したパッチは提出しないでください。
 
-If you are updating tests and just want to run a single spec to check it:
+テストを更新していて、単一の仕様を実行してチェックしたい場合は、以下のようにします。
 
 ```sh
 $ npm run test -match=menu
 ```
 
-The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
+上記の例では `menu` に一致する仕様のモジュールのみが実行されます。これは、テストサイクルの最後の最後にテストに取り組んでいる人にとって役に立ちます。
 
 ### ステップ8: プッシュ
 
