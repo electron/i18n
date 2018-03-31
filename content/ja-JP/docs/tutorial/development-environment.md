@@ -30,17 +30,17 @@ If both commands printed a version number, you are all set! Before you get start
 
 インストール構成の場面では、`Node.js runtime`、`npm package manager`、`Add to PATH` オプションを選択してください。
 
-インストールを完了したら、すべて正常に動作することを確認します。 スタート メニューを開き `PowerShell` を入力して Windows PowerShell を検索します。 Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+インストールを完了したら、すべて正常に動作することを確認します。 スタート メニューを開き `PowerShell` を入力して Windows PowerShell を検索します。 `PowerShell` か別のお好みのコマンド ライン クライアントを起動して、`node` と `npm` が利用できることを確認します:
 
 ```powershell
-# This command should print the version of Node.js
+# コノコマンドで Node.js のバージョンが印刷される必要があります
 node -v
 
-# This command should print the version of npm
+# このコマンドで npm のバージョンが印刷される必要があります
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+両方のコマンドがバージョン番号を印刷すれば、準備完了です! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## Setting up Linux
 
