@@ -28,7 +28,7 @@
 * [Application Architecture](tutorial/application-architecture.md) 
   * [メインプロセスとレンダラープロセス](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
+  * [Node.js API を使用する](tutorial/application-architecture.md#using-node.js-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
   * [Inter-Process Communication](tutorial/application-architecture.md#)
 * Adding Features to Your App 
