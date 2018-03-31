@@ -1,12 +1,12 @@
-# Electron Application Architecture
+# Electron アプリケーションアーキテクチャ
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Electron の API に入る前に、Electron で利用可能な2つのプロセスタイプについて議論する必要があります。 それらは根本的に異なっており、理解することが重要です。
 
-## Main and Renderer Processes
+## メインプロセスとレンダラープロセス
 
-Electronにおいて、`package.json` の `main` で指定されたスクリプトを実行するプロセスを **メインプロセス** (main process) と呼びます。 The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Electron において、`package.json` の `main` で指定されたスクリプトを実行するプロセスを **メインプロセス** と呼びます。 メインプロセスで実行されるスクリプトは、ウェブページを生成することで GUI を表示できます。 Electron アプリには常に1つのメインプロセスがありますが、これ以上はありません。
 
-Electron は Web ページを表示するために Chromium を使用しているため、 Chromium のマルチプロセス・アーキテクチャも使用されます。 Electronにおける各 Web ページはそれぞれのプロセスとして動作します。これを**レンダラプロセス** (renderer process) と呼びます。
+Electron はウェブページを表示するために Chromium を使用しているため、 Chromium のマルチプロセスアーキテクチャも使用されます。 Electronにおける各 Web ページはそれぞれのプロセスとして動作します。これを**レンダラプロセス** (renderer process) と呼びます。
 
 通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electronを使用している場合は、Node.js APIをウェブページ内で使用して、OSへ作用できる低レベルAPIを使用することが出来ます。
 
