@@ -1,12 +1,12 @@
 ## Class: MenuItem
 
-> Add items to native application menus and context menus.
+> Adicione itens para menus e menus de contexto para aplicações nativas.
 
 Processo: [Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+Veja [`Menu`](menu.md) para exemplos.
 
-### `new MenuItem(options)`
+### `new MenuItem(opcoes)`
 
 * `opções` Object 
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
