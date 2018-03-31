@@ -146,9 +146,9 @@ GitHub で、新しいプルリクエストを開くと、記入する必要の�
 
 ### ステップ10: 議論と更新
 
-おそらく、あなたはプルリクエストの変更に対するフィードバックやリクエストを得ます。 これは提出プロセスの大事な部分なので、がっかりさせないでください！ コントリビューターの中には、すぐにプルリクエストを承認する人がいます。 他の人には詳細なコメントやフィードバックがあるかもしれません。 This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+おそらく、あなたはプルリクエストの変更に対するフィードバックやリクエストを得ます。 これは提出プロセスの大事な部分なので、がっかりさせないでください！ コントリビューターの中には、すぐにプルリクエストを承認する人がいます。 他の人には詳細なコメントやフィードバックがあるかもしれません。 これは、変更が正しいかどうかを評価するために必要なプロセスの一部です。
 
-To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
+既存のプルリクエストを変更するには、ローカルブランチに変更を加え、それらの変更で新しいコミットを追加し、それらをあなたのフォークにプッシュします。 GitHub は自動的にプルリクエストを更新します。
 
 ```sh
 $ git add my/changed/files
@@ -156,7 +156,7 @@ $ git commit
 $ git push origin my-branch
 ```
 
-There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
+利用できる `git rebase` を使用して、コミットを管理するためのさらに高度なメカニズムがいくつかありますが、このガイドの範疇を超えています。
 
 Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
