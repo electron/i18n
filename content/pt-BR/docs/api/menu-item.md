@@ -9,32 +9,32 @@ Veja [`Menu`](menu.md) para exemplos.
 ### `new MenuItem(opcoes)`
 
 * `opções` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `click` Function(opcional) Vai ser chamado com `click(menuItem, browserWindow, event)` quando o item de menu for clicado. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
-  * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
-  * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
-  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
+  * `role` String (opcional) - Define a ação do click no menu, quando especificado a propriedade `click` será ignorada. Veja [roles](#roles).
+  * `type` String (opcional) - Pode ser `normal`, `separator`, `submenu`, `checkbox` ou `radio`.
+  * `label` String - (opcional)
+  * `sublabel` String - (opcional)
+  * `accelerator` [Accelerator](accelerator.md) (opcional) - Atalho
+  * `icon` ([NativeImage](native-image.md) | String) (opcional)
+  * `enabled` Boolean (optional) - Se falso, o item do menu vai ser não-clicável e cinza.
+  * `visible` Boolean (opcional) - Se falso, o item do menu será inteiramente escondido.
+  * `checked` Boolean (opcinal) - Deve ser especificado apenas para `checkbox` ou `radio` tipos de item de menu.
+  * `submenu` (MenuItemConstructorOptions[] | Menu) (opcional) - Deve ser especificado para os tipos de menu `submenu`. Se `submenu` for especificado, o `type: 'submenu'` pode ser omitido. Se o valor não for um `Menu` então ele será automaticamente convertido para um, utilizando `Menu.buildFromTemplate`.
+  * `id` String (opcional) - Unico em um menu. Se definido, pode então ser utilizado como uma referencia para esse item pelo atributo de posição.
+  * `position` String (opcional) - Esse campo permite definição estrita da localização específica dentro de um dado menu.
 
 ### Roles
 
-Roles allow menu items to have predefined behaviors.
+Roles permitem itens de menu items terem funcionamentos pré-definidos.
 
-It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
+É melhor especificar `role` para qualquer item de menu que utiliza uma role padrão, ao invés de tentar implementar manualmente um funcionamento em uma função de `click`. O funcionamento built-in `role` dará a melhor experiência nativa.
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+O valor de `label` e de `accelerator`são opcionais quando utilizando uma `role` e lhes serão dados valores padrão apropriados para cada plataforma.
 
-The `role` property can have following values:
+A propriedade `role` pode ter os seguintes valores:
 
 * `undo`
 * `redo`
@@ -44,11 +44,11 @@ The `role` property can have following values:
 * `pasteandmatchstyle`
 * `selectall`
 * `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
+* `minimize` - Minimiza a janela atual
+* `close` - Fecha a janela atual
+* `quit`- Fecha a aplicação
+* `reload` - Recarrega a janela atual
+* `forcereload` - Recarrega a janela atual, ignorando o cache.
 * `toggledevtools` - Toggle developer tools in the current window
 * `togglefullscreen`- Toggle full screen mode on the current window
 * `resetzoom` - Reset the focused page's zoom level to the original size
