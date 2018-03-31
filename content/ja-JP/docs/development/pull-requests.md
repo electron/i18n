@@ -61,7 +61,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### ステップ5: コミット
 
-変更を個々のコミット内で論理的にグループ化しておくことを推奨します。 貢献者の多くが、複数のコミットに分割された変更をより簡単に確認できます。 プルリクエストのコミット数に制限はありません。
+変更を個々のコミット内で論理的にグループ化しておくことを推奨します。 コントリビューターの多くが、複数のコミットに分割された変更をより簡単に確認できます。 プルリクエストのコミット数に制限はありません。
 
 ```sh
 $ git add my/changed/files
@@ -136,18 +136,17 @@ GitHub で、新しいプルリクエストを開くと、記入する必要の�
 
 ```markdown
 <!--
-プルリクエストありがとう。 Please provide a description above and review
-the requirements below.
+プルリクエストありがとう。 上に説明を記述して、下の要件を確認してください。
 
-Bug fixes and new features should include tests and possibly benchmarks.
+バグ修正や新機能には、テストやベンチマークが含まれている必要があります。
 
-Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+コントリビューターガイド: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
 -->
 ```
 
-### Step 10: Discuss and update
+### ステップ10: 議論と更新
 
-You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+おそらく、あなたはプルリクエストの変更に対するフィードバックやリクエストを得ます。 これは提出プロセスの大事な部分なので、がっかりさせないでください！ コントリビューターの中には、すぐにプルリクエストを承認する人がいます。 他の人には詳細なコメントやフィードバックがあるかもしれません。 This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
 To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
 
