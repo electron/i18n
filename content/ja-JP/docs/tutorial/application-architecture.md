@@ -32,30 +32,30 @@ const electron = require('electron')
 
 すべての Electron API にはプロセスタイプが割り当てられています。 それらの多くはメインプロセスからのみ使用することができ、レンダラープロセスからのものや、両方からのものなどがあります。 個々の API のドキュメントには、どのプロセスで使用できるかが明確に記載されています。
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+たとえば、Electronのウィンドウは `BrowserWindow` クラスを使用して作成されます。 これはメインプロセスでのみ利用可能です。
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// これはメインプロセスでは動作しますが
+// レンダラプロセスでは `undefined` になります
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+プロセス間の通信が可能であるため、レンダラープロセスはメインプロセスを呼び出してタスクを実行できます。 Electron には `remote` というモジュールがあり、通常はメインプロセスでのみ利用可能な API を公開しています。 レンダラープロセスから `BrowserWindow` を作成するには、remote を仲介者として使用します。
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// これはレンダラープロセスでは動作しますが
+// メインプロセスでは `undefined` になります
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## Node.js API を使用する
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron は、メインプロセスとレンダラープロセスの両方で Node.js へのフルアクセスを公開します。 This has two important implications:
 
 1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
 
