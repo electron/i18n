@@ -162,9 +162,9 @@ $ git push origin my-branch
 
 #### 承認とリクエストの変更ワークフロー
 
-すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/orgs/electron/teams/code-owners) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/orgs/electron/teams/code-owners) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 このような要求は役に立ちますが、時には、特に変更する *やり方* に具体的な提案が含まれていないと、唐突な、または役に立たないものに出くわすことがあります。
 
-Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
+がっかりさせないようにしてください。 レビューが不公平であると感じる場合は、そう言い、別のプロジェクトのコントリビューターの意見を求めてください。 Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
 ### ステップ11: 取り込み
 
