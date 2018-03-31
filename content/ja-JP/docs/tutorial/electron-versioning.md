@@ -22,14 +22,14 @@ Electron バージョン *< 2.0* は、[semver](http://semver.org) 仕様に準�
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+`1.8.1` を使用して開発されたアプリケーションは、`1.8.2` の機能を取り入れるか、修正をバックポートし、新しいリリースラインをメンテナンスすることなしに、`1.8.3` のバグ修正をとることもできません。
 
 ## Version 2.0 以降
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+上に概説されている 1.x の方針から、いくつかの大きな変更があります。 各変更は、開発者/管理者とアプリ開発者のニーズと優先順位を満たすためのものです。
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
+1. semver の厳格な使用
+2. semver 準拠の `-beta` タグの導入
 3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
 4. Clearly defined stabilization branches
 5. The `master` branch is versionless; only stabilization branches contain version information
