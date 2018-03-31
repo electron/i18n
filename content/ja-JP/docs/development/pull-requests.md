@@ -178,4 +178,4 @@ $ git push origin my-branch
 
 理想的には、プルリクエストは CI のすべてのプラットフォーム上で合格します ("青になる") 。 これは、すべてのテストが合格し、lint のエラーがないことを意味します。 しかし、CI インフラストラクチャ自体が特定のプラットフォームで失敗したり、いわゆる "flaky" テストに失敗する ("赤になる") ことは珍しいことではありません。 各 CI の失敗を手動で検査して原因を特定する必要があります。
 
-プルリクエストを開くと、CI が自動的に開始されますが、[Releasers](https://github.com/orgs/electron/teams/releasers/members) だけが CI の実行をリスタートできます。 If you believe CI is giving a false negative, ask a Releaser to restart the tests.
+プルリクエストを開くと、CI が自動的に開始されますが、[Releasers](https://github.com/orgs/electron/teams/releasers/members) だけが CI の実行をリスタートできます。 CI が誤検知をしていると思われる場合は、Releaser にテストをリスタートするよう依頼してください。
