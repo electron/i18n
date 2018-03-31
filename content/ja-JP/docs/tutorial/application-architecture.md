@@ -55,21 +55,21 @@ const win = new BrowserWindow()
 
 ## Node.js API を使用する
 
-Electron は、メインプロセスとレンダラープロセスの両方で Node.js へのフルアクセスを公開します。 This has two important implications:
+Electron は、メインプロセスとレンダラープロセスの両方で Node.js へのフルアクセスを公開します。 これには2つの重要な意味があります。
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Node.js で利用できるすべての API は Electron で利用できます。 Electron アプリから以下のコードを呼ぶと動作します。
 
 ```javascript
 const fs = require('fs')
 
 const root = fs.readdirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// これで、ディスクのルートレベル ( '/' か 'C:\')
+// のすべてのファイルが出力されます。
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+既に予測できるように、これはリモートコンテンツをロードしようとする場合にセキュリティの重要な意味を持ちます。 [セキュリティドキュメント](./security.md) に、リモートコンテンツの読み込みに関する詳細とガイダンスがあります。
 
 2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
 
