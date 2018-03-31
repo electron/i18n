@@ -124,7 +124,7 @@ $ npm run test -match=menu
 
 ### ステップ8: プッシュ
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+コミットの準備 ―― テストに合格して、lint をしている ―― ができたら、GitHub 上 のあなたのフォークに作業ブランチをプッシュして、プルリクエストを開くプロセスを開始します。
 
 ```sh
 $ git push origin my-branch
@@ -132,11 +132,11 @@ $ git push origin my-branch
 
 ### ステップ9: プルリクエストを開く
 
-From within GitHub, opening a new pull request will present you with a template that should be filled out:
+GitHub で、新しいプルリクエストを開くと、記入する必要のあるテンプレートが表示されます。
 
 ```markdown
 <!--
-Thank you for your pull request. Please provide a description above and review
+プルリクエストありがとう。 Please provide a description above and review
 the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
