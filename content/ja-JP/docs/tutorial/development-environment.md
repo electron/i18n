@@ -62,6 +62,6 @@ npm -v
 
 ## 好ましいエディター
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+私たちは Electron で構築された 2 つの無料の人気エディターをお勧めするでしょう。 GitHub の [Atom](https://atom.io/) と Microsoft の [Visual Studio Code](https://code.visualstudio.com/) です。 どちらも優れた JavaScript サポートを備えています。
 
 If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
