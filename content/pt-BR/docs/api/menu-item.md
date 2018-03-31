@@ -49,46 +49,46 @@ A propriedade `role` pode ter os seguintes valores:
 * `quit`- Fecha a aplicação
 * `reload` - Recarrega a janela atual
 * `forcereload` - Recarrega a janela atual, ignorando o cache.
-* `toggledevtools` - Toggle developer tools in the current window
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
-* `zoomout` - Zoom out the focused page by 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* `toggledevtools` - Alterna ferramentas de desenvolvedor na janela atual
+* `togglefullscreen`- Alterna o modo de tela cheia na janela atual
+* `resetzoom` - Reseta o zoom da pagina focada para seu valor original
+* `zoomin` - O zoom na pagina focada é aumentado em 10%
+* `zoomout` - O zoom na pagina focada é diminuido em 10%
+* `editMenu` - Menu "Edit" padrão inteiro (Desfazer, Copiar, etc.)
+* `windowMenu` - Menu "Window" padrão inteiro (Minimizar, Fechar, etc.)
 
-The following additional roles are available on macOS:
+As seguintes roles adicionais estão disponíveis no macOS:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
-* `hideothers` - Map to the `hideOtherApplications` action
-* `unhide` - Map to the `unhideAllApplications` action
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `toggletabbar` - Map to the `toggleTabBar` action
-* `selectnexttab` - Map to the `selectNextTab` action
-* `selectprevioustab` - Map to the `selectPreviousTab` action
-* `mergeallwindows` - Map to the `mergeAllWindows` action
-* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `about` - Mapeia para a ação `orderFrontStandardAboutPanel`
+* `hide` - Mapeia para a ação `hide`
+* `hideothers` - Mapeia para a ação `hideOtherApplications`
+* `hideothers` - Mapeia para a ação `unhideAllApplications`
+* `startspeaking` - Mapeia para a ação `startSpeaking`
+* `startspeaking` - Mapeia para a ação `stopSpeaking`
+* `hide` - Mapeia para a ação `arrangeInFront`
+* `zoom` - Mapeia para a ação `performZoom`
+* `toggletabbar` - Mapeia para a ação `toggleTabBar`
+* `selectnexttab` - Mapeia para a ação `selectNextTab`
+* `selectprevioustab` - Mapeia para a ação `selectPreviousTab`
+* `mergeallwindows` - Mapeia para a ação `mergeAllWindows`
+* `movetabtonewwindow` - Mapeia para a ação `moveTabToNewWindow`
+* `window` -O submenu é um menu "Window"
+* `help` - O submenu é um menu "Help"
+* `services` - O submenu é um menu "Services"
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+Quando especificando uma `role` no macOS, `label` e `accelerator` são as únicas opções que irão afetar o item de menu. Todas as outras opções serão ignoradas.
 
 ### Propriedades da Instância
 
-The following properties are available on instances of `MenuItem`:
+As seguintes propriedades estão disponíveis em instâncias de `MenuItem`:
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Um `Boolean` indicando se o item está ativo, essa propriedade pode ser alterada dinamicamente.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Um `Boolean` indicando se o item está visível, essa propriedade pode ser alterada dinamicamente.
 
 #### `menuItem.checked`
 
