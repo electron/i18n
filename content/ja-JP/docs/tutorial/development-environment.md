@@ -22,11 +22,11 @@ npm -v
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## Setting up Windows
+## Windows でセット アップ
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron は Windows 7 とそれ以降のバージョンをサポートし、それ以前の Windows で Electron アプリケーションを開発しようとしても動作しません。 Microsoft は開発者のための無料の[ Windows 10 仮想マシン イメージ](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines)を提供しています。
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+まず、最新バージョンの Node.js をインストールします。 We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
