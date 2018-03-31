@@ -4,7 +4,7 @@ Electron の開発は基本的に Node.js 開発です。 オペレーティン�
 
 ## macOS でセット アップ
 
-> Electron は Mac OS X 10.9 (および macOS のすべてのバージョン) 以降をサポートしています。 Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron supports Mac OS X 10.9 (and all versions named macOS) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
 
 First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
@@ -33,20 +33,20 @@ If both commands printed a version number, you are all set! Before you get start
 インストールを完了したら、すべて正常に動作することを確認します。 スタート メニューを開き `PowerShell` を入力して Windows PowerShell を検索します。 `PowerShell` か別のお好みのコマンド ライン クライアントを起動して、`node` と `npm` が利用できることを確認します:
 
 ```powershell
-# コノコマンドで Node.js のバージョンが印刷される必要があります
+# このコマンドで Node.js のバージョンが印刷される必要があります
 node -v
 
 # このコマンドで npm のバージョンが印刷される必要があります
 npm -v
 ```
 
-両方のコマンドがバージョン番号を印刷すれば、準備完了です! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディター](#a-good-editor) をインストールするといいでしょう。
 
-## Setting up Linux
+## Linux でセットアップ
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> 一般的に Electron は Ubuntu 12.04、Fedora 21、Debian 8 とそれ以降をサポートします。
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+まず、最新バージョンの Node.js をインストールします。 あなたの Linux ディストリビューション次第で、インストール手順が異なる場合があります。 Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
 
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
