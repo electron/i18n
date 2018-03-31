@@ -93,26 +93,26 @@ $ git commit
 
 ### ステップ6: リベース
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+変更をコミットしたら、`git rebase` (`git merge` ではない) を使用してメインリポジトリと作業を同期させることを推奨します。
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` master.
+これにより作業ブランチに `electron/electron` のマスターの最新の変更が確実に反映されます。
 
 ### ステップ7: テスト
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+バグの修正と機能追加には常にテストが必要です。 プロセスを簡単にするため、[テストガイド](https://electronjs.org/docs/development/testing) が提供されています。 それらがどのように構築されるべきかを見るため、他のテストを見ることでも手助けになれます。
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+プルリクエストで変更を送信する前に、常に完全なテストスイートを実行してください。 テストを実行するには以下のようにします。
 
 ```sh
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+リンターが問題を報告していないこと、そしてすべてのテストが合格していることを確認してください。 Please do not submit patches that fail either check.
 
 If you are updating tests and just want to run a single spec to check it:
 
