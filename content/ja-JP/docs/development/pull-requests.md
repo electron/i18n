@@ -176,6 +176,6 @@ $ git push origin my-branch
 
 すべてのプルリクエストは、継続的インテグレーション (CI) システムでテストされ、 それが Electron のサポートされているプラットフォームで動作することを確認されます。
 
-Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
+理想的には、プルリクエストは CI のすべてのプラットフォーム上で合格します ("青になる") 。 これは、すべてのテストが合格し、lint のエラーがないことを意味します。 しかし、CI インフラストラクチャ自体が特定のプラットフォームで失敗したり、いわゆる "flaky" テストに失敗する ("赤になる") ことは珍しいことではありません。 各 CI の失敗を手動で検査して原因を特定する必要があります。
 
-CI starts automatically when you open a pull request, but only [Releasers](https://github.com/orgs/electron/teams/releasers/members) can restart a CI run. If you believe CI is giving a false negative, ask a Releaser to restart the tests.
+プルリクエストを開くと、CI が自動的に開始されますが、[Releasers](https://github.com/orgs/electron/teams/releasers/members) だけが CI の実行をリスタートできます。 If you believe CI is giving a false negative, ask a Releaser to restart the tests.
