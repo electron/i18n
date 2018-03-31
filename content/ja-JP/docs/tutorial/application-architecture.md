@@ -71,18 +71,18 @@ console.log(root)
 
 既に予測できるように、これはリモートコンテンツをロードしようとする場合にセキュリティの重要な意味を持ちます。 [セキュリティドキュメント](./security.md) に、リモートコンテンツの読み込みに関する詳細とガイダンスがあります。
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) アプリケーションで Node.js モジュールを使用できます。 好きな npm モジュールを選んでください。 npm は現在、オープンソースコードの世界最大のリポジトリ ―― サーバーアプリケーション用に予約され、保守されたもの ―― を提供しています。これを使用できることは、Electron の重要な機能の1つです。
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+たとえば、アプリケーションで公式の AWS SDK を使用するには、まずそれを依存関係としてインストールします。
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, simply require and use the module as if you were building a Node.js application:
+そして、Electron アプリで、Node.js アプリケーションを構築しているようにモジュールを単に require して使用します。
 
 ```javascript
-// A ready-to-use S3 Client
+// S3 クライアントの準備
 const S3 = require('aws-sdk/clients/s3')
 ```
 
