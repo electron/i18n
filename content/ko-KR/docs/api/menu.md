@@ -1,16 +1,16 @@
-## Class: Menu
+## 클라스 메뉴
 
-> Create native application menus and context menus.
+> 크레이트 네이티브 애플리케이션 과 콘텍스트 메뉴
 
 프로세스:[Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+메뉴 생성
 
 ### Static Methods
 
-The `menu` class has the following static methods:
+`menu` 클라스는 다음의 스텍틱 메써드들을 가집니다.
 
 #### `Menu.setApplicationMenu(menu)`
 
