@@ -42,21 +42,21 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 以下は、変更のタイプを対応する semver のカテゴリ (メジャー、マイナー、パッチなど) に明示的に割り当てる表です。
 
-| メジャーバージョンの単位             | マイナーバージョンの単位              | パッチバージョンの単位                  |
-| ------------------------ | ------------------------- | ---------------------------- |
-| 互換性を破る Electron API の変更  | 互換性を破らない Electron API の変更 | Electron のバグ修正               |
-| Node.js のメジャーバージョン更新     | Node.js のマイナーバージョン更新      | Node.js のパッチバージョン更新          |
-| Chromium version updates |                           | fix-related chromium patches |
+| メジャーバージョンの単位            | マイナーバージョンの単位              | パッチバージョンの単位         |
+| ----------------------- | ------------------------- | ------------------- |
+| 互換性を破る Electron API の変更 | 互換性を破らない Electron API の変更 | Electron のバグ修正      |
+| Node.js のメジャーバージョン更新    | Node.js のマイナーバージョン更新      | Node.js のパッチバージョン更新 |
+| Chromium のバージョン更新       |                           | Chromium パッチの修正関連   |
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+ほとんどの Chromium の更新は互換性を破るとみなされることに注意してください。 バックポート可能な修正は、パッチとして cherry-pick される可能性が高いです。
 
-# Stabilization Branches
+# 安定ブランチ
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+安定ブランチは、セキュリティまたは安定性に関連する cherry-pick されたコミットのみを取り入れて、master と並行して実行されるブランチです。 これらのブランチはマスターに戻されることはありません。
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+安定ブランチは、常に **major** または **minor** のバージョンラインのいずれかであり、次のテンプレート `$MAJOR-$MINOR-x` に対して `2-0-x` のように命名されます。
 
 We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
 
