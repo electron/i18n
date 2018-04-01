@@ -36,8 +36,8 @@ Para o Jenkins, um [plugin Xvfb está disponível](https://wiki.jenkins-ci.org/d
 
 ### Circle CI
 
-Circle CI is awesome and has xvfb and `$DISPLAY` [already setup, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Circle CI é incrível e já vem com xvfb e `$DISPLAY` [configurados, portanto configurações adicionais são dispensáveis](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+AppVeyor roda no Windows, tendo suporte para Selenium, Chomium, Electron e ferramentas similares de fora - configuração adicional é dispensada.
