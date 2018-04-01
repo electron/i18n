@@ -1,6 +1,6 @@
-# Planned Breaking API Changes
+# 予定されている API の破壊的変更
 
-The following list includes the APIs that will be removed in Electron 3.0.
+次のリストには Electron 3.0 で削除される API が記載含まれています。
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
 
