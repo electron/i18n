@@ -2,14 +2,14 @@
 
 Essas são as diretrizes para programar no Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Você pode executar `npm run lint` para visualizar qualquer problemas de estilos detectados com `cpplint` e `eslint`.
 
-## General Code
+## Código em Geral
 
-* End files with a newline.
-* Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
+* Termine arquivos com uma nova linha.
+* Apresente condições na seguinte ordem: 
+  * Módulos internos do Node (assim como `path`)
+  * Módulos internos do Electron (assim como `ipc`, `app`)
   * Local Modules (using relative paths)
 * Place class properties in the following order: 
   * Class methods and properties (methods starting with a `@`)
