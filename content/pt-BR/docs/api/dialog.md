@@ -37,7 +37,7 @@ O módulo `dialog` possúi os seguintes métodos:
     * `showHiddenFiles` - Mostra arquivos escondidos no dialog.
     * `createDirectory` Permite criar novos diretórios a partir do dialog *macOS*
     * `promptToCreate` - Pergunta se deseja criar um novo diretório caso o caminho no dialog não exista. Na verdade este valor não cria o arquivo no caminho especificado mas permite que o aplicativo entenda que deverá criar o diretório não existente. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
+    * `noResolveAliases` - Desabilita a decisão automática de alias de caminho (symlink). Alias selecionados agora irão retornar os alias dos caminhos ao invés de seu caminho alvo. *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
 * `callback` Function (optional) 
