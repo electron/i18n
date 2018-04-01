@@ -74,7 +74,7 @@ app.on('ready', () => {
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `filePath` String (optional)
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
@@ -96,7 +96,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `Buffer` as a response.
@@ -126,7 +126,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `data` String (optional)
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `String` as a response.
@@ -150,7 +150,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `uploadData` Objeto (opcional) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
@@ -173,7 +173,7 @@ For POST requests the `uploadData` object must be provided.
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `Readable` as a response.
@@ -222,7 +222,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Unregisters the custom protocol of `scheme`.
@@ -246,7 +246,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `filePath` String
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
@@ -262,7 +262,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `data` String (optional)
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
@@ -278,7 +278,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `buffer` Buffer (optional)
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
@@ -300,7 +300,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `uploadData` Objeto (opcional) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
@@ -317,7 +317,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
@@ -325,7 +325,7 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Remove the interceptor installed for `scheme` and restore its original handler.
