@@ -30,23 +30,23 @@ Electron バージョン *< 2.0* は、[semver](http://semver.org) 仕様に準�
 
 1. semver の厳格な使用
 2. semver 準拠の `-beta` タグの導入
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stabilization branches contain version information
+3. [conventional commit messages](https://conventionalcommits.org/) の導入
+4. 明確に定義された安定ブランチ
+5. `master` ブランチにはバージョンがなく、安定ブランチのみがバージョン情報を含みます。
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発者が期待するべきこと、変更をバックポートする方法について詳しく説明します。
 
-# semver（セマンティック バージョニング）
+# semver
 
-From 2.0 onward, Electron will follow semver.
+2.0 以降から、Electron は semver に従います。
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+以下は、変更のタイプを対応する semver のカテゴリ (メジャー、マイナー、パッチなど) に明示的に割り当てる表です。
 
-| Major Version Increments      | Minor Version Increments          | Patch Version Increments      |
-| ----------------------------- | --------------------------------- | ----------------------------- |
-| Electron breaking API changes | Electron non-breaking API changes | Electron bug fixes            |
-| Node.js major version updates | Node.js minor version updates     | Node.js patch version updates |
-| Chromium version updates      |                                   | fix-related chromium patches  |
+| メジャーバージョンの単位             | マイナーバージョンの単位              | パッチバージョンの単位                  |
+| ------------------------ | ------------------------- | ---------------------------- |
+| 互換性を破る Electron API の変更  | 互換性を破らない Electron API の変更 | Electron のバグ修正               |
+| Node.js のメジャーバージョン更新     | Node.js のマイナーバージョン更新      | Node.js のパッチバージョン更新          |
+| Chromium version updates |                           | fix-related chromium patches |
 
 Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
