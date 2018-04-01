@@ -10,12 +10,12 @@ Você pode executar `npm run lint` para visualizar qualquer problemas de estilos
 * Apresente condições na seguinte ordem: 
   * Módulos internos do Node (assim como `path`)
   * Módulos internos do Electron (assim como `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order: 
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
-* Avoid platform-dependent code: 
-  * Use `path.join()` to concatenate filenames.
+  * Módulos locais (usando caminhos relativos)
+* Apresente propriedades de classe na seguinte ordem: 
+  * Métodos e propriedades de classe (métodos começando com um `@`)
+  * Instancie métodos e propriedades
+* Evite código dependente à uma plataforma: 
+  * Use `path.join()` para concatenar nome de arquivos.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
 * Using a plain `return` when returning explicitly at the end of a function. 
   * Not `return null`, `return undefined`, `null`, or `undefined`
