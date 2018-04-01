@@ -77,7 +77,7 @@ These individual tutorials expand on topics discussed in the guide above.
   * [トラブルシューティング](tutorial/installation.md#troubleshooting)
 * [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
   * [semver（セマンティック バージョニング）](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
+  * [安定ブランチ](tutorial/electron-versioning.md#stabilization-branches)
   * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
