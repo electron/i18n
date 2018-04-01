@@ -41,9 +41,9 @@ O módulo `dialog` possúi os seguintes métodos:
     * `treatPackageAsDirectory` - Considera packages, assim como as pastas `.app`, como um diretório ao invés de arquivos. *macOS*
   * `message` String (opcional) *macOS* - Mensagem a ser apresentada acima da janela de entrada.
 * `callback` Function (opcional) 
-  * `filePaths` String[] - Um array de caminhos de arquivos selecionado pelo usuário
+  * `filePaths` String[] - Um array de caminhos de arquivos selecionados pelo usuário
 
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+Retorna `String[]`, um array de caminhos de arquivos selecionados pelo usuário, se o callback é fornecido, retornará `undefined`.
 
 The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
