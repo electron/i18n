@@ -6,18 +6,18 @@ Sendo baseado no Chromium, o Electron necessita de um driver de vídeo para roda
 
 Primeiramente instale o [Xvfb](https://en.wikipedia.org/wiki/Xvfb). É um framebuffer que implementa o protocolo de servidor de vídeo do X11 - ele realiza todas as operações gráficas na memória sem mostrar nenhuma mensagem, o que é exatamente o que precisamos.
 
-Por fim, cria uma tela xvfb virtual e exporta uma variável de ambiente designada DISPLAY que direciona para si mesma. No Electron o Chromium irá procurar automaticamente pela variável `$DISPLAY`, sendo assim dispensáveis configurações adiciionais em seu aplicativo. Este passo pode ser automatizado com o pacote [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe) de Paul Betts. Para usa-lo, adicione antes dos seus comandos de testes a tag `xvfb-maybe` e a ferramenta irá configurar automaticamente o xvfb caso o sistema necessite esta configuração. On Windows or macOS, it will simply do nothing.
+Por fim, cria uma tela xvfb virtual e exporta uma variável de ambiente designada DISPLAY que direciona para si mesma. No Electron o Chromium irá procurar automaticamente pela variável `$DISPLAY`, sendo assim dispensáveis configurações adiciionais em seu aplicativo. Este passo pode ser automatizado com o pacote [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe) de Paul Betts. Para usa-lo, adicione antes dos seus comandos de testes a tag `xvfb-maybe` e a ferramenta irá configurar automaticamente o xvfb caso o sistema necessite esta configuração. No Windows ou macOS, simplesmente não fará nada.
 
 ```sh
-## On Windows or macOS, this just invokes electron-mocha
-## On Linux, if we are in a headless environment, this will be equivalent
-## to xvfb-run electron-mocha ./test/*.js
-xvfb-maybe electron-mocha ./test/*.js
+## No Windows ou macOS, apenas invocará o electron-mocha
+## No Linux, se você se encontra em um ambiente sem cabeçalho, 
+## esta operação será a mesma que 
+## xvfb-run electron-mocha ./test/*.js xvfb-maybe eçectrom-mocha ./test/*.js
 ```
 
 ### Travis CI
 
-On Travis, your `.travis.yml` should look roughly like this:
+No Travis, o seu `.travis;yml` deverá se parecer basicamente desta forma:
 
 ```yml
 addons:
@@ -32,7 +32,7 @@ install:
 
 ### Jenkins
 
-For Jenkins, a [Xvfb plugin is available](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
+Para o Jenkins, um [plugin Xvfb está disponível](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
 
 ### Circle CI
 
