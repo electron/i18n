@@ -26,14 +26,14 @@ O módulo `dialog` possúi os seguintes métodos:
 
 * `browserWindow` BrowserWindow (opcional)
 * `opções` Object 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
+  * `title` String (opcional)
+  * `defaultPath` String (opcional)
+  * `buttonLabel` String (opcional) - Label personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
+  * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
+  * `properties` String[] (opcional) - contém os recursos os quais o dialog deverá usar. Os seguintes valores são suportados: 
+    * `openFile` - Permite selecionar arquivos.
+    * `openDirectory` - Permite selecionar diretórios.
+    * `multiSelections` - Permite selecionar múltiplos caminhos.
     * `showHiddenFiles` - Show hidden files in dialog.
     * `createDirectory` - Allow creating new directories from dialog. *macOS*
     * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
@@ -70,10 +70,10 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 * `browserWindow` BrowserWindow (opcional)
 * `opções` Object 
-  * `title` String (optional)
+  * `title` String (opcional)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `buttonLabel` String (opcional) - Label personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
+  * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
