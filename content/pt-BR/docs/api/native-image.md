@@ -232,15 +232,15 @@ Retorna `NativeImage` - A imagem cortada.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (opcional) - O padrão para a largura da imagem. * `height` Integer (opcional) - O padrão para a altura da imagem * `quality` String (opcional) - A qualidade desejada para a imagem cortada. Possíveis valores são `good`, `better` ou `best`. O padrão é `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (opcional) - O padrão para a largura da imagem. * `height` Integer (opcional) - O padrão para a altura da imagem * `quality` String (opcional) - A qualidade desejada para a imagem cortada. Possíveis valores são `good`, `better` ou `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. Eles são traduzidos dentro de um método de algorítimo específico que depende da capacidade (CPU, GPU) da plataforma base. É possível para todos os três métodos serem mapeados para o mesmo algorítimo em uma determinada plataforma.
 
-Returns `NativeImage` - The resized image.
+Retorna `NativeImage` - A imagem redimensionada.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Se apenas o `height` ou o `width` forem definidos então a atual proporção de tela da imagem será preservada na imagem redimensionada.
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+Retorna `Float` - A proporção de tela da imagem.
 
 #### `image.addRepresentation(options)`
 
