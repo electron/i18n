@@ -60,9 +60,9 @@ Os `filters` designam um array dos tipos que podem ser apresentados ou seleciona
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+As array de `extensions` devem conter extenssões sem caracteres-curinga ou pontos. (`'png'` é bom mas, `'.png'` e `'*.png'` são ruins). Para mostrar todos os arquivos use o caracter-curinga `*` (nenhum ouro caracter-curinga é suportado).
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`
+Se um `callback` é passado, a solicitação à API será dessincronizada e o resultado será passado via `callback(filenames)`
 
 **Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
 
