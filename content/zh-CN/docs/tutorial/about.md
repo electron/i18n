@@ -10,13 +10,13 @@ Electron于2013年作为构建Github上可编程的文本编辑器[Atom](https:/
 
 ## 核心团队和贡献者
 
-Electron由Github上的一支团队和一群[活跃的贡献者](https://github.com/electron/electron/graphs/contributors)维护。 有些贡献者是独立开发者，有些则在用Electron构建应用的大型公司里工作。 我们很乐意把贡献频繁的人加入到项目维护者队伍中。 了解更多[为Electron作贡献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)。
+Electron由Github上的一支团队和一群[活跃的贡献者](https://github.com/electron/electron/graphs/contributors)维护。 有些贡献者是独立开发者，有些则在用Electron构建应用的大型公司里工作。 我们很乐意把贡献频繁的人加入到项目维护者队伍中。 阅读有关[为Electron作贡献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)的更多信息。
 
 ## 版本发布
 
 Electron的[版本发布](https://github.com/electron/electron/releases)相当频繁。每当Chromium、Node.js有重要的bug修复，新API或是版本更新时我们就会发布新版本。
 
-### 更新依赖
+### 更新依赖项
 
 Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一到两周之内更新，具体时间根据升级所需的工作量而定。
 
