@@ -95,21 +95,21 @@ Para marcar uma imagem como imagem padão, o nome do arquivo deverá terminar co
 
 ## Métodos
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+O módulo `nativeImage` possui os seguintes métodos, todos os quais retornam uma instância da classe `NativeImage`:
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+Retorna `NativeImage`
 
-Creates an empty `NativeImage` instance.
+Cria uma instância `NativeImage` vazia.
 
 ### `nativeImage.createFromPath(path)`
 
 * `path` String
 
-Returns `NativeImage`
+Retorna `NativeImage`
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+Cria uma nova instância `NativeImage` de um arquivo localizado em `path`. Esse método retorna uma imagem vazia se `path` não existir, não poder ser lido, ou não ser uma imagem válida.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -121,26 +121,26 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (opcional) * `width` Integer (opcional) - Necessário para buffers de bitmap. * `height` Integer (opicional) - Necessário para buffers de bitmap. * `scaleFactor` Double (opicional) - padrão para 1.0.
 
-Returns `NativeImage`
+Retorna `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`.
+Cria uma nova instância `NativeImage` a partir do `buffer`.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
 * `dataURL` String
 
-Returns `NativeImage`
+Retorna `NativeImage`
 
-Creates a new `NativeImage` instance from `dataURL`.
+Cria uma nova instância `NativeImage` a partir do `dataURL`.
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
 * `imageName` String
 * `hslShift` Number[]
 
-Returns `NativeImage`
+Retorna `NativeImage`
 
 Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
 
