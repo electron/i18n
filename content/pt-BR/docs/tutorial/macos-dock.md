@@ -6,7 +6,7 @@ O dock customizado é frequentemente usado para adicionar atalhos para tarefas a
 
 **Menu do Dock do Terminal.app:**
 
-![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+![Menu do Dock](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
 Para definir o seu menu do dock customizado, você pode usar a API `app.dock.setMenu`, a qual está disponível apenas para o macOS:
 
