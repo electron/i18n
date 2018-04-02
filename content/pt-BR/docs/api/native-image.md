@@ -1,12 +1,12 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> Cria ícones de bandeija, dock e aplicações usando arquivos PNG ou JPG.
 
 Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+No Electron, para as API's que levam imagens, você pode passar tanto caminhos de arquivos ou instâncias `NativeImage`. Uma imagem vazia será usada quando `null` é passado.
 
-For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+Por exemplo, quando for criar uma bandeija ou designar um ícone para uma janela, você pode passar um caminho de arquivo de imagem com a `String`:
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -16,7 +16,7 @@ let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+Ou ler a imagem a partir do clipboard que retorna um `NativeImage`:
 
 ```javascript
 const {clipboard, Tray} = require('electron')
@@ -25,9 +25,9 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Supported Formats
+## Formatos Suportados
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+Atualmente os formatos de imagem `PNG` e `JPEG` são suportados. `PNG` são recomendados pelo seu suporte a transparência e compressão sem perda de qualidade.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
 
