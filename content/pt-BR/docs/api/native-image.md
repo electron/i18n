@@ -84,11 +84,11 @@ Os seguintes sufixos para DPI são também suportados:
 
 Imagens padrão consistem de cores claras e pretas (e um canal alfa). Imagens padrão não são destinadas a serem usadas sozinhas, e geralmente são acompanhadas por outros conteúdos para criar a aparência final desejada.
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+O caso mais comum é usar imagens padrão em ícones de barra de menu assim podendo se adaptar tanto para barras de menus claras quanto escuras.
 
-**Note:** Template image is only supported on macOS.
+**Obs.:** Imagens padrão são suportadas somente no macOS.
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+Para marcar uma imagem como imagem padão, o nome do arquivo deverá terminar com a palavra `Template`. Como por exemplo:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
