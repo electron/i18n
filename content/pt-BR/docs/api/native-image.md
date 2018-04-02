@@ -184,7 +184,7 @@ Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_b
 
 * `options` Object (opcional) * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém uma copia dos dados de bitmap crus (sem alterações) da imagem.
 
 #### `image.toDataURL([options])`
 
@@ -196,9 +196,9 @@ Retorna `String` - Os dados de URL da imagem.
 
 * `options` Object (opcional) * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados de bitmap crus (sem alterações) da imagem.
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+A diferença entre `getBitmap()` e `toBitmap()` é que, `getBitmap()` não copia os dados de bitmap, portanto você tem que usar o buffer retornado imadiatamente no instante do loop do evento, senão os dados podem mudar ou serem destruídos.
 
 #### `image.getNativeHandle()` no *macOS*
 
