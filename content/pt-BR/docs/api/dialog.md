@@ -75,12 +75,12 @@ Se um `callback` é passado, a solicitação à API será dessincronizada e o re
   * `buttonLabel` String (opcional) - Label personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
   * `message` String (opcional) *macOS* - Messagem a ser exibida acima de campos de texto.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `nameFieldLabel` String (opcional) *macOS* - Label personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
+  * `showsTagField` Boolean (opcional) *macOS* - apresenta a tag do campo de entrada, por padrão `true`.
 * `callback` Function (opcional) 
   * `filename` String
 
-Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
+Retorna `String`, o caminho do arquivo escolhido pelo usuáro. Se um callback é fornecido, retornará `undefined`.
 
 O argumento `browserWindow` permite que o dialog seja acoplado a janela parent, tornando-a modal.
 
