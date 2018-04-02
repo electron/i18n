@@ -142,11 +142,11 @@ Cria uma nova instância `NativeImage` a partir do `dataURL`.
 
 Retorna `NativeImage`
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+Cria uma nova instância de `NativeImage` a partir de NSImage o qual direciona para o dado nome da Imagem. Veja [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) para uma lista dos possíveis valores.
 
-The `hslShift` is applied to the image with the following rules
+O `hslShift` é aplicado à imagem com as seguintes regras
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[0]` (matiz): O valor absoluto da matiz para a imagem - 0 e 1 direciona para 0 e 360 na roda de cores (vermelho).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
  0 = remove all color.  
  0.5 = leave unchanged.  
