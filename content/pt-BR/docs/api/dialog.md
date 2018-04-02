@@ -1,4 +1,4 @@
-# caixas de diálogo
+# dialog
 
 > Mostrar diálogos nativos do sistema para abrir e salvar arquivos, alertas, etc.
 
@@ -45,7 +45,7 @@ O módulo `dialog` possúi os seguintes métodos:
 
 Retorna `String[]`, um array de caminhos de arquivos selecionados pelo usuário, se o callback é fornecido, retornará `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+O argumento `browserWindow` permite que o dialog seja acoplado a janela parent, tornando-a modal.
 
 The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
 
@@ -82,7 +82,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+O argumento `browserWindow` permite que o dialog seja acoplado a janela parent, tornando-a modal.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -112,7 +112,7 @@ Returns `Integer`, the index of the clicked button, if a callback is provided it
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+O argumento `browserWindow` permite que o dialog seja acoplado a janela parent, tornando-a modal.
 
 If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
