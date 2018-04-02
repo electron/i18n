@@ -47,7 +47,7 @@ Retorna `String[]`, um array de caminhos de arquivos selecionados pelo usuário,
 
 O argumento `browserWindow` permite que o dialog seja acoplado a janela parent, tornando-a modal.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+Os `filters` designam um array dos tipos que podem ser apresentados ou selecionados quando você quer que o usuário veja apenas um tipo específico. Como por exemplo:
 
 ```javascript
 {
