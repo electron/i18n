@@ -142,6 +142,6 @@ No Windows as opções são mais limitadas, devido às API's do Win32 usadas:
 
 ## Sheets
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
+No macOS, os diálogos (chamados de Sheets nessa plataforma) são apresentadas acopladas à janela se você fornecer uma referência `BrowserWindow` no parâmetro `browserWindow`, ou modais se nenhuma janela é fornecida.
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+Você pode chamar `BrowserWindow.getCurrentWindow().setSheetOffset (offset)`para mudar o offset da janela aonde os diálogos (sheets) estão acoplados.
