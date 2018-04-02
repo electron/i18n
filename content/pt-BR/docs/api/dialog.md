@@ -1,6 +1,6 @@
 # dialog
 
-> Mostrar diálogos nativos do sistema para abrir e salvar arquivos, alertas, etc.
+> Exibe diálogos nativos do sistema para abrir e salvar arquivos, alertas, etc.
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -82,7 +82,7 @@ Se um `callback` é passado, a solicitação à API será dessincronizada e o re
 
 Retorna `String`, o caminho do arquivo escolhido pelo usuáro. Se um callback é fornecido, retornará `undefined`.
 
-O argumento `browserWindow` permite que o dialog seja acoplado a janela parent, tornando-a modal.
+O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
 Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, veja `dialog.ShowOpenDialog` para exemplos.
 
@@ -133,12 +133,12 @@ Esse API pode ser chamado com segurança antes de que o evento `ready` que é em
   * `message` String - A mensagem a ser exibida para o usuário.
 * `callback` Function
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+No macOS, esse método exibe um dialog modal que apresenta uma mensagem e informação de certificado, dando ao usuário a opção de confiar/importar o certificado. Se você fornecer um argumento `browserWindow` o dialog será acoplado à janela parent, fazendo-a modal.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+No Windows as opções são mais limitadas, devido às API's do Win32 usadas:
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* Como o macOS fornece o seu próprio diálogo de confirmação o argumento `message` não é usado.
+* O argumento `browserWindow` é ignorado já que não é possível fazer essa confirmação um diálogo modal.
 
 ## Sheets
 
