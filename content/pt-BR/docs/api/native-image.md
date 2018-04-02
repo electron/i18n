@@ -204,35 +204,35 @@ A diferença entre `getBitmap()` e `toBitmap()` é que, `getBitmap()` não copia
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+Perceba que o ponteiro retornado é um ponteiro fraco para a imagem nativa subjacente invés de uma cópia, então você *deve* se certificar de que a instância `nativeImage` esteja próxima.
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+Retorna `Boolean` - estando a imagem vazia ou não.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Retorna [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
 * `option` Boolean
 
-Marks the image as a template image.
+Marca a imagem como uma imagem padrão.
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Retorna `Boolean` - sendo a imagem uma imagem padrão ou não.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
+* `rect` [Rectangle](structures/rectangle.md) - A área da imagem a ser cortada
 
-Returns `NativeImage` - The cropped image.
+Retorna `NativeImage` - A imagem cortada.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (opcional) - O padrão para a largura da imagem. * `height` Integer (opcional) - O padrão para a altura da imagem * `quality` String (opcional) - A qualidade desejada para a imagem cortada. Possíveis valores são `good`, `better` ou `best`. O padrão é `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Returns `NativeImage` - The resized image.
 
