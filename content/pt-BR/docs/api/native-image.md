@@ -147,18 +147,18 @@ Cria uma nova instância de `NativeImage` a partir de NSImage o qual direciona p
 O `hslShift` é aplicado à imagem com as seguintes regras
 
 * `hsl_shift[0]` (matiz): O valor absoluto da matiz para a imagem - 0 e 1 direciona para 0 e 360 na roda de cores (vermelho).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
- 0 = remove all lightness (make all pixels black).  
- 0.5 = leave unchanged.  
- 1 = full lightness (make all pixels white).
+* `hsl_shift[1]` (saturação): Uma mudança de saturação para a imagem, com os seguintes valores chaves:  
+ 0 = remove todas as cores:  
+ 0.5 = permanece inalterada  
+ 1 = realiza a saturação total da imagem. 
+* `hsl_shift[2]` (luminosidade): Uma mudança de luminosidade para a imagem, com os seguintes valores chaves:  
+ 0 = remove totalmente a luminosidade (deixa todos os pixels pretos)  
+ 0.5 = permanece inalterada  
+ 1 = luminosidade total (deixa todos os pixels brancos).
 
-This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+Isso significa que `[-1, 0, 1]` irá deixar a imagem totalmente branca e `[-1, 1, 0]` irá deixar a imagem totalmente preta.
 
-## Class: NativeImage
+## Classe: NativeImage
 
 > Natively wrap images such as tray, dock, and application icons.
 
