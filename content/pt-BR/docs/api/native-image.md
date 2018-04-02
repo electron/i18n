@@ -29,12 +29,12 @@ console.log(appIcon)
 
 Atualmente os formatos de imagem `PNG` e `JPEG` são suportados. `PNG` são recomendados pelo seu suporte a transparência e compressão sem perda de qualidade.
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
+No Windows, você também pode carregar icones `ICO` a partir de caminhos de arquivos. Para a melhor qualidade visual é recomendado incluir ao menos os seguintes tamanhos nos:
 
-* Small icon 
- * 16x16 (100% DPI scale)
- * 20x20 (125% DPI scale)
- * 24x24 (150% DPI scale)
+* Ícone pequeno 
+ * 16x16 (com escala de DPI com 100%)
+ * 20x20 (com escala de DPI com 125%)
+ * 24x24 (com escala de DPI com 150%)
  * 32x32 (200% DPI scale)
 * Large icon 
  * 32x32 (100% DPI scale)
