@@ -129,8 +129,8 @@ Esse API pode ser chamado com segurança antes de que o evento `ready` que é em
 
 * `browserWindow` BrowserWindow (opcional)
 * `options` Object 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-  * `message` String - The message to display to the user.
+  * `certificate` [Certificate](structures/certificate.md) - O certificado para trust/import.
+  * `message` String - A mensagem a ser exibida para o usuário.
 * `callback` Function
 
 On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
