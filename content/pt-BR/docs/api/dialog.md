@@ -108,27 +108,27 @@ Se um `callback` é passado, a solicitação à API será dessincronizada e o re
   * `response` Number - O indicador do botão que foi clicado
   * `checkboxChecked` Boolean - O estado ativo da caixa de seleção se `checkboxLabel` foi definido. Senão `false`.
 
-Returns `Integer`, the index of the clicked button, if a callback is provided it returns undefined.
+Retorna `Integer`, o indicador do botão clicado, se um callback é fornecido ele retorna undefined.
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+Exibe uma caixa de mensagem, esse método bloqueará o processo até que a caixa de mensagem seja fechada. Ele retorna o indicador do botão clicado.
 
 O argumento `browserWindow` permite que o dialog seja acoplado a janela parent, tornando-a modal.
 
-If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+Se um `callback` é passado, o dialog mão bloquearáo proceso. A solicitação à API será dessincronizada e o resultado será passado por via do `callback(response)`.
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box
-* `content` String - The text content to display in the error box
+* `title` String - O título a ser exibido na caixa de erro
+* `content` String - O conteúdo a ser exibido na caixa de erro
 
-Displays a modal dialog that shows an error message.
+Exibe um dialog modal que apresenta uma mensagem de erro.
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+Esse API pode ser chamado com segurança antes de que o evento `ready` que é emitido pelo `app`, é usado para reportar erros nos estágios iniciais da execução do aplicativo. Se chamado antes do evento `ready` do aplicativo no Linux, a mensagem será emitida para stderr, e o GUI do dialog não será mostrado.
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` BrowserWindow (opcional)
-* `opções` Object 
+* `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
 * `callback` Function
