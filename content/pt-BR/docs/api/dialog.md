@@ -28,7 +28,7 @@ O módulo `dialog` possúi os seguintes métodos:
 * `opções` Object 
   * `title` String (opcional)
   * `defaultPath` String (opcional)
-  * `buttonLabel` String (opcional) - Label personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
+  * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
   * `properties` String[] (opcional) - contém os recursos os quais o dialog deverá usar. Os seguintes valores são suportados: 
     * `openFile` - Permite selecionar arquivos.
@@ -72,10 +72,10 @@ Se um `callback` é passado, a solicitação à API será dessincronizada e o re
 * `options` Object 
   * `title` String (opcional)
   * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
-  * `buttonLabel` String (opcional) - Label personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
+  * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
   * `message` String (opcional) *macOS* - Messagem a ser exibida acima de campos de texto.
-  * `nameFieldLabel` String (opcional) *macOS* - Label personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
+  * `nameFieldLabel` String (opcional) *macOS* - Rótulo personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
   * `showsTagField` Boolean (opcional) *macOS* - apresenta a tag do campo de entrada, por padrão `true`.
 * `callback` Function (opcional) 
   * `filename` String
@@ -84,17 +84,17 @@ Retorna `String`, o caminho do arquivo escolhido pelo usuáro. Se um callback é
 
 O argumento `browserWindow` permite que o dialog seja acoplado a janela parent, tornando-a modal.
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, veja `dialog.ShowOpenDialog` para exemplos.
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
+Se um `callback` é passado, a solicitação à API será dessincronizada e o resultado será passado via `callback(filename)`
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (opcional)
 * `opções` Object 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
+  * `type` String (opcional) - Pode ser `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. No Windows, `"question"` exibe o mesmo ícone que `"info"`, a menos que você especifique um ícone usando a opção `"icon"`. No macOS, tanto `"warning"` como `"error"` exibirão o mesmo ícone de alerta.
+  * `buttons` String[] (opcional) - Array de textos para botões. No Windows, uma array vazia resultará em um botão rotulado "OK".
+  * `defaultId` Integer (opcional) - Indicador do botão na array de botões que será selecionado como padrão quando a caixa de mensagem abrir.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
   * `message` String - Content of the message box.
   * `detail` String (optional) - Extra information of the message.
