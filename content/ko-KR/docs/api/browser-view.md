@@ -2,7 +2,7 @@
 
 > 뷰들을 생성하고 제어합니다.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**참고:** BrowserView API는 현재 실험 단계이며, 차후 일렉트론이 릴리즈 되면 변경되거나 제거될 수 있습니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
