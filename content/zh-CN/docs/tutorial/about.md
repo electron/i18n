@@ -32,17 +32,17 @@ Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一�
 
 ### 长期支持
 
-当前并不存在对Electron旧版本的长期支持。 如果你当前的Electron版本跑的不错，你可以停留在这版本上任意时长。 如果你想用发布的新特性，那就升级到更新的版本。
+当前并不存在对Electron旧版本的长期支持。 如果现在你使用的Electron版本跑得不错，你就可以一直使用这个版本。 如果你想使用新发布的特性，那就升级到更新的版本。
 
 版本`v1.0.0`发布了重大的更新。 如果你现在没有在用这个版本，你应该[了解更多关于`v1.0.0`的改变](https://electronjs.org/blog/electron-1-0)。
 
 ## 核心理念
 
-为了保持Electron的小 (文件体积) 和可持续性 (依赖和API的扩展) ，Electron限制了使用的核心项目的范围。
+为了保持Electron的小巧 (文件体积) 和可持续性开发 (以防依赖库和API的泛滥) ，Electron限制了所使用的核心项目的数量。
 
-比如Electron只用了Chromium的渲染库而不是全部。 这使得容易升级Chromium，但也意味着Electron缺少Google Chrome里的一些浏览器特性。
+比如Electron只用了Chromium的渲染库而不是其全部组件。 这使得升级Chromium更加容易，但也意味着Electron缺少了Google Chrome里的一些浏览器相关的特性。
 
-Electron所添加的的新特性应主要用于原生API。 如果一个特性能够成为一个Node.js模块，那它就应该成为。 参见[社区构建的Electron工具](https://electronjs.org/community)。
+添加到Electron的新功能应该主要是原生 API。 如果可以的话，一个功能应该尽可能的成为一个Node.js模块。 参见[社区构建的Electron工具](https://electronjs.org/community)。
 
 ## 历史
 
