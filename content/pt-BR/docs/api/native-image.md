@@ -47,11 +47,11 @@ Confira a seção *Size requirements* [nesse artigo](https://msdn.microsoft.com/
 
 ## Imagem em Alta Resolução
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+Em plataformas que possuem supporte para high-DPI como a tela Retina daApple, você pode acrescentar `@2x` depois do nome base da imagem para marcar-la como imagem de alta resolução.
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+Por exmplo se `icon.png` é uma imagem normal que possui resolução padrão, então `icon@2x.png` será tratada como uma imagem de alta resolução que tem dupla densidade de DPI.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+Se você deseja ter o suporte para telas com diferentes densidades de DPI ao mesmo tempo, você pode colocar imagens de diferentes tamanhos na mesma pasta e usar o nome do arquivo sem os sufixos de DPI. Como por exemplo:
 
 ```text
 images/
@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+Os seguintes sufixos para DPI são também suportados:
 
 * `@1x`
 * `@1.25x`
@@ -80,7 +80,7 @@ Following suffixes for DPI are also supported:
 * `@4x`
 * `@5x`
 
-## Template Image
+## Imagem Padrão
 
 Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
