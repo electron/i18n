@@ -64,17 +64,17 @@ As array de `extensions` devem conter extenssões sem caracteres-curinga ou pont
 
 Se um `callback` é passado, a solicitação à API será dessincronizada e o resultado será passado via `callback(filenames)`
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Obs.:** No Windows e Linux um dialog aberto não pode ser usado ao mesmo tempo para selecionar arquivos e diretórios, portanto se você estabelecer `properties` para `['openFile', 'openDirectory']` nessas plataformas, um seletor de diretório será mostrado.
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (opcional)
-* `opções` Object 
+* `options` Object 
   * `title` String (opcional)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
   * `buttonLabel` String (opcional) - Label personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
-  * `message` String (optional) *macOS* - Message to display above text fields.
+  * `message` String (opcional) *macOS* - Messagem a ser exibida acima de campos de texto.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
 * `callback` Function (opcional) 
