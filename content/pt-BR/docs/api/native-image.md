@@ -35,17 +35,17 @@ No Windows, você também pode carregar icones `ICO` a partir de caminhos de arq
  * 16x16 (com escala de DPI com 100%)
  * 20x20 (com escala de DPI com 125%)
  * 24x24 (com escala de DPI com 150%)
- * 32x32 (200% DPI scale)
-* Large icon 
- * 32x32 (100% DPI scale)
- * 40x40 (125% DPI scale)
- * 48x48 (150% DPI scale)
- * 64x64 (200% DPI scale)
+ * 32x32 (com escala de DPI com 200%)
+* Ícone grande 
+ * 32x32 (com escala de DPI com 100%)
+ * 40x40 (com escala de DPI com 150%)
+ * 48x48 (com escala de DPI com 150%)
+ * 64x64 (com escala de DPI com 200%)
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Confira a seção *Size requirements* [nesse artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
-## High Resolution Image
+## Imagem em Alta Resolução
 
 On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
 
