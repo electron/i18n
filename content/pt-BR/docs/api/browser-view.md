@@ -58,15 +58,15 @@ Objectos criados com `new BrowserView` posuem as seguintes propriedades:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Um objeto [`WebContents`](web-contents.md) que pertence à esta vizualização.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+Um `Integer` representanto o único ID da visualização.
 
 ### Métodos de Instância
 
-Objects created with `new BrowserView` have the following instance methods:
+Objectos criados com `new BrowserView` possuem os seguintes métodos de instâncias:
 
 #### `view.destroy()`
 
