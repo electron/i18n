@@ -727,14 +727,14 @@ Retorna `Boolean` - Indica se o ambiente de trabalho atual é o Unity ou não.
   * `path` String (opcional) *Windows* - O caminho do executável a ser comparado. O padrão é `process.execPath`.
   * `args` String[] (opcional) *Windows* - Os argumentos de linha de comando a serem comparados. O padrão é um array vazio.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Se você fornecer as opções `path` e `args` para `app.setLoginItemSettings` então você precisará passar os mesmos argumentos aqui para `openAtLogin` para ser definido corretamente.
 
 Retorna `Object`:
 
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
-* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
-* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
+* `openAtLogin` Boolean - `true` se o aplicativo está configurado para abrir no login.
+* `openAsHidden` Boolean - `true` se o aplicativo está definido para abrir em modo oculto no login. Essa definição é suportada somente no macOS.
+* `wasOpenedAtLogin` Boolean - `true` se o aplicativo foi aberto automaticamente no login. Essa definição é suportada somente no macOS.
+* `wasOpenedAsHidden` Boolean - `true` se o aplicativo foi aberto mas definido como um ítem oculto no login. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
 * `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
 
 **Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
