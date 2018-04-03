@@ -10,13 +10,13 @@ Electron于2013年作为构建Github上可编程的文本编辑器[Atom](https:/
 
 ## 核心团队和贡献者
 
-Electron由Github上的一支团队和一群[活跃的贡献者](https://github.com/electron/electron/graphs/contributors)维护。 有些贡献者是独立开发者，有些则在用Electron构建应用的大型公司里工作。 我们很乐意把贡献频繁的人加入到项目维护者队伍中。 了解更多[为Electron作贡献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)。
+Electron由Github上的一支团队和一群[活跃的贡献者](https://github.com/electron/electron/graphs/contributors)维护。 有些贡献者是独立开发者，有些则在用Electron构建应用的大型公司里工作。 我们很乐意把贡献频繁的人加入到项目维护者队伍中。 阅读有关[为Electron作贡献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)的更多信息。
 
 ## 版本发布
 
 Electron的[版本发布](https://github.com/electron/electron/releases)相当频繁。每当Chromium、Node.js有重要的bug修复，新API或是版本更新时我们就会发布新版本。
 
-### 更新依赖
+### 更新依赖项
 
 Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一到两周之内更新，具体时间根据升级所需的工作量而定。
 
@@ -32,17 +32,17 @@ Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一�
 
 ### 长期支持
 
-当前并不存在对Electron旧版本的长期支持。 如果你当前的Electron版本跑的不错，你可以停留在这版本上任意时长。 如果你想用发布的新特性，那就升级到更新的版本。
+当前并不存在对Electron旧版本的长期支持。 如果现在你使用的Electron版本跑得不错，你就可以一直使用这个版本。 如果你想使用新发布的特性，那就升级到更新的版本。
 
 版本`v1.0.0`发布了重大的更新。 如果你现在没有在用这个版本，你应该[了解更多关于`v1.0.0`的改变](https://electronjs.org/blog/electron-1-0)。
 
 ## 核心理念
 
-为了保持Electron的小 (文件体积) 和可持续性 (依赖和API的扩展) ，Electron限制了使用的核心项目的范围。
+为了保持Electron的小巧 (文件体积) 和可持续性开发 (以防依赖库和API的泛滥) ，Electron限制了所使用的核心项目的数量。
 
-比如Electron只用了Chromium的渲染库而不是全部。 这使得容易升级Chromium，但也意味着Electron缺少Google Chrome里的一些浏览器特性。
+比如Electron只用了Chromium的渲染库而不是其全部组件。 这使得升级Chromium更加容易，但也意味着Electron缺少了Google Chrome里的一些浏览器相关的特性。
 
-Electron所添加的的新特性应主要用于原生API。 如果一个特性能够成为一个Node.js模块，那它就应该成为。 参见[社区构建的Electron工具](https://electronjs.org/community)。
+添加到Electron的新功能应该主要是原生 API。 如果可以的话，一个功能应该尽可能的成为一个Node.js模块。 参见[社区构建的Electron工具](https://electronjs.org/community)。
 
 ## 历史
 

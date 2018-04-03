@@ -6,10 +6,10 @@ Processo: [Main](../glossary.md#main-process)
 
 Veja [`Menu`](menu.md) para exemplos.
 
-### `new MenuItem(opcoes)`
+### `new MenuItem(options)`
 
 * `opções` Object 
-  * `click` Function(opcional) Vai ser chamado com `click(menuItem, browserWindow, event)` quando o item de menu for clicado. 
+  * `click` Function (opcional) - Vai ser chamado com `click(menuItem, browserWindow, event)` quando o item de menu for clicado. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
@@ -39,7 +39,7 @@ A propriedade `role` pode ter os seguintes valores:
 * `undo`
 * `redo`
 * `cut`
-* `copiar`
+* `copy`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`

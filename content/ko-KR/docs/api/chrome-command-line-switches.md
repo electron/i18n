@@ -1,4 +1,4 @@
-# 크롬 명령 줄 스위치 지원
+# Chrome 의 Command Line Switches 지원
 
 > Electron에서 지원하는 커맨드 명령줄 스위치입니다.
 

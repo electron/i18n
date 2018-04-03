@@ -1,24 +1,24 @@
 # Estilo de Codificação
 
-These are the style guidelines for coding in Electron.
+Essas são as diretrizes para programar no Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Você pode executar `npm run lint` para visualizar qualquer problemas de estilos detectados com `cpplint` e `eslint`.
 
-## General Code
+## Código em Geral
 
-* End files with a newline.
-* Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order: 
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
-* Avoid platform-dependent code: 
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
-* Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null`, or `undefined`
+* Termine arquivos com uma nova linha.
+* Apresente condições na seguinte ordem: 
+  * Módulos internos do Node (assim como `path`)
+  * Módulos internos do Electron (assim como `ipc`, `app`)
+  * Módulos locais (usando caminhos relativos)
+* Apresente propriedades de classe na seguinte ordem: 
+  * Métodos e propriedades de classe (métodos começando com um `@`)
+  * Instancie métodos e propriedades
+* Evite código dependente à uma plataforma: 
+  * Use `path.join()` para concatenar nome de arquivos.
+  * Use `os.tmpdir()` ao invés de `/tmp` quando você precisar fazer referência ao diretório temporário.
+* Usando um simples `return` ao explicitamente retornar no fim de uma função. 
+  * Não `return null`, `return undefined`, `null`, ou `undefined`
 
 ## C++ e Python
 

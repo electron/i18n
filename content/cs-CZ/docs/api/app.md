@@ -1,10 +1,10 @@
-# app
+# appka
 
 > Control your application's event lifecycle.
 
 Process: [Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+Následující příklad zobrazuje jak ukončit aplikaci po zavření posledního okna:
 
 ```javascript
 const {app} = require('electron')
@@ -719,7 +719,7 @@ Returns `Integer` - The current value displayed in the counter badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Vrací Boolean - Kdykoliv kdy je aktuální prostředí plochy Unity spouštěč.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 

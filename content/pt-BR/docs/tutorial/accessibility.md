@@ -38,7 +38,7 @@ Aplicativos em Electron devem mantém acessibilidade desabilitada por padrão, e
 
 ### Dentro do Aplicativo
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+Usando [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), a acessibilidade pode ser mostrada para usuários nas configuração da aplicação. User's system assistive utilities have priority over this setting and will override it.
 
 ### Assistive Technology
 

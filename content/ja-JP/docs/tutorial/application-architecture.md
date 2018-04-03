@@ -32,60 +32,60 @@ const electron = require('electron')
 
 すべての Electron API にはプロセスタイプが割り当てられています。 それらの多くはメインプロセスからのみ使用することができ、レンダラープロセスからのものや、両方からのものなどがあります。 個々の API のドキュメントには、どのプロセスで使用できるかが明確に記載されています。
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+たとえば、Electronのウィンドウは `BrowserWindow` クラスを使用して作成されます。 これはメインプロセスでのみ利用可能です。
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// これはメインプロセスでは動作しますが
+// レンダラプロセスでは `undefined` になります
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+プロセス間の通信が可能であるため、レンダラープロセスはメインプロセスを呼び出してタスクを実行できます。 Electron には `remote` というモジュールがあり、通常はメインプロセスでのみ利用可能な API を公開しています。 レンダラープロセスから `BrowserWindow` を作成するには、remote を仲介者として使用します。
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// これはレンダラープロセスでは動作しますが
+// メインプロセスでは `undefined` になります
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## Node.js API を使用する
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron は、メインプロセスとレンダラープロセスの両方で Node.js へのフルアクセスを公開します。 これには2つの重要な意味があります。
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Node.js で利用できるすべての API は Electron で利用できます。 Electron アプリから以下のコードを呼ぶと動作します。
 
 ```javascript
 const fs = require('fs')
 
 const root = fs.readdirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// これで、ディスクのルートレベル ( '/' か 'C:\')
+// のすべてのファイルが出力されます。
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+既に予測できるように、これはリモートコンテンツをロードしようとする場合にセキュリティの重要な意味を持ちます。 [セキュリティドキュメント](./security.md) に、リモートコンテンツの読み込みに関する詳細とガイダンスがあります。
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) アプリケーションで Node.js モジュールを使用できます。 好きな npm モジュールを選んでください。 npm は現在、オープンソースコードの世界最大のリポジトリ ―― サーバーアプリケーション用に予約され、保守されたもの ―― を提供しています。これを使用できることは、Electron の重要な機能の1つです。
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+たとえば、アプリケーションで公式の AWS SDK を使用するには、まずそれを依存関係としてインストールします。
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, simply require and use the module as if you were building a Node.js application:
+そして、Electron アプリで、Node.js アプリケーションを構築しているようにモジュールを単に require して使用します。
 
 ```javascript
-// A ready-to-use S3 Client
+// S3 クライアントの準備
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+重要な注意点が1つあります。ネイティブな Node.js モジュール (ネイティブコードのコンパイルが必要なモジュール) は、Electron と一緒に使用するためにコンパイルする必要があります。
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md) (it's easy).
+Node.js モジュールの大部分はネイティブでは *ありません*。 ~650.000のモジュールのうち400個だけがネイティブです。 しかし、どうしてもネイティブモジュールが必要な場合は、[Electron を再コンパイルする方法についてのこのガイド](./using-native-node-modules.md) を参照してください (簡単です)。
