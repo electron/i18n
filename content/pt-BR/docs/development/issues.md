@@ -13,8 +13,8 @@
 Para qualquer problema, existem fundamentalmente três maneiras que alguém pode contribuir:
 
 1. Abrindo o problema para discussão: Se você acredita ter encontrado um novo bug no Electron, você deverá reportar criando um novo problema no Rastreadpr de problemas `electron/electron`.
-2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
-3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
+2. Ajudando a fazer uma triagem acerca do problema: Você pode fazer-lo fornecendo detalhes assistivos (um teste o qual apresenta um bug) ou fornecer sugestões para ajudar com o problema.
+3. Ajudando à resolver o problema: Isso pode ser feito demonstrando que o problema não é problema ou já foi resolvido; so que mais frequentemente, abrindo uma requisição à qual muda a fonte do problema no `electron/electron` de uma forma concreta e revisável.
 
 ## Perguntas Sobre de Ajuda Geral
 
