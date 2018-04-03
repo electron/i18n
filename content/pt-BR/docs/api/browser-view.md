@@ -44,7 +44,7 @@ Returns `BrowserView[]` - An array of all opened BrowserViews.
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Retorna `BrowserView | null` - O BrowserView que possui o `webContents` ou `null` se um BrowserView não é o dono.
 
 #### `BrowserView.fromId(id)`
 
@@ -54,7 +54,7 @@ Retorna `BrowserView` - A view com o `id` passado.
 
 ### Propriedades de Instância
 
-Objects created with `new BrowserView` have the following properties:
+Objectos criados com `new BrowserView` posuem as seguintes propriedades:
 
 #### `view.webContents` *Experimental*
 
