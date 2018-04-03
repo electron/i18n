@@ -734,17 +734,17 @@ Retorna `Object`:
 * `openAtLogin` Boolean - `true` se o aplicativo está configurado para abrir no login.
 * `openAsHidden` Boolean - `true` se o aplicativo está definido para abrir em modo oculto no login. Essa definição é suportada somente no macOS.
 * `wasOpenedAtLogin` Boolean - `true` se o aplicativo foi aberto automaticamente no login. Essa definição é suportada somente no macOS.
-* `wasOpenedAsHidden` Boolean - `true` se o aplicativo foi aberto mas definido como um ítem oculto no login. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+* `wasOpenedAsHidden` Boolean - `true` se o aplicativo foi aberto mas definido como um ítem oculto no login. Isso indica que o aplicativo não deverá abrir nenhuma janela durante a inicialização. Essa definição é suportada somente no macOS.
+* `restoreState` Boolean - `true` se o aplicativo foi aberto como um ítem de login que deverá restaurar o estado da sessão anterior. Isso indica que o aplicativo deverá restaurar as janelas que foram abertas da última vez que o aplicativo fora fechado. Essa definição é suportada somente no macOS.
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Obs.:** Essa API não tem efeito em [Builds MAS](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (opcional) - `true` para abrir o aplicativo após o login, `false` para removê-lo da lista de inicialização automática. O padrão é `false`.
-  * `openAsHidden` Boolean (opcional) - `true` para abrir o aplicativo silenciosamente. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
-  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
+  * `openAsHidden` Boolean (opcional) - `true` para abrir o aplicativo silenciosamente. Padrão sendo `false`. O usuário pode editar essa configuração a partir das Preferências do Sistema portanto `app.getLoginItemStatus().wasOpenedAsHidden` deverá ser verificado quando o aplicativo for aberto para saber o valor atual. Essa definição é suportada somente no macOS.
+  * `path` String (optional) *Windows* - O executável para ser rodado no login. Padrão sendo `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
 Define as opções de execução do aplicativo na inicialização do sistema.
