@@ -89,4 +89,4 @@ Solicita al servidor si hay actualizaciones. Se debe llamar a `setFeedURL` antes
 
 Reinicia la aplicación e instala la actualización luego de que se haya descargado. Solo se debería llamar luego de que aparezca `update-downloaded`.
 
-**Note:** `autoUpdater.quitAndInstall()` cerrará todas las aplicaciones de Windows primero y solo emitirá `before-quit` event on `app` después de eso. Esto difiere de la secuencia normal del evento quit.
+**Nota:** `autoUpdater.quitAndInstall()` cerrará primero todas las ventanas de la aplicación y solo emitirá el evento `before-quit` en `app` después de eso. Esto difiere de la secuencia normal del evento quit.
