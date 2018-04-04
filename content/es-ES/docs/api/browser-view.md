@@ -70,11 +70,11 @@ Los objetos creados con `new BrowserView` tiene los siguientes métodos de insta
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+Forzar el cierre de la vista, provocará que los eventos `unload` and `beforeunload` no se emitan para la página web. Cuando haya terminado con una vista, llame tan pronto como sea posible a esta función para liberar la memoria y otros recursos.
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+Devuelve `Boolean` - Si la vista ha sido destruida.
 
 #### `view.setAutoResize(options)` *Experimental*
 
