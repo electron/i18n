@@ -151,9 +151,9 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `disableAutoHideCursor` Boolean (opcional) - si se oculta el cursor al escribir. Por defecto es `false`.
   * `autoHideMenuBar` Boolean (opcional) - Oculta automáticamente la barra de menú a menos que se presione la tecla `Alt`. Por defecto es `false`.
   * `enableLargerThanScreen` Boolean (opcional) - Permite que el tamaño de la ventana sea más grande que la pantalla. Por defecto es `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Por defecto es `#FFF` (blanco).
+  * `backgroundColor` String (opcional) - Color de fondo de la ventana en hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (se soporta el canal alpha). Por defecto es `#FFF` (blanco).
   * `hasShadow` Boolean (opcional) - Si la ventana debería tener sombra. Esto solo es implementado en macOS. Por defecto es `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `opacity` Number (opcional) - Establece la opacidad inicial de la ventana, entre 0.0 (completamente transparente) y 1.0 (completamente opaca). Solo está implementado en Windows y macOS.
   * `darkTheme` Boolean (opcional) - Obliga a utilizar un tema oscuro en la ventana, solamente funciona en algunos GTK+3 desktop environments. Por defecto es `false`.
   * `transparent` Boolean (opcional) - Hace que la ventana sea [transparente](frameless-window.md). Por defecto es `false`.
   * `type` String (opcional) - El tipo de ventana, por defecto es ventana normal. Ver más sobre esto más abajo.
@@ -201,7 +201,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `defaultMonospaceFontSize` Integer (opcional) - Por defecto es `13`.
     * `minimumFontSize` Integer (opcional) - Por defecto es ``.
     * `defaultEncoding` String (opcional) - Por defecto es `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (opcional) - Para acelerar animaciones y temporizadores cuando la página esta al fondo. This also affects the [Page Visibility API](#page-visibility). Por defecto es `true`.
+    * `backgroundThrottling` Boolean (opcional) - Para acelerar animaciones y temporizadores cuando la página esta al fondo. Esto también afecta a [Page Visibility API](#page-visibility). Por defecto es `true`.
     * `offscreen` Boolean(optional) - Para habilitar el renderizado offscreen para el navegador de la ventana. Por defecto es `false`. Para más detalles, ver [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
     * `contextIsolation` Boolean(opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `false`. El contexto que ejecuta el script `preload` tendrá acceso completo a los globales `document` y a `window` pero utilizará su propia configuración integrada de JavaScript (`Array`, `Object`, `JSON`, etc.) y estará apartada de cualquier cambio que se le haga al contexto global por la página cargada. El API Electron solo estará disponible en el script `preload` y no en la página cargada. Esta opción debe utilizarse cuando se carga contenido remoto potencialmente dañino para asegurar que el contenido cargado no pueda modificar el script `preload` o cualquier API de Electron en uso. Esta opción utiliza la misma técnica utilizada por [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Se puede acceder a este contexto en las herramientas de desarrollo al seleccionar la entrada 'Electron Isolated Context' en el cuadro combo en la parte superior de la pestaña de la Consola. **Nota:** actualmente esta opción es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
     * `nativeWindowOpen` Boolean (opcional) - Si se utiliza la `window.open()` nativa. Por defecto es `false`. **Nota:** actualmente esta opción es experimental.
