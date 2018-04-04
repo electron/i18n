@@ -307,35 +307,6 @@ describe('i18n.locales', () => {
   })
 })
 
-describe('i18n.navs', () => {
-  it('is an object with locales as keys', () => {
-    i18n.navs.should.be.an('object')
-    const keys = Object.keys(i18n.navs)
-    keys.should.include('en-US')
-    keys.should.include('fr-FR')
-    keys.length.should.be.above(10)
-  })
-
-  it('has a value and has valid html content as values', () => {
-    const values = Object.values(i18n.navs)
-    values.every(value => value.should.be.a('string'))
-    values.every(value => value.should.contain('<ul>'))
-    values.every(value => value.should.contain('<li>'))
-    values.should.not.contain('<html>')
-    values.should.not.contain('</html>')
-    values.should.not.contain('<head>')
-    values.should.not.contain('</head>')
-    values.should.not.contain('<body>')
-    values.should.not.contain('</body>')
-  })
-
-  it('has the required sidebar nav content for tutorials', () => {
-    const value = i18n.navs['en-US']
-    value.should.contain('<a href="/docs/tutorial/development-environment"')
-    value.should.contain('Setting up the Development Environment')
-  })
-})
-
 describe('i18n.electronMasterBranchCommit', () => {
   it('exists', () => {
     i18n.electronMasterBranchCommit.should.be.a('string')
