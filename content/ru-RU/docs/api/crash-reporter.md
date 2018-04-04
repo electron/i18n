@@ -4,7 +4,7 @@
 
 Процессы: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+Пример автоматической отправки отчетов о сбоях на удаленный сервер:
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -17,7 +17,7 @@ crashReporter.start({
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Для установки сервера для приема и обработки отчетов о сбоях вы можете использовать следующие проекты:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
