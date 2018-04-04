@@ -14,7 +14,7 @@ Adicionalmente, hay algunas diferencias sutiles en cada plataforma:
 
 ### macOS
 
-En macOS el modulo `autoUpdater` esta construido sobre [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) significando que no tienes que hacer alguna configuración especial para que funcione. Para los requerimientos del lado del servidor, puedes leer [Soporte de Servidor](https://github.com/Squirrel/Squirrel.Mac#server-support). Tenga en cuenta que [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) se aplica para todas las solicitudes creadas como parte del proceso de actualizaciones. Aplicaciones que necesitan para desactivar ATS pueden agregar la clave de `NSAllowsArbitraryLoads` a su .plist de su aplicación.
+En macOS, el módulo `autoUpdater` está construido sobre [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), lo que significa que no necesita ninguna configuración especial para que funcione. Para los requisitos de servidor, puede leer [Soporte de servidor](https://github.com/Squirrel/Squirrel.Mac#server-support). Tenga en cuenta que [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) se aplica para todas las solicitudes creadas como parte del proceso de actualizaciones. Aplicaciones que necesitan para desactivar ATS pueden agregar la clave de `NSAllowsArbitraryLoads` a su .plist de su aplicación.
 
 **Nota:** Su aplicación debe ser firmada para actualizaciones automáticas en macOS. Este es un requisito de `Squirrel.Mac`.
 
@@ -56,10 +56,10 @@ Aparece cuando no hay una actualización disponible.
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `releaseNotes` String
 * `releaseName` String
-* `releaseDate` Fecha
+* `releaseDate` Date
 * `updateURL` String
 
 Aparece cuando se ha descargado una actualización.
@@ -72,14 +72,14 @@ El objeto `autoUpdater` tiene los siguientes métodos:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` Cadena
+* `url` String
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-Configura el `url` e inicializa la actualización automática.
+Configura la `url` e inicializa la actualización automática.
 
 ### `autoUpdater.getFeedURL()`
 
-Devuelve `String` - La actualización actual provee el URL.
+Devuelve `String` - URL actual para la actualización.
 
 ### `autoUpdater.checkForUpdates()`
 
