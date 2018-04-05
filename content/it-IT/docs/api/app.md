@@ -51,7 +51,7 @@ Emesso prima che l'applicazione inizi a chiudere le sue finestre. Chiamare `even
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 
 Emesso quando tutte le finestre sono state chiuse e l'applicazione uscirà. Chiamare `event.preventDefault()` impedirà il comportamento predefinito, ovvero la terminazione l'applicazione.
 
@@ -61,8 +61,8 @@ Vedi la descrizione dell'evento `window-all-closed` per le differenze tra gli ev
 
 Restituisce:
 
-* `event` Evento
-* `codiceUscita` Numero Intero
+* `event` Event
+* `codiceUscita` Integer
 
 Emesso quando l'applicazione è in uscita.
 
@@ -70,8 +70,8 @@ Emesso quando l'applicazione è in uscita.
 
 Restituisce:
 
-* `event` Evento
-* `path` Stringa
+* `event` Event
+* `path` String
 
 Emesso quando l'utente vuole aprire un file con l'app. L'evento `open-file` è in genere emesso quando l'applicazione è già aperta e l'S.O. vuole riutilizzarla per aprire il file. `open-file` è anche emesso quando un file è rilasciato nel dock e l'applicazione non è ancora in esecuzione. E' necessario assicurarsi di ascoltare l'evento `open-file` molto presto all'avvio della tua app per gestire questo caso (anche prima dell'emissione dell'evento `ready`).
 
@@ -94,8 +94,8 @@ Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
 Restituisce:
 
-* `event` Evento
-* `hasVisibleWindows` Booleano
+* `event` Event
+* `hasVisibleWindows` Boolean
 
 Emesso quando l'applicazione è attivata. Varie azioni possono generare questo evento, come il lancio dell'applicazione per la prima volta, provare a rilanciarla quando è già aperta o cliccare sul dock dell'applicazione o sull'icona della taskbar.
 
@@ -103,9 +103,9 @@ Emesso quando l'applicazione è attivata. Varie azioni possono generare questo e
 
 Restituisce:
 
-* `event` Evento
-* `type` Stringa - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Oggetto - Contiene stati specifici dell'applicazione immagazzinati per attività su un altro dispositivo.
+* `event` Event
+* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contiene stati specifici dell'applicazione immagazzinati per attività su un altro dispositivo.
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
@@ -115,8 +115,8 @@ Un'attività dell'utente può essere continuata solo in un app con lo stesso dev
 
 Restituisce:
 
-* `event` Evento
-* `type` Stringa - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `event` Event
+* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), prima che un'attività da un dispositivo differente richieda di essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
@@ -124,31 +124,31 @@ Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 Restituisce:
 
-* `event` Evento
-* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` Stringa - Una stringa contenente la descrizione localizzata dell'errore.
+* `event` Event
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - Una stringa contenente la descrizione localizzata dell'errore.
 
-Emesso durante [Passa](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un dispositivo diverso fallisce nel ripristino.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un dispositivo diverso fallisce nel ripristino.
 
-### Evento: 'attività-continuata' *macOS*
+### Evento: 'activity-was-continued' *macOS*
 
 Restituisce:
 
-* `event` Evento
-* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `Infoutente` Oggetto - Contiene uno stato specifico per l'app archiviato dall'attività.
+* `event` Event
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `Infoutente` Object - Contiene uno stato specifico per l'app archiviato dall'attività.
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) dopo che un'attività da questo dispositivo è stata ripristinata con successo su un altro.
 
-### Evento: 'aggiorna-stato-attività' *macOS*
+### Evento: 'update-activity-state' *macOS*
 
 Restituisce:
 
-* `event` Evento
-* `type` Stringa - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `Infoutente` Oggetto - Contiene uno stato specifico per l'app archiviato dall'attività.
+* `event` Event
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `Infoutente` Object - Contiene uno stato specifico per l'app archiviato dall'attività.
 
-Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti aggiornare lo stato da trasferire, potresti chiamare `evento.previeniDefault()` immediatamente, costruirne un nuovo dizionario `Infoutente` e chiamare `app.aggiornaAttivitàCorrente()` tempestivamente. Altrimenti l'operazione fallirà e sarà chiamato l'`errore-attività-continua`.
+Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti aggiornare lo stato da trasferire, potresti chiamare `evento.preventDefault()` immediatamente, costruirne un nuovo dizionario `userInfo` e chiamare `app.updateCurrentActiviy()` tempestivamente. Altrimenti l'operazione fallirà e sarà chiamato l'`errore-attività-continua`.
 
 ### Evento: 'nuova-finestra-per-scheda' *macOS*
 
