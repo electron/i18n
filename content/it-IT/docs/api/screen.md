@@ -57,7 +57,7 @@ The `screen` module emits the following events:
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
 Emitted when `newDisplay` has been added.
@@ -66,7 +66,7 @@ Emitted when `newDisplay` has been added.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
@@ -75,7 +75,7 @@ Emitted when `oldDisplay` has been removed.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
