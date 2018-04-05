@@ -422,43 +422,43 @@ Di default, i cookie e la cache delle pagine web saranno immagazzinate sotto la 
 
 ### `app.getVersion()`
 
-Restituisce `String` - La versione dell'app caricata. Se non viene trovata nessuna versione nel file dell'app `pacchetto-json`, la versione dell'attuale pacchetto o eseguibile è restituita.
+Restituisce `String` - La versione dell'app caricata. Se non viene trovata nessuna versione nel file dell'app `package.json`, la versione dell'attuale pacchetto o eseguibile è restituita.
 
-### `app.ottieniNome()`
+### `app.getName()`
 
-Restituisce `Stringa`. Il nome attuale dell'app, che è il nome nel file dell'app `package.json`.
+Restituisce `String`. Il nome attuale dell'app, che è il nome nel file dell'app `package.json`.
 
-Spesso il campo `nome` del `package.json` è un breve nome in minuscolo, in bae alla specifica dei moduli npm-. Di solito si dovrebbe anche specificare un campo `NomeProdotto`, che è il nome in maiuscolo della tua applicazione, e che sarà preferito al `nome` da Electron.
+Spesso il campo `name` del `package.json` è un breve nome in minuscolo, seconda la specifica dei moduli npm. Di solito si dovrebbe anche specificare un campo `productName`, che è il nome in maiuscolo della tua applicazione, e che sarà preferito al `name` da Electron.
 
-### `app.impostaNome(nome)`
+### `app.setName(name)`
 
-* `nome` Stringa
+* `name` String
 
 Sostituisce l'attuale nome dell'app.
 
-### `app.ottieniLocale()`
+### `app.getLocale()`
 
-Restituisce `Stringa` - L'attuale locale dell'app. Possibili valori restituiti sono documentati [qui](locales.md).
+Restituisce `String` - L'attuale locale dell'app. Possibili valori restituiti sono documentati [qui](locales.md).
 
 **Note:** Quando distribuisci il tuo pacchetto app, devi anche navigare nelle cartelle `locali`.
 
-**Note:** Su Windows devi chiamarlo dopo che l'evento `pronto` è emesso.
+**Note:** Su Windows devi chiamarlo dopo che l'evento `ready` è emesso.
 
-### `app.aggoimgoRecenteDocumento(percorso)` *macOS* *Windows*
+### `app.addRecentDocument(path)` *macOS* *Windows*
 
-* `path` Stringa
+* `path` String
 
-Aggiungi `percorso` alla lista documenti recenti.
+Aggiungi `path` alla lista documenti recenti.
 
 Questa lista è gestita dall'OS. Su Windows puoi visitare la lista dalla taskbar e su macOS la puoi visitare dal menu dock.
 
-### `app,pulisciRecentiDocumenti` *macOS* *Windows*
+### `app,clearRecentDocuments()` *macOS* *Windows*
 
 Pulisce la lista documenti recenti.
 
-### `app.impostaComeClientProtocolloDefault(protocollo[, percorso, argomenti])`
+### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocollo` Stringa - Il nome del tuo protocollo, senza `://`. Se vuoi che la tua app gestisca i link `electron://` chiama questo metodo con `electron` come parametro.
+* `protocol` String - Il nome del tuo protocollo, senza `://`. Se vuoi che la tua app gestisca i link `electron://` chiama questo metodo con `electron` come parametro.
 * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
 * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
 
