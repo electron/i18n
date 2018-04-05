@@ -270,19 +270,19 @@ Restituisce:
 
 Emesso quando i `webContents` vogliono fare un'autenticazione base.
 
-Il comportamento predefinito è di cancellare tutte le autenticazioni, per evitare ciò puoi prevenire il comportamento predefinito con `evento.previeniDefault` e chiamare `callback(nomeutente, password)` con le credenziali.
+Il comportamento predefinito è di cancellare tutte le autenticazioni, per evitare ciò puoi prevenire il comportamento predefinito con `event.preventDefault()` e chiamare `callback(username, password)` con le credenziali.
 
 ```javascript
 const {app} = richiedi('electron')
 
 
-app.on('login', evento, Contenutiweb, richiesta, Infoaut, callback) => {
- evento.previeniDefault()
+app.on('login', (event, webContents, request, authInfo, callback) => {
+ evento.preventDefault()
  callback('nomeutente', 'segreto')
 })
 ```
 
-### Evento: 'processi-gpu-crashati'
+### Evento: 'gpu-process-crashed'
 
 Restituisce:
 
