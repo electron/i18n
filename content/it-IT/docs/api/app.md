@@ -286,19 +286,19 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Restituisce:
 
-* `event` Evento
-* `ucciso` Booleano
+* `event` Event
+* `killed` Boolean
 
 Emesso quando i processi gpu crashano o soni uccisi.
 
-### Evento: 'accessibilità-supporto-cambiata' *macOS* *Windows*
+### Evento: 'accessibility-support-changed' *macOS* *Windows*
 
 Restituisce:
 
 * `event` Evento
-* `SupportoAccessibilitàAbilitato` Booleano - `true` quando il supporto all'accessibilità a Chrome è abilitato, `false` altrimenti.
+* `accessibilitySupportEnabled` Boolean - `true` quando il supporto all'accessibilità a Chrome è abilitato, `false` altrimenti.
 
-Emesso quando cambia il supporto accessibilità di Chrome. Questo evento avviene quando le tecnologie d'assistenza, come lettore schermo, sono abilitate o disabilitate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
+Emesso quando cambia il supporto accessibilità di Chrome. Questo evento avviene quando le tecnologie d'assistenza, come lettore schermo, sono abilitate o disabilitate. Vedi https://www.chromium.org/developers/design-documents/accessibility per ulteriori dettagli.
 
 ## Metodi
 
