@@ -661,53 +661,53 @@ Invalida l'attività [Handoff](https://developer.apple.com/library/ios/documenta
 * `type` String - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Stato app specifico al magazzino per usare da altro dispositivo.
 
-Aggiorna l'attività corrente se il suo tipo corrisponde al `tipo`, fondendo le voci da `Infoutente` nel suo dizionario corrente `Infoutente`.
+Aggiorna l'attività corrente se il suo tipo corrisponde al `type`, fondendo le voci da `userInfo` nel suo dizionario corrente `userInfo`.
 
-### `app.impostaModelloIdAppUtente(id)` *Windows*
+### `app.setAppUserModelId(id)` *Windows*
 
-* `id` Stringa
+* `id` String
 
 Cambia il [Modello Id Applicazione Utente](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) ad `id`.
 
-### `app.importaCertificato(opzioni, callback)` *LINUX*
+### `app.importCertificate(options, callback)` *LINUX*
 
-* `opzioni` Oggetto 
-  * `certificato` Stringa - Percorso per il file pkcs12.
-  * `password` Stringa - Frase d'accesso per il certificato.
-* `callback` Funzione 
-  * `risultato` Numero intero - Risultato dell'importo.
+* `options` Object 
+  * `certificate` Stringa - Percorso per il file pkcs12.
+  * `password` String - Frase d'accesso per il certificato.
+* `callback` Function 
+  * `result` Integer - Risultato dell'importo.
 
-Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` è chiamato con il `risultato` dell'operazione di importazione, un valore di `` indica successo, mentre un altro valore indica un fallimento in base al chromium [net_errore_lista](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` è chiamato con il `result` dell'operazione di importazione, un valore di `` indica successo, mentre un altro valore indica un fallimento in base al chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-### `app.disabilitaAccelerazioneHardware()`
+### `app.disableHardwareAcceleration()`
 
 Disabilita l'accelerazione hardware per l'app attuale.
 
 Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
-### `app.disabilitaBloccaggioDominioPerAPI3D()`
+### `app.disableDomainBlockingFor3DAPIs()`
 
 Di default, Chromium disabilita le API 3D (come WebGL) fino al riavvio su una base per dominio se i processi GPU crashano troppo spesso. Questa funzione disabilita questo comportamento.
 
 Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
-### `app.ottieniInfoMemoriaApp()` *Deprecato*
+### `app.getAppMemoryInfo()` *Deprecato*
 
-Restituisce [`ProcessoMetrico[]`](structures/process-metric.md): Insieme di oggetti `ProcessoMetrico` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app. **Nota:** Questo metodo è deprecato, usa invece `app.ottieniMetricheApp()`.
+Restituisce [`ProcessMetric[]`](structures/process-metric.md): Insieme di oggetti `ProcessMetric` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app. **Nota:** Questo metodo è deprecato, usa invece `app.getAppMetrics()`.
 
-### `app.ottieniMetricheApp()`
+### `app.getAppMetrics()`
 
-Restituisce [`ProcessoMetrico[]`](structures/process-metric.md): Insieme di oggetti `ProcessoMetrico` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app.
+Restituisce [`ProcessMetric[]`](structures/process-metric.md): Insieme di oggetti `ProcessMetric` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app.
 
-### `app.ottieniStatoFunzioneGPU()`
+### `app.getGPUFeatureStatus()`
 
-Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
+Restituisce lo [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
 
-### `app.impostaContaBadge(conta)` *Linux* *macOS*
+### `app.setBadgeCount(count)` *Linux* *macOS*
 
-* `conta` Numero Intero
+* `count` Integer
 
-Restituisce `Booleano` - Se la chiamata ha avuto successo.
+Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
 Imposta il contatore badge per l'app attuale. Impostare il conto a `` nasconderà il badge.
 
@@ -715,43 +715,43 @@ Su macOS esso è mostrato sull'icona del dock. Su Linux lavora sol9 con il Launc
 
 **Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
-### `app.ottieniContaBadge()` *Linux* *macOS*
+### `app.getBadgeCount()` *Linux* *macOS*
 
-Restituisce `Intero` - Il valore attuale è mostrato nel contatore di badge.
+Restituisce `Integer` - Il valore attuale è mostrato nel contatore di badge.
 
-### `app.èUnityEsecuzione()` *Linux*
+### `app.isUnityRunning()` *Linux*
 
-Restituisce `Booleano` - Se l'attuale ambiente desktop è il launcher Unity.
+Restituisce `Boolean` - Se l'attuale ambiente desktop è il launcher Unity.
 
-### `app.ottieniImpostazioniElementiAccesso([options])` *macOS* *Windows*
+### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `opzioni` Oggetto (opzionale) 
-  * `percorso` Stringa (opzionale) *Windows* - Il percorso eseguibile a comparazione. Di default è `processo.eseguiPercorso`.
-  * `arg` Stringa[] (opzionale) *Windows* - La linea di comando degli argomenti comparata. Di default è un insieme vuoto.
+* `options` Object (opzionale) 
+  * `path` String (opzionale) *Windows* - Il percorso eseguibile a comparazione. Di default è `process.execPath`.
+  * `args` String[] (opzionale) *Windows* - La linea di comando degli argomenti comparata. Di default è un insieme vuoto.
 
-Se hai fornito le opzioni di `percorso` e di `arg` a `app.impostaImpostazioniElementiAccedi` dovrai passare gli stessi argomenti qui per `apriAdAccesso` per impostarlo correttamente.
+Se hai fornito le opzioni di `path` e di `args` a `app.setLoginItemSettings` dovrai passare gli stessi argomenti qui per `openAtLogin` per impostarlo correttamente.
 
-Restituisci `Oggetto`:
+Restituisci `Object`:
 
-* `apriAdAccesso` Booleano - `true` se l'app è impostata a aperta all'accesso.
-* `apriComeNascosto` Booleano - `true` se l'app è impostata ad aprirsi come nascosta all'accesso. Impostazione supportata solo su macOS.
-* `eraApertoAdAccesso` Booleano - `true` se l'app era aperta automaticamente all'all'accesso. Questa impostazione è supportata solo su macOS.
-* `eraApertoComeNascosto` Booleano - `true` se l'app era aperta come un elemento di accesso nascosto. Questo indica che l'app potrebbe non aprire alcuna finestra all'avvio. Questa impostazione è supportata solo su macOS.
-* `ripristinaStato` Booleano - `true` se l'app era aperta come elemento d'accesso che potrebbe ripristinare lo stato dalla sessione precedente. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa impostazione è supportata solo su macOS.
+* `openAtLogin` Boolean - `true` se l'app è impostata a aperta all'accesso.
+* `openAsHidden` Boolean - `true` se l'app è impostata ad aprirsi come nascosta all'accesso. Impostazione supportata solo su macOS.
+* `wasOpenedAtLogin` Boolean - `true` se l'app era aperta automaticamente all'all'accesso. Questa impostazione è supportata solo su macOS.
+* `wasOpenedAsHidden` Boolean - `true` se l'app era aperta come un elemento di accesso nascosto. Questo indica che l'app potrebbe non aprire alcuna finestra all'avvio. Questa impostazione è supportata solo su macOS.
+* `restoreState` Boolean - `true` se l'app era aperta come elemento d'accesso che potrebbe ripristinare lo stato dalla sessione precedente. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa impostazione è supportata solo su macOS.
 
 **Nota:** Questa API non ha effetto sulle [Costruzioni MAS](../tutorial/mac-app-store-submission-guide.md).
 
-### `app.impostaImpostazioniElementoAccesso(impostazioni)` *macOS* *Windows*
+### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `impostazioni` Oggetto 
-  * `apriAdAccesso` Booleano (opzionale) - `true` per aprire l'app all'accesso, `false` per rimuovere l'app come elemento di accesso. Di default a `false`.
-  * `apriComeNascosto` Booleano (opzionale) - `true` per aprire l'app come nascosta. Di default `false`. L'utente può editare questa impostazione dalle Preferenze di Sistema quindi `app.ottieniStatoAccessoElementi().eraApertoComeNascosto` potrebbe essere controllato quando l'app è aperta per conoscere il valore attuale. Questa impostazione è supportata solo su macOS.
-  * `percorso` Stringa (opzionale) *Windows*. L'eseguibile al lancio all'accesso. Di default a `processo.eseguiPercorso`.
-  * `arg` Stringa[] (opzionale) *Windows* - La linea di comando dell'argomento per passare all'eseguibile. Di default ad un insieme vuoto. Stai attento ad avvolgere i percorsi in quote.
+* `settings` Object 
+  * `openAtLogin` Boolean (opzionale) - `true` per aprire l'app all'accesso, `false` per rimuovere l'app come elemento di accesso. Di default a `false`.
+  * `openAsHidden` Boolean (opzionale) - `true` per aprire l'app come nascosta. Di default `false`. L'utente può editare questa impostazione dalle Preferenze di Sistema quindi `app.getLoginItemStatus().wasOpenedAsHidden` potrebbe essere controllato quando l'app è aperta per conoscere il valore attuale. Questa impostazione è supportata solo su macOS.
+  * `path` String (opzionale) *Windows*. L'eseguibile al lancio all'accesso. Di default a `process.execPath`.
+  * `args` String[] (opzionale) *Windows* - La linea di comando dell'argomento per passare all'eseguibile. Di default ad un insieme vuoto. Stai attento ad avvolgere i percorsi in quote.
 
 Imposta le impostazioni dell'elemento d'accesso all'app.
 
-Per lavorare con l'`autoCaricatore` di Electron su Windows, che usa [Squirrel](https://github.com/Squirrel/Squirrel.Windows), vorrai impostare il percorso di lancio ad Update.exe e passare gli argomenti per specificare il nome della tua applicazione. Ad esempio:
+Per lavorare con l'`autoUpdater` di Electron su Windows, che usa [Squirrel](https://github.com/Squirrel/Squirrel.Windows), vorrai impostare il percorso di lancio ad Update.exe e passare gli argomenti per specificare il nome della tua applicazione. Ad esempio:
 
 ```javascript
 const cartellaApp = path.dirname(process.execPath)
