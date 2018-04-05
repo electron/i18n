@@ -59,23 +59,23 @@ npm 会帮助你创建一个基本的 `package.json` 文件。 其中的 `main` 
 
 ## 安装 Electron
 
-现在，您需要安装`electron`。 我们推荐的安装方法是把它作为您app中的开发依赖项，这使您可以在不同的app中使用不同的Electron版本。 在您的app所在文件夹中运行下面的命令：
+现在，您需要安装`electron`。 我们推荐的安装方法是把它作为您 app 中的开发依赖项，这使您可以在不同的 app 中使用不同的 Electron 版本。 在您的app所在文件夹中运行下面的命令：
 
 ```sh
 npm install --save-dev electron
 ```
 
-除此之外，也有其他安装Electron的途径。 请咨询[安装指南](installation.md)来了解如何用代理、镜像和自定义缓存。
+除此之外，也有其他安装 Electron 的途径。 请咨询[安装指南](installation.md)来了解如何用代理、镜像和自定义缓存。
 
 ## 开发一个简易的 Electron
 
-Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron apps 是使用与 Node.js 开发中相同的原理和方法在 JavaScript 中开发的。 All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might just wait for the application to be ready and open a window:
+The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. 一个简单的`main.js`文件可能仅等待应用程序准备就绪后打开一个窗口：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -179,11 +179,11 @@ app.on('activate', () => {
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
-## Trying this Example
+## 尝试此例
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+复制并运行这个库 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start)。
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**注意**：运行此需要[Git](https://git-scm.com)
 
 ```sh
 # 克隆这仓库
