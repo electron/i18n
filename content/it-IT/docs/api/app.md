@@ -27,7 +27,7 @@ In gran parte dei casi, dovresti solo fare tutto nel gestore dell'evento `ready`
 
 Restituisce:
 
-* `launchInfo` Oggetto *macOS*
+* `launchInfo` Object *macOS*
 
 Emesso quando Electron ha concluso l'inizializzazione. Su macOS `launchInfo` detiene le `userInfo` della `NSUserNotification` usata per aprire l'applicazione, se lanciata dal Centro Notifiche. Puoi chiamare `app.isReady()` per controllare se gli eventi sono già stati generati.
 
@@ -41,7 +41,7 @@ Se l'evento non viene gestito e tutte le finestre vengono chiuse, il comportamen
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 
 Emesso prima che l'applicazione inizi a chiudere le sue finestre. Chiamare `event.preventDefault()` impedirà il comportamento predefinito, ovvero la terminazione l'applicazione.
 
