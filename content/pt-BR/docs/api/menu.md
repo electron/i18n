@@ -24,9 +24,9 @@ Passando `null` removerá a barra de menus no Windows e Linux, mas não tem efei
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Retorna `Menu | null` - O menu do aplicativo, se definido, ou `null`, se não fora definido.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Obs.:** A instancia `Menu` retornada não suporta adição dinamica ou remoção de itens de menu. [Instance properties](#instance-properties) ainda podem ser modificadas dinamicamente.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 

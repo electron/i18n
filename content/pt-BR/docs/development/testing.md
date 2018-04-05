@@ -4,7 +4,7 @@ We aim to keep the code coverage of Electron high. We ask that all pull request 
 
 This repository comes with linting rules for both JavaScript and C++ – as well as unit and integration tests. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
 
-## Linting
+## "Linting"
 
 To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons](https://standardjs.com/#are-there-text-editor-plugins) to be informed of coding style violations before you ever commit them.
 
@@ -14,9 +14,9 @@ To ensure that your C++ is in compliance with the Electron coding style, run `np
 
 There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
 
-## Unit Tests
+## Testes unitários
 
-To run all unit tests, run `npm run test`. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
+Para executar todos os testes unitários, execute: `npm run test`. Em uma aplicação Electron os testes podem ser encontrados na pasta `spec`. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
 
 To run only specific tests matching a pattern, run `npm run test --
 -g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.

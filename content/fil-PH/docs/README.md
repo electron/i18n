@@ -1,4 +1,4 @@
-# Official Guides
+# Opisyal na Gabay
 
 Pakitiyak na ginagamit mo ang mga dokumento na tumutugma sa iyong bersyon ng Electron. Ang numero ng bersyon ay dapat na isang bahagi ng URL ng pahina. Kung hindi, ikaw ay marahil gumagamit ng dokumentasyon ng sangay sa pag-unlad na maaaring naglalaman ng mga pagbabago ng API na hindi tugma sa iyong bersyon ng Electron. Upang tingnan ang mas matandang mga bersyon ng dokumentasyon, maaari kang [ mag-browse ayon sa tag ](https://github.com/electron/electron/tree/v1.4.0) sa GitHub sa pamamagitan ng pagbukas ng dropdown na mga branch / tag "at pagpili sa tag na tumutugma sa iyong bersyon.
 
@@ -144,4 +144,4 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 
 ## Pag-unlad
 
-See <development/README.md>
+Tingnan sa <development/README.md>

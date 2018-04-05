@@ -1,6 +1,6 @@
-# Developing Electron
+# Desenvolvendo com Electron
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Estes guias destinam-se a pessoas que trabalham no projeto Electron. Para o desenvolvedores Electron, consulte [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [Código de Conduta](../../CODE_OF_CONDUCT.md)
 * [Contribuindo para o Electron](../../CONTRIBUTING.md)
@@ -18,9 +18,9 @@ These guides are intended for people working on the Electron project itself. For
 * [V8 Desenvolvimento](v8-development.md)
 * [Testando](testing.md)
 * [Depuração no Windows](debug-instructions-windows.md)
-* [Debugging on macOS](debugging-instructions-macos.md)
+* [Depuração no macOS](debugging-instructions-macos.md)
 * [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
 * [Atualizando o Chromium](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
+* [Atualizando Crashpad](upgrading-crashpad.md)
 * [Atualizando NodeJS](upgrading-node.md)
 * [Releasing](releasing.md)

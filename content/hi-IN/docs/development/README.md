@@ -1,9 +1,9 @@
-# Developing Electron
+# इलेक्ट्रॉन के साथ निर्माण
 
 These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [आचार संहिता](../../CODE_OF_CONDUCT.md)
-* [Contributing to Electron](../../CONTRIBUTING.md)
+* [इलेक्ट्रॉन के लिए योगदान](../../CONTRIBUTING.md)
 * [Issues](issues.md)
 * [Pull Requests](pull-requests.md)
 * [प्रलेखन स्टाइलगाइड](styleguide.md)
@@ -17,10 +17,10 @@ These guides are intended for people working on the Electron project itself. For
 * [क्रोमियम विकास](chromium-development.md)
 * [वी8 विकास](v8-development.md)
 * [जाँच करना](testing.md)
-* [Debugging on Windows](debug-instructions-windows.md)
+* [Windows पर डीबगिंग](debug-instructions-windows.md)
 * [Debugging on macOS](debugging-instructions-macos.md)
 * [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
 * [क्रोमियम अपग्रेड करना](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
-* [Upgrading Node](upgrading-node.md)
+* [Crashpad अपग्रेड करना](upgrading-crashpad.md)
+* [Node अपग्रेड करना](upgrading-node.md)
 * [Releasing](releasing.md)

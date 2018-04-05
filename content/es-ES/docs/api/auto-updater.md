@@ -4,17 +4,17 @@
 
 Process: [Main](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**Podrá encontrar una guía detallada sobre como implementar actualizaciones en su aplicación [aquí](../tutorial/updates.md).**
 
-## Platform Notices
+## Noticias de la plataforma
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Actualmente, solo macOS y Windows están soportados. No hay soporte para auto actualizaciones en Linux, por lo que es recomendable que use el gestor de paquetes de la distribución para actualizar su aplicación.
 
-In addition, there are some subtle differences on each platform:
+Adicionalmente, hay algunas diferencias sutiles en cada plataforma:
 
 ### macOS
 
-En macOS el modulo `autoUpdater` esta construido sobre [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) significando que no tienes que hacer alguna configuración especial para que funcione. Para los requerimientos del lado del servidor, puedes leer [Soporte de Servidor](https://github.com/Squirrel/Squirrel.Mac#server-support). Tenga en cuenta que [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) se aplica para todas las solicitudes creadas como parte del proceso de actualizaciones. Aplicaciones que necesitan para desactivar ATS pueden agregar la clave de `NSAllowsArbitraryLoads` a su .plist de su aplicación.
+En macOS, el módulo `autoUpdater` está construido sobre [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), lo que significa que no necesita ninguna configuración especial para que funcione. Para los requisitos de servidor, puede leer [Soporte de servidor](https://github.com/Squirrel/Squirrel.Mac#server-support). Tenga en cuenta que [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) se aplica para todas las solicitudes creadas como parte del proceso de actualizaciones. Aplicaciones que necesitan para desactivar ATS pueden agregar la clave de `NSAllowsArbitraryLoads` a su .plist de su aplicación.
 
 **Nota:** Su aplicación debe ser firmada para actualizaciones automáticas en macOS. Este es un requisito de `Squirrel.Mac`.
 
@@ -56,10 +56,10 @@ Aparece cuando no hay una actualización disponible.
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `releaseNotes` String
 * `releaseName` String
-* `releaseDate` Fecha
+* `releaseDate` Date
 * `updateURL` String
 
 Aparece cuando se ha descargado una actualización.
@@ -72,14 +72,14 @@ El objeto `autoUpdater` tiene los siguientes métodos:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` Cadena
+* `url` String
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-Configura el `url` e inicializa la actualización automática.
+Configura la `url` e inicializa la actualización automática.
 
 ### `autoUpdater.getFeedURL()`
 
-Devuelve `String` - La actualización actual provee el URL.
+Devuelve `String` - URL actual para la actualización.
 
 ### `autoUpdater.checkForUpdates()`
 
@@ -89,4 +89,4 @@ Solicita al servidor si hay actualizaciones. Se debe llamar a `setFeedURL` antes
 
 Reinicia la aplicación e instala la actualización luego de que se haya descargado. Solo se debería llamar luego de que aparezca `update-downloaded`.
 
-**Note:** `autoUpdater.quitAndInstall()` cerrará todas las aplicaciones de Windows primero y solo emitirá `before-quit` event on `app` después de eso. Esto difiere de la secuencia normal del evento quit.
+**Nota:** `autoUpdater.quitAndInstall()` cerrará primero todas las ventanas de la aplicación y solo emitirá el evento `before-quit` en `app` después de eso. Esto difiere de la secuencia normal del evento quit.

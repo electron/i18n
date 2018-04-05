@@ -1,26 +1,26 @@
-# Issues In Electron
+# Problemas com o Electron
 
-# Issues
+# Problemas
 
-* [How to Contribute in Issues](#how-to-contribute-in-issues)
-* [Asking for General Help](#asking-for-general-help)
-* [Submitting a Bug Report](#submitting-a-bug-report)
-* [Triaging a Bug Report](#triaging-a-bug-report)
-* [Resolving a Bug Report](#resolving-a-bug-report)
+* [Como Contribuir com Problemas](#how-to-contribute-in-issues)
+* [Perguntas Sobre de Ajuda Geral](#asking-for-general-help)
+* [Enviando um Relatório de Erro](#submitting-a-bug-report)
+* [Fazendo Triagem de um Relatório de Erro](#triaging-a-bug-report)
+* [Resolvendo um Relatório de Erro](#resolving-a-bug-report)
 
-## How to Contribute in Issues
+## Como Contribuir com Problemas
 
-For any issue, there are fundamentally three ways an individual can contribute:
+Para qualquer problema, existem fundamentalmente três maneiras que alguém pode contribuir:
 
-1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the `electron/electron` issue tracker.
-2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
-3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
+1. Abrindo o problema para discussão: Se você acredita ter encontrado um novo bug no Electron, você deverá reportar criando um novo problema no Rastreadpr de problemas `electron/electron`.
+2. Ajudando a fazer uma triagem acerca do problema: Você pode fazer-lo fornecendo detalhes assistivos (um teste o qual apresenta um bug) ou fornecer sugestões para ajudar com o problema.
+3. Ajudando à resolver o problema: Isso pode ser feito demonstrando que o problema não é problema ou já foi resolvido; so que mais frequentemente, abrindo uma requisição à qual muda a fonte do problema no `electron/electron` de uma forma concreta e revisável.
 
-## Asking for General Help
+## Perguntas Sobre de Ajuda Geral
 
 Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
 
-## Submitting a Bug Report
+## Enviando um Relatório de Erro
 
 When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
 
@@ -68,7 +68,7 @@ The two most important pieces of information needed to evaluate the report are a
 
 See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
 
-## Triaging a Bug Report
+## Fazendo Triagem de um Relatório de Erro
 
 It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
 
@@ -76,6 +76,6 @@ Terse responses that provide neither additional context nor supporting detail ar
 
 Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
-## Resolving a Bug Report
+## Resolvendo um Relatório de Erro
 
 Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.

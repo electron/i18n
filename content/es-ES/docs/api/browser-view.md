@@ -38,21 +38,21 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Devuelve `BrowserView[]` - Un array con tolas las BrowserViews abiertas.
 
 #### `BrowserView.fromWebContents(webContents)`
 
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Devuelve `BrowserView | null` - La BrowserView propietaria del `webContents` indicado o `null` si la BrowserView no es la propietaria del contenido.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Íntegro
+* `id` Integer
 
-Devuelve `BrowserView` - La vista con el proveido `id`.
+Devuelve `BrowserView` - La vista con el `id` especificado.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Los objetos creados con `new BrowserView` tienen las siguientes propiedades:
 
@@ -70,11 +70,11 @@ Los objetos creados con `new BrowserView` tiene los siguientes métodos de insta
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+Forzar el cierre de la vista, provocará que los eventos `unload` and `beforeunload` no se emitan para la página web. Cuando haya terminado con una vista, llame tan pronto como sea posible a esta función para liberar la memoria y otros recursos.
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+Devuelve `Boolean` - Si la vista ha sido destruida.
 
 #### `view.setAutoResize(options)` *Experimental*
 

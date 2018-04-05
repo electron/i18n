@@ -92,18 +92,18 @@ Um `Boolean` indicando se o item está visível, essa propriedade pode ser alter
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+Um `Boolean` indicando se o item está ativo ou não, essa propriedade pode ser alterada dinamicamente.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Um item do menu de um `checkbox` irá mudar a propriedade `checked` para ativa ou não quando selecionada.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+Um item do menu de um `radio` irá ativar a sua propriedade `checked` quando clicado, e irá desativar essa propriedade para todos os itens adjacentes no mesmo menu.
 
-You can add a `click` function for additional behavior.
+Você pode adicionar uma função `click` para comportamentos adicionais.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label
+Uma `String` representando os rótulos visíveis dos itens do menu
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event
+Uma `Function` que é ativada quando um item de menu recebe um evento de clique
