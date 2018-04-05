@@ -318,30 +318,30 @@ Questo metodo garantisce che tutti i `beforeunload` e `unload` eventi gestionali
 
 Esci immediatamente con `exitCode`. Il `exitCode` predefinito è 0.
 
-Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli eventi `prima-esci` e `uscirà` non saranno emessi.
+Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli eventi `before-quit` e `will-quit` non saranno emessi.
 
-### `app.rilancio([options])`
+### `app.relaunch([options])`
 
-* `opzioni` Oggetto (opzionale) 
-  * `arg` Stringa[] - (opzionale)
-  * `eseguiPercorso` Stringa (opzionale)
+* `options` Object (opzionale) 
+  * `args` String[] - (opzionale)
+  * `execPath` String (opzionale)
 
 Rilancia l'app quando esiste la corrente istanza.
 
-Di default la nuova istanza userà la stessa directory di lavoro e argomenti della linea di comando con la corrente istanza. Quando l'`arg` è specificato, l'`arg` sarà invece passato come argomento di linea di comando. Quando `eseguiPercorso` è specificato, `eseguiPercorso` sarà eseguito per rilanciare, invece, l'app corrente.
+Di default la nuova istanza userà la stessa directory di lavoro e argomenti della linea di comando con la corrente istanza. Quando l'`args` è specificato, l'`args` sarà invece passato come argomento di linea di comando. Quando `execPath` è specificato, `execPath` sarà eseguito per rilanciare, invece, l'app corrente.
 
-Nota che questo metodo non termina l'app quando eseguito, devi chiamare `app.esci` o `app.uscita` dopo aver chiamato `app.rilancia` per riavviare l'app.
+Nota che questo metodo non termina l'app quando eseguito, devi chiamare `app.quit` o `app.exit` dopo aver chiamato `app.relaunch` per riavviare l'app.
 
-Quando `app.rilancia` è chiamato ripetutamente, le istanze multiple sarannò avviate dopo l'istanza corrente sia uscita.
+Quando `app.relaunch` è chiamato ripetutamente, le istanze multiple sarannò avviate dopo l'istanza corrente sia uscita.
 
 Un esempio di riavvio dell'istanza corrente immediato e aggiungendo un nuovo argomento della linea di comando alla nuova istanza:
 
 ```javascript
-const {app} = richiedi('electron')
+const {app} = require('electron')
 
 
-app.rilancia({args: processo.argv..slice(1).concat(['--rilancia'])})
-app.esci(0)
+app.relaunch({args: process.argv..slice(1).concat(['--relaunch'])})
+app.exit(0)
 ```
 
 ### `app.isPronta()`
