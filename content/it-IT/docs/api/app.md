@@ -517,17 +517,17 @@ Restituisci `Object`:
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categorie` [CategoriaJumpList[]](structures/jump-list-category.md) o `nullo` - Insieme di oggetti `CategorieJumpList`.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) o `null` - Insieme di oggetti `JumpListCategory`.
 
 Imposta o rimuovi una JumpList personalizzata per l'app, e restituisci una delle seguenti strimghe:
 
 * `ok` - Nulla è andato storto.
 * `errore` - Uno o più errori sono avvenuti, abilita il log di esecuzione per mostrare la possibile causa.
-* `ErroreSeparatoreInvalido` - È stato fatto un tentativo di aggiungere un separatore ad una categoria personalizzata nella Jump List. I separatori sono permessi solo nella categoria `Task` standard.
-* `ErroreRegistrazioneTipofile` - È stato fatto un tentativo di aggiungere un link file alla Jump List per un tipo di file non gestibile dall'app.
-* `ErroreAccessoNegatoCategoriapersonalizzata` - Le categorie personalizzate non possono essere aggiunte alla Jump List per motivi di privacy dell'utente o per le impostazioni di privacy di gruppo.
+* `invalidSeparatorError` - È stato fatto un tentativo di aggiungere un separatore ad una categoria personalizzata nella Jump List. I separatori sono permessi solo nella categoria `Tasks` standard.
+* `fileTypeRegistrationError` - È stato fatto un tentativo di aggiungere un link file alla Jump List per un tipo di file non gestibile dall'app.
+* `customCategoryAccessDeniedError` - Le categorie personalizzate non possono essere aggiunte alla Jump List per motivi di privacy dell'utente o per le impostazioni di privacy di gruppo.
 
-Se le `categorie` sono `nulle` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
+Se le `categories` sono `null` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
 
 **Note:** Se un oggetto `SalaCategoriaLista` non ha nè `tipo` nè `nome` impostati il suo tipo diviene `predefinito`. Se la proprietà `nome` é impostata ma la proprietà `tipo` é omessa, il `tipo` sarà considerato`modificato`.
 
@@ -593,23 +593,23 @@ app.setJumpList([
 ])
 ```
 
-### `app.compiSingolaIstanza(callback)`
+### `app.makeSingleInstance(callback)`
 
-* `callback` Funzione 
-  * `argv` Stringa[] - Un insieme della linea di comando d'argomento della seconda istanza
-  * `Directoryfunzionante` Stringa - La directory funzionante della seconda istanza
+* `callback` Function 
+  * `argv` String[] - Un insieme della linea di comando d'argomento della seconda istanza
+  * `workingDirectory` Stringa - La directory funzionante della seconda istanza
 
-Restituisce `Booleano`.
+Restituisce `Boolean`.
 
 Questo metodo rende la tua app una app a Singola Istanza - invece di permettere multiple istanze della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
 
-`callback` sarà chiamato dalla prima istanza con `callback(argv, Directoryfunzionante` quando una seconda istanza è stata eseguita. `argv` è un insieme delle linee di comando degli argomenti della seconda istanza e la `Directoryfunzionante` è la sua attuale Directory funzionante. Di solito le app rispondono a questo focalizzando la loro finestra primaria e non minimizzata.
+`callback` sarà chiamato dalla prima istanza con `callback(argv, workingDirectory)` quando una seconda istanza è stata eseguita. `argv` è un insieme delle linee di comando degli argomenti della seconda istanza e la `workingDirectory` è la sua attuale Directory in uso. Di solito le app rispondono a questo focalizzando la loro finestra primaria e non minimizzata.
 
-Il `callback` è garantito essere eseguito dopo che l'evento `pronto` dell'app è stato emesso.
+Il `callback` è garantito essere eseguito dopo che l'evento `ready` dell'`app` è stato emesso.
 
 Questo metodo restituisce `false` se il tuo processo è l'istanza primaria dell'applicazione e la tua app potrebbe continuare a caricare. E restituisce `true` se il tuo processo ha inviato i suoi parametri ad un'altra istanza e dovresti immediatamente uscire.
 
-Su macOS il sistema fa rispettare l'istanza singola automaticamente quando l'utente prova ad aprirne un'altra della vostra app su Finder e per questo sono emessi gli eventi `apri-file` ed `apri-url`. Comunque quando un utente avvia la tua app nella linea di comando il meccanismo della singola istanza del sistema sarà bypassato e devi usare questo metodo per assicurare la singola istanza.
+Su macOS il sistema fa rispettare l'istanza singola automaticamente quando l'utente prova ad aprirne un'altra della vostra app su Finder e per questo sono emessi gli eventi `open-file` ed `open-url`. Comunque quando un utente avvia la tua app nella linea di comando il meccanismo della singola istanza del sistema sarà bypassato e devi usare questo metodo per assicurare la singola istanza.
 
 Un esempio dell'attivazione drll'istanza primaria quando se ne avvia una seconda:
 
@@ -634,32 +634,32 @@ app.on('ready', () => {
 })
 ```
 
-### `app.rilasciaIstanzaSingola()`
+### `app.releaseSingleInstance()`
 
-Rilascia tutti i blocchi creati da `faIstanzaSingola`. Permetterà alle istanze multiple dell'app di essere eseguite di nuovo al contempo.
+Rilascia tutti i blocchi creati da `makeSingleInstance`. Permetterà alle istanze multiple dell'app di essere eseguite di nuovo al contempo.
 
-### `app.impostaUtenteAttività(tipo, userInfo[, Urlpaginaweb])` *macOS*
+### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Oggetto - Stato app specifico al magazzino per usare da altro dispositivo.
-* `Urlpaginaweb` Stringa (opzionale) - La pagina web da caricare nel browser se non sono installate app adatte nel dispositivo ripristinante. Lo schema deve essere `http` o `https`.
+* `type` String - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Stato app specifico al magazzino per usare da altro dispositivo.
+* `webpageURL` String (opzionale) - La pagina web da caricare nel browser se non sono installate app adatte nel dispositivo ripristinante. Lo schema deve essere `http` o `https`.
 
-Crea un'`NSAttivitàUtente` e la imposta come attività corrente. L'attività è eleggibile per [Passarlo](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ad un altro dispositivo poi.
+Crea un'`NSUserActivity` e la imposta come attività corrente. L'attività è eleggibile per [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ad un altro dispositivo poi.
 
-### `app.ottieniTipoAttivitàCorrente()` *macOS*
+### `app.getCurrentActivityType()` *macOS*
 
-Restituisce `Stringa` - Il tipo di attività al momento in esecuzione.
+Restituisce `String` - Il tipo di attività al momento in esecuzione.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Invalida l'attività [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) corrente dell'utente.
 
-### `app.aggiornaAttivitàCorrente(tipo, Infoutente)` *macOS*
+### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
-* `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Oggetto - Stato app specifico al magazzino per usare da altro dispositivo.
+* `type` String - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Stato app specifico al magazzino per usare da altro dispositivo.
 
 Aggiorna l'attività corrente se il suo tipo corrisponde al `tipo`, fondendo le voci da `Infoutente` nel suo dizionario corrente `Infoutente`.
 
