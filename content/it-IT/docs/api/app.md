@@ -148,113 +148,112 @@ Restituisce:
 * `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `Infoutente` Object - Contiene uno stato specifico per l'app archiviato dall'attività.
 
-Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti aggiornare lo stato da trasferire, potresti chiamare `evento.preventDefault()` immediatamente, costruirne un nuovo dizionario `userInfo` e chiamare `app.updateCurrentActiviy()` tempestivamente. Altrimenti l'operazione fallirà e sarà chiamato l'`errore-attività-continua`.
+Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti aggiornare lo stato da trasferire, potresti chiamare `evento.preventDefault()` immediatamente, costruirne un nuovo dizionario `userInfo` e chiamare `app.updateCurrentActiviy()` tempestivamente. Altrimenti l'operazione fallirà e sarà chiamato l'`continue-activity-error`.
 
-### Evento: 'nuova-finestra-per-scheda' *macOS*
-
-Restituisce:
-
-* `event` Evento
-
-Emesso quando l'utente clicca il pulsante macOS nativo nuova scheda. Il pulsante nuova scheda è visibile solo se l'attuale `FinestraBrowser` ha un `Identificatoreschede`
-
-### Evento: 'browser-finestra-sfocatura'
+### Evento: 'new-window-for-tab' *macOS*
 
 Restituisce:
 
-* `event` Evento
-* `finestra` [FinestraBrowser](browser-window.md)
+* `event` Event
 
-Emesso quando una [Finestrabrowser](browser-window.md) è sfocata.
+Emesso quando l'utente clicca il pulsante macOS nativo nuova scheda. Il pulsante nuova scheda è visibile solo se l'attuale `BrowserWindow` ha un `tabbingIdentifier`
 
-### Evento: 'browser-finestra-focalizza'
-
-Restituisce:
-
-* `event` Evento
-* `finestra` [FinestraBrowser](browser-window.md)
-
-Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
-
-### Evento: 'broser-finestra-creata'
+### Evento: 'browser-window-blur'
 
 Restituisce:
 
-* `event` Evento
-* `finestra` [FinestraBrowser](browser-window.md)
+* `event` Event
+* `window` [BrowserWindow](browser-window.md)
 
-Emesso quando una [Finestrabrowser](browser-window.md) è creata.
+Emesso quando una [browserWindow](browser-window.md) è sfocata.
 
-### Evento: 'web-contenuto-creato'
-
-Restituisce:
-
-* `event` Evento
-* `ContenutiWeb` [ContenutiWeb](web-contents.md)
-
-Emesso quando un nuovo [ContenutoWeb](web-contents.md) è creato.
-
-### Evento: 'certificato-errore'
+### Evento: 'browser-window-focus'
 
 Restituisce:
 
-* `event` Evento
-* `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `url` Stringa
-* `errore` Stringa - Il codice d'errore
-* `certificato` [Certificato](structures/certificate.md)
-* `callback` Funzione 
-  * `èVerificato` Booleano - Se considerare il certificato come verificato
+* `event` Event
+* `window` [BrowserWindow](browser-window.md)
 
-Emesso quando fallisce la verifica del`certificato` per`url`, per verificare il certificato puoi prevenire il comportamento predefinito con `evento.previeniDefault()` e chiamare `callback(vero)`.
+Emesso quando una [browserWindow](browser-window.md) è focalizzata.
 
-```javascript
-const {app} = richiedi('electron')
-
-
-app.on ('certificato-errore', (eventi, Contenutiweb, url, errori, certificato, callback) => {
-  se (url === 'https://github.com') {
-      // Logica di verifica.
-    evento.previeniDefault()
-    callback(true)
-  } altro {
-    callback(false)
-  }
-})
-```
-
-### Evento: 'selezione-certificato-client'
+### Evento: 'browser-window-created'
 
 Restituisce:
 
-* `event` Evento
-* `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `url` URL
-* `Listacertificati` [Certificati[]](structures/certificate.md)
-* `callback` Funzione 
-  * `certificato` [Certificato](structures/certificate.md) (opzionale)
+* `event` Event
+* `window` [BrowserWindow](browser-window.md)
 
-Emesso quando un certificato client è richiesto.
+Emesso quando una [browserWindow](browser-window.md) è creata.
 
-L'`url` corrisponde alla voce di navigazione richiedente il certificato client e `callback` può essere chiamato con una voce filtrata dalla lista. Usando `evento.previeniDefault()` si previene che l'app usi il primo certificato dal magazzino.
-
-```javascript
-const {app} = richiedi('electron')
-
-
-app.on ('seleziona-certificato-client', evento, Contenutiweb, url, lista, callback) => {
- evento.previeniDefault()
- callback(lista[0])
-})
-```
-
-### Evento: 'accedi'
+### Evento: 'web-contents-created'
 
 Restituisce:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `richiest` Object 
+
+Emesso quando un nuovo [webContents](web-contents.md) è creato.
+
+### Evento: 'certificate-error'
+
+Restituisce:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `url` String
+* `error` String - Il codice d'errore
+* `certificate` [Certificato](structures/certificate.md)
+* `callback` Function 
+  * `isTrusted` Boolean - Se considerare il certificato come verificato
+
+Emesso quando fallisce la verifica del`certificate` per`url`, per verificare il certificato puoi prevenire il comportamento predefinito con `evento.preventDefault()` e chiamare `callback(true)`.
+
+```javascript
+const {app} = richiedi('electron')
+
+
+app.on ('certificate-error', (event, webContents, url, error, certificate, callback) => {
+  se (url === 'https://github.com') {
+      // Logica di verifica.
+    event.preventDefault()
+    callback(true)
+  } else {
+    callback(false)
+  }
+})
+```
+
+### Evento: 'select-client-certificate'
+
+Restituisce:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `url` URL
+* `certificateList` [Certificate[]](structures/certificate.md)
+* `callback` Function 
+  * `certificate` [Certificate](structures/certificate.md) (opzionale)
+
+Emesso quando un certificato client è richiesto.
+
+L'`url` corrisponde alla voce di navigazione richiedente il certificato client e `callback` può essere chiamato con una voce filtrata dalla lista. Usando `evento.preventDefault()` si previene che l'app usi il primo certificato dal magazzino.
+
+```javascript
+const {app} = require('electron')
+
+app.on('select-client-certificate', (event, webContents, url, list, callback) => {
+  event.preventDefault()
+  callback(list[0])
+})
+```
+
+### Evento: 'login'
+
+Restituisce:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `richiesta` Object 
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -263,7 +262,7 @@ Restituisce:
   * `scheme` String
   * `host` String
   * `port` Integer
-  * `realm` Stringa
+  * `realm` String
 * `callback` Function 
   * `username` String
   * `password` String
@@ -273,12 +272,11 @@ Emesso quando i `webContents` vogliono fare un'autenticazione base.
 Il comportamento predefinito è di cancellare tutte le autenticazioni, per evitare ciò puoi prevenire il comportamento predefinito con `event.preventDefault()` e chiamare `callback(username, password)` con le credenziali.
 
 ```javascript
-const {app} = richiedi('electron')
-
+const {app} = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
- evento.preventDefault()
- callback('nomeutente', 'segreto')
+  event.preventDefault()
+  callback('username', 'secret')
 })
 ```
 
