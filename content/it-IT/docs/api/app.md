@@ -83,7 +83,7 @@ Su Windows, devi analizzare `process.argv` (nel processo principale) per ottener
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `url` Stringa
 
 Emesso quando l'utente vuole aprire un URL con l'l'applicazione. Il file `Info.plist` della tua applicazione deve definire lo schema URL compreso della chiave `CFBundleURLTypes` ed impostare `NSPrincipalClass` ad `AtomApplication`.
@@ -252,23 +252,23 @@ app.on ('seleziona-certificato-client', evento, Contenutiweb, url, lista, callba
 
 Restituisce:
 
-* `event` Evento
-* `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `richiesta` Oggetto 
-  * `metodo` Stringa
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `richiest` Object 
+  * `method` String
   * `url` URL
-  * `prescrivente` URL
-* `infoautore` Oggetto 
-  * `èProxy` Booleano
-  * `schema` Stringa
-  * `ospite` Stringa
-  * `porta` Numero Intero
-  * `regno` Stringa
-* `callback` Funzione 
-  * `nomeutente` Stringa
-  * `password` Stringa
+  * `referrer` URL
+* `authInfo` Object 
+  * `isProxy` Boolean
+  * `scheme` String
+  * `host` String
+  * `port` Integer
+  * `realm` Stringa
+* `callback` Function 
+  * `username` String
+  * `password` String
 
-Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
+Emesso quando i `webContents` vogliono fare un'autenticazione base.
 
 Il comportamento predefinito è di cancellare tutte le autenticazioni, per evitare ciò puoi prevenire il comportamento predefinito con `evento.previeniDefault` e chiamare `callback(nomeutente, password)` con le credenziali.
 
