@@ -293,7 +293,7 @@ Emesso quando i processi gpu crashano o soni uccisi.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` quando il supporto all'accessibilità a Chrome è abilitato, `false` altrimenti.
 
 Emesso quando cambia il supporto accessibilità di Chrome. Questo evento avviene quando le tecnologie d'assistenza, come lettore schermo, sono abilitate o disabilitate. Vedi https://www.chromium.org/developers/design-documents/accessibility per ulteriori dettagli.
@@ -312,7 +312,7 @@ Questo metodo garantisce che tutti i `beforeunload` e `unload` eventi gestionali
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Numero Intero (opzionale)
+* `exitCode` Integer (opzionale)
 
 Esci immediatamente con `exitCode`. Il `exitCode` predefinito è 0.
 
@@ -342,31 +342,31 @@ app.relaunch({args: process.argv..slice(1).concat(['--relaunch'])})
 app.exit(0)
 ```
 
-### `app.isPronta()`
+### `app.isReady()`
 
-Restituisce `Booleano` - `true` se Electron ha finito l'inizializzazione, `falso` viceversa.
+Restituisce `Boolean` - `true` se Electron ha finito l'inizializzazione, `false` viceversa.
 
-### `app.focalizza()`
+### `app.focus()`
 
 Su Linux, focalizza sulla prima finestra visibile. Su macOS rende l'applicazione attiva. Su Windows, focalizza sulla prima finestra dell'applicazione.
 
-### `app.nascondi()` *macOS*
+### `app.hide()` *macOS*
 
 Nasconde tutte le finestre dell'applicazione senza minimizzarle.
 
-### `app.mostra()` *macOS*
+### `app.show()` *macOS*
 
 Mostra le finestre dell'applicazione dopo che sono state nascoste. Non le focalizza automaticamente.
 
-### `app.ottieniAppPercorso()`
+### `app.getAppPath()`
 
-Restituisce `Stringa` - La directory dell'app corrente.
+Restituisce `String` - La directory dell'app corrente.
 
-### `app.ottieniPercorso(nome)`
+### `app.getPath(name)`
 
-* `nome` Stringa
+* `name` String
 
-Restituisce `Stringa` - Un percorso ad una directory speciale o ai file associati con `nome`. In caso di fallimento avviene un `Errore`.
+Restituisce `String` - Un percorso ad una directory speciale o ai file associati con `name`. In caso di fallimento avviene lanciato un `Error`.
 
 Puoi richiedere i seguenti percorsi dal nome:
 
@@ -374,169 +374,168 @@ Puoi richiedere i seguenti percorsi dal nome:
 * `appData` Dati della directory dell'app utente, con punti predefiniti a: 
   * `%APPDATA%` su Windows
   * `$XDG_CONFIG_HOME` o `~/.config` su Linux
-  * `~/Libraria/Supporto Applicazione` su macOS
-* `Datiutente` La directory per ammagazzinare i file di configurazione della tua app, che per valore predefinito è la directory `Datiapp` seguita dal nome della tua app.
+  * `~/Library/Application Support` su macOS
+* `userData` La directory per ammagazzinare i file di configurazione della tua app, che per valore predefinito è la directory `appData` seguita dal nome della tua app.
 * `temp` Directory temporanea.
 * `exe` L'attuale file eseguibile.
-* `modulo` La libreria `libchromiumcontent`.
+* `module` La libreria `libchromiumcontent`.
 * `desktop` L'attuale directory del desktop utente.
-* `documenti` La directory per l'utente "I miei Documenti".
-* `Scaricati` La directory per i file scaricati dall'utente.
-* `musica` La directory per la musica dell'utente.
-* `immagini` La directory per le immagini dell'utente.
-* `video` La directory per i video dell'utente.
-* `registri` La directory per la cartella registro della tua app.
+* `documents` La directory per l'utente "I miei Documenti".
+* `downloads` La directory per i file scaricati dall'utente.
+* `music` La directory per la musica dell'utente.
+* `pictures` La directory per le immagini dell'utente.
+* `videos` La directory per i video dell'utente.
+* `logs` La directory per la cartella registro della tua app.
 * `pepperFlashSystemPlugin` Percorso intero alla versione di sistema del plugin Pepper Flash.
 
-### `app.ottieniIconaFile(percorso[, opxioni], callback)`
+### `app.getFileIcon(path[, options], callback)`
+
+* `path` String
+* `options` Object (opzionale) 
+  * `size` String 
+    * `small` - 16x16
+    * `normal` - 32x32
+    * `large` - 48x48 su *Linux*, 32x32 su *Windows*, non supportato su *macOS*.
+* `callback` Function 
+  * `error` Error
+  * `icon` [NativeImage](native-image.md)
+
+Recupera un'icona associata al percorso.
+
+Su *Windows* esistono 2 tipi di icone:
+
+* Icone associate con certe estensioni di file come `.mp3`, `.png`, etc.
+* Icone interne allo stesso file come `.exe`, `.dll`, `.ico`.
+
+Su *Linux* e *macOS* le icone dipendono dall'app associata con il tipo di file mimo.
+
+### `app.setPath(name, path)`
+
+* `name` String
+* `path` String
+
+Sostituisce il `path` ad una directory speciale o ad un file associato con `name`. Se il percorso specifica una directory che non esiste, la directory sarà creata da questo metodo. In caso di fallimento viene generato un `Error`.
+
+Si possono sostituire solo i percorsi di un `name` definiti in `app.getPath`.
+
+Di default, i cookie e la cache delle pagine web saranno immagazzinate sotto la directory `userData`. Se vuoi cambiare questa posizione devi sostituire al percorso `userData` prima che l'evento `ready` del modulo `app` venga emesso.
+
+### `app.getVersion()`
+
+Restituisce `String` - La versione dell'app caricata. Se non viene trovata nessuna versione nel file dell'app `pacchetto-json`, la versione dell'attuale pacchetto o eseguibile è restituita.
+
+### `app.ottieniNome()`
+
+Restituisce `Stringa`. Il nome attuale dell'app, che è il nome nel file dell'app `package.json`.
+
+Spesso il campo `nome` del `package.json` è un breve nome in minuscolo, in bae alla specifica dei moduli npm-. Di solito si dovrebbe anche specificare un campo `NomeProdotto`, che è il nome in maiuscolo della tua applicazione, e che sarà preferito al `nome` da Electron.
+
+### `app.impostaNome(nome)`
+
+* `nome` Stringa
+
+Sostituisce l'attuale nome dell'app.
+
+### `app.ottieniLocale()`
+
+Restituisce `Stringa` - L'attuale locale dell'app. Possibili valori restituiti sono documentati [qui](locales.md).
+
+**Note:** Quando distribuisci il tuo pacchetto app, devi anche navigare nelle cartelle `locali`.
+
+**Note:** Su Windows devi chiamarlo dopo che l'evento `pronto` è emesso.
+
+### `app.aggoimgoRecenteDocumento(percorso)` *macOS* *Windows*
 
 * `path` Stringa
-* `opzioni` Oggetto (opzionale) 
-  * `dimensioni` Stringa 
-    * `piccola` - 16x16
-    * `normale` - 32x32
-    * `grande - 48x48 su <em>Linux</em>, 32x32 su <em>Windows</em>, non supportato su <em>macOS</em>.</li>
-</ul></li>
-</ul></li>
-<li><code>callback` Funzione 
-      * `errore` Errore
-      * `icona` [ImmagineNativa](native-image.md)
-    
-    Recupera un'icona associata al percorso.
-    
-    Su *Windows* esistono 2 tipi di icone:
-    
-    * Icone associate con certe estensioni di file come `.mp3`, `.png`, etc.
-    * Icone interne allo stesso file come `.exe`, `.dll`, `.ico`.
-    
-    Su *Linux* e *macOS* le icone dipendono dall'app associata con il tipo di file mimo.
-    
-    ### `app.impostaPercorso(nome, percorso)`
-    
-    * `nome` Stringa
-    * `path` Stringa
-    
-    Sostituisce il `percorso` ad una directory speciale o ad un file associato con `nome`. Se il percorso specifica una directory che non esiste, la directory sarà creata da questo metodo. In caso di fallimento viene generato un `Errore`.
-    
-    Si possono sostituire solo i percorsi di un `nome` definiti in `app.ottieniPercorso`.
-    
-    Di default, i cookie e la cache delle pagine web saranno immagazzinate sotto la directory `Datiutente`. Se vuoi cambiare questa posizione devi sostituire al percorso `Datiutente` prima che l'evento `pronto` del modulo `app` venga emesso.
-    
-    ### `app.ottieniVersione()`
-    
-    Restituisce `Stringa` - La versione dell'app caricata. Se non viene trovata nessuna versione nel file dell'app `pacchetto-json`, la versione dell'attuale pacchetto o eseguibile è restituita.
-    
-    ### `app.ottieniNome()`
-    
-    Restituisce `Stringa`. Il nome attuale dell'app, che è il nome nel file dell'app `package.json`.
-    
-    Spesso il campo `nome` del `package.json` è un breve nome in minuscolo, in bae alla specifica dei moduli npm-. Di solito si dovrebbe anche specificare un campo `NomeProdotto`, che è il nome in maiuscolo della tua applicazione, e che sarà preferito al `nome` da Electron.
-    
-    ### `app.impostaNome(nome)`
-    
-    * `nome` Stringa
-    
-    Sostituisce l'attuale nome dell'app.
-    
-    ### `app.ottieniLocale()`
-    
-    Restituisce `Stringa` - L'attuale locale dell'app. Possibili valori restituiti sono documentati [qui](locales.md).
-    
-    **Note:** Quando distribuisci il tuo pacchetto app, devi anche navigare nelle cartelle `locali`.
-    
-    **Note:** Su Windows devi chiamarlo dopo che l'evento `pronto` è emesso.
-    
-    ### `app.aggoimgoRecenteDocumento(percorso)` *macOS* *Windows*
-    
-    * `path` Stringa
-    
-    Aggiungi `percorso` alla lista documenti recenti.
-    
-    Questa lista è gestita dall'OS. Su Windows puoi visitare la lista dalla taskbar e su macOS la puoi visitare dal menu dock.
-    
-    ### `app,pulisciRecentiDocumenti` *macOS* *Windows*
-    
-    Pulisce la lista documenti recenti.
-    
-    ### `app.impostaComeClientProtocolloDefault(protocollo[, percorso, argomenti])`
-    
-    * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`. Se vuoi che la tua app gestisca i link `electron://` chiama questo metodo con `electron` come parametro.
-    * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
-    * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
-    
-    Restituisce `Booleano` - Se la chiamata ha avuto successo.
-    
-    Questo metodo imposta l'attuale eseguibile come gestionale di default per un protocollo (a. k. a. schema URI). Ti permette di integrare la tua app in profondità nel sistema operativo. Una volta registrati, tutti i link con `your-protocol://` saranno aperti con l'attuale eseguibile. L'intero link, incluso il protocollo, sarà passato all'app come parametro.
-    
-    Su Windows puoi fornire parametri di percorso opzionali, il percorso al tuo eseguibile e gli argomenti, un insieme di argomenti da passare al tuo eseguibile quando si lancia.
-    
-    **Nota:** Su macOS, puoi solo registrare protocolli aggiunti alla tua app `info.plist`, che non può essere modificato in esecuzione. Puoi comunque cambiare il file con un semplice editore di testo o script durante il momento di costruzione. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) per i dettagli.
-    
-    L'API usa il Registro Windows e LSImpostaGestionaleDefaultPerSchemaURL internamente.
-    
-    ### `app.rimuoviComeProtocolloClientDefault(protocollo[, percorso, arg])` *macOS* *Windows*
-    
-    * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
-    * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
-    * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
-    
-    Restituisce `Booleano` - Se la chiamata ha avuto successo.
-    
-    Questo metodo controlla se l'eseguibile attuale è come un gestionale di default per un protocollo (o schema URI). Se sì, rimuoverà l'app come gestionale predefinito.
-    
-    ### `app.isDefaultClientProtocollo(protocollo[, percorso, arg])` *macOS* *Windows*
-    
-    * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
-    * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
-    * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
-    
-    Restituisci `Booleano`
-    
-    Questo metodo controlla se l'eseguibile attuale è come un gestionale per un protocollo (o schema URI). Se sì, restituirà true. Altrimenti, restituirà false.
-    
-    **Nota:** Su macOS puoi usare questo metodo per controllare se l'app è stata registrata come gestionale di protocolli di default per un protocollo. Puoi anche verificarlo controllando `~/Libreria/Preferenze/com.apple.LanciaServizi.plist` su computer macOS. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) per i dettagli.
-    
-    L'API usa il Registro Windows e LSCopiaGestionaleDefaultPerSchemaURL internamente.
-    
-    ### `app.impostaTaskUtente(task)` *Windows*
-    
-    * `task` [Task[]](structures/task.md) - Insieme di oggetti `Task`
-    
-    Aggiungi `task` alla categoria [Task](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) della JumpList su Windows.
-    
-    `task` è un insieme di oggetti [`Task`](structures/task.md).
-    
-    Restituisce `Booleano` - Se la chiamata ha avuto successo.
-    
-    **Nota:** Se ti piacerebbe modificare la Jump List ecco altri usi, invece, `app.impostaJumpList(categorie)`.
-    
-    ### `app.ottieniImpostazioniJumpList` *Windows*
-    
-    Restituisci `Oggetto`:
-    
-    * `miniElementi` Numero intero - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-    * `Elementirimossi` [ElementiJumpList[]](structures/jump-list-item.md) - Insieme degli oggetti `ElementiJumpList` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **prossima** chiamata a `app.impostaJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
-    ### `app.impostaJumpList(categorie)` *Windows*
-    
-    * `categorie` [CategoriaJumpList[]](structures/jump-list-category.md) o `nullo` - Insieme di oggetti `CategorieJumpList`.
-    
-    Imposta o rimuovi una JumpList personalizzata per l'app, e restituisci una delle seguenti strimghe:
-    
-    * `ok` - Nulla è andato storto.
-    * `errore` - Uno o più errori sono avvenuti, abilita il log di esecuzione per mostrare la possibile causa.
-    * `ErroreSeparatoreInvalido` - È stato fatto un tentativo di aggiungere un separatore ad una categoria personalizzata nella Jump List. I separatori sono permessi solo nella categoria `Task` standard.
-    * `ErroreRegistrazioneTipofile` - È stato fatto un tentativo di aggiungere un link file alla Jump List per un tipo di file non gestibile dall'app.
-    * `ErroreAccessoNegatoCategoriapersonalizzata` - Le categorie personalizzate non possono essere aggiunte alla Jump List per motivi di privacy dell'utente o per le impostazioni di privacy di gruppo.
-    
-    Se le `categorie` sono `nulle` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
-    
-    **Note:** Se un oggetto `SalaCategoriaLista` non ha nè `tipo` nè `nome` impostati il suo tipo diviene `predefinito`. Se la proprietà `nome` é impostata ma la proprietà `tipo` é omessa, il `tipo` sarà considerato`modificato`.
-    
-    **Note:** Gli utenti possono rimuovere gli elementi dalle categorie personalizzate, e Windows non permetterà ad un elemento rimosso di essere ri-aggiunto in una categoria personalizzata fino a **dopo** la successiva chiamata di successo a `app.impostaJumpList(categorie)`. Qualsiasi tentativo di aggiunta di un elemento rimosso ad una categoria personalizzata prima che questo risulterà nell'intera categoria personalizzata sarà omesso dalla Jump List. La lista degli elementi rimossi può essere ottenuta usando `app.ottieniImpostazioniJumpList()`.
-    
-    Questo è un esempio molto semplice di come creare una Jump List personalizzata:
-    
-    ```javascript
+
+Aggiungi `percorso` alla lista documenti recenti.
+
+Questa lista è gestita dall'OS. Su Windows puoi visitare la lista dalla taskbar e su macOS la puoi visitare dal menu dock.
+
+### `app,pulisciRecentiDocumenti` *macOS* *Windows*
+
+Pulisce la lista documenti recenti.
+
+### `app.impostaComeClientProtocolloDefault(protocollo[, percorso, argomenti])`
+
+* `protocollo` Stringa - Il nome del tuo protocollo, senza `://`. Se vuoi che la tua app gestisca i link `electron://` chiama questo metodo con `electron` come parametro.
+* `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
+* `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
+
+Restituisce `Booleano` - Se la chiamata ha avuto successo.
+
+Questo metodo imposta l'attuale eseguibile come gestionale di default per un protocollo (a. k. a. schema URI). Ti permette di integrare la tua app in profondità nel sistema operativo. Una volta registrati, tutti i link con `your-protocol://` saranno aperti con l'attuale eseguibile. L'intero link, incluso il protocollo, sarà passato all'app come parametro.
+
+Su Windows puoi fornire parametri di percorso opzionali, il percorso al tuo eseguibile e gli argomenti, un insieme di argomenti da passare al tuo eseguibile quando si lancia.
+
+**Nota:** Su macOS, puoi solo registrare protocolli aggiunti alla tua app `info.plist`, che non può essere modificato in esecuzione. Puoi comunque cambiare il file con un semplice editore di testo o script durante il momento di costruzione. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) per i dettagli.
+
+L'API usa il Registro Windows e LSImpostaGestionaleDefaultPerSchemaURL internamente.
+
+### `app.rimuoviComeProtocolloClientDefault(protocollo[, percorso, arg])` *macOS* *Windows*
+
+* `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
+* `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
+* `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
+
+Restituisce `Booleano` - Se la chiamata ha avuto successo.
+
+Questo metodo controlla se l'eseguibile attuale è come un gestionale di default per un protocollo (o schema URI). Se sì, rimuoverà l'app come gestionale predefinito.
+
+### `app.isDefaultClientProtocollo(protocollo[, percorso, arg])` *macOS* *Windows*
+
+* `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
+* `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
+* `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
+
+Restituisci `Booleano`
+
+Questo metodo controlla se l'eseguibile attuale è come un gestionale per un protocollo (o schema URI). Se sì, restituirà true. Altrimenti, restituirà false.
+
+**Nota:** Su macOS puoi usare questo metodo per controllare se l'app è stata registrata come gestionale di protocolli di default per un protocollo. Puoi anche verificarlo controllando `~/Libreria/Preferenze/com.apple.LanciaServizi.plist` su computer macOS. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) per i dettagli.
+
+L'API usa il Registro Windows e LSCopiaGestionaleDefaultPerSchemaURL internamente.
+
+### `app.impostaTaskUtente(task)` *Windows*
+
+* `task` [Task[]](structures/task.md) - Insieme di oggetti `Task`
+
+Aggiungi `task` alla categoria [Task](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) della JumpList su Windows.
+
+`task` è un insieme di oggetti [`Task`](structures/task.md).
+
+Restituisce `Booleano` - Se la chiamata ha avuto successo.
+
+**Nota:** Se ti piacerebbe modificare la Jump List ecco altri usi, invece, `app.impostaJumpList(categorie)`.
+
+### `app.ottieniImpostazioniJumpList` *Windows*
+
+Restituisci `Oggetto`:
+
+* `miniElementi` Numero intero - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `Elementirimossi` [ElementiJumpList[]](structures/jump-list-item.md) - Insieme degli oggetti `ElementiJumpList` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **prossima** chiamata a `app.impostaJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
+
+### `app.impostaJumpList(categorie)` *Windows*
+
+* `categorie` [CategoriaJumpList[]](structures/jump-list-category.md) o `nullo` - Insieme di oggetti `CategorieJumpList`.
+
+Imposta o rimuovi una JumpList personalizzata per l'app, e restituisci una delle seguenti strimghe:
+
+* `ok` - Nulla è andato storto.
+* `errore` - Uno o più errori sono avvenuti, abilita il log di esecuzione per mostrare la possibile causa.
+* `ErroreSeparatoreInvalido` - È stato fatto un tentativo di aggiungere un separatore ad una categoria personalizzata nella Jump List. I separatori sono permessi solo nella categoria `Task` standard.
+* `ErroreRegistrazioneTipofile` - È stato fatto un tentativo di aggiungere un link file alla Jump List per un tipo di file non gestibile dall'app.
+* `ErroreAccessoNegatoCategoriapersonalizzata` - Le categorie personalizzate non possono essere aggiunte alla Jump List per motivi di privacy dell'utente o per le impostazioni di privacy di gruppo.
+
+Se le `categorie` sono `nulle` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
+
+**Note:** Se un oggetto `SalaCategoriaLista` non ha nè `tipo` nè `nome` impostati il suo tipo diviene `predefinito`. Se la proprietà `nome` é impostata ma la proprietà `tipo` é omessa, il `tipo` sarà considerato`modificato`.
+
+**Note:** Gli utenti possono rimuovere gli elementi dalle categorie personalizzate, e Windows non permetterà ad un elemento rimosso di essere ri-aggiunto in una categoria personalizzata fino a **dopo** la successiva chiamata di successo a `app.impostaJumpList(categorie)`. Qualsiasi tentativo di aggiunta di un elemento rimosso ad una categoria personalizzata prima che questo risulterà nell'intera categoria personalizzata sarà omesso dalla Jump List. La lista degli elementi rimossi può essere ottenuta usando `app.ottieniImpostazioniJumpList()`.
+
+Questo è un esempio molto semplice di come creare una Jump List personalizzata:
+
+```javascript
 const {app} = require('electron')
 
 app.setJumpList([
