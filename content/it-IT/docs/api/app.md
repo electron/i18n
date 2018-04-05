@@ -770,47 +770,47 @@ app.setLoginItemSettings({
 
 **Nota:** Questa API non ha effetto sulle [Costruzioni MAS](../tutorial/mac-app-store-submission-guide.md).
 
-### `app.èAbilitatoSupportoAccessibilità()` *macOS* *Windows*
+### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
+Restituisci `Boolean` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
-### `app.impostaSupportoAccessibilitàAbilitato(abilitato)` *macOS* *Windows*
+### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
-* `abilitato` Booleano - Abilita o disabilita il rendering dell'[albero accessibilità](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
+* `enabled` Boolean - Abilita o disabilita il rendering dell'[albero accessibilità](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
 Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre gli scambi di accessibilità ad utenti nelle impostazioni applicazione. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabilitato di default.
 
 **Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
 
-### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
+### `app.setAboutPanelOptions(options)` *macOS*
 
-* `opzioni` Oggetto 
-  * `Nomeapplicazione` Stringa (opzionale) - Il nome dell'app.
-  * `Versioneapplicazione` Stringa (opzionale) - La versione dell'app.
-  * `copyright` Stringa (opzionale) - Informazioni di copyright.
-  * `crediti` Stringa (opzionale) - Informazioni dei crediti.
-  * `versione` Stringa (opzionale) - Il numero della versione build dell'app.
+* `options` Object 
+  * `applicationName` String (opzionale) - Il nome dell'app.
+  * `applicationVersion` String (opzionale) - La versione dell'app.
+  * `copyright` String (opzionale) - Informazioni di copyright.
+  * `credits` String (opzionale) - Informazioni dei crediti.
+  * `version` String (opzionale) - Il numero della versione build dell'app.
 
 Vedi il pannello delle opzioni. Questo oltrepasserà i valori definiti nel file `.plist` del file. Vedi i [documenti Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) per altri dettagli.
 
-### `app.Lineacomando.aggiungereInterruttore(interrutore[, valore])`
+### `app.commandLine.appendSwitch(switch[, value])`
 
-* `interruttore` Stringa - Un interruttore della linea di comando
-* `valore` Stringa (opziomale) - Un valore per l'interruttore dato
+* `switch` String - Un interruttore della linea di comando
+* `value` String (opziomale) - Un valore per l'interruttore dato
 
-Aggiungi un interruttore (con `valore` opzionale) alla linea di comando di Chromium.
+Aggiungi un interruttore (con `value` opzionale) alla linea di comando di Chromium.
 
-**Nota:** Non colpirà `processo.argv` ed è principalmente usato dagli sviluppatori per controllare alcuni comportamenti di basso livello di Chromium.
+**Nota:** Non colpirà `process.argv` ed è principalmente usato dagli sviluppatori per controllare alcuni comportamenti di basso livello di Chromium.
 
-### `app.Lineacomando.aggiungiArgomento(valore)`
+### `app.commandLine.appendArgument(value)`
 
-* `valore` Stringa - L'argomento da aggiungere alla linea di comando
+* `value` String - L'argomento da aggiungere alla linea di comando
 
 Aggiungi un argomento alla linea di comando di Chromium. L'argomento sarà quotato correttamente.
 
 **Nota:** Non colpirà `processo.argv`.
 
-### `app.abilitascatolaSabbiaMischiata()` *Sperimentale* *macOS* *Windows*
+### `app.enableMixedSandbox()` *Sperimentale* *macOS* *Windows*
 
 Abilita la modalità scatola dei giochi mischiata nell'app.
 
@@ -818,68 +818,68 @@ Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Restituisce `Booleano` - Se l'app è in esecuzione dalla cartella Applicazione. Usa in combinazione con `app.muoviACartellaApplicazioni()`
+Restituisce `Boolean` - Se l'app è in esecuzione dalla cartella Applicazione. Usa in combinazione con `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Restituisce `Booleano` - Se la mossa ha avuto successo. Si prega di notare che se la mossa ha successo la tua applicazione si chiuderà e riavvierà.
+Restituisce `Boolean` - Se la mossa ha avuto successo. Si prega di notare che se la mossa ha successo la tua applicazione si chiuderà e riavvierà.
 
-Nessun dialogo di conferma sarà presentato di default, se vuoi permettere all'utente di confermare l'operazione potresti farlo usando l'API di [`dialogo`](dialog.md).
+Nessun dialogo di conferma sarà presentato di default, se vuoi permettere all'utente di confermare l'operazione potresti farlo usando l'API di [`dialog`](dialog.md).
 
 **NOTA:** Questo metodo lancia errori se ogni altro dall'utente causa un fallimento della mossa. Per istanza se l'utente annulla il dialogo di autorizzazione questo metodo restituisce falso. Se falliamo nel performare la copia questo metodo lancerà un errore. Il messaggio nell'errore dovrebbe essere informativo e dirti esattamente cosa è andato storto
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `tipo` Stringa (opzionale) - Può essere `critico` o `informativo`. Di default è `informativo`
+* `tipo` String (opzionale) - Può essere `critical` o `informational`. Di default è `informational`
 
-Quando `critico` è passato, l'icona del dock rimbalza finché l'app diventa attiva o la richiesta viene annullata.
+Quando `critical` è passato, l'icona del dock rimbalza finché l'app diventa attiva o la richiesta viene annullata.
 
-Quando `informativo` è passato, l'icona del dock rimbalzerà per un secondo. Comunque la richiesta resterà attiva finché l'l'applicazione non diviene attiva o la richiesta viene annullata.
+Quando `informational` è passato, l'icona del dock rimbalzerà per un secondo. Comunque la richiesta resterà attiva finché l'l'applicazione non diviene attiva o la richiesta viene annullata.
 
-Restituisce `Intero` un ID rappresentante la richiesta.
+Restituisce `Integer` un ID rappresentante la richiesta.
 
-### `app.dock.annullaRimbalzo(id)` *macOS*
+### `app.dock.cancelBounce(id)` *macOS*
 
-* `id` Numero Intero
+* `id` Integer
 
 Annulla il rimbalzo dell'`id`.
 
-### `app.dock.scaricamentoFinito(Percorsofile)` *macOS*
+### `app.dock.downloadFinished(filePath)` *macOS*
 
-* `Percorsofile` Stringa
+* `filePath` String
 
 Rimbalza il download impilato se il Percorsofile è nella cartella dei file scaricati.
 
-### `app.dock.impostaBadge(testo)` *macOS*
+### `app.dock.setBadge(text)` *macOS*
 
-* `testo` Stringa
+* `text` String
 
 Imposta la stringa da mostrare nell'area del dock di badging.
 
-### `app.dock.ottieniBadge()` *macOS*
+### `app.dock.getBadge()` *macOS*
 
-Restituisce `Stringa` - La stringa del badge del dock.
+Restituisce `String` - La stringa del badge del dock.
 
-### `app.dock.nascondi()` *macOS*
+### `app.dock.hide()` *macOS*
 
 Nasconde l'icona del dock.
 
-### `app.dock.mostra()` *macOS*
+### `app.dock.show()` *macOS*
 
 Mostra l'icona del dock.
 
-### `app.dock.èvisibile()` *macOS*
+### `app.dock.isVisible()` *macOS*
 
-Restituisce `Booleano` - Se l'icona del dock è visibile. L'`app.dock.mostra()` chiamato è asincrono quindi questo metodo potrebbe non restituire true immediatamente dopo questa chiamata.
+Restituisce `Boolean` - Se l'icona del dock è visibile. L'`app.dock.show()` chiamato è asincrono quindi questo metodo potrebbe non restituire true immediatamente dopo questa chiamata.
 
-### `app.dock.impostaMenu(menu)` *macOS*
+### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Imposta il [menu dock](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) dell'applicazione.
+Imposta il [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) dell'applicazione.
 
-### `app.dock.impostaImmagine(immagine)` *macOS*
+### `app.dock.setIcon(image)` *macOS*
 
-* `immagine` ([ImmagineNativa](native-image.md) | Stringa)
+* `image` ([NativeImage](native-image.md) | String)
 
-Imposta l'`immagine` associata a questa icona del dock.
+Imposta l'`image` associata a questa icona del dock.
