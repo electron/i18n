@@ -459,63 +459,63 @@ Pulisce la lista documenti recenti.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Il nome del tuo protocollo, senza `://`. Se vuoi che la tua app gestisca i link `electron://` chiama questo metodo con `electron` come parametro.
-* `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
-* `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
+* `path` String (opzionale) *Windows* - Di default a `process.execPath`
+* `args` String[] (opzionale) *Windows* - Di default ad un array vuoto
 
-Restituisce `Booleano` - Se la chiamata ha avuto successo.
+Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
-Questo metodo imposta l'attuale eseguibile come gestionale di default per un protocollo (a. k. a. schema URI). Ti permette di integrare la tua app in profondità nel sistema operativo. Una volta registrati, tutti i link con `your-protocol://` saranno aperti con l'attuale eseguibile. L'intero link, incluso il protocollo, sarà passato all'app come parametro.
+Questo metodo imposta l'attuale eseguibile come handler di default per un protocollo (a. k. a. schema URI). Ti permette di integrare la tua app in profondità nel sistema operativo. Una volta registrati, tutti i link con `your-protocol://` saranno aperti con l'attuale eseguibile. L'intero link, incluso il protocollo, sarà passato all'app come parametro.
 
-Su Windows puoi fornire parametri di percorso opzionali, il percorso al tuo eseguibile e gli argomenti, un insieme di argomenti da passare al tuo eseguibile quando si lancia.
+Su Windows puoi fornire parametri di percorso opzionali, il percorso al tuo eseguibile e gli argomenti, un array di argomenti da passare al tuo eseguibile quando si lancia.
 
 **Nota:** Su macOS, puoi solo registrare protocolli aggiunti alla tua app `info.plist`, che non può essere modificato in esecuzione. Puoi comunque cambiare il file con un semplice editore di testo o script durante il momento di costruzione. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) per i dettagli.
 
 L'API usa il Registro Windows e LSImpostaGestionaleDefaultPerSchemaURL internamente.
 
-### `app.rimuoviComeProtocolloClientDefault(protocollo[, percorso, arg])` *macOS* *Windows*
+### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
-* `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
-* `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
+* `protocol` String - Il nome del tuo protocollo, senza `://`.
+* `path` String (opzionale) *Windows* - Di default a `process.execPath`
+* `args` String[] (opzionale) *Windows* - Di default ad un array vuoto
 
-Restituisce `Booleano` - Se la chiamata ha avuto successo.
+Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
 Questo metodo controlla se l'eseguibile attuale è come un gestionale di default per un protocollo (o schema URI). Se sì, rimuoverà l'app come gestionale predefinito.
 
-### `app.isDefaultClientProtocollo(protocollo[, percorso, arg])` *macOS* *Windows*
+### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
-* `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
-* `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
+* `protocol` String - Il nome del tuo protocollo, senza `://`.
+* `path` String (opzionale) *Windows* - Di default a `process.execPath`
+* `args` String[] (opzionale) *Windows* - Di default ad un array vuoto
 
-Restituisci `Booleano`
+Restituisci `Boolean`
 
 Questo metodo controlla se l'eseguibile attuale è come un gestionale per un protocollo (o schema URI). Se sì, restituirà true. Altrimenti, restituirà false.
 
-**Nota:** Su macOS puoi usare questo metodo per controllare se l'app è stata registrata come gestionale di protocolli di default per un protocollo. Puoi anche verificarlo controllando `~/Libreria/Preferenze/com.apple.LanciaServizi.plist` su computer macOS. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) per i dettagli.
+**Nota:** Su macOS puoi usare questo metodo per controllare se l'app è stata registrata come gestionale di protocolli di default per un protocollo. Puoi anche verificarlo controllando `~/Library/Preferences/com.apple.LaunchServices.plist` su computer macOS. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) per i dettagli.
 
 L'API usa il Registro Windows e LSCopiaGestionaleDefaultPerSchemaURL internamente.
 
-### `app.impostaTaskUtente(task)` *Windows*
+### `app.setUserTasks(tasks)` *Windows*
 
-* `task` [Task[]](structures/task.md) - Insieme di oggetti `Task`
+* `tasks` [Task[]](structures/task.md) - Array di oggetti `Task`
 
-Aggiungi `task` alla categoria [Task](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) della JumpList su Windows.
+Aggiungi `tasks` alla categoria [Task](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) della JumpList su Windows.
 
-`task` è un insieme di oggetti [`Task`](structures/task.md).
+`tasks` è un array di oggetti [`Task`](structures/task.md).
 
-Restituisce `Booleano` - Se la chiamata ha avuto successo.
+Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
-**Nota:** Se ti piacerebbe modificare la Jump List ecco altri usi, invece, `app.impostaJumpList(categorie)`.
+**Nota:** Se ti piacerebbe modificare la Jump List ecco altri usi, invece, `app.setJumpList(categorie)`.
 
-### `app.ottieniImpostazioniJumpList` *Windows*
+### `app.getJumpListSettings()` *Windows*
 
-Restituisci `Oggetto`:
+Restituisci `Object`:
 
-* `miniElementi` Numero intero - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `Elementirimossi` [ElementiJumpList[]](structures/jump-list-item.md) - Insieme degli oggetti `ElementiJumpList` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **prossima** chiamata a `app.impostaJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
+* `minItems` Integer - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Insieme degli oggetti `JumpListItem` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **next** chiamata a `app.setJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
 
-### `app.impostaJumpList(categorie)` *Windows*
+### `app.setJumpList(categories)` *Windows*
 
 * `categorie` [CategoriaJumpList[]](structures/jump-list-category.md) o `nullo` - Insieme di oggetti `CategorieJumpList`.
 
