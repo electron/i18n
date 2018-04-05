@@ -306,17 +306,17 @@ L'oggetto `app` ha i seguenti metodi:
 
 **Nota:** Alcuni metodi sono disponibili solo su sistemi operativi specifici e sono etichettati come tali.
 
-### `app.esci()`
+### `app.quit()`
 
-Prova a chiudere tutte le finestre. L'evento `esci-prima` sarà emesso prima. Se tutte le finestre sono chiuse con successo, l'evento `uscirà` sarà emesso e di default l'app sarà terminata.
+Prova a chiudere tutte le finestre. L'evento `before-quit` sarà emesso prima. Se tutte le finestre sono chiuse con successo, l'evento `will-quit` sarà emesso e di default l'app sarà terminata.
 
-Questo metodo garantisce che tutti i `precaricati` e `caricati` eventi gestionali siano correttamente eseguiti. È possibile che una finestra annulli l'uscita tornando `false` nell'evento gestionale `precaricato`.
+Questo metodo garantisce che tutti i `beforeunload` e `unload` eventi gestionali siano correttamente eseguiti. È possibile che una finestra annulli l'uscita tornando `false` nell'evento gestionale `beforeunload`.
 
-### `app.esci([exitCode])`
+### `app.exit([exitCode])`
 
-* `Codiceuscita` Numero Intero (opzionale)
+* `exitCode` Numero Intero (opzionale)
 
-Esci immediatamente con `Codiceuscita`. Il `Codiceuscita` predefinito è 0.
+Esci immediatamente con `exitCode`. Il `exitCode` predefinito è 0.
 
 Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli eventi `prima-esci` e `uscirà` non saranno emessi.
 
