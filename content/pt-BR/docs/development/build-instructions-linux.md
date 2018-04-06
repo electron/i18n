@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### Usando o `clang` em vez de fazer o download dos binários de `clang`
 
-Por padrão o Electron é feito com código binário [`clang`](https://clang.llvm.org/get_started.html) pre-produzido e fornecido pelo projeto Chromium. Se por alguma razão você quer usar o `clang` instalado em seu sistema, você pode chamar `bootstrap.py` com o interruptor `--clang_dir=<path>`. Ao passar o códico pre-produzido, se assumirá que o código binário `clang` está localizado em `<path>/bin/`.
+Por padrão o Electron é feito com código binário [`clang`](https://clang.llvm.org/get_started.html) pre-produzido e fornecido pelo projeto Chromium. Se por alguma razão você quer usar o `clang` instalado em seu sistema, você pode chamar `bootstrap.py` com o interruptor `--clang_dir=<path>`. Ao passar o código pre-produzido, se assumirá que o código binário `clang` está localizado em `<path>/bin/`.
 
 Por exemplo, se você instalou `clang` em `/user/local/bin/clang`:
 
