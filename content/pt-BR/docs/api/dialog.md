@@ -64,7 +64,7 @@ As array de `extensions` devem conter extenssões sem caracteres-curinga ou pont
 
 Se um `callback` é passado, a solicitação à API será dessincronizada e o resultado será passado via `callback(filenames)`
 
-**Obs.:** No Windows e Linux um diálogo aberto não pode ser usado ao mesmo tempo para selecionar arquivos e diretórios, portanto se você estabelecer `properties` para `['openFile', 'openDirectory']` nessas plataformas, um seletor de diretório será mostrado.
+**Nota.:** No Windows e Linux um diálogo aberto não pode ser usado ao mesmo tempo para selecionar arquivos e diretórios, portanto se você estabelecer `properties` para `['openFile', 'openDirectory']` nessas plataformas, um seletor de diretório será mostrado.
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
