@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-Exemplo mostrando um diálogo para selecionar multiplos arquivos e diretórios:
+Exemplo mostrando um diálogo para selecionar múltiplos arquivos e diretórios:
 
 ```javascript
 const {dialog} = require('electron')
@@ -60,7 +60,7 @@ Os `filters` designam um array dos tipos que podem ser apresentados ou seleciona
 }
 ```
 
-As array de `extensions` devem conter extenssões sem caracteres-curinga ou pontos. (`'png'` é bom mas, `'.png'` e `'*.png'` são ruins). Para mostrar todos os arquivos use o caracter-curinga `*` (nenhum ouro caracter-curinga é suportado).
+As array de `extensions` devem conter extensões sem caracteres-curinga ou pontos. (`'png'` é bom mas, `'.png'` e `'*.png'` são ruins). Para mostrar todos os arquivos use o caracter-curinga `*` (nenhum ouro caracter-curinga é suportado).
 
 Se um `callback` é passado, a solicitação à API será dessincronizada e o resultado será passado via `callback(filenames)`
 
@@ -74,13 +74,13 @@ Se um `callback` é passado, a solicitação à API será dessincronizada e o re
   * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
-  * `message` String (opcional) *macOS* - Messagem a ser exibida acima de campos de texto.
+  * `message` String (opcional) *macOS* - Mensagem a ser exibida acima de campos de texto.
   * `nameFieldLabel` String (opcional) *macOS* - Rótulo personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
   * `showsTagField` Boolean (opcional) *macOS* - apresenta a tag do campo de entrada, por padrão `true`.
 * `callback` Function (opcional) 
   * `filename` String
 
-Retorna `String`, o caminho do arquivo escolhido pelo usuáro. Se um callback é fornecido, retornará `undefined`.
+Retorna `String`, o caminho do arquivo escolhido pelo usuário. Se um callback é fornecido, retornará `undefined`.
 
 O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
@@ -97,7 +97,7 @@ Se um `callback` é passado, a solicitação à API será dessincronizada e o re
   * `defaultId` Integer (opcional) - Indicador do botão na array de botões que será selecionado como padrão quando a caixa de mensagem abrir.
   * `title` String (opcional) - Título da caixa de mensagem, algumas plataformas não o exibirão.
   * `message` String - Conteúdo da caixa de mensagem.
-  * `detail` String (optional) - Informações adicionais da mensagem.
+  * `detail` String (opcional) - Informações adicionais da mensagem.
   * `checkboxLabel` String (opcional) - Se fornecida, a caixa de mensagem incluirá uma caixa de seleção com o devido rótulo. O estado da caixa de seleção poderá ser verificada apenas quando `callback` estiver sendo usado.
   * `checkboxChecked` Boolean (opcional) - Estado inicial da caixa de seleção designada como ativa. `false` por padrão.
   * `icon` [NativeImage](native-image.md) (opcional)
