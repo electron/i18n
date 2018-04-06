@@ -15,13 +15,13 @@ seu-app/
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+Crie uma nova pasta vazia para seu novo aplicativo em Electron. Abra seu terminal e execute `npm init` nessa mesma pasta.
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm vai guiá-lo você para criação de um arquivo básico o `package.json`. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
 
 ```json
 {
