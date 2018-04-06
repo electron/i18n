@@ -50,11 +50,11 @@ Acrônimo para Mac App Store da Apple. Para obter detalhes sobre a apresentaçã
 
 ### native modules
 
-Módulos nativos (também chamados [addons](https://nodejs.org/api/addons.html) em node.js) são módulos escritos em C ou C++ que pode ser carregado em node. js ou elétron usando a função require() e usado apenas como se fossem um módulo comum de Node.js. Eles são usados principalmente para fornecer uma interface entre o JavaScript em execução em bibliotecas de Node.js e C/C++.
+Módulos nativos (também chamados [addons](https://nodejs.org/api/addons.html) em node.js) são módulos escritos em C ou C++ que pode ser carregado em Node.js ou Electron usando a função require() e usado apenas como se fossem um módulo comum de Node.js. Eles são usados principalmente para fornecer uma interface entre o JavaScript em execução em bibliotecas de Node.js e C/C++.
 
 Os módulos nativos do Node são suportados pelo Electron, mas considerando que o Electron provavelmente irá utilizar uma versão do V8 dos binários do Node instalados no seu sistema, você deve especificar manualmente a localização dos headers do Electron quando for copilar módulos nativos.
 
-Consulte também [Usando módulos nativos de nó](tutorial/using-native-node-modules.md).
+Consulte também [Usando Módulos Nativos de Node](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
@@ -66,9 +66,9 @@ OSR (processamento fora da tela) pode ser usado para carregar página pesada no 
 
 ### process
 
-Um processo é uma instância de um programa de computador que está sendo executado. Apps de elétrons que fazem usam do [principal](#main-process) e um ou vários processo de [processador](#renderer-process) estão executando vários programas simultaneamente.
+Um processo é uma instância de um programa de computador que está sendo executado. Apps de Electron que fazem usam do [main](#main-process) e um ou vários processo de [renderer](#renderer-process) estão executando vários programas simultaneamente.
 
-Em node. js e elétron, cada processo em execução tem um objeto de `processo`. Este objeto é um global que fornece informações sobre e controle sobre, o atual processo. Como um global, é sempre disponível para aplicações sem o uso de require().
+Em Node.js e Electron, cada processo em execução tem um objeto de `process`. Este objeto é um global que fornece informações sobre e controle sobre, o atual processo. Como um global, é sempre disponível para aplicações sem o uso de require().
 
 Consulte também: [processo principal](#main-process), [processo de processador](#renderer-process)
 
