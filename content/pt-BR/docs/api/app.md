@@ -737,7 +737,7 @@ Retorna `Object`:
 * `wasOpenedAsHidden` Boolean - `true` se o aplicativo foi aberto mas definido como um ítem oculto no login. Isso indica que o aplicativo não deverá abrir nenhuma janela durante a inicialização. Essa definição é suportada somente no macOS.
 * `restoreState` Boolean - `true` se o aplicativo foi aberto como um ítem de login que deverá restaurar o estado da sessão anterior. Isso indica que o aplicativo deverá restaurar as janelas que foram abertas da última vez que o aplicativo fora fechado. Essa definição é suportada somente no macOS.
 
-**Obs.:** Essa API não tem efeito em [Builds MAS](../tutorial/mac-app-store-submission-guide.md).
+**Nota:** Essa API não tem efeito em [Builds MAS](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
@@ -766,7 +766,7 @@ app.setLoginItemSettings({
 })
 ```
 
-**Obs.:** Essa API não possui efeito nas [builds MAS](../tutorial/mac-app-store-submission-guide.md).
+**Nota:** Essa API não possui efeito nas [builds MAS](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
