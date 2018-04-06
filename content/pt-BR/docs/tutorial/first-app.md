@@ -6,7 +6,7 @@ Isso não significa que o Electron é uma ligação de Javascript a bibliotecas 
 
 **Nota**: Este exemplo também está disponível em um repositório você pode [baixa-lo e executa-lo imediatamente](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. O pronto de entrada é o `package.json`, semelhante ao módulos do node.js. Uma aplicação Electron simples terá a estrutura abaixo:
+As far as development is concerned, an Electron application is essentially a Node.js application. O pronto de entrada é o `package.json`, semelhante ao módulos do Node.js. Uma aplicação Electron simples terá a estrutura abaixo:
 
 ```text
 seu-app/
