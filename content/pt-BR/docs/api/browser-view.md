@@ -38,7 +38,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Returns `BrowserView[]` - Uma array of todos os BrowserViews abertos.
 
 #### `BrowserView.fromWebContents(webContents)`
 
