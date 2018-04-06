@@ -47,9 +47,9 @@ Confira a seção *Size requirements* [nesse artigo](https://msdn.microsoft.com/
 
 ## Imagem em Alta Resolução
 
-Em plataformas que possuem supporte para high-DPI como a tela Retina daApple, você pode acrescentar `@2x` depois do nome base da imagem para marcar-la como imagem de alta resolução.
+Em plataformas que possuem suporte para high-DPI como a tela Retina da Apple, você pode acrescentar `@2x` depois do nome base da imagem para marcar-la como imagem de alta resolução.
 
-Por exmplo se `icon.png` é uma imagem normal que possui resolução padrão, então `icon@2x.png` será tratada como uma imagem de alta resolução que tem dupla densidade de DPI.
+Por exemplo se `icon.png` é uma imagem normal que possui resolução padrão, então `icon@2x.png` será tratada como uma imagem de alta resolução que tem dupla densidade de DPI.
 
 Se você deseja ter o suporte para telas com diferentes densidades de DPI ao mesmo tempo, você pode colocar imagens de diferentes tamanhos na mesma pasta e usar o nome do arquivo sem os sufixos de DPI. Como por exemplo:
 
@@ -80,15 +80,15 @@ Os seguintes sufixos para DPI são também suportados:
 * `@4x`
 * `@5x`
 
-## Imagem Padrão
+## Modelo de Imagem
 
 Imagens padrão consistem de cores claras e pretas (e um canal alfa). Imagens padrão não são destinadas a serem usadas sozinhas, e geralmente são acompanhadas por outros conteúdos para criar a aparência final desejada.
 
 O caso mais comum é usar imagens padrão em ícones de barra de menu assim podendo se adaptar tanto para barras de menus claras quanto escuras.
 
-**Obs.:** Imagens padrão são suportadas somente no macOS.
+**Nota:** Imagens padrão são suportadas somente no macOS.
 
-Para marcar uma imagem como imagem padão, o nome do arquivo deverá terminar com a palavra `Template`. Como por exemplo:
+Para marcar uma imagem como imagem padrão, o nome do arquivo deverá terminar com a palavra `Template`. Como por exemplo:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
@@ -121,7 +121,7 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (opcional) * `width` Integer (opcional) - Necessário para buffers de bitmap. * `height` Integer (opicional) - Necessário para buffers de bitmap. * `scaleFactor` Double (opicional) - Padrão sendo 1.0.
+* `options` Object (opcional) * `width` Integer (opcional) - Necessário para buffers de bitmap. * `height` Integer (opicional) - Necessário para buffers de bitmap. * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `NativeImage`
 
@@ -198,7 +198,7 @@ Retorna `String` - Os dados de URL da imagem.
 
 Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados de bitmap crus (sem alterações) da imagem.
 
-A diferença entre `getBitmap()` e `toBitmap()` é que, `getBitmap()` não copia os dados de bitmap, portanto você tem que usar o buffer retornado imadiatamente no instante do loop do evento, senão os dados podem mudar ou serem destruídos.
+A diferença entre `getBitmap()` e `toBitmap()` é que, `getBitmap()` não copia os dados de bitmap, portanto você tem que usar o buffer retornado imediatamente no instante do loop do evento, senão os dados podem mudar ou serem destruídos.
 
 #### `image.getNativeHandle()` no *macOS*
 
