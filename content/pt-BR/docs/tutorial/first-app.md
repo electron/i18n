@@ -21,7 +21,7 @@ Crie uma nova pasta vazia para seu novo aplicativo em Electron. Abra seu termina
 npm init
 ```
 
-npm vai guiá-lo você para criação de um arquivo básico o `package.json`. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm vai guiá-lo você para criação de um arquivo básico o `package.json`. The script specified by the `main` field is the startup script of your app, which will run the main process. Um exemplo de como seu `package.json` possa parecer:
 
 ```json
 {
@@ -31,11 +31,11 @@ npm vai guiá-lo você para criação de um arquivo básico o `package.json`. Th
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (just like Node.js itself). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**Nota**: Se o campo `main` não estiver presente em `package.json`, Electron tentará carregar `index.js` (Assim como o Node.js). Se isso fosse realmente a simples aplicativo em Node, você adicionaria um `start` script, para instrui o `node` executar o pacote atual:
 
 ```json
 {
-  "name": "your-app",
+  "name": "seu-app",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
@@ -44,11 +44,11 @@ npm vai guiá-lo você para criação de um arquivo básico o `package.json`. Th
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+Transformar esse aplicativo em Node para Electron é bastante simples - nós vamos substituir o termo `node` com para o runtime `electron`.
 
 ```json
 {
-  "name": "your-app",
+  "name": "seu-app",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
