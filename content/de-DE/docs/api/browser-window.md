@@ -45,9 +45,9 @@ win.once('ready-to-show', () => {
 
 Für gewöhnlich wird dieses Ereignis nach dem `did-finish-load` Ereignis ausgelöst. Bei Seiten mit vielen Remoteressourcen kann es aber passieren dass das Event vor dem `did-finish-load` Ereignis ausgelöst wird.
 
-### Setting `backgroundColor`
+### Setzen der `backgroundColor`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Bei umfangreichen Apps könnte das `ready-to-show` Ereignis zu spät ausgelöst werden, sodass sich die App langsam anfühlt. In diesem Fall empfiehlt es sich, das Fenster sofort anzuzeigen und die `backgroundColor` auf einen Wert zu setzen der dem Hintergrund ihrer App ähnelt:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -56,11 +56,11 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Beachten Sie dass es sich auch bei Apps die das `ready-to-show` Ereignis verwenden empfiehlt die `backgroundColor` zu setzen, damit sich die App nativer anfühlt.
 
-## Parent and child windows
+## Übergeordnete und untergeordnete Fenster
 
-By using `parent` option, you can create child windows:
+Mithilfe der `parent` Option können Sie untergeordnete Fenster erstellen:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+Das `child` Fenster wird stets über dem `top` Fenster angezeigt.
 
-### Modal windows
+### Modale Fenster
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Ein modales Fenster ist ein untergeordnetes Fenster, das das übergeordnete Fenster sperrt. Um ein modales Fenster zu erzeugen müssen sie sowohl die `parent` als auch die `modal` Optionen setzen:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -87,7 +87,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Seiten Sichtbarkeit
 
 The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
 
