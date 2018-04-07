@@ -29,11 +29,11 @@ Um ein transparentes Fenster, ein Fenster ohne chrome oder ein Fenster in einer 
 
 ## Fenster elegant anzeigen
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Wenn eine Seite direkt im Fenster angezeigt wird, können Benutzer sehen wie sich die Seite nach und nach aufbaut. Bei einer nativen App ist dies keine gute Benutzererfahrung. Um die Seite ohne bemerkbaren, inkrementellen Aufbau anzuzeigen gibt es zwei Lösungen für unterschiedliche Situationen.
 
-### Using `ready-to-show` event
+### Verwenden des `ready-to-show` Ereignisses
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+Das `ready-to-show` Ereignis wird während des Ladens der Seite ausgelöst, falls das Fenster noch nicht angezeigt wurde nachdem der Rendererprozess die Seite erstmalig gerendert hat. Wenn das Fenster nach diesem Ereignis gezeigt wird, gibt es keinen bemerkbaren Seitenaufbau:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -43,7 +43,7 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Für gewöhnlich wird dieses Ereignis nach dem `did-finish-load` Ereignis ausgelöst. Bei Seiten mit vielen Remoteressourcen kann es aber passieren dass das Event vor dem `did-finish-load` Ereignis ausgelöst wird.
 
 ### Setting `backgroundColor`
 
