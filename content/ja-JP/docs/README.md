@@ -41,7 +41,7 @@
   * [キーボード ショート カット](tutorial/keyboard-shortcuts.md)
   * [Offline/Online Detection](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [ネイティブなファイルのドラッグ&ドロップ](tutorial/native-file-drag-drop.md)
 * [アプリケーションのアクセシビリティ](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
