@@ -1,8 +1,8 @@
-# Notifications (Windows, Linux, macOS)
+# 通知 (Windows、Linux、macOS)
 
-3 つのオペレーティング システム全て、アプリケーションからの通知をユーザーに送る手段を提供します。 Electron開発者は [HTML5 通知 API](https://notifications.spec.whatwg.org/) の通知を送れて、現在実行中のオペレーティング システムのネイティブ通知 APIs を使用して、表示できます。
+3つのオペレーティングシステムはすべて、アプリケーションがユーザに通知を送信する手段を提供します。 Electron は、 通知を表示するために、現在実行中のオペレーティングシステムのネイティブの通知 API を用いて、[HTML5 通知 API](https://notifications.spec.whatwg.org/) で開発者が便利に通知を送れるようにします。
 
-**Note:**これは HTML5 API のみレンダラプロセスで利用可能です。 メインプロセスに通知を表示する場合は、[通知](../api/notification.md) モジュールをご覧ください。
+**注釈:** これは HTML5 API であるため、レンダラープロセスでのみ利用可能です。 メインプロセスで通知を表示したい場合は、[Notification](../api/notification.md) モジュールを参照してください。
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -14,15 +14,15 @@ myNotification.onclick = () => {
 }
 ```
 
-オペレーティング システム コードとユーザー エクスペリエンスは、似ていますが、微妙な違いがあります。
+オペレーティングシステム間でのコードとユーザエクスペリエンスは似ていますが、微妙な違いがあります。
 
 ## Windows
 
-* Windows 10 下で, 通知が"うまいこと動く"。
-* Windows 8.1 は、Windows 8 のスタート画面に [アプリケーションのユーザー モデル ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) アプリケーションへのショートカットをインストールしなければなりません。 Note, ただし、スタート画面にピン留めする必要はありません。
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* Windows 10では、通知は "うまく動作します"。
+* Windows 8.1と Windows 8では、スタート画面に [アプリケーションユーザーモデル ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) でアプリへのショートカットをインストールしなければなりません。 注釈: ただし、スタート画面にピン留めする必要はありません。
+* Windows 7では、通知は新しいシステムのネイティブのものと視覚的に似ているカスタム実装を介して動作します。
 
-さらに、Windows 8 で通知の本文の最大長は 250 文字、200 文字程度で通知しておくことを Windows チームは推奨しています。 That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+さらに、Windows 8では、通知本体の最大長は250文字で、Windowsチームは通知を200文字にすることを推奨しています。 That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
 ### Advanced Notifications
 
