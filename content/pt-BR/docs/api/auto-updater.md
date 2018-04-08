@@ -58,21 +58,21 @@ Retorna:
 
 * Evento `event`
 * String `releaseNotes`
-* `releaseName` String
-* `releaseDate` Date
-* `updateURL` String
+* String `releaseName`
+* Data `releaseDate`
+* String `updateURL`
 
-Emitted when an update has been downloaded.
+Emitido quando uma atualização foi baixada.
 
-On Windows only `releaseName` is available.
+No Windows apenas o `releaseName` está disponível.
 
 ## Métodos
 
-The `autoUpdater` object has the following methods:
+O objeto `autoUpdater` possui os seguintes métodos:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
+* String `url`
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
 Define a `url` e inicializa a atualização automática.
