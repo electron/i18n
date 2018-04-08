@@ -107,9 +107,9 @@ Electron のカスタムフォークを作成することは、"製品レベル"
 
 #### surf-build でカスタムリリースを作成する
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. npm を介して [Surf](https://github.com/surf-build/surf) をインストールします。`npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. 新しい S3 バケットを作成し、以下の空のディレクトリ構造を作成します。
     
     ```sh
 - atom-shell/
@@ -117,9 +117,9 @@ Electron のカスタムフォークを作成することは、"製品レベル"
   - dist/
 ```
 
-3. Set the following Environment Variables:
+3. 以下の環境変数を設定します。
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
+* `ELECTRON_GITHUB_TOKEN` - GitHub 上でリリースを作成できるトークン
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
