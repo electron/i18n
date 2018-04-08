@@ -133,18 +133,18 @@ Node API で、`asar` アーカイブがディレクトリのように動作す�
 
 ### `asar` アーカイブ内のバイナリの実行
 
-`child_process.exec`, `child_process.spawn`, `child_process.execFile` のようなバイナリを実行できるNode APIがあります。しかし、`execFile` だけが、`asar` アーカイブ内でのバイナリ実行をサポートしています。
+`child_process.exec`、`child_process.spawn`、`child_process.execFile` のようなバイナリを実行できる Node API があります。しかし、`execFile` だけが `asar` アーカイブ内のバイナリ実行をサポートしています。
 
 なぜならば、`exec` と `spawn` は入力として `file` の代わりに `command` を受け取り、`command` はシェル配下で実行されるからです。 コマンドが asar アーカイブ内のファイルを使うかどうかを決定するための信頼できる方法はありませんし、そうするとしてもコマンドで使うファイルパスを副作用なしに置き換えることができるかどうかを確認することはできません。
 
-## Adding Unpacked Files to `asar` Archives
+## `asar` アーカイブへパックされていないファイルを追加
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+上で述べたように、いくつかの Node API は、呼び出されたときにファイルをファイルシステムに解凍します。 パフォーマンスの問題とは別に、この動作によってさまざまなウイルス対策スキャナが起動される可能性があります。
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+回避策として、`--unpack` オプションを使用してさまざまなファイルを展開したままにすることができます。以下の例では、ネイティブ Node.js モジュールの共有ライブラリはパックされません。
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+コマンドを実行すると、`app.asar.unpacked` という名前のフォルダが `app.asar` ファイルとともに作成されていることがわかります。 それには解凍されたファイルが含まれており、`app.asar` アーカイブと共に送られる必要があります。
