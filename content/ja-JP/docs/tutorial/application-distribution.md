@@ -120,8 +120,8 @@ Electron のカスタムフォークを作成することは、"製品レベル"
 3. 以下の環境変数を設定します。
 
 * `ELECTRON_GITHUB_TOKEN` - GitHub 上でリリースを作成できるトークン
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - シンボルと同じように node.js ヘッダをアップロードする場所
+* `ELECTRON_RELEASE` - `true` に設定すると、アップロード部分が実行され、未設定のままになり、`surf-build` はあらゆるプルリクエストに対して実行するのに適した CI タイプのチェックを行います。
 * `CI` - Set to `true` or else it will fail
 * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
