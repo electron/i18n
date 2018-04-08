@@ -1,10 +1,10 @@
 # アプリケーションのパッケージ化
 
-Windows上の[長いパス名周りの問題](https://github.com/joyent/node/issues/6960)を軽減したり、`require`を若干スピードアップしたり、簡単な調査からソースコードを隠したりするために、ソースコードを少々変更して、アプリケーションを [asar](https://github.com/electron/asar) アーカイブとしてパッケージ化することもできます。
+Windows上の長いパス名の周りの [問題](https://github.com/joyent/node/issues/6960) を軽減したり、`require` をわずかにスピードアップしたり、ソースコードを簡単な調査から隠したりするために、ソースコードを少し変更することであなたのアプリを [asar](https://github.com/electron/asar) アーカイブにパッケージする選択ができます。
 
 Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
 
-## Generating `asar` Archives
+## `asar` アーカイブの生成
 
 [asar](https://github.com/electron/asar) アーカイブは、ファイルを1つに連結するtarライクなシンプルなフォーマットです。 Electron はファイル全体を展開しなくても任意のファイルを読み込めます。
 
