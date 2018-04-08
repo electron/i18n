@@ -1,6 +1,6 @@
 # アプリケーションの配布
 
-Electronでアプリを配布する際は、[ビルド済みバイナリ](https://github.com/electron/electron/releases)をダウンロードする必要があります。 次に、アプリケーションが含まれたフォルダの名前を`app`に変更し、Electronのリソースディレクトリに、下に示すように配置します。 Electronのビルド済みバイナリは下記の例では`electron/`に配置されていることをご注意ください。
+Electron でアプリを配布する際は、Electron の [プレビルドバイナリ](https://github.com/electron/electron/releases) をダウンロードする必要があります。 次に、アプリケーションが含まれたフォルダの名前を `app` に変更し、Electron のリソースディレクトリに以下に示すように配置します。 Electron のプレビルドバイナリの場所は、以下の例では `electron/` と示されていることに注意してください。
 
 macOS:
 
@@ -20,11 +20,11 @@ electron/resources/app
 └── index.html
 ```
 
-配置が終わったら、`Electron.app` (Linuxでは`electron`, Windowsでは`electron.exe`)を実行すれば、アプリが開始されます。`electron`フォルダがアプリケーションの実際の使用者に配布されるフォルダになります。
+そして、`Electron.app` (Linuxでは`electron`、Windowsでは`electron.exe`) を実行すれば、アプリが起動します。`electron` ディレクトリが末端のユーザに配布する配布物となります。
 
-## アプリのパッケージ化
+## アプリをファイルにパッケージする
 
-すべてのソースコードをコピーすることでアプリケーションを提供する方法とは別に、アプリケーションのソースコードをユーザーに見えるのを避けるために、[asar](https://github.com/electron/asar) にアーカイブしてアプリケーションをパッケージ化することができます。
+すべてのソースコードをコピーすることでアプリを提供する方法とは別に、アプリのソースコードがユーザに公開されるのを避けるため、[asar](https://github.com/electron/asar) アーカイブにアプリをパッケージすることができます。
 
 `app` フォルダの代わりに `asar` アーカイブを使用するためには、アーカイブファイルを `app.asar` という名前に変更し、Electron のリソースディレクトリに以下のように配置する必要があります。そうすれば、Electron はアーカイブを読み込みを試み、そこから起動します。
 
@@ -44,9 +44,9 @@ electron/resources/
 
 詳細については、[アプリケーションのパッケージ化](application-packaging.md) でご確認ください。
 
-## ビルド済みバイナリのカスタマイゼーション
+## ダウンロードしたバイナリの名称変更
 
-Electronにアプリバンドルした後、ユーザーに配布する前に、 Electronのカスタマイズを行いたいことと思います。
+アプリを Electron にバンドルした後、ユーザーに配布する前に、 Electron の名称変更をしたいでしょう。
 
 ### Windows
 
