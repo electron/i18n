@@ -22,10 +22,10 @@ Chromium のすべてのビルドの複雑さを避けるため、Electron は C
 
 NW.js では、ウェブページ内の Node integration では Chromium のパッチを適用する必要があります。Electron では、Chromium のハッキングを避けるために、libuv ループを各プラットフォームのメッセージループと統合する、別の方法を選択しました。 それがどのようにされたのかについては [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) コードを参照してください。
 
-**4. 複数コンテキスト**
+**4. マルチコンテキスト**
 
 あなたが NW.js の経験があるユーザの場合、Node コンテキストとウェブコンテキストの概念に馴染んでいるはずです。これらの概念は、NW.js の実装方法のために考案されました。
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+Node の [マルチコンテキスト](https://github.com/nodejs/node-v0.x-archive/commit/756b622) 機能を使用すると、Electron はウェブページ内に新しい JavaScript コンテキストを導入しません。
 
-Note: NW.js has optionally supported multi-context since 0.13.
+注釈: NW.js は 0.13 からマルチコンテキストを任意でサポートしています。
