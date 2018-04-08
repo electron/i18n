@@ -41,7 +41,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Klavye Kısayolları](tutorial/keyboard-shortcuts.md)
   * [Çevrimdışı/Çevrimiçi Algılama](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Yerel dosya sürükle & bırak](tutorial/native-file-drag-drop.md)
 * [Application Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
