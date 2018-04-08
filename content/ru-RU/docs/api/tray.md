@@ -25,7 +25,7 @@ app.on('ready', () => {
 
 **Ограничения платформ:**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
+* В Linux индикатор приложения будет использован, если он поддерживается, иначе будет использован `GtkStatusIcon`.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
 * Значок приложения будет показан только в случае присутствия у приложения контекстного меню.
 * Если приложение запущено на Linux, то событие `click` по иконке не сработает.
@@ -58,15 +58,15 @@ app.on('ready', () => {
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Creates a new tray icon associated with the `image`.
+Создаёт новую иконку в трее, связанная с `image`.
 
 ### События экземпляра
 
-The `Tray` module emits the following events:
+Модуль `Tray` имеет эти события:
 
 #### Событие: 'click'
 
-* `event` Event 
+* `event` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -78,7 +78,7 @@ Emitted when the tray icon is clicked.
 
 #### Событие: 'right-click' *macOS* *Windows*
 
-* `event` Event 
+* `event` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -89,7 +89,7 @@ Emitted when the tray icon is right clicked.
 
 #### Событие: 'double-click' *macOS* *Windows*
 
-* `event` Event 
+* `event` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -142,7 +142,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Событие: 'mouse-enter' *macOS*
 
-* `event` Event 
+* `event` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -153,7 +153,7 @@ Emitted when the mouse enters the tray icon.
 
 #### Событие: 'mouse-leave' *macOS*
 
-* `event` Event 
+* `event` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -164,7 +164,7 @@ Emitted when the mouse exits the tray icon.
 
 #### Event: 'mouse-move' *macOS*
 
-* `event` Event 
+* `event` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -236,7 +236,7 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) - (optional)
+  * `icon` ([NativeImage](native-image.md) | String) - (необязательно)
   * `title` String
   * `content` String
 
