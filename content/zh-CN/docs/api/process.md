@@ -2,7 +2,7 @@
 
 > 处理对象的扩展
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/api/process.html)。 它新增了以下事件、属性和方法
 
