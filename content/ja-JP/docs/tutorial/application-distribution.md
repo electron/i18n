@@ -54,14 +54,14 @@ electron/resources/
 
 ### macOS
 
-`Electron.app` のファイル名は、任意の名前に変更することが出来ます。また、下記ファイル中の`CFBundleDisplayName`, `CFBundleIdentifier`, `CFBundleName`も変更する必要があります。
+`Electron.app` のファイル名は、好きな任意の名前に変更することが出来ます。その場合、以下のファイル内の `CFBundleDisplayName`、`CFBundleIdentifier`、`CFBundleName` も変更する必要があります。
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-アクティビティモニタ上で`Electron Helper`と表示されるのを避けるために、ヘルパーアプリケーションの名前を変更することも出来ます。ただし、ヘルパーアプリの実行可能ファイルの名前の変更を行っていることを今一度確認してください。
+アクティビティモニタ上で `Electron Helper` と表示されるのを避けるために、ヘルパーアプリの名前を変更することも出来ます。ただし、ヘルパーアプリの実行ファイル名が変更されていることを確認してください。
 
-名前を変更したアプリケーションの構造は以下のようになります：
+名前を変更したアプリケーションの構造は以下のようになります。
 
 ```text
 MyApp.app/Contents
@@ -85,23 +85,23 @@ MyApp.app/Contents
 
 ### Linux
 
-実行可能ファイル `electron`の名前は任意の名前に変更できます。
+`electron` 実行形式の名前は好きな任意の名前に変更できます。
 
-## パッケージ化ツール
+## パッケージツール
 
-アプリのパッケージ化を手動で行う代わりに、サードパーティー製の自動パッケージ化ツールを使用できます。
+アプリのパッケージを手動で行う代わりに、サードパーティー製の自動パッケージツールを使用できます。
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Electronをソースからリビルドしてカスタマイズ
+## ソースから Electron をリビルドして名称変更する
 
-ソースから製品名を変更してビルドすることで、Electronをカスタマイズすることも可能です。これを行うためには、`atom.gyp`を編集して、一からリビルドを行う必要があります。
+ソースからプロダクト名を変更してビルドすることで、Electron を名称変更することも可能です。これを行うためには、`atom.gyp` を編集して、クリーンなリビルドを行う必要があります。
 
-### Creating a Custom Electron Fork
+### カスタム Electron フォークを作成する
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Electron のカスタムフォークを作成することは、"製品レベル" のアプリケーションの場合でも、アプリを構築するために必要なことはほとんどありません。 `electron-packager` や `electron-forge` のようなツールを使うと、これらのステップを実行せずに Electron を "名称変更" することができます。
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
