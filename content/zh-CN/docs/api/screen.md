@@ -2,7 +2,7 @@
 
 > 检索有关屏幕大小、显示器、光标位置等的信息。
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 在发出 ` app ` 模块的 ` ready ` 事件之前, 您不能 `require` 或使用此模块。
 
