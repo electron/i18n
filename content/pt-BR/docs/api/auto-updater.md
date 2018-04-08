@@ -26,17 +26,17 @@ When using [electron-winstaller](https://github.com/electron/windows-installer) 
 
 O instalador gerado com Squirrel irá criar um ícone de atalho com uma [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) no formato `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, são exemplos `com.squirrel.slack.Slack` e `com.squirrel.code.Code`. Você deve usar o mesmo ID para sua aplicação com a API `app.setAppUserModelId`, caso contrário, o Windows não será capaz de fixar sua aplicação corretamente na barra de tarefas.
 
-Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
+Ao contrário do Squirrel.Mac, o Windows pode hospedar atualizações em S3 ou qualquer outro arquivo estático de hospedagem. Você pode ler a documentação do [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) para obter mais detalhes sobre como funciona o Squirrel.Windows.
 
 ## Eventos
 
-The `autoUpdater` object emits the following events:
+O objeto `autoUpdater` emite os seguintes eventos:
 
 ### Event: 'error'
 
 Retorna:
 
-* `error` Error
+* Erro `error`
 
 Emitted when there is an error while updating.
 
