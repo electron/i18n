@@ -103,9 +103,9 @@ MyApp.app/Contents
 
 Electron のカスタムフォークを作成することは、"製品レベル" のアプリケーションの場合でも、アプリを構築するために必要なことはほとんどありません。 `electron-packager` や `electron-forge` のようなツールを使うと、これらのステップを実行せずに Electron を "名称変更" することができます。
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+アップストリームで入手できないか、公式でリジェクトされている Electron に直接パッチしている、カスタムの C++ コードがある場合、Electron をフォークする必要があります。 Electron のメンテナーとして、あなたのやりたい通りにしたいと思っているなら、公式版の Electron に変更を加えるためにできるだけ努力していただけると助かります。その方があなたにとってはるかに易しく、且つ我々はあなたの助力に感謝するでしょう。
 
-#### Creating a Custom Release with surf-build
+#### surf-build でカスタムリリースを作成する
 
 1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
