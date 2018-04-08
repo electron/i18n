@@ -76,16 +76,16 @@ need_help:
   title: Perlu bantuan?
   description: <a href='https://discuss.atom.io/c/electron'>.
 headings:
-  languages: bahasa
+  languages: Bahasa
 taglines:
-  languages: Konten lokal dari komunitas pengembang global kami yang hebat.
-help_translate: "Bantuan terjemahkan"
+  languages: Localized content from our awesome global developer community.
+help_translate: "Bantu terjemahkan"
 footer:
   see_the_faq: Lihat pertanyaan yang sering diajukan
 apps:
   title: Aplikasi dibangun dengan elektron
   description: Dengan elektron, membuat aplikasi desktop untuk perusahaan anda atau ide dengan mudah. Awalnya dikembangkan untuk GitHub di <a href='https://atom.io' target='_blank'> Atom editor</a>, karena elektron telah digunakan untuk membuat aplikasi oleh perusahaan seperti Microsoft, Facebook, kendur, dan Docker.
-  view_more: Lihat aplikasi lain
+  view_more: Lihat lebih banyak aplikasi
   submit_your_own: kirim milik anda
   something_missing: Ada yang hilang
   edit_this_app: Edit aplikasi ini
