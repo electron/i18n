@@ -123,9 +123,9 @@ Electron のカスタムフォークを作成することは、"製品レベル"
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - シンボルと同じように node.js ヘッダをアップロードする場所
 * `ELECTRON_RELEASE` - `true` に設定すると、アップロード部分が実行され、未設定のままになり、`surf-build` はあらゆるプルリクエストに対して実行するのに適した CI タイプのチェックを行います。
 * `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64`
+* `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN` と同じに設定します
+* `SURF_TEMP` - パスが長すぎる問題を防ぐために、Windowsでは `C:\Temp` に設定してください
+* `TARGET_ARCH` - `ia32` か `x64` に設定します。
 
 1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 
