@@ -1,10 +1,10 @@
-# Application Debugging
+# アプリケーションのデバッグ
 
-Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
+Electron アプリケーションが望むように動作しないときは、デバッグツール一式がコーディングエラー、パフォーマンスのボトルネック、最適化の機会を見つけるのに役立つかもしれません。
 
-## レンダラプロセス
+## レンダラープロセス
 
-The most comprehensive tool to debug individual renderer processes is the Chromium Developer Toolset. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
+個々のレンダラープロセスをデバッグするための最も包括的なツールは、Chromium Developer Toolset です。 `BrowserWindow`、`BrowserView`、`WebView` のインスタンスを含むすべてのレンダラープロセスに対して利用可能です。 インスタンスの `webContents` 上で `openDevTools()` APIを呼ぶことで、プログラムで開くことができます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,10 +13,10 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google offers [excellent documentation for their developer tools](https://developer.chrome.com/devtools). We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
+Google は [開発者向けツールの優れたドキュメント](https://developer.chrome.com/devtools) を提供しています。 通常、Electron 開発者のツールベルトの中で最も強力なユーティリティの1つです。自分自身に慣れさせることを推奨します。
 
 ## メインプロセス
 
-Debugging the main process is a bit trickier, since you cannot simply open developer tools for them. The Chromium Developer Tools can [be used to debug Electron's main process](https://nodejs.org/en/docs/inspector/) thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+メインプロセスのデバッグは少し難解です。なぜなら、単純に開発者向けツールを開くことができないからです。 Google / Chrome と Node.js の緊密なコラボレーションのおかげで、Chromium デベロッパーツールを使用して [Electron のメインプロセスをデバッグする](https://nodejs.org/en/docs/inspector/) ことができます。しかし、コンソールに`require` が存在しないなどの奇妙な問題が発生する可能性があります。
 
-For more information, see the [Debugging the Main Process documentation](./debugging-main-process.md).
+より詳しい情報は、[メインプロセスのデバッグのドキュメント](./debugging-main-process.md) を参照してください。
