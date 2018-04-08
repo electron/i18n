@@ -8,7 +8,7 @@
 
 `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-** 注意: **在 renderer/DevTools 中, `window.screen ` 是一个保留的 DOM 属性, 因此编写 ` 让 {screen} = require('electron') ` 将不起作用。
+** 注意: **在 renderer/DevTools 中, `window.screen ` 是一个保留的 DOM 属性, 因此编写 ` let {screen} = require('electron') ` 将不起作用。
 
 创建填充整个屏幕的窗口的示例:
 
