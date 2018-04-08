@@ -16,7 +16,7 @@
 </script>
 ```
 
-Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
+そして、メインプロセスで、ドラッグされているファイルへのパスとアイコンでイベントを補填します。
 
 ```javascript
 const { ipcMain } = require('electron')
