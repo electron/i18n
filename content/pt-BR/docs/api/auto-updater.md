@@ -38,11 +38,11 @@ Retorna:
 
 * Erro `error`
 
-Emitted when there is an error while updating.
+Emitido quando há um erro durante a atualização.
 
-### Event: 'checking-for-update'
+### Evento: 'checking-for-update'
 
-Emitted when checking if an update has started.
+Emitido ao verificar se uma atualização começou.
 
 ### Event: 'update-available'
 
