@@ -982,7 +982,7 @@ Establece la Opacidad de la ventana. En Linux no tiene efecto.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Devuelve `number` - entre 0.0 (completamente transparente) y 1.0 (totalmente opaco)
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
