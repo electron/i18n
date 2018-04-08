@@ -1,6 +1,6 @@
-# Problemas com o Electron
+# Questões com o Electron
 
-# Problemas
+# Questões
 
 * [Como Contribuir com Problemas](#how-to-contribute-in-issues)
 * [Perguntas Sobre de Ajuda Geral](#asking-for-general-help)
@@ -8,7 +8,7 @@
 * [Fazendo Triagem de um Relatório de Erro](#triaging-a-bug-report)
 * [Resolvendo um Relatório de Erro](#resolving-a-bug-report)
 
-## Como Contribuir com Problemas
+## Como Contribuir com Questões
 
 Para qualquer problema, existem fundamentalmente três maneiras que alguém pode contribuir:
 

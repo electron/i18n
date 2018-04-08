@@ -1,4 +1,4 @@
-## Class: Tray
+## वर्ग: ट्रे
 
 > Add icons and context menus to the system's notification area.
 

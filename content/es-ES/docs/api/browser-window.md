@@ -978,7 +978,7 @@ En Windows y Linux siempre devuelve `true`.
 
 * `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
-Sets the opacity of the window. On Linux does nothing.
+Establece la Opacidad de la ventana. En Linux no tiene efecto.
 
 #### `win.getOpacity()` *Windows* *macOS*
 

@@ -6,7 +6,7 @@ Sendo baseado no Chromium, o Electron necessita de um driver de vídeo para roda
 
 Primeiramente instale o [Xvfb](https://en.wikipedia.org/wiki/Xvfb). É um framebuffer que implementa o protocolo de servidor de vídeo do X11 - ele realiza todas as operações gráficas na memória sem mostrar nenhuma mensagem, o que é exatamente o que precisamos.
 
-Por fim, cria uma tela xvfb virtual e exporta uma variável de ambiente designada DISPLAY que direciona para si mesma. No Electron o Chromium irá procurar automaticamente pela variável `$DISPLAY`, sendo assim dispensáveis configurações adiciionais em seu aplicativo. Este passo pode ser automatizado com o pacote [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe) de Paul Betts. Para usa-lo, adicione antes dos seus comandos de testes a tag `xvfb-maybe` e a ferramenta irá configurar automaticamente o xvfb caso o sistema necessite esta configuração. No Windows ou macOS, simplesmente não fará nada.
+Por fim, cria uma tela xvfb virtual e exporta uma variável de ambiente designada DISPLAY que direciona para si mesma. No Electron o Chromium irá procurar automaticamente pela variável `$DISPLAY`, sendo assim dispensáveis configurações adicionais em seu aplicativo. Este passo pode ser automatizado com o pacote [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe) de Paul Betts. Para usa-lo, adicione antes dos seus comandos de testes a tag `xvfb-maybe` e a ferramenta irá configurar automaticamente o xvfb caso o sistema necessite esta configuração. No Windows ou macOS, simplesmente não fará nada.
 
 ```sh
 ## No Windows ou macOS, apenas invocará o electron-mocha

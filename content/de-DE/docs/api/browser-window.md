@@ -5,10 +5,10 @@
 Prozess: [Haupt](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// Im Hauptprozess.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// Oder verwenden sie `remote` im Rendererprozess.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,24 +16,24 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Lade eine URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Oder eine lokale HTML Datei
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Rahmenloses Fenster
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Um ein transparentes Fenster, ein Fenster ohne chrome oder ein Fenster in einer beliebigen Form zu erzeugen, können sie die [Frameless Window](frameless-window.md) API verwenden.
 
-## Showing window gracefully
+## Fenster elegant anzeigen
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Wenn eine Seite direkt im Fenster angezeigt wird, können Benutzer sehen wie sich die Seite nach und nach aufbaut. Bei einer nativen App ist dies keine gute Benutzererfahrung. Um die Seite ohne bemerkbaren, inkrementellen Aufbau anzuzeigen gibt es zwei Lösungen für unterschiedliche Situationen.
 
-### Using `ready-to-show` event
+### Verwenden des `ready-to-show` Ereignisses
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+Das `ready-to-show` Ereignis wird während des Ladens der Seite ausgelöst, falls das Fenster noch nicht angezeigt wurde nachdem der Rendererprozess die Seite erstmalig gerendert hat. Wenn das Fenster nach diesem Ereignis gezeigt wird, gibt es keinen bemerkbaren Seitenaufbau:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -43,11 +43,11 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Für gewöhnlich wird dieses Ereignis nach dem `did-finish-load` Ereignis ausgelöst. Bei Seiten mit vielen Remoteressourcen kann es aber passieren dass das Event vor dem `did-finish-load` Ereignis ausgelöst wird.
 
-### Setting `backgroundColor`
+### Setzen der `backgroundColor`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Bei umfangreichen Apps könnte das `ready-to-show` Ereignis zu spät ausgelöst werden, sodass sich die App langsam anfühlt. In diesem Fall empfiehlt es sich, das Fenster sofort anzuzeigen und die `backgroundColor` auf einen Wert zu setzen der dem Hintergrund ihrer App ähnelt:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -56,11 +56,11 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Beachten Sie dass es sich auch bei Apps die das `ready-to-show` Ereignis verwenden empfiehlt die `backgroundColor` zu setzen, damit sich die App nativer anfühlt.
 
-## Parent and child windows
+## Übergeordnete und untergeordnete Fenster
 
-By using `parent` option, you can create child windows:
+Mithilfe der `parent` Option können Sie untergeordnete Fenster erstellen:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+Das `child` Fenster wird stets über dem `top` Fenster angezeigt.
 
-### Modal windows
+### Modale Fenster
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Ein modales Fenster ist ein untergeordnetes Fenster, das das übergeordnete Fenster sperrt. Um ein modales Fenster zu erzeugen müssen sie sowohl die `parent` als auch die `modal` Optionen setzen:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -87,40 +87,40 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Seiten Sichtbarkeit
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+Die [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) Funktioniert wie folgt:
 
-* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* Auf allen Plattformen gibt der Sichtbarkeitszustand an ob das Fenster versteckt bzw. minimiert ist oder nicht.
+* Zusätzlich wird unter macOS auch angegeben ob das Fenster verdeckt ist. Wenn das Fenster vollständig durch ein anderes Fenster verdeckt ist, ist der Sichtbarkeitszustand `hidden`. Auf den anderen Plattformen ist der Sichtbarkeitszustand nur `hidden`, wenn das Fenster minimiert oder explizit durch `win.hide()` verseckt wurde.
+* Wenn ein `BrowserWindow` mit der Option `show: false` erzeugt wurde, ist der anfängliche Sichtbarkeitszustand `visible`, obwohl das Fenster eigentlich versteckt ist.
+* Wenn `backgroundThrottling` deaktiviert ist, bleibt der Sichtbarkeitszustand `visible`, selbst wenn das Fenster minimiert, verdeckt oder versteckt wird.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+Es wird empfohlen aufwendige Aufgaben zu pausieren wenn der Sichtbarkeitszustand `hidden` ist, um Energie zu sparen.
 
 ### Plattformhinweise
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* Wenn unter macOS übergeordnete Fenster bewegt werden, behalten untergeordnete Fenster ihre Position relativ zum übergeordneten Fenster bei. Unter Windows und Linux bewegen sich die untergeordneten Fenster nicht.
+* Unter Windows das übergeordnete Fenster dynamisch zu wechseln.
+* Unter Linux wird der Typ von modalen Fenstern zu `dialog` geändert.
+* Unter Linux wird das verstecken von modalen Fenstern von vielen Desktop Umgebungen nicht unterstützt.
 
-## Class: BrowserWindow
+## Klasse: BrowserWindow
 
-> Create and control browser windows.
+> Erzeugung und Steuerung von Browser Fenstern.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` ist ein [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `options` gesetzt wurden.
 
 ### `new BrowserWindow([options])`
 
-* `optionen` Object (optional) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
+* `optionen` Objekt (optional) 
+  * `width` Integer (optional) - Fensterbreite in Pixel. Standardwert ist `800`.
+  * `height` Integer (optional) - Fensterhöhe in Pixel. Standardwert ist `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
