@@ -1128,29 +1128,29 @@ Controla si se debe ocultar el cursor al escribir.
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selecciona la pestaña previa cuando las pestañas nativas están activadas y hay otras pestañas en la ventana.
+Selecciona la pestaña previa cuando las pestañas nativas están activas y hay otras pestañas en la ventana.
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Selecciona la siguiente pestaña cuando las pestañas nativas están activas y hay otras pestañas en la ventana.
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Unifica todas las ventanas en una sola con múltiples pestañas cuando las pestañas nativas están activas y hay más de una ventana abierta.
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Mueve la pestaña actual a una nueva ventana si las pestañas nativas están activas y hay más de una pestaña en la ventana actual.
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Conmuta la visibilidad de la barra de pestañas si las pestañas nativas están activas y hay solo una pestaña en la ventana actual.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
-* `Ventana de navegador` Ventana de navegador
+* `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Añade una ventana como pestaña de la ventana actual, después de la pestaña para la instancia de la ventana actual.
 
 #### `win.setVibrancy(type)` *macOS*
 
@@ -1172,6 +1172,6 @@ Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `
 
 #### `win.getBrowserView()` *Experimental*
 
-Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
+Devuelve `BrowserView | null` - Un BrowserView emparejado. Devuelve `null` si no hay ninguno.
 
 **Note:**: La API de BrowserView es experimental y puede ser cambiada o elindad enl futuro versiones de Electron.
