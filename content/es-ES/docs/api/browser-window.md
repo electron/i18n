@@ -250,7 +250,7 @@ window.onbeforeunload = (e) => {
   // devolviendo un valor non-void que cancelará silenciosamente el cierre.
   // Se recomienda usar el cuadro de diálogo API para dejar que el usuario confirme el cierre de la
   //aplicación.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  e.returnValue = false // equivalente a `return false` pero no es recomendado
 }
 ```
 
