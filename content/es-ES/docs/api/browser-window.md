@@ -689,7 +689,7 @@ Devuelve `Integer[]` - Contiene la anchura y altura máxima de la ventana.
 
 #### `win.setResizable(resizable)`
 
-* `resizable` Booleano
+* `resizable` Boolean
 
 Establece si la ventana puede ser redimensionada manualmente por el usuario.
 
@@ -774,7 +774,7 @@ Mueve la ventana al centro de la pantalla.
 #### `win.setPosition(x, y[, animate])`
 
 * `x` Integer
-* `y` Íntegro
+* `y` Integer
 * `animate` Boolean (opcional) *macOS*
 
 Mueve la ventana a `x` y `y`.
@@ -785,7 +785,7 @@ Devuelve `Integer[]` - Contiene la posición actual de la ventana.
 
 #### `win.setTitle(title)`
 
-* `title` Cadena
+* `title` String
 
 Cambia el título de la ventana nativa a `title`.
 
@@ -841,7 +841,7 @@ El tipo nativo del controlador en Windows es `HWND`, en macOS `NSView*` y en Lin
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
-* `callback` Función
+* `callback` Function
 
 Ancla un mensaje en la ventana. El `callback` es llamado cuando el mensaje se recibe en el WndProc.
 
@@ -888,18 +888,18 @@ Devuelve `Boolean` - Si se ha editado el documento de la ventana.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (opcional) - Los límites para capturar
-* `callback` Función 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Es igual a `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
-* `url` Cadena
-* `opciones` Objecto (opcional) 
-  * `httpReferrer` Cadena (opcional) - Un url de HTTP referencial.
-  * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
-  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n"
+* `url` String
+* `options` Object (opcional) 
+  * `httpReferrer` String (opcional) - URL HTTP que le hace referencia.
+  * `userAgent` String (opcional) - Un agente de usuario originando la petición.
+  * `extraHeaders` String (opcional) - Encabezados extras separados por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opcional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
@@ -976,7 +976,7 @@ En Windows y Linux siempre devuelve `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Number- entre 0.0 (completamente transparente) y 1.0 (completamente opaco)
 
 Establece la Opacidad de la ventana. En Linux no tiene efecto.
 
@@ -1086,7 +1086,7 @@ Devuelve `Boolean` - Si la ventana es visible en todos los espacios de trabajo.
 
 * `ignore` Boolean
 * `opciones` Object (opcional) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Boolean (opcional) *Windows* - Si es verdadero, reenvía los mensajes de movimiento del ratón a Chromium, activando los eventos de ratón como `mouseleave`. Solo se usa cuando `ignore` es verdadero. Si `ignore` es falso, el reenvío está simpre desactivado independientemente de este valor.
 
 Hace que la ventana ignore todos los eventos del ratón.
 
