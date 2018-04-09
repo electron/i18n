@@ -63,7 +63,7 @@ get_started:
 explore:
   title: Explore as APIs do Electron
   description: "O <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> demonstra de forma interativa as características mais importantes da API do Electron. Veja o que é possível com Electron em exemplos de código e dicas úteis para a construção de seu aplicativo."
-download_from_github: Download no GitHub
+download_from_github: Baixar no GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a> no GitHub
 quick_start:
   title: "Inicie com o app <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> para ver o Electron em ação:"
@@ -96,7 +96,7 @@ clipboard:
 or: ou
 pages:
   '/':
-    title: Electron | Construa aplicativos para multiplataformas com JavaScript, HTML e CSS.
+    title: Electron | Construa aplicativos multiplataformas com JavaScript, HTML e CSS.
     description: 'Construa aplicativos desktop multiplataforma com JavaScript, HTML e CSS.'
   '/apps':
     title: Electron Apps
