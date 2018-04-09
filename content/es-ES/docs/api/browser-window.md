@@ -236,7 +236,7 @@ Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` e
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 
 Aparece cuando la ventana se va a cerrar. Se emite antes de el evento del DOM `beforeunload` y `unload`. Llamar a `event.preventDefault()` cancelará el cierre.
 
