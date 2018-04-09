@@ -6,12 +6,12 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-Una `VistaBrowser` può essere usato per incorporare contenuti web aggiuntivi nella `FinestraBrowsee`. È come una finestra piccola, eccetto per il fatto che è posta in parentela alla finestra propria. È considerato essere un alternativa al tag `vistaweb`.
+Una `BrowserView` può essere usato per incorporare contenuti web aggiuntivi nella `BrowserWindow`. È come una finestra piccola, eccetto per il fatto che è posta in parentela alla finestra propria. È considerato essere un alternativa al tag `webview`.
 
 ## Esempio
 
 ```javascript
-// Nel processo principale.
+// Nel processo principale(main).
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -29,10 +29,10 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `nuova VistaBrowser([options])` *Sperimentale*
+### `nuova BrowserView([options])` *Sperimentale*
 
-* `opzioni` Oggetto (opzionale) 
-  * `Preferenzeweb` Oggetto (opzionale) - Vedi [FinestraBrowser](browser-window.md).
+* `options` Object (opzionale) 
+  * `webPreferences` Object (opzionale) - Vedi [BrowserWindow](browser-window.md).
 
 ### Metodi Statici
 
