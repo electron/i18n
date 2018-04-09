@@ -92,34 +92,34 @@ child.once('ready-to-show', () => {
 L' [Api di Visibilità Pagina](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) lavora come segue:
 
 * Su tutte le piattaforme, lo stato di visibilità traccia se la finestra è nascosta/minimizzata o no.
-* In aggiunta, su macOS, lo stato di visibilità traccia anche lo stato di occlusione della finestra. Se la finestra è occlusa (totalmente coperta) da un'altra, lo stato di visibilità sarà `nascosta`. Su altre piattaforme, lo stato di visibilità sarà `nascosta` solo quando la finestra è minimizzata o nascosta esplicitamente con `win.nascondi()`.
-* Se una `FinestraBrowser` è creata con `mostra: false`, lo stato di visibilità iniziale sarà `visibile` nonostante la finestra risulti essere nascosta.
-* Se lo `Strozzamentosfondo` è disabilitato, lo stato di visibilità rimarrà `visibile` anche se la finestra è minimizzata, occlusa o nascosta.
+* In aggiunta, su macOS, lo stato di visibilità traccia anche lo stato di occlusione della finestra. Se la finestra è occlusa (totalmente coperta) da un'altra, lo stato di visibilità sarà nascosta (`nascosta`). Su altre piattaforme, lo stato di visibilità sarà `hidden` solo quando la finestra è minimizzata o nascosta esplicitamente con `win.hide()`.
+* Se una nuova `Finestra` è creata con `show: false`, lo stato di visibilità iniziale sarà `visibile` nonostante la finestra risulti essere nascosta.
+* Se il `backgroundThrottling` è disabilitato, lo stato di visibilità rimarrà `visible` anche se la finestra è minimizzata, occlusa o nascosta.
 
 Si raccomanda di mettere in pausa le operazioni dispendiose quando lo stato di visibilità è `hidden` per minimizzare il consumo energetico.
 
 ### Avvisi di piattaforma
 
-* Su macOS le finestre modali saranno mostrate come tabelle allegate alla finestra genitore.
+* Su macOS le finestre modali saranno mostrate come fogli allegate alla finestra genitore.
 * Su macOS le finestre figlie manterranno le proprie posizioni relative alla finestra genitore quando questa si muove, mentre su Windows e Linux queste non si muoveranno.
 * Su Windows non è supportato il cambiamento dinamico delle finestre genitori.
-* Su Linux il tipo di finestre modali sarà cambiato a `dialogo`.
+* Su Linux il tipo di finestre modali sarà cambiato in `dialog`.
 * Su Linux molti ambienti desktop non supportano il nascondere una finestra modale.
 
-## Classe: FinestraBrowser
+## Classe: BrowserWindow
 
-> Crea e controlla finestre browser.
+> Crea e controlla le finestre del browser.
 
 Processo: [Main](../glossary.md#main-process)
 
-`FinestraBrowser` è un [EmettitoreEventi](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` è un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-Esso crea una nuova `FinestraBrowser` con proprietà native come impostato dalle `opzioni`.
+Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
 
-### `nuova FinestraBrowser([options])`
+### `new BrowserWindow([options])`
 
-* `opzioni` Oggetto (opzionale) 
-  * `larghezza` Intero (opzionale) - La larghezza in pixel della finestra. Di default è di `800`.
+* `options` Oggetto (opzionale) 
+  * `width` Intero (opzionale) - La larghezza in pixel della finestra. Di default è di `800`.
   * `altezza` Intero (opzionale) - L'altezza in pixel della finestra. Di default è di `600`.
   * `x` Intero (opzionale) (**richiesto** se è usato y) - Offset sinistro della finestra dallo schermo. Di default è al centro della finestra.
   * `y` Intero (opzionale) (**richiesto** se è usato x) - L'offset superiore della finestra dallo schermo. Di default è al centro della finestra.
