@@ -1,10 +1,10 @@
 # crashReporter
 
-> Envía los informes de fallas a un servidor remoto.
+> Envía los informes de errores a un servidor remoto.
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-A continuación, un ejemplo de un envío automático de un informe de fallos a un servidor remoto:
+A continuación, un ejemplo de un envío automático de un informe de errores a un servidor remoto:
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -17,12 +17,12 @@ crashReporter.start({
 })
 ```
 
-Para configurar un servidor que acepte y procese los informes de fallo, se puede utilizar los siguientes proyectos:
+Para configurar un servidor que acepte y procese los informes de errores, se puede utilizar los siguientes proyectos:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Los reportes de fallos se guardan localmente en una carpeta de directorio temporal específica de la aplicación. Para un `productName` de `YourName`, los informes de fallos serán almacenados en una carpeta llamada `YourName Crashes` dentro del directorio temporal. Se puede personalizar esta ubicación del directorio temporal para la aplicación llamando a la API `app.setPath('temp', '/my/custom/temp')` antes de activar el informador de fallos.
+Los informes de errores se guardan localmente en una carpeta temporal específica de la aplicación. Para un `productName` de `YourName`, los informes de errores serán almacenados en una carpeta llamada `YourName Crashes` dentro del directorio temporal. Se puede personalizar esta ubicación del directorio temporal para la aplicación llamando a la API `app.setPath('temp', '/my/custom/temp')` antes de activar el informador de errores.
 
 ## Métodos
 
@@ -30,9 +30,9 @@ El módulo `crashReporter` tiene los siguientes métodos:
 
 ### `crashReporter.start(options)`
 
-* `opciones` Objeto 
-  * `companyName` Cadena (opcional)
-  * `submitURL` Cadena - Un URL a donde se enviarán los reportes de fallos como un POST.
+* `options` Object 
+  * `companyName` String (opcional)
+  * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
   * `productName` Cadena (opcional) - Por defecto es `app.getName()`.
   * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Booleano (opcional) - Por defecto es `false`.
@@ -95,17 +95,17 @@ Esto es controlado normalmente por las preferencias del usuario. Esto no tiene e
 * `key` Cadena - La clave del parámetro debe tener menos de 64 caracteres.
 * `value` String - Valor del parámetro, debe tener una longitud inferior a 64 caracteres.
 
-Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. Esta API solo está disponible en macOS, si necesita añadir/actualizar parámetros extra en Linux y Windows después de la primera llamada a `start`, puede llamar otra vez a `start` con las opciones `extra` actualizadas.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
 * `key` Cadena - La clave del parámetro debe tener menos de 64 caracteres.
 
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+Elimina un parámetro extra del conjunto actual de parámetros para que no se envíe con el informe de errores.
 
 ### `crashReporter.getParameters()`
 
-See all of the current parameters being passed to the crash reporter.
+Muestra todos los parámetros que se enviarán al proceso de notificación de errores.
 
 ## Carga útil del informe de fallos
 
