@@ -1,10 +1,10 @@
 # crashReporter
 
-> Envía los informes de errores a un servidor remoto.
+> Envía los informes de fallos a un servidor remoto.
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-A continuación, un ejemplo de un envío automático de un informe de errores a un servidor remoto:
+A continuación, un ejemplo de un envío automático de un informe de fallos a un servidor remoto:
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -17,12 +17,12 @@ crashReporter.start({
 })
 ```
 
-Para configurar un servidor que acepte y procese los informes de errores, se puede utilizar los siguientes proyectos:
+Para configurar un servidor que acepte y procese los informes de fallos, se pueden utilizar los siguientes proyectos:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Los informes de errores se guardan localmente en una carpeta temporal específica de la aplicación. Para un `productName` de `YourName`, los informes de errores serán almacenados en una carpeta llamada `YourName Crashes` dentro del directorio temporal. Se puede personalizar esta ubicación del directorio temporal para la aplicación llamando a la API `app.setPath('temp', '/my/custom/temp')` antes de activar el informador de errores.
+Los informes de fallos se guardan localmente en una carpeta temporal específica de la aplicación. Para un `productName` de `YourName`, los informes de errores serán almacenados en una carpeta llamada `YourName Crashes` dentro del directorio temporal. Se puede personalizar esta ubicación del directorio temporal para la aplicación llamando a la API `app.setPath('temp', '/my/custom/temp')` antes de activar el informador de errores.
 
 ## Métodos
 
@@ -33,7 +33,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
 * `options` Object 
   * `companyName` String (opcional)
   * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
-  * `productName` Cadena (opcional) - Por defecto es `app.getName()`.
+  * `productName` String (opcional) - Por defecto es `app.getName()`.
   * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Booleano (opcional) - Por defecto es `false`.
   * `extra` Objeto (opcional) - Un objeto que se puede definir que será enviado a través del informe. Solo las propiedades de la cadena son enviadas correctamente. No se admiten objetos anidados y los nombres de propiedades y valores tener menos de 64 caracteres.
