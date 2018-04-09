@@ -79,15 +79,15 @@ Restituisce `Boolean` - Se la vista viene distrutta.
 #### `view.setAutoResize(options)` *Sperimentale*
 
 * `options` Object 
-  * `larghezza` Booleano - Se `true` la larghezza della vista crescerà e si contrarrà insieme alla finestra. `false` di default.
-  * `altezza` Booleano - Se `true`, la vista dell'altezza crescerà e si contrarrà con la finestra. `false` di default.
+  * `width` Boolean - Se `true` la larghezza della vista crescerà e si contrarrà insieme alla finestra. `false` di default.
+  * `height` Boolean - Se `true`, la vista dell'altezza crescerà e si contrarrà con la finestra. `false` di default.
 
-#### `vista.impostaLimiti(limiti)` *Sperimentale*
+#### `view.setBounds(bounds)` *Sperimentale*
 
-* `limiti` [Rettangolo](structures/rectangle.md)
+* `bounds` [Rectangle](structures/rectangle.md)
 
 Ridimensiona e muovi la vista ai limiti forniti relativamente alla finestra.
 
-#### `vista.impostaColoreSfondo(colore)` *Sperimentale*
+#### `view.setBackgroundColor(color)` *Sperimentale*
 
-* `colore` Stringa - Colore in forma `#aarrggbb` o `#argb`. Il canale alpha opzionale.
+* `color` String - Colore nel formato `#aarrggbb` o `#argb`. Il canale alpha é opzionale.
