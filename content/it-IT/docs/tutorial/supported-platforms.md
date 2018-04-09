@@ -1,6 +1,6 @@
 # Piattaforme supportate
 
-Following platforms are supported by Electron:
+Le seguenti piattaforme sono supportate da Electron:
 
 ### macOS
 
