@@ -43,7 +43,7 @@ electron_is_easy:
   video_link: Assista o vídeo
 web_technologies:
   title: Tecnologias Web
-  description: Electron usa Chromium e Node.js, assim você pode construir seu aplicação com HTML, CSS e JavaScript.
+  description: Electron usa Chromium e Node.js, assim você pode construir sua aplicação com HTML, CSS e JavaScript.
 open_source:
   title: Código Aberto
   description: Electron é um projeto de código aberto mantido pelo o GitHub e com uma comunidade ativa de colaboradores.
