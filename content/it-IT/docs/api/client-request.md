@@ -8,7 +8,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(options)`
 
-* `opzioni` (Object | String) - If `opzioni` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
