@@ -22,7 +22,7 @@ Para configurar un servidor que acepte y procese los informes de fallos, se pued
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Los informes de fallos se guardan localmente en una carpeta temporal específica de la aplicación. Para un `productName` de `YourName`, los informes de errores serán almacenados en una carpeta llamada `YourName Crashes` dentro del directorio temporal. Se puede personalizar esta ubicación del directorio temporal para la aplicación llamando a la API `app.setPath('temp', '/my/custom/temp')` antes de activar el informador de errores.
+Los informes de fallos se guardan localmente en una carpeta temporal específica de la aplicación. Para un `productName` de `YourName`, los informes de fallos serán almacenados en una carpeta llamada `YourName Crashes` dentro del directorio temporal. Se puede personalizar esta ubicación del directorio temporal para la aplicación llamando a la API `app.setPath('temp', '/my/custom/temp')` antes de activar el informador de fallos.
 
 ## Métodos
 
@@ -101,11 +101,11 @@ Establecer un parámetro adicional que se enviará con el informe de fallos. Los
 
 * `key` Cadena - La clave del parámetro debe tener menos de 64 caracteres.
 
-Elimina un parámetro extra del conjunto actual de parámetros para que no se envíe con el informe de errores.
+Elimina un parámetro extra del conjunto actual de parámetros para que no se envíe con el informe de fallos.
 
 ### `crashReporter.getParameters()`
 
-Muestra todos los parámetros que se enviarán al proceso de notificación de errores.
+Muestra todos los parámetros que se enviarán al informador de fallos.
 
 ## Carga útil del informe de fallos
 
