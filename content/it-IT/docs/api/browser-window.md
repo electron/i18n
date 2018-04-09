@@ -120,36 +120,36 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
 
 * `options` Oggetto (opzionale) 
   * `width` Intero (opzionale) - La larghezza in pixel della finestra. Di default è di `800`.
-  * `altezza` Intero (opzionale) - L'altezza in pixel della finestra. Di default è di `600`.
+  * `height` Intero (opzionale) - L'altezza in pixel della finestra. Di default è di `600`.
   * `x` Intero (opzionale) (**richiesto** se è usato y) - Offset sinistro della finestra dallo schermo. Di default è al centro della finestra.
   * `y` Intero (opzionale) (**richiesto** se è usato x) - L'offset superiore della finestra dallo schermo. Di default è al centro della finestra.
-  * `usaDimensioniContenuto` Booleano (opzionale) - La `larghezza` e l'`altezza` saranno usate come dimensioni della pagina web, il che vuol dire che la dimensione attuale della finestra includerà le dimensioni della cornice della finestra ed è lievemente più grande. Di default è `false`.
-  * `centro` Booleano (opzionale) - Mostra la finestra al centro dello schermo.
-  * `Larghezzaminima` Intero (opzionale) - Larghezza minima della finestra. Di default è ``.
-  * `Altezzaminima` Intero (opzionale) - Altezza minima della finestra. Di default è ``.
-  * `Larghezzamassima` Intero (opzionale) - Larghezza massima della finestra. Di default non ha limiti.
-  * `Altezzamassima` Intero (opzionale) - Altezza massima della finestra. Di default è senza limiti.
-  * `ridimensionabile` Booleano (opzione) - Se la finestra è ridimensionabile. Di default è `true`.
-  * `mobile` Booleano (opzionale) - Se la finestra è mobile. Non è implementato su Linux. Di default è `true`.
-  * `minimizzabile` Booleano (opzionale) - Se la finestra è minimizzabile. Non implementato su Linux. Di default è `true`.
-  * `massimizzabile` Booleano (opzionale) - Se la finestra è massimizzabile. Non implementato su Linux. Di default è `true`.
-  * `chiudibile` Booleano (opzionale) - Se la finestra è chiudibile. Non implementato su Linux. Di default è `true`.
-  * `focalizzabile` Booleano (opzionale) - Se la finestra è focalizzabile. Di default è `true`. Su Windows impostare `focalizzabile: false` implica impostare `saltaTaskbar: true`. Su Linux, impostare `focalizzabile: false` ferma l'interazione della finestra con wm, così la finestra resterà sempre in alto rispetto alle aree di lavoro.
-  * `seprealTop` Booleano (opzionale) - Se la finestra dovrebbe sempre rimanere al top delle altre finestre. Di default è `false`.
-  * `schermointero` Booleano (opzionale) - Se la finestra dovrebbe mostrarsi a schermo intero. Quando esplicitamente impostati a `false` il pulsante schermo intero sarà nascosto o disabilitato su macOS. Di default è `false`.
-  * `schermointero` Booleano (opzionale) - Se la finestra è impostabile in modalità schermo intero. Su macOS, anche se il pulsante massimizza/ingrandisci potrebbe impostare la modalità schermo intero o massimizza finestra. Di default `true`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
-  * `saltaTaskbar` Booleano (opzionale) - Se mostrare la finestra nella taskbar. Di default è `false`.
+  * `useContentSize` Booleano (opzionale) - La `width` e l'`height` saranno usate come dimensioni della pagina web, il che vuol dire che la dimensione attuale della finestra includerà le dimensioni della cornice della finestra ed è lievemente più grande. Di default è `false`.
+  * `center` Booleano (opzionale) - Mostra la finestra al centro dello schermo.
+  * `minWidth` Intero (opzionale) - Larghezza minima della finestra. Di default è ``.
+  * `minHeight` Intero (opzionale) - Altezza minima della finestra. Di default è ``.
+  * `maxWidth` Intero (opzionale) - Larghezza massima della finestra. Di default non ha limiti.
+  * `maxHeight` Intero (opzionale) - Altezza massima della finestra. Di default è senza limiti.
+  * `resizable` Booleano (opzione) - Se la finestra è ridimensionabile. Di default è `true`.
+  * `movable` Booleano (opzionale) - Se la finestra è mobile. Non è implementato su Linux. Di default è `true`.
+  * `minimizable` Booleano (opzionale) - Se la finestra è minimizzabile. Non implementato su Linux. Di default è `true`.
+  * `maximizable` Booleano (opzionale) - Se la finestra è massimizzabile. Non implementato su Linux. Di default è `true`.
+  * `closable` Booleano (opzionale) - Se la finestra è chiudibile. Non implementato su Linux. Di default è `true`.
+  * `focusable` Booleano (opzionale) - Se la finestra è focalizzabile. Di default è `true`. Su Windows impostando `focusable: false` implica anche l'impostazione `skipTaskbar: true`. Su Linux, impostando `focusable: false` blocca l'interazione della finestra con il wm, così la finestra resterà sempre in primo piano rispetto alle aree di lavoro.
+  * `alwaysOnTop` Booleano (opzionale) - Se la finestra dovrebbe sempre rimanere al top delle altre finestre. Di default è `false`.
+  * `fullscreen` Booleano (opzionale) - Se la finestra dovrebbe mostrarsi a schermo intero. Quando esplicitamente impostati a `false` il pulsante schermo intero sarà nascosto o disabilitato su macOS. Di default è `false`.
+  * `fullscreenable` Booleano (opzionale) - Se la finestra è impostabile in modalità schermo intero. Su macOS, anche se il pulsante massimizza/ingrandisci potrebbe impostare la modalità schermo intero o massimizza finestra. Di default `true`.
+  * `simpleFullscreen` Booleano (opzionale) - Modalità a schermo intero su macOS pre-Lion. Default è `false`.
+  * `skipTaskbar` Booleano (opzionale) - Se mostrare la finestra nella taskbar. Di default è `false`.
   * `kiosk` Booleano (opzionale) - Modalità kiosk. Di default è `false`.
-  * `titolo` Stringa (opzionale) Titolo di default della finestra. Di default è `"Electron"`.
-  * `icona` ([ImmagineNativa](native-image.md) | Stringa) (opzionale) - L'icona della finestra. Su Windows si raccomanda di usare le icone `ICO` per ottenere migliori effetti visuali, puoi anche lasciarlo indefinito, così sarà usata l'icona eseguibile.
-  * `mostra` Booleano (opzionale) - Se la finestra potrebbe essere mostrata quando creata. Di default è `true`.
-  * `frame` Booleano (opzionale) - Specifica `false` per creare una [Finestra Framemeno](frameless-window.md). Di default è `true`.
-  * `genitorr` FinestraBrowser (opzionale) - Specifica finestre genitoriali. Di default è `nullo`.
-  * `modale` Booleano (opzionale) - Se si tratta di una finestra modale. Funziona solo se la finestra è figlia. Di default è `false`.
-  * `accettaPrimoMouse` Booleano (opzionale) - Se la visuale web accetta un singolo evento mouse giù che simultaneamente attiva la finestra. Di default è `false`.
-  * `disabilitaAutoNascondiCursore` Booleano (opzionale) - Se nascondere il cursore in digitazione. Di default è `false`.
-  * `autoNascondiMenuBarra` Booleano (opzionale) - Nascondi automaticamente la barra dei menu senza che la chiave `Alt` sia premuta. Di default è `false`.
+  * `title` Stringa (opzionale) Titolo di default della finestra. Di default è `"Electron"`.
+  * `icon` ([>NativeImage](native-image.md) | Stringa) (opzionale) - L'icona della finestra. Su Windows si raccomanda di usare le icone `ICO` per ottenere migliori effetti visuali, puoi anche lasciarlo non impostato, così sarà usata l'icona dell'eseguibile.
+  * `show` Boolean (opzionale) - Se la finestra deve essere visualizzata quando creata. Di default è `true`.
+  * `frame` Booleano (opzionale) - Specifica `false` per creare una [Finestra senza bordi](frameless-window.md). Di default è `true`.
+  * `parent` BrowserWindow (opzionale) - Specifica la finestra genitore. Di default è `null`.
+  * `modal` Booleano (opzionale) - Se si tratta di una finestra modale. Funziona solo se la finestra è figlia. Di default è `false`.
+  * `acceptFirstMouse` Booleano (opzionale) - Se la web view accetta un singolo evento mouse-down che simultaneamente attiva la finestra. Di default è `false`.
+  * `disableAutoHideCursor` Booleano (opzionale) - Se nascondere il cursore in digitazione. Di default è `false`.
+  * `autoHideMenuBar` Booleano (opzionale) - Nascondi automaticamente la barra dei menu senza che il tasto `Alt` sia premuto. Di default è `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
