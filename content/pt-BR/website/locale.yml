@@ -34,8 +34,8 @@ community:
   components: Componentes
   videos: Vídeos
   meetups: Meetups
-  awesome_notice: Esta é uma lista gerada a partir do <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repositório. <br>Falta alguma coisa?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Crie um pull request</a>.
-  meetup_notice: Para adicionar um meetup, edite o <code>data/meetups.json</code> e <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">crie um pull requests</a>.
+  awesome_notice: Esta lista é gerada a partir do repositório <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>.<br>Falta alguma coisa?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Crie um pedido</a>.
+  meetup_notice: Para adicionar um encontro, edite o <code>data/meetups.json</code> e <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">crie um pedido</a>.
 releases: Versões
 electron_is_easy:
   title: É mais fácil do que você pensa
@@ -59,7 +59,7 @@ benefits:
   windows_installers: Instalador do Windows
 get_started:
   title: Começar
-  description: Para começar com o Electron, confira os recursos abaixo. Saiba como envolver o seu aplicativo web com Electron, acesse todas as APIs e gerado de instaladores.
+  description: Para começar com o Electron, confira os recursos abaixo. Saiba como envolver o seu aplicativo web com Electron, acessar todas as APIs e gerar instaladores.
 explore:
   title: Explore as APIs do Electron
   description: "O <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> demonstra de forma interativa as características mais importantes da API do Electron. Veja o que é possível com Electron em exemplos de código e dicas úteis para a construção de seu aplicativo."
