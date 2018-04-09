@@ -38,47 +38,47 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Restituisce `BrowserView[]` - una array di tutti i BrowserViews aperti.
 
 #### `BrowserView.fromWebContents(webContents)`
 
-* `ContenutiWeb` [ContenutiWeb](web-contents.md)
+* `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Restituisce `BrowserView | null`-The BrowserView che possiede il dato `webContents` o `null` se il contenuto non è di proprietà di un BrowserView.
 
-#### `VistaBrowser.daId(id)`
+#### `BrowserView.fromId(id)`
 
-* `id` Numero Intero
+* `id` Integer
 
-Restituisce `VistaBrowser` - La vista con l'`id` dato.
+Restituisce `BrowserView` - La vista con l'`id` dato.
 
 ### Proprietà Istanza
 
-Oggetti creato con `nuova VistaBrowser` hanno le seguenti proprietà:
+Oggetti creato con `new BrowserView` hanno le seguenti proprietà:
 
-#### `vista.Contenutiweb` *Sperimentale*
+#### `view.webContents` *Sperimentale*
 
-Un oggetto [`ContenutiWeb`](web-contents.md) da questa vista.
+Un oggetto [`WebContents`](web-contents.md) da questa vista.
 
-#### `vista.id` *Sperimentale*
+#### `view.id` *Sperimentale*
 
-Un numero `Intero` rappresentante l'unico ID di visualizzazione.
+Un numero intero(`Integer`) rappresentante l'unico ID di visualizzazione.
 
 ### Metodi Istanza
 
-Oggetti creati con `nuova VistaBrowser` hanno i seguenti metodi d'istanza:
+Oggetti creati con `new BrowserView` hanno i seguenti metodi d'istanza:
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+Forza la chiusura della vista, gli enventi `unload` e `beforeunload` non verranno emessi per la pagina web. Dopo che hai finito con una vista, chiama questa funzione per liberare memoria e altre risorse il prima possibile.
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+Restituisce `Boolean` - Se la vista viene distrutta.
 
-#### `vedi.impostaRidimensionaAutomaticamente(opzioni` *Sperimentale*
+#### `view.setAutoResize(options)` *Sperimentale*
 
-* `opzioni` Oggetto 
+* `options` Object 
   * `larghezza` Booleano - Se `true` la larghezza della vista crescerà e si contrarrà insieme alla finestra. `false` di default.
   * `altezza` Booleano - Se `true`, la vista dell'altezza crescerà e si contrarrà con la finestra. `false` di default.
 
