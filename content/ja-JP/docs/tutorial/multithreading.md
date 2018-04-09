@@ -1,10 +1,10 @@
 # マルチスレッド
 
-[Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers)により、JavascriptをOSレベルのスレッドで実行することが可能になります。
+[Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers) により、JavaScript を OS レベルのスレッドで実行することが可能になります。
 
 ## マルチスレッド Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Electron の Web Workers 内で Node.js の機能を使用するには、`webPreferences` の `nodeIntegrationInWorker` オプションを `true` に設定する必要があります。
 
 ```javascript
 let win = new BrowserWindow({
