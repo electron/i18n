@@ -254,7 +254,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***Nota**: Hay una diferencia sutil entre el comportamiento de `window.onbeforeunload = handler` y `window.addEventListener('beforeunload', handler)`. Es recomendable establecer siempre de forma explícita el valor de `event.returnValue`, en vez de simplemente devolver un valor, ya que así funcionará más consistentemente dentro de Electron.*
 
 #### Evento: "closed"
 
