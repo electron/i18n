@@ -74,7 +74,7 @@ quick_start:
   dive_deeper: Ou você pode ir mais fundo e ler a <a href='/docs'>documentação</a>.
 need_help:
   title: Precisa de Ajuda?
-  description: Faça perguntas no <a href='https://discuss.atom.io/c/electron'>Discuss</a> fórum ou nosso canal do <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:info@electronjs.org">nfo@electronjs.org</a>.
+  description: Faça perguntas no fórum de <a href='https://discuss.atom.io/c/electron'>Discussão</a> ou no nosso canal do <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:info@electronjs.org">nfo@electronjs.org</a>.
 headings:
   languages: Idiomas
 taglines:
@@ -103,13 +103,13 @@ pages:
     description: Aplicativos construídos com Electron
   '/docs':
     title: Documentação
-    description: Documentação de APIs e Guias da versão mais recente do Electron
+    description: Documentação de referência da API e guias da versão mais recente do Electron
   '/docs/all':
     title: Todas as documentações do Electron!
-    description: Todos os guias e API do Electron em uma só local, com página pesquisável.
+    description: Todos os guias e a documentação da API do Electron numa só página com pesquisa.
   '/docs/api':
     title: API
-    description: Documentação de referência para as APIs da versão mais recente do Electron
+    description: Documentação de referência da API da versão mais recente do Electron
   '/docs/development':
     title: Desenvolvimento
     description: Desenvolvendo com Electron
