@@ -6,9 +6,9 @@ Processo: [Main](../glossary.md#main-process)
 
 ```javascript
 // Nel processo principale.
-const {BrowserWindow} = richiedi('electron')
+const {BrowserWindow} = require('electron')
 
-// O usa 'remoto' dai processi di render.
+// O usa 'remote' dai processi render.
 // const {FinestraBrowser} = richiedi('electron').remoto
 
 vinci = nuova FinestraBrowser({larghezza: 800, altezza: 600})
