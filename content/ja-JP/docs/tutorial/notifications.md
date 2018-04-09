@@ -26,7 +26,7 @@ myNotification.onclick = () => {
 
 ### 高度な通知
 
-以降の Windows バージョンでは、カスタムテンプレート、イメージ、その他の柔軟な要素を使用した高度な通知が可能です。 これらの通知を (メインプロセスかレンダラープロセスから) 送信するには、`ToastNotification` と `TileNotification` オブジェクトを送るネイティブ Node アドオンを使用する、[electron-windows-notification](https://github.com/felixrieseberg/electron-windows-notifications) ユーザーランドモジュールを使用します。
+Windows の以降のバージョンでは、カスタムテンプレート、イメージ、その他の柔軟な要素を使用した高度な通知が可能です。 これらの通知を (メインプロセスかレンダラープロセスから) 送信するには、`ToastNotification` と `TileNotification` オブジェクトを送るネイティブ Node アドオンを使用する、[electron-windows-notification](https://github.com/felixrieseberg/electron-windows-notifications) ユーザーランドモジュールを使用します。
 
 ボタンを含み、通知はただの `electron-windows-notifications` でも機能しますが、返信を処理するには [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) を使用する必要があります。これは、必要な COM コンポーネントの登録と入力ユーザーデータでの Electron アプリの呼び出しに役立ちます。
 
@@ -38,19 +38,19 @@ myNotification.onclick = () => {
 
 ## macOS
 
-通知は、すぐに気づくことになるけどmacOS下では、[Apple のヒューマンインターフェイスガイドラインに関する通知](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html)を素直に読んだほうがいい でしょう。
+macOS 上での通知は簡単ですが、[通知に関する Apple のヒューマンインタフェースガイドライン](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) を理解しておく必要があります。
 
-通知サイズが 256 バイトに限定されて、その制限を超えると切り捨てられることに注意してください。
+通知サイズは256バイトに制限されており、その制限を超えると切り捨てられることに注意してください。
 
 ### 高度な通知
 
-macOS以降のバージョンは、ユーザーがすぐに通知に返信できるように、入力フィールドに通知できます。 入力フィールドから通知を送信するためには、ユーザランドモジュール [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier) を使用します。
+macOS の以降のバージョンでは、ユーザがすぐに通知に返信できるように、入力フィールドつきの通知を利用できます。 入力フィールドつきの通知を送信するためには、[node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier) ユーザーランドモジュールを使用します。
 
-### Do not disturb / Session State
+### おやすみモード / セッションステート
 
 通知を送信することが許可されているかどうかを検出するには、[electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) ユーザーランドモジュールを使用します。
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+これにより、通知が表示されるかどうかを事前に検出することができます。
 
 ## Linux
 
