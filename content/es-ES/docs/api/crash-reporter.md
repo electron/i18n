@@ -37,7 +37,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
   * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Booleano (opcional) - Por defecto es `false`.
   * `extra` Objeto (opcional) - Un objeto que se puede definir que será enviado a través del informe. Solo las propiedades de la cadena son enviadas correctamente. No se admiten objetos anidados y los nombres de propiedades y valores tener menos de 64 caracteres.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
+  * `crashesDirectory` String (opcional) - Directorio para almacenar temporalmente los informes de errores (solo se usa cuando el proceso de notificación de errores se inicia a través de `process.crashReporter.start`)
 
 Es necesario llamar este método antes de utilizar cualquier otra API `crashReporter` y en cada proceso (main/renderer) del cual se quiera recopilar los informes de fallos. Se puede pasar diferentes opciones al `crashReporter.start` al llamar desde diferentes procesos.
 
@@ -93,9 +93,9 @@ Esto es controlado normalmente por las preferencias del usuario. Esto no tiene e
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` Cadena - La clave del parámetro debe tener menos de 64 caracteres.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `value` String - Valor del parámetro, debe tener una longitud inferior a 64 caracteres.
 
-Establecer un parámetro adicional que se enviará con el informe de fallos. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
