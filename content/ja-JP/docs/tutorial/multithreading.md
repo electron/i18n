@@ -22,15 +22,15 @@ Node.js の組み込みモジュールはすべて Web Workers でサポート�
 
 ## ネイティブ Node.js モジュール
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+任意のネイティブ Node.js モジュールを Web Workers に直接ロードできますが、そのようにしないことを強く推奨します。 既存のネイティブモジュールのほとんどはシングルスレッド環境を想定して作成されており、Web Workers でそれらを使用するとクラッシュやメモリ破壊につながります。
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+ネイティブ Node.js モジュールがスレッドセーフであっても、`process.dlopen` 関数はスレッドセーフではないため、Web Worker でロードするのは安全ではありません。
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+ネイティブモジュールを安全にロードする唯一の方法は、Web Workers の起動後にアプリがネイティブモジュールをロードしないようにすることです。
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Load native module is not safe')
+  throw new Error('ネイティブモジュールの読み込みは安全ではありません')
 }
 let worker = new Worker('script.js')
 ```
