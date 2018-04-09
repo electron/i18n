@@ -1,4 +1,4 @@
-# MasaüstüYakalayıcısıKaynağı Nesnesi
+# DesktopCapturerSource Object
 
 * `id` Dizesi - [`navigator.webkitGetUserMedia`] çağırılırken bir `chromeMediaSourceId` sınırlayıcısı olarak kullanılabilen bir pencere ya da ekranın tanımlayıcısı. `XX` rastgele üretilmiş bir sayı olduğunda, tanımlayıcının formatı `window:XX` ya da `screen:XX` olacak.
 * `name` Dizesi - Bir pencere kaynağının ismi pencere başlığı ile uyuşurken, ekran kaynağı ya `Entire Screen` ya da `Screen <index>` olarak isimlendirilecek.

@@ -2,13 +2,13 @@
 
 > 检索有关屏幕大小、显示器、光标位置等的信息。
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 在发出 ` app ` 模块的 ` ready ` 事件之前, 您不能 `require` 或使用此模块。
 
 `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-** 注意: **在 renderer/DevTools 中, `window.screen ` 是一个保留的 DOM 属性, 因此编写 ` 让 {screen} = require('electron') ` 将不起作用。
+** 注意: **在 renderer/DevTools 中, `window.screen ` 是一个保留的 DOM 属性, 因此编写 ` let {screen} = require('electron') ` 将不起作用。
 
 创建填充整个屏幕的窗口的示例:
 

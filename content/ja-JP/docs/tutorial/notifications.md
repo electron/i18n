@@ -1,8 +1,8 @@
-# Notifications (Windows, Linux, macOS)
+# 通知 (Windows、Linux、macOS)
 
-3 つのオペレーティング システム全て、アプリケーションからの通知をユーザーに送る手段を提供します。 Electron開発者は [HTML5 通知 API](https://notifications.spec.whatwg.org/) の通知を送れて、現在実行中のオペレーティング システムのネイティブ通知 APIs を使用して、表示できます。
+3つのオペレーティングシステムはすべて、アプリケーションがユーザに通知を送信する手段を提供します。 Electron は、 通知を表示するために、現在実行中のオペレーティングシステムのネイティブの通知 API を用いて、[HTML5 通知 API](https://notifications.spec.whatwg.org/) で開発者が便利に通知を送れるようにします。
 
-**Note:**これは HTML5 API のみレンダラプロセスで利用可能です。 メインプロセスに通知を表示する場合は、[通知](../api/notification.md) モジュールをご覧ください。
+**注釈:** これは HTML5 API であるため、レンダラープロセスでのみ利用可能です。 メインプロセスで通知を表示したい場合は、[Notification](../api/notification.md) モジュールを参照してください。
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -14,44 +14,44 @@ myNotification.onclick = () => {
 }
 ```
 
-オペレーティング システム コードとユーザー エクスペリエンスは、似ていますが、微妙な違いがあります。
+オペレーティングシステム間でのコードとユーザエクスペリエンスは似ていますが、微妙な違いがあります。
 
 ## Windows
 
-* Windows 10 下で, 通知が"うまいこと動く"。
-* Windows 8.1 は、Windows 8 のスタート画面に [アプリケーションのユーザー モデル ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) アプリケーションへのショートカットをインストールしなければなりません。 Note, ただし、スタート画面にピン留めする必要はありません。
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* Windows 10では、通知は "うまく動作します"。
+* Windows 8.1と Windows 8では、スタート画面に [アプリケーションユーザーモデル ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) でアプリへのショートカットをインストールしなければなりません。 注釈: ただし、スタート画面にピン留めする必要はありません。
+* Windows 7では、通知は新しいシステムのネイティブのものと視覚的に似ているカスタム実装を介して動作します。
 
-さらに、Windows 8 で通知の本文の最大長は 250 文字、200 文字程度で通知しておくことを Windows チームは推奨しています。 That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
-
-### Advanced Notifications
-
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
-
-While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
-
-### Quiet Hours / Presentation Mode
-
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
-
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
-
-## macOS
-
-通知は、すぐに気づくことになるけどmacOS下では、[Apple のヒューマンインターフェイスガイドラインに関する通知](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html)を素直に読んだほうがいい でしょう。
-
-通知サイズが 256 バイトに限定されて、その制限を超えると切り捨てられることに注意してください。
+さらに、Windows 8では、通知本体の最大長は250文字で、Windowsチームは通知を200文字にすることを推奨しています。 この制限は Windows 10では削除されており、これは Windows チームは合理的にするために開発者の意見を聞いているということです。 巨大な量のテキスト (数千文字) を API に送信しようとすると、不安定になる可能性があります。
 
 ### 高度な通知
 
-macOS以降のバージョンは、ユーザーがすぐに通知に返信できるように、入力フィールドに通知できます。 入力フィールドから通知を送信するためには、ユーザランドモジュール [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier) を使用します。
+Windows の以降のバージョンでは、カスタムテンプレート、イメージ、その他の柔軟な要素を使用した高度な通知が可能です。 これらの通知を (メインプロセスかレンダラープロセスから) 送信するには、`ToastNotification` と `TileNotification` オブジェクトを送るネイティブ Node アドオンを使用する、[electron-windows-notification](https://github.com/felixrieseberg/electron-windows-notifications) ユーザーランドモジュールを使用します。
 
-### Do not disturb / Session State
+ボタンを含み、通知はただの `electron-windows-notifications` でも機能しますが、返信を処理するには [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) を使用する必要があります。これは、必要な COM コンポーネントの登録と入力ユーザーデータでの Electron アプリの呼び出しに役立ちます。
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+### 非通知 / プレゼンテーションモード
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+通知を送信することが許可されているかどうかを検出するには、[electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) ユーザーランドモジュールを使用します。
+
+これにより、Windows が通知を無音で表示するかどうかを事前に判断することができます。
+
+## macOS
+
+macOS 上での通知は簡単ですが、[通知に関する Apple のヒューマンインタフェースガイドライン](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) を理解しておく必要があります。
+
+通知サイズは256バイトに制限されており、その制限を超えると切り捨てられることに注意してください。
+
+### 高度な通知
+
+macOS の以降のバージョンでは、ユーザがすぐに通知に返信できるように、入力フィールドつきの通知を利用できます。 入力フィールドつきの通知を送信するためには、[node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier) ユーザーランドモジュールを使用します。
+
+### おやすみモード / セッションステート
+
+通知を送信することが許可されているかどうかを検出するには、[electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) ユーザーランドモジュールを使用します。
+
+これにより、通知が表示されるかどうかを事前に検出することができます。
 
 ## Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+通知は、[デスクトップ通知仕様](https://developer.gnome.org/notification-spec/) (Cinnamon、Enlightenment、Unity、GNOME、KDE) に従ってデスクトップ環境の通知を表示できる `libnotify` を使用して送信されます。

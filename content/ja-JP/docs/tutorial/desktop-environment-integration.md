@@ -8,7 +8,7 @@
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## 最近使用したドキュメント
 
 See [Recent Documents documentation](recent-documents.md).
 

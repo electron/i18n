@@ -1,6 +1,6 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> Отправка отчёта об ошибке на удалённый сервер.
 
 Процессы: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 

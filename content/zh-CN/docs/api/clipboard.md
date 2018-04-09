@@ -2,7 +2,7 @@
 
 > 在系统剪贴板上执行复制和粘贴操作。
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 下面的示例演示如何将字符串写入剪贴板:
 

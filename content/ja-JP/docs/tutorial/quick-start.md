@@ -2,9 +2,9 @@
 
 Electronは、豊富なネイティブ (オペレーティング・システム) APIを備えたランタイムを提供することで、純粋なJavaScriptでデスクトップ・アプリケーションを開発できるようにします。 Webサーバではなく、デスクトップ・アプリケーションに焦点を当てたNode.jsランタイムがElectronであると捉えても構いません。
 
-The old "Quick Start" document that used to live here has been split up into two documents:
+ここにあった古い "クイックスタート" ドキュメントは、2つのドキュメントに分割されています。
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* シンプルな Electron アプリの構築方法を確認するには、[最初の Electron アプリの作成](./first-app.md) を参照してください。
+* プロセスアーキテクチャを確認するには、[メインプロセスとレンダラープロセス](./application-architecture.md#main-and-renderer-processes) を参照してください。
 
-If you just came here to learn about Electron, check out the [official guides](../README.md).
+Electron について学ぶためにここに来たのであれば、[公式ガイド](../README.md) をご覧ください。

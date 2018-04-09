@@ -1,7 +1,7 @@
 tagline: Membangun lintas platform aplikasi desktop dengan JavaScript, HTML dan CSS
 nav:
   docs: Dokumentasi
-  donors: Donors
+  donors: Penyumbang
   blog: Blog
   community: Komunitas
   apps: Aplikasi
@@ -74,18 +74,18 @@ quick_start:
   dive_deeper: Atau menyelam lebih dalam dan membaca <a href='/docs'> dokumentasi</a>.
 need_help:
   title: Perlu bantuan?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: <a href='https://discuss.atom.io/c/electron'>.
 headings:
-  languages: bahasa
+  languages: Bahasa
 taglines:
-  languages: Konten lokal dari komunitas pengembang global kami yang hebat.
-help_translate: "Bantuan terjemahkan"
+  languages: Localized content from our awesome global developer community.
+help_translate: "Bantu terjemahkan"
 footer:
   see_the_faq: Lihat pertanyaan yang sering diajukan
 apps:
   title: Aplikasi dibangun dengan elektron
   description: Dengan elektron, membuat aplikasi desktop untuk perusahaan anda atau ide dengan mudah. Awalnya dikembangkan untuk GitHub di <a href='https://atom.io' target='_blank'> Atom editor</a>, karena elektron telah digunakan untuk membuat aplikasi oleh perusahaan seperti Microsoft, Facebook, kendur, dan Docker.
-  view_more: Lihat aplikasi lain
+  view_more: Lihat lebih banyak aplikasi
   submit_your_own: kirim milik anda
   something_missing: Ada yang hilang
   edit_this_app: Edit aplikasi ini
@@ -137,11 +137,11 @@ pages:
     title: Spectron
     description: Spectron adalah kerangka kerja open source untuk memudahkan pengujian integrasi untuk aplikasi Elektron Anda. Dibangun di atas ChromeDriver dan WebDriverIO.
   '/donors':
-    title: Donors
+    title: Penyumbang
 _404:
   page_not_found: Halaman tidak ditemukan.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_all: Temukan sumber-sumber elektronik dari <a href="/search/docs"> daftar </a>, <a href="/search/npmPackages"> npm paket </a> dan <a href = "/ search / repos "> Repositori GitHub </a>.
+  description_docs: Temukan sumber elektron dari dokumentasi.
+  description_npm: Temukan sumber elektron dari dokumentasi.
+  description_repos: Temukan sumber elektron dari dokumentasi.
