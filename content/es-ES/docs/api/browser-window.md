@@ -1128,7 +1128,7 @@ Controla si se debe ocultar el cursor al escribir.
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Selecciona la pestaña previa cuando las pestañas nativas están activadas y hay otras pestañas en la ventana.
 
 #### `win.selectNextTab()` *macOS*
 
