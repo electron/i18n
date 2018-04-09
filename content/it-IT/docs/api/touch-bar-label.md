@@ -6,7 +6,7 @@ Processo: [Principale](../tutorial/quick-start.md#main-process)
 
 ### `nuovo EtichettaBarraTocco(opzioni)` *Sperimentale*
 
-* `opzioni` Oggetto 
+* `options` Oggetto 
   * `etichetta` Stringa(opzionale) - Testo da mostrare.
   * `ColoreTesto` Stringa (opzionale) - Colore del testo Hex, come `#ABCDEF`.
 
