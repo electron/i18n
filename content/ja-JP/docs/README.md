@@ -40,7 +40,7 @@
   * [カスタム Linux デスクトップアクション](tutorial/linux-desktop-actions.md)
   * [キーボード ショート カット](tutorial/keyboard-shortcuts.md)
   * [オフライン/オンライン検出](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [macOS の BrowserWindow の Represented File](tutorial/represented-file.md)
   * [ネイティブなファイルのドラッグ&ドロップ](tutorial/native-file-drag-drop.md)
 * [アプリケーションのアクセシビリティ](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
@@ -66,9 +66,9 @@
   * [アプリケーションでの更新の実装](tutorial/updates.md#implementing-updates-in-your-app)
   * [アップデートの適用](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## 詳細なチュートリアル
 
-These individual tutorials expand on topics discussed in the guide above.
+これらの個別のチュートリアルでは、上のガイドで説明したトピックを拡張しています。
 
 * [In Detail: Installing Electron](tutorial/installation.md) 
   * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
