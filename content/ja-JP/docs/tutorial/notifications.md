@@ -30,11 +30,11 @@ myNotification.onclick = () => {
 
 ボタンを含み、通知はただの `electron-windows-notifications` でも機能しますが、返信を処理するには [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) を使用する必要があります。これは、必要な COM コンポーネントの登録と入力ユーザーデータでの Electron アプリの呼び出しに役立ちます。
 
-### Quiet Hours / Presentation Mode
+### 非通知 / プレゼンテーションモード
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+通知を送信することが許可されているかどうかを検出するには、[electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) ユーザーランドモジュールを使用します。
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+これにより、Windows が通知を無音で表示するかどうかを事前に判断することができます。
 
 ## macOS
 
@@ -48,7 +48,7 @@ macOS以降のバージョンは、ユーザーがすぐに通知に返信でき
 
 ### Do not disturb / Session State
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+通知を送信することが許可されているかどうかを検出するには、[electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) ユーザーランドモジュールを使用します。
 
 This will allow you to detect ahead of time whether or not the notification will be displayed.
 
