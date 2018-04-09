@@ -13,7 +13,7 @@ nav:
   search: Buscar
 docs:
   title: Documentação do Electron
-  description: Veja toda os <a href="/docs/all">documentos em uma só página</a> ou verifique as <a href="/docs/faq">perguntas frequente</a>.
+  description: Veja toda a <a href="/docs/all">documentação em uma só página</a> ou verifique as <a href="/docs/faq">perguntas frequente</a>.
   guides: Guias
   api_reference: Referência da API
   advanced: Avançado
