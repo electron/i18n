@@ -150,14 +150,14 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
   * `acceptFirstMouse` Booleano (opzionale) - Se la web view accetta un singolo evento mouse-down che simultaneamente attiva la finestra. Di default è `false`.
   * `disableAutoHideCursor` Booleano (opzionale) - Se nascondere il cursore in digitazione. Di default è `false`.
   * `autoHideMenuBar` Booleano (opzionale) - Nascondi automaticamente la barra dei menu senza che il tasto `Alt` sia premuto. Di default è `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
+  * `enableLargerThanScreen` Booleano (opzionale) - Abilita la finestra ad un ridimensionamento più elevato dello schermo. Di default è `false`.
+  * `backgroundColor` Stringa (opzionale) - Colore di sfondo della finestra rappresentato come valore esadecimale, come `#66CD00` o `#FFF` o `#80FFFFFF` (la trasparenza è supportata). Di default è `#FFF` (bianco).
+  * `hasShadow` Booleano (opzionale) - Specifica se la finestra debba supportare l'ombreggiamento. Questa impostazione è solo implementata per macOS. Di default è `true`.
+  * `opacity` Numero (opzionale) - Imposta l'opacità iniziale della finestra, tra 0.0 (completamente trasparente) e 1.0 (completamente opaco). Questo è implementato solo su Windows e macOS.
+  * `darkTheme` Booleano (opzionale) - Forza l'utilizzo del tema scuro per la finestra, funziona solo su alcuni ambienti desktop GTK+3. Di default è `false`.
+  * `transparent` Boolean (opzionale) - rende la finestra [trasparente](frameless-window.md). Valore predefinito è `false`.
+  * `type` String (opzionale): il tipo di finestra, impostazione predefinita è normale finestra. Vedi di più su questo qui sotto.
+  * `<0>titleBarStyle</0>` Stringa (opzionale) - lo stile della barra del titolo della finestra. Impostazione predefinita è `default`. I valori possibili sono: 
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hidden-inset` - Deprecated, use `hiddenInset` instead.
