@@ -403,11 +403,11 @@ Devuelve `BrowserWindow[]`- Un arreglo de todas las ventanas abiertas del navega
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Devuelve `BrowserWindow`- La ventana que se enfoca en esta aplicación, de lo contrario devuelve `null`.
+Devuelve `BrowserWindow`- La venta de la aplicación que obtiene el foco, de lo contrario devuelve `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `webContents` [WebContents](web-contents.md)
 
 Devuelve `BrowserWindow` - La ventana que posee el `webContents` dado.
 
@@ -415,13 +415,13 @@ Devuelve `BrowserWindow` - La ventana que posee el `webContents` dado.
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Devuelve `BrowserWindow | null` - La ventana propietaria del `browserView` especificado. Si la vista especificada no está emparejada con alguna ventana, devuelve `null`.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Íntegro
+* `id` Integer
 
-Devuelve `BrowserWindow` - La ventana que posee el `id`dado.
+Devuelve `BrowserWindow` - La ventana que posee el `id` especificado.
 
 #### `BrowserWindow.addExtension(path)`
 
@@ -591,13 +591,13 @@ Devuelve `Boolean` - Si la ventana está o no en pantalla completa.
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Entra o sale del modo simple de pantalla completa.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+El modo simple de pantalla completa emula el comportamiento de la pantalla completa nativa que se encuentra en versiones de Mac OS X anteriores a Lion (10.7).
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Devuelve `Boolean` - Si la ventana está en modo simple de pantalla completa (pre-Lion).
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -644,7 +644,7 @@ Devuelve [`Rectangle`](structures/rectangle.md)
 #### `win.setSize(width, height[, animate])`
 
 * `width` Integer
-* `alto` Entero
+* `height` Integer
 * `animate` Boolean (opcional) *macOS*
 
 Cambia el tamaño de la ventana a `width` y `height`.
@@ -667,8 +667,8 @@ Devuelve `Integer[]` - Contiene la anchura y altura del área del cliente de la 
 
 #### `win.setMinimumSize(width, height)`
 
-* `ancho` Entero
-* `alto` Integer
+* `width` Integer
+* `height` Integer
 
 Establece el tamaño mínimo de la ventana a `width`y `height`.
 
@@ -679,7 +679,7 @@ Devuelve `Integer[]` - Contiene la anchura y altura mínima de la ventana.
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
-* `alto` Entero
+* `height` Integer
 
 Establece el tamaño máximo de la ventana a `width`y `height`.
 
