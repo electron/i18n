@@ -9,21 +9,21 @@ Processo: [Main](../glossary.md#main-process)
 const {BrowserWindow} = require('electron')
 
 // O usa 'remote' dai processi render.
-// const {FinestraBrowser} = richiedi('electron').remoto
+// const {BrowserWindow} = require('electron').remote
 
-vinci = nuova FinestraBrowser({larghezza: 800, altezza: 600})
-vinci.su('chiuso', () => {
-  vinci = nullo
+let win = new BrowserWindow({width: 800, height: 600})
+win.on('closed', () => {
+  win = null
 })
 
 // Carica un URL remoto
-vinci.caricaURL('https://github.com')
+win.loadURL('https://github.com')
 
 // O carica un file HTML
-vinci.caricaURL(`file://${__dirname}/app/indi e.html`)
+win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Finestra menoFrame
+## Finestra senza bordi
 
 Per creare una finestra senza chrome, o una finestra trasparente in forma arbitraria, puoi usare l'API [Finestra menoFrame](frameless-window.md).
 
@@ -31,62 +31,65 @@ Per creare una finestra senza chrome, o una finestra trasparente in forma arbitr
 
 Quando si carica una pagina direttamente nella finestra, l'utente potrebbe vedere la pagina caricare in modo incrementale, che non è una esperienza buona per una app nativa. Per far mostrare la finestra senza flash visuale esistono due soluzioni per due differenti situazioni.
 
-### Usando l'evento `pronto-a-mostrare`
+### Uso dell'evento `ready-to-show`
 
-Mentre la pagina sta caricando l'l'evento `pronto-a-mostrare sarà emesso quando i processi hanno renderizzato la pagina per la prima volta se la finestra non è ancora stata mostrata. Mostrare la finestra dopo questo evento non avrà flash visuali:</p>
+Durante il caricamento della pagina, l'evento `ready-to-show` verrà emesso quando il processo di rendering ha eseguito il rendering della pagina per la prima volta e se la finestra non è stata ancora visualizzata. Mostrare la finestra dopo questo evento non mostrerà flash visuali:
 
-<pre><code class="javascript">const {FinestraBrowser} = richiedi('electron')
-vince = nuova FinestraBrowser({mostra: false})
-win.una('pronto-a-mostrare', () => {
-  win.mostra()
+```javascript
+const {BrowserWindow} = require('electron')
+let win = new BrowserWindow({show: false})
+win.once('ready-to-show', () => {
+  win.show()
 })
-`</pre> 
+```
 
-Questo evento è di solito emesso dopo l'evento `caricamento-finito`, ma per pagine con molte risorse potrebbe essere emesso prima di `caricamento. finito`.
+Questo evento è di solito emesso dopo l'evento `did-finish-load`, ma per le pagine con molte risorse potrebbe essere emesso prima di `did-finish-load`.
 
-### Impostare `Colorebackground`
+### Impostazione `backgroundColor`
 
-Per un'app complessa, l'evento `pronto-a-mostrare potrebbe essere emessa troppo tardi rendendo l'app lenta. In questo caso, è raccomandato mostrare la finestra immediatamente ed usare un <code>Colorebackground simile a quello della tua app:</p>
+Per un'app complessa, l'evento `ready-to-show` potrebbe essere emessa troppo tardi rendendo l'app lenta. In questo caso, è raccomandato mostrare la finestra immediatamente ed usare un `backgroundColor` simile a quello della tua app:
 
-<pre><code class="javascript">const {FinestraBrowser} = richiedi('electron') 
-vince = nuova FinestraBrowser({Colorebackground: '#2e2c29'}) win.carica.Url('https://github.com')
-`</pre> 
+```javascript
+const {BrowserWindow} = require('electron')
 
-Nota come anche per le app è usato l'evento `pronto-a-mostrare`, è raccomandato impostare il `Colorebackground` per far sentire le app più native.
+let win = new BrowserWindow({backgroundColor: '#2e2c29'})
+win.loadURL('https://github.com')
+```
+
+Nota come anche per le app è usato l'evento `ready-to-show`, è raccomandato impostare il `backgroundColor` per far sembrare le app più native.
 
 ## Finestre genitrici e figlie
 
-Usando l'opzione `genitore`, puoi creare finestre figlie:
+Usando l'opzione `parent`, puoi creare finestre figlie:
 
 ```javascript
-const {FinestraBrowser} = richiedi('electron')
+const {BrowserWindow} = require('electron')
 
-
-sale = nuova FinestraBrowser()
-figlia = nuova FinestraBrowser({parent: top})
-mostra.figlia()
-mostra.top()
+let top = new BrowserWindow()
+let child = new BrowserWindow({parent: top})
+child.show()
+top.show()
 ```
 
-La finestra `figlia` sarà sempre in alto nella finestra `top`.
+La finestra `figlia` sarà sempre mostrata sopra la finestra `top`.
 
 ### Finestre modali
 
-Una finestra modale è una finestra figlia che disabilita le finestre genitrici, per crearne una devi impostare entrambe le opzioni `genitore` e `modale`:
+Una finestra modale è una finestra figlia che disabilita le finestre genitrici, per crearne una devi impostare entrambe le opzioni `parent` e `modal`:
 
 ```javascript
-const {FinestraBrowser} = richiedi('electron')
+const {BrowserWindow} = require('electron')
 
-figlia = nuova FinestraBrowser({parent: top, modal: true, show: false})
-caricaURL.figlia('https://github.com')
-figlia.uno('pronto-a-mostrare', () => {
-  mostra.figlia()
+let child = new BrowserWindow({parent: top, modal: true, show: false})
+child.loadURL('https://github.com')
+child.once('ready-to-show', () => {
+  child.show()
 })
 ```
 
 ### Visibilità pagina
 
-La [Visibilità Pagina API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) lavora come segue:
+L' [Api di Visibilità Pagina](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) lavora come segue:
 
 * Su tutte le piattaforme, lo stato di visibilità traccia se la finestra è nascosta/minimizzata o no.
 * In aggiunta, su macOS, lo stato di visibilità traccia anche lo stato di occlusione della finestra. Se la finestra è occlusa (totalmente coperta) da un'altra, lo stato di visibilità sarà `nascosta`. Su altre piattaforme, lo stato di visibilità sarà `nascosta` solo quando la finestra è minimizzata o nascosta esplicitamente con `win.nascondi()`.
