@@ -6,7 +6,7 @@ Processo: [Principale](../tutorial/quick-start.md#main-process)
 
 ### `nuovo SpaziatoreTouchBar(opzioni)` *Sperimentale*
 
-* `opzioni` Oggetto 
+* `options` Oggetto 
   * `dimensioni` Stringa (opzionale) - Taglia dello spaziatore, valori possibili sono: 
     * `piccolo` - Piccolo spazio tra elementi.
     * `grande` - Grande spazio tra elementi.
