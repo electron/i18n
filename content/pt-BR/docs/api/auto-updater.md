@@ -73,7 +73,7 @@ O objeto `autoUpdater` possui os seguintes métodos:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * String `url`
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* Objeto `requestHeaders` *macOS* (opcional) - cabeçalhos de requisição HTTP.
 
 Define a `url` e inicializa a atualização automática.
 
