@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 버전 1.x
 
-Electron 버전 2.0 아래에서는 [semver](http://semver.org) 스펙을 준수하지 않았습니다: semver 스펙에서 메이저 버전은 사용자 API 변화, 마이너 버전은 Chromium 메이저 버전 출시, 패치 버전은 새로운 기능이나 버그 수정에 해당합니다. 기능 추가(merge)는 일부 개발자들은 편리하게 느끼겠지만, 클라이언트 애플리케이션을 작성하는 개발자에게는 이 상황이 문제가 될 수 있습니다. Slack, Stride, Teams, Skype, VS Code, Atom, Desktop 과 같은 유명 앱들의 QA 테스트 사이클은 오래 걸리고, 높은 수준의 안정성이 요구됩니다. 버그 수정을 하면서 새로운 기능을 추가하는 것은 상당한 위험 부담이 있습니다.
+Electron 버전 2.0 아래에서는 [semver](http://semver.org) 스펙을 따르지 않았습니다: semver 스펙에서 메이저 버전은 사용자 API 변화, 마이너 버전은 Chromium 메이저 버전 출시, 패치 버전은 새로운 기능이나 버그 수정에 해당합니다. 기능 추가(merge)는 일부 개발자들은 편리하게 느끼겠지만, 클라이언트 애플리케이션을 작성하는 개발자에게는 이 상황이 문제가 될 수 있습니다. Slack, Stride, Teams, Skype, VS Code, Atom, Desktop 과 같은 유명 앱들의 QA 테스트 사이클은 오래 걸리고, 높은 수준의 안정성이 요구됩니다. 버그 수정을 하면서 새로운 기능을 추가하는 것은 상당한 위험 부담이 있습니다.
 
 1.x 버전 전략 예제입니다.
 
@@ -42,11 +42,11 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 
 변경사항 종류와 semver 카테고리(예. 메이저, 마이너, 패치)를 서로 연결시키면 아래와 같습니다.
 
-| 메이저 버전 증가           | 마이너 버전 증가                     | 패치 버전 증가                      |
-| ------------------- | ----------------------------- | ----------------------------- |
-| Electron API의 큰 변화  | Electron API의 미세한 변경          | Electron 버그 수정                |
-| Node.js 메이저 버전 업데이트 | Node.js minor version updates | Node.js patch version updates |
-| Chromium 버전 업데이트    |                               | 수정 관련 chromium 패치             |
+| 메이저 버전 증가           | 마이너 버전 증가            | 패치 버전 증가           |
+| ------------------- | -------------------- | ------------------ |
+| Electron API의 큰 변화  | Electron API의 미세한 변경 | Electron 버그 수정     |
+| Node.js 메이저 버전 업데이트 | Node.js 마이너 버전 업데이트  | Node.js 패치 버전 업데이트 |
+| Chromium 버전 업데이트    |                      | 수정 관련 chromium 패치  |
 
 대부분의 chromium 업데이트는 큰 변화로 인식된다는 점을 기억하세요. 백포트 가능한 수정사항은 패치로 체리-피크(cherry-pick)할 수 있습니다.
 
@@ -80,7 +80,7 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 3. 특정 베타 출시 버전이 *일반적으로* 안정적이라고 여겨지면, 안정적인 빌드 버전으로 버전 정보만 수정해서 재출시될 것입니다. 예. `2.0.0`.
 4. 안정 버전이 출시된 이후에 버그 수정이나 보안 패치 등이 필요한 경우 *패치* 버전을 증가시킵니다 예. `2.0.1`.
 
-For each major and minor bump, you should expect to see something like the following:
+메이저, 마이너 버전이 증가하면 다음과 같은 버전 정보를 갖게 될 것입니다:
 
 ```text
 2.0.0-beta.1
@@ -94,9 +94,9 @@ For each major and minor bump, you should expect to see something like the follo
 주기(lifecycle) 예제를 그림으로 표현하면 다음과 같습니다:
 
 - 최신 기능이 포함된 신규 출시(release) 브랜치가 생성되었습니다. 이 브랜치는 `2.0.0-beta.1`라는 이름으로 공개(publish)됩니다. ![](../images/versioning-sketch-3.png)
-- A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+- master 브랜치에서 버그 수정을 하고 출시(release) 브랜치로 백포트할 수 있습니다. 패치가 적용된 새로운 베타 버전은 `2.0.0-beta.2`라는 이름으로 공개됩니다. ![](../images/versioning-sketch-4.png)
 - 베타 버전이*일반적으로 안정적*이라고 평가받아서 베타 버전이 아닌 `2.0.0`라는 이름으로 다시 공개되었습니다. ![](../images/versioning-sketch-5.png)
-- Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+- 이후에, zero-day 익스플로잇이 발견되어 master 브랜치가 수정되었습니다. `2-0-x` 라인에서 백포트로 수정 사항을 반영한 다음 `2.0.1` 버전을 출시합니다. ![](../images/versioning-sketch-6.png)
 
 아래는 다양한 semver 범위에 따라 새로운 출시 버전이 결정되는 것을 보여주는 예제들입니다:
 
@@ -115,7 +115,7 @@ For each major and minor bump, you should expect to see something like the follo
 
 기능 플래그는 Chromium에서 자주 쓰이며, 웹 개발 환경에서 일반적으로 사용되고 있습니다. Electron에서 기능 플래그 또는 **소프트 브랜치**는 다음과 특성을 가져야 합니다:
 
-- it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+- 런타임 또는 빌드시 활성화/비활성화 할 수 있음; Electron에서는 요청 범위(request-scoped) 기능 플래그 개념은 지원하지 않음
 - 새로운 코드 경로와 예전 코드 경로는 완전히 분리됨; 새로운 기능을 지원하기 위해 예전 코드를 리팩토링하는 것은 기능 플래그 규칙을 *위반하는 것임*
 - 소프트 브랜치가 병합되고 나면 기능 플래그는 삭제됨
 
