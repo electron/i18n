@@ -6,24 +6,24 @@ Processo: [Main](../glossary.md#main-process)
 
 ```javascript
 // Nel processo principale.
-const {BrowserWindow} = richiedi('electron')
+const {BrowserWindow} = require('electron')
 
-// O usa 'remoto' dai processi di render.
-// const {FinestraBrowser} = richiedi('electron').remoto
+// O usa 'remote' dai processi render.
+// const {BrowserWindow} = require('electron').remote
 
-vinci = nuova FinestraBrowser({larghezza: 800, altezza: 600})
-vinci.su('chiuso', () => {
-  vinci = nullo
+let win = new BrowserWindow({width: 800, height: 600})
+win.on('closed', () => {
+  win = null
 })
 
 // Carica un URL remoto
-vinci.caricaURL('https://github.com')
+win.loadURL('https://github.com')
 
 // O carica un file HTML
-vinci.caricaURL(`file://${__dirname}/app/indi e.html`)
+win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Finestra menoFrame
+## Finestra senza bordi
 
 Per creare una finestra senza chrome, o una finestra trasparente in forma arbitraria, puoi usare l'API [Finestra menoFrame](frameless-window.md).
 
@@ -31,130 +31,133 @@ Per creare una finestra senza chrome, o una finestra trasparente in forma arbitr
 
 Quando si carica una pagina direttamente nella finestra, l'utente potrebbe vedere la pagina caricare in modo incrementale, che non è una esperienza buona per una app nativa. Per far mostrare la finestra senza flash visuale esistono due soluzioni per due differenti situazioni.
 
-### Usando l'evento `pronto-a-mostrare`
+### Uso dell'evento `ready-to-show`
 
-Mentre la pagina sta caricando l'l'evento `pronto-a-mostrare sarà emesso quando i processi hanno renderizzato la pagina per la prima volta se la finestra non è ancora stata mostrata. Mostrare la finestra dopo questo evento non avrà flash visuali:</p>
+Durante il caricamento della pagina, l'evento `ready-to-show` verrà emesso quando il processo di rendering ha eseguito il rendering della pagina per la prima volta e se la finestra non è stata ancora visualizzata. Mostrare la finestra dopo questo evento non mostrerà flash visuali:
 
-<pre><code class="javascript">const {FinestraBrowser} = richiedi('electron')
-vince = nuova FinestraBrowser({mostra: false})
-win.una('pronto-a-mostrare', () => {
-  win.mostra()
+```javascript
+const {BrowserWindow} = require('electron')
+let win = new BrowserWindow({show: false})
+win.once('ready-to-show', () => {
+  win.show()
 })
-`</pre> 
+```
 
-Questo evento è di solito emesso dopo l'evento `caricamento-finito`, ma per pagine con molte risorse potrebbe essere emesso prima di `caricamento. finito`.
+Questo evento è di solito emesso dopo l'evento `did-finish-load`, ma per le pagine con molte risorse potrebbe essere emesso prima di `did-finish-load`.
 
-### Impostare `Colorebackground`
+### Impostazione `backgroundColor`
 
-Per un'app complessa, l'evento `pronto-a-mostrare potrebbe essere emessa troppo tardi rendendo l'app lenta. In questo caso, è raccomandato mostrare la finestra immediatamente ed usare un <code>Colorebackground simile a quello della tua app:</p>
+Per un'app complessa, l'evento `ready-to-show` potrebbe essere emessa troppo tardi rendendo l'app lenta. In questo caso, è raccomandato mostrare la finestra immediatamente ed usare un `backgroundColor` simile a quello della tua app:
 
-<pre><code class="javascript">const {FinestraBrowser} = richiedi('electron') 
-vince = nuova FinestraBrowser({Colorebackground: '#2e2c29'}) win.carica.Url('https://github.com')
-`</pre> 
+```javascript
+const {BrowserWindow} = require('electron')
 
-Nota come anche per le app è usato l'evento `pronto-a-mostrare`, è raccomandato impostare il `Colorebackground` per far sentire le app più native.
+let win = new BrowserWindow({backgroundColor: '#2e2c29'})
+win.loadURL('https://github.com')
+```
+
+Nota come anche per le app è usato l'evento `ready-to-show`, è raccomandato impostare il `backgroundColor` per far sembrare le app più native.
 
 ## Finestre genitrici e figlie
 
-Usando l'opzione `genitore`, puoi creare finestre figlie:
+Usando l'opzione `parent`, puoi creare finestre figlie:
 
 ```javascript
-const {FinestraBrowser} = richiedi('electron')
+const {BrowserWindow} = require('electron')
 
-
-sale = nuova FinestraBrowser()
-figlia = nuova FinestraBrowser({parent: top})
-mostra.figlia()
-mostra.top()
+let top = new BrowserWindow()
+let child = new BrowserWindow({parent: top})
+child.show()
+top.show()
 ```
 
-La finestra `figlia` sarà sempre in alto nella finestra `top`.
+La finestra `figlia` sarà sempre mostrata sopra la finestra `top`.
 
 ### Finestre modali
 
-Una finestra modale è una finestra figlia che disabilita le finestre genitrici, per crearne una devi impostare entrambe le opzioni `genitore` e `modale`:
+Una finestra modale è una finestra figlia che disabilita le finestre genitrici, per crearne una devi impostare entrambe le opzioni `parent` e `modal`:
 
 ```javascript
-const {FinestraBrowser} = richiedi('electron')
+const {BrowserWindow} = require('electron')
 
-figlia = nuova FinestraBrowser({parent: top, modal: true, show: false})
-caricaURL.figlia('https://github.com')
-figlia.uno('pronto-a-mostrare', () => {
-  mostra.figlia()
+let child = new BrowserWindow({parent: top, modal: true, show: false})
+child.loadURL('https://github.com')
+child.once('ready-to-show', () => {
+  child.show()
 })
 ```
 
 ### Visibilità pagina
 
-La [Visibilità Pagina API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) lavora come segue:
+L' [Api di Visibilità Pagina](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) lavora come segue:
 
 * Su tutte le piattaforme, lo stato di visibilità traccia se la finestra è nascosta/minimizzata o no.
-* In aggiunta, su macOS, lo stato di visibilità traccia anche lo stato di occlusione della finestra. Se la finestra è occlusa (totalmente coperta) da un'altra, lo stato di visibilità sarà `nascosta`. Su altre piattaforme, lo stato di visibilità sarà `nascosta` solo quando la finestra è minimizzata o nascosta esplicitamente con `win.nascondi()`.
-* Se una `FinestraBrowser` è creata con `mostra: false`, lo stato di visibilità iniziale sarà `visibile` nonostante la finestra risulti essere nascosta.
-* Se lo `Strozzamentosfondo` è disabilitato, lo stato di visibilità rimarrà `visibile` anche se la finestra è minimizzata, occlusa o nascosta.
+* In aggiunta, su macOS, lo stato di visibilità traccia anche lo stato di occlusione della finestra. Se la finestra è occlusa (totalmente coperta) da un'altra, lo stato di visibilità sarà nascosta (`nascosta`). Su altre piattaforme, lo stato di visibilità sarà `hidden` solo quando la finestra è minimizzata o nascosta esplicitamente con `win.hide()`.
+* Se una nuova `Finestra` è creata con `show: false`, lo stato di visibilità iniziale sarà `visibile` nonostante la finestra risulti essere nascosta.
+* Se il `backgroundThrottling` è disabilitato, lo stato di visibilità rimarrà `visible` anche se la finestra è minimizzata, occlusa o nascosta.
 
 Si raccomanda di mettere in pausa le operazioni dispendiose quando lo stato di visibilità è `hidden` per minimizzare il consumo energetico.
 
 ### Avvisi di piattaforma
 
-* Su macOS le finestre modali saranno mostrate come tabelle allegate alla finestra genitore.
+* Su macOS le finestre modali saranno mostrate come fogli allegate alla finestra genitore.
 * Su macOS le finestre figlie manterranno le proprie posizioni relative alla finestra genitore quando questa si muove, mentre su Windows e Linux queste non si muoveranno.
 * Su Windows non è supportato il cambiamento dinamico delle finestre genitori.
-* Su Linux il tipo di finestre modali sarà cambiato a `dialogo`.
+* Su Linux il tipo di finestre modali sarà cambiato in `dialog`.
 * Su Linux molti ambienti desktop non supportano il nascondere una finestra modale.
 
-## Classe: FinestraBrowser
+## Classe: BrowserWindow
 
-> Crea e controlla finestre browser.
+> Crea e controlla le finestre del browser.
 
 Processo: [Main](../glossary.md#main-process)
 
-`FinestraBrowser` è un [EmettitoreEventi](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` è un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-Esso crea una nuova `FinestraBrowser` con proprietà native come impostato dalle `opzioni`.
+Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
 
-### `nuova FinestraBrowser([options])`
+### `new BrowserWindow([options])`
 
-* `opzioni` Oggetto (opzionale) 
-  * `larghezza` Intero (opzionale) - La larghezza in pixel della finestra. Di default è di `800`.
-  * `altezza` Intero (opzionale) - L'altezza in pixel della finestra. Di default è di `600`.
+* `options` Oggetto (opzionale) 
+  * `width` Intero (opzionale) - La larghezza in pixel della finestra. Di default è di `800`.
+  * `height` Intero (opzionale) - L'altezza in pixel della finestra. Di default è di `600`.
   * `x` Intero (opzionale) (**richiesto** se è usato y) - Offset sinistro della finestra dallo schermo. Di default è al centro della finestra.
   * `y` Intero (opzionale) (**richiesto** se è usato x) - L'offset superiore della finestra dallo schermo. Di default è al centro della finestra.
-  * `usaDimensioniContenuto` Booleano (opzionale) - La `larghezza` e l'`altezza` saranno usate come dimensioni della pagina web, il che vuol dire che la dimensione attuale della finestra includerà le dimensioni della cornice della finestra ed è lievemente più grande. Di default è `false`.
-  * `centro` Booleano (opzionale) - Mostra la finestra al centro dello schermo.
-  * `Larghezzaminima` Intero (opzionale) - Larghezza minima della finestra. Di default è ``.
-  * `Altezzaminima` Intero (opzionale) - Altezza minima della finestra. Di default è ``.
-  * `Larghezzamassima` Intero (opzionale) - Larghezza massima della finestra. Di default non ha limiti.
-  * `Altezzamassima` Intero (opzionale) - Altezza massima della finestra. Di default è senza limiti.
-  * `ridimensionabile` Booleano (opzione) - Se la finestra è ridimensionabile. Di default è `true`.
-  * `mobile` Booleano (opzionale) - Se la finestra è mobile. Non è implementato su Linux. Di default è `true`.
-  * `minimizzabile` Booleano (opzionale) - Se la finestra è minimizzabile. Non implementato su Linux. Di default è `true`.
-  * `massimizzabile` Booleano (opzionale) - Se la finestra è massimizzabile. Non implementato su Linux. Di default è `true`.
-  * `chiudibile` Booleano (opzionale) - Se la finestra è chiudibile. Non implementato su Linux. Di default è `true`.
-  * `focalizzabile` Booleano (opzionale) - Se la finestra è focalizzabile. Di default è `true`. Su Windows impostare `focalizzabile: false` implica impostare `saltaTaskbar: true`. Su Linux, impostare `focalizzabile: false` ferma l'interazione della finestra con wm, così la finestra resterà sempre in alto rispetto alle aree di lavoro.
-  * `seprealTop` Booleano (opzionale) - Se la finestra dovrebbe sempre rimanere al top delle altre finestre. Di default è `false`.
-  * `schermointero` Booleano (opzionale) - Se la finestra dovrebbe mostrarsi a schermo intero. Quando esplicitamente impostati a `false` il pulsante schermo intero sarà nascosto o disabilitato su macOS. Di default è `false`.
-  * `schermointero` Booleano (opzionale) - Se la finestra è impostabile in modalità schermo intero. Su macOS, anche se il pulsante massimizza/ingrandisci potrebbe impostare la modalità schermo intero o massimizza finestra. Di default `true`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
-  * `saltaTaskbar` Booleano (opzionale) - Se mostrare la finestra nella taskbar. Di default è `false`.
+  * `useContentSize` Booleano (opzionale) - La `width` e l'`height` saranno usate come dimensioni della pagina web, il che vuol dire che la dimensione attuale della finestra includerà le dimensioni della cornice della finestra ed è lievemente più grande. Di default è `false`.
+  * `center` Booleano (opzionale) - Mostra la finestra al centro dello schermo.
+  * `minWidth` Intero (opzionale) - Larghezza minima della finestra. Di default è ``.
+  * `minHeight` Intero (opzionale) - Altezza minima della finestra. Di default è ``.
+  * `maxWidth` Intero (opzionale) - Larghezza massima della finestra. Di default non ha limiti.
+  * `maxHeight` Intero (opzionale) - Altezza massima della finestra. Di default è senza limiti.
+  * `resizable` Booleano (opzione) - Se la finestra è ridimensionabile. Di default è `true`.
+  * `movable` Booleano (opzionale) - Se la finestra è mobile. Non è implementato su Linux. Di default è `true`.
+  * `minimizable` Booleano (opzionale) - Se la finestra è minimizzabile. Non implementato su Linux. Di default è `true`.
+  * `maximizable` Booleano (opzionale) - Se la finestra è massimizzabile. Non implementato su Linux. Di default è `true`.
+  * `closable` Booleano (opzionale) - Se la finestra è chiudibile. Non implementato su Linux. Di default è `true`.
+  * `focusable` Booleano (opzionale) - Se la finestra è focalizzabile. Di default è `true`. Su Windows impostando `focusable: false` implica anche l'impostazione `skipTaskbar: true`. Su Linux, impostando `focusable: false` blocca l'interazione della finestra con il wm, così la finestra resterà sempre in primo piano rispetto alle aree di lavoro.
+  * `alwaysOnTop` Booleano (opzionale) - Se la finestra dovrebbe sempre rimanere al top delle altre finestre. Di default è `false`.
+  * `fullscreen` Booleano (opzionale) - Se la finestra dovrebbe mostrarsi a schermo intero. Quando esplicitamente impostati a `false` il pulsante schermo intero sarà nascosto o disabilitato su macOS. Di default è `false`.
+  * `fullscreenable` Booleano (opzionale) - Se la finestra è impostabile in modalità schermo intero. Su macOS, anche se il pulsante massimizza/ingrandisci potrebbe impostare la modalità schermo intero o massimizza finestra. Di default `true`.
+  * `simpleFullscreen` Booleano (opzionale) - Modalità a schermo intero su macOS pre-Lion. Default è `false`.
+  * `skipTaskbar` Booleano (opzionale) - Se mostrare la finestra nella taskbar. Di default è `false`.
   * `kiosk` Booleano (opzionale) - Modalità kiosk. Di default è `false`.
-  * `titolo` Stringa (opzionale) Titolo di default della finestra. Di default è `"Electron"`.
-  * `icona` ([ImmagineNativa](native-image.md) | Stringa) (opzionale) - L'icona della finestra. Su Windows si raccomanda di usare le icone `ICO` per ottenere migliori effetti visuali, puoi anche lasciarlo indefinito, così sarà usata l'icona eseguibile.
-  * `mostra` Booleano (opzionale) - Se la finestra potrebbe essere mostrata quando creata. Di default è `true`.
-  * `frame` Booleano (opzionale) - Specifica `false` per creare una [Finestra Framemeno](frameless-window.md). Di default è `true`.
-  * `genitorr` FinestraBrowser (opzionale) - Specifica finestre genitoriali. Di default è `nullo`.
-  * `modale` Booleano (opzionale) - Se si tratta di una finestra modale. Funziona solo se la finestra è figlia. Di default è `false`.
-  * `accettaPrimoMouse` Booleano (opzionale) - Se la visuale web accetta un singolo evento mouse giù che simultaneamente attiva la finestra. Di default è `false`.
-  * `disabilitaAutoNascondiCursore` Booleano (opzionale) - Se nascondere il cursore in digitazione. Di default è `false`.
-  * `autoNascondiMenuBarra` Booleano (opzionale) - Nascondi automaticamente la barra dei menu senza che la chiave `Alt` sia premuta. Di default è `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
+  * `title` Stringa (opzionale) Titolo di default della finestra. Di default è `"Electron"`.
+  * `icon` ([>NativeImage](native-image.md) | Stringa) (opzionale) - L'icona della finestra. Su Windows si raccomanda di usare le icone `ICO` per ottenere migliori effetti visuali, puoi anche lasciarlo non impostato, così sarà usata l'icona dell'eseguibile.
+  * `show` Boolean (opzionale) - Se la finestra deve essere visualizzata quando creata. Di default è `true`.
+  * `frame` Booleano (opzionale) - Specifica `false` per creare una [Finestra senza bordi](frameless-window.md). Di default è `true`.
+  * `parent` BrowserWindow (opzionale) - Specifica la finestra genitore. Di default è `null`.
+  * `modal` Booleano (opzionale) - Se si tratta di una finestra modale. Funziona solo se la finestra è figlia. Di default è `false`.
+  * `acceptFirstMouse` Booleano (opzionale) - Se la web view accetta un singolo evento mouse-down che simultaneamente attiva la finestra. Di default è `false`.
+  * `disableAutoHideCursor` Booleano (opzionale) - Se nascondere il cursore in digitazione. Di default è `false`.
+  * `autoHideMenuBar` Booleano (opzionale) - Nascondi automaticamente la barra dei menu senza che il tasto `Alt` sia premuto. Di default è `false`.
+  * `enableLargerThanScreen` Booleano (opzionale) - Abilita la finestra ad un ridimensionamento più elevato dello schermo. Di default è `false`.
+  * `backgroundColor` Stringa (opzionale) - Colore di sfondo della finestra rappresentato come valore esadecimale, come `#66CD00` o `#FFF` o `#80FFFFFF` (la trasparenza è supportata). Di default è `#FFF` (bianco).
+  * `hasShadow` Booleano (opzionale) - Specifica se la finestra debba supportare l'ombreggiamento. Questa impostazione è solo implementata per macOS. Di default è `true`.
+  * `opacity` Numero (opzionale) - Imposta l'opacità iniziale della finestra, tra 0.0 (completamente trasparente) e 1.0 (completamente opaco). Questo è implementato solo su Windows e macOS.
+  * `darkTheme` Booleano (opzionale) - Forza l'utilizzo del tema scuro per la finestra, funziona solo su alcuni ambienti desktop GTK+3. Di default è `false`.
+  * `transparent` Boolean (opzionale) - rende la finestra [trasparente](frameless-window.md). Valore predefinito è `false`.
+  * `type` String (opzionale): il tipo di finestra, impostazione predefinita è normale finestra. Vedi di più su questo qui sotto.
+  * `<0>titleBarStyle</0>` Stringa (opzionale) - lo stile della barra del titolo della finestra. Impostazione predefinita è `default`. I valori possibili sono: 
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hidden-inset` - Deprecated, use `hiddenInset` instead.

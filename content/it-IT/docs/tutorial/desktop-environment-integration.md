@@ -4,11 +4,11 @@ Different operating systems provide different features for integrating desktop a
 
 This guide explains how to integrate your application into those desktop environments with Electron APIs.
 
-## Notifications
+## Notifiche
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Documenti Recenti
 
 See [Recent Documents documentation](recent-documents.md).
 
@@ -24,6 +24,6 @@ See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLa
 
 See the [Represented File documentation](represented-file.md).
 
-## Dragging files out of the window
+## Trascinamento di files fuori dalla finestra
 
 See the [Native File Drag & Drop documentation](native-file-drag-drop.md).

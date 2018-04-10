@@ -3,10 +3,10 @@
 Önceden yapılandırılmış Electron ikilileri, kullan [`npm`](https://docs.npmjs.com). Tercih edilen Electronu geliştirme özgürlüğüyle sizin için kurmaktır:
 
 ```sh
-npm yükle electron --kaydet-dev
+npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
+Uygulamalarınızdaki Electron sürümlerini yönetme hakkında bilgi için [Electron sürüm belgelerine](./electron-versioning.md) bakın.
 
 ## Genel kurulum
 

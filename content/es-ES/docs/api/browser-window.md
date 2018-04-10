@@ -138,7 +138,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `alwaysOnTop` Boolean (opcional) - si la ventana debería estar siempre por encima de otras ventanas. Por defecto es `false`.
   * `fullscreen` Boolean(opcional) - si la ventana debería mostrarse en pantalla completa. Cuando se establece explícitamente `false` el botón de la pantalla completa estará oculta o deshabilitada en macOS. Por defecto es `false`.
   * `fullscreenable` Boolean (opcional) - si la ventana puede ponerse el modo pantalla completa. En macOS, también si el botón maximizar o acercarse debería alternar el modo pantalla completa o maximizar la ventana. Por defecto es `true`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
+  * `simpleFullscreen` Boolean (opcional) - Usa el modo pantalla completa pre-Lion en macOS. Por defecto es `false`.
   * `skipTaskbar` Boolean (opcional) - si se va a mostrar la ventana en la barra de tareas. Por defecto es `false`.
   * `kiosk` Boolean (opcional) - El modo kiosco. Por defecto es `false`.
   * `title` String (opcional) - Título de la ventana por defecto. Por defecto es `"Electron"`.
@@ -236,7 +236,7 @@ Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` e
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 
 Aparece cuando la ventana se va a cerrar. Se emite antes de el evento del DOM `beforeunload` y `unload`. Llamar a `event.preventDefault()` cancelará el cierre.
 
@@ -250,11 +250,11 @@ window.onbeforeunload = (e) => {
   // devolviendo un valor non-void que cancelará silenciosamente el cierre.
   // Se recomienda usar el cuadro de diálogo API para dejar que el usuario confirme el cierre de la
   //aplicación.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  e.returnValue = false // equivalente a `return false` pero no es recomendado
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***Nota**: Hay una diferencia sutil entre el comportamiento de `window.onbeforeunload = handler` y `window.addEventListener('beforeunload', handler)`. Es recomendable establecer siempre de forma explícita el valor de `event.returnValue`, en vez de simplemente devolver un valor, ya que así funcionará más consistentemente dentro de Electron.*
 
 #### Evento: "closed"
 
@@ -403,11 +403,11 @@ Devuelve `BrowserWindow[]`- Un arreglo de todas las ventanas abiertas del navega
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Devuelve `BrowserWindow`- La ventana que se enfoca en esta aplicación, de lo contrario devuelve `null`.
+Devuelve `BrowserWindow`- La venta de la aplicación que obtiene el foco, de lo contrario devuelve `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `webContents` [WebContents](web-contents.md)
 
 Devuelve `BrowserWindow` - La ventana que posee el `webContents` dado.
 
@@ -415,13 +415,13 @@ Devuelve `BrowserWindow` - La ventana que posee el `webContents` dado.
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Devuelve `BrowserWindow | null` - La ventana propietaria del `browserView` especificado. Si la vista especificada no está emparejada con alguna ventana, devuelve `null`.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Íntegro
+* `id` Integer
 
-Devuelve `BrowserWindow` - La ventana que posee el `id`dado.
+Devuelve `BrowserWindow` - La ventana que posee el `id` especificado.
 
 #### `BrowserWindow.addExtension(path)`
 
@@ -591,13 +591,13 @@ Devuelve `Boolean` - Si la ventana está o no en pantalla completa.
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Entra o sale del modo simple de pantalla completa.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+El modo simple de pantalla completa emula el comportamiento de la pantalla completa nativa que se encuentra en versiones de Mac OS X anteriores a Lion (10.7).
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Devuelve `Boolean` - Si la ventana está en modo simple de pantalla completa (pre-Lion).
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -644,7 +644,7 @@ Devuelve [`Rectangle`](structures/rectangle.md)
 #### `win.setSize(width, height[, animate])`
 
 * `width` Integer
-* `alto` Entero
+* `height` Integer
 * `animate` Boolean (opcional) *macOS*
 
 Cambia el tamaño de la ventana a `width` y `height`.
@@ -667,8 +667,8 @@ Devuelve `Integer[]` - Contiene la anchura y altura del área del cliente de la 
 
 #### `win.setMinimumSize(width, height)`
 
-* `ancho` Entero
-* `alto` Integer
+* `width` Integer
+* `height` Integer
 
 Establece el tamaño mínimo de la ventana a `width`y `height`.
 
@@ -679,7 +679,7 @@ Devuelve `Integer[]` - Contiene la anchura y altura mínima de la ventana.
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
-* `alto` Entero
+* `height` Integer
 
 Establece el tamaño máximo de la ventana a `width`y `height`.
 
@@ -689,7 +689,7 @@ Devuelve `Integer[]` - Contiene la anchura y altura máxima de la ventana.
 
 #### `win.setResizable(resizable)`
 
-* `resizable` Booleano
+* `resizable` Boolean
 
 Establece si la ventana puede ser redimensionada manualmente por el usuario.
 
@@ -774,7 +774,7 @@ Mueve la ventana al centro de la pantalla.
 #### `win.setPosition(x, y[, animate])`
 
 * `x` Integer
-* `y` Íntegro
+* `y` Integer
 * `animate` Boolean (opcional) *macOS*
 
 Mueve la ventana a `x` y `y`.
@@ -785,7 +785,7 @@ Devuelve `Integer[]` - Contiene la posición actual de la ventana.
 
 #### `win.setTitle(title)`
 
-* `title` Cadena
+* `title` String
 
 Cambia el título de la ventana nativa a `title`.
 
@@ -841,7 +841,7 @@ El tipo nativo del controlador en Windows es `HWND`, en macOS `NSView*` y en Lin
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
-* `callback` Función
+* `callback` Function
 
 Ancla un mensaje en la ventana. El `callback` es llamado cuando el mensaje se recibe en el WndProc.
 
@@ -888,18 +888,18 @@ Devuelve `Boolean` - Si se ha editado el documento de la ventana.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (opcional) - Los límites para capturar
-* `callback` Función 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Es igual a `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
-* `url` Cadena
-* `opciones` Objecto (opcional) 
-  * `httpReferrer` Cadena (opcional) - Un url de HTTP referencial.
-  * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
-  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n"
+* `url` String
+* `options` Object (opcional) 
+  * `httpReferrer` String (opcional) - URL HTTP que le hace referencia.
+  * `userAgent` String (opcional) - Un agente de usuario originando la petición.
+  * `extraHeaders` String (opcional) - Encabezados extras separados por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opcional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
@@ -976,7 +976,7 @@ En Windows y Linux siempre devuelve `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Number- entre 0.0 (completamente transparente) y 1.0 (completamente opaco)
 
 Establece la Opacidad de la ventana. En Linux no tiene efecto.
 
@@ -1086,7 +1086,7 @@ Devuelve `Boolean` - Si la ventana es visible en todos los espacios de trabajo.
 
 * `ignore` Boolean
 * `opciones` Object (opcional) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Boolean (opcional) *Windows* - Si es verdadero, reenvía los mensajes de movimiento del ratón a Chromium, activando los eventos de ratón como `mouseleave`. Solo se usa cuando `ignore` es verdadero. Si `ignore` es falso, el reenvío está simpre desactivado independientemente de este valor.
 
 Hace que la ventana ignore todos los eventos del ratón.
 
@@ -1128,29 +1128,29 @@ Controla si se debe ocultar el cursor al escribir.
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Selecciona la pestaña previa cuando las pestañas nativas están activas y hay otras pestañas en la ventana.
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Selecciona la siguiente pestaña cuando las pestañas nativas están activas y hay otras pestañas en la ventana.
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Unifica todas las ventanas en una sola con múltiples pestañas cuando las pestañas nativas están activas y hay más de una ventana abierta.
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Mueve la pestaña actual a una nueva ventana si las pestañas nativas están activas y hay más de una pestaña en la ventana actual.
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Conmuta la visibilidad de la barra de pestañas si las pestañas nativas están activas y hay solo una pestaña en la ventana actual.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
-* `Ventana de navegador` Ventana de navegador
+* `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Añade una ventana como pestaña de la ventana actual, después de la pestaña para la instancia de la ventana actual.
 
 #### `win.setVibrancy(type)` *macOS*
 
@@ -1172,6 +1172,6 @@ Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `
 
 #### `win.getBrowserView()` *Experimental*
 
-Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
+Devuelve `BrowserView | null` - Un BrowserView emparejado. Devuelve `null` si no hay ninguno.
 
 **Note:**: La API de BrowserView es experimental y puede ser cambiada o elindad enl futuro versiones de Electron.

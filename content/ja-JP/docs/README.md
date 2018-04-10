@@ -70,22 +70,22 @@
 
 これらの個別のチュートリアルでは、上のガイドで説明したトピックを拡張しています。
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
-  * [プロキシ環境下](tutorial/installation.md#proxies)
+* [詳解: Electron のインストール](tutorial/installation.md) 
+  * [グローバルインストールとローカルインストール](tutorial/installation.md#global-versus-local-installation)
+  * [プロキシ](tutorial/installation.md#proxies)
   * [ミラーとキャッシュのカスタマイズ](tutorial/installation.md#custom-mirrors-and-caches)
   * [トラブルシューティング](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
-  * [semver（セマンティック バージョニング）](tutorial/electron-versioning.md#semver)
+* [詳解: Electron のバージョニングスキーム](tutorial/electron-versioning.md) 
+  * [semver](tutorial/electron-versioning.md#semver)
   * [安定ブランチ](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
+  * [ベータリリースとバグ修正](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [詳解: asar でアプリソースコードのパッケージ](tutorial/application-packaging.md) 
+  * [asar アーカイブの生成](tutorial/application-packaging.md#generating-asar-archives)
   * [asar アーカイブを使用する](tutorial/application-packaging.md#using-asar-archives)
   * [制限事項](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+  * [asar アーカイブへパックされていないファイルを追加](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [詳解: Pepper Flash Plugin を使う](tutorial/using-pepper-flash-plugin.md)
+* [詳解: Widevine CDM Plugin を使う](tutorial/using-widevine-cdm-plugin.md)
 * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
 
 * * *

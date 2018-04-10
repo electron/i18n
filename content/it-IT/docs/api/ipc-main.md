@@ -1,85 +1,85 @@
 # ipcMain
 
-> Communicate asynchronously from the main process to renderer processes.
+> Comunicazione asincrona dal processo principale ai processi di rendering.
 
 Processo: [Main](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+Il modulo `ipcMain` è un'istanza della classe [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Quando utilizzato nel processo principale, gestisce i messaggi sincroni e asincroni inviati da un processo di rendering (pagina web). I messaggi inviati da un renderer verranno emesso a questo modulo.
 
-## Sending Messages
+## L'invio di messaggi
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+È anche possibile inviare messaggi dal processo principale per il processo di rendering, vedere [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) per ulteriori informazioni.
 
-* When sending a message, the event name is the `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+* Quando si invia un messaggio, il nome dell'evento è il `channel`(canale).
+* Per rispondere a un messaggio sincrono, è necessario impostare `event.returnValue`.
+* Per inviare un messaggio asincrono al mittente, è possibile utilizzare `event.sender.send(...)`.
 
-An example of sending and handling messages between the render and main processes:
+Un esempio di invio e gestione dei messaggi tra i processi render e main:
 
 ```javascript
-// In main process.
+// Nel processo principale.
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg)  // stampa "ping"
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg)  // stampa "ping"
   event.returnValue = 'pong'
 })
 ```
 
 ```javascript
-// In renderer process (web page).
+// Nel processo di rendering (pagina web).
 const {ipcRenderer} = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // stampa "pong"
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+  console.log(arg) // stampa "pong"
 })
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
 ## Metodi
 
-The `ipcMain` module has the following method to listen for events:
+Il modulo `icpMain` ha i seguenti metodi per ascolater gli eventi:
 
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+Ascola sul `channel`, quando arriva un nuovo messaggio il `listener` verrà chiamato con `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Aggiunge una funzione `listener` per l'evento richiamato una sola volta. Questo `listener` viene invocato solamente la volta dopo che un messaggio viene inviato al `channel`, dopo di chè viene rimosso.
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Il `listener` specificato viene rimosso dalla lista dei listener del `channel` indicato.
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` String
 
-Removes listeners of the specified `channel`.
+Rimuove tutti i listeners del `channel` specificato.
 
-## Event object
+## L'oggetto Event
 
-The `event` object passed to the `callback` has the following methods:
+L'oggetto `event` passato al `callback` ha i seguenti metodi:
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Imposta il valore da restituire in un messaggio sincrono.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Restituisce il `webContents` che ha inviato il messaggio, è possibile chiamare `event.sender.send` per rispondere al messaggio asincrono, vedere [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) per ulteriori informazioni.

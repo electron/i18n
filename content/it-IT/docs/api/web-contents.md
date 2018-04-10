@@ -890,23 +890,23 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `opzioni` Oggetto 
-  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Funzione 
-  * `errore` Errore
-  * `data` Buffer
+* `options` Object 
+  * `marginsType` Integer - (opzionale) specifica il tipo di margini da utilizzare. Utilizza 0 per margine predefinito, 1 per nessun margine e 2 per il margine minimo.
+  * `pageSize` String - (facoltativo) specifica le dimensioni per la pagina del PDF generato. Può essere `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un oggetto contenente `height`(altezza) e la `width`(larghezza) in micron.
+  * `printBackground` Boolean - (opzionale) se per stampare CSS backgrounds.
+  * `printSelectionOnly` Boolean - (opzionale) se bisogna stampare solamente la selezione.
+  * `landscape` Boolean - (facoltativo) `true` per il formato orizontale, `false` per il formato verticale.
+* `callback` Function 
+  * `error` Error - il valore é diverso da nulla se si verifica un qualunque errore durante la generazione del pdf
+  * `data` Buffer - contiene il pdf generato
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+Stampa la pagina web della finestra come PDF con le impostazioni di stampa personalizzate di Chromium.
 
-The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+Il `callback` verrà chiamato con `callback (error, data)` al completamento. I `data` è un `Buffer` che contiene i dati del PDF generato.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+Il `landscape` verrà ignorato se la regola CSS `@page` è utilizzato nella pagina web.
 
-By default, an empty `options` will be regarded as:
+Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato il seguente:
 
 ```javascript
 {
@@ -917,9 +917,9 @@ By default, an empty `options` will be regarded as:
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
-An example of `webContents.printToPDF`:
+Un esempio di `webContents.printToPDF`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -929,7 +929,7 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // Use default printing options
+  // vengono utilizzate le impostazioni predefinite decritte sopra
   win.webContents.printToPDF({}, (error, data) => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
