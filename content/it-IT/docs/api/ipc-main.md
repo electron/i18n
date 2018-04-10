@@ -64,22 +64,22 @@ Aggiunge una funzione `listener` per l'evento richiamato una sola volta. Questo 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Il `listener` specificato viene rimosso dalla lista dei listener del `channel` indicato.
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` String
 
-Removes listeners of the specified `channel`.
+Rimuove tutti i listeners del `channel` specificato.
 
-## Event object
+## L'oggetto Event
 
-The `event` object passed to the `callback` has the following methods:
+L'oggetto `event` passato al `callback` ha i seguenti metodi:
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Imposta il valore da restituire in un messaggio sincrono.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Restituisce il `webContents` che ha inviato il messaggio, è possibile chiamare `event.sender.send` per rispondere al messaggio asincrono, vedere [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) per ulteriori informazioni.
