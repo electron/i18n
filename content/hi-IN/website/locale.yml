@@ -141,7 +141,7 @@ pages:
 _404:
   page_not_found: पेज नहीं मिला
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
+  description_all: <a href="/search/docs">दस्तावेज़ीकरण </a>, <a href="/search/npmPackages">नपम पैकेजेस</a>, और <a href="/search/repos">गिटहब रेपो</a> से इलेक्ट्रॉन संसाधनों का पता लगाएं ।
+  description_docs: दस्तावेज़ीकरण से इलेक्ट्रॉन संसाधनों का पता लगाएं ।
+  description_npm: नपम पैकेजेस से इलेक्ट्रॉन संसाधनों का पता लगाएं ।
   description_repos: गिटहब रेपो से इलेक्ट्रॉन संसाधनों का पता लगाएं ।
