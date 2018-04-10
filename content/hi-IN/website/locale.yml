@@ -39,7 +39,7 @@ community:
 releases: रिलीज़स
 electron_is_easy:
   title: जितना आप सोचते है उससे आसान है यह
-  description: यदि आप एक वेबसाइट का निर्माण कर सकते हैं, तो आप एक डेस्कटॉप app बना सकते हैं । इलेक्ट्रॉन जावास्क्रिप्ट, एचटीएमएल और सीएसएस जैसी वेब प्रौद्योगिकियों के साथ मूल एप्लीकेशनस बनाने के लिए एक रूपरेखा है । यह मुश्किल भागों का ख्याल रखता है ताकि आप अपने एप्लीकेशन के मूल पर ध्यान केंद्रित कर सकते हैं ।
+  description: यदि आप एक वेबसाइट का निर्माण कर सकते हैं, तो आप एक डेस्कटॉप एप्लिकेशन बना सकते हैं । इलेक्ट्रॉन जावास्क्रिप्ट, एचटीएमएल और सीएसएस जैसी वेब प्रौद्योगिकियों के साथ मूल एप्लीकेशनस बनाने के लिए एक रूपरेखा है । यह मुश्किल भागों का ख्याल रखता है ताकि आप अपने एप्लीकेशन के मूल पर ध्यान केंद्रित कर सकते हैं ।
   video_link: वीडियो देखें
 web_technologies:
   title: वेब तकनीक
@@ -74,7 +74,7 @@ quick_start:
   dive_deeper: या फिर ज्यादा गहराई में जायें और <a href='/docs'>प्रलेख</a> पढ़ें |
 need_help:
   title: सहायता की आवश्यकता है?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: <a href='https://discuss.atom.io/c/electron'>डिस्कस</a> फोरम पर या हमारे<a href='http://atom-slack.herokuapp.com/'>स्लैक</a> चैनल पर सवाल पूछें | महत्वपूर्ण सूचनाओं के लिए <a href="https://twitter.com/electronjs">@electronjs</a> को ट्विटर पर फॉलो करें | क्या आप हमसे निजी संपर्क करना चाहते हैं? ईमेल <a href="mailto:info@electronjs.org">electron@github.com</a>.
 headings:
   languages: भाषायें
 taglines:
@@ -144,4 +144,4 @@ search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
   description_docs: Find Electron resources from documentation.
   description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_repos: गिटहब रेपो से इलेक्ट्रॉन संसाधनों का पता लगाएं ।
