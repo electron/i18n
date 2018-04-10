@@ -31,7 +31,7 @@ Aggiunge una funzione `listener` per l'evento richiamato una sola volta. Questo 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Il `listener` specificato viene rimosso dalla lista dei listener del `channel` indicato.
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
