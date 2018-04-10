@@ -25,7 +25,7 @@ Here are some guidelines to keep in mind as a translator:
 - If you find an error in the source English docs, open a pull request on the [electron/electron](https://github.com/electron/electron/tree/master/docs) repository.
 - If you've been working as a translator and want to have more influence over the approved translations in your language, let us know and we'll make you a proofreader.
 
-Electron's localization effort uses [Crowdin], an awesome platform for 
+Electron's localization effort uses Crowdin, an awesome platform for 
 collaborative translation. Changes on Crowdin are  automatically turned into 
 pull requests on this GitHub repository.
 
@@ -42,14 +42,14 @@ more before applying. When contacting us, please include a link to your existing
 ## Developing `electron-i18n`
 
 The rest of this document describes how this repo is structured, how
-it syncs with Crowdin, and how to make technical changes.
+it syncs with Crowdin, how to make technical changes, and how to configure the proofreader role properly.
 
 **If you're just here to translate, you probably don't need to read this.**
 
 ### Environment Setup
 
 To fetch the latest docs, you need a GitHub token. Visit
-github.com/settings/tokens/new](https://github.com/settings/tokens/new)
+https://github.com/settings/tokens/new
 to create one. No special scopes needed.
 
 ```sh
@@ -124,3 +124,17 @@ content
 To get a sense of how content is transformed, see [crowdin.yml](crowdin.yml)
 
 [Crowdin]: https://crowdin.com/project/electron
+
+### Limited Proofreader Role
+
+There are two options to configure the proofreader role on crowdin.
+(You can change the role of translators in Translators tab on the project setting)
+
+![setup_proofreader](https://user-images.githubusercontent.com/8563047/38530907-43aad2b6-3ca8-11e8-8827-a3be4229d0dd.gif)
+
+- General proofreader: translate, approve strings for all languages.  
+- The proofreader for languages: give a proofreader role for specific language. 
+
+When you choose *Proofreader* on the setting for the specific user, it will show up as the proofreader on the project role. On the other hand, limited proofreader role will appear as the translator on the screen. To set up a proofreader role for specific language, you need to select **P** on the setting screen(P – Proofreader, T – Translator). You can see more info about the project role on crowdin: https://support.crowdin.com/modifying-project-participants-roles/
+
+Generally, a proofreader can handle only one language. So, we recommend limited proofreader role per language.
