@@ -58,11 +58,10 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 ### 怎么做？
 
 ```js
-// Bad
-browserWindow.loadURL('http://my-website.com')
-
-// Good
-browserWindow.loadURL('https://my-website.com')
+// 不推荐
+browserWindow loadURL (' http://我的网站. com ')
+// 推荐 
+browserWindow. loadURL (' https://我的网站. com ')
 ```
 
 ```html
@@ -77,9 +76,9 @@ browserWindow.loadURL('https://my-website.com')
 
 ## 2) Disable Node.js Integration for Remote Content
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) that loads remote content. 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+从此以后，你可以为特殊主机授予附加的权限。 For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
 
 ### 为什么？
 
@@ -94,7 +93,7 @@ mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
