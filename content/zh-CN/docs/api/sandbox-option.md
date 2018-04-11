@@ -1,6 +1,6 @@
-# `sandbox` Option
+# `sandbox` 沙盒选项
 
-> 创建一个可在Chromiun OS sandbox中运行的浏览器窗口渲染器。 在该模式可用情况下，渲染器为了使用node APIs必须通过IPC与主进程通讯。 然而，为了使Chromium OS sandbox模式可用，electron必须使用`--enable-sandbox`命令行参数启动。
+> 创建一个可在Chromiun OS 沙盒中运行的浏览器窗口。 在该模式可用情况下，渲染器为了使用node APIs必须通过IPC与主进程通讯。 然而，为了使Chromium OS sandbox模式可用，electron必须使用`--enable-sandbox`命令行参数启动。
 
 Chromium主要的安全特征之一便是所有的blink渲染或者JavaScript代码都在sandbox内运行。 该sandbox使用OS特定特征来保障运行在渲染器内的进程不会损害系统。
 
@@ -32,9 +32,9 @@ app.on('ready', () => {
 
 以上代码创建了一个禁用了node.js同时只能通过IPC通信的`BrowserWindow` 。 使用这个选项阻止electron在渲染器中创建一个node.js运行时环境。 同样，创建窗口使用`window.open`将遵从native行为（默认情况下electron创建一个`BrowserWindow`然后返回一个通过`window.open`的代理）
 
-It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
+需要注意的是，这个选项本身不会启用操作系统强制的沙箱。 要启用此功能，必须在命令行参数里加上 `--enable-sandbox` 传递给 electron, 这将会使所有的 `BrowserWindow` 实例强制使用 `sandbox: true`.
 
-To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
+如果要在 ` BrowserWindow ` 或 ` webview ` 进程中启用 ` sandbox:true ` 而不想让整个应用程序处于沙盒中, 请在命令行中使用 `--enable-mixed-sandbox ` 传递给 electron。 此选项当前仅在 macOS 和 Windows 上支持。
 
 ```js
 let win
@@ -45,15 +45,15 @@ app.on('ready', () => {
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
+请注意, 只调用 ` app.commandLine.appendSwitch('--enable-sandbox')` 是不够的, 因为 electron/node 会在 chromium 改变沙箱设置后才运行代码。 参数必须在命令行里传递给 electron:
 
 ```sh
 electron --enable-sandbox app.js
 ```
 
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal electron windows cannot be created.
+如果启用了 `--enable-sandbox`, 则无法创建正常的电子窗口, 因此不能只为某些渲染激活 OS 沙盒。
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+如果需要在一个应用程序中混合使用沙箱和非沙箱渲染, 只需省略 `-enable-sandbox ` 参数即可。 Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
 ## 预加载
 
