@@ -18,17 +18,17 @@
 
 ## 除了以上建议
 
-每当您从远程目标收到代码并在本地执行它时，就会存在安全问题。 As an example, consider a remote website being displayed inside a [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+每当您从远程目标收到代码并在本地执行它时，就会存在安全问题。 作为一个例子，一个远程网站会被显示在[`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
+> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 要显示远程内容, 请使用 [` web 视图 `](../api/web-view.md) 标记, 并确保禁用 ` nodeIntegration `。
 
-## Electron Security Warnings
+## Electron 安全警告
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
+从Electron 2.0版本开始，开发者将会在开发者控制台看到打印的警告和建议。 They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
 You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
 
-## Checklist: Security Recommendations
+## 清单：安全建议
 
 This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
 
@@ -43,17 +43,17 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 9. [Do not enable experimental features](#do-not-enable-experimental-features)
 10. [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
 11. [WebViews: 不要使用 `allowpopups`](#do-not-use-allowpopups)
-12. [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+12. [WebViews: 验证所有 `<webview>` 标记的选项和参数](#verify-webview-options-before-creation)
 
-## 1) Only Load Secure Content
+## 1) 仅加载安全内容
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+应使用像 ` HTTPS ` 这样的安全协议加载应用程序中不包含的任何资源。 换言之， 不要使用不安全的协议 （如 ` HTTP `）。 Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### 为什么？
 
-`HTTPS` has three main benefits:
+` HTTPS ` 有三个主要好处：
 
-1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
+1) 它对远程服务器进行身份验证, 确保您的应用程序连接到正确的主机而不是模仿器。 2) 确保数据完整性, 断言数据在应用程序和主机之间传输时未被修改。 3) 它对用户和目标主机之间的通信进行加密, 从而更难窃听应用程序和主机之间发送的信息。
 
 ### 怎么做？
 
