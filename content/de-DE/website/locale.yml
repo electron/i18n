@@ -43,7 +43,7 @@ electron_is_easy:
   video_link: Das Video anschauen
 web_technologies:
   title: Web-Technologien
-  description: Electron verwendet Chromium und Node.js damit Sie Ihre App mit HTML, CSS und JavaScript entwickeln können.
+  description: Electron verwendet Chromium und Node.js, damit Sie Ihre App mit HTML, CSS und JavaScript entwickeln können.
 open_source:
   title: Open Source
   description: Electron ist ein von GitHub und einer aktiven Community von Mitwirkenden gepflegtes Open-Source-Projekt.
@@ -62,11 +62,11 @@ get_started:
   description: Schauen Sie sich für den Einstieg mit Electron die unten aufgelisteten Ressourcen an. Lernen Sie, wie Sie Ihre Web-App in Electron einbetten, alle APIs ansprechen und letztlich Installer für Ihre Anwendung generieren.
 explore:
   title: Erkunden Sie die Electron-APIs
-  description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron API Demos App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
+  description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron-API-Demos-App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist, und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
 download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen</a> auf GitHub anzeigen
 quick_start:
-  title: "Starte mit der <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start-App</a> um Electron in Aktion zu sehen:"
+  title: "Starten Sie mit der <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick-Start-App</a>, um Electron in Aktion zu sehen:"
   description: Eine minimale Electron-App mit hilfreichen Anmerkungen.
   clone: Das Quick-Start Repository klonen
   go_into_repo: Das Repository öffnen
@@ -84,7 +84,7 @@ footer:
   see_the_faq: Lesen Sie die häufig gestellte Fragen
 apps:
   title: Mit Electron entwickelte Apps
-  description: Mit Electron wird Ihnen das Erstellen einer Desktopanwendung für Ihre Firma oder Idee einfach gemacht. Ursprünglich für den <a href='https://atom.io' target='_blank'>Atom Editor</a> von GitHub entwickelt, wird Electron auch von Firmen wie Microsoft, Facebook, Slack und Docker für die Entwicklung von Applikationen verwendet.
+  description: Mit Electron wird Ihnen das Erstellen einer Desktopanwendung für Ihre Firma oder Idee einfach gemacht. Ursprünglich für den <a href='https://atom.io' target='_blank'>Atom-Editor</a> von GitHub entwickelt, wird Electron auch von Firmen wie Microsoft, Facebook, Slack und Docker für die Entwicklung von Applikationen verwendet.
   view_more: Mehr Apps anzeigen
   submit_your_own: eigene App einreichen
   something_missing: Fehlt etwas?
