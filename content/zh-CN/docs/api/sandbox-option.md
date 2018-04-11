@@ -113,9 +113,9 @@ window.open = customWindowOpen
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
-`-x ` 标志应该和已经在预加载作用域中公开的所有引用到的模块一起使用, 并通知 browserify 使用封闭的 ` require ` 函数。 `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+`-x ` 标志应该和已经在预加载作用域中公开的所有引用到的模块一起使用, 并通知 browserify 使用封闭的 ` require ` 函数。 `--insert-global-vars ` 将确保 ` process `、` Buffer ` 和 ` setImmediate ` 也从封闭作用域 (通常 browserify 为这些代码注入代码) 中获取。
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+当前预加载作用域中提供的 ` require ` 函数公开了以下模块:
 
 - `child_process`
 - `electron` 
@@ -128,15 +128,15 @@ Currently the `require` function provided in the preload scope exposes the follo
 - `timers`
 - `url`
 
-More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+可以根据需要添加更多的electron api 以在沙箱中使用, 但主进程中的任何模块都可以通过 ` electron.remote.require ` 使用。
 
 ## 状态
 
-请小心使用`sandbox`选项，它仍是一个实验性特性。 We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+请小心使用`sandbox`选项，它仍是一个实验性特性。 我们仍然不知道将某些 electron api 暴露给预加载脚本的安全性问题, 但在显示不受信任的内容之前, 需要考虑以下一些事项:
 
-- A preload script can accidentaly leak privileged APIs to untrusted code.
-- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
+- 预加载脚本可能会意外泄露私有 API 到不可信代码。
+- V8 引擎中的某些 bug 可能允许恶意代码访问渲染器预加载 api, 从而有效地通过 ` remote ` 模块授予对系统的完全访问权限。
 
-Since rendering untrusted content in electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of electron APIs, and may have breaking changes to fix security issues.
+由于在 electron 中渲染不受信任的内容仍然是未知的领域, 因此暴露在沙盒预加载脚本中的 api 应被认为比其他 electron api 更不稳定, 并且可能会破坏修复安全问题的更改。
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+一个应该大大提高安全性的方法，是阻止 IPC 默认情况下来自沙盒渲染器的消息，允许主进程显式定义允许渲染器发送的一组消息。
