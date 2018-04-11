@@ -53,7 +53,7 @@ electron --enable-sandbox app.js
 
 如果启用了 `--enable-sandbox`, 则无法创建正常的电子窗口, 因此不能只为某些渲染激活 OS 沙盒。
 
-如果需要在一个应用程序中混合使用沙箱和非沙箱渲染, 只需省略 `-enable-sandbox ` 参数即可。 Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+如果需要在一个应用程序中混合使用沙箱和非沙箱渲染, 只需省略 `-enable-sandbox ` 参数即可。 如果没有此参数, 使用 ` sandbox: true ` 创建的窗口仍将禁用 node. js 并仅能通过 IPC 进行通信, 这本身已经从安全视角获得了好处。
 
 ## 预加载
 
@@ -72,12 +72,12 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+和 preload.js:
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of electron renderer APIs. We must be
-// careful to not leak any objects into the global scope!
+只要创建 javascript , 就会加载此文件。 它在一个
+//私有范围内运行, 可以访问 electron 渲染器的 api 。 我们必须小心, 
+//不要泄漏任何对象到全局范围!
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
@@ -98,7 +98,7 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+在预加载脚本中要注意的重要事项:
 
 - Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
