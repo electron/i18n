@@ -33,7 +33,7 @@ community:
   boilerplates: Boilerplates
   components: Componentes
   videos: Vídeos
-  meetups: Meetups
+  meetups: Encontros
   awesome_notice: Esta lista é gerada a partir do repositório <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>.<br>Falta alguma coisa?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Crie um pedido</a>.
   meetup_notice: Para adicionar um encontro, edite o <code>data/meetups.json</code> e <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">crie um pedido</a>.
 releases: Versões
