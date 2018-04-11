@@ -104,7 +104,7 @@ window.open = customWindowOpen
 - 预加载脚本可以通过 ` remote ` 和 ` ipcRenderer ` 模块间接访问主进程中的所有 api。 这是 ` fs ` (上面使用的) 和其他模块的实现方式: 它们是主进程中的 remote 对象的代理。
 - 预加载脚本必须包含在单个脚本中, 但可以使用像 browserify 这样的工具, 将多个模块组成复杂的预加载代码, 如下所述。 事实上, browserify 已经被 electron 用来为预加载脚本提供类似于节点的环境。
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+要创建 browserify 包并将其用作预加载脚本, 应使用类似下面的内容:
 
 ```sh
   browserify preload/index.js \
