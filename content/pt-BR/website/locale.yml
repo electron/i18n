@@ -142,6 +142,6 @@ _404:
   page_not_found: Página não encontrada.
 search:
   description_all: Encontre recursos para o Electron na <a href="/search/docs">documentação</a>, <a href="/search/npmPackages">pacotes npm</a> e <a href="/search/repos">GitHub repos</a>.
-  description_docs: Encontre recursos para o Electron em sua documentação.
+  description_docs: Encontre recursos para o Electron na documentação.
   description_npm: Encontre recursos para o Electron em pacotes no npm.
   description_repos: Encontre recursos para o Electron em repositórios no GitHub.
