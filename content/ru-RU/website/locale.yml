@@ -86,7 +86,7 @@ apps:
   title: Приложения, созданные на Electron
   description: С помощью Electron'а создание настольного приложения для вашей компании или идеи стало простым занятием. Первоначально разработанный для <a href='https://atom.io' target='_blank'>редактора Atom</a> от GitHub, Electron теперь используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.
   view_more: Просмотреть другие приложения
-  submit_your_own: или опубликовать своё
+  submit_your_own: опубликовать своё
   something_missing: Что-то отсутствует?
   edit_this_app: Измените это приложение.
 clipboard:
