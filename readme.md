@@ -1,5 +1,7 @@
 # electron-i18n
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/electron/i18n.svg)](https://greenkeeper.io/)
+
 > A home for Electron's translated documentation.
 
 🇵🇭 🇨🇳 🇹🇼 🇧🇷 🇪🇸 🇰🇷 🇯🇵 🇷🇺 🇫🇷 🇹🇭 🇳🇱 🇹🇷 🇮🇩 🇺🇦 🇨🇿 🇮🇹 🇵🇱
