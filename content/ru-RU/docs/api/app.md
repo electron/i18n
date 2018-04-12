@@ -148,7 +148,7 @@ app.on('window-all-closed', () => {
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - содержит специфичное для приложения состояние, сохраняющееся в хранилище по активности.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе операция завершится ошибкой и будет вызвано `continue-activity-error`.
 
 ### Событие: 'new-window-for-tab' *macOS*
 
@@ -156,7 +156,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Возникает, когда пользователь нажимает нативную новую кнопку вкладки macOS. Новая кнопка вкладки доступна только в том случае, если текущий `BrowserWindow` имеет `tabbingIdentifier`
+Происходит, когда пользователь нажимает нативную кнопку новая вкладка на macOS. Кнопка новая вкладка доступна только в том случае, если текущий `BrowserWindow` имеет `tabbingIdentifier`
 
 ### Событие: 'browser-window-blur'
 
@@ -165,7 +165,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Возникает, когда [browserWindow](browser-window.md) получает размытие.
+Происходит, когда [browserWindow](browser-window.md) теряет фокус.
 
 ### Событие: 'browser-window-focus'
 
@@ -174,7 +174,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Возникает, когда [browserWindow](browser-window.md) получает фокус.
+Происходит, когда [browserWindow](browser-window.md) сфокусировано.
 
 ### Событие: 'browser-window-created'
 
@@ -183,7 +183,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Возникает, когда создается новый [browserWindow](browser-window.md).
+Происходит, когда создается новый [browserWindow](browser-window.md).
 
 ### Событие: 'web-contents-created'
 
@@ -192,7 +192,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Возникает при создании нового [webContents](web-contents.md).
+Происходит, когда создан новый [webContents](web-contents.md).
 
 ### Событие: 'certificate-error'
 
@@ -206,7 +206,7 @@ app.on('window-all-closed', () => {
 * `callback` Function 
   * `isTrusted` Boolean - учитывать ли сертификат как надёжный
 
-Возникает, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
+Происходит, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -233,7 +233,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (опиционально)
 
-Возникает при запросе сертификата клиента.
+Происходит при запросе сертификата клиента.
 
 `url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` можно вызвать с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает приложению использование первого сертификата из хранилища.
 
