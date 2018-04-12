@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-Но если вы хотите сохранить возможность использования Node.js или API Electron, вы должны переименовать имена на странице перед подключением других библиотек:
+Но если вы хотите сохранить возможность использования Node.js или API Electron, вы должны переименовать переменные на странице перед подключением других библиотек:
 
 ```html
 <head>
@@ -111,12 +111,13 @@ delete window.module;
 При использовании встроенного модуля Electron может возникнуть подобная ошибка:
 
 ```sh
-> require('electron').webFrame.setZoomFactor(1.0) Uncaught TypeError: не удается прочитать свойство «setZoomLevel» из неопределенногосвойствочитает
+> require('electron').webFrame.setZoomFactor(1.0)
+Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-Это происходит потому что [npm `electron` module](https://www.npmjs.com/package/electron) установлен локально и глобально и переопределяет встроенный модуль Electron.
+Это происходит потому что [npm модуль `electron`](https://www.npmjs.com/package/electron) установлен локально или глобально и переопределяет встроенный модуль Electron.
 
-Чтобы проверить, используете ли вы правильный встроенный модуль, вы можете печатать на пути `электронного` модуля:
+Чтобы проверить, используете ли вы правильный встроенный модуль, вы можете вывести путь `electron` модуля:
 
 ```javascript
 console.log(require.resolve('electron'))
@@ -128,11 +129,11 @@ console.log(require.resolve('electron'))
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-Если он что-то вроде `node_modules/electron/index.js`, то тогда вам придется либо удалить npm модуль `electron`, или переименовать его.
+Если он что-то вроде `node_modules/electron/index.js`, то тогда вам придется либо удалить npm модуль `electron`, либо переименовать его.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-Однако если вы используете встроенный модуль, но по-прежнему получаете эту ошибку, то вероятнее всего, вы используете модуль в неподходящем процессе. Например `electron.app` может быть использован только в главном процессе, в то время как `electron.webFrame` доступен только в процессах рендеринга.
+Однако если вы используете встроенный модуль, но по-прежнему получаете эту ошибку, то вероятнее всего, вы используете модуль в неподходящем процессе. Например `electron.app` может быть использован только в главном процессе, в то время как `electron.webFrame` доступен только в процессах отображения(renderer).
