@@ -4,7 +4,7 @@ Electron은 풍부한 네이티브(운영 체제) API를 가진 런타임을 제
 
 기존에 이곳에서 제공되었던 "빠르게 시작하기" 문서는 두 개의 문서로 분리되었습니다:
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* 간단한 Electron 앱을 만드는 방법이 궁금하다면, [첫 번째 Electron 앱 만들기](./first-app.md) 문서를 보세요.
+* 프로세스 아키텍처가 궁금하신 분은 [메인과 렌더러 프로세스](./application-architecture.md#main-and-renderer-processes) 문서를 보세요.
 
-If you just came here to learn about Electron, check out the [official guides](../README.md).
+Electron에 대해 배우고 싶어서 이곳을 방문했다면, [공식 가이드](../README.md) 문서를 확인하시길 바랍니다.
