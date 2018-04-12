@@ -293,9 +293,9 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 Возвращает:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` когда доступность поддержки Chrome включена, `false` в противном случае.
+* `accessibilitySupportEnabled` Boolean - `true` когда поддержка специальных возможностей от Chrome включена, `false` в противном случае.
 
-Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
+Происходит при изменении поддержки специальных возможностей от Chrome. Это событие срабатывает, когда вспомогательные технологии, такие как чтения с экрана, включены или отключены. См. https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 ## Методы
 
@@ -774,7 +774,7 @@ app.setLoginItemSettings({
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+* `enabled` Boolean - включить или отключить рендеринг древа [специальных возможностей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
 Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
 
