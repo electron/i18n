@@ -1,7 +1,7 @@
 tagline: JavaScript, HTML, CSSを用いてクロスプラットフォームなデスクトップアプリを開発
 nav:
   docs: ドキュメント
-  donors: Donors
+  donors: 寄付
   blog: ブログ
   community: コミュニティ
   apps: アプリ
@@ -137,7 +137,7 @@ pages:
     title: Spectron
     description: Spectron は、 Electron アプリのインテグレーションテスト用コードを手軽に書くためのオープンソースフレームワークです。ChromeDriver と WebDriverIO を利用して構成されています。
   '/donors':
-    title: Donors
+    title: 寄付
 _404:
   page_not_found: ページが見つかりません。
 search:
