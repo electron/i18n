@@ -159,19 +159,19 @@
 required[, optional]
 ```
 
-Методы ниже объявляют более подробную информацию каждом из аргументов. Тип аргумента нотируется из общих типов:
+Методы ниже объявляют более подробную информацию о каждом из аргументов. Тип аргумента нотируется из общих типов:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* или пользовательский тип как Electron [`WebContent`](api/web-contents.md)
+* Или пользовательский тип, например [`WebContent`](api/web-contents.md) Electron'а
 
-Если аргумент или метод является уникальным для определенных платформ, эти платформы обозначаются списком разделенных пробелами, курсивом после datatype. Значения могут быть `macOS`, `Windows` или `Linux`.
+Если аргумент или метод является уникальным для определенных платформ, эти платформы обозначаются списком, разделенных пробелами, после типа данных. Значения могут быть `macOS`, `Windows` или `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - анимационные вещи.
+* `animate` Boolean (опционально) _macOS_ _Windows_ - анимационные вещи.
 ```
 
 Аргументы типа `Array` должны указывать, какие элементы может включать массив в описание ниже.
