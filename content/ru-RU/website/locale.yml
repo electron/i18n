@@ -34,7 +34,7 @@ community:
   components: Компоненты
   videos: Видео
   meetups: Встречи
-  awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus'а Awesome Electron</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
+  awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron от @sindresorhus</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
   meetup_notice: Чтобы добавить встречу, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">сделайте pull request</a>.
 releases: Релизы
 electron_is_easy:
@@ -96,8 +96,8 @@ clipboard:
 or: или
 pages:
   '/':
-    title: Electron | Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS.
-    description: 'Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS.'
+    title: Electron | Создавайте кроссплатформенные десктопные приложения при помощи JavaScript, HTML и CSS.
+    description: 'Создавайте кроссплатформенные десктопные приложения при помощи JavaScript, HTML и CSS.'
   '/apps':
     title: Приложения Electron
     description: Приложения, созданные на Electron
@@ -105,7 +105,7 @@ pages:
     title: Документация
     description: Руководства и API справочной документации для последнего релиза Electron
   '/docs/all':
-    title: Все документы Electron!
+    title: Вся документация Electron!
     description: Все руководства Electron и API документация на единой, поисковой странице.
   '/docs/api':
     title: API
