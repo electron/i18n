@@ -1,4 +1,4 @@
-# Official Guides
+# Guías oficiales
 
 Por favor, asegúrese de utilizar los documentos que correspondan con la versión de Electron que esta buscando. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver las antiguas versiones de la documentación, puede [navegar por las etiquetas](https://github.com/electron/electron/tree/v1.4.0) en GitHub abriendo el menú desplegable de "Switch branches/tags" y seleccionado la etiqueta que coincida con su versión.
 
@@ -8,9 +8,9 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 * [Preguntas Frecuentes sobre Electron](faq.md)
 
-## Guides and Tutorials
+## Guías y tutoriales
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
+* [Preparar el entorno de desarrollo](tutorial/development-environment.md) 
   * [Configurando macOS](tutorial/development-environment.md#setting-up-macos)
   * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
   * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
