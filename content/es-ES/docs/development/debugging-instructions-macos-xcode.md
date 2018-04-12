@@ -29,13 +29,13 @@ This will build debug electron with debug version of libchromiumcontent.
 
 ### Generate xcode project for debugging sources (cannot build code from xcode)
 
-Run the update script with the --xcode argument.
+Ejecutar el script de actualización con el argumento --xcode.
 
 ```sh
 $ ./script/update.py --xcode
 ```
 
-This will generate the electron.ninjs.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
+Esto generará el electron.ninjs.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
 
 ### Debugging and breakpoints
 
