@@ -44,14 +44,14 @@ Note que as notificações tem um limite de 256 bytes de tamanho e serão trunca
 
 ### Notificações Avançadas
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Versões posteriores do macOS permitem notificações com um campo de entrada, permitindo o usuário responder rapidamente uma notificação. Para enviar uma notificação com um campo de entrada, use o módulo da userland [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-### Do not disturb / Session State
+### Não perturbe / Estado de sessão
 
 Para detectar se é ou não permitido enviar uma notificação, use o módulo da userland [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+Isso permitirá você detectar antes do tempo ou não a notificação que será exibida.
 
 ## Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Notificações são enviadas usando `libnotify` que podem mostrar notificações em qualquer ambiente de trabalho que segue as [Especificação de Notificação em Desktop](https://developer.gnome.org/notification-spec/), incluindo Cinnamon, Enlightenment, Unity, GNOME, KDE.
