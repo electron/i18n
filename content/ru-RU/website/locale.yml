@@ -34,19 +34,19 @@ community:
   components: Компоненты
   videos: Видео
   meetups: Встречи
-  awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
+  awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus'а Awesome Electron</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
   meetup_notice: Чтобы добавить встречу, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">сделайте pull request</a>.
 releases: Релизы
 electron_is_easy:
   title: Это проще, чем вы думаете
   description: 'Если Вы можете сделать сайт, то Вы сможете сделать приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что вы можете сосредоточиться на главных элементах Вашего приложения.'
-  video_link: Посмотреть видео
+  video_link: Смотреть видео
 web_technologies:
   title: Веб-технологии
   description: Electron использует Chromium и Node.js, так что Вы можете создавать свои приложения на HTML, CSS и JavaScript.
 open_source:
   title: Open Source
-  description: Electron - это проект с открытым исходным кодом, который поддерживается GitHub и активным сообществом разработчиков.
+  description: Electron это проект с открытым исходным кодом, который поддерживается GitHub и активным сообществом участников.
 cross_platform:
   title: Кросс-платформенный
   description: Совместимые с Mac, Windows и Linux приложения Electron создаются и запускаются на трех платформах.
