@@ -19,10 +19,10 @@ Enquanto o código e a experiência do usuário em sistemas operacionais sejam s
 ## Windows
 
 * No Windows 10, notificações "simplesmente funcionam".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* No Windows 8.1 e Windows 8, um atalho para o seu aplicativo, com um, [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) deve ser instalado na tela inicial. No entanto, ele não precisa ser fixado na a tela iniciar.
+* No Windows 7, notificações funcionam através de uma implementação personalizada que visualmente se assemelha aos sistemas mais novos.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+Além disso, no Windows 8, o comprimento máximo para o corpo da notificação é de 250 caracteres, o time do Windows recomenda que a notificações tenha 200 caracteres. Dito isto, essa limitação foi removida no Windows 10, mas a equipe do Windows pede que os desenvolvedores seja razoável. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
 ### Advanced Notifications
 
