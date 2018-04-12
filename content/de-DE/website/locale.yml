@@ -1,7 +1,7 @@
 tagline: Plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS entwickeln
 nav:
   docs: Dokumentation
-  donors: Donors
+  donors: Spender
   blog: Blog
   community: Community
   apps: Apps
@@ -38,12 +38,12 @@ community:
   meetup_notice: Um ein Treffen hinzuzufügen, bearbeiten Sie die Datei <code>data/meetups.json</code> und <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">erstellen einen Pull-Request</a>.
 releases: Veröffentlichungen
 electron_is_easy:
-  title: Es ist einfacher als Sie denken
-  description: Sind Sie in der Lage eine Website zu erstellen? Dann können Sie auch eine Desktop-Anwendung entwickeln! Electron ist ein Framework mit dem Sie Webtechnologien wie JavaScript, HTML und CSS nutzen um native Desktop-Applikationen zu erstellen. Wir kümmern uns um die kniffligen Dinge - und Sie um den Kern der Anwendung.
+  title: Es ist einfacher, als Sie denken
+  description: Sind Sie in der Lage eine Website zu erstellen? Dann können Sie auch eine Desktop-Anwendung entwickeln! Electron ist ein Framework, mit dem Sie Webtechnologien wie JavaScript, HTML und CSS nutzen, um native Desktop-Applikationen zu erstellen. Wir kümmern uns um die kniffligen Dinge &mdash; und Sie um den Kern der Anwendung.
   video_link: Das Video anschauen
 web_technologies:
   title: Web-Technologien
-  description: Electron verwendet Chromium und Node.js damit Sie Ihre App mit HTML, CSS und JavaScript entwickeln können.
+  description: Electron verwendet Chromium und Node.js, damit Sie Ihre App mit HTML, CSS und JavaScript entwickeln können.
 open_source:
   title: Open Source
   description: Electron ist ein von GitHub und einer aktiven Community von Mitwirkenden gepflegtes Open-Source-Projekt.
@@ -62,11 +62,11 @@ get_started:
   description: Schauen Sie sich für den Einstieg mit Electron die unten aufgelisteten Ressourcen an. Lernen Sie, wie Sie Ihre Web-App in Electron einbetten, alle APIs ansprechen und letztlich Installer für Ihre Anwendung generieren.
 explore:
   title: Erkunden Sie die Electron-APIs
-  description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron API Demos App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
+  description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron-API-Demos-App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist, und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
 download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen</a> auf GitHub anzeigen
 quick_start:
-  title: "Starte mit der <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start-App</a> um Electron in Aktion zu sehen:"
+  title: "Starten Sie mit der <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick-Start-App</a>, um Electron in Aktion zu sehen:"
   description: Eine minimale Electron-App mit hilfreichen Anmerkungen.
   clone: Das Quick-Start Repository klonen
   go_into_repo: Das Repository öffnen
@@ -74,7 +74,7 @@ quick_start:
   dive_deeper: Oder tauchen Sie tiefer ein und lesen Sie die <a href='/docs'>Dokumentation</a>.
 need_help:
   title: Benötigen Sie Hilfe?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Stellen Sie Fragen im <a href='https://discuss.atom.io/c/electron'>Diskussionsforum</a> oder in unserem <a href='http://atom-slack.herokuapp.com/'>Slack</a>-Kanal. Folgen Sie <a href="https://twitter.com/electronjs">@electronjs</a> auf Twitter für wichtige Ankündigungen. Möchten Sie uns persönlich erreichen? Dann schreiben Sie eine E-Mail an <a href="mailto:info@electronjs.org">electron@github.com</a>.
 headings:
   languages: Sprachen
 taglines:
@@ -84,7 +84,7 @@ footer:
   see_the_faq: Lesen Sie die häufig gestellte Fragen
 apps:
   title: Mit Electron entwickelte Apps
-  description: Mit Electron wird Ihnen das Erstellen einer Desktopanwendung für Ihre Firma oder Idee einfach gemacht. Ursprünglich für den <a href='https://atom.io' target='_blank'>Atom Editor</a> von GitHub entwickelt, wird Electron auch von Firmen wie Microsoft, Facebook, Slack und Docker für die Entwicklung von Applikationen verwendet.
+  description: Mit Electron wird Ihnen das Erstellen einer Desktopanwendung für Ihre Firma oder Idee einfach gemacht. Ursprünglich für den <a href='https://atom.io' target='_blank'>Atom-Editor</a> von GitHub entwickelt, wird Electron auch von Firmen wie Microsoft, Facebook, Slack und Docker für die Entwicklung von Applikationen verwendet.
   view_more: Mehr Apps anzeigen
   submit_your_own: eigene App einreichen
   something_missing: Fehlt etwas?
@@ -137,7 +137,7 @@ pages:
     title: Spectron
     description: Spectron ist ein Open-Source-Framework um sehr einfach Integrationstests für deine Electron-App zu schreiben. Das Framework beruht auf ChromeDriver und WebDriverIO.
   '/donors':
-    title: Donors
+    title: Spender
 _404:
   page_not_found: Seite nicht gefunden.
 search:

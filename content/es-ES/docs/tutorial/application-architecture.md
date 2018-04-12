@@ -24,7 +24,7 @@ En páginas web, llamar APIs nativas relacionadas a GUI no está permitido porqu
 
 ## Usando APIs de Electron
 
-Electron ofrece un número de APIs que apoyan el desarrollo de una aplicación de escritorio tanto en el proceso principal como en el procesador de procesos. In both processes, you'd access Electron's APIs by requiring its included module:
+Electron ofrece un número de APIs que apoyan el desarrollo de una aplicación de escritorio tanto en el proceso principal como en el procesador de procesos. En ambos procesos, accede a las APIs de Electron haciendo un require del módulo:
 
 ```javascript
 const electron = require('electron')
@@ -35,8 +35,8 @@ Todas las APIs de Electron son asignadas a un tipo de proceso. Muchos de ellos p
 Una ventana en Electron es, por ejemplo, creada usando la clase `BrowserWindow`. Sólo esta disponible en el proceso principal.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// Esto funcionará en el proceso principal, pero será `undefined` en el
+// proceso visualizador:
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()

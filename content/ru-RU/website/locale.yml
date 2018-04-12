@@ -28,25 +28,25 @@ languages:
   current: текущий выбор
 community:
   title: Сообщество Electron
-  description: 'Инструменты, шаблоны, видео и другие <a href="https://github.com/sindresorhus/awesome-electron">удивительные</a> примеры для Electron разработчиков с открытым исходным кодом. Найдите или добавьте <a href="/community#meetups">встречи</a> рядом с вами.'
+  description: 'Инструменты, шаблоны, видео и еще больше от <a href="https://github.com/sindresorhus/awesome-electron"> удивительных</a> open-source вкладчиков в Electron. Найти или добавить <a href="/community#meetups"> встречи</a> рядом с вами.'
   tools: Инструменты
   boilerplates: Шаблоны
   components: Компоненты
   videos: Видео
   meetups: Встречи
-  awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
+  awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron от @sindresorhus</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
   meetup_notice: Чтобы добавить встречу, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">сделайте pull request</a>.
 releases: Релизы
 electron_is_easy:
   title: Это проще, чем вы думаете
   description: 'Если Вы можете сделать сайт, то Вы сможете сделать приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что вы можете сосредоточиться на главных элементах Вашего приложения.'
-  video_link: Посмотреть видео
+  video_link: Смотреть видео
 web_technologies:
   title: Веб-технологии
   description: Electron использует Chromium и Node.js, так что Вы можете создавать свои приложения на HTML, CSS и JavaScript.
 open_source:
   title: Open Source
-  description: Electron - это проект с открытым исходным кодом, который поддерживается GitHub и активным сообществом разработчиков.
+  description: Electron это проект с открытым исходным кодом, который поддерживается GitHub и активным сообществом участников.
 cross_platform:
   title: Кросс-платформенный
   description: Совместимые с Mac, Windows и Linux приложения Electron создаются и запускаются на трех платформах.
@@ -74,7 +74,7 @@ quick_start:
   dive_deeper: Или окунитесь глубже и ознакомьтесь с <a href='/docs'>документацией</a>.
 need_help:
   title: Нужна помощь?
-  description: Вы можете задать вопрос на нашем форуме в <a href='https://discuss.atom.io/c/electron'>Discuss</a> или на канале <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> на Twitter. Если вам нужно решить персональный вопрос, отправьте e-mail на <a href="mailto:info@electronjs.org">electron@github.com</a>.
+  description: Вы можете задать вопрос на нашем форуме в <a href='https://discuss.atom.io/c/electron'>Discuss</a> или на канале <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> на Twitter. Если вам нужно решить персональный вопрос, отправьте e-mail на <a href="mailto:info@electronjs.org">info@electronhjs.org</a>.
 headings:
   languages: Языки
 taglines:
@@ -84,9 +84,9 @@ footer:
   see_the_faq: Просмотреть часто задаваемые вопросы
 apps:
   title: Приложения, созданные на Electron
-  description: С помощью Electron'а создание настольного приложения для вашей компании или идеи стало простым занятием. Первоначально разработанный для GitHub <a href='https://atom.io' target='_blank'>редактор Atom</a>, Electron теперь используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.
+  description: С помощью Electron'а создание настольного приложения для вашей компании или идеи стало простым занятием. Первоначально разработанный для <a href='https://atom.io' target='_blank'>редактора Atom</a> от GitHub, Electron теперь используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.
   view_more: Просмотреть другие приложения
-  submit_your_own: или опубликовать своё
+  submit_your_own: опубликовать своё
   something_missing: Что-то отсутствует?
   edit_this_app: Измените это приложение.
 clipboard:
@@ -105,7 +105,7 @@ pages:
     title: Документация
     description: Руководства и API справочной документации для последнего релиза Electron
   '/docs/all':
-    title: Все документы Electron!
+    title: Вся документация Electron!
     description: Все руководства Electron и API документация на единой, поисковой странице.
   '/docs/api':
     title: API
@@ -132,10 +132,10 @@ pages:
     title: Пользовательское пространство
   '/devtron':
     title: Devtron
-    description: Devtron является инструментом с открытым исходным кодом, чтобы помочь вам проверять, контролировать и отлаживать ваши приложения Electron. Построен на вершине удивительных инструментов разработчика Chrome.
+    description: Devtron является инструментом с открытым исходным кодом, чтобы помочь вам проверять, контролировать и отлаживать ваши приложения Electron. Построен на базе удивительных инструментов разработчика Chrome.
   '/spectron':
     title: Spectron
-    description: Спектрон является фреймворком с открытым исходным кодом для легкого написания, интеграции тестов для вашего приложения Electron. Построен на вершине ChromeDriver и WebDriverIO.
+    description: Spectron является фреймворком с открытым исходным кодом для легкого написания тестов интеграции для вашего приложения Electron. Построен на базе ChromeDriver и WebDriverIO.
   '/donors':
     title: Спонсоры
 _404:

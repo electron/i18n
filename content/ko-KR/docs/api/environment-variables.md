@@ -11,7 +11,7 @@ $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Windows 콘솔 예시:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true

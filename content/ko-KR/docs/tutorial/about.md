@@ -6,7 +6,7 @@
 
 이후 Electron은 오픈 소스 개발자, 스타트업, 기존 회사들이 사용하는 인기있는 도구가 되었습니다. [누가 Electron을 사용하고 있는지 확인해보세요](https://electronjs.org/apps).
 
-Electron 프로젝트 공헌자, 출시(release) 정보 또는 Electron을 이용한 개발 시작하기에 관한 정보는 [빠른 시작 가이드](quick-start.md) 문서를 참고하시길 바랍니다.
+Electron 프로젝트 공헌자, 출시(release) 정보 또는 Electron을 이용한 개발 시작하기에 관한 정보는 [빠르게 시작하기](quick-start.md) 문서를 참고하시길 바랍니다.
 
 ## 코어 팀과 공헌자
 

@@ -1,12 +1,12 @@
 # shell
 
-> Manage files and URLs using their default applications.
+> 기본 애플리케이션을 이용해 파일과 URL을 관리합니다.
 
 프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
-An example of opening a URL in the user's default browser:
+사용자의 기본 브라우저를 이용하여 URL을 여는 예시입니다 :
 
 ```javascript
 const {shell} = require('electron')
@@ -16,7 +16,7 @@ shell.openExternal('https://github.com')
 
 ## 메서드
 
-The `shell` module has the following methods:
+`shell` 모듈은 아래의 메서드를 가지고 있습니다 :
 
 ### `shell.showItemInFolder(fullPath)`
 
@@ -56,7 +56,7 @@ Move the given file to trash and returns a boolean status for the operation.
 
 ### `shell.beep()`
 
-Play the beep sound.
+경고음 소리를 재생합니다.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 

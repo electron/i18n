@@ -2,9 +2,9 @@
 
 > Контролируйте жизненный цикл Вашего приложения.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
-Это пример показывает, как закрыть приложение, когда последнее окно будет закрыто:
+Этот пример показывает, как закрыть приложение, когда последнее окно будет закрыто:
 
 ```javascript
 const {app} = require('electron')
@@ -19,7 +19,7 @@ app.on('window-all-closed', () => {
 
 ### Событие: 'will-finish-launching'
 
-Происходит когда приложение заканчивает основной запуск. На Windows и Linux событие `will-finish-launching` подобно событию `ready`; на macOS это событие представляет собой уведомление `applicationWillFinishLaunching` объекта `NSApplication`. Обычно настраивают слушателей для `open-file` и `open-url` событий, и запуская репортер сбоев и автообновления.
+Происходит когда приложение заканчивает основной запуск. На Windows и Linux событие `will-finish-launching` подобно событию `ready`; на macOS это событие представляет собой уведомление `applicationWillFinishLaunching` объекта `NSApplication`. Обычно настраивают слушателей для `open-file` и `open-url` событий, и запускают репортер сбоев и автообновления.
 
 В большинстве случаев вы просто должны сделать все в обработчике событий `ready`.
 
@@ -29,13 +29,13 @@ app.on('window-all-closed', () => {
 
 * `launchInfo` Object *macOS*
 
-Происходит при завершении инициализации Electron. На macOS `launchInfo` держит `userInfo` `NSUserNotification`, которая была использована для открытия приложения, если он был запущен из центра уведомлений. Вы можете вызвать `app.isReady()` для того, чтобы проверить, произошло ли данное событие.
+Происходит при завершении инициализации Electron. На macOS `launchInfo` содержит `userInfo` из `NSUserNotification`, которое было использовано для открытия приложения, если оно было запущено из центра уведомлений. Вы можете вызвать `app.isReady()` для того, чтобы проверить, произошло ли данное событие.
 
 ### Событие: 'window-all-closed'
 
 Происходит при закрытии всех окон.
 
-Если Вы не подпишитесь на это событие, и все окна будут закрыты, поведением по умолчанию является выход из приложения; Однако, если вы подпишитесь, то вы определяете, будет ли приложение закрыто или нет. Если пользователь нажал `Cmd + Q` или разработчик вызвал `app.quit ()`, Electron сначала попытается закрыть все окна, а затем возникает `will-quit`, и в этом случае событие `window-all-closed` не будет возникать.
+Если Вы не подпишитесь на это событие, и все окна будут закрыты, поведением по умолчанию является выход из приложения; Однако, если Вы подпишитесь, то Вы определяете, будет ли приложение закрыто или нет. Если пользователь нажал `Cmd + Q` или разработчик вызвал `app.quit ()`, Electron сначала попытается закрыть все окна, а затем происходит событие `will-quit`, и в этом случае событие `window-all-closed` не будет возникать.
 
 ### Событие: 'before-quit'
 
@@ -45,7 +45,7 @@ app.on('window-all-closed', () => {
 
 Происходит перед тем как запущенное приложение закрывает окна. Вызов `event.preventDefault()` предотвращает поведение по умолчанию, которое завершает работу приложения.
 
-**Примечание:** Если выход приложения был инициирован `autoUpdater.quitAndInstall()` затем `before-quit` возникает *после* возникновения `close` события на всех окнах и закрывает их.
+**Примечание:** Если выход приложения был инициирован `autoUpdater.quitAndInstall()` затем `before-quit` возникает *после* возникновения события `close` на всех окнах и закрывает их.
 
 ### Событие: 'will-quit'
 
@@ -53,7 +53,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Возникает когда все окна были закрыты и приложение прекратит работу. Вызов `event.preventDefault()` предотвратит поведение по умолчанию, которым завершается приложение.
+Происходит когда все окна были закрыты и приложение прекратит работу. Вызов `event.preventDefault()` предотвратит поведение по умолчанию, которое завершает приложение.
 
 Смотрите описание события `window-all-closed` для различий между событием `will-quit` и `window-all-closed`.
 
@@ -73,22 +73,22 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `path` String
 
-Возникает, когда пользователь хочет открыть файл. Событие `open-file` обычно возникает, когда приложение уже открыто и хочет использовать ОС, чтобы открыть файл. `open-file` также возникает, когда файл удаляется на dock, а приложение еще не запущено. Убедитесь, что обработчик `open-file` события в самом начале запуска вашего приложения обрабатывает этот случай (даже прежде, чем возникнет ` ready` событие).
+Происходит, когда пользователь хочет открыть файл. Событие `open-file` обычно происходит, когда приложение уже открыто и хочет использовать ОС, чтобы открыть файл. `open-file` также происходит, когда файл удаляется на dock, а приложение еще не запущено. Убедитесь, что обработчик события `open-file` в самом начале запуска вашего приложения обрабатывает этот случай (даже прежде, чем происходит событие ` ready`).
 
 Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
-В Windows Вам необходимо распарсить `process.argv` (в основном процессе), чтобы получить путь к файлу.
+В Windows Вам необходимо распарсить `process.argv` (в главном процессе), чтобы получить путь к файлу.
 
-### Событие: 'open-url' *macOS*
+### Событие: 'open-file' *macOS*
 
 Возвращает:
 
 * `event` Event
 * `url` String
 
-Возникает, когда пользователь хочет открыть URL-адрес из приложения. Ваше приложение в файле `Info.plist` должно определять схему URL в ключе `CFBundleURLTypes` и установить `NSPrincipalClass` в `AtomApplication`.
+Происходит, когда пользователь хочет открыть URL-адрес из приложения. Файл Вашего приложения `Info.plist` должнен определять схему URL в ключе `CFBundleURLTypes` и установить `NSPrincipalClass` в `AtomApplication`.
 
-Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
+Вы должны вызвать `event.preventDefault()`, если Вы хотите обработать это событие.
 
 ### Событие: 'activate' *macOS*
 
@@ -97,58 +97,58 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Возникает при активации приложения. Различные действия могут запускать это событие, например, запуск приложения в первый раз, попытка перезапустить приложение, когда оно уже запущено, или щелкнуть значок приложения в dock или панели задач.
+Происходит при активации приложения. Различные действия могут запускать это событие, например, запуск приложения в первый раз, попытка перезапустить приложение, когда оно уже запущено, или щелкнуть значок приложения в dock или панели задач.
 
 ### Событие: 'continue-activity' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - содержит состояние приложения, сохраняющего состояние по активности на другом устройстве.
+* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - содержит специфическое для приложения состояние, сохраненное на другом устройстве.
 
-Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активности на различных устройствах для возобновления. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда активность с другого устройства хочет возобновиться. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
 
-Активность пользователей может быть продолжена только в приложении, которое имеет ID разработчика команды как активность исходного приложения и который поддерживает этот тип действия. Поддержка типов активности, указаны в приложении `Info.plist` под ключом `NSUserActivityTypes`.
+Активность пользователя может быть продолжена только в приложении, которое имеет тот же ID команды разработчика, что и исходное приложение, и поддерживает тип активности. Поддерживаемые типы активности, указаны в `Info.plist` приложения под ключом `NSUserActivityTypes`.
 
 ### Событие: 'will-continue-activity' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) после возобновления активности на различных устройствах. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) до того, как активность с другого устройства хочет возобновиться. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
 
 ### Событие: 'continue-activity' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - cтрока с ошибкой локализованного описания.
+* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - cтрока с локализованным описанием ошибки.
 
-Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) при ошибочном возобновлении активности на различных устройствах.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) при ошибочном возобновлении активности на различных устройствах.
 
 ### Событие: 'activity-was-continued' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - содержит специфичное состояние приложения, сохраняющегося в хранилище по активности.
+* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - содержит специфичное для приложения состояние, сохраненное в хранилище по активности.
 
-Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) после возобновления активности на различных устройствах.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) после удачного возобновления на другом устройстве.
 
 ### Событие: 'update-activity-state' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - содержит специфичное состояние приложения, сохраняющегося в хранилище по активности.
+* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - содержит специфичное для приложения состояние, сохраняющееся в хранилище по активности.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе операция завершится ошибкой и будет вызвано `continue-activity-error`.
 
 ### Событие: 'new-window-for-tab' *macOS*
 
@@ -156,7 +156,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 
 * `event` Event
 
-Возникает, когда пользователь нажимает нативную новую кнопку вкладки macOS. Новая кнопка вкладки доступна только в том случае, если текущий `BrowserWindow` имеет `tabbingIdentifier`
+Происходит, когда пользователь нажимает нативную кнопку новая вкладка на macOS. Кнопка новая вкладка доступна только в том случае, если текущий `BrowserWindow` имеет `tabbingIdentifier`
 
 ### Событие: 'browser-window-blur'
 
@@ -165,7 +165,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Возникает, когда [browserWindow](browser-window.md) получает размытие.
+Происходит, когда [browserWindow](browser-window.md) теряет фокус.
 
 ### Событие: 'browser-window-focus'
 
@@ -174,7 +174,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Возникает, когда [browserWindow](browser-window.md) получает фокус.
+Происходит, когда [browserWindow](browser-window.md) сфокусировано.
 
 ### Событие: 'browser-window-created'
 
@@ -183,7 +183,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Возникает, когда создается новый [browserWindow](browser-window.md).
+Происходит, когда создается новый [browserWindow](browser-window.md).
 
 ### Событие: 'web-contents-created'
 
@@ -192,7 +192,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Возникает при создании нового [webContents](web-contents.md).
+Происходит, когда создан новый [webContents](web-contents.md).
 
 ### Событие: 'certificate-error'
 
@@ -206,7 +206,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 * `callback` Function 
   * `isTrusted` Boolean - учитывать ли сертификат как надёжный
 
-Возникает, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
+Происходит, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -233,9 +233,9 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (опиционально)
 
-Возникает при запросе сертификата клиента.
+Происходит при запросе сертификата клиента.
 
-`url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` можно вызвать с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает приложению использование первого сертификата из хранилища.
+`url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` может быть вызван с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает от использования приложением первого сертификата из хранилища.
 
 ```javascript
 const {app} = require('electron')
@@ -266,9 +266,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Возникает `webContents`, когда делается базовый auth.
+Происходит, когда `webContents` хочет сделать базовую аутентификацию.
 
-Поведением по умолчанию является отмена всех идентификаций, чтобы переопределить это вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
+Поведением по умолчанию является отмена всех аутентификаций, чтобы переопределить это Вы должны предотвратить поведение по умолчанию при помощи `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
 
 ```javascript
 const {app} = require('electron')
@@ -286,16 +286,16 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Возникает когда процесс gpu аварийно завершает работу или убит.
+Происходит, когда процесс gpu аварийно завершает работу или был убит.
 
 ### Событие: 'accessibility-support-changed' *macOS* *Windows*
 
 Возвращает:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` когда доступность поддержки Chrome включена, `false` в противном случае.
+* `accessibilitySupportEnabled` Boolean - `true` когда поддержка специальных возможностей от Chrome включена, `false` в противном случае.
 
-Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
+Происходит при изменении поддержки специальных возможностей от Chrome. Это событие срабатывает, когда вспомогательные технологии, такие как чтения с экрана, включены или отключены. См. https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 ## Методы
 
@@ -774,11 +774,11 @@ app.setLoginItemSettings({
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+* `enabled` Boolean - включить или отключить рендеринг древа [специальных возможностей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+Вручную включает поддержку специальных возможностей от Chrome, позволяя пользователям открывать специальные возможности в настройках приложения. См. https://www.chromium.org/developers/design-documents/accessibility для подробностей. Отключено по умолчанию.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Примечание:** Рендеринг древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -816,15 +816,15 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+Возвращает `Boolean` - выполняется ли приложение в настоящее время из системной папки Приложения(Application). Используйте в сочетании с `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+Возвращает `Boolean` - было ли перемещение удачным. Пожалуйста, обратите внимание, если перемещение было успешным, Ваше приложение закроется и повторно запустится.
 
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+Диалог подтверждения не будет представлен по умолчанию, если Вы хотите позволить пользователю подтвердить операцию, Вы можете сделать это с помощью API [`диалогового окна`](dialog.md).
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**Примечание:** Этот метод вызывает ошибки, если что-нибудь, кроме пользователя, приводит к сбою перемещения. Например, если пользователь отменяет диалоговое окно авторизации, этот метод возвращает false. Если нам не удастся выполнить копирование, этот метод вызовет ошибку. Сообщение об ошибке должно быть информативным и скажет Вам, что действительно пошло не так
 
 ### `app.dock.bounce([type])` *macOS*
 
