@@ -1,24 +1,24 @@
 # Notificações (Windows, Linux, macOS)
 
-Todos os três sistemas operacionais fornecem meios para os aplicativos enviarem notificações para o usuário. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Todos os três sistemas operacionais fornecem meios para os aplicativos enviarem notificações para o usuário. Electron convenientemente permite que os desenvolvedores envie notificações com a [API de notificação do HTML5](https://notifications.spec.whatwg.org/), usado as APIs do sistema operacional em execução para exibi-la.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**Nota:** Uma vez que esta é uma API do HTML5 só está disponível no processo de renderização. Se você que mostrar a notificações em um processo principal por favor, verifique o módulo [Notification](../api/notification.md).
 
 ```javascript
-let myNotification = new Notification('Title', {
+let myNotification = new Notification('Título', {
   body: 'Lorem Ipsum Dolor Sit Amet'
 })
 
 myNotification.onclick = () => {
-  console.log('Notification clicked')
+  console.log('Notificação clicada')
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+Enquanto o código e a experiência do usuário em sistemas operacionais sejam semelhantes, há algumas diferenças.
 
 ## Windows
 
-* On Windows 10, notifications "just work".
+* No Windows 10, notificações "simplesmente funcionam".
 * On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
 * On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
 
