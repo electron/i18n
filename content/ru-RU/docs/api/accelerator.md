@@ -15,7 +15,7 @@
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Регистрация 'CommandOrControl+Y' слушателя шортката.
+  // Регистрация слушателя сочетания клавиш 'CommandOrControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Сделайте что-нибудь, когда Y и Command/Control нажата.
   })
@@ -24,11 +24,11 @@ app.on('ready', () => {
 
 ## Платформа заметок
 
-На Linux и Windows, ключ `Command` не имеет никакого эффекта, так используйте `CommandOrControl`, который представляет собой `Command` на MacOS и `Control` на Linux и Windows для определения некоторых ускорителей.
+На Linux и Windows, ключ `Command` не имеет никакого эффекта, так что используйте `CommandOrControl`, который представляет собой `Command` на MacOS и `Control` на Linux и Windows для определения некоторых ускорителей.
 
 Используйте `Alt` вместо `Option`. Ключ `Option` существует только на MacOS, в то время как ключ`Alt` доступен на всех платформах.
 
-Клавиша `Super` сопоставляется с `Windows` в Windows и Linux, и `Cmd` на macOS.
+Клавиша `Super` сопоставляется с клавишей `Windows` в Windows и Linux и `Cmd` на macOS.
 
 ## Доступные модификаторы
 
@@ -43,10 +43,10 @@ app.on('ready', () => {
 
 ## Доступные коды клавиш
 
-* от `` до `9`
-* от `A` до `Z`
-* от `F1` до `F24`
-* Символы пунктуации как `~`, `!`, `@`, `#`, `$`, т.д.
+* `` - `9`
+* `A` - `Z`
+* `F1` - `F24`
+* Символы пунктуации, например `~`, `!`, `@`, `#`, `$`, т.д.
 * `Plus`
 * `Space`
 * `Tab`
