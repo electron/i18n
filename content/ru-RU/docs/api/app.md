@@ -235,7 +235,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Происходит при запросе сертификата клиента.
 
-`url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` можно вызвать с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает приложению использование первого сертификата из хранилища.
+`url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` может быть вызван с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает от использования приложением первого сертификата из хранилища.
 
 ```javascript
 const {app} = require('electron')
@@ -266,9 +266,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Возникает `webContents`, когда делается базовый auth.
+Происходит, когда `webContents` хочет сделать базовую аутентификацию.
 
-Поведением по умолчанию является отмена всех идентификаций, чтобы переопределить это вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
+Поведением по умолчанию является отмена всех аутентификаций, чтобы переопределить это Вы должны предотвратить поведение по умолчанию при помощи `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
 
 ```javascript
 const {app} = require('electron')
@@ -286,7 +286,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Возникает когда процесс gpu аварийно завершает работу или убит.
+Происходит, когда процесс gpu аварийно завершает работу или был убит.
 
 ### Событие: 'accessibility-support-changed' *macOS* *Windows*
 
