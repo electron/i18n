@@ -74,7 +74,7 @@ quick_start:
   dive_deeper: Ou você pode ir mais fundo e ler a <a href='/docs'>documentação</a>.
 need_help:
   title: Precisa de Ajuda?
-  description: Faça perguntas no <a href='https://discuss.atom.io/c/electron'>Discuss</a> fórum ou nosso canal do <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:info@electronjs.org">nfo@electronjs.org</a>.
+  description: Faça perguntas no fórum <a href='https://discuss.atom.io/c/electron'>Discuss</a> ou no nosso canal do <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:info@electronjs.org">nfo@electronjs.org</a>.
 headings:
   languages: Idiomas
 taglines:
