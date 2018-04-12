@@ -74,7 +74,7 @@ quick_start:
   dive_deeper: Или окунитесь глубже и ознакомьтесь с <a href='/docs'>документацией</a>.
 need_help:
   title: Нужна помощь?
-  description: Вы можете задать вопрос на нашем форуме в <a href='https://discuss.atom.io/c/electron'>Discuss</a> или на канале <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> на Twitter. Если вам нужно решить персональный вопрос, отправьте e-mail на <a href="mailto:info@electronjs.org">electron@github.com</a>.
+  description: Вы можете задать вопрос на нашем форуме в <a href='https://discuss.atom.io/c/electron'>Discuss</a> или на канале <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> на Twitter. Если вам нужно решить персональный вопрос, отправьте e-mail на <a href="mailto:info@electronjs.org">info@electronhjs.org</a>.
 headings:
   languages: Языки
 taglines:
@@ -84,7 +84,7 @@ footer:
   see_the_faq: Просмотреть часто задаваемые вопросы
 apps:
   title: Приложения, созданные на Electron
-  description: С помощью Electron'а создание настольного приложения для вашей компании или идеи стало простым занятием. Первоначально разработанный для GitHub <a href='https://atom.io' target='_blank'>редактор Atom</a>, Electron теперь используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.
+  description: С помощью Electron'а создание настольного приложения для вашей компании или идеи стало простым занятием. Первоначально разработанный для <a href='https://atom.io' target='_blank'>редактора Atom</a> от GitHub, Electron теперь используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.
   view_more: Просмотреть другие приложения
   submit_your_own: или опубликовать своё
   something_missing: Что-то отсутствует?
