@@ -106,7 +106,7 @@ child.once('ready-to-show', () = > {
 * На Linux тип модального окна будет поменян в `dialog`.
 * На Linux многие среды рабочего стола не поддерживают скрытие модального окна.
 
-## Класс: BrowserWindow
+## Class: BrowserWindow
 
 > Создание окон браузера и управление ими.
 
@@ -151,9 +151,9 @@ Process: [Main](../glossary.md#main-process)
   * `disableAutoHideCursor` Boolean (необязательно) - Будет ли спрятан курсор, во время печатания. По умолчанию - `false`.
   * `autoHideMenuBar` Boolean (необязательно) - Автоматическое убирание полоски меню, пока клавиша `Alt` не будет нажата. По умолчанию - `false`.
   * `enableLargerThanScreen` Boolean (необязательно) - Позволяет окну изменять размер больше, чем экран. По умолчанию - `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). По умолчанию - `#FFF` (белый).
+  * `backgroundColor` String (опционально) - фоновый цвет окна, в виде шестнадцатеричного значения, например `#66CD00` или `#FFF` или `#80FFFFFF` (альфа поддерживается). По умолчанию - `#FFF` (белый).
   * `hasShadow` Boolean (необязательно) - Будет ли окно иметь тень. Реализовано только на macOS. По умолчанию - `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `opacity` Number (опционально) - установить начальную прозрачность окна, между 0.0 (полная прозрачность) и 1.0 (полная видимость). Это реализовано только на Windows и macOS.
   * `darkTheme` Boolean (необязательно) - Заставляет использовать темную тему для окна, работает только на некоторых GTK+3 окружениях рабочего стола. По умолчанию - `false`.
   * `transparent` Boolean (необязательно) - Делает окно [прозрачным](frameless-window.md). По умолчанию - `false`.
   * `type` String (необязательно) - Тип окна, по умолчанию - обычное окно. См. больше об этом ниже.
@@ -164,8 +164,8 @@ Process: [Main](../glossary.md#main-process)
     * `hiddenInset` - В результате скрытый заголовок с альтернативным видом, где кнопки контролирования немного больше вставки от края окна.
     * `customButtonsOnHover` Boolean (необязательно) - Отобразить настраиваемые кнопки закрыть, свернуть и во весь экран на бескаркасных окнах в macOS. Эти кнопки не будут отображаться за исключением соприкосновения над левым верхним углом окна. Эти пользовательские кнопки предотвращают проблемы с событиями мыши, которые происходят с кнопками стандартной панели инструментов. **Заметка:** Этот параметр в настоящее время экспериментален.
   * `fullscreenWindowTitle` Boolean (необязательно) - Показывает заголовок в полноэкранном режиме на macOS для всех настроек `titleBarStyle`. По умолчанию - `false`.
-  * `thickFrame` Boolenan (необязательно) - Использовать стиль `WS_THICKFRAME` на окнах с отсутствием рамок на Windows, добавляющий стандартные рамки окна. Setting it to `false` will remove window shadow and window animations. По умолчанию - `true`.
-  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
+  * `thickFrame` Boolenan (необязательно) - Использовать стиль `WS_THICKFRAME` на окнах с отсутствием рамок на Windows, добавляющий стандартные рамки окна. Установив значение `false` тень окна и анимация окна будут удалены. По умолчанию - `true`.
+  * `vibrancy` String (опционально) - добавить тип эффекта вибрации к окну, только на macOS. Может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, или `ultra-dark`.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. По умолчанию - `false`.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
   * `webPreferences` Object (optional) - Settings of web page's features. 
