@@ -83,7 +83,7 @@ const path = require('path')
 const url = require('url')
 
 function createWindow () {
-  // Create the browser window.
+  // 创建一个窗口.
   win = new BrowserWindow({width: 800, height: 600})
 
   // 然后加载应用的 index.html。
