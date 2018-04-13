@@ -135,7 +135,7 @@ pages:
     description: Devtron은 Chrome Developer Tools 기반으로 만들어진 오픈 소스 도구로, 여러분의 Electron 앱을 검사하고, 감시하고, 디버깅할 수 있도록 도와줍니다.
   '/spectron':
     title: Spectron
-    description: Spectron은 ChromeDriver 와 WebDriverIO 기반으로 만들어진 오픈 소스 프레임워크로, 여러분의 Electron 앱을 위한 통합 테스트 코드를 쉽게 작성할 수 있습니다.
+    description: Spectron은 Electron 앱에 대한 통합 테스트 코드를 쉽게 작성할 수 있는 오픈 소스 프레임워크이며, ChromeDriver와 WebDriverIO를 기반으로 합니다.
   '/donors':
     title: 후원자
 _404:
