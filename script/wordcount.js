@@ -18,10 +18,13 @@ const results = {
   'average words per file': Math.floor(average(counts)),
 }
 
-console.log('# Word Count')
-console.log('> Analysis ofElectron\'s English documentation, including tutorials and API docs.\n')
-console.log('Stat | Value')
-console.log('---- | -----')
+console.log(`# Word Count
+
+> Analysis of Electron\'s English documentation, including tutorials and API docs.
+
+Stat | Value
+---- | -----`)
+
 Object.keys(results).forEach(stat => {
   console.log([stat, results[stat]].join(' | '))
 })

@@ -1,5 +1,6 @@
 # Word Count
-> Analysis ofElectron's English documentation, including tutorials and API docs.
+
+> Analysis of Electron's English documentation, including tutorials and API docs.
 
 Stat | Value
 ---- | -----
