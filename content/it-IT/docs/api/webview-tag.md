@@ -468,17 +468,17 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `opzioni` Oggetto 
-  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Funzione 
-  * `errore` Errore
-  * `data` Buffer
+* `options` Object 
+  * `marginsType` Integer - (opzionale) specifica il tipo di margini da utilizzare. Utilizza 0 per margine predefinito, 1 per nessun margine e 2 per il margine minimo.
+  * `pageSize` String - (facoltativo) specifica le dimensioni per la pagina del PDF generato. Può essere `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un oggetto contenente `height`(altezza) e la `width`(larghezza) in micron.
+  * `printBackground` Boolean - (opzionale) se per stampare CSS backgrounds.
+  * `printSelectionOnly` Boolean - (opzionale) se bisogna stampare solamente la selezione.
+  * `landscape` Boolean - (facoltativo) `true` per il formato orizontale, `false` per il formato verticale.
+* `callback` Function 
+  * `error` Error
+  * `data` Buffer - contiene il pdf generato
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+Stampa la pagina web del `webview` in formato PDF, questo metodo è identico a `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
