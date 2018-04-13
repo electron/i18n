@@ -75,7 +75,7 @@ Electron apps 是使用与 Node.js 开发中相同的原理和方法在 JavaScri
 const electron = require('electron')
 ```
 
-`electron` 模块所提供的功能都是通过命名空间暴露出来的。 比如说： `electron.app`负责管理Electron 应用程序的生命周期， `electron.BrowserWindow`类负责创建窗口。 一个简单的`main.js`文件可能仅等待应用程序准备就绪后打开一个窗口：
+`electron` 模块所提供的功能都是通过命名空间暴露出来的。 比如说： `electron.app`负责管理Electron 应用程序的生命周期， `electron.BrowserWindow`类负责创建窗口。 下面是一个简单的`main.js`文件，它将在应用程序准备就绪后打开一个窗口：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -97,7 +97,7 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-您应当在 `main.js` 中创建窗口，并处理程序中可能遇到的所有系统事件。 A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+您应当在 `main.js` 中创建窗口，并处理程序中可能遇到的所有系统事件。 下面我们将完善上述例子，添加以下功能：打开开发者工具、处理窗口关闭事件、在macOS用户点击dock上图标时重建窗口，添加后，main. js 就像下面这样：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -153,11 +153,11 @@ app.on('activate', () => {
   }
 })
 
-// 在这文件，你可以续写应用剩下主进程代码。
+// 在这个文件中，你可以续写应用剩下主进程代码。
 // 也可以拆分成几个文件，然后用 require 导入。
 ```
 
-最后，你想展示的 `index.html`：
+最后，创建你想展示的 `index.html`：
 
 ```html
 <!DOCTYPE html>
