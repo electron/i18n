@@ -1,12 +1,12 @@
-# Progress Bar in Taskbar (Windows, macOS, Unity)
+# Progress Bar nella Taskbar (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Su Windows il pulsante della taskbar può essere usata per mostrare una progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
 On macOS the progress bar will be displayed as a part of the dock icon.
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
-**Progress bar in taskbar button:**
+**Progress bar nel pulsante della taskbar:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 

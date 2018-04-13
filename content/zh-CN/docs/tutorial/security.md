@@ -1,8 +1,8 @@
 # 安全性，原生能力和你的责任
 
-作为 web 开发人员，我们通常喜欢网络安全性更强大的浏览器 - 与我们编写的代码相关的风险相对较小。 Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+作为 web 开发人员，我们通常喜欢网络安全性更强大的浏览器 - 与我们编写的代码相关的风险相对较小。 我们的网站在沙箱中获得有限的权限，我们相信我们的用户可以享受由大量工程师团队构建的浏览器，能够快速响应新发现的安全威胁。
 
-当使用 Electron 时，要知道 Electron 不是一个 Web 浏览器很重要。 它允许您使用熟悉的 Web 技术构建功能丰富的桌面应用程序，但是您的代码具有更强大的功能。 JavaScript 可以访问文件系统，用户 shell 等。 This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+当使用 Electron 时，要知道 Electron 不是一个 Web 浏览器很重要。 它允许您使用熟悉的 Web 技术构建功能丰富的桌面应用程序，但是您的代码具有更强大的功能。 JavaScript 可以访问文件系统，用户 shell 等。 这允许您构建更高质量的本机应用程序，但是内在的安全风险会随着授予您的代码的额外权力而增加。
 
 考虑到这一点，请注意，在 Electron 不任何处理的情况下，展示任意来自不受信任源的内容都将会带来严重的安全风险。 事实上，最流行的 Electron 应用程序(Atom，Slack，Visual Studio Code 等) 主要显示本地内容(或没有 Node 集成的可信安全远程内容) - 如果您的应用程序从在线源执行代码，那么您有责任确保代码不是恶意的。
 
@@ -14,21 +14,21 @@
 
 尽管 Electron 努力尽快支持新版本的 Chromium，但开发人员应该意识到，升级是一项严肃的工作 - 涉及手动编辑几十个甚至几百个文件。 考虑到当前的资源和贡献，Electron 通常不会是最新版本的 Chromium，总是落后于一两天或几周。
 
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. 我们绝对有兴趣听听更多关于在 Electron 上构建事物的人的具体用例。 非常欢迎提出请求并且捐助支持我们的努力。
+我们认为，我们当前的更新 Chromium 组件的系统在我们可用的资源和构建在框架之上的大多数应用程序的需求之间取得了适当的平衡。 我们绝对有兴趣听听更多关于在 Electron 上构建事物的人的具体用例。 非常欢迎提出请求并且捐助支持我们的努力。
 
 ## 除了以上建议
 
-每当您从远程目标收到代码并在本地执行它时，就会存在安全问题。 As an example, consider a remote website being displayed inside a [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+每当您从远程目标收到代码并在本地执行它时，就会存在安全问题。 作为一个例子，一个远程网站会被显示在[`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
+> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 要显示远程内容, 请使用 [` web 视图 `](../api/web-view.md) 标记, 并确保禁用 ` nodeIntegration `。
 
-## Electron Security Warnings
+## Electron 安全警告
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
+从Electron 2.0版本开始，开发者将会在开发者控制台看到打印的警告和建议。 They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
 You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
 
-## Checklist: Security Recommendations
+## 清单：安全建议
 
 This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
 
@@ -43,26 +43,25 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 9. [Do not enable experimental features](#do-not-enable-experimental-features)
 10. [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
 11. [WebViews: 不要使用 `allowpopups`](#do-not-use-allowpopups)
-12. [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+12. [WebViews: 验证所有 `<webview>` 标记的选项和参数](#verify-webview-options-before-creation)
 
-## 1) Only Load Secure Content
+## 1) 仅加载安全内容
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+应使用像 ` HTTPS ` 这样的安全协议加载应用程序中不包含的任何资源。 换言之， 不要使用不安全的协议 （如 ` HTTP `）。 Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### 为什么？
 
-`HTTPS` has three main benefits:
+` HTTPS ` 有三个主要好处：
 
-1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
+1) 它对远程服务器进行身份验证, 确保您的应用程序连接到正确的主机而不是模仿器。 2) 确保数据完整性, 断言数据在应用程序和主机之间传输时未被修改。 3) 它对用户和目标主机之间的通信进行加密, 从而更难窃听应用程序和主机之间发送的信息。
 
 ### 怎么做？
 
 ```js
-// Bad
-browserWindow.loadURL('http://my-website.com')
-
-// Good
-browserWindow.loadURL('https://my-website.com')
+// 不推荐
+browserWindow loadURL (' http://我的网站. com ')
+// 推荐 
+browserWindow. loadURL (' https://我的网站. com ')
 ```
 
 ```html
@@ -77,9 +76,9 @@ browserWindow.loadURL('https://my-website.com')
 
 ## 2) Disable Node.js Integration for Remote Content
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) that loads remote content. 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+从此以后，你可以为特殊主机授予附加的权限。 For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
 
 ### 为什么？
 
@@ -94,7 +93,7 @@ mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,

@@ -1,4 +1,4 @@
-# Official Guides
+# Guías oficiales
 
 Por favor, asegúrese de utilizar los documentos que correspondan con la versión de Electron que esta buscando. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver las antiguas versiones de la documentación, puede [navegar por las etiquetas](https://github.com/electron/electron/tree/v1.4.0) en GitHub abriendo el menú desplegable de "Switch branches/tags" y seleccionado la etiqueta que coincida con su versión.
 
@@ -8,24 +8,24 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 * [Preguntas Frecuentes sobre Electron](faq.md)
 
-## Guides and Tutorials
+## Guías y tutoriales
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Configurando macOS](tutorial/development-environment.md#setting-up-macos)
+* [Configurar el entorno de desarrollo](tutorial/development-environment.md) 
+  * [Configurar macOS](tutorial/development-environment.md#setting-up-macos)
   * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
+  * [Configurar Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Elegir un editor](tutorial/development-environment.md#a-good-editor)
+* [Crear su primera aplicación](tutorial/first-app.md) 
+  * [Instalar Electron](tutorial/first-app.md#installing-electron)
   * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
+  * [Ejecutar su aplicación](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [Electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Otras Herramientas y Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Application Architecture](tutorial/application-architecture.md) 
+* [Arquitectura de la aplicación](tutorial/application-architecture.md) 
   * [Proceso Principal y Proceso Visualizador](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
   * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)

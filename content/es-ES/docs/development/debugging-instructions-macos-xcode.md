@@ -1,8 +1,8 @@
-## Debugging with XCode
+## Depurar con XCode
 
 ### Build Debug Electron with Release libchromiumcontent
 
-You can create a debug build of electron by following [build instructions for macOS](build-instructions-osx.md). The bootstrap process will download Release version of libchromiumcontent by default, so you will not be able to step through the chromium source.
+Puedes crear una compilación de depuración de electron siguiendo las [ instrucciones de compilación de macOS](build-instructions-osx.md). The bootstrap process will download Release version of libchromiumcontent by default, so you will not be able to step through the chromium source.
 
 ### Build Debug Electron with Debug libchromiumcontent
 
@@ -13,7 +13,7 @@ $ cd electron
 $ ./script/bootstrap.py -v --build_debug_libcc
 ```
 
-This can take a significant amount of time depending on build machine as it has to build all of the libchromium source.
+Esto puede llevar una cantidad de tiempo significativa dependiendo de la máquina de compilación ya que tiene que compilar todo el código fuente de libchromium.
 
 Once, the lib is built, create a symlink to the built directory under download
 
@@ -29,13 +29,13 @@ This will build debug electron with debug version of libchromiumcontent.
 
 ### Generate xcode project for debugging sources (cannot build code from xcode)
 
-Run the update script with the --xcode argument.
+Ejecutar el script de actualización con el argumento --xcode.
 
 ```sh
 $ ./script/update.py --xcode
 ```
 
-This will generate the electron.ninjs.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
+Esto generará el electron.ninjs.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
 
 ### Debugging and breakpoints
 

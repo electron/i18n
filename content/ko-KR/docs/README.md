@@ -144,4 +144,4 @@
 
 ## 개발
 
-See <development/README.md>
+[Electron 개발하기](development/README.md) 문서를 확인하세요.
