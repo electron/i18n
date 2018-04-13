@@ -75,7 +75,7 @@ Electron apps 是使用与 Node.js 开发中相同的原理和方法在 JavaScri
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. 一个简单的`main.js`文件可能仅等待应用程序准备就绪后打开一个窗口：
+`electron` 模块所提供的功能都是通过命名空间暴露出来的。 比如说： `electron.app`负责管理Electron 应用程序的生命周期， `electron.BrowserWindow`类负责创建窗口。 一个简单的`main.js`文件可能仅等待应用程序准备就绪后打开一个窗口：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
