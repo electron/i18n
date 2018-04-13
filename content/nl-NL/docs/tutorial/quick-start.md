@@ -1,10 +1,10 @@
 # Snelle start
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron maakt het mogelijk om desktop apps te maken met puur JavaScript, door tijdens het runnen van de applicatie gebruik te maken van native (besturingssysteem) APIs. Je kunt het zien als een variant van Node.js runtime, die gefocust is op desktop apps inplaats van web servers.
 
-The old "Quick Start" document that used to live here has been split up into two documents:
+De oude "Snelle start" documentatie dat oorspronkelijk hier was, is verdeeld over twee documenten:
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* Om te kijken hoe simpel het is om een Electron app te bouwen bekijk, [Het schrijven van je eerste Electron App](./first-app.md)
+* Om te kijken hoe de proces architectuur er uit ziet bekijk, [Standaard en Render Processen](./application-architecture.md#main-and-renderer-processes).
 
 If you just came here to learn about Electron, check out the [official guides](../README.md).
