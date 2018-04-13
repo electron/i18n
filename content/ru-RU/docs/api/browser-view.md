@@ -4,7 +4,7 @@
 
 **Примечание:** BrowserView API в настоящее время экспериментально и может измениться или быть удалено в будущих релизах Electron.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Главный(Main)](../glossary.md#main-process)
 
 `BrowserView` может использоваться для внедрения дополнительного веб-содержимого в `BrowserWindow`. Это как дочернее окно, за исключением того, что оно позиционируется относительно его владельца окна. Он предназначен для того, чтобы быть альтернативой тега `webview`.
 
@@ -38,13 +38,13 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Возвращает `BrowserView[]` - массив всех открытых BrowserView.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Возвращает `BrowserView | null` - BrowserView, который владеет данным `webContents` или `null`, если содержимое не принадлежит BrowserView.
 
 #### `BrowserView.fromId(id)`
 
@@ -52,7 +52,7 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 Возвращает `BrowserView` - вид с заданным `id`.
 
-### Instance Properties
+### Свойства экземпляра
 
 Объекты, созданные с помощью `new BrowserView`, имеют следующие свойства:
 
@@ -70,11 +70,11 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+Немедленное закрытие вида, события `unload` и `beforeunload` не будут происходить для веб-страницы. После того, как вы закончите с видом, вызовите эту функцию как можно скорее, чтобы освободить память и другие ресурсы.
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+Возвращает `Boolean` - был ли вид уничтожен.
 
 #### `view.setAutoResize(options)` *Экспериментально*
 
