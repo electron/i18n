@@ -1,6 +1,6 @@
 # Guía de estilo de la documentación de Electron
 
-Estos son las directrices para escribir documentación de Electron.
+Estas son las directrices para escribir documentación de Electron.
 
 ## Títulos
 
