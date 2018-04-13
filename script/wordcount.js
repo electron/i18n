@@ -9,18 +9,18 @@ const docsDir = path.join(__dirname, '../content/en-US')
 const files = walk(docsDir, {directories: false}).map(f => path.join(docsDir, f))
 const words = chain(files).map(f => matchWords(fs.readFileSync(f, 'utf8'))).flatten().value()
 const counts = files.map(f => matchWords(fs.readFileSync(f, 'utf8')).length)
-const {average, mean, sum} = require('simple-statistics')
+const {average, sum} = require('simple-statistics')
 
 const results = {
   'total files': files.length,
   'total words': sum(counts),
   'unique words': chain(words).flatten().uniq().value().length,
-  'average words per file': Math.floor(average(counts)),
+  'average words per file': Math.floor(average(counts))
 }
 
 console.log(`# Word Count
 
-> Analysis of Electron\'s English documentation, including tutorials and API docs.
+> Analysis of Electron's English documentation, including tutorials and API docs.
 
 Stat | Value
 ---- | -----`)
