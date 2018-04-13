@@ -4,13 +4,13 @@
 
 Process: [Main](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**Вы можете найти подробное руководство о том, как выполнять обновления в Вашем приложение [здесь](../tutorial/updates.md).**
 
-## Platform Notices
+## Платформа заметок
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+На текущий момент, поддерживается только macOS и Windows. Не существует встроенной поддержки для автоматического обновления на Linux, поэтому рекомендуется использовать дистрибутив пакетного менеджера для обновления Вашего приложения.
 
-In addition, there are some subtle differences on each platform:
+Кроме того есть некоторые тонкие различия на каждой платформе:
 
 ### macOS
 
