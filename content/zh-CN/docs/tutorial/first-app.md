@@ -177,13 +177,13 @@ app.on('activate', () => {
 
 ## 启动你的应用
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+在创建并初始化完成 `main.js`、 `index.html`和`package.json`之后，您就可以在当前工程的根目录执行 `npm start` 命令来启动刚刚编写好的Electron程序了。
 
 ## 尝试此例
 
 复制并运行这个库 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start)。
 
-**注意**：运行此需要[Git](https://git-scm.com)
+**注意**：您可能需要预先安装[Git](https://git-scm.com)环境
 
 ```sh
 # 克隆这仓库
