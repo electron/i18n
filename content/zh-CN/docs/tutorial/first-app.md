@@ -69,7 +69,7 @@ npm install --save-dev electron
 
 ## 开发一个简易的 Electron
 
-Electron apps 是使用与 Node.js 开发中相同的原理和方法在 JavaScript 中开发的。 All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron apps 是使用与 Node.js 开发中相同的原理和方法在 JavaScript 中开发的。 `electron`模块包含了Electron提供的所有API和功能，引入方法和普通Node.js模块一样：
 
 ```javascript
 const electron = require('electron')
