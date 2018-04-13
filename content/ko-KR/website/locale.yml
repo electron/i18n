@@ -13,9 +13,9 @@ nav:
   search: 검색
 docs:
   title: Electron 문서
-  description: 모든 문서는 <a href="/docs/all">여기</a>에서 확인할 수 있고 <a href="/docs/faq"> FAQ</a>를 확인하세요.
+  description: 모든 문서 <a href="/docs/all">한 페이지에서</a> 보기 및 <a href="/docs/faq"> FAQ</a> 문서를 확인하기
   guides: 안내서
-  api_reference: API 참조 문서
+  api_reference: API 참조
   advanced: 고급
   footer:
     propose_change: 이 문서를 개선합니다.
