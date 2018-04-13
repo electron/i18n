@@ -1,6 +1,6 @@
-# `sandbox` Option
+# `sandbox` 沙盒选项
 
-> 创建一个可在Chromiun OS sandbox中运行的浏览器窗口渲染器。 在该模式可用情况下，渲染器为了使用node APIs必须通过IPC与主进程通讯。 然而，为了使Chromium OS sandbox模式可用，electron必须使用`--enable-sandbox`命令行参数启动。
+> 创建一个可在Chromiun OS 沙盒中运行的浏览器窗口。 在该模式可用情况下，渲染器为了使用node APIs必须通过IPC与主进程通讯。 然而，为了使Chromium OS sandbox模式可用，electron必须使用`--enable-sandbox`命令行参数启动。
 
 Chromium主要的安全特征之一便是所有的blink渲染或者JavaScript代码都在sandbox内运行。 该sandbox使用OS特定特征来保障运行在渲染器内的进程不会损害系统。
 
@@ -32,9 +32,9 @@ app.on('ready', () => {
 
 以上代码创建了一个禁用了node.js同时只能通过IPC通信的`BrowserWindow` 。 使用这个选项阻止electron在渲染器中创建一个node.js运行时环境。 同样，创建窗口使用`window.open`将遵从native行为（默认情况下electron创建一个`BrowserWindow`然后返回一个通过`window.open`的代理）
 
-It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
+需要注意的是，这个选项本身不会启用操作系统强制的沙箱。 要启用此功能，必须在命令行参数里加上 `--enable-sandbox` 传递给 electron, 这将会使所有的 `BrowserWindow` 实例强制使用 `sandbox: true`.
 
-To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
+如果要在 ` BrowserWindow ` 或 ` webview ` 进程中启用 ` sandbox:true ` 而不想让整个应用程序处于沙盒中, 请在命令行中使用 `--enable-mixed-sandbox ` 传递给 electron。 此选项当前仅在 macOS 和 Windows 上支持。
 
 ```js
 let win
@@ -45,15 +45,15 @@ app.on('ready', () => {
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
+请注意, 只调用 ` app.commandLine.appendSwitch('--enable-sandbox')` 是不够的, 因为 electron/node 会在 chromium 改变沙箱设置后才运行代码。 参数必须在命令行里传递给 electron:
 
 ```sh
 electron --enable-sandbox app.js
 ```
 
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal electron windows cannot be created.
+如果启用了 `--enable-sandbox`, 则无法创建正常的电子窗口, 因此不能只为某些渲染激活 OS 沙盒。
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+如果需要在一个应用程序中混合使用沙箱和非沙箱渲染, 只需省略 `-enable-sandbox ` 参数即可。 如果没有此参数, 使用 ` sandbox: true ` 创建的窗口仍将禁用 node. js 并仅能通过 IPC 进行通信, 这本身已经从安全视角获得了好处。
 
 ## 预加载
 
@@ -72,12 +72,12 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+和 preload.js:
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of electron renderer APIs. We must be
-// careful to not leak any objects into the global scope!
+只要创建 javascript , 就会加载此文件。 它在一个
+//私有范围内运行, 可以访问 electron 渲染器的 api 。 我们必须小心, 
+//不要泄漏任何对象到全局范围!
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
@@ -98,13 +98,13 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+在预加载脚本中要注意的重要事项:
 
-- Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
-- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like browserify, as explained below. In fact, browserify is already used by electron to provide a node-like environment to the preload script.
+- 尽管沙盒渲染器没有运行 node. js , 但它仍然可以访问受限制的类似于节点的环境: ` Buffer `、` process `、` setImmediate ` 和 ` require ` 可用。
+- 预加载脚本可以通过 ` remote ` 和 ` ipcRenderer ` 模块间接访问主进程中的所有 api。 这是 ` fs ` (上面使用的) 和其他模块的实现方式: 它们是主进程中的 remote 对象的代理。
+- 预加载脚本必须包含在单个脚本中, 但可以使用像 browserify 这样的工具, 将多个模块组成复杂的预加载代码, 如下所述。 事实上, browserify 已经被 electron 用来为预加载脚本提供类似于节点的环境。
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+要创建 browserify 包并将其用作预加载脚本, 应使用类似下面的内容:
 
 ```sh
   browserify preload/index.js \
@@ -113,9 +113,9 @@ To create a browserify bundle and use it as a preload script, something like the
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
-The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+`-x ` 标志应该和已经在预加载作用域中公开的所有引用到的模块一起使用, 并通知 browserify 使用封闭的 ` require ` 函数。 `--insert-global-vars ` 将确保 ` process `、` Buffer ` 和 ` setImmediate ` 也从封闭作用域 (通常 browserify 为这些代码注入代码) 中获取。
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+当前预加载作用域中提供的 ` require ` 函数公开了以下模块:
 
 - `child_process`
 - `electron` 
@@ -128,15 +128,15 @@ Currently the `require` function provided in the preload scope exposes the follo
 - `timers`
 - `url`
 
-More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+可以根据需要添加更多的electron api 以在沙箱中使用, 但主进程中的任何模块都可以通过 ` electron.remote.require ` 使用。
 
 ## 状态
 
-请小心使用`sandbox`选项，它仍是一个实验性特性。 We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+请小心使用`sandbox`选项，它仍是一个实验性特性。 我们仍然不知道将某些 electron api 暴露给预加载脚本的安全性问题, 但在显示不受信任的内容之前, 需要考虑以下一些事项:
 
-- A preload script can accidentaly leak privileged APIs to untrusted code.
-- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
+- 预加载脚本可能会意外泄露私有 API 到不可信代码。
+- V8 引擎中的某些 bug 可能允许恶意代码访问渲染器预加载 api, 从而有效地通过 ` remote ` 模块授予对系统的完全访问权限。
 
-Since rendering untrusted content in electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of electron APIs, and may have breaking changes to fix security issues.
+由于在 electron 中渲染不受信任的内容仍然是未知的领域, 因此暴露在沙盒预加载脚本中的 api 应被认为比其他 electron api 更不稳定, 并且可能会破坏修复安全问题的更改。
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+一个应该大大提高安全性的方法，是阻止 IPC 默认情况下来自沙盒渲染器的消息，允许主进程显式定义允许渲染器发送的一组消息。

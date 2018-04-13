@@ -32,7 +32,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
   * [Inter-Process Communication](tutorial/application-architecture.md#)
 * Adding Features to Your App 
-  * [Notifications](tutorial/notifications.md)
+  * [Notifiche](tutorial/notifications.md)
   * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
   * [Application Progress](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)

@@ -97,7 +97,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `schema` Stringa
-* `opzioni` Oggetto (opzionale) 
+* `options` Object (opzionale) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
   * `allowServiceWorkers` Boolean - (optional) Default true.

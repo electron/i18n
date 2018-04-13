@@ -61,7 +61,7 @@ Consultez la description de l’événement `window-all-closed` pour voir les di
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `exitCode` Integer
 
 Émis lorsque l'application se quitte.
