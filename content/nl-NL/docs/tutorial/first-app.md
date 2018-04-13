@@ -1,6 +1,6 @@
 # Writing Your First Electron App
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron maakt het mogelijk om desktop apps te maken met puur JavaScript, door tijdens het runnen van de applicatie gebruik te maken van native (besturingssysteem) APIs. Je kunt het zien als een variant van Node.js runtime, die gefocust is op desktop apps inplaats van web servers.
 
 This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
 
