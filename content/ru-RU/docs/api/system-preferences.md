@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> Получение системных параметров.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -11,22 +11,22 @@ console.log(systemPreferences.isDarkMode())
 
 ## События
 
-The `systemPreferences` object emits the following events:
+Объект `systemPreferences` включает следующие события:
 
-### Event: 'accent-color-changed' *Windows*
-
-Возвращает:
-
-* `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
-
-### Event: 'color-changed' *Windows*
+### Событие: 'accent-color-changed' *Windows*
 
 Возвращает:
 
 * `event` Event
+* `newColor` Строка - новый цвет RGBA, назначенный пользователем в качестве акцентного цвета.
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### Событие: 'color-changed' *Windows*
+
+Возвращает:
+
+* `event` Event
+
+### Событие: 'inverted-color-scheme-changed' *Windows*
 
 Возвращает:
 
@@ -37,7 +37,7 @@ The `systemPreferences` object emits the following events:
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Возвращает `Boolean` - если система в Ночном режиме.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
