@@ -142,16 +142,16 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `skipTaskbar` Boolean (optional) - Gibt an ob das Fenster in der Taskbar anzeigt wird. Standard ist `false`.
   * `kiosk` Boolean (optional) - Kioskmodus. Standard ist `false`.
   * `title` String (optional) - Fenstertitel. Standard ist `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - Das Fenstericon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
+  * `icon` ([NativeImage](native-image.md) | String) (optional) - Das Fenstericon. Es empfiehlt sich unter Windows ein `ICO` Icon zu verwenden um die besten visuellen Effekte zu erreichen. Das Icon der Executable wird verwendet wenn dieser Wert nicht definiert wird.
+  * `show` Boolean (optional) - Gibt an ob das Fenster angezeigt wird wenn es erstellt wurde. Standard ist `true`.
+  * `frame` Boolean (optional) - Spezifizieren sie `false` für ein [Frameless Window](frameless-window.md). Standard ist `true`.
+  * `parent` BrowserWindow (optional) - Gibt das übergeordnete Fenster an. Standard ist `null`.
+  * `modal` Boolean (optional) - Gibt an ob das Fenster ein Modalfenster ist. Dies funktioniert nur bei untergeordneten Fenstern. Standard ist `false`.
+  * `acceptFirstMouse` Boolean (optional) - Gibt an ob die Webanzeige ein mouse-down Ereignis annimmt, das gleichzeitig das Fenster aktiviert. Standard ist `false`.
+  * `disableAutoHideCursor` Boolean (optional) - Gibt an ob der Mauszeiger versteckt werden soll wenn getippt wird. Standard ist `false`.
+  * `autoHideMenuBar` Boolean (optional) - Versteckt die Menüleiste wenn `Alt` Taste nicht gedrückt ist. Standard ist `false`.
+  * `enableLargerThanScreen` Boolean (optional) - Erlaubt dem Fenster größer zu werden als der Bildschirm. Standard ist `false`.
+  * `backgroundColor` String (optional) - Die Hintergrundfarbe des Fensters als Hexadezimalwert, beispielsweise `#66CD00` oder `#FFF` oder `#80FFFFFF` (Alpha wird unterstützt). Standard ist `#FFF` (Weiss).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
