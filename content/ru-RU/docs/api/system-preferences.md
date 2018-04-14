@@ -119,7 +119,7 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificati
 * `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+Устанавливает значение `key` в `NSUserDefaults`.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
@@ -155,8 +155,8 @@ let win = new BrowserWindow(browserOptions)
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
-  // No transparency, so we load a fallback that uses basic styles.
-  win.loadURL(`file://${__dirname}/fallback.html`)
+  // Без прозрачности, значит мы загружаем резерв, использующий базовые стили.
+  win.loadURL(`file://${__dirname}/fallback.html`) 
 }
 ```
 
@@ -165,10 +165,10 @@ if (browserOptions.transparent) {
 Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
 ```js
-const color = systemPreferences.getAccentColor() // `"aabbccdd"`
-const red = color.substr(0, 2) // "aa"
-const green = color.substr(2, 2) // "bb"
-const blue = color.substr(4, 2) // "cc"
+const color = systemPreferences.getAccentColor() // `"aabbccdd"` 
+const red = color.substr(0, 2) // "aa" 
+const green = color.substr(2, 2) // "bb" 
+const blue = color.substr(4, 2) // "cc" 
 const alpha = color.substr(6, 2) // "dd"
 ```
 
@@ -206,8 +206,8 @@ const alpha = color.substr(6, 2) // "dd"
   * `window-frame` - Window frame.
   * `window-text` - Text in windows.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). Смотрите [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) для получения более подробной информации.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+Возвращает ` Boolean ` - ` true `, если инвертированная цветовая схема, например тема с высоким контрастом, активна, ` false ` в противном случае.
