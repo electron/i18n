@@ -1,6 +1,6 @@
 # Browserfenster
 
-> Create and control browser windows.
+> Erstellung und Steuerung von Browserfenstern.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
@@ -121,7 +121,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
 * `optionen` Objekt (optional) 
   * `width` Integer (optional) - Fensterbreite in Pixel. Standardwert ist `800`.
   * `height` Integer (optional) - Fensterhöhe in Pixel. Standardwert ist `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
+  * `x` Integer (optional) (**obligatorisch** falls y gesetzt wurde) - Abstand des Fensters zum linken Bildschirmrand. Das Fenster ist standardmäßig zentriert.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
