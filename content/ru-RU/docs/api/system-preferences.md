@@ -99,18 +99,18 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificati
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - Может быть `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+Возвращает `any` - Значение `key` в `NSUserDefaults`.
 
-Some popular `key` and `type`s are:
+Самые популярные `key` и `type`:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
 * `AppleHighlightColor`: `string`
 * `AppleShowScrollBars`: `string`
 * `NSNavRecentPlaces`: `array`
-* `NSPreferredWebServices`: `dictionary`
+* `NSPreferredWebServices`:` dictionary`
 * `NSUserDictionaryReplacementItems`: `array`
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
@@ -123,7 +123,7 @@ Set the value of `key` in `NSUserDefaults`.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Some popular `key` and `type`s are:
+Самые популярные `key` и `type`:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
