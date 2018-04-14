@@ -31,7 +31,7 @@ console.log(systemPreferences.isDarkMode())
 Возвращает:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+* `invertedColorScheme ` Boolean - ` true `, если используется инвертированная цветовая схема, например, тема с высоким контрастом, ` false ` в противном случае.
 
 ## Методы
 
@@ -140,19 +140,18 @@ Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us
 An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
 ```javascript
-const {BrowserWindow, systemPreferences} = require('electron')
-let browserOptions = {width: 1000, height: 800}
+const {BrowserWindow, systemPreferences} = require('electron') 
+let browserOptions = {width: 1000, height: 800} 
 
-// Make the window transparent only if the platform supports it.
+// Сделать окно прозрачным только когда платформа поддерживает это.
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
-  browserOptions.frame = false
+  browserOptions.frame = false 
 }
-
-// Create the window.
+// Создание окна.
 let win = new BrowserWindow(browserOptions)
 
-// Navigate.
+ // Навигация.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
