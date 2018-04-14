@@ -1,6 +1,6 @@
-# shell
+# Shell
 
-> Manage files and URLs using their default applications.
+> Verwalten von Dateien und URLs durch ihre Standardprogramme. 
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
