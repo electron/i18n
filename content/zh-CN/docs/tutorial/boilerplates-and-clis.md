@@ -2,11 +2,11 @@
 
 Electron 应用的开发从来都不是死板的, 应用的开发、构建、打包、分发从来都没有“唯一解”。 Electron 的编译和运行时相关额外功能通常可以在 [npm](https://www.npmjs.com/search?q=electron) 的独立安装包中找到, 这样开发者就可以根据自己的需求同时编译应用和 build pipeline.
 
-得益于高度的模块化和扩展性，所有的开发团队，无论大小都可以在整个开发周期中无往不利、所向披靡。 However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+得益于高度的模块化和扩展性，所有的开发团队，无论大小都可以在整个开发周期中无往不利、所向披靡。 与此同时，对于大多数开发者来说如果能有一款社区驱动的boilerplates或者命令行 工具，无疑会使应用的编译、打包、分发更加简单。
 
 ## 模板与命令行界面
 
-A boilerplate is simply a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+一个模板就像是一张空白的画布，你可以以它为基础来搭建你的应用。 通常来说，你可以从一个代码仓库克隆一个模板，然后修改成你心仪的样子。
 
 A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
 
