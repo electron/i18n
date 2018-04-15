@@ -12,9 +12,9 @@ Electron 应用的开发从来都不是死板的, 应用的开发、构建、打
 
 ## electron-forge
 
-Electron-forge 是一个用来构建现代化Electron应用的完善的工具。 Electron Forge unifies the existing (and well maintained) build tools for Electron development into a simple, easy to use package so that anyone can jump right in to Electron development.
+Electron Forge 是一个用来构建现代化Electron应用的完善的工具。 Electron Forge将多个现有的（ 且有稳定维护的 ）Electron构建工具整合为一个简单易用的工具包，所有人都可以用它来快速地搭建Electron开发环境。
 
-Forge comes with [ready-to-use templates](https://electronforge.io/templates) for popular frameworks like React, Vue, or Angular. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge 将一些流行框架整合为[“开箱即用”](https://electronforge.io/templates)的模板，比如：React、Vue、Angular等。 It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
 
 You can find more information and documentation on [electronforge.io](https://electronforge.io/).
 
