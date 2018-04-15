@@ -793,12 +793,12 @@ Define as opções do painel Sobre. Isto substituirá os valores definidos no ar
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `switch` String - Uma opção de linha de comando
+* `text` String - (opcional) - Um valor para a opção desejada
 
-Append a switch (with optional `value`) to Chromium's command line.
+Insere uma opção (com um `value` opcional) à linha de comando do Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Nota:** Isso não afetará o `process.argv`, e é principalmente usado por desenvolvedores para controlar alguns comportamentos de baixo nível do Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
