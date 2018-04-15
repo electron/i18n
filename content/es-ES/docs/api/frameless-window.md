@@ -77,7 +77,7 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-### Forwarding
+### Reenviando
 
 Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
 
