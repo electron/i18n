@@ -770,7 +770,7 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Retorna `Boolean` - `true` se o suporte à acessibilidade do Chrome estiver ativado, `false` caso contrário. Essa API retornará `true` se o uso de tecnologias assistivas, tais como leitores de tela, foi detectado. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
