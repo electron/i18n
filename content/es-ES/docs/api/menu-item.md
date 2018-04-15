@@ -54,8 +54,8 @@ La propiedad `role` puede tener los siguientes valores:
 * `resetzoom` - Reinicia el nivel de zoom de la página activa a su valor original
 * `zoomin` - Aumenta el nivel de zoom en 10% en la página activa
 * `zoomout` - Reduce el nivel de zoom en 10% en la página activa
-* `editar menú` - "editar" todo el menú por defecto (deshacer, copiar, etc.)
-* `Menú de ventana` - Menú completo de "ventana" por defecto (minimizar, cerrar. etc.)
+* `editMenu` - Grupo por defecto de un menú "Edit" (Deshacer, Copiar, etc.)
+* `windowMenu` - Grupo por defecto de un menú "Window" (Minimizar, Cerrar, etc.)
 
 Los siguientes roles adicionales están disponibles para macOS:
 
