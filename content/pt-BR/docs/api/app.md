@@ -776,7 +776,7 @@ Retorna `Boolean` - `true` se o suporte à acessibilidade do Chrome estiver ativ
 
 * `enabled` Boolean - Ativa ou desativa a renderização da [árvore de acessibilidade](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+Ativa manualmente o suporte à acessibilidade do Chrome, permitindo expor uma opção para ativar/desativar a acessibilidade nas configurações do aplicativo. https://www.chromium.org/developers/design-documents/accessibility para mais detalhes. Desativado por padrão.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
