@@ -9,22 +9,22 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
 ### `new MenuItem(options)`
 
 * `opciones` Object 
-  * `click` Función (opcional) - Será llamado con `click(menuItem, browserWindow, event)` cuando se hace click en el elemento del menú. 
-    * `menuItem` Elemento del menú
-    * `Ventana de navegador` Ventana de navegador
-    * `event` Evento
-  * `rol` Cadena (opcional) - Define la acción del elemento del menú, cuando se especifica el `click` la propiedad será ignorada. Vea [roles](#roles).
-  * `tipo` Cadena (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
-  * `etiqueta` Cadena - (opcional)
-  * `subetiqueta` Cadena - (opcional)
-  * `Acelerador` [Acelerador](accelerator.md) (opcional)
-  * `ícono` ([imagen nativa](native-image.md) | Cadena) (opcional)
-  * `Habilitado` Booleano (opcional) - Si falso, el elemento de menú será gris y no se podrá hacer click en él.
-  * `visible` Booleano (opcional) - Si falso, el elemento del menú será totalmente invisible.
-  * `verificado` Booleano (opcional) - Solo debe especificarse para elementos del menú tipo `checkbox` o `radio`.
+  * `click` Function (opcional) - Será llamada con `click(menuItem, browserWindow, event)` cuando se hace click en el elemento del menú. 
+    * `menuItem` MenuItem
+    * `browserWindow` BrowserWindow
+    * `event` Event
+  * `rol` String (opcional) - Define la acción del elemento del menú, cuando se especifica el `click` la propiedad será ignorada. Vea [roles](#roles).
+  * `tipo` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
+  * `etiqueta` String - (opcional)
+  * `subetiqueta` String - (opcional)
+  * `accelerator` [Accelerator](accelerator.md) (opcional)
+  * `icon` ([NativeImage](native-image.md) | String) (opcional)
+  * `enabled` Boolean (opcional) - Si es falso, el elemento de menú será gris y no se podrá hacer click en él.
+  * `visible` Boolean (opcional) - Si es falso, el elemento del menú será totalmente invisible.
+  * `checked` Boolean (opcional) - Solo debe especificarse para elementos del menú tipo `checkbox` o `radio`.
   * `submenu` (MenuItemConstructorOptions[] | Menu) (opcional) - Debe ser especificado para elementos del menú tipo `submenu`. Si `submenu` es especificado, el `tipo: 'submenu'` puede ser omitido. Si el valor no es un `Menú` entonces será convertido automáticamente utilizando `Menu.buildFromTemplate`.
-  * `identificación` Cadena (opcional) - único para cada menú. Si se define entonces puede ser usado como referencia a sus elementos en la posición de atributo.
-  * `posición` Cadena (opcional) - Este campo permite la definición propia de la localización específica en un menú dado.
+  * `id` String (opcional) - Único dentro de un menú concreto. Si se define, entonces puede usarse como referencia a este elemento mediante el atributo de posición.
+  * `position` String (opcional) - Este campo permite una definición granular de la posición específica dentro de un menú concreto.
 
 ### Roles
 
@@ -59,19 +59,19 @@ La propiedad `role` puede tener los siguientes valores:
 
 Los siguientes roles adicionales están disponibles para macOS:
 
-* `acerca` - mapa de la acción `orderFrontStandardAboutPanel`
-* `ocultar` - mapa de la acción de `ocultar`
-* `ocultar otros` - Mapa de acción `ocultar otras aplicaciones`
-* `mostrar` - Mapa de acción de `mostrar todas las aplicaciones`
-* `empezar a hablar` - Mapa de acción de `Empezar a hablar`
-* `detener el habla` - Mapa de acción de `detener el habla`
-* `frente` - Mapa de acción de `Arreglo del frente`
-* `zoom` - mapa de acción de `Realizar zoom`
-* `toggletabbar` - Map to the `toggleTabBar` action
-* `selectnexttab` - Map to the `selectNextTab` action
-* `selectprevioustab` - Map to the `selectPreviousTab` action
-* `mergeallwindows` - Map to the `mergeAllWindows` action
-* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
+* `about` - Enlace a la acción `orderFrontStandardAboutPanel`
+* `hide` - Enlace a la acción `hide`
+* `hideothers` - Enlace a la acción `hideOtherApplications`
+* `unhide` - Enlace a la acción `unhideAllApplications`
+* `startspeaking` - Enlace a la acción `startSpeaking`
+* `stopspeaking` - Enlace a la acción `stopSpeaking`
+* `front` - Enlace a la acción `arrangeInFront`
+* `zoom` - Enlace a la acción `performZoom`
+* `toggletabbar` - Enlace a la acción `toggleTabBar`
+* `selectnexttab` - Enlace a la acción `selectNextTab`
+* `selectprevioustab` - Enlace a la acción `selectPreviousTab`
+* `mergeallwindows` - Enlace a la acción `mergeAllWindows`
+* `movetabtonewwindow` - Enlace a la acción `moveTabToNewWindow`
 * `ventana` - El submenú es un menú de la "ventana"
 * `ayuda` - el submenú es un menú de "ayuda"
 * `Servicios` - El submenú es un menú de "servicios"
