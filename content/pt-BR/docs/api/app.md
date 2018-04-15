@@ -778,18 +778,18 @@ Retorna `Boolean` - `true` se o suporte à acessibilidade do Chrome estiver ativ
 
 Ativa manualmente o suporte à acessibilidade do Chrome, permitindo expor uma opção para ativar/desativar a acessibilidade nas configurações do aplicativo. https://www.chromium.org/developers/design-documents/accessibility para mais detalhes. Desativado por padrão.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Nota:** A renderização da árvore de acessibilidade pode afetar o desempenho do seu aplicativo de forma significativa. Ela não deve ser ativada por padrão.
 
 ### `app.setAboutPanelOptions(options)` no *macOS*
 
 * `opções` Object 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+  * `applicationName` String (opcional) - O nome do aplicativo.
+  * `applicationVersion` String (opcional) - A versão do aplicativo.
+  * `copyright` String (optional) - Informações de copyright.
+  * `credits` String (optional) - Informações de créditos.
+  * `versão` String (opcional) - O número da versão de build do aplicativo.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Define as opções do painel Sobre. Isto substituirá os valores definidos no arquivo `.plist` do aplicativo. Consulte a [documentação da Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para mais detalhes.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
