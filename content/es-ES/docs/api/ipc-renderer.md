@@ -67,7 +67,7 @@ El proceso principal lo controla escuchando para `channel` con el módulo `ipcMa
 * `channel` Cadena
 * `...args` any[]
 
-Sends a message to a window with `windowid` via `channel`
+Envía un mensaje a una ventana con `windowid` via `channel`
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
