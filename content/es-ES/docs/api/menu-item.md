@@ -41,19 +41,19 @@ La propiedad `role` puede tener los siguientes valores:
 * `cut`
 * `copy`
 * `paste`
-* `pegar y coincidir con el estilo`
-* `seleccionar todo`
+* `pasteandmatchstyle`
+* `selectall`
 * `delete`
-* `minimizar` - Minimiza la ventana actual
-* `cerrar` - cierra la ventana actual
-* `cerrar`- cierra la aplicación
-* `recargar` - Recarga la ventana actual
-* `cargar forzadamente` - Recarga la ventana ignorando el caché.
-* `herramientas de desarrollador` - herramientas de desarrollador de alterar la ventana actual
-* `Conmutador de pantalla completa`- Palanca de modo pantalla completa en la ventana actual
-* `Reiniciar zoom` - Resetea el nivel de zoom de la ventana enfocada a su tamaño original
-* `acercar zoom` - zoom en la página enfocada del 10%
-* `Alejar zoom` - Aleja el zoom de la página enfocada en 10%
+* `minimize` - Minimizar la venta actual
+* `close` - Cerrar la ventana actual
+* `quit`- Salir de la aplicación
+* `reload` - Recargar la ventana actual
+* `forcereload` - Forzar la recarga de la ventana actual ignorando el caché.
+* `toggledevtools` - Conmuta las herramientas de desarrollador en la ventana actual
+* `togglefullscreen`- Conmuta el modo de pantalla completa en la ventana actual
+* `resetzoom` - Reinicia el nivel de zoom de la página activa a su valor original
+* `zoomin` - Aumenta el nivel de zoom en 10% en la página activa
+* `zoomout` - Reduce el nivel de zoom en 10% en la página activa
 * `editar menú` - "editar" todo el menú por defecto (deshacer, copiar, etc.)
 * `Menú de ventana` - Menú completo de "ventana" por defecto (minimizar, cerrar. etc.)
 
@@ -72,9 +72,9 @@ Los siguientes roles adicionales están disponibles para macOS:
 * `selectprevioustab` - Enlace a la acción `selectPreviousTab`
 * `mergeallwindows` - Enlace a la acción `mergeAllWindows`
 * `movetabtonewwindow` - Enlace a la acción `moveTabToNewWindow`
-* `ventana` - El submenú es un menú de la "ventana"
-* `ayuda` - el submenú es un menú de "ayuda"
-* `Servicios` - El submenú es un menú de "servicios"
+* `window` - El submenú es un menú "Window"
+* `help` - El submenú es un menú "Help"
+* `services` - El submenú es un menú "Services"
 
 Cuando se especifica un `rol` en macOS, la `etiqueta` y el `acelerador` son solo opciones que afectarán a los elementos del menú. Todas las demás opciones serán ignoradas.
 
