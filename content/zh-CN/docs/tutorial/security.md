@@ -20,7 +20,7 @@
 
 每当您从远程目标收到代码并在本地执行它时，就会存在安全问题。 例如在[`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. 如果攻击者有办法改变网站的内容(可能是直接攻击来源，也可能是作为你的应用和真实服务器的中间人)，他们就可以在用户的机器上执行原生代码。
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 要显示远程内容, 请使用 [` web 视图 `](../api/web-view.md) 标记, 并确保禁用 ` nodeIntegration `。
+> :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 要显示远程内容, 请使用 [` web 视图 `](../api/web-view.md) 标记, 并确保禁用 ` nodeIntegration `。
 
 ## Electron 安全警告
 
