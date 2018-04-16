@@ -1,16 +1,16 @@
 # Electron Application Architecture
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Electron의 API를 살펴보기에 앞서 Electron 에서 사용할 수 있는 두 가지 프로세스 타입에 대해서 논의해 보아야 합니다. 이 둘은 근본적으로 다르기 때문에 자세히 이해할 필요가 있습니다.
 
-## Main and Renderer Processes
+## 메인 프로세스와 렌더러 프로세스
 
-Electron에서 `package.json`의 `main` 스크립트를 실행하는 프로세스를 **메인 프로세스**라고 부릅니다. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+Electron에서 `package.json`의 `main` 스크립트를 실행하는 프로세스를 **메인 프로세스**라고 부릅니다. 메인 프로세스에서 실행되는 스크립트는 웹 페이지들을 GUI 로 표시합니다. Electron 앱은 항상 하나의 메인 프로세스를 가지며, 둘 이상이 되는 경우는 없습니다.
 
 Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고, 그렇기에 Chromium의 멀티 프로세스 아키텍쳐 또한 사용됩니다. 각각의 Electron 웹페이지는 자체 프로세스로 동작하고 이것을 **the renderer process**라고 부릅니다.
 
 일반적인 브라우저에서 웹 페이지는 대개 샌드박스 환경에서 실행하고 네이티브 리소스에 액세스 할 수 없습니다. 그러나 Electron 유저들은 Node.js APIs 의 낮은 수준의 운영체제 상호 작용을 허용하는 웹 페이지에서 힘이 있다.
 
-### Differences Between Main Process and Renderer Process
+### 메인 프로세스와 렌더러 프로세스의 차이점
 
 메인 프로세스는 `BrowserWindow` 인스턴스를 생성하여 웹페이지를 만듭니다. 각각의 `BrowserWindow` 인스턴스는 자체 렌더러 프로세스에서 웹 페이지를 실행합니다. `BrowserWindow` 인스턴스가 소멸되면, 해당 렌더러 프로세스도 종료됩니다.
 
