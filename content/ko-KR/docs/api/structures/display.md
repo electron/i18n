@@ -9,4 +9,4 @@
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-`Display` 객체는 시스템에 연결된 물리 디스플레이입니다. 머리가 없는 시스템에서는 가짜 `Display` 가 존재할 수 있습니다. 또는 `Display` 는 원격 가상 디스플레이일 수 있습니다.
+`Display` 객체는 시스템에 연결된 물리 디스플레이입니다. 헤드리스 시스템(디스플레이 장치가 없는 시스템) 에서는 가짜 `Display` 가 존재할 수 있습니다. 또는 `Display` 는 원격 가상 디스플레이일 수 있습니다.
