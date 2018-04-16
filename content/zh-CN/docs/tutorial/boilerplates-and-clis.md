@@ -24,7 +24,7 @@ Electron Builder 是一个完备的Electron应用打包和分发解决方案，�
 
 `electron-builder` 会将Electron维护者使用的模块和功能(例如: auto-updater) 替换为自定义的. Electron Builder打包的应用内组件的集成度会更高，同时与主流的Electron应用共同点也就更少了。
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+关于Electron Builder的更多信息，请查阅[代码仓库](https://github.com/electron-userland/electron-builder)。
 
 ## electron-react-boilerplate
 
@@ -32,4 +32,4 @@ If you don't want any tools but simply a solid boilerplate to build from, CT Lin
 
 ## 其它工具和模板
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+["Awesome Electron" 列表](https://github.com/sindresorhus/awesome-electron#boilerplates)涵盖了众多可供选择的工具和模板。 If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
