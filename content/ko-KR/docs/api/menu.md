@@ -16,9 +16,9 @@
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+`메뉴`를 맥 OS의 응용 프로그램 메뉴로 설정합니다. 윈도우와 리눅스에서는, `메뉴`를 각 창의 상단 메뉴로 설정 합니다.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+인자로 `null` 을 주면 윈도우와 리눅스에서는 메뉴 모음에서 메뉴를 제거 합니다. 하지만 맥 OS 에서는 제거하지 않습니다.
 
 **Note:** This API has to be called after the `ready` event of `app` module.
 
