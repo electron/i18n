@@ -1,67 +1,67 @@
-# Developer Environment
+# 开发环境
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+你可以使用原生的Node.js开发环境来开发Electron应用。 为了打造一个Electron桌面程序的开发环境，你只需要安装好的Node.js、npm、一个顺手的代码编辑器以及对你的操作系统命令行客户端的基本了解。
 
-## Setting up macOS
+## MacOS开发环境配置
 
-> Electron supports Mac OS X 10.9 (and all versions named macOS) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron 支持 Mac OS X 10.9及其以上版本和macOS所有版本。 目前Apple不允许在非Apple电脑上运行macOS虚拟机，所以，如果你需要一台Mac的话，可以考虑租用Mac云服务（比如[MacInCloud](https://www.macincloud.com/)或者 [xcloud](https://xcloud.me)）。
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+首先，安装最新版本的Node.js 。 我们推荐您安装最新的 `长期支持版本` 或者 `当前发行版本` 。 访问[Node.js下载页面](https://nodejs.org/en/download/)选择 `macOS Installer` 。 当然，你也可以使用Homebrew安装Node.js，但我们不推荐你这么做，因为许多工具并不兼容Homebrew安装Node.js的方式。
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+下载完成后， 执行安装程序，根据引导完成安装即可。
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by simply search for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+安装完成后，我们需要来确认Node.js是不是可以正常工作。 在`/Applications/Utilities`文件夹中找到macOS的`Terminal` 程序(或者直接使用Spotlight直接搜索关键词`Terminal`) 。 打开`Terminal`或其他你喜欢的命令行客户端后，通过以下命令来确认 `node` 和 `npm`已经安装成功：
 
 ```sh
-# This command should print the version of Node.js
+# 下面这行的命令会打印出Node.js的版本信息
 node -v
 
-# This command should print the version of npm
+# 下面这行的命令会打印出npm的版本信息
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
-## Setting up Windows
+## Winodws开发环境配置
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron 支持Windows 7 及以上版本\---任何在低版本Windows上开发Electron的尝试都将是徒劳无功的。 您可以使用微软向开发者免费提供的[Windows 10虚拟机镜像](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines)。
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+首先，安装最新版本的Node.js 。 我们推荐您安装最新的 `长期支持版本` 或者 `当前发行版本` 。 访问[Node.js下载页面](https://nodejs.org/en/download/)，选择`Windows Installer`。 下载完成后， 执行安装程序，根据引导完成安装即可。
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+在安装过程中的配置界面, 请勾选`Node.js runtime`、`npm package manager`和`Add to PATH`这三个选项。
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+安装完成后，我们需要来确认Node.js是不是可以正常工作。 点击 开始 按钮，输入`PowerShell`，找到Windows PowerShell。 打开`PowerShell`或其他你喜欢的命令行客户端后，通过以下命令来确认 `node` 和 `npm`已经安装成功：
 
 ```powershell
-# This command should print the version of Node.js
+# 下面这行的命令会打印出Node.js的版本信息
 node -v
 
-# This command should print the version of npm
+# 下面这行的命令会打印出npm的版本信息
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
-## Setting up Linux
+## Linux开发环境配置
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> 一般来说，Electron支持Ubuntu 12.04、Fedora 21、Debian 8 及其以上版本。
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+首先，安装最新版本的Node.js 。 对于不同linux分支，安装步骤会有所差异。 假如你使用系统自带的包管理器，比如： `apt` 或者 `pacman`，请使用[Node.js 官方Linux安装指引](https://nodejs.org/en/download/package-manager/)。
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+作为一个Linux用户，关于命令行的使用就无需我赘述了。 打开你喜欢的命令行工具，通过以下命令来确认`node` 和 `npm` 在全局可用：
 
 ```sh
-# This command should print the version of Node.js
+# 下面这行的命令会打印出Node.js的版本信息
 node -v
 
-# This command should print the version of npm
+# 下面这行的命令会打印出npm的版本信息
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
-## A Good Editor
+## 合适的代码编辑器
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+我们建议你使用GitHub 的 [Atom](https://atom.io/) 或者微软的 [Visual Studio Code](https://code.visualstudio.com/)，这两款当下热门的编辑器都是使用Electron开发的。 而且对JavaScript的支持也都很棒。
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+如果您是众多开发人员中的一员，您应知道几乎所有的代码编辑器和IDE都是支持JavaScript的。

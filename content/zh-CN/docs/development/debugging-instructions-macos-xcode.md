@@ -1,12 +1,12 @@
 ## 使用 XCode 调试
 
-### Build Debug Electron with Release libchromiumcontent
+### 使用生产版本的libchromiumcontent来构建测试版Electron
 
-You can create a debug build of electron by following [build instructions for macOS](build-instructions-osx.md). The bootstrap process will download Release version of libchromiumcontent by default, so you will not be able to step through the chromium source.
+你可以跟随[build instructions for macOS](build-instructions-osx.md)来构建一个测试版electron。 默认情况下，启动进程会下载生产版本的libchromiumcontent，所以你不能对chromium的源代码进行单步调试。
 
-### Build Debug Electron with Debug libchromiumcontent
+### 使用测试版本的libchromiumcontent来构建测试版Electron
 
-If you want to debug and step through libchromiumcontent, you will have to run the bootsrap script with the `--build_debug_libcc` argument.
+如果你相对libchromiumcontent进行除错并且单步调试，你需要对启动代码添加`--build_debug_libcc`参数。
 
 ```sh
 $ cd electron

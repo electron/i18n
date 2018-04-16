@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> Получение системных параметров.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -11,33 +11,33 @@ console.log(systemPreferences.isDarkMode())
 
 ## События
 
-The `systemPreferences` object emits the following events:
+Объект `systemPreferences` включает следующие события:
 
-### Event: 'accent-color-changed' *Windows*
-
-Возвращает:
-
-* `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
-
-### Event: 'color-changed' *Windows*
+### Событие: 'accent-color-changed' *Windows*
 
 Возвращает:
 
 * `event` Event
+* `newColor` Строка - новый цвет RGBA, назначенный пользователем в качестве акцентного цвета.
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### Событие: 'color-changed' *Windows*
 
 Возвращает:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+
+### Событие: 'inverted-color-scheme-changed' *Windows*
+
+Возвращает:
+
+* `event` Event
+* `invertedColorScheme ` Boolean - ` true `, если используется инвертированная цветовая схема, например, тема с высоким контрастом, ` false ` в противном случае.
 
 ## Методы
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Возвращает `Boolean` - если система в Ночном режиме.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
@@ -99,18 +99,18 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificati
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - Может быть `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+Возвращает `any` - Значение `key` в `NSUserDefaults`.
 
-Some popular `key` and `type`s are:
+Самые популярные `key` и `type`:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
 * `AppleHighlightColor`: `string`
 * `AppleShowScrollBars`: `string`
 * `NSNavRecentPlaces`: `array`
-* `NSPreferredWebServices`: `dictionary`
+* `NSPreferredWebServices`:` dictionary`
 * `NSUserDictionaryReplacementItems`: `array`
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
@@ -119,11 +119,11 @@ Some popular `key` and `type`s are:
 * `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+Устанавливает значение `key` в `NSUserDefaults`.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Some popular `key` and `type`s are:
+Самые популярные `key` и `type`:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -140,24 +140,23 @@ Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us
 An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
 ```javascript
-const {BrowserWindow, systemPreferences} = require('electron')
-let browserOptions = {width: 1000, height: 800}
+const {BrowserWindow, systemPreferences} = require('electron') 
+let browserOptions = {width: 1000, height: 800} 
 
-// Make the window transparent only if the platform supports it.
+// Сделать окно прозрачным только когда платформа поддерживает это.
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
-  browserOptions.frame = false
+  browserOptions.frame = false 
 }
-
-// Create the window.
+// Создание окна.
 let win = new BrowserWindow(browserOptions)
 
-// Navigate.
+ // Навигация.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
-  // No transparency, so we load a fallback that uses basic styles.
-  win.loadURL(`file://${__dirname}/fallback.html`)
+  // Без прозрачности, значит мы загружаем резерв, использующий базовые стили.
+  win.loadURL(`file://${__dirname}/fallback.html`) 
 }
 ```
 
@@ -166,10 +165,10 @@ if (browserOptions.transparent) {
 Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
 ```js
-const color = systemPreferences.getAccentColor() // `"aabbccdd"`
-const red = color.substr(0, 2) // "aa"
-const green = color.substr(2, 2) // "bb"
-const blue = color.substr(4, 2) // "cc"
+const color = systemPreferences.getAccentColor() // `"aabbccdd"` 
+const red = color.substr(0, 2) // "aa" 
+const green = color.substr(2, 2) // "bb" 
+const blue = color.substr(4, 2) // "cc" 
 const alpha = color.substr(6, 2) // "dd"
 ```
 
@@ -207,8 +206,8 @@ const alpha = color.substr(6, 2) // "dd"
   * `window-frame` - Window frame.
   * `window-text` - Text in windows.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). Смотрите [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) для получения более подробной информации.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+Возвращает ` Boolean ` - ` true `, если инвертированная цветовая схема, например тема с высоким контрастом, активна, ` false ` в противном случае.

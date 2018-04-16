@@ -2,9 +2,9 @@
 
 作为 web 开发人员，我们通常喜欢网络安全性更强大的浏览器 - 与我们编写的代码相关的风险相对较小。 我们的网站在沙箱中获得有限的权限，我们相信我们的用户可以享受由大量工程师团队构建的浏览器，能够快速响应新发现的安全威胁。
 
-当使用 Electron 时，要知道 Electron 不是一个 Web 浏览器很重要。 它允许您使用熟悉的 Web 技术构建功能丰富的桌面应用程序，但是您的代码具有更强大的功能。 JavaScript 可以访问文件系统，用户 shell 等。 这允许您构建更高质量的本机应用程序，但是内在的安全风险会随着授予您的代码的额外权力而增加。
+当使用 Electron 时，很重要的一点是要理解 Electron 不是一个 Web 浏览器。 它允许您使用熟悉的 Web 技术构建功能丰富的桌面应用程序，但是您的代码具有更强大的功能。 JavaScript 可以访问文件系统，用户 shell 等。 这允许您构建更高质量的本机应用程序，但是内在的安全风险会随着授予您的代码的额外权力而增加。
 
-考虑到这一点，请注意，在 Electron 不任何处理的情况下，展示任意来自不受信任源的内容都将会带来严重的安全风险。 事实上，最流行的 Electron 应用程序(Atom，Slack，Visual Studio Code 等) 主要显示本地内容(或没有 Node 集成的可信安全远程内容) - 如果您的应用程序从在线源执行代码，那么您有责任确保代码不是恶意的。
+考虑到这一点，请注意，展示任意来自不受信任源的内容都将会带来严重的安全风险，而这种风险Electron也没打算处理。 事实上，最流行的 Electron 应用程序(Atom，Slack，Visual Studio Code 等) 主要显示本地内容(或没有 Node 集成的可信安全远程内容) - 如果您的应用程序从在线源执行代码，那么您有责任确保代码不是恶意的。
 
 ## 报告安全问题
 
@@ -18,9 +18,9 @@
 
 ## 除了以上建议
 
-每当您从远程目标收到代码并在本地执行它时，就会存在安全问题。 作为一个例子，一个远程网站会被显示在[`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+每当您从远程目标收到代码并在本地执行它时，就会存在安全问题。 例如在[`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. 如果攻击者有办法改变网站的内容(可能是直接攻击来源，也可能是作为你的应用和真实服务器的中间人)，他们就可以在用户的机器上执行原生代码。
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 要显示远程内容, 请使用 [` web 视图 `](../api/web-view.md) 标记, 并确保禁用 ` nodeIntegration `。
+> :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 要显示远程内容, 请使用 [` web 视图 `](../api/web-view.md) 标记, 并确保禁用 ` nodeIntegration `。
 
 ## Electron 安全警告
 

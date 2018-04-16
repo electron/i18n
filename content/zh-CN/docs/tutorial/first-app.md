@@ -69,13 +69,13 @@ npm install --save-dev electron
 
 ## 开发一个简易的 Electron
 
-Electron apps 是使用与 Node.js 开发中相同的原理和方法在 JavaScript 中开发的。 All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron apps 是使用与 Node.js 开发中相同的原理和方法在 JavaScript 中开发的。 `electron`模块包含了Electron提供的所有API和功能，引入方法和普通Node.js模块一样：
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. 一个简单的`main.js`文件可能仅等待应用程序准备就绪后打开一个窗口：
+`electron` 模块所提供的功能都是通过命名空间暴露出来的。 比如说： `electron.app`负责管理Electron 应用程序的生命周期， `electron.BrowserWindow`类负责创建窗口。 下面是一个简单的`main.js`文件，它将在应用程序准备就绪后打开一个窗口：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -83,7 +83,7 @@ const path = require('path')
 const url = require('url')
 
 function createWindow () {
-  // Create the browser window.
+  // 创建一个窗口.
   win = new BrowserWindow({width: 800, height: 600})
 
   // 然后加载应用的 index.html。
@@ -97,7 +97,7 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+您应当在 `main.js` 中创建窗口，并处理程序中可能遇到的所有系统事件。 下面我们将完善上述例子，添加以下功能：打开开发者工具、处理窗口关闭事件、在macOS用户点击dock上图标时重建窗口，添加后，main. js 就像下面这样：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -153,11 +153,11 @@ app.on('activate', () => {
   }
 })
 
-// 在这文件，你可以续写应用剩下主进程代码。
+// 在这个文件中，你可以续写应用剩下主进程代码。
 // 也可以拆分成几个文件，然后用 require 导入。
 ```
 
-最后，你想展示的 `index.html`：
+最后，创建你想展示的 `index.html`：
 
 ```html
 <!DOCTYPE html>
@@ -177,13 +177,13 @@ app.on('activate', () => {
 
 ## 启动你的应用
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+在创建并初始化完成 `main.js`、 `index.html`和`package.json`之后，您就可以在当前工程的根目录执行 `npm start` 命令来启动刚刚编写好的Electron程序了。
 
 ## 尝试此例
 
 复制并运行这个库 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start)。
 
-**注意**：运行此需要[Git](https://git-scm.com)
+**注意**：您可能需要预先安装[Git](https://git-scm.com)环境
 
 ```sh
 # 克隆这仓库

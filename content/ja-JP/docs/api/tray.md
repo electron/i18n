@@ -1,4 +1,4 @@
-## クラス: tray
+## クラス: Tray
 
 > システムの通知領域にアイコンやコンテキスト メニューを追加します。
 
@@ -18,7 +18,7 @@ app.on('ready', () => {
     {label: 'アイテム3', type: 'radio', checked: true},
     {label: 'アイテム4', type: 'radio'}
   ])
-  tray.setToolTip('これは自分のアプリケーション。')
+  tray.setToolTip('これは自分のアプリケーションです。')
   tray.setContextMenu(contextMenu)
 })
 ```
@@ -50,7 +50,7 @@ app.on('ready', () => {
 })
 ```
 
-* Windows では、最適な視覚効果を得るために `ICO` アイコンの使用が推奨されています。
+* Windows では、最適な視覚効果を得るために `ICO` 形式のアイコンファイルを使用することが推奨されています。
 
 すべてのプラットフォームでまったく同じ動作を維持したい場合は、`click` イベントに頼らず、tray アイコンに常にコンテキストメニューを適用して下さい。
 

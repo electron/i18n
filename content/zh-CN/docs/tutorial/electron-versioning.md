@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 版本1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
+小于 * 2.0*的Electron版本编号并不遵循 [semver](http://semver.org) 规范: major版本对应最终用户API的变更, minor版本更新对应Chromium的主版本更新, patch 版本更新会带来新功能和bug修复. 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
 
 以下是 1.x 策略的一个例子：
 
@@ -32,7 +32,7 @@ Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spe
 2. 引入符合 semver 的 `-beta` 标签
 3. 引入[常规提交消息](https://conventionalcommits.org/)
 4. 明确定义的稳定分支
-5. The `master` branch is versionless; only stabilization branches contain version information
+5. `master`分支没有版本信息，只有稳定分支会包含版本信息。
 
 我们将详细介绍 git 分支是如何工作的，npm 标记是如何工作的，开发人员应该看到什么，以及如何能够支持更改。
 

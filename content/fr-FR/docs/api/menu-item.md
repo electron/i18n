@@ -106,4 +106,4 @@ Un `String` représentant le libellé visible des éléments de menu
 
 #### `menuItem.click`
 
-A `Function` qui est activée lorsque l'élément MenuItem reçoit un événement de clic
+Une `Function` qui est activée lorsque l'élément MenuItem reçoit un événement de clic

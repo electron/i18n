@@ -24,7 +24,7 @@ Pasar `null` eliminará la barra de menús en Windows y Linux pero no tiene efec
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Devuelve `Menu | null` - El menú de aplicación, si se creó, o `null` en caso contrario.
 
 **Nota:** La instancia devuelta `Menu` no soporta adiciones dinámicas o la eliminación de elementos del menú. [Instance properties](#instance-properties) todavía puede ser modificada dinámicamente.
 
@@ -77,7 +77,7 @@ Anexa el `menuItem` al menú.
 
 * `id` Cadena
 
-Returns `MenuItem` the item with the specified `id`
+Devuelve `MenuItem` el item con el `id` especificado
 
 #### `menu.insert(pos, menuItem)`
 
