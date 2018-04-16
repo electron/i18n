@@ -243,18 +243,17 @@ Emis lorsque la fenêtre va être fermée. Émis avant les événements `beforeu
 Normalement, vous voudriez utiliser le gestionaire `beforeunload` pour décider si une fenêtre doit être fermée, ce qui sera aussi appelé lorsque la fenêtre est rechargée. Dans Electron, n'importe quelle valeur retournée autre que `undefined` annulera la fermeture. Par exemple :
 
 ```javascript
-window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
+window.onbeforeunload = (e) => {   console.log('I do not want to be closed')  
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+// A la différence des navigateurs web, un message sera affiché aux utilisateurs, retourner
+// une valeur non-nulle annulera la fermeture.
+  // Il est recommandé d'utilisaer l'API de dialogue afin de laisser l'utilisateur confirmer la fermeture de
+// l'application.
+  e.returnValue = false // Equivaut à un `return false` mais ce n'est pas recommandé
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***Note**: Il y a une subtile différence entre le comportement de `window.onbeforeunload = handler` et `window.addEventListener('beforeunload', handler)`. Il est recommendé de toujours spécifier l' `event.returnValue` explicitement, plutôt que de seulement retourner une valeur, cette méthode fonctionne mieux avec Electron.*
 
 #### Événement : 'closed'
 
