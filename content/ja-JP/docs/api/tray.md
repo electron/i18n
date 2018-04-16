@@ -1,4 +1,4 @@
-## クラス: tray
+## クラス: Tray
 
 > システムの通知領域にアイコンやコンテキスト メニューを追加します。
 
@@ -18,7 +18,7 @@ app.on('ready', () => {
     {label: 'アイテム3', type: 'radio', checked: true},
     {label: 'アイテム4', type: 'radio'}
   ])
-  tray.setToolTip('これは自分のアプリケーション。')
+  tray.setToolTip('これは自分のアプリケーションです。')
   tray.setContextMenu(contextMenu)
 })
 ```
