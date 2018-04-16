@@ -62,6 +62,6 @@ npm -v
 
 ## 合适的代码编辑器
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+我们建议你使用GitHub 的 [Atom](https://atom.io/) 或者微软的 [Visual Studio Code](https://code.visualstudio.com/)，这两款当下热门的编辑器都是使用Electron开发的。 而且对JavaScript的支持也都很棒。
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+如果您是众多开发人员中的一员，您应知道几乎所有的代码编辑器和IDE都是支持JavaScript的。
