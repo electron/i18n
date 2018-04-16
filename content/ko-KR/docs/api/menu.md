@@ -8,13 +8,13 @@
 
 메뉴 생성
 
-### Static Methods
+### Static Methods (클래스 메서드)
 
-`menu` 클라스는 다음의 스텍틱 메써드들을 가집니다.
+`menu` 클라스는 다음의 클래스(static) 메서드들을 가집니다.
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu | null
+* `menu` Menu
 
 `메뉴`를 맥 OS의 응용 프로그램 메뉴로 설정합니다. 윈도우와 리눅스에서는, `메뉴`를 각 창의 상단 메뉴로 설정 합니다.
 
@@ -256,7 +256,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### 예시
 
-Template:
+템플릿:
 
 ```javascript
 [
@@ -268,7 +268,7 @@ Template:
 ]
 ```
 
-Menu:
+메뉴
 
 ```sh
 <br />- 1
@@ -278,7 +278,7 @@ Menu:
 - 5
 ```
 
-Template:
+템플릿:
 
 ```javascript
 [
@@ -291,7 +291,7 @@ Template:
 ]
 ```
 
-Menu:
+메뉴
 
 ```sh
 <br />- ---
