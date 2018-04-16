@@ -6,15 +6,15 @@ Electron의 API를 살펴보기에 앞서 Electron 에서 사용할 수 있는 �
 
 Electron에서 `package.json`의 `main` 스크립트를 실행하는 프로세스를 **메인 프로세스**라고 부릅니다. 메인 프로세스에서 실행되는 스크립트는 웹 페이지들을 GUI 로 표시합니다. Electron 앱은 항상 하나의 메인 프로세스를 가지며, 둘 이상이 되는 경우는 없습니다.
 
-Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고, 그렇기에 Chromium의 멀티 프로세스 아키텍쳐 또한 사용됩니다. 각각의 Electron 웹페이지는 자체 프로세스로 동작하고 이것을 **the renderer process**라고 부릅니다.
+Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고 있기 때문에 Chromium의 멀티 프로세스 아키텍쳐 가 그대로 이용되고 있습니다. Electron 안에서 보여지는 각각의 웹페이지는 페이지가 소유한 프로세스를 동작시키는데, 이것을 ** 렌더러(renderer) 프로세스**라고 부릅니다.
 
-일반적인 브라우저에서 웹 페이지는 대개 샌드박스 환경에서 실행하고 네이티브 리소스에 액세스 할 수 없습니다. 그러나 Electron 유저들은 Node.js APIs 의 낮은 수준의 운영체제 상호 작용을 허용하는 웹 페이지에서 힘이 있다.
+일반적인 브라우저에서 웹 페이지는 대개 샌드박스 환경에서 실행되고 네이티브 리소스에는 액세스 할 수 없습니다. 그러나 Electron 을 사용하는 유저는 웹페이지가 Node.js APIs 를 이용할 수 있기 때문에, 보다 낮은 수준에서 운영체제와 상호작용하는 것이 허용되어 있다.
 
 ### 메인 프로세스와 렌더러 프로세스의 차이점
 
 메인 프로세스는 `BrowserWindow` 인스턴스를 생성하여 웹페이지를 만듭니다. 각각의 `BrowserWindow` 인스턴스는 자체 렌더러 프로세스에서 웹 페이지를 실행합니다. `BrowserWindow` 인스턴스가 소멸되면, 해당 렌더러 프로세스도 종료됩니다.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+메인 프로세스는 모든 웹 페이지와 각 페이지들이 소유한 렌더러 프로세스들을 관리합니다. Each renderer process is isolated and only cares about the web page running in it.
 
 웹 페이지에서 네이티브 GUI 관련 API는 웹 페이지에서 네이티브 GUI리소스를 관리하는 것이 매우 위험하고 리소스의 유출이 쉽게 때문에 허용하지 않습니다. 웹페이지에서 GUI작업을 수행하려면, 웹 페이지의 렌더러 프로세스가 메인 프로세스에게 이러한 작업을 수행하도록 요청해야 합니다.
 
