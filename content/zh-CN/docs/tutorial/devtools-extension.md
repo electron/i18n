@@ -4,15 +4,15 @@ Electron支持[Chrome 开发工具扩展程序](https://developer.chrome.com/ext
 
 ## 如何加载一个开发工具扩展程序
 
-这个文档简要的描述了手动加载一个扩展的过程 你可以试一下[electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer)，一个可以直接从Chrome的WebStore下载扩展的第三方工具
+本文简要描述了手动加载一个扩展程序的过程 你也可以尝试一下[electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer)，这个第三方工具可以直接从Chrome的WebStore下载扩展程序
 
-为了在Electron中加载一个扩展，你需要在Chrome浏览器中下载它，找到它在系统目录中位置，然后调用`BrowserWindow.addDevToolsExtension(extension)`API 加载它
+为了在Electron中加载一个扩展程序，你需要在Chrome浏览器中下载它，找到它在系统目录中位置，然后调用`BrowserWindow.addDevToolsExtension(extension)`API 加载它
 
-以[React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)作为示例：
+下面以[React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)为例：
 
-1. 在 Chrome 浏览器中安装。
-2. 导航到`chrome://extensions`，找到扩展的ID号，形如`fmkadmapgofadopljbjfkapdkoienihi`的hash字符串。
-3. 找到Chrome存储扩展的系统路径 
+1. 在 Chrome 中安装React Developer Tools 。
+2. 打开`chrome://extensions`，找到扩展程序的ID，形如`fmkadmapgofadopljbjfkapdkoienihi`的hash字符串。
+3. 找到Chrome 扩展程序 的存放目录： 
     * 在Ｗindows 下为 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
     * 在 Linux下为： 
         * `~/.config/google-chrome/Default/Extensions/`
