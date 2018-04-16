@@ -10,17 +10,17 @@
 
 下载完成后， 执行安装程序，根据引导完成安装即可。
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by simply search for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+安装完成后，我们需要来确认Node.js是不是可以正常工作。 在`/Applications/Utilities`文件夹中找到macOS的`Terminal` 程序(或者直接使用Spotlight直接搜索关键词`Terminal`) 。 打开`Terminal`或其他你喜欢的命令行客户端后，通过以下命令来确认 `node` 和 `npm`已经安装成功：
 
 ```sh
-# This command should print the version of Node.js
+# 下面这行的命令会打印出Node.js的版本信息
 node -v
 
-# This command should print the version of npm
+# 下面这行的命令会打印出npm的版本信息
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
 ## Winodws开发环境配置
 
@@ -30,17 +30,17 @@ If both commands printed a version number, you are all set! Before you get start
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+安装完成后，我们需要来确认Node.js是不是可以正常工作。 Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
-# This command should print the version of Node.js
+# 下面这行的命令会打印出Node.js的版本信息
 node -v
 
-# This command should print the version of npm
+# 下面这行的命令会打印出npm的版本信息
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
 ## Setting up Linux
 
@@ -51,14 +51,14 @@ If both commands printed a version number, you are all set! Before you get start
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-# This command should print the version of Node.js
+# 下面这行的命令会打印出Node.js的版本信息
 node -v
 
-# This command should print the version of npm
+# 下面这行的命令会打印出npm的版本信息
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
 ## A Good Editor
 
