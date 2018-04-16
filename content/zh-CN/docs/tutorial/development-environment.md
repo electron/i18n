@@ -24,13 +24,13 @@ npm -v
 
 ## Winodws开发环境配置
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron 支持Windows 7 及以上版本\---任何在低版本Windows上开发Electron的尝试都将是徒劳无功的。 您可以使用微软向开发者免费提供的[Windows 10虚拟机镜像](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines)。
 
-第一步，安装最新版本的Node.js 。 我们推荐您安装最新的 `长期支持版本` 或者 `当前发行版本` 。 Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. 下载完成后， 执行安装程序，根据引导完成安装即可。
+第一步，安装最新版本的Node.js 。 我们推荐您安装最新的 `长期支持版本` 或者 `当前发行版本` 。 访问[Node.js下载页面](https://nodejs.org/en/download/)，选择`Windows Installer`。 下载完成后， 执行安装程序，根据引导完成安装即可。
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+在安装过程中的配置界面, 请勾选`Node.js runtime`、`npm package manager`和`Add to PATH`这三个选项。
 
-安装完成后，我们需要来确认Node.js是不是可以正常工作。 Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+安装完成后，我们需要来确认Node.js是不是可以正常工作。 点击 开始 按钮，输入`PowerShell`，找到Windows PowerShell。 打开`PowerShell`或其他你喜欢的命令行客户端后，通过以下命令来确认 `node` 和 `npm`已经安装成功：
 
 ```powershell
 # 下面这行的命令会打印出Node.js的版本信息
@@ -42,7 +42,7 @@ npm -v
 
 如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
-## Setting up Linux
+## Linux开发环境配置
 
 > Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
 
