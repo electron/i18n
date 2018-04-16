@@ -1,8 +1,8 @@
 # 开发工具扩展程序
 
-Electron支持[Chrome 开发工具扩展程序](https://developer.chrome.com/extensions/devtools)，可增强开发工具调试流行web框架的能力
+Electron支持[Chrome DevTools 扩展程序](https://developer.chrome.com/extensions/devtools)，可增强开发工具调试流行web框架的能力
 
-## 如何加载一个开发工具扩展程序
+## 如何加载一个 DevTools 扩展程序
 
 本文简要描述了手动加载一个扩展程序的过程 你也可以尝试一下[electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer)，这个第三方工具可以直接从Chrome的WebStore下载扩展程序
 
@@ -20,15 +20,15 @@ Electron支持[Chrome 开发工具扩展程序](https://developer.chrome.com/ext
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
     * 在 macOS下为`~/Library/Application Support/Google/Chrome/Default/Extensions`。
-4. 将扩展的路径传给`BrowserWindow.addDevToolsExtension`，对于React Developer Tools 来说 应该为`~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+4. 将扩展程序的路径传给API：`BrowserWindow.addDevToolsExtension`，对于React Developer Tools 来说 应该为`~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**注意：**`BrowserWindow.addDevToolsExtension`API不可以在ready事件发出之前调用
+**注意：**只有在app模块的ready事件触发之后，才可以调用`BrowserWindow.addDevToolsExtension` API
 
 `BrowserWindow.addDevToolsExtension`将会返回扩展的名字，你可以把这个名字传入`BrowserWindow.removeDevToolsExtension`API来卸载它。
 
-## 支持的开发者工具扩展
+## 支持的 DevTools 扩展程序
 
-Electron 只支持有限的`chrome.*`API，所以使用了一些不支持的`chrome.*`API的扩展可能无法正常工作。 以下的开发者工具扩展已经通过测试保证可以工作：
+Electron 只支持有限的`chrome.*` API，所以，一些扩展程序如果使用了不支持的`chrome.*` API，它可能会无法正常工作。 以下 DevTools 扩展程序已经通过测试，可以在Electron中正常工作：
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -44,4 +44,4 @@ Electron 只支持有限的`chrome.*`API，所以使用了一些不支持的`chr
 
 首先请确保扩展仍在维护中, 有些扩展甚至不支持 Chrome 浏览器的最新版本, 对此我们也无能为力。
 
-然后在Electron的问题列表中提交一个 bug, 并描述扩展的哪个部分没有按预期的方式工作。
+然后在Electron的问题列表中提交一个 bug, 并描述扩展程序的哪个部分没有按预期的方式工作。
