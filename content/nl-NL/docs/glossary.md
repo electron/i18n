@@ -1,4 +1,4 @@
-# Glossary
+# Woordenlijst
 
 This page defines some terminology that is commonly used in Electron development.
 
