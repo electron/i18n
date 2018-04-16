@@ -1,8 +1,8 @@
-# 开发者工具扩展
+# 开发工具扩展程序
 
-Electron支持[Chrome 开发者工具扩展](https://developer.chrome.com/extensions/devtools)，可增强开发者工具调试流行web框架的能力
+Electron支持[Chrome 开发工具扩展程序](https://developer.chrome.com/extensions/devtools)，可增强开发工具调试流行web框架的能力
 
-## 如何加载一个开发者工具扩展
+## 如何加载一个开发工具扩展程序
 
 这个文档简要的描述了手动加载一个扩展的过程 你可以试一下[electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer)，一个可以直接从Chrome的WebStore下载扩展的第三方工具
 
