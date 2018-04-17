@@ -2,11 +2,11 @@
 
 Electron은 풍부한 네이티브(운영 체제) API를 가진 런타임을 제공하기 때문에 순수 JavaScript를 사용해 데스크탑 앱을 만들 수 있습니다. 웹 서버 대신 데스크탑 애플리케이션에 초점을 맞춘 Node.js 런타임의 변종이라고 생각하시면 됩니다.
 
-그렇다고 해서, Electron이 그래픽 사용자 인터페이스(GUI) 라이브러리를 연결하는 자바스크립트라는 의미는 아닙니다. 대신, Electron은 웹 페이지를 GUI로 사용하므로, 자바스크립트로 제어되는 크롬 브라우저로도 볼 수 있습니다.
+그렇다고 해서, Electron이 그래픽 사용자 인터페이스(GUI) 라이브러리를 연결하는 자바스크립트라는 의미는 아닙니다. 다만, Electron은 웹 페이지를 GUI로 사용하기 때문에, 자바스크립트로 제어되는 Chromium 브라우저에서도 작업 결과를 볼 수 있습니다.
 
-**참고**: 이 예제의 저장소는 [내려받아 바로 실행](#trying-this-example) 가능합니다.
+**참고**: 이 예제는 저장소에서 [내려받아 바로 실행](#trying-this-example)할 수 있습니다.
 
-As far as development is concerned, an Electron application is essentially a Node.js application. Node.js 모듈과 마찬가지로 시작점은 `package.json` 입니다. 대체로 기본적인 Electron 앱은 다음과 같은 폴더 구조를 가집니다.
+개발과 관련해서 Electron 애플리케이션은 근본적으로 Node.js 애플리케이션이라고 할 수 있습니다. Node.js 모듈과 마찬가지로 시작점은 `package.json` 입니다. 기본적인 Electron 앱 대부분은 다음과 같은 폴더 구조를 가지고 있습니다:
 
 ```text
 your-app/
