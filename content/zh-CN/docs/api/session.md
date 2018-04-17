@@ -253,7 +253,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permissionGranted` Boolean - 允许或拒绝该权限
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
+设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。 若要清除处理程序, 请调用 ` setPermissionRequestHandler (null) `。
 
 ```javascript
 const {session} = require('electron')
@@ -270,67 +270,66 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `callback` Function (optional) - 会在操作完成后被调用.
 
-Clears the host resolver cache.
+清除主机解析程序的缓存。
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `domains` String - 一个逗号分隔的服务器列表, 用于启用集成身份验证。
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+动态设置是否始终为 HTTP NTLM 发送凭据或协商身份验证。
 
 ```javascript
 const {session} = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// 以 "example.com"、"foobar.com"、"baz" 结尾的 url 用于身份验证。
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// 所有的 url 都可以用作身份验证
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (可选)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+覆盖当前会话的 `userAgent` 和 `acceptLanguages`.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+`acceptLanguages` 必须是用逗号分隔的语言代码列表，例如 `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+这不会影响现有的`WebContents`, 并且每个`WebContents`都可以使用 `webContents.setUserAgent`重写会话范围的user agent。
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+返回 `String` - 当前会话的 user agent.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identifier` String - 有效的 UUID.
 * `callback` Function 
-  * `result` Buffer - Blob data.
+  * `result` Buffer - Blob 数据.
 
-Returns `Blob` - The blob data associated with the `identifier`.
+返回 `Blob` - `identifier` 关联的 blob 数据.
 
 #### `ses.createInterruptedDownload(options)`
 
 * `选项` Object 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `path` String - 下载的绝对路径.
+  * `urlChain` String[] - 完整的 url 下载地址.
+  * `mimeType` String (可选)
+  * `offset` Integer - 下载的开始范围.
+  * `length` Integer - 下载的总长度。
+  * `lastModified` String - 上次修改的标头值。
+  * `eTag` String - ETag 标头值。
+  * `startTime` Double (optional) - 下载的时间是从 UNIX 时代以来的秒数开始的。
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+允许从上一个 `Session` 恢复 ` cancelled ` 或 ` interrupted ` 下载。 该 API 将生成一个 [ DownloadItem ](download-item.md), 可使用 [ will-download ](#event-will-download) 事件进行访问。 [ DownloadItem ](download-item.md) 将不具有与之关联的任何 ` WebContents `, 并且初始状态将为 ` interrupted `。 只有在 [ DownloadItem ](download-item.md) 上调用 ` resume ` API 时, 才会启动下载。
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (可选) - 会在操作完成后被调用
 
-Clears the session’s HTTP authentication cache.
+清除会话的 HTTP 身份验证缓存。
 
 ### 实例属性
 

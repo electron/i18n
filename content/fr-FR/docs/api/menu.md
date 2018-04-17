@@ -10,31 +10,31 @@ Créer un nouveau menu.
 
 ### Méthodes statiques
 
-The `menu` class has the following static methods:
+La classe `menu` dispose des méthodes statiques suivantes :
 
 #### `Menu.setApplicationMenu(menu)`
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Définit le `menu` en tant que menu de l’application sur macOS. Sous Windows et Linux, le `menu` sera définie comme le menu principal de chaque fenêtre.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+Passer `null` supprime la barre de menus sous Windows et Linux mais n’a aucun effet sur macOS.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Remarque :** Cette API doit être appelée après l’événement `ready` du module `app`.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Retourne `Menu | null` - Le menu de l’application, si défini, ou `null`, si non défini.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Remarque :** L'instance du `Menu` retourné, ne supporte pas l'ajout ou la suppression dynamique d’éléments de menu. Les [propriétés de l’instance](#instance-properties) peuvent encore être modifiées dynamiquement.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Envoie `action` au premier répondant de l'application. Ceci est utilisé pour émuler les comportements du menu de macOS par défaut. Habituellement, vous utiliseriez simplement la propriété [`role`](menu-item.md#roles) d’un [`MenuItem`](menu-item.md).
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) pour plus d'informations sur les actions natives de macOS.
 
 #### `Menu.buildFromTemplate(template)`
 
@@ -42,13 +42,13 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 Retourne `Menu`
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+En règle générale, le `template` est juste un tableau d'`options` pour la construction d’un [MenuItem](menu-item.md). L’utilisation peut être référencée ci-dessus.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Vous pouvez également attacher d'autres champs à l'élément du `template` et ils deviendront des propriétés des éléments de menu construits.
 
 ### Méthodes d’instance
 
-The `menu` object has the following instance methods:
+L'objet `menu` a les méthodes d'instance suivantes:
 
 #### `menu.popup([browserWindow, options])`
 
@@ -100,7 +100,7 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Main process (processus principal)
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 

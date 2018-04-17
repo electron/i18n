@@ -1,10 +1,10 @@
 ## Class: DownloadItem
 
-> Control file downloads from remote sources.
+> Controlla i file scaricati dai sorgenti remoti.
 
 Processo: [Main](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` è un `EventEmitter` che rappresenta un elemento scaricato in Electron. Esso è usato nell'evento `will-download` della classe `Session`, e consente agli utenti di controllare l'elemento scaricato.
 
 ```javascript
 // Nel processo principale.
@@ -44,12 +44,12 @@ Restituisce:
 * `event` Evento
 * `state` String
 
-Emitted when the download has been updated and is not done.
+Emesso quando il download è stato aggiornato e non viene eseguito.
 
-The `state` can be one of following:
+Lo `state` può essere uno dei seguenti:
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - Il download è in progresso.
+* `interrupted` - Il download è interrotto e può essere ripreso.
 
 #### Event: 'done'
 
@@ -58,41 +58,41 @@ Restituisce:
 * `event` Evento
 * `state` String
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Emesso quando il download è in uno stato terminale. Questo include un download completato, un download annullato (tramite `downloadItem.cancel()`), e download interrotto che non può essere ripreso.
 
-The `state` can be one of following:
+Lo `state` può essere uno dei seguenti:
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - Il download è stato completato con successo.
+* `cancelled` - Il download è stato annullato.
+* `interrupted` - Il download è stato interrotto e non può essere ripreso.
 
 ### Metodi Istanza
 
-The `downloadItem` object has the following methods:
+L'oggetto `downloadItem` ha i seguenti metodi:
 
 #### `downloadItem.setSavePath(path)`
 
-* `path` String - Set the save file path of the download item.
+* `path` String - Imposta il percorso del file salvato dell'elemento scaricato.
 
-The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+L'API è disponibile solo nella funzione callback `will-download` della sessione. Se l'utente non imposta il percorso di salvataggio tramite l'API, Electron userà la routine originale per determinare il percorso di salvataggio (Solitamente inserito tramite un save dialog).
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+Restituisce `String` - Il percorso di salvataggio dell'elemento scaricato. Questo sarà o il percorso impostato tramite `downloadItem.setSavePath(path)` o il percorso selezionato dal save dialog mostrato.
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Mette in pausa il download.
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Restituisce `Boolean` - Se il download è in pausa.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Riprende il download che è stato messo in pausa.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Nota:** Per abilitare la ripresa dei downloads il server da cui stai scaricando deve supportare una serie di richieste e fornire entrambi i valori di intestazione `Last-Modified` e `ETag`. Altrimenti `resume()` respingerà i bytes precedentemente ricevuti e riavvia il download dall'inizio.
 
 #### `downloadItem.canResume()`
 

@@ -36,13 +36,13 @@ shell.openExternal('https://github.com')
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false
+* `url`字符串 - 在windows下最长2081字节，否则这个函数返回false
 * `选项` Object (可选) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+  * `activate` Boolean - ` true `将打开的应用程序置于前台. 默认值为 `true`.
+* `callback` Function (可选) - 如果指定将执行异步打开。 *macOS* 
   * `error` Error
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+返回 `Boolean`类型 - 不管一个应用是否可以访问到URL，是否制定了回调，总是返回true
 
 以桌面的默认方式打开给定的外部协议URL。 （例如，在用户的默认邮件代理中打开 mailto: URLs）。
 
@@ -50,7 +50,7 @@ Returns `Boolean` - Whether an application was available to open the URL. If cal
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash
+返回 `Boolean` - 该对象是否成功移至垃圾箱。
 
 将给定的文件移动到垃圾箱，并返回操作的布尔状态。
 
@@ -61,13 +61,13 @@ Returns `Boolean` - Whether the item was successfully moved to the trash
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+* `operation` String (optional) - 默认值为 `create`可为下列之一： 
+  * `create` - 创建一个新的快捷方式, 如有必要可以覆盖。
+  * `update` - 仅更新现有快捷方式上的指定属性。
+  * `replace` - 覆盖现有快捷方式, 如果快捷方式不存在将会失败。
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully
+返回 `Boolean` - 快捷方式是否被成功创建。
 
 在`shortcutPath`位置创建或更新一个快捷连接
 
@@ -77,6 +77,6 @@ Returns `Boolean` - Whether the shortcut was created successfully
 
 返回 [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+解析`shortcutPath`中的快捷链接。
 
-An exception will be thrown when any error happens.
+发生任何错误时将引发异常。

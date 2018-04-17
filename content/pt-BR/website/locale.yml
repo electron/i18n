@@ -56,7 +56,7 @@ benefits:
   native_menus_and_notifications: Menus nativos & notificações
   crash_reporting: Relatórios de Erros
   debugging_and_profiling: Depuração & criação de perfil
-  windows_installers: Instalador do Windows
+  windows_installers: Instaladores do Windows
 get_started:
   title: Começar
   description: Para começar com o Electron, confira os recursos abaixo. Saiba como envolver o seu aplicativo web com Electron, acessar todas as APIs e gerar instaladores.
