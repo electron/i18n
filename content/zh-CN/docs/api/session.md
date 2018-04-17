@@ -317,19 +317,19 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
   * `urlChain` String[] - 完整的 url 下载地址.
   * `mimeType` String (可选)
   * `offset` Integer - 下载的开始范围.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `length` Integer - 下载的总长度。
+  * `lastModified` String - 上次修改的标头值。
+  * `eTag` String - ETag 标头值。
+  * `startTime` Double (optional) - 下载的时间是从 UNIX 时代以来的秒数开始的。
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+允许从上一个 `Session` 恢复 ` cancelled ` 或 ` interrupted ` 下载。 该 API 将生成一个 [ DownloadItem ](download-item.md), 可使用 [ will-download ](#event-will-download) 事件进行访问。 [ DownloadItem ](download-item.md) 将不具有与之关联的任何 ` WebContents `, 并且初始状态将为 ` interrupted `。 只有在 [ DownloadItem ](download-item.md) 上调用 ` resume ` API 时, 才会启动下载。
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (可选) - 会在操作完成后被调用
 
-Clears the session’s HTTP authentication cache.
+清除会话的 HTTP 身份验证缓存。
 
 ### 实例属性
 
