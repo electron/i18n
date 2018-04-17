@@ -18,7 +18,7 @@ console.log(systemPreferences.isDarkMode())
 返回:
 
 * `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
+* `newColor` String - 用户指定的新 RGBA 颜色作为系统偏好颜色.
 
 ### Event: 'color-changed' *Windows*
 
@@ -31,7 +31,7 @@ console.log(systemPreferences.isDarkMode())
 返回:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+* `invertedColorScheme` Boolean - 如果正在使用诸如高对比度主题的色彩方案，则为`true`， 否则为 `false`.
 
 ## 方法
 
@@ -41,21 +41,21 @@ console.log(systemPreferences.isDarkMode())
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+返回值 `Boolean` - 是否在页面设置之间进行滑动。
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
 * `event` String
 * `userInfo` Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+发送 `event` 作为macOS的原生通知。 `userInfo`是一个Object，它包含随通知一起发送的用户信息字典。
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` String
 * `userInfo` Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+发送 `event` 作为macOS的原生通知。 `userInfo`是一个Object，它包含随通知一起发送的用户信息字典。
 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
@@ -64,11 +64,11 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
   * `event` String
   * `userInfo` Object
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+返回订阅的 ` id `, 可用于取消该订阅的 `event`.
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+在这个API下订阅` NSDistributedNotificationCenter `， `event` 的示例值为：
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -79,7 +79,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 * `id` Integer
 
-Removes the subscriber with `id`.
+使用 ` id ` 删除订阅。
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
@@ -88,22 +88,22 @@ Removes the subscriber with `id`.
   * `event` String
   * `userInfo` Object
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
+与` subscribeNotification `相同，但使用` NSNotificationCenter `作为本地默认值。 这对于诸如` NSUserDefaultsDidChangeNotification `的事件是必需的
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+与` unsubscribeNotification `相同，但将订户从` NSNotificationCenter `中删除。
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - 可以为 `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+返回 `any` - `NSUserDefaults` 中 `key` 的值.
 
-Some popular `key` and `type`s are:
+常用的 `key` 和 `type` 的类型为:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -116,14 +116,14 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` String - 请看 [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+设置 `NSUserDefaults` 中 `key` 的值.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Some popular `key` and `type`s are:
+常用的 `key` 和 `type` 的类型为:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
