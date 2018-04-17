@@ -44,11 +44,11 @@ Retourne `Menu`
 
 En règle générale, le `template` est juste un tableau d'`options` pour la construction d’un [MenuItem](menu-item.md). L’utilisation peut être référencée ci-dessus.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Vous pouvez également attacher d'autres champs à l'élément du `template` et ils deviendront des propriétés des éléments de menu construits.
 
 ### Méthodes d’instance
 
-The `menu` object has the following instance methods:
+L'objet `menu` a les méthodes d'instance suivantes:
 
 #### `menu.popup([browserWindow, options])`
 
