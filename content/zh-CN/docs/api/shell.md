@@ -42,7 +42,7 @@ shell.openExternal('https://github.com')
 * `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+返回 `Boolean`类型 - 不管一个应用是否可以访问到URL，是否制定了回调，总是返回true
 
 以桌面的默认方式打开给定的外部协议URL。 （例如，在用户的默认邮件代理中打开 mailto: URLs）。
 
