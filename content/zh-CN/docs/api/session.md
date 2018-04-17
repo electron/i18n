@@ -253,7 +253,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permissionGranted` Boolean - 允许或拒绝该权限
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
+设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。 若要清除处理程序, 请调用 ` setPermissionRequestHandler (null) `。
 
 ```javascript
 const {session} = require('electron')
@@ -270,13 +270,13 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `callback` Function (optional) - 会在操作完成后被调用.
 
-Clears the host resolver cache.
+清除主机解析程序的缓存。
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `domains` String - 一个逗号分隔的服务器列表, 用于启用集成身份验证。
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+动态设置是否始终为 HTTP NTLM 发送凭据或协商身份验证。
 
 ```javascript
 const {session} = require('electron')
