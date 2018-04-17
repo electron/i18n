@@ -16,15 +16,15 @@ La classe `menu` dispose des méthodes statiques suivantes :
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Définit le `menu` en tant que menu de l’application sur macOS. Sous Windows et Linux, le `menu` sera définie comme le menu principal de chaque fenêtre.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+Passer `null` supprime la barre de menus sous Windows et Linux mais n’a aucun effet sur macOS.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Remarque :** Cette API doit être appelée après l’événement `ready` du module `app`.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Retourne `Menu | null` - Le menu de l’application, si défini, ou `null`, si non défini.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -100,7 +100,7 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Main process (processus principal)
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 
