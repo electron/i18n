@@ -158,7 +158,7 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
   * `transparent` Boolean (opzionale) - rende la finestra [trasparente](frameless-window.md). Valore predefinito è `false`.
   * `type` String (opzionale): il tipo di finestra, impostazione predefinita è normale finestra. Vedi di più su questo qui sotto.
   * `<0>titleBarStyle</0>` Stringa (opzionale) - lo stile della barra del titolo della finestra. Impostazione predefinita è `default`. I valori possibili sono: 
-    * `default` - Results in the standard gray opaque Mac title bar.
+    * `default` - risultato di colore grigio opaco come barra del titolo del Mac.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hidden-inset` - Deprecated, use `hiddenInset` instead.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
