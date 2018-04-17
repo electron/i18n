@@ -280,44 +280,43 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 ```javascript
 const {session} = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// 以 "example.com"、"foobar.com"、"baz" 结尾的 url 用于身份验证。
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// 所有的 url 都可以用作身份验证
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (可选)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+覆盖当前会话的 `userAgent` 和 `acceptLanguages`.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+`acceptLanguages` 必须是用逗号分隔的语言代码列表，例如 `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+这不会影响现有的`WebContents`, 并且每个`WebContents`都可以使用 `webContents.setUserAgent`重写会话范围的user agent。
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+返回 `String` - 当前会话的 user agent.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identifier` String - 有效的 UUID.
 * `callback` Function 
-  * `result` Buffer - Blob data.
+  * `result` Buffer - Blob 数据.
 
-Returns `Blob` - The blob data associated with the `identifier`.
+返回 `Blob` - `identifier` 关联的 blob 数据.
 
 #### `ses.createInterruptedDownload(options)`
 
 * `选项` Object 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
+  * `path` String - 下载的绝对路径.
+  * `urlChain` String[] - 完整的 url 下载地址.
+  * `mimeType` String (可选)
+  * `offset` Integer - 下载的开始范围.
   * `length` Integer - Total length of the download.
   * `lastModified` String - Last-Modified header value.
   * `eTag` String - ETag header value.
