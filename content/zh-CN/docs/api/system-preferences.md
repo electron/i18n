@@ -211,4 +211,4 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+返回 `Boolean` - `true` 如果反转颜色方案（如高对比度主题）处于活动状态，否则为`false`
