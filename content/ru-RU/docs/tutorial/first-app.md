@@ -59,17 +59,17 @@ npm будет вести вас на протяжении создания ба
 
 ## Установка Electron
 
-Сейчас вам нужно будет установить сам `electron`. Рекомендуемым для этого путем является его установка вкачестве зависимости в вашем приложении, что позволяет вам работать с многими приложениями, используя разные версии Electron'а. To do so, run the following command from your app's directory:
+Сейчас вам нужно будет установить сам `electron`. Рекомендуемым для этого путем является его установка вкачестве зависимости в вашем приложении, что позволяет вам работать с многими приложениями, используя разные версии Electron'а. Для этого вам нужно запустить следующую команду из директории вашего приложения:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Также существуют другие способы установки Electron'a. Пожалуйста, посетите [гайд по установке](installation.md) для получения дополнительных знаний об использовании прокси, зеркал и собствевнный кеш.
 
 ## Разработка Electron в двух словах
 
-Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Разработка Electron приложения ведется на JavaScript, при использовании тех же принципов и методов, которые можно найти в разработке на Node.js. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
 
 ```javascript
 const electron = require('electron')
