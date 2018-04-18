@@ -74,7 +74,7 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+`Boolean` Döndürür - Görünümün yok olup olmadığını.
 
 #### `view.setAutoResize(options)` *Deneysel*
 
