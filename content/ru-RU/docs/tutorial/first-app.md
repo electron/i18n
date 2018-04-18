@@ -1,4 +1,4 @@
-# Writing Your First Electron App
+# Написание Вашего Первого Electron Приложения
 
 Electron позволяет создавать настольные приложения на чистом JavaScript, предоставляя среду выполнения с богатым нативным интерфейсом API (операционной системы). Вы могли видеть это как вариант времени выполнения Node.js, ориентированного на настольные приложения вместо веб-серверов.
 
@@ -59,7 +59,7 @@ npm будет вести вас на протяжении создания ба
 
 ## Установка Electron
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+Сейчас вам нужно будет установить сам `electron`. Рекомендуемым для этого путем является его установка вкачестве зависимости в вашем приложении, что позволяет вам работать с многими приложениями, используя разные версии Electron'а. To do so, run the following command from your app's directory:
 
 ```sh
 npm install --save-dev electron
