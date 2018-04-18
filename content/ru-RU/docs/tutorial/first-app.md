@@ -21,7 +21,7 @@ your-app/
 npm init
 ```
 
-npm будет вести вас на протяжении создания базового `package.json` файла. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm будет вести вас на протяжении создания базового `package.json` файла. Скрипт, указанный в поле `main`, является стартовым скриптом для вашего проиложения, который будет запускать весь процесс. Например, ваш файл `package.json` может выглядеть следующим образом:
 
 ```json
 {
@@ -31,7 +31,7 @@ npm будет вести вас на протяжении создания ба
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (just like Node.js itself). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**Примечание**: Если поле `main` отсутствует в файле `package.json`, то Electron будет пытаться загрузить файл `index.js` (также как сам Node.js). Если это было простое Node приложение, вам нужно добавить `start` скрпт, который будет "говорить" `node` выполнить текущий пакет:
 
 ```json
 {
@@ -44,7 +44,7 @@ npm будет вести вас на протяжении создания ба
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+Превратить такое Node приложение в Electron приложение довольно-таки легко - нужно заменить `node` в поле start на `electron`.
 
 ```json
 {
