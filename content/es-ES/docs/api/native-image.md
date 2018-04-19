@@ -146,7 +146,7 @@ Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el n
 
 El `hslShift` se aplica a la imagen con las siguientes reglas
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[0]` (tonalidad): El valor de tonalidad absoluto para la imagen - 0 y 1 se mapean a 0 y 360 en la rueda de tonalidad de color (rojo).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
  0 = remove all color.  
  0.5 = leave unchanged.  
