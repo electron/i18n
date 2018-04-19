@@ -1,12 +1,12 @@
-# session
+# sesión
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
 Process: [Main](../glossary.md#main-process)
 
-El módulo `sesion` puede ser usado para crear nuevos objetos `sesion`.
+El módulo `session` puede ser usado para crear nuevos objetos `session`.
 
-También puede acceder la `sesión` de las páginas existentes utilizando la propiedad `sesión` de [`WebContents`](web-contents.md), o desde el módulo `sesión`.
+También puede acceder el `session` de las páginas existentes utilizando la propiedad `session` de [`WebContents`](web-contents.md), o desde el módulo `session`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -24,31 +24,31 @@ El módulo `sesión` tiene los siguientes métodos:
 
 ### `session.fromPartition(partition[, options])`
 
-* `Paritición` Cadena
+* `partition` String
 * `opciones` Object (opcional) 
-  * `cache` Booleano - En el caso de activar la memoria cache.
+  * `cache` Boolean - En el caso de activar la memoria cache.
 
-Regresa `Sesión` - Una reunión de la cadena `partición`. Cuando hay una `Sesión` existente con la misma `partición`, se devolverá; de otra manera, una nueva instancia `Sesión` será creada con `opciones`.
+Regresa `Session` - Una instancia de session de la cadena `partition`. Cuando hay una `Session` existente con la misma `partition`, se devolverá la misma; de otra manera, una nueva instancia `Session` será creada con `options`.
 
-Si la `partition` comienza con `persistir:`, la página usará una sesión persistente disponible a todas las páginas en la aplicación con la misma `partición`. si no hay un prefijo `persistir:`, la página usará una sesión en memoria. Si la `partición` está vacía entonces la sesión de la aplicación será usada por defecto.
+Si la `partition` comienza con `persist:`, la página usará una sesión persistente disponible a todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Si la `partition` está vacía entonces la sesión de la aplicación será usada por defecto.
 
-Al crear una `Sesión` con `opciones`, tiene que asegurar la `Sesión` con la `partición` nunca ha sido usada antes. No hay manera de cambiar las `opciones` de un objeto `Sesión` existente.
+Al crear una `Session` con `options`, tiene que asegurar que la `Session` con la `partition` nunca ha sido usada antes. No hay manera de cambiar las `options` de un objeto `Session` existente.
 
 ## Propiedades
 
-El módulo `sesión` tiene las siguientes propiedades:
+El módulo `session` tiene las siguientes propiedades:
 
 ### `session.defaultSession`
 
-Un objeto `Sesión`, el objeto de sesión de la aplicación por defecto.
+Un objeto `Session`, es el objeto de session de la aplicación por defecto.
 
-## Clase: Sesión
+## Class: Session
 
 > Obtener y configurar las propiedades de una sesión.
 
 Process: [Main](../glossary.md#main-process)
 
-Puede crear un objeto `Sesión` en el módulo `sesión`:
+Puede crear un objeto `Session` en el módulo `session`:
 
 ```javascript
 const {session} = require('electron')
@@ -58,13 +58,13 @@ console.log(ses.getUserAgent())
 
 ### Eventos de Instancia
 
-Los siguientes eventos están disponibles en instancias de `Sesión`:
+Los siguientes eventos están disponibles en instancias de `Session`:
 
-#### Evento: "Se-descargará"
+#### Evento: 'will-download'
 
 * `event` Evento
-* `elemento` [Elemento descargado](download-item.md)
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `item` [DownloadItem](download-item.md)
+* `webContents` [WebContents](web-contents.md)
 
 Emitido cuando Electron está por descargar un `elemento` en `Contenido web`.
 
@@ -149,7 +149,7 @@ El `proxyBypassRules` es una lista separada por comas de las reglasa que se desc
   
   Une todos los nombres que coinciden con el patrón HOSTNAME_PATTERN.
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Ejemplos: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
@@ -167,7 +167,7 @@ El `proxyBypassRules` es una lista separada por comas de las reglasa que se desc
   
   Une cualquier URL que es literal a una IP que cae en un rango determinado. El rango de IP es especificado usando la notación CIDR.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  Ejemplos: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
@@ -205,13 +205,13 @@ window.webContents.session.enableNetworkEmulation({
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+// Para emular la caída de la red.
 window.webContents.session.enableNetworkEmulation({offline: true})
 ```
 
 #### `ses.disableNetworkEmulation()`
 
-Deshabilita cualquier emulación de red activa durante la `sesión`. Resetea a la configuración de red original.
+Deshabilita cualquier emulación de red activa durante la `sesión`. Reinicia a la configuración de red original.
 
 #### `ses.setCertificateVerifyProc(proc)`
 

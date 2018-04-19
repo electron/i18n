@@ -69,7 +69,7 @@ Devuelve:
 
 Se emite cuando se cierra la notificación por medio de la intervención manual del usuario.
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+No se garantiza que este evento se emita en todos los casos donde se cierre la notificación.
 
 #### Evento: "reply" *macOS*
 

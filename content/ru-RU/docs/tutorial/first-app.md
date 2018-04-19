@@ -1,12 +1,12 @@
-# Writing Your First Electron App
+# Написание Вашего Первого Electron Приложения
 
 Electron позволяет создавать настольные приложения на чистом JavaScript, предоставляя среду выполнения с богатым нативным интерфейсом API (операционной системы). Вы могли видеть это как вариант времени выполнения Node.js, ориентированного на настольные приложения вместо веб-серверов.
 
 Это не означает, что Electron является JavaScript привязанной библиотекой графического пользовательского интерфейса (GUI). Вместо этого Electron использует веб-страницы как GUI, поэтому вы могли также видеть его как минимальный Chromium браузер, контролируемый JavaScript-ом.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Примечание**: Данный пример можно полностью найти в репозитории [скачать и запустить прямо сейчас](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+Если посмотреть на приложение, созданное на базе Electron, то оно по своей сути является Node.js приложением. Начальной точкой приложения является `package.json` файл, идентичный одноименному модулю Node.js. Самое простое Electron приложение будет иметь следующую структуру папок:
 
 ```text
 your-app/
@@ -15,13 +15,13 @@ your-app/
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+Теперь давайте создадим пустую папку для вашего Electron приложения. Для этого откройте свой клиент командной строки и запустите `npm init` из папки, созданной ранее.
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm будет вести вас на протяжении создания базового `package.json` файла. Скрипт, указанный в поле `main`, является стартовым скриптом для вашего проиложения, который будет запускать весь процесс. Например, ваш файл `package.json` может выглядеть следующим образом:
 
 ```json
 {
@@ -31,7 +31,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (just like Node.js itself). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**Примечание**: Если поле `main` отсутствует в файле `package.json`, то Electron будет пытаться загрузить файл `index.js` (также как сам Node.js). Если это было простое Node приложение, вам нужно добавить `start` скрпт, который будет "говорить" `node` выполнить текущий пакет:
 
 ```json
 {
@@ -44,7 +44,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+Превратить такое Node приложение в Electron приложение довольно-таки легко - нужно заменить `node` в поле start на `electron`.
 
 ```json
 {
@@ -59,23 +59,23 @@ Turning this Node application into an Electron application is quite simple - we 
 
 ## Установка Electron
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+Сейчас вам нужно будет установить сам `electron`. Рекомендуемым для этого путем является его установка вкачестве зависимости в вашем приложении, что позволяет вам работать с многими приложениями, используя разные версии Electron'а. Для этого вам нужно запустить следующую команду из директории вашего приложения:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Также существуют другие способы установки Electron'a. Пожалуйста, посетите [гайд по установке](installation.md) для получения дополнительных знаний об использовании прокси, зеркал и собствевнный кеш.
 
 ## Разработка Electron в двух словах
 
-Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Разработка Electron приложения ведется на JavaScript, при использовании тех же принципов и методов, которые можно найти в разработке на Node.js. Все особенности API и сам API Electron'а доступен через `electron` модуль, который может быть использован как и любой Node.js модуль:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might just wait for the application to be ready and open a window:
+Модуль `electron` предоставляет специальные особенности в пространство имен(namespaces). Например жизненный цикл приложения контролируется через `electron.app`, окна могут быть созданны пр использовании класса `electron.BrowserWindow`. Простой файл `main.js` может просто ждать пока приложение не будет готово и после этого открыть окно приложения:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -97,7 +97,7 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+Файл `main.js` должен создавать окна и перехватывать все события системы, с которыми ваше приложение может столкнуться. Более сложная версия примера выше должна открывать инструменты разработчика, ждать когда окно будет закрыто или открыто заново на macOS если пользователь кликнул на иконку приложения.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -177,23 +177,23 @@ app.on('activate', () => {
 
 ## Запуск Вашего приложения
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+Создав файлы `main.js`, `index.html`, и `package.json`, вы можете попробовать запустить свое приложение, написав `npm start` в командной строке из директории, где ваше приложение находится.
 
-## Trying this Example
+## Попробуте данный Пример
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Склонируйте и запустите код, приведенный в данном обучающем посте, из [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) репозитория.
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**Примечание**: Для запуска потребуется [Git](https://git-scm.com).
 
 ```sh
-# Clone the repository
+# Клонируем репозиторий
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Переходим в папку с приложением
 $ cd electron-quick-start
-# Install dependencies
+# Устанавливаем зависимости
 $ npm install
-# Run the app
+# Запускаем приложение
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+Посетите [Boilerplates and CLIs documentation](./boilerplates-and-clis.md) для получения списка шаблонов и инструментов для быстрого старта вашей разработки.

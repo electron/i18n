@@ -1,6 +1,6 @@
 # REPL
 
-Loop eval leer imprimir (REPL) es un simple, ambiente de programación computacional interactiva que toma entradas de usuarios individuales (ej. expresiones individuales), las evalúan, y regresan los resultado del usuario.
+Read Evaluate Print Loop (REPL) es un simple, ambiente de programación computacional interactiva que toma entradas de usuarios individuales (ej. expresiones individuales), las evalúan, y regresan los resultado del usuario.
 
 El módulo `repl` proporciona una implementación REPL a la que se puede acceder usando:
 
@@ -16,7 +16,7 @@ El módulo `repl` proporciona una implementación REPL a la que se puede acceder
 electron --interactive
 ```
 
-Esto solo crea un REPL para el proceso principal. Puede usar la consola de las herramientas Dev para hacer que un REPL para los procesos renderizadores.
+Esto solo crea un REPL para el proceso principal. Puede usar la consola de las herramientas de desarrollador para hacer un REPL para los procesos renderizadores.
 
 **Nota:** `electron --interactive` no está disponible en Windows.
 

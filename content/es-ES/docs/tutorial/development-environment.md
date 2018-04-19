@@ -22,7 +22,7 @@ npm -v
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## Setting up Windows
+## Configurar Windows
 
 > Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
@@ -42,7 +42,7 @@ npm -v
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## Setting up Linux
+## Configurar Linux
 
 > Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
 

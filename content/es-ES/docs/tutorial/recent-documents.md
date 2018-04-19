@@ -1,4 +1,4 @@
-# Recent Documents (Windows & macOS)
+# Documentos Recientes (Windows & macOS)
 
 Windows y macOS brindan fácil acceso a una lista de documentos recientes abiertos por la aplicación a través de JumpList o menú de base, respectivamente.
 
@@ -6,11 +6,11 @@ Windows y macOS brindan fácil acceso a una lista de documentos recientes abiert
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Menú de Aplicaciones:**
 
 ![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-Para añadir archivos a documento recientes, puede usar el API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows):
+Para añadir archivos a documento a recientes, puede usar el API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows):
 
 ```javascript
 const { app } = require('electron')

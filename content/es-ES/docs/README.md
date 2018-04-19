@@ -12,7 +12,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 * [Configurar el entorno de desarrollo](tutorial/development-environment.md) 
   * [Configurar macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Configurar Windows](tutorial/development-environment.md#setting-up-windows)
   * [Configurar Linux](tutorial/development-environment.md#setting-up-linux)
   * [Elegir un editor](tutorial/development-environment.md#a-good-editor)
 * [Crear su primera aplicación](tutorial/first-app.md) 
@@ -40,7 +40,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Atajos del teclado](tutorial/keyboard-shortcuts.md)
   * [Offline/Online Detection](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Archivo representado por macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
 * [Application Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)

@@ -1,10 +1,10 @@
-# Developer Environment
+# Ambiente de Desenvolvimento
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+O Electron é essencialmente desenvolvido em Node.js. Para transformar seu sistema operacional em um ambiente capaz de fazer compilação de aplicativos desktop com Electron, você precisará do Node.js, npm, um editor de código de sua preferencia e uma compreensão rudimentar da linha de comando do seu sistema operacional.
 
-## Setting up macOS
+## Configurando o macOS
 
-> Electron supports Mac OS X 10.9 (and all versions named macOS) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron é suportado no Mac OS X 10.9 (e todas as versões com o nome macOS) ou superior. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
 
 First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
