@@ -95,11 +95,11 @@ Los objetos creados con `new Notification` tienen los siguientes métodos de ins
 
 Muestra inmediatamente la notificación al usuario, por favor tenga en cuenta que esto significa que a diferencia de la implementación HTML5 Notification, solamente creando una instancia `new Notification` no lo muestra inmediatamente al usuario. Es necesario llamar a este método antes de que el sistema operativo lo muestre en pantalla.
 
-If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+Si la notificación ha sido mostrada con anterioridad, este método descartará la notificación previa y creará una nueva con propieades idénticas.
 
 #### `notification.close()`
 
-Dismisses the notification.
+Descarta la notificación.
 
 ### Reproducción de Sonidos
 
