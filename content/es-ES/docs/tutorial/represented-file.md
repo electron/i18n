@@ -1,4 +1,4 @@
-# Represented File for macOS BrowserWindows
+# Archivo representado por macOS BrowserWindows
 
 En macOS, una ventana puede establecer su archivo representado, de modo que el icono del archivo se muestre en la barra de título y cuando los usuarios hagan clic con el botón Comando o haga clic con el botón Control en el título, se muestre una ventana emergente de ruta.
 
