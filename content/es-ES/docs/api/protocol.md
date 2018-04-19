@@ -146,7 +146,7 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
     * `redirectRequest` Object 
       * `url` String
       * `method` Cuerda
-      * `session` Object (optional)
+      * `session` Object (opcional)
       * `uploadData` Object (opcional) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
@@ -296,7 +296,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `redirectRequest` Object 
       * `url` String
       * `method` Cuerda
-      * `session` Object (optional)
+      * `session` Object (opcional)
       * `uploadData` Object (opcional) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
