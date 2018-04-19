@@ -40,7 +40,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Atajos del teclado](tutorial/keyboard-shortcuts.md)
   * [Offline/Online Detection](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Archivo representado por macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
 * [Application Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
