@@ -785,16 +785,16 @@ Ativa manualmente o suporte à acessibilidade do Chrome, permitindo expor uma op
 * `opções` Object 
   * `applicationName` String (opcional) - O nome do aplicativo.
   * `applicationVersion` String (opcional) - A versão do aplicativo.
-  * `copyright` String (optional) - Informações de copyright.
-  * `credits` String (optional) - Informações de créditos.
-  * `versão` String (opcional) - O número da versão de build do aplicativo.
+  * `copyright` String (opcional) - Informações de copyright.
+  * `credits` String (opcional) - Informações de créditos.
+  * `versão` String (opcional) - O número da versão de compilação do aplicativo.
 
-Define as opções do painel Sobre. Isto substituirá os valores definidos no arquivo `.plist` do aplicativo. Consulte a [documentação da Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para mais detalhes.
+Define as opções do painel sobre. Isto substituirá os valores definidos no arquivo `.plist` do aplicativo. Consulte a [documentação da Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para mais detalhes.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
 * `switch` String - Uma opção de linha de comando
-* `text` String - (opcional) - Um valor para a opção desejada
+* `value` String - (opcional) - Um valor para a opção desejada
 
 Insere uma opção (com um `value` opcional) à linha de comando do Chromium.
 
