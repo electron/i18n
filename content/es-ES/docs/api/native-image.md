@@ -142,7 +142,7 @@ Crea una nueva instancia `NativeImage` desde `dataURL`.
 
 Devuelve `NativeImage`
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el nombre especificado. Ver [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) para una lista de posibles valores.
 
 El `hslShift` se aplica a la imagen con las siguientes reglas
 
