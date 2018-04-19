@@ -12,7 +12,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 * [Configurar el entorno de desarrollo](tutorial/development-environment.md) 
   * [Configurar macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Configurar Windows](tutorial/development-environment.md#setting-up-windows)
   * [Configurar Linux](tutorial/development-environment.md#setting-up-linux)
   * [Elegir un editor](tutorial/development-environment.md#a-good-editor)
 * [Crear su primera aplicación](tutorial/first-app.md) 
