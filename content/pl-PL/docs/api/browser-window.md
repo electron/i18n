@@ -45,9 +45,9 @@ win.once('ready-to-show', () => {
 
 This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
 
-### Setting `backgroundColor`
+### Ustawianie koloru tła `backgroundColor`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. W takim przypadku zalecane jest wyświetlenie okna natychmiastowo i użycie koloru tła `backgroundColor` podobne do tła twojej aplikacji:
 
 ```javascript
 const {BrowserWindow} = require('electron')
