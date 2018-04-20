@@ -91,7 +91,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 如果安装失败并出现 ` EACCESS ` 错误, 则可能需要 [ 修复您的 npm 权限 ](https://docs.npmjs.com/getting-started/fixing-npm-permissions)。（例如使用 sudo ）
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+如果上述错误仍然存在, 则可能需要将参数 unsafe-perm 设置为 true
 
 ```sh
 sudo npm install electron --unsafe-perm=true
