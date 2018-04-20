@@ -92,7 +92,7 @@ This script will cause a very large Electron executable to be placed in the dire
 
 This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-You can also build the `Debug` target only:
+Możesz również zbudować cel `Debug`:
 
 ```sh
 $ ./script/build.py -c D
