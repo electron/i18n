@@ -862,7 +862,7 @@ Herhangi bir ServiceWorker kaydı olup olmadığını kontrol eder ve `callback`
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `geri aramak` Function 
+* `geri aramak` Fonksiyon 
   * `success` Boolean
 
 Olan bütün ServiceWorker'ların kaydını siler ve JS promise çözüldüğünde veya reddedildiğinde, `callback`'e cevap olarak bir boolean döner.
