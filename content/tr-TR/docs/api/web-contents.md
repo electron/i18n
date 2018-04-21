@@ -1203,7 +1203,7 @@ WebRTC IP yönetme ilkesini ayarlamak size hangi IPlerin WebRTC tarafından gös
 
 #### `contents.id`
 
-A `Integer` representing the unique ID of this WebContents.
+Bu WebContents'in benzersiz kimliğini gösteren `Integer`.
 
 #### `contents.session`
 
