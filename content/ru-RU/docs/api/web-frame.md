@@ -130,7 +130,7 @@ Returns `Promise` - A promise that resolves with the result of the executed code
 
 Вычисляет `code` на странице.
 
-В окне браузера некоторые HTML API как `requestFullScreen` может быть только вызван жестом пользователя. Setting `userGesture` to `true` will remove this limitation.
+В окне браузера некоторые HTML API как `requestFullScreen` может быть только вызван жестом пользователя. Указание `userGesture` как `true` снимает это ограничение.
 
 ### `webFrame.getResourceUsage()`
 
