@@ -21,7 +21,7 @@ your-app/
 npm init
 ```
 
-npm은 기본 `package.json`파일을 생성하여 여러분에게 정보를 줄 것입니다. `main` 필드에 명시된 스크립트는 여러분의 앱을 시작하는 스크립트이며, 메인 프로세스에서 실행될 것입니다. `package.json`은 아래와 같은 모습일 것입니다:
+npm은 기본적인 `package.json`파일을 생성하여 여러분에게 정보를 줄 것입니다. `main` 필드에 명시된 스크립트는 여러분의 앱을 시작하는 스크립트이며, 메인 프로세스에서 실행될 것입니다. `package.json`은 아래와 같은 모습일 것입니다:
 
 ```json
 {
@@ -31,7 +31,7 @@ npm은 기본 `package.json`파일을 생성하여 여러분에게 정보를 줄
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (just like Node.js itself). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**주의사항**: `package.json`에 `main` 필드가 없는 경우, Electron은 (Node.js 처럼) `index.js`를 로드하려고 할 것입니다. If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
 
 ```json
 {
