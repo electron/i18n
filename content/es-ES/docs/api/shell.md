@@ -36,7 +36,7 @@ Abre el archivo determinado en el escritorio por defecto.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false
+* `url` String - 2081 caracteres como máximo en windows, o la función devuelve falso
 * `opciones` Object (opcional) *macOS* 
   * `activate` Booleano - `true` para traer la aplicación abierta al primer plano. Por defecto es `true`.
 * `callback` Función (opcional) - Si se especifica se abrirá de forma asincrónica. *macOS* 
@@ -61,7 +61,7 @@ Reproduce el sonido bip.
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operación` Cadena (optional) - Por defecto es `create`, puede ser uno de los siguientes: 
+* `operation` String (opcional) - Por defecto `create`, puede ser uno de los siguientes: 
   * `create` - Crea un nuevo acceso directo, sobrescribiendo si es necesario.
   * `update` - Actualiza las propiedades especificadas solo en un acceso directo existente.
   * `replace` - Sobrescribe un acceso directo existente. Y falla si el acceso directo no existe.
