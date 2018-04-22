@@ -73,8 +73,8 @@ app.on('ready', () => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `filePath` Cadena (opcional)
-* `completion` Función (opcional) 
+    * `filePath` String (opcional)
+* `completion` Function (opcional) 
   * `error` Error
 
 Registra un protocolo de `esquema` que enviará el archivo como respuesta. El `controlador` será llamado con `handler(request, callback)` cuando una `solicitud` será creada con el `esquema`. `terminación` será llamado con `terminación(nulo)` cuando el `esquema` está registrado exitósamente o `terminación(error)` cuando haya fallado.
@@ -87,16 +87,16 @@ Por defecto el `esquema` es tratado como `http:`, que es analizado diferente que
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
-* `esquema` Cadena
-* `manejador` Función 
-  * `request` Objeto 
-    * `url` Cadena
-    * `referrer` Cadena
-    * `method` Cuerda
-    * `subir información` [Subir Información[]](structures/upload-data.md)
-  * `callback` Función 
+* `scheme` String
+* `manejador` Function 
+  * `request` Object 
+    * `url` String
+    * `referrer` String
+    * `method` String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opcional)
-* `completion` Función (opcional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Registra un protocolo de `esquema` que enviará un `Buffer` como respuesta.
@@ -135,8 +135,8 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
-* `esquema` Cadena
-* `manejador` Función 
+* `scheme` String
+* `manejador` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -148,8 +148,8 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
       * `method` String
       * `session` Object (opcional)
       * `uploadData` Object (opcional) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` String - Tipo MIME del contenido.
+        * `data` String - Contenido a ser enviado.
 * `completion` Function (opcional) 
   * `error` Error
 
