@@ -17,14 +17,14 @@ El objeto de los`sistemasdePreferencias`emiten los siguietes eventos:
 
 Devuelve:
 
-* `event` Evento
-* `nuevoColor` Cadena - El nuevo color RGBA que el usuario asignó para ser su color de acento del sistema.
+* `event` Event
+* `nuevoColor` String - El nuevo color RGBA que el usuario asignó para ser su color de acento del sistema.
 
 ### Event: 'color-changed' *Windows*
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 
 ### Evento: 'color-invertido-esquema-cambiado' *Windows*
 
@@ -101,9 +101,9 @@ Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotifica
 * `llave` Cadena
 * `type` Cadena - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+Devuelve `any` - El valor de `Key` en `NSUserDefaults`.
 
-Some popular `key` and `type`s are:
+Algún `key` y `type`s populares:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -119,11 +119,11 @@ Some popular `key` and `type`s are:
 * `type` Cadena - Ver [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` Cadena
 
-Set the value of `key` in `NSUserDefaults`.
+Establece el valor de `key` en `NSUserDefaults`.
 
 Nota que `type` debería coincidir el tipo actual de `value`. Una excepción es arrojada si no es así.
 
-Some popular `key` and `type`s are:
+Algún `key` y `type`s populares:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -131,7 +131,7 @@ Some popular `key` and `type`s are:
 
 * `llave` Cadena
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+Elimina el `key` en `NSUserDefaults`. Puede usarse para reestablecer el valor por defecto o el valor global de un `key` establecido previamente con `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
