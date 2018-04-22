@@ -93,7 +93,7 @@ La retrollamada es invocada con el tamaño actual de caché usado en la sesión.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Invocada cuando la operación finaliza
+* `callback` Function - Invocada cuando la operación ha finalizado
 
 Borra la memoria caché del HTTP de la sesión.
 
@@ -101,9 +101,9 @@ Borra la memoria caché del HTTP de la sesión.
 
 * `options` Object (opcional) 
   * `origin` String - (opcional) Debe seguir la representación de `window.location.origin` `scheme://host:port`.
-  * `storages` String[] - (optional) Los tipos de almacenaje a limpiar, pueden contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` Cadena[] - (opcional) El tipo de acciones que borrar, puede contener: `temporary`, `persistent`, `syncable`.
-* `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación.
+  * `storages` String[] - (optional) Los tipos de almacenaje a limpiar, puede contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
+  * `quotas` String[] - (optional) El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`.
+* `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
 Borra los datos de almacenamiento web.
 
@@ -140,7 +140,7 @@ Por ejemplo:
 * `foopy:80,bar,direct://` - Usa proxy HTTP `foopy:80` para todas las URLs, no sobre `bar` si`foopy:80` no está disponible, y después de eso no usar ningún proxy.
 * `socks4://foopy` - Usa SOCKS v4 proxy `foopy:1080` para todas las URLs.
 * `http=foopy,socks5://bar.com` - Usa HTTP proxy `foopy` para las URLs http, y falla para el proxy SOCKS5 `bar.com` si `foopy` no está disponible.
-* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy,direct://` - Usa el proxy HTTP `foopy` para URLs http, y no usa el proxy si `foopy` no está disponible.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
 El `proxyBypassRules` es una lista separada por comas de las reglasa que se describen a continuación:
@@ -215,9 +215,9 @@ Deshabilita cualquier emulación de red activa durante la `sesión`. Reinicia a 
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Función 
+* `proc` Function 
   * `request` Object 
-    * `hostname` Cadena
+    * `hostname` String
     * `certificate` [certificate](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
