@@ -62,7 +62,7 @@ Los siguientes eventos están disponibles en instancias de `Session`:
 
 #### Evento: 'will-download'
 
-* `event` Evento
+* `event` Event
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -86,22 +86,22 @@ Los siguientes métodos están disponibles para instancias de `Sesión`:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Función 
-  * `tamaño` Entero - Tamaño de memoria caché usada en bites.
+* `callback` Function 
+  * `size` Integer - Tamaño en bytes del caché usado.
 
-Llamar es invocado con el tamaño actual en memoria caché de la sesión.
+La retrollamada es invocada con el tamaño actual de caché usado en la sesión.
 
 #### `ses.clearCache(callback)`
 
-* `Llamada` Funcion - Llamada cuando la operación está completada
+* `callback` Function - Invocada cuando la operación finaliza
 
 Borra la memoria caché del HTTP de la sesión.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `opciones` Object (opcional) 
-  * `origen` Cadena - (opcional) Debe seguir la representación de `window.location.origin` `scheme://host:port`.
-  * `Almacenajes` Cadena[] - (opcional) Los almacenes para borra, puede contener: `Caché de la aplicación`, `cookies`, `Archivos de sistema`, `indexdb`, `Almacenamiento local`, `Caché compartido`, `websql`, `serviceworkers`
+* `options` Object (opcional) 
+  * `origin` String - (opcional) Debe seguir la representación de `window.location.origin` `scheme://host:port`.
+  * `storages` String[] - (optional) Los tipos de almacenaje a limpiar, pueden contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` Cadena[] - (opcional) El tipo de acciones que borrar, puede contener: `temporary`, `persistent`, `syncable`.
 * `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación.
 
