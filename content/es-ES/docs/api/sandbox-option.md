@@ -1,4 +1,4 @@
-# Opciones de la `caja de arena`
+# `sandbox` Option
 
 > Crea una ventana en el navegador con un renderizador que corra dentro de la caja de arena del sistema operativo de Chromium. Con esta opción activada, la renderización debe comunicarse vía IPC al procesador principal para poder acceder a los nodos API. Sin embargo, con el fin de activar la caja de arena de Chromium OS, Electron debe ser ejecutado con el argumento del comando de linea `--enable-sandbox`.
 
