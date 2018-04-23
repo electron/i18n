@@ -16,4 +16,4 @@ Damit zusätzliche Benachrichtigungs-Buttons unter macOS funktionieren, muss dei
 * App is signed
 * App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
 
-If either of these requirements are not met the button simply won't appear.
+Ist eine dieser Voraussetzungen nicht erfüllt, wird der Button einfach nicht angezeigt.
