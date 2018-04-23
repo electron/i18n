@@ -495,7 +495,7 @@ win.loadURL('http://github.com')
 
 Devtools penceresi webContents'ü yeniden yüklemeye yönlendirdiğinde çıkar
 
-#### Event: 'will-attach-webview'
+#### Olay: 'will-attach-webview'
 
 Dönüşler:
 
@@ -509,7 +509,7 @@ Bu event, `<webview>` yüklenmeden önce ` webContents`'inin `webPreferences<0>'
 
 **Not:** Belirtilen `önyükleme` komut seçeneği `webPreferences` nesnesinin ` preloadURL`'u (`preload` değil) bu event'te gönderildikten sonra gözükecektir.
 
-#### Event: 'did-attach-webview'
+#### Olay: 'did-attach-webview'
 
 Dönüşler:
 
@@ -822,9 +822,9 @@ Odaklanmış öğeye `metin` ekler.
   * `wordStart` Boolean - (isteğe bağlı) Sadece kelime başlarına bakılıp bakılmayacağı, varsayılan olarak `false`'tur.
   * `medialCapitalAsWordStart` Boolean - (İsteğe bağlı) `wordStart` ile birleştirildiğinde, eğer eşleşme büyük harfle başlayıp küçük harf veya harf olmayan ifadeyle devam ediyorsa, eşleşmeyi kabul eder. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
 
-Returns `Integer` - The request id used for the request.
+`Integer` döndürür - İstek için kullanılan istek kimliği.
 
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlatır. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -862,7 +862,7 @@ Herhangi bir ServiceWorker kaydı olup olmadığını kontrol eder ve `callback`
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `geri aramak` Function 
+* `geri aramak` Fonksiyon 
   * `success` Boolean
 
 Olan bütün ServiceWorker'ların kaydını siler ve JS promise çözüldüğünde veya reddedildiğinde, `callback`'e cevap olarak bir boolean döner.
@@ -1203,7 +1203,7 @@ WebRTC IP yönetme ilkesini ayarlamak size hangi IPlerin WebRTC tarafından gös
 
 #### `contents.id`
 
-A `Integer` representing the unique ID of this WebContents.
+Bu WebContents'in benzersiz kimliğini gösteren `Integer`.
 
 #### `contents.session`
 

@@ -196,4 +196,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+启动开发过程的有关模板文件和工具列表, 请参阅模板文件和 CLI 文档 。

@@ -142,21 +142,21 @@ Crea una nueva instancia `NativeImage` desde `dataURL`.
 
 Devuelve `NativeImage`
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el nombre especificado. Ver [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) para una lista de posibles valores.
 
 El `hslShift` se aplica a la imagen con las siguientes reglas
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
- 0 = remove all lightness (make all pixels black).  
- 0.5 = leave unchanged.  
- 1 = full lightness (make all pixels white).
+* `hsl_shift[0]` (tonalidad): El valor de tonalidad absoluto para la imagen - 0 y 1 se mapean a 0 y 360 en la rueda de tonalidad de color (rojo).
+* `hsl_shift[1]` (saturación): Cambio en la saturación de la imagen, con las siguientes valores clave:  
+ 0 = eliminar todo el color.  
+ 0.5 = sin cambios.  
+ 1 = saturación completa de la imagen. 
+* `hsl_shift[2]` (luminosidad): Cambio en la luminosidad de la imagen, con los siguientes valores clave:  
+ 0 = elimina toda la luminosidad (convierte todos los píxeles al negro).  
+ 0.5 = sin cambios.  
+ 1 = luminosidad al máximo (convertie todos los píxeles al blanco).
 
-This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+Esto significa que `[-1, 0, 1]` hará la imagen completamente blanca y `[-1, 1, 0]` la hará completamente negra.
 
 ## Clase: NativeImage
 

@@ -21,7 +21,7 @@ your-app/
 npm init
 ```
 
-npm은 기본 `package.json`파일을 생성하여 여러분에게 정보를 줄 것입니다. `main` 필드에 명시된 스크립트는 여러분의 앱을 시작하는 스크립트이며, 메인 프로세스에서 실행될 것입니다. `package.json`은 아래와 같은 모습일 것입니다:
+npm은 기본적인 `package.json`파일을 생성하여 여러분에게 정보를 줄 것입니다. `main` 필드에 명시된 스크립트는 여러분의 앱을 시작하는 스크립트이며, 메인 프로세스에서 실행될 것입니다. `package.json`은 아래와 같은 모습일 것입니다:
 
 ```json
 {
@@ -31,7 +31,7 @@ npm은 기본 `package.json`파일을 생성하여 여러분에게 정보를 줄
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (just like Node.js itself). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**주의사항**: `package.json`에 `main` 필드가 없는 경우, Electron은 (Node.js 처럼) `index.js`를 로드하려고 할 것입니다. 이것이 간단한 Node 애플리케이션이었다면, 현재 패키지를 실행하는 `node` 명령어를 `start` 스크립트를 통해 추가할 수 있습니다.
 
 ```json
 {
@@ -44,7 +44,7 @@ npm은 기본 `package.json`파일을 생성하여 여러분에게 정보를 줄
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+이 Node 애플리케이션을 Electron 애플리케이션으로 전환하는 것은 매우 간단합니다 -`node` 런타임을 `electron` 런타임으로 변경하기만 하면 됩니다.
 
 ```json
 {
@@ -57,7 +57,7 @@ Turning this Node application into an Electron application is quite simple - we 
 }
 ```
 
-## Installing Electron
+## Electron 설치하기
 
 At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
 

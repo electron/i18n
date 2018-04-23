@@ -130,7 +130,7 @@ Returns `Promise` - A promise that resolves with the result of the executed code
 
 Вычисляет `code` на странице.
 
-В окне браузера некоторые HTML API как `requestFullScreen` может быть только вызван жестом пользователя. Setting `userGesture` to `true` will remove this limitation.
+В окне браузера некоторые HTML API как `requestFullScreen` может быть только вызван жестом пользователя. Указание `userGesture` как `true` снимает это ограничение.
 
 ### `webFrame.getResourceUsage()`
 
@@ -169,4 +169,4 @@ console.log(webFrame.getResourceUsage())
 
 Пытается освободить память, которая больше не используется (например, изображения из предыдущей навигации).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Обратите внимание, что безрассудный вызов этого метода вероятно замедлит Electron, поскольку ему придется чистить кэши даже если они уже пустые, так что этот метод следует вызывать только в случае, когда вы уверены, что страница стала использовать меньше памяти (например, произошел переход с супер-тяжёлой страницы на лёгкую без ожидаемого возврата обратно на тяжёлую).

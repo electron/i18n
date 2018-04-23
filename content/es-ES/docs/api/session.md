@@ -1,4 +1,4 @@
-# sesión
+# session
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
@@ -62,7 +62,7 @@ Los siguientes eventos están disponibles en instancias de `Session`:
 
 #### Evento: 'will-download'
 
-* `event` Evento
+* `event` Event
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -86,24 +86,24 @@ Los siguientes métodos están disponibles para instancias de `Sesión`:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Función 
-  * `tamaño` Entero - Tamaño de memoria caché usada en bites.
+* `callback` Function 
+  * `size` Integer - Tamaño en bytes del caché usado.
 
-Llamar es invocado con el tamaño actual en memoria caché de la sesión.
+La retrollamada es invocada con el tamaño actual de caché usado en la sesión.
 
 #### `ses.clearCache(callback)`
 
-* `Llamada` Funcion - Llamada cuando la operación está completada
+* `callback` Function - Invocada cuando la operación ha finalizado
 
 Borra la memoria caché del HTTP de la sesión.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `opciones` Object (opcional) 
-  * `origen` Cadena - (opcional) Debe seguir la representación de `window.location.origin` `scheme://host:port`.
-  * `Almacenajes` Cadena[] - (opcional) Los almacenes para borra, puede contener: `Caché de la aplicación`, `cookies`, `Archivos de sistema`, `indexdb`, `Almacenamiento local`, `Caché compartido`, `websql`, `serviceworkers`
-  * `quotas` Cadena[] - (opcional) El tipo de acciones que borrar, puede contener: `temporary`, `persistent`, `syncable`.
-* `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación.
+* `options` Object (opcional) 
+  * `origin` String - (opcional) Debe seguir la representación de `window.location.origin` `scheme://host:port`.
+  * `storages` String[] - (optional) Los tipos de almacenaje a limpiar, puede contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
+  * `quotas` String[] - (optional) El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`.
+* `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
 Borra los datos de almacenamiento web.
 
@@ -140,8 +140,8 @@ Por ejemplo:
 * `foopy:80,bar,direct://` - Usa proxy HTTP `foopy:80` para todas las URLs, no sobre `bar` si`foopy:80` no está disponible, y después de eso no usar ningún proxy.
 * `socks4://foopy` - Usa SOCKS v4 proxy `foopy:1080` para todas las URLs.
 * `http=foopy,socks5://bar.com` - Usa HTTP proxy `foopy` para las URLs http, y falla para el proxy SOCKS5 `bar.com` si `foopy` no está disponible.
-* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+* `http=foopy,direct://` - Usa el proxy HTTP `foopy` para URLs http, y no usa el proxy si `foopy` no está disponible.
+* `http=foopy;socks=foopy2` - Usa el proxy HTTP `foopy` para URLs HTTP, y usa `socks4://foopy2` para el resto de URLs.
 
 El `proxyBypassRules` es una lista separada por comas de las reglasa que se describen a continuación:
 
@@ -215,15 +215,15 @@ Deshabilita cualquier emulación de red activa durante la `sesión`. Reinicia a 
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Función 
+* `proc` Function 
   * `request` Object 
-    * `hostname` Cadena
+    * `hostname` String
     * `certificate` [certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
-  * `callback` Función 
-    * `verificationResult` Entero - Valor que puede ser uno de los códigos de error certificado de [aquí](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Además de los códigos de error certificado, los siguientes códigos especiales pueden ser usados. 
-      * `` - Indicates success and disables Certificate Transparency verification.
+    * `verificationResult` String - Resultado de la verificación de chromium.
+    * `errorCode` Integer - Código de error.
+  * `callback` Function 
+    * `verificationResult` Integer - Valor que puede ser uno de los códigos de error certificado de [aquí](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Además de los códigos de error certificado, los siguientes códigos especiales pueden ser usados. 
+      * `` - Indica éxito y deshabilita la verificación Certificate Transparency.
       * `-2` - Indica falla.
       * `-3` - Usa el resultado de verificación de chromium.
 
@@ -253,7 +253,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Función 
     * `permiso concedido` Booleano - Permiso o denegado de permiso
 
-Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. To clear the handler, call `setPermissionRequestHandler(null)`.
+Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. Para limpiar el manejador, llamar a `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
@@ -284,7 +284,7 @@ const {session} = require('electron')
 // para autenticación integrada.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// considera todas las Urls para autenticación integrada.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
