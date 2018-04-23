@@ -11,7 +11,7 @@
 
 ### Button Unterstützung auf macOS
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+Damit zusätzliche Benachrichtigungs-Buttons unter macOS funktionieren, muss deine App die folgenden Kriterien erfüllen.
 
 * App is signed
 * App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
