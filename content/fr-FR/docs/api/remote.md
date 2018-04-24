@@ -119,7 +119,7 @@ app.on('ready', () => { /* ... */ })
 ```
 
 ```js
-// some relative module: main/foo.js
+// un module relatif: main/foo.js
 module.exports = 'bar'
 ```
 
