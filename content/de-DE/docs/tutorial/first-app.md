@@ -21,7 +21,7 @@ Erstelle ein neues leeres Verzeichnis für deine Electron Anwendung. Öffne die 
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm wird dich schrittweise durch die Erstellung einer `package.json` Datei führen. Das Skript, welches im `main` Feld angegeben wird, ist das Start Skript deiner Anwendung, welches den Hauptprozess startet. An example of your `package.json` might look like this:
 
 ```json
 {
