@@ -3,10 +3,10 @@
 # Issues
 
 * [Comment contribuer dans les Issues](#how-to-contribute-in-issues)
-* [Asking for General Help](#asking-for-general-help)
-* [Submitting a Bug Report](#submitting-a-bug-report)
+* [Demander de l'aide générale](#asking-for-general-help)
+* [Envoi d'un rapport de bug](#submitting-a-bug-report)
 * [Triaging a Bug Report](#triaging-a-bug-report)
-* [Resolving a Bug Report](#resolving-a-bug-report)
+* [Résolution d'un rapport de bug](#resolving-a-bug-report)
 
 ## Comment contribuer dans les Issues
 
@@ -16,11 +16,11 @@ For any issue, there are fundamentally three ways an individual can contribute:
 2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
-## Asking for General Help
+## Demander de l'aide générale
 
 Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
 
-## Submitting a Bug Report
+## Envoi d'un rapport de bug
 
 When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
 
@@ -76,6 +76,6 @@ Terse responses that provide neither additional context nor supporting detail ar
 
 Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
-## Resolving a Bug Report
+## Résolution d'un rapport de bug
 
 Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
