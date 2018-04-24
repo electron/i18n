@@ -4,9 +4,9 @@ Electron ermöglicht Ihnen Desktop-Applikationen mittels reinem JavaScript zu er
 
 Das bedeutet nicht, dass Electron's JavaScript an Bibliotheken für die grafische Oberfläche (GUI) gebunden ist. Anstattdessen benutzt Electron Webseiten als GUI. Man könnte es auch als eine Art abgespeckten Chromium Browser ansehen, welcher durch JavaScript gesteuert wird.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Hinweis**: Dieses Beispiel ist auch verfügbar als Repository, dieses können Sie [herunterladen und sofort ausführen](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+Was die Entwicklung betrifft, so ist eine Electron Anwendung grundlegend eine Node.js Anwendung. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
 ```text
 your-app/
@@ -181,9 +181,9 @@ Zu guter Letzt die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
-## Trying this Example
+## Beispiel-Anwendung
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Klonen und führen sie den Code für dieses Tutorial mithilfe folgendem Repository aus: [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
 **Hinweis**: Das Ausführen erfordert [Git](https://git-scm.com).
 
