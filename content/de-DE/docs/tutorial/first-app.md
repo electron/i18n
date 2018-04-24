@@ -21,7 +21,7 @@ Erstelle ein neues leeres Verzeichnis für deine Electron Anwendung. Öffne die 
 npm init
 ```
 
-npm wird dich schrittweise durch die Erstellung einer `package.json` Datei führen. Das Skript, welches im `main` Feld angegeben wird, ist das Start Skript deiner Anwendung, welches den Hauptprozess startet. An example of your `package.json` might look like this:
+npm wird dich schrittweise durch die Erstellung einer `package.json` Datei führen. Das Skript, welches im `main` Feld angegeben wird, ist das Start Skript deiner Anwendung, welches den Hauptprozess startet. Ein Beispiel für Ihre `package.json` könnte wie folgt aussehen:
 
 ```json
 {
@@ -67,9 +67,9 @@ npm install --save-dev electron
 
 Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
 
-## Electron Development in a Nutshell
+## Electron-Entwicklung auf einen Blick
 
-Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron Anwendungen werden in JavaScript entwickelt, wobei die gleichen Prinzipien und Methoden wie in der in Node.js Entwicklung Anwendung finden. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
 
 ```javascript
 const electron = require('electron')
