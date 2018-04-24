@@ -42,11 +42,11 @@ Dès la version 2.0, Electron va appliquer semver.
 
 Ci-dessous, une table explicitant les types de changement avec leur catégorie correspondante semver (par exemple Majeur, Mineur, Correctif).
 
-| Incréments de version Majeure        | Incréments de version mineure            | Incréments de version de Correctifs |
-| ------------------------------------ | ---------------------------------------- | ----------------------------------- |
-| changement Electron qui altère l'API | changement Electron n'altérant pas l'API | Mises à jour de correctif Electron  |
-| Node.js major version updates        | Node.js minor version updates            | Node.js patch version updates       |
-| mises à jour de version Chromium     |                                          | mises à jour de correctifs Chromium |
+| Incréments de version Majeure        | Incréments de version mineure                 | Incréments de version de Correctifs |
+| ------------------------------------ | --------------------------------------------- | ----------------------------------- |
+| changement Electron qui altère l'API | changement Electron n'altérant pas l'API      | Mises à jour de correctif Electron  |
+| Node.js major version updates        | Mises à jour mineure de la version de Node.js | Node.js patch version updates       |
+| mises à jour de version Chromium     |                                               | mises à jour de correctifs Chromium |
 
 Veuillez noter que les mises à jour de Chromium seront considérées comme impactantes. Les corrections qui pourront être rétroportées seront probablement marquées comme correctifs.
 
