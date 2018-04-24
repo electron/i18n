@@ -69,7 +69,7 @@ Other means for installing Electron exist. Please consult the [installation guid
 
 ## Electron-Entwicklung auf einen Blick
 
-Electron Anwendungen werden in JavaScript entwickelt, wobei die gleichen Prinzipien und Methoden wie in der in Node.js Entwicklung Anwendung finden. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron Anwendungen werden in JavaScript entwickelt, wobei die gleichen Prinzipien und Methoden wie in der in Node.js Entwicklung Anwendung finden. Alle APIs und Features von Electron sind zugänglich durch das `electron`-Modul, das wie jedes andere Node.js-Modul eingebunden werden kann:
 
 ```javascript
 const electron = require('electron')
@@ -83,7 +83,7 @@ const path = require('path')
 const url = require('url')
 
 function createWindow () {
-  // Create the browser window.
+  // Erzeugung des Browser Fensters
   win = new BrowserWindow({width: 800, height: 600})
 
   // und Laden der index.html der App.
@@ -177,7 +177,7 @@ Zu guter Letzt die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 </html>
 ```
 
-## Running Your App
+## Starten deiner Anwendung
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
@@ -185,16 +185,16 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**Hinweis**: Das Ausführen erfordert [Git](https://git-scm.com).
 
 ```sh
 # Klonen des Repositorys
 $ git clone https://github.com/electron/electron-quick-start
 # Verzeichniswechsel in das Repository
 $ cd electron-quick-start
-# Install dependencies
+# Installation von Abhängigkeiten
 $ npm install
-# Run the app
+# Start der Anwendung
 $ npm start
 ```
 
