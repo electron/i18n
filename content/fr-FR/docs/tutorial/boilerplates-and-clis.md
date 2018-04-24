@@ -16,7 +16,7 @@ A "complete tool for building modern Electron applications". Electron Forge unif
 
 Forge comes with [ready-to-use templates](https://electronforge.io/templates) for popular frameworks like React, Vue, or Angular. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+Vous pouvez trouver plus d'information et de documentation sur [electronforge.io](https://electronforge.io/).
 
 ## electron-builder
 
@@ -24,7 +24,7 @@ A "complete solution to package and build a ready-for-distribution Electron app"
 
 `electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+Vous pouvez trouver plus d'information et de documentation [ici](https://github.com/electron-userland/electron-builder).
 
 ## electron-react-boilerplate
 
@@ -32,4 +32,4 @@ If you don't want any tools but simply a solid boilerplate to build from, CT Lin
 
 ## Autres outils et boilerplates
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+La liste [ "Awesome Electron" ](https://github.com/sindresorhus/awesome-electron#boilerplates) contient plus d'outils et de passe-partout. Si vous trouvez la longueur de la liste intimidante, n'oubliez pas que l'ajout d'outils au fur et à mesure est également une approche valable.
