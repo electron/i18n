@@ -19,7 +19,7 @@ Once you have determined which type of version change is needed, run the `prepar
 
 Par exemple :
 
-### Major version change
+### Changement de version majeure
 
 ```sh
 npm run prepare-release -- major
@@ -37,7 +37,7 @@ npm run prepare-release -- minor
 npm run prepare-release -- patch
 ```
 
-### Beta version change
+### Changement de la version bêta
 
 ```sh
 npm run prepare-release -- beta
@@ -112,7 +112,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 * Changed a Windows thing. #123
 ```
 
-### Major releases
+### Principales releases
 
 ```sh
 ## Upgrades
@@ -166,7 +166,7 @@ This release is published to [npm](https://www.npmjs.com/package/electron) under
 
 Once the release builds have finished, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Créez et téléversez le fichier SHASUMS256.txt sauvegardé sur la release de Github. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
-## Publish to npm
+## Publier sur le npm
 
 Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
 
