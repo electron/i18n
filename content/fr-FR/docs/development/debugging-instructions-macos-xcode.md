@@ -1,4 +1,4 @@
-## Debugging with XCode
+## Débogage avec XCode
 
 ### Build Debug Electron with Release libchromiumcontent
 
@@ -39,6 +39,6 @@ This will generate the electron.ninjs.xcworkspace. You will have to open this wo
 
 ### Debugging and breakpoints
 
-Launch electron app after build. You can now open the xcode workspace created above and attach to the electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
+Lancer l'application electron après le build. You can now open the xcode workspace created above and attach to the electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
 
-You can now set breakpoints in any of the indexed files. However, you will not be able to set breakpoints directly in the chromium source. To set break points in the chromium source, you can choose Debug > Breakpoints > Create Symbolic Breakpoint and set any function name as the symbol. This will set the breakpoint for all functions with that name, from all the classes if there are more than one. You can also do this step of setting break points prior to attaching the debugger, however, actual breakpoints for symbolic breakpoint functions may not show up until the debugger is attached to the app.
+Vous pouvez maintenant définir des points d'arrêt dans l'un des fichiers indexés. However, you will not be able to set breakpoints directly in the chromium source. To set break points in the chromium source, you can choose Debug > Breakpoints > Create Symbolic Breakpoint and set any function name as the symbol. This will set the breakpoint for all functions with that name, from all the classes if there are more than one. You can also do this step of setting break points prior to attaching the debugger, however, actual breakpoints for symbolic breakpoint functions may not show up until the debugger is attached to the app.
