@@ -237,14 +237,14 @@ win.on('hide', () => {
 
 * `opciones` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (opcional)
-  * `title` Cadena
+  * `title` String
   * `content` String
 
 Muestra un globo de la bandeja.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
+* `menu` Menu (opcional)
 * `position` [Point](structures/point.md) (optional) - La posición del elemento emergente.
 
 Aparece el menú de contexto del icono de la bandeja. Cuando se pasa `menu`, el `menu` se mostrará en lugar el menú de contexto del icono de la bandeja.
