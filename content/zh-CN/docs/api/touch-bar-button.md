@@ -15,7 +15,7 @@
 
 ### 实例属性
 
-The following properties are available on instances of `TouchBarButton`:
+下面的这些是`TouchBarButton`中的属性：
 
 #### `touchBarButton.label`
 
