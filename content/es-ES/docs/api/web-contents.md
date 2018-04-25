@@ -527,7 +527,7 @@ Devuelve:
 * `line` Íntegro
 * `sourceId` Cadena
 
-Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+Emitido cuando la ventana asociada registra un mensaje de consola. No se emite para ventanas con *Renderización fuera de pantalla* activado.
 
 ### Métodos de Instancia
 
