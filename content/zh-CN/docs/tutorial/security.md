@@ -36,7 +36,7 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 2. [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
 3. [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
 4. [在所有加载远程内容的会话中使用 `ses.setPermissionRequestHandler()`.](#handle-session-permission-requests-from-remote-content)
-5. [Do not disable `webSecurity`](#do-not-disable-websecurity)
+5. [不要禁用 ` webSecurity `](#do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
 7. [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
 8. [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
