@@ -37,7 +37,7 @@ Volver `WebContents` - El contenido web que se centra en esta aplicación, de lo
 
 * `id` Íntegro
 
-Returns `WebContents` - A WebContents instance with the given ID.
+Devuelve `WebContents` - Una instancia de WebContents con el ID especificado.
 
 ## Clase: ContenidoWeb
 
@@ -137,7 +137,7 @@ Devuelve:
 * `frameName` Cadena
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Objeto - las opciones que se usarán para crear crear el nuevo `BrowserWindow`.
-* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) pasadas a `window.open()`.
 
 Emite cuando la página solicita abrir una nueva ventana para una `url`. Podría ser solicitada por `window.open` or an external link like `<a target='_blank'>`.
 
@@ -193,7 +193,7 @@ Emitido cuando una navegación dentro de la página sucede.
 
 Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de esto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
-#### Event: 'will-prevent-unload'
+#### Evento: 'will-prevent-unload'
 
 Devuelve:
 
@@ -373,7 +373,7 @@ Emitido cuando el color de tema de una página cambia. Esto usualmente se debe a
 Devuelve:
 
 * `event` Evento
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `color` (String | null) - Tema de color en formato '#rrggbb'. Es `null` cuando no se ha establecido ningún tema.
 
 #### Evento: 'update-target-url'
 
@@ -384,7 +384,7 @@ Devuelve:
 
 Emitido cuando el mouse se mueve sobre un link o el teclado se mueve el concentrado a un link.
 
-#### Event: 'cursor-changed'
+#### Evento: 'cursor-changed'
 
 Devuelve:
 
@@ -441,7 +441,7 @@ Devuelve:
 
 Emitido cuando hay un nuevo menú de contexto que debe ser manejado.
 
-#### Event: 'select-bluetooth-device'
+#### Evento: 'select-bluetooth-device'
 
 Devuelve:
 
@@ -471,7 +471,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Evento: 'paint'
 
 Devuelve:
 
@@ -491,11 +491,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Evento: 'devtools-reload-page'
 
 Emitido cuando la ventana devtools instruya la webContents para recargar
 
-#### Event: 'will-attach-webview'
+#### Evento: 'will-attach-webview'
 
 Devuelve:
 
