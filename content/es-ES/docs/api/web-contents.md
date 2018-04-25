@@ -514,9 +514,9 @@ Este evento puede utilizarse para configurar `webPreferences` para la `webConten
 Devuelve:
 
 * `event` Evento
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* `webContents` WebContents - El contenido de la página web invitada que será usado por `<webview>`.
 
-Emitted when a `<webview>` has been attached to this web contents.
+Emitido cuando se ha adjuntado un `<webview>` a este contenido web.
 
 #### Evento: 'console-message'
 
