@@ -22,8 +22,8 @@ Vedi la [Documentazione Launcher Unity](https://help.ubuntu.com/community/UnityL
 
 ## File Rappresentato per macOS Finestra
 
-See the [Represented File documentation](represented-file.md).
+Vedi la [Documentazione File Rappresentanti](represented-file.md).
 
 ## Trascinamento di files fuori dalla finestra
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+Vedi la [Documentazione Trascina & Rilascia File Nativo](native-file-drag-drop.md).
