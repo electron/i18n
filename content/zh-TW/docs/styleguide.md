@@ -162,11 +162,11 @@ required[, optional]
 
 方法後接每個參數的詳細資訊。參數的類型可使用一般型別:
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* [`String`](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Number`](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Object`](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Array`](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`Boolean`](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * 或自訂類別，例如 Electron 的 [`WebContent`](api/web-contents.md)
 
 如果某個參數或方法只適用某些平臺，請將這些平臺以空格分隔的斜體清單標註在資料型別之後。 可用的值有 `macOS`, `Windows` 及 `Linux`。
@@ -211,4 +211,4 @@ required[, optional]
 
 ## 文件翻譯
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+參考 [electron/i18n](https://github.com/electron/i18n#readme)
