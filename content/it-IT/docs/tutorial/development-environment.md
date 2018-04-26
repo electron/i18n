@@ -46,9 +46,9 @@ Se entrambi i comandi hanno stampato un numero di versione, tutto è pronto! Pri
 
 > Generalmente parlando, Electron supporta Ubuntu 12.04, Fedora 21, Debian 8 e successive.
 
-Primo, installa una versione recente di Node.js. In base alla distribuzione Linux, le fasi di installazione potrebbero differire. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Primo, installa una versione recente di Node.js. In base alla distribuzione Linux, le fasi di installazione potrebbero differire. Considerato che tu installi normalmente il software usando la gestione pacchetto come `apt` o `pacman`, usa la [guida di installazione di Node.js per Linux](https://nodejs.org/en/download/package-manager/) ufficiale.
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Stai eseguendo Linux, quindi sai già come operare su un client della linea di comando. Apri il tuo client preferito e conferma che sia `node` che `npm` siano globalmente disponibili:
 
 ```sh
 # Questo comando dovrebbe stampare la versione di Node.js
@@ -60,8 +60,8 @@ npm -v
 
 Se entrambi i comandi hanno stampato un numero di versione, tutto è pronto! Prima di iniziare, puoi installare un [editor del codice](#a-good-editor) per lo sviluppo con JavaScript.
 
-## A Good Editor
+## Un Buon Editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+Potremmo suggerire due editor popolari gratuiti costruiti con Electron: GitHub [Atom](https://atom.io/) e [Visual Studio Code](https://code.visualstudio.com/) di Microsoft. Entrambi hanno un supporto JavaScript eccellente.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Se sei uno dei tanti sviluppatori con una forte preferenza, sappi che virtualmente tutti gli editor del codics e IDE ai giorni d'oggi supportano JavaScript.
