@@ -69,13 +69,13 @@ Há outros meios para instalar o Electron. Por favor, consulte o [guia de instal
 
 ## Desenvolvimento Electron em um Nutshell
 
-Aplicações em Electron são desenvolvidas em JavaScript utilizando os mesmos princípios e métodos encontrados no desenvolvimento em Node.js. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Aplicações em Electron são desenvolvidas em JavaScript utilizando os mesmos princípios e métodos encontrados no desenvolvimento em Node.js. Todas as APIs e funcionalidades encontradas no Electron estão acessíveis através do módulo do `electron`, que pode ser necessário, como qualquer outro módulo Node.js:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might just wait for the application to be ready and open a window:
+The `electron` module exposes features in namespaces. Como exemplos, o ciclo de vida da aplicação é gerenciado pelo `electron.app`, janelas podem ser criadas utilizando a classe `electron.BrowserWindow`. Um simples arquivo `main.js` que espera a aplicação estar pronta para então abrir uma janela:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
