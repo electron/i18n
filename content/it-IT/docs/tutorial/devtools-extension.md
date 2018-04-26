@@ -13,11 +13,11 @@ Usando gli [Strumenti Reazione Sviluppatore](https://chrome.google.com/webstore/
 1. Installalo nel browser Chrome.
 2. Naviga a `chrome://estensioni` e trova l'ID estensione che ha una stringa come `fmkadmapgofadopljbjfkapdkoienihi`.
 3. Trova la posizione file di sistema usata da Chrime per immagazzinare estensioni: 
-    * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * on Linux it could be: 
-        * `~/.config/google-chrome/Default/Extensions/`
-        * `~/.config/google-chrome-beta/Default/Extensions/`
-        * `~/.config/google-chrome-canary/Default/Extensions/`
+    * su Windows è `%LOCALAPPDATA%\Google\Chrome\DatiUtente\Predefinito\Estensioni`;
+    * su Linux potrebbe essere: 
+        * `~/.config/googe-chrome/Predefinito/Estensioni/`
+        * `~/.config/google-chrome-beta/Predefinito/Estensioni/`
+        * `~config/google-chrome-canary/Predefinito/Estensioni/`
         * `~/.config/chromium/Default/Extensions/`
     * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
 4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
