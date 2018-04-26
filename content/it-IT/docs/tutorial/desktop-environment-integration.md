@@ -1,26 +1,26 @@
 # Integrazione con ambiente Desktop
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Differenti sistemi operativi forniscono differenti caratteristiche per applicazioni desktop integranti nei loro ambienti desktop. Per esempio, su Windows, le app possono mettere le shortcut nella barra dei compiti della JumpList, e su mac, le app possono inserire un menu personalizzato nel menu dock.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Questa guida spiega come integrare la tua app in questi ambienti desktop con le API di Electron.
 
 ## Notifiche
 
-See the [Notifications documentation](notifications.md).
+Vedi la [Documentazione notifica](notifications.md).
 
 ## Documenti Recenti
 
-See [Recent Documents documentation](recent-documents.md).
+Vedi la [Documentazione Documenti Recenti](recent-documents.md).
 
 ## Progress Bar
 
-See the [Progress Bar documentation](progress-bar.md).
+Vedi la [Documentazione Barra Progresso](progress-bar.md).
 
 ## Unity Launcher
 
-See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Vedi la [Documentazione Launcher Unity](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-## Represented File for macOS Window
+## File Rappresentato per macOS Finestra
 
 See the [Represented File documentation](represented-file.md).
 
