@@ -6,7 +6,7 @@ Isso não significa que o Electron é uma ligação de Javascript a bibliotecas 
 
 **Nota**: Este exemplo também está disponível em um repositório você pode [baixa-lo e executa-lo imediatamente](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. O pronto de entrada é o `package.json`, semelhante ao módulos do Node.js. Uma aplicação Electron simples terá a estrutura abaixo:
+O desenvolvimento pode ser preocupante, porém, uma aplicação Electron é essencialmente uma aplicação Node.js. O pronto de entrada é o `package.json`, semelhante ao módulos do Node.js. Uma aplicação Electron simples terá a estrutura abaixo:
 
 ```text
 seu-app/
@@ -21,7 +21,7 @@ Crie uma nova pasta vazia para seu novo aplicativo em Electron. Abra seu termina
 npm init
 ```
 
-npm vai guiá-lo você para criação de um arquivo básico o `package.json`. The script specified by the `main` field is the startup script of your app, which will run the main process. Um exemplo de como seu `package.json` possa parecer:
+npm vai guiá-lo você para criação de um arquivo básico o `package.json`. O script especificado pelo campo `main` é o script de inicialização do seu app, que irá executar o processo principal. Um exemplo de como seu `package.json` possa parecer:
 
 ```json
 {
@@ -31,7 +31,7 @@ npm vai guiá-lo você para criação de um arquivo básico o `package.json`. Th
 }
 ```
 
-**Nota**: Se o campo `main` não estiver presente em `package.json`, Electron tentará carregar `index.js` (Assim como o Node.js). Se isso fosse realmente a simples aplicativo em Node, você adicionaria um `start` script, para instrui o `node` executar o pacote atual:
+**Nota**: Se o campo `main` não estiver presente em `package.json`, Electron tentará carregar `index.js` (Assim como o Node.js). Se isso fosse realmente um simples aplicativo em Node, você adicionaria um script `start`, para instruir o `node` para executar o pacote atual:
 
 ```json
 {
@@ -69,7 +69,7 @@ Há outros meios para instalar o Electron. Por favor, consulte o [guia de instal
 
 ## Desenvolvimento Electron em um Nutshell
 
-Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Aplicações em Electron são desenvolvidas em JavaScript utilizando os mesmos princípios e métodos encontrados no desenvolvimento em Node.js. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
 
 ```javascript
 const electron = require('electron')
