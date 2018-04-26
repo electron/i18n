@@ -1,10 +1,10 @@
 # Instrucciones para compilación (Windows)
 
-Siga las indicaciones a continuación para construir Electron en Windows.
+Siga las indicaciones a continuación para compilar Electron en Windows.
 
 ## Pre-requisitos
 
-* Windows 7 / Servidor 2008 R2 o superior
+* Windows 7 / Server 2008 R2 o superior
 * Visual Studio 2017 - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)

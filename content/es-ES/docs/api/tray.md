@@ -54,7 +54,7 @@ app.on('ready', () => {
 
 Si se quiere mantener los mismos comportamientos en todas las plataformas, no se debe confiar en el evento `click` y siempre hay que adjuntar el menú de contexto al icono de bandeja.
 
-### `new Tray(image)`
+### `nuevo Tray(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
@@ -162,7 +162,7 @@ Emitido cuando el ratón entra en el icono de la bandeja.
 
 Emitido cuando el ratón sale del icono de la bandeja.
 
-#### Event: 'mouse-move' *macOS*
+#### Evento: 'mouse-move' *macOS*
 
 * `event` Evento 
   * `altKey` Booleano
@@ -171,7 +171,7 @@ Emitido cuando el ratón sale del icono de la bandeja.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - La posición del evento
 
-Emitted when the mouse moves in the tray icon.
+Se emite cuando el ratón se mueve sobre el icono de la bandeja del sistema.
 
 ### Métodos de Instancia
 
@@ -236,15 +236,15 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `opciones` Object 
-  * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` Cadena
+  * `icon` ([NativeImage](native-image.md) | String) - (opcional)
+  * `title` String
   * `content` String
 
 Muestra un globo de la bandeja.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
+* `menu` Menu (opcional)
 * `position` [Point](structures/point.md) (optional) - La posición del elemento emergente.
 
 Aparece el menú de contexto del icono de la bandeja. Cuando se pasa `menu`, el `menu` se mostrará en lugar el menú de contexto del icono de la bandeja.

@@ -5,7 +5,7 @@
 * `flash_stage3d` String - Flash Stage3D
 * `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
 * `gpu_compositing` String - Compositing
-* `multiple_raster_threads` String - Multiple Raster Threads
+* `multiple_raster_threads` String - Raster Threads Multiples
 * `native_gpu_memory_buffers` String - GpuMemoryBuffers natif
 * `rasterization` String - Rasterization
 * `video_decode` String - Décodage vidéo
@@ -19,11 +19,11 @@ Valeurs possibles :
 * `disabled_software` - Logiciel uniquement. Accélération matérielle désactivée (jaune)
 * `disabled_off` - Désactivé (rouge)
 * `disabled_off_ok` - Désactivé (jaune)
-* `disabled_software` - Logiciel uniquement. Accélération matérielle indisponible (jaune)
+* `disabled_software` - Logiciel uniquement, accélération matérielle indisponible (jaune)
 * `unavailable_off` - Indisponible (rouge)
 * `unavailable_off_ok` - Indisponible (jaune)
-* `enabled_readback` - Matériel accélété mais à performance réduite (jaune)
+* `enabled_readback` - Matériel accéléré en dépit d'une performance réduite (jaune)
 * `enabled_force` - Accélération matérielle sur toutes les pages (vert)
-* `enabled` - Matérielle accéléré (vert)
+* `enabled` - Accélération matérielle (vert)
 * `enabled_on` - Activé (vert)
 * `enabled_force_on` - Activation forcée (vert)

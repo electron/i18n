@@ -4,15 +4,15 @@
 
 Proceso: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSlider(options)` *Experimental*
+### `nuevo TouchBarSlider(options)` *Experimental*
 
-* `opciones` Objeto 
-  * `label` Cadena (opcional) - Texto de etiqueta.
-  * `value` Entero (opcional) - Valor seleccionado.
-  * `minValue` Entero (opcional) - Valor mínimo.
-  * `maxValue` Entero (opcional) - Valor máximo.
-  * `change` Función (opcional) - Función para llamar cuando se cambie el control deslizante. 
-    * `newValue` Número - El valor que el usuario seleccionó en el control deslizante
+* `opciones` Object 
+  * `label` String (opcional) - Texto de etiqueta.
+  * `value` Integer (opcional) - Valor seleccionado.
+  * `minValue` Integer (opcional) - Valor mínimo.
+  * `maxValue` Integer (opcional) - Valor máximo.
+  * `change` Función (opcional) - Function para llamar cuando se cambie el control deslizante. 
+    * `newValue` Number - El valor que el usuario seleccionó en el control deslizante
 
 ### Propiedades de Instancia
 

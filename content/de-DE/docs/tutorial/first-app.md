@@ -1,12 +1,12 @@
-# Writing Your First Electron App
+# Deine erste Electron Anwendung
 
 Electron ermöglicht Ihnen Desktop-Applikationen mittels reinem JavaScript zu erstellen. Es wird eine Laufzeitumgebung mit umfangreichen nativen (auf Betriebssystemebene) APIs bereitgestellt. Sie können sich Electron als eine Variante der Node.js-Runtime vorstellen, die sich auf Desktop-Apps anstatt auf Webserver fokussiert.
 
 Das bedeutet nicht, dass Electron's JavaScript an Bibliotheken für die grafische Oberfläche (GUI) gebunden ist. Anstattdessen benutzt Electron Webseiten als GUI. Man könnte es auch als eine Art abgespeckten Chromium Browser ansehen, welcher durch JavaScript gesteuert wird.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Hinweis**: Dieses Beispiel ist auch verfügbar als Repository, dieses können Sie [herunterladen und sofort ausführen](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+Was die Entwicklung betrifft, so ist eine Electron Anwendung grundlegend eine Node.js Anwendung. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
 ```text
 your-app/
@@ -15,13 +15,13 @@ your-app/
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+Erstelle ein neues leeres Verzeichnis für deine Electron Anwendung. Öffne die Kommandozeile und führe `npm init` in diesem Verzeichnis aus.
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm wird dich schrittweise durch die Erstellung einer `package.json` Datei führen. Das Skript, welches im `main` Feld angegeben wird, ist das Start Skript deiner Anwendung, welches den Hauptprozess startet. Ein Beispiel für Ihre `package.json` könnte wie folgt aussehen:
 
 ```json
 {
@@ -67,9 +67,9 @@ npm install --save-dev electron
 
 Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
 
-## Electron Development in a Nutshell
+## Electron-Entwicklung auf einen Blick
 
-Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron Anwendungen werden in JavaScript entwickelt, wobei die gleichen Prinzipien und Methoden wie in der in Node.js Entwicklung Anwendung finden. Alle APIs und Features von Electron sind zugänglich durch das `electron`-Modul, das wie jedes andere Node.js-Modul eingebunden werden kann:
 
 ```javascript
 const electron = require('electron')
@@ -83,7 +83,7 @@ const path = require('path')
 const url = require('url')
 
 function createWindow () {
-  // Create the browser window.
+  // Erzeugung des Browser Fensters
   win = new BrowserWindow({width: 800, height: 600})
 
   // und Laden der index.html der App.
@@ -177,24 +177,24 @@ Zu guter Letzt die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 </html>
 ```
 
-## Running Your App
+## Starten deiner Anwendung
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
-## Trying this Example
+## Beispiel-Anwendung
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Klonen und führen sie den Code für dieses Tutorial mithilfe folgendem Repository aus: [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**Hinweis**: Das Ausführen erfordert [Git](https://git-scm.com).
 
 ```sh
 # Klonen des Repositorys
 $ git clone https://github.com/electron/electron-quick-start
 # Verzeichniswechsel in das Repository
 $ cd electron-quick-start
-# Install dependencies
+# Installation von Abhängigkeiten
 $ npm install
-# Run the app
+# Start der Anwendung
 $ npm start
 ```
 

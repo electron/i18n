@@ -15,16 +15,16 @@
 
 ### 实例属性
 
-The following properties are available on instances of `TouchBarButton`:
+下面的这些是`TouchBarButton`中的属性：
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+用一个`String`展示按钮里面当前文本。改变这个值会即时刷新。
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+用一个16进制`String`定义按钮的背景色。改变这个值会即时刷新。
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+用一个`NativeImage`定义按钮上的图标。改变这个值会即时刷新。
