@@ -1,18 +1,18 @@
 # Estensione DevTools
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+Electron supporta l'[Estensione StrumentiDispositivo Chrome](https://developer.chrome.com/extensions/devtools) che può essere usata per estendere l'abilità degli strumenti dispositivo per il debugging di popolari framework del web.
 
-## How to load a DevTools Extension
+## Come caricare un'Estensione StrumentiDispositivo
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Questo documento descrive come caricare manualmente un'estensione. Puoi anche provare [installatore-strumentidispositivo-electron](https://github.com/GPMDP/electron-devtools-installer), uno strumento di terze parti che scarica estensioni direttamente dal Negozio Web di Chrome.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Per caricare un'estensione in Electron, devi scaricarla nel browser di Chrome, localizzarne il percorso nei file di sistema e caricarli chiamando l'API `BrowserFinestra.aggiungiEstensioneStrumentoDispositivo(estensione)`.
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+Usando gli [Strumenti Reazione Sviluppatore](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) per esempio:
 
-1. Install it in Chrome browser.
-2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Find out filesystem location used by Chrome for storing extensions: 
+1. Installalo nel browser Chrome.
+2. Naviga a `chrome://estensioni` e trova l'ID estensione che ha una stringa come `fmkadmapgofadopljbjfkapdkoienihi`.
+3. Trova la posizione file di sistema usata da Chrime per immagazzinare estensioni: 
     * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
     * on Linux it could be: 
         * `~/.config/google-chrome/Default/Extensions/`
