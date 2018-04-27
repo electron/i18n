@@ -48,7 +48,7 @@ Puoi usare le variabili ambiente per annullare l'URL base, il percorso a cui si 
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+Per istanza, usare lo specchio Cina:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -56,17 +56,17 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Alternativamente, puoi annullare la cache locale. `electron-download` accumulerà i binari scaricati in una directory locale per non stressare la tya rete. Puoi usare la cartella della cache per fornire build personalizzate di Electron o per evitare di entrare totalmente a contatto con la rete.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* MacOS: `~/Libreria/Caches/electron/`
+* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Locale/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+In ambienti che usano versioni di Electron precedenti, potresti trovare la cache anche in `~/.electron`.
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+Puoi anche annullare la posizione della cache locale fornendo una variabile ambiente `ELECTRON_CACHE`.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+La cache contiene il file zip ufficiale così come una somma di dati, archiviati come file di testo. Una cache tipica potrebbe sembrare come la seguente:
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -89,18 +89,18 @@ In quasi tutti i casi, questi errori sono il risultato di problemi di rete e non
 
 Puoi anche provare a scaricare Electron direttamente da [electron/electron/releases](https://github.com/electron/electron/releases) se l'installazione tramite `npm` non funziona.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Se l'installazione fallisce con un errore `EACCESS` potresti necessitare di [risolvere i tuoi permessi npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Se l'errore suddetto persiste, la bandiera [permesso-insicuro](https://docs.npmjs.com/misc/config#unsafe-perm) potrebbe necessitare di essere impostata su true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+Su reti più lenti potrebbe essere corretto usare la bandiera `--verbose` per mostrare i progressi di download:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+Se devi forzare un ri-scaricamento dell'assetto e il file SHASUM della variabile ambiente `forza_no_cache` è impostata su `true`.
