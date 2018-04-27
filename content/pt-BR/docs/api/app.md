@@ -860,11 +860,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` no *macOS*
 
-Hides the dock icon.
+Esconde o ícone na Dock.
 
 ### `app.dock.show()` no *macOS*
 
-Shows the dock icon.
+Mostra o ícone na Dock.
 
 ### `app.dock.isVisible()` no *macOS*
 
@@ -874,10 +874,10 @@ Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Seta o [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) da aplicação.
 
 ### `app.dock.setIcon(image)` no *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+Seta a `imagem` associada com o ícone do dock.
