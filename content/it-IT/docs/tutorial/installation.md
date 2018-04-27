@@ -6,7 +6,7 @@ Per l'installazione di file binari precompilati, usa [`npm`](https://docs.npmjs.
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
+Vedi il [documento di versione Electron](./electron-versioning.md) per informazioni su come gestire le versioni di Electron nelle tue app.
 
 ## Installazione globale
 
@@ -24,25 +24,25 @@ Se desideri modificare l'architettura che verrà scaricata (ad esempio, `ia32` s
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Inoltre per cambiare architettura, puoi anche specificare la piattaforma (ad esempio, `win32`, `linux`, etc.) usando la bandiera `--piattaforma`:
 
 ```shell
 npm install --platform=win32 electron
 ```
 
-## Proxies
+## Proxy
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+Se devi usare un proxy HTTP puoi [impostare queste variabili ambiente](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Custom Mirrors and Caches
+## Personalizza Specchi e Cache
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Durante l'installazione, il modulo `electron` richiamerà il [`download-electron`](https://github.com/electron-userland/electron-download) per scaricare binari precostruiti di Electron per la tua piattaforma. Lo farà contattanto la pagina di rilascio download di GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, dove `$VERSION` è l'esatta versione di Electron).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Se non puoi accedere a GitHub o necessiti di fornire una build personalizzata, puoi farla o fornendo uno specchio o una directory della cache esistente.
 
-#### Mirror
+#### Specchio
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+Puoi usare le variabili ambiente per annullare l'URL base, il percorso a cui si guarda per i binari Electron e per i nomi dei file binari. L'url usata da `electron-download` è composta come segue:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
