@@ -1,67 +1,67 @@
-# Developer Environment
+# Ambiente Sviluppatore
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Lo sviluppo Electron è essenzialmente lo sviluppo Node.js. Per variare il tuo sistema operativo in un ambiente capiente delle app di costruzione desktop con Electron, dovrai meramente necessitare Node.js, npm, un editor di codice a tua scelta ed una conoscenza rudimentale delle linee di comando del client del tuo sistema operativo.
 
-## Setting up macOS
+## Configurazione su macOS
 
-> Electron supports Mac OS X 10.9 (and all versions named macOS) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron supporta Mac OS X 10.9 (e tutte le versioni nominate macOS) e superiori. Apple Non consente l'esecuzione di macOS in macchine virtuali a meno che il computer ospitante sia già un computer apple, così se ti trovi in bisogno di un Mac, considera di usare un servizio cloud che noleggi accessi ai Mac (come [MacInCloud](https://www.macincloud.com/) o [xcloud](https://xcloud.me)).
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+Primo, installa una versione recente di Node.js. Ti raccomandiamo do installare almeno l'ultima `LTS` o `Corrente` versione disponibile. Visita la [pagina di download di Node.js](https://nodejs.org/en/download/) e seleziona l'`Installatore macOS`. Mentre Homebrew è un'opzione offerta, ma raccomandiamo di non usarla, degli strumenti saranno incompatibili con il metodo di installazione di Node.js da Homebrew.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Una volta scaricato, esegui l'installatore e permetti di essere guidato per l'installazione.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by simply search for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Una volta installato, conferma che tutto lavori come aspettato. Trova l'app `Terminale` di macOS nella tua cartella `/Applicazioni/Utilità` (o cercando semplicemente la parola `Terminale` in Spotlight). Apri il `Terminale` o un'altra linea di comando del client a tua scelta e conferma che sia `node` che `npm` siano disponibili:
 
 ```sh
-# This command should print the version of Node.js
-node -v
+# Questo comando dovrebbe stampare la versione di Node.js
+Node -v
 
-# This command should print the version of npm
+#Questo dovrebbe stampare la versione di npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Se entrambi i comandi hanno stampato un numero di versione, tutto è pronto! Prima di iniziare, puoi installare un [editor del codice](#a-good-editor) per lo sviluppo con JavaScript.
 
-## Setting up Windows
+## Configurazione su Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electon supporta Windows 7 e versioni successive, provando a sviluppare app di Electron su versioni precedenti di Windows non funzionerebbe. Microsoft fornisce [immagini macchina virtuale con Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) gratuite per sviluppatori.
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Primo, installa una versione recente di Node.js. Ti raccomandiamo do installare almeno l'ultima `LTS` o `Corrente` versione disponibile. Visita la [pagina di download di Node.js](https://nodejs.org/en/download/) e seleziona l'`Installatore Windows`. Una volta scaricato, esegui l'installatore e permetti di essere guidato per l'installazione.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+Sulla schermata che ti permette di configuare l'installazione, assicurati di selezionare le opzioni `esegui Node.js`, `gestione pacchetto npm` e `Aggiungi al PERCORSO`.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by simply opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Una volta installato, conferma che tutto lavori come aspettato. Trova la PowerShell di Windows semplicemente aprendo il Menu Start e digitando `PowerShell`. Apri `PowerShell` o un'altra linea di comando del client a tua scelta e conferma che sia `node` che `npm` siano disponibili:
 
 ```powershell
-# This command should print the version of Node.js
-node -v
+# Questo comando dovrebbe stampare la versione di Node.js
+Node -v
 
-# This command should print the version of npm
+#Questo dovrebbe stampare la versione di npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Se entrambi i comandi hanno stampato un numero di versione, tutto è pronto! Prima di iniziare, puoi installare un [editor del codice](#a-good-editor) per lo sviluppo con JavaScript.
 
-## Setting up Linux
+## Configurazione su Linux
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> Generalmente parlando, Electron supporta Ubuntu 12.04, Fedora 21, Debian 8 e successive.
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Primo, installa una versione recente di Node.js. In base alla distribuzione Linux, le fasi di installazione potrebbero differire. Considerato che tu installi normalmente il software usando la gestione pacchetto come `apt` o `pacman`, usa la [guida di installazione di Node.js per Linux](https://nodejs.org/en/download/package-manager/) ufficiale.
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Stai eseguendo Linux, quindi sai già come operare su un client della linea di comando. Apri il tuo client preferito e conferma che sia `node` che `npm` siano globalmente disponibili:
 
 ```sh
-# This command should print the version of Node.js
-node -v
+# Questo comando dovrebbe stampare la versione di Node.js
+Node -v
 
-# This command should print the version of npm
+#Questo dovrebbe stampare la versione di npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Se entrambi i comandi hanno stampato un numero di versione, tutto è pronto! Prima di iniziare, puoi installare un [editor del codice](#a-good-editor) per lo sviluppo con JavaScript.
 
-## A Good Editor
+## Un Buon Editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+Potremmo suggerire due editor popolari gratuiti costruiti con Electron: GitHub [Atom](https://atom.io/) e [Visual Studio Code](https://code.visualstudio.com/) di Microsoft. Entrambi hanno un supporto JavaScript eccellente.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Se sei uno dei tanti sviluppatori con una forte preferenza, sappi che virtualmente tutti gli editor del codics e IDE ai giorni d'oggi supportano JavaScript.

@@ -20,7 +20,7 @@ Forge 将一些流行框架整合为[“开箱即用”](https://electronforge.i
 
 ## electron-builder
 
-Electron Builder 是一个完备的Electron应用打包和分发解决方案，它致力于软件开发的集成体验。 [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+Electron Builder 是一个完备的Electron应用打包和分发解决方案，它致力于软件开发的集成体验。 [`electron-builder`](https://github.com/electron-userland/electron-builder) 出于简化的目的添加了一个依赖项，可以在内部管理所有更多的要求。
 
 `electron-builder` 会将Electron维护者使用的模块和功能(例如: auto-updater) 替换为自定义的. Electron Builder打包的应用内组件的集成度会更高，同时与主流的Electron应用共同点也就更少了。
 
@@ -28,8 +28,8 @@ Electron Builder 是一个完备的Electron应用打包和分发解决方案，�
 
 ## electron-react-boilerplate
 
-If you don't want any tools but simply a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+如果你不希望任何工具，而想要简单地从一个模板开始构建，CT Lin的 [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) 可能值得一看。 它在社区中很受欢迎，并在内部使用了 `electron-builder`。
 
 ## 其它工具和模板
 
-["Awesome Electron" 列表](https://github.com/sindresorhus/awesome-electron#boilerplates)涵盖了众多可供选择的工具和模板。 If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+["Awesome Electron" 列表](https://github.com/sindresorhus/awesome-electron#boilerplates)涵盖了众多可供选择的工具和模板。 如果您发现列表的长度令人畏惧，请不要忘记，您也可以在开发过程中逐渐添加工具。
