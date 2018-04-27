@@ -1,6 +1,6 @@
 # 任务栏的进度条 (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+在 Windows中的任务栏按钮可以被用于显示一个进度条。 This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
 在 macOS，进度条将显示为 dock 图标的一部分。
 
