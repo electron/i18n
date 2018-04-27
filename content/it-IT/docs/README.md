@@ -72,8 +72,8 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [In Detail: Installing Electron](tutorial/installation.md) 
   * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
-  * [Proxies](tutorial/installation.md#proxies)
-  * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
+  * [Proxy](tutorial/installation.md#proxies)
+  * [Personalizza Specchi e Cache](tutorial/installation.md#custom-mirrors-and-caches)
   * [Risoluzione dei problemi](tutorial/installation.md#troubleshooting)
 * [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
