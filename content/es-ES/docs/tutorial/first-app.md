@@ -1,10 +1,10 @@
-# Writing Your First Electron App
+# Esperando tu primera App. en Electron
 
 Electron te permite crear aplicaciones de escritorio con puro JavaScript proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). Puedes verlo como una variante del sistema de tiempo de ejecución Node.js enfocada en aplicaciones de escritorio en lugar de servidores web.
 
 Esto no significa que Electron es una vinculación (binding) de JavaScript a librerías de Interfaces Gráficas. En cambio, Electron usa páginas web como su Interfaz Gráfica, así que también puedes verlo como un navegador Chromium minimal, controlado por JavaScript.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+Nota: Este ejemplo también esta disponible como repositorio que puedes descargar y ejecutar inmediatamente.
 
 As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
