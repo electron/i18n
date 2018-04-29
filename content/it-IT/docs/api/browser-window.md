@@ -60,7 +60,7 @@ Nota come anche per le app è usato l'evento `ready-to-show`, è raccomandato im
 
 ## Finestre genitrici e figlie
 
-Usando l'opzione `parent`, puoi creare finestre figlie:
+Usando l'opzione `parent`, puoi creare finestre figlie, impostando una relazione gerarchica tra le finesre:
 
 ```javascript
 const {BrowserWindow} = require('electron')
