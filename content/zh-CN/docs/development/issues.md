@@ -22,7 +22,7 @@ Because the level of activity in the `electron/electron` repository is so high, 
 
 ## 提交漏洞报告
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+当您在`Electron`中提出问题，您需要完成一个模板。
 
 ```markdown
 <!--
@@ -30,19 +30,19 @@ When opening a new issue in the `electron/electron` issue tracker, users will be
 
 - 问题跟踪器只能用于漏洞和功能的提出。
 - 在提出问题之前，请尝试使用最新版本的Electron让您提出的问题重现。
-- If you need general advice, join our Slack: http://atom-slack.herokuapp.com
+如果您需要一般的问题，请参与我们的Slack: http://atom-slack.herokuapp.com
 -->
 
-* Electron version:
-* Operating system:
+* Electron版本: 
+* 操作系统: 
 
-### Expected behavior
+### 你希望得到的结果
 
-<!-- What do you think should happen? -->
+<!-- 你觉得应该发生什么？ -->
 
-### Actual behavior
+### 实际结果
 
-<!-- What actually happens? -->
+<!-- 实际发生了什么？ -->
 
 ### How to reproduce
 
