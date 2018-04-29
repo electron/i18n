@@ -4,11 +4,11 @@
 
 您可以运行 `npm run lint` 来显示 `cpplint` 和`eslint` 检测到的任何样式问题。
 
-## General Code
+## 通用代码
 
-* End files with a newline.
+* 用换行符结束文件。
 * Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
+  * 内置Node模块（如 `path`）
   * Built in Electron Modules (such as `ipc`, `app`)
   * Local Modules (using relative paths)
 * Place class properties in the following order: 
