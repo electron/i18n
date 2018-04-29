@@ -9,16 +9,16 @@
 * 用换行符结束文件。
 * Place requires in the following order: 
   * 内置Node模块（如 `path`）
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
+  * 内置Electron模块（如 `ipc`、`app`）
+  * 本地模块（使用相对路径）
 * Place class properties in the following order: 
   * Class methods and properties (methods starting with a `@`)
   * Instance methods and properties
-* Avoid platform-dependent code: 
+* 避免与平台相关的代码： 
   * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+  * 请使用`os.tmpdir()`而不是`/tmp`来引用临时目录。
 * Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null`, or `undefined`
+  * 不是`return null`，`return undefined`，`null`或`undefined`
 
 ## C + + 和 Python
 
@@ -30,7 +30,7 @@ C++ 代码使用了大量 Chromium 的抽象和类型，因此建议您熟悉它
 
 ## 文档
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style
+* 使用[remark](https://github.com/remarkjs/remark) Markdown样式
 
 You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 
