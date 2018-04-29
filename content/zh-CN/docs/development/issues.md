@@ -12,11 +12,11 @@
 
 For any issue, there are fundamentally three ways an individual can contribute:
 
-1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the `electron/electron` issue tracker.
+1. 通过新建（提出）问题进行讨论：如果您认为您在Electron中发现问题，您应该在`electron/electron`问题跟踪器中通过创建问题来提出。
 2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
-## 请求一般性的帮助
+## 请求一般的帮助
 
 Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
 
@@ -62,7 +62,7 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+如果你发现了Electron中的漏洞，请以你的能力填这份表单。
 
 The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
 
@@ -70,7 +70,7 @@ See [How to create a Minimal, Complete, and Verifiable example](https://stackove
 
 ## Triaging a Bug Report
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+提出问题经常会出现讨论。 贡献者会有不同的观点，包括提出的情况是一个漏洞还是一个功能。 This discussion is part of the process and should be kept focused, helpful, and professional.
 
 Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
