@@ -5,8 +5,8 @@
 * [如何贡献一个Issue](#how-to-contribute-in-issues)
 * [请求一般性的帮助](#asking-for-general-help)
 * [提交漏洞报告](#submitting-a-bug-report)
-* [Triaging a Bug Report](#triaging-a-bug-report)
-* [解决 Bug 报告](#resolving-a-bug-report)
+* [鉴定漏洞报告](#triaging-a-bug-report)
+* [解决漏洞报告](#resolving-a-bug-report)
 
 ## 如何贡献一个Issue
 
@@ -68,14 +68,14 @@ The two most important pieces of information needed to evaluate the report are a
 
 See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
 
-## Triaging a Bug Report
+## 鉴定漏洞报告
 
 提出问题经常会出现讨论。 贡献者会有不同的观点，包括提出的情况是一个漏洞还是一个功能。 这些讨论是解决问题的一部分，并且应该保持专注、有用、专业。
 
 没有任何内容和详细信息的简单回复是无用的而且不专业的。 在很多情况下，这些恢复是烦人而且不友好的。
 
-我们鼓励贡献者共同解决问题并互相帮助取得进展。 If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+我们鼓励贡献者共同解决问题并互相帮助取得进展。 如果您遇到觉得包含无效或不正确信息的问题，请使用更多详细信息指出您*为什么*觉得此问题含有无效或不正确信息，并愿意接受您可能是错误的。 通过这样做，我们可以更快地得到正确的结果。
 
-## 解决 Bug 报告
+## 解决漏洞报告
 
 Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
