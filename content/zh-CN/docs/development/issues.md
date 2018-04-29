@@ -10,10 +10,10 @@
 
 ## 如何贡献一个Issue
 
-For any issue, there are fundamentally three ways an individual can contribute:
+对于任何问题，个人可以通过三种方式贡献：
 
 1. 通过新建（提出）问题进行讨论：如果您认为您在Electron中发现问题，您应该在`electron/electron`问题跟踪器中通过创建问题来提出。
-2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
+2. 通过帮助鉴定问题：您可以通过提供辅助信息（一种可以让漏洞被发现的情况）或提出解决问题的建议。
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
 ## 请求一般的帮助
@@ -26,11 +26,10 @@ When opening a new issue in the `electron/electron` issue tracker, users will be
 
 ```markdown
 <!--
-Thanks for opening an issue! A few things to keep in mind:
+谢谢您提出问题！ 请记住以下几点：
 
-- The issue tracker is only for bugs and feature requests.
-- Before reporting a bug, please try reproducing your issue against
-  the latest version of Electron.
+- 问题跟踪器只能用于漏洞和功能的提出。
+- 在提出问题之前，请尝试使用最新版本的Electron让您提出的问题重现。
 - If you need general advice, join our Slack: http://atom-slack.herokuapp.com
 -->
 
