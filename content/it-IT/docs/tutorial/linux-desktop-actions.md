@@ -1,30 +1,30 @@
 # Azioni Launcher Desktop Linux Personalizzate
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+Su molti ambienti Linux, puoi aggiungere voci personalizzate al suo Launcher modificando il file `.desktop`. Per la documentazione Unità canonica, vedi [Aggiungere Shortcut ad un launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). Per dettagli su un'implementazione più generica, vedi la [Specificazione freedesktop.org](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
-**Launcher shortcuts of Audacious:**
+**Shortcut del launcher di Audaious:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+Generalmente parlando, le shortcut sono aggiunte fornendo una proprietà `Nome` ed una `Exec` per ogni voce del menu shortcut. L'unità eseguirà il campo `Exec` una volta cliccato dall'utente. Il formato è come segue:
 
 ```text
-Actions=PlayPause;Next;Previous
+Azioni=AvviaPausa;Prossimo;Precedente
 
-[Desktop Action PlayPause]
-Name=Play-Pause
+[Azione Desktop AvviaPausa]
+Nome=Avvia-Pausa
 Exec=audacious -t
-OnlyShowIn=Unity;
+MostraSoloIn=Unità;
 
-[Desktop Action Next]
-Name=Next
+[Azione Desktop Prossimo]
+Nome=Prossimo
 Exec=audacious -f
-OnlyShowIn=Unity;
+MostraSoloIn=Unità;
 
-[Desktop Action Previous]
-Name=Previous
+[Azione Desktop Precedente]
+Nome=Precedente
 Exec=audacious -r
-OnlyShowIn=Unity;
+MostraSoloIn=Unità;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+Il metodo preferito dell'unità di dire alla tua app cosa fare è usare i parametri. Puoi trovarli nella tua app nella variabile glibale `processo.argv`.
