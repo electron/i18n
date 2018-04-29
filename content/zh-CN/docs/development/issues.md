@@ -1,4 +1,4 @@
-# Issues In Electron
+# Electron中的问题
 
 # 问题
 
@@ -70,11 +70,11 @@ See [How to create a Minimal, Complete, and Verifiable example](https://stackove
 
 ## Triaging a Bug Report
 
-提出问题经常会出现讨论。 贡献者会有不同的观点，包括提出的情况是一个漏洞还是一个功能。 This discussion is part of the process and should be kept focused, helpful, and professional.
+提出问题经常会出现讨论。 贡献者会有不同的观点，包括提出的情况是一个漏洞还是一个功能。 这些讨论是解决问题的一部分，并且应该保持专注、有用、专业。
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+没有任何内容和详细信息的简单回复是无用的而且不专业的。 在很多情况下，这些恢复是烦人而且不友好的。
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+我们鼓励贡献者共同解决问题并互相帮助取得进展。 If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
 ## 解决 Bug 报告
 
