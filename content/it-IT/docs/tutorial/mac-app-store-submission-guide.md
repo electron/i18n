@@ -10,9 +10,9 @@ I passi seguenti introducono ad un metodo semplice per inviare la tua app al Mac
 
 ### Ottieni Certificato
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+Per inviare la tua app al Mac App Store, devi prima ottenere un certificato da Apple. Puoi seguire queste [guide esistenti](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) sul web.
 
-### Get Team ID
+### Ottieni ID Team
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 
