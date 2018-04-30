@@ -1,6 +1,6 @@
 # Безопасность, найтивные возможности и ваша ответственность
 
-As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+Как веб-разработчики, мы предпочитаем сильную безопасность браузера - риски, связанные с кодом, который мы пишем, относительно небольшие. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
 
 When working with Electron, it is important to understand that Electron is not a web browser. It allows you to build feature-rich desktop applications with familiar web technologies, but your code wields much greater power. JavaScript can access the filesystem, user shell, and more. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
 
@@ -66,16 +66,16 @@ browserWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- Плохо -->
 <script crossorigin src="http://cdn.com/react.js"></script>
 <link rel="stylesheet" href="http://cdn.com/style.css">
 
-<!-- Good -->
+<!-- Хорошо -->
 <script crossorigin src="https://cdn.com/react.js"></script>
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## 2) Disable Node.js Integration for Remote Content
+## 2) Выключите интеграцию с Node.js для удаленного содержимого
 
 It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
 
@@ -88,18 +88,18 @@ A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump ou
 ### Как?
 
 ```js
-// Bad
-const mainWindow = new BrowserWindow()
+// Плохо 
+const mainWindow = new BrowserWindow() 
 mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
+// Good 
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
     preload: './preload.js'
-  }
+   }
 })
 
 mainWindow.loadURL('https://my-website.com')
@@ -113,7 +113,7 @@ mainWindow.loadURL('https://my-website.com')
 <webview src="page.html"></webview>
 ```
 
-When disabling Node.js integration, you can still expose APIs to your website that do consume Node.js modules or features. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+При отключении интеграции с Node.js, можно по-прежнему использовать API на вашем сайте, которые используют модули или функции Node.js. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
 
 In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
 
@@ -126,7 +126,7 @@ window.readConfig = function () {
 }
 ```
 
-## 3) Enable Context Isolation for Remote Content
+## 3) Включите контекстную изоляцию для удаленного содержимого
 
 Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
 
