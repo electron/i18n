@@ -35,7 +35,8 @@ Todas as Electron APIs são atribuídas em um tipo de processo. Muitas delas só
 Uma janela no Electron, por exemplo, é criada usando a classe `BrowserWindow`. Disponível apenas no processo principal.
 
 ```javascript
-// Isso funcionaria no processo processo principal, mas em um processo de renderização, a constante seria inicializada como `undfined`:
+// Isso funcionaria no processo principal, mas em um processo de renderização,
+// a constante seria inicializada como `undefined`:
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
