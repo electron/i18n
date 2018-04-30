@@ -4,13 +4,13 @@
 
 * * *
 
-Проблемы с доступностью в приложениях Electron аналогичны веб-сайтам, поскольку они оба в конечном итоге являются HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Проблемы с доступностью в приложениях Electron аналогичны веб-сайтам, поскольку они оба в конечном итоге являются HTML. Однако, в приложениях на Electron мы не можем использовать онлайн-ресурсы для аудита доступности, поскольку ваше приложение не имеет URL-адреса.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools.
+Эти новые возможности приносят средства аудита для приложения на Electron. Вы можете добавить их в тесты с Spectron или использовать в рамках DevTools с Devtron. Читайте далее ознакомление с инструментами.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+В тестированиях на Spectron, вы можете добвить проверку к каждому окну и `<webview>`-тегу в приложении. Например:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
