@@ -1,6 +1,6 @@
-# Native File Drag & Drop
+# Trascina & Rilascia File Nativo
 
-Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
+Alcuni tipi di app che manipolano file potrebbero voler supportare la funzione trascina & rilascia del file nativo del sistema operativo. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
 
 To implement this feature in your app, you need to call `webContents.startDrag(item)` API in response to the `ondragstart` event.
 
