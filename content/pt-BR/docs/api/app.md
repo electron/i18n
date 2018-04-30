@@ -874,10 +874,10 @@ Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call
 
 * `menu` [Menu](menu.md)
 
-Seta o [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) da aplicação.
+Define o [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) da aplicação.
 
 ### `app.dock.setIcon(image)` no *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Seta a `imagem` associada com o ícone do dock.
+Define a `imagem` associada com o ícone do dock.
