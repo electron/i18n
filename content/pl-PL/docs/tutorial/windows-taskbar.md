@@ -4,7 +4,7 @@ Elektron posiada API, aby skonfigurować ikonę aplikacji na pasku zadań system
 
 ## JumpList
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+System Windows pozwala aplikacją na definiowanie menu kontekstowego, które pojawia się, gdy użytkownicy klikają prawym przyciskiem myszy na ikonę aplikacji w pasku zadań. Menu kontekstowe nazywa się `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
 
 > Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 
