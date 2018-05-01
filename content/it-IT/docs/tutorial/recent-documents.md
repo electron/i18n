@@ -1,35 +1,35 @@
-# Recent Documents (Windows & macOS)
+# Documenti recenti (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows e macOS forniscono accesso facile alla lista dei documenti recentemente aperti dall'app tramite JumpList o menu dock, rispettivamente.
 
 **JumpList:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![File recenti JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Menu dock applicazione:**
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![macOS Menu dock](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
-
-```javascript
-const { app } = require('electron')
-app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
-```
-
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
+Per aggiungere un file ai documenti recenti, puoi usare l'API [app.aggiungiDocumentoRecente](../api/app.md#appaddrecentdocumentpath-macos-windows):
 
 ```javascript
-const { app } = require('electron')
-app.clearRecentDocuments()
+const { app } = richiedi('electron')
+app.aggiungiDocumentoRecente('/Utenti/USERNAME/Desktop/lavoro.tipo')
 ```
 
-## Windows Notes
+E puoi usare l'API [app.eliminaDocumentiRecenti](../api/app.md#appclearrecentdocuments-macos-windows) per svuotare la lista documenti recenti:
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+```javascript
+const { app } = richiedi('electron')
+app.eliminaDocumentiRecenti()
+```
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+## Note di Windows
 
-## macOS Notes
+Per poter usare questa funzione su Windows, la tua app deve essere registrata come gestore del tipo di file del documento, altrimenti il file non apparirà nella JumpList anche dopo averlo aggiunto. Puoi trovare tutto per registrare la tua app su [Registrazione Applicazione](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Quando un utente clicca su un file dalla JumpList, una nuova istanza della tua applicazione sarà avviata con il percorso del file aggiunto come un argomento linea di comando.
+
+## note di macOS
+
+Quando viene richiesto un file dal menu dei documenti recenti, l'evento `apri-file` del modulo `app` sarà emesso per esso.

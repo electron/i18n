@@ -2,7 +2,7 @@
 
 为缓解 Windows 下路径名过长的 [问题](https://github.com/joyent/node/issues/6960)， 略微加快一下 `require`的速度以及隐藏你的源代码，你可以选择把你的应用打包成 [asar](https://github.com/electron/asar)档案文件，这只需要对你的源代码做一些很小的改动。
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). 如果你没有使用这些工具中的任何一个，那么请继续阅读。
 
 ## Generating `asar` Archives
 

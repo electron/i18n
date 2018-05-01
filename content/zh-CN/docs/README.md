@@ -144,4 +144,4 @@
 
 ## 开发
 
-See <development/README.md>
+请查看<development/README.md>

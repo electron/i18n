@@ -4,7 +4,7 @@
 
 ## 决定从哪个版本发布
 
-- **If releasing beta,** run the scripts below from `master`.
+- **如果发布beta版本，**请从`master`运行以下脚本。
 - **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
 
 ## 找出需要哪个版本更改

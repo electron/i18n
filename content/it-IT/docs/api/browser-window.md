@@ -25,11 +25,11 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Finestra senza bordi
 
-Per creare una finestra senza chrome, o una finestra trasparente in forma arbitraria, puoi usare l'API [Finestra menoFrame](frameless-window.md).
+Per creare una finestra senza chrome, o una finestra trasparente in forma arbitraria, puoi usare l'API [Frameless Window](frameless-window.md).
 
-## Mostrare finestra
+## Mostrare finestra elegantemente
 
-Quando si carica una pagina direttamente nella finestra, l'utente potrebbe vedere la pagina caricare in modo incrementale, che non è una esperienza buona per una app nativa. Per far mostrare la finestra senza flash visuale esistono due soluzioni per due differenti situazioni.
+Quando si carica una pagina direttamente nella finestra, l'utente potrebbe vedere la pagina caricare in modo incrementale, che non è una esperienza buona per una app nativa. Permostrare la finestra senza flash visuale esistono due soluzioni per due differenti situazioni.
 
 ### Uso dell'evento `ready-to-show`
 
@@ -45,9 +45,9 @@ win.once('ready-to-show', () => {
 
 Questo evento è di solito emesso dopo l'evento `did-finish-load`, ma per le pagine con molte risorse potrebbe essere emesso prima di `did-finish-load`.
 
-### Impostazione `backgroundColor`
+### Impostare il colore di sfondo(`backgroundColor`)
 
-Per un'app complessa, l'evento `ready-to-show` potrebbe essere emessa troppo tardi rendendo l'app lenta. In questo caso, è raccomandato mostrare la finestra immediatamente ed usare un `backgroundColor` simile a quello della tua app:
+Per un'app complessa, l'evento `ready-to-show` potrebbe essere emessa troppo tardi rendendo l'app lenta. In questo caso, è raccomandato mostrare la finestra immediatamente ed usare un colore di sfondo(`backgroundColor`) simile a quello della tua app:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -60,7 +60,7 @@ Nota come anche per le app è usato l'evento `ready-to-show`, è raccomandato im
 
 ## Finestre genitrici e figlie
 
-Usando l'opzione `parent`, puoi creare finestre figlie:
+Usando l'opzione `parent`, puoi creare finestre figlie, impostando una relazione gerarchica tra le finesre:
 
 ```javascript
 const {BrowserWindow} = require('electron')

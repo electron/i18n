@@ -1,4 +1,4 @@
-# Writing Your First Electron App
+# Scrivi la tua prima app Electron
 
 Electron consente di creare applicazioni desktop in JavaScript fornendo un eseguibile inclusivo di numerose API native (sistema operativo). Puoi immaginarlo come una variante di Node.js che si focalizza su applicazioni desktop invece dei web server.
 
@@ -57,7 +57,7 @@ Turning this Node application into an Electron application is quite simple - we 
 }
 ```
 
-## Installing Electron
+## Installare Electron
 
 At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
 
@@ -175,15 +175,15 @@ Infine il file `index. html` è la pagina web che si desidera visualizzare:
 </html>
 ```
 
-## Running Your App
+## Esecuzione della tua App
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
 ## Trying this Example
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Clona ed esegui il codice mostrato in questo tutorial utilizzando il repository [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**Nota:** l'esecuzione di questi comandi richiede [Git](https://git-scm.com).
 
 ```sh
 # Clona la repository

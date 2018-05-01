@@ -1,10 +1,10 @@
-# Native File Drag & Drop
+# Trascina & Rilascia File Nativo
 
-Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
+Alcuni tipi di app che manipolano file potrebbero voler supportare la funzione trascina & rilascia del file nativo del sistema operativo. Rilasciare file nel contenuto web è comune e supportato da molti siti web. Electron supporta inoltre il rilascio di file e contenuti fuori dal contenuto web nel mondo del sistema operativo.
 
-To implement this feature in your app, you need to call `webContents.startDrag(item)` API in response to the `ondragstart` event.
+Per aggiungere questa funzione nella tua app, devi chiamare l'API `Contenutiweb.avviaTrascina(elemento)` in risposta all'evento `avviatrascinasu`.
 
-In your renderer process, handle the `ondragstart` event and forward the information to your main process.
+Nel tuo processo di rendering, gestisci l'evento `avviatrascinasu` e inoltra l'informazione al tuo processo principale.
 
 ```html
 <a href="#" id="drag">item</a>
@@ -16,7 +16,7 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 </script>
 ```
 
-Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
+Poi, nel processo principale, puoi aumentare l'evento con un percorso al file trascinato ed all'icona.
 
 ```javascript
 const { ipcMain } = require('electron')

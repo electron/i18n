@@ -1,18 +1,18 @@
 # Guida alla pubblicazione su Mac App Store
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+Dalla v0.34.0, Electron permette di inviare pacchetti app al Mac App Store (MAS). Questa guida fornisce informazioni su: come inviare un'app e sulle limitazioni della build MAS.
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**Nota:** Inviare una app al Mac App Store richiede l'iscrizione al [Programma Sviluppatore Apple](https://developer.apple.com/support/compare-memberships/), che costa denaro.
 
-## How to Submit Your App
+## Come inviare la tua app
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+I passi seguenti introducono ad un metodo semplice per inviare la tua app al Mac App Store. Comunque, questi passi non assicurano che la tua app sia approvata dalla Apple; devi ancora leggere la guida [Inviare la Tua App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) su come incontrare i requisiti del Mac App Store.
 
-### Get Certificate
+### Ottieni Certificato
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+Per inviare la tua app al Mac App Store, devi prima ottenere un certificato da Apple. Puoi seguire queste [guide esistenti](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) sul web.
 
-### Get Team ID
+### Ottieni ID Team
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 

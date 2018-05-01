@@ -42,11 +42,11 @@ npm install --save-dev electron@latest
 
 下面是一个表格，明确地将变化的类型映射到它们对应的 semver 类别 (例如Major，Minor，Patch)。
 
-| Major 版本增量                    | Minor 版本增量                    | Patch 版本增量                    |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| Electron 突破性 API 变更           | Electron 无突破性 API 变更          | Electron bug 修复               |
-| Node.js major version updates | Node.js minor version updates | Node.js patch version updates |
-| Chromium 版本更新                 |                               | 修复相关的 chromium 补丁             |
+| Major 版本增量          | Minor 版本增量           | Patch 版本增量                    |
+| ------------------- | -------------------- | ----------------------------- |
+| Electron 突破性 API 变更 | Electron 无突破性 API 变更 | Electron bug 修复               |
+| Node.js 重大版本更新      | Node.js 次要版本更新       | Node.js patch version updates |
+| Chromium 版本更新       |                      | 修复相关的 chromium 补丁             |
 
 请注意，大多数 chromium 更新将被视为突破性更新。 可以被回溯的修复可能会被修补为修补程序。
 

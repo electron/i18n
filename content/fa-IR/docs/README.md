@@ -18,7 +18,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Creating your First App](tutorial/first-app.md) 
   * [Installing Electron](tutorial/first-app.md#installing-electron)
   * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
+  * [app در حال اجرای خود را](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)

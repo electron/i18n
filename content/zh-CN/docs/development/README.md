@@ -1,6 +1,6 @@
-# Developing Electron
+# 对 Electron 进行开发
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+这些指南是为希望修改 Electron 自身的人准备的。 有关使用 Electron 来开发应用程序的指南，请参见[/docs/README.md](../README.md#guides-and-tutorials)。
 
 * [行为准则](../../CODE_OF_CONDUCT.md)
 * [贡献到 Electron](../../CONTRIBUTING.md)
