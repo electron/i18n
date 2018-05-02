@@ -40,7 +40,7 @@ process.once('loaded', () => {
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. `--no-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
 
 ### `process.resourcesPath`
 
