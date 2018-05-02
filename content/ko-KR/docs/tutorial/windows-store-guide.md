@@ -4,7 +4,7 @@
 
 마이크로소프트사에서 [일렉트론 어플을 `.appx`로 컴파일해주는 툴을 개발하였다](https://github.com/catalystcode/electron-windows-store). 그로써 개발자들은 새로운 어플리케이션 모델의 장점들을 이용할 수 있게 되었다. 이가이드는 사용하는 방법을 설명해준다 그리고 일렉트론 AppX페키지의 성능 및 한계에 대하여 설명할 것이다.
 
-## Background and Requirements
+## 배경 및 요구 사항
 
 Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
 
