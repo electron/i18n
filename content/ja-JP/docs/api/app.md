@@ -148,7 +148,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` Object - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
 ### イベント: 'new-window-for-tab' *macOS*
 
@@ -313,14 +313,14 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 * `exitCode` Integer (任意)
 
-`exitCode` ですぐに終了します。`exitCode` の省略値は0です。
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 ユーザに確認することなくすべてのウインドウがすぐに閉じられ、`before-quit` および `will-quit` イベントは発生しません。
 
 ### `app.relaunch([options])`
 
 * `options` Object (任意) 
-  * `args` String[] - (任意)
+  * `args` String[] (optional)
   * `execPath` String (任意)
 
 現在のインスタンスが終了したときに、アプリを再起動します。
@@ -384,7 +384,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 * `pictures` ユーザのピクチャのディレクトリ。
 * `videos` ユーザのビデオのディレクトリ。
 * `logs` アプリのログフォルダのディレクトリ。
-* `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
+* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -498,7 +498,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 * `tasks` [Task[]](structures/task.md) - `Task` オブジェクトの配列
 
-Windowsでジャンプリストの [タスク](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに `tasks` を追加します。
+Windowsでジャンプリストの [タスク](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに `tasks` を追加します。
 
 `tasks` は [`Task`](structures/task.md) オブジェクトの配列です。
 
@@ -527,7 +527,7 @@ Windowsでジャンプリストの [タスク](http://msdn.microsoft.com/en-us/l
 
 `categories` が `null` の場合、その前に設定されていたカスタムジャンプリスト (あれば) は、(Windowsによって管理される) アプリ標準のジャンプリストに置換されます。
 
-**注:** `JumpListCategory` オブジェクトが `type` プロパティも `name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティが設定されているが、`type` プロパティが省略された場合、`type` は `custom` と見做されます。
+**注:** `JumpListCategory` オブジェクトに `type` プロパティも `name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティは設定されている一方で `type` プロパティが省略された場合、`type` は `custom` と見做されます。
 
 **注:** ユーザはカスタムカテゴリからアイテムを削除できますが、Windowsは次の `app.setJumpList(categories)` の呼び出しが成功した**後**でないと、削除されたアイテムをカスタムカテゴリに追加し直すことを許可しません。 それより早くカスタムカテゴリに削除されたアイテムを再度追加しようとすると、ジャンプリストからカスタムカテゴリ全体が外れてしまいます。 削除されたアイテムのリストは、`app.getJumpListSettings()` を使って取得できます。
 
@@ -689,13 +689,9 @@ app.on('ready', () => {
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
-### `app.getAppMemoryInfo()` *非推奨*
-
-戻り値 [`ProcessMetric[]`](structures/process-metric.md): アプリに関連付けられたすべてのプロセスのメモリやCPU使用率の統計情報に対応した `ProcessMetric` オブジェクトの配列。 **注:** このメソッドは非推奨です。代わりに `app.getAppMetrics()` を使ってください。
-
 ### `app.getAppMetrics()`
 
-戻り値 [`ProcessMetric[]`](structures/process-metric.md): アプリに関連付けられたすべてのプロセスのメモリやCPU使用率の統計情報に対応した `ProcessMetric` オブジェクトの配列。
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
@@ -732,18 +728,16 @@ macOSでは、ドックアイコンに表示されます。Linuxでは、Unity�
 戻り値 `Object`:
 
 * `openAtLogin` Boolean - アプリがログイン時に開くように設定されている場合、`true`。
-* `openAsHidden` Boolean - アプリがログイン時に非表示で開くように設定されている場合、`true`。この設定は、macOSでのみサポートされています。
-* `wasOpenedAtLogin` Boolean - アプリがログイン時に自動的に開かれていた場合、`true`。この設定は、macOSでのみサポートされています。
-* `wasOpenedAsHidden` Boolean - アプリが非表示のログイン項目として開かれていた場合、`true`。 これは、アプリが起動時にウインドウを開く必要がないことを示します。 この設定は、macOSでのみサポートされています。
-* `restoreState` Boolean - 前回のセッションの状態を復元してアプリがログイン項目として開かれていた場合、`true`。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は、macOSでのみサポートされています。
-
-**注:** このAPIは [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) に影響を与えません。
+* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. これは、アプリが起動時にウインドウを開く必要がないことを示します。 This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (任意) - アプリをログイン時に開く場合、`true`、ログイン項目からアプリを外す場合、`false`。 省略値は `false` です。
-  * `openAsHidden` Boolean (任意) - アプリを非表示で開く場合、`true`。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができます。そのため、アプリが開いたときに現在の値を把握するため、`app.getLoginItemStatus().wasOpenedAsHidden` を確認するようにしてください。 この設定は、macOSでのみサポートされています。
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができます。そのため、アプリが開いたときに現在の値を把握するため、`app.getLoginItemStatus().wasOpenedAsHidden` を確認するようにしてください。 This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (任意) *Windows* - ログイン時に起動する実行ファイルのパス。省略値は、`process.execPath` です。
   * `args` String[] (任意) *Windows* - 実行ファイルに引き渡すコマンドライン引数。省略値は空の配列です。パスは引用符で囲むように注意してください。
 
@@ -765,8 +759,6 @@ app.setLoginItemSettings({
   ]
 })
 ```
-
-**注:** このAPIは [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) に影響を与えません。
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
@@ -790,6 +782,21 @@ app.setLoginItemSettings({
   * `version` String (任意) - アプリのビルドバージョン番号。
 
 Aboutパネルのオプションを設定します。 これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。
+
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+
+* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+
+```js
+// Start accessing the file.
+const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// You can now access the file outside of the sandbox 
+stopAccessingSecurityScopedResource()
+```
+
+Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -816,11 +823,11 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-戻り値 `Boolean` - アプリケーションが現在、システムのアプリケーションフォルダから実行されているかどうか。`app.moveToApplicationsFolder()` と組み合わせて使ってください。
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-戻り値 `Boolean` - 移動が成功したかどうか。 移動が成功した場合、アプリケーションは終了し、再起動されることに注意してください。
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
 
 既定では、確認ダイアログは表示されません。ユーザに操作の確認をさせたい場合は、[`dialog`](dialog.md) APIを使うと実現できます。
 
@@ -860,11 +867,11 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 ### `app.dock.hide()` *macOS*
 
-ドックのアイコンを非表示にします。
+ドックのアイコンを非表示にする
 
 ### `app.dock.show()` *macOS*
 
-ドックのアイコンを表示します。
+ドックのアイコンを表示する
 
 ### `app.dock.isVisible()` *macOS*
 
