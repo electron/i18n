@@ -38,7 +38,7 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 4. [Uzak içeriği yükleyen tüm oturumlarda `ses.setPermissionRequestHandler()` kullanın](#-4-handle-session-permission-requests-from-remote-content)
 5. [`webSecurity` i kapatmayın](#-5-do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#-6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#-7-override-and-disable-eval), which allows strings to be executed as code.
+7. [Geçersiz kıl ve devredışı bırak `eval`](#-7-override-and-disable-eval), dizelerin kod olarak yürütülmesine izin verir.
 8. [`allowRunningInsecureContent` i `true` a ayarlamayın](#-8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [Deneysel özellikleri aktifleştirmeyin](#-9-do-not-enable-experimental-features)
 10. [`blinkFeatures` kullanmayın](#-10-do-not-use-blinkfeatures)
@@ -290,7 +290,7 @@ Loading the initial HTML of a website over `HTTPS` and attempting to load subseq
 
 ### Neden?
 
-Basitçe açıklayacak olursak, `HTTPS` üzerinden içerik yüklemek veri trafiğini şifreleyerek, yüklenen kaynakların güvenilirliğini ve bütünlüğünü sağlar. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+Basitçe açıklayacak olursak, `HTTPS` üzerinden içerik yüklemek veri trafiğini şifreleyerek, yüklenen kaynakların güvenilirliğini ve bütünlüğünü sağlar. Detaylı bilgi için [Sadece güvenli içeriği yükleyin](#1-only-load-secure-content) bölümüne bakabilirsiniz.
 
 ### Nasıl?
 
