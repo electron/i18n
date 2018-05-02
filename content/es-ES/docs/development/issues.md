@@ -18,7 +18,7 @@ Para cualquier problema, existen fundamentalmente tres maneras en las que un ind
 
 ## Pidiendo ayuda general
 
-Debido que el nivel de actividad en el repositorio `electron/electron` es muy alto, las preguntas o peticiones de ayuda general usando Electron deben ser dirigidas [community slack channel](https://atomio.slack.com) o al [foro](https://discuss.atom.io/c/electron).
+["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
 ## Presentar un informe de error
 
