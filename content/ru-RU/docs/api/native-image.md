@@ -220,7 +220,7 @@ Returns `Boolean` - Whether the image is a template image.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop.
+* `rect` [Rectangle](structures/rectangle.md) - область изображения до которой нужно обрезать.
 
 Возвращает `NativeImage` - обрезанное изображение.
 
