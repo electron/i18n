@@ -10,7 +10,7 @@ O recém-criado `BrowserWindow` herdará as opções da janela pai por padrão. 
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` String
+* String `url`
 * `frameName` String (opcional)
 * `features` String (opcional)
 
