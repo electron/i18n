@@ -24,79 +24,89 @@ Apple Disk Image (DMG) это пакетный формат, который ис
 
 Input Method Editor. Эта программа позволяет пользователям вводить символы, которые отсутствуют на клавиатуре. Например, это позволяет пользователям Латинской клавиатуры вводить Китайские, Японские, Корейские и Хинди символы.
 
+### IDL
+
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+
 ### IPC
 
-IPC стенды для взаимодействия между процессами. Electron использует IPC для отправки сериализованных JSON сообщения, между [main(главный)](#main-process) и [renderer(отображения)](#renderer-process) процессами.
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
-Общая библиотека, которая включает в себя [модуль Chromium Content](https://www.chromium.org/developers/content-module) и все его зависимости. (Например, Blink, [V8](#v8) и т.д.). Также именуется, как "libcc".
+A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### главный (main) процесс
+### main process
 
-Главный процесс, обычно файл с именем `main.js`, является точкой входа для каждого приложения Electron. Он контролирует жизнь приложения, от его открытия до закрытия. Также управляет нативными элементами, такими как Menu, Menu Bar, Dock, Tray, и др. Главный процесс отвечает за создание каждого нового процесса отображения(renderer) в приложение. Полностью встроено Node API.
+The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
-Каждый файл главного процесса приложения указывается в свойство `main` в `package.json`. Так `electron .` узнает какой файл выполнять при запуске.
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-В хроме этот процесс называется «процесс браузера». Он переименовывается в Electron, чтобы избежать путаницы с процессами отображения.
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-См. также: [процесс](#process), [процесс отображения(renderer)](#renderer-process)
+See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Акроним к Mac App Store компании Apple. Для более подробных сведений см. [Руководство по представлению Mac App Store](tutorial/mac-app-store-submission-guide.md).
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-### собственные модули
+### Mojo
 
-Собственные модули (также называемые [аддоны](https://nodejs.org/api/addons.html) в Node.js) являются модули, написанные на C или C++, которые могут быть загружены в Node.js или Electron с помощью функции require() и используется, как обычные модули Node.js. Они используются главным образом для предоставления интерфейса между скриптами JavaScript, выполняющихся в Node.js и C/C++ библиотеках.
+An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-Собственные модули Node поддерживаются в Electron, но учитывая, что Electron предпочитает использовать разные версии V8 для Node, установленного на Вашем компьютере, вы должны вручную указать расположение заголовков Electron'а, когда собираете собственные модули.
+See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-См. также [Использование собственных модулей Node](tutorial/using-native-node-modules.md).
+### native modules
+
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+
+Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+
+See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System это управляемое скриптом средство установки для Microsoft Windows. Оно выпускается под сочетанием различных лицензий на свободное программное обеспечение и является широко используемой альтернативой коммерческим проприетарным продуктам, таким как например InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) поддерживает NSIS как целевой объект компиляции.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
 ### OSR
 
-OSR (закадровый рендеринг) может использоваться для загрузки тяжелых страниц в фоновом режиме и затем отобразит её после (это будет намного быстрее). Это позволяет Вам рендерить страницу без отображения на экране.
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
-### процесс
+### process
 
-Процесс является экземпляром компьютерной программы, который выполняется. Electron приложения используют [главный(main)](#main-process) процесс и один или более процессы [отображения(renderer)](#renderer-process), на самом деле работает несколько программ одновременно.
+A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
-В Node.js и Electron, каждый запущенный процесс имеет объект `process`. Этот объект является глобальным, предоставляющий информацию о текущем процессе и контроль над ним. Он всегда доступен глобально в приложение без использования require().
+In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-См. также: [основной(main) процесс](#main-process), [процесс отображения(renderer)](#renderer-process)
+See also: [main process](#main-process), [renderer process](#renderer-process)
 
-### процесс отображения(renderer)
+### renderer process
 
-Процесс отображения является окном браузера в Вашем приложении. В отличие от основного процесса, их может быть несколько и каждый запускается в отдельном процессе. Они также могут быть скрыты.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
-В нормальных браузерах, веб-страницы обычно выполняются в изолированной среде и им не разрешается доступ к нативным ресурсам. Пользователи Electron'а, однако, имеют право использовать API Node.js на веб-страницах, позволяя взаимодействовать на нижнем уровне операционной системы.
+В нормальных браузерах, веб-страницы обычно выполняются в изолированной среде и им не разрешается доступ к нативным ресурсам. Electron пользователи, однако, имеют право использовать API Node.js на веб-страницах, позволяя взаимодействовать на нижнем уровне операционной системы.
 
-См. также: [процесс](#process), [основной(main) процесс](#main-process)
+See also: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel является фреймворком с открытым исходным кодом, который позволяет Electron приложениям автоматически обновляться, когда выпустится новая версия. См. [autoUpdated](api/auto-updater.md) API для информации о начале работы с Squirrel.
+Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
-### пользовательское пространство
+### userland
 
-Этот термин возник в сообществе Unix, где "userland" или "userspace" относится к программам, которые выполняются за пределами ядра операционной системы. Этот термин был популяризирован в сообществах Node и npm, чтобы различать функции доступные в "ядре Node" по сравнению с пакетами опубликованными в реестре npm гораздо более "пользовательским" сообществом.
+This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
-Как и Node, Electron сфокусирован на наличии небольшого набора API функций, которые обеспечивают весь необходимый базис для разработки кросс-платформенных настольных приложений. Такая философия позволяет Electron оставаться гибким инструментом, будучи не предписывая того как им пользоваться. Пользовательское пространство позволяет создавать и совместно использовать инструменты, которые обеспечивают дополнительный функционал поверх того, который доступен в ядре.
+Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
 ### V8
 
-V8 - JavaScript движок с открытым исходным кодом компании Google. Он написан на C++ и используется в Google Chrome. V8 может быть запущен автономно или может быть встроен в любое C++ приложение.
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
-Electron компилирует V8 как часть Chromium а затем указывает Node использовать этот V8 при сборке.
+Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
-Версионирование V8 соответствует номерам версий в Google Chrome. Chrome 59 версии включает в себя V8 5.9, Chrome 58- V8 5.8 версии и т.д.
+V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -104,4 +114,4 @@ Electron компилирует V8 как часть Chromium а затем ук
 
 ### webview
 
-Теги `webview` используются для того, чтобы встроить сторонние ресурсы (например внешние веб-страницы) в ваше Electron приложение. Они похожи на `iframe`, но отличается тем, что каждый webview запускается в отдельном процессе. Оно не имеет тех же разрешений, так как ваша веб страница и все взаимодействие между вашим приложением и встроенным контентом будут асинхронными. Это позволяет защитить ваше приложение от встраиваемого содержимого.
+`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
