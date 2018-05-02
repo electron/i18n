@@ -1,4 +1,4 @@
 # شئ تصویه فقره
 
-* <;0>;برچسب<;/0>; رشته - (اختیاری) متنی که در این مورد نمایش داده میشود
-* <;;0>;;شمایل<;;/0>;; عکس محلی - (اختیاری) عکسی که در این فقره نمایش داده میشود
+* `label` String (optional) - The text to appear in this item
+* `icon` NativeImage (optional) - The image to appear in this item
