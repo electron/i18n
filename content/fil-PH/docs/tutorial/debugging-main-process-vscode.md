@@ -28,10 +28,8 @@ $ code electron-quick-start
 }
 ```
 
-**Paalala:** Para sa "Windows", gumamit ng `"${workspaceRoot}/node_modules/.bin/electron.cmd"` para sa `runtimeExecutable`.
-
 ### 3. "Debugging"
 
-Itakda ang ilang "breakpoints" sa `main.js`, at simulang ang "debugging" sa [Debug View](https://code.visualstudio.com/docs/editor/debugging). Kinakailangan mong matamaan ang "breakpoints".
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
-Ito ang proyekto na ginamitan na ng kumpigurasyon na maaaring kunin o "download" at direktang gagamitan ng "debug" sa VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
