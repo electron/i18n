@@ -124,7 +124,7 @@ dipancarkan saat dokumen dalam bingkai yang diberikan dimuat.
 Pengembalian:
 
 * `event` Acara
-* `favicons` Tali [] - serangkaian URL
+* `favicons` Tali [] - serangkaian URL.
 
 Dibunyikan saat halaman menerima url favicon.
 
@@ -136,14 +136,14 @@ Pengembalian:
 * ` url </ 0> String</li>
 <li><code>nama bingkai` tali
 * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
-* `pilihan` Objek - pilihan yang akan digunakan untuk menciptakan baru `jendela peramban`.
+* `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `fitur tambahan` String [] - fitur tidak-standar (fitur tidak ditangani oleh Kromium atau elektron) diberikan kepada `jendela terbuka()`.
 
 Dibunyikan apabila halaman yang permintaan untuk membuka jendela baru `url`. Itu bisa saja diminta oleh `jendela terbuka` atau link eksternal seperti `<a target='_blank'>`.
 
 Secara default baru `Jendela Peramban` akan diciptakan untuk `url`.
 
-Memanggil `acara mencegah Default()` akan mencegah elektron dari secara otomatis menciptakan baru `Jendela Peramban`. Jika Anda menelepon `event.preventDefault()` dan manual membuat baru `Jeendela Peramban` maka Anda harus mengatur `event.new Tamu` ke referensi contoh `Jendela Peramban` baru, gagal untuk melakukannya dapat mengakibatkan perilaku tak terduga. Sebagai contoh:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Sebagai contoh:
 
 ```javascript
 JendelaPerambansay isiweb.on ('window baru ', (acara, url) = > {peristiwa.mencegahDefault() const menang = baru JendelaPeramban({tunjukkan: salah}) menang (' siap-untuk-menunjukkan ', () = > menang.menunjukkan()) menang. memuatURL(url) acara.tamu baru = menang})
@@ -231,19 +231,19 @@ Dibunyikan apabila `webContents` dihancurkan.
 Pengembalian:
 
 * `acara` Acara
-* `masukan` Obyek - Input properti 
-  * `jenis` String - baik `keyUp` atau `keyDown`
-  * `kunci` String - setara dengan [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `kode` String - setara dengan [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `isAutoRepeat` Boolean - setara dengan [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `pergeseran` Boolean - setara dengan [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `kontrol` Boolean - setara dengan [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `Alt` Boolean - setara dengan [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `meta` Boolean - setara dengan [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+* `masukan` Object - Input properties. 
+  * `type` String - Either `keyUp` or `keyDown`.
+  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
 
 Dipancarkan sebelum membuat acara `keydown` dan `keyup` di halaman. Memanggil `event.preventDefault` akan mencegah halaman `keydown` / `keyup` peristiwa dan menu cara pintas.
 
-Untuk hanya mencegah menu cara pintas, menggunakan [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
+To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental):
 
 ```javascript
 const {BrowserWindow} = require ('electron') 
@@ -273,10 +273,10 @@ Pengembalian:
 
 * `event</ 0> Acara</li>
 <li><code>url` String
-* `error` String - Kode kesalahan
+* `error` String - The error code.
 * `sertifikat` [Sertifikat](structures/certificate.md)
 * `callback` Fungsi 
-  * `Terpercaya` Boolean -Menunjukkan apakah sertifikat bisa dianggap terpercaya
+  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
 Emitted ketika gagal untuk memverifikasi `sertifikat` untuk `url`.
 
@@ -290,7 +290,7 @@ Pengembalian:
 * `url` URL
 * `certificateList` [Sertifikat[]](structures/certificate.md)
 * `callback` Fungsi 
-  * `sertifikat` [Sertifikat](structures/certificate.md) - Harus berupa sertifikat dari daftar yang diberikan
+  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Emitted ketika sertifikat klien diminta.
 
@@ -370,14 +370,14 @@ Pengembalian:
 <ul>
 <li><code>acara` Acara
 * `jenis` String
-* `gambar` NativeImage (opsional)
-* `skala` Mengambang (opsional) - skala faktor untuk kursor kustom
-* `ukuran` [Ukuran](structures/size.md) (opsional) - ukuran `gambar`
-* `hotspot` [Titik](structures/point.md) (opsional) - koordinat kursor kustom Hotspot
+* ` gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
+<li><code>scale` Float (optional) - scaling factor for the custom cursor.
+* `size` [Size](structures/size.md) (optional) - the size of the `image`.
+* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
-Emitted saat tipe kursor berubah. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+Emitted saat tipe kursor berubah. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
-Jika `jenis` parameternya `custom`, itu `gambar` Parameter akan menahan custom gambar kursor dalam `GambarAsli`, dan `skala`, `size` and `hotspot` akan memegang informasi tambahan tentang kursor khusus.
+If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
 #### Event: 'menu konteks'
 
@@ -385,9 +385,9 @@ Pengembalian:
 
 * `acara` Acara
 * `params` Obyek 
-  * `x` koordinat Integer - x
-  * ` y </ 0>  Koordinat integer</li>
-<li><code> linkURL </ 0>  String - URL tautan yang membungkus node menu konteks dipanggil.</li>
+  * `x` Integer - x coordinate.
+  * `y` Integer - y coordinate.
+  * ` linkURL </ 0>  String - URL tautan yang membungkus node menu konteks dipanggil.</li>
 <li><code> linkText </ 0>  String - Teks yang terkait dengan tautan. Mungkin berupa string kosong
  jika isi link adalah gambar.</li>
 <li><code> pageURL ` String - URL halaman tingkat atas yang diikuti menu konteks.
@@ -401,7 +401,7 @@ Pengembalian:
   * `salah eja` String - Kata salah eja di bawah kursor, jika ada.
   * `frameCharset` String - Pengkodean karakter dari bingkai tempat menu dipanggil.
   * `inputFieldType` String - Jika menu konteks dipanggil pada bidang masukan, jenis bidang itu. Nilai yang mungkin adalah `tidak ada` `plainText`, `sandi`, `lain`.
-  * `menuSourceType` String - sumber Input yang dipanggil menu konteks. Bisa `tidak`, `mouse`, `keyboard`, `menyentuh`, `touchMenu`.
+  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
   * `mediaFlags` Objek - Bendera untuk elemen media menu konteksnya dipanggil di. 
     * `inError` Boolean - Apakah elemen media telah jatuh.
     * `isPaused` Boolean - Apakah elemen media dijeda.
@@ -497,9 +497,9 @@ Emitted when the associated window logs a console message. Will not be emitted f
 <li><code>pilihan` Objek (opsional) 
   * ` httpReferrer </ 0>  String (opsional) - url Referrer HTTP.</li>
 <li><code> userAgent </ 0>  String (opsional) - Agen pengguna yang berasal dari permintaan.</li>
-<li><code> extraHeaders ` String (opsional) - Header ekstra yang dipisahkan oleh " \n "
-  * ` postData </ 0> ( <a href="structures/upload-raw-data.md"> UploadRawData [] </ 1> | <a href="structures/upload-file.md"> UploadFile [] </ 2> | <a href="structures/upload-file-system.md"> UploadFileSystem [] </ 3> | <a href="structures/upload-blob.md"> UploadBlob [] </ 4> ) - (opsional)</li>
-<li><code> baseURLForDataURL </ 0>  String (opsional) - URL dasar (dengan pemisah jalur trailing) untuk file yang akan dimuat oleh url data. Hal ini diperlukan hanya jika ditentukan <code>url` data url dan perlu memuat file lainnya.
+<li><code>extraHeaders` String (optional) - Extra headers separated by "\n".
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * ` baseURLForDataURL </ 0>  String (opsional) - URL dasar (dengan pemisah jalur trailing) untuk file yang akan dimuat oleh url data. Hal ini diperlukan hanya jika ditentukan <code>url` data url dan perlu memuat file lainnya.
 
 Beban `url` di jendela. `Url` harus mengandung prefiks protokol, misalnya `http://` atau `file://`. Jika beban harus mem-bypass http cache kemudian menggunakan `pragma` header untuk mencapainya.
 
@@ -507,93 +507,118 @@ Beban `url` di jendela. `Url` harus mengandung prefiks protokol, misalnya `http:
 const {webContents} = require('electron') opsi const = {extraHeaders: ' pragma: no-cache\n'} webContents.loadURL ('https://github.com', opsi)
 ```
 
+#### `contents.loadFile(filePath)`
+
+* `fullPath` String
+
+Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
+
+```sh
+| root
+| - package.json
+| - src
+|   - main.js
+|   - index.html
+```
+
+Would require code like this
+
+```js
+win.loadFile('src/index.html')
+```
+
 #### `contents.downloadURL(url)`
 
-* `url` String
+* ` url </ 0> String</li>
+</ul>
 
-Memulai download dari sumber daya di `url` tanpa menavigasi. Acara `akan-download` `sesi` akan dipicu.
+<p>Initiates a download of the resource at <code>url` without navigating. The `will-download` event of `session` will be triggered.</p> 
+  #### `contents.getURL()`
+  
+  Returns `String` - The URL of the current web page.
+  
+  ```javascript
+const {BrowserWindow} = require('electron')
+let win = new BrowserWindow({width: 800, height: 600})
+win.loadURL('http://github.com')
 
-#### `contents.getURL()`
-
-Mengembalikan `String` - URL laman web saat ini.
-
-```javascript
-const {BrowserWindow} = require('electron') membiarkan memenangkan = baru BrowserWindow({width: 800, height: 600}) win.loadURL ('http://github.com') Biarkan currentURL = win.webContents.getURL() console.log(currentURL)
+let currentURL = win.webContents.getURL()
+console.log(currentURL)
 ```
 
 #### `contents.getTitle()`
 
-Mengembalikan `String` - judul halaman web sekarang.
+Returns `String` - The title of the current web page.
 
 #### `contents.isDestroyed()`
 
-Kembali `Boolean` - Apakah halaman web dihancurkan.
+Returns `Boolean` - Whether the web page is destroyed.
 
-#### `contents.Focus()`
+#### `contents.focus()`
 
-Berfokus halaman web.
+Focuses the web page.
 
 #### `contents.isFocused()`
 
-Kembali `Boolean` - Apakah halaman web yang terfokus.
+Returns `Boolean` - Whether the web page is focused.
 
 #### `contents.isLoading()`
 
-Kembali `Boolean` - Apakah halaman web masih sedang loading sumber daya.
+Returns `Boolean` - Whether web page is still loading resources.
 
 #### `contents.isLoadingMainFrame()`
 
-Kembali `Boolean` - Apakah bingkai utama (dan bukan hanya iframes atau bingkai di dalamnya) masih sedang loading.
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 #### `contents.isWaitingForResponse()`
 
-Mengembalikan `Boolean` - Apakah halaman web menunggu tanggapan pertama dari utama sumber halaman.
+Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
 
 #### `contents.stop()`
 
 Menghentikan navigasi yang tertunda.
 
-#### `isi.reload()`
+#### `contents.reload()`
 
-Muat ulang halaman web saat ini.
+Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-Muat ulang halaman ini dan mengabaikan cache.
+Reloads current page and ignores cache.
 
 #### `contents.canGoBack()`
 
-Mengembalikan `Boolean` - Apakah browser dapat kembali ke halaman web sebelumnya.
+Returns `Boolean` - Whether the browser can go back to previous web page.
 
 #### `contents.canGoForward()`
 
-Mengembalikan `Boolean` - Apakah browser dapat maju ke halaman web berikutnya.
+Returns `Boolean` - Whether the browser can go forward to next web page.
 
 #### `contents.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Mengembalikan `Boolean` - Apakah halaman web bisa masuk ke `offset`.
+Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
 Menghapus sejarah navigasi.
 
-#### `isi.goBack()`
+#### `contents.goBack()`
 
-Membuat browser kembali menjadi halaman web.
+Makes the browser go back a web page.
 
-#### `isi.goForward()`
+#### `contents.goForward()`
 
-Membuat browser maju ke depan halaman web.
+Makes the browser go forward a web page.
 
-#### `contents.goToIndex(indeks)`
+#### `contents.goToIndex(index)`
 
 * `indeks` Integer
 
-Menavigasi browser ke indeks halaman web absolut yang ditentukan.
+Navigates browser to the specified absolute web page index.
 
-#### `contents.goToOffset (offset)`
+#### `contents.goToOffset(offset)`
 
 * `offset` Integer
 
@@ -603,23 +628,23 @@ Arahkan ke offset yang ditentukan dari "entri saat ini".
 
 Mengembalikan `Boolean` - Apakah proses renderer telah jatuh.
 
-#### `contents.setUserAgent (userAgent)`
+#### `contents.setUserAgent(userAgent)`
 
 * `userAgent` String
 
-Mengganti agen pengguna untuk halaman web ini.
+Overrides the user agent for this web page.
 
 #### `contents.getUserAgent()`
 
-Mengembalikan `String` - Agen pengguna untuk halaman web ini.
+Returns `String` - The user agent for this web page.
 
-#### `isi.insertCSS(css)`
+#### `contents.insertCSS(css)`
 
 * `css` String
 
-Menyuntikkan CSS ke dalam halaman web saat ini.
+Injects CSS into the current web page.
 
-#### `contents.executeJavaScript(kode[, userGesture, callback])`
+#### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * ` kode </ 0> String</li>
 <li><code>userGesture` Boolean (opsional) - Default adalah `false`.
@@ -632,32 +657,32 @@ Evaluasi `kode` di halaman.
 
 Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
 
-Jika hasil dari kode yang dieksekusi adalah janji maka hasil callback akan menjadi terselesaikan nilai dari janji. Sebaiknya gunakan Janji yang dikembalikan untuk menangani kode yang menghasilkan Janji.
+If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
 ```js
-isi.executeJavaScript('ambil("https://jsonplaceholder.typicode.com/users/1"). kemudian (resp => resp.json())', true)
-  .Kemudian ((hasil) => {
-    console.log (result) // Akan menjadi objek JSON dari fetch call
+contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
+  .then((result) => {
+    console.log(result) // Will be the JSON object from the fetch call
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts (abaikan)` *Eksperimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `mengabaikan` Boolean
 
-Abaikan shortcut menu aplikasi sementara konten web ini difokuskan.
+Ignore application menu shortcuts while this web contents is focused.
 
-#### `contents.setAudioMuted(dibungkam)`
+#### `contents.setAudioMuted(muted)`
 
 * `dibungkam` Boolean
 
-Sesuaikan render halaman web saat ini.
+Mute the audio on the current web page.
 
-#### `isi.isAudioMuted()`
+#### `contents.isAudioMuted()`
 
-Mengembalikan `Boolean` - Apakah halaman ini telah dibungkam.
+Returns `Boolean` - Whether this page has been muted.
 
-#### `contents.setZoomFactor(faktor)`
+#### `contents.setZoomFactor(factor)`
 
 * `faktor` Angka - Faktor zoom.
 
@@ -666,29 +691,22 @@ Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom pe
 #### `contents.getZoomFactor(callback)`
 
 * `callback` Fungsi 
-  * `zoomFactor` Nomor
+  * `zoomFactor` Number
 
-Mengirim permintaan untuk mendapatkan faktor pembesaran saat ini, `panggilan balik` akan dipanggil `callback (zoomFactor)`.
+Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Angka - level zoom
+* `level` Number - Zoom level.
 
-Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
+Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan. The formula for this is `scale := 1.2 ^ level`.
 
 #### `contents.getZoomLevel(callback)`
 
 * `callback` Fungsi 
-  * `zoomLevel` Nomor
+  * `zoomLevel` Number
 
-Mengirimkan permintaan untuk mendapatkan tingkat pembesaran saat ini, panggilan balik ` `akan dipanggil dengan `callback(zoomLevel)`.
-
-#### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
-
-* `minimalLevel` Nomor
-* `maksimalLevel` Nomor
-
-**Tidak berlaku lagi:**Panggil`setVisualZoomLevelLimits` untuk mengatur zoom visual batas tingkat Metode ini akan dihapus di Electron 2.0.
+Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -706,58 +724,58 @@ Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-vi
 
 #### `contents.undo()`
 
-Jalankan perintah pengeditan `undo` di halaman web.
+Executes the editing command `undo` in web page.
 
 #### `konten.redo()`
 
-Jalankan perintah pengeditan `ulangi` di halaman web.
+Executes the editing command `redo` in web page.
 
 #### `konten.potong()`
 
-Jalankan perintah pengeditan `potong` di halaman web.
+Executes the editing command `cut` in web page.
 
 #### `konten.mengkopi()`
 
-Jalankan perintah pengeditan `copy` di halaman web.
+Executes the editing command `copy` in web page.
 
 #### `contents.copyImageAt(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Salin gambar pada posisi yang diberikan ke clipboard.
+Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-Jalankan perintah pengeditan `paste` di halaman web.
+Executes the editing command `paste` in web page.
 
 #### `contents.pasteAndMatchStyle()`
 
-Jalankan perintah pengeditan `pasteAndMatchStyle` di halaman web.
+Executes the editing command `pasteAndMatchStyle` in web page.
 
 #### `konten.menghapus()`
 
-Jalankan perintah pengeditan `hapus` di halaman web.
+Executes the editing command `delete` in web page.
 
 #### `konten.memilihsemua()`
 
-Jalankan perintah pengeditan `selectAll` di halaman web.
+Executes the editing command `selectAll` in web page.
 
 #### `konten.tidakmemilih()`
 
-Jalankan perintah pengeditan `batalkan pilihan` di halaman web.
+Executes the editing command `unselect` in web page.
 
 #### `isi.replace(teks)`
 
 * `teks` String
 
-Jalankan perintah pengeditan `ganti` di halaman web.
+Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(teks)`
 
 * `teks` String
 
-Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
+Executes the editing command `replaceMisspelling` in web page.
 
 #### `konten.mencaritek()`
 
@@ -769,11 +787,11 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
   
   * `text` String - Konten yang akan dicari, tidak boleh kosong.
   * `pilihan` Objek (opsional) 
-    * `forward` Boolean - (opsional) Baik untuk mencari maju atau mundur, default ke `true`.
-    * `findNext` Boolean - (opsional) Apakah operasi tersebut merupakan permintaan pertama atau tindak lanjut, default ke `false`.
-    * `matchCase` Boolean - (opsional) Apakah pencarian harus sensitif huruf, default ke `false`.
-    * `wordStart` Boolean - (opsional) Baik untuk melihat hanya pada awal kata-kata. default ke `false`.
-    * `medialCapitalAsWordStart` Boolean - (opsional) Bila digabungkan dengan `wordStart`, menerima sebuah pertandingan di tengah sebuah kata jika pertandingan dimulai dengan sebuah huruf besar diikuti huruf kecil atau huruf non. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
+    * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+    * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+    * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+    * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+    * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
   
   Returns `Integer` - The request id used for the request.
   
@@ -786,40 +804,46 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
     * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
     * `activateSelection` - fokus dan klik seleksi simpul.
   
-  Berhenti setiap permintaan `findInPage` untuk `webContents` dengan disediakan `tindakan`.
+  Stops any `findInPage` request for the `webContents` with the provided `action`.
   
   ```javascript
-const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman ', (acara, hasil) = > {jika webContents.stopFindInPage('clearSelection') (result.finalUpdate)}) const requestId = webContents.findInPage('api') console.log(requestId)
+const {webContents} = require('electron')
+webContents.on('found-in-page', (event, result) => {
+  if (result.finalUpdate) webContents.stopFindInPage('clearSelection')
+})
+
+const requestId = webContents.findInPage('api')
+console.log(requestId)
 ```
 
 #### `contents.capturePage ([rect,] callback)`
 
-* `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 * `callback` Fungsi 
   * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
 </ul>
 
-<p>Menangkap sebuah snapshot dari halaman dalam <code>rect`. Setelah menyelesaikan `callback` yang akan disebut dengan `callback(image)`. `Gambar` adalah instance dari [NativeImage](native-image.md) yang menyimpan data dari snapshot. Menghilangkan `rect` akan menangkap halaman seluruh terlihat.</p> 
+<p>Captures a snapshot of the page within <code>rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.</p> 
     #### `isi.hasServiceWorker(callback)`
     
     * `callback` Fungsi 
       * `hasWorker` Boolean
     
-    Memeriksa apakah ada ServiceWorker yang terdaftar dan mengembalikan boolean sebagai respon terhadap `callback`.
+    Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
     
     #### `contents.unregisterServiceWorker(callback)`
     
     * `callback` Fungsi 
       * `sukses` Boolean
     
-    Unregisters ServiceWorker jika ada dan mengembalikan boolean sebagai respon terhadap `callback` ketika janji JS terpenuhi atau salah saat janji JS ditolak.
+    Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
     
     #### `konten.mendapatkanpercetakan()`
     
-    Dapatkan daftar printer sistem.
+    Get the system printer list.
     
-    Mengembalikan [`membuatinfo[]`](structures/printer-info.md)
+    Returns [`PrinterInfo[]`](structures/printer-info.md).
     
     #### `contents.print([options], [callback])`
     
@@ -828,44 +852,64 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
       * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
       * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
     * `callback` Fungsi (opsional) 
-      * success` Boolean - Indicates success of the print call.
+      * `success` Boolean - Indicates success of the print call.
     
-    Mencetak halaman web jendela. Bila `diam` diatur ke `true`, Elektron akan memilih printer default sistem jika `deviceName` kosong dan pengaturan default untuk dicetak.
+    Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
     
-    Memanggil `window.print()` di halaman web sama dengan memanggil `webContents.print ({silent: false, printBackground: false, deviceName: ''})`.
+    Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
     
-    Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
+    Use `page-break-before: always;` CSS style to force to print to a new page.
     
     #### `contents.printToPDF(pilihan, callback)`
     
     * `pilihan` Obyek 
-      * `marginType` Integer - (opsional) Menentukan jenis margin yang akan digunakan. Menggunakan 0 untuk margin default, 1 tanpa margin, dan 2 untuk margin minimum.
-      * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
-      * `printBackground` Boolean - (opsional) Baik untuk mencetak latar belakang CSS.
-      * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
-      * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
+      * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+      * `pageSize` String (optional) - Specify page size of the generated PDF. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
+      * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+      * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+      * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
     * `callback` Fungsi 
       * Kesalahan `kesalahan`
       * `data` nomor
     
-    Mencetak halaman web jendela sebagai PDF dengan custom printing preview Chromium pengaturan.
+    Prints window's web page as PDF with Chromium's preview printing custom settings.
     
-    The `callback` akan dipanggil dengan `callback(error, data)` saat selesai. Itu `data` adalah `Buffer` yang berisi data PDF yang dihasilkan.
+    The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
     
     The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
     
     By default, an empty `options` will be regarded as:
     
     ```javascript
-{marginsType: 0, printBackground: false, printSelectionOnly: false, landscape: false}
+{
+  marginsType: 0,
+  printBackground: false,
+  printSelectionOnly: false,
+  landscape: false
+}
 ```
 
-Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
-An example of `webContents.printToPDF `:
+An example of `webContents.printToPDF`:
 
 ```javascript
-const {BrowserWindow} = require ('electron') const fs = require ('fs') let win = new BrowserWindow ({width: 800, height: 600}) win.loadURL ('http://github.com') win.webContents.on ('did-finish-load', () = > {// Use default printing options win.webContents.printToPDF ({}, (error, data) = > {if (error) throw error fs.writeFile ('/ tmp / print.pdf', data, (error) = > {if (error) throw error console.log ('Write PDF successfully.')})})})
+const {BrowserWindow} = require('electron')
+const fs = require('fs')
+
+let win = new BrowserWindow({width: 800, height: 600})
+win.loadURL('http://github.com')
+
+win.webContents.on('did-finish-load', () => {
+  // Use default printing options
+  win.webContents.printToPDF({}, (error, data) => {
+    if (error) throw error
+    fs.writeFile('/tmp/print.pdf', data, (error) => {
+      if (error) throw error
+      console.log('Write PDF successfully.')
+    })
+  })
+})
 ```
 
 #### `contents.addWorkSpace (path)`
@@ -873,62 +917,126 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
 * ` path </ 0>  String</li>
 </ul>
 
-<p>Adds the specified path to DevTools workspace. Must be used after DevTools creation:</p>
+<p>Adds the specified path to DevTools workspace. Must be used after DevTools
+creation:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require ('electron') let win = new BrowserWindow () win.webContents.on ('devtools-opened', () = > {win.webContents.addWorkSpace (__ dirname)})
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
+let win = new BrowserWindow()
+win.webContents.on('devtools-opened', () => {
+  win.webContents.addWorkSpace(__dirname)
+})
 `</pre> 
   #### `konten.memindahkanruankerja(jalur)`
   
   * ` path </ 0>  String</li>
 </ul>
 
-<p>Menghapus jalur yang ditentukan dari ruang kerja DevTools.</p>
+<p>Removes the specified path from DevTools workspace.</p>
 
-<h4><code>konten.membukaDevAlat([options])`</h4> 
-    * `pilihan` Objek (opsional) 
-      * `mode` String - Membuka devtool dengan status dermaga tertentu, bisa `kanan`, `bawah`, `undocked`, `lepas`. Default untuk terakhir digunakan dermaga negara. Pada mode `undocked`, mungkin untuk kembali ke dermaga. Di dalam `melepaskan` bukan mode itu.
+<h4><code>contents.setDevToolsWebContents(devToolsWebContents)`</h4> 
+    * `devToolsWebContents` WebContents
     
-    Membuka devtools.
+    Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
     
-    #### `konten.menutupDevAlat()`
+    The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
     
-    Menutup devtools.
+    By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
     
-    #### `konten.apakahalatDevTerbuka()`
+    Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
     
-    Mengembalikan `boolean` - apakah alatdev sudah terbuka.
+    An example of showing devtools in a `<webview>` tag:
     
-    #### `konten.apakahAlatDevsudahTerfokus()`
-    
-    Mengembalikan `Boolean` - Apakah tampilan devtools terfokus.
-    
-    #### `konten.mematikanAlatDev()`
-    
-    Toggles alat pengembang.
-    
-    #### `contents.inspectElement (x, y)`
-    
-    * `x` Integer
-    * `y` Integer
-    
-    Mulai memeriksa elemen pada posisi (`x`, `y`).
-    
-    #### `konten.inspectServiceWorker()`
-    
-    Membuka alat pengembang untuk konteks pekerja layanan.
-    
-    #### `contents.send (saluran [, arg1][, arg2][, ...])`
-    
-    * `channel` String
-    * ` ... args </ 0> ada []</li>
+    ```html
+<html>
+<head>
+  <style type="text/css">
+
+    * { margin: 0; }
+    #browser { height: 70%; }
+    #devtools { height: 30%; }
+  </style>
+</head>
+<body>
+  <webview id="browser" src="https://github.com"></webview>
+  <webview id="devtools"></webview>
+  <script>
+    const browserView = document.getElementById('browser')
+    const devtoolsView = document.getElementById('devtools')
+    browserView.addEventListener('dom-ready', () => {
+      const browser = browserView.getWebContents()
+      browser.setDevToolsWebContents(devtoolsView.getWebContents())
+      browser.openDevTools()
+    })
+  </script>
+</body>
+</html>
+```
+
+An example of showing devtools in a `BrowserWindow`:
+
+```js
+const {app, BrowserWindow} = require('electron')
+
+let win = null
+let devtools = null
+
+app.once('ready', () => {
+  win = new BrowserWindow()
+  devtools = new BrowserWindow()
+  win.loadURL('https://github.com')
+  win.webContents.setDevToolsWebContents(devtools.webContents)
+  win.webContents.openDevTools({mode: 'detach'})
+})
+```
+
+#### `contents.openDevTools([options])`
+
+* `pilihan` Objek (pilihan) 
+  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+
+Opens the devtools.
+
+When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
+
+#### `contents.closeDevTools()`
+
+Closes the devtools.
+
+#### `contents.isDevToolsOpened()`
+
+Returns `Boolean` - Whether the devtools is opened.
+
+#### `contents.isDevToolsFocused()`
+
+Returns `Boolean` - Whether the devtools view is focused .
+
+#### `contents.toggleDevTools()`
+
+Toggles the developer tools.
+
+#### `contents.inspectElement(x, y)`
+
+* `x` Integer
+* `y` Integer
+
+Starts inspecting element at position (`x`, `y`).
+
+#### `contents.inspectServiceWorker()`
+
+Opens the developer tools for the service worker context.
+
+#### `contents.send(channel[, arg1][, arg2][, ...])`
+
+* ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
-      Proses renderer dapat menangani pesan dengan mendengarkan `channel` dengan modul `ipcRenderer`.
-      
-      Contoh pengiriman pesan dari proses utama ke proses renderer:
-      
-      ```javascript
+  The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+  
+  An example of sending messages from the main process to the renderer process:
+  
+  ```javascript
 // In the main process.
 const {app, BrowserWindow} = require('electron')
 let win = null
@@ -941,35 +1049,33 @@ app.on('ready', () => {
   })
 })
 ```
-  
-  ```html
+
+```html
 <!-- index.html -->
 <html>
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message)  // Prints 'whoooooooh!'
+      console.log(message) // Prints 'whoooooooh!'
     })
   </script>
 </body>
 </html>
 ```
 
-#### `contents.enableDeviceEmulation(parameter)`
+#### `contents.enableDeviceEmulation(parameters)`
 
-* `parameter` Obyek 
-  * `screenPosition` String - Tentukan jenis layar yang akan ditiru (default: `Desktop`) 
-    * `desktop` - Jenis layar desktop
-    * `ponsel` - Jenis layar seluler
-  * `screenSize` [Ukuran](structures/size.md) - Menetapkan ukuran layar yang ditiru (screenPosition == mobile)
-  * `viewPosition` [Point](structures/point.md) - Posisikan tampilan di layar (screenPosition == mobile) (default: `{x: 0, y: 0}`)
-  * `deviceScaleFactor` Integer - Tetapkan faktor skala perangkat (jika nol default ke faktor skala perangkat asli) (default: ``)
+* `parameters` Obyek 
+  * `screenPosition` String - Specify the screen type to emulate (default: `Desktop`): 
+    * `desktop` - Desktop screen type.
+    * `mobile` - Mobile screen type.
+  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
+  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`).
+  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``).
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
-  * `fitToView` Boolean - Apakah pandangan yang ditiru harus diperkecil jika diperlukan agar sesuai dengan ruang yang tersedia (default: `false`)
-  * `offset` [Point](structures/point.md) - Offset tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: `{x: 0, y: 0}`)
-  * `skala` Float - Skala tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: ` 1 `)
+  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-Aktifkan emulasi perangkat dengan parameter yang diberikan.
+Enable device emulation with the given parameters.
 
 #### `contents.disableDeviceEmulation()`
 
@@ -977,28 +1083,28 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `peristiwa` Obyek 
-  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
+* `peristiwa` Sasaran 
+  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
-Mengirim masukan `event` ke halaman. **Catatan:** `BrowserWindow` yang berisi konten perlu difokuskan untuk `sendInputEvent ()` untuk bekerja.
+Mengirim masukan `event` ke halaman. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
 
-Untuk acara keyboard, objek `event` juga memiliki properti berikut:
+For keyboard events, the `event` object also have following properties:
 
-* `keyCode` String (**required**) - Karakter yang akan dikirim sebagai acara keyboard. Sebaiknya gunakan kode kunci yang valid di [Accelerator](accelerator.md).
+* `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
 
-Untuk acara mouse, objek `event` juga memiliki properti berikut:
+For mouse events, the `event` object also have following properties:
 
 * `x` Integer (**required**)
 * `y` Integer (**required**)
-* `button` String - The button pressed, can be `left`, `middle`, `right`
+* `button` String - The button pressed, can be `left`, `middle`, `right`.
 * `globalX` Integer
 * `globalY` Integer
 * `movementX` Integer
 * `movementY` Integer
 * `clickCount` Integer
 
-Untuk event `mouseWheel`, objek `event` juga memiliki properti berikut:
+For the `mouseWheel` event, the `event` object also have following properties:
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -1008,57 +1114,66 @@ Untuk event `mouseWheel`, objek `event` juga memiliki properti berikut:
 * `accelerationRatioY` Integer
 * `hasPreciseScrollingDeltas` Boolean
 * `canScroll` Boolean
-#### `<code>dirtyRect` [Rectangle](structures/rectangle.md)</code>
+#### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (opsional) - Default ke `false`
+* `onlyDirty` Boolean (optional) - Defaults to `false`.
 * `callback` Fungsi 
   * `frameBuffer` Buffer
   * `dirtyRect` [Persegi panjang](structures/rectangle.md)
 
-Mulailah berlangganan untuk acara presentasi dan bingkai yang diambil, `callback` akan dipanggil dengan `callback(frameBuffer, dirtyRect)` bila ada acara presentasi.
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
 
-`frameBuffer` adalah `Buffer` yang berisi data piksel mentah. Pada kebanyakan mesin, data pixel secara efektif disimpan dalam format BGRA 32bit, namun sebenarnya Representasi tergantung pada endianitas prosesor (paling modern Prosesornya sedikit-endian, pada mesin dengan prosesor big-endian data ada dalam format ARGB 32bit).
+The `frameBuffer` is a `Buffer` that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).
 
-`dirtyRect` adalah objek dengan properti `x, y, width, height` yang menggambarkan bagian mana dari halaman yang dicat ulang. Jika `onlyDirty` diatur ke `true`, `frameBuffer` akan hanya berisi daerah repainted. `onlyDirty` default ke `false`.
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
-Akhiri berlangganan untuk presentasi peristiwa.
+End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Obyek 
+* `item` Sasaran 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
-Menetapkan item `item` sebagai item drag untuk operasi drag-drop saat ini, `file` adalah path absolut dari file yang akan diseret, dan `icon` adalah gambar ditampilkan di bawah kursor saat menyeret.
+Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
-#### `contents.savePage (fullPath, saveType, callback)`
+#### `contents.savePage(fullPath, saveType, callback)`
 
-* `fullPath` String - Jalur file lengkap.
+* `fullPath` String - The full file path.
 * `saveType` String - Specify the save type. 
-  * `HTMLOnly` - Simpan hanya HTML halaman.
-  * `HTMLComplete` - Simpan halaman lengkap-html.
-  * `MHTML` - Simpan halaman lengkap-html sebagai MHTML.
+  * `HTMLOnly` - Save only the HTML of the page.
+  * `HTMLComplete` - Save complete-html page.
+  * `MHTML` - Save complete-html page as MHTML.
 * `callback` Function - `(error) => {}`. 
   * Kesalahan `kesalahan`
 
-Mengembalikan `Boolean` - benar jika proses menyimpan halaman telah dimulai dengan sukses.
+Returns `Boolean` - true if the process of saving page has been initiated successfully.
 
 ```javascript
-const {BrowserWindow} = require ('electron') let win = new BrowserWindow () win.loadURL ('https://github.com') win.webContents.on ('did-finish-load', () = > {win.webContents.savePage ('/ tmp / test.html', 'HTMLComplete', (error) = > {if (! error) console.log ('Selamatkan halaman berhasil')})})
+const {BrowserWindow} = require('electron')
+let win = new BrowserWindow()
+
+win.loadURL('https://github.com')
+
+win.webContents.on('did-finish-load', () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
+    if (!error) console.log('Save page successfully')
+  })
+})
 ```
 
-#### `contents.showDefinitionForSelection()` *macos*
+#### `contents.showDefinitionForSelection()` *macOS*
 
 Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
 
 #### `contents.setSize(options)`
 
-Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
+Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `pilihan` Obyek 
-  * `normal` Objek (opsional) - Ukuran normal halaman. Ini bisa digunakan di kombinasi dengan [`disableguestresize`](web-view-tag.md#disableguestresize) atribut untuk mengubah ukuran isi guestview secara manual. 
+* `pilihan` Sasaran 
+  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * ` width </ 0>  Integer</li>
 <li><code> tinggi </ 0>  Integer</li>
 </ul></li>
@@ -1088,52 +1203,52 @@ Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
       
       #### `contents.getFrameRate()`
       
-      Mengembalikan `Integer` - Jika *rendering offscreen* diaktifkan mengembalikan frame rate saat ini.
+      Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
       
       #### `contents.invalidate()`
       
-      Jadwal repaint penuh dari jendela isi web ini masuk.
+      Schedules a full repaint of the window this web contents is in.
       
-      Jika *offscreen rendering* diaktifkan akan membuat frame tidak valid dan menghasilkan yang baru satu melalui acara `'paint' `.
+      If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
       
       #### `contents.getWebRTCIPHandlingPolicy()`
       
-      Mengembalikan `String` - Mengembalikan Kebijakan Penanganan IP WebRTC.
+      Returns `String` - Returns the WebRTC IP Handling Policy.
       
       #### `contents.setWebRTCIPHandlingPolicy(policy)`
       
-      * `policy` String - Tentukan Kebijakan Penanganan IP WebRTC. 
-        * `default ` - Mengekspos IP publik dan lokal pengguna. Ini adalah defaultnya tingkah laku. Bila kebijakan ini digunakan, WebRTC berhak untuk menghitung semua antarmuka dan mengikat mereka untuk menemukan antarmuka publik.
-        * `default_public_interface_only` - Mengekspos IP publik pengguna, namun tidak paparkan IP lokal pengguna. When this policy is used, WebRTC should only use the default route used by http. Ini tidak mengekspos alamat lokal apapun.
-        * `default_public_and_private_interfaces` - Paparkan IP publik dan lokal pengguna. Saat kebijakan ini digunakan, WebRTC seharusnya hanya menggunakan rute default yang digunakan dengan http. Ini juga menunjukkan alamat pribadi default yang terkait. Default Rute adalah rute yang dipilih oleh OS pada titik akhir multi-homed.
-        * `disable_non_proxied_udp` - Tidak mengekspos IP publik atau lokal. Saat kebijakan ini digunakan, WebRTC hanya boleh menggunakan TCP untuk menghubungi teman sebaya atau server kecuali jika server proxy mendukung UDP.
+      * `policy` String - Specify the WebRTC IP Handling Policy. 
+        * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+        * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+        * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+        * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
       
-      Menetapkan kebijakan penanganan IP WebRTC memungkinkan Anda mengendalikan IP mana saja terpapar melalui WebRTC. Lihat [BrowserLeaks](https://browserleaks.com/webrtc) untuk keterangan lebih lanjut.
+      Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
       
       #### `contents.getOSProcessId()`
       
-      Mengembalikan `Integer` - `pid` dari proses renderer yang terkait.
+      Returns `Integer` - The `pid` of the associated renderer process.
       
       ### Contoh properti
       
       #### `contents.id`
       
-      A `Integer` mewakili ID unik dari Konten Web ini.
+      A `Integer` representing the unique ID of this WebContents.
       
       #### `contents.session`
       
-      [`Sesi`](session.md) digunakan oleh webContents ini.
+      A [`Session`](session.md) used by this webContents.
       
       #### `contents.hostWebContents`
       
-      Sebuah instance [`WebContents`](web-contents.md) yang mungkin sendiri ini `WebContents`.
+      A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
       
       #### `contents.devToolsWebContents`
       
-      `WebContents` dari DevTools untuk ini `WebContents`.
+      A `WebContents` of DevTools for this `WebContents`.
       
-      **Catatan:** Pengguna harus tidak pernah menyimpan objek ini karena hal itu mungkin menjadi `null` ketika DevTools telah ditutup.
+      **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
       
       #### `contents.debugger`
       
-      Contoh [Debugger](debugger.md) untuk webContents ini.
+      A [Debugger](debugger.md) instance for this webContents.
