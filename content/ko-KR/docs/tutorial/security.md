@@ -206,7 +206,7 @@ session
 
 ## 5) WebSecurity를 비활성화 하지 마세요.
 
-*Recommendation is Electron's default*
+*추천 값은 Electron의 기본값입니다.*
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) disables crucial security features.
 
@@ -340,7 +340,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 10) `blinkFeatures`를 사용하지 마세요.
 
-*Recommendation is Electron's default*
+*추천 값은 Electron의 기본값입니다.*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -377,10 +377,10 @@ If you do not need popups, you are better off not allowing the creation of new [
 ### 어떻게 하나요?
 
 ```html
-<!-- Bad -->
+<!-- 나쁜 예 -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- 좋은 예 -->
 <webview src="page.html"></webview>
 ```
 
