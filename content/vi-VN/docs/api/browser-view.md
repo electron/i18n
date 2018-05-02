@@ -6,7 +6,7 @@
 
 Tiến trình: [Main](../glossary.md#main-process)
 
-Một `BrowserView` được dùng để nhúng thêm nội dung web vào một `BrowserWindow`. Nó như một cửa sổ con, ngoại trừ vị trí của nó thì tương đối với cửa sổ sở hữu nó. Có thể xem nó là một sự lựa chọn khác với sử dụng tag `webview`.
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Nó như một cửa sổ con, ngoại trừ vị trí của nó thì tương đối với cửa sổ sở hữu nó. Có thể xem nó là một sự lựa chọn khác với sử dụng tag `webview`.
 
 ## Ví dụ
 
