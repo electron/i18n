@@ -41,7 +41,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `state` String - Can be `progressing` or `interrupted`.
 
 Aparece cuando la descara ha sido actualizada y no está terminada.
@@ -55,7 +55,7 @@ El `state` puede ser uno de los siguientes:
 
 Retorna:
 
-* `evento` Evento
+* `event` Event
 * `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 Aparece cuando la descarga está en un estado terminal. Esto incluye una descarga completa, una descarga cancelada (a través de `downloadItem.cancel()`), y una descarga interrumpida que no puede ser reanudada.
