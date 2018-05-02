@@ -67,7 +67,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 * `channel` Cadena
 * `...args` any[]
 
-Sends a message to a window with `windowid` via `channel`.
+Envía un mensaje a una ventana con `windowid` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
