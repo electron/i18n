@@ -42,7 +42,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 Retourne :
 
 * `event` Événement
-* `state` String
+* `state` String - Can be `progressing` or `interrupted`.
 
 Émis lorsque le téléchargement a été mis à jour et n'est pas fini.
 
@@ -56,7 +56,7 @@ Le `state` peut être un de ces cas :
 Retourne :
 
 * `event` Événement
-* `state` String
+* `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 Émis lorsque le téléchargement est dans un état final. Cela inclus un téléchargement fini, annulé (via `downloadItem.cancel()`) et interrompu tout en ne pouvant pas pas être repris.
 
@@ -136,7 +136,7 @@ Retourne `String` - Le champ Content-Disposition venant de l'en-tête de la rép
 
 #### `downloadItem.getState()`
 
-Retourne `String` - L'état actuel. Peut être `progressing`, `completed`, `cancelled` ou `interrupted`.
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
 **Remarque :** Les méthodes suivantes sont utiles spécifiquement pour relancer un téléchargement `cancelled` au redémarrage de la session.
 
