@@ -2,7 +2,7 @@
 
 > Permintaan dan modifikasi cookie sesi.
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 Contoh dari ` Cookie </ 0> kelas diakses dengan menggunakan <code> cookie </ 0> properti dari <code> Sesi </ 0> .</p>
 
@@ -24,9 +24,9 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <h4>Acara: 'berubah'</h4>
 
 <ul>
-<li><code>event` Event</li> 
+<li><code>event` Sinyal</li> 
 
-* `cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah
+* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
 * `sebab` String - Penyebab perubahan dengan salah satu dari nilai berikut: 
   * ` eksplisit </ 0> - Cookie diubah secara langsung oleh tindakan konsumen.</li>
 <li><code> menimpa </ 0> - Cookie dihapus secara otomatis karena operasi insert yang overwrote itu.</li>
@@ -48,17 +48,17 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
       * ` url </ 0>  String (opsional) - Mengambil cookie yang dikaitkan dengan
  <code> url </ 0> . Empty berarti mengambil cookies dari semua url.</li>
 <li><code> nama </ 0>  String (opsional) - Menyaring kuki berdasarkan nama.</li>
-<li><code> domain </ 0>  String (opsional) - Mengambil cookie yang domainnya cocok atau merupakan subdomain dari <code> domain </ 0></li>
-<li><code> path </ 0>  String (opsional) - Mengambil cookie yang jalurnya cocok dengan <code> path </ 0> .</li>
+<li><code>domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
+      * ` path </ 0>  String (opsional) - Mengambil cookie yang jalurnya cocok dengan <code> path </ 0> .</li>
 <li><code>aman`Boolean (opsional) - Filter cookie oleh properti Aman mereka.
       * `aman` Boolean (opsional) - Filter cookie oleh properti Aman mereka.
     * `callback` Fungsi 
       * Kesalahan `kesalahan`
       * `cookies `[Cookie [] ](structures/cookie.md) - sebuah array dari objek cookie.
     
-    Mengirimkan permintaan agar semua cookie yang cocok dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error, cookies) </ 0> secara lengkap.</p>
-
-<h4><code>cookies.set (rincian, callback)`</h4> 
+    Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
+    
+    #### `cookies.set (rincian, callback)`
     
     * `rincian` Sasaran 
       * `url`String - Url untuk mengaitkan cookie dengan.
