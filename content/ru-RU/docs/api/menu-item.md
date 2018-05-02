@@ -11,18 +11,18 @@ See [`Menu`](menu.md) for examples.
 * `options` Object 
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
-    * `browserWindow` BrowserWindow
+    * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
   * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
+  * `label` String (optional)
+  * `sublabel` String (optional)
   * `accelerator` [Accelerator](accelerator.md) (optional)
   * `icon` ([NativeImage](native-image.md) | String) (optional)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
@@ -41,42 +41,44 @@ The `role` property can have following values:
 * `cut`
 * `копировать`
 * `paste`
-* `pasteandmatchstyle`
-* `selectall`
+* `pasteAndMatchStyle`
+* `selectAll`
 * `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
-* `zoomout` - Zoom out the focused page by 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* `minimize` - Minimize current window.
+* `close` - Close current window.
+* `quit`- Quit the application.
+* `reload` - Reload the current window.
+* `forceReload` - Reload the current window ignoring the cache.
+* `toggleDevTools` - Toggle developer tools in the current window.
+* `toggleFullScreen`- Toggle full screen mode on the current window.
+* `resetZoom` - Reset the focused page's zoom level to the original size.
+* `zoomIn` - Zoom in the focused page by 10%.
+* `zoomOut` - Zoom out the focused page by 10%.
+* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
+* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
 
-The following additional roles are available on macOS:
+The following additional roles are available on *macOS*:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
-* `hideothers` - Map to the `hideOtherApplications` action
-* `unhide` - Map to the `unhideAllApplications` action
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `toggletabbar` - Map to the `toggleTabBar` action
-* `selectnexttab` - Map to the `selectNextTab` action
-* `selectprevioustab` - Map to the `selectPreviousTab` action
-* `mergeallwindows` - Map to the `mergeAllWindows` action
-* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `about` - Map to the `orderFrontStandardAboutPanel` action.
+* `hide` - Map to the `hide` action.
+* `hideOthers` - Map to the `hideOtherApplications` action.
+* `unhide` - Map to the `unhideAllApplications` action.
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `front` - Map to the `arrangeInFront` action.
+* `zoom` - Map to the `performZoom` action.
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
+* `services` - The submenu is a "Services" menu.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
 ### Свойства экземпляра
 
@@ -102,8 +104,8 @@ You can add a `click` function for additional behavior.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label
+A `String` representing the menu items visible label.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event
+A `Function` that is fired when the MenuItem receives a click event.
