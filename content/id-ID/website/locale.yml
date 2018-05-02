@@ -142,7 +142,7 @@ pages:
     title: Kontak
     description: Hubungi tim Elektron di Twitter, Slack, GitHub, atau melalui email.
   '/languages':
-    title: bahasa
+    title: Bahasa
   '/userland':
     title: Tanah pengguna
   '/devtron':
