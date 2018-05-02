@@ -20,12 +20,12 @@ Ejemplo de envío y manejo de mensajes entre el proceso de renderizado y el prin
 // En el proceso principal.
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // imprime "ping"
+  console.log(arg) // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // imprime "ping"
+  console.log(arg) // prints "ping"
   event.returnValue = 'pong'
 })
 ```
