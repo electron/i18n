@@ -42,7 +42,7 @@ Kaydetme yolunu ayarlayın ve Electron'un bir kaydetme istememesi için yol gös
 Döndürür:
 
 * `event` Olay
-* `state` String
+* `state` String - Can be `progressing` or `interrupted`.
 
 İndirme güncellendiğinde ve bitmediğinde yayınlanır.
 
@@ -56,7 +56,7 @@ Döndürür:
 Dönüşler:
 
 * `event` Event
-* `state` String
+* `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 İndirme işlemi terminal durumundayken yayınlanır. Bu, bitmiş bir indirme, (`downloadItem.cancel()`) ile iptal edilmiş bir indirme ve devam edilemeyen kesintiye uğramış indirme içerir.
 
@@ -136,7 +136,7 @@ Cevabın başlığından İçerik-Hazırlama alanını `String` türünde dönd�
 
 #### `downloadItem.getState()`
 
-Geçerli durumu `String` türünde döndürür. `progressing`, `completed`, `cancelled` veya `interrupted` olabilir.
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
 **Not:** Aşağıdaki metodlar oturum yeniden başlatıldığı zaman bir `cancelled` öğenin devamı için oldukça kullanışlıdır.
 
