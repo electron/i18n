@@ -47,25 +47,31 @@ $ cd elektron
 $ ./script/bootstrap.py -v
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ## Bangunan 
 
-Jika Anda ingin membangun target ` Release ` dan ` Debug `:
+Build both `Release` and `Debug` targets:
 
 ```sh
 $ ./script/build.py
 ```
 
-Anda juga dapat membangun target ` Debug ` saja:
+You can also only build the `Debug` target:
 
 ```sh
 $ ./script/build.py
 ```
 
-Setelah selesai, Anda bisa menemukan biner debug ` elektron ` di bawah ` keluar / D `.
+After building is done, you can find `Electron.app` under `out/D`.
 
 ## Dukungan 32bit
 
-Elektron hanya bisa dibangun untuk target 64bit pada macOS dan tidak ada rencana untuk melakukannya dukung macos 32bit di masa depan.
+Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
 ## Membersihkan
 
@@ -78,7 +84,7 @@ $ npm bersih
 Untuk pembersihan hanya `keluar` dan `dist` direktori:
 
 ```sh
-$ npm bersih
+$ npm berjalan bersih-bangun
 ```
 
 **Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.
