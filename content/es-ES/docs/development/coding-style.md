@@ -48,8 +48,8 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 Las API de Electron utilizan el esquema de capitalización usado en Node.js:
 
-* Cuando el módulo en sí mismo es una clase como `BrowserWindow`, use `CamelCase`.
-* Cuando el módulo es un conjunto de APIs, como `globalShortcut`, use `mixedCase`.
+* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
+* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
 * Cuando la API es una propiedad de objeto, y es lo suficientemente compleja para estar en un capítulo separado como `win.webContents`, utilice `mixedCase`.
 * For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
 
