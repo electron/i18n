@@ -30,27 +30,27 @@ Interface description language. Write function signatures and data types in a fo
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC, Süreçlararası İletişim anlamına gelir. Elektron, [ana](#main-process) ve [oluşturucu](#renderer-process) işlemleri arasındaki seri hale getirilmiş JSON iletileri göndermek için IPC kullanır.
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+[ Chromium İçerik modülünü](https://www.chromium.org/developers/content-module) ve tüm paylaşılan bağımlılıklarını (ör. Blink, [V8](#v8)vb.). içeren bir paylaşılan kütüphane. Ayrıca "libcc" olarak da adlandırılır.
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### ana işlem
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Ana işlem, yaygın olarak `main.js` adlı bir dosya, her Electron uygulamasına giriş noktasıdır. Uygulama açıkken kapansa da ömrünü kontrol eder. Ayrıca Menü, Menü Bar, Yuva, Tepsi gibi yerel ögeleri de yönetir. Ana işlem, uygulamada her yeni işleyici sürecini oluşturmaktan sorumludur. Tam Düğüm API'si yerleştirilmiştir.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Her uygulamanın ana işlem dosyası `package.json` 'daki `ana` özelliğinde belirtilir. `electron .` başlangıçta hangi dosyanın nasıl yürütüleceğini bilir.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+Chromium'da bu işleme "tarayıcı süreci" denir. İşleyici süreçleriyle karıştırılmamak için Electron'da yeniden adlandırılır.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Ayrıca bkz: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Apple'ın Mac App Store'un kısaltması. Uygulamanızı, MAS'a gönderme ile ilgili ayrıntılar için, [ Mac App Store Gönderme Kılavuzu](tutorial/mac-app-store-submission-guide.md) 'na bakın.
 
 ### Mojo
 
@@ -58,60 +58,60 @@ An IPC system for communicating intra- or inter-process, and that's important be
 
 See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-### native modules
+### yerel modüller
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Native modülleri (ayrıca Node.js'de [addons](https://nodejs.org/api/addons.html) olarak adlandırılır) require() işlevini kullanarak Node.js veya Electron'a yüklenebilen C veya C++ olarak yazılan modüllerdir ve sanki bir sıradan Node.js modülü gibi kullanılırlar. Temel olarak Node.js'de ve C/C++ kitaplıklarında çalışan JavaScript ile arasında bir arayüz sağlamak için kullanılırlar.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Yerel düğüm modülleri Electron tarafından desteklenmektedir, ancak Electron'un sisteminizde kurulu olan Node ikilisinden farklı bir V8 versiyonu kullanması muhtemel olduğundan, yerli modülleri oluştururken Electron'un üstbilgilerinin konumunu elle belirtmeniz gerekir.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Ayrıca bakınız: [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System, Microsoft Windows için komut dosyası çalıştıran bir yükleyici yazma aracıdır. Ücretsiz yazılım lisanslarının birleşimi altında serbest bırakılır ve InstallShield gibi ticari mülkiyet ürünlerinde yaygın olarak kullanılan bir alternatiftir. [electron-builder](https://github.com/electron-userland/electron-builder) bir yapı hedefi olarak NSIS'yi destekler.
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (Ekran dışı görüntü işleme) ağır sayfayı arka planda yüklemek ve sonra görüntülerken kullanabilir (çok daha hızlı olacaktır). Ekrandaki sayfayı göstermeden sayfayı oluşturmanıza izin verir.
 
 ### işlem
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Bir işlem çalıştırılmakta olan bir bilgisayar programının bir örneğidir. [main](#main-process) ve bir veya daha fazla [renderer](#renderer-process) işlemini kullanan electron uygulamaları aslında aynı anda birden fazla programı çalıştırıyor.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+Node.js ve Electron'da, çalışan her işlem bir `process` nesnesine sahiptir. Bu nesne, mevcut süreç hakkında bilgi sağlayan ve bu işlemi kontrol eden bir globaldir. Küresel olarak, bu() kullanmayı gerektirmeyen uygulamalar için daima mevcuttur.
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Ayrıca bkz: [main process](#main-process), [renderer process](#renderer-process)
 
-### renderer process
+### oluşturma süreci
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+İşleyici süreç uygulamanızda bir tarayıcı penceresidir. Ana işlemin aksine bunlar çoklu olabilir ve her biri ayrı bir süreçte çalıştırılır. Ayrıca gizli olabilirler.
 
 Normal tarayıcılarda, web sayfaları genellikle korumalı bir ortamda çalışır ve yerel kaynaklara erişilmesine izin verilmez. Bununla birlikte, Electron kullanıcıları, daha düşük seviyedeki işletim sistemi etkileşimlerine izin veren web sayfalarında Node.js API'lerini kullanma gücüne sahiptir.
 
-See also: [process](#process), [main process](#main-process)
+Ayrıca bkz: [process](#process), [main proces](#main-process)
 
-### Squirrel
+### Sincap
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Sincap, Electron uygulamalarının yeni sürümler çıktıkça otomatik olarak güncellenmesini sağlayan açık kaynaklı bir yapıdır. Sincap ile başlamak hakkında bilgi almak için [autoUpdater](api/auto-updater.md) API'ına bakın.
 
-### userland
+### kullanıcı alanı
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Bu terim "userland" veya "userspace" nin işletim sistemi çekirdeğinin dışında çalışan programlara yönlendirildiği Unix topluluğundan kaynaklanmaktadır. Çok yakın zamanda, Node ve npm toluluğunda, "Ağ çekirdeği"nde bulunan özelliklerle npm kayıt defterinde yayınlanan paketleri çok daha geniş "kullanıcı" topluluğu arasında yaymak için bu terim yaygınlaştı.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Like Node, Electron çoklu platform masaüstü uygulamaları geliştirmek için gerekli tüm ilkeleri sağlayan küçük bir API setine sahip olmaya odaklanmıştır. Bu tasarım felsefesi, Electron'un nasıl kullanılacağı konusunda aşırı derecede kuralcı olmadan esnek bir araç olmaya devam etmesine izin verir. Userland, kullanıcıların "çekirdek"te mevcut olanın üstünde ek işlevler sağlayan araçlar oluşturmasına ve paylaşmasına olanak tanır.
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 Google'ın açık kaynak kodlu JavaScript motorudur. C++'da yazılmış ve Google Chrome'da kullanılmıştır. V8 tek başına çalışabilir veya herhangi bir C++ uygulamasına eklenebilir.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron V8'i Chromium'un bir parçası olarak oluşturur ve arkasından devreyi oluştururken V8'i işaret eder.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8'in sürüm numaraları her zaman Google Chrome'un sürüm numaralarına karşılık gelir. Chrome 59'un V8'i 5.9'u, Chrome 58'in V8'i 5.8'i vb. içerir.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
-- [modejs.org/api/v8.htm](https://nodejs.org/api/v8.html)
+- [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-devolopment.md](development/v8-development.md)
 
-### webview
+### web görünümü
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` etiketler, 'misafir' içeriğini (harici web sayfaları gibi) Electron uygulamanıza gömmek için kullanır. `iframe`'lerine benzer, ancak her web görünümü ayrı bir süreçte çalıştığı için farklıdır. Web sayfanızla aynı izinlere ve uygulamanız arasındaki tüm etkileşimlere sahip değil ve gömülmüş içerik eş zamansız olacak. Bu uygulamanızı gömülmüş içerikten korur.
