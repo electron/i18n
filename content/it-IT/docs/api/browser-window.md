@@ -1,11 +1,11 @@
-# BrowserWindow
+# FinestraBrowser
 
-> Crea e controlla finestre browser.
+> Crea e controlla le finestre del browser.
 
 Processo: [Main](../glossary.md#main-process)
 
 ```javascript
-// Nel processo principale.
+// Nel processo principale(main).
 const {BrowserWindow} = require('electron')
 
 // O usa 'remote' dai processi render.
@@ -112,13 +112,13 @@ Si raccomanda di mettere in pausa le operazioni dispendiose quando lo stato di v
 
 Processo: [Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` è un [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
 
 ### `new BrowserWindow([options])`
 
-* `options` Oggetto (opzionale) 
+* `options` Object (opzionale) 
   * `width` Intero (opzionale) - La larghezza in pixel della finestra. Di default è di `800`.
   * `height` Intero (opzionale) - L'altezza in pixel della finestra. Di default è di `600`.
   * `x` Intero (opzionale) (**richiesto** se è usato y) - Offset sinistro della finestra dallo schermo. Di default è al centro della finestra.
@@ -228,8 +228,8 @@ Objects created with `new BrowserWindow` emit the following events:
 
 Restituisce:
 
-* `event` Evento
-* `title` String
+* `event` Event
+* `Titolo` Stringa
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
@@ -237,7 +237,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
@@ -343,7 +343,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `command` String
 
 Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
@@ -377,7 +377,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
@@ -426,7 +426,7 @@ Returns `BrowserWindow` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
-* `path` Stringa
+* `path` String
 
 Adds Chrome extension located at `path`, and returns extension's name.
 
@@ -450,7 +450,7 @@ Returns `Object` - The keys are the extension names and each value is an Object 
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
-* `path` Stringa
+* `path` String
 
 Adds DevTools extension located at `path`, and returns extension's name.
 
@@ -792,7 +792,7 @@ Returns `Integer[]` - Contains the window's current position.
 
 #### `win.setTitle(title)`
 
-* `title` String
+* `Titolo` Stringa
 
 Changes the title of native window to `title`.
 
@@ -895,7 +895,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Funzione 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.
@@ -1009,8 +1009,8 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Button` Oggetto 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+* `Pulsante` Oggetto 
+  * `icona` [ImmagineNativa](native-image.md) - L'icona mostrata nella barra degli strumenti miniaturizzata.
   * `click` Funzione
   * `aiuto` Stringa (opzionale) - Il testo del pulsante di aiuto.
   * `bandiere` Stringa[] (opzionale) - Controlla specifici comportamenti e stati del pulsante. Di default é `['abilitato']`.
@@ -1055,7 +1055,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `icon` [NativeImage](native-image.md)
+* `icona` [ImmagineNativa](native-image.md)
 
 Changes window icon.
 
@@ -1179,11 +1179,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Sperimentale*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Sperimentale*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
