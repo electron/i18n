@@ -38,3 +38,7 @@ Se emite cuando el sistema se cambia a la corriente alterna.
 ### Evento: "on-battery" *Windows*
 
 Se emite cuando el sistema se cambia a la energía de batería.
+
+### Event: 'shutdown' *Linux* *macOS*
+
+Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
