@@ -2,30 +2,59 @@
 
 May maraming mga paraan sa pag-update ng isang Electron na aplikasyon. Ang pinakamadali at opisyal na sinusuportahang paraan ay paggamit sa benepisyo ng built-in na [Squirrel](https://github.com/Squirrel) na balangkas at [autoUpdater](../api/auto-updater.md) na modyul ng Electron.
 
+## Using `update.electronjs.org`
+
+GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+
+- App runs on macOS or Windows
+- App has a public GitHub repository
+- Builds are published to GitHub Releases
+- Builds are code-signed
+
+The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+
+Install the module:
+
+```sh
+npm install update-electron-app
+```
+
+Invoke the updater from your app's main process file:
+
+```js
+require('update-electron-app')()
+```
+
+By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+
+If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+
+## Using `electron-builder`
+
+If your app is packaged with [`electron-builder`](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
+
 ## Pagde-deploy ng isang Update na Server
 
-Upang makapagsimula, kailangan mo munang mag-deploy ng server na pagkukuhaan ng bagong update ng [autoUpdater](../api/auto-updater.md).
+If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
 
-Depende sa iyong mga pangangailangan, makakapili ka ng isa mula dito:
+Depending on your needs, you can choose from one of these:
 
-- [Hazel](https://github.com/zeit/hazel) – Update na server para sa pribado o open-source na mga app na madedeploy nang libre sa [Now](https://zeit.co/now). Nahihila ito mula sa [Mga Lathala sa Github](https://help.github.com/articles/creating-releases/) at pinapataas ang kapangyarihan ng CDN ng Github.
-- [Nuts](https://github.com/GitbookIO/nuts) – Gumagamit din ng [Mga Lathala sa Github](https://help.github.com/articles/creating-releases/), pero kina-cache ang mga app na update sa disk at sumusuporta sa mga pribadong repositori.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Nagbibgay ng isang dashboard para sa paghahawak ng mga lathala at hindi nangangailangang ang mga lathala ay nagmula sa Github.
-- [Nucleus](https://github.com/atlassian/nucleus) – Isang kompletong update na server para sa Electron na mga app na pinapanatili ng Atlassian. Sumusuporta sa maraming mga aplikasyon at tsanel; gumagamit ng isang istatikkong file na imbakan para paliitin ang gastos ng server.
-
-Kapag ang iyong app ay nakapakete kasama ang [`electron-builder`](https://github.com/electron-userland/electron-builder), magagamit mo ang [electron-updater](https://www.electron.build/auto-update) na modyul, na hindi nangangailangan ng isang server at pinapayagan ang mga update mula sa S3, Github o kahit anong istatikong host ng file. Pinapalikwas nito ang ang built-in na mekanismong pang-update ng Electron, ang ibig sabihin na ang natitira sa dokumentasyong ito ay hindi maaaplay sa updater ng `electron-builder`.
+- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
+- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
+- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
 
 ## Pagpapatupad ng mga Update sa iyong App
 
-Kapag na-deploy mo na ang iyong update server, ipagpapatuloy ang pag-import ng mga kinakailangang mga modyul sa iyong code. Ang sumusunod na code ay possibleng naiiba sa mga iba't - ibang server software, pero gumagana ito katulad ng inilalarawan kapag gumagamit ng [Hazel](https://github.com/zeit/hazel).
+Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Siguraduhing ang code sa baba ay pinapagana lang sa iyong naka-package na app, at hindi sa paglilinang. Pwede mong gamitin ang [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) upang tingnan ang environment.
+**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
 ```
 
-Sunod, gawin ang URL ng update server at sabihin ito sa [autoUpdater](../api/auto-updater.md):
+Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
 
 ```javascript
 const server = 'https://your-deployment-url.com'
@@ -34,7 +63,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-Bilang huling hakbang, magtsek ng mga update. Ang halimbawa sa baba ay magtse-tsek ng mga ito bawat minuto:
+As the final step, check for updates. The example below will check every minute:
 
 ```javascript
 setInterval(() => {
@@ -42,11 +71,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Kapag [napakete](../tutorial/application-distribution.md) na ang iyong aplikasyon, makakatanggap ito ng isang update para sa bawat bagong [Lathala ng Github](https://help.github.com/articles/creating-releases/) na ilalathala mo.
+Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
 
 ## Pag-aaplay sa mga Update
 
-Ngayong na-configure mo na ang basikong mekanismo para sa pag-update ng iyong aplikasyon, kailangang siguraduhin mo na ang gumagamit ay mapapaalahanan kapag mayroong update. Nakakamit ito gamit ang autoUpdater na API [events](../api/auto-updater.md#events):
+Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
 
 ```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -55,7 +84,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'Ang bagong bersyon ay nai-download na. I-restart ang aplikasyon upang maaplay ang mga update.'
+    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
@@ -64,11 +93,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Siguraduhin din na ang mga mali ay [nahahawakan](../api/auto-updater.md#event-error). Narito ang isang halimbawa sa paglagay sa kanila sa `stderr`:
+Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
-  console.error('May problema sa pag-update ng aplikasyon')
+  console.error('There was a problem updating the application')
   console.error(message)
 })
 ```
