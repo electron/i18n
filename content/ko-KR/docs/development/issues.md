@@ -1,6 +1,6 @@
 # Electron 이슈
 
-# 이슈
+# 문제
 
 * [이슈에 기여하는 방법](#how-to-contribute-in-issues)
 * [일반적인 도움받기](#asking-for-general-help)
