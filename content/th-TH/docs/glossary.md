@@ -24,6 +24,10 @@ An Apple Disk Image is a packaging format used by macOS. DMG files are commonly 
 
 Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
 
+### IDL
+
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+
 ### IPC
 
 IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
@@ -47,6 +51,12 @@ See also: [process](#process), [renderer process](#renderer-process)
 ### MAS
 
 Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+
+### Mojo
+
+An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+
+See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### native modules
 
