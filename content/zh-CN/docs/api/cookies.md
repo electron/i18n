@@ -29,7 +29,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### 事件
+### 实例事件
 
 以下事件会在` Cookies `实例触发。
 
@@ -77,7 +77,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
   * ` secure `Boolean (可选) - 是否将 cookie 标记为Secure。默认为 false。
   * ` httpOnly `Boolean (可选) - 是否只将 cookie 标记为 只允许HTTP 访问。默认为 false。
   * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `error` Error
 
 设置一个以` details `对象为模型的cookie，回调函数将在设置执行后以` callback(error) `形式被调用。
