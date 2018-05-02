@@ -22,7 +22,7 @@
     * `buttons` - セグメントをボタンとして動作させ、各セグメントを押して離すことができますが、アクティブとしてマークされることはありません。
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - このコントロールに配置するセグメントの配列。
   * `selectedIndex` Integer (任意) - ユーザの操作によって自動的に更新される、現在選択されているセグメントのインデックス。 multiple モードでは、最後に選択したアイテムになります。
-  * `change` Function - Called when the user selects a new segment. 
+  * `change` Function - ユーザが新しいセグメントを選択したときに呼ばれる. 
     * `selectedIndex` Integer - ユーザが選択したセグメントのインデックス。
     * `isSelected` Boolean - ユーザの選択結果として、セグメントが選択されたかどうか。
 
