@@ -28,10 +28,8 @@ $ code electron-quick-start
 }
 ```
 
-**Nota:** Para o Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` para `runtimeExecutable`.
-
 ### 3. Depuração
 
-Defina alguns pontos de interrupção em `main.js`, e inicie a depuração no [Debug View](https://code.visualstudio.com/docs/editor/debugging). Você deve ser capaz de acertar os pontos de interrupção.
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
-Aqui está um projeto pré-configurado que você pode baixar e depurar diretamente no VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
