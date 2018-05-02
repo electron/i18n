@@ -17,20 +17,20 @@ The `systemPreferences` object emits the following events:
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
 ## Metodi
@@ -60,7 +60,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Funzione 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
@@ -84,7 +84,7 @@ Removes the subscriber with `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Funzione 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
