@@ -2,7 +2,7 @@
 
 > Customize the rendering of the current web page.
 
-Processo: [Renderizzatore](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
 An example of zooming current page to 200%.
 
@@ -145,7 +145,7 @@ Set the content security policy of the isolated world.
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
 * `worldId` Integer
-* `name` String
+* `nome` Stringa
 
 Set the name of the isolated world. Useful in devtools.
 
