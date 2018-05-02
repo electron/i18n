@@ -44,10 +44,10 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `pasteAndMatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit`- Quit the application.
-* `reload` - Reload the current window.
+* `minimize` - 現在のウィンドウを最小化.
+* `close` - 現在のウィンドウを閉じる.
+* `quit` - アプリケーションを終了する.
+* `reload` - 現在のウィンドウをリロード.
 * `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `toggleFullScreen`- Toggle full screen mode on the current window.
@@ -59,22 +59,22 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 The following additional roles are available on *macOS*:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
-* `hide` - Map to the `hide` action.
+* `about` - `orderFrontStandardAboutPanel` アクションにマップ.
+* `hide` - `hide` アクションにマップ.
 * `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
+* `unhide` - `unhideAllApplications` アクションにマップ.
 * `startSpeaking` - Map to the `startSpeaking` action.
 * `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
+* `front` - `arrangeInFront` アクションにマップ.
+* `zoom` - `performZoom` アクションにマップ.
 * `toggleTabBar` - Map to the `toggleTabBar` action.
 * `selectNextTab` - Map to the `selectNextTab` action.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
 * `mergeAllWindows` - Map to the `mergeAllWindows` action.
 * `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
-* `services` - The submenu is a "Services" menu.
+* `window` - "ウインドウ"サブメニュー.
+* `help` - "ヘルプ"サブメニュー.
+* `services` - "サービス"サブメニュー.
 * `recentDocuments` - The submenu is an "Open Recent" menu.
 * `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
