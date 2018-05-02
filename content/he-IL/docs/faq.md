@@ -1,6 +1,6 @@
-# Electron FAQ
+# Electron שאלות נפוצות
 
-## Why am I having trouble installing Electron?
+## מדוע אני נתקבל בבעיות בעת התקנת Electron?
 
 When running `npm install electron`, some users occasionally encounter installation errors.
 
