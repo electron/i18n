@@ -1,1 +1,1 @@
-Moved to <support.md>
+Déplacé vers <support.md>
