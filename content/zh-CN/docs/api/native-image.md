@@ -2,7 +2,7 @@
 
 > 使用 PNG 或 JPG 文件创建托盘、dock和应用程序图标。
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 在Electron中, 对所有创建 images 的 api 来说, 您可以传递文件路径或 ` NativeImage ` 实例。当传递 ` null ` 时, 将创建一个空的image 对象.
 
@@ -159,7 +159,7 @@ console.log(image)
 
 > 本机图像，如托盘、dock栏和应用图标。
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 ### 实例方法
 
@@ -187,15 +187,15 @@ console.log(image)
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional) 
- * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+ * `scaleFactor` Double (可选) - 默认值为 1.0.
 
 返回 ` String `-图像的数据 URL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional) 
- * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+ * `scaleFactor` Double (可选) - 默认值为 1.0.
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
@@ -227,13 +227,13 @@ Returns [`Size`](structures/size.md)
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop.
+* ` rect `[ Rectangle ](structures/rectangle.md)-要裁剪的图像区域.
 
 返回 ` NativeImage `-裁剪的图像。
 
 #### `image.resize(options)`
 
-* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
 
 返回 ` NativeImage `-裁剪的图像。
 
