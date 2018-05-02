@@ -1,4 +1,4 @@
-# crashReporter
+# riportatorecrash
 
 > Invia un report del crash a un server in remoto.
 
@@ -30,7 +30,7 @@ The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
-* `opzioni` Oggetto 
+* `options` Oggetto 
   * `companyName` String (optional)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.
