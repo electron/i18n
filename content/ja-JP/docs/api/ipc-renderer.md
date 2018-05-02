@@ -46,7 +46,7 @@
 
 `channel` を介して非同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-メインプロセスは `ipcMain` で `channel` を聴いてそれを処理します。
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
@@ -57,7 +57,7 @@
 
 `channel` を介して同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-メインプロセスは `ipcMain` オブジェクトで `channel` を聴いてそれを処理します。そして `event.returnValue` をセットすることで応答します。
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
 **注釈:** 同期メッセージを送信するとレンダラープロセス全体がブロックされます。何をしているのかをよく理解せずに使用しないで下さい。
 
@@ -67,7 +67,7 @@
 * `channel` String
 * `...args` any[]
 
-`channel` を介して `windowid` のウインドウにメッセージを送ります。
+Sends a message to a window with `windowid` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
