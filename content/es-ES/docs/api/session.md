@@ -93,7 +93,7 @@ La retrollamada es invocada con el tamaño actual de caché usado en la sesión.
 
 #### `ses.clearCache(callback)`
 
-* `Llamada` Función - llamada cuando se realiza la operación.
+* `Llamada` Funcion - Llamada cuando la operación está completada.
 
 Borra la memoria caché del HTTP de la sesión.
 
@@ -117,7 +117,7 @@ Escribe cualquier dato DOMStorage que no lo haya sido en disco.
   * `pacScript` Cadena - El URL asociado con el archivo PAC.
   * `proxyRules` Cadena - Reglas indicando cual proxy utilizar.
   * `proxyBypassRules` Cadena - Reglas indicando cuál URL deben eludir la configuración del proxy.
-* `Llamada` Función - llamada cuando se realiza la operación.
+* `callback` Function - Invocada cuando la operación ha finalizado.
 
 Configurar proxy.
 
@@ -176,14 +176,14 @@ El `proxyBypassRules` es una lista separada por comas de las reglasa que se desc
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
-* `callback` Función 
+* `callback` Function 
   * `proxy` Cadena
 
 Resuelve la información del proxy para una `url`. La `llamada` será hecha con `callback(proxy)` cuando se realice la solicitud.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `ruta` Cadena - la ubicación de descarga.
 
 Configura el directorio de descargas. Por defecto, el directorio de descargas será `Descargas` en la carpeta respectiva de la aplicación.
 
@@ -250,8 +250,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `manejador` Function | null 
   * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso.
   * `permiso` cadena - Enumeración de 'medios', 'geolocalización', 'notificaciones', 'midiSysex', 'bloque de puntero', 'Pantalla completa', 'Apertura externa'.
-  * `callback` Función 
-    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `callback` Function 
+    * `permiso concedido` Booleano - Permiso o denegado de permiso.
   * `details` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
 
@@ -270,7 +270,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación.
+* `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
 Borra la caché de resolución de host.
 
@@ -308,7 +308,7 @@ Devuelve `Cadena` - El agente usuario para esta sesión.
 #### `ses.getBlobData(identifier, callback)`
 
 * `identificador` Cadena - UUID válido.
-* `callback` Función 
+* `callback` Function 
   * `resultado` Buffer - datos Blob.
 
 #### `ses.createInterruptedDownload(options)`
@@ -323,14 +323,14 @@ Devuelve `Cadena` - El agente usuario para esta sesión.
   * `eTag` Cadena - Valor Etag del encabezado.
   * `Tiempo de inicio` Doble (opcional) - Tiempo en que se inició la descarga en números de segundo desde epoch de UNIX.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Permite `cancelar` o `interrumpir` descargas de una `Sesión` previa. La API generará un [elemento de descarga](download-item.md) que puede ser accesado con el evento [se descargará](#event-will-download). El [Elemento de descarga](download-item.md) no tendrá ningún `contenido web` asociado con el y el estado inicial será `interrumpido`. La descarga empezará solo cuando la `reanudación` de la API sea llamada en el [elemento descargado](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
-Clears the session’s HTTP authentication cache.
+Limpia caché de autenticación HTTP de la sesión.
 
 #### `ses.setPreloads(preloads)`
 
@@ -344,19 +344,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Propiedades de Instancia
 
-The following properties are available on instances of `Session`:
+Las siguientes propiedades están disponibles en instancias de `Sesión`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Un objeto de [Cookies](cookies.md) para esta esión.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Un objeto [petición web](web-request.md) para esta sesión.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Un objeto de [protocolo](protocol.md) para esta sesión.
 
 ```javascript
 const {app, session} = require('electron')
