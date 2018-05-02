@@ -26,6 +26,10 @@ Wyłącz zapisywanie żądań HTTP w pamięci podręcznej.
 
 Wyłącz protokoły HTTP/2 oraz SPDY/3.1.
 
+## --lang
+
+Set a custom locale.
+
 ## --inspect=`port` and --inspect-brk=`port`
 
 Flagi związane z debugowaniem, zobacz więcej w poradniku dla debugowania [Main Process](../tutorial/debugging-main-process.md).
@@ -42,7 +46,7 @@ Wymuś użycie maksymalnego miejsca na dysku dla pamięci podręcznej wyrażonej
 
 Określa flagi przekazywane do silnika Node JS. Musi być przekazane podczas uruchamiania Electron'a, jeśli chcesz włączyć `flagi` w głównym procesie.
 
-```bash
+```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
@@ -96,7 +100,7 @@ A comma-separated list of servers for which integrated authentication is enabled
 
 Na przykład:
 
-```bash
+```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
