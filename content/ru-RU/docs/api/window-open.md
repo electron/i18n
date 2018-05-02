@@ -2,7 +2,7 @@
 
 > Открыть новое окно и загрузить URL.
 
-Когда `window.open` вызывается для создания нового окна на веб-странице, будет создаваться новый экземпляр `BrowserWindow` по `url` и прокси возвратит `window.open` и позволить странице иметь ограниченный контроль над ним.
+When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
 Прокси имеет ограниченную стандартную функциональность реализованную для совместимости с традиционными веб-страницами. Для полного контроля нового окна следует создать `BrowserWindow` напрямую.
 
