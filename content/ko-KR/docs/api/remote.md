@@ -6,7 +6,7 @@
 
 `remote` 모듈은 메인 프로세스와 렌더러 프로세스(웹 페이지) 사이의 inter-process (IPC) 통신을 간단하게 추상화 한 모듈입니다.
 
-Electron의 메인 프로세스에선 GUI와 관련 있는(`dialog`, `menu`등) 모듈만 사용할 수 있습니다. 렌더러 프로세스에서 이러한 모듈들을 사용하려면 `ipc` 모듈을 통해 메인 프로세스와 inter-process 통신을 해야 합니다. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). 다음 예시는 렌더러 프로세스에서 브라우저 창을 만드는 예시입니다:
+Electron의 메인 프로세스에선 GUI와 관련 있는(`dialog`, `menu`등) 모듈만 사용할 수 있습니다. 렌더러 프로세스에서 이러한 모듈들을 사용하려면 `ipc` 모듈을 통해 메인 프로세스와 inter-process 통신을 해야 합니다. 또한, `remote` 모듈을 사용하면 inter-process 통신을 하지 않고도 간단한 API를 통해 직접 메인 프로세스의 모듈과 메서드를 사용할 수 있습니다. 이 개념은 Java의 [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation)와 비슷합니다. 다음 예시는 렌더러 프로세스에서 브라우저 창을 만드는 예시입니다:
 
 ```javascript
 const {BrowserWindow} = require('electron').remote
