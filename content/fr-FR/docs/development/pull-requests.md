@@ -12,10 +12,10 @@
   * [Étape 6 : Refonder - Rebase](#step-6-rebase)
   * [Étape 7 : Tester](#step-7-test)
   * [Étape 8 : Pousser](#step-8-push)
-  * [Étape 9 : Ouvrir la proposition d'évolution - la demande de Pull](#step-8-opening-the-pull-request)
-  * [Étape 10 : Examiner et mettre à jour](#step-9-discuss-and-update) 
+  * [Étape 9 : Ouvrir la proposition d'évolution - la demande de Pull](#step-9-opening-the-pull-request)
+  * [Étape 10 : Examiner et mettre à jour](#step-10-discuss-and-update) 
     * [Procédure de validation et de demandes d'évolutions](#approval-and-request-changes-workflow)
-  * [Étape 11 : Approbation](#step-10-landing)
+  * [Étape 11 : Approbation](#step-11-landing)
   * [Tests en intégration continue](#continuous-integration-testing)
 
 ## Configurer votre environnement local
@@ -72,47 +72,65 @@ Au final lorsqu'ils sont revus, de nombreux commit sont fusionnés.
 
 #### Ecrire un messages de modification
 
-Un bon message de modification/commit doit décrire le changement et sa raison.
+A good commit message should describe what changed and why. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-1. La première ligne doit :
-  
-  * contenir une courte description de la modification (de préférence moins de 50 caractères, et pas plus de 72)
-  * être entièrement en minuscules à l’exception des noms propres, acronymes et les mots qui font référence au code, comme les noms de variable/fonction
+Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
+
+Examples of commit messages with semantic prefixes:
+
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux` 
+
+Common prefixes:
+
+    - fix: A bug fix
+    - feat: A new feature
+    - docs: Documentation changes
+    - test: Adding missing tests or correcting existing tests
+    - build: Changes that affect the build system
+    - ci: Changes to our CI configuration files and scripts
+    - perf: A code change that improves performance
+    - refactor: A code change that neither fixes a bug nor adds a feature
+    - style: Changes that do not affect the meaning of the code (linting)
     
-    Exemples :
-  
-  * `mise à jour de la documentation pour la construction du nouveau SDK`
-  
-  * `fixed typos in atom_api_menu.h`
 
-2. Garder vide la deuxième ligne.
+Other things to keep in mind when writing a commit message:
 
+1. The first line should: 
+  * contenir une courte description de la modification (de préférence moins de 50 caractères, et pas plus de 72)
+  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+2. Keep the second line blank.
 3. Ne pas dépasser 72 caractères pour les lignes suivantes.
 
-Voir [cet article](https://chris.beams.io/posts/git-commit/) pour d'autres exemples décrivants comment écrire de bon messages de modification/commit git.
+#### Breaking Changes
+
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+
+See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### Étape 6 : Refonder - Rebase
 
-Une fois vos changements livrés-"committés", il est recommander d'utiliser `git rebase` plutôt que `git merge` pour réintégrer l'historique général dans votre branche de travail.
+Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-Cela garanti à votre branche de contenir les derniers changements du master de `electron/electron`.
+This ensures that your working branch has the latest changes from `electron/electron` master.
 
 ### Étape 7 : Tester
 
-Corrections et fonctionnalités doivent toujours être accompagnées de tests. Un [guide du test](https://electronjs.org/docs/development/testing) est fourni pour rendre le travail plus facile. S'inspirer d'autres tests peut aussi aider.
+Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
-Exécutez toujours la suite de tests complète avant de soumettre une contribution. Pour exécuter les tests:
+Before submitting your changes in a pull request, always run the full test suite. To run the tests:
 
 ```sh
 $ npm run test
 ```
 
-Assurez-vous que linter ne renvoie aucun problème et que tous les tests passent. Ne soumettez aucun patch ne passant pas l'un des tests.
+Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
 
 If you are updating tests and just want to run a single spec to check it:
 
@@ -124,7 +142,7 @@ The above would only run spec modules matching `menu`, which is useful for anyon
 
 ### Étape 8 : Pousser
 
-Dès que vos commit sont prêts -- tests et lint inclus --, la procédure de soumission commence par un push de votre branche vers votre fork sur Github.
+Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
 ```sh
 $ git push origin my-branch
@@ -132,7 +150,7 @@ $ git push origin my-branch
 
 ### Étape 9 : Ouvrir la proposition d'évolution - la demande de Pull
 
-Depuis GitHub, en ouvrant une proposition de contribution dite --pull request--, vous aurez à remplir un caneva :
+From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
 ```markdown
 <!--
