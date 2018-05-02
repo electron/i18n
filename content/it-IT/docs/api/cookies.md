@@ -60,7 +60,7 @@ I seguenti metodi sono disponibili sulle istanze dei `Cookie`:
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `callback` Funzione 
+* `callback` Function 
   * `errore` Errore
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
@@ -77,7 +77,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-* `callback` Funzione 
+* `callback` Function 
   * `errore` Errore
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
