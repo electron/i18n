@@ -6,7 +6,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Contributing to Electron](../../CONTRIBUTING.md)
 * [Issues](issues.md)
 * [Pull Requests](pull-requests.md)
-* [เอกสารประกอบแนวทางลักษณะ](styleguide.md)
+* [เอกสารประกอบแนวทางลักษณะ](coding-style.md#documentation)
 * [โครงสร้างของไดเรกทอรี่ของรหัสต้นฉบับ](source-code-directory-structure.md)
 * [ลักษณะการเขียนโค้ด](coding-style.md)
 * [การใช้รูปแบบ clang ในโค้ด C++](clang-format.md)
