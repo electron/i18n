@@ -37,7 +37,7 @@ crashReporter.start({
   * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバーに送信するかどうか。省略値は、`true` です。
   * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は、`false` です。
   * `extra` Object (任意) - レポートと一緒に送信される定義可能なオブジェクト。 文字列のプロパティだけしか正しく送信されません。 ネストしたオブジェクトはサポートされておらず、プロパティの名前と値の長さは、64文字未満にするようにしてください。
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+  * `crashesDirectory` String (任意) - クラッシュレポートを一時的に保存するディレクトリ (クラッシュレポーターが `process.crashReporter.start` 経由で起動されたときのみ使用されます).
 
 他の `crashReporter` APIを使用する前に、クラッシュレポートを収集したい各プロセス (メイン/レンダラー) で、このメソッドを呼び出す必要があります。 異なるプロセスから呼び出すときは、`crashReporter.start` に異なるオプションを渡すことができます。
 
@@ -84,7 +84,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean *macOS* - レポートがサーバーに送信されるかどうか.
 
 通常、ユーザプリファレンスによって制御されます。`start` が呼び出される前に呼び出しても無効です。
 
