@@ -1,4 +1,4 @@
-tagline: פתח יישום חוצה-פלטפורמות עם JavaScript, HTML ו-CSS
+tagline: בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS
 nav:
   apps: יישומים
   blog: בלוג
@@ -112,7 +112,7 @@ or: אוֹ
 pages:
   '/':
     title: Electron | בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS.
-    description: 'בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS.'
+    description: 'פתח יישום חוצה-פלטפורמות עם JavaScript, HTML ו-CSS.'
   '/apps':
     title: יישומי Electron
     description: יישומים שנבנו ב-Electron
