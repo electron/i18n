@@ -28,7 +28,7 @@ Kembali `nomor` - faktor zoom saat ini.
 
 ### `webBingkai.tetapkanFaktorZoom(level)`
 
-* `level` Angka - level zoom
+* `level` Number - Zoom level.
 
 Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
 
@@ -36,40 +36,33 @@ Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-ma
 
 Kembali `nomor` - tingkat zoom saat ini.
 
-### `webBingkai.tetapkanBatasLevelZoom(minimalLevel, maksimalLevel)`
-
-* `minimumLevel` Nomor
-* `minimumLevel` Nomor
-
-**Tidak berlaku lagi:**Panggil`setVisualZoomLevelLimits` untuk mengatur zoom visual batas tingkat Metode ini akan dihapus di Electron 2.0.
-
-### `webBingkai.setBatasLevelVisualZoom(minimalLevel, maksimalLevel)`
+### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Nomor
 * `minimumLevel` Nomor
 
 Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 
-### `webBingkai.tetapkanBatasLevelZoomTataletak(minimalLevel, maksimaLevel)`
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimalLevel` Nomor
-* `maksimalLevel` Nomor
+* `minimumLevel` Nomor
+* `minimumLevel` Nomor
 
 Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
 
-### `webBingkai.setPenyediaPeriksaEjaan(bahasa, otomatisBenarkanKata, penyedia)`
+### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
-* `bahasa` String
-* `otomatisBenarkanKata` Boolean
-* `penyedia` Objek 
-  * `cekEjaan` Fungsi - kembali `Boolean` 
+* `language` String
+* `autoCorrectWord` Boolean
+* `provider` Sasaran 
+  * `spellCheck` Function - Returns `Boolean`. 
     * `teks` String
 
-Menetapkan penyedia pemeriksaan ejaan di bidang masukan dan area teks.
+Sets a provider for spell checking in input fields and text areas.
 
-Dengan `penyedia` harus menjadi objek yang memiliki metode `cekEjaan`yang kembali apakah kata yang dilewati benar dieja.
+The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
 
-Contoh menggunakan [node-cekEjaan](https://github.com/atom/node-spellchecker) sebagai penyedia:
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -84,29 +77,29 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `skema` String
 
-Register `skema` sebagai skema aman.
+Registers the `scheme` as secure scheme.
 
-Skema yang aman tidak memicu peringatan konten campuran. Misalnya, `https` dan `data` adalah skema aman karena tidak dapat rusak oleh jaringan aktif penyerang.
+Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `skema` String
 
-Sumber daya akan dimuat dari skema `ini` terlepas dari halaman sekarang Kebijakan Keamanan Konten.
+Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `skema` String
-* `pilihan` Objek (opsional) 
-  * `aman` Boolean - (opsional) Default benar.
-  * `bypassCSP` Boolean - (opsional) Default benar.
-  * `allowServiceWorkers` Boolean - (opsional) Default benar.
-  * `supportFetchAPI` Boolean - (opsional) Default benar.
-  * `corsEnabled` Boolean - (opsional) Default benar.
+* `pilihan` Objek (pilihan) 
+  * `secure` Boolean (optional) - Default true.
+  * `bypassCSP` Boolean (optional) - Default true.
+  * `allowServiceWorkers` Boolean (optional) - Default true.
+  * `supportFetchAPI` Boolean (optional) - Default true.
+  * `corsEnabled` Boolean (optional) - Default true.
 
-Mendaftarkan `skema` sebagai aman, bypass kebijakan keamanan konten untuk sumber daya, memungkinkan mendaftarkan ServiceWorker dan mendukung pengambilan API.
+Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
-Tentukan pilihan dengan nilai `palsu` untuk menghilangkan itu dari pendaftaran. Contoh mendaftar skema istimewa, tanpa melewati Kebijakan Keamanan Konten:
+Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -121,9 +114,9 @@ Sisipan `teks` ke elemen yang terfokus.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `kode` String
-* `userGesture` Boolean (opsional) - Default adalah `false`.
-* `panggilkembali` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
+* ` kode </ 0> String</li>
+<li><code>userGesture` Boolean (opsional) - Default adalah `false`.
+* `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `hasil` Ada
 
 Mengembalikan `Janji` - Janji yang diselesaikan dengan hasil kode yang dijalankan atau ditolak jika hasil dari kode tersebut adalah janji yang ditolak.
@@ -132,24 +125,55 @@ Evaluasi `kode` di halaman.
 
 Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
 
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
+
+* `worldId` Integer
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (opsional) - Default adalah `false`.
+* `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
+  * `hasil` Ada
+
+Work like `executeJavaScript` but evaluates `scripts` in isolated context.
+
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+
+* `worldId` Integer
+* `csp` String
+
+Set the content security policy of the isolated world.
+
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+
+* `worldId` Integer
+* `nama` String
+
+Set the name of the isolated world. Useful in devtools.
+
+### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
+
+* `worldId` Integer
+* `securityOrigin` String
+
+Set the security origin of the isolated world.
+
 ### `webFrame.getResourceUsage()`
 
-Mengembalikan `Boolean`:
+Mengembalikan `Objek`:
 
-* `gambar` [DetailPemakaianMemori](structures/memory-usage-details.md)
-* `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
-* `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
-* `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
-* `lain` [DetailPemakaianMemori](structures/memory-usage-details.md)
+* `images` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-Ini akan menghasilkan:
+This will generate:
 
 ```javascript
 {
@@ -167,6 +191,6 @@ Ini akan menghasilkan:
 
 ### `webFrame.clearCache()`
 
-Upaya untuk membebaskan memori yang tidak lagi digunakan (seperti gambar dari a navigasi sebelumnya).
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-Perhatikan bahwa secara membabi buta memanggil metode ini mungkin membuat Electron lebih lambat sejak itu harus mengisi ulang cache yang dikosongkan ini, sebaiknya Anda hanya menelponnya jika sebuah acara di aplikasi Anda telah terjadi yang membuat Anda menganggap halaman Anda benar-benar menggunakan lebih sedikit memori (yaitu Anda telah menavigasi dari halaman super berat ke yang kebanyakan kosong, dan berniat untuk tinggal di sana).
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
