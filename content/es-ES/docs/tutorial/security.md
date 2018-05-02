@@ -292,7 +292,7 @@ Descargar la inicial HTML de un sitio web mediante `HTTPS` e intentar descargar 
 
 ### ¿Por què?
 
-En pocas palabras, descargar contenido mediante `HTTPS` asegura la autenticidad e integridad de los recursos cargados mientras se cifrar el tráfico como tal. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+En pocas palabras, descargar contenido mediante `HTTPS` asegura la autenticidad e integridad de los recursos cargados mientras se cifrar el tráfico como tal. Ver la sección en [only displaying secure content](#1-only-load-secure-content) para más detalles.
 
 ### ¿Còmo?
 
