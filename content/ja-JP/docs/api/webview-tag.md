@@ -243,7 +243,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` String (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (任意)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 `url` を webview にロードします。`url` には、`http://` または `file://` のような、プロトコルのプレフィックスを含みます。
@@ -438,11 +438,11 @@ webview.addEventListener('dom-ready', () => {
 
 * `text` String - 検索するコンテンツ。空にしてはいけません。
 * `options` Object (任意) 
-  * `forward` Boolean - (任意) 前方または後方を検索するかどうか。省略値は `true`。
-  * `findNext` Boolean - (任意) 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
-  * `matchCase` Boolean - (任意) 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean - (任意) 単語の始めだけを見るかどうか。省略値は `false`。
-  * `medialCapitalAsWordStart` Boolean - (任意) `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
@@ -450,7 +450,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) リクエストの終了時に実行されるアクションを指定します。 
+* `action` String - [`<webview>.findInPage`](#webviewfindinpagetext-options) リクエストの終了時に実行されるアクションを指定します。 
   * `clearSelection` - 選択を消去する。
   * `keepSelection` - その選択を通常の選択に変換する。
   * `activateSelection` - 選択ノードをフォーカスして、クリックする。
@@ -469,11 +469,11 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.printToPDF(options, callback)`
 
 * `options` Object 
-  * `marginsType` Integer - (任意) 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
-  * `pageSize` String - (任意) 生成する PDF のページサイズを指定する。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
-  * `printBackground` Boolean - (任意) CSS 背景を印刷するかどうか。
-  * `printSelectionOnly` Boolean - (任意) 選択部分だけを印刷するかどうか。
-  * `landscape` Boolean - (任意) `true` で横向き、`false` で縦向き。
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String (optional) - Specify page size of the generated PDF. `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
   * `error` Error
   * `data` Buffer
@@ -482,7 +482,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -493,9 +493,9 @@ webview.addEventListener('dom-ready', () => {
 * `channel` String
 * `...args` any[]
 
-`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 レンダラープロセスは `ipcRenderer` モジュールで `channel` イベントを聞いてメッセージを処理できます。
+`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-サンプルについては [webContents.send](web-contents.md#webcontentssendchannel-args) を参照して下さい。
+See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -503,7 +503,7 @@ webview.addEventListener('dom-ready', () => {
 
 入力 `event` をページに送ります。
 
-`event` オブジェクトの詳細については、[webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) を参照してください。
+See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -513,7 +513,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - 拡大レベル。
+* `level` Number - Zoom level.
 
 指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。
 
@@ -654,7 +654,7 @@ webview.addEventListener('console-message', (e) => {
   * `selectionArea` Object - 最初のマッチ領域の座標。
   * `finalUpdate` Boolean
 
-[`webview.findInPage`](webview-tag.md#webviewtagfindinpage) リクエストの結果が有効なときに発行されます。
+Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -673,7 +673,7 @@ console.log(requestId)
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
-* `options` Object - 新しい `BrowserWindow` を作成するのに使われるオプション。
+* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
 ゲストページが新しいブラウザウィンドウを開くときに発生します。
 
