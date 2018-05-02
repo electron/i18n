@@ -25,7 +25,7 @@ console.log(dialog)
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` Object 
+* `选项` Object 
   * `title` String (可选)
   * `defaultPath` String (可选)
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
@@ -64,14 +64,14 @@ console.log(dialog)
 
 ` extensions ` 数组应为没有通配符或点的扩展名 (例如, ` "png" ` 是正确的, 而 ` ".png" ` 和 ` *. png "` 就是错误的)。 若要显示所有文件, 请使用 ` "*" ` 通配符 (不支持其他通配符)。
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
+如果定义了 ` callback `, 则 API 调用将是异步的, 结果将通过 ` callback(filenames)`返回.
 
 ** 注意: **在 Windows 和 Linux 上, 打开对话框不能同时是文件选择器和目录选择器, 因此如果在这些平台上将 ` properties ` 设置为`["openFile"、"openDirectory"]`, 则将显示为目录选择器。
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` Object 
+* `选项` Object 
   * `title` String (可选)
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
@@ -90,12 +90,12 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 `filters` 可以指定可显示文件的数组类型，详见 `dialog.showOpenDialog` 事例
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`.
+如果传递了 `callback `, 则 API 调用将是异步的, 结果将通过 ` callback (filename)`传递.
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` Object 
+* `选项` Object 
   * `type` String (可选) - 可以为 `"none"`, `"info"`, `"error"`, `"question"` 或者 `"warning"`. 在 Windows 上, `"question"` 与`"info"`显示相同的图标, 除非你使用了 `"icon"` 选项设置图标。 在 macOS 上, `"warning"` 和 `"error"` 显示相同的警告图标
   * `buttons` String[] (可选) - 按钮的文本数组。在 Windows 上, 空数组在按钮上会显示 "OK".
   * `defaultId` Integer (可选) - 在 message box 对话框打开的时候，设置默认选中的按钮，值为在 buttons 数组中的索引.
@@ -109,7 +109,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `noLink` Boolean (可选) - 在Windows上，应用将尝试找出哪个 `buttons` 是常用按钮(例如 "Cancel" 或 "Yes")，然后在对话框中以链接命令的方式展现其它的按钮。 这可以使对话框以现代Windows应用程序的风格显示。 如果你不喜欢这个行为, 你可以设置 `noLink` 为 `true`.
   * `normalizeAccessKeys` Boolean (可选) -规范跨平台的键盘访问键。 默认值为 `false`. 用 `&` 连接和转换键盘访问键, 以便它们在每个平台上正常工作.`&` 字符会在macOS上被删除，在 Linux 上会被转换为 `_`，在 Windows 上保持不变。 例如 `Vie&w` 的按钮标签在 Linux 上会被转换为 `Vie_w`，在 macOS 转换为 `View` 并且可以被选择。而Windows和Linux上表示 `Alt-W` 。
 * `callback` Function (可选) 
-  * `response` Number - The index of the button that was clicked.
+  * `response` Number - 被点击按钮的索引.
   * `checkboxChecked` Boolean - 如果设置了 `checkboxLabel`，返回复选框是否被选中的状态。否则为`false`.
 
 返回 `Integer`, 即被点击按钮的索引, 如果提供回调方法, 它返回 undefined
@@ -122,8 +122,8 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box.
-* `content` String - The text content to display in the error box.
+* `title` String - 显示在错误框中的标题.
+* `content` String - 显示在错误框中的文本内容.
 
 显示一个显示错误消息的模态对话框。
 
@@ -132,7 +132,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` Object 
+* `选项` Object 
   * `certificate` [Certificate](structures/certificate.md) - 信任/导入的证书
   * `message` String - 要向用户显示的消息
 * `callback` Function
