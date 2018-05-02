@@ -22,7 +22,7 @@ Le module `shell` dispose des méthodes suivantes :
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown.
+Retourne `Boolean` - Si l'élément s'est bien affiché.
 
 Affiche le fichier donné dans un gestionnaire de fichier. Si possible, sélectionne le fichier.
 
@@ -36,7 +36,7 @@ Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false.
+* `url` String - 2081 caractères maximum sur windows, sinon la fonction retourne false.
 * `options` Object (facultatif) *macOS* 
   * `activate` Boolean - `true` pour mettre l'application ouverte au premier-plan. La valeur par défaut est `true`.
 * `callback` Function (facultatif) *macOS* - If specified will perform the open asynchronously. 
@@ -50,7 +50,7 @@ Ouvre le protocole externe donné dans la manière par défaut de l'ordinateur. 
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Retourne `Boolean` - Si l'élément s'est bien déplacé dans la poubelle.
 
 Déplace le fichier donné dans la poubelle et retourne un booléen.
 
@@ -67,7 +67,7 @@ Déplace le fichier donné dans la poubelle et retourne un booléen.
   * `replace` - Remplace un raccourci existant, échoue si le raccourci n'existe pas.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Retourne `Boolean` - Si le raccourci a été créé avec succès.
 
 Créer ou met à jour un lien raccourci à `shortcutPath`.
 
