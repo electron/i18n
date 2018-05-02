@@ -22,7 +22,7 @@ Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown.
+Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na naipakita.
 
 Ipakita ang binigay na payl sa "file manager". Kung maaari, piliin ang payl.
 
@@ -37,9 +37,9 @@ Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String - max 2081 characters on windows, or the function returns false.
-* `options` Na Bagay (opsyonal) *macOS* 
+* `mga opsyon` Na Bagay (opsyonal) *macOS* 
   * `activate` Boolean - `true` para maipadala ang nakabukas na "application" sa importante nitong posisyon. Ang "default" ay `true`.
-* `callback` Function (optional) *macOS* - If specified will perform the open asynchronously. 
+* `callback` Function (opsyonal) *macOS* - If specified will perform the open asynchronously. 
   * `error` na Kamalian
 
 Pagbabalik sa `Boolean` - Kapag ang "application" ay maaaring buksan sa "URL". Kung ang muling pagtawag ang tinukoy, parati itong babalik sa "true".
@@ -50,7 +50,7 @@ Buksan ang binigay na panlabas na sistematikong panuntunan ng "desktop" sa karan
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Pagbabalik sa `Boolean` - Kung ang aytem matagumpay na nabura.
 
 Burahin ang binigay na payl at bumalik sa posisyon nito bilang "boolean" para sa pagpapagana.
 
@@ -67,7 +67,7 @@ Laruin ang tunog na "beep".
   * `replace` - Ang pagpatong sa "shortcut" ay maaaring mabigo kung ito ay hindi umiiral.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Pagbabalik sa `Boolean` - kung ang pagpapaikli ay matagumpay na nalikha.
 
 Lumikha o pagsasaayos ng pagpapaikili ng "link" ayon sa pinakabagong aspeto nito sa `shortcutPath`.
 
