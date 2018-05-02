@@ -10,6 +10,7 @@
   "author": "zeke",
   "license": "MIT",
   "devDependencies": {
+    "@octokit/rest": "^15.2.7",
     "chai": "^4.1.2",
     "chai-date-string": "^0.1.0",
     "check-for-leaks": "^1.2.0",
@@ -20,7 +21,6 @@
     "electron-docs": "^3.0.2",
     "form-data": "^2.3.2",
     "get-crowdin-file-ids": "^1.1.1",
-    "github": "13.0.0",
     "github-slugger": "^1.2.0",
     "globals": "^11.3.0",
     "got": "^8.3.0",
