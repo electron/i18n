@@ -55,36 +55,36 @@ $ ./script/build.py --compdb
 
 ## Bangunan 
 
-Build both `Release` and `Debug` targets:
+Jika Anda ingin membangun target ` Release ` dan ` Debug `:
 
 ```sh
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+Anda juga dapat membangun target ` Debug ` saja:
 
 ```sh
-$ ./script/build.py
+$ ./script/build.py -c R
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+Setelah selesai, Anda bisa menemukan biner debug ` elektron ` di bawah ` keluar / D `.
 
 ## Dukungan 32bit
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Elektron hanya bisa dibangun untuk target 64bit pada macOS dan tidak ada rencana untuk melakukannya dukung macos 32bit di masa depan.
 
 ## Membersihkan
 
-Untuk membersihkan membangun file:
+Untuk membersihkan bangunan file:
 
 ```sh
-$ npm bersih
+$ npm run clean
 ```
 
 Untuk pembersihan hanya `keluar` dan `dist` direktori:
 
 ```sh
-$ npm berjalan bersih-bangun
+$ npm run clean-build
 ```
 
 **Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.
