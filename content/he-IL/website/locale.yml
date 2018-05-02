@@ -1,4 +1,4 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: פתח ישום חוצה-פלטפורמות עם JavaScript, HTML ו-CSS
 nav:
   docs: תיעוד
   donors: תורמים
@@ -81,7 +81,7 @@ taglines:
   languages: תוכן מותאם לשפות אחרות מקהילת המפתחים העולמית המדהימה שלנו.
 help_translate: "עזור לתרגם"
 footer:
-  see_the_faq: צפא בשאלות נפוצות
+  see_the_faq: צפv בשאלות נפוצות
 apps:
   title: יישומים שנבנו ב-Electron
   description: עם Electron, יצירת יישום מחשב לחברה שלך או לעצמך פשוט יותר. פותח לראשונה בעבור <a href='https://atom.io' target='_blank'>Atom editor</a> עורך הקוד של GitHub ומאז שימש אלקטרון ליצור יישומים על ידי חברות כמו מיקרוסופט, פייסבוק, Slack ו-Docker.
@@ -114,18 +114,18 @@ pages:
     title: פיתוח
     description: פיתוח עם אלקטרון
   '/docs/tutorial':
-    title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    title: מדריכים
+    description: מדריכים והגבלות לגרסה האחרונה של הפצת Electron
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: בלוג Electron
+    description: כל החדשות האחרונות מקהילת Electron.
   '/community':
     title: קהילה
   '/releases':
-    title: Releases
+    title: הפצות
   '/contact':
     title: צור קשר
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: צור קשר עם צוות Electron דרך Twitter, Slack, GitHub, או email.
   '/languages':
     title: שפות
   '/userland':
