@@ -14,7 +14,7 @@
 
 فرآیند: [اصلی](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`اعلان` یک [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter) می باشد.
 
 ایجاد یک `اعلان` جدید با ویژگی های محلی توسط `options` می باشد.
 
