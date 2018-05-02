@@ -104,7 +104,7 @@ Emesso quando l'applicazione è attivata. Varie azioni possono generare questo e
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contiene stati specifici dell'applicazione immagazzinati per attività su un altro dispositivo.
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
@@ -125,7 +125,7 @@ Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/U
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `error` String - Una stringa contenente la descrizione localizzata dell'errore.
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un dispositivo diverso fallisce nel ripristino.
@@ -135,7 +135,7 @@ Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/U
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `Infoutente` Object - Contiene uno stato specifico per l'app archiviato dall'attività.
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) dopo che un'attività da questo dispositivo è stata ripristinata con successo su un altro.
@@ -145,10 +145,10 @@ Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/U
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `Infoutente` Object - Contiene uno stato specifico per l'app archiviato dall'attività.
 
-Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti aggiornare lo stato da trasferire, potresti chiamare `evento.preventDefault()` immediatamente, costruirne un nuovo dizionario `userInfo` e chiamare `app.updateCurrentActiviy()` tempestivamente. Altrimenti l'operazione fallirà e sarà chiamato l'`continue-activity-error`.
+Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Altrimenti l'operazione fallirà e sarà chiamato l'`continue-activity-error`.
 
 ### Evento: 'new-window-for-tab' *macOS*
 
@@ -314,14 +314,14 @@ Questo metodo garantisce che tutti i `beforeunload` e `unload` eventi gestionali
 
 * `exitCode` Integer (opzionale)
 
-Esci immediatamente con `exitCode`. Il `exitCode` predefinito è 0.
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli eventi `before-quit` e `will-quit` non saranno emessi.
 
 ### `app.relaunch([options])`
 
 * `options` Object (opzionale) 
-  * `args` String[] - (opzionale)
+  * `args` String[] (optional)
   * `execPath` String (opzionale)
 
 Rilancia l'app quando esiste la corrente istanza.
@@ -386,7 +386,7 @@ Puoi richiedere i seguenti percorsi dal nome:
 * `pictures` La directory per le immagini dell'utente.
 * `videos` La directory per i video dell'utente.
 * `logs` La directory per la cartella registro della tua app.
-* `pepperFlashSystemPlugin` Percorso intero alla versione di sistema del plugin Pepper Flash.
+* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -500,7 +500,7 @@ L'API usa il Registro Windows e LSCopiaGestionaleDefaultPerSchemaURL internament
 
 * `tasks` [Task[]](structures/task.md) - Array di oggetti `Task`
 
-Aggiungi `tasks` alla categoria [Task](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) della JumpList su Windows.
+Aggiungi `task` alla categoria [Task](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) della JumpList su Windows.
 
 `tasks` è un array di oggetti [`Task`](structures/task.md).
 
@@ -510,7 +510,7 @@ Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Restituisci `Object`:
+Ritorna `Object`:
 
 * `minItems` Integer - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Insieme degli oggetti `JumpListItem` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **next** chiamata a `app.setJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
@@ -691,19 +691,15 @@ Di default, Chromium disabilita le API 3D (come WebGL) fino al riavvio su una ba
 
 Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
-### `app.getAppMemoryInfo()` *Deprecato*
+### `app.ottieniMetricheApp()`
 
-Restituisce [`ProcessMetric[]`](structures/process-metric.md): Insieme di oggetti `ProcessMetric` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app. **Nota:** Questo metodo è deprecato, usa invece `app.getAppMetrics()`.
-
-### `app.getAppMetrics()`
-
-Restituisce [`ProcessMetric[]`](structures/process-metric.md): Insieme di oggetti `ProcessMetric` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
-Restituisce lo [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
+Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
 
-### `app.setBadgeCount(count)` *Linux* *macOS*
+### `app.impostaContaBadge(conta)` *Linux* *macOS*
 
 * `count` Integer
 
@@ -715,43 +711,41 @@ Su macOS esso è mostrato sull'icona del dock. Su Linux lavora sol9 con il Launc
 
 **Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
-### `app.getBadgeCount()` *Linux* *macOS*
+### `app.ottieniContaBadge()` *Linux* *macOS*
 
-Restituisce `Integer` - Il valore attuale è mostrato nel contatore di badge.
+Restituisce `Intero` - Il valore attuale è mostrato nel contatore di badge.
 
-### `app.isUnityRunning()` *Linux*
+### `app.èUnityEsecuzione()` *Linux*
 
-Restituisce `Boolean` - Se l'attuale ambiente desktop è il launcher Unity.
+Restituisce `Booleano` - Se l'attuale ambiente desktop è il launcher Unity.
 
-### `app.getLoginItemSettings([options])` *macOS* *Windows*
+### `app.ottieniImpostazioniElementiAccesso([options])` *macOS* *Windows*
 
 * `options` Object (opzionale) 
   * `path` String (opzionale) *Windows* - Il percorso eseguibile a comparazione. Di default è `process.execPath`.
   * `args` String[] (opzionale) *Windows* - La linea di comando degli argomenti comparata. Di default è un insieme vuoto.
 
-Se hai fornito le opzioni di `path` e di `args` a `app.setLoginItemSettings` dovrai passare gli stessi argomenti qui per `openAtLogin` per impostarlo correttamente.
+Se hai fornito le opzioni di `percorso` e di `arg` a `app.impostaImpostazioniElementiAccedi` dovrai passare gli stessi argomenti qui per `apriAdAccesso` per impostarlo correttamente.
 
-Restituisci `Object`:
+Ritorna `Object`:
 
 * `openAtLogin` Boolean - `true` se l'app è impostata a aperta all'accesso.
-* `openAsHidden` Boolean - `true` se l'app è impostata ad aprirsi come nascosta all'accesso. Impostazione supportata solo su macOS.
-* `wasOpenedAtLogin` Boolean - `true` se l'app era aperta automaticamente all'all'accesso. Questa impostazione è supportata solo su macOS.
-* `wasOpenedAsHidden` Boolean - `true` se l'app era aperta come un elemento di accesso nascosto. Questo indica che l'app potrebbe non aprire alcuna finestra all'avvio. Questa impostazione è supportata solo su macOS.
-* `restoreState` Boolean - `true` se l'app era aperta come elemento d'accesso che potrebbe ripristinare lo stato dalla sessione precedente. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa impostazione è supportata solo su macOS.
+* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Questo indica che l'app potrebbe non aprire alcuna finestra all'avvio. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
-**Nota:** Questa API non ha effetto sulle [Costruzioni MAS](../tutorial/mac-app-store-submission-guide.md).
-
-### `app.setLoginItemSettings(settings)` *macOS* *Windows*
+### `app.impostaImpostazioniElementoAccesso(impostazioni)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (opzionale) - `true` per aprire l'app all'accesso, `false` per rimuovere l'app come elemento di accesso. Di default a `false`.
-  * `openAsHidden` Boolean (opzionale) - `true` per aprire l'app come nascosta. Di default `false`. L'utente può editare questa impostazione dalle Preferenze di Sistema quindi `app.getLoginItemStatus().wasOpenedAsHidden` potrebbe essere controllato quando l'app è aperta per conoscere il valore attuale. Questa impostazione è supportata solo su macOS.
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Di default `false`. L'utente può editare questa impostazione dalle Preferenze di Sistema quindi `app.getLoginItemStatus().wasOpenedAsHidden` potrebbe essere controllato quando l'app è aperta per conoscere il valore attuale. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opzionale) *Windows*. L'eseguibile al lancio all'accesso. Di default a `process.execPath`.
   * `args` String[] (opzionale) *Windows* - La linea di comando dell'argomento per passare all'eseguibile. Di default ad un insieme vuoto. Stai attento ad avvolgere i percorsi in quote.
 
 Imposta le impostazioni dell'elemento d'accesso all'app.
 
-Per lavorare con l'`autoUpdater` di Electron su Windows, che usa [Squirrel](https://github.com/Squirrel/Squirrel.Windows), vorrai impostare il percorso di lancio ad Update.exe e passare gli argomenti per specificare il nome della tua applicazione. Ad esempio:
+Per lavorare con l'`autoCaricatore` di Electron su Windows, che usa [Squirrel](https://github.com/Squirrel/Squirrel.Windows), vorrai impostare il percorso di lancio ad Update.exe e passare gli argomenti per specificare il nome della tua applicazione. Ad esempio:
 
 ```javascript
 const cartellaApp = path.dirname(process.execPath)
@@ -768,11 +762,9 @@ app.setLoginItemSettings({
 })
 ```
 
-**Nota:** Questa API non ha effetto sulle [Costruzioni MAS](../tutorial/mac-app-store-submission-guide.md).
+### `app.èAbilitatoSupportoAccessibilità()` *macOS* *Windows*
 
-### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
-
-Restituisci `Boolean` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
+Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -782,7 +774,7 @@ Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre 
 
 **Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
 
 * `options` Object 
   * `applicationName` String (opzionale) - Il nome dell'app.
@@ -793,18 +785,33 @@ Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre 
 
 Vedi il pannello delle opzioni. Questo oltrepasserà i valori definiti nel file `.plist` del file. Vedi i [documenti Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) per altri dettagli.
 
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+
+* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+
+```js
+// Start accessing the file.
+const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// You can now access the file outside of the sandbox 
+stopAccessingSecurityScopedResource()
+```
+
+Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - Un interruttore della linea di comando
-* `value` String (opziomale) - Un valore per l'interruttore dato
+* `interruttore` Stringa - Un interruttore della linea di comando
+* `valore` Stringa (opziomale) - Un valore per l'interruttore dato
 
-Aggiungi un interruttore (con `value` opzionale) alla linea di comando di Chromium.
+Aggiungi un interruttore (con `valore` opzionale) alla linea di comando di Chromium.
 
-**Nota:** Non colpirà `process.argv` ed è principalmente usato dagli sviluppatori per controllare alcuni comportamenti di basso livello di Chromium.
+**Nota:** Non colpirà `processo.argv` ed è principalmente usato dagli sviluppatori per controllare alcuni comportamenti di basso livello di Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `value` String - L'argomento da aggiungere alla linea di comando
+* `valore` Stringa - L'argomento da aggiungere alla linea di comando
 
 Aggiungi un argomento alla linea di comando di Chromium. L'argomento sarà quotato correttamente.
 
@@ -818,11 +825,11 @@ Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Restituisce `Boolean` - Se l'app è in esecuzione dalla cartella Applicazione. Usa in combinazione con `app.moveToApplicationsFolder()`
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Restituisce `Boolean` - Se la mossa ha avuto successo. Si prega di notare che se la mossa ha successo la tua applicazione si chiuderà e riavvierà.
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
 
 Nessun dialogo di conferma sarà presentato di default, se vuoi permettere all'utente di confermare l'operazione potresti farlo usando l'API di [`dialog`](dialog.md).
 
@@ -830,35 +837,35 @@ Nessun dialogo di conferma sarà presentato di default, se vuoi permettere all'u
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `tipo` String (opzionale) - Può essere `critical` o `informational`. Di default è `informational`
+* `tipo` Stringa (opzionale) - Può essere `critico` o `informativo`. Di default è `informativo`
 
-Quando `critical` è passato, l'icona del dock rimbalza finché l'app diventa attiva o la richiesta viene annullata.
+Quando `critico` è passato, l'icona del dock rimbalza finché l'app diventa attiva o la richiesta viene annullata.
 
-Quando `informational` è passato, l'icona del dock rimbalzerà per un secondo. Comunque la richiesta resterà attiva finché l'l'applicazione non diviene attiva o la richiesta viene annullata.
+Quando `informativo` è passato, l'icona del dock rimbalzerà per un secondo. Comunque la richiesta resterà attiva finché l'l'applicazione non diviene attiva o la richiesta viene annullata.
 
-Restituisce `Integer` un ID rappresentante la richiesta.
+Restituisce `Intero` un ID rappresentante la richiesta.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
-* `id` Integer
+* `id` Numero Intero
 
 Annulla il rimbalzo dell'`id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
-* `filePath` String
+* `Percorsofile` Stringa
 
 Rimbalza il download impilato se il Percorsofile è nella cartella dei file scaricati.
 
 ### `app.dock.setBadge(text)` *macOS*
 
-* `text` String
+* `testo` Stringa
 
 Imposta la stringa da mostrare nell'area del dock di badging.
 
 ### `app.dock.getBadge()` *macOS*
 
-Restituisce `String` - La stringa del badge del dock.
+Restituisce `Stringa` - La stringa del badge del dock.
 
 ### `app.dock.hide()` *macOS*
 
@@ -870,16 +877,16 @@ Mostra l'icona del dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Restituisce `Boolean` - Se l'icona del dock è visibile. L'`app.dock.show()` chiamato è asincrono quindi questo metodo potrebbe non restituire true immediatamente dopo questa chiamata.
+Restituisce `Booleano` - Se l'icona del dock è visibile. L'`app.dock.mostra()` chiamato è asincrono quindi questo metodo potrebbe non restituire true immediatamente dopo questa chiamata.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Imposta il [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) dell'applicazione.
+Imposta il [menu dock](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) dell'applicazione.
 
 ### `app.dock.setIcon(image)` *macOS*
 
-* `image` ([NativeImage](native-image.md) | String)
+* `immagine` ([ImmagineNativa](native-image.md) | Stringa)
 
-Imposta l'`image` associata a questa icona del dock.
+Imposta l'`immagine` associata a questa icona del dock.
