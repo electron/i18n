@@ -537,7 +537,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 #### `contents.loadURL(url[, options])`
 
 * ` URL </ 0>  Zeichenfolge</li>
-<li><code>optionen` Objekt (optional) 
+<li><code>options` Objekt (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -711,7 +711,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
 
 * `ignore` Boolean
 
@@ -1035,7 +1035,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Objekt (optional) 
+* `optionen` Objekt (optional) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1190,7 +1190,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` Funktion - `(error) => {}`. 
   * ` Fehler </ 0> Fehler</li>
 </ul></li>
 </ul>
@@ -1217,7 +1217,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Object 
+* `optionen` Object 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer
@@ -1271,7 +1271,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Fall Eigenschaften
+### Instanz Eigenschaften
 
 #### `contents.id`
 
