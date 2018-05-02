@@ -9,14 +9,15 @@ const got = require('got')
 const mkdir = require('make-dir').sync
 const path = require('path')
 const {execSync} = require('child_process')
-
+const github = require('@octokit/rest')()
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
-const GitHub = require('github')
-const github = new GitHub({
-  debug: false,
-  Promise: Promise,
-  token: process.env.GH_TOKEN
-})
+
+if (process.env.GH_TOKEN) {
+  github.authenticate({
+    type: 'token',
+    token: process.env.GH_TOKEN
+  })
+}
 
 let release
 
