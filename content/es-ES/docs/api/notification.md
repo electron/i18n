@@ -14,7 +14,7 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 Process: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 Crea una nueva `Notification` con propiedades nativas como las configuradas por `options`.
 
@@ -29,9 +29,9 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
 ### `new Notification([options])` *Experimental*
 
 * `opciones` Objeto 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `title` String - Un título para la notificación, el cual será mostrado en la parte superior de la ventana de notificación.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
+  * `body` String - El cuerpo del texto de la notificación, el cual aparecerá debajo del título o subtítulo.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
   * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
   * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
@@ -77,7 +77,7 @@ No se garantiza que este evento se emita en todos los casos donde se cierre la n
 Devuelve:
 
 * `event` Event
-* `reply` String - The string the user entered into the inline reply field.
+* `reply` String - La cadena que ingreso el usuario dentro del campo de respuesta insertado.
 
 Se emite cuando el usuario hace clic en el botón "Reply" en una notificación con `hasReply: true`.
 
@@ -86,7 +86,7 @@ Se emite cuando el usuario hace clic en el botón "Reply" en una notificación c
 Devuelve:
 
 * `event` Event
-* `index` Number - The index of the action that was activated.
+* `index` Númerp - El indice de la acción que fue activado.
 
 ### Métodos de Instancia
 
