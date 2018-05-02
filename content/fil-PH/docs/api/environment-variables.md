@@ -1,4 +1,4 @@
-# Environment Variables 
+# Nagbabago sa kapaligiran
 
 > Kontrolin ang pagsasaayos ng application at pag-uugali nang walang pagbabago ng code.
 
