@@ -1,18 +1,18 @@
 # Progress Bar nella Taskbar (Windows, macOS, Unity)
 
-Su Windows il pulsante della taskbar può essere usata per mostrare una progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Su Windows il pulsante della taskbar può essere usata per mostrare una progress bar. Questo abilita una finestra per fornire le informazioni di progresso all'utente, senza che egli debba passare alla finestra stessa.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Su macOS la barra dei progressi sarà mostrata come parte dell'icona del dock.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+L'Unità DE ha anche una funzione simile che ti consente di specificare la barra del progresso nel launcher.
 
 **Progress bar nel pulsante della taskbar:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-All three cases are covered by the same API - the `setProgressBar()` method available on instances of `BrowserWindows`. Call it with a number between `` and `1` to indicate your progress. If you have a long-running task that's currently at 63% towards completion, you'd call it with `setProgressBar(0.63)`.
+Tutti e tre i casi sono coperti dalla stessa API, il metodo `impostaBarraProgtrsso()` disponibile su instanze di `FinestreBrowser`. Chiamalo con un numero tra `` e `1` per indicare il tuo progresso. Se hai una mansione a lunga esecuzione che è attualmente al 63% dal completamento, la chiamerai con `impostaBarraProgresso(0.63)`.
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+Generalmente parlando, impostare il parametro ad un valore sotto zero (come `-1`) rimuoverà la barra del progresso, mentre impostandolo ad un valore più alto di uno (come `2`) sposterà la barra del progresso alla modalità intermedia.
 
 Consulta la [documentazione dell'API per ulteriori opzioni e modalità](../api/browser-window.md#winsetprogressbarprogress).
 
