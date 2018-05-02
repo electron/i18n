@@ -2,7 +2,7 @@
 
 > Направи искания HTTP/HTTPS.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
 `ClientRequest` интерфейс [Writable поток](https://nodejs.org/api/stream.html#stream_writable_streams) и следователно е [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -42,17 +42,17 @@ const request = net.request({
 
 * `отговор` IncomingMessage - обект, представляващ HTTP отговор съобщението.
 
-#### Събитие: "вход"
+#### Събитие: 'login'
 
 Връща:
 
 * `authInfo` Object 
-  * `isProxy` Булев
-  * `схема` Низ
-  * `домакин` Низ
-  * `порт` Цяло число
-  * `царство` Низ
-* `обратно повикване` Функция 
+  * `isProxy` Boolean
+  * `scheme` String
+  * `host` String
+  * `port` Integer
+  * `realm` String
+* `callback` Function 
   * `потребителско име` Низ
   * `парола` Низ
 
@@ -89,7 +89,7 @@ request.on('login', (authInfo, callback) => {
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Event: 'error'
+#### Събитие: 'error'
 
 Връща:
 
