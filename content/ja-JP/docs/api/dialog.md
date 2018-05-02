@@ -30,7 +30,7 @@ console.log(dialog)
   * `defaultPath` String (任意)
   * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
-  * `properties` String[] (任意) - ダイアログでどの機能を使用するか。以下の値がサポートされます。 
+  * `プロパティ` String[] (任意) - ダイアログでどの機能を使用するか。以下の値がサポートされます。 
     * `openFile` - ファイルを選択するのを許可します。
     * `openDirectory` - ディレクトリを選択するのを許可します。
     * `multiSelections` - 複数のパスを選択するのを許可します。
@@ -107,9 +107,9 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `icon` [NativeImage](native-image.md) (任意)
   * `cancelId` Integer (任意) - `Esc` キー経由でダイアログをキャンセルするのに使用されるボタンのインデックス。 既定では、これはラベルとして "cancel" または "no" の付いた最初のボタンに割り当てられます。 そのようにラベル付けされたボタンがなく、このオプションが設定されていない場合、`` が戻り値またはコールバックレスポンスとして使用されます。 このオプションはWindowsでは無視されます。
   * `noLink` Boolean (任意) - WindowsでElectronはどの `buttons` が ("Cancel" や "Yes" のような) 一般的なボタンかを把握し、その他をダイアログでコマンドリンクとして表示しようとします。 これにより、モダンなWindowsアプリのスタイルでダイアログを表示させることができます。 この動作が気に入らない場合、`noLink` を `true` に設定することができます。
-  * `normalizeAccessKeys` Boolean (任意) - プラットフォーム間でキーボードのアクセスキーを正規化します。 省略値は、`false` です。 これを有効にすると、`&` が、ボタンのラベルでキーボードショートカットアクセスキーの位置として使用されているとみなされ、各プラットフォームで正常に動作するようにラベルが変換されます。macOSでは、`&` の文字は削除され、Linuxでは、`_` に変換され、Windowsでは、そのままにされます。 例えば、`Vie&w` というボタンラベルは、Linuxでは、`Vie_w`、macOSでは、`View` に変換され、WindowsとLinuxでは、`Alt-W` 経由で選択できます。
+  * `normalizeAccessKeys` Boolean (任意) - プラットフォーム間でキーボードのアクセスキーを正規化します。 省略値は `false` です。 これを有効にすると、`&` が、ボタンのラベルでキーボードショートカットアクセスキーの位置として使用されているとみなされ、各プラットフォームで正常に動作するようにラベルが変換されます。macOSでは、`&` の文字は削除され、Linuxでは、`_` に変換され、Windowsでは、そのままにされます。 例えば、`Vie&w` というボタンラベルは、Linuxでは、`Vie_w`、macOSでは、`View` に変換され、WindowsとLinuxでは、`Alt-W` 経由で選択できます。
 * `callback` Function (任意) 
-  * `response` Number - The index of the button that was clicked.
+  * `response` Number - クリックされたボタンのインデックス.
   * `checkboxChecked` Boolean - `checkboxLabel` が設定された場合、チェックボックスのチェック状態。そうでない場合は、`false` です。
 
 クリックされたボタンのインデックスである `Integer` を返します。callbackが指定されている場合、undefinedを返します。
@@ -122,8 +122,8 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box.
-* `content` String - The text content to display in the error box.
+* `title` String - エラーボックスに表示するタイトル.
+* `content` String - エラーボックスに表示するテキストの内容.
 
 エラーメッセージを表示するモーダルダイアログを表示します。
 
