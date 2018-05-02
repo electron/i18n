@@ -66,8 +66,8 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
                     ### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
                     
                     * `windowId` Number
-                    * ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+                    * `channel` String
+                    * ` ... args </ 0> ada []</li>
 </ul>
 
 <p>Sends a message to a window with <code>windowid` via `channel`.</p> 
