@@ -10,7 +10,7 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
   * `availableColors` String[] (optional) - Pagkakasunod-sunod ng mga linya ng kulay para ipakitang bilang posibleng kulay na mapili.
   * `selectedColor` String (optional) - Ang napiling kulay sa tagapili, i.e `#ABCDEF`.
   * `baguhin` Function (optional) - tungkuling taga tawag kung merong kulay na mapili. 
-    * `color` String - Ang kulay na napili ng gumagamit sa pilian
+    * `color` String - The color that the user selected from the picker.
 
 ### Instance Properties
 
