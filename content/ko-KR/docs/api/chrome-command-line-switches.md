@@ -26,6 +26,10 @@ HTTP 요청 캐시를 비활성화합니다.
 
 HTTP/2와 SPDY/3.1 프로토콜을 비활성화합니다.
 
+## --lang
+
+Set a custom locale.
+
 ## --inspect=`port` and --inspect-brk=`port`
 
 디버깅관련 플래그입니다. 자세한 내용은 [메인프로세스 디버깅하기] [Debugging the Main Process](../tutorial/debugging-main-process.md) 안내서를 보세요.
@@ -42,7 +46,7 @@ Forces the maximum disk space to be used by the disk cache, in bytes.
 
 Node JS 엔진에 지정한 플래그를 전달합니다. `flags`를 메인 프로세스에서 활성화하고자 한다면, Electron이 시작되기 전에 스위치를 전달해야 합니다.
 
-```bash
+```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
@@ -96,7 +100,7 @@ A comma-separated list of servers for which integrated authentication is enabled
 
 예시:
 
-```bash
+```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
