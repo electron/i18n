@@ -244,7 +244,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` String (opcional) - Un url de HTTP referencial.
   * `userAgent` String (opcional) - Un agente de usuario originando el pedido.
   * `extraHeaders` String (opcional) - Cabeceras extras separadas por "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opcional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. el `http://` or `file://`.
@@ -439,11 +439,11 @@ Inserta `texto` en el elemento enfocado.
 
 * `text` String - El contenido para ser buscado, no debe quedar en blanco.
 * `opciones` Object (opcional) 
-  * `forward` Boolean - (opcional) Si buscar hacia adelante o hacia atrás. Por defecto es `true`.
-  * `findNext` Boolean - (optional) Si la operación se solicita de primero o después. Por defecto es `false`.
-  * `matchCase` Boolean - (optional) Si la búsqueda es en mayúsculas o minúsculas. Por defecto es `false`.
-  * `wordStart` Boolean - (optional) Si solo se desea ver al comienzo de las palabras. Por defecto es `false`.
-  * `medialCapitalAsWordStart` Boolean - (opcional) Cuando se combina con `wordStart`, acepta una coincidencia en el medio de una palabra si la coincidencia comienza con una letra mayúscula seguida de una minúscula o algún caracter que no se letra. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
 Returns `Integer` - The request id used for the request.
 
@@ -451,7 +451,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `acción` String - Especifica la acción que se llevará a cabo cuando finalice [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+* `acción` String - Especifica la acción que se llevará a cabo cuando finalice [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
   * `clearSelection` - Borrar la selección.
   * `keepSelection` - Traduce la selección en una selección normal.
   * `activateSelection` - Enfoca y hace clic en el nodo de selección.
@@ -470,11 +470,11 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
 ### `<webview>.printToPDF(options, callback)`
 
 * `opciones` Object 
-  * `marginsType` Integer - (opcional) Especifica el tipo de márgenes que se va a usar. Utiliza 0 para el margen por defecto, 1 para ningún margen y 2 para el margen mínimo.
-  * `pageSize` String - (opcional) Especifica el tamaño de la página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height` y `width` en micron.
-  * `printBackground` Boolean - (opcional) Si se imprime o no los fondos CCS.
-  * `printSelectionOnly` Boolean - (opcional) Si solo se imprime la selección.
-  * `landscape` Boolean - (opcional) `true` para paisajes, `false` para retratos.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height` y `width` en micron.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Función 
   * `error` Error
   * `data` Buffer
@@ -483,7 +483,7 @@ Imprime la página web de `webview` como un PDF, al igual que `webContents.print
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 * `callback` Función 
   * `image` [NativeImage](native-image.md)
 
@@ -494,9 +494,9 @@ Captura una instantánea de la página de `webview`. Al igual que `webContents.c
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. El proceso de renderizado puede manejar el mensaje escuchando al evento `channel` con el módulo `ipcRenderer`.
+Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Ver [webContents.send](web-contents.md#webcontentssendchannel-args) para ejemplos.
+See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -504,7 +504,7 @@ Ver [webContents.send](web-contents.md#webcontentssendchannel-args) para ejemplo
 
 Envía un input `event` a la página.
 
-Ver [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) para una descripción detallada del objeto `event`.
+See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -514,7 +514,7 @@ Cambia el factor de zoom al factor especificado. El factor de zoom es el porcent
 
 ### `<webview>.setZoomLevel(level)`
 
-* `nivel` Número - Nivel de Zoom
+* `level` Number - Zoom level.
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
 
@@ -655,7 +655,7 @@ Devuelve:
   * `selectionArea` Object - Coordenadas del lugar de la primera coincidencia.
   * `finalUpdate` Boolean
 
-Disparado cuando un resultado es disponible en la solicitud [`webview.findInPage`](webview-tag.md#webviewtagfindinpage).
+Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -674,7 +674,7 @@ Devuelve:
 * `url` Cadena
 * `frameName` Cadena
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Objeto - Las opciones que deberían ser usados para crear el nuevo `BrowserWindow`.
+* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
 Disparado cuando la página de invitado intenta abrir una nueva ventana de buscador.
 
