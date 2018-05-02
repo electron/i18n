@@ -132,16 +132,16 @@ pages:
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron הוא כלי קוד פתוח כדי לעזור לך לבחון, לנטר ולאתר באגים ביישום Electron שלך. מובנה על גבי הכלים המדהימים של מפתחים בכרום.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron היא framework קוד פתוח עבור כתיבת בדיקות אינטגרציה בקלות ליישום Electron שלך. מובנה על גבי ChromeDriver ו- WebDriverIO.
   '/donors':
     title: תורמים
 _404:
-  page_not_found: Page not found.
+  page_not_found: הדף לא נמצא.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_all: חפש משאבים בתיעוד <a href="/search/docs"></a>, <a href="/search/npmPackages">npm בחבילות</a>וב- <a href="/search/repos">GitHub repos</a>.
+  description_docs: חפש משאבים בתיעוד.
+  description_npm: חפש משאבים בחבילות npm.
+  description_repos: חפש משאבים ב-GitHub.
