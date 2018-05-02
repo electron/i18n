@@ -2,7 +2,7 @@
 
 > Monitor power state changes.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
@@ -38,3 +38,7 @@ Emitted when the system changes to AC power.
 ### Event: 'on-battery' *Windows*
 
 Emitted when system changes to battery power.
+
+### Event: 'shutdown' *Linux* *macOS*
+
+Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
