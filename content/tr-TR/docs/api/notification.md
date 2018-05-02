@@ -14,7 +14,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 İşlem: [Ana](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` modülü [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter) sınıfının bir örneğidir.
 
 `options` ile belirlenen yerel özelliklere sahip yeni bir `Notification` oluşturur.
 
@@ -29,9 +29,9 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 ### `new Notification([options])` *Experimental*
 
 * `options` Nesnesi 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
+  * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
   * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
   * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
@@ -76,8 +76,8 @@ Bu olayın, bildirimin kapalı olduğu tüm durumlarda bildirim vermesi garanti 
 
 Dönüşler:
 
-* `event` Olay
-* `reply` String - The string the user entered into the inline reply field.
+* `event` Event
+* `reply` Dize - Kullanıcının satır içi açıklama kısmına girdiği dize.
 
 Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bildirimde "yanıtla" düğmesini tıklaması gerekir.
 
@@ -86,7 +86,7 @@ Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bi
 Dönüşler:
 
 * `event` Event
-* `index` Number - The index of the action that was activated.
+* `index` Numara - Etkin olan eylem dizinini gösterir.
 
 ### Sınıf örneği metodları
 
