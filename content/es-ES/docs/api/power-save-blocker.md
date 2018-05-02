@@ -2,7 +2,7 @@
 
 > Bloquea al sistema para evitar que entre en el modo de bajo consumo (suspensión).
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Por ejemplo:
 
@@ -21,11 +21,11 @@ El módulo `powerSaveBlocker` tiene los siguientes métodos:
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` Cadena - El tipo de bloqueo de ahorro de energía. 
+* `tipo` Cadena - El tipo de bloqueo de ahorro de energía. 
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-Returns `Integer` - The blocker ID that is assigned to this power blocker.
+Devuelve `Integer` - El ID bloqueador que se asigna al bloqueador de energía.
 
 Comienza evitando que el sistema entre en modo bajo consumo de energía. Devuelve un entero que identifica el bloqueador de ahorro de energía.
 
