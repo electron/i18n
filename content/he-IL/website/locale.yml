@@ -25,20 +25,20 @@ docs:
 languages:
   choose_language: בחרו בשפת התצוגה שלכם
   translation_progress: התקדמות התרגום
-  current: גרסה נוכחית
+  current: בחירה נוכחית
 community:
   title: קהילת Electron
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
   tools: כלים
   boilerplates: Boilerplates
   components: רכיבים
-  videos: Videos
-  meetups: Meetups
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
-releases: Releases
+  videos: סרטונים
+  meetups: מפגשים
+  awesome_notice: רשימה זו נוצרת מתוך <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br>חזר משהו? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">בצע pull request</a>.
+  meetup_notice: להוספת מפגש, ערוך את <code>data/meetups.json</code> href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">ובצע pull request</a>.
+releases: הפצות
 electron_is_easy:
-  title: It's easier than you think
+  title: זה קל משאתה חושב
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
   video_link: Watch the video
 web_technologies:
