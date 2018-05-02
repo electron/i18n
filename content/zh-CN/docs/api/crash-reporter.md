@@ -2,7 +2,7 @@
 
 > 将崩溃日志提交给远程服务器
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 以下是一个自动提交崩溃日志到服务器的示例
 
@@ -37,7 +37,7 @@ crashReporter.start({
   * `uploadToServer` 布尔型(可选) - 控制是否将崩溃日志发送给服务器，默认为`true`.
   * `ignoreSystemCrashHandler` 布尔型(可选) - 默认为`false`.
   * `extra` 对象(可选) - 一个随崩溃日志发送的对象. 只有字符串属性能够被正确发送. 不支持发送嵌套对象，且属性名称和属性值必须小于64个字符长度.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+  * ` crashesDirectory `String (可选)-用于临时存储 crashreports 的目录 (仅在崩溃报告器通过 ` process.crashReporter.start ` 启动时使用).
 
 你需要调用任何其他的`crashReporter` API，您必须调用此方法. 在每个需要收集崩溃日志的进程 (主进程 / 渲染器进程) 中，也必须先调用此方法. 从不同的进程调用时, 可以传不同的配置给 ` crashReporter. start `。
 
@@ -84,7 +84,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean *macOS* - 是否将报告提交到服务器.
 
 通常, 是否提交是由用户对系统进行偏好设置而决定的。不能在 `start` 之前调用该方法，否则无效.
 
@@ -114,7 +114,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 * `ver` String - Electron 的版本.
 * `platform` String - 例如 'win32'.
 * `process_type` String - 例如 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
+* `guid` String - 例如 '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` String - `package.json` 里的版本号.
 * `_productName` String - `crashReporter` `options` 对象中的产品名字
 * `prod` String - 基础产品名字. 在这种情况下为 Electron.
