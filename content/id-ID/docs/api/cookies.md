@@ -17,16 +17,16 @@ const cookie = {url: 'http://www.github.com', nama: 'dummy_name', nilai: 'dummy'
    if (error ) console.error (error)})
 `</pre> 
 
-### Instance Events
+### Contoh peristiwa
 
 Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 
 <h4>Acara: 'berubah'</h4>
 
 <ul>
-<li><code>event` Sinyal</li> 
+<li><code>event` Event</li> 
 
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
+* `cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah.
 * `sebab` String - Penyebab perubahan dengan salah satu dari nilai berikut: 
   * ` eksplisit </ 0> - Cookie diubah secara langsung oleh tindakan konsumen.</li>
 <li><code> menimpa </ 0> - Cookie dihapus secara otomatis karena operasi insert yang overwrote itu.</li>
@@ -43,8 +43,8 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 
 <p>Metode berikut tersedia pada contoh <code> Cookies </ 0> :</p>
 
-<h4><code>cookies.get (filter, callback)`</h4> 
-    * `menyaring` Sasaran 
+<h4><code>cookies.get(filter, panggilan kembali)`</h4> 
+    * `filter` Obyek 
       * ` url </ 0>  String (opsional) - Mengambil cookie yang dikaitkan dengan
  <code> url </ 0> . Empty berarti mengambil cookies dari semua url.</li>
 <li><code> nama </ 0>  String (opsional) - Menyaring kuki berdasarkan nama.</li>
@@ -58,9 +58,9 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
     
     Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
     
-    #### `cookies.set (rincian, callback)`
+    #### `cookies.set(details, panggilan kembali)`
     
-    * `rincian` Sasaran 
+    * `rincian` Objek 
       * `url`String - Url untuk mengaitkan cookie dengan.
       * `nama` String (opsional) - Nama cookie. Kosongkan secara default jika dihilangkan.
       * `value ` String (opsional) - Nilai cookie. Kosongkan secara default jika dihilangkan.
