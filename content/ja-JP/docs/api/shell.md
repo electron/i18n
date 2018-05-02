@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown.
+戻り値 `Boolean` - アイテムが正常に表示されているかどうか.
 
 指定したファイルをファイルマネージャに表示します。可能であれば、ファイルを選択します。
 
@@ -50,7 +50,7 @@ Returns `Boolean` - Whether the item was successfully shown.
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+戻り値 `Boolean` - アイテムが正常にゴミ箱に移動されたかどうか.
 
 指定されたファイルをゴミ箱に移動し、操作の状態の Boolean を返します。
 
@@ -67,7 +67,7 @@ Returns `Boolean` - Whether the item was successfully moved to the trash.
   * `replace` - 既にあるショートカットを上書きし、存在しなければ失敗します。
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+戻り値 `Boolean` - ショートカットが正常に作成されたかどうか.
 
 `shortcutPath` のショートカットリンクを作成か更新します。
 
