@@ -98,7 +98,7 @@ Removes the subscriber with `id`.
   * `userInfo` Object
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults.
-This is necessary for events such as `NSUserDefaultsDidChangeNotification`
+This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` _macOS_
 
@@ -106,28 +106,34 @@ This is necessary for events such as `NSUserDefaultsDidChangeNotification`
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
+### `systemPreferences.registerDefaults(defaults)` _macOS_		
+
+* `defaults` Object - a dictionary of (`key: value`) user defaults			
+
+Add the specified defaults to your application's `NSUserDefaults`.
+
 ### `systemPreferences.getUserDefault(key, type)` _macOS_
 
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`,
-  `url`, `array`, `dictionary`
+  `url`, `array` or `dictionary`.
 
 Returns `any` - The value of `key` in `NSUserDefaults`.
 
 Some popular `key` and `type`s are:
 
-* `AppleInterfaceStyle`:  `string`
-* `AppleAquaColorVariant`:  `integer`
-* `AppleHighlightColor`:  `string`
-* `AppleShowScrollBars`:  `string`
-* `NSNavRecentPlaces`:  `array`
-* `NSPreferredWebServices`:  `dictionary`
-* `NSUserDictionaryReplacementItems`:  `array`
+* `AppleInterfaceStyle`: `string`
+* `AppleAquaColorVariant`: `integer`
+* `AppleHighlightColor`: `string`
+* `AppleShowScrollBars`: `string`
+* `NSNavRecentPlaces`: `array`
+* `NSPreferredWebServices`: `dictionary`
+* `NSUserDictionaryReplacementItems`: `array`
 
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` String
 
 Set the value of `key` in `NSUserDefaults`.
@@ -137,7 +143,7 @@ if they don't.
 
 Some popular `key` and `type`s are:
 
-* `ApplePressAndHoldEnabled`:  `boolean`
+* `ApplePressAndHoldEnabled`: `boolean`
 
 ### `systemPreferences.removeUserDefault(key)` _macOS_
 

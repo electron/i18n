@@ -194,7 +194,7 @@ Returns:
   [`NSUserActivity.activityType`][activity-type].
 * `userInfo` Object - Contains app-specific state stored by the activity.
 
-Emitted when [Handoff][handoff] is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Emitted when [Handoff][handoff] is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
 
 ### Event: 'new-window-for-tab' _macOS_
 
@@ -377,7 +377,7 @@ returning `false` in the `beforeunload` event handler.
 
 * `exitCode` Integer (optional)
 
-Exits immediately with `exitCode`.  `exitCode` defaults to 0.
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 All windows will be closed immediately without asking user and the `before-quit`
 and `will-quit` events will not be emitted.
@@ -385,7 +385,7 @@ and `will-quit` events will not be emitted.
 ### `app.relaunch([options])`
 
 * `options` Object (optional)
-  * `args` String[] - (optional)
+  * `args` String[] (optional)
   * `execPath` String (optional)
 
 Relaunches the app when current instance exits.
@@ -459,7 +459,7 @@ You can request the following paths by the name:
 * `pictures` Directory for a user's pictures.
 * `videos` Directory for a user's videos.
 * `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin`  Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -844,14 +844,9 @@ disables that behaviour.
 
 This method can only be called before app is ready.
 
-### `app.getAppMemoryInfo()` _Deprecated_
-
-Returns [`ProcessMetric[]`](structures/process-metric.md):  Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
-**Note:** This method is deprecated, use `app.getAppMetrics()` instead.
-
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md):  Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
@@ -893,30 +888,27 @@ need to pass the same arguments here for `openAtLogin` to be set correctly.
 Returns `Object`:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
-* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login.
-  This setting is only supported on macOS.
-* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login
-  automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login
+* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login.
+  This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login
+  automatically. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login
   item. This indicates that the app should not open any windows at startup.
-  This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that
+  This setting is not available on [MAS builds][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that
   should restore the state from the previous session. This indicates that the
   app should restore the windows that were open the last time the app was
-  closed. This setting is only supported on macOS.
-
-**Note:** This API has no effect on [MAS builds][mas-builds].
+  closed. This setting is not available on [MAS builds][mas-builds].
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove
     the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Defaults to
     `false`. The user can edit this setting from the System Preferences so
     `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app
-    is opened to know the current value. This setting is only supported on
-    macOS.
+    is opened to know the current value. This setting is not available on [MAS builds][mas-builds].
   * `path` String (optional) _Windows_ - The executable to launch at login.
     Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to
@@ -943,8 +935,6 @@ app.setLoginItemSettings({
   ]
 })
 ```
-
-**Note:** This API has no effect on [MAS builds][mas-builds].
 
 ### `app.isAccessibilitySupportEnabled()` _macOS_ _Windows_
 
@@ -975,6 +965,23 @@ details. Disabled by default.
 Set the about panel options. This will override the values defined in the app's
 `.plist` file. See the [Apple docs][about-panel-options] for more details.
 
+### `app.startAccessingSecurityScopedResource(bookmarkData)` _macOS (mas)_
+
+* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+
+```js
+// Start accessing the file.
+const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// You can now access the file outside of the sandbox 🎉
+
+// Remember to stop accessing the file once you've finished with it.
+stopAccessingSecurityScopedResource()
+```
+
+Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+
 ### `app.commandLine.appendSwitch(switch[, value])`
 
 * `switch` String - A command-line switch
@@ -1003,11 +1010,11 @@ This method can only be called before app is ready.
 ### `app.isInApplicationsFolder()` _macOS_
 
 Returns `Boolean` - Whether the application is currently running from the
-systems Application folder.  Use in combination with `app.moveToApplicationsFolder()`
+systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` _macOS_
 
-Returns `Boolean` - Whether the move was successful.  Please note that if
+Returns `Boolean` - Whether the move was successful. Please note that if
 the move is successful your application will quit and relaunch.
 
 No confirmation dialog will be presented by default, if you wish to allow
@@ -1015,9 +1022,9 @@ the user to confirm the operation you may do so using the
 [`dialog`](dialog.md) API.
 
 **NOTE:** This method throws errors if anything other than the user causes the
-move to fail.  For instance if the user cancels the authorization dialog this
-method returns false.  If we fail to perform the copy then this method will
-throw an error.  The message in the error should be informative and tell
+move to fail. For instance if the user cancels the authorization dialog this
+method returns false. If we fail to perform the copy then this method will
+throw an error. The message in the error should be informative and tell
 you exactly what went wrong
 
 ### `app.dock.bounce([type])` _macOS_
@@ -1083,7 +1090,7 @@ Sets the application's [dock menu][dock-menu].
 Sets the `image` associated with this dock icon.
 
 [dock-menu]:https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103
-[tasks]:http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
+[tasks]:https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [CFBundleURLTypes]: https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme

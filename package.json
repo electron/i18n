@@ -65,6 +65,6 @@
     "glossary:upload": "node script/upload-glossary.js",
     "wordcount": "node script/wordcount.js > wordcount.md"
   },
-  "electronLatestStableTag": "v1.8.4",
-  "electronMasterBranchCommit": "2e5cb930de80e79000887ba02372960fe1efbb20"
+  "electronLatestStableTag": "v2.0.0",
+  "electronMasterBranchCommit": "82329124ffcb2012d101c79236e82fbe6ba79c36"
 }
