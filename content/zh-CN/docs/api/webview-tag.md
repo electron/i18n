@@ -495,7 +495,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
+示例请进传送门： [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 
 
 ### `<webview>.sendInputEvent(event)`
 
