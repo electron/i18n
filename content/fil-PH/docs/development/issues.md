@@ -18,7 +18,7 @@ Para sa anumang isyu, mayroong tatlong pangunahing pamamaraan na ang isang indib
 
 ## Paghingi ng Pangkalahatang Tulong
 
-Dahil ang antas nang aktibidad na nasa `electron/electron` na repositori ay napakataas, ang mga tanong o hiling para sa pangkalahatang tulong sa paggamit ng Electron ay dapat na idirekta sa [slack na tsanel ng komunidad](https://atomio.slack.com) o sa [forum](https://discuss.atom.io/c/electron).
+["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
 ## Pagsusumite ng isang Ulat ukol sa Bug
 
