@@ -6,7 +6,7 @@ Certains comportements d'Electron sont contrôlés par les variables d'environne
 
 Exemple sur un shell POSIX :
 
-```bash
+```sh
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
