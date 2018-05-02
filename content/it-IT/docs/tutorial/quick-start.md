@@ -1,4 +1,4 @@
-# Inizio rapido
+# Avvio rapido
 
 Electron consente di creare applicazioni desktop in JavaScript fornendo un eseguibile inclusivo di numerose API native (sistema operativo). Puoi immaginarlo come una variante di Node.js che si focalizza su applicazioni desktop invece dei web server.
 
