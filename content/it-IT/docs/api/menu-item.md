@@ -8,11 +8,11 @@ See [`Menu`](menu.md) for examples.
 
 ### `new MenuItem(options)`
 
-* `opzioni` Oggetto 
+* `options` Oggetto 
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
-    * `event` Evento
+    * `event` Event
   * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
   * `label` String (optional)
