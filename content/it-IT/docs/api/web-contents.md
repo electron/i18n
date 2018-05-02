@@ -1,4 +1,4 @@
-# webContents
+# contenutiWeb
 
 > Render and control web pages.
 
@@ -55,7 +55,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -67,7 +67,7 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `isMainFrame` Boolean
 
 Emitted when a frame has done navigation.
@@ -84,7 +84,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
@@ -100,7 +100,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -115,7 +115,7 @@ Emitted when a redirect is received while requesting a resource.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 
 Emitted when the document in the given frame is loaded.
 
@@ -123,7 +123,7 @@ Emitted when the document in the given frame is loaded.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `favicons` String[] - Array of URLs.
 
 Emitted when page receives favicon urls.
@@ -132,7 +132,7 @@ Emitted when page receives favicon urls.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `url` Stringa
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
@@ -159,7 +159,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `url` Stringa
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
@@ -174,7 +174,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `url` Stringa
 
 Emitted when a navigation is done.
@@ -185,7 +185,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `url` Stringa
 * `isMainFrame` Boolean
 
@@ -197,7 +197,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -226,7 +226,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `ucciso` Booleano
 
 Emitted when the renderer process crashes or is killed.
@@ -235,7 +235,7 @@ Emitted when the renderer process crashes or is killed.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `nome` Stringa
 * `version` String
 
@@ -249,7 +249,7 @@ Emitted when `webContents` is destroyed.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `input` Object - Input properties. 
   * `type` String - Either `keyUp` or `keyDown`.
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
@@ -292,9 +292,9 @@ Emitted when DevTools is focused / opened.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `url` Stringa
-* `error` String - The error code.
+* `errore` Stringa - Il codice d'errore.
 * `certificato` [Certificato](structures/certificate.md)
 * `callback` Funzione 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -307,10 +307,10 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `url` URL
 * `Listacertificati` [Certificati[]](structures/certificate.md)
-* `callback` Funzione 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Emesso quando un certificato client è richiesto.
@@ -321,7 +321,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `richiesta` Oggetto 
   * `metodo` Stringa
   * `url` URL
@@ -332,7 +332,7 @@ Restituisce:
   * `ospite` Stringa
   * `porta` Numero Intero
   * `regno` Stringa
-* `callback` Funzione 
+* `callback` Function 
   * `nomeutente` Stringa
   * `password` Stringa
 
@@ -344,7 +344,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `result` Oggetto 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
@@ -372,14 +372,14 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 #### Event: 'update-target-url'
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `url` Stringa
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
@@ -388,7 +388,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `type` String
 * `image` [NativeImage](native-image.md) (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor.
@@ -403,7 +403,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `params` Oggetto 
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
@@ -445,9 +445,9 @@ Emitted when there is a new context menu that needs to be handled.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Funzione 
+* `callback` Function 
   * `diapositivold` Stringa
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -475,7 +475,7 @@ app.on('ready', () => {
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -499,7 +499,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -513,7 +513,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
@@ -534,7 +534,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 #### `contents.loadURL(url[, options])`
 
 * `url` Stringa
-* `opzioni` Oggetto (opzionale) 
+* `options` Object (opzionale) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -708,7 +708,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Sperimentale*
 
 * `ignore` Boolean
 
@@ -732,7 +732,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Funzione 
+* `callback` Function 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -745,7 +745,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Funzione 
+* `callback` Function 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -828,7 +828,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `opzioni` Oggetto (opzionale) 
+* `options` Object (opzionale) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -861,21 +861,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-* `callback` Funzione 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Funzione 
+* `callback` Function 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Funzione 
+* `callback` Function 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -888,7 +888,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `opzioni` Oggetto (opzionale) 
+* `options` Object (opzionale) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -899,7 +899,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
 #### `contents.printToPDF(options, callback)`
 
@@ -913,13 +913,13 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `error` Error - il valore é diverso da nulla se si verifica un qualunque errore durante la generazione del pdf
   * `data` Buffer - contiene il pdf generato
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+Stampa la pagina web della finestra come PDF con le impostazioni di stampa personalizzate di Chromium.
 
-The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+Il `callback` verrà chiamato con `callback (error, data)` al completamento. I `data` è un `Buffer` che contiene i dati del PDF generato.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+Il `landscape` verrà ignorato se la regola CSS `@page` è utilizzato nella pagina web.
 
-By default, an empty `options` will be regarded as:
+Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato il seguente:
 
 ```javascript
 {
@@ -930,9 +930,9 @@ By default, an empty `options` will be regarded as:
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
-An example of `webContents.printToPDF`:
+Un esempio di `webContents.printToPDF`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -942,7 +942,7 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // Use default printing options
+  // vengono utilizzate le impostazioni predefinite decritte sopra
   win.webContents.printToPDF({}, (error, data) => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
@@ -955,7 +955,7 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.addWorkSpace(path)`
 
-* `path` Stringa
+* `path` String
 
 Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
@@ -969,7 +969,7 @@ win.webContents.on('devtools-opened', () => {
 
 #### `contents.removeWorkSpace(path)`
 
-* `path` Stringa
+* `path` String
 
 Removes the specified path from DevTools workspace.
 
@@ -1159,7 +1159,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Funzione 
+* `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1189,7 +1189,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
 * `callback` Function - `(error) => {}`. 
-  * `errore` Errore
+  * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
 
