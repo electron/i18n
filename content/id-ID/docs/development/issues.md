@@ -18,7 +18,7 @@ Untuk masalah apapun, pada dasarnya ada tiga cara seorang individu dapat berkont
 
 ## Pertanyaan Umum
 
-Karena tingkat aktivitas di `electron/electron` repositori sangat tinggi, pertanyaan dan permintaan untuk bantuan umum menggunakan elektron harus langsung menghubungi [saluran komunitas yang lenggang](https://atomio.slack.com) atau [forum](https://discuss.atom.io/c/electron).
+["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
 ## Mengirimkan Laporan Bug
 
