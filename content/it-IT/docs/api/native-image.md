@@ -1,4 +1,4 @@
-# nativeImage
+# immagineNativa
 
 > Create tray, dock, and application icons using PNG or JPG files.
 
@@ -105,7 +105,7 @@ Creates an empty `NativeImage` instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` Stringa
+* `path` String
 
 Returns `NativeImage`
 
