@@ -18,7 +18,7 @@
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Instance Properties
+### Властивості Екземпляра
 
 The following properties are available on instances of `TouchBarScrubber`:
 
