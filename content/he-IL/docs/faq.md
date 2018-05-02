@@ -4,13 +4,13 @@
 
 בהרצת `npm install electron`, חווים חלק מהמשתמשים תקלות בהתקנה.
 
-ברוב בהמקרים תקלות אלו הן תוצאה של בעיות בתקשורת האינטרנט ולא בחבילת ה-npm של `electron`. תקלות כמו `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ו-`ETIMEDOUT` הן כולן סימן לתקלות תקשורת. The best resolution is to try switching networks, or just wait a bit and try installing again.
+ברוב בהמקרים תקלות אלו הן תוצאה של בעיות בתקשורת האינטרנט ולא בחבילת ה-npm של `electron`. תקלות כמו `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ו-`ETIMEDOUT` הן כולן סימן לתקלות תקשורת. לרוב, הפתרון הוא לנסות לחליף רשת או לנסות להתקין שוב במועד מאוחר יותר.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+ניתן גם לנסות להתקין Electron ישירות מ-[electron/electron/releases](https://github.com/electron/electron/releases) אם ההתקנה דרך `npm` נכשלת.
 
-## When will Electron upgrade to latest Chrome?
+## מתי תעודכן Electron לגרסה האחרונה של Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+גרסת ה-Chrome של Electron בדרך כלל מופצת שבוע או שבועיים לאחר שמופצת גרסה חדשה ויציבה של Chrome. הערכה זו אינה קבועה ותלויה בכמות העבודה שמצריך העדכון.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
