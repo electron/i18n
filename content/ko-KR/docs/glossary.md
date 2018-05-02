@@ -30,23 +30,23 @@ Interface description language. Write function signatures and data types in a fo
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC는 프로세스 간 통신의 약자입니다. Electron은 [주 프로세스](#main-process)와 [렌더러 프로세스](#renderer-process) 사이에서 serialized 된 JSON 메시지를 보내기 위해 IPC를 사용합니다.
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+[Chromium 콘텐츠 모듈](https://www.chromium.org/developers/content-module)과 Blink, [V8](#v8) 등등 Chromium 콘텐츠 모듈의 종속성 모듈을 포함한 공유된 라이브러리입니다. "libcc"라고도 불립니다.
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### 주 프로세스
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+일반적으로 `main.js`라는 파일인 메인 프로세스는, 모든 Electron 앱의 진입점입니다. 열기에서 닫기까지 앱의 수명을 제어합니다. 또한 메뉴, 메뉴 막대, Dock, 트레이 같은 네이티브 요소를 관리합니다. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+모든 앱의 메인 프로세스 파일은 `package.json` 파일의 `main` 속성에서 지정됩니다. 이것이 `electron .` 명령어를 사용할 때, 시작 시 어떤 파일을 사용할지를 아는 이유입니다.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+Chroimum 에서는, 이 프로세스가 "브라우저 프로세스"라고도 불립니다. Electron에서는 렌더러 프로세스와 혼동을 피하고자 이름을 변경했습니다.
 
-See also: [process](#process), [renderer process](#renderer-process)
+[process](#process), [렌더러 프로세스](#renderer-process)를 참조하세요.
 
 ### MAS
 
@@ -74,7 +74,7 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
-### process
+### 프로세스
 
 A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
@@ -82,19 +82,19 @@ In Node.js and Electron, each running process has a `process` object. This objec
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
-### renderer process
+### 렌더러 프로세스
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
-일반적인 브라우저에서 웹 페이지는 대개 샌드박스 환경에서 실행되고 네이티브 리소스에는 액세스 할 수 없습니다. 그러나 Electron 을 사용하는 유저는 웹페이지가 Node.js APIs 를 이용할 수 있기 때문에, 보다 낮은 수준에서 운영체제와 상호작용하는 것이 허용되어 있습니다.
+일반적인 브라우저에서 웹 페이지는 대개 샌드박스 환경에서 실행하고 네이티브 리소스에 액세스 할 수 없습니다. 그러나 Electron 유저들은 Node.js APIs 의 낮은 수준의 운영체제 상호 작용을 허용하는 웹 페이지에서 힘이 있다.
 
 See also: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel은 Electron 앱에 새로운 버전이 적용되면 자동으로 업데이트할 수 있도록 하는 오픈 소스 프레임워크입니다. Squirrel로 시작하기 위해 [autoUpdater](api/auto-updater.md) API 에서 정보를 살펴보세요.
 
-### userland
+### 사용자 공간
 
 This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
@@ -102,7 +102,7 @@ Like Node, Electron is focused on having a small set of APIs that provide all th
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8은 Google의 오픈소스 자바스크립트 엔진입니다. 이것은 C++로 작성되었으며 구글 크롬에서 사용되고 있습니다. V8은 독립형으로 실행할 수 있으며 모든 C++ 응용프로그램에 임베디드 될 수 있습니다.
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
