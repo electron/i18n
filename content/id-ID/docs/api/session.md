@@ -80,16 +80,16 @@ Callback dipanggil dengan ukuran cache sesi saat ini.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Fungsi - Disebut saat operasi selesai
+* `memanggil kembali` Fungsi - terpanggil ketika operasi selesai.
 
 Membersihkan sesi-sesi HTTP cache.
 
 #### `ses.clearStorageData([options, panggilan kembali])`
 
 * `pilihan-pilihan` Objek (pilihan) 
-  * `asal` Senar - (pilihan) Harus mengikuti `jendela.lokasi.asal`’s representasi `scheme://host:port`.
-  * `penyimpanan` Senar[] - (pilihan) Jenis penyimpanan yang bisa dihapus, bisa berisi: `chacheaplikasi`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `kuota` Senar[] - (pilihan) Jenis kuota untuk menghapus, dapat berisi: `sementara`, `gigih`, `syncable`.
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
 
 Menghapus data penyimpanan web.
@@ -150,7 +150,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   Contoh: "127.0.1", "[0:0::1]", "[:: 1]", "http://[::1]:99"
 
-* `IP_LITERAL PREFIX_LENGHT_IN_BITS "/"`
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   Cocokkan URL yang ada pada literatur IP yang ada di kisaran yang diberikan Kisaran IP ditentukan dengan menggunakan notasi CIDR.
   
@@ -170,7 +170,7 @@ Menyelesaikan informasi proksi untuk `url`. `Callback` akan dipanggil dengan `ca
 
 #### `ses.setDownloadPath(path)`
 
-* `jalan` String - lokasi download
+* `path` String - The download location.
 
 Set download menyimpan direktori. Secara default, direktori download akan `Download` di bawah folder app masing-masing.
 
@@ -226,7 +226,9 @@ const {BrowserWindow} = require('electron') membiarkan memenangkan = win.webCont
   * `webContents` [WebContents](web-contents.md) - WebContents meminta izin.
   * `izin` String - Enum 'media', 'geolocation', 'pemberitahuan', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Fungsi 
-    * `permissionGranted` Boolean - mengizinkan atau menolak izin
+    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `rincian` Object - Some properties are only available on certain permission types. 
+    * `externalURL` String - The url of the `openExternal` request.
 
 Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Memanggil `callback(true)` akan memungkinkan izin dan `callback(false)` akan menolaknya. To clear the handler, call `setPermissionRequestHandler(null)`.
 
@@ -243,7 +245,7 @@ Menghapus cache resolver host.
 
 #### `ses.allowNTLMCredentialsForDomains(domain)`
 
-* `domain` String - daftar dipisahkan koma server untuk otentikasi Terpadu yang diaktifkan.
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
 Secara dinamis tetapkan apakah akan selalu mengirim kredensial untuk HTTP NTLM atau Negotiate otentikasi.
 
@@ -274,8 +276,6 @@ Mengembalikan `String` - user agent untuk sesi ini.
 * `callback` Fungsi 
   * `hasil` Luapan penyangga - gumpalan data.
 
-Mengembalikan `gumpalan` - gumpalan data yang terkait dengan `pengenal`.
-
 #### `ses.createInterruptedDownload(options)`
 
 * `pilihan` Obyek 
@@ -288,30 +288,40 @@ Mengembalikan `gumpalan` - gumpalan data yang terkait dengan `pengenal`.
   * `eTag` String - ETag header nilai.
   * `startTime` Kamar Double (opsional) - waktu download mulai dalam jumlah detik sejak zaman UNIX.
 
-Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebelumnya. API akan menghasilkan [DownloadItem](download-item.md) yang dapat diakses dengan acara [akan-download](#event-will-download). [DownloadItem](download-item.md) tidak akan memiliki apapun `WebContents` terkait dengan itu dan keadaan awal akan `terganggu`. Download akan mulai hanya ketika `melanjutkan` API disebut di [DownloadItem](download-item.md).
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, panggilan kembali])`
 
 * `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai
+* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
 
-Membersihkan cache otentikasi HTTP sesi.
+Clears the session’s HTTP authentication cache.
+
+#### `ses.setPreloads(preloads)`
+
+* `preloads` String[] - An array of absolute path to preload scripts
+
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+
+#### `ses.getPreloads()`
+
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### Contoh properti
 
-Properti berikut tersedia pada contoh-contoh dari `sesi`:
+The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-Sebuah objek [cookie](cookies.md) sesi ini.
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-Sebuah objek [WebRequest](web-request.md) sesi ini.
+A [WebRequest](web-request.md) object for this session.
 
-#### `ses.Protocol`
+#### `ses.protocol`
 
-Sebuah objek [protokol](protocol.md) untuk sesi ini.
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
 const {app, session} = require('electron') const path = require('path') app.on ('siap', function {const protokol = session.fromPartition('some-partition').protocol protocol.registerFileProtocol ('atom', fungsi (permintaan, callback) {var url = Request.Url.substr(7) callback ({jalan: path.normalize('${__dirname}/${url}')})}, fungsi (error) {jika (error) console.error ('gagal untuk mendaftarkan protokol')})})
