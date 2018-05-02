@@ -6,7 +6,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-Uma `BrowserView` pode ser usada para incorporar conteúdo web adicional em uma `BrowserWindow`. Ela é como uma janela filha, exceto que ela está posicionada em relação à janela a que pertence. Isso quer dizer que ela pretende ser uma alternativa à tag `webview`.
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Ela é como uma janela filha, exceto que ela está posicionada em relação à janela a que pertence. Isso quer dizer que ela pretende ser uma alternativa à tag `webview`.
 
 ## Exemplo
 
@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `opções` Objeto (opcional) 
+* `options` Objeto (opcional) 
   * `webPreferences` Objeto (opcional) - Veja [BrowserWindow](browser-window.md).
 
 ### Métodos estáticos
@@ -78,7 +78,7 @@ Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `opções` Object 
+* `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
