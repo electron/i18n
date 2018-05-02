@@ -1,19 +1,19 @@
-# Planned Breaking API Changes
+# Ultime modifiche API Pianificate
 
-The following list includes the APIs that will be removed in Electron 3.0.
+La lista seguente include le API che saranno rimosse in Electron 3.0.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
+Non c'è una data in cui avverrà questo rilascio ma gli avvisi negativi saranno aggiunti almeno [una versione maggiore](electron-versioning.md#semver) prima.
 
 ## `app`
 
 ```js
-// Deprecated
+// Deprecato
 app.getAppMemoryInfo()
-// Replace with
+// Rimpiazza con
 app.getAppMetrics()
 ```
 
-## `BrowserWindow`
+## `FinestraBrowser`
 
 ```js
 // Deprecated
@@ -24,40 +24,40 @@ let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `clipboard`
+## `appunti`
 
 ```js
-// Deprecated
+// Deprecato
 clipboard.readRtf()
-// Replace with
+// Rimpiazza con
 clipboard.readRTF()
 
-// Deprecated
+// Deprecato
 clipboard.writeRtf()
-// Replace with
+// Rimpiazza con
 clipboard.writeRTF()
 
-// Deprecated
+// Deprecato
 clipboard.readHtml()
-// Replace with
+// Rimpiazza con
 clipboard.readHTML()
 
-// Deprecated
+// Deprecato
 clipboard.writeHtml()
-// Replace with
+// Rimpiazza con
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+## `riportatorecrash`
 
 ```js
-// Deprecated
+// Deprecato
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Rimpiazza con
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -65,12 +65,12 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+## `immagineNativa`
 
 ```js
-// Deprecated
+// Deprecato
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Rimpiazza con
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -79,20 +79,20 @@ nativeImage.createFromBuffer(buffer, {
 ## `schermo`
 
 ```js
-// Deprecated
+// Deprecato
 screen.getMenuBarHeight()
-// Replace with
+// Rimpiazza con
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `sessione`
 
 ```js
-// Deprecated
+// Deprecato
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// Rimpiazza con
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -101,48 +101,48 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// Deprecato
 tray.setHighlightMode(true)
-// Replace with
+// Rimpiazza con
 tray.setHighlightMode('on')
 
-// Deprecated
+// Deprecato
 tray.setHighlightMode(false)
-// Replace with
+// Rimpiazza con
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+## `contenutiWeb`
 
 ```js
-// Deprecated
+// Deprecato
 webContents.openDevTools({detach: true})
-// Replace with
+// Rimpiazza con
 webContents.openDevTools({mode: 'detach'})
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// Deprecato
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Rimpiazza con
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// Deprecato
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// Rimpiazza con
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Questa è l'URL specificata come `disturl` in un file `.npmrc` o come linea di comando `--dist-url` segnalata costruendo moduli Node nativi.
 
-Deprecated: https://atom.io/download/atom-shell
+Deprecato: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Rimpiazza con: https://atom.io/download/electron
 
-## `FIXME` comments
+## Commenti `FIXAMI`
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
+La stringa `FIXAMI` è utilizzata nei commenti del codice per denotare cose che potrebbero essere fixate per il rilascio 3.0. Vedi https://github.com/electron/electron/search?q=fixme

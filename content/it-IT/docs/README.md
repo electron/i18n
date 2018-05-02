@@ -110,7 +110,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
+* [FinestraBrowser](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
@@ -136,7 +136,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ### Moduli di entrambi i processi:
 
-* [clipboard](api/clipboard.md)
+* [appunti](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [schermo](api/screen.md)

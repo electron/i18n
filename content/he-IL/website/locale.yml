@@ -1,147 +1,147 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: פתח יישום חוצה-פלטפורמות עם JavaScript, HTML ו-CSS
 nav:
-  docs: Docs
-  donors: Donors
-  blog: Blog
-  community: Community
-  apps: Apps
+  docs: תיעוד
+  donors: תורמים
+  blog: בלוג
+  community: קהילה
+  apps: יישומים
   userland: Userland
-  releases: Releases
-  contact: Contact
-  languages: Languages
-  code_of_conduct: Code of Conduct
-  search: Search
+  releases: הפצות
+  contact: צור קשר
+  languages: שפות
+  code_of_conduct: הקוד האתי
+  search: חיפוש
 docs:
-  title: Electron Documentation
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
-  guides: Guides
-  api_reference: API Reference
-  advanced: Advanced
+  title: תיעוד Electron
+  description: צפא בכל <a href="/docs/all"> התיעוד בדף אחד</a> או חפש <href="/docs/faq"> בשאלות נפוצות </a>.
+  guides: מדריכים
+  api_reference: הפניה לממשק
+  advanced: הגדרות מתקדמות
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: שפר מסמך זה
+    version_history: היסטורית גרסאות
+    translate: תרגם דף זה
+    view_all_docs: כל המסמכים בעמוד אחד
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: בחרו בשפת התצוגה שלכם
+  translation_progress: התקדמות התרגום
+  current: בחירה נוכחית
 community:
-  title: Electron Community
+  title: קהילת Electron
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: כלים
   boilerplates: Boilerplates
-  components: Components
-  videos: Videos
-  meetups: Meetups
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
-releases: Releases
+  components: רכיבים
+  videos: סרטונים
+  meetups: מפגשים
+  awesome_notice: רשימה זו נוצרה מתוך <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br>חסר משהו? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">בצע pull request</a>.
+  meetup_notice: להוספת מפגש, ערוך את code> data/meetups.json< </code>href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">ובצע pull request</a>.
+releases: הפצות
 electron_is_easy:
-  title: It's easier than you think
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  title: זה קל יותר משאתה חושב
+  description: מהיום, אם אתה יכול לבנות אתר אתה יוכל לבנות גם יישומי מחשב. Electron הוא framework לפיתוח יישומים למערכות הפעלה שנות בטכנולוגיות פיתוח אתרים כמו JavaScript, HTML, ו-CSS. Electron דואג להתאמות השונות כך שאתם תוכלו להתמקד בעיקר היישום שלכם.
+  video_link: צפה בסרטון
 web_technologies:
-  title: Web Technologies
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  title: טכנולוגיות פיתוח אתרים
+  description: Electron עושה שימוש ב-Chromium וב-Node.js כך שתוכלו לבנות את היישום שלכם עם HTML, CSS, ו- JavaScript.
 open_source:
-  title: Open Source
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  title: קוד פתוח
+  description: Electron הוא פרויקט קוד פתוח המתוחזק על ידי GitHub וקהילה פעילה של תורמים.
 cross_platform:
-  title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  title: חוצה פלטפורמות
+  description: תומך Mac, Windows ו- Linux, יישומי Electron פועלים על שלושת הפלטפורמות.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  hard_parts_made_easy: החלקים הקשים נהיו קלים
+  automatic_updates: עדכונים אוטומטים
+  native_menus_and_notifications: תפריטים והודעות מובנות
+  crash_reporting: דו"ח קריסה
+  debugging_and_profiling: איתור באגים ופרופילים
+  windows_installers: התקנה למיקרוסופט ווינדוס
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: צא לדרך
+  description: כדי להתחיל לעבוד עם Electron, בדוק את הכלים למטה. למד איך לעטוף את יישום האינטרנט שלך עם Electron, לגשת לממשקים ולהפיק מתקינים.
 explore:
-  title: Explore the Electron APIs
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
-download_from_github: Download from GitHub
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
+  title: חקור את הממשקים של Electron
+  description: "<a href='https://github.com/electron/electron-api-demos'> אפליקציית ההדגמה של ממשק Electron </a> מדגימה באופן אינטרקטיבי את התכונות החשובות ביותר של ממשקי Electron. צפה מה אפשר לעשות עם Electron בדוגמאות קוד וטיפים שימושים."
+download_from_github: הורדה מ-GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">כל ההפצות</a> ב-GitHub
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
+  title: "פתח את <a href='https://github.com/electron/electron-quick-start' target='_blank'> התחלה מהירה </a> כדי לראות את Electron בפעולה:"
+  description: יישום Electron מינילי עם תיעוד מועיל.
   clone: Clone the Quick Start repository
   go_into_repo: Go into the repository
   install_deps: Install the dependencies and run
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  dive_deeper: או צלול עמוק יותר <a href='/docs'>לתיעוד</a>.
 need_help:
-  title: Need Help?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  title: צריך/ה עזרה?
+  description: שאל שאלות <a href='https://discuss.atom.io/c/electron'>בפורום</a> או בערוץ <a href='http://atom-slack.herokuapp.com/'>Slack</a> שלנו. עקוב אחר<a href="https://twitter.com/electronjs"> @electronjs</a> בטוויטר. זקוק לסיוע בפרטי? צור קשר במייל <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
-  languages: Languages
+  languages: שפות
 taglines:
-  languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+  languages: תוכן מותאם לשפות אחרות מקהילת המפתחים העולמית המדהימה שלנו.
+help_translate: "עזור לתרגם"
 footer:
-  see_the_faq: See the frequently asked questions
+  see_the_faq: צפה בשאלות נפוצות
 apps:
-  title: Apps built on Electron
-  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
-  view_more: View more apps
-  submit_your_own: submit your own
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  title: יישומים שנבנו ב-Electron
+  description: עם Electron, יצירת יישום מחשב לחברה שלך או לעצמך פשוט יותר. פותח לראשונה בעבור <a href='https://atom.io' target='_blank'>Atom editor</a> עורך הקוד של GitHub ומאז שימש אלקטרון ליצור יישומים על ידי חברות כמו מיקרוסופט, פייסבוק, Slack ו-Docker.
+  view_more: הצג יישומים נוספים
+  submit_your_own: שלח משלך
+  something_missing: משהו חסר?
+  edit_this_app: ערוך את היישום הזה.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
-or: or
+  copy: העתק
+  copy_to_clipboard: העתקה ללוח העריכה
+  copied: הועתק
+or: אוֹ
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS.
+    description: 'בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: יישומי Electron
+    description: יישומים שנבנו ב-Electron
   '/docs':
-    title: Documentation
-    description: Guides and API reference documentation for the latest Electron release
+    title: תיעוד
+    description: הנחיות והפניה לממשק Electron להפצה האחרונה של Electron
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: כל התיעוד של Electron!
+    description: כל המדריכים ותיעוד הממשק של Electron בדף אחד עם חיפוש.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: הנחיות והפניה לממשק Electron להפצה האחרונה של Electron
   '/docs/development':
-    title: Development
-    description: Developing with Electron
+    title: פיתוח
+    description: פיתוח עם אלקטרון
   '/docs/tutorial':
-    title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    title: מדריכים
+    description: מדריכים והגבלות לגרסה האחרונה של הפצת Electron
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: בלוג Electron
+    description: כל החדשות האחרונות מקהילת Electron.
   '/community':
-    title: Community
+    title: קהילה
   '/releases':
-    title: Releases
+    title: הפצות
   '/contact':
-    title: Contact
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    title: צור קשר
+    description: צור קשר עם צוות Electron דרך Twitter, Slack, GitHub, או email.
   '/languages':
-    title: Languages
+    title: שפות
   '/userland':
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron הוא כלי קוד פתוח כדי לעזור לך לבחון, לנטר ולאתר באגים ביישום Electron שלך. מובנה על גבי הכלים המדהימים של מפתחים בכרום.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron היא framework קוד פתוח עבור כתיבת בדיקות אינטגרציה בקלות ליישום Electron שלך. מובנה על גבי ChromeDriver ו- WebDriverIO.
   '/donors':
-    title: Donors
+    title: תורמים
 _404:
-  page_not_found: Page not found.
+  page_not_found: הדף לא נמצא.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_all: חפש משאבים בתיעוד <a href="/search/docs"></a>, <a href="/search/npmPackages">npm בחבילות</a>וב- <a href="/search/repos">GitHub repos</a>.
+  description_docs: חפש משאבים בתיעוד.
+  description_npm: חפש משאבים בחבילות npm.
+  description_repos: חפש משאבים ב-GitHub.
