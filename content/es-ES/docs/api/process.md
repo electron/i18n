@@ -40,8 +40,7 @@ Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando est
 
 ### `proceso.noDepreación`
 
-Un `Booleano` que controla si las advertencias de degradación son enviadas a `stderr`.  
-Ajustar este como `verdad` silenciará advertencias de degradación. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
 
 ### `proceso.Rutaderecursos`
 
@@ -53,11 +52,11 @@ Un `Booleano` que controla si las advertencias de degradación son consideradas 
 
 ### `proceso.ubicarDegradación`
 
-Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `true` se enviarán ubicaciones de pila por degradaciones. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
+Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Setting this to `true` will print stack traces for deprecations. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
 
 ### `proceso.ubicarAdvertenciasdeProcesos`
 
-Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `verdad` se enviarán ubicaciones de pila para advertencias de procesos (incluyendo degradaciones). Esta propiedad es en vez de la linea de comando `--trace-warnings`.
+Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `proceso.tipo`
 
@@ -98,7 +97,7 @@ Devuelve `Object`:
 * `workingSetSize` entero - La cantidad de memoria actualmente cubierta por la RAM física real.
 * `peakWorkingSetSize` Entero - La cantidad máxima de memoria que ha sido cubierta por la RAM física real.
 * `privateBytes` Entero - la cantidad de memoria no compartida por otros procesos, como JS heap o contenido HTML.
-* `sharedBytes` Entero - La cantidad de memoria que ha sido compartida entre procesos, típicamente memoria consumida por el código propio de Electron
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Devuelve un objeto que contiene las estadísticas del uso de la memoria del proceso en curso. Note que todas las estadísticas son reportadas en Kilobytes.
 
@@ -108,8 +107,8 @@ Devuelve `Objecto`:
 
 * `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
 * `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.
-* `swapTotal` Entero - La cantidad total de memoria swap en Kilobytes disponible en el sistema. *Windows* *Linux* Context | Request Context
-* `swapLibre` Entero - La cantidad de memoria swap libre en Kilobytes que dispone el sistema *Windows* *Linux*
+* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 Devuelve un objeto que contiene las estadísticas de la memoria usada por el sistema completo. Note que todas las estadísticas están reportadas en kilobytes.
 
