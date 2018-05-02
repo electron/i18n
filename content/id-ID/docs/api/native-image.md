@@ -218,7 +218,7 @@ Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop.
+* `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong.
 
 Mengembalikan `NativeImage` - Gambar yang dipotong.
 
@@ -226,18 +226,22 @@ Mengembalikan `NativeImage` - Gambar yang dipotong.
 
 * ` pilihan </ 0> Objek
   * <code> lebar </ 0>  Integer (opsional) - Default ke lebar gambar.
- * <code>height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+ * <code>height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Nilai yang mungkin ` bagus </ 0> , <code> lebih baik </ 0> atau <code> terbaik </ 0> . Defaultnya adalah <code> terbaik </ 0> .
+   Nilai ini mengekspresikan kualitas / kecepatan tradeoff yang diinginkan. Mereka diterjemahkan
+    ke dalam metode algoritma khusus yang bergantung pada kemampuan
+    (CPU, GPU) dari platform yang mendasarinya. Ada kemungkinan ketiga metode
+    dipetakan ke algoritma yang sama pada platform tertentu.</li>
+</ul>
 
-Mengembalikan ` gambar asli </ 0> - gambar ukurannya.</p>
+<p>Mengembalikan <code> gambar asli </ 0> - gambar ukurannya.</p>
 
 <p>Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
 
 <h4><code>image.getAspectRatio()`</h4> 
-
-Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
+ Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
 
 <h4><code>image.addRepresentation(options)`</h4> 
-
-* `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
-
-Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
+ 
+ * `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
+ 
+ Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
