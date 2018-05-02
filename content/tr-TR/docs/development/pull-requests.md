@@ -1,8 +1,8 @@
-# Pull Requests
+# Değişiklik İsteği
 
 * [Bağımlılıklar](#dependencies)
 * [Yerel ortamını ayarla](#setting-up-your-local-environment) 
-  * [Step 1: Fork](#step-1-fork)
+  * [1. Adım: Dahil Ol](#step-1-fork)
   * [Step 2: Build](#step-2-build)
   * [Step 3: Branch](#step-3-branch)
 * [Düzenleme yapmak](#making-changes) 
@@ -100,7 +100,7 @@ Other things to keep in mind when writing a commit message:
 1. The first line should: 
   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
   * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
-2. Keep the second line blank.
+2. İkinci satırı boş bırakın.
 3. Wrap all other lines at 72 columns.
 
 #### Breaking Changes
