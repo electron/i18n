@@ -5,17 +5,25 @@ Este documento describe el proceso de publicación de una nueva versión de Elec
 ## Determinar cual rama publicar primero
 
 - **Si se publica el beta,** ejecute el script abajo desde `maestro`.
-- **Si se publica una version estable,** corra los scripts de abajo desde `1-7-x` o `1-6-x`, dependiendo en la versión que está publicando.
+- **If releasing a stable version,** run the scripts below from the branch you're stabilizing.
 
 ## Encontrar cual es el cambio de versión que se necesita
 
 Corra `npm run prepare-release -- --notesOnly`para ver notas de publicación generadas automáticamente. Las notas generadas deberían ayudarte a determinar si esta es un cambio de versión mayor, menor, un parche, o una versión beta. Para más información lea el [Version Change Rules](../tutorial/electron-versioning.md#semver).
 
-## Corra el script preparado para la publicación
+**NB:** If releasing from a branch, e.g. 1-8-x, check out the branch with `git checkout 1-8-x` rather than `git checkout -b remotes/origin/1-8-x`. The scripts need `git rev-parse --abbrev-ref HEAD` to return a short name, e.g. no `remotes/origin/`
 
-El script de preparación para la publicación hará lo siguiente: 1. Verificar si una publicación está ya en proceso y si se detendrá. 2. Crea una rama de publicación. 3. Cambia el número de la versión en varios archivos. Vea [este cambio comprometido](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) como ejemplo. 4. Crea un borrador de publicación en GitHub con notas de publicación autogeneradas. 5. Presiona la rama de publicación. 6. Llama al API para correr lo lo construido en la publicación.
+## Set your tokens and environment variables
 
-Una vez que ha determinado que tipo de cambio de versión es necesitado, corra el script `prepare-release` con argumentos correspondientes con lo que necesita: - `[major|minor|patch|beta]` para incrementar uno de los números de la versión o - `--stable` para indicar que es una versión estable
+You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
+
+There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api * `JENKINS_AUTH_TOKEN` and `JENKINS_BUILD_TOKEN`: Are provided by a Jenkins admin
+
+## Run the prepare-release script
+
+The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+
+Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
 
 Por ejemplo:
 
@@ -49,24 +57,30 @@ npm run prepare-release -- beta
 npm run prepare-release -- --stable
 ```
 
-## Esperar para estructuras :hourglass_flowing_sand:
+Tip: You can test the new version number before running `prepare-release` with a dry run of the `bump-version` script with the same major/minor/patch/beta arguments, e.g.:
 
-El script `prepare-release` se disparará en la estructura mediante llamados API. Para monitorear el proceso de estructuración, vea las siguientes páginas:
+```sh
+$ ./script/bump-version.py --bump minor --dry-run
+```
+
+## Wait for builds :hourglass_flowing_sand:
+
+The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
 
 - [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) para la tienda de aplicación Mac
 - [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) para OS X
 - [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) para Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) para Windows
 
-## Compilar notas de publicación
+## Compile release notes
 
-Escribir notas de publicación es una buena manera de mantenerse ocupado mientras la estructuración está corriendo. Para tener una guía, vea publicación existentes en [the releases page](https://github.com/electron/electron/releases).
+Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
 
-Tips: - Cada item en la lista debe hacer referencia a un PR en electron/electron, no un PR de otro repositorio como libcc. No hay necesidad de utilizar marcado de enlace al hacer referencia a PR. Cadenas como `#123` serán automáticamente convertidas a links de github.com. Para ver la versión de Chromium, V8 y Node en cada versión de Electron, visite [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
 ### Publicación de parches
 
-Para una publicación de `patch`, use el siguiente formato:
+For a `patch` release, use the following format:
 
 ```sh
 ## Bug Fixes
@@ -143,40 +157,90 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 
 ### Publicaciones beta
 
-Use el mismo formato como los sugeridos arriba, pero añada las siguientes notas al principio del changelog:
+Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
 
 ```sh
-**Nota:** Esta publicación beta es posible que tenga alguna inestabilidad y/o regresión.
+**Note:** This is a beta release and most likely will have have some
+instability and/or regressions.
 
-Por favor notifique cualquier problema que encuentre en ella.
+Please file new issues for any bugs you find in it.
 
-Esta versión es publicada para [npm] https://www.npmjs.com/package/electron) bajo la etiqueta `beta` y puede ser instalada via `npm install electron@beta`.
+This release is published to [npm](https://www.npmjs.com/package/electron)
+under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
 
-## Editar el borrador de la publicación
+## Edit the release draft
 
-1. Visite [la página de publicación](https://github.com/electron/electron/releases) y verá un nuevo borrador de publicación con notas de publicación en el lugar guardado.
+1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. Edite la publicación y añada notas de publicación.
-3. Deseleccione la casilla de `prerelease` si está publicando una versión estable; dejela seleccionada si es una versión beta.
+3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
 4. Haga click en 'Salvar borrador'. **N haga click en 'publicar versión'!**
 5. Espero por todas las estructuras por pasar por los procedimientos.
-6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
+6. In the `release` branch, verify that the release's files have been created:
 
-## Publica el lanzamiento
+```sh
+$ git rev-parse --abbrev-ref HEAD
+release
+$ npm run release -- --validateRelease
+```
 
-Once the release builds have finished, run the `release` script via `npm run release` to finish the release process. Este script hará lo siguiente: 1. Compile el proyecto para validar que se está lanzando el número de versión correcto. 2. Descargue los binarios y genere los encabezados de los nodos y el enlazador .lib utilizado en Windows por node-gyp para compilar módulos nativos. 3. Cree y cargue los archivos SHASUMS almacenados en S3 para los archivos de nodo. 4. Cree y cargue el archivo SHASUMS256.txt almacenado en la versión de GitHub. 5. Valide que todos los archivos requeridos estén presentes en GitHub y S3 y que tengan las sumas de comprobación correctas como se especifica en los archivos SHASUMS. 6. Publica la versión en GitHub 7. Elimine la rama `release`.
+## Merge temporary branch (pre-2-0-x branches only)
 
-## Publicar en npm
+Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
 
-Una vez que la publicación se haya hecho con éxito, ejecute `npm run publish-to-npm` para publicar y liberar a npm.
+### Merging back into master
 
-## Repare los binarios que faltan de una versión manualmente
+```sh
+npm run merge-release -- master
+```
 
-En el caso de una versión corrupta con máquinas CI descompuestas, es posible que tengamos que volver a subir los binarios para una versión ya publicada.
+### Merging back into old release branch
 
-El primer paso es ir a la página [Releases](https://github.com/electron/electron/releases) y borrar los archivos binarios dañados con el archivo de suma de comprobación `SHASUMS256.txt`.
+```sh
+npm run merge-release -- 1-7-x
+```
 
-Luego, cree manualmente distribuciones para cada plataforma y cárguelas:
+## Publish the release
+
+Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+
+## Publish to npm
+
+Before publishing to npm, you'll need to log into npm as Electron. Optionally, you may find [npmrc](https://www.npmjs.com/package/npmrc) to be a useful way to keep Electron's profile side-by-side with your own:
+
+```sh
+$ sudo npm install -g npmrc
+$ npmrc -c electron
+Removing old .npmrc (default)
+Activating .npmrc "electron"
+```
+
+The Electron account's credentials are kept by GitHub. "Electron - NPM" for the URL "https://www.npmjs.com/login".
+
+```sh
+$ npm login
+Username: electron
+Password:
+Email: (this IS public) electron@github.com
+```
+
+Publish the release to npm.
+
+```sh
+$ npm whoami
+electron
+$ npm run publish-to-npm
+```
+
+Note: In general you should be using the latest Node during this process; however, older versions of the `publish-to-npm` script may have trouble with Node 7 or higher. If you have trouble with this in an older branch, try running with an older version of Node, e.g. a 6.x LTS.
+
+## Fix missing binaries of a release manually
+
+In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
+
+The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
+
+Then manually create distributions for each platform and upload them:
 
 ```sh
 # Checkout the version to re-upload.
@@ -191,7 +255,7 @@ git checkout vTHE.RELEASE.VERSION
 ./script/upload.py --overwrite
 ```
 
-Después de volver a cargar todas las distribuciones, vuelva a publicar para cargar la suma de comprobación de archivo:
+After re-uploading all distributions, publish again to upload the checksum file:
 
 ```sh
 npm run release
