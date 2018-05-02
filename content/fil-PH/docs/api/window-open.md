@@ -1,4 +1,4 @@
-# `window.Buksan` Fuction
+# ` bintana. buksan ` Tungkulin
 
 > Magbukas ng bagong window at mag-load ng isang URL.
 
@@ -10,7 +10,7 @@ Ang bagong nilikhang `BrowserWindow` ay magmamana ng mga opsyon sa bintana ng ma
 
 ### `window.buksan(url [, frameName] [,mga tampok])`
 
-* `url` Tali
+* `url` String
 * `frameName` Tali (opsyonal)
 * `Mga tampok` Tali (opsyonal)
 
@@ -25,10 +25,10 @@ Ang`Mga tampok`ng string ay sumusunod sa format ng karaniwang browser, ngunit an
 * Ang javaScript ay laging hindi gagana kung bubuksan sa `bintana` kung ito ay hindi gumagana sa bintana ng magulang.
 * Hindi karaniwang mga tampok (na hindi hinahawakan ng Kromo o Elektron) na ibinigay sa `mga tampok` ay ipapasa sa anumang nakarehistro sa `webContent`'s ` bagong-window ` kaganapang handler sa ` karagdagang mga tampok ` na argumento.
 
-### `window.tagabukas.postMessage (mensahe, targetOrigin)`
+### `window.opener.postMessage(message, targetOrigin)`
 
-* `mensahe` Tali
-* `targetOrigin` Tali
+* `message` String
+* `targetOrigin` String
 
 Nagpapadala ng mensahe sa window ng magulang na may tinukoy na pinanggalingan o `*` para sa hindi Pinagmulang pinanggalingan.
 
