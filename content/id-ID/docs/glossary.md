@@ -24,79 +24,89 @@ Image Disk Apple adalah format kemasan yang digunakan oleh macos . File DMG bias
 
 Editor Metode Masukan. Sebuah program yang memungkinkan pengguna memasukkan karakter dan simbol yang tidak ditemukan di keyboard mereka. Misalnya, ini memungkinkan pengguna keyboard Latin memasukkan karakter China, Jepang, Korea, dan Indic.
 
+### IDL
+
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+
 ### IPC
 
-IPC singkatan dari Inter-Process Communication. Elektron menggunakan IPC untuk dikirim pesan JSON serial antara proses [ utama ](#main-process) dan [ renderer ](#renderer-process).
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
-### konten libchromium
+### libchromiumcontent
 
-Perpustakaan bersama yang menyertakan [ modul Konten Kromium ](https://www.chromium.org/developers/content-module) dan semua isinya dependensi (misalnya, Blink, [ V8 ](#v8), dll.). Disebut juga sebagai "libcc".
+A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### proses utama
+### main process
 
-Proses utama, biasanya sebuah file bernama ` main.js `, entry point untuk setiap Aplikasi elektron Ini mengendalikan kehidupan aplikasi, dari buka sampai tutup. Ini juga mengelola elemen asli seperti Menu, Menu Bar, Dock , Tray, dll. Proses utama bertanggung jawab untuk membuat setiap proses renderer baru di aplikasi. API Node penuh dibangun di dalamnya.
+The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
-Setiap aplikasi file proses utama ditentukan di properti ` utama ` di ` package.json `. Ini adalah bagaimana ` elektron. ` mengetahui file apa yang akan dijalankan saat startup.
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-Di Chromium, proses ini disebut sebagai "proses browser". ini berganti nama menjadi Elektron untuk menghindari kebingungan dengan proses renderer.
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-Lihat juga: [ proses ](#process), [ proses renderer ](#renderer-process)
+See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Akronim untuk App Store Apple Mac. Untuk detail tentang mengirimkan aplikasi Anda ke MAS, lihat Panduan Pengiriman Mac App Store </a>.
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-### modul asli
+### Mojo
 
-Modul asli (juga disebut [addons](https://nodejs.org/api/addons.html) di Node.js) adalah modul yang ditulis dalam C atau C++ yang dapat dimuat ke Node.js atau Elektron menggunakan fungsi require (), dan digunakan seolah-olah mereka adalah sebuah modul Node.js biasa. Mereka digunakan terutama untuk menyediakan antarmuka antara JavaScript yang berjalan di perpustakaan Node.js dan C/c++.
+An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-Modul Node Asli didukung oleh Elektron , namun karena Elektron sangat mungkin menggunakan versi V8 yang berbeda dari biner Node yang terpasang di sistem Anda, Anda harus secara manual menentukan lokasi header Elektron saat membuat modul asli.
+See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-Lihat juga [ Menggunakan Modul Node Asli ](tutorial/using-native-node-modules.md).
+### native modules
+
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+
+Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+
+See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System adalah Installer berbasis script authoring tool untuk Microsoft Windows. Ini dilepaskan di bawah kombinasi lisensi perangkat lunak bebas, dan merupakan alternatif yang banyak digunakan untuk produk berpemilik komersial seperti InstallShield. [elektron-builder](https://github.com/electron-userland/electron-builder) mendukung NSIS sebagai target membangun.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
 ### OSR
 
-OSR (Off-screen rendering) dapat digunakan untuk memuat halaman berat di latar belakang dan kemudian menampilkannya setelah (akan jauh lebih cepat). Ini memungkinkan Anda membuat halaman tanpa menampilkannya di layar.
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### proses
 
-Proses adalah turunan dari sebuah program komputer yang sedang dijalankan. Elektron aplikasi yang menggunakan proses [ utama ](#main-process) dan satu atau lebih [ renderer ](#renderer-process) Sebenarnya menjalankan beberapa program secara bersamaan.
+A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
-Di Node.js dan Elektron, setiap proses yang berjalan memiliki ` proses ` objek. Objek ini bersifat global yang memberikan informasi tentang, dan kontrol atas, proses saat ini. Sebagai global, selalu tersedia untuk aplikasi tanpa menggunakan require ().
+In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-Lihat juga: [ proses ](#main-process), [ proses renderer ](#renderer-process)
+See also: [main process](#main-process), [renderer process](#renderer-process)
 
-### proses renderer
+### renderer process
 
-Proses renderer adalah jendela browser di aplikasi Anda. Berbeda dengan proses utama, ada beberapa kelipatannya dan masing-masing dijalankan dalam proses terpisah. Mereka juga bisa disembunyikan.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 Di normal browser, halaman web biasanya menjalankan dalam lingkungan sandboxed dan tidak diperbolehkan akses ke sumber daya yang asli. Pengguna Elektron, namun, memiliki kekuatan untuk menggunakan api Node.js di halaman web yang memungkinkan interaksi tingkat sistem operasi yang lebih rendah.
 
-Lihat juga: [ proses ](#process), [ proses renderer ](#main-process)
+See also: [process](#process), [main process](#main-process)
 
-### Tupai
+### Squirrel
 
-Squirrel adalah kerangka sumber terbuka yang memungkinkan aplikasi Elektron diperbarui secara otomatis saat versi baru dilepaskan. Lihat [autoUpdater](api/auto-updater.md) API untuk info tentang memulai dengan Tupai.
+Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
 ### userland
 
-Istilah ini berasal dari komunitas Unix, di mana "userland" atau "userspace" mengacu pada program yang berjalan di luar kernel sistem operasi. Baru-baru ini, istilah ini telah dipopulerkan di komunitas Node dan npm untuk membedakan antara fitur yang ada di " inti Node " versus paket yang dipublikasikan ke registri npm oleh komunitas "pengguna" yang jauh lebih besar.
+This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
-Seperti Node , Elektron difokuskan untuk memiliki sekumpulan API kecil yang menyediakan semua primitif yang diperlukan untuk pengembangan aplikasi desktop multi-platform. Filosofi desain ini memungkinkan Elektron untuk tetap menjadi alat yang fleksibel tanpa terlalu menentukan tentang bagaimana penggunaannya. Userland memungkinkan pengguna membuat dan berbagi alat yang menyediakan fungsionalitas tambahan di atas apa yang tersedia di "inti".
+Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
 ### V8
 
-V8 adalah mesin JavaScript open source Google . Ini ditulis dalam bahasa C ++ dan digunakan di Google Chrome . V8 bisa berjalan standalone, atau bisa dimasukkan ke aplikasi C ++ apapun .
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
-Elektron membangun V8 sebagai bagian dari Chromium dan kemudian mengarahkan Node ke V8 saat membangunnya.
+Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
-Nomor versi V8 selalu sesuai dengan yang dimiliki Google Chrome . Chrome 59 menyertakan V8 5,9, Chrome 58 menyertakan V8 5.8, dll.
+V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
 - [developers.Google.com/V8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -104,4 +114,4 @@ Nomor versi V8 selalu sesuai dengan yang dimiliki Google Chrome . Chrome 59 meny
 
 ### webview
 
-` webview ` digunakan untuk menyematkan konten 'tamu' (seperti halaman web eksternal) di aplikasi Elektron Anda. hal ini sama dengan ` iframe `, tapi berbeda pada masing-masing Webview yang berjalan dalam proses terpisah. Ini tidak memiliki izin yang sama seperti halaman web Anda dan semua interaksi antara aplikasi dan konten tertanam Anda akan menjadi asinkron. Ini membuat aplikasi Anda tetap aman dari konten yang disematkan.
+`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
