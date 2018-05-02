@@ -2,7 +2,7 @@
 
 These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [윤리 강령](../../CODE_OF_CONDUCT.md)
+* [행동 규칙](../../CODE_OF_CONDUCT.md)
 * [Electron에 기여하기](../../CONTRIBUTING.md)
 * [이슈](issues.md)
 * [풀 리퀘스트](pull-requests.md)
