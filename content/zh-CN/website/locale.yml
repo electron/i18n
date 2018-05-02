@@ -1,7 +1,7 @@
 tagline: 使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用
 nav:
   docs: 文档
-  donors: Donors
+  donors: 捐赠者
   blog: 博客
   community: 社区
   apps: 应用
@@ -74,7 +74,7 @@ quick_start:
   dive_deeper: 或潜得更深，并阅读 <a href='/docs'> 文档</a>。
 need_help:
   title: 需要帮助？
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: 欢迎到 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 论坛或我们的 <a href='http://atom-slack.herokuapp.com/'>Slack</a>频道上提问。关注Twitter <a href="https://twitter.com/electronjs">@electronjs</a> 以接收重要的公告。想要联系我们？可以发送电子邮件到 <a href="mailto:info@electronjs.org">electron@github.com</a>。
 headings:
   languages: 语言
 taglines:
@@ -137,7 +137,7 @@ pages:
     title: Spectron
     description: Spectron 是一个开放源码的框架, 便于为您的Electron应用程序编写集成测试. 其建在 ChromeDriver 和 WebDriverIO 的顶部。
   '/donors':
-    title: Donors
+    title: 捐赠者
 _404:
   page_not_found: 页面找不到了。
 search:
