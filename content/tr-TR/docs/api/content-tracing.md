@@ -35,7 +35,7 @@ app.on('ready', () => {
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Fonksiyon 
+* `geri aramak` Fonksiyon 
   * `categories` Dizi[]
 
 Kategori gruplarının bir kümesini edinin. Yeni kod yollarına ulaşıldığında kategori grupları değiiştirilebilir.
@@ -76,7 +76,7 @@ Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olar
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` Dizi
-* `callback` Fonksiyon 
+* `geri aramak` Fonksiyon 
   * `resultFilePath` Dizi
 
 Kayıt işlemini tüm süreçlerde durdurur.
@@ -111,7 +111,7 @@ Tüm alt süreçler `stopMonitoring` isteğini onayladıktan sonra `callback` ç
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` Dizi
-* `callback` Fonksiyon 
+* `geri aramak` Fonksiyon 
   * `resultFilePath` Dizi
 
 Geçerli izleme verilerini alın.
@@ -122,7 +122,7 @@ Bütün alt süreçler, `captureMonitoringSnapshot` isteğini onayladıktan sonr
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Fonksiyon 
+* `geri aramak` Fonksiyon 
   * `value` numara
   * `percentage` numara
 
