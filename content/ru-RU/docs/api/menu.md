@@ -50,26 +50,26 @@ You can also attach other fields to the element of the `template` and they will 
 
 Объект `меню` имеет следующие методы экземпляра:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Object (опционально) 
+* `options` Object 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `callback` Function (optional) - Called when menu is closed.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 Закрывает контекстное меню в `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Appends the `menuItem` to the menu.
 
@@ -82,9 +82,31 @@ Returns `MenuItem` the item with the specified `id`
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Inserts the `menuItem` to the `pos` position of the menu.
+
+### События экземпляра
+
+Objects created with `new Menu` emit the following events:
+
+**Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
+
+#### Event: 'menu-will-show'
+
+Возвращает:
+
+* `event` Event
+
+Emitted when `menu.popup()` is called.
+
+#### Event: 'menu-will-close'
+
+Возвращает:
+
+* `event` Event
+
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Instance Properties
 
@@ -96,11 +118,15 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
+### События экземпляра
+
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+
 ## Примеры
 
-Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Основной (main) процесс
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -213,7 +239,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```
@@ -222,7 +248,7 @@ window.addEventListener('contextmenu', (e) => {
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Стандартные меню
+### Standard Menus
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
@@ -256,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Примеры
 
-Шаблон:
+Template:
 
 ```javascript
 [
@@ -268,7 +294,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 ]
 ```
 
-Меню:
+Menu:
 
 ```sh
 <br />- 1
@@ -278,7 +304,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 - 5
 ```
 
-Шаблон:
+Template:
 
 ```javascript
 [
@@ -291,7 +317,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 ]
 ```
 
-Меню:
+Menu:
 
 ```sh
 <br />- ---
