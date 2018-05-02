@@ -25,7 +25,7 @@ The prepare release script will do the following: 1. Check if a release is alrea
 
 Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
 
-For example:
+Como por exemplo:
 
 ### Major version change
 
