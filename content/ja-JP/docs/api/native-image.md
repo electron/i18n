@@ -226,7 +226,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. 値は `good`、`better`、または `best` にできる。 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 これらは、基になるプラットフォームの機能 (CPU、GPU) に依存するアルゴリズム固有のメソッドに変換される。 3つのメソッドすべてを、特定のプラットフォーム上の同じアルゴリズムに割り当てることも可能です。
 
 戻り値 `NativeImage` - リサイズされた画像。
 
