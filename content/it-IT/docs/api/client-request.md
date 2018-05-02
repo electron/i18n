@@ -52,7 +52,7 @@ Restituisce:
   * `ospite` Stringa
   * `porta` Numero Intero
   * `regno` Stringa
-* `callback` Funzione 
+* `callback` Function 
   * `nomeutente` Stringa
   * `password` Stringa
 
@@ -114,7 +114,7 @@ Restituisce:
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
 
-### Proprietà Istanza
+### Proprietà Istanze
 
 #### `request.chunkedEncoding`
 
