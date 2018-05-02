@@ -2,11 +2,11 @@
 
 > İşlem nesnesine uzantılar.
 
-İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Elektron'un `process` nesnesi [Node.js `process` object](https://nodejs.org/api/process.html)'ten genişletilir. Aşağıdaki etkinlikleri, özellikleri ve yöntemleri ekler:
 
-## Etkinlikler
+## Olaylar
 
 ### Etkinlik: 'yüklenen'
 
@@ -40,7 +40,7 @@ Uygulamanızın içindeki ASAR desteğini kontrol eden bir `Boolean`. Bunu `true
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Bu özellik `--no-deprecation` komut satırı etiketi yerine kullanılır.
 
 ### `process.resourcesPath`
 
@@ -74,7 +74,7 @@ Elektron versiyonu dizesini temsil eden bir `String`.
 
 Bir `Boolean`. Eğer uygulama bir Windows Store uygulaması (appx) olarak çalışıyorsa, bu özellik `true` olur, aksi takdirde `undefined` olur.
 
-## Yöntemler
+## Metodlar
 
 `process` nesnesi aşağıdaki yöntemleri içerir:
 
@@ -92,18 +92,18 @@ Geçerli işlemin ana iş parçacığının çökmesine neden olur.
 
 ### `process.getProcessMemoryInfo()`
 
-`Object`'e döner:
+`Object` 'i geri getirir:
 
 * `workingSetSize` Tamsayı - O anda gerçek fiziksel RAM'e sabitlenmiş bellek miktarı.
 * `peakWorkingSetSize` Tamsayı - Gerçek fiziksel RAM'e sabitlenmiş maksimum bellek miktarı.
-* `privateBytes` Tamsayı - Diğer işlemlerle paylaşılmayan bellek miktarı, JS yığını ya da HTML içeriği gibi.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
+* `privateBytes` Tam sayı - Diğer işlemler tarafından paylaşılmayan bellek miktarı, Js heap veya HTML içeriği gibi.
+* `sharedBytes` Tamsayı - İşlemler arasında paylaşılan bellek miktarı, genel olarak Elektron kodunun kendisi tarafından tüketilen bellek.
 
 Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm istatistiklerin Kilobayt olarak raporlandığına dikkat edin.
 
 ### `process.getSystemMemoryInfo()`
 
-`Object`'e döner:
+`Object` döndürür:
 
 * `total` Tamsayı - Sistemde kullanılabilir durumda olan fiziksel belleğin Kilobayt olarak toplam miktarı.
 * `free` Tamsayı - Uygulamalar ve disk önbelleği tarafından kullanılmayan belleğin toplam miktarı.
