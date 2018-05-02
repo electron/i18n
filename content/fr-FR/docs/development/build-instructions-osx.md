@@ -55,23 +55,23 @@ $ ./script/build.py --compdb
 
 ## Compilation
 
-Build both `Release` and `Debug` targets:
+Compiler une version `Release` et une version `Debug` :
 
 ```sh
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+Vous pouvez également compiler seulement une version `Debug` :
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+Une fois la compilation terminée, vous trouverez `Electron.app` dans `out/D`.
 
 ## Support 32 bit
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Electron ne peut être compiler qu'en 64 bit sur macOS et il n'est pas prévu d'avoir un support 32 bit sur macOS dans le futur.
 
 ## Nettoyage
 
