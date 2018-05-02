@@ -1,6 +1,6 @@
 # 윈도우 스토어 안내서
 
-With Windows 10, the good old win32 executable got a new sibling: The Universal Windows Platform. The new `.appx` format does not only enable a number of new powerful APIs like Cortana or Push Notifications, but through the Windows Store, also simplifies installation and updating.
+윈도우 10부터는 win32 포멧 만이 아닌 새로운 포맷이 생겨났다: 유니버셜 Windows 플랫폼. 새로운 `.appx` 포맷은 코타나 또는 푸시 알림 과 같은 강력한 APIs만을 지원하는게 아니라, 윈도우 스토어를 통해 간편한 설치와 업데이트도 지원하게되었다.
 
 Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
 
