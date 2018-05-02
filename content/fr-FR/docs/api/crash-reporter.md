@@ -114,7 +114,7 @@ Le rapporteur de plantage enverra les données suivantes à `submitURL` comme un
 * `ver` String - La version d'Electron.
 * `platform` String - Par exemple 'win32'.
 * `process_type` String - Par exemple 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
+* `guid` String - Par exemple '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` String - La version dans `package.json`.
 * `_productName` String - Le nom du produit dans l'objet `options` de `crashReporter`.
 * `prod` String - Nom du produit sous-jacent. Dans ce cas Electron.
