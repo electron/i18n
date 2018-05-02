@@ -1,19 +1,19 @@
-# Planned Breaking API Changes
+# Ultime modifiche API Pianificate
 
-The following list includes the APIs that will be removed in Electron 3.0.
+La lista seguente include le API che saranno rimosse in Electron 3.0.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
+Non c'è una data in cui avverrà questo rilascio ma gli avvisi negativi saranno aggiunti almeno [una versione maggiore](electron-versioning.md#semver) prima.
 
 ## `app`
 
 ```js
-// Deprecated
+// Deprecato
 app.getAppMemoryInfo()
-// Replace with
+// Rimpiazza con
 app.getAppMetrics()
 ```
 
-## `BrowserWindow`
+## `FinestraBrowser`
 
 ```js
 // Deprecated
@@ -24,40 +24,40 @@ let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `clipboard`
+## `appunti`
 
 ```js
-// Deprecated
+// Deprecato
 clipboard.readRtf()
-// Replace with
+// Rimpiazza con
 clipboard.readRTF()
 
-// Deprecated
+// Deprecato
 clipboard.writeRtf()
-// Replace with
+// Rimpiazza con
 clipboard.writeRTF()
 
-// Deprecated
+// Deprecato
 clipboard.readHtml()
-// Replace with
+// Rimpiazza con
 clipboard.readHTML()
 
-// Deprecated
+// Deprecato
 clipboard.writeHtml()
-// Replace with
+// Rimpiazza con
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+## `riportatorecrash`
 
 ```js
-// Deprecated
+// Deprecato
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Rimpiazza con
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -65,7 +65,7 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+## `immagineNativa`
 
 ```js
 // Deprecated
