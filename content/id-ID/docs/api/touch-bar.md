@@ -8,7 +8,7 @@ Proses: [utama](../tutorial/quick-start.md#main-process)
 
 * `pilihan` Benda 
   * `item` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) []
-  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (opsional)
+  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
 Buatlah bar sentuhan baru dengan item tertentu. Gunakan `BrowserWindow.setTouchBar` untuk menambahkan `TouchBar` ke jendela.
 
@@ -22,7 +22,7 @@ Berikut cara yang tersedia pada contoh-contoh dari `TouchBar`:
 
 #### `touchBar.escapeItem`
 
-`TouchBarButton` akan menggantikan tombol "esc" pada panel sentuhan ketika diatur. Atur ke `null` untuk mengembalikan default "esc" tombol. Mengubah nilai segera update item keluar di bar sentuhan.
+A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Atur ke `null` untuk mengembalikan default "esc" tombol. Mengubah nilai segera update item keluar di bar sentuhan.
 
 ## Contoh
 
