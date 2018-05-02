@@ -1,4 +1,4 @@
-# عملية
+# process
 
 > Extensions to process object.
 
@@ -24,7 +24,7 @@ process.once('loaded', () => {
 })
 ```
 
-## الخصائص
+## Properties
 
 ### `process.defaultApp`
 
@@ -74,7 +74,7 @@ A `String` representing Electron's version string.
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
-## المنهجية
+## Methods
 
 الطرق
 
