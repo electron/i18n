@@ -63,21 +63,21 @@ $ ./script/build.py --compdb
 
 ### Кросс-компиляция
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Если вы хотите собрать для платформы `arm`, вам нужно установить следующие зависимости:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Аналогично для `arm64`:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+И для кросс-компиляции для `arm` или `ia32`, вам нужно использовать `--target_arch` параметр для `bootstrap.py` скрипта:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -85,21 +85,21 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Сборка
 
-If you would like to build both `Release` and `Debug` targets:
+Если вы хотите собрать `Release` и `Debug` версии:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Скрипт соберет очень большой исполняемый файл Electron в директорию `out/R`. Размер файла превышает 1,3 Гб. Это происходит из-за того что Release версия бинарного файла содержит отладочные символы. Чтобы уменьшить размер файла, запустите `create-dist.py`:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Оно создаст дистрибутив с гораздо меньшим размером файлов в директорию `dist`. После запуска `create-dist.py`, вероятно, вы захотите удалить 1.3+ Гб бинарный файл, который все еще находится в `out/R`.
 
-You can also build the `Debug` target only:
+Также вы можете собрать только `Debug` версию:
 
 ```sh
 $ ./script/build.py -c D
