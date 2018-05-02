@@ -14,7 +14,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`Notification` は [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) です。
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 `options` によって設定されたネイティブプロパティで新しい `Notification` を生成します。
 
@@ -29,15 +29,16 @@
 ### `new Notification([options])` *実験的*
 
 * `options` Object 
-  * `title` String - 通知ウィンドウの上部に表示される通知のタイトル
-  * `subtitle` String - (任意) タイトルの下に表示される、通知のサブタイトル。*macOS*
-  * `body` String - タイトルやサブタイトルの下に表示さる、通知の本文。
-  * `silent` Boolean - (任意) 通知を表示するときにOSが通知音を鳴らすかどうか。
-  * `icon` (String | [NativeImage](native-image.md)) - (任意) 通知に使用されるアイコン。
-  * `hasReply` Boolean - (任意) 通知に埋め込み返信オプションを追加するかどうか。*macOS*
-  * `replyPlaceholder` String - (任意) 埋め込み返信入力フィールド内に書かれるプレースホルダ。*macOS*
-  * `sound` String - (任意) 通知が表示されるときに再生される音声ファイルの名前。*macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (任意) 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。*macOS*
+  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
+  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
+  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
+  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
+  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
+  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
+  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### インスタンスイベント
 
@@ -76,7 +77,7 @@
 戻り値:
 
 * `event` Event
-* `reply` String - ユーザが埋め込み返信フィールドに入力した文字列
+* `reply` String - The string the user entered into the inline reply field.
 
 `hasReply: true` の通知上で、ユーザが "返信" ボタンをクリックしたときに発行されます。
 
@@ -85,7 +86,7 @@
 戻り値:
 
 * `event` Event
-* `index` Number - アクティベートされたアクションのインデックス
+* `index` Number - The index of the action that was activated.
 
 ### インスタンスメソッド
 
