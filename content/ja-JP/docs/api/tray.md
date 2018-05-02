@@ -71,8 +71,8 @@ app.on('ready', () => {
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
-* `position` [Point](structures/point.md) - イベントの位置。
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `position` [Point](structures/point.md) - The position of the event.
 
 tray アイコンがクリックされたときに発行されます。
 
@@ -83,7 +83,7 @@ tray アイコンがクリックされたときに発行されます。
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 tray アイコンが右クリックされたときに発行されます。
 
@@ -94,7 +94,7 @@ tray アイコンが右クリックされたときに発行されます。
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 tray アイコンがダブルクリックされたときに発行されます。
 
@@ -124,7 +124,7 @@ tray アイコン上にドラッグされたファイルがドロップされた
 #### イベント: 'drop-text' *macOS*
 
 * `event` Event
-* `text` String - ドロップされたテキスト文字列。
+* `text` String - the dropped text string.
 
 tray アイコン上にドラッグされたテキストがドロップされたときに発行されます。
 
@@ -147,7 +147,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - イベントの位置。
+* `position` [Point](structures/point.md) - The position of the event.
 
 マウスが tray アイコン内に入ったときに発行されます。
 
@@ -158,7 +158,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - イベントの位置。
+* `position` [Point](structures/point.md) - The position of the event.
 
 マウスが tray アイコン内から出たときに発行されます。
 
@@ -169,7 +169,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - イベントの位置。
+* `position` [Point](structures/point.md) - The position of the event.
 
 マウスが tray アイコン内で動いたときに発行されます。
 
@@ -203,7 +203,7 @@ macOS において、この tray アイコンが押されたときの関連付�
 
 * `title` String
 
-ステータスバー内の tray アイコンの脇に表示されるタイトルを設定します。
+Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -236,7 +236,7 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) - (任意)
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
