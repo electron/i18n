@@ -32,7 +32,7 @@ A diferencia de Squirrel, Mac OS, Windows puede recibir actualizaciones sobre S3
 
 El objeto `app` emite los siguientes eventos:
 
-### Evento: 'error'
+### Evento: "error"
 
 Devuelve:
 
@@ -70,10 +70,12 @@ Solo esta disponible en Windows `releaseName`.
 
 El objeto `autoUpdater` tiene los siguientes métodos:
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `options` Objeto 
+  * `url` String
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Configura la `url` e inicializa la actualización automática.
 
@@ -89,4 +91,6 @@ Solicita al servidor si hay actualizaciones. Se debe llamar a `setFeedURL` antes
 
 Reinicia la aplicación e instala la actualización luego de que se haya descargado. Solo se debería llamar luego de que aparezca `update-downloaded`.
 
-**Nota:** `autoUpdater.quitAndInstall()` cerrará primero todas las ventanas de la aplicación y solo emitirá el evento `before-quit` en `app` después de eso. Esto difiere de la secuencia normal del evento quit.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
