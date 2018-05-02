@@ -45,7 +45,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `response` Object 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
@@ -83,7 +83,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
 
 * `filter` Object (可选) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -144,7 +144,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `filter` Object (可选) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
     * `url` String
