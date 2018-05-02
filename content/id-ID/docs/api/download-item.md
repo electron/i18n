@@ -2,7 +2,7 @@
 
 > Kontrol unduhan file dari sumber jauh.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 ` DownloadItem </ 0> adalah <code> acara Emitter </ 0> yang mewakili item unduhan di Elektron .
 Ini digunakan dalam event <code> will-download </ 0>  pada kelas <code> Session </ 0> , dan memungkinkan pengguna untuk mengontrol item download.</p>
