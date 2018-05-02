@@ -1,4 +1,4 @@
-# 合并请求
+# 拉取请求
 
 * [依赖项](#dependencies)
 * [设置您的本地环境](#setting-up-your-local-environment) 
@@ -72,7 +72,7 @@ $ git commit
 
 #### 提交代码说明的指导
 
-A good commit message should describe what changed and why. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+好的提交说明应描述更改的内容和原因。 The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
 Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
 
@@ -97,10 +97,10 @@ Common prefixes:
 
 Other things to keep in mind when writing a commit message:
 
-1. The first line should: 
+1. 第一行应该是: 
   * 包含一个对代码改变的简短说明 (最好是50个字符或更少, 不超过72个字符)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
-2. Keep the second line blank.
+  * 完全使用小写, 除了适当的名词, 缩写, 和引用代码的单词, 如函数/变量名
+2. 将第二行留空。
 3. 每行文字在72列处换行。
 
 #### Breaking Changes
@@ -111,38 +111,38 @@ See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### 步骤6: 合并分支
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+提交更改后, 最好使用 ` git rebase ` (而不是 ` git merge `) 将您的工作与主代码库同步。
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` master.
+这可确保您的工作分支具有来自 ` electron/electron ` master 分支的最新更改。
 
 ### 步骤7: 测试
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Bug 修复和功能应始终与测试一起进行。 提供了 [ 测试指南 ](https://electronjs.org/docs/development/testing) 使流程更容易。 看其他测试, 看看它们应该如何结构化也会有帮助。
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+当提交您的改变到合并代码请求前, 请始终运行完整的测试套件。 运行测试:
 
 ```sh
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+请确保 linter 不报告任何问题, 并且所有测试都通过。 请不要提交失败的修补程序或检查。
 
-If you are updating tests and just want to run a single spec to check it:
+如果您正在更新测试并且只想运行单个规范来检查它:
 
 ```sh
 $ npm run test -match=menu
 ```
 
-The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
+上述操作只运行与 ` menu ` 匹配的规范模块, 这对于那些在测试周期的末尾进行测试的任何人都很有用。
 
 ### 步骤8: 推送代码
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+一旦您的提交准备就绪--通过测试和 linting--将您的工作分支推送到您在 GitHub 上复制的分支, 然后开始开启合并代码请求的过程。
 
 ```sh
 $ git push origin my-branch
@@ -150,7 +150,7 @@ $ git push origin my-branch
 
 ### 步骤9: 新建一个合并代码请求
 
-From within GitHub, opening a new pull request will present you with a template that should be filled out:
+从 GitHub 中, 开启一个新的合并代码请求将为您呈现一个模板，这应填写如下:
 
 ```markdown
 <!--
@@ -165,9 +165,9 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 
 ### 步骤10: 讨论和更新
 
-You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+您可能会得到反馈或请求更改您的请求。 这是提交过程的重要部分, 所以不要气馁! 有些贡献者可能会立刻签署请求。 其他人可能有详细的评论或反馈。 这是过程的必要部分, 以便评估更改是否正确和必要。
 
-To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
+要更改现有的请求, 请对本地分支进行更改, 添加新的提交, 并将这些更改推送到您的分支。 GitHub 将自动更新请求。
 
 ```sh
 $ git add my/changed/files
@@ -175,26 +175,26 @@ $ git commit
 $ git push origin my-branch
 ```
 
-There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
+一些更高级的方法比如使用 ` git rebase ` 来管理提交是很有效的, 但这超出本指南的范围。
 
-Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
+如果您正在等待某事的答案, 请随时添加评论 ping 向审阅者。 如果您遇到的单词或缩略词似乎不熟悉, 请参阅此 [ 词汇表 ](https://sites.google.com/a/chromium.org/dev/glossary)。
 
 #### 批准和请求更改工作流程
 
-All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+所有代码合并请求都需要您修改过的代码的 [ 代码所有者 ](https://github.com/orgs/electron/teams/code-owners) 进行审批以获得执行。 每当维护者审阅一个代码合并请求时, 他们可能请求更改。 这些可能很小, 例如修复一个错字, 或者可能涉及实质性的更改。 此类请求旨在帮助您, 但有时可能会出现突然或无益的情况, 特别是如果它们不包括 * 如何 * 更改它们的具体建议。
 
-Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
+尽量不要气馁。 如果你觉得审查是不公平的, 那么说或者寻求另一个项目参与者的投入。 通常, 这种评论是由于审阅者没有足够的时间来审查和无意的。 这样的困难往往可以用一点耐心来解决。 那就是说, 审阅者应该被期望提供有用的反馈。
 
 ### 步骤11: 执行合并
 
-In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
+为了合并代码, 代码合并请求要求必须由至少一个 Electron 代码所有者审查和批准并且通过 CI。 之后, 如果没有其他参与者的异议, 请求可以合并。
 
-Congratulations and thanks for your contribution!
+恭喜您, 感谢您的贡献!
 
 ### 持续集成测试
 
-Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
+每个请求都在连续集成 (CI) 系统上进行测试, 以确认它在 Electron 支持的平台上工作。
 
-Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
+理想情况下, 代码合并请求将在 CI 的所有平台上通过测试 ("变成绿色")。 这意味着所有测试都通过, 并且没有 linting 错误。 然而，CI 自身的基础设施在特定的平台上或者在"不可靠"的测试下会失败("变红") 的情况并不少见。 必须手动检查每个 CI 故障以确定原因。
 
-CI starts automatically when you open a pull request, but only [Releasers](https://github.com/orgs/electron/teams/releasers/members) can restart a CI run. If you believe CI is giving a false negative, ask a Releaser to restart the tests.
+Ci 在打开请求时自动启动, 但只有 [ 发布者 ](https://github.com/orgs/electron/teams/releasers/members) 才能重新启动 ci 运行。 如果你认为 CI 给出了错误的否定, 请求发布者重新启动测试。
