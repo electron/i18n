@@ -34,13 +34,13 @@ Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Nesne (isteğe bağlı) 
+* `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Fonksiyon 
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
-    * `method` String
+    * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
@@ -58,7 +58,7 @@ Bir istek gerçekleşmek üzereyken `listener` `listener(details, callback)` ile
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Nesne (isteğe bağlı) 
+* `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Fonksiyon
 
@@ -72,7 +72,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
   * `resourceType` Dize
   * `timestamp` Double
   * `requestHeaders` Object
-* `callback` Fonksiyon 
+* `geri aramak` Fonksiyon 
   * `response` Nesne 
     * `cancel` Boolean (isteğe bağlı)
     * `requestHeaders` Object (isteğe bağlı) - Sağlandığında istek bu başlıklarla birlikte yapılacaktır.
@@ -81,7 +81,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Nesne (isteğe bağlı) 
+* `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
@@ -97,7 +97,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Nesne (isteğe bağlı) 
+* `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Fonksiyon
 
@@ -123,7 +123,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Nesne (isteğe bağlı) 
+* `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
@@ -142,7 +142,7 @@ Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` i
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Nesne (isteğe bağlı) 
+* `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
@@ -162,13 +162,13 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Nesne (isteğe bağlı) 
+* `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
-    * `method` String
+    * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
@@ -181,13 +181,13 @@ Bir istek tamamlandığında `listener` `listener(details)` ile birlikte çağı
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Nesne (isteğe bağlı) 
+* `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
-    * `method` String
+    * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
