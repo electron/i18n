@@ -51,7 +51,7 @@ Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 
 * `method` Dizi - Yöntem Adı, uzaktan hata ayıklama protokolü tarafından belirlenen yöntemlerden biri olmalıdır.
 * `commandParams` nesne (isteğe bağlı) - İstenilen parametrelerle JSON nesnesi.
-* `callback` İşlev (opsiyonel) - Yanıt 
+* `geri aramak` İşlev (opsiyonel) - Yanıt 
   * `error` Nesne - Komutun Başarısız olduğunu gösteren hata mesajı.
   * `result` Herhangi - Uzaktan Hata Ayıklama protokolünde komut açıklamasının "returns" özelliğiyle tanımlanan tepki.
 
