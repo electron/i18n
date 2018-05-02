@@ -16,14 +16,14 @@ Dialog dibuka dari thread utama Elektron. Jika Anda ingin menggunakan objek dial
 const {dialog} = membutuhkan ('elektron'). remote console.log (dialog)
 ```
 
-## Metode
+## Methods
 
 The ` dialog </ 0> modul memiliki metode berikut:</p>
 
 <h3><code>dialog.showOpenDialog ([browserWindow,] options [, callback])`</h3> 
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `pilihan` Objek 
+* `options` Sasaran 
   * ` judul </ 0>  String (opsional)</li>
 <li><code> default jalan</ 0>  String (opsional)</li>
 <li><code> buttonLabel </ 0>  String (opsional) - Label khusus untuk tombol konfirmasi, bila dibiarkan kosong, label default akan digunakan.</li>
@@ -62,14 +62,14 @@ The `filters` menentukan kumpulan jenis file yang dapat ditampilkan atau dipilih
 
 Elemen `ekstensi` harus berisi ekstensi tanpa wildcard atau titik (misalnya `'png'` bagus tapi ` '. Png'` dan ` '*.png'` buruk). Untuk menampilkan semua file, gunakan wildcard `'*'` (tidak ada wildcard lain yang didukung).
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
+Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan dilewatkan melalui ` callback (nama file)`.
 
 **Catatan:** Pada Windows dan Linux, sebuah dialog terbuka tidak dapat berupa pemilih file dan pemilih direktori, jadi jika Anda menetapkan `properti` ke ` ['openFile', ' openDirectory ']` pada platform ini, pemilih direktori akan ditampilkan.
 
 ### `dialog.showSaveDialog ([browserWindow,] options [, callback])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `pilihan` Sasaran 
+* `pilihan` Obyek 
   * ` judul </ 0>  String (opsional)</li>
 <li><code>defaultPath` String (opsional) - Jalur direktori absolut, path file absolut, atau nama file yang akan digunakan secara default.
   * ` buttonLabel </ 0>  String (opsional) - Label khusus untuk tombol konfirmasi, bila dibiarkan kosong, label default akan digunakan.</li>
@@ -88,12 +88,12 @@ Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, m
 
 Filter `` menentukan kumpulan jenis file yang dapat ditampilkan, lihat `dialog.showOpenDialog ` untuk sebuah contoh.
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`.
+Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan dilewatkan melalui ` callback (namafile) `.
 
 ### `dialog.showMessageBox ([browserWindow,] options [, callback])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `pilihan` Sasaran 
+* `pilihan` Obyek 
   * `ketik` String (opsional) - Bisa jadi `"none"`, `"info"`, `"error"`, `"pertanyaan"` atau `"peringatan"`. Pada Windows, `"question"` menampilkan ikon yang sama dengan `"info"`, kecuali jika Anda menyetel ikon menggunakan opsi ` "icon" `. Pada macos, keduanya `"warning"` dan `"error"` menampilkan ikon peringatan yang sama.
   * `tombol` String[] (opsional) - Array teks untuk tombol. Pada Windows, sebuah array kosong akan menghasilkan satu tombol berlabel "OK".
   * `defaultId` Integer (opsional) - Indeks tombol pada susunan tombol yang akan dipilih secara default saat kotak pesan terbuka.
@@ -107,7 +107,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `noLink` Boolean (opsional) - Pada Windows Electron akan mencoba untuk mencari tahu dari mana `buttons` adalah tombol yang umum (seperti "Batal" atau "Ya"), dan menampilkan yang lain sebagai link perintah dalam dialog. Hal ini bisa membuat dialog tampil dengan gaya aplikasi Windows modern . Jika Anda tidak menyukai perilaku ini, Anda dapat mengatur `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (opsional) - Menormalisasi tombol akses keyboard. Defaultnya adalah ` false </ 0> . Mengaktifkan asumsi ini <code>&` digunakan pada label tombol untuk penempatan tombol akses pintas keyboard dan label akan dikonversi sehingga bekerja dengan benar pada setiap platform, `&` karakter dihapus di macos, dikonversi ke `_` di Linux, dan tidak tersentuh pada Windows. Misalnya, label tombol `Vie&w` akan dikonversi ke `Vie_w` di Linux dan ` View ` di macos dan dapat dipilih melalui `Alt-W` pada Windows dan Linux.
 * `callback` Fungsi (opsional) 
-  * `response` Number - The index of the button that was clicked.
+  * `response` Number - Indeks tombol yang diklik.
   * `checkboxChecked` Boolean - Status kotak centang jika `checkboxLabel` telah ditetapkan. Jika tidak `false`.
 
 Mengembalikan `Integer`, indeks tombol yang diklik, jika callback diberikan, ia akan kembali terdefinisi.
@@ -120,8 +120,8 @@ Jika `callback` dilewati, dialog tidak akan memblokir prosesnya. Panggilan API a
 
 ### `dialog.showErrorBox(judul, konten)`
 
-* `title` String - The title to display in the error box.
-* `content` String - The text content to display in the error box.
+* `title` String - Judul yang akan ditampilkan di kotak kesalahan.
+* `content` String - Isi teks untuk ditampilkan di kotak kesalahan.
 
 Menampilkan dialog modal yang menunjukkan pesan kesalahan.
 
@@ -130,7 +130,7 @@ API ini dapat dipanggil dengan aman sebelum `siap` acara yang digunakan aplikasi
 ### `dialog.showCertificateTrustDialog ([browserWindow,] options, callback)` * macos * * Windows *
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `pilihan` Sasaran 
+* `pilihan` Obyek 
   * `sertifikat` [Sertifikat](structures/certificate.md) - Sertifikat untuk dipercaya/diimpor.
   * `pesan` String - Pesan untuk ditampilkan kepada pengguna.
 * `callback ` Fungsi
