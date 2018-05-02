@@ -135,7 +135,7 @@ pages:
     title: Blog di Electron
     description: Tutte le ultime notizie dal team e dalla community di Electron.
   '/community':
-    title: Community
+    title: Comunità
   '/releases':
     title: Versioni
   '/contact':
