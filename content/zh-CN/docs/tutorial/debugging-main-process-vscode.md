@@ -30,6 +30,6 @@ $ code electron-quick-start
 
 ### 3. 调试
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+在 `main.js`中设置一些断点，并在 [Debug 视图](https://code.visualstudio.com/docs/editor/debugging) 中开始调试。你应该能够捕获断点信息。
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+这是一个预先配置的项目，你可以下载并直接在 VSCode中调试: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
