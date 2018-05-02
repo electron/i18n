@@ -11,10 +11,8 @@ $ git clone git@github.com:electron / $ elektron-cepat-start.git kode elektron-c
 <pre><code class="json">{"versi": "0.2.0", "konfigurasi": [{"nama": "Debug utama proses", "jenis": "node", "permintaan": "peluncuran", "cwd": "${workspaceRoot}", "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron", "windows": {"runtimeExec utable":"${workspaceRoot}/node_modules/.bin/electron.cmd"},"args": [". "]     }   ] }
 `</pre> 
 
-**Catatan:** Untuk Windows, menggunakan `"${workspaceRoot}/node_modules/.bin/electron.cmd"` untuk `runtimeExecutable`.
-
 ### 3. Debugging
 
-Tetapkan beberapa breakpoint di  main.js </ 0> , dan mulai debugging di <a href="https://code.visualstudio.com/docs/editor/debugging"> Debug View </ 1> . Anda harus bisa memukul breakpoints.</p>
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
-<p>Berikut adalah proyek pra-konfigurasi yang dapat Anda unduh dan langsung debug di VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start</p>
+Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
