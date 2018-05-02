@@ -75,7 +75,7 @@ Les applications Electron sont développées en JavaScript en utilisant les mêm
 const electron = require('electron')
 ```
 
-Le module `electron` expose des fonctionnalités dans des espaces de noms. A titre d'exemple, le cycle de vie de l'application est géré par `electron.app`, des fenêtres peuvent être créées en utilisant la classe `electron.BrowserWindow`. A simple `main.js` file might just wait for the application to be ready and open a window:
+Le module `electron` expose des fonctionnalités dans des espaces de noms. A titre d'exemple, le cycle de vie de l'application est géré par `electron.app`, des fenêtres peuvent être créées en utilisant la classe `electron.BrowserWindow`. Un simple fichier`main.js` peut attendre que l'application soit prête et ouvrir une fenêtre :
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
