@@ -55,23 +55,29 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### Кросс-компиляция
 
-Если вы хотите собрать для платформы `arm`, вам нужно установить следующие зависимости:
+If you want to build for an `arm` target you should also install the following dependencies:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Аналогично для `arm64`:
+Similarly for `arm64`, install the following:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-И для кросс-компиляции для `arm` или `ia32`, вам нужно использовать `--target_arch` параметр для `bootstrap.py` скрипта:
+And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -79,21 +85,21 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Сборка
 
-Если вы хотите собрать `Release` и `Debug` версии:
+If you would like to build both `Release` and `Debug` targets:
 
 ```sh
 $ ./script/build.py
 ```
 
-Скрипт соберет очень большой исполняемый файл Electron в директорию `out/R`. Размер файла превышает 1,3 Гб. Это происходит из-за того что Release версия бинарного файла содержит отладочные символы. Чтобы уменьшить размер файла, запустите `create-dist.py`:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-Оно создаст дистрибутив с гораздо меньшим размером файлов в директорию `dist`. После запуска `create-dist.py`, вероятно, вы захотите удалить 1.3+ Гб бинарный файл, который все еще находится в `out/R`.
+This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-Также вы можете собрать только `Debug` версию:
+You can also build the `Debug` target only:
 
 ```sh
 $ ./script/build.py -c D
