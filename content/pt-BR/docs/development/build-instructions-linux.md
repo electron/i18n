@@ -63,21 +63,21 @@ $ ./script/build.py --compdb
 
 ### Forçar compilação
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Se você deseja configurar para o caminho de `arm`, você precisa instalar as seguintes dependências:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Da mesma forma para `arm64`, instale as seguintes dependências:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+E para compilar para `arm` ou `i32`, Você deve passar o parâmetro `--target_arch` ao executar o script `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -85,27 +85,27 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Compilando
 
-If you would like to build both `Release` and `Debug` targets:
+Se você deseja de compilar tanto para `Release` e `Debug`:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+O script irá gerar um executável do Electron muito grande para ser gravado no diretório `out/R`. O tamanho do arquivo é superior a 1.3 gigabytes. Isso acontece porque o binário contém sinais de depuração. Para reduzir o tamanho do arquivo, execute o script `create-dist.py`:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Com isso será gerado uma distribuição muito menor no diretório `dist`. Depois de the executar o script `create-dist.py`, você talvez queira remover os 1.3+ gigabytes gerados anteriormente no `out/R`.
 
-You can also build the `Debug` target only:
+Você também pode compilar somente o `Debug`:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+Após a finalização, você pode encontrar o `electron` debug no diretório `out/D`.
 
 ## Excluindo
 
@@ -127,7 +127,7 @@ $ npm run clean-build
 
 ### Erro ao carregar bibliotecas compartilhadas: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Prebuilt `clang` irá atentar vincular a `libtinfo.so.5`. Dependendo da arquitetura utilizada, um link é criado para `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -139,11 +139,11 @@ Veja [Visão Geral do Sistema: Testes](build-system-overview.md#tests)
 
 ## Tópicos Avançados
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+A configuração padrão para compilação é direcionado para as principais distribuições Linux, para compilar para uma determinada distribuição ou dispositivo, siga as seguintes informações que talvez possa ajudá-lo.
 
 ### Compilando `libchromiumcontent` localmente
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Para evitar o uso dos códigos binários pre-produzidos do `libchromiumcontent`, você pode criar `libchromiumcontent` localmente. Para faze-lo, siga as seguintes etapas:
 
 1. Instale o [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. Instale as [dependências de compilação adicionais](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
@@ -159,7 +159,7 @@ $ git submodule update --init --recursive
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+Observe que por padrão a configuração de `shared_library` não é compilada, você pode compilar somente a versão de `Release` do Electron se você utilizar o modo:
 
 ```sh
 $ ./script/build.py -c R
@@ -167,9 +167,9 @@ $ ./script/build.py -c R
 
 ### Usando o `clang` em vez de fazer o download dos binários de `clang`
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Por padrão o Electron é feito com código binário [`clang`](https://clang.llvm.org/get_started.html) pre-produzido e fornecido pelo projeto Chromium. Se por alguma razão você quer usar o `clang` instalado em seu sistema, você pode chamar `bootstrap.py` com o interruptor `--clang_dir=<path>`. Ao passar o código pre-produzido, se assumirá que o código binário `clang` está localizado em `<path>/bin/`.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+Por exemplo, se você instalou `clang` em `/user/local/bin/clang`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
@@ -178,9 +178,9 @@ $ ./script/build.py -c R
 
 ### Utilizando compiladores diferentes de `clang`
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Para compilar o Electron com compiladores parecidos com o `g++`, você primeiro precisa desativar o `clang` com o parâmetro `--disable_clang`, depois configurar o 0>CC</code> e `CXX` nas variáveis de ambiente.
 
-For example building with GCC toolchain:
+Por exemplo, compilando com GCC toolchain:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
@@ -189,7 +189,7 @@ $ ./script/build.py -c R
 
 ### Variáveis de ambiente
 
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
+À parte de `CC` e `CXX`, você também pode definir as seguintes variáveis de ambiente para customizar as configurações para criar o build do seu aplicativo:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -205,4 +205,4 @@ Apart from `CC` and `CXX`, you can also set the following environment variables 
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+A variável de ambiente precisa ser definidas ao executar o script `bootstrap.py`, isso não vai funcionar no script `build.py`.
