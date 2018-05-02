@@ -1,8 +1,8 @@
-# Ecrire votre première application Electroon
+# Ecrire votre première application Electron
 
-Electron vous permet de créer des applications de bureau avec du pure JavaScript fournissant un runtime avec des API riches natives (système d'exploitation). Vous pourriez le voir comme une variante d'un Node.js directement exécutable sur le bureau au lieu des serveurs Web.
+Electron vous permet de créer des applications de bureau avec du pure JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). Vous pourriez le voir comme une variante d'un Node.js directement exécutable sur le bureau au lieu des serveurs Web.
 
-Cela ne signifie pas qu'Electron est une liaison JavaScript à l'interface utilisateur graphique (GUI). Au lieu de cela, Electron utilise des pages Web comme interface utilisateur, donc vous pouvez aussi le voir comme un navigateur Chromium minimal, contrôlé par JavaScript.
+Cela ne signifie pas qu'Electron est une liaison JavaScript à l'interface utilisateur graphique (GUI). Au lieu de cela, Electron utilise des pages Web comme interface graphique utilisateur, donc vous pouvez aussi le voir comme un navigateur Chromium minimal, contrôlé par JavaScript.
 
 **Remarque** : cet exemple est également disponible dans un dépôt git que vous pouvez [télécharger et exécuter immédiatement](#trying-this-example).
 
@@ -174,13 +174,13 @@ Enfin l'`index.html` est la page web à afficher :
 </html>
 ```
 
-## Lancer votre App
+## Lancer votre Application
 
 Une fois que vous avez créé vos fichiers initiaux `main.js`, `index.html`, et `package.json`, vous pouvez essayer votre application en exécutant `npm start` depuis le répertoire de votre application.
 
 ## Essayer cette application
 
-Clonez et lancez le code dans ce tutorial en utilisant le dépôt [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
+Clonez et lancez le code de ce tutorial en utilisant le dépôt [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
 **Note**: L'exécution nécessite [Git](https://git-scm.com).
 
