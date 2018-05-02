@@ -57,7 +57,7 @@ $ ./script/bootstrap.py --verbose
 
 ### Compilación cruzada
 
-Si quiere construir un objetivo `brazo` debe instalar también las siguientes dependencias:
+Si quiere compilar para la arquitectura `arm` debe instalar también las siguientes dependencias:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### Usando el sistema `clang` en vez del binario descarado `clang`
 
-Por defecto Electron está compilado con un [`clang`](https://clang.llvm.org/get_started.html) binario de recompilación proporcionado por el proyecto Chromium. Si por alguna razón quiere compilar con el `clang` instalado en su sistema, puede llamar `bootstrap.py` con el `--clang_dir=<path>` cambiado. Al pasarlo el comando de compilación asumirá que el binario del `clang` reside en `<path>/bin/`.
+Por defecto, Electron se compila con archivos binarios [`clang`](https://clang.llvm.org/get_started.html) predefinidas por el proyecto Chromium. Si por alguna razón quiere compilar con el `clang` instalado en su sistema, puede llamar `bootstrap.py` con el `--clang_dir=<path>` cambiado. Al pasarlo el comando de compilación asumirá que el binario del `clang` reside en `<path>/bin/`.
 
 Por ejemplo si usted instaló `clang` en `/user/local/bin/clang`:
 
