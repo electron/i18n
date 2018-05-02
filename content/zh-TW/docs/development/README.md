@@ -6,7 +6,7 @@ These guides are intended for people working on the Electron project itself. For
 * [貢獻 Electron](../../CONTRIBUTING.md)
 * [議題](issues.md)
 * [合併請求 (PR)](pull-requests.md)
-* [文件編寫風格](styleguide.md)
+* [文件編寫風格](coding-style.md#documentation)
 * [原始碼目錄結構](source-code-directory-structure.md)
 * [程式碼撰寫風格](coding-style.md)
 * [在 C++ 程式碼中使用 Clang-Format](clang-format.md)
