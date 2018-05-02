@@ -6,7 +6,7 @@
 
 Процеса: [Main](../glossary.md#main-process)
 
-`BrowserView` може да се използва за вграждане на допълнителни уеб съдържание в `BrowserWindow`. Това е като дете прозорец, освен че е разположен спрямо основния му прозорец. Той е предназначен да бъде алтернатива на `webview` маркер.
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Това е като дете прозорец, освен че е разположен спрямо основния му прозорец. Той е предназначен да бъде алтернатива на `webview` маркер.
 
 ## Пример
 
