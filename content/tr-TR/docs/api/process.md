@@ -40,8 +40,7 @@ Uygulamanızın içindeki ASAR desteğini kontrol eden bir `Boolean`. Bunu `true
 
 ### `process.noDeprecation`
 
-İtiraz uyarılarının `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`.  
-Bunu `true` olarak ayarlamak itiraz uyarılarını susturacaktır. Bu özellik `--no-deprecation` komut satırı etiketi yerine kullanılır.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
 
 ### `process.resourcesPath`
 
@@ -53,11 +52,11 @@ Kaynaklar dizininin yolunu temsil eden bir `String`.
 
 ### `process.traceDeprecation`
 
-İtirazların yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak itirazların yığın izlerini yazdıracak. Bu özellik `--trace-deprecation` komut satırı etiketi yerine kullanılır.
+İtirazların yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Setting this to `true` will print stack traces for deprecations. Bu özellik `--trace-deprecation` komut satırı etiketi yerine kullanılır.
 
 ### `process.traceProcessWarnings`
 
-İşlem uyarılarının yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak işlem uyarılarının yığın izlerini yazdıracak (itirazlar dahil). Bu özellik `--trace-warnings` komut satırı etiketinin yerine kullanılmalıdır.
+İşlem uyarılarının yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `process.type`
 
@@ -98,7 +97,7 @@ Geçerli işlemin ana iş parçacığının çökmesine neden olur.
 * `workingSetSize` Tamsayı - O anda gerçek fiziksel RAM'e sabitlenmiş bellek miktarı.
 * `peakWorkingSetSize` Tamsayı - Gerçek fiziksel RAM'e sabitlenmiş maksimum bellek miktarı.
 * `privateBytes` Tamsayı - Diğer işlemlerle paylaşılmayan bellek miktarı, JS yığını ya da HTML içeriği gibi.
-* `sharedBytes` Tamsayı - İşlemler arasında paylaşılan bellek miktarı, genel olarak Elektron kodunun kendisi tarafından tüketilen bellek
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm istatistiklerin Kilobayt olarak raporlandığına dikkat edin.
 
@@ -108,8 +107,8 @@ Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye 
 
 * `total` Tamsayı - Sistemde kullanılabilir durumda olan fiziksel belleğin Kilobayt olarak toplam miktarı.
 * `free` Tamsayı - Uygulamalar ve disk önbelleği tarafından kullanılmayan belleğin toplam miktarı.
-* `swapTotal` Tamsayı - Sistemde kullanılabilir durumda olan takas belleğinin Kilobayt olarak toplam miktarı. *Windows* *Linux*
-* `swapFree` Tamsayı - Sistemde kullanılabilir durumda olan boş takas belleğinin toplam miktarı. *Windows* *Linux*
+* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 Tüm sistem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm nesnelerin Kilobayt olarak raporlandığına dikkat edin.
 
