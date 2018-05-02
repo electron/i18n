@@ -571,7 +571,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Returns:
+반환:
 
 * `status` Boolean
 * `newURL` String
@@ -600,7 +600,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-반환:
+Returns:
 
 * `title` String
 * `explicitSet` Boolean
@@ -668,7 +668,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Returns:
+반환:
 
 * `url` String
 * `frameName` String
@@ -717,7 +717,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-Returns:
+반환:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -741,7 +741,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Returns:
+반환:
 
 * `channel` String
 * `args` Array
