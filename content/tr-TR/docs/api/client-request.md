@@ -2,7 +2,7 @@
 
 > HTTP/HTTPS isteklerini yap.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `ClientRequest` [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface'ini implement eder, bu yüzden de o bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dır.
 
@@ -14,11 +14,11 @@ Süreç: [Ana](../glossary.md#main-process)
   * `session` Object (isteğe bağlı) - İlişkili olduğu istek ile [`Session`](session.md) örneği.
   * `partition` String (isteğe bağlı) - İlişkili olduğu istek ile [`partition`](session.md)'nın ismi. Varsayılan boş string. `session` seçeneği `partition`'da hakimdir. Böylelikle `session` açıkça belirtilmedikçe, `partition` yoksayılır.
   * `protocol` String (isteğe bağlı) - 'scheme:' formunda protokol şeması. Şu anda desteklenen değerler 'http:' veya 'https:'dir. Varsayılan 'http:'.
-  * `host` String (isteğe bağlı) - Sunucu ana bilgisayar, ana makine adı ve 'hostname:port' port numarasının birleşimi olarak sağlanır
+  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (isteğe bağlı) - Sunucu ana bilgisayar adı.
   * `port` Integer (isteğe bağlı) - Sunucunun dinlenen port numarası.
   * `path` String (isteğe bağlı) - İstek URL'sinin yolu.
-  * `redirect` String (isteğe bağlı) - Bu istek için yönlendirme modu. `follow`, `error` veya `manual`'den birisi olmalıdır. `follow`'a varsayılan olarak belirler. Mod `error` olduğunda bütün yönlendirmeler iptal edilecektir. Mod `manual` olduğu zaman [`request.followRedirect`](#requestfollowRedirect) çağırılana kadar yönlendirme ertelenir. [`redirect`](#event-redirect) olayı için bu modda yönlendirme isteği hakkında daha fazla bilgi almak için dinleyin.
+  * `redirect` String (isteğe bağlı) - Bu istek için yönlendirme modu. `follow`, `error` veya `manual`'den birisi olmalıdır. `follow`'a varsayılan olarak belirler. Mod `error` olduğunda bütün yönlendirmeler iptal edilecektir. Mod `manual` olduğu zaman [`request.followRedirect`](#requestfollowredirect) çağırılana kadar yönlendirme ertelenir. [`redirect`](#event-redirect) olayı için bu modda yönlendirme isteği hakkında daha fazla bilgi almak için dinleyin.
 
 `protocol`, `host`, `hostname`, `port` ve `path` gibi `options` özellikleri, [URL](https://nodejs.org/api/url.html) modülünde açıklandığı gibi Node.js modeline kesinlikle uyar.
 
@@ -34,7 +34,7 @@ const request = net.request({
 })
 ```
 
-### Örnek etkinlikler
+### Örnek Events
 
 #### Etkinlik: 'tepki'
 
@@ -46,22 +46,22 @@ Dönüşler:
 
 Dönüşler:
 
-* `authInfo` Nesne 
+* `authInfo` Obje 
   * `isProxy` Boolean
   * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
-* `callback` Fonksiyon 
-  * `username` String
-  * `password` String
+  * `host` Dizi
+  * `port` Tamsayı
+  * `realm` Dizi
+* `geri aramak` Fonksiyon 
+  * `username` Dizi
+  * `password` Dizi
 
 Kimlik doğrulaması yapan bir proxy, kullanıcı bilgilerini istendiğinde yayınlar.
 
 `callback` fonksiyonunun kullanıcı bilgileri ile geri çağırılması bekleniyor:
 
-* `username` String
-* `password` String
+* `username` Dizi
+* `password` Dizi
 
 ```JavaScript
 request.on('login', (authInfo, callback) => {
@@ -107,22 +107,22 @@ HTTP istek-cevap hareketindeki son olay olarak yayınlanır. `close` olayı, `re
 
 Dönüşler:
 
-* `statusCode` Tamsayı
-* `method` String
+* `statusCode` Integer
+* `method` Dizi
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Bir yönlendirme ve mod `manual` olduğunda yayılır. [`request.followRedirect`](#requestfollowRedirect)'i çağırmak yönlendirme ile devam edecektir.
+Bir yönlendirme ve mod `manual` olduğunda yayılır. [`request.followRedirect`](#requestfollowredirect)'i çağırmak yönlendirme ile devam edecektir.
 
 ### Örnek özellikleri
 
 #### `request.chunkedEncoding`
 
-Bir `Boolean` isteğin HTTP yığınlı aktarım kodlamasını kullanıp kullanmayacağını belirtir. Varsayılan yanlış. Telefon üzerinde mülkiyet okunabilir ve yazılabilir, ancak HTTP başlıkları henüz koyulmadığından bu işlem yalnızca yazmadan önce ayarlanabilir. İlk yazma bir hata oluşturduktan sonra `chunkedEncoding` özelliğini ayarlamaya çalışır.
+Bir `Boolean` isteğin HTTP yığınlı aktarım kodlamasını kullanıp kullanmayacağını belirtir. Varsayılanı false olarak belirler. Telefon üzerinde mülkiyet okunabilir ve yazılabilir, ancak HTTP başlıkları henüz koyulmadığından bu işlem yalnızca yazmadan önce ayarlanabilir. İlk yazma bir hata oluşturduktan sonra `chunkedEncoding` özelliğini ayarlamaya çalışır.
 
 Eğer büyük bir istek parçası göndermeniz gerekiyorsa veri, Electron işlem belleği içerisinde dahili olarak ara belleğe yazdırmak yerine küçük yığınlar içinde akar bu yüzden parçalanmış kodlamanın şiddetle kullanılması önerilir.
 
-### Örnek Metodlar
+### Sınıf örneği metodları
 
 #### `request.setHeader(name, value)`
 
@@ -133,13 +133,13 @@ Eğer büyük bir istek parçası göndermeniz gerekiyorsa veri, Electron işlem
 
 #### `request.getHeader(name)`
 
-* `name` String - İlave bir başık adını belirtir.
+* `name` Dize - İlave bir başlık adı belirtin.
 
 Returns `Object` - Öncesinde ilave olarak ayarlanan başlık adının değeri.
 
 #### `request.removeHeader(name)`
 
-* `name` Dize - İlave bir başlık adı belirtin.
+* `name` String - İlave bir başık adını belirtir.
 
 Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnızca ilk yazma işleminden önce yapılabilir. İlk yazma işleminden sonra yapmaya çalışmak bir hata meydana getirecektir.
 
