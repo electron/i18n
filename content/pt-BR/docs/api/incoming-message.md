@@ -24,7 +24,7 @@ Indicates that response body has ended.
 
 Emitido quando uma solicitação foi cancelada durante uma transação HTTP em curso.
 
-#### Event: 'error'
+#### Evento: 'error'
 
 Retorna:
 
