@@ -2,7 +2,7 @@
 
 > 打开一个新窗口并加载 URL。
 
-当调用 ` window.open` 以在网页中创建新窗口时，`BrowserWindow` 将为 `url` 创建一个新的实例，并返回一个代理至 `window.open` 以让页面对其进行有限的控制。
+When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
 该代理具有有限的标准功能，与传统网页兼容。要完全控制新窗口，你应该直接创建一个` BrowserWindow `。
 
