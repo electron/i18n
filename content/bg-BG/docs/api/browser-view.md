@@ -76,7 +76,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 Връща `Boolean` - Показва дали изгледа е унищожен.
 
-#### `view.setAutoResize(опции)` *Experimental*
+#### `view.setAutoResize(options)` *Experimental*
 
 * `опции` Object 
   * `width` Boolean - Ако е `true`, дължината на изгледа ще се разширява и смалява заедно с основния прозорец. По подразбиране не е `false`.
