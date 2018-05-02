@@ -55,23 +55,29 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### Compile đa nền tảng
 
-Nếu bạn muốn build cho nền tảng `arm` bạn cần cài thêm những phần phụ thuộc sau:
+If you want to build for an `arm` target you should also install the following dependencies:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Tương tự cho `arm64`, cài thêm như sau:
+Similarly for `arm64`, install the following:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-Đồng thời để compile cho `arm` hoặc `ia32`, bạn nên thêm `--target_arch` cho `bootstrap.py`:
+And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -79,27 +85,27 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Build
 
-Nếu bạn muốn build cả hai phiên bản là `Release` và `Debug`, hãy chạy:
+If you would like to build both `Release` and `Debug` targets:
 
 ```sh
 $ ./script/build.py
 ```
 
-Sau khi chạy file code này sẽ tạo ra file thực thi Electron rất lớn trong thư mục `out/R`. Kích thước file vượt 1,3 GB. Đó là do file thực thi Release cũng chứa thông tin debug. Để giảm kích thước file, hãy chạy `create-dist.py`:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-Nó sẽ giúp đặt các file phụ thuộc có kích thước nhỏ hơn nhiều vào thư mục `dist`. Sau khi chạy `create-dist.py`, bạn có thể xóa file thực thi nặng hơn 1,3GB vẫn còn nằm trong thư mục `out/R`.
+This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-Bạn cũng có thể chỉ build `bản Debug` như sau:
+You can also build the `Debug` target only:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-Sau khi build xong, bạn sẽ tìm thấy file thực thi debug `electron` trong `out/D`.
+After building is done, you can find the `electron` debug binary under `out/D`.
 
 ## Dọn dẹp
 
@@ -121,7 +127,7 @@ $ npm run clean-build
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
-Bản build sẵn của `clang` sẽ tìm cách link tới `libtinfo.so.5`. Phụ thuộc vào kiến trúc của máy chủ, symlink tới `libncurses` tương ứng:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
