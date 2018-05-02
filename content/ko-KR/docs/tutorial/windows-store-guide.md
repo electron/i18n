@@ -1,8 +1,8 @@
 # 윈도우 스토어 안내서
 
-윈도우 10부터는 win32 포멧 만이 아닌 새로운 포맷이 생겨났다: 유니버셜 Windows 플랫폼. 새로운 `.appx` 포맷은 코타나 또는 푸시 알림 과 같은 강력한 APIs만을 지원하는게 아니라, 윈도우 스토어를 통해 간편한 설치와 업데이트도 지원하게되었다.
+윈도우 10부터는 win32 포멧 만이 아닌 새로운 포맷이 생겨났다: 유니버셜 Windows 플랫폼. 새로운 `.appx` 포맷은 코타나 또는 푸시 알림 과 같은 강력한 APIs를 지원하는 것 뿐만 아니라, 윈도우 스토어를 통해 간편한 설치와 업데이트도 지원하게되었다.
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+마이크로소프트사에서 [일렉트론 어플을 `.appx`로 컴파일해주는 툴을 개발하였다](https://github.com/catalystcode/electron-windows-store). 그로써 개발자들은 새로운 어플리케이션 모델의 장점들을 이용할 수 있게 되었다. 이가이드는 사용하는 방법을 설명해준다 그리고 일렉트론 AppX페키지의 성능 및 한계에 대하여 설명할 것이다.
 
 ## Background and Requirements
 
