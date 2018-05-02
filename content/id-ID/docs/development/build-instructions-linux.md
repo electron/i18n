@@ -55,55 +55,61 @@ $ cd elektron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### Kompilasi silang
 
-Jika Anda ingin membangun target ` lengan ` Anda juga harus menginstal dependensi berikut ini:
+If you want to build for an `arm` target you should also install the following dependencies:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
-                         g ++ - arm-linux-gnueabihf
+                       g++-arm-linux-gnueabihf
 ```
 
-Demikian pula untuk ` arm64 `, instal yang berikut ini:
+Similarly for `arm64`, install the following:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
-                         g ++ - aarch64-linux-gnu
+                       g++-aarch64-linux-gnu
 ```
 
-Dan untuk mengkompilasi silang target ` lengan ` atau ` ia32 `, Anda harus melewati parameter ` - target_arch ` ke ` bootstrap.py ` script:
+And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
 
 ```sh
-$ ./script/bootstrap.py -v --target_arch=lengan
+$ ./script/bootstrap.py -v --target_arch=arm
 ```
 
 ## Bangunan
 
-Jika Anda ingin membangun target ` Release ` dan ` Debug `:
+If you would like to build both `Release` and `Debug` targets:
 
 ```sh
 $ ./script/build.py
 ```
 
-Script ini akan menyebabkan Elektron sangat besar dieksekusi untuk ditempatkan di direktori ` keluar / R `. Ukuran file lebih dari 1,3 gigabyte. Ini Terjadi karena biner target rilis berisi simbol debugging. Untuk mengurangi ukuran file, jalankan script ` create-dist.py `:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-Ini akan menempatkan distribusi kerja dengan ukuran file yang jauh lebih kecil di direktori ` dist `. Setelah menjalankan script ` create-dist.py `, Anda mungkin ingin menghapus binari 1.3 + gigabyte yang masih di ` keluar / R `.
+This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-Anda juga dapat membangun target ` Debug ` saja:
+You can also build the `Debug` target only:
 
 ```sh
-$ ./script/build.py -c R
+$ ./script/build.py
 ```
 
-Setelah selesai, Anda bisa menemukan biner debug ` elektron ` di bawah ` keluar / D `.
+After building is done, you can find the `electron` debug binary under `out/D`.
 
 ## Membersihkan
 
-Untuk membersihkan bangunan file:
+Untuk membersihkan membangun file:
 
 ```sh
 $ npm bersih
@@ -121,7 +127,7 @@ $ npm berjalan bersih-bangun
 
 ### Kesalahan saat Memuat Perpustakaan Bersama: libtinfo.so.5
 
-Prebuilt ` clang ` akan mencoba untuk link ke ` libtinfo.so.5 `. Bergantung pada arsitektur host, symlink ke sesuai ` libncurses `:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -133,11 +139,11 @@ Lihat [Bangun Gambaran Sistem: Pengujian](build-system-overview.md#tests)
 
 ## Topik lanjutan
 
-Konfigurasi bangunan default ditargetkan untuk distribusi desktop desktop utama. Untuk membangun distribusi atau perangkat tertentu, informasi berikut mungkin bisa membantu Anda.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### Membangun ` libchromiumcontent ` secara lokal
 
-Untuk menghindari penggunaan binari setelah pembangunan dari `libchromiumcontent`, Anda dapat membangun `libchromiumcontent` secara lokal. Untuk melakukannya, ikuti langkah-langkah ini:
+To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
 
 1. Menginstal [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. Install [ tambahan build dependencies ](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
@@ -153,7 +159,7 @@ $ git submodule update --init --recursive
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-Perhatikan bahwa secara default konfigurasi ` shared_library ` tidak dibangun, jadi Anda hanya bisa membuat versi Elemen ` Release ` dari Elektron jika Anda menggunakan mode ini:
+Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
 
 ```sh
 $ ./script/build.py -c R
@@ -161,29 +167,29 @@ $ ./script/build.py -c R
 
 ### Menggunakan sistem ` clang ` daripada download ` clang ` binari
 
-Secara default Elektron dibangun dengan pembangunan setelahnya [`clang`](https://clang.llvm.org/get_started.html) binari yang disediakan oleh Proyek kromium. Jika karena alasan tertentu Anda ingin membangun dengan `clang` terinstal di dalam sistem Anda, Anda dapat memanggil `bootstrap.py`with`--clang_dir=<path>` beralih. Dengan melewatkannya, skrip yang sedang dibangun akan mengasumsikan biner `clang` berada di `<path>/bin/`.
+By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-Sebagai contoh jika Anda menginstal ` clang ` di bawah ` / user / local / bin / clang `:
+For example if you installed `clang` under `/user/local/bin/clang`:
 
 ```sh
-$ ./script/bootstrap.py -v --build_release_libcc --clang_dir / usr / local
+$ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
 ### Menggunakan kompiler selain ` clang `
 
-Untuk membangun Elektron dengan kompiler seperti ` g ++ `, Anda harus menonaktifkan ` clang ` dengan ` - disable_clang ` terlebih dulu, lalu set ` CC ` dan ` CXX ` variabel lingkungan ke yang Anda inginkan.
+To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
-Misalnya bangunan dengan GCC toolchain:
+For example building with GCC toolchain:
 
 ```sh
-$ env CC = gcc CXX = g ++ ./script/bootstrap.py -v --build_release_libcc --disable_clang 
+$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
 $ ./script/build.py -c R
 ```
 
 ### Variabel Lingkungan
 
-Selain ` CC ` dan ` CXX `, Anda juga dapat mengatur variabel lingkungan berikut untuk menyesuaikan konfigurasi pembuatan:
+Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -199,4 +205,4 @@ Selain ` CC ` dan ` CXX `, Anda juga dapat mengatur variabel lingkungan berikut 
 * `CXX_host`
 * `LDFLAGS`
 
-Variabel lingkungan harus ditetapkan saat menjalankan script ` bootstrap.py `, variabel tidak akan bekerja di script ` build.py `.
+The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
