@@ -204,7 +204,7 @@ npm run merge-release -- 1-7-x
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
-## Publish to npm
+## 發佈到 npm
 
 Before publishing to npm, you'll need to log into npm as Electron. Optionally, you may find [npmrc](https://www.npmjs.com/package/npmrc) to be a useful way to keep Electron's profile side-by-side with your own:
 
@@ -243,15 +243,15 @@ The first step is to go to the [Releases](https://github.com/electron/electron/r
 Then manually create distributions for each platform and upload them:
 
 ```sh
-# Checkout the version to re-upload.
+# 取出要重新上傳的版本。
 git checkout vTHE.RELEASE.VERSION
 
-# Do release build, specifying one target architecture.
+# 建置發行版，指定一組目標架構。
 ./script/bootstrap.py --target_arch [arm|x64|ia32]
 ./script/build.py -c R
 ./script/create-dist.py
 
-# Explicitly allow overwritting a published release.
+# 指明允許覆蓋掉已發行的版本。
 ./script/upload.py --overwrite
 ```
 
