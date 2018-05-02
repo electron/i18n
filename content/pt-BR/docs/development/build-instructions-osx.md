@@ -47,25 +47,31 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ## Compilando
 
-Compilar `Release` e `Debug`:
+Build both `Release` and `Debug` targets:
 
 ```sh
 $ ./script/build.py
 ```
 
-Você pode também compilar somente o `Debug`:
+You can also only build the `Debug` target:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-Após a finalização da compilação, você pode encontrar `Electron.app` no caminho `out/D`.
+After building is done, you can find `Electron.app` under `out/D`.
 
 ## Suporte 32bits
 
-Electron pode somente compilar para 64bit no macOS, não existe nenhum plano para suportar a compilação de 32bits no futuro.
+Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
 ## Excluindo
 
