@@ -1,6 +1,6 @@
 # Issues In Electron
 
-# Issues
+# Problemi
 
 * [How to Contribute in Issues](#how-to-contribute-in-issues)
 * [Asking for General Help](#asking-for-general-help)
