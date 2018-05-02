@@ -39,14 +39,14 @@ community:
 releases: הפצות
 electron_is_easy:
   title: זה קל משאתה חושב
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  description: אם אתה יכול לבנות אתר אתה יוכל לבנות גם יישומי מחשב. Electron הוא framework לפיתוח יישומים למערכות הפעלה שנות בטכנולוגיות פיתוח אתרים כמו JavaScript, HTML, ו-CSS. Electron דואג להתאמות השונות כך שאתם תוכלו להתמקד בעיקר היישום שלכם.
+  video_link: צפא בסרטון
 web_technologies:
-  title: Web Technologies
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  title: טכנולוגיות פיתוח אתרים
+  description: Electron עושה שימוש ב-Chromium וב-Node.js fl כך שתוכלו לבנות את היישום שלכם עם HTML, CSS, ו- JavaScript.
 open_source:
-  title: Open Source
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  title: קוד פתוח
+  description: Electron הוא פרוייקט קוד פתוח המתוחזק על ידי GitHub וקהילה פעילה של תורמים.
 cross_platform:
   title: Cross Platform
   description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
