@@ -103,7 +103,7 @@ Callback会被调用，参数是session的当前缓存大小。
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - 会在操作完成后被调用.
+* `callback` Function (可选) - 会在操作完成后被调用.
 
 清除Web storage的数据。
 
@@ -183,7 +183,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `path` String - 下载地址.
 
 设置下载保存目录。默认情况下, 下载目录将是相应应用程序文件夹下的 `Downloads`。
 
@@ -250,8 +250,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Function | null 
   * `webContents` [WebContents](web-contents.md) - 请求权限的WebContents。
   * `permission` String - 枚举 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
-    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `callback` Function - 回调函数 
+    * `permissionGranted` Boolean - 允许或拒绝该权限.
   * `details` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
 
@@ -307,7 +307,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - 有效的 UUID.
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `result` Buffer - Blob 数据.
 
 #### `ses.createInterruptedDownload(options)`
@@ -322,14 +322,14 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
   * `eTag` String - ETag 标头值。
   * `startTime` Double (optional) - 下载的时间是从 UNIX 时代以来的秒数开始的。
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+允许从上一个 `Session` 恢复 ` cancelled ` 或 ` interrupted ` 下载。 该 API 将生成一个 [ DownloadItem ](download-item.md), 可使用 [ will-download ](#event-will-download) 事件进行访问。 [ DownloadItem ](download-item.md) 将不具有与之关联的任何 ` WebContents `, 并且初始状态将为 ` interrupted `。 只有在 [ DownloadItem ](download-item.md) 上调用 ` resume ` API 时, 才会启动下载。
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (optional) - 会在操作完成后被调用.
 
-Clears the session’s HTTP authentication cache.
+清除会话的 HTTP 身份验证缓存。
 
 #### `ses.setPreloads(preloads)`
 
@@ -343,19 +343,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### 实例属性
 
-The following properties are available on instances of `Session`:
+以下属性在` Session </ 0>实例上可用：</p>
 
-#### `ses.cookies`
+<h4><code>ses.cookies`</h4> 
 
-A [Cookies](cookies.md) object for this session.
+此会话的 [ cookie ](cookies.md) 对象。
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+此会话的 [WebRequest](web-request.md) 对象。
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+此会话的 [ 协议 ](protocol.md) 对象。
 
 ```javascript
 const {app, session} = require('electron')
