@@ -69,7 +69,7 @@ npm install --save-dev electron
 
 ## Разработка Electron в двух словах
 
-Разработка Electron приложения ведется на JavaScript, при использовании тех же принципов и методов, которые можно найти в разработке на Node.js. Все особенности API и сам API Electron'а доступен через `electron` модуль, который может быть использован как и любой Node.js модуль:
+Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. Все особенности API и сам API Electron'а доступен через `electron` модуль, который может быть использован как и любой Node.js модуль:
 
 ```javascript
 const electron = require('electron')
