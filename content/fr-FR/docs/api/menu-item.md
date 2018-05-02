@@ -44,10 +44,10 @@ La propriété `role` peut avoir les valeurs suivantes :
 * `pasteAndMatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit`- Quit the application.
-* `reload` - Reload the current window.
+* `minimize` - Minimise la fenêtre courante.
+* `close` - Ferme la fenêtre courante.
+* `quit`- Quitte l'application.
+* `reload` - Recharge la fenêtre courante.
 * `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `toggleFullScreen`- Toggle full screen mode on the current window.
@@ -104,8 +104,8 @@ You can add a `click` function for additional behavior.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label.
+Un `String` représentant le libellé visible des éléments de menu.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+Une `Function` qui est activée lorsque l'élément MenuItem reçoit un événement de clic.
