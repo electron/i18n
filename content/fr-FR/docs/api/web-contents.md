@@ -250,19 +250,19 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `input` Object - Input properties. 
-  * `type` String - Either `keyUp` or `keyDown`.
-  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+* `input` Object - propriétés de l'input. 
+  * `type` String - `keyUp` ou `keyDown`.
+  * `key` String - Équivalent à [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `code` String - Équivalent à [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `isAutoRepeat` Boolean - Équivalent à [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `shift` Boolean - Équivalent à [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `control` Boolean - Équivalent à [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `alt` Boolean - Équivalent à [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `meta` Boolean - Équivalent à [KeyboardEvent.metakey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
 
 Émis avant d'envoyer les événements `keydown` et `keyup` dans la page. Appeler `event.preventDefault` empêchera les événements `keydown`/`keyup` et les raccourcis du menu dans la page.
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental):
+Pour seulement empêcher les raccourcis du menu, utilisez [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -294,10 +294,10 @@ Retourne :
 
 * `event` Événement
 * `url` String
-* `error` String - The error code.
+* `error` String - Le code d'erreur.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
+  * `isTrusted` Boolean - Indique si le certificat peut être considéré comme fiable.
 
 Émis lorsqu'il n'a pas pu vérifier le `certificat` de l'`url`.
 
@@ -311,7 +311,7 @@ Retourne :
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
+  * `certificate` [Certificate](structures/certificate.md) - Doit être un certificat dans la liste donnée.
 
 Émis lorsqu'un certificat client est demandé.
 
@@ -391,9 +391,9 @@ Retourne :
 * `event` Événement
 * `type` String
 * `image` [NativeImage](native-image.md) (facultatif)
-* `scale` Float (optional) - scaling factor for the custom cursor.
-* `size` [Size](structures/size.md) (optional) - the size of the `image`.
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
+* `scale` Float (facultatif) - Facteur de mise à l'échelle pour le curseur personnalisé.
+* `size` [Size](structures/size.md) (facultatif) - La taille de l'`image`.
+* `hotspot` [Point](structures/point.md) (facultatif) - Coordonnées du point actif du curseur personnalisé.
 
 Émis lorsque le type du curseur change. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
@@ -405,8 +405,8 @@ Retourne :
 
 * `event` Événement
 * `params` Objet 
-  * `x` Integer - x coordinate.
-  * `y` Integer - y coordinate.
+  * `x` Integer - coordonnée x.
+  * `y` Integer - coordonée y.
   * `linkURL` String - L'URL du lien qui englobe le nœud du menu contextuel.
   * `linkText` String - Texte associé au lien. Peut être une chaîne de caractère vide si le contenu du lien est une image.
   * `pageURL` String - L'URL de la page haut niveau d'où le menu contextuel a été invoqué.
@@ -499,7 +499,7 @@ win.loadURL('http://github.com')
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `webPreferences` Object - Les préférences web qui seront utilisées par la page invitée. Cet objet peut être modifié pour ajuster les préférences pour la page invitée.
 * `params` Object - Les autres `<webview>` paramètres tels que l'URL `src`. Cet objet peut être modifiée pour s'ajuster aux paramètres de la page invitée.
 
@@ -537,7 +537,7 @@ Emis quand la fenêtre associée enregistre un message dans la console. Ne sera 
 * `options` Object (facultatif) 
   * `httpReferrer` String (optionnel) - Une URL de référent HTTP.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n".
+  * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
@@ -577,7 +577,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Retourne `String` - l'URL de la page web courante.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -590,31 +590,31 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+Retourne `String` - le titre de la page web courante.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+Retourne `Boolean` - si la page web est détruite.
 
 #### `contents.focus()`
 
-Focuses the web page.
+Met au premier plan la page web.
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+Retourne `Boolean` - si la page web est au premier plan.
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+Retourne `Boolean` - Si la page web est toujours en train de charger des ressources.
 
 #### `contents.isLoadingMainFrame()`
 
-Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+Retourne `Boolean` - Si la frame principale (et pas seulement un iframe ou frames qu'il contient) sont toujours en chargement.
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+Retourne `Boolean` - Si la page web est en attente d'une première réponse de la principale ressource de la page.
 
 #### `contents.stop()`
 
@@ -622,11 +622,11 @@ Arrête toute navigation en attente.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Recharge la page web courante.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Recharge la page courante et ignore le cache.
 
 #### `contents.canGoBack()`
 
@@ -684,7 +684,7 @@ Returns `String` - The user agent for this web page.
 
 * `css` String
 
-Injects CSS into the current web page.
+Injecte du CSS dans la page web actuelle.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
@@ -739,7 +739,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - Niveau de zoom.
 
 Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement. The formula for this is `scale := 1.2 ^ level`.
 
@@ -860,7 +860,7 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
+* `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -882,7 +882,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+Récupère la liste des imprimantes système.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md).
 
@@ -1035,25 +1035,25 @@ app.once('ready', () => {
 * `options` Object (facultatif) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
-Opens the devtools.
+Ouvre les devtools.
 
 When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Ferme les devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Retourne `Boolean` - Si les devtools sont ouvert.
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Retourne `Boolean` - Si les devtools ont le focus.
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Active/désactive les outils développeur.
 
 #### `contents.inspectElement(x, y)`
 
@@ -1136,8 +1136,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**requis**)
+* `y` Integer (**requis**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`.
 * `globalX` Integer
 * `globalY` Integer
@@ -1201,7 +1201,7 @@ win.loadURL('https://github.com')
 
 win.webContents.on('did-finish-load', () => {
   win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+    if (!error) console.log('Page sauvegardée correctement')
   })
 })
 ```
