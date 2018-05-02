@@ -37,7 +37,7 @@ If your app is packaged with [`electron-builder`](https://github.com/electron-us
 
 If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
 
-Depending on your needs, you can choose from one of these:
+आपकी आवश्यकताओं के अनुसार, आप निम्नलिखित में से कोई भी चुन सकते हैं:
 
 - [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
 - [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
@@ -46,24 +46,25 @@ Depending on your needs, you can choose from one of these:
 
 ## Implementing Updates in Your App
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+एक बार जब आपने अपना अपडेट सर्वर स्थापित कर दिया हो, फिर आप आवश्यक मोडयुल्स को अपने कोड में इम्पोर्ट करना शुरू कर सकते हैं | निम्नलिखित कोड विभिन्न सर्वर सॉफ्टवेर के लिए अलग हो सकता है, पर [हेज़ल](https://github.com/zeit/hazel) का इस्तेमाल करने के दौरान यह नीचे दिए गये विवरण की तरह काम करता है |
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**महत्वपूर्ण:** कृप्या ध्यान दें कि निम्नलिखित कोड केवल आपकी पैकेज्ड एप्प में चलेगा, न कि विकास में | वातावरण को जाँचने के लिए आप [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) का इस्तेमाल कर सकते हैं |
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+उसके बाद, अपडेट सर्वर का यूआरएल निर्मित करें और [ऑटोअपडेटर](../api/auto-updater.md) को उसके बारे में बतायें:
 
 ```javascript
 const server = 'https://your-deployment-url.com'
-const feed = `${server}/update/${process.platform}/${app.getVersion()}`
+const feed = `${server}/update/${process.platform}
+/${app.getVersion()}`
 
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+अंतिम चरण में, अपडेटस के लिए जाँचें | निम्नलिखित उदाहरण हर मिनट जाँचेगा:
 
 ```javascript
 setInterval(() => {
@@ -75,17 +76,18 @@ Once your application is [packaged](../tutorial/application-distribution.md), it
 
 ## Applying Updates
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+अब जब आपने अपनी एप्लीकेशन के लिए बुनियादी अपडेट प्रणाली को कॉन्फ़िगर कर लिया है, तो आपको यह सुनिश्चित करना होगा कि जब भी एक अपडेट आये तो उपयोगकर्ता को उसके बारे में सुचना मिलें | इसे आप ऑटोअपडेटर ऐपीआई [इवेंट्स](../api/auto-updater.md#events) का इस्तेमाल कर के प्राप्त कर सकते हैं:
 
 ```javascript
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+autoUpdater.on('update-downloaded', (event, releaseNotes,
+releaseName) => {
   const dialogOpts = {
     type: 'info',
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
     detail: 'A new version has been downloaded. Restart the application to apply the updates.'
-  }
+ }
 
   dialog.showMessageBox(dialogOpts, (response) => {
     if (response === 0) autoUpdater.quitAndInstall()
@@ -93,7 +95,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+साथ ही यह भी सुनिश्चित करें कि त्रुटियाँ [संभाली जा रही है](../api/auto-updater.md#event-error) | `stderr` में उनकी लॉगिंग करने का यह एक उदाहरण है:
 
 ```javascript
 autoUpdater.on('error', message => {
