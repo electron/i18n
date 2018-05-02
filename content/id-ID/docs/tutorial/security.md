@@ -35,19 +35,19 @@ objek <code> process.env </ code> atau <code>> </ code>.</p>
 tingkatkan keamanan aplikasi Anda.</p>
 
 <ol>
-<li><a href="#only-load-secure-content">Hanya memuat konten aman</a></li>
-<li><a href="#disable-node.js-integration-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
-<li><a href="#enable-context-isolation-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
-<li><a href="#handle-session-permission-requests-from-remote-content">Gunakan <code>ses.setPermissionRequestHandler ()</ 0> di semua sesi yang memuat konten jauh</a></li>
-<li><a href="#do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`</a></li> 
+<li><a href="#1-only-load-secure-content">Hanya memuat konten aman</a></li>
+<li><a href="#-2-disable-nodejs-integration-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
+<li><a href="#-3-enable-context-isolation-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
+<li><a href="#-4-handle-session-permission-requests-from-remote-content">Gunakan <code>ses.setPermissionRequestHandler ()</ 0> di semua sesi yang memuat konten jauh</a></li>
+<li><a href="#-5-do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`</a></li> 
 
-- [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-- [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
-- [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#do-not-set-allowRunningInsecureContent-to-true)
-- [Tidak mengaktifkan fitur eksperimental](#do-not-enable-experimental-features)
-- [Jangan gunakan <kode>berkedipFitur</kode>](#do-not-use-blinkfeatures)
-- [Tampilan Web: Jangan gunakan `allowpopups`](#do-not-use-allowpopups)
-- [WebViews: Memverifikasi pilihan dan params semua tag `<webview>`](#verify-webview-options-before-creation)</ol> 
+- [Define a `Content-Security-Policy`](#-6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+- [Override and disable `eval`](#-7-override-and-disable-eval), which allows strings to be executed as code.
+- [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#-8-do-not-set-allowrunninginsecurecontent-to-true)
+- [Tidak mengaktifkan fitur eksperimental](#-9-do-not-enable-experimental-features)
+- [Jangan gunakan <kode>berkedipFitur</kode>](#-10-do-not-use-blinkfeatures)
+- [Tampilan Web: Jangan gunakan `allowpopups`](#-11-do-not-use-allowpopups)
+- [WebViews: Memverifikasi pilihan dan params semua tag `<webview>`](#-12-verify-webview-options-before-creation)</ol> 
 
 ## 1) Hanya memuat konten aman
 
@@ -273,13 +273,13 @@ window.eval = global.eval = function () {
 
 *Rekomendasi adalah elektron 's default*
 
-By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
+By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
 Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
 
 ### Mengapa?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
+Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
 
 ### Bagaimana?
 
