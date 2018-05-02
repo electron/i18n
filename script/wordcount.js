@@ -11,7 +11,7 @@ console.log(`# Word Count`)
 analyze(path.join(__dirname, '../content/en-US'), 'English')
 analyze(path.join(__dirname, '../content'), 'All Languages')
 
-function analyze(dir, title) {
+function analyze (dir, title) {
   const files = walk(dir, {directories: false}).map(f => path.join(dir, f))
   const words = chain(files)
     .map(file => matchWords(fs.readFileSync(file, 'utf8')))
@@ -19,7 +19,7 @@ function analyze(dir, title) {
     .value()
   const counts = files.map(f => (matchWords(fs.readFileSync(f, 'utf8')) || []).length)
   const {average, sum} = require('simple-statistics')
-  
+
   const results = {
     'total files': files.length,
     'total words': sum(counts),
