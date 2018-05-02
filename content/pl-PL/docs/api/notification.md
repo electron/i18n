@@ -1,6 +1,6 @@
 # Powiadomienie
 
-> Tworzy powiadomienia na pulpicie
+> Tworzenie powiadomień na pulpicie
 
 Proces: [Main](../glossary.md#main-process)
 
@@ -10,11 +10,11 @@ Jeśli chcesz wyświetlać powiadomienia z procesu renderowania należy użyć i
 
 ## Klasa: Powiadomienie
 
-> Tworzenie powiadomień na pulpicie
+> Tworzy powiadomienia na pulpicie
 
 Proces: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` jest [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
