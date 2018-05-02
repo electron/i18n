@@ -21,7 +21,7 @@ There are a handful of `*_TOKEN` environment variables needed by the release scr
 
 ## Run the prepare-release script
 
-The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Créer une branche release. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Pousser vers la branche release. 6. Call the APIs to run the release builds.
 
 Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
 
@@ -63,7 +63,7 @@ Tip: You can test the new version number before running `prepare-release` with a
 $ ./script/bump-version.py --bump minor --dry-run
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## Attendre pendant la compilation :hourglass_flowing_sand:
 
 The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
 
@@ -72,15 +72,15 @@ The `prepare-release` script will trigger the builds via API calls. To monitor t
 - [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) pour Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
 
-## Compile release notes
+## Compiler les notes de publication
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Écrire une note de publication est un bon moyen de vous tenir occupé pendant que la compilation se fasse. Pour avoir un modèle, vous pouvez voir les publications existantes sur [la page des publications](https://github.com/electron/electron/releases).
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - Pour voir la version de Chromium, V8 et Node dans chaque version d'Electron, voir [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
 ### Versions patch
 
-For a `patch` release, use the following format:
+Pour une version `patch`, utilisez le format suivant :
 
 ```sh
 ## Bug Fixes
@@ -169,7 +169,7 @@ This release is published to [npm](https://www.npmjs.com/package/electron)
 under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
 
-## Edit the release draft
+## Modifier le projet de communiqué
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. Modifiez la version et ajouter des notes de publication.
@@ -200,11 +200,11 @@ npm run merge-release -- master
 npm run merge-release -- 1-7-x
 ```
 
-## Publish the release
+## Publier la release
 
-Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Créez et téléversez le fichier SHASUMS256.txt sauvegardé sur la release de Github. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
-## Publish to npm
+## Publier sur le npm
 
 Before publishing to npm, you'll need to log into npm as Electron. Optionally, you may find [npmrc](https://www.npmjs.com/package/npmrc) to be a useful way to keep Electron's profile side-by-side with your own:
 
