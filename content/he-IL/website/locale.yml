@@ -1,6 +1,6 @@
 tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
 nav:
-  docs: מסמכים
+  docs: תיעוד
   donors: תורמים
   blog: בלוג
   community: קהילה
@@ -13,25 +13,25 @@ nav:
   search: חיפוש
 docs:
   title: תיעוד Electron
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
-  guides: Guides
-  api_reference: API Reference
-  advanced: Advanced
+  description: צפא בכל <a href="/docs/all"> התיעוד בדף אחד</a> או חפש <href="/docs/faq"> בשאלות נפוצות </a>.
+  guides: מדריכים
+  api_reference: הפניה לממשק
+  advanced: הגדרות מתקדמות
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: שפר מסמך זה
+    version_history: היסטורית גירסאות
+    translate: תרגם דף זה
+    view_all_docs: כל המסמכים בעמוד אחד
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: בחרו בשפת התצוגה שלכם
+  translation_progress: התקדמות התרגום
+  current: גרסה נוכחית
 community:
-  title: Electron Community
+  title: קהילת Electron
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: כלים
   boilerplates: Boilerplates
-  components: Components
+  components: רכיבים
   videos: Videos
   meetups: Meetups
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
