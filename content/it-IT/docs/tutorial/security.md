@@ -1,32 +1,32 @@
-# Security, Native Capabilities, and Your Responsibility
+# Sicurezza, Funzioni Native e Tue Responsabilità
 
-As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+Come sviluppatori web, noi sfruttiamo spesso la forte rete di sicurezza del browser, il rischio associato con il codice che scriviamo è relativamente piccolo. I nostri siti web sono dotati in una sandbox di potenza limitata garantita e confidiamo nel fatto che i nostri utenti sfruttino un browser costruito da un grande team di ingegneri che sappiano rispondere velocemente a nuovi tratti di sicurezza.
 
-When working with Electron, it is important to understand that Electron is not a web browser. It allows you to build feature-rich desktop applications with familiar web technologies, but your code wields much greater power. JavaScript can access the filesystem, user shell, and more. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+Quando si lavora con Electron, è importante capire che Electron non è un browser web. Ti consente di costruire app desktop ricche di funzioni con tecnologie web familiari, ma il tuo codice esercita una potenza maggiore. JavaScript può accedere al file di sistema, alle shell utente ed altro. Ciò ti consente di costruire app native di alta qualità ma inerenti alla scala dei rischi di sicurezza con potenza addizionale garantita al tuo codice.
 
-With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
+Detto questo, sii consapevole che mostrare contenuti arbitrari da fonti inaffidabili pone il severo rischio di sicurezza che Electron non è destinato a gestire. Infatti, le app più popolari di Electron (Atom, Slack, Visual Studio Code, etc) mostrano contenuti locali primariamente (o affidabili, contenuti remoti sicuri senza integrazione di Node), se la tua app esegue codice da una fonte online, è tua responsabilità assicurarti che il codice non sia maligno.
 
-## Reporting Security Issues
+## Segnalazione Problemi Sicurezza
 
-For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Per informazioni su come divulgare propriamente una vulnerabilità di Electron vedi [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
-## Chromium Security Issues and Upgrades
+## Aggiornamenti e Problemi di Sicurezza di Chromium
 
-While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
+Mentre Electron si sforza di supportare nuove versioni di Chromium il prima possibile, gli sviluppatori dovrebbero essere consapevoli che aggiornare è un impegno serio, che coinvolge la modifica manuale di dozzine se non centinaia di file. Date le risorse ed i contributi disponibili oggi, Electrin non sarà spesso sull'ultima versione di Chromium, in ritardo di giorni o settimane.
 
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. Pull requests and contributions supporting this effort are always very welcome.
+Riteniamo che il sistema d'aggiornamento corrente dei componenti di Chromium dia un equilibrio adeguato tra le risorse disponibili e le necessità della maggioranza delle app costruite al massimo del framework. Siamo definitivamente interessati nell'ascoltare casi di utilizzi specifici da persone che costruiscono cose usando Electron. Richieste e contributi supportanti questo sforzo sono sempte molto benvenute.
 
-## Ignoring Above Advice
+## Consigli Sopra Ignorati
 
-A security issue exists whenever you receive code from a remote destination and execute it locally. As an example, consider a remote website being displayed inside a [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+Un problema di sicurezza esiste quando tu ricevi un codice da una destinazione remota e lo esegui localmente. Come ad esempio, consifera un sito web remoto mostrato in una [`FinestraBrowser`](../api/browser-window.md). Se un malintenzionato riesce in qualche modo a cambiare detto contenuto (o attaccando la fonte direttamente o ponendosi tra la tua app e la destinazione attuale) potranno eseguire il codice nativo sulla macchina dell'utente.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
+> :warning: Sotto nessuna circostanza dovreste caricare ed eseguire codice remoto con l'integrazione Node.js abilitata. Usa solo file locali (impacchettati insieme alla tua app) per eseguire il codice Node.js. Per mostrare un contenuto remoto, usa il tag [`webview`](../api/web-view.md) ed assicurati di disabilitare `nodeIntegration`.
 
-## Electron Security Warnings
+## Avvisi Sicurezza Electron
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
+Da Electron 2.0, gli sviluppatori vedranno avvisi e raccomandazioni stampate nella console sviluppatore. Mostrano solo quando il nome binario è Electron, indicando che uno sviluppatore sta guardando attualmente alla console.
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+Puoi abilitare o disabilitare forzatamente questi avvisi impostando `ELECTRON_ABILITA_SICUREZZA_AVVISI` o `ELECTRON_DISABILITA_SICUREZZA_AVVISI` sull'oggetto `processo.enb` o sull'oggetto `finestra`.
 
 ## Checklist: Security Recommendations
 
