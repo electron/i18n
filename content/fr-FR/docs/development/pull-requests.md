@@ -1,9 +1,9 @@
-# Proposer une Evolution: Demande de Pull
+# Pull Requests
 
 * [Dependances](#dependencies)
 * [Configurer votre environnement local](#setting-up-your-local-environment) 
   * [Étape 1 : Dupliquer un projet](#step-1-fork)
-  * [Etape 2 : Construire, compiler](#step-2-build)
+  * [Etape 2 : construire, compiler](#step-2-build)
   * [Step 3: Branches](#step-3-branch)
 * [Apporter des changements](#making-changes) 
   * [Étape 4 : Code](#step-4-code)
@@ -31,7 +31,7 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Etape 2 : construire, compiler
+### Etape 2 : Construire, compiler
 
 Le type de système d'exploitation peut faire varier les étapes de construction et les dépendances. Reportez vous au guide dédié pour compiler Electron:
 
@@ -72,7 +72,7 @@ Au final lorsqu'ils sont revus, de nombreux commit sont fusionnés.
 
 #### Ecrire un messages de modification
 
-A good commit message should describe what changed and why. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+Un bon message de modification/commit doit décrire le changement et sa raison. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
 Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
 
@@ -97,10 +97,10 @@ Common prefixes:
 
 Other things to keep in mind when writing a commit message:
 
-1. The first line should: 
+1. La première ligne doit : 
   * contenir une courte description de la modification (de préférence moins de 50 caractères, et pas plus de 72)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
-2. Keep the second line blank.
+  * être entièrement en minuscules à l’exception des noms propres, acronymes et les mots qui font référence au code, comme les noms de variable/fonction
+2. Garder vide la deuxième ligne.
 3. Ne pas dépasser 72 caractères pour les lignes suivantes.
 
 #### Breaking Changes
@@ -111,26 +111,26 @@ See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### Étape 6 : Refonder - Rebase
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+Une fois vos changements livrés-"committés", il est recommander d'utiliser `git rebase` plutôt que `git merge` pour réintégrer l'historique général dans votre branche de travail.
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` master.
+Cela garanti à votre branche de contenir les derniers changements du master de `electron/electron`.
 
 ### Étape 7 : Tester
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Corrections et fonctionnalités doivent toujours être accompagnées de tests. Un [guide du test](https://electronjs.org/docs/development/testing) est fourni pour rendre le travail plus facile. S'inspirer d'autres tests peut aussi aider.
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+Exécutez toujours la suite de tests complète avant de soumettre une contribution. Pour exécuter les tests:
 
 ```sh
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+Assurez-vous que linter ne renvoie aucun problème et que tous les tests passent. Ne soumettez aucun patch ne passant pas l'un des tests.
 
 If you are updating tests and just want to run a single spec to check it:
 
@@ -142,7 +142,7 @@ The above would only run spec modules matching `menu`, which is useful for anyon
 
 ### Étape 8 : Pousser
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+Dès que vos commit sont prêts -- tests et lint inclus --, la procédure de soumission commence par un push de votre branche vers votre fork sur Github.
 
 ```sh
 $ git push origin my-branch
@@ -150,7 +150,7 @@ $ git push origin my-branch
 
 ### Étape 9 : Ouvrir la proposition d'évolution - la demande de Pull
 
-From within GitHub, opening a new pull request will present you with a template that should be filled out:
+Depuis GitHub, en ouvrant une proposition de contribution dite --pull request--, vous aurez à remplir un caneva :
 
 ```markdown
 <!--
