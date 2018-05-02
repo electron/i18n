@@ -35,8 +35,8 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 #### Събитие: 'changed'
 
-* `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
+* `event` Събитие
+* `cookie` [Cookie](structures/cookie.md) - бисквитката, която е променена.
 * `cause` String - Причината за промяната, една от следните стойности: 
   * `explicit` - Бисквитката е променена директно чрез действие на потребителя.
   * `overwrite` - Бисквитката е изтрита автоматично поради действие 'Insert', което я е презаписало.
@@ -60,7 +60,7 @@ The following methods are available on instances of `Cookies`:
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `обратно повикване` Функция 
+* `обратно повикване` Function 
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
