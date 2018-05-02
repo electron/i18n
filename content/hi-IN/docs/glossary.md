@@ -28,29 +28,29 @@
 
 Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
-### IPC
+### आईपीसी
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+आईपीसी का मतलब है अंतर-प्रक्रिया संवाद | इलेक्ट्रॉन आईपीसी का इस्तेमाल [मुख्य](#main-process) और [रेंदेरेर](#renderer-process) प्रक्रियाओं के बीच श्रृंखलाबद्ध जेएसओएन सन्देश भेजने के लिए करता है |
 
-### libchromiumcontent
+### लिब क्रोमियम कंटेंट
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+एक साझा लाइब्रेरी जो [क्रोमियम कंटेंट मोड्यूल](https://www.chromium.org/developers/content-module) और उसके सभी आश्रितों (जैसे कि ब्लिंक, [वी8](#v8) आदि) को समेटे हुए है | इसे "लिबसीसी" के नाम से भी जाना जाता है |
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### मुख्य प्रक्रिया
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+मुख्य प्रक्रिया, सामान्यतः `मेन.जेएस` नामक एक फाइल है, जो कि हर इलेक्ट्रॉन एप्प का प्रवेश द्वार है | यह एक एप्प के जीवन को नियंत्रित करता है, शुरू से अंत तक | या मेन्यु, मेन्यु बार, डॉक, ट्रे, आदि जैसे मूल तत्वों को भी प्रबंधित करता है | एप्प में हर नयी रेंदेरेर प्रक्रिया को निर्मित करने के लिए मुख्य प्रक्रिया जिम्मेदार है | पूर्ण नोड ऐपीआई इसमें पूर्व निर्मित है |
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+हर एप्प की मुख्य प्रक्रिया फाइल, `पैकेज.जेएसओएन` में `मेन` गुण में निर्दिष्ट है | इस तरह से `इलेक्ट्रॉन.` को पता चलता है कि स्टार्टउप के समय कौन सी फाइल को चलाना है |
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+क्रोमियम में, इस प्रक्रिया को "ब्राउज़र प्रक्रिया" के नाम से जाना जाता है | इलेक्ट्रॉन में इसका नाम बदल दिया गया है ताकि रेंदेरेर प्रक्रिया से भ्रमित न हो जाये |
 
-See also: [process](#process), [renderer process](#renderer-process)
+इसे भी देखें: [प्रक्रिया](#process), [रेंदेरेर प्रक्रिया](#renderer-process)
 
-### MAS
+### एमऐएस
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+इसका मतलब है मैक एप्पल स्टोर | एमऐएस पर अपनी एप्प सबमिट करने के लिए, [मैक एप्पल स्टोर सबमिशन गाइड](tutorial/mac-app-store-submission-guide.md) गाइड देखें |
 
 ### Mojo
 
@@ -58,60 +58,60 @@ An IPC system for communicating intra- or inter-process, and that's important be
 
 See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-### native modules
+### मूल मोडयुल्स
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+मूल मोडयुल्स (नोड.जेएस में इन्हें [ऐडओंन्स](https://nodejs.org/api/addons.html) भी कहा जाता है) सी या सी++ में लिखे वे मोडयुल्स हैं, जो रेकुआयर() फंक्शन का इस्तेमाल करके नोड.जेएस या इलेक्ट्रॉन में लोड किये जा सकते हैं, और उसी तरह से इस्तेमाल किये जाते हैं जैसे कि कोई सामान्य नोड.जेएस मोड्यूल हो | वे मुख्यतः नोड.जेएस और सी/सी++ लाइब्रेरीज में चल रही जावास्क्रिप्ट को इंटरफ़ेस प्रदान करने के लिए इस्तेमाल किये जाते हैं |
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+मूल नोड मोडयुल्स इलेक्ट्रॉन द्वारा समर्थित हैं, पर चूँकि इस बात की काफी सम्भावना है कि इलेक्ट्रॉन आपके सिस्टम में इन्स्टाल नोड बाइनरी से अलग वी8 संस्करण इस्तेमाल करता हो; इसलिए मूल मोडयुल्स का निर्माण करते वक़्त आपको मैन्युअली ही इलेक्ट्रॉन के हेडर्स की लोकेशन निर्दिष्ट करनी होगी |
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+इसे भी देखें: [मूल नोड मोडयुल्स का इस्तेमाल करना](tutorial/using-native-node-modules.md) |
 
-### NSIS
+### एनएसआईएस
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+नल्लसॉफ्ट स्क्रिप्टएबल इनस्टॉल सिस्टम, माइक्रोसॉफ्ट विंडोज के लिए एक स्क्रिप्ट-संचालित इंस्टालर ऑथरिंग टूल है | इसे मुफ़्त सॉफ्टवेर लाइसेंस के एक संयोजन के रूप में जारी किया गया है, और यह इनस्टॉलशील्ड जैसे व्यावसायिक उत्पादों के विकल्प में व्यापक रूप से इस्तेमाल किया जाता है | [इलेक्ट्रॉन -बिल्डर](https://github.com/electron-userland/electron-builder), एनएसआईएस का एक निर्माण लक्ष्य के रूप में समर्थन करता है |
 
-### OSR
+### ओएसआर
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+ओएसआर (ऑफ-स्क्रीन रेंडरिंग) का इस्तेमाल बैकग्राउंड में भारी पेज लोड करने के लिए और फिर बाद में उसे डिस्प्ले करने के लिए (वह और भी तेज़ हो जायेगा) किया जा सकता है| यह आपको स्क्रीन पर दिखाये बिना रेंडर करने की अनुमति देता है |
 
 ### प्रक्रिया
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+प्रक्रिया, कंप्यूटर प्रोग्राम का वह रूप है जो उस समय चल रहा होता है | इलेक्ट्रॉन एप्प्स जो [मुख्य](#main-process) और एक या कई [रेंदेरेर](#renderer-process) प्रक्रियाओं का इस्तेमाल करती हैं, वे असल में बहुत सारे प्रोग्रम्म्स को एक साथ चला रही होती हैं |
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+नोड.जेएस और इलेक्ट्रॉन में, हर चलती प्रक्रिया के पास एक `प्रोसेस` ऑब्जेक्ट होता है | यह ऑब्जेक्ट एक वैश्विक होता है, और यह वर्तमान प्रोसेस की जानकारी और उस पर नियंत्रण देता है | चूँकि यह एक वैश्विक है, इसलिए यह सभी एप्लीकेशनस को बिना रेकुआयर() के उपलब्ध होता है |
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+इसे भी देखें: [मुख्य प्रक्रिया](#main-process), [रेंदेरेर प्रक्रिया](#renderer-process)
 
-### renderer process
+### रेंदेरेर प्रक्रिया
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+रेंदेरेर प्रक्रिया आपकी एप्प में एक ब्राउज़र विंडो है |मुख्य प्रक्रिया के विपरीत, ये कई सारी हो सकती हैं और हर एक रेंदेरेर प्रक्रिया एक अलग प्रक्रिया में चलती है | इन्हें छुपाया भी जा सकता है |
 
 सामान्य ब्राउज़र्स में, वेब पेजेस अक्सर सैंडबॉक्स वातावरण में चलते हैं और इन्हें मूल संसाधनों तक पहुँच उपलब्ध नहीं होती | पर इलेक्ट्रॉन उपयोगकर्ताओं के पास वेब पेजेज में नोड.जेएस का इस्तेमाल करने की शक्ति होती है, जिससे कि वे ऑपरेटिंग सिस्टम के निचले स्तर की इंटरेक्शन कर सकते हैं |
 
-See also: [process](#process), [main process](#main-process)
+इसे भी देखें: [प्रक्रिया](#process), [मुख्य प्रक्रिया](#main-process)
 
-### Squirrel
+### स्कुइर्रेल
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+स्कुइर्रेल एक मुक्त स्त्रोत ढांचा है, जो इलेक्ट्रॉन एप्प्स को नये संस्करण आने पर स्वतः ही अपडेट होने की क्षमता प्रदान करता है | स्कुइर्रेल के साथ शुरुआत करने की जानकारी पाने के लिए, [स्वतः अपडेटर](api/auto-updater.md) ऐपीआई देखें |
 
-### userland
+### यूजरलैंड
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+यह शब्द यूनिक्स समुदाय में उत्पन्न हुआ था, जहाँ "यूजरलैंड" या "यूजरस्पेस" उन प्रोग्रम्म्स को कहते थे जो ऑपरेटिंग सिस्टम कर्नेल के बाहर चलते थे | बड़े "यूजर" समुदाय द्वारा हाल ही में, यह शब्द "नोड कोर" और एनपीएम रजिस्ट्री में प्रकाशित पैकेजेस में मौज़ूद सुविधाओं के बीच अंतर करने के लिए नोड और एनपीएम समुदायों में काफी मशहूर किया गया है |
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+नोड ही की तरह, इलेक्ट्रॉन का ध्यान भी ऐपीआई का एक छोटा सा सेट रखने पर केन्द्रित है जो बहु-प्लेटफार्म डेस्कटॉप एप्लीकेशनस का विकास करने के लिए सभी ज़रूरी प्रिमिटिव्स प्रदान कर सके | यही डिजाईन सोच इलेक्ट्रॉन को बहुत ज्यादा नियमों और इस्तेमाल करने के बारे में बताने की बजाये, एक लचीला औज़ार बने रहने में मदद करती है | यूजरलैंड उपयोगकर्ताओं को उन औजारों को बनाने और साझा करने की सुविधा प्रदान करता है जो "कोर" में मौज़ूद चीज़ों के साथ-साथ दूसरी कार्यक्षमता भी प्रदान करते हों |
 
-### V8
+### वी8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+वी8 गूगल का मुक्त स्त्रोत जावास्क्रिप्ट इंजन है | यह सी++ में लिखा गया है और गूगल क्रोम में इस्तेमाल होता है | वी8 अकेला चल सकता है, या किसी भी सी++ एप्लीकेशन में डाला जा सकता है |
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+इलेक्ट्रॉन वी8 का निर्माण क्रोमियम के हिस्से के रूप में करता है और फ़िर निर्माण करने के दौरान नोड का उस वी8 की तरफ इशारा कर देता है |
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+वी8 की संस्करण संख्या हमेशा गूगल क्रोम की संस्करण संख्या समान होती है | क्रोम 59 शामिल करता है वी8 5.9, क्रोम 58 शामिल करता है वी8 5.8, आदि |
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 
-### webview
+### वेबव्यू
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`वेबव्यू` टैग्स का इस्तेमाल 'मेहमान' सामग्री (जैसे कि बाहरी वेब पेजेस) को आपकी इलेक्ट्रॉन एप्प में शामिल करने के लिए होता है | ये `आईफ्रेम` के जैसे होते हैं, पर अंतर यह होता है कि ये एक अलग प्रक्रिया में चलते हैं | इसके पास आपके वेब पेज जैसी अनुमतियाँ नहीं होती हैं और आपकी एप्प और शामिल सामग्री के बीच सभी इंटरेक्शन बिना ताल-मेल के होगी | इससे आपकी एप्प, शामिल सामग्री से सुरक्षित रहती है |
