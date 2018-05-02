@@ -30,27 +30,27 @@ Interface description language. Write function signatures and data types in a fo
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC е абревиатура за Между Процесорна Комуникация (Inter-Process Communication). Електрон използва IPC да изпрати сериализирани JSON съобщения между [основния](#main-process) процес и [рендериращия](#renderer-process) процес.
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+Споделена Библиотека, която включва [Chromium Content module](https://www.chromium.org/developers/content-module) и всички негови зависимости (например, Blink, [V8](#v8), и т.н.). Наричана също "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### основен процес
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Основният процес, обикновено е файл с име `main.js`, като той е входната точка за всяко Електрон приложение. Той контролира "живота" на приложението, от отваряне до затваряне. Той също така управлява родни за устройството елементи като меню, лента с менюта, док, табла/Tray и др. Основният процес е отговорен за създаването на всеки нов процес на рендиране в приложението. Пълният Node API е вграден.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Всеки основен процес на приложението е файл указан в `main` свойството в `package.json`. Така `Електрон.` знае кой файл, да изпълни при стартиране.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+В Chromium този процес е посочен като "браузър процес". Той е преименуван в Електрон, за да се избегне объркване с рендиращите процеси.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Виж още: [процес](#process), [рендериращ процес](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Акроним за Apple Mac App Store. За повече подробности за представяне на вашето приложение на MAS вижте [Mac App Store ръководство](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
@@ -58,60 +58,60 @@ An IPC system for communicating intra- or inter-process, and that's important be
 
 See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-### native modules
+### родния модули
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Родни модули (наричани [addons](https://nodejs.org/api/addons.html) в Node.js) са модули, написани на C или C++, които могат да бъдат заредени в Node.js или Електрон, използвайки функцията require(). Функциите от тези родни модули могат да се използват точно както ако бяха обикновени Node.js модули. Те се използват главно за осигурява интерфейс между JavaScript код в Node.js и C/C ++ библиотеки.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Родните Node модули се поддържат от Eлектрон, но тъй като Eлектрон е много вероятно да използва различна V8 версия от бинарната Node инсталация във вашата система, вие трябва ръчно да укажете местоположението на Електрон в заглавието при изграждането на родните модули.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Виж също [Използват родния Node модули](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft система за инсталационни скриптове е скрипт задвижващ авторски инструмент за инсталация при Microsoft Windows. Той е създаден от комбинация на лицензи за свободен софтуер и е широко използвана алтернатива на търговски патентовани продукти като InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) поддържа NSIS като изграждаща цел.
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (рендиране извън екрана) може да се използва за зареждане на голяма страница във фонов режим, като след това показването ѝ ще бъде много по-бързо. OSR ви позволява да направите страница без да се показва на екрана.
 
 ### процес
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Процесът е инстанция на компютърна програма, която се изпълнява. Електрон приложенията, които използват [main](#main-process) и един или много [renderer](#renderer-process) процеси всъщност изпълняват няколко програми едновременно.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+В Node.js и Електрон всеки работещ процес е обект от `process`. Този обект е глобален, като предоставя информация и контрол над, текущия процес. Тъй като е глобален, той винаги е достъпен за приложенията без да използвате require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Виж още: [process](#main-process), [render process](#renderer-process)
 
-### renderer process
+### рендериращ/изобразяващ процес
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Рендер процеса е браузър прозорец във вашето приложение. За разлика от основния/main процес, може да имате няколко рендер процеса и всеки да се изпълнява в отделно. Те също могат да бъдат и скрити.
 
 В нормални браузъри, уеб страниците обикновено работят в изолирана/sandboxed околна среда и не им е разрешен достъп до локални ресурси. Потребителите на Електрон обаче имат възможността да използват Node.js API функции в уеб страниците, което им позволява да си взаимодействат с по-долните слоеве на операционната система.
 
-See also: [process](#process), [main process](#main-process)
+Виж още: [process](#process), [render process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel е системна рамка с отворен код, която позволява на Електрон приложенията да се обновяват автоматично, когато има издадени нови версии. Виж [autoUpdater](api/auto-updater.md) API за повече информация как да започнем работа с Squirrel.
 
-### userland
+### потребителска страна
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Терминът идват от Unix обяността, където "userland" или "userspace" се отнасят за програми, които се изпълняват извън сърцевината на операционната система. В последно време, терминът бива популяризиран в Node и npm общностите, за да покаже разликата между същностните функции на Node и пакетираните функции публикувани в npm регистъра от много по-голямата потребителска общност, от там и термина "потребителска страна".
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Като Node така и Електрон е фокусиран върху малък набор от интерфейси, които осигуряват всички необходими примитиви за разработване на десктоп/настолни приложения за множество платформи. Тази дизайн философия позволява Електрон да остане гъвкав инструмент без да бъде прекалено ограничителен за това как трябва да се използва. Потребителската страна дава възможност на потребителите да създават и споделят инструменти, които осигуряват допълнителна функционалност, която липсва в "ядро" на Електрон.
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 е двигателя с отворен код, разработен от Google и задвижващ JavaScript кода. Той е написана на C++ и се използва в Google Chrome. V8 може да работи самостоятелно, или да бъде вграден във всяко C++ приложение.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Електрон изгражда V8 като част от Chromium и след това насочва Node към този V8 при изграждането му.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Номера на V8 версията винаги отговарят на тази на Google Chrome. Chrome 59 включва V8 5.9, Chrome 58 включва V8 5.8 и т. н.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 
-### webview
+### уеб изглед
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`WebView` етикетите се използват за вграждане на "гостуващо" съдържание (като например външни уеб страници) във вашето Електрон приложение. Те са подобни на `iframe`, но се различават по това че всяко webview (уеб изглед) се изпълнява в отделен процес. Не разполага със същите разрешения като вашата уеб страница и всички взаимодействия между приложението и вградено съдържание ще бъде асинхронно. Това поддържа вашето приложение в безопасност от вградените съдържания.
