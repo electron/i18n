@@ -70,10 +70,12 @@ Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
 `autoUpdater` nesnesi aşağıdaki yöntemleri içerir:
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` Dize
-* `requestHeaders` nesnesi *macOS* (isteğe bağlı) - HTTP başıkları ister.
+* `options` Obje 
+  * `url` Dize
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 `url`'i belirler ve otomatik güncelleyici başlar.
 
@@ -89,4 +91,6 @@ Sunucuya bir güncelleştirme olup olmadığını sorar. Bu API'yi kullanmadan �
 
 Uygulamayı yeniden başlatır ve indirmeler bittikten sonra güncellemeyi yükler. O yalnızca `update-downloaded` ortaya çıktıktan sonra çağırılmış olmalıdır.
 
-**Not:** `autoUpdater.quitAndInstall()` ilk olarak tüm uygulama pencerelerini kapatacak ve bundan sonra `uygulama` üzerinde sadece `before-quit` event'i ortaya çıkacak. Bu normal çıkış event sırasından farklıdır.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
