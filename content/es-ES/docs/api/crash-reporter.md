@@ -37,7 +37,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
   * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Booleano (opcional) - Por defecto es `false`.
   * `extra` Objeto (opcional) - Un objeto que se puede definir que será enviado a través del informe. Solo las propiedades de la cadena son enviadas correctamente. No se admiten objetos anidados y los nombres de propiedades y valores tener menos de 64 caracteres.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+  * `crashesDirectory` String (opcional) - Directorio para almacenar temporalmente los informes de errores (solo se usa cuando el proceso de notificación de errores se inicia a través de `process.crashReporter.start`).
 
 Es necesario llamar este método antes de utilizar cualquier otra API `crashReporter` y en cada proceso (main/renderer) del cual se quiera recopilar los informes de fallos. Se puede pasar diferentes opciones al `crashReporter.start` al llamar desde diferentes procesos.
 
@@ -84,7 +84,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean *macOS* - Si los informes deben enviarse o no al servidor.
 
 Esto es controlado normalmente por las preferencias del usuario. Esto no tiene efecto alguno si se llama antes de que se llame `start`.
 
@@ -99,7 +99,7 @@ Establecer un parámetro adicional que se enviará con el informe de fallos. Los
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
-* `key` Cadena - La clave del parámetro debe tener menos de 64 caracteres.
+* `key` String - La clave del parámetro, debe tener menos de 64 caracteres.
 
 Elimina un parámetro extra del conjunto actual de parámetros para que no se envíe con el informe de fallos.
 
