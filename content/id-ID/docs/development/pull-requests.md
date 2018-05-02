@@ -3,15 +3,15 @@
 * [Ketergantungan](#dependencies)
 * [Atur ulang lingkungan lokal anda](#setting-up-your-local-environment) 
   * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes) 
-  * [Step 4: Code](#step-4-code)
-  * [Step 5: Commit](#step-5-commit) 
-    * [Commit message guidelines](#commit-message-guidelines)
-  * [Step 6: Rebase](#step-6-rebase)
-  * [Step 7: Test](#step-7-test)
-  * [Step 8: Push](#step-8-push)
+  * [Langkah 2: Membangun](#step-2-build)
+  * [Langkah 3: Cabang](#step-3-branch)
+* [Membuat Perubahan](#making-changes) 
+  * [Langkah 4: Kode](#step-4-code)
+  * [Langkah 5: Mempercayakan](#step-5-commit) 
+    * [Panduan pesan Commit](#commit-message-guidelines)
+  * [Langkah 6: Rebase](#step-6-rebase)
+  * [Langkah 7: Tes](#step-7-test)
+  * [Langkah 8: Push](#step-8-push)
   * [Step 9: Opening the Pull Request](#step-9-opening-the-pull-request)
   * [Step 10: Discuss and Update](#step-10-discuss-and-update) 
     * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
@@ -72,7 +72,7 @@ Perhatikan bahwa commit yang bebeapa kali sering terjepit ketika commit tersebut
 
 #### Panduan pesan Commit
 
-A good commit message should describe what changed and why. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+Sebuah pesan commit yang bagus harus menjelaskan perubahan apa dan mengapa. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
 Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
 
@@ -97,10 +97,10 @@ Common prefixes:
 
 Other things to keep in mind when writing a commit message:
 
-1. The first line should: 
+1. Baris pertama harus: 
   * mengandung deskripsi yang singkat tentang perubahan ( Disarankan 50 karakter atau kurang dan tidak lebih dari 72 karakter)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
-2. Keep the second line blank.
+  * masukkan semuanya dengan huruf kecil dengan pengecualian kata benda, akronim dan kata yang berhubungan dengan kode, seperti fungsi/ nama variabel
+2. Biarkan baris kedua kosong.
 3. Jadikan semua baris pada 72 kolom.
 
 #### Breaking Changes
@@ -111,7 +111,7 @@ See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### Langkah 6: Rebase
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+Setelah anda commit perubahan anda, merupakan ide yang bagus untuk menggunakan `gitrebase` (bukan `git merge`) untuk mensikronkan pekerjaan anda dengan repositori utama.
 
 ```sh
 $ git fetch upstream
@@ -122,27 +122,27 @@ This ensures that your working branch has the latest changes from `electron/elec
 
 ### Langkah 7: Tes
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Perbaikan Bug dan fitur harus selalu di awali dengan tes. Sebuah [pedoman testing](https://electronjs.org/docs/development/testing) telah disediakan untuk membuat proses lebih mudah. Lihat tes lainnya untuk mengetahui bagaimana tes harus terstruktur dan juga bermanfaat.
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+Sebelum mengirimkan perubahan anda di pull request, selalu jalankan full test suite. Untuk menjalankan tes:
 
 ```sh
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+Pastikan bahwa linter tidak ada masalah apapun pada saat tes selesai. Mohon tidak mengirimkan patch yang gagal atau belum di cek.
 
-If you are updating tests and just want to run a single spec to check it:
+Jika anda sedang memperbaharui tes dan ingin menjalankan satu spec untuk memeriksanya:
 
 ```sh
 $ npm run test -match=menu
 ```
 
-The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
+Hal di atas hanya akan berjalan di spec modul yang cocok `menu`, yang bermanfaat untuk siapa saja yang sedang bekerja untuk tes yang seharusnya berada di akhir siklus pengujian.
 
 ### Langkah 8: Push
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+Setelah commit anda siap -- dengan melewati tes dan linting -- mulai proses untuk membuka Pull request dengan push cabang hasil kerja anda ke fork anda di GitHub.
 
 ```sh
 $ git push origin my-branch
@@ -183,7 +183,7 @@ Feel free to post a comment in the pull request to ping reviewers if you are awa
 
 All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
-Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
+Cobalah untuk tidak berkecil hati. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
 ### Step 11: Landing
 
