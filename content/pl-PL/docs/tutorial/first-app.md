@@ -69,7 +69,7 @@ Other means for installing Electron exist. Please consult the [installation guid
 
 ## Rozwój Electrona w pigułce
 
-Electron apps are developed in JavaScript using the same principals and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
 
 ```javascript
 const electron = require('electron')
