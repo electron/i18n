@@ -22,7 +22,7 @@ The `shell` module has the following methods:
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+Returns `Boolean` - Whether the item was successfully shown.
 
 Show the given file in a file manager. If possible, select the file.
 
@@ -36,10 +36,10 @@ Open the given file in the desktop's default manner.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false
+* `url` String - max 2081 characters on windows, or the function returns false.
 * `options` Object (optional) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+* `callback` Function (optional) *macOS* - If specified will perform the open asynchronously. 
   * `error` Error
 
 Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
@@ -50,7 +50,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash
+Returns `Boolean` - Whether the item was successfully moved to the trash.
 
 Move the given file to trash and returns a boolean status for the operation.
 
@@ -67,7 +67,7 @@ Play the beep sound.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully
+Returns `Boolean` - Whether the shortcut was created successfully.
 
 Creates or updates a shortcut link at `shortcutPath`.
 
