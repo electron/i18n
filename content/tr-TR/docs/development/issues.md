@@ -3,7 +3,7 @@
 # Sorunlar
 
 * [Sorunlara nasıl müdahil olunur](#how-to-contribute-in-issues)
-* [Genel Yardım İstemek](#asking-for-general-help)
+* [Genel Yardım İsteğinde Bulunmak](#asking-for-general-help)
 * [Hata raporu gönderme](#submitting-a-bug-report)
 * [Bir hata raporu düzenle](#triaging-a-bug-report)
 * [Bir hata raporu çözümlendir](#resolving-a-bug-report)
@@ -17,7 +17,7 @@ Herhangi bir sorun için temelde bireyin katkı sağlayabileceği üç yöntem v
 3. Bu sorunu gidermek için yardımcı olmak: Bunu bir hata olmadığını ya da düzeldiğini göstererek; fakat da çok somut ve incelenebilir biçimde ` elektron / elektron </ 0> 'da kaynağında görünmesini sağlayın.</li>
 </ol>
 
-<h2>Genel Yardım İsteğinde Bulunmak</h2>
+<h2>Genel Yardım İstemek</h2>
 
 <p><a href="../tutorial/support.md#finding-support">"Finding Support"</a> has a
 list of resources for getting programming help, reporting security issues,
