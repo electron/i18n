@@ -102,13 +102,13 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Returns:
+반환:
 
 * `event` Event
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 `menu` objects also have the following properties:
 
@@ -126,7 +126,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Main process
+### 주 프로세스
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### 예시
 
-Template:
+템플릿:
 
 ```javascript
 [
@@ -294,7 +294,7 @@ Template:
 ]
 ```
 
-Menu:
+메뉴
 
 ```sh
 <br />- 1
@@ -304,7 +304,7 @@ Menu:
 - 5
 ```
 
-Template:
+템플릿:
 
 ```javascript
 [
@@ -317,7 +317,7 @@ Template:
 ]
 ```
 
-Menu:
+메뉴
 
 ```sh
 <br />- ---
