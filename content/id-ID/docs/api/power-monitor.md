@@ -2,9 +2,9 @@
 
 > Memantau perubahan status daya.
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
-Anda tidak dapat meminta atau menggunakan modul ini sampai acara `siap` dari`aplikasi` modul dipancarkan.
+You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
 Sebagai contoh:
 
@@ -19,7 +19,7 @@ app.on ('siap', () => {
 })
 ```
 
-## Acara
+## Kejadian
 
 Modul`powerMonitor` memancarkan peristiwa berikut:
 
