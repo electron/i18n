@@ -50,26 +50,26 @@ You can also attach other fields to the element of the `template` and they will 
 
 The `menu` object has the following instance methods:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Obiekt (opcjonalne) 
+* `options` Obiekt 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `callback` Function (optional) - Called when menu is closed.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 Closes the context menu in the `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Appends the `menuItem` to the menu.
 
@@ -82,9 +82,31 @@ Returns `MenuItem` the item with the specified `id`
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Inserts the `menuItem` to the `pos` position of the menu.
+
+### Wydarzenia instancji
+
+Objects created with `new Menu` emit the following events:
+
+**Note:** Some events are only available on specific operating systems and are labeled as such.
+
+#### Event: 'menu-will-show'
+
+Zwraca:
+
+* `event` Event
+
+Emitted when `menu.popup()` is called.
+
+#### Event: 'menu-will-close'
+
+Zwraca:
+
+* `event` Event
+
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Właściwości instancji
 
@@ -96,11 +118,15 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
+### Wydarzenia instancji
+
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+
 ## Przykłady
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Główny proces
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -196,7 +222,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Proces renderowania
+### Render process
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -213,7 +239,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```
@@ -222,19 +248,19 @@ window.addEventListener('contextmenu', (e) => {
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Menu standardowe
+### Standard Menus
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
-* `okno`
-* `pomoc`
-* `usługi`
+* `window`
+* `help`
+* `services`
 
 ### Standard Menu Item Actions
 
 macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### Nazwa głównego Menu
+### Main Menu's Name
 
 On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
@@ -256,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Przykłady
 
-Szablon:
+Template:
 
 ```javascript
 [
@@ -278,7 +304,7 @@ Menu:
 - 5
 ```
 
-Szablon:
+Template:
 
 ```javascript
 [
