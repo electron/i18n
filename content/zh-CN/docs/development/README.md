@@ -1,12 +1,12 @@
 # 对 Electron 进行开发
 
-这些指南是为希望修改 Electron 自身的人准备的。 有关使用 Electron 来开发应用程序的指南，请参见[/docs/README.md](../README.md#guides-and-tutorials)。
+这些指南是为希望修改 Electron 自身的人准备的。 For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [行为准则](../../CODE_OF_CONDUCT.md)
 * [贡献到 Electron](../../CONTRIBUTING.md)
 * [问题](issues.md)
 * [合并请求](pull-requests.md)
-* [文档风格指南](styleguide.md)
+* [文档风格指南](coding-style.md#documentation)
 * [源码目录结构](source-code-directory-structure.md)
 * [编码风格](coding-style.md)
 * [在 C++ 代码中使用 clang-format 工具](clang-format.md)
