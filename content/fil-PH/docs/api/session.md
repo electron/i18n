@@ -183,7 +183,7 @@ Naglulutas ng impormasyon sa proxy para sa `url`. Ang `callback` ay tatawagin na
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `path` na String - Ang lokasyon ng pag-download.
 
 Nagtatakda ng download saving na direktoryo. Bilang default, ang download na direktoryo ay ang`Downloads` sa ilalim ng kaukulang app na folder.
 
@@ -251,7 +251,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `webContents` na [WebContents](web-contents.md) - WebContents na naghihingi ng pahintulot.
   * `pahintulot` na String - Enum ng 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
-    * `permissionGranted` Boolean - Allow or deny the permission.
+    * `permissionGranted` na Boolean - Pagpayag o pagtanggi sa pahintulot.
   * `ang mga detalye` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
 
@@ -323,14 +323,14 @@ Nagbabalik ng `String` - Ang tagagamit na ahente para sa sesyong ito.
   * `eTag` na String - ETag na halaga ng header.
   * `startTime` na Doble (opsyonal) - Ang oras kung kailan sinimulan ang download sa segundong bilang simula sa UNIX epoch.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay maglilikha ng isang [DownloadItem](download-item.md) na maaring ma-access gamit ang [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` nauugnay rito at ang paunang estado ay `maaantala`. Ang download ay magsisimula kung ang `resume` na API ay tinawag sa [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `mga opsyon` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
-Clears the session’s HTTP authentication cache.
+Nilinis ang sesyon ng HTTP authentication na cache.
 
 #### `ses.setPreloads(preloads)`
 
@@ -344,19 +344,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Mga Katangian ng Instance
 
-The following properties are available on instances of `Session`:
+Ang mga sumusunod na katangian ay magagamit sa mga instance ng `session`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Isang [Cookies](cookies.md) na bagay para sa sesyong ito.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Isang [WebRequest](web-request.md) na bagay para sa sesyong ito.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Isang [Protocol](protocol.md) na bagay para sa sesyong ito.
 
 ```javascript
 onst {app, session} = require('electron')
