@@ -164,7 +164,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toPNG([options])`
 
-* `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
+* `options` Obje (isteğe bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `PNG` kodlanmış verisini içeririr.
 
@@ -176,7 +176,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toBitmap([options])`
 
-* `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
+* `options` Obje (isteğe bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisinin kopyasını içeririr.
 
@@ -220,13 +220,13 @@ Görüntüyü şablon görüntüsü olarak işaretler.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop.
+* `rect` [Dikdörtgen](structures/rectangle.md) - Kırpılacak resimin alanı.
 
 Returns `NativeImage` - Kırpılan resim.
 
 #### `image.resize(options)`
 
-* `options` obje * `width` tamsayı(İsteğe bağlı) - Resmin varsayılan genişliğidir. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` obje * `width` tamsayı(İsteğe bağlı) - Resmin varsayılan genişliğidir. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Olası değerler `good`, `better` or `best`. Varsayılan değer `best`. Bu değerler elde edilmek istenen kalite/hız dengesini ifade eder. Altta yatan platformun yeteneklerine (CPU, GPU) bağlı algoritmaya özgü bir yöntemle çevrilirler. Her üç yöntemin önceden belirlenmiş bir platformda aynı algoritma ile eşleştirilmesi mümkündür.
 
 `NativeImage` Döndürür - Yeniden boyutlanmış resim.
 
