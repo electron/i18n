@@ -18,7 +18,7 @@ Retourne [`BrowserWindowProxy`](browser-window-proxy.md) - Créer une nouvelle f
 
 La chaîne de caractère `features` suit le format du standard navigateur, mais chaque fonctionnalité doit être un champ d'options appartenant à `BrowserWindow`.
 
-**Remarque :**
+**Remarques:**
 
 * L'intégration de Node sera toujours désactivée dans le nouveau `window` si elle est désactivée sur la fenêtre parent.
 * L'isolation du context sera toujours activée dans le nouveau `window` si elle est activée sur la fenêtre parent.
