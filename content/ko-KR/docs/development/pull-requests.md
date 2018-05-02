@@ -1,4 +1,4 @@
-# Pull Requests
+# 풀 리퀘스트
 
 * [Dependencies](#dependencies)
 * [Setting up your local environment](#setting-up-your-local-environment) 
