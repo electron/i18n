@@ -8,7 +8,7 @@
 * [Seguimiento de un Informe de Error](#triaging-a-bug-report)
 * [Resolviendo un informe de error](#resolving-a-bug-report)
 
-## Cómo contribuir en un problema
+## Cómo contribuir para arreglar los problemas
 
 Para cualquier problema, existen fundamentalmente tres maneras en las que un individuo puede contribuir:
 
@@ -16,7 +16,7 @@ Para cualquier problema, existen fundamentalmente tres maneras en las que un ind
 2. Ayudando en el seguimiento del problema: Puedes hacerlo proporcionando detalles asistivos (un caso de prueba reproducible que demuestra el fallo) o proporcionando sugerencias para abordar el problema.
 3. Ayudando a resolver el problema: Esto se puede hacer demostrando que el problema no es un fallo o fue arreglado; Pero mas a menudo, abriendo un pull request que cambia el código fuente de `electron/electron` de una manera concreta y susceptible de revisión.
 
-## Pidiendo ayuda general
+## Pedir ayuda general
 
 ["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
