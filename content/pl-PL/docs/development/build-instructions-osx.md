@@ -81,7 +81,7 @@ Aby wyczyścić pliki kompilacji:
 $ npm działa bez problemu
 ```
 
-Aby oczyścić tylko `z` i `dist` katalogów:
+Aby oczyścić tylko `z` i `dist`katalogów:
 
 ```sh
 $ npm run clean-build
