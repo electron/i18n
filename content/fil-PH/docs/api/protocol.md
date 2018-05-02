@@ -118,7 +118,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
 
 * `scheme` na String
-* `tagahawak` function 
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
     * `referer` String
@@ -292,12 +292,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
+  * `callback` Function 
     * `ang redirectRequest` Bagay 
       * `url` Tali
       * `method` na String
       * `session` Bagay (opsyonal)
-      * `ang uploadData` Bagay (opsyonal) 
+      * `ang uploadData` Na Bagay (opsyonal) 
         * `contentType` String - Ang uri ng MIME ng mga nilalaman.
         * `data` String - Mga nilalaman na ipapadala.
 * `pagkumpleto` Function (opsyonal) 
