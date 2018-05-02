@@ -30,6 +30,6 @@ $ codice electron-avvio-veloce
 
 ### 3. Debugging
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+Imposta alcuni punti di rottura in `principale.js` e avvia il debugging in [Vista Debug](https://code.visualstudio.com/docs/editor/debugging). Dovresti poter colpire i punti di rottura.
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Qui un progetto preconfigurato che puoi scaricare e debuggare direttamente in CodiceVS: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
