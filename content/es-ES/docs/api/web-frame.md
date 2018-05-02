@@ -2,12 +2,14 @@
 
 > Personalice la reproducción de la página web actual.
 
-Proceso: [Reproducir](../glossary.md#renderer-process)
+Proceso: [Renderer](../glossary.md#renderer-process)
 
 Un ejemplo de zoom de la página actual al 200%.
 
 ```javascript
 const {webFrame} = require('electron')
+
+webFrame.setZoomFactor(2)
 ```
 
 ## Métodos
@@ -16,9 +18,9 @@ El módulo `webFrame` tiene los siguientes métodos:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Factor Zoom.
 
-Cambia el factor de zoom al factor especificado. El factor de zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
+Cambia el factor zoom al factor especificado. El factor zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -26,7 +28,7 @@ Devuelve `Número` - El factor de zoom actual.
 
 ### `webFrame.setZoomLevel(nivel)`
 
-* `level` Number - Zoom level.
+* `nivel` Número - Nivel de Zoom.
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
 
@@ -48,19 +50,20 @@ Establecer el nivel de máximo y mínimo pizca de zoom.
 
 Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no visual).
 
-### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
+### `webFrame.setSpellCheckProvider (Idioma, autoCorrectorPalabra, proveedor)`
 
-* `language` String
-* `autoCorrectWord` Boolean
-* `provider` Objeto 
-  * `spellCheck` Function - Returns `Boolean`. 
+* `idioma` Cadena
+* `autoCorrectorPalabra` Boolean
+* `proveedor` Object 
+  * `Corrector Ortográfico
+` Función - Devoluciones `Boolean`. 
     * `texto` String
 
-Sets a provider for spell checking in input fields and text areas.
+Establece un proveedor para la corrección ortográfica en campos de entrada y áreas de texto.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+El `proveedor` debe ser un objeto que tenga un método de `corrección ortográfica` que devuelva si la palabra aprobada está escrita correctamente.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Un ejemplo de uso de [node-spellchecker](https://github.com/atom/node-spellchecker) como proveedor:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -71,40 +74,40 @@ webFrame.setSpellCheckProvider('en-US', true, {
 })
 ```
 
-### `webFrame.registerURLSchemeAsSecure(scheme)`
+### `webFrame.registerURLSchemeAsSecure(esquema)`
 
-* `esquema` Cadena
+* `scheme` String
 
-Registers the `scheme` as secure scheme.
+Registra el `esquema` como esquema seguro.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Los esquemas seguros no activan advertencias de contenido mixto. Por ejemplo, `https` y `datos` son esquemas seguros porque no pueden ser dañados por atacantes de red activos.
 
-### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
+### `webFrame.registerURLSchemeAsBypassingCSP(esquema)`
 
-* `esquema` Cadena
+* `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Los recursos se cargarán desde este `esquema` independientemente de la Política de Seguridad de Contenido de la página actual.
 
-### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
+### `webFrame.registerURLSchemeAsPrivileged(esquema[, opciones])`
 
-* `esquema` Cadena
-* `opciones` Object (opcional) 
+* `scheme` String
+* `opciones` Objecto (opcional) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
   * `supportFetchAPI` Boolean (optional) - Default true.
   * `corsEnabled` Boolean (optional) - Default true.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Registra el `esquema` como seguro, omite la política de seguridad de contenido para los recursos, permite el registro de ServiceWorker y admite la API de recuperación.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Especifique una opción con el valor de `falso` para omitirla del registro. Un ejemplo de registro de un esquema con privilegios, sin eludir la Política de Seguridad de Contenido:
 
 ```javascript
 const {webFrame} = require('electron')
 webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
-### `webFrame.insertText(text)`
+### `webFrame.insertText(texto)`
 
 * `texto` String
 
@@ -114,21 +117,21 @@ Inserta `texto` en el elemento enfocado.
 
 * `codigo` String
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
-* `llamada de vuelta` Función (opcional) - Llamado después de que se haya ejecutado el script. 
+* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
 Devolver `Promesa`: una promesa se resuelve con el resultado del código ejecutado o se rechaza si el resultado del código es una promesa rechazada.
 
-Evalúa el `código` en la página.
+Evalúa el `code` en la página.
 
-En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
+En la ventana del buscador, algunas APIs HTML como `requestFullScreen` solo pueden ser invocadas por un gesto del usuario. Configurar `userGesture` a `true` eliminará esta limitación.
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
 * `worldId` Integer
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
-* `llamada de vuelta` Función (opcional) - Llamado después de que se haya ejecutado el script. 
+* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
 Work like `executeJavaScript` but evaluates `scripts` in isolated context.
@@ -164,14 +167,14 @@ Devuelve `Objecto`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Devuelve un objeto que describe la información de uso de las cachés de memoria interna de Blink.
 
 ```javascript
-const {webFrame} = require('electron')
+const {webFrame} = requiere('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Esto generará:
 
 ```javascript
 {
@@ -189,6 +192,6 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Intenta liberar memoria que ya no se usa (como las imágenes de una navegación anterior).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Tenga en cuenta que llamar ciegamente este método probablemente haga que Electron sea más lento, ya que tendrá que volver a llenar estos cachés vacíos, solo debe llamarlo si ha ocurrido un evento en su aplicación que le haga pensar que su página está usando menos memoria (es decir, ha navegado desde una página muy pesada a una casi vacía, y tiene la intención de permanecer allí).
