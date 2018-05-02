@@ -2,11 +2,11 @@
 
 > Create a segmented control (a button group) where one button has a selected state
 
-线程：[主线程](../tutorial/quick-start.md#main-process)
+进程：[主进程](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *实验功能*
 
-* `options` Object 
+* `选项` 对象 
   * `segmentStyle` String (optional) - Style of the segments: 
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
     * `rounded` - The control is displayed using the rounded style.
