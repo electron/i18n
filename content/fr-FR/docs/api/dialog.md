@@ -25,7 +25,7 @@ Le module `dialog` dispose des méthodes suivantes :
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` Object 
+* `options` Objet 
   * `title` String (facultatif)
   * `defaultPath` String (facultatif)
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
@@ -64,7 +64,7 @@ Les `filters` spécifie un tableau de types de fichiers pouvant être affichés 
 
 Le tableau d'`extensions` devrait contenir les extensions sans caractères génériques ou de point (par exemple `'png'` est correct, mais `'.png'` et `'*.png'` ne l'est pas). Pour afficher tous les fichiers, utilisez le caractère générique `'*'` (aucun autre caractère générique n'est pris en charge).
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
+Si un `callback` est passé, l'appel de l'API sera asynchrone et le résultat sera transmis via `callback(filenames)`.
 
 **Remarque :** Sur Windows et Linux, une boîte de dialogue ne peux pas être à la fois une sélection de fichier et une sélection de dossier, donc si vous définissez `properties` à `['openFile', 'openDirectory']` sur ces plateformes, c'est la sélection de dossier qui s'affichera.
 
@@ -90,7 +90,7 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
 
 Les `filters` spécifie un tableau de types de fichiers qui peuvent être affichés, allez voir `dialog.showOpenDialog` pour un exemple.
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`.
+Si un `callback` est passé, l'appel de l'API sera asynchrone et le résultat sera transmis via `callback(filename)`.
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
