@@ -91,7 +91,7 @@ If you would like to build both `Release` and `Debug` targets:
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. 檔案大小超過 1.3GB。 This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```sh
 $ ./script/create-dist.py
@@ -169,7 +169,7 @@ $ ./script/build.py -c R
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+假設你把 `clang` 安裝在 `/user/local/bin/clang` 下:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
