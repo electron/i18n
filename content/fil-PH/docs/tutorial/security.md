@@ -22,7 +22,7 @@ Ang isang isyu ay nangyayari tuwing makakatanggap ka ng code galing sa malayo na
 
 > :babala: Sa anumang pangyayari ay hindi ka maaaring mag-load at mag-execute ng remote code kasama ng Node.js integrasyong napagana. Sa halip, gamitin lamang ang lokal na mga file (nakabalot kasama ang iyong aplikasyon) para ma-execute ang Node.js na code. Para maipakita ang bahagyang nilalaman, gamiting ang [`webview`](../api/web-view.md) na tag para makasiguradong hindi gumana ang `nodeIntegration`.
 
-## Electron Security Warnings
+## Babala sa seguridad ng Electron
 
 From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
