@@ -1,4 +1,4 @@
-# ipc Main
+# ipc Utama
 
 > Berkomunikasi asynchronous dari proses utama ke proses renderer.
 
@@ -50,8 +50,8 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 
 <h3><code>ipcMain.di (saluran, pendengar)`</h3> 
 
-* ` saluran </ 0>  String</li>
-<li><code> pendengar </ 0> Fungsi</li>
+* `channel` String
+* ` pendengar </ 0> Fungsi</li>
 </ul>
 
 <p>Mendengarkan <code> saluran </ 0> , ketika sebuah pesan baru tiba <code> pendengar </ 0> akan dipanggil dengan
@@ -65,8 +65,8 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 <p>Hapus satu waktu <code> pendengar </ 0> fungsi untuk acara. Ini <code> pendengar </ 0> yang hanya satu kali pesan terkirim ke <code> saluran </ 0>, setelah itu hapus.</p>
 
 <h3><code>ipcMain.pendengar menghapus (saluran, pendengar)`</h3> 
-        * `channel` String
-        * ` pendengar </ 0> Fungsi</li>
+        * ` saluran </ 0>  String</li>
+<li><code> pendengar </ 0> Fungsi</li>
 </ul>
 
 <p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
