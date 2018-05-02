@@ -222,7 +222,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### Processus de rendu
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Exemples
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -294,7 +294,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- 1
@@ -304,7 +304,7 @@ Menu:
 - 5
 ```
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -317,7 +317,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- ---
