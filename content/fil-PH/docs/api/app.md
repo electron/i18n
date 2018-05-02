@@ -148,7 +148,7 @@ Ibinabalik ang:
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Naglalaman ng app-specific na estado na nakaimbak ng aktibidad.
 
-Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ay malapit na ipagpatuloy sa isa pang device. Kung kailangan mong i-update ang estado na ililipat, dapat kang tumawag ng `event.preventDefault()` kaagad, gumawa ng bagong `userInfo` diksyonaryo at tawag `app.updateCurrentActiviy()` sa isang napapanahong paraan. Kung hindi, ang operasyon ay mabibigo at `continue-activity-error` ay tatawagin.
+Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ay malapit na ipagpatuloy sa isa pang device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Kung hindi, ang operasyon ay mabibigo at `continue-activity-error` ay tatawagin.
 
 ### Event: 'new-window-for-tab' *macOS*
 
@@ -203,7 +203,7 @@ Ibinabalik ang:
 * `url` Tali
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Punsyon 
+* `callback` Function 
   * `isTrusted` Boolean - Kung isinasa-alang-alang ang sertipiko bilang mapagkakatiwalaan
 
 Lalabas kapag nabigo ang pag-beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
@@ -313,14 +313,14 @@ Ang method na ito ay ginagarantiya na ang lahat ng `beforeunload` at `unload` na
 
 * `exitCode` Integer (opsyonal)
 
-Kaagad na lumalabas pag may `exitCode`.`exitCode` mga default sa 0.
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 Ang lahat ng mga window ay kaagad na magsasara kahit walang pahintulot ng user at ang `before-quit` at `will-quit` na mga event ay hindi na lalabas.
 
 ### `app.relaunch([options])`
 
-* `options` Bagay (opsyonal) 
-  * `args` String[] - (opsyonal)
+* `mga opsyon` Bagay (opsyonal) 
+  * `args` String[] (optional)
   * `execPath` String (opsyonal)
 
 Muling ilulunsad ang app kapag ang kasalukuyang kahilingan ay nawala na.
@@ -384,12 +384,12 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 * `pictures` Direktoryo ng mga larawan para sa gumagamit.
 * `videos` Direktoryo ng mga video para sa gumagamit.
 * `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Buong landas sa bersyon ng sistema sa plugin ng Pepper Flash.
+* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `sukat` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -498,7 +498,7 @@ Ang API ay ginagamit ang Windows Registry at LSCopyDefaultHandlerForURLScheme sa
 
 * `tasks` [Task[]](structures/task.md) - Hanay ng `Task` na mga bagay
 
-Idinadagdag ng `tasks` sa mga [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) na kategorya ng JumpList sa Windows.
+Idinadagdag ng `tasks` sa mga [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) na kategorya ng JumpList sa Windows.
 
 `tasks` ay isang hanay ng [`Task`](structures/task.md) na mga bagay.
 
@@ -689,13 +689,9 @@ Sa pamamagitan ng default, hindi pinagana ng Chromium ang mga 3D API (hal.WebGL)
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
-### `app.getAppMemoryinfo()` *Deprecated*
-
-Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app. **Note:** Ang pamamaraang ito ay hindi na magagamit, sa halip ay gumamit ng `app.getAppMetrics()`.
-
 ### `ang app.getAppMetrics()`
 
-Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
 ### `ang app.getGPUFeatureStatus()`
 
@@ -723,27 +719,25 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `mga opsyon` Bagay (opsyonal) 
+* `options` Bagay (opsyonal) 
   * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
 Kung ibinigay mo ang mga opsyon ng mga `path` at mga `args` sa `app.setLoginItemSettings` kung gayon dapat mong ipasa ang mga parehong argumento dito para mai-set ng tama ang `openAtLogin`.
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `openAtLogin` Boolean - `true` kung ang app ay naka-set na bumukas sa pag-login.
-* `openAsHidden` Boolean - `true` Kung ang app ay naka-set na bumukas bilang nakatago sa pag-login. Ang setting na ito ay sinusuportahan lamang sa macOS.
-* `wasOpenedAtLogin` Boolean - `true` kung ang app ay awtomatikong bumukas sa pag-login. Ang setting na ito ay sinusuportahan lamang sa macOS.
-* `wasOpenedAsHidden` Boolean - `true` kung ang app ay bumukas bilang isang nakatagong item sa pag-login. Nagpapahiwatig ito na ang app ay hindi dapat magbukas ng kahit anong window sa startup. Ang setting na ito ay sinusuportahan lamang sa macOS.
-* `restoreState` Boolean - `true` kung ang app ay bumukas bilang aytem sa pag-login na dapat i-restore ang estado mula sa dating sesyon. Nagpapahiwatig ito na ang app ay dapat i-restore ang windows na bukas sa huling beses na ang app ay isinara. Ang setting na ito ay sinusuportahan lamang sa macOS.
-
-**Note:** Ang API na ito ay walang epekto sa [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Nagpapahiwatig ito na ang app ay hindi dapat magbukas ng kahit anong window sa startup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Nagpapahiwatig ito na ang app ay dapat i-restore ang windows na bukas sa huling beses na ang app ay isinara. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `mga setting` Bagay 
   * `openAtLogin` Boolean (opsyonal) - `true` para buksan ang app sa pag-login, `false` para tanggalin ang app bilang aytem sa pag-login. Mga default sa `false`.
-  * `openAsHidden` Boolean (opsyonal) - `true` para buksan ang app bilang nakatago. Mga default sa `false`. Maaaring i-edit ng user ang setting na ito mula sa System Preferences kaya `app.getLoginitemStatus().wasOpenedAsHidden` ay dapat namasuri kapag ang app ay nabuksan para malaman ang kasalukuyang halaga. Ang setting na ito ay sinusuportahan lamang sa macOS.
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Mga default sa `false`. Maaaring i-edit ng user ang setting na ito mula sa System Preferences kaya `app.getLoginitemStatus().wasOpenedAsHidden` ay dapat namasuri kapag ang app ay nabuksan para malaman ang kasalukuyang halaga. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opsyonal) *Windows* - Ang maipapatupad para maglunsad sa login. Ay mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ipapasa sa ipinapatupad. Mga default sa isang walang lamang hanay. Alalayan para isama ang mga landas sa mga quote.
 
@@ -768,8 +762,6 @@ app.setLoginItemSettings({
 Context | Request Context
 ```
 
-**Note:** Ang API na ito ay walang epekto sa [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
 Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `false` kung hindi naman. Ang API na ito ay babalik sa `true` kung ang paggamit ng nakatutulong na teknolohiya, tulad ng mga screen reader, ay nakita. Tingnan ang https://www.chrmium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
@@ -792,6 +784,21 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
   * `version` String (opsyonal) - Ang build version number ng app.
 
 I-set ang mga pagpipilian tungkol sa panel. Ipinapawang-bisa nito ang halaga ng ipinaliwanag na `.plist` na file ng app. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye.
+
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+
+* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+
+```js
+// Start accessing the file.
+const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// You can now access the file outside of the sandbox 
+stopAccessingSecurityScopedResource()
+```
+
+Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
