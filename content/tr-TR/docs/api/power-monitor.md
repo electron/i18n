@@ -2,9 +2,9 @@
 
 > Güç durumu değişikliklerini izleyin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-`app` modülü `ready` yayınlanıncaya hazır olana kadar bu modülü kullanamazsınız.
+`uygulama` modülünün `hazır` olayı belirtilmeden bu modülü kullanamazsınız yada bu modüle gerek olmaz.
 
 Örneğin:
 
@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Olaylar
+## Etkinlikler
 
 `powerMonitor` modülü aşağıdaki olayları yayar:
 
