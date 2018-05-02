@@ -398,248 +398,247 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
 
 ### `<webview>.insertText(text)`
 
-* ` teks </ 0>  String</li>
-</ul>
+* `teks` String
 
-<p>Sisipan <code>teks` ke elemen yang terfokus.</p> 
-  ### `<webview>.findInPage(text[, options])`
-  
-  * `text` String - Konten yang akan dicari, tidak boleh kosong.
-  * `pilihan` Objek (opsional) 
-    * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-    * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
-    * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-    * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-    * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
-  
-  Returns `Integer` - The request id used for the request.
-  
-  Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
-  
-  ### `<webview>.stopFindInPage(action)`
-  
-  * `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](#webviewfindinpagetext-options) permintaan. 
-    * `clearSelection` - jelas pilihan.
-    * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
-    * `activateSelection` - fokus dan klik seleksi simpul.
-  
-  Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
-  
-  ### `<webview>.print([options])`
-  
-  * `pilihan` Objek (opsional) 
-    * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
-    * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
-    * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
-  
-  Prints `webview` 's web page. Same as `webContents.print ([options])`.
-  
-  ### `<webview>.printToPDF(options, callback)`
-  
-  * `pilihan` Obyek 
-    * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-    * `pageSize` String (optional) - Specify page size of the generated PDF. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
-    * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-    * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-    * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-  * `callback` Fungsi 
-    * Kesalahan `kesalahan`
-    * `data` nomor
-  
-  Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
-  
-  ### `<webview>.capturePage ([rect,] callback)`
-  
-  * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-  * `callback` Fungsi 
-    * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+Sisipan `teks` ke elemen yang terfokus.
+
+### `<webview>.findInPage(text[, options])`
+
+* `text` String - Konten yang akan dicari, tidak boleh kosong.
+* `pilihan` Objek (opsional) 
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
+
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+
+### `<webview>.stopFindInPage(action)`
+
+* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](#webviewfindinpagetext-options) permintaan. 
+  * `clearSelection` - jelas pilihan.
+  * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
+  * `activateSelection` - fokus dan klik seleksi simpul.
+
+Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
+
+### `<webview>.print([options])`
+
+* `pilihan` Objek (opsional) 
+  * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
+  * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
+  * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
+
+Prints `webview` 's web page. Same as `webContents.print ([options])`.
+
+### `<webview>.printToPDF(options, callback)`
+
+* `pilihan` Obyek 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String (optional) - Specify page size of the generated PDF. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+* `callback` Fungsi 
+  * Kesalahan `kesalahan`
+  * `data` nomor
+
+Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
+
+### `<webview>.capturePage ([rect,] callback)`
+
+* `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap.
+* `callback` Fungsi 
+  * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
 </ul>
 
 <p>Menangkap cuplikan halaman <code>webview`. Sama seperti `webContents.capturePage ([rect,] callback) `.</p> 
-      ### `<webview>.send (saluran [, arg1] [, arg2] [, ...])`
-      
-      * `channel` String
-      * ` ... args </ 0> ada []</li>
+    ### `<webview>.send (saluran [, arg1] [, arg2] [, ...])`
+    
+    * `channel` String
+    * ` ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.</p> 
-        See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
-        
-        ### `<webview>.sendInputEvent(event)`
-        
-        * `event` Objek
-        
-        Mengirim masukan `event` ke halaman.
-        
-        See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
-        
-        ### `<webview>.setZoomFactor(factor)`
-        
-        * `faktor` Angka - Faktor zoom.
-        
-        Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
-        
-        ### `<webview>.setZoomLevel(level)`
-        
-        * `level` Number - Zoom level.
-        
-        Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
-        
-        ### `<webview>.showDefinitionForSelection()` *macOS*
-        
-        Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
-        
-        ### `<webview>.getWebContents()`
-        
-        Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
-        
-        ## DOM events
-        
-        Peristiwa DOM berikut tersedia untuk tag `webview`:
-        
-        ### Event: 'load-commit'
-        
-        Pengembalian:
-        
-        * `url` String
-        * `adalah Bingkai Utama` Boolean
-        
-        Fired when a load has committed. This includes a document-level loads, but does not include asynchronous resource loads.
-        
-        ### Event: 'Apakah-selesai-load'
-        
-        Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
-        
-        ### Peristiwa: 'Apakah-gagal-beban'
-        
-        Pengembalian:
-        
-        * `kode kesalahan` Bilangan bulat
-        * `Deskripsi kesalahan` Tali
-        * `memvalidasi URL` Tali
-        * `adalah Bingkai Utama` Boolean
-        
-        Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil.
-        
-        ### Peristiwa: 'Apakah-frame-selesai-beban'
-        
-        Pengembalian:
-        
-        * `adalah Bingkai Utama` Boolean
-        
-        Dibunyikan apabila bingkai telah melakukan navigasi.
-        
-        ### Peristiwa: 'Apakah-mulai-pemuatan'
-        
-        Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
-        
-        ### Peristiwa: 'Apakah-stop-pemuatan'
-        
-        Sesuai dengan poin pada saat pemintal tab berhenti berputar.
-        
-        ### Peristiwa: 'Apakah-mendapatkan-tanggapan-rincian'
-        
-        Pengembalian:
-        
-        * `status` Boolean
-        * `URL baru` Tali
-        * `URL asli` Tali
-        * `kode tanggapan http` Bilangan bulat
-        * `metode permintaan` Tali
-        * `pengarah` String
-        * `header` Obyek
-        * `Jenissumberdaya` Tali
-        
-        Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
-        
-        ### Peristiwa: 'apakah-mendapatkan-pengalihan-permintaan'
-        
-        Pengembalian:
-        
-        * `URL lama` Tali
-        * `URL baru` Tali
-        * `adalah Bingkai Utama` Boolean
-        
-        Emitted ketika redirect diterima saat meminta resource.
-        
-        ### Peristiwa: 'lokal-siap'
-        
-        Emitted saat dokumen dalam bingkai yang diberikan dimuat.
-        
-        ### Acara : 'halaman-judul-diperbarui'
-        
-        Pengembalian:
-        
-        * ` judul</ 0>  String</li>
+      Melihat [](web-contents.md#contentssendchannel-arg1-arg2-)Menu untuk contoh.
+      
+      ### `<webview>.sendInputEvent(event)`
+      
+      * `event` Objek
+      
+      Mengirim masukan `event` ke halaman.
+      
+      See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
+      
+      ### `<webview>.setZoomFactor(factor)`
+      
+      * `faktor` Angka - Faktor zoom.
+      
+      Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
+      
+      ### `<webview>.setZoomLevel(level)`
+      
+      * `level` Angka - level zoom.
+      
+      Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
+      
+      ### `<webview>.showDefinitionForSelection()` *macOS*
+      
+      Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
+      
+      ### `<webview>.getWebContents()`
+      
+      Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
+      
+      ## DOM events
+      
+      Peristiwa DOM berikut tersedia untuk tag `webview`:
+      
+      ### Event: 'load-commit'
+      
+      Pengembalian:
+      
+      * `url` String
+      * `adalah Bingkai Utama` Boolean
+      
+      Fired when a load has committed. This includes a document-level loads, but does not include asynchronous resource loads.
+      
+      ### Event: 'Apakah-selesai-load'
+      
+      Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
+      
+      ### Peristiwa: 'Apakah-gagal-beban'
+      
+      Pengembalian:
+      
+      * `kode kesalahan` Bilangan bulat
+      * `Deskripsi kesalahan` Tali
+      * `memvalidasi URL` Tali
+      * `adalah Bingkai Utama` Boolean
+      
+      Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil.
+      
+      ### Peristiwa: 'Apakah-frame-selesai-beban'
+      
+      Pengembalian:
+      
+      * `adalah Bingkai Utama` Boolean
+      
+      Dibunyikan apabila bingkai telah melakukan navigasi.
+      
+      ### Peristiwa: 'Apakah-mulai-pemuatan'
+      
+      Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
+      
+      ### Peristiwa: 'Apakah-stop-pemuatan'
+      
+      Sesuai dengan poin pada saat pemintal tab berhenti berputar.
+      
+      ### Peristiwa: 'Apakah-mendapatkan-tanggapan-rincian'
+      
+      Pengembalian:
+      
+      * `status` Boolean
+      * `URL baru` Tali
+      * `URL asli` Tali
+      * `kode tanggapan http` Bilangan bulat
+      * `metode permintaan` Tali
+      * `pengarah` String
+      * `header` Obyek
+      * `Jenissumberdaya` Tali
+      
+      Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
+      
+      ### Peristiwa: 'apakah-mendapatkan-pengalihan-permintaan'
+      
+      Pengembalian:
+      
+      * `URL lama` Tali
+      * `URL baru` Tali
+      * `adalah Bingkai Utama` Boolean
+      
+      Emitted ketika redirect diterima saat meminta resource.
+      
+      ### Peristiwa: 'lokal-siap'
+      
+      Emitted saat dokumen dalam bingkai yang diberikan dimuat.
+      
+      ### Acara : 'halaman-judul-diperbarui'
+      
+      Pengembalian:
+      
+      * ` judul </ 0> String</li>
 <li><code>explicitSet` Boolean
-        
-        Dipecat bila judul halaman diatur saat navigasi. `explicitSet` salah ketika judul disintesis dari file url.
-        
-        ### Peristiwa: 'halaman-favicon-diperbarui '
-        
-        Pengembalian:
-        
-        * `favicons` Tali [] - serangkaian URL.
-        
-        Dibunyikan saat halaman menerima url favicon.
-        
-        ### Acara : 'enter-html-full-screen'
-        
-        Dipecat saat halaman memasuki layar penuh yang dipicu oleh HTML API.
-        
-        ### Acara : 'leave-html-full-screen'
-        
-        Dipecat saat halaman daun layar penuh dipicu oleh HTML API.
-        
-        ### Event: 'console-message'
-        
-        Pengembalian:
-        
-        * `level` Integer
-        * ` pesan </ 0> String</li>
+      
+      Dipecat bila judul halaman diatur saat navigasi. `explicitSet` salah ketika judul disintesis dari file url.
+      
+      ### Peristiwa: 'halaman-favicon-diperbarui '
+      
+      Pengembalian:
+      
+      * `favicons` Tali [] - serangkaian URL.
+      
+      Dibunyikan saat halaman menerima url favicon.
+      
+      ### Acara : 'enter-html-full-screen'
+      
+      Dipecat saat halaman memasuki layar penuh yang dipicu oleh HTML API.
+      
+      ### Acara : 'leave-html-full-screen'
+      
+      Dipecat saat halaman daun layar penuh dipicu oleh HTML API.
+      
+      ### Event: 'console-message'
+      
+      Pengembalian:
+      
+      * `level` Integer
+      * ` pesan </ 0> String</li>
 <li><code>line` Integer
-        * `sourceId` String
-        
-        Dipecat saat jendela tamu membuka pesan konsol.
-        
-        Contoh kode berikut meneruskan semua pesan log ke konsol embedder tanpa memperhatikan tingkat log atau properti lainnya.
-        
-        ```javascript
+      * `sourceId` String
+      
+      Dipecat saat jendela tamu membuka pesan konsol.
+      
+      Contoh kode berikut meneruskan semua pesan log ke konsol embedder tanpa memperhatikan tingkat log atau properti lainnya.
+      
+      ```javascript
 const webview = document.querySelector ('webview') webview.addEventListener ('console-message', (e) = > {console.log ('Halaman tamu mencatat pesan:', e.message)})
 ```
-    
-    ### Event: 'ditemukan-di-halaman'
-    
-    Pengembalian:
-    
-    * `hasil` Obyek 
-      * `requestId` Bilangan bulat
-      * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
-      * `pertandingan` Bulat - jumlah pertandingan.
-      * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
-      * `finalUpdate` Boolean
-    
-    Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
-    
-    ```javascript
-const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
-```
+  
+  ### Event: 'ditemukan-di-halaman'
+  
+  Pengembalian:
+  
+  * `hasil` Obyek 
+    * `requestId` Bilangan bulat
+    * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
+    * `pertandingan` Bulat - jumlah pertandingan.
+    * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
+    * `finalUpdate` Boolean
+  
+  Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
 
-### Peristiwa: 'baru-jendela'
-
-Pengembalian:
-
-* `url` String
-* `nama bingkai` tali
-* `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
-* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
-
-Fired when the guest page attempts to open a new browser window.
-
-Contoh kode berikut membuka url baru di browser default sistem.
-
-```javascript
+<pre><code class="javascript">const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
+`</pre> 
+  
+  ### Peristiwa: 'baru-jendela'
+  
+  Pengembalian:
+  
+  * `url` String
+  * `nama bingkai` tali
+  * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
+  * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+  
+  Fired when the guest page attempts to open a new browser window.
+  
+  Contoh kode berikut membuka url baru di browser default sistem.
+  
+  ```javascript
 const {shell} = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
 ```
 
@@ -674,21 +673,19 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.</p>
   Pengembalian:
   
   * `adalah Bingkai Utama` Boolean
-  * ` url </ 0> String</li>
-</ul>
-
-<p>Dibunyikan saat navigasi dalam halaman terjadi.</p>
-
-<p>Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan
-navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link
-diklik atau saat peristiwa hash <code>perubahan hash` dipicu.</p> 
-    ### Acara : 'dekat'
-    
-    Dipecat saat halaman tamu mencoba menutup diri.
-    
-    The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
-    
-    ```javascript
+  * `url` String
+  
+  Dibunyikan saat navigasi dalam halaman terjadi.
+  
+  Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
+  
+  ### Acara : 'dekat'
+  
+  Dipecat saat halaman tamu mencoba menutup diri.
+  
+  The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
+  
+  ```javascript
 const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
 ```
 
@@ -696,8 +693,8 @@ const webview = document.querySelector ('webview') webview.addEventListener ('cl
 
 Pengembalian:
 
-* `channel` String
-* `args` Array
+* ` saluran </ 0>  String</li>
+<li><code>args` Array
 
 Fired when the guest page has sent an asynchronous message to the embedder page.
 
