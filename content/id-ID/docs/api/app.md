@@ -2,7 +2,7 @@
 
 > Kendalikan siklus hidup kejadian aplikasi Anda.
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 Contoh berikut ini menunjukkan bagaimana untuk keluar dari aplikasi ketika jendela terakhir ditutup:
 
@@ -44,7 +44,7 @@ Emitted ketika Elektron selesai menginisialisasi. Di macos , ` launchInfo </ 0> 
 <p>Returns:</p>
 
 <ul>
-<li><code>event` Event</li> </ul> 
+<li><code>event` Sinyal</li> </ul> 
 
 Emitted sebelum aplikasi mulai menutup jendela-jendelanya. Memanggil ` event.preventDefault () </ 0> akan mencegah perilaku default, yang mengakhiri aplikasi.</p>
 
@@ -161,7 +161,7 @@ Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untu
   * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
   * `userInfo` Object - Contains app-specific state stored by the activity.
   
-  Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+  Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
   
   ### Event: 'new-window-for-tab' *macOS*
   
@@ -236,8 +236,8 @@ const {app} = require ('electron') app.on('certificate-error', (event, webConten
 
 Pengembalian:
 
-* `event</ 0> Acara</li>
-<li><code>webContents` [WebContents](web-contents.md)
+* `acara` Acara
+* `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Sertifikat[]](structures/certificate.md)
 * `callback` Fungsi 
@@ -320,14 +320,14 @@ Metode ini menjamin bahwa semua `beforeunload` dan `unload` event handlers dijal
 
 * `exitCode` Integer (opsional)
 
-Keluar segera dengan `exitCode `. `exitCode` default ke 0.
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 Semua jendela akan ditutup segera tanpa meminta pengguna dan `sebelum-berhenti` dan `akan-berhenti` tidak akan dipancarkan.
 
 ### `app.relaunch([options])`
 
 * `pilihan` Objek (opsional) 
-  * `args` String[] - (opsional)
+  * `args` String[] (optional)
   * `execPath` String (opsional)
 
 Luncurkan ulang aplikasi saat instance saat ini keluar.
@@ -388,7 +388,7 @@ Anda dapat meminta jalur berikut dengan nama:
 * `gambar` Direktori untuk gambar pengguna.
 * `video` Direktori untuk video pengguna.
 * `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Path lengkap ke versi sistem plugin Pepper Flash.
+* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -502,7 +502,7 @@ Pada *Linux* dan *macOS*, ikon bergantung pada aplikasi yang terkait dengan jeni
       
       * `tugas` [ Tugas[] ](structures/task.md) - Array dari `Tugas` objek
       
-      Tambahkan `tugas` ke kategori [Tugas](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) JumpList di Windows.
+      Tambahkan `tugas` ke kategori [Tugas](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) JumpList di Windows.
       
       `tugas` adalah berbagai dari [`Tugas`](structures/task.md) benda.
       
@@ -594,7 +594,7 @@ const {app} = require ('electron') app.setJumpList([
   
   ### `app.makeSingleInstance(callback)`
   
-  * `panggilan balik` Fungsi 
+  * `callback` Fungsi 
     * `argv` String[] - Sebuah array dari argumen baris perintah kedua
     * `workingDirectory` String - Direktori kerja contoh kedua
   
@@ -680,13 +680,9 @@ Secara default, Chromium menonaktifkan API 3D (misalnya WebGL) sampai dimulai ul
 
 Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
-### `app.getAppMemoryInfo()` *Tidak berlaku lagi*
-
-Pengembalian [`ProcessMetric[]`](structures/process-metric.md): Array dari `ProcessMetric` benda-benda yang sesuai dengan memori dan penggunaan cpu statistik dari semua proses yang terkait dengan aplikasi. **Catatan:** Metode ini tidak berlaku lagi, gunakan `app.getAppMetrics()`.
-
 ### `app.getAppMetrics()`
 
-Pengembalian [`ProcessMetric[]`](structures/process-metric.md): Array dari `ProcessMetric` benda-benda yang sesuai dengan memori dan penggunaan cpu statistik dari semua proses yang terkait dengan aplikasi.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
@@ -723,18 +719,16 @@ Jika Anda memberikan `path` dan `args` pilihan untuk `app.setLoginItemSettings` 
 Mengembalikan `Objek`:
 
 * `openAtLogin` Aljabar Boolean - `benar` jika app diatur untuk membuka di login.
-* `openAsHidden` Boolean - `true` jika aplikasi disetel untuk dibuka sebagai tersembunyi saat masuk. Pengaturan ini hanya didukung pada macOS.
-* `isOpenedAtLogin` Boolean - `true` jika aplikasi dibuka saat masuk secara otomatis. Pengaturan ini hanya didukung pada macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. Ini menunjukkan bahwa aplikasi tidak boleh membuka jendela saat startup. Pengaturan ini hanya didukung pada macOS.
-* `restoreState` Boolean - `true` jika aplikasi dibuka sebagai item masuk yang harus mengembalikan negara dari sesi sebelumnya. Ini menunjukkan bahwa apl harus mengembalikan jendela yang buka terakhir kali aplikasi ditutup. Pengaturan ini hanya didukung pada macOS.
-
-**Catatan:** API ini tidak berpengaruh pada [MAS membangun](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Ini menunjukkan bahwa aplikasi tidak boleh membuka jendela saat startup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Ini menunjukkan bahwa apl harus mengembalikan jendela yang buka terakhir kali aplikasi ditutup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(pengaturan)` *macOS* *Windows*
 
 * `pengaturan` Obyek 
   * `openAtLogin` Boolean (opsional) - `true` untuk membuka aplikasi saat masuk, `false` untuk menghapus aplikasi sebagai item masuk. Default ke `false`.
-  * `openAsHidden` Boolean (opsional) - `true` untuk membuka aplikasi sebagai tersembunyi. Default ke `false`. Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi `app.getLoginItemStatus().BeenOpenedAsHidden` harus diperiksa saat aplikasi dibuka untuk mengetahui nilai saat ini. Pengaturan ini hanya didukung pada macOS.
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Default ke `false`. Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi `app.getLoginItemStatus().BeenOpenedAsHidden` harus diperiksa saat aplikasi dibuka untuk mengetahui nilai saat ini. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opsional) *Windows* - Eksekusi untuk diluncurkan saat login. Default ke `process.execPath`.
   * `args` String[] (opsional) *Windows* - Argumen baris perintah untuk lolos ke eksekusi. Default ke array kosong. Berhati-hatilah untuk membungkus jalan dengan tanda petik.
 
@@ -751,8 +745,6 @@ const appFolder = path.dirname(process.execPath) const updateExe = path.resolve(
      '--process-start-args', `"--hidden"`
    ]})
 ```
-
-**Catatan:** API ini tidak berpengaruh pada [MAS membangun](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
@@ -776,6 +768,21 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
   * `version` String (opsional) - Nomor versi pembuatan aplikasi.
 
 Tetapkan opsi tentang panel. Ini akan menimpa nilai yang didefinisikan di file `.plist` aplikasi. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut.
+
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+
+* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+
+```js
+// Start accessing the file.
+const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// You can now access the file outside of the sandbox 
+stopAccessingSecurityScopedResource()
+```
+
+Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(beralih [, nilai])`
 
@@ -830,7 +837,7 @@ Membatalkan bouncing `id`.
 
 ### `app.dock.downloadFinished(filePath)` *Windows*
 
-* `format` String
+* `fullPath` String
 
 Memantapkan Download stack jika filePath ada di dalam folder Downloads.
 
