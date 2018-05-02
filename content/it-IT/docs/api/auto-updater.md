@@ -36,7 +36,7 @@ L'oggetto `autoAggiornatore` emette i seguenti eventi:
 
 Restituisce:
 
-* `errore` Errore
+* `error` Error
 
 Emesso quando avviene un errore in aggiornamento.
 
@@ -56,7 +56,7 @@ Emesso quando non ci sono aggiornamenti disponibili.
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `NoteRilascio` Stringa
 * `Nomerilascio` Stringa
 * `Datarilascio` Data
@@ -70,10 +70,12 @@ Solo su Windows `rilascioNome` è disponibile.
 
 L'oggetto `autoAggiornatore` ha i seguenti metodi:
 
-### `autoAggiornatore.impostaFeedURL(url[, richiediTestate])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` Stringa
-* `richiestaTestate` Oggetto *macOS* (opzionale) - HTTP richiesta testate.
+* `opzioni` Oggetto 
+  * `url` Stringa
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Imposta l'`url` e inizializza l'auto aggiornatore.
 
@@ -89,4 +91,6 @@ Chiedi il server se c'è un aggiornamento. Devi chiamare `impostaFeedURL` prima 
 
 Riavvia l'app ed installa l'aggiornamento dopo che è stato scaricato. Potrebbe solo essere chiamato dopo l'emissione di `aggiornamento-scaricato.</p>
 
-<p><strong>Nota:</strong> <code>autoAggiornatore.esciEInstalla()` chiuderà tutte le finestre dell'app prima ed emetterà l'evento `prima-esci` dell'`app` dopo questo. Questo è diverso dalla normale sequenza di eventi di uscita.
+<p>Under the hood calling <code>autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
