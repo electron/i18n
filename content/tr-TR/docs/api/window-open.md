@@ -2,7 +2,7 @@
 
 > Yeni bir pencere aç ve URL yükle.
 
-Web sayfasında yeni bir pencere açmak için `window.open` çağırıldığında, `url` için yeni bir `BrowserWindow` örneği oluşturulur ve sayfanın üzerinde sınırlı kontrole sahip olması için proxy `window.open`'a döndürülür.
+When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
 Proxy, geleneksel web sayfalarıyla uyumlu olması için uygulanan sınırlı standart işlevselliğe sahiptir. Yeni pencerenin tam kontrolü için doğrudan bir `BrowserWindow` oluşturmanız gerekmektedir.
 
