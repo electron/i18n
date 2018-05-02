@@ -1,4 +1,4 @@
-# Instruções de Compilação (macOS)
+# Instruções para Compilação (macOS)
 
 Siga as instruções abaixo para compilar o Electron no macOS.
 
@@ -55,23 +55,23 @@ $ ./script/build.py --compdb
 
 ## Compilando
 
-Build both `Release` and `Debug` targets:
+Compilar `Release` e `Debug`:
 
 ```sh
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+Você pode também compilar somente o `Debug`:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+Após a finalização da compilação, você pode encontrar `Electron.app` no caminho `out/D`.
 
 ## Suporte 32bits
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Electron pode somente compilar para 64bit no macOS, não existe nenhum plano para suportar a compilação de 32bits no futuro.
 
 ## Excluindo
 
