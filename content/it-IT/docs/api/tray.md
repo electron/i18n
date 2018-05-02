@@ -116,14 +116,14 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' *macOS*
 
-* `event` Evento
+* `event` Event
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
 
-* `event` Evento
+* `event` Event
 * `text` String - the dropped text string.
 
 Emitted when dragged text is dropped in the tray icon.
@@ -235,7 +235,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `opzioni` Oggetto 
+* `options` Oggetto 
   * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `Titolo` Stringa
   * `content` String
