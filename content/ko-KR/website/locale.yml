@@ -144,7 +144,7 @@ pages:
   '/languages':
     title: 언어
   '/userland':
-    title: 매뉴얼
+    title: 사용자 공간
   '/devtron':
     title: Devtron
     description: Devtron은 Electron 앱에 대한 검사, 관찰, 디버깅을 도와주는 오픈 소스 도구이며 Chrome 개발자 도구에서 사용할 수 있습니다.
