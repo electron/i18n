@@ -1,12 +1,12 @@
 # Задачи в Electron
 
-# Задачи
+# Вопросы
 
-* [How to Contribute in Issues](#how-to-contribute-in-issues)
-* [Asking for General Help](#asking-for-general-help)
-* [Submitting a Bug Report](#submitting-a-bug-report)
-* [Triaging a Bug Report](#triaging-a-bug-report)
-* [Resolving a Bug Report](#resolving-a-bug-report)
+* [Как внести вклад в задачи](#how-to-contribute-in-issues)
+* [Просьба об общей помощи](#asking-for-general-help)
+* [Отправить отчет об ошибке](#submitting-a-bug-report)
+* [Прохождение сообщения об ошибке](#triaging-a-bug-report)
+* [Разрешение отчета об ошибке](#resolving-a-bug-report)
 
 ## Как внести вклад в задачи
 
