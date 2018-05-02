@@ -6,7 +6,7 @@ Perilaku Elektron tertentu dikendalikan oleh variabel lingkungan karena diinisia
 
 Contoh kulit POSIX:
 
-```bash
+```sh
 $ export ELECTRON _memungkinkan_LOGGING = benar $ electron
 ```
 
