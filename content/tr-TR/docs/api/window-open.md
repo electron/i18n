@@ -1,4 +1,4 @@
-# `window.open` Fonksiyonu
+# `window.open` Fonksiyon
 
 > Yeni bir pencere aç ve URL yükle.
 
@@ -10,7 +10,7 @@ Yeni oluşturulan `BrowserWindow`, varsayılan olarak ana pencerenin seçenekler
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` String
+* `url` Dize
 * `frameName` String (opsiyonel)
 * `features` String (opsiyonel)
 
