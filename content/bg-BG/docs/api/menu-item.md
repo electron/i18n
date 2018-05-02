@@ -2,7 +2,7 @@
 
 > Add items to native application menus and context menus.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
 See [`Menu`](menu.md) for examples.
 
