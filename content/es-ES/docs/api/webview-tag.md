@@ -240,10 +240,10 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `httpReferrer` String (opcional) - Un url de HTTP referencial.
   * `userAgent` String (opcional) - Un agente de usuario originando el pedido.
-  * `extraHeaders` String (opcional) - Cabeceras extras separadas por "\n"
+  * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
@@ -339,10 +339,10 @@ Inyecta CSS en la página de invitado.
 
 * `codigo` String
 * `userGesture` Boolean (optional) - Default `false`.
-* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
+* `callback` Function (opcional) - Es llamado luego de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Evalúa el `código` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
+Evalúa el `code` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
 
 ### `<webview>.openDevTools()`
 
@@ -425,7 +425,7 @@ Ejecuta el comando de edición `replace` en página.
 
 ### `<webview>.replaceMisspelling(text)`
 
-* `text` Cadena
+* `texto` String
 
 Ejecuta el comando de edición `replaceMisspelling` en página.
 
@@ -433,7 +433,7 @@ Ejecuta el comando de edición `replaceMisspelling` en página.
 
 * `texto` String
 
-Inserta `texto` en el elemento enfocado.
+Inserta `text` al elemento enfocado.
 
 ### `<webview>.findInPage(text[, options])`
 
@@ -475,7 +475,7 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Función 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
@@ -483,8 +483,8 @@ Imprime la página web de `webview` como un PDF, al igual que `webContents.print
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-* `callback` Función 
+* `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada.
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Captura una instantánea de la página de `webview`. Al igual que `webContents.capturePage([rect, ]callback)`.
@@ -494,9 +494,9 @@ Captura una instantánea de la página de `webview`. Al igual que `webContents.c
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
+Ver [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para ejemplos.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -504,7 +504,7 @@ See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examp
 
 Envía un input `event` a la página.
 
-See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
+Ver [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) para una descripción detallada del objeto `event`.
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -514,7 +514,7 @@ Cambia el factor de zoom al factor especificado. El factor de zoom es el porcent
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `nivel` Número - Nivel de Zoom.
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
 
@@ -535,7 +535,7 @@ Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 Devuelve:
 
 * `url` Cadena
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Disparado cuando una carga ha sido cometida, Esto incluye navegaciones dentro del documento actual así como cargas de documentos de bajo nivel, pero no incluye fuentes asincrónicas de cargas.
 
@@ -655,7 +655,7 @@ Devuelve:
   * `selectionArea` Object - Coordenadas del lugar de la primera coincidencia.
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
+Disparado cuando un resultado es disponible en la solicitud [`webview.findInPage`](#webviewfindinpagetext-options).
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -725,7 +725,7 @@ Devuelve:
 
 Emitido cuando una navegación dentro de la página sucede.
 
-Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de esto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
+Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
 ### Evento: 'close'
 
