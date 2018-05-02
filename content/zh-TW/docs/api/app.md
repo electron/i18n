@@ -389,7 +389,7 @@ Returns `String` - A path to a special directory or file associated with `name`.
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
