@@ -2,11 +2,11 @@
 
 > Karugtong sa prosesong bagay.
 
-Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Ang `prosesong` bagay ng Electron ay pinalawak mula sa [Node.js `proseso` bagay](https://nodejs.org/api/process.html). Ito ay nagdaragdag ng mga sumusunod na pangyayari, katangian, at mga pamamaraan:
 
-## Pangyayari
+## Mga event
 
 ### Pangyayari: 'puno'
 
@@ -24,7 +24,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Mga Katangian
+## Properties
 
 ### `proseso.defaultApp`
 
@@ -40,7 +40,7 @@ Ang `Boolean` na nag kontrol ng ASAR ay nagsuporta sa loob ng iyong aplikasyon. 
 
 ### `proseso.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Ang propeyedad na ito ai ginagamit sa halip na `--walang-deprecation` nagt-utos ng linya ng bandila.
 
 ### `proseso.pinagkukunanPath`
 
@@ -74,7 +74,7 @@ Ang `String` nag representang bersyon ng Electron string.
 
 Ang `Boolean`. Kung ang app ay tumatakbo bilang Windows Store app (appx), ang propeyedad a `totoo`, para kung hindimna ito ay `malabo`.
 
-## Pamamaraan
+## Mga Paraan
 
 Ang `proseso` na bagay ay may mga sumusunod na paraan:
 
@@ -86,24 +86,24 @@ Ang mga dahilan ng pangunahing thread sa kasalukuyang proseso ay lumagpak.
 
 Pagbabalik [` CPUUsage `](structures/cpu-usage.md)
 
-### ` proseso.kuhaIOCounter()`*Windows**Linux*
+### `process.getIOCounters()` *Windows* *Linux*
 
 Pagbabalik [`IOCounters`](structures/io-counters.md)
 
 ### `proseso.getProsesoMemoryaInfo()`
 
-Nagbabalik `Object`:
+Returns `Object`:
 
 * `workingSetSize`Integer - Ang halaga ng memorya ay kasalukuyang naka-pin sa aktwal na pisikal na RAM.
 * `peakWorkingSetSize` Integer - Ang pinakamataas na halaga ng memorya na hindi pa nai-pin sa aktwal na pisikal RAM.
-* `privateBytes` Integer - Ang halaga ng memorya na hindi ibinahagi sa ibang mga proseso, tulad ng JS heap o HTML na nilalaman.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
+* `privateBytes` Integer - Ang halaga ng memorya na hindi ibinahagi ng iba pang mga proseso, tulad ng tambakan ng JS o mga nilalaman ng HTML.
+* `sharedBytes` Integer - Ang halaga ng memorya na naibahagi sa bawat mga proseso, na kadalasan ay memoryang nagagamit ng mismong code ng Electron.
 
 Nagbabalik ng mga bagay at nagbibigay ng memoryang paggamit ng istatistika tungkol sa kasalukuyang proseso. Tandaan na ang lahat ng istatistik ay iniulat sa Kilobytes.
 
 ### `proseso.getSystemMemoryInfo()`
 
-Nagbabalik `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema. 
 * `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.
