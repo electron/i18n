@@ -30,6 +30,6 @@ $ code electron-quick-start
 
 ### 3. Depurar
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+Establece unos puntos de interrupción en `main.js`, y empieza a depurar en la [Debug View](https://code.visualstudio.com/docs/editor/debugging). Debe ser capaz de toparse con los puntos de interrupción.
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Aquí hay un proyecto preconfigurado que puede descargar y depurar directamente en VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
