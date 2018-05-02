@@ -42,7 +42,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 Restituisce:
 
 * `event` Evento
-* `state` String
+* `state` String - Can be `progressing` or `interrupted`.
 
 Emesso quando il download è stato aggiornato e non viene eseguito.
 
@@ -56,7 +56,7 @@ Lo `state` può essere uno dei seguenti:
 Restituisce:
 
 * `event` Evento
-* `state` String
+* `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 Emesso quando il download è in uno stato terminale. Questo include un download completato, un download annullato (tramite `downloadItem.cancel()`), e download interrotto che non può essere ripreso.
 
