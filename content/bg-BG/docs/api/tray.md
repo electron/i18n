@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
