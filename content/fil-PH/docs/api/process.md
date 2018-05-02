@@ -40,8 +40,7 @@ Ang `Boolean` na nag kontrol ng ASAR ay nagsuporta sa loob ng iyong aplikasyon. 
 
 ### `proseso.noDeprecation`
 
-Ang `Boolean` na nag kokontrol kung ang mga babala ng deprecation ay ililimbag sa `stderr`.  
-Patatakda nito sa `totoo` ay patatahimikin ang babala ng deprecation. Ang propeyedad na ito ai ginagamit sa halip na `--walang-deprecation` nagt-utos ng linya ng bandila.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
 
 ### `proseso.pinagkukunanPath`
 
@@ -53,11 +52,11 @@ Ang `Boolean` na kumokontrol kung o hindi ang mga babala sa deprecation ay matat
 
 ### `proseso.bakasDeprecation`
 
-Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stderr` isinama ng isinalansan na bakas. Ang pagtatakda nito sa `totoo` ay maglilimbag ng isinalansan na bakas. Ang propeyedad na ito ay sa halip na ang `--bakas-deprecation` naguutos ng linyang bandila.
+Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stderr` isinama ng isinalansan na bakas. Setting this to `true` will print stack traces for deprecations. Ang propeyedad na ito ay sa halip na ang `--bakas-deprecation` naguutos ng linyang bandila.
 
 ### `proseso.bakasProsesoBabala`
 
-Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Ang pagtatakda nito sa `totoo` ay maglilimbag nga isinalansan na bakas para sa mga babalang proseso (kasama ang deprecation). Ang propeyedad na ito ay sa halip sa `--bakas-babala`nag uutos na linya ng bandila.
+Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `proseso.uri`
 
@@ -98,7 +97,7 @@ Nagbabalik `Object`:
 * `workingSetSize`Integer - Ang halaga ng memorya ay kasalukuyang naka-pin sa aktwal na pisikal na RAM.
 * `peakWorkingSetSize` Integer - Ang pinakamataas na halaga ng memorya na hindi pa nai-pin sa aktwal na pisikal RAM.
 * `privateBytes` Integer - Ang halaga ng memorya na hindi ibinahagi sa ibang mga proseso, tulad ng JS heap o HTML na nilalaman.
-* `sharedBytes` Integer - Ang halaga ng memorya na ibinahagi sa pagitan ng mga proseso, kadalasan ang memorya ay natupok ng Electron code mismo.
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Nagbabalik ng mga bagay at nagbibigay ng memoryang paggamit ng istatistika tungkol sa kasalukuyang proseso. Tandaan na ang lahat ng istatistik ay iniulat sa Kilobytes.
 
@@ -108,8 +107,8 @@ Nagbabalik `Object`:
 
 * `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema. 
 * `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.
-* `swapTotal` Integer - Ang kabuuang halaga ng mapagpalitang memorya sa Kilobytes ay maggagamit sa sistema. *Windows**Linux*
-* `swapFree` Integer - Ang libreng halaga ng pinagpalitang memorya sa Kilobytes na magagamit sa sistema. *Windows**Linux*
+* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 Nagbabalik ng bagay at nagbibigay ng memoryang gamit na istatistika tungkol sa buong sistema. Tandaan na ang lahat ng istatistika ay inuulat sa Kilobytes.
 
