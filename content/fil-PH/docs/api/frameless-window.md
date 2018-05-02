@@ -73,25 +73,24 @@ ng blur effect sa nilalaman sa ibaba ng window (ibig sabihin, iba pang mga appli
 ang sistema ng gumagamit).</li>
 <li>Sa mga operating system ng Windows, ang mga transparent windows ay hindi gagana kapag ang DWM ay
 hindi pinagana.</li>
-<li>Sa mga gumagamit ng Linux ay dapat ilagay ang  <code>--enable-transparent-visuals --disable-gpu` ang command line upang huwag paganahin ang GPU at pahintulutan ang ARGB na gawing transparent window, ito ay sanhi ng isang upstream bug na  alpha channel ay hindi gumagana sa ilan NVidia driver </ 1> sa Linux.</li> 
-        
-        * Sa Mac ang native window shadow ay hindi ipapakita sa isang transparent window.</ul> 
-        
-        ## Click-through window 
-        
-        Upang lumikha ng isang click-through window, i.e. paggawa ng window huwag pansinin ang lahat ng mouse mga kaganapan, maaari mong tawagan ang  win.setIgnoreMouseEvents (ignore) </ 0> API:</p> 
-        
-        ```javascript
+<li>On Linux, users have to put <code>--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
+    * On Mac, the native window shadow will not be shown on a transparent window.</ul> 
+    
+    ## Click-through window 
+    
+    Upang lumikha ng isang click-through window, i.e. paggawa ng window huwag pansinin ang lahat ng mouse mga kaganapan, maaari mong tawagan ang  win.setIgnoreMouseEvents (ignore) </ 0> API:</p> 
+    
+    ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
-    
-    ### Forwarding
-    
-    Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
-    
-    ```javascript
+
+### Forwarding
+
+Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+
+```javascript
 let win = require('electron').remote.getCurrentWindow()
 let el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
