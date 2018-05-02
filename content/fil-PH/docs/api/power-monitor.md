@@ -6,7 +6,7 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
 
-For example:
+Halimbawa ng:
 
 ```javascript
 const electron = kailangan('electron')
