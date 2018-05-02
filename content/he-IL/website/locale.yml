@@ -1,4 +1,4 @@
-tagline: פתח ישום חוצה-פלטפורמות עם JavaScript, HTML ו-CSS
+tagline: פתח יישום חוצה-פלטפורמות עם JavaScript, HTML ו-CSS
 nav:
   docs: תיעוד
   donors: תורמים
@@ -19,7 +19,7 @@ docs:
   advanced: הגדרות מתקדמות
   footer:
     propose_change: שפר מסמך זה
-    version_history: היסטורית גירסאות
+    version_history: היסטורית גרסאות
     translate: תרגם דף זה
     view_all_docs: כל המסמכים בעמוד אחד
 languages:
@@ -34,8 +34,8 @@ community:
   components: רכיבים
   videos: סרטונים
   meetups: מפגשים
-  awesome_notice: רשימה זו נוצרת מתוך <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br>חזר משהו? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">בצע pull request</a>.
-  meetup_notice: להוספת מפגש, ערוך את <code>data/meetups.json</code> href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">ובצע pull request</a>.
+  awesome_notice: רשימה זו נוצרה מתוך <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br>חסר משהו? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">בצע pull request</a>.
+  meetup_notice: להוספת מפגש, ערוך את code> data/meetups.json< </code>href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">ובצע pull request</a>.
 releases: הפצות
 electron_is_easy:
   title: זה קל יותר משאתה חושב
@@ -46,10 +46,10 @@ web_technologies:
   description: Electron עושה שימוש ב-Chromium וב-Node.js כך שתוכלו לבנות את היישום שלכם עם HTML, CSS, ו- JavaScript.
 open_source:
   title: קוד פתוח
-  description: Electron הוא פרוייקט קוד פתוח המתוחזק על ידי GitHub וקהילה פעילה של תורמים.
+  description: Electron הוא פרויקט קוד פתוח המתוחזק על ידי GitHub וקהילה פעילה של תורמים.
 cross_platform:
   title: חוצה פלטפורמות
-  description: תומך Mac, Windows ו- Linux, ישומי Electron פועלים על שלושת הפלטפורמות.
+  description: תומך Mac, Windows ו- Linux, יישומי Electron פועלים על שלושת הפלטפורמות.
 benefits:
   hard_parts_made_easy: החלקים הקשים נהיו קלים
   automatic_updates: עדכונים אוטומטים
@@ -67,7 +67,7 @@ download_from_github: הורדה מ-GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">כל ההפצות</a> ב-GitHub
 quick_start:
   title: "פתח את <a href='https://github.com/electron/electron-quick-start' target='_blank'> התחלה מהירה </a> כדי לראות את Electron בפעולה:"
-  description: יישום Electron מיניאלי עם תיעוד מועיל.
+  description: יישום Electron מינילי עם תיעוד מועיל.
   clone: Clone the Quick Start repository
   go_into_repo: Go into the repository
   install_deps: Install the dependencies and run
@@ -81,7 +81,7 @@ taglines:
   languages: תוכן מותאם לשפות אחרות מקהילת המפתחים העולמית המדהימה שלנו.
 help_translate: "עזור לתרגם"
 footer:
-  see_the_faq: צפv בשאלות נפוצות
+  see_the_faq: צפה בשאלות נפוצות
 apps:
   title: יישומים שנבנו ב-Electron
   description: עם Electron, יצירת יישום מחשב לחברה שלך או לעצמך פשוט יותר. פותח לראשונה בעבור <a href='https://atom.io' target='_blank'>Atom editor</a> עורך הקוד של GitHub ומאז שימש אלקטרון ליצור יישומים על ידי חברות כמו מיקרוסופט, פייסבוק, Slack ו-Docker.
@@ -99,7 +99,7 @@ pages:
     title: Electron | בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS.
     description: 'בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS.'
   '/apps':
-    title: ישומי Electron
+    title: יישומי Electron
     description: יישומים שנבנו ב-Electron
   '/docs':
     title: תיעוד
