@@ -183,7 +183,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `yol` String - İndirme konumu.
 
 İndirme, kaydetme dizini ayarlar. Varsayılan olarak, karşıdan yükleme dizini `İndirilenler` uygulama klasörü altındadır.
 
@@ -251,7 +251,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri aramak` Function 
-    * `permissionGranted` Boolean - Allow or deny the permission.
+    * `permissionGranted` Boolean - İzin verme veya reddetme.
   * `details` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
 
@@ -323,14 +323,14 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
   * `eTag` String - ETag başlık değeri.
   * `startTime` Çift (isteğe bağlı) - indirmenin UNİX epoch'tan sonraki birkaç saniye içinde başlama zamanı.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. [DownloadItem](download-item.md) ile ilişkili herhangi bir `WebContents` yok ve başlangıç durumu `interrupted` olacak. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
-Clears the session’s HTTP authentication cache.
+Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
 
 #### `ses.setPreloads(preloads)`
 
@@ -344,19 +344,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Örnek Özellikler
 
-The following properties are available on instances of `Session`:
+Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Bu oturum için [çerezler](cookies.md) nesnesi.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Bu oturum için [Webistek](web-request.md) nesnesi.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Bu oturum için bir [Protokol](protocol.md) nesnesi.
 
 ```javascript
 const {app, session} = require('electron')
