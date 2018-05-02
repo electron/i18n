@@ -25,7 +25,7 @@ The prepare release script will do the following: 1. Check if a release is alrea
 
 Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
 
-For example:
+例:
 
 ### Major version change
 
@@ -72,7 +72,7 @@ The `prepare-release` script will trigger the builds via API calls. To monitor t
 - [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
 
-## Compile release notes
+## リリースノートをコンパイルする
 
 Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
 
@@ -169,7 +169,7 @@ This release is published to [npm](https://www.npmjs.com/package/electron)
 under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
 
-## Edit the release draft
+## リリースのドラフトを編集する
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. リリースを編集し、リリースノートを追加します。
@@ -200,7 +200,7 @@ npm run merge-release -- master
 npm run merge-release -- 1-7-x
 ```
 
-## Publish the release
+## リリースを公開する
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
