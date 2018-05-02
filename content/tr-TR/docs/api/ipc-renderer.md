@@ -46,7 +46,7 @@ Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 
 `channel` üzerinden ana işleme asenkron olarak mesaj ve keyfi argümanlar gönderebilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
-Ana işlem `channel` ile `ipcMain` modülünü dinleyerek işleme koyar.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
@@ -57,7 +57,7 @@ Ana işlem `channel` ile `ipcMain` modülünü dinleyerek işleme koyar.
 
 Ana işleme `channel` içinden senkronlu mesaj gönder, ayrıca matematiksel kuram gönderebilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
-Ana işlem `channel` öğesini `ipcMain` modülüyle birlikte ve `event.returnValue` ayarını yanıtlayarak işleme alır.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
 **Note:** Senkronize bir ileti göndermek, eğer ne yaptığınızı bilmiyorsanız kullanamayacağınız sürece tüm işleyici işlemini engeller.
 
@@ -67,7 +67,7 @@ Ana işlem `channel` öğesini `ipcMain` modülüyle birlikte ve `event.returnVa
 * `channel` Dizesi
 * `...args` herhangi[]
 
-Sends a message to a window with `windowid` via `channel`
+Sends a message to a window with `windowid` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
