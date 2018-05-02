@@ -8,7 +8,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(options)`
 
-* `opções` (Object | String) - If `opções` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
+* `opções` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
@@ -52,7 +52,7 @@ Retorna:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Função 
+* `callback` Function 
   * `username` String
   * `password` String
 
@@ -91,7 +91,7 @@ Emitted just after the last chunk of the `request`'s data has been written into 
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Event: 'error'
+#### Evento: 'error'
 
 Retorna:
 
