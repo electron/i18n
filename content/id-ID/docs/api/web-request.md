@@ -33,8 +33,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]pendengar)`
 
-* `menyaring` Object - (optional) 
-  * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
+* `menyaring` Objek (pilihan) 
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `pendengar` Fungsi 
   * `rincian` Obyek 
     * `identitas` Integer
@@ -58,8 +58,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
   
   #### `webRequest.onBeforeSendHeaders([filter, ]pendengar)`
   
-  * `menyaring` Object - (optional) 
-    * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
+  * `menyaring` Objek (pilihan) 
+    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
   * ` pendengar </ 0> Fungsi</li>
 </ul>
 
@@ -81,8 +81,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
     
     #### `webRequest.onSendHeaders([filter, ]listener)`
     
-    * `menyaring` Object - (optional) 
-      * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
+    * `menyaring` Objek (pilihan) 
+      * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `identitas` Integer
@@ -97,8 +97,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
     
     #### `webRequest.onHeadersReceived([filter, ]pendengar)`
     
-    * `menyaring` Object - (optional) 
-      * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
+    * `menyaring` Objek (pilihan) 
+      * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
     * ` pendengar </ 0> Fungsi</li>
 </ul>
 
@@ -123,8 +123,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
       
       #### `webRequest.onResponseStarted([filter, ]listener)`
       
-      * `menyaring` Object - (optional) 
-        * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
+      * `menyaring` Objek (pilihan) 
+        * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
       * `pendengar` Fungsi 
         * `rincian` Obyek 
           * `identitas` Integer
@@ -142,8 +142,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
       
       #### `webRequest.onBeforeRedirect([filter, ]listener)`
       
-      * `menyaring` Object - (optional) 
-        * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
+      * `menyaring` Objek (pilihan) 
+        * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
       * `pendengar` Fungsi 
         * `rincian` Obyek 
           * `identitas` Integer
@@ -162,8 +162,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
       
       #### `webRequest.onCompleted([filter, ]listener)`
       
-      * `menyaring` Object - (optional) 
-        * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
+      * `menyaring` Objek (pilihan) 
+        * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
       * `pendengar` Fungsi 
         * `rincian` Obyek 
           * `identitas` Integer
@@ -181,8 +181,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
       
       #### `webRequest.onErrorOccurred([filter, ]listener)`
       
-      * `menyaring` Object - (optional) 
-        * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
+      * `menyaring` Objek (pilihan) 
+        * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
       * `pendengar` Fungsi 
         * `rincian` Obyek 
           * `identitas` Integer
