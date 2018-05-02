@@ -63,21 +63,21 @@ $ ./script/build.py --compdb
 
 ### Başka sistemler için derleme
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Eğer `arm` üstüne inşaa etmek istiyorsanız aşağıdaki bağımlılıkları da indirmeniz gerekir:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Benzer olarak `arm64` için:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+`arm<code> veya <code>ia32` hedefleri için derlerken, `bootstrap.py` betiğine <0>--target_arch</code> parametresi geçmelisiniz:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -85,27 +85,27 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## İnşaa
 
-If you would like to build both `Release` and `Debug` targets:
+Eğer hem `Dağıtım` hem `Hata ayıklama` hedeflerinde inşaa etmek isterseniz:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Bu betik `out/R` içerisinde oldukça büyük bir Electron çalıştırılabilir dosyası oluşturacaktır. Dosya boyu 1.3 gigabyte'ı geçebilir. Bunun sebebi, Dağıtım hedefli inşaa'nın hata ayıklama sembollerini içeriyor oluşudur. Dosya boyutunu düşürmek içın `create-dist.py` dosyasını çalıştırabilirsiniz:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Bu betik çalışır bir dağıtımı çok daha ufak boyutlarda `dist`dizinine çıkarır. `create-dist.py` betiğini çalıştırdıktan sonra, hala `out/R` dizini içerisinde bulunan 1.3+ gigabyte'lık dosyayı silmek isteyebilirsiniz.
 
-You can also build the `Debug` target only:
+Ay~i zamanda sadece `Hata ayıklama` hedefleyerek inşaa edebilirsiniz:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+İnşaa tamamlandıktan sonra, `electron` hata ayıklama ikilisini `out/D` dizini altında bulabilirsiniz.
 
 ## Temizlik
 
@@ -123,11 +123,11 @@ $ npm run clean-build
 
 **Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
 
-## Arıza giderme
+## Arıza Giderme
 
 ### Hata mesajı: Error While Loading Shared Libraries: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Önceden inşaa edilmiş `clang` `libtinfo.so.5` bağlantısını yapmaya çalışacak. Makinanın mimarisine göre, uygun `libncurses`'e smylink yapın:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -139,19 +139,20 @@ Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system
 
 ## İleri düzey başlıklar
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+Varsayılan inşaa konfigurasyon'u belli başlı Linux masaüstü dağıtımları içindir. Özel bir dağıtım veya cihaz için, aşağıdaki bilgiler işinize yarayabilir.
 
 ### `libchromiumcontent`'i yerelinize inşaa etme
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+` libchromiumcontent </ 0 > koduna ai önceden hazırlanmış ikili dosyaları kullanmaktan kaçınmak için, <code> libchromiumcontent </ 0> 'ı yerel olarak oluşturabilirsiniz. Bunu yapmak için şu adımları izleyin:</p>
 
-1. [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)'u kurun
-2. [Ek inşaa bağımlılıklarını](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) kurun
-3. Git alt modullerini çekin:
+<ol>
+<li><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install">depot_tools</a>'u kurun</li>
+<li><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies">Ek inşaa bağımlılıklarını</a> kurun</li>
+<li>Git alt modullerini çekin:</li>
+</ol>
 
-```sh
-$ git submodule update --init --recursive
-```
+<pre><code class="sh">$ git submodule update --init --recursive
+`</pre> 
 
 1. `--build_release_libcc` argümanını `bootstrap.py` betiğine geçin:
 
@@ -159,7 +160,7 @@ $ git submodule update --init --recursive
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+`shared_library` konfigurasyonu varsayılan durumda ekli değildir, yani bu modu kullanarak Electron'un sadece `Dağıtım` versiyonunu inşaa edebilirsiniz:
 
 ```sh
 $ ./script/build.py -c R
@@ -167,9 +168,9 @@ $ ./script/build.py -c R
 
 ### İndirdiğıniz `clang` yerine sistem `clang`'ini kullanmak
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Varsayılan olarak önceden oluşturulmuş electron [`clang`](https://clang.llvm.org/get_started.html) tarafından sağlanan iki dosyalar chromium projesi. Eğer bir nedenden dolayı `clang` ile inşa etmek isterseniz sisteminize kurulu, `bootstrap.py` öğesinden `--clang_dir=<path>` öğesine geçin. Geçerek yapılan komut dosyası `clang` dillerin `<path>/bin/` içinde bulunduğu varsayılacaktır.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+Örneğin, `clang` 'ı `/user/local/bin/clang` dizinine yüklediyseniz:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
@@ -178,9 +179,9 @@ $ ./script/build.py -c R
 
 ### `clang` dışında derleyicileri kullanarak
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+`g++` gibi derleyicilerle Electron kurmak için öncelikle `-disable_clang` anahtarıyla `clang`'ı devre dışı bırakmanız ve ardından `CC` ve `CXX` çevre değişkenlerini istediğinize ayarlamanız gerekmektedir.
 
-For example building with GCC toolchain:
+Örneğin GCC araç zinciri ile oluşturma:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
@@ -189,7 +190,7 @@ $ ./script/build.py -c R
 
 ### Ortam Değişkenleri
 
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
+`CC` ve `CXX` dışında, inşaa konfigrasyonlarını özelleştirmek için aşağıdaki ortam değişkenlerini de ayarlayabilirsiniz:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -205,4 +206,4 @@ Apart from `CC` and `CXX`, you can also set the following environment variables 
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+İlgili ortam değişkenleri `bootstrap.py` betiğini çalıştırırken ayarlanmalıdır, `build.py` betiğinin içerisinde çalışmayacaktır.
