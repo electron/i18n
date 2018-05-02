@@ -67,7 +67,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `windowid` via `channel`.
+通过 `channel` 发送消息到带有 `windowid` 的窗口.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
