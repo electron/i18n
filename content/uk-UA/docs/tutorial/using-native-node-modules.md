@@ -55,7 +55,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
 
-## Troubleshooting
+## Виправлення Неполадок
 
 If you installed a native module and found it was not working, you need to check following things:
 
