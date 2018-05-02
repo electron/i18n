@@ -148,7 +148,7 @@ app.on('window-all-closed', () => {
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - содержит специфичное для приложения состояние, сохраняющееся в хранилище по активности.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе операция завершится ошибкой и будет вызвано `continue-activity-error`.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Иначе операция завершится ошибкой и будет вызвано `continue-activity-error`.
 
 ### Событие: 'new-window-for-tab' *macOS*
 
@@ -313,14 +313,14 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 * `exitCode` Integer (опиционально)
 
-Выход немедленно `exitCode`. `exitCode` по умолчанию 0.
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 Все окна будут закрыты сразу без запросов пользователя и `before-quit` и `will-quit` события не будут возникать.
 
 ### `app.relaunch([options])`
 
 * `options` Object (опционально) 
-  * `args` String[] - (опиционально)
+  * `args` String[] (optional)
   * `execPath` String (опиционально)
 
 Перезапуск приложения когда существует текущий экземпляр.
@@ -384,7 +384,7 @@ app.exit(0)
 * `pictures` каталог пользователя для фотографии.
 * `videos` каталог пользователя для видео.
 * `logs` директория для логов вашего приложения.
-* `pepperFlashSystemPlugin` полный путь к версии системы плагина Pepper Flash.
+* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -498,7 +498,7 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 * `tasks` [Task[]](structures/task.md) - массив объектов `Task`
 
-Добавляет `tasks` к категории [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) в JumpList на Windows.
+Добавляет `tasks` к категории [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) в JumpList на Windows.
 
 `tasks` массив объектов [`Task`](structures/task.md).
 
@@ -689,13 +689,9 @@ app.on('ready', () => {
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
-### `app.getAppMemoryInfo()` *Deprecated*
-
-Возвращает [`ProcessMetric[]`](structures/process-metric.md): массив объектов `ProcessMetric`, которые соответствует статистике использования памяти всех процессов, связанных с приложением. **Примечание:** Этот метод является устаревшим, вместо этого используйте `app.getAppMetrics()`.
-
 ### `app.getAppMetrics()`
 
-Возвращает [`ProcessMetric[]`](structures/process-metric.md): массив объектов `ProcessMetric`, которые соответствует статистике использования памяти всех процессов, связанных с приложением.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
@@ -732,18 +728,16 @@ app.on('ready', () => {
 Возвращает `Object`:
 
 * `openAtLogin` Boolean - `true` если приложение планируется открыть при входе в систему.
-* `openAsHidden` Boolean - `true` если приложение установлено как скрытое при входе в систему. Этот параметр поддерживается только в macOS.
-* `wasOpenedAtLogin` Boolean - `true` если приложение было открыто при входе в систему автоматически. Этот параметр поддерживается только в macOS.
-* `wasOpenedAsHidden` Boolean - `true` если приложение было открыто в качестве скрытого элемента при входе в систему. Это означает, что приложению не следует открывать любое окно при запуске. Этот параметр поддерживается только на macOS.
-* `restoreState` Boolean - `true` если приложение было открыто как элемент входа, который должен восстановить состояние с предыдущего сеанса. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Этот параметр поддерживается только на macOS.
-
-**Примечание:** Этот API не влияет на [MAS сборки](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Это означает, что приложению не следует открывать любое окно при запуске. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (опиционально) - `true` открыть приложение при входе в систему, `false` удалять приложение в качестве элемента входа. По умолчанию `false`.
-  * `openAsHidden` Boolean (опиционально) - `true` открыть приложение как скрытое. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр из системных настроек, так `.wasOpenedAsHidden app.getLoginItemStatus ()` должен быть проверен при открытии приложения и знать текущее значение. Этот параметр поддерживается только на macOS.
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр из системных настроек, так `.wasOpenedAsHidden app.getLoginItemStatus ()` должен быть проверен при открытии приложения и знать текущее значение. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (опиционально) *Windows* - исполняемый файл запускается при входе в систему. По умолчанию `process.execPath`.
   * `args` String[] (опиционально) *Windows* - аргументы командной строки для передачи исполняемого файла. По умолчанию пустой массив. Позаботесь обернуть путь кавычками.
 
@@ -765,8 +759,6 @@ app.setLoginItemSettings({
   ]
 })
 ```
-
-**Примечание:** Этот API не влияет на [MAS сборки](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
@@ -790,6 +782,21 @@ app.setLoginItemSettings({
   * `version` String (опиционально) - номер версии сборки приложения.
 
 Установите описание панели опций. Это переопределит значения, определенные в файле `.plist` приложения. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации.
+
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+
+* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+
+```js
+// Start accessing the file.
+const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// You can now access the file outside of the sandbox 
+stopAccessingSecurityScopedResource()
+```
+
+Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -816,11 +823,11 @@ app.setLoginItemSettings({
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Возвращает `Boolean` - выполняется ли приложение в настоящее время из системной папки Приложения(Application). Используйте в сочетании с `app.moveToApplicationsFolder()`
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Возвращает `Boolean` - было ли перемещение удачным. Пожалуйста, обратите внимание, если перемещение было успешным, Ваше приложение закроется и повторно запустится.
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
 
 Диалог подтверждения не будет представлен по умолчанию, если Вы хотите позволить пользователю подтвердить операцию, Вы можете сделать это с помощью API [`диалогового окна`](dialog.md).
 
