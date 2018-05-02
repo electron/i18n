@@ -6,7 +6,7 @@
 
 `remote` モジュールは、レンダラープロセス (ウェブページ) とメインプロセスの間で、簡単にプロセス間通信 (IPC) をする方法を提供します。
 
-Electronでは、GUI 関係のモジュール (たとえば `dialog`、`menu` 等) はレンダラープロセスではなく、メインプロセスでのみ有効です。 レンダラープロセスからそれらを使用するためには、`ipc` モジュールがメインプロセスにプロセス間メッセージを送る必要があります。 With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). 以下はレンダラープロセスからブラウザウインドウを作成するサンプルです。
+Electronでは、GUI 関係のモジュール (たとえば `dialog`、`menu` 等) はレンダラープロセスではなく、メインプロセスでのみ有効です。 レンダラープロセスからそれらを使用するためには、`ipc` モジュールがメインプロセスにプロセス間メッセージを送る必要があります。 `remote` モジュールでは、明示的にプロセス間メッセージを送ることなく、Java の [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation) のように、メインプロセスのオブジェクトのメソッドを呼び出せます。 以下はレンダラープロセスからブラウザウインドウを作成するサンプルです。
 
 ```javascript
 const {BrowserWindow} = require('electron').remote
