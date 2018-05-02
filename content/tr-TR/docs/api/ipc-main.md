@@ -2,7 +2,7 @@
 
 > Ana süreçten işleyici süreçlerine zaman uyumsuz olarak iletişim kurun.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `ipcMain` modülü [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) sınıfının bir örneğini teşkil eder. Ana işlem tarafından kullanıldığında eş zamansız işlemleri gerçekleştirir ve işleme sürecinden (web sayfası) senkronizasyon bilgisi alır. Bir işleyiciden gönderilecek mesajlar bu modüle yayılacaktır.
 
@@ -20,12 +20,12 @@ Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için 
 // Ana süreç içinde.
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg) // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg) // prints "ping"
   event.returnValue = 'pong'
 })
 ```
@@ -48,23 +48,23 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksiyon
+* `listener` Function
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
 ### `ipcMain.once(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksiyon
+* `listener` Function
 
 Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir mesajın `channel` adresine gönderilmesinden sonra kaldırılır.
 
 ### `ipcMain.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksiyon
+* `listener` fonksiyon
 
-Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
+Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
 
 ### `ipcMain.removeAllListeners([kanal])`
 
