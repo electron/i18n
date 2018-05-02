@@ -4,7 +4,7 @@ These guides are intended for people working on the Electron project itself. For
 
 * [Нормы поведения](../../CODE_OF_CONDUCT.md)
 * [Вклад в Elecetron](../../CONTRIBUTING.md)
-* [Вопросы](issues.md)
+* [Задачи](issues.md)
 * [Запросы на слияние](pull-requests.md)
 * [Руководство по написанию документации](coding-style.md#documentation)
 * [Структура каталога с исходным кодом](source-code-directory-structure.md)
