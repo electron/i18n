@@ -28,20 +28,13 @@ Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Yakınlaştırma seviyesi
+* `level` Number - Zoom level.
 
 Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder.
 
 ### `webFrame.getZoomLevel()`
 
 `Number` döndürür - Geçerli yakınlaştırma seviyesi.
-
-### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-**Kullanım dışı:** Bunun yerine, görsel yakınlaştırma seviye sınırlarını ayarlamak için `setVisualZoomLevelLimits` 'i çağırın. Bu yöntem Elektron 2.0'da kaldırılacaktır.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -61,15 +54,15 @@ Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düz
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Object 
-  * `spellCheck` Function - döner `Boolean` 
+* `provider` Nesne 
+  * `spellCheck` Function - Returns `Boolean`. 
     * `text` String
 
-Giriş alanlarında ve metin alanlarında yazım denetimi için bir provider ayarlar.
+Sets a provider for spell checking in input fields and text areas.
 
-`Provider` kelimenin doğru yazılıp yazılmadığını döndüren, `spellCheck` metoduna sahip bir nesne olmalıdır.
+The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
 
-Provider gibi [node-spellchecker](https://github.com/atom/node-spellchecker) kullanılarak bir örnek:
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -84,29 +77,29 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-`scheme`'yı güvenli scheme olarak kaydeder.
+Registers the `scheme` as secure scheme.
 
-Güvenli scheme'lar karışık içerik uyarılarını tetiklemiyor. Örneğin, `https` ve `veri` güvenli scheme'lardır, çünkü bunlar etkin ağ saldırganları tarafından bozulamazlar.
+Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Geçerli sayfanın İçerik Güvenliği Politikası ne olursa olsun kaynaklar bu `scheme`'dan yüklenecektir.
+Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (isteğe bağlı) 
-  * `secure` Boolean - (isteğe bağlı) Varsayılan true.
-  * `bypassCSP` Boolean - (isteğe bağlı) Varsayılan true.
-  * `allowServiceWorkers` Boolean - (isteğe bağlı) Varsayılan true.
-  * `supportFetchAPI` Boolean - (isteğe bağlı) Varsayılan true.
-  * `corsEnabled` Boolean - (isteğe bağlı) Varsayılan true.
+* `seçenekler` Nesne (isteğe bağlı) 
+  * `secure` Boolean (optional) - Default true.
+  * `bypassCSP` Boolean (optional) - Default true.
+  * `allowServiceWorkers` Boolean (optional) - Default true.
+  * `supportFetchAPI` Boolean (optional) - Default true.
+  * `corsEnabled` Boolean (optional) - Default true.
 
-`Scheme`'i güvenli olarak kaydeder, kaynaklar için içerik güvenliği ilkesini atlar, ServiceWorker'ı kaydettirmenize izin verir ve getirme API'sini destekler.
+Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
-Kayıttan çıkarmak için `false` değerine sahip bir seçenek belirtin. İçerik Güvenliği Politikasını atlamaksızın ayrıcalıklı bir scheme'nin kaydedilmesine bir örnek:
+Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -123,18 +116,49 @@ Odaklanmış öğeye `metin` ekler.
 
 * `code` String
 * `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
-* `callback` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
 `Promise` döndürür - çalışan kodun sonucuyla çözülen bir söz veya kodun sonucu reddedilen bir söz ise reddedilir.
 
-Sayfadaki `code`'u ölçer.
+Sayfadaki `code`'u değerlendirir.
 
 Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
+
+* `worldId` Integer
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
+* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+  * `result` Any
+
+Work like `executeJavaScript` but evaluates `scripts` in isolated context.
+
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+
+* `worldId` Integer
+* `csp` String
+
+Set the content security policy of the isolated world.
+
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+
+* `worldId` Integer
+* `name` Dizi
+
+Set the name of the isolated world. Useful in devtools.
+
+### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
+
+* `worldId` Integer
+* `securityOrigin` String
+
+Set the security origin of the isolated world.
+
 ### `webFrame.getResourceUsage()`
 
-`Object` döndürür:
+`Object` 'i geri getirir:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -142,14 +166,14 @@ Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca 
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Blink'in dahili belleğinin önbelleklerinin kullanım bilgilerini açıklayan bir nesne döndürür.
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-Bu oluşturur:
+This will generate:
 
 ```javascript
 {
@@ -167,6 +191,6 @@ Bu oluşturur:
 
 ### `webFrame.clearCache()`
 
-Artık kullanılmayan belleği boşa çıkarmaya çalışır (ör. önceki gezinmeden fotoğraflar).
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-Boşu boşuna bu metodu çağırmanın muhtemelen Electron'u yavaşlatacağını unutmayın çünkü boşalan önbellekleri tekrar doldurmak zorunda kalacaktır, sadece uygulamanızda sayfanın aslında daha az bellek kullandığını düşündüğünüz bir olay varsa bunu çağırmalısınız (örneğin, çok yoğun bir sayfadan çoğunlukla boş olan bir sayfaya gidiyorsanız ve orada kalmak niyetindeyseniz).
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
