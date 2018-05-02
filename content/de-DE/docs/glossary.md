@@ -24,9 +24,13 @@ An Apple Disk Image is a packaging format used by macOS. DMG files are commonly 
 
 Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
 
+### IDL
+
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+
 ### IPC
 
-IPC steht für Inter-Process-Communication. Electron verwendet IPC serialisierte JSON Nachrichten zwischen den [Haupt-](#main-process) und [Renderer](#renderer-process) Prozessen.
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -34,7 +38,7 @@ A shared library that includes the [Chromium Content module](https://www.chromiu
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### Main-Prozess
+### main process
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
@@ -42,19 +46,25 @@ Every app's main process file is specified in the `main` property in `package.js
 
 In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-Siehe auch: [process](#process), [renderer process](#renderer-process)
+See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Abkürzung für Apples Mac App Store. Für Infromationen zum Einreichen deiner App zum MAS siehe [Anleitung: Mac App Store Veröffentlichung](tutorial/mac-app-store-submission-guide.md).
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-### systemeigene Module
+### Mojo
+
+An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+
+See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+
+### native modules
 
 Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-Siehe auch: [Nutzen von Native Node Modules](tutorial/using-native-node-modules.md).
+See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
@@ -66,11 +76,11 @@ OSR (Off-screen rendering) can be used for loading heavy page in background and 
 
 ### process
 
-Ein Prozess ist eine Instanz eines Computerprogramms, welches ausgeführt wird. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-Siehe auch: [main process](#main-process), [renderer process](#renderer-process)
+See also: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
@@ -78,11 +88,11 @@ The renderer process is a browser window in your app. Unlike the main process, t
 
 In regulären Browsern laufen Webseiten normalerweise in einer isolierten Umgebung und haben daher keinen Zugriff auf native Ressourcen. Als Nutzer von Electron haben Sie die Option Node.js-APIs in den Webseiten zu nutzen. Damit werden Interaktionen auf Betriebssystemebene möglich.
 
-Siehe auch: [process](#process), [main process](#main-process)
+See also: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel ist ein Open-Source Framework, welches Electron Apps ermöglicht sich automatisch zu aktualisieren, wenn neue Versionen veröffentlicht werden. Siehe dir die [autoUpdater](api/auto-updater.md) API an für mehr Informationen wie du mit Squirrel startest.
+Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
 ### userland
 
