@@ -10,8 +10,8 @@ Yang baru dibuat ` BrowserWindow ` akan mewarisi pilihan jendela induk secara de
 
 ### `window.open (url [, frameName] [, fitur])`
 
-* `url` String
-* `frameName`String (opsional)
+* ` url </ 0> String</li>
+<li><code>frameName`String (opsional)
 * `fitur` String (opsional)
 
 Mengembalikan [` BrowserWindowProxy `](browser-window-proxy.md) - Membuat jendela baru dan mengembalikan sebuah instance dari kelas ` BrowserWindowProxy `.
@@ -27,20 +27,20 @@ String `features` mengikuti format browser standar, namun masing-masing fitur ha
 
 ### `window.opener.postMessage (pesan, targetOrigin)`
 
-* `pesan` String
-* `targetOrigin` String
+* ` pesan </ 0> String</li>
+<li><code> targetOrigin </ 0> String</li>
+</ul>
 
-Mengirim pesan ke jendela induk dengan asal yang ditentukan atau `*` tanpa preferensi asal.
-
-### Menggunakan penerapan `window.open()` Chrome
-
-Jika Anda ingin menggunakan penerapan built-in `window.open()`, setel `nativeWindowOpen` ke `benar` di `webPreferences` pilihan objek
-
-Native `window.open()` memungkinkan akses sinkron ke jendela yang terbuka sehingga pilihan yang tepat jika Anda perlu membuka dialog atau jendela preferensi.
-
-Opsi ini juga dapat disetel pada tag `<webview>` juga:
-
-```html
+<p>Mengirim pesan ke jendela induk dengan asal yang ditentukan atau <code>*` tanpa preferensi asal.</p> 
+    ### Menggunakan penerapan `window.open()` Chrome
+    
+    Jika Anda ingin menggunakan penerapan built-in `window.open()`, setel `nativeWindowOpen` ke `benar` di `webPreferences` pilihan objek
+    
+    Native `window.open()` memungkinkan akses sinkron ke jendela yang terbuka sehingga pilihan yang tepat jika Anda perlu membuka dialog atau jendela preferensi.
+    
+    Opsi ini juga dapat disetel pada tag `<webview>` juga:
+    
+    ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
