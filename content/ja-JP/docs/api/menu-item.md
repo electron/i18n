@@ -11,18 +11,18 @@
 * `options` Object 
   * `click` Function (任意) - メニューアイテムがクリックされると、 `click(menuItem, browserWindow, event)` と呼ばれる。 
     * `menuItem` MenuItem
-    * `browserWindow` BrowserWindow
+    * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
   * `role` String (任意) - メニューアイテムの動作を定義する。`click` プロパティを指定した場合は無視される。[roles](#roles) を参照。
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
-  * `label` String - (任意)
-  * `sublabel` String - (任意)
+  * `label` String (optional)
+  * `sublabel` String (optional)
   * `accelerator` [Accelerator](accelerator.md) (任意)
   * `icon` ([NativeImage](native-image.md) | String) (任意)
   * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできない。
   * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
   * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (任意) - `submenu` の type のメニューアイテムに対してのみ指定する必要がある。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できる。 値が `Menu` でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換される。
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. もし `submenu` を指定した場合、`type: 'submenu'` は省略できる。 If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (任意) - 一つの menu 内で一意なもの。これが定義されていれば、position 属性によってこのアイテムへの参照として利用できる。
   * `position` String (任意) - このフィールドは与えられたメニュー内の特定の場所を細かく定義できる。
 
@@ -41,42 +41,44 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `cut`
 * `copy`
 * `paste`
-* `pasteandmatchstyle`
-* `selectall`
+* `pasteAndMatchStyle`
+* `selectAll`
 * `delete`
-* `minimize` - 現在のウィンドウを最小化
-* `close` - 現在のウィンドウを閉じる
-* `quit` - アプリケーションを終了する
-* `reload` - 現在のウィンドウをリロード
-* `forcereload` - キャッシュを無視して現在のウィンドウをリロード
-* `toggledevtools` - 現在のウィンドウの開発者向けツールのトグル切り替え
-* `togglefullscreen`- 現在のウィンドウの全画面モードのトグル切り替え
-* `resetzoom` - フォーカス中のページのズームレベルを元のサイズにリセット
-* `zoomin` - フォーカス中のページを 10% 拡大
-* `zoomout` - フォーカス中のページを 10% 縮小
-* `editMenu` - デフォルトの"編集"メニュー全体 (元に戻す、コピー、等)
-* `windowMenu` - デフォルトの"ウインドウ"メニュー全体 (最小化、閉じる、等)
+* `minimize` - Minimize current window.
+* `close` - Close current window.
+* `quit`- Quit the application.
+* `reload` - Reload the current window.
+* `forceReload` - Reload the current window ignoring the cache.
+* `toggleDevTools` - Toggle developer tools in the current window.
+* `toggleFullScreen`- Toggle full screen mode on the current window.
+* `resetZoom` - Reset the focused page's zoom level to the original size.
+* `zoomIn` - Zoom in the focused page by 10%.
+* `zoomOut` - Zoom out the focused page by 10%.
+* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
+* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
 
-以下は macOS で有効な追加の role です。
+The following additional roles are available on *macOS*:
 
-* `about` - `orderFrontStandardAboutPanel` アクションにマップ
-* `hide` - `hide` アクションにマップ
-* `hideothers` - `hideOtherApplications` アクションにマップ
-* `unhide` - `unhideAllApplications` アクションにマップ
-* `startspeaking` - `startSpeaking` アクションにマップ
-* `stopspeaking` - `stopSpeaking` アクションにマップ
-* `front` - `arrangeInFront` アクションにマップ
-* `zoom` - `performZoom` アクションにマップ
-* `toggletabbar` - `toggleTabBar` アクションにマップ
-* `selectnexttab` - `selectNextTab` アクションにマップ
-* `selectprevioustab` - `selectPreviousTab` アクションにマップ
-* `mergeallwindows` - `mergeAllWindows` アクションにマップ
-* `movetabtonewwindow` - `moveTabToNewWindow` アクションにマップ
-* `window` - "ウインドウ"サブメニュー
-* `help` - "ヘルプ"サブメニュー
-* `services` - "サービス"サブメニュー
+* `about` - Map to the `orderFrontStandardAboutPanel` action.
+* `hide` - Map to the `hide` action.
+* `hideOthers` - Map to the `hideOtherApplications` action.
+* `unhide` - Map to the `unhideAllApplications` action.
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `front` - Map to the `arrangeInFront` action.
+* `zoom` - Map to the `performZoom` action.
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
+* `services` - The submenu is a "Services" menu.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
-macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。ほかのすべてのオプションは無視されます。
+When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
 ### インスタンスプロパティ
 
@@ -102,8 +104,8 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 
 #### `menuItem.label`
 
-メニューアイテムに表示されているラベルの `String`。
+A `String` representing the menu items visible label.
 
 #### `menuItem.click`
 
-MenuItem がクリックイベントを受け取った時に発火される `Function`。
+A `Function` that is fired when the MenuItem receives a click event.
