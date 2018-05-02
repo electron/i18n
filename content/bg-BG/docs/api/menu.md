@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -126,7 +126,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Main process
+### Основен процес
 
 An example of creating the application menu in the main process with the simple template API:
 
