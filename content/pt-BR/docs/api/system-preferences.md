@@ -24,7 +24,7 @@ Retorna:
 
 Retorna:
 
-* `event` Event
+* Evento `event`
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
