@@ -2,7 +2,7 @@
 
 > Abri uma nova janela e carregar uma URL.
 
-Quando `window.open` é chamada para criar uma nova janela em uma página web, uma nova instância de `BrowserWindow` será criada para a `url` e um proxy será retornado para `window.open`, deixando o controle sobre ele limitado.
+When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
 O proxy é limitado a funcionalidade padrão implementada para ser compatível com páginas web tradicionais. Para ter o controle total da nova janela, você deve criar um `BrowserWindow` diretamente.
 
