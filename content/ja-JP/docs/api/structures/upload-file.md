@@ -4,4 +4,4 @@
 * `filePath` String - アップロードするファイルのパス。
 * `offset` Integer - 省略値は ``。
 * `length` Integer - `offset` から読み取るバイト数。省略値は ``。
-* `modificationTime` Double - 最終変更した UNIX エポックからの秒数。
+* `modificationTime` Double - Last Modification time in number of seconds since the UNIX epoch.
