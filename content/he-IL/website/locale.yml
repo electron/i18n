@@ -1,18 +1,18 @@
 tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
 nav:
-  docs: Docs
-  donors: Donors
-  blog: Blog
-  community: Community
-  apps: Apps
+  docs: מסמכים
+  donors: תורמים
+  blog: בלוג
+  community: קהילה
+  apps: יישומים
   userland: Userland
-  releases: Releases
-  contact: Contact
-  languages: Languages
-  code_of_conduct: Code of Conduct
-  search: Search
+  releases: הפצות
+  contact: צור קשר
+  languages: שפות
+  code_of_conduct: הקוד האתי
+  search: חיפוש
 docs:
-  title: Electron Documentation
+  title: תיעוד Electron
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
   guides: Guides
   api_reference: API Reference
@@ -76,7 +76,7 @@ need_help:
   title: Need Help?
   description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
-  languages: Languages
+  languages: שפות
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help translate"
@@ -120,14 +120,14 @@ pages:
     title: Electron Blog
     description: All the latest news from the Electron team and community.
   '/community':
-    title: Community
+    title: קהילה
   '/releases':
     title: Releases
   '/contact':
-    title: Contact
+    title: צור קשר
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Languages
+    title: שפות
   '/userland':
     title: Userland
   '/devtron':
@@ -137,7 +137,7 @@ pages:
     title: Spectron
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
   '/donors':
-    title: Donors
+    title: תורמים
 _404:
   page_not_found: Page not found.
 search:
