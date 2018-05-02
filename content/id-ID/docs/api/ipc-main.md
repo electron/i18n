@@ -2,7 +2,7 @@
 
 > Berkomunikasi asynchronous dari proses utama ke proses renderer.
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 ` ipc Main </ 0> modul adalah turunan dari
  <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> acara Emitter </ 1> kelas. Bila digunakan dalam proses utama, ia menangani pesan asinkron dan sinkron yang dikirim dari proses renderer (halaman web). Pesan yang dikirim dari penyaji akan dipancarkan ke modul ini.</p>
@@ -21,11 +21,16 @@ Proses: [Utama](../glossary.md#main-process)
 <p>Contoh pengiriman dan penanganan pesan antara proses render dan utama:</p>
 
 <pre><code class="javascript">// Dalam proses utama.
-const {ipcMain} = require ('electron') ipcMain.on ('asynchronous_pesan', ( acara , arg) = & gt; {
-   console.log (arg) // mencetak "ping"
- Acara.pengirim.kirim ('asynchronous -dulain ',' pong ')}) ipcMain.on (' pesan sinkron ', ( scara, arg) = & gt; {
- Menghibur.log (arg) // mencetak "ping"
- Acara .kembali di nilai =' pong '})      
+const {ipcMain} = require('electron')
+ipcMain.on('asynchronous-message', (event, arg) => {
+  console.log(arg) // prints "ping"
+  event.sender.send('asynchronous-reply', 'pong')
+})
+
+ipcMain.on('synchronous-message', (event, arg) => {
+  console.log(arg) // prints "ping"
+  event.returnValue = 'pong'
+})
 `</pre> 
 
 ```javascript
