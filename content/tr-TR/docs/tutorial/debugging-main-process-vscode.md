@@ -28,10 +28,8 @@ $ code electron-quick-start
 }
 ```
 
-**Not:**Windows,`${workspaceRoot}/node_modules/.bin/electron.cmd"`kullanmak için`runtimeExecutable`.
-
 ### 3. Hata Ayıklama
 
-Bazı kesme noktaları ayarla `main.js`, ve hata ayıklamaya başla [Hata Ayıklama Görünümü](https://code.visualstudio.com/docs/editor/debugging) Kesme noktalarına tıklayabilirsiniz.
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
-VsCode'da daha önceden yapılandırılmış indirilebilir ve hata ayıklanabilir bir proje: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
