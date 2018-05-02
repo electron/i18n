@@ -48,23 +48,23 @@ open_source:
   title: קוד פתוח
   description: Electron הוא פרוייקט קוד פתוח המתוחזק על ידי GitHub וקהילה פעילה של תורמים.
 cross_platform:
-  title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  title: חוצה פלטפורמות
+  description: תומך Mac, Windows ו- Linux, ישומי Electron פועלים על שלושת הפלטפורמות.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  hard_parts_made_easy: החלקים הקשים נהיו קלים
+  automatic_updates: עדכונים אוטומטים
+  native_menus_and_notifications: תפריטים והודעות מובנות
+  crash_reporting: דו"ח קריסה
+  debugging_and_profiling: איתור באגים ופרופילים
+  windows_installers: התקנה למיקרוסופט ווינדוס
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: צא לדרך
+  description: כדי להתחיל לעבוד עם Electron, בדוק את הכלים למטה. למד איך לעטוף את יישום האינטרנט שלך עם Electron, לגשת לממשקים ולהפיק מתקינים.
 explore:
-  title: Explore the Electron APIs
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
-download_from_github: Download from GitHub
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
+  title: חקור את הממשקים של Electron
+  description: "<a href='https://github.com/electron/electron-api-demos'> אפליקציית ההדגמה של ממשק Electron </a> מדגימה באופן אינטרקטיבי את התכונות החשובות ביותר של ממשקי Electron. צפה מה אפשר לעשות עם Electron בדוגמאות קוד וטיפים שימושים."
+download_from_github: הורדה מ-GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">כל ההפצות</a> ב-GitHub
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
