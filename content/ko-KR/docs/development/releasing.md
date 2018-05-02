@@ -63,7 +63,7 @@ Tip: You can test the new version number before running `prepare-release` with a
 $ ./script/bump-version.py --bump minor --dry-run
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## 빌드를 기다리십시오 : hourglass_flowing_sand :
 
 The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
 
@@ -72,15 +72,15 @@ The `prepare-release` script will trigger the builds via API calls. To monitor t
 - [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
 
-## Compile release notes
+## 릴리즈 노트 컴파일
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+릴리스 노트 작성은 빌드가 실행되는 동안 작업을 계속해서 유지하는 좋은 방법입니다. 또는 선행 기술의 경우, [릴리스 페이지](https://github.com/electron/electron/releases)의 기존 릴리스를 참조하십시오.
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - Electron의 모든 버전에서 Chromium, V8 및 Node의 버전을 보려면 [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json)을 방문하십시오.
 
 ### 패치 릴리즈
 
-For a `patch` release, use the following format:
+`패치` 릴리스의 경우 다음 형식을 사용하십시오.
 
 ```sh
 ## Bug Fixes
@@ -131,8 +131,8 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 ```sh
 ## Upgrades
 
-- Upgraded from Chromium `oldVersion` to `newVersion`. #123
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- Upgraded from Chromium `oldVersion` to `newVersion`. # 123
+- 노드`oldVersion`에서`newVersion`으로 업그레이드되었습니다. #123
 
 ## Breaking API changes
 
@@ -148,11 +148,11 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 
 ### Windows
 
-* Changed a Windows thing. #123
+* Changed a Windows thing. # 123
 
-## Other Changes
+## 기타 변경 사항
 
-- Some other change. #123
+- 다른 변화. #123
 ```
 
 ### Beta releases
@@ -163,13 +163,13 @@ Use the same formats as the ones suggested above, but add the following note at 
 **Note:** This is a beta release and most likely will have have some
 instability and/or regressions.
 
-Please file new issues for any bugs you find in it.
+버그가 발견되면 새로운 문제를 제출하십시오.
 
 This release is published to [npm](https://www.npmjs.com/package/electron)
 under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
 
-## Edit the release draft
+## 릴리즈 초안 편집
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. 릴리즈를 편집하고 릴리즈 노트를 추가하세요.
@@ -200,7 +200,7 @@ npm run merge-release -- master
 npm run merge-release -- 1-7-x
 ```
 
-## Publish the release
+## 릴리즈 게시
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
