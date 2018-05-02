@@ -30,7 +30,7 @@ The `dialog` module has the following methods:
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
+  * `गुण` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
     * `openFile` - Allow files to be selected.
     * `openDirectory` - Allow directories to be selected.
     * `multiSelections` - Allow multiple paths to be selected.
