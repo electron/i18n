@@ -37,8 +37,8 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 3. [リモートコンテンツを表示するすべてのレンダラーで、コンテキストイソレーションを有効にする](#-3-enable-context-isolation-for-remote-content)
 4. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する](#-4-handle-session-permission-requests-from-remote-content)
 5. [`webSecurity` を無効にしない](#-5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#-6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#-7-override-and-disable-eval), which allows strings to be executed as code.
+6. [`Content-Security-Policy` を定義](#-6-define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
+7. 文字列をコードとして実行できる [`eval` を書き換えて無効にする](#-7-override-and-disable-eval)。
 8. [`allowRunningInsecureContent` を `true` にしない](#-8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [実験的な機能を有効にしない](#-9-do-not-enable-experimental-features)
 10. [`blinkFeatures` を使用しない](#-10-do-not-use-blinkfeatures)
@@ -293,7 +293,7 @@ By default, Electron will not allow websites loaded over `HTTPS` to load and exe
 
 ### なぜ？
 
-簡単に言えば、`HTTPS` を介してコンテンツをロードすると、トラフィック自体を暗号化しながら、ロードされたリソースの信憑性と完全性が保証されます。 See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+簡単に言えば、`HTTPS` を介してコンテンツをロードすると、トラフィック自体を暗号化しながら、ロードされたリソースの信憑性と完全性が保証されます。 より詳しくは、[セキュアなコンテンツのみを表示する](#1-only-load-secure-content) を参照して下さい。
 
 ### どうすればいいの？
 
