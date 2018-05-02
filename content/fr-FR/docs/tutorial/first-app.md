@@ -31,7 +31,7 @@ npm vous guidera dans la création d'un fichier `package.json` basique. Le scrip
 }
 ```
 
-**Note**: Si le champ `main` n'est pas présent dans le fichier `package.json`, Electron tentera de charger un fichier `index.js` (comme le fait Node.js lui-même). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**Note**: Si le champ `main` n'est pas présent dans le fichier `package.json`, Electron tentera de charger un fichier `index.js` (comme le fait Node.js lui-même). En fait si c'était une simple application Node, vous ajouteriez un script `start` qui demanderait à `node` d'exécuter le package courant:
 
 ```json
 {
