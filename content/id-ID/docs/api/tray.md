@@ -43,8 +43,8 @@ Modul `Tray` memancarkan peristiwa berikut:
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
-* `posisi` [Point](structures/point.md) - posisi acara
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `position` [Point](structures/point.md) - The position of the event.
 
 Emitted saat ikon baki diklik.
 
@@ -55,7 +55,7 @@ Emitted saat ikon baki diklik.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Dibunyikan ketika ikon tray benar diklik.
 
@@ -66,7 +66,7 @@ Dibunyikan ketika ikon tray benar diklik.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Dipancarkan saat ikon baki diklik dua kali.
 
@@ -96,7 +96,7 @@ Disuarakan saat file terseret dijatuhkan di ikon baki.
 #### Event: 'drop-teks' *macOS*
 
 * `event` Acara
-* `teks` String - string teks menjatuhkan
+* `text` String - the dropped text string.
 
 Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
 
@@ -119,7 +119,7 @@ Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi la
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `posisi` [Point](structures/point.md) - posisi acara
+* `position` [Point](structures/point.md) - The position of the event.
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
@@ -130,7 +130,7 @@ Dibunyikan apabila operasi drag yang memasuki ikon tray.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `posisi` [Point](structures/point.md) - posisi acara
+* `position` [Point](structures/point.md) - The position of the event.
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
@@ -141,7 +141,7 @@ Dibunyikan apabila operasi drag yang memasuki ikon tray.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `posisi` [Point](structures/point.md) - posisi acara
+* `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse moves in the tray icon.
 
@@ -176,7 +176,7 @@ Mengatur `gambar` yang terkait dengan ikon baki ini.
   * ` judul</ 0>  String</li>
 </ul>
 
-<p>Menetapkan judul yang ditampilkan di samping ikon baki di bilah status.</p>
+<p>Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).</p>
 
 <h4><code>tray.setHighlightMode(mode)` * macos*</h4> 
     * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
@@ -208,7 +208,7 @@ win.on ('hide', () = > {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `pilihan` Obyek 
-  * `ikon` ([NativeImage](native-image.md) | String) - (opsional)
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * ` judul</ 0>  String</li>
 <li><code>content` String
 
