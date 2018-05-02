@@ -12,9 +12,9 @@
 
 גרסת ה-Chrome של Electron בדרך כלל מופצת שבוע או שבועיים לאחר שמופצת גרסה חדשה ויציבה של Chrome. הערכה זו אינה קבועה ותלויה בכמות העבודה שמצריך העדכון.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+רק ההפצה היציבה של Chrome נמצאת בשימוש ואם נמצא תיקון חשוב בגרסאת הבטא או dev אנו נשתמש גם בו.
 
-For more information, please see the [security introduction](tutorial/security.md).
+למידע נוסף פתח [security introduction](tutorial/security.md).
 
 ## When will Electron upgrade to latest Node.js?
 
