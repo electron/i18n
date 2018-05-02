@@ -175,7 +175,7 @@ app.on('activate', () => {
 </html>
 ```
 
-## Running Your App
+## app در حال اجرای خود را
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
