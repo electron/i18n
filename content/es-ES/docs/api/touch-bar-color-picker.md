@@ -10,7 +10,7 @@ Proceso: [principal](../tutorial/quick-start.md#main-process)
   * `Colores disponibles` Cadena[] (opcional) - arreglo de códigos hexadecimales de los colores a aparecer como colores posibles a seleccionar.
   * `Color seleccionado` Cadena (opcional) - El código de color hexadecimal en el seleccionador, ejemplo `#ABCDEF`.
   * `cambiar` Funcion (opcional) - Función a llamar cuando el color está seleccionado. 
-    * `color` Cadena - El color que el usuario seleccionó de entre las opciones
+    * `color` String - The color that the user selected from the picker.
 
 ### Propiedades de Instancia
 
