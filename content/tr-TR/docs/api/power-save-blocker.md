@@ -22,10 +22,10 @@ powerSaveBlocker.stop(id)
 ### `powerSaveBlocker.start(type)`
 
 * `tip` String - Güç tasarruf engelleyici tür. 
-  * `prevent-app-suspension` - Uygulamanın askıya alınmasını engeller. Sistemin aktif kalmasını sağlar, ancak ekranın kapatılmasına izin verir. Kullanım örnekleri: dosya indirme veya ses çalma.
-  * `prevent-display-sleep` - Ekranın uyku moduna geçmesini önler. Sistemi ve ekranı etkin tutar. Örnek kullanım durumu: video oynatma.
+  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
+  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-`Integer` Döndürür - Güç engelleyiciye atanan engelleyici kimliği
+Returns `Integer` - The blocker ID that is assigned to this power blocker.
 
 Sistemin daha düşük güç moduna girmesini önler. Güç tasarrufu bloklarını tanımlayan bir tam sayı döndürür.
 
