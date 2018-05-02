@@ -40,7 +40,7 @@ $ git clone https://github.com/electron/electron
 
 ## Inicialización
 
-El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Tenga en cuenta que estamos usando [ninja](https://ninja-build.org/) para construir Electron por lo que no se genera ningún proyecto de Xcode.
+El comando de inicialización descargará el conjunto de archivos necesarios y creará archivos de proyecto. Tenga en cuenta que estamos usando [ninja](https://ninja-build.org/) para construir Electron por lo que no se genera ningún proyecto de Xcode.
 
 ```sh
 $ cd electron
@@ -53,29 +53,29 @@ If you are using editor supports [JSON compilation database](http://clang.llvm.o
 $ ./script/build.py --compdb
 ```
 
-## Edificio
+## Compilando
 
-Build both `Release` and `Debug` targets:
+Compilar ambos destinos `lanzamiento` y `Depuración`:
 
 ```sh
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+También puede compilar solo un destino de `Depuración`:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+Después que la compilación esté lista, puede encontrar `Electron.app` como `out/D`.
 
 ## Soporta 32bit
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Electron solo se puede construir para un objetivo de 64 bits en macOS y no hay un plan para admitir macOS de 32 bits en el futuro.
 
 ## Limpieza
 
-Para limpiar los archivos construidos:
+Para limpiar los archivos de compilación:
 
 ```sh
 $ npm run clean
@@ -87,8 +87,8 @@ Para limpiar solo los directorios `fuera` y `dist`:
 $ npm run clean-build
 ```
 
-**Nota:** Ambos comandos de limpieza requieren que se ejecute `bootstrap` antes de construir de nuevo.
+**Nota:** Ambos comandos limpios requieren un `arranque` de nuevo después de ser compilados.
 
 ## Verificación
 
-Vea [Build System Overview: Tests](build-system-overview.md#tests)
+Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
