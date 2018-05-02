@@ -177,7 +177,7 @@ Zu guter Letzt die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 </html>
 ```
 
-## Starten deiner Anwendung
+## Ihre App ausführen
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
