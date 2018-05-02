@@ -39,7 +39,7 @@ The following methods are available on instances of `WebRequest`:
 * `listener` Function 
   * `details` Object 
     * `id` Inteiro
-    * `url` String
+    * String `url`
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
@@ -66,7 +66,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
 
 * `details` Object 
   * `id` Inteiro
-  * `url` String
+  * String `url`
   * `method` String
   * `webContentsId` Integer (optional)
   * `resourceType` String
@@ -86,7 +86,7 @@ The `callback` has to be called with an `response` object.
 * `listener` Function 
   * `details` Object 
     * `id` Inteiro
-    * `url` String
+    * String `url`
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
@@ -105,7 +105,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
 
 * `details` Object 
   * `id` Inteiro
-  * `url` String
+  * String `url`
   * `method` String
   * `webContentsId` Integer (optional)
   * `resourceType` String
@@ -128,7 +128,7 @@ The `callback` has to be called with an `response` object.
 * `listener` Function 
   * `details` Object 
     * `id` Inteiro
-    * `url` String
+    * String `url`
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
@@ -147,7 +147,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 * `listener` Function 
   * `details` Object 
     * `id` Inteiro
-    * `url` String
+    * String `url`
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
@@ -167,7 +167,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 * `listener` Function 
   * `details` Object 
     * `id` Inteiro
-    * `url` String
+    * String `url`
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
@@ -186,7 +186,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 * `listener` Function 
   * `details` Object 
     * `id` Inteiro
-    * `url` String
+    * String `url`
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
