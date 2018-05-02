@@ -1,16 +1,16 @@
 tagline: Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS
 nav:
+  apps: Приложения
+  blog: Блог
+  code_of_conduct: Нормы поведения
+  community: Сообщество
+  contact: Контакты
   docs: Документация
   donors: Спонсоры
-  blog: Блог
-  community: Сообщество
-  apps: Приложения
-  userland: Пользовательское пространство
-  releases: Релизы
-  contact: Контакты
   languages: Языки
-  code_of_conduct: Нормы поведения
+  releases: Релизы
   search: Поиск
+  userland: Пользовательское пространство
 docs:
   title: Документация Electron
   description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">ЧаВо</a>.
@@ -28,7 +28,22 @@ languages:
   current: текущий выбор
 community:
   title: Сообщество Electron
-  description: 'Инструменты, шаблоны, видео и еще больше от <a href="https://github.com/sindresorhus/awesome-electron"> удивительных</a> open-source вкладчиков в Electron. Найти или добавить <a href="/community#meetups"> встречи</a> рядом с вами.'
+  description: Resources for connecting with people working on Electron.
+  channels:
+    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
+    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+  language_communities:
+    title: Language Communities
+    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
   tools: Инструменты
   boilerplates: Шаблоны
   components: Компоненты
