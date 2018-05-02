@@ -4,7 +4,7 @@ const chai = require('chai')
 chai.should()
 chai.use(require('chai-date-string'))
 const {expect} = chai
-const {describe, it} = require('mocha')
+const {describe, it, xit} = require('mocha')
 const i18n = require('..')
 const cheerio = require('cheerio')
 
