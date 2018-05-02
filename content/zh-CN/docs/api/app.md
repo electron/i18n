@@ -148,7 +148,7 @@ app.on('window-all-closed', () => {
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
 * ` userInfo `Object-存储的应用程序特定状态。
 
-当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 如果需要更新要传输的状态, 应立即调用 ` 事件. preventDefault () `, 构造新的 ` 用户信息 ` 字典, 并及时调用 ` 应用程序 updateCurrentActiviy () `。 否则, 操作将失败, 并且将调用 ` 继续-活动-错误 `。
+当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. 否则, 操作将失败, 并且将调用 ` 继续-活动-错误 `。
 
 ### 事件: 'new-window-for-tab' *macOS*
 
@@ -262,7 +262,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `username` String
   * `password` String
 
@@ -313,14 +313,14 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 * `exitCode` Integer (可选)
 
-立即退出该程序，并返回 `exitCode`。`exitCode` 的默认值是 0
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 所有窗口都将立即被关闭（不会弹出询问提示），而且 `before-quit` 和 `will-quit` 事件也不会被触发
 
 ### `app.relaunch([options])`
 
 * `选项` Object (可选) 
-  * `args` String[] - (可选)
+  * `args` String[] (optional)
   * `execPath` String (可选)
 
 从当前实例退出，重启应用。
@@ -384,7 +384,7 @@ app.exit(0)
 * `pictures` 用户图片目录的路径
 * `videos` 用户视频目录的路径
 * ` logs `应用程序的日志文件夹
-* `pepperFlashSystemPlugin` Pepper Flash插件所在目录
+* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -498,7 +498,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 * `tasks` [Task[]](structures/task.md) - 由 `Task` 对象组成的数组
 
-将 `tasks` 添加到 Windows 中 JumpList 功能的 [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) 分类中。
+Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
 
 `tasks` 是 [`Task`](structures/task.md) 对象组成的数组
 
@@ -508,7 +508,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 ### `app.getJumpListSettings()` *Windows*
 
-返回 ` Object `:
+返回 `Object`:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - `JumpListItem` 对象组成的数组，对应用户在跳转列表中明确删除的项目。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
@@ -593,7 +593,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `argv` String[] - 第二个实例的命令行参数数组
   * `workingDirectory` String - 第二个实例的工作目录
 
@@ -689,17 +689,13 @@ app.on('ready', () => {
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
-### ` app.getAppMemoryInfo() `* 已弃用 *
-
-返回 [`ProcessMetric[]`](structures/process-metric.md): `ProcessMetric` 对象的数组，它统计了应用内所有进程的内存和cpu的使用情况. ** 注意: **此方法已被弃用, 请改用 ` app.getAppMetrics() `。
-
 ### `app.getAppMetrics()`
 
-返回 [`ProcessMetric[]`](structures/process-metric.md): `ProcessMetric` 对象的数组，它统计了应用内所有进程的内存和cpu的使用情况.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
-返回 [` GPUFeatureStatus `](structures/gpu-feature-status.md)-来自 ` chrome://gpu/` 的图形功能状态。
+Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -707,19 +703,19 @@ app.on('ready', () => {
 
 返回 ` Boolean `-是否成功调用。
 
-设置当前应用程序的计数器标记. 将计数设置为 ` 0 ` 将隐藏该标记。
+Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
-在macOS系统中, 它展示在dock图标上。在Linux系统中, 它只适用于Unity启动器.
+On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
-** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux)。
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - 获取计数器提醒(badge) 中显示的当前值
+Returns `Integer` - The current value displayed in the counter badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
+Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
@@ -727,29 +723,27 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
   * ` path `String (可选) * Windows *-要比较的可执行文件路径。默认为 ` process. execPath `。
   * ` 参数 `String [] (可选) * Windows *-要比较的命令行参数。默认为空数组。
 
-如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置正确的参数。
+If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
 返回 `Object`:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
-* ` openAsHidden ` Boolean - 如果应用程序在登录时设置为隐藏, 则为 ` true `。此设置仅在 macOS 上支持。
-* ` wasOpenedAtLogin `Boolean -如果应用程序在登录时自动打开, 则该值为 ` true `。此设置仅在 macOS 上支持。
-* ` wasOpenedAsHidden `Boolean -如果该程序在登录时已经隐藏启动, 则为 ` true `。 这表示应用程序在启动时不应打开任何窗口。 此设置仅在 macOS 上支持。
-* `restoreState` Boolean - 如果该程序作为登录启动项并且需要回复之前的会话状态，则为 `true`。 这表示程序应该还原上次关闭时打开的窗口。 此设置仅在 macOS 上支持。
-
-** 注意: **该 API 不影响 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)
+* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. 这表示应用程序在启动时不应打开任何窗口。 This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. 这表示程序应该还原上次关闭时打开的窗口。 This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (可选) - `true`在登录时启动应用，`false` 移除应用作为登录启动项 。默认为 `false`.
-  * `openAsHidden` Boolean (可选) - `true` 登录时隐藏启动程序。 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 ` app. getLoginItemStatus (). wasOpenedAsHidden ` 以了解当前值。 此设置仅在 macOS 上支持。
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 ` app. getLoginItemStatus (). wasOpenedAsHidden ` 以了解当前值。 This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (可选) *Windows* - 在登录时启动的可执行文件。默认为 `process.execPath`.
   * `args` String[] (可选) *Windows* - 要传递给可执行文件的命令行参数。默认为空数组。注意用引号将路径换行。
 
-设置应用程序的登录项设置。
+Set the app's login item settings.
 
-如果需要在使用[Squirrel](https://github.com/Squirrel/Squirrel.Windows)的 Windows 上使用 Electron 的 `autoUpdater` ，你需要将启动路径设置为 Update.exe，并传递指定应用程序名称的参数。 例如：
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. 例如：
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -766,20 +760,17 @@ app.setLoginItemSettings({
 })
 ```
 
-** 注意: **该 API 不影响 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)
-
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 查看更多细节，请查阅
-https://www.chromium.org/developers/design-documents/accessibility</p>
+Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-<h3><code>app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*</h3> 
+### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
 * `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
 
-手动启用 Chrome 的辅助功能的支持, 允许在应用程序中设置是否开启辅助功能。 查看更多信息，请查阅 https://www.chromium.org/developers/design-documents/accessibility 默认为禁用
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
 
-**注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -790,95 +781,110 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
   * `credits` String (可选) - 信用信息.
   * `version` String (可选) - 应用程序版本号
 
-设置 "关于" 面板选项。 这将覆盖应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。
+Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+
+* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+
+```js
+// Start accessing the file.
+const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// You can now access the file outside of the sandbox 
+stopAccessingSecurityScopedResource()
+```
+
+Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - 命令行开关
-* `value` String (optional) - 给开关设置的值
+* `switch` String - A command-line switch
+* `value` String (optional) - A value for the given switch
 
-通过可选的参数 `value` 给 Chromium 中添加一个命令行开关。
+Append a switch (with optional `value`) to Chromium's command line.
 
-** 注意: **该方法不会影响 ` process. argv `, 我们通常用这个方法控制一些底层的 Chromium 行为。
+**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
 
 ### `app.commandLine.appendArgument(value)`
 
-* ` value `String - 要追加到命令行的参数
+* `value` String - The argument to append to the command line
 
-给 Chromium 中直接添加一个命令行参数，该参数的引号和格式必须正确。
+Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-** 注意: **该方法不会影响 ` process. argv `
+**Note:** This will not affect `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-在应用程序上启用混合沙盒模式。
+Enables mixed sandbox mode on the app.
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-返回 ` Boolean `- 应用程序当前是否在系统应用程序文件夹运行。 可以搭配 ` app. moveToApplicationsFolder () `使用
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-返回 ` Boolean `-移动是否成功。 请注意, 当您的应用程序移动成功, 它将退出并重新启动。
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
 
-默认情况下这个操作将不会显示任何确认对话框, 如果您希望让用户来确认操作，你可能需要使用 [` dialog `](dialog.md) API
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
 
-**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将引发错误。 错误中的信息应该是信息性的，并告知具体问题。
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (可选) - 可以为`critical` 或 `informational`. 默认值为 `informational`
+* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
 
-当传入的是 `critical` 时, dock 中的应用将会开始弹跳, 直到这个应用被激活或者这个请求被取消。
+When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
-当传入的是 `informational` 时, dock 中的图标只会弹跳一秒钟。但是, 这个请求仍然会激活, 直到应用被激活或者请求被取消。
+When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-返回 `Integer` 这个请求的 ID
+Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-取消这个 ` id ` 对应的请求。
+Cancel the bounce of `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-如果 filePath 位于 Downloads 文件夹中，则弹出下载队列。
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-设置应用在 dock 中显示的字符串。
+Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-返回 `String` - 应用在 dock 中显示的字符串。
+Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-隐藏 dock 中的图标。
+Hides the dock icon.
 
 ### `app.dock.show()` *macOS*
 
-显示 dock 图标
+Shows the dock icon.
 
 ### `app.dock.isVisible()` *macOS*
 
-返回 ` Boolean `-表示 dock 图标当前是否可见。` app.dock.show () ` 是异步调用的，因此此方法可能无法在调用之后立即返回true.
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-设置该应用程序的 [dock 菜单](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-设置`image`作为应用在 dock 中显示的图标
+Sets the `image` associated with this dock icon.
