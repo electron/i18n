@@ -55,23 +55,23 @@ $ ./script/build.py --compdb
 
 ## 构建
 
-Build both `Release` and `Debug` targets:
+构建 `Release` 和 `Debug` 目标:
 
 ```sh
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+你也可以只构建 `Debug` 目标:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+完成后，你可以在 `out/D` 目录下找到 `Electron.app`.
 
 ## 32位支持
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Electron 只能为 MacOS 上的 64 位目标构建，并且将来没有计划支持 32 位 macOS。
 
 ## 清理
 
