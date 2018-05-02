@@ -26,6 +26,10 @@ Disables the disk cache for HTTP requests.
 
 Disable HTTP/2 and SPDY/3.1 protocols.
 
+## --lang
+
+Set a custom locale.
+
 ## --inspect=`port` and --inspect-brk=`port`
 
 Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
@@ -42,7 +46,7 @@ Forces the maximum disk space to be used by the disk cache, in bytes.
 
 Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
-```bash
+```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
@@ -96,7 +100,7 @@ A comma-separated list of servers for which integrated authentication is enabled
 
 Например:
 
-```bash
+```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
