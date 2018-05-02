@@ -75,7 +75,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 ### `webFrame.registerURLSchemeAsSecure(scheme)`
 
-* `scheme` String
+* `схема` Низ
 
 Registers the `scheme` as secure scheme.
 
@@ -83,13 +83,13 @@ Secure schemes do not trigger mixed content warnings. For example, `https` and `
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
-* `scheme` String
+* `схема` Низ
 
 Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
-* `scheme` String
+* `схема` Низ
 * `опции` Object (по избор) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
@@ -116,7 +116,7 @@ Inserts `text` to the focused element.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `обратно повикване` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -130,7 +130,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 * `worldId` Integer
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `обратно повикване` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Work like `executeJavaScript` but evaluates `scripts` in isolated context.
