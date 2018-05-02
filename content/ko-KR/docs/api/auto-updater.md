@@ -70,10 +70,12 @@ Windows에서는 `releaseName`만 사용이 가능합니다.
 
 `autoUpdater` 객체에서 사용할 수 있는 메서드입니다:
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP 요청 헤더.
+* `options` Object 
+  * `url` String
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 `url`을 설정하고 자동 업데이터를 초기화합니다.
 
@@ -89,4 +91,6 @@ Returns `String` - 현재 업데이트 피드 URL.
 
 애플리케이션을 다시 시작하고 다운로드된 업데이트를 설치합니다. 이메소드는 `update-downloaded` 이벤트가 발생한 이후에만 사용할 수 있습니다.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
