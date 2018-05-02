@@ -14,7 +14,7 @@ Kung gusto mong ipakita ang mga Paunawa mula sa proseso ng tagasalin kailangan m
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+Ang `Notification` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 Ito ay lumilikha ng isang bagong `Notification` na may sinaunang mga katangian na itinakda sa pamamagitan ng `options`.
 
@@ -29,9 +29,9 @@ Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusupor
 ### Ang `new Notification([options])` ay *Experimental*
 
 * `pagpipilian` Bagay 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * Ang `title` String - Ang isang pamagat sa mga paunawa, kung saan ay ipinakita sa ibabaw ng window ng paunawa kung saan ito ipinakita.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
+  * Ang `body` String - Ang kabuuang teksto ng mga paunawa, kung saan ay makikita sa ilalim ng pamagat o pangalawang pamagat.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
   * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
   * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
@@ -77,7 +77,7 @@ This event is not guaranteed to be emitted in all cases where the notification i
 Ibinabalik ang:
 
 * `kaganapan` Kaganapan
-* `reply` String - The string the user entered into the inline reply field.
+* `reply` String - Ang string na ipinasok ng gumagamit sa field ng nasa linyang pagtugon.
 
 Ay lalabas kapag ang gumagamit ay na-klik ang pindutan ng "Reply" sa paunawa na may `hasReeply: true`.
 
@@ -86,7 +86,7 @@ Ay lalabas kapag ang gumagamit ay na-klik ang pindutan ng "Reply" sa paunawa na 
 Ibinabalik ang:
 
 * `event` Event
-* `index` Number - The index of the action that was activated.
+* Ang `index` Number - Ang indise ng mga aksyon na na-aktibeyt na.
 
 ### Mga pamamaraan ng pagkakataon
 
