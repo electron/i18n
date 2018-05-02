@@ -83,17 +83,17 @@ help_translate: "עזור לתרגם"
 footer:
   see_the_faq: צפא בשאלות נפוצות
 apps:
-  title: Apps built on Electron
-  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
-  view_more: View more apps
-  submit_your_own: submit your own
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  title: יישומים שנבנו ב-Electron
+  description: עם Electron, יצירת יישום מחשב לחברה שלך או לעצמך פשוט יותר. פותח לראשונה בעבור <a href='https://atom.io' target='_blank'>Atom editor</a> עורך הקוד של GitHub ומאז שימש אלקטרון ליצור יישומים על ידי חברות כמו מיקרוסופט, פייסבוק, Slack ו-Docker.
+  view_more: הצג יישומים נוספים
+  submit_your_own: שלח משלך
+  something_missing: משהו חסר?
+  edit_this_app: ערוך את היישום הזה.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
-or: or
+  copy: העתק
+  copy_to_clipboard: העתקה ללוח העריכה
+  copied: הועתק
+or: אוֹ
 pages:
   '/':
     title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
