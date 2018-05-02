@@ -55,23 +55,23 @@ $ ./script/build.py --compdb
 
 ## 빌드하기
 
-Build both `Release` and `Debug` targets:
+`Release` 와 `Debug` 두 타겟 모두 빌드 합니다:
 
 ```sh
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+또는 `Debug` 타겟만 빌드 할 수 있습니다:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+빌드가 모두 끝나면 `out/D` 디렉터리에서 `Electron.app` 실행 파일을 찾을 수 있습니다.
 
 ## 32 비트 지원
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Electron은 현재 macOS 64비트만 지원하고 있습니다. 그리고 앞으로도 macOS 32비트는 지원할 계획이 없습니다.
 
 ## 정리하기
 
