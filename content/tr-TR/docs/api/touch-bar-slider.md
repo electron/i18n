@@ -12,7 +12,7 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
   * `minValue` Integer (isteğe bağlı) - Minimum değer.
   * `maxValue` Integer (isteğe bağlı) - Maksimum değer.
   * `change` Fonksiyon (isteğe bağlı) - Kaydırıcı değiştiğinde çağırılacak işlev. 
-    * `newValue` Sayı - Kullanıcının kaydırıcıda seçtiği değer
+    * `newValue` Number - The value that the user selected on the Slider.
 
 ### Örnek özellikleri
 
