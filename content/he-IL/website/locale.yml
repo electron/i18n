@@ -66,22 +66,22 @@ explore:
 download_from_github: הורדה מ-GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">כל ההפצות</a> ב-GitHub
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
+  title: "פתח את <a href='https://github.com/electron/electron-quick-start' target='_blank'> יישום התחלה מהירה </a> לראות את Electron בפעולה:"
+  description: יישום אלקטרון מיניאלי עם תיעוד מועיל.
   clone: Clone the Quick Start repository
   go_into_repo: Go into the repository
   install_deps: Install the dependencies and run
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  dive_deeper: או צלול עמוק יותר <a href='/docs'>לתיעוד</a>.
 need_help:
-  title: Need Help?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  title: צריך/ה עזרה?
+  description: שאל שאלות <a href='https://discuss.atom.io/c/electron'>בפורום</a> או בערוץ <a href='http://atom-slack.herokuapp.com/'>Slack</a> שלנו. עקוב אחר<a href="https://twitter.com/electronjs"> @electronjs</a> בטוויטר. זקוק לסיוע בפרטי? צור קשר במייל <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: שפות
 taglines:
-  languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+  languages: תוכן מותאם לשפות אחרות מקהילת המפתחים העולמית המדהימה שלנו.
+help_translate: "עזור לתרגם"
 footer:
-  see_the_faq: See the frequently asked questions
+  see_the_faq: צפא בשאלות נפוצות
 apps:
   title: Apps built on Electron
   description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
