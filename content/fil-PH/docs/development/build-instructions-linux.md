@@ -63,21 +63,21 @@ $ ./script/build.py --compdb
 
 ### "Cross Compilation"
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Kung nais nating bumuo para sa "`arm` target", dapat din nating "i-install" ang mga sumusunod na "dependency":
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Gayundin para sa `arm64`, kailangang "i-install" ang mga sumusunod:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+At para "mai-cross-compile" ang `arm` o `ia32` "targets", kailangan mong idaan ang "parameter" na `--target_arch` sa skrip na `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -85,27 +85,27 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Pagbuo
 
-If you would like to build both `Release` and `Debug` targets:
+Kung ang nais mo ay bumuo ng parehong `Release` at `Debug` "targets":
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Ang skrip na ito ang magiging dahilan upang mapalabas o maipakita ang napakalaking Electron na ilalagay sa loob ng "directory" ng `out/R`. Ang sukat ng payl ay lalagpas sa "1.3 gigabytes". Ito ay mangyayari dahil ang "Release target binary" ay naglalaman ng mga simbolo ng "debugging". Upang mabawasan ang sukat ng payl, patakbuhin ang skrip na `create-dist.py`:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Itatakda nito ang "working distribution" na may mas maliit ng sukat ng payl sa loob ng "directory" ng `dist`. Matapos paganahin ang skrip na `create-dist.py`, maaaring mong tanggalin ang "1.3+ gigabyte binary" na nasa loob pa rin ng `out/R`.
 
-You can also build the `Debug` target only:
+Maaari ka ring bumuo lamang ng "`Debug` target":
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+Matapos itong buuin, hanapin ang "`electron` debug binary" sa ilalim ng `out/D`.
 
 ## Paglilinis
 
@@ -123,11 +123,11 @@ $ npm run clean-build
 
 Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</strong> bago mabuo.</p>
 
-<h2>Paghahanap ng Problema</h2>
+<h2>Paghahanap ng ProblemaPaghahanap ng Problema</h2>
 
 <h3>Mga Mali na Maaaring Lumabas Habang ang "Shared Libraries" ay "Loading": libtinfo.so.5</h3>
 
-<p>Prebuilt <code>clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+<p>Ang muling nabuo na <code>clang` ay susubukang "i-link" sa `libtinfo.so.5`. Depende sa "host architecture" kung ang "symlink" ay iaangkop ang `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -139,11 +139,11 @@ Tingnan ang [ Buod ng Pagbuo ng Sistema: Mga Pagsusuri ](build-system-overview.m
 
 ## Mga Pinatiunang Paksa
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+Ang kumpigurasyon ng "default building" ay tinatarget para sa mga pangunahing distribusyon ng "desktop Linux". Ang mga sumusunod na impormasyon ay maaaring makatulong para makabuo ng tiyak na distribusyon.
 
 ### Ang pagbuo ng lokal na `libchromiumcontent`
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Gamit ang "prebuilt binaries" ng `libchromiumcontent`, maaaring maiwasan ang sa pamamagitan ng pagbuo ng lokal na `libchromiumcontent`. Para magawa ito, sundin lang ang mga hakbang:
 
 1. "I-install" ang [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. "I-install" ang [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
@@ -159,7 +159,7 @@ $ git submodule update --init --recursive
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+Paalala, hindi kasama ang kumpigurasyon ng `shared_library` bilang "default", at maaari lang buuin ang "`Release` version" ng Electron kung ginagamit ang "mode" na ito:
 
 ```sh
 $ ./script/build.py -c R
@@ -167,9 +167,9 @@ $ ./script/build.py -c R
 
 ### Gamitin ang sistema ng `clang` sa halip na "downloaded `clang` binaries"
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Bilang "default", ang Electron ay binuo gamit ang bagong buo ng "[`clang`](https://clang.llvm.org/get_started.html) binaries" na binibigay ng proyekto ng Chromium. Para sa ilang rason, nais mong bumuo gamit ang `clang` na "naka-install" sa sistema, maaaring gamitin ang `bootstrap.py` kasama ang "switch" ng `--clang_dir=<path>`. Bilang paggamit nito, ang nabuong iskrip ay ipagpapalagay na ang "`clang` binaries" ay nasa `<path>/bin/`.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+Halimbawa, kapag "in-install" ang `clang` sa ilalim ng `/user/local/bin/clang`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
@@ -178,9 +178,9 @@ $ ./script/build.py -c R
 
 ### Gamit ang kompayler kaysa sa `clang`
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Para mabuo ang Electron gamit ang mga kompayler tulag ng `g++`, ang unang kailangang gawin ay ihinto ang paggana ng `clang` gamit ang "switch" ng `--disable_clang`, pagkatapos ay itakda ang `CC` at `CXX` bilang "environment variables" na nais mong gamitin.
 
-For example building with GCC toolchain:
+Halimbawa, ang pagbuo gamit ang GCC toolchain:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
@@ -189,7 +189,7 @@ $ ./script/build.py -c R
 
 ### "Environment Variables"
 
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
+Bukod sa `CC` at `CXX`, maaari mo ring itakda ng mga sumusunod na environment variable para baguhin ang pagkakabuo ng kumpigurasyon ayon sa nais mo:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -205,4 +205,4 @@ Apart from `CC` and `CXX`, you can also set the following environment variables 
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+Ang "environment variables" ay dapat nakatakda na kapag pagaganahin ang iskrip ng `bootstrap.py`, at ito'y 'di gaganasa iskrip na `build.py`.
