@@ -239,7 +239,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `opções` Objeto (opcional) 
+* `options` Objeto (opcional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -437,7 +437,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `opções` Objeto (opcional) 
+* `options` Objeto (opcional) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -459,7 +459,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `opções` Objeto (opcional) 
+* `options` Objeto (opcional) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -468,7 +468,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `opções` Object 
+* `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -533,7 +533,7 @@ The following DOM events are available to the `webview` tag:
 
 Retorna:
 
-* `url` String
+* String `url`
 * `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
@@ -670,7 +670,7 @@ console.log(requestId)
 
 Retorna:
 
-* `url` String
+* String `url`
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
@@ -695,7 +695,7 @@ webview.addEventListener('new-window', (e) => {
 
 Retorna:
 
-* `url` String
+* String `url`
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -709,7 +709,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 Retorna:
 
-* `url` String
+* String `url`
 
 Emitted when a navigation is done.
 
@@ -720,7 +720,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 Retorna:
 
 * `isMainFrame` Boolean
-* `url` String
+* String `url`
 
 Emitted when an in-page navigation happened.
 
@@ -813,7 +813,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Retorna:
 
-* `url` String
+* String `url`
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
