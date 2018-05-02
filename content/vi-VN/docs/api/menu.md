@@ -108,7 +108,7 @@ Trả về:
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Instance Properties
+### Các Thuộc Tính
 
 `menu` objects also have the following properties:
 
