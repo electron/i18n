@@ -187,7 +187,7 @@ const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough()  // PassThrough は Readable stream でもある
+  const rv = new PassThrough() // PassThrough is also a Readable stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -202,7 +202,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     data: createStream('<h5>Response</h5>')
   })
 }, (error) => {
-  if (error) console.error('プロトコルの登録に失敗しました')
+  if (error) console.error('Failed to register protocol')
 })
 ```
 
