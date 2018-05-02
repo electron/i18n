@@ -56,7 +56,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
@@ -70,10 +70,12 @@ Sur Windows, seulement `releaseName` est disponible.
 
 L'objet `autoUpdater` dispose des méthodes suivantes :
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` String
-* `requestHeaders` Object *macOS* (facultatif) - En-têtes de requête HTTP.
+* `options` Objet 
+  * `url` String
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Définit l'`url` et initialise l'auto updater.
 
@@ -89,4 +91,6 @@ Demande au serveur s’il y a une mise à jour. Vous devez appeler `setFeedURL` 
 
 Redémarre l'application et installe la mise à jour après qu'elle soit téléchargée. Cette méthode doit être appelé seulement après que `update-downloaded` soit émis.
 
-**Remarque :** `autoUpdater.quitAndInstall()` va d'abord fermer toutes les fenêtres de l'application et émettre seulement après ça l'événement `before-quit` sur `app`. Ceci est différent de la séquence de fermeture habituelle.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
