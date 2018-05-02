@@ -12,10 +12,10 @@
   * [Ikaanim na hakbang: Rebase](#step-6-rebase)
   * [Ikapitong hakbang: Pagsubok](#step-7-test)
   * [Ikawalong hakbang: Itulak](#step-8-push)
-  * [Ikasiyam na hakbang: Pagbukas ng Kahilingan ng Pull](#step-8-opening-the-pull-request)
-  * [Ikasampong hakbang: Talakayin at I-update](#step-9-discuss-and-update) 
+  * [Ikasiyam na hakbang: Pagbukas ng Kahilingan ng Pull](#step-9-opening-the-pull-request)
+  * [Ikasampong hakbang: Talakayin at I-update](#step-10-discuss-and-update) 
     * [Pag-apruba at Kahilingan sa Pagbabago ng Workflow](#approval-and-request-changes-workflow)
-  * [Ikalabin-isang hakbang: Landing](#step-10-landing)
+  * [Ikalabin-isang hakbang: Landing](#step-11-landing)
   * [Patuloy na Pagsubok sa Pagsasamasama](#continuous-integration-testing)
 
 ## Ang pag-set up ng sariling lokal na kapaligiran
@@ -72,59 +72,77 @@ Tandaan na ang maramihang mga gumagawa ay madalas na na-nasquashed kapag sila ay
 
 #### Magsagawa ng mga alituntunin ng mensahe
 
-Ang isang mabuting mensahe ng gumawa ay dapat maglarawan kung ano ang nagbago at kung bakit.
+A good commit message should describe what changed and why. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-1. Ang unang linya ay dapat na:
-  
-  * naglalaman ng isang maikling paglalarawan ng pagbabago (mas mabuti na 50 karakter o mas mababa, at hindi hihigit sa 72 na karakter)
-  * maging ganap sa lowercase na may pagbubukod ng mga tamang nouns, acronyms, at ang mga salita na tumutukoy sa code, tulad ng mga pangalan ng function / variable
+Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
+
+Examples of commit messages with semantic prefixes:
+
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux` 
+
+Common prefixes:
+
+    - fix: A bug fix
+    - feat: A new feature
+    - docs: Documentation changes
+    - test: Adding missing tests or correcting existing tests
+    - build: Changes that affect the build system
+    - ci: Changes to our CI configuration files and scripts
+    - perf: A code change that improves performance
+    - refactor: A code change that neither fixes a bug nor adds a feature
+    - style: Changes that do not affect the meaning of the code (linting)
     
-    Mga Halimbawa:
-  
-  * `na-update na dokumentasyon ng build osx para sa bagong sdk`
-  
-  * `fixed typos in atom_api_menu.h`
 
-2. Panatilihing blangko ang ikalawang linya.
+Other things to keep in mind when writing a commit message:
 
+1. The first line should: 
+  * naglalaman ng isang maikling paglalarawan ng pagbabago (mas mabuti na 50 karakter o mas mababa, at hindi hihigit sa 72 na karakter)
+  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+2. Keep the second line blank.
 3. I-wrap ang lahat ng iba pang mga linya sa 72 na mga haligi.
 
-Tingnan ang [this article](https://chris.beams.io/posts/git-commit/) para sa higit pang mga halimbawa kung paano sumulat ng mga magandang git commit messages.
+#### Breaking Changes
+
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+
+See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### Ikaanim na hakbang: Rebase
 
-Kapag nakagawa ka ng iyong mga pagbabago, magandang ideya na gamitin ang `git rebase ` (hindi ` git merge `) upang i-synchronize ang iyong trabaho sa pangunahing repository.
+Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-Tinitiyak nito na ang iyong working branch ay may mga pinakabagong pagbabago mula sa ` electron / electron `.
+This ensures that your working branch has the latest changes from `electron/electron` master.
 
 ### Ikapitong hakbang: Pagsubok
 
-Ang mga pag-aayos ng bug at mga tampok ay dapat laging may mga pagsubok. A [testing guide](https://electronjs.org/docs/development/testing) ay upang gawing mas madali ang proseso. Naghahanap sa iba pang mga pagsubok upang makita kung paano sila Dapat ay nakabalangkas din ay maaaring makatulong.
+Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
-Bago isumite ang iyong mga pagbabago sa kahilingan ng pull, laging patakbuhin ang buong test suite. Upang patakbuhin ang mga pagsusulit:
+Before submitting your changes in a pull request, always run the full test suite. To run the tests:
 
 ```sh
 $ npm run test
 ```
 
-Tiyaking ang linter ay hindi nag-uulat ng anumang mga isyu at ang lahat ng mga pagsusulit ay pumasa. Mangyaring huwag magsumite ng mga patch na nabigo sa alinman na mga check.
+Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
 
-Kung nag-a-update ka ng mga pagsusulit at gusto mong magpatakbo ng isang pagsasapalaran upang suriin ito:
+If you are updating tests and just want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu
 ```
 
-Ang mga nasa itaas ay tatakbo lamang sa pagsasapalaran na tumutugma sa ` menu `, na kapaki-pakinabang para sa sinuman na nagtatrabaho sa mga pagsubok na kung hindi man ay sa dulo ng ang ikot ng pagsubok.
+The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
 
 ### Ikawalong hakbang: Itulak
 
-Kapag ang iyong mga gawa ay handa na upang pumunta - sa paglipas ng mga pagsubok at linting - simulan ang proseso ng pagbubukas ng paghiling ng pull sa pamamagitan ng pagtulak sa iyong working branch sa iyong tinidor sa GitHub.
+Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
 ```sh
 $ git push origin my-branch
@@ -132,14 +150,14 @@ $ git push origin my-branch
 
 ### Ikasiyam na hakbang: Pagbukas ng Kahilingan ng Pull
 
-Mula sa loob ng GitHub, ang pagbubukas ng isang bagong kahilingan sa pull request ay magpapakita sa iyo ng isang template na dapat mapunan:
+From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
 ```markdown
 <!--
-Salamat sa iyong kahilingan sa pull. Mangyaring magbigay ng isang paglalarawan sa itaas at repasuhin
-ang mga kinakailangan sa ibaba.
+Thank you for your pull request. Please provide a description above and review
+the requirements below.
 
-Ang mga pag-aayos ng bug at mga bagong tampok ay dapat na magsama ng mga pagsubok at posibleng mga benchmark.
+Bug fixes and new features should include tests and possibly benchmarks.
 
 Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
 -->
@@ -147,36 +165,36 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 
 ### Ikasampung hakbang: Talakayin at i-update
 
-Marahil ay makakakuha ka ng feedback o mga kahilingan para sa mga pagbabago sa iyong pull request. Ito ay isang malaking bahagi ng proseso ng pagsumite kaya huwag masiraan ng loob! Ang ilang mga kontribyutor ay maaaring mag-sign off sa pull request kaagad. Ang iba ay maaaring magkaroon ng detalyadong mga komento o puna. Ito ay isang mahalagang bahagi ng proseso upang suriin kung ang mga pagbabago ay tama at kinakailangan.
+You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
-Upang gumawa ng mga pagbabago sa isang umiiral na pull request, gawin ang mga pagbabago sa iyong lokal na sangay, magdagdag ng bagong gumawa sa mga pagbabagong iyon, at itulak ang mga ito sa iyong fork. Awtomatikong i-update ng GitHub ang pull request.
+To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
 
 ```sh
-$ git idagdag ang akin /nabago/mga file
+$ git add my/changed/files
 $ git commit
 $ git push origin my-branch
 ```
 
-Mayroong isang bilang ng mga mas advanced na mekanismo para sa pamamahala ng gumawa ng paggamit `git rebase` na maaaring magamit, ngunit hindi lampas sa saklaw ng patnubay na ito.
+There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
 
-Huwag mag-post ng komento sa kahilingan ng pull upang i-ping ang mga reviewer kung ikaw ay naghihintay ng isang sagot sa isang bagay. Kung nakatagpo ka ng mga salita o mga acronym na tila hindi pamilyar, sumangguni sa [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
+Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
 #### Pag-apruba at Kahilingan sa Pagbabago ng Workflow
 
-Kinakailangan ang lahat ng mga kahilingan sa pag-apruba mula sa [Code Owner](https://github.com/orgs/electron/teams/code-owners) ng lugar mo binago upang makarating. Satuwing isang reviewer sinusuri ang pull request nila maaaring humiling ng mga pagbabago. Ang mga ito ay maaaring maliit, tulad ng pag-aayos ng isang typo, o maaaring kasangkot sa substantibong mga pagbabago. Ang ganitong mga kahilingan ay inilaan upang maging kapaki-pakinabang, ngunit kung minsan ay maaaring dumating sa kabuuan bilang bigla o walang tulong, lalo na kung hindi nila isama mga kongkretong mungkahi sa *how* upang baguhin ang mga ito.
+All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
-Subukan na huwag mawalan ng pag-asa. Kung sa palagay mo ay hindi makatarungan ang pagrepaso, sabihin ito o humingi ang input ng isa pang kontribyutor ng proyekto. Kadalasan ang mga ganitong mga komento ay resulta ng ang isang tagasuri ay nagsasagawa ng hindi sapat na oras upang repasuhin at hindi masasadya. Ang ganitong mga problema ay maaaring madalas na malutas na may kaunting pasensya. Na sinabi, Ang mga tagasuri ay dapat na inaasahan na magbigay ng kapaki-pakinabang na pag-uumpisa.
+Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
 ### Ikalabin-isang hakbang: Landing
 
-Upang makarating, isang pull request ang kailangang suriin at maaprubahan ng hindi bababa sa isang May-ari ng Electron Code at pumasa sa CI. Pagkatapos nito, kung walang mga pagtutol mula sa iba pang mga taga-ambag, ang kahilingan ng pull ay maaaring pagsama.
+In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
-Binabati kita at salamat sa iyong kontribusyon!
+Congratulations and thanks for your contribution!
 
 ### Patuloy na Pagsubok sa Pagsasamasama
 
-Ang bawat pull request ay nasubok sa patuloy na Integrasyon (CI) na sistema kumpirmahin na gumagana ito sa mga suportadong platform ng Electron.
+Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 
-Sa isip, ang kahilingan ng pull ay lilipas ("maging berde") sa lahat ng mga platform ng CI. Nangangahulugan ito na ang lahat ng mga pagsusulit ay pumasa at walang mga pagkakamali. Gayunpaman, ito ay hindi bihira para sa imprastraktura ng CI mismo upang mabigo sa tiyak na platform o para sa mga tinatawag na "flaky" na pagsusulit upang mabigo ("maging pula"). Ang bawat CI Ang kabiguan ay dapat manu-manong sinuri upang matukoy ang dahilan.
+Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
 
-Ang CI ay awtomatikong nagsisimula kapag binuksan mo ang kahilingan ng pull, ngunit lamang [Releasers ](https://github.com/orgs/electron/teams/releasers/members) maaaring muling simulan ang isang pagpapatakbo ng CI. Kung naniniwala ka na ang CI ay nagbibigay ng maling negatibong, hilingin sa isang Releaser na muling simulan ang mga pagsubok.
+CI starts automatically when you open a pull request, but only [Releasers](https://github.com/orgs/electron/teams/releasers/members) can restart a CI run. If you believe CI is giving a false negative, ask a Releaser to restart the tests.
