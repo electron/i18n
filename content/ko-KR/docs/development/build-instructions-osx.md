@@ -47,25 +47,31 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ## 빌드하기
 
-`Release` 와 `Debug` 두 타겟 모두 빌드 합니다:
+Build both `Release` and `Debug` targets:
 
 ```sh
 $ ./script/build.py
 ```
 
-또는 `Debug` 타겟만 빌드 할 수 있습니다:
+You can also only build the `Debug` target:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-빌드가 모두 끝나면 `out/D` 디렉터리에서 `Electron.app` 실행 파일을 찾을 수 있습니다.
+After building is done, you can find `Electron.app` under `out/D`.
 
 ## 32 비트 지원
 
-Electron은 현재 macOS 64비트만 지원하고 있습니다. 그리고 앞으로도 macOS 32비트는 지원할 계획이 없습니다.
+Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
 ## 정리하기
 
