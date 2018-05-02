@@ -47,29 +47,35 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ## Edificio
 
-Compilar ambos destinos `lanzamiento` y `Depuración`:
+Build both `Release` and `Debug` targets:
 
 ```sh
 $ ./script/build.py
 ```
 
-También puede compilar solo un destino de `Depuración`:
+You can also only build the `Debug` target:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-Después que la compilación esté lista, puede encontrar `Electron.app` como `out/D`.
+After building is done, you can find `Electron.app` under `out/D`.
 
 ## Soporta 32bit
 
-Electron solo se puede construir para un objetivo de 64 bits en macOS y no hay un plan para admitir macOS de 32 bits en el futuro.
+Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
 ## Limpieza
 
-Para limpiar los archivos de compilación:
+Para limpiar los archivos construidos:
 
 ```sh
 $ npm run clean
@@ -81,8 +87,8 @@ Para limpiar solo los directorios `fuera` y `dist`:
 $ npm run clean-build
 ```
 
-**Nota:** Ambos comandos limpios requieren un `arranque` de nuevo después de ser compilados.
+**Nota:** Ambos comandos de limpieza requieren que se ejecute `bootstrap` antes de construir de nuevo.
 
 ## Verificación
 
-Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
+Vea [Build System Overview: Tests](build-system-overview.md#tests)
