@@ -26,6 +26,10 @@ HTTP istekleri için disk önbelleği devre dışı bırakır.
 
 HTTP/2 ve SPDY/3.1 protokollerini devre dışı bırakın.
 
+## --lang
+
+Set a custom locale.
+
 ## --inspect=`port` and --inspect-brk=`port`
 
 Hata ayıklama ile ilgili bayrakları, ayrıntılar için [Debugging the Main Process](../tutorial/debugging-main-process.md) kılavuzuna bakın.
@@ -42,7 +46,7 @@ Disk önbelleği tarafından kullanılacak maksimum disk alanını bayt cinsinde
 
 Node JS motoruna geçirilen bayrakları belirtir. Ana işlemdeki `bayrakları` etkinleştirmek isterseniz, Elektron başlatırken değerlerin geçmiş olması gerekir.
 
-```bash
+```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" app'iniz
 ```
 
@@ -96,7 +100,7 @@ Tümleşik kimlik doğrulamanın etkinleştirildiği virgülle ayrılmış sunuc
 
 Örneğin:
 
-```bash
+```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
