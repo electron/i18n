@@ -51,7 +51,7 @@ Once you've deployed your update server, continue with importing the required mo
 **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
 
 ```javascript
-const { app, autoUpdater, dialog } = require('electron')
+onst { app, autoUpdater, dialog } = require('electron')
 ```
 
 Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
@@ -75,7 +75,7 @@ Once your application is [packaged](../tutorial/application-distribution.md), it
 
 ## 업데이트 적용
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. autoUpdater API [이벤트](../api/auto-updater.md#events)를 사용하여 이룰수 있습니다.
 
 ```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -84,7 +84,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    detail: '새로운 버전이 다운로드 되었습니다. 애플리케이션을 재시작하여 업데이트를 적용해 주세요.'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
@@ -93,11 +93,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+에러도 [처리가 되어야](../api/auto-updater.md#event-error) 합니다. 다음은 `stderr` 로깅을 하는 예제입니다.
 
 ```javascript
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+  console.error('애플리케이션을 업데이트하는 도중 오류가 발생하였습니다.')
   console.error(message)
 })
 ```
