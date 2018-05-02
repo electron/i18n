@@ -12,7 +12,7 @@ Genellikle masaüstü uygulamaları için sorun teşkil etmez, çünkü kod her 
 
 Sanal alana yerleştirilmiş bir oluşturucunun,çalışan bir node.js ortamı yoktur ve alıcı koduna node.js API'larını göstermez. Tek istisna, electron API oluşturucularının alt kümesine erişimi olan, önceden yüklenmiş komut dosyasıdır.
 
-Diğer bir fark da sanal alandaki oluşturucuların, varsayılan herhangi bir JavaScript API'sini değiştirmemesidir. Sonuç olarak `window.open` gibi bazı API'lar chromium'da olduğu gibi çalışır ( ör. bir `BrowserWindowProxy` göndermezler).
+Diğer bir fark da sanal alandaki oluşturucuların, varsayılan herhangi bir JavaScript API'sini değiştirmemesidir. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
 ## Örnek
 
@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-Yukarıdaki kodda oluşturulmuş `BrowserWindow` 'da node.js devre dışı bırakılmış ve sadece IPC yoluyla iletişim kurabilir. Bu seçeneğin kullanılması, elektronun renderer' da bir node.js çalışma zamanı oluşturmasını durdurur. Ayrıca, bu yeni pencere içinde `window.open` doğal davranışı takip eder ( varsayılan electron tarafından bir `BrowserWindow` oluşturur ve buna `window.open` yoluyla bir proxy gönderir).
+In the above code the [`BrowserWindow`](browser-window.md) that was created has node.js disabled and can communicate only via IPC. Bu seçeneğin kullanılması, elektronun renderer' da bir node.js çalışma zamanı oluşturmasını durdurur. Also, within this new window `window.open` follows the native behaviour (by default electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 Bu seçeneğin tek başına OS'ın zorladığı sandbox'a izin vermeyeceğini akılda tutmak önemlidir. Bu özelliğe izin vermek için, tüm `BrowserWindow` örnekleri için `sandbox: true` 'yu zorlayan `--enable-sandbox` komuta dizisi argümanı electron'a aktarılmalıdır.
 
@@ -130,7 +130,7 @@ Sandbox 'da daha çok elektron API 'sı oluşturmak gerekirse daha fazlası ekle
 
 Hala deneme aşamasında bir özellik olduğu için, lütfen `sandbox` seçeneğini dikkatli kullanın. Hala önyükleme dosyasına bazı elektron oluşturucu API'lerin eklenmesinin güvenlik etkilerini bilmiyoruz, ve burada güvenilmeyen içerik oluşturmadan önce düşünülmesi gereken bazı şeyler var:
 
-- Önceden yüklenmiş bir komut dosyası, yanlışlıkla ayrıcalıklı API'ları, güvenilmeyen kodlara filtreleyebilir.
+- A preload script can accidentally leak privileged APIs to untrusted code.
 - V8 makinesindeki bazı yazılım hataları kötü amaçlı kodların oluşturucu önyükleme API 'lerine erişimlerine izin verebilir, etkili bir şekilde `remote` modülünden sisteme tam erişimi onaylayabilir.
 
 Elektronda güvenilmeyen içeriğin görüntülenmesi hâlâ bilinmeyen bir alan olduğu için, sanal ön koşul komut dosyasına maruz kalan API'lerin diğer elektron API' lerinden daha dengesiz olduğu düşünülmelidir ve düzeltmek için güvenlik sorunları gibiönemli değişiklikler olabilir.
