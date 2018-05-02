@@ -2,7 +2,7 @@
 
 > Extensiones al objeto process.
 
-Procesos: [principal](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 El objeto en `proceso` de Electron está comprendido entre [Node.js `proceso` objecto](https://nodejs.org/api/process.html). Este agrega los siguientes eventos, propiedades y métodos:
 
@@ -40,7 +40,7 @@ Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando est
 
 ### `proceso.noDepreación`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
 
 ### `proceso.Rutaderecursos`
 
@@ -92,18 +92,18 @@ Devuelve [`IOCounters`](structures/io-counters.md)
 
 ### `process.getProcessMemoryInfo()`
 
-Devuelve `Object`:
+Devuelve `Objeto`:
 
 * `workingSetSize` entero - La cantidad de memoria actualmente cubierta por la RAM física real.
 * `peakWorkingSetSize` Entero - La cantidad máxima de memoria que ha sido cubierta por la RAM física real.
 * `privateBytes` Entero - la cantidad de memoria no compartida por otros procesos, como JS heap o contenido HTML.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
+* `sharedBytes` Entero - La cantidad de memoria que ha sido compartida entre procesos, típicamente memoria consumida por el código propio de Electron.
 
 Devuelve un objeto que contiene las estadísticas del uso de la memoria del proceso en curso. Note que todas las estadísticas son reportadas en Kilobytes.
 
 ### `process.getSystemMemoryInfo()`
 
-Devuelve `Objecto`:
+Devuelve el `Objecto`:
 
 * `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
 * `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.
