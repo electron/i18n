@@ -2,7 +2,7 @@
 
 > 使用默认应用程序管理文件和 url。
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 ` shell ` 模块提供与桌面集成相关的功能。
 
@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown.
+返回 `Boolean` - 文件是否成功显示.
 
 在文件管理器中显示给定的文件。如果可以, 选中该文件。
 
@@ -36,7 +36,7 @@ Returns `Boolean` - Whether the item was successfully shown.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false.
+* `url`字符串 - 在windows下最长2081字节，否则这个函数返回false.
 * `选项` Object (可选) *macOS* 
   * `activate` Boolean - ` true `将打开的应用程序置于前台. 默认值为 `true`.
 * `callback` Function (可选) *macOS* - If specified will perform the open asynchronously. 
