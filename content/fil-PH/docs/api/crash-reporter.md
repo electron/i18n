@@ -29,7 +29,7 @@ Ang `crashReporter`module ay merong sumusunod na paraan:
 
 ### `crashReporter.start(options)`
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `PangalanngKompanya`String(optional)
   * `sumbitURL` String-- URL na magpapadala sa mga bagsak na ulat na naka POST.
   * `pangalanngProdukto` String (optinal) - Defaults para sa `app.getName()`.
