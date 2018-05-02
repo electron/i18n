@@ -1,1 +1,1 @@
-Moved to <support.md>
+Taşındı <support.md>
