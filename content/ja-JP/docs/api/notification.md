@@ -1,6 +1,6 @@
 # 通知
 
-> デスクトップ通知を作成します。
+> OSのデスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -14,7 +14,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` は [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter) です。
 
 `options` によって設定されたネイティブプロパティで新しい `Notification` を生成します。
 
@@ -29,7 +29,7 @@
 ### `new Notification([options])` *実験的*
 
 * `options` Object 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `title` String - 通知ウィンドウの上部に表示される通知のタイトル.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
@@ -77,7 +77,7 @@
 戻り値:
 
 * `event` Event
-* `reply` String - The string the user entered into the inline reply field.
+* `reply` String - ユーザが埋め込み返信フィールドに入力した文字列.
 
 `hasReply: true` の通知上で、ユーザが "返信" ボタンをクリックしたときに発行されます。
 
@@ -86,7 +86,7 @@
 戻り値:
 
 * `event` Event
-* `index` Number - The index of the action that was activated.
+* `index` Number - アクティベートされたアクションのインデックス.
 
 ### インスタンスメソッド
 
