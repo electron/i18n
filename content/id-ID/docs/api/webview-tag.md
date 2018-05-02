@@ -211,8 +211,8 @@ webview.addEventListener ('dom-ready', () => {
   * ` httpReferrer </ 0>  String (opsional) - url Referrer HTTP.</li>
 <li><code> userAgent </ 0>  String (opsional) - Agen pengguna yang berasal dari permintaan.</li>
 <li><code> extraHeaders ` String (opsional) - Header ekstra yang dipisahkan oleh " \n "
-  * ` postData </ 0> ( <a href="structures/upload-raw-data.md"> UploadRawData [] </ 1> | <a href="structures/upload-file.md"> UploadFile [] </ 2> | <a href="structures/upload-file-system.md"> UploadFileSystem [] </ 3> | <a href="structures/upload-blob.md"> UploadBlob [] </ 4> ) - (opsional)</li>
-<li><code> baseURLForDataURL </ 0>  String (opsional) - URL dasar (dengan pemisah jalur trailing) untuk file yang akan dimuat oleh url data. Hal ini diperlukan hanya jika ditentukan <code>url` data url dan perlu memuat file lainnya.
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
+  * ` baseURLForDataURL </ 0>  String (opsional) - URL dasar (dengan pemisah jalur trailing) untuk file yang akan dimuat oleh url data. Hal ini diperlukan hanya jika ditentukan <code>url` data url dan perlu memuat file lainnya.
 
 Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http://` atau`://`.
 
@@ -406,11 +406,11 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
   
   * `text` String - Konten yang akan dicari, tidak boleh kosong.
   * `pilihan` Objek (opsional) 
-    * `forward` Boolean - (opsional) Baik untuk mencari maju atau mundur, default ke `true`.
-    * `findNext` Boolean - (opsional) Apakah operasi tersebut merupakan permintaan pertama atau tindak lanjut, default ke `false`.
-    * `matchCase` Boolean - (opsional) Apakah pencarian harus sensitif huruf, default ke `false`.
-    * `wordStart` Boolean - (opsional) Baik untuk melihat hanya pada awal kata-kata. default ke `false`.
-    * `medialCapitalAsWordStart` Boolean - (opsional) Bila digabungkan dengan `wordStart`, menerima sebuah pertandingan di tengah sebuah kata jika pertandingan dimulai dengan sebuah huruf besar diikuti huruf kecil atau huruf non. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
+    * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+    * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+    * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+    * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+    * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
   
   Returns `Integer` - The request id used for the request.
   
@@ -418,7 +418,7 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
   
   ### `<webview>.stopFindInPage(action)`
   
-  * `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) permintaan. 
+  * `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](#webviewfindinpagetext-options) permintaan. 
     * `clearSelection` - jelas pilihan.
     * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
     * `activateSelection` - fokus dan klik seleksi simpul.
@@ -437,11 +437,11 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
   ### `<webview>.printToPDF(options, callback)`
   
   * `pilihan` Obyek 
-    * `marginType` Integer - (opsional) Menentukan jenis margin yang akan digunakan. Menggunakan 0 untuk margin default, 1 tanpa margin, dan 2 untuk margin minimum.
-    * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
-    * `printBackground` Boolean - (opsional) Baik untuk mencetak latar belakang CSS.
-    * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
-    * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
+    * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+    * `pageSize` String (optional) - Specify page size of the generated PDF. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
+    * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+    * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+    * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
   * `callback` Fungsi 
     * Kesalahan `kesalahan`
     * `data` nomor
@@ -450,7 +450,7 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
   
   ### `<webview>.capturePage ([rect,] callback)`
   
-  * `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap
+  * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
   * `callback` Fungsi 
     * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
@@ -463,8 +463,8 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
       * ` ... args </ 0> ada []</li>
 </ul>
 
-<p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.</p> 
-        Melihat [](web-contents.md#webcontentssendchannel-args)Menu untuk contoh.
+<p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.</p> 
+        See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
         
         ### `<webview>.sendInputEvent(event)`
         
@@ -472,7 +472,7 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
         
         Mengirim masukan `event` ke halaman.
         
-        See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
+        See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
         
         ### `<webview>.setZoomFactor(factor)`
         
@@ -482,7 +482,7 @@ Jalankan perintah pengeditan `replaceMisspelling` di halaman.
         
         ### `<webview>.setZoomLevel(level)`
         
-        * `level` Angka - level zoom
+        * `level` Number - Zoom level.
         
         Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
         
@@ -620,25 +620,26 @@ const webview = document.querySelector ('webview') webview.addEventListener ('co
       * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
       * `finalUpdate` Boolean
     
-    Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
-
-<pre><code class="javascript">const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
-`</pre> 
-    
-    ### Peristiwa: 'baru-jendela'
-    
-    Pengembalian:
-    
-    * `url` String
-    * `nama bingkai` tali
-    * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
-    * `options` Object - The options which should be used for creating the new `BrowserWindow`.
-    
-    Fired when the guest page attempts to open a new browser window.
-    
-    Contoh kode berikut membuka url baru di browser default sistem.
+    Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
     
     ```javascript
+const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
+```
+
+### Peristiwa: 'baru-jendela'
+
+Pengembalian:
+
+* `url` String
+* `nama bingkai` tali
+* `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
+* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+
+Fired when the guest page attempts to open a new browser window.
+
+Contoh kode berikut membuka url baru di browser default sistem.
+
+```javascript
 const {shell} = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
 ```
 
