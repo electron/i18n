@@ -47,6 +47,12 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ## Kompilowanie
 
 Build both `Release` and `Debug` targets:
@@ -75,7 +81,7 @@ Aby wyczyścić pliki kompilacji:
 $ npm działa bez problemu
 ```
 
-Aby oczyścić tylko `z` i `dist`katalogów:
+Aby oczyścić tylko `z` i `dist` katalogów:
 
 ```sh
 $ npm run clean-build
