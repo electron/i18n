@@ -12,7 +12,7 @@ Biasanya ini bukan masalah untuk aplikasi desktop karena kode selalu bisa diperc
 
 Perender sandbox tidak memiliki sebuah lingkungan node.js yang berjalan dan tidak mengekspos API node.js JavaScript ke kode klien. Satu-satunya pengecualian adalah skrip yang sudah termuat (preload), yang memiliki akses ke sebuah subset dari API perender elektron.
 
-Perbedaan lainnya adalah perender yang disanbox tidak memodifikasi API bawaan JavaScript yang manapun. Konsekwensinya, beberapa API seperti `window.open` akan bekerja sebagaimana mereka lakukan di chromium (contohnya mereka tidak mengembalikan nilai `BrowserWindowProxy`).
+Perbedaan lainnya adalah perender yang disanbox tidak memodifikasi API bawaan JavaScript yang manapun. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
 ## Contoh
 
@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-Dalam kode di atas `BrowserWindow` yang dibuat mempunyai node.js yang tidak aktif dan berkomunikasi hanya melalui IPC. Kegunaan dari opsi ini adalah menghentikan electron dari membuat sebuah runtime node.js di dalam perender. Juga, di jendela baru ini `window.open` mengikuti perilaku asli (secara bawaan electron menciptakan sebuah `BrowserWindow` dan mengembalikan nilai proxy kepadanya melalui `window.open`).
+In the above code the [`BrowserWindow`](browser-window.md) that was created has node.js disabled and can communicate only via IPC. Kegunaan dari opsi ini adalah menghentikan electron dari membuat sebuah runtime node.js di dalam perender. Also, within this new window `window.open` follows the native behaviour (by default electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 Penting untuk dicatat bahwa opsi ini saja sendiri tidak akan mengaktifkan sanbox yang dipaksa oleh OS. Untuk mengaktifkan fitur ini, argumen baris perintah `--enable-sandbox` harus dilewatkan ke electron, yang akan memaksa `sandbox: true` untuk semua kejadian `BrowserWindow`.
 
@@ -132,7 +132,7 @@ Lebih lanjut boleh ditambahkan lagi sesuai dengan kebutuhan untuk mengekspos leb
 
 Silahkan gunakan opsi `sandbox` dengan hati-hati, karena fitur ini masih fitur percobaan. Kami masih belum mengetahui implikasi keamanan dari pengeksposan beberapa API perender electron terhadap skrip pramuat, namun berikut ini beberapa hal yang perlu dipertimbangkan sebelum melakukan render terhadap konten yang tidak terpercaya:
 
-- Skrip pramuat dapat secara tidak sengaja membocorkan API istimewa ke kode yang tidak terpercaya.
+- A preload script can accidentally leak privileged APIs to untrusted code.
 - Beberapa bug pada mesin V8 memungkinkan kode berbahaya mengakses API pramuat perender, yang secara efektif memberikan akses penuh ke sistem melalui modul `remote`.
 
 Karena merender konten yang tidak tepercaya di wilayah elektron masih belum dipetakan, API yang terpapar pada skrip pramuat sandbox harus dianggap lebih tidak stabil daripada API elektron lainnya, dan mungkin telah melanggar perubahan untuk memperbaiki masalah keamanan.
