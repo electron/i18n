@@ -37,7 +37,7 @@ If your app is packaged with [`electron-builder`](https://github.com/electron-us
 
 If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
 
-Depending on your needs, you can choose from one of these:
+W zależności od potrzeb można wybrać z jednego z tych:
 
 - [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
 - [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
@@ -97,7 +97,7 @@ Also make sure that errors are [being handled](../api/auto-updater.md#event-erro
 
 ```javascript
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+  console.error('Wystąpił problem podczas aktualizowania aplikacji')
   console.error(message)
 })
 ```
