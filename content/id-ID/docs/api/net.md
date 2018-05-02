@@ -2,7 +2,7 @@
 
 > Masalahkan permintaan HTTP / HTTPS menggunakan perpustakaan jaringan asli Chromium
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 The `` net </ 0> modul adalah client-side API untuk mengeluarkan HTTP (S) permintaan. Hal ini mirip dengan modul < N > HTTP </ 0> dan
  <a href="https://nodejs.org/api/https.html"> HTTPS </ 1> dari Node.js namun menggunakan library jaringan asli Chromium dan bukan implementasi Node.js, yang menawarkan dukungan yang lebih baik untuk proxy web.</p>
