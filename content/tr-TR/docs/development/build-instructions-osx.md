@@ -47,24 +47,31 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ## İnşaa
 
-Hem `Dağıtım` hem `Hata Ayıklama` hedefleri:
+Build both `Release` and `Debug` targets:
 
 ```sh
 $ ./script/build.py
 ```
 
-Aynı zamanda sadece `Hata Ayiklama<0> hedefleyebilirsiniz:</p>
+You can also only build the `Debug` target:
 
-<pre><code class="sh">$ ./script/build.py -c D
-`</pre> 
+```sh
+$ ./script/build.py -c D
+```
 
-İnşaa tamalandığında, `Electron.app` dosyasını `out/D`. altında bulabilirsiniz.
+After building is done, you can find `Electron.app` under `out/D`.
 
 ## 32bit Desteği
 
-Electron sadece 64bit hedefleme ile macOS'a kurulabilir ve 32bit üzerinde de inşaa edilebilmesi için herhangi bir plan yoktur.
+Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
 ## Temizlik
 
@@ -74,14 +81,14 @@ Electron sadece 64bit hedefleme ile macOS'a kurulabilir ve 32bit üzerinde de in
 $ npm run clean
 ```
 
-Sadece `out` ve `dist` dizinlerini temizlemek için:
+Sadece `out` and `dist` dizinlerini temizlemek için:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Not:** Her iki clean komutu `bootstrap` betiğinin inşaa öncesi çalıştırılmasını şart koşar.
+**Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
 
 ## Testler
 
-[İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests) sayfasını ziyaret edin
+Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests)
