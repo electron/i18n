@@ -37,7 +37,7 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
   * `uploadToServer` Boolean (opsiyonel) - Çökme raporları sunucuya yollansın mı? Varsayılan `true`.
   * `ignoreSystemCrashHandler` Boolean (opsiyonel) - Varsayılan değeri `false`.
   * `extra` Obje (opsiyonel) - Raporla beraber yollanabilir şekilde tanımlayabileceğiniz bir obje. Sadece katar tipinde özellikler düzgün şekilde yollanır. Iç içe objeler desteklenmez, özellik isimleri ve değerleri 64 karakterden küçük olmalıdır.
-  * `crashesDirectory` Dizge (isteğe bağlı) - Kilitleme raporlarını geçici olarak saklamak için dizin (yalnızca kilitlenme raporlayıcı `process.crashReporter.start` başlatıldığında kullanılır)
+  * `crashesDirectory` Dizge (isteğe bağlı) - Kilitleme raporlarını geçici olarak saklamak için dizin (yalnızca kilitlenme raporlayıcı `process.crashReporter.start` başlatıldığında kullanılır).
 
 `crashReporter` API'lerini kullanmak için ve süreçlerin çökme raporlarını almak için her süreçte (main/renderer) bu metodu çağırmalısınız. Farklı süreçlerden farklı opsiyonları `crashReporter.start`'a geçebilirsiniz.
 
@@ -45,7 +45,7 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 
 **Not:** Çocuk süreçlerden çökme raporlarını toplamak için, bu ek kodu da eklemelisiniz. Bu çökmeleri dinleyen ve yollayan süreci başlatır. `submitURL`'i, `productName` ve `crashesDirectory`'i uygun değerlerle değiştirin.
 
-**Not:** İlk çağrı `başlatma` sonrasında ek/güncellenmiş `ekstra` parametrelerini göndermeniz gerekiyorsa, macOS'ta `setExtraParameter`'i çağırabilirsiniz veya Linux ve Windows'ta yeni/güncellenmiş `ekstra` parametreleriyle tekrar `Başlat`'ı çağırın.
+**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
  const args = [
@@ -79,13 +79,13 @@ Tüm yüklenmiş çökme raporlarını döndürür. Her rapor ilgili tarih ve nu
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-`Boolean` döndürür - Raporların sunucuya gönderilip gönderilmesiyle ilgilidir. `start` metodu ile ya da `setUploadToServer` metodu ile değerini değiştirin.
+Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
 **Not:** Bu API sadece ana süreç tarafından çağrılabilir.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Raporlar sunucuya gönderilsin mi
+* `uploadToServer` Boolean *macOS* - Raporlar sunucuya gönderilsin mi.
 
 Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start` çağrılmışsa herhangi bir etkisi yoktur.
 
@@ -115,7 +115,7 @@ Kilitlenme raporuyla birlikte gönderilemeyeceği için mevcut parametreler grub
 * `ver` Katar - Electron versiyonu.
 * `platform` Katar - örneğin. 'win32'.
 * `process_type` Katar - örneğin. 'renderer'.
-* `guid` Katar - örneğin. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
+* `guid` Katar - örneğin. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` Katar - `package.json` içerisindeki versiyon.
 * `_productName` Katar - `crashReporter` `options` objesi içerisindeki ürün ismi.
 * `prod` Katar - Arkadaki temel ürünün ismi. Bu durum için Electron.
