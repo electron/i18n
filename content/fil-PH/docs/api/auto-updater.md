@@ -32,7 +32,7 @@ Hindi gaya ng sa Squirrel.Mac, ang Windows ay kayang mag-host ng update sa S3 o 
 
 Ang `autoUpdater` maglalabas ng mga ganitong pangyayari:
 
-### Pangyayari: 'error'
+### Event: 'error'
 
 Ibinabalik ang:
 
@@ -70,10 +70,12 @@ Tanging Windows lamang`releaseName` is available.
 
 Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` Tali
-* `requestHeaders` Onject *macOS* (opsyonal) - kahilingan sa ulunan ng HTTP.
+* `options` Bagay 
+  * `url` Tali
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Tinatakda ang `url` at nagpapasimula ng auto-updater.
 
@@ -89,4 +91,6 @@ Itanong sa server kung merong bago. Kaylangan mong tumawag `setFeedURL` bago gam
 
 Uulitin ang app at iinstall ang mga update pagkatapos itong ma download. Ito ay dapat lamang tawagin pagkatapos ng `update-downloaded` ay lumabas na.
 
-**Tandaan:** Ang `autoUpdater.quitAndInstall()`ay isasara ang lahat ng naunang applikasyon sa windows at maglalabas ng mga `bago-itigil` na pangyayari`app`pagkatapos nito. Ito ay kaiba mula sa normal na quit event sequence.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
