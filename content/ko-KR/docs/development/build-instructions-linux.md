@@ -55,9 +55,15 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### 크로스 컴파일
 
-`arm` 아키텍쳐로 빌드 하려면 다음 의존성 라이브러리를 설치해야 합니다:
+If you want to build for an `arm` target you should also install the following dependencies:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
@@ -71,7 +77,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-그리고 `arm` 또는 `ia32`를 크로스 컴파일로 지정하여 `bootstrap.py` 스크립트의 `--target_arch` 파라미터로 넣을 수 있다.
+And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -79,27 +85,27 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## 빌드하기
 
-`Release`와 `Debug` 두 타겟 모두 빌드 합니다:
+If you would like to build both `Release` and `Debug` targets:
 
 ```sh
 $ ./script/build.py
 ```
 
-이 스크립트는 `out/R` 디렉터리에 크기가 매우 큰 Electron 실행 파일을 배치합니다. 파일 크기는 1.3GB를 초과합니다. 이러한 문제가 발생하는 이유는 Release 타겟 바이너리가 디버그 심볼을 포함하기 때문입니다. 파일 크기를 줄이려면 `create-dist.py` 스크립트를 실행하세요:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-이 스크립트는 매우 작은 배포판을 `dist` 디렉터리에 생성합니다. `create-dist.py` 스크립트를 실행한 이후부턴 1.3GB에 육박하는 공간을 차지하는 `out/R` 폴더의 바이너리는 삭제해도 됩니다.
+This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-또는 `Debug` 타겟만 빌드 할 수 있습니다:
+You can also build the `Debug` target only:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-빌드가 모두 끝나면 `out/D` 디렉터리에서 `electron` 디버그 바이너리를 찾을 수 있습니다.
+After building is done, you can find the `electron` debug binary under `out/D`.
 
 ## 정리하기
 
@@ -121,7 +127,7 @@ $ npm run clean-build
 
 ### Libtinfo.so.5 동적 링크 라이브러리를 로드하는 도중 에러가 발생할 경우
 
-미리 빌드된 `clang`은 `libtinfo.so.5`로 링크를 시도합니다. 따라서 플랫폼에 따라 적당한 `libncurses` symlink를 추가하세요:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -133,7 +139,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 고급 주제
 
-기본적인 빌드 구성은 가장 주력인 Linux 배포판에 초점이 맞춰져있으며, 특정 배포판이나 기기에 빌드할 계획이라면 다음 정보들이 도움이 될 것입니다.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### 로컬에서 `libchromiumcontent` 빌드하기
 
@@ -153,7 +159,7 @@ $ git submodule update --init --recursive
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-참고로 `shared_library` 구성은 기본적으로 빌드되어있지 않으며, 다음 모드를 사용하면 `Release` 버전의 Electron만 빌드할 수 있습니다:
+Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
 
 ```sh
 $ ./script/build.py -c R
@@ -163,7 +169,7 @@ $ ./script/build.py -c R
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-예를 들어 `clang`을 `/user/local/bin/clang`에 설치했다면 다음과 같습니다:
+For example if you installed `clang` under `/user/local/bin/clang`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
@@ -172,9 +178,9 @@ $ ./script/build.py -c R
 
 ### `clang` 대신 다른 컴파일러 사용하기
 
-Electron을 `g++`과 같은 다른 컴파일러로 빌드하려면, 먼저 `--disable_clang` 스위치를 통해 `clang`을 비활성화 시켜야 하고, 필요하다면 `CC`와 `CXX` 환경 변수도 설정합니다.
+To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
-예를 들어 GCC 툴체인을 사용하여 빌드한다면 다음과 같습니다:
+For example building with GCC toolchain:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
@@ -199,4 +205,4 @@ Apart from `CC` and `CXX`, you can also set the following environment variables 
 * `CXX_host`
 * `LDFLAGS`
 
-이 환경 변수는 `bootstrap.py` 스크립트를 실행할 때 설정되어야 하며, `build.py` 스크립트에선 작동하지 않습니다.
+The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
