@@ -14,11 +14,11 @@ Proceso: [Principal](../glossary.md#main-process)
   * `sesion` Objecto (opcional) - La instancia de [`Sesión`](session.md) en la cual está asociada la solicitud.
   * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. La opción `sesión` prevalece sobre `partición`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
   * `protocolo` Cadena (opcional) -El esquema de protocolo en la forma "esquema": Valores soportados actualmente son 'http:' o 'https:'. Por defecto es 'http:'.
-  * `central` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre de anfitrión:puerto"
+  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
   * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
   * `ruta` Cadena (opcional) - La parte de la ruta de la solicitud URL.
-  * `Redirigir` cadena (opcional) - El modo de redirección de esta solicitud. Debe ser `seguir`, `error` o `manual`. Por defecto es `seguir`. Cuando el modo es `error`, cualquier redirección será abortada. Cuando el modo es `manual` la redirección será aplaza hasta que el procedimiento [`request.followRedirect`](#requestfollowRedirect) sea llamado. Listado por el evento [`redirigir`](#event-redirect) en este modo para obtener más detalles sobre las solicitudes de redirección.
+  * `Redirigir` cadena (opcional) - El modo de redirección de esta solicitud. Debe ser `seguir`, `error` o `manual`. Por defecto es `seguir`. Cuando el modo es `error`, cualquier redirección será abortada. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listado por el evento [`redirigir`](#event-redirect) en este modo para obtener más detalles sobre las solicitudes de redirección.
 
 `opcions` propiedades como `protocolo`, `central`, `nombre de anfitrión`, `puerto` y `ruta` siguen estrictamente al modo Node.js como es descrito en el módulo [URL](https://nodejs.org/api/url.html).
 
@@ -112,7 +112,7 @@ Devuelve:
 * `Redirigir Url` Cadena
 * `headers de respuesta` objeto
 
-Emitido cuando hay una redirección y el modo es `manual`. Llamar a [`request.followRedirect`](#requestfollowRedirect) continuará con la redirección.
+Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
 
 ### Propiedades de Instancia
 
