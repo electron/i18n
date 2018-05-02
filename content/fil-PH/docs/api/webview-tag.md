@@ -243,7 +243,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` Pisi (opsyonal) - Isang HTTP Referrer url.
   * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
   * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsyonal)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
   * `baseURLForDataURL` Pisi (opsyonal) - Base url (na may trailing path separator) para sa mga dokumento na mai-load ng url ng data. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
 Kakargahin ang `url` sa webview, ang `url` ay dapat magkaroon ng protokol na panlapi, e.g ang `http://` or `file://`.
@@ -438,11 +438,11 @@ Ipasok ang `teksto` sa nakatutok na elemento.
 
 * `teksto` String - Ang nilalaman na hahanapin, ay hindi dapat walang laman.
 * `mga opsyon` Na Bagay (opsyonal) 
-  * `abanti` Boolean - (opsyonal) Kung mananaliksik ka ng paabanti o patalikod, defaults sa `true`.
-  * `findNext` Boolean - (opsyonal) Kung ang operasyon isang kahilingan o isang pagsasagawang kasunod, mga defaults sa `false`.
-  * `matchCase` Boolean - (opsyonal) Kung saan ang paghahanap ay dapat case-sensitive, mga defaults sa `false`.
-  * `wordStart` Boolean - (opsyonal) Kung saan maghahanap ka lang ng simula ng salita. mga defaults sa `false`.
-  * `medialCapitalAsWordStart` Boolean - (opsyonal) Kung ang pinagsama na may `wordStart`, tinatanggap ang kapareha sa gitna ng salita at kung ang kapareha nag nagsimula ng malaking titik at sinundan ng maliit na titik o walang-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
 
 Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
 
@@ -450,7 +450,7 @@ Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `te
 
 ### `<webview>.stopFindInPage(action)`
 
-* `aksyon` String - Tinutukoy ang aksyon upang maganap kapag nagtatapos [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) kahilingan. 
+* `aksyon` String - Tinutukoy ang aksyon upang maganap kapag nagtatapos [`<webview>.findInPage`](#webviewfindinpagetext-options) kahilingan. 
   * `clearSelection` - Tanggalin ang mga napili.
   * `keepSelection` - Isalin ang seleksyon sa isang normal na seleksyon.
   * `activateSelect` - Tumuon at i-click ang node ng pagpili.
@@ -469,11 +469,11 @@ Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
 ### `<webview>.printToPDF(options, callback)`
 
 * `options` Object 
-  * `marginsType` Integer - (opsyonal) Itinatakda ang uri ng mga margin na gagamitin. Gumagamit ng 0 para sa naka-default na margin, 1 para sa walang margin, at 2 para sa pinakamaliit na maaaring gawing margin.
-  * `pageSize` String - (opsyonal) Itinatakda ang sukat ng page ng nalilikhang PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
-  * `printBackground` Boolean - (opsyonal) Pwedeng i-imprinta ang mga background ng CSS.
-  * `printSelectionOnly` Boolean - (opsyonal) Pwedeng i-imprinta ang mga napili lamang.
-  * `landscape` Boolean - (opsyonal) `true` para sa landscape, `false` para sa portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String (optional) - Specify page size of the generated PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
   * `error` Error
   * `data` Buffer
@@ -482,7 +482,7 @@ Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printTo
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -493,9 +493,9 @@ Kumukuha ng larawan sa page ng `webview`. Pareho sa `webContents.capturePage([re
 * `channel` String
 * `...args` anuman[]
 
-Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. Ang magsasagawa ng proseso ay kayang i-handle ang mensahe sa pamamagitan ng pakikinig sa `channel` event kasama ang modulo ng `ipcRenderer`.
+Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Tignan ang [webContents.send](web-contents.md#webcontentssendchannel-args) bilang mga halimbawa.
+See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -503,7 +503,7 @@ Tignan ang [webContents.send](web-contents.md#webcontentssendchannel-args) bilan
 
 Nagpapadala ng input na `event` sa page.
 
-Tignan ang [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) para sa mga detalyadong paglalarawan ng objek na `event`.
+See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -513,7 +513,7 @@ Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay 
 
 ### `<webview>.setZoomLevel(level)`
 
-* `antas` Numero - antas ng Zoom
+* `level` Number - Zoom level.
 
 Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit.
 
@@ -654,7 +654,7 @@ Ibinabalik ang:
   * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
   * `finalUpdate` Boolean
 
-Itigil kung meron ng resulta sa hinihingi ng [`webview.findInPage`](webview-tag.md#webviewtagfindinpage).
+Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -673,7 +673,7 @@ Ibinabalik ang:
 * `url` Tali
 * `frameName` Pisi
 * `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
-* `options` Objek - Ang mga opsyon na kailangang gamitin para makagawa ng bagong `BrowserWindow`.
+* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
 Itigil kapag ang guest page ay sinusubukang magbukas ng bagong browser window.
 
