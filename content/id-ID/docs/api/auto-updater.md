@@ -34,7 +34,7 @@ Objek `autoUpdater` mengirimkan sinyal berikut:
 
 ### Sinyal: 'Error'
 
-Mengirimkan:
+Returns:
 
 * Kesalahan `kesalahan`
 
@@ -70,10 +70,12 @@ Emitted saat update telah didownload.
 
 Objek `autoUpdater` memiliki metode berikut:
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* ` url </ 0> String</li>
-<li><code>requestHeader` Objek *macOS* (opsional) - header permintaan HTTP.
+* `pilihan` Objek 
+  * `url` String
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Menetapkan `url` dan menginisialisasi updater otomatis.
 
@@ -89,4 +91,6 @@ Meminta server apakah ada update. Anda harus menghubungi `setFeedURL` sebelumnya
 
 Menjalankan ulang app dan menginstall pembaharuan setelah selesai di unduh. hanya di gunakan setelah sinyal `update-downloaded` telah di kirimkan.
 
-**Catatan:** `autoUpdater.quitAndInstall()` akan menutup semua jendela aplikasi pertama dan hanya memancarkan `sebelum-berhenti` pada `aplikasi` setelah itu. Ini berbeda dari urutan kejadian berhenti normal.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
