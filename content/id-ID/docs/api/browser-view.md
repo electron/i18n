@@ -4,9 +4,9 @@
 
 **Catatan:** lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
-A `lihat browser` dapat digunakan untuk menyematkan konten web tambahan ke `jendela Browse`. Ini seperti jendela anak, kecuali yang diposisikan relatif terhadap jendela miliknya. Hal ini dimaksudkan untuk menjadi alternatif tag `lihat web`.
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Ini seperti jendela anak, kecuali yang diposisikan relatif terhadap jendela miliknya. Hal ini dimaksudkan untuk menjadi alternatif tag `lihat web`.
 
 ## Contoh
 
