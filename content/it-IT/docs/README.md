@@ -62,7 +62,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [Sicurezza](tutorial/security.md) 
   * [Segnalazione Problemi Sicurezza](tutorial/security.md#reporting-security-issues)
   * [Aggiornamenti e Problemi di Sicurezza di Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
+  * [Avvisi Sicurezza Electron](tutorial/security.md#electron-security-warnings)
   * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
 * [Updates](tutorial/updates.md) 
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
