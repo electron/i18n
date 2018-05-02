@@ -6,7 +6,7 @@ Bazı Electron davranışları, komut satırı parametreleri ve uygulamanın ken
 
 POSIX kabuk örneği:
 
-```bash
+```sh
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
