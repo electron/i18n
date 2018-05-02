@@ -147,14 +147,8 @@ console.log(image)
 `hslShift` は以下のルールで画像に適用されます。
 
 * `hsl_shift[0]` (色相): 画像における色相の絶対値 - 0 から 1 が 色相カラーホイール (赤) の 0 から 360 に割り当てられる。
-* `hsl_shift[1]` (彩度): 画像における彩度の変化量。以下のキー値を使用する。  
- 0 = すべての色が抜かれる。  
- 0.5 = 変わらないまま。  
- 1 = 画像の彩度を最大にする。 
-* `hsl_shift[2]` (明度): 画像における明度の変化量。以下のキー値を使用する。  
- 0 = すべての明度がなくなる (すべてのピクセルが黒になる)。  
- 0.5 = 変わらないまま。  
- 1 = 明度が最大になる (すべてのピクセルが白になる)。
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
 つまり、`[-1, 0, 1]` は完全に白い画像になり、`[-1, 1, 0]` は完全に黒い画像になります。
 
@@ -208,7 +202,7 @@ console.log(image)
 
 #### `image.isEmpty()`
 
-戻り値 `Boolean` - 画像が空かどうか。
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
@@ -226,13 +220,13 @@ console.log(image)
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - 画像をトリミングする領域。
+* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop.
 
 戻り値 `NativeImage` - トリミングされた画像。
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (任意) - 省略値は画像の高さ。 * `quality` String (任意) - リサイズされた画像の希望する解像度。 値は `good`、`better`、または `best` にできる。 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 これらは、基になるプラットフォームの機能 (CPU、GPU) に依存するアルゴリズム固有のメソッドに変換される。 3つのメソッドすべてを、特定のプラットフォーム上の同じアルゴリズムに割り当てることも可能です。
+* `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 戻り値 `NativeImage` - リサイズされた画像。
 
