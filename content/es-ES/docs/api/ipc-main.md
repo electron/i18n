@@ -2,7 +2,7 @@
 
 > Se comunica de forma asincrónica desde el proceso principal a los procesos de renderizado.
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 El módulo `ipcMain` es una instancia de la clase [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Cuando se utiliza en el proceso principal, maneja mensajes asincrónicos y sincrónicos enviados desde el proceso de renderizado (página web). Los mensajes enviados desde el renderizador serán emitidos a este módulo.
 
@@ -64,7 +64,7 @@ Agrega una función `listener` para el evento. Este `listener` es invocado solo 
 * `channel` Cadena
 * `listener` Función
 
-Elimina el `listener` especificado del arreglo listener para el `channel` especificado.
+Elimina el `listener` especificado del arreglo del oyente para el `channel` especificado.
 
 ### `ipcMain.removeAllListeners([channel])`
 
