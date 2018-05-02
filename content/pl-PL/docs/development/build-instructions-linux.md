@@ -55,23 +55,29 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### Kompilacja międzyplatformowa
 
-Jeśli chcesz zbudować dla `arm` należy również zainstalować następujące zależności:
+If you want to build for an `arm` target you should also install the following dependencies:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Podobnie dla `arm64`, zainstalować następujące elementy:
+Similarly for `arm64`, install the following:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-I do międzyplatformowej kompilacji dla celów `arm` lub `ia32`, należy przekazać parametr `--target_arch` do skryptu `bootstrap.py`:
+And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -79,20 +85,21 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Kompilowanie
 
-Jeśli chcesz zbudować oba `Release` i `Debug` celów:
+If you would like to build both `Release` and `Debug` targets:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. Rozmiar pliku to ponad 1,3 Gb. Dzieje się tak, ponieważ uwolnienie docelowego pliku binarnego zawiera symbole debugowania. Aby zmniejszyć rozmiar pliku, uruchom skrypt `create-dist.py<0>:</p>
+This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
-<pre><code class="sh">$ ./script/create-dist.py
-`</pre> 
+```sh
+$ ./script/create-dist.py
+```
 
 This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-Możesz również zbudować cel `Debug`:
+You can also build the `Debug` target only:
 
 ```sh
 $ ./script/build.py -c D
@@ -105,7 +112,7 @@ After building is done, you can find the `electron` debug binary under `out/D`.
 Aby wyczyścić pliki kompilacji:
 
 ```sh
-$ npm run clean
+$ npm działa bez problemu
 ```
 
 Aby oczyścić tylko `z` i `dist` katalogów:
@@ -120,7 +127,7 @@ $ npm run clean-build
 
 ### Wystąpił błąd podczas ładowania biblioteki współdzielenia: libtinfo.so.5
 
-Prekompilowany `clang` będzie próbował powiązać z `libtinfo.so.5`. W zależności od architektury hosta, dowiązanie symboliczne do odpowiednich `libncurses`:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -132,11 +139,11 @@ Zobacz [przegląd budowy systemu: Testy](build-system-overview.md#tests)
 
 ## Zaawansowane tematy
 
-Domyślne tworzenie konfiguracji jest celem dla głównej dystrybucji pulpitu Linux. Aby zbudować dla konkretnej dystrybucji lub urządzenia, następujące informacje mogą ci pomóc.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### Budowanie `libchromiumcontent` lokalnie
 
-Aby uniknąć używania gotowych binarek `libchromiumcontent`, można zbudować `libchromiumcontent` lokalnie. Aby to zrobić, wykonaj następujące kroki:
+To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
 
 1. Instaluj [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. Instaluj [dodatkowe zależności kompilacji](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
@@ -160,9 +167,9 @@ $ ./script/build.py -c R
 
 ### Using system `clang` instead of downloaded `clang` binaries
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. Przez pominięcie tego, skrypt budowy założy, że pliki binarne `clang` znajdują się w `<path>/bin/`.
+By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-Na przykład jeśli zainstalowałeś `clang` pod `/user/local/bin/clang`:
+For example if you installed `clang` under `/user/local/bin/clang`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
@@ -173,7 +180,7 @@ $ ./script/build.py -c R
 
 To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
-Na przykład budowanie z GCC toolchain:
+For example building with GCC toolchain:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
@@ -198,4 +205,4 @@ Apart from `CC` and `CXX`, you can also set the following environment variables 
 * `CXX_host`
 * `LDFLAGS`
 
-Zmienne środowiskowe muszą być ustawione podczas wykonywania skryptu `bootstrap.py`, to nie będzie działać w skrypcie `build.py`.
+The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
