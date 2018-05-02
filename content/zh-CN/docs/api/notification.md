@@ -14,7 +14,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` 是 [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter)
 
 通过 ` options ` 来设置的一个新的原生 ` Notification `。
 
@@ -29,9 +29,9 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 ### `new Notification([options])` *实验功能*
 
 * `选项` 对象 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * ` title `String - 通知的标题, 将在通知窗口的顶部显示.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
+  * ` body `String 通知的正文文本, 将显示在标题或副标题下面.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
   * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
   * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
@@ -77,7 +77,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 返回:
 
 * `event` Event
-* `reply` String - The string the user entered into the inline reply field.
+* ` reply `String-用户在内联答复字段中输入的字符串.
 
 当用户单击 ` hasReply: true ` 的通知上的 "Reply" 按钮时触发。
 
@@ -86,7 +86,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 返回:
 
 * `event` Event
-* `index` Number - The index of the action that was activated.
+* `index` Number - 已激活的操作的索引.
 
 ### 实例方法
 
