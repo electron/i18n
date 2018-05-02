@@ -82,9 +82,9 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
   const dialogOpts = {
     type: 'info',
     buttons: ['Restart', 'Later'],
-    title: 'Application Update',
+    title: '應用程式更新',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    detail: '新版已經下載完成。 重新啟動應用程式即可更新。'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
@@ -97,7 +97,7 @@ Also make sure that errors are [being handled](../api/auto-updater.md#event-erro
 
 ```javascript
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+  console.error('更新本應用程式時出錯了')
   console.error(message)
 })
 ```
