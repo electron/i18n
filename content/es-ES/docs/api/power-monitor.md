@@ -2,9 +2,9 @@
 
 > Monitorea los cambios de estado de energía.
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-No se puede solicitar o usar este módulo hasta que el evento `ready` del módulo `app` sea emitido.
+No puedes requerir o usar este módulo hasta que el evento `ready` de el módulo `app` sea emitido.
 
 Por ejemplo:
 
