@@ -495,7 +495,7 @@ webview.addEventListener('dom-ready', () => {
 
 `channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
+サンプルについては [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) を参照して下さい。
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -503,7 +503,7 @@ See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examp
 
 入力 `event` をページに送ります。
 
-See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
+`event` オブジェクトの詳細については、[webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) を参照してください。
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -623,7 +623,7 @@ HTML API にトリガーされてページがフルスクリーンになると�
 
 HTML API にトリガーされてページがフルスクリーンから抜けるときに発生します。
 
-### Event: 'console-message'
+### イベント: 'console-message'
 
 戻り値:
 
@@ -654,7 +654,7 @@ webview.addEventListener('console-message', (e) => {
   * `selectionArea` Object - 最初のマッチ領域の座標。
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
+[`webview.findInPage`](#webviewfindinpagetext-options) リクエストの結果が有効なときに発行されます。
 
 ```javascript
 const webview = document.querySelector('webview')
