@@ -2,7 +2,7 @@
 
 > Hace solicitudes HTTP/HTTPS.
 
-Proceso: [Principal](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `Peticiones del cliente` implementa la interfaz de [corriente de escritura](https://nodejs.org/api/stream.html#stream_writable_streams) y por lo tanto es un [emitidor de eventos](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -18,7 +18,7 @@ Proceso: [Principal](../glossary.md#main-process)
   * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
   * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
   * `ruta` Cadena (opcional) - La parte de la ruta de la solicitud URL.
-  * `Redirigir` cadena (opcional) - El modo de redirección de esta solicitud. Debe ser `seguir`, `error` o `manual`. Por defecto es `seguir`. Cuando el modo es `error`, cualquier redirección será abortada. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listado por el evento [`redirigir`](#event-redirect) en este modo para obtener más detalles sobre las solicitudes de redirección.
+  * `Redirigir` cadena (opcional) - El modo de redirección de esta solicitud. Debe ser `seguir`, `error` o `manual`. Por defecto es `seguir`. Cuando el modo es `error`, cualquier redirección será abortada. Cuando el modo es `manual` la redirección será aplaza hasta que el procedimiento [`request.followRedirect`](#requestfollowredirect) sea llamado. Listado por el evento [`redirigir`](#event-redirect) en este modo para obtener más detalles sobre las solicitudes de redirección.
 
 `opcions` propiedades como `protocolo`, `central`, `nombre de anfitrión`, `puerto` y `ruta` siguen estrictamente al modo Node.js como es descrito en el módulo [URL](https://nodejs.org/api/url.html).
 
@@ -42,17 +42,17 @@ Devuelve:
 
 * `respuesta` IncomingMessage - Un objeto representando el mensaje de respuesta de HTTP.
 
-#### Evento: 'login'
+#### Evento:'login'
 
 Devuelve:
 
-* `authInfo` Object 
+* `authInfo` Objeto 
   * `isProxy` Boolean
-  * `esquema` Cadena
+  * `scheme` String
   * `anfitrión` Cadena
   * `puerto` Íntegro
   * `realm` Cadena
-* `llamada de vuelta` Función 
+* `callback` Function 
   * `username` Cadena
   * `contraseña` Cadena
 
@@ -99,7 +99,7 @@ Devuelve:
 
 Emitido cuando el módulo `net` falla en emitir una solicitud de red. Típicamente cuando el objeto `solicitud` emite un evento `error`, un evento `cerrar` lo seguirá subsecuentemente y ningún objeto respuesta será proporcionado.
 
-#### Evento: "close"
+#### Evento: 'close'
 
 Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. El evento `cerrar` indica que ningún otro evento será emitido en los objetos `solicitud` o `respuesta`.
 
@@ -108,17 +108,17 @@ Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. El
 Devuelve:
 
 * `Estatus de código` entero
-* `method` Cuerda
+* `method` String
 * `Redirigir Url` Cadena
 * `headers de respuesta` objeto
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
+Emitido cuando hay una redirección y el modo es `manual`. Llamar a [`request.followRedirect`](#requestfollowredirect) continuará con la redirección.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 #### `request.chunkedEncoding`
 
-Un `Booleano` especificando cuando la solicitud usará el la codificación de transferencia del paquete HTTP o no. Por defecto es falso. La propiedad es de lectura y escritura, sin embargo puede ser configurada antes de la primera operación de escritura debido a que el encabezado HTTP no se ha puesto en el hilo. Tratar de configurar la propiedad `codificación empaquetada` después de la primera escritura arrojará un error.
+Un `Booleano` especificando cuando la solicitud usará el la codificación de transferencia del paquete HTTP o no. Por defecto es false. La propiedad es de lectura y escritura, sin embargo puede ser configurada antes de la primera operación de escritura debido a que el encabezado HTTP no se ha puesto en el hilo. Tratar de configurar la propiedad `codificación empaquetada` después de la primera escritura arrojará un error.
 
 Utilizar codificación empaquetada es fuertemente recomendado si no necesita enviar una solicitud grande dado que lo datos serán transmitidos en paquetes pequeños en lugar de ser cargados internamente en la memoria de proceso de Electron.
 
