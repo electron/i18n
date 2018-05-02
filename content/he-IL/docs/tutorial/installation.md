@@ -85,9 +85,9 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 בהרצת `npm install electron`, חווים חלק מהמשתמשים תקלות בהתקנה.
 
-ברוב בהמקרים תקלות אלו הן תוצאה של בעיות בתקשורת האינטרנט ולא בחבילת ה-npm של `electron`. תקלות כמו `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ו-`ETIMEDOUT` הן כולן סימן לתקלות תקשורת. The best resolution is to try switching networks, or just wait a bit and try installing again.
+ברוב בהמקרים תקלות אלו הן תוצאה של בעיות בתקשורת האינטרנט ולא בחבילת ה-npm של `electron`. תקלות כמו `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ו-`ETIMEDOUT` הן כולן סימן לתקלות תקשורת. לרוב, הפתרון הוא לנסות לחליף רשת או לנסות להתקין שוב במועד מאוחר יותר.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+ניתן גם לנסות להתקין Electron ישירות מ-[electron/electron/releases](https://github.com/electron/electron/releases) אם ההתקנה דרך `npm` נכשלת.
 
 If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
