@@ -1,4 +1,4 @@
-# Pull Requests
+# Заявки за сливане
 
 * [Dependencies](#dependencies)
 * [Setting up your local environment](#setting-up-your-local-environment) 
