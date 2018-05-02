@@ -2,7 +2,7 @@
 
 > Buka jendela baru dan muat URL.
 
-Ketika ` window.open ` dipanggil untuk membuat jendela baru di halaman web, sebuah instance baru dari ` BrowserWindow ` akan dibuat untuk ` url ` dan sebuah proxy akan dikembalikan ke ` window.open ` untuk membiarkan halaman memiliki kontrol terbatas terhadapnya.
+When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
 Proxy memiliki fungsionalitas standar terbatas yang diimplementasikan agar kompatibel dengan halaman web tradisional. Untuk kontrol penuh jendela baru Anda harus membuat ` BrowserWindow ` secara langsung.
 
