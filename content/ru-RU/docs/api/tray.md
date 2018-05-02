@@ -66,7 +66,7 @@ app.on('ready', () => {
 
 #### Событие: 'click'
 
-* `event` Событие 
+* `событие` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -78,7 +78,7 @@ Emitted when the tray icon is clicked.
 
 #### Событие: 'right-click' *macOS* *Windows*
 
-* `event` Событие 
+* `событие` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -89,7 +89,7 @@ Emitted when the tray icon is right clicked.
 
 #### Событие: 'double-click' *macOS* *Windows*
 
-* `event` Событие 
+* `событие` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -142,7 +142,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Событие: 'mouse-enter' *macOS*
 
-* `event` Событие 
+* `событие` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -153,7 +153,7 @@ Emitted when the mouse enters the tray icon.
 
 #### Событие: 'mouse-leave' *macOS*
 
-* `event` Событие 
+* `событие` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -164,7 +164,7 @@ Emitted when the mouse exits the tray icon.
 
 #### Event: 'mouse-move' *macOS*
 
-* `event` Событие 
+* `событие` Событие 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
