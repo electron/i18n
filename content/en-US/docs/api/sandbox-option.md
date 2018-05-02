@@ -33,7 +33,7 @@ which has access to a subset of the electron renderer API.
 
 Another difference is that sandboxed renderers don't modify any of the default
 JavaScript APIs. Consequently, some APIs such as `window.open` will work as they
-do in chromium (i.e. they do not return a `BrowserWindowProxy`).
+do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
 ## Example
 
@@ -51,9 +51,9 @@ app.on('ready', () => {
 })
 ```
 
-In the above code the `BrowserWindow` that was created has node.js disabled and can communicate
+In the above code the [`BrowserWindow`](browser-window.md) that was created has node.js disabled and can communicate
 only via IPC. The use of this option stops electron from creating a node.js runtime in the renderer. Also,
-within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow`
+within this new window `window.open` follows the native behaviour (by default electron creates a [`BrowserWindow`](browser-window.md)
 and returns a proxy to this via `window.open`).
 
 It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the
@@ -189,7 +189,7 @@ feature. We are still not aware of the security implications of exposing some
 electron renderer APIs to the preload script, but here are some things to
 consider before rendering untrusted content:
 
-- A preload script can accidentaly leak privileged APIs to untrusted code.
+- A preload script can accidentally leak privileged APIs to untrusted code.
 - Some bug in V8 engine may allow malicious code to access the renderer preload
   APIs, effectively granting full access to the system through the `remote`
   module.
