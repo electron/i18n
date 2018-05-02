@@ -145,14 +145,8 @@ Mengembalikan ` gambar asli </ 0></p>
 The `hslShift` is applied to the image with the following rules
 
 * `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
- 0 = remove all lightness (make all pixels black).  
- 0.5 = leave unchanged.  
- 1 = full lightness (make all pixels white).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
@@ -206,7 +200,7 @@ Perhatikan bahwa pointer yang dikembalikan adalah pointer lemah ke native yang m
 
 #### `image.isEmpty()`
 
-Mengembalikan `Boolean` - Apakah gambar itu kosong.
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
@@ -224,7 +218,7 @@ Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong
+* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop.
 
 Mengembalikan `NativeImage` - Gambar yang dipotong.
 
@@ -232,24 +226,18 @@ Mengembalikan `NativeImage` - Gambar yang dipotong.
 
 * ` pilihan </ 0> Objek
   * <code> lebar </ 0>  Integer (opsional) - Default ke lebar gambar.
- * <code> tinggi </ 0>  bilangan bulat (opsional) - Default ke tinggi gambar
-  * <code> kualitas </ 0>  String (opsional) - Kualitas gambar mengubah ukuran yang diinginkan.
-   Nilai yang mungkin <code> bagus </ 0> , <code> lebih baik </ 0> atau <code> terbaik </ 0> . Defaultnya adalah <code> terbaik </ 0> .
-   Nilai ini mengekspresikan kualitas / kecepatan tradeoff yang diinginkan. Mereka diterjemahkan
-    ke dalam metode algoritma khusus yang bergantung pada kemampuan
-    (CPU, GPU) dari platform yang mendasarinya. Ada kemungkinan ketiga metode
-    dipetakan ke algoritma yang sama pada platform tertentu.</li>
-</ul>
+ * <code>height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
-<p>Mengembalikan <code> gambar asli </ 0> - gambar ukurannya.</p>
+Mengembalikan ` gambar asli </ 0> - gambar ukurannya.</p>
 
 <p>Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
 
 <h4><code>image.getAspectRatio()`</h4> 
- Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
+
+Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
 
 <h4><code>image.addRepresentation(options)`</h4> 
- 
- * `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
- 
- Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
+
+* `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
+
+Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
