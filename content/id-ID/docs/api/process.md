@@ -2,11 +2,11 @@
 
 > Ekstensi untuk memproses objek.
 
-Proses:  Utama </ 0> ,  Renderer </ 1></p> 
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Objek `proses` Elektron diperpanjang dari [Node.js `proses` objek](https://nodejs.org/api/process.html). Ini menambahkan peristiwa, properti, dan metode berikut:
 
-## Acara
+## Kejadian
 
 ### Acara: 'dimuat'
 
@@ -24,7 +24,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properti
+## Properti/peralatan
 
 ### `process.defaultApp`
 
@@ -40,7 +40,7 @@ A `Boolean` yang mengontrol dukungan ASAR di dalam aplikasi Anda. Setting ini ke
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Properti ini digunakan bukan flag baris perintah `--no-deprecation `.
 
 ### `process.resourcesPath`
 
@@ -96,14 +96,14 @@ Mengembalikan `Objek`:
 
 * `workingSetSize` Integer - Jumlah memori yang saat ini disematkan pada fisik sebenarnya RAM.
 * `peakWorkingSetSize` Integer - Jumlah maksimum memori yang pernah disematkan ke RAM fisik yang sebenarnya.
-* `privateBytes` Integer - Jumlah memori yang tidak dibagi oleh proses lain, seperti Tumpukan JS atau konten HTML.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
+* ` privateBytes </ 0>  Integer - Jumlah memori yang tidak dibagi oleh proses lain, seperti tumpukan JS atau konten HTML.</li>
+<li><code>sharedBytes `Integer - Jumlah memori dibagi antara proses, biasanya memori yang dikonsumsi oleh kode Elektron itu sendiri.
 
 Mengembalikan objek yang memberikan statistik penggunaan memori tentang proses saat ini. Catatan bahwa semua statistik dilaporkan di Kilo byte.
 
 ### `process.getSystemMemoryInfo()`
 
-Mengembalikan `Objek`:
+Mengembalikan `Boolean`:
 
 * `total`Integer - Jumlah total memori fisik di Kilobyte tersedia untuk sistem.
 * `gratis` Integer - Jumlah total memori yang tidak digunakan oleh aplikasi atau disk cache.
