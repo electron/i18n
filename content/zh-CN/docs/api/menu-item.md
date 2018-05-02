@@ -45,7 +45,7 @@
 * `selectAll`
 * `delete`
 * `minimize` - Minimize current window.
-* `close` - Close current window.
+* `close` - 关闭当前窗口.
 * `quit`- Quit the application.
 * `reload` - Reload the current window.
 * `forceReload` - Reload the current window ignoring the cache.
@@ -59,22 +59,22 @@
 
 The following additional roles are available on *macOS*:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
-* `hide` - Map to the `hide` action.
+* ` about `-映射到 ` orderFrontStandardAboutPanel ` 操作.
+* ` hide `-映射到 ` 隐藏 ` 操作.
 * `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
+* ` unhide `-映射到 ` unhideAllApplications ` 操作.
 * `startSpeaking` - Map to the `startSpeaking` action.
 * `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
+* ` front `-映射到 ` arrangeInFront ` 操作.
+* ` zoom `-映射到 ` performZoom ` 操作.
 * `toggleTabBar` - Map to the `toggleTabBar` action.
 * `selectNextTab` - Map to the `selectNextTab` action.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
 * `mergeAllWindows` - Map to the `mergeAllWindows` action.
 * `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
-* `services` - The submenu is a "Services" menu.
+* `window` - 子菜单是"窗口" 菜单.
+* ` help `-子菜单是 "帮助" 菜单.
+* ` services `-子菜单是 "帮助" 菜单.
 * `recentDocuments` - The submenu is an "Open Recent" menu.
 * `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
@@ -104,8 +104,8 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label.
+一个表示菜单项标签的 `String`.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+当 MenuItem 接收到 click 事件时激发的`Function`.
