@@ -14,11 +14,11 @@
   * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката.
   * `сесия` Обект (по избор) - екземплярът на [`сесията`](session.md), с който е свързана заявката. По подразбиране е празен низ. Опцията `сесия` преобладава на `дял`. Следователно ако изрично е указано `сесия`, `дял` се игнорира.
   * `протокол` Низ (по избор) - схемата на протокол във формата "схема:'. Поддържани в момента стойности са ' http:' или ' https:'. По подразбиране е "http:".
-  * `домакин` Низ (по избор) - хост сървъра предоставени като конкатенация на хост и порт номер "hostname:port"
+  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `име на хост` Низ (по избор) - името на хоста на сървъра.
   * `порт` Цяло число (по избор) - слушане номера на порта на сървъра.
   * `path` String (по избор) - Пътя на бисквитката.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
 свойства на `Опции` като `протокол`, `хост`, `име на хост`, `пристанището` и `пътя` следват стриктно Node.js модела, както е описано в модула [URL](https://nodejs.org/api/url.html).
 
@@ -110,7 +110,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
+Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
 
 ### Инстантни свойства
 
