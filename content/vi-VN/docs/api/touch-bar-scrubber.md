@@ -18,7 +18,7 @@ Quá trình: [Main](../tutorial/quick-start.md#main-process)
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Instance Properties
+### Các Thuộc Tính
 
 The following properties are available on instances of `TouchBarScrubber`:
 
