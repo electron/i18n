@@ -6,7 +6,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
 ## Example
 
@@ -34,7 +34,7 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (optional) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Static Methods (클래스 메서드)
 
 #### `BrowserView.getAllViews()`
 
