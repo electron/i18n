@@ -2,16 +2,16 @@
 
 > 创建一个scrubber (可滚动的选择程序)
 
-线程：[主线程](../tutorial/quick-start.md#main-process)
+进程：[主进程](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *实验功能*
 
-* `options` Object 
+* `选项` 对象 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
   * `select` Function - Called when the user taps an item that was not the last tapped item. 
     * `selectedIndex` Integer - The index of the item the user selected.
-  * `highlight` Function - Called when the user taps any item. 
-    * `highlightedIndex` Integer - The index of the item the user touched.
+  * `highlight` Function - 当用户点击某一项时调用. 
+    * highlightedIndex Integer - 用户选中项排序.
   * ` selectedStyle ` String - 选中项样式. 默认为 `null`.
   * ` overlayStyle ` String - 选中遮罩项样式. 默认为 ` null `.
   * `showArrowButtons` Boolean - 默认为 `false`.
