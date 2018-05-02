@@ -6,11 +6,11 @@ When working with Electron, it is important to understand that Electron is not a
 
 With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
 
-## Reporting Security Issues
+## Zgłaszanie Błędów Bezpieczeństwa
 
 For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
-## Chromium Security Issues and Upgrades
+## Bezpieczeństwa i uaktualnienia Chrominum
 
 While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
 
@@ -22,7 +22,7 @@ A security issue exists whenever you receive code from a remote destination and 
 
 > :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
 
-## Electron Security Warnings
+## Ostrzeżenia bezpieczeństwa Electrona
 
 From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
