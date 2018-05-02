@@ -18,7 +18,7 @@ Prozess: [Haupt](../tutorial/quick-start.md#main-process)
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Instance Properties
+### Instanz Eigenschaften
 
 The following properties are available on instances of `TouchBarScrubber`:
 
@@ -36,7 +36,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Possible values:
+A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Mögliche werte:
 
 * `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
