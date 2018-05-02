@@ -292,7 +292,7 @@ Loading the initial HTML of a website over `HTTPS` and attempting to load subseq
 
 ### Pourquoi ?
 
-En termes simples, télécharger du contenu via `HTTPS` assure l’authenticité et l’intégrité des ressources téléchargées en cryptant le trafic. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+En termes simples, télécharger du contenu via `HTTPS` assure l’authenticité et l’intégrité des ressources téléchargées en cryptant le trafic. Consultez la section sur l' [affichage du contenu sécurisé uniquement](#1-only-load-secure-content) pour plus de détails.
 
 ### Comment ?
 
