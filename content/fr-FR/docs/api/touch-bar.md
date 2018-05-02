@@ -8,7 +8,7 @@ Processus : [Main](../tutorial/quick-start.md#main-process)
 
 * `options` Objet 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
-  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (facultatif)
+  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
 Créer une nouvelle touch bar avec les éléments spécifiés. `BrowserWindow.setTouchBar` permet d'ajouter la `TouchBar` à une fenêtre.
 
@@ -22,7 +22,7 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBar` :
 
 #### `touchBar.escapeItem`
 
-Le `TouchBarButton` remplacera le bouton "esc" sur la touch bar lorsqu’il sera défini. Le définir à `null` restaurera le bouton "esc". Changer cette valeur immédiatement met à jour le bouton "esc" dans la touch bar.
+A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Le définir à `null` restaurera le bouton "esc". Changer cette valeur immédiatement met à jour le bouton "esc" dans la touch bar.
 
 ## Exemples
 
