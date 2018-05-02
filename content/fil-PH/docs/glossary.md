@@ -30,83 +30,100 @@ Interface description language. Write function signatures and data types in a fo
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+Ang ibig sabihin ng IPC ay Communication Inter-Process. Ginagamit ng elektron ang IPC upang ipadala ang serialized JSON na mga mensahe sa pagitan ng mga proseso ng  main </ 0> at  renderer </ 1>.</p> 
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+Isang nakabahaging library na kasama ang [ module ng Nilalaman ng Chromium ](https://www.chromium.org/developers/content-module) at lahat ng mga dependencies (hal., Blink, [ V8 ](#v8), atbp.). Tinutukoy rin bilang "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### pangunahing proseso
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Ang pangunahing proseso, karaniwang isang file na pinangalanang ` main.js `, ay ang entry point sa bawat Electron app. Kinokontrol nito ang buhay ng app, mula sa pagbukas hanggang sa pagsara. Ito rin ay namamahala ng mga katutubong element tulad ng Menu, Menu Bar, Dock, Tray, atbp. Ang pangunahing proseso ay responsable para sa paglikha ng bawat bagong proseso ng renderer sa app. Ang buong Node API ay built in.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Ang pangunahing file sa bawat proseso ng file ay tinukoy sa ` pangunahing ` ari-arian sa ` package.json `. Ito ay kung paano ang ` elektron. </ 0> na alam kung anong file ang magsisimula sa startup.</p>
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+<p>Sa Chromium, ang prosesong ito ay tinukoy bilang "proseso ng browser". Ito ay
+pinalitan ng pangalan sa Electron upang maiwasan ang pagkalito sa mga proseso ng renderer.</p>
 
-See also: [process](#process), [renderer process](#renderer-process)
+<p>Tingnan din ang: <a href="#process"> proseso </a>, <a href="#renderer-process"> proseso ng renderer </a></p>
 
-### MAS
+<h3>MAS</h3>
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+<p>Acronym para sa Mac App Store ng Apple. Para sa mga detalye sa pagsusumite ng iyong app sa
+MAS, tingnan ang <a href="tutorial/mac-app-store-submission-guide.md"> Gabay sa Pagsusumite ng Mac App Store </a>.</p>
 
-### Mojo
+<h3>Mojo</h3>
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+<p>An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.</p>
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+<p>See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md</p>
 
-### native modules
+<h3>mga native module</h3>
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+<p>Ang mga native na module (tinatawag ding <a href="https://nodejs.org/api/addons.html"> addons </a> sa
+Node.js) ay mga module na nakasulat sa C o C ++ na maaaring i-load sa Node.js o
+Electron gamit ang nangangailangan () function, at ginagamit lamang kung sila ay isang
+ordinaryong module na Node.js. Ang mga ito ay ginagamit lalo na upang magbigay ng isang interface
+sa pagitan ng JavaScript na tumatakbo sa mga library ng Node.js at C/C++.</p>
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+<p>Ang mga module ng Native Node ay sinusuportahan ng Electron, ngunit dahil ang Electron ay napaka
+malamang na gumamit ng ibang bersyon V8 mula sa binary na naka-install sa iyong
+system, kailangan mong i-manu-manong tukuyin ang lokasyon ng mga header ng Electron kapag
+bumuo ng mga native module.</p>
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+<p>Tingnan din ang <a href="tutorial/using-native-node-modules.md"> Paggamit ng mga Native Node Modiule </a>.</p>
 
-### NSIS
+<h3>NSIS</h3>
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+<p>Nullsoft Scriptable Install System ay isang script-driven Installer
+tool sa pag-author para sa Microsoft Windows. Ito ay inilabas sa ilalim ng isang kumbinasyon ng
+libreng mga lisensya ng software, at isang malawakang ginagamit na alternatibo sa komersyo
+pagmamay-ari ng mga produkto tulad ng InstallShield. Ang <a href="https://github.com/electron-userland/electron-builder"> elektron-builder </a> ay sumusuporta sa NSIS
+bilang isang build target.</p>
 
-### OSR
+<h3>OSR</h3>
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+<p>Maaaring gamitin ang OSR (Off-screen rendering) para sa paglo-load ng mabibigat na pahina sa
+background at pagkatapos ay ipinapakita ito (ito ay magiging mas mabilis).
+Pinapayagan ka nitong mag-render ng pahina nang hindi ipinapakita ang screen.</p>
 
-### proseso
+<h3>proseso</h3>
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+<p>Ang isang proseso ay isang halimbawa ng isang programa sa computer na isinasagawa. Electron
+ang mga app na gumagamit ng <a href="#main-process"> main </a> at isa o maraming <a href="#renderer-process"> renderer </a> na proseso na
+aktwal na tumatakbo ang ilang mga programa nang sabay-sabay.</p>
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+<p>Sa Node.js at Electron, ang bawat proseso ng pagpapatakbo ay may isang bagay na <code> proseso `. Ito ay ang bagay na isang pandaigdig na nagbibigay ng impormasyon tungkol sa, at kontrol sa, ang kasalukuyang proseso. Bilang isang pandaigdigan, ito ay laging magagamit sa mga aplikasyon nang walang gamit ang nangangailangan ().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Tingnan din ang: [ pangunahing proseso ](#main-process), [ proseso ng renderer ](#renderer-process)
 
-### renderer process
+### proseso ng renderer
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Ang proseso ng tagapag-render ay isang window ng browser sa iyong app. Hindi tulad ng pangunahing proseso, maaaring magkaroon ng maraming ng mga ito at ang bawat isa ay tatakbo sa isang hiwalay na proseso. Maaari rin silang maitago.
 
 Sa normal na mga browser, ang mga web page ay karaniwang tumatakbo sa isang sandboxed na kapaligiran at hindi pinapayagan ang pag-access sa mga katutubong mapagkukunan. Gayunpaman, ang mga gumagamit ng elektron ay may kapangyarihan sa gamitin ang mga API ng Node.js sa mga web page na nagpapahintulot sa mas mababang antas ng operating system mga pakikipag-ugnayan.
 
-See also: [process](#process), [main process](#main-process)
+Tingnan din ang: [ proseso ](#process), [ pangunahing proseso ](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Ang ardilya ay isang open-source framework na nagbibigay-daan sa mga apps ng Electron na awtomatikong i-update bilang mga bagong bersyon ay inilabas. Tingnan ang [ autoUpdater ](api/auto-updater.md) API para sa impormasyon tungkol sa pagsisimula sa ardilya.
 
 ### userland
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Ang terminong ito ay nagmula sa komunidad ng Unix, kung saan ang "userland" o "userspace" ay tinutukoy ang mga program na tumatakbo sa labas ng kernel ng operating system. Higit pa kamakailan lamang, ang termino ay na-popularized sa node at npm komunidad na makilala sa pagitan ng mga tampok na magagamit sa "Node core" kumpara sa mga pakete inilathala sa npm registry ng mas malaking "user" na komunidad.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Tulad ng Node, ang Electron ay nakatutok sa pagkakaroon ng isang maliit na hanay ng mga API na nagbibigay lahat ng kinakailangang primitibo para sa pagbubuo ng mga application ng multi-platform desktop. Ang pilosopiyang ito ng disenyo ay nagpapahintulot sa Electron na manatiling isang nababaluktot na kasangkapan nang hindi masobrahan ang tanaw tungkol sa kung paano ito dapat gamitin. Binibigyang-daan ng Userland ang mga gumagamit na lumikha at magbahagi ng mga tool na nagbibigay ng karagdagang pag-andar sa ibabaw ng kung ano na magagamit sa "core".
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+Ang V8 ay isang open source JavaScript engine ng Google. Ito ay nakasulat sa C++ at ginagamit sa Google Chrome. Maaaring magpatakbo ng V8 standalone, o maaaring ma-embed sa anumang C++ application.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Ang elektron ay nagtatayo ng V8 bilang bahagi ng Chromium at pagkatapos ay tumuturo sa Node sa V8 kung kailan pagbuo nito.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Ang mga numero ng bersyon ng V8 ay laging tumutugma sa mga Google Chrome. Chrome 59 Kasama ang V8 5.9, kasama ang Chrome 58 ng V8 5.8, atbp.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -114,4 +131,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+Ang mga tag ng `webview` ay ginagamit upang i-embed ang nilalaman ng 'guest' (tulad ng panlabas na mga web page) ang iyong Electron app. Ang mga ito ay katulad ng ` iframe `s, ngunit naiiba sa bawat isa ang webview ay tumatakbo sa isang hiwalay na proseso. Hindi ito pareho sa mga pahintulot bilang iyong web page at lahat ng mga pakikipag-ugnayan sa pagitan ng iyong app at ang naka-embed na nilalaman ay magiging asynchronous. Pinapanatiling ligtas ang iyong app mula sa naka-embed na nilalaman.
