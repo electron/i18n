@@ -8,7 +8,7 @@
 
 * `seçenekler` Nesnesi 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
-  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
+  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
 Belirli öğelerle yeni bir dokunmatik çubuk oluşturun. Bir pencereye `TouchBar` eklemek için `BrowserWindow.setTouchBar` kullanmalısınız.
 
@@ -22,7 +22,7 @@ Aşağıdaki özellikler `TouchBar` örneklerinde mevcuttur:
 
 #### `touchBar.escapeItem`
 
-`TouchBarButton` ayarlandığında, touch bar üzerindeki "esc" düğmesinin yerini alır. `null` olarak ayarlamak varsayılan "esc" düğmesini geri yükler. Bu değeri değiştirmek, touch bar üzerindeki öğeyi hemen günceller.
+A `TouchBarItem` that will replace the "esc" button on the touch bar when set. `null` olarak ayarlamak varsayılan "esc" düğmesini geri yükler. Bu değeri değiştirmek, touch bar üzerindeki öğeyi hemen günceller.
 
 ## Örnekler
 
