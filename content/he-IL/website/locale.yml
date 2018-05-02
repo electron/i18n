@@ -38,12 +38,12 @@ community:
   meetup_notice: להוספת מפגש, ערוך את <code>data/meetups.json</code> href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">ובצע pull request</a>.
 releases: הפצות
 electron_is_easy:
-  title: זה קל משאתה חושב
-  description: אם אתה יכול לבנות אתר אתה יוכל לבנות גם יישומי מחשב. Electron הוא framework לפיתוח יישומים למערכות הפעלה שנות בטכנולוגיות פיתוח אתרים כמו JavaScript, HTML, ו-CSS. Electron דואג להתאמות השונות כך שאתם תוכלו להתמקד בעיקר היישום שלכם.
-  video_link: צפא בסרטון
+  title: זה קל יותר משאתה חושב
+  description: מהיום, אם אתה יכול לבנות אתר אתה יוכל לבנות גם יישומי מחשב. Electron הוא framework לפיתוח יישומים למערכות הפעלה שנות בטכנולוגיות פיתוח אתרים כמו JavaScript, HTML, ו-CSS. Electron דואג להתאמות השונות כך שאתם תוכלו להתמקד בעיקר היישום שלכם.
+  video_link: צפה בסרטון
 web_technologies:
   title: טכנולוגיות פיתוח אתרים
-  description: Electron עושה שימוש ב-Chromium וב-Node.js fl כך שתוכלו לבנות את היישום שלכם עם HTML, CSS, ו- JavaScript.
+  description: Electron עושה שימוש ב-Chromium וב-Node.js כך שתוכלו לבנות את היישום שלכם עם HTML, CSS, ו- JavaScript.
 open_source:
   title: קוד פתוח
   description: Electron הוא פרוייקט קוד פתוח המתוחזק על ידי GitHub וקהילה פעילה של תורמים.
@@ -66,8 +66,8 @@ explore:
 download_from_github: הורדה מ-GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">כל ההפצות</a> ב-GitHub
 quick_start:
-  title: "פתח את <a href='https://github.com/electron/electron-quick-start' target='_blank'> יישום התחלה מהירה </a> לראות את Electron בפעולה:"
-  description: יישום אלקטרון מיניאלי עם תיעוד מועיל.
+  title: "פתח את <a href='https://github.com/electron/electron-quick-start' target='_blank'> התחלה מהירה </a> כדי לראות את Electron בפעולה:"
+  description: יישום Electron מיניאלי עם תיעוד מועיל.
   clone: Clone the Quick Start repository
   go_into_repo: Go into the repository
   install_deps: Install the dependencies and run
@@ -96,23 +96,23 @@ clipboard:
 or: אוֹ
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS.
+    description: 'בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: ישומי Electron
+    description: יישומים שנבנו ב-Electron
   '/docs':
-    title: Documentation
-    description: Guides and API reference documentation for the latest Electron release
+    title: תיעוד
+    description: הנחיות והפניה לממשק Electron להפצה האחרונה של Electron
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: כל התיעוד של Electron!
+    description: כל המדריכים ותיעוד הממשק של Electron בדף אחד עם חיפוש.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: הנחיות והפניה לממשק Electron להפצה האחרונה של Electron
   '/docs/development':
-    title: Development
-    description: Developing with Electron
+    title: פיתוח
+    description: פיתוח עם אלקטרון
   '/docs/tutorial':
     title: Tutorial
     description: Guides and tutorials for the latest Electron release
