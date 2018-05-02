@@ -30,6 +30,6 @@ $ code electron-quick-start
 
 ### 3. Debugging
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+Thiết lập các breakpoint trong `main.js` và bắt đầu chạy debug trong [Debug View](https://code.visualstudio.com/docs/editor/debugging). Bạn sẽ thấy quá trình được ngắt tại các breakpoint.
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Đây là 1 project được cấu hình sẳn để bạn có thể download và bebug trực tiếp trong VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
