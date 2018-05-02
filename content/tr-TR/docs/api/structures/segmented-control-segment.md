@@ -1,5 +1,5 @@
 # Segmentli Kontrol Segmenti Nesnesi
 
-* `etiket` Dize - (isteğe bağlı) bu segmentte görünecek metin
-* </code>simge</0> yerelgörüntü - (seçilebilir) bu görüntü bu bölümde görülebilir
-* `enabled` boolean - (seçilebilir) bu bölümün seçilebilir olup olamadığı. Varsayılan: seçilebilir
+* `label` String (optional) - The text to appear in this segment
+* `icon` NativeImage (optional) - The image to appear in this segment
+* `enabled` Boolean (optional) - Whether this segment is selectable. Default: true
