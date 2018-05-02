@@ -46,7 +46,7 @@ Removes all listeners, or those of the specified `channel`.
 
 Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Argumentos serão serializados em JSON internamente e, portanto, nenhuma função ou cadeia de protótipo será incluída.
 
-The main process handles it by listening for `channel` with `ipcMain` module.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
@@ -57,7 +57,7 @@ Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
 Envie uma mensagem ao processo principal de forma síncrona via `channel`, você também pode enviar argumentos arbitrários. Argumentos serão serializados em JSON internamente e, portanto, nenhuma função ou cadeia de protótipo será incluída.
 
-The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
 **Nota:**O envio de uma mensagem síncrona bloqueará todo o processo de renderização, a menos que você saiba o que está fazendo, você nunca deve usá-lo.
 
@@ -67,7 +67,7 @@ The main process handles it by listening for `channel` with `ipcMain` module, an
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `windowid` via `channel`
+Sends a message to a window with `windowid` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
