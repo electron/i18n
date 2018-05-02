@@ -2,7 +2,7 @@
 
 > Get system preferences.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
 ```javascript
 const {systemPreferences} = require('electron')
@@ -17,7 +17,7 @@ The `systemPreferences` object emits the following events:
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
@@ -60,7 +60,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `обратно повикване` Function 
+* `обратно повикване` Функция 
   * `event` String
   * `userInfo` Object
 
