@@ -12,10 +12,10 @@
   * [ステップ6: リベース](#step-6-rebase)
   * [ステップ7: テスト](#step-7-test)
   * [ステップ8: プッシュ](#step-8-push)
-  * [ステップ9: プルリクエストを開く](#step-8-opening-the-pull-request)
-  * [ステップ10: 議論と更新](#step-9-discuss-and-update) 
+  * [ステップ9: プルリクエストを開く](#step-9-opening-the-pull-request)
+  * [ステップ10: 議論と更新](#step-10-discuss-and-update) 
     * [承認とリクエストの変更ワークフロー](#approval-and-request-changes-workflow)
-  * [ステップ11: 取り込み](#step-10-landing)
+  * [ステップ11: 取り込み](#step-11-landing)
   * [継続的インテグレーションテスト](#continuous-integration-testing)
 
 ## ローカル環境のセットアップ
@@ -72,59 +72,77 @@ $ git commit
 
 #### コミットメッセージのガイドライン
 
-良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。
+A good commit message should describe what changed and why. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-1. 最初の行は、以下の通りにしてください。
-  
-  * 変更の簡単な説明が含まれている (50文字以下が好ましく、72文字未満である)
-  * 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
+Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
+
+Examples of commit messages with semantic prefixes:
+
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux` 
+
+Common prefixes:
+
+    - fix: A bug fix
+    - feat: A new feature
+    - docs: Documentation changes
+    - test: Adding missing tests or correcting existing tests
+    - build: Changes that affect the build system
+    - ci: Changes to our CI configuration files and scripts
+    - perf: A code change that improves performance
+    - refactor: A code change that neither fixes a bug nor adds a feature
+    - style: Changes that do not affect the meaning of the code (linting)
     
-    例:
-  
-  * `updated osx build documentation for new sdk`
-  
-  * `fixed typos in atom_api_menu.h`
 
-2. 2行目は空にしてください。
+Other things to keep in mind when writing a commit message:
 
+1. The first line should: 
+  * 変更の簡単な説明が含まれている (50文字以下が好ましく、72文字未満である)
+  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+2. Keep the second line blank.
 3. 他のすべての行は72列で折り返します。
 
-良い git commit メッセージを書く方法の例については、[この記事](https://chris.beams.io/posts/git-commit/) を参照してください。
+#### Breaking Changes
+
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+
+See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### ステップ6: リベース
 
-変更をコミットしたら、`git rebase` (`git merge` ではない) を使用してメインリポジトリと作業を同期させることを推奨します。
+Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-これにより作業ブランチに `electron/electron` のマスターの最新の変更が確実に反映されます。
+This ensures that your working branch has the latest changes from `electron/electron` master.
 
 ### ステップ7: テスト
 
-バグの修正と機能追加には常にテストが必要です。 プロセスを簡単にするため、[テストガイド](https://electronjs.org/docs/development/testing) が提供されています。 それらがどのように構築されるべきかを見るため、他のテストを見ることでも手助けになれます。
+Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
-プルリクエストで変更を送信する前に、常に完全なテストスイートを実行してください。 テストを実行するには以下のようにします。
+Before submitting your changes in a pull request, always run the full test suite. To run the tests:
 
 ```sh
 $ npm run test
 ```
 
-リンターが問題を報告していないこと、そしてすべてのテストが合格していることを確認してください。 いずれかのチェックに失敗したパッチは提出しないでください。
+Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
 
-テストを更新していて、単一の仕様を実行してチェックしたい場合は、以下のようにします。
+If you are updating tests and just want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu
 ```
 
-上記の例では `menu` に一致する仕様のモジュールのみが実行されます。これは、テストサイクルの最後の最後にテストに取り組んでいる人にとって役に立ちます。
+The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
 
 ### ステップ8: プッシュ
 
-コミットの準備 ―― テストに合格して、lint をしている ―― ができたら、GitHub 上 のあなたのフォークに作業ブランチをプッシュして、プルリクエストを開くプロセスを開始します。
+Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
 ```sh
 $ git push origin my-branch
@@ -132,23 +150,24 @@ $ git push origin my-branch
 
 ### ステップ9: プルリクエストを開く
 
-GitHub で、新しいプルリクエストを開くと、記入する必要のあるテンプレートが表示されます。
+From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
 ```markdown
 <!--
-プルリクエストありがとう。 上に説明を記述して、下の要件を確認してください。
+Thank you for your pull request. Please provide a description above and review
+the requirements below.
 
-バグ修正や新機能には、テストやベンチマークが含まれている必要があります。
+Bug fixes and new features should include tests and possibly benchmarks.
 
-コントリビューターガイド: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
 -->
 ```
 
 ### ステップ10: 議論と更新
 
-おそらく、あなたはプルリクエストの変更に対するフィードバックやリクエストを得ます。 これは提出プロセスの大事な部分なので、がっかりさせないでください！ コントリビューターの中には、すぐにプルリクエストを承認する人がいます。 他の人には詳細なコメントやフィードバックがあるかもしれません。 これは、変更が正しいかどうかを評価するために必要なプロセスの一部です。
+You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
-既存のプルリクエストを変更するには、ローカルブランチに変更を加え、それらの変更で新しいコミットを追加し、それらをあなたのフォークにプッシュします。 GitHub は自動的にプルリクエストを更新します。
+To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
 
 ```sh
 $ git add my/changed/files
@@ -156,26 +175,26 @@ $ git commit
 $ git push origin my-branch
 ```
 
-利用できる `git rebase` を使用して、コミットを管理するためのさらに高度なメカニズムがいくつかありますが、このガイドの範疇を超えています。
+There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
 
-あなたが何らかの回答を待っている場合は、Ping レビュー担当者にプルリクエスト内でコメントを投稿してください。 不慣れな言葉や頭字語に遭遇した場合は、この [用語集](https://sites.google.com/a/chromium.org/dev/glossary) を参照してください。
+Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
 #### 承認とリクエストの変更ワークフロー
 
-すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/orgs/electron/teams/code-owners) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 このような要求は役に立ちますが、時には、特に変更する *やり方* に具体的な提案が含まれていないと、唐突な、または役に立たないものに出くわすことがあります。
+All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
-がっかりさせないようにしてください。 レビューが不公平であると感じる場合は、そう言い、別のプロジェクトのコントリビューターの意見を求めてください。 しばしば、そのようなコメントは、レビュアーがレビューするのに十分な時間を取らない結果で、意図しないものです。 そのような困難はしばしば少しの忍耐で解決することができます。 これは、査読者は役に立つフィードバックを提供することが期待されるべきだということです。
+Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
 ### ステップ11: 取り込み
 
-取り込まれるには、少なくとも1人の Electron の Code Ownerがレビューして承認し、CI に合格する必要があります。 その後、他のコントリビューターからの異論がない場合、プルリクエストをマージすることができます。
+In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
-おめでとう、あなたのコントリビューションに感謝します！
+Congratulations and thanks for your contribution!
 
 ### 継続的インテグレーションテスト
 
-すべてのプルリクエストは、継続的インテグレーション (CI) システムでテストされ、 それが Electron のサポートされているプラットフォームで動作することを確認されます。
+Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 
-理想的には、プルリクエストは CI のすべてのプラットフォーム上で合格します ("青になる") 。 これは、すべてのテストが合格し、lint のエラーがないことを意味します。 しかし、CI インフラストラクチャ自体が特定のプラットフォームで失敗したり、いわゆる "flaky" テストに失敗する ("赤になる") ことは珍しいことではありません。 各 CI の失敗を手動で検査して原因を特定する必要があります。
+Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
 
-プルリクエストを開くと、CI が自動的に開始されますが、[Releasers](https://github.com/orgs/electron/teams/releasers/members) だけが CI の実行をリスタートできます。 CI が誤検知をしていると思われる場合は、Releaser にテストをリスタートするよう依頼してください。
+CI starts automatically when you open a pull request, but only [Releasers](https://github.com/orgs/electron/teams/releasers/members) can restart a CI run. If you believe CI is giving a false negative, ask a Releaser to restart the tests.
