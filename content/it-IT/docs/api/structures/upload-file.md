@@ -2,6 +2,6 @@
 
 * `tipo` Stringa - `file`.
 * `Percorsofile` Stringa - Percorso dei file da caricare.
-* `compensare` Numero intero - Di default ``.
-* `lunghezza` Numero Intero - Numeto di bytr da leggere per `compensare`. Di default a ``.
+* `compensare` Numero Intero - Default a ``.
+* `lunghezza` Numero Intero - Numero di byte da leggere per `compensare`. Default a ``.
 * `modificationTime` Double - Last Modification time in number of seconds since the UNIX epoch.
