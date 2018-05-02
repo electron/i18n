@@ -121,7 +121,7 @@ Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-favicon-updated'
 
-Returns:
+반환:
 
 * `event` Event
 * `favicons` String[] - Array of URLs.
@@ -370,7 +370,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-Returns:
+반환:
 
 * `event` Event
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
@@ -497,7 +497,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -1188,7 +1188,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` 함수 - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
