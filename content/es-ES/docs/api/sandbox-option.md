@@ -12,7 +12,7 @@ Usualmente esto no es un problema para aplicaciones de escritorio ya que el cód
 
 Un renderizador en una caja de arena no tiene un ambiente de node.js ejecutandose y no expone el node.js JavaScript API al código del cliente. La única excepción es el script precargado, que tiene el acceso al subset de los renderizadores API de electron.
 
-Otra diferencia es que los renderizadores en caja de arena no modifican ninguno de los JavaScript APIs que está por defecto. En consecuencia, algunos APIs como `window.open` trabajarán como lo harían en chromium (i.e ellos no regresan a `BrowserWindowProxy`).
+Otra diferencia es que los renderizadores en caja de arena no modifican ninguno de los JavaScript APIs que está por defecto. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
 ## Ejemplo
 
@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-En el código anterior el `BrowserWindow` que fue creado tiene el node.jsdeshabilitado y puede comunicarse solo via IPC. El uso de esta opción detiene a Electron de crear un node.js en el tiempo de corrida dentro del renderizador. También, en esta nueva ventana `window.open` sigue el comportamiento nativo (por defecto Electron crea un `BrowserWindow` y regresa un proxy a este via `window.open`).
+In the above code the [`BrowserWindow`](browser-window.md) that was created has node.js disabled and can communicate only via IPC. El uso de esta opción detiene a Electron de crear un node.js en el tiempo de corrida dentro del renderizador. Also, within this new window `window.open` follows the native behaviour (by default electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 Es importante notar que esta opción sola no va a habilitar la caja de arena impuesta por el OS. Para activar esta característica, el argumento de linea de comando `--enable-sandbox` debe ser pasado a Electron, que lo forzará `sandbox: true` por todas `BrowserWindow` instancias.
 
@@ -134,7 +134,7 @@ Se pueden agregar más si se necesitan para exponer más APIs de Electron en la 
 
 Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. Todavía no estamos seguros de las implicaciones de seguridad de exponer algunos renderizadores API de Electron a un script precargado, pero aquí hay algunas cosas a considerar antes de renderizar contenido no confiable:
 
-- Un script precargado puede filtrar accidentalmente APIs privilegiadas a códigos no confiables.
+- A preload script can accidentally leak privileged APIs to untrusted code.
 - Algún bug en el motor v8 también puede permitir que un código malicioso acceda al API precargado del renderizador, dandole efectivamente acceso completo al sistema mediante el módulo `remote`.
 
 Dado que renderizar contenido no confiable en Electron es un territorio inexplorado, las APIs expuestas a los script de la caja de arena precargada deben ser considerados más inestables que el resto de las APIs de Electron, y debe tener cambios radicales para arreglar los problemas de seguridad.
