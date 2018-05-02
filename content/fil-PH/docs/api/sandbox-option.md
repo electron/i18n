@@ -12,7 +12,7 @@ Karaniwang ito ay hindi problema para sa mga aplikasyon ng desktop dahil ang mga
 
 Ang tagasalin ng isang sandbox ay hindi magkakaroon ng gumaganang kapaligiran ng isang node.js at hindi ilalantad ang mga JavaScript API ng node.js sa kodigo ng kliyente. Ang tanging eksepsyon ay ang preload script, kung saan ay may access sa isang tagasalin ng API ng electron.
 
-Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Samakatuwid, ang ilang mga API tulad ng `window.open` ay gagana tulad ng ginagawa nila sa chromium (hal. hindi nila ibinabalik ang isang `BrowserWindowProxy`).
+Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
 ## Mga halimbawa
 
@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-Sa itaas na code ang `BrowserWindow` na nalikha na may node.js ay hindi pinagana at maari ding makipag-ugnayan lamang sa pamamagitan ng IPC. Ang paggamit nitong pagpipilian ay mahihinto ang elektron sa paglika ng isang node.js runtime sa tagatanghal. Pwede din, sa loob nitong bagong window `window.open` kasunod ang katutubong ugali (bilang default ng elektron ay lumilikha ng isang `BrowserWindow` at nagbabalik ng isang proxy sa patungo nitong `window.open`).
+In the above code the [`BrowserWindow`](browser-window.md) that was created has node.js disabled and can communicate only via IPC. Ang paggamit nitong pagpipilian ay mahihinto ang elektron sa paglika ng isang node.js runtime sa tagatanghal. Also, within this new window `window.open` follows the native behaviour (by default electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 Ito ay mahalaga na tandaan na ang opsyun nito na nag-iisa ay hindi nkapagpapagana ng OS-enforced sandbox. Upang paganahin ang tampok na ito, ang `– mapagana-sandbox` ang linya ng utos sa argumento dapat maipasa sa elektron, na kung saan ay pipilitin `sandbox: totoo` para sa lahat ng mga kaganapan ng `BrowserWindow`.
 
@@ -130,7 +130,7 @@ Maaring marami ang maidagdag sa kinakailngan na mailantad na maraming elektron A
 
 Pakiusap na gamitin ang `sandbox` na opsyun na may pangangalaga, katulad pa rin sa isang experimentong tampok nito. Kami ay wala pa ring kamalayan sa seguridad ng paglalantad sa ilang elektron na tagatanghal APIs sa preload na iskrip, pero narito ang mga ilang bagay na isinasaalang-alang bago e-render ang di-pinagkakatiwalaan na nilalaman:
 
-- Ang isang preload na iskrip ay maaring naaksidenteng tumagas na pribilehiyong APIs sa di-pinagkakatiwalaan na kodigo.
+- A preload script can accidentally leak privileged APIs to untrusted code.
 - Ang ilang bug sa V8 engine ay maaring payagan ang malisyusong kodigo para ma-akses ang renderer preload APIs, na epiktibong bigyan ng buong akses sa sistema sa pamamagitan ng `remote` na modyul.
 
 Dahil sa pagrender ng hindi makapagtiwalaang nilalaman sa elektron ay wala pa sa mapa ng teritoryo, ang APIs ay nakalantad sa sandbox preload na iskrip na dapt na maisaalang-alang na maraming hindi matatag kaysa sa ilang elektron ng APIs, ay maaring mayroong pagsira sa mga pagbabago para ayusin ang isyu sa seguridad.
