@@ -32,7 +32,7 @@ Set a custom locale.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Debug 相關的旗標，細節可參考[Debug 主處理序](../tutorial/debugging-main-process.md)導引。
 
 ## --remote-debugging-port=`port`
 
