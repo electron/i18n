@@ -79,7 +79,7 @@ browserWindow.loadURL('https://my-website.com')
 
 È predominante che tu disabiliti l'integrazione di Node.js su ogni renderer ([`FinestraBrowser`](../api/browser-window.md), [`VistaBrowser`](../api/browser-view.md), o [`VistaWeb`](../api/web-view.md)) che carica contenuti remoti. L'obiettivo è di limitare la forza che tu garantisci al contenuto remoto, ciò rendendo drammaticamente più difficile per un malintenzionato di danneggiare l'utente, dovrebbero guadagnare l'abilità di eseguire JavaScript sul tuo sito.
 
-Dopo ciò, puoi garantire permessi aggiuntivi per host specifici. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+Dopo ciò, puoi garantire permessi aggiuntivi per host specifici. Per esempio, se stai aprendo una FinestraBrowser puntata a 'https://my-website.com/, puoi dare a questo sito esattamente le abilità che necessiti, ma nient'altro.
 
 ### Perchè?
 
