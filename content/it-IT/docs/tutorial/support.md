@@ -2,34 +2,34 @@
 
 ## Trovare Supporto
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+Se hai un problema di sicurezza, vedi il [documento di sicurezza](../../SECURITY.md).
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+Se stai cercando un aiuto di programmazione o vuoi partecipare ad una discussione con altri sviluppatori che usano Electron, puoi interagirci in queste posizioni:
 
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` channel on Freenode
-* [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
-* [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-* [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
+* Categoria [`electron`](https://discuss.atom.io/c/electron) sui forum Atom
+* Canale `#atom-shell` su Freenode
+* Canale [`Electron`](https://atom-slack.herokuapp.com) su Atom's Slack
+* [`electron-ru`](https://telegram.me/electron_ru) *(Russo)*
+* [`electron-br`](https://electron-br.slack.com) *(Brasiliano Portoghese)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Coreano)*
+* [`electron-jp`](https://electron-jp.slack.com) *(Giapponese)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turco)*
 * [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* [`electron-pl`](https://electronpl.github.io) *(Polonia)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+Se vorresti contribuire ad Electron, vedi il [documento contributi](../../CONTRIBUTING.md).
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+Se hai trovato bug in una [versione supportata](#supported-versions) di Electron, riportalo con il [tracciatore di problemi](../development/issues.md).
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+[fantastico-electron](https://github.com/sindresorhus/awesome-electron) è una lista mantenuta dalla community di utili app esemplari, strumenti e risorse.
 
-## Supported Versions
+## Versioni Supportate
 
-The latest three release branches are supported by the Electron team. For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
+Le ultime tre branche rilasciate sono supportate dal team di Electron. Per esempio, se l'ultimo rilascio è 2.0.x, la serie 2-0-x è supportata, come le due precedenti serie di rilascio, la 1-7-x e la 1-8-x.
 
-When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
+Quando una branca di rilasci raggiunge la fine del suo ciclo di supporto, la serie è deprecata in NPM e viene fatto un rilascio di fine supporto. Questo rilascio aggiunge un avviso per informare che si sta usando una versione di Electron non supportata.
 
-These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
+Queste fasi aiutano gli sviluppatori di app ad imparare quando una branca in uso non è supportata, ma senza essere troppo intrusivi con gli utenti.
 
 If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
 
