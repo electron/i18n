@@ -21,6 +21,6 @@ These guides are intended for people working on the Electron project itself. For
 * [Отладка под macOS](debugging-instructions-macos.md)
 * [Настройка сервера символов в отладчике](setting-up-symbol-server.md)
 * [Обновление Chromium](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
+* [Обновление Crashpad](upgrading-crashpad.md)
 * [Обновление Node](upgrading-node.md)
 * [Процесс выпуска](releasing.md)
