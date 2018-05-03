@@ -31,7 +31,7 @@ Quando una branca di rilasci raggiunge la fine del suo ciclo di supporto, la ser
 
 Queste fasi aiutano gli sviluppatori di app ad imparare quando una branca in uso non è supportata, ma senza essere troppo intrusivi con gli utenti.
 
-If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+Se un'app ha circostanze eccezionali e necessita di girare su una serie non supportata di Electron, gli sviluppatori possono silenziare l'avviso di fine supporto omettendo il rilascio finale dal `pacchetto.json` `devDependencies` dell'app. Per esempio, dalla fine serie 1-6-x con una fine del supporto al rilascio 1.6.18 gli sviluppatori possono scegliere di rimanere alla prima versione senza avvisi con `devDipendenza` di `"electron": 1.6.0 - 1.6.17`.
 
 ## Piattaforme supportate
 
@@ -45,7 +45,7 @@ Solo i binari a 64bit sono forniti per macOS e la versione minima supportata è 
 
 Windows 7 e superiori sono supportati, sistemi operativi più vecchi non sono supportati (e non funzioneranno).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
+Sia `ia32` (`x86`) che `x64` (`amd64`) binari sono forniti per Windows. Eseguendo le app Electron su Windows per dispositivi ARM è possibile usando il binario ia32.
 
 ### Linux
 
