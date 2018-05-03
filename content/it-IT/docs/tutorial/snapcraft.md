@@ -67,25 +67,25 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## Usando un Pacchetto Debian Esistente
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+Snapcraft può prendere un file `.deb` e trasformarlo in uno `.snap`. La creazione di uno snap è configurata usando un file `snapcraft.yaml` che descrive la fonte, le dipendenze, la descrizione ed altri blocchi costruttivi essenziali.
 
-### Step 1: Create a Debian Package
+### Fase 1: Crea un Pacchetto Debian
 
-If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+Se non hai già un pacchetto `.deb`, usando `electron-installatore-snap` potrebbe essere un percorso più facile per creare pacchetti snap. Comunque, esistono soluzioni multiple per creare pacchetti Debian, inclusi [`electron-forgia`](https://github.com/electron-userland/electron-forge), [`electron-costruttore`](https://github.com/electron-userland/electron-builder) o [`electron-installatore-debian`](https://github.com/unindented/electron-installer-debian).
 
-### Step 2: Create a snapcraft.yaml
+### Fase 2: Crea uno snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+Per altre informazioni sulle opzioni di configurazione disponibili, vedi la [documentazione sulla sintassi snapcraft](https://docs.snapcraft.io/build-snaps/syntax). Guardiamo un esempio:
 
 ```yaml
-name: myApp
-version: '2.0.0'
-summary: A little description for the app.
-description: |
- You know what? This app is amazing! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+nome: miaApp
+versione: '2.0.0'
+sommario: Una piccola descrizione per l'app.
+descrizione: |
+ Sai una cosa? Questa app è fantastica! Fa di tutto
+ per te. Alcuni dicono che ti mantiene giovane, forse anche felice.
 
 grade: stable
 confinement: classic
@@ -120,11 +120,11 @@ apps:
     desktop: usr/share/applications/myApp.desktop
     # Correct the TMPDIR path for Chromium Framework/Electron to ensure
     # libappindicator has readable resources.
-    environment:
+    ambiente:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it simply passes information on to the app's binary:
+Come puoi vedere, il `snapcraft.yaml` istruisce il sistema a lanciare il file chiamato `electron-lancio`. In questo esempio, passa semplicemente informazioni sul binario della app:
 
 ```sh
 #!/bin/sh
@@ -132,13 +132,13 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+Altrimenti, se stai costruendo il tuo `snap` con confinamenti `strict`, puoi usare il comando `desktop-lancio`:
 
 ```yaml
-apps:
-  myApp:
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+app:
+  miaApp:
+    # Corretto il percorso TMPDIR per Chromium Framework/Electron per assicurare
+    # libappindicator abbia risorse leggibili.
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
