@@ -28,26 +28,26 @@ Da Electron 2.0, gli sviluppatori vedranno avvisi e raccomandazioni stampate nel
 
 Puoi abilitare o disabilitare forzatamente questi avvisi impostando `ELECTRON_ABILITA_SICUREZZA_AVVISI` o `ELECTRON_DISABILITA_SICUREZZA_AVVISI` sull'oggetto `processo.enb` o sull'oggetto `finestra`.
 
-## Checklist: Security Recommendations
+## Lista di controllo: Raccomandazioni di Sicurezza
 
-This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+Non è indistruttibile, ma almeno, dovresti seguite i passi per aumentare la sicurezza della tua app.
 
-1. [Only load secure content](#1-only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#2-disable-nodejs-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
-4. [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#4-handle-session-permission-requests-from-remote-content)
-5. [Do not disable `webSecurity`](#5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
-8. [Do not set `allowRunningInsecureContent` to `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [Do not enable experimental features](#9-do-not-enable-experimental-features)
-10. [Do not use `blinkFeatures`](#10-do-not-use-blinkfeatures)
-11. [WebViews: Do not use `allowpopups`](#11-do-not-use-allowpopups)
-12. [WebViews: Verify the options and params of all `<webview>` tags](#12-verify-webview-options-before-creation)
+1. [Solo contenuti caricati sicuri](#1-only-load-secure-content)
+2. [Disabilita l'integrazione Node.js in tutti i renderer che mostrano contenuti remoti](#2-disable-nodejs-integration-for-remote-content)
+3. [Abilita integrazione contesto in tutti i renderer che mostrano contenuti remoti](#3-enable-context-isolation-for-remote-content)
+4. [Usa `ses.impostaPermessoRichiestaProprietario()` in tutte le sessioni che caricano contenuti remoti](#4-handle-session-permission-requests-from-remote-content)
+5. [Non disabilitare `Sicurezzaweb`](#5-do-not-disable-websecurity)
+6. [Definisci un `Contenuto-Sicurezza-Politica`](#6-define-a-content-security-policy) ed usa regole restrittive (i.e. `script-autoricerca'`)
+7. [Oltrepassa e disabilita `eval`](#7-override-and-disable-eval), che consente l'esecuzione delle stringhe come codice.
+8. [Non impostare `consentiEsecuzioneContenutoInsicuro` in `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [Non abilitare funzioni sperimentali](#9-do-not-enable-experimental-features)
+10. [Non usare `Funzionilampeggianti`](#10-do-not-use-blinkfeatures)
+11. [VistaWeb: Non usare `consentipopup`](#11-do-not-use-allowpopups)
+12. [VistaWeb: Verifica le opzioni ed i parametri per tutti i `<webview>`tag</0>](#12-verify-webview-options-before-creation)
 
-## 1) Only Load Secure Content
+## 1) Carica Solo Contenuti Sicuri
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+Ogni risorsa non inclusa con la app dovrebbe essere caricata usando un protocollo sicuro come `HTTPS`. In altre parole, non usare protocolli non sicuri come `HTTP`. Similarmente, raccomandiamo di usare `WSS` oltre `WS`, `FTPS` oltre `FTP` e così via.
 
 ### Why?
 
