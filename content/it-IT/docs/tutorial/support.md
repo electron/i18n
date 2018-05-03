@@ -1,6 +1,6 @@
-# Electron Support
+# Supporto Electron
 
-## Finding Support
+## Trovare Supporto
 
 If you have a security concern, please see the [security document](../../SECURITY.md).
 
@@ -55,6 +55,6 @@ I binari `ia32` (`i686`) e `x64` (`amd64`) di Electron sono compilati su Ubuntu 
 
 Se il binario precompilato può essere eseguito su una distribuzione dipende dal fatto che la distribuzione includa le librerie a cui Electron è collegato dalla piattaforma di compilazione, quindi solo su Ubuntu 12.04 è garantita l'esecuzione, ma le seguenti piattaforme sono anche verificate per essere in grado di eseguire i binari precompilati di Electron:
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 and più nuove
 * Fedora 21
 * Debian 8
