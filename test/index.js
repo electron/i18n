@@ -7,6 +7,7 @@ const {expect} = chai
 const {describe, it, xit} = require('mocha')
 const i18n = require('..')
 const cheerio = require('cheerio')
+const {chain} = require('lodash')
 
 describe('i18n.docs', () => {
   it('is an object with locales as keys', () => {
@@ -92,11 +93,24 @@ describe('i18n.glossary', () => {
     locales.length.should.be.above(10)
   })
 
-  it('contains localized glossaries', () => {
+  it('contains localized glossary objects', () => {
     const glossary = i18n.glossary['en-US']
     glossary.should.be.an('object')
     const entry = glossary['DMG']
     entry.should.be.an('object')
+  })
+
+  it('sets expected properties on every entry', () => {
+    const glossary = Object.values(i18n.glossary['en-US'])
+    glossary.every(entry => {
+      return entry.term.length && entry.type.length && entry.description.length
+    }).should.eq(true)
+  })
+
+  it('consists of electronJargon, but not Crowdin glossary entry types like electronInstanceMethod', () => {
+    const glossary = i18n.glossary['en-US']
+    const types = chain(glossary).map('type').uniq().sort().value()
+    types.should.deep.equal(['electronJargon'])
   })
 })
 

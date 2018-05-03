@@ -16,7 +16,7 @@ const GithubSlugger = require('github-slugger')
 const getIds = require('get-crowdin-file-ids')
 const remark = require('remark')
 const links = require('remark-inline-links')
-const parseGlossaryDoc = require('../lib/parse-glossary-doc')
+const parseElectronGlossary = require('../lib/parse-electron-glossary')
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -208,7 +208,7 @@ async function main () {
 
   const glossary = {}
   for (let locale in locales) {
-    glossary[locale] = await parseGlossaryDoc(locale)
+    glossary[locale] = await parseElectronGlossary(locale)
   }
 
   fs.writeFileSync(
