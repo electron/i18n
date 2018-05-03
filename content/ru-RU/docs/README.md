@@ -52,9 +52,9 @@
   * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Расширение DevTools](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
-* [Distribution](tutorial/application-distribution.md) 
+* Упаковка 
+  * [Подписывание кода](tutorial/code-signing.md)
+* [Распространение](tutorial/application-distribution.md) 
   * [Поддержка](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
