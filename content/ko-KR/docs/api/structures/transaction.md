@@ -1,9 +1,9 @@
-# Transaction Object
+# Transaction 객체
 
 * `transactionIdentifier` String
 * `transactionDate` String
 * `originalTransactionIdentifier` String
-* `transactionState` String - The transaction sate (`"purchasing"`, `"purchased"`, `"failed"`, `"restored"`, or `"deferred"`)
+* `transactionState` String - 거래 상태 (`"purchasing"`, `"purchased"`, `"failed"`, `"restored"`, or `"deferred"`)
 * `errorCode` Integer
 * `errorMessage` String
 * `payment` Object 
