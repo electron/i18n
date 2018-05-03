@@ -1,1 +1,1 @@
-Moved to <support.md>
+Trasferita a [supporto.md](support.md)
