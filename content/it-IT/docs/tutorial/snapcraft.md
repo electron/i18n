@@ -8,29 +8,29 @@ Con la più ampia community di Linuz, Canonical risolve molti dei problemi di in
 
 Ci sono tre modi per creare un file `.snap`:
 
-1) Usando [`forgia-electron`](https://github.com/electron-userland/electron-forge) o [`builder-electron`](https://github.com/electron-userland/electron-builder), entrambi strumenti con supporto `snap` fuori dalla scatola. Questa è l'opzione più facile. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) Usando [`forgia-electron`](https://github.com/electron-userland/electron-forge) o [`builder-electron`](https://github.com/electron-userland/electron-builder), entrambi strumenti con supporto `snap` fuori dalla scatola. Questa è l'opzione più facile. 2) Usando `electron-istallatore-snap`, che prende l'output dell'`electron-impacchettatore`. 3) Usando un pacchetto `.deb` preesistente.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+In ogni caso, hai bisogno di uno strumento `snapcraft` installato. Raccomandiamo la building su Ubuntu 16.04 (o l'LTS corrente).
 
 ```sh
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+Mentre *è possibile* installare `snapcraft` su macOS usando Homebrew, non è possibile costruire pacchetti `snap` ed è focalizzato su pacchetti gestionali nel negozio.
 
-## Using `electron-installer-snap`
+## Usando `electron-installatore-snap`
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+Il modulo fuziona come [`electron-winsallatore`](https://github.com/electron/windows-installer) e simili moduli di questo, con scopi limitati alla costruzione dei pacchetti snap. Puoi installarlo con:
 
 ```sh
 npm install --save-dev electron-installer-snap
 ```
 
-### Step 1: Package Your Electron Application
+### Fase 1: Impacchetta La Tua App Electron
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Impacchetta l'app usando [electron-impacchettatore](https://github.com/electron-userland/electron-packager) (o uno strumento simile). Assicurati di rimuovere i `moduli_node` che non necessiti nella tua app, visto che non ne necessiti ognuno, aumenterà solo le dimensioni della tua app.
 
-The output should look roughly like this:
+L'output dovrebbe sembrare questo:
 
 ```text
 .
@@ -50,15 +50,15 @@ The output should look roughly like this:
         └── version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### Fase 2: Eseguire `electron-installatore-snap`
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+Da un terminale con `snapcraft` nel suo `PERCORSO`, esegui `electron-installatore-snap` con il parametro richiesto `--src`, posizione della tua app Electron impacchettata creata nella prima fase.
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+Se hai una pipeline di costruzione esistente, puoi usare `electron-installatore-snap` programmaticamente. Per altre informazioni, vedi i [documenti API Snapcraft](https://docs.snapcraft.io/build-snaps/syntax).
 
 ```js
 const snap = require('electron-installer-snap')
