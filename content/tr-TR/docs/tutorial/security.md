@@ -33,17 +33,17 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
 
 1. [Sadece güvenli içeriği yükleyin](#1-only-load-secure-content)
-2. [Uzaktan içeriği görüntülemek için Node.js entegrasyonunu bütün işleyicilerde etkisiz hale getirin](#-2-disable-nodejs-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#-3-enable-context-isolation-for-remote-content)
-4. [Uzak içeriği yükleyen tüm oturumlarda `ses.setPermissionRequestHandler()` kullanın](#-4-handle-session-permission-requests-from-remote-content)
-5. [`webSecurity` i kapatmayın](#-5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#-6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Geçersiz kıl ve devredışı bırak `eval`](#-7-override-and-disable-eval), dizelerin kod olarak yürütülmesine izin verir.
-8. [`allowRunningInsecureContent` i `true` a ayarlamayın](#-8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [Deneysel özellikleri aktifleştirmeyin](#-9-do-not-enable-experimental-features)
-10. [`blinkFeatures` kullanmayın](#-10-do-not-use-blinkfeatures)
-11. [WebViews:`allowpopups` kullanmayın](#-11-do-not-use-allowpopups)
-12. [WebViews: Ayarlar ve parametreleri bütün `<webview>` etiketlerde doğrulayın](#-12-verify-webview-options-before-creation)
+2. [Uzaktan içeriği görüntülemek için Node.js entegrasyonunu bütün işleyicilerde etkisiz hale getirin](#2-disable-nodejs-integration-for-remote-content)
+3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
+4. [Uzak içeriği yükleyen tüm oturumlarda `ses.setPermissionRequestHandler()` kullanın](#4-handle-session-permission-requests-from-remote-content)
+5. [`webSecurity` i kapatmayın](#5-do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Geçersiz kıl ve devredışı bırak `eval`](#7-override-and-disable-eval), dizelerin kod olarak yürütülmesine izin verir.
+8. [`allowRunningInsecureContent` i `true` a ayarlamayın](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [Deneysel özellikleri aktifleştirmeyin](#9-do-not-enable-experimental-features)
+10. [`blinkFeatures` kullanmayın](#10-do-not-use-blinkfeatures)
+11. [WebViews:`allowpopups` kullanmayın](#11-do-not-use-allowpopups)
+12. [WebViews: Ayarlar ve parametreleri bütün `<webview>` etiketlerde doğrulayın](#12-verify-webview-options-before-creation)
 
 ## 1) Sadece Güvenli İçeriği Yükleyin
 
