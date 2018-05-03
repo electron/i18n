@@ -1,4 +1,4 @@
-tagline: 使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式
+tagline: 使用 JavaScript、HTML 和 CSS 建構跨平台桌面應用程式
 nav:
   apps: 應用程式
   blog: 部落格
@@ -35,15 +35,15 @@ community:
     localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "在<a href='/search/npmPackages'>套件搜尋頁面</a>上<a href='/search/npmPackages'><b>探索實用的 npm 套件</b></a>。"
-    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    bugs: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 以<a href='https://github.com/electron/electron/issues'><b>回報 bug</b></a>。"
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
     other: "其他問題請寄信至 <a href='mailto:info@electronjs.org'>info@electronjs.org</a>。"
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: 語言社群
+    description: "Electron 社群遍佈全球，且英文並非所有人的主要語言。尋找<a href='/languages'>您的語言</a>，或者加入一個下列的語言社群："
   tools: 工具
   boilerplates: 模版
   components: 元件
