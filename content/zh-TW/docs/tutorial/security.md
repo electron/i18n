@@ -33,17 +33,17 @@
 不是說這樣就能金槍不入，但至少你應該依照下列步驟來提升你應用程式的安全性。
 
 1. [只載入安全的內容](#1-only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#-2-disable-nodejs-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#-3-enable-context-isolation-for-remote-content)
-4. [在所有會載入遠端內容的 Session 中使用 `ses.setPermissionRequestHandler()`](#-4-handle-session-permission-requests-from-remote-content)
-5. [不要停用 `webSecurity`](#-5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#-6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#-7-override-and-disable-eval), which allows strings to be executed as code.
-8. [不要將 `allowRunningInsecureContent` 設為 `true`](#-8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [Do not enable experimental features](#-9-do-not-enable-experimental-features)
-10. [不要用 `blinkFeatures`](#-10-do-not-use-blinkfeatures)
-11. [WebViews: 不要用 `allowpopups`](#-11-do-not-use-allowpopups)
-12. [WebViews: Verify the options and params of all `<webview>` tags](#-12-verify-webview-options-before-creation)
+2. [Disable the Node.js integration in all renderers that display remote content](#2-disable-nodejs-integration-for-remote-content)
+3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
+4. [在所有會載入遠端內容的 Session 中使用 `ses.setPermissionRequestHandler()`](#4-handle-session-permission-requests-from-remote-content)
+5. [不要停用 `webSecurity`](#5-do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
+8. [不要將 `allowRunningInsecureContent` 設為 `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [Do not enable experimental features](#9-do-not-enable-experimental-features)
+10. [不要用 `blinkFeatures`](#10-do-not-use-blinkfeatures)
+11. [WebViews: 不要用 `allowpopups`](#11-do-not-use-allowpopups)
+12. [WebViews: Verify the options and params of all `<webview>` tags](#12-verify-webview-options-before-creation)
 
 ## 1) 只載入安全的內容
 
