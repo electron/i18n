@@ -42,19 +42,19 @@ In base alle tue necessità, puoi scegliere da una di queste:
 - [Hazel](https://github.com/zeit/hazel) - Aggiorna server per app a fonte libera o private che possono essere implementate gratuitamente su [Now](https://zeit.co/now). Esso recupera da [GitHub Rilasci](https://help.github.com/articles/creating-releases/) ed utilizza la forza di GitHub CDN.
 - [Nuts](https://github.com/GitbookIO/nuts) - Usa anche [GitHub Rilasci](https://help.github.com/articles/creating-releases/) ma aggiorna la cache dell'app su disco e supporta depositi privati.
 - [electron-rilascio-server](https://github.com/ArekSredzki/electron-release-server) - Fornisce una dashboard per i rilasci manuali e non richiede rilasci originati su GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Nucleus](https://github.com/atlassian/nucleus) - Un server di aggiornamento completo per le app Electron mantenute da Atlassian. Supporta molte app e canali; usa un archivio di file statici per minimizzare i costi del server.
 
-## Implementing Updates in Your App
+## Implementare Aggiornamenti nella Tua App
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Una volta depositato il tuo server di aggiornamento, continua ad importare i moduli richiesti nel tuo codice. Il codice seguente potrevve variare per differenti server di softwarw, ma funziona come descritto usando [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Importante:** Assicurati che il codice sotto sia eseguito solo nella tua app impacchettata e non in sviluppo. Puoi usare [electron-è-dev](https://github.com/sindresorhus/electron-is-dev) per controllare l'ambiente.
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Poi, costruisci l'URL del server si aggiornamento e dillo all'[autoUpdater](../api/auto-updater.md):
 
 ```javascript
 const server = 'https://your-deployment-url.com'
@@ -63,7 +63,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Come passo finale controlla per aggiornamenti. L'esempio sotto controllerà ogni minuto:
 
 ```javascript
 setInterval(() => {
@@ -71,11 +71,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Una volta [impacchettata](../tutorial/application-distribution.md) la tua app, riceverà un aggiornamento ogni pubblicazione di un nuovo[Rilascio GitHub](https://help.github.com/articles/creating-releases/).
 
-## Applying Updates
+## Applicando Aggiornamenti
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Ora che hai configurato il meccanismo di base di aggiornamento per la tua app, devi assicurarti che l'utente sia notificato quando c'è un aggiornamento. Questo è fatto usando gli [eventi](../api/auto-updater.md#events) della API dell'autoUpdater:
 
 ```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -83,8 +83,8 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     type: 'info',
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    message: process.platform === 'win32' ? rilascioNote : rilascioNome,
+    dettaglio: 'Una nuova versione è stata scaricata. Riavvia l'app per applicare gli aggiornamenti.'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
@@ -93,11 +93,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Assicurati anche che gli errori [siano controllati](../api/auto-updater.md#event-error). Qui un esempio per la loro registrazione a `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
-  console.error(message)
+  console.error('C'è stato un problema nell'aggiornamento dell'app')
+  console.error(messaggio)
 })
 ```
