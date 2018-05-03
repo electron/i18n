@@ -19,29 +19,29 @@ Installa il modulo:
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Invoca l'updater dal file di processo principale della tua app:
 
 ```js
-require('update-electron-app')()
+richiedi('aggiorna-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Di default, questo modulo controllerà per aggiornamenti alla startup dell'app, poi ogni dieci minuti. Quando trova un aggiornamento, questo sarà automaticamente scaricato in background. Quando il download è completo, un dialogo è mostrato per consentire all'utente di riavviare l'app.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+Se hai bisogno di personalizzare la tua configurazione puoi [passare opzioni a `aggiorna-electron-app`](https://github.com/electron/update-electron-app) o [usare direttamente il servizio aggiornamento](https://github.com/electron/update.electronjs.org).
 
-## Using `electron-builder`
+## Usando `electron-costruttore`
 
-If your app is packaged with [`electron-builder`](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
+Se la tua app è impacchettata con [`electron-costruttore`](https://github.com/electron-userland/electron-builder) puoi usare il modulo [electron-updater](https://www.electron.build/auto-update), che non richiede un server e consente aggiornamenti da S3, GitHub o qualsiasi altro host di file statico. Questo meccanismo di aggiornamento incorporato di Electron è evitato, il resto di questa documentazione non si applicherà all'updater di `electron-costruttore`.
 
-## Deploying an Update Server
+## Implementare un Server Aggiornamento
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Se stai sviluppando un'app Electron privata o se non pubblichi rilasci a GitHub Rilasci, potrebbe essere necessario eseguire il tuo proprio server di aggiornamento.
 
-Depending on your needs, you can choose from one of these:
+In base alle tue necessità, puoi scegliere da una di queste:
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
+- [Hazel](https://github.com/zeit/hazel) - Aggiorna server per app a fonte libera o private che possono essere implementate gratuitamente su [Now](https://zeit.co/now). Esso recupera da [GitHub Rilasci](https://help.github.com/articles/creating-releases/) ed utilizza la forza di GitHub CDN.
+- [Nuts](https://github.com/GitbookIO/nuts) - Usa anche [GitHub Rilasci](https://help.github.com/articles/creating-releases/) ma aggiorna la cache dell'app su disco e supporta depositi privati.
+- [electron-rilascio-server](https://github.com/ArekSredzki/electron-release-server) - Fornisce una dashboard per i rilasci manuali e non richiede rilasci originati su GitHub.
 - [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
 
 ## Implementing Updates in Your App
