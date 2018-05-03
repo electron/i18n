@@ -78,7 +78,7 @@ OSR (Off-screen rendering) can be used for loading heavy page in background and 
 
 A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+Node.js 와 Electron 에선, 각각의 실행 중인 프로세스들은 `process` 객체를 가지고 있습니다. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
