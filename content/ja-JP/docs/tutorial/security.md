@@ -33,17 +33,17 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 これは攻撃を防ぐわけではありませんが、最低限、アプリケーションのセキュリティを改善するためにこれらの手順に従って下さい。
 
 1. [セキュアなコンテンツのみを読み込む](#1-only-load-secure-content)
-2. [リモートコンテンツを表示する全てのレンダラーで、Node.js integration を無効にする](#-2-disable-nodejs-integration-for-remote-content)
-3. [リモートコンテンツを表示するすべてのレンダラーで、コンテキストイソレーションを有効にする](#-3-enable-context-isolation-for-remote-content)
-4. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する](#-4-handle-session-permission-requests-from-remote-content)
-5. [`webSecurity` を無効にしない](#-5-do-not-disable-websecurity)
-6. [`Content-Security-Policy` を定義](#-6-define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
-7. 文字列をコードとして実行できる [`eval` を書き換えて無効にする](#-7-override-and-disable-eval)。
-8. [`allowRunningInsecureContent` を `true` にしない](#-8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [実験的な機能を有効にしない](#-9-do-not-enable-experimental-features)
-10. [`blinkFeatures` を使用しない](#-10-do-not-use-blinkfeatures)
-11. [WebViews: `allowpopups` を使用しない](#-11-do-not-use-allowpopups)
-12. [WebViews: すべての `<webview>` タグのオプションとパラメータを確認する。](#-12-verify-webview-options-before-creation)
+2. [リモートコンテンツを表示する全てのレンダラーで、Node.js integration を無効にする](#2-disable-nodejs-integration-for-remote-content)
+3. [リモートコンテンツを表示するすべてのレンダラーで、コンテキストイソレーションを有効にする](#3-enable-context-isolation-for-remote-content)
+4. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する](#4-handle-session-permission-requests-from-remote-content)
+5. [`webSecurity` を無効にしない](#5-do-not-disable-websecurity)
+6. [`Content-Security-Policy` を定義](#6-define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
+7. 文字列をコードとして実行できる [`eval` を書き換えて無効にする](#7-override-and-disable-eval)。
+8. [`allowRunningInsecureContent` を `true` にしない](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [実験的な機能を有効にしない](#9-do-not-enable-experimental-features)
+10. [`blinkFeatures` を使用しない](#10-do-not-use-blinkfeatures)
+11. [WebViews: `allowpopups` を使用しない](#11-do-not-use-allowpopups)
+12. [WebViews: すべての `<webview>` タグのオプションとパラメータを確認する。](#12-verify-webview-options-before-creation)
 
 ## 1) セキュアなコンテンツのみを読み込む
 
