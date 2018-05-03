@@ -33,17 +33,17 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 이것은 완벽한 보호책이 아니지만, 최소한 이 단계들을 따라서 여러분의 애플리케이션 보안을 향상해야 합니다.
 
 1. [안전한 콘텐츠만 로드하세요.](#1-only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#-2-disable-nodejs-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#-3-enable-context-isolation-for-remote-content)
-4. [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#-4-handle-session-permission-requests-from-remote-content)
-5. [Do not disable `webSecurity`](#-5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#-6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#-7-override-and-disable-eval), which allows strings to be executed as code.
-8. [Do not set `allowRunningInsecureContent` to `true`](#-8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [Do not enable experimental features](#-9-do-not-enable-experimental-features)
-10. [`blinkFeatures`를 사용하지 마세요.](#-10-do-not-use-blinkfeatures)
-11. [WebViews: `allowpopups`를 사용하지 마세요.](#-11-do-not-use-allowpopups)
-12. [WebViews: 옵션과 모든 `<webview>` 태그의 매개 변수 확인](#-12-verify-webview-options-before-creation)
+2. [Disable the Node.js integration in all renderers that display remote content](#2-disable-nodejs-integration-for-remote-content)
+3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
+4. [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#4-handle-session-permission-requests-from-remote-content)
+5. [Do not disable `webSecurity`](#5-do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
+8. [Do not set `allowRunningInsecureContent` to `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [Do not enable experimental features](#9-do-not-enable-experimental-features)
+10. [`blinkFeatures`를 사용하지 마세요.](#10-do-not-use-blinkfeatures)
+11. [WebViews: `allowpopups`를 사용하지 마세요.](#11-do-not-use-allowpopups)
+12. [WebViews: 옵션과 모든 `<webview>` 태그의 매개 변수 확인](#12-verify-webview-options-before-creation)
 
 ## 1) 안전한 콘텐츠만 로드하세요.
 
