@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### Static Methods (클래스 메서드)
