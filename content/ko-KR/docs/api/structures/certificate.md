@@ -1,4 +1,4 @@
-# 인증서 개체
+# Certificate Object
 
 * `data` String- 데이터가 암호화된 PEM
 * `issuer` [CertificatePrincipal](certificate-principal.md) - 발급 책임자
