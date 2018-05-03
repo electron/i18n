@@ -1,14 +1,14 @@
 # Guida snapcraft (Centro Software Ubuntu & Altro)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+Questa guida fornisce informazioni su come impacchettare la tua app Electron per ogni ambiente Snapcraft, incluso il Centro Software Ubuntu.
 
-## Background and Requirements
+## Requisiti e Contesto
 
-Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+Con la più ampia community di Linuz, Canonical risolve molti dei problemi di installazione software comuni con il progetto [`snapcraft`](https://snapcraft.io/). Gli snap sono pacchetti software impacchettati che includono dipendenze richieste, aggiornamenti automatici e funzionano su tutte le distribuzioni maggiori di Linux senza modifiche di sistema.
 
-There are three ways to create a `.snap` file:
+Ci sono tre modi per creare un file `.snap`:
 
-1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) Usando [`forgia-electron`](https://github.com/electron-userland/electron-forge) o [`builder-electron`](https://github.com/electron-userland/electron-builder), entrambi strumenti con supporto `snap` fuori dalla scatola. Questa è l'opzione più facile. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
 
 In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
