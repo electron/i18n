@@ -31,12 +31,12 @@ crashReporter.start({
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String (선택적)
+  * `companyName` String (선택)
   * `submitURL` String - POST로 보낼 충돌 보고서 URL 입니다.
-  * `productName` String (선택적) - 기본 값은 `app.getName()` 입니다.
-  * `uploadToServer` Boolean (선택적) - 충돌 보고서가 서버로 전송될지를 결정합니다. 기본값은 `true` 입니다.
-  * `ignoreSystemCrashHandler` Boolean (선택적) - 기본값은 `false` 입니다.
-  * `extra` Object (선택적) - 보고서와 함께 보낼 객체를 정의할 수 있습니다. 오직 문자열 속성들만 제대로 보내집니다. 중첩된 객체는 지원되지 않고, 속성 이름과 값은 64글자보다 작아야 합니다.
+  * `productName` String (선택) - 기본 값은 `app.getName()` 입니다.
+  * `uploadToServer` Boolean (선택) - 충돌 보고서가 서버로 전송될지를 결정합니다. 기본값은 `true` 입니다.
+  * `ignoreSystemCrashHandler` Boolean (선택) - 기본값은 `false` 입니다.
+  * `extra` Object (선택) - 보고서와 함께 보낼 객체를 정의할 수 있습니다. 오직 문자열 속성들만 제대로 보내집니다. 중첩된 객체는 지원되지 않고, 속성 이름과 값은 64글자보다 작아야 합니다.
   * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 다른 `crashReporter` API 혹은 각각의 프로세스 (메인/렌더러) 에서 충돌 보고서를 수집을 사용하기 전에, 이 메서드를 호출해야 합니다. 서로 다른 프로세스에서 호출할 때 다른 옵션을 `crashReporter.start`로 전달할 수 있습니다.
