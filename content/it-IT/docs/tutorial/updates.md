@@ -1,19 +1,19 @@
 # Aggiornamento delle applicazioni
 
-There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+Ci sono molti modi di aggiornare una app di Electron. La più facile ed ufficiale supportata si avvantaggia del framework incorporato [Squirrel](https://github.com/Squirrel) e del modulo [autoUpdater](../api/auto-updater.md) di Electron.
 
-## Using `update.electronjs.org`
+## Usando `aggiorna.electronjs.org`
 
-GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+Il team di GitHub di Electron mantiene aggiorna.electronjs.org, un servizio web gratuito e libero che le app di Electron possono usare per auto aggiornarsi. Il servizio è designato per le app di Electron che incontrano i seguenti criteri:</p> 
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- App eseguite su macOS o Windows
+- App con repository di GitHub pubblica
+- Build pubblicate a Rilasci GitHub
+- Build sono firmate con codice
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+La via più facile di usare questo servizio è installando [aggiorna-electron-app](https://github.com/electron/update-electron-app), un modulo Node.js preconfigurato da usare con aggiorna.electronjs.org.
 
-Install the module:
+Installa il modulo:
 
 ```sh
 npm install update-electron-app
