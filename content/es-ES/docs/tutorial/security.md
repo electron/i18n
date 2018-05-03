@@ -33,17 +33,17 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
 
 1. [Solo carga contenido seguro](#1-only-load-secure-content)
-2. [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#-2-disable-nodejs-integration-for-remote-content)
-3. [Permite el aislamiento de contexto en todos los renderizadores que muestran el contenido remoto](#-3-enable-context-isolation-for-remote-content)
-4. [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#-4-handle-session-permission-requests-from-remote-content)
-5. [No desactives `webSecurity`](#-5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#-6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#-7-override-and-disable-eval), which allows strings to be executed as code.
-8. [No establezca `allowRunningInsecureContent` a `true`](#-8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [No active ajustes experimentales](#-9-do-not-enable-experimental-features)
-10. [No use `blinkFeatures`](#-10-do-not-use-blinkfeatures)
-11. [Visor web: no use `allowpopups`](#-11-do-not-use-allowpopups)
-12. [WebViews: Verifique las opciones y parámetros de todos los `<webview>` tags](#-12-verify-webview-options-before-creation)
+2. [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#2-disable-nodejs-integration-for-remote-content)
+3. [Permite el aislamiento de contexto en todos los renderizadores que muestran el contenido remoto](#3-enable-context-isolation-for-remote-content)
+4. [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#4-handle-session-permission-requests-from-remote-content)
+5. [No desactives `webSecurity`](#5-do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
+8. [No establezca `allowRunningInsecureContent` a `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [No active ajustes experimentales](#9-do-not-enable-experimental-features)
+10. [No use `blinkFeatures`](#10-do-not-use-blinkfeatures)
+11. [Visor web: no use `allowpopups`](#11-do-not-use-allowpopups)
+12. [WebViews: Verifique las opciones y parámetros de todos los `<webview>` tags](#12-verify-webview-options-before-creation)
 
 ## 1) Only Load Secure Content
 
