@@ -1,24 +1,24 @@
 # Official Guides
 
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+אנא שים לב שאתה משתמש בתיעוד שמתאים לגרסאת Electron שלך. מספר הגרסה נמצא בכתובת העמוד. אם מספר הגירסה אינו נמצא בכתובת העמוד, אתה כנראה צופה בתיעוד של גרסה בפיתוח אשר עשויה להכיל שינויי ממשק שאינם מתאימים לגרסת האלקטרון שברשותך. לצפייה בגרסאות ישנות יותר של התיעוד, אתה יוכל [ לחפש לפי גירסה](https://github.com/electron/electron/tree/v1.4.0) ב-Github ולבחור בתג שמתאים לגירסה שלך בתפריט "Switch branches/tags".
 
-## FAQ
+## שאלות נפוצות
 
-There are questions that are asked quite often. Check this out before creating an issue:
+ישן שאלות שנשאלות לעיתים די קרובות. חפש כאן לפני פתיחת issue:
 
 * [Electron שאלות נפוצות](faq.md)
 
-## Guides and Tutorials
+## מדריכים וערכות לימוד
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
+* [הגדרת סביבת הפיתוח](tutorial/development-environment.md) 
+  * [הגדרת macOS](tutorial/development-environment.md#setting-up-macos)
+  * [הגדרת Windows](tutorial/development-environment.md#setting-up-windows)
+  * [הגדרת לינוקס](tutorial/development-environment.md#setting-up-linux)
+  * [בחירת העורך](tutorial/development-environment.md#a-good-editor)
+* [יצירת האפליקציה הראשונה שלך](tutorial/first-app.md) 
+  * [התקנת Electron](tutorial/first-app.md#installing-electron)
   * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
+  * [הפעלת האפליקציה שלך](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -31,10 +31,10 @@ There are questions that are asked quite often. Check this out before creating a
   * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
   * [Inter-Process Communication](tutorial/application-architecture.md#)
-* Adding Features to Your App 
-  * [Notifications](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
-  * [Application Progress](tutorial/progress-bar.md)
+* הוספת תכונות לאפליקציה שלך 
+  * [התראות](tutorial/notifications.md)
+  * [מסמכים אחרונים](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [התקדמות התרגום](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
   * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
