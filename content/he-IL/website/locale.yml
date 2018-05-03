@@ -31,19 +31,19 @@ community:
   description: משאבים לחיבור עם האנשים שעובדים על אלקטרון.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>התחל עכשיו!</b></a>בנה יישום על ידי קריאת <a href='/docs/tutorial/first-app'>המדריך להתחלה מהירה</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>הישאר מעודכן- </b></a> עקוב אחר <a href='https://twitter.com/electronjs'>@electronjs</a> הטוויטר והרשם <a href='/blog'>לבלוג </a>."
+    localized_docs: "<a href='/languages'><b>צפא בתיעוד בשפה שלך</b></a> <a href='/languages'>בעמוד השפות</a>."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>קבל עזרה ומשוב</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    packages: "<a href='/search/npmPackages'><b>מצא חבילות npm שימושיות</b></a> <a href='/search/npmPackages'>בעמוד חיפוש החבילות</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    donations: "<a href='donors'><b>תרום</b></a> ל-Electron <a href='/donors'>בעמוד התורמים</a>."
     other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: קהילות שפה
+    description: "קהילת Electron משתרעת על פני הגלובוס ואנגלית אינה שפת האם של כולם <a href='/languages'>תיעוד בשפה שלך</a>, מצא את שפת האם שלך או הצטרף לאחת מקהילות התרגום:"
   tools: כלים
   boilerplates: Boilerplates
   components: רכיבים
