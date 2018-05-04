@@ -1,4 +1,4 @@
-## 클라스 메뉴
+## 클래스: 메뉴
 
 > 크레이트 네이티브 애플리케이션 과 콘텍스트 메뉴
 
@@ -6,7 +6,7 @@
 
 ### `new Menu()`
 
-메뉴 생성
+새로운 메뉴를 생성합니다.
 
 ### Static Methods (클래스 메서드)
 
@@ -14,7 +14,7 @@
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu 혹은 null
 
 `메뉴`를 맥 OS의 응용 프로그램 메뉴로 설정합니다. 윈도우와 리눅스에서는, `메뉴`를 각 창의 상단 메뉴로 설정 합니다.
 
@@ -24,7 +24,7 @@
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+`Menu 혹은 null`을 반환합니다. 애플리케이션 메뉴가 설정되어있다면 애플리케이션 메뉴를, 설정되어있지 않으면 `null`을 반환합니다.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
