@@ -30,7 +30,7 @@ $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
 
-## Two-Phase Project Generation
+## Двух-Фазная проектная генерация
 
 Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
 
