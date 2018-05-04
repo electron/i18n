@@ -63,32 +63,32 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [Segnalazione Problemi Sicurezza](tutorial/security.md#reporting-security-issues)
   * [Aggiornamenti e Problemi di Sicurezza di Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Avvisi Sicurezza Electron](tutorial/security.md#electron-security-warnings)
-  * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+  * [Lista di Controllo Sicurezza](tutorial/security.md#checklist-security-recommendations)
+* [Aggiornamenti](tutorial/updates.md) 
+  * [Implementare un Server di Aggiornamento](tutorial/updates.md#deploying-an-update-server)
+  * [Implementando gli Aggiornamenti nella Tua App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Applicando Aggiornamenti](tutorial/updates.md#applying-updates)
 
 ## Tutorial dettagliati
 
-These individual tutorials expand on topics discussed in the guide above.
+Questi tutorial individuali espandono su topic discussi nella guida sopra.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
+* [In dettaglio: Installare Electron](tutorial/installation.md) 
+  * [Installazione Globale conto Locale](tutorial/installation.md#global-versus-local-installation)
   * [Proxy](tutorial/installation.md#proxies)
   * [Personalizza Specchi e Cache](tutorial/installation.md#custom-mirrors-and-caches)
   * [Risoluzione dei problemi](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [In Dettaglio: Schema Versioni Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+  * [Branche di Stabilizzazione](tutorial/electron-versioning.md#stabilization-branches)
+  * [Rilasci Beta e Fix di Bug](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [In Dettaglio: Impacchettamento Fonti Codice App con asar](tutorial/application-packaging.md) 
+  * [Generare Archivi asar](tutorial/application-packaging.md#generating-asar-archives)
+  * [Usare Archivi asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitazioni](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+  * [Aggiungere File Scompattati agli Archivi asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Dettaglio: Usare Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [In Dettaglio: Usare Plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Rendering Offscreen](tutorial/offscreen-rendering.md)
 
 * * *
@@ -112,27 +112,27 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
-* [BrowserView](api/browser-view.md)
+* [VistaBrowser](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
-* [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
-* [globalShortcut](api/global-shortcut.md)
-* [inAppPurchase](api/in-app-purchase.md)
+* [tracciacontenuto](api/content-tracing.md)
+* [dialogo](api/dialog.md)
+* [Shortcutglobale](api/global-shortcut.md)
+* [SpeseinApp](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
-* [MenuItem](api/menu-item.md)
-* [net](api/net.md)
+* [ElementoMenu](api/menu-item.md)
+* [rete](api/net.md)
 * [Monitorapotenza](api/power-monitor.md)
-* [powerSaveBlocker](api/power-save-blocker.md)
+* [BloccaSalvaPotenza](api/power-save-blocker.md)
 * [protocollo](api/protocol.md)
 * [sessione](api/session.md)
-* [systemPreferences](api/system-preferences.md)
+* [Preferenzesistema](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [contenutiWeb](api/web-contents.md)
 
 ### Moduli del processo Renderer (pagina Web):
 
-* [desktopCapturer](api/desktop-capturer.md)
+* [Catturadesktop](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remoto](api/remote.md)
 * [webFrame](api/web-frame.md)
@@ -143,8 +143,8 @@ These individual tutorials expand on topics discussed in the guide above.
 * [riportatorecrash](api/crash-reporter.md)
 * [immagineNativa](api/native-image.md)
 * [schermo](api/screen.md)
-* [shell](api/shell.md)
+* [guscio](api/shell.md)
 
 ## Sviluppo
 
-See <development/README.md>
+Vedi [sviluppo/LEGGIMI.md](development/README.md)
