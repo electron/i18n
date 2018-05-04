@@ -1,21 +1,21 @@
 # inAppPurchase
 
-> In-app purchases on Mac App Store.
+> Mac App Store のアプリ内購入。
 
 プロセス: [Main](../glossary.md#main-process)
 
 ## イベント
 
-The `inAppPurchase` module emits the following events:
+`inAppPurchase` モジュールは以下のイベントが発生します。
 
-### Event: 'transactions-updated'
+### イベント: 'transactions-updated'
 
-Emitted when one or more transactions have been updated.
+1つ以上のトランザクションが更新されたときに発生します。
 
 戻り値:
 
 * `event` Event
-* `transactions` ([Transaction[]](structures/transaction.md) - Array of transactions.
+* `transactions` ([Transaction[]](structures/transaction.md) - トランザクションの配列。
 
 ## メソッド
 
@@ -23,7 +23,7 @@ The `inAppPurchase` module has the following methods:
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - The id of the product to purchase. (the id of `com.example.app.product1` is `product1`).
+* `productID` String - 購入対象のプロダクトID。 (`com.example.app.product1` のIDは `product1` です).
 * `quantity` Integer (optional) - The number of items the user wants to purchase.
 * `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. (You should add a listener with `inAppPurchase.addTransactionsListener` to get the transaction status). 
   * `isProductValid` Boolean - Determine if the product is valid and added to the payment queue.
