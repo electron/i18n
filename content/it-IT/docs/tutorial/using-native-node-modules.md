@@ -30,23 +30,23 @@ HOME=~/.electron-gyp npm installa
 
 ### Installando moduli e ricostruendo per Electron
 
-Puoi anche scegliere di installare moduli come altri progetti Node e poi ricostruire i moduli per Electron con il pacchetto [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+Puoi anche scegliere di installare moduli come altri progetti Node e poi ricostruire i moduli per Electron con il pacchetto [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). Questo modulo può ottenere la versione di Electron e superare i passi manuali di download intestazioni e costruendo moduli nativi per la tua app.
 
-An example of installing `electron-rebuild` and then rebuild modules with it:
+Un esempio di installazione di `electron-rebuild` e poi ricostruzione dei moduli con questo:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# Ogni volta che esegui "npm installa", esegui:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+# Su Windows se hai problemi, prova:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Manually building for Electron
+### Costruzione manuale per Electron
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+Se stai sviluppando un modulo nativo e vuoi testarlo contro Electron, potresti voler ricostruire il modulo per Electron manualmente. You can use `node-gyp` directly to build for Electron:
 
 ```sh
 cd /path-to-module/
