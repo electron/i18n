@@ -1,7 +1,7 @@
-# Oggetto AzioneNotifica
+# Oggetto NotificationAction
 
-* `tipo` Stringa - Il tipo di azione, può essere `pulsante`.
-* `text` String (optional) - The label for the given action.
+* `type` Stringa - Il tipo di azione, può essere `button`.
+* `text` Stringa (opzionale) - L'etichetta per l'azione fornita.
 
 ## Supporto Piattaforma / Azione
 
