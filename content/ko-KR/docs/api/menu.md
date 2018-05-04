@@ -1,6 +1,6 @@
-## 클래스: 메뉴
+## Menu 클래스
 
-> 크레이트 네이티브 애플리케이션 과 콘텍스트 메뉴
+> 네이티브 애플리케이션 메뉴와 컨텍스트 메뉴를 생성합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
@@ -8,7 +8,7 @@
 
 새로운 메뉴를 생성합니다.
 
-### Static Methods (클래스 메서드)
+### 정적 메서드
 
 `menu` 클라스는 다음의 클래스(static) 메서드들을 가집니다.
 
@@ -46,7 +46,7 @@ Generally, the `template` is just an array of `options` for constructing a [Menu
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 `menu` 오브젝트는 다음과 같은 인스턴스 메소드를 가지고 있습니다:
 
@@ -63,9 +63,9 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (선택) - 기본 값은 포커스된 윈도우 입니다.
 
-Closes the context menu in the `browserWindow`.
+`browserWindow`의 컨텍스트 메뉴를 닫습니다.
 
 #### `menu.append(menuItem)`
 
