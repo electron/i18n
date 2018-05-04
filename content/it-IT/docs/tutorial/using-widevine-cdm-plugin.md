@@ -1,10 +1,10 @@
 # Uso del plugin Widevine CDM
 
-In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
+In Electron puoi usare il plugin Widevine CDM compreso nel browser Chrome.
 
-## Getting the plugin
+## Ottenere il plugin
 
-Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
+Electron non collabora con il plugin Widevine CDM per motivi di licenza, per ottenerlo, devi installare prima il browser ufficiale di Chrome, la cui architettura dovrebbe corrispondere e la versione di Chrome della build in uso di Electron.
 
 **Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
 
