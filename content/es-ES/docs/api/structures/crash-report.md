@@ -1,4 +1,4 @@
 # Objeto CrashReport
 
-* `date` Date
+* `date` Fecha
 * `id` Cadena
