@@ -2,7 +2,7 @@
 
 > A collection of resources for learning about Chromium and tracking its development
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com) on Slack
+- [chromiumdev](https://chromiumdev-slack.herokuapp.com) на Slack
 - [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
 - [@googlechrome](https://twitter.com/googlechrome) on Twitter
 - [Блог](https://blog.chromium.org)
