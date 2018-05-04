@@ -44,40 +44,40 @@ app.start().then(function () {
 
 ## Impostare WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) fornisce un pacchetto Node per testare con il driver web, lo useremo come esempio.
 
-### 1. Start ChromeDriver
+### 1. Avvia ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Prima devi scaricare il binario di `chromedriver` ed eseguirlo:
 
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Avviando ChromeDriver (v2.10.291558) sulla porta 9515
+Solo connessioni locali consentite.
 ```
 
-Remember the port number `9515`, which will be used later
+Ricorda il numero di porta `9515`, che sarà usato più tardi
 
-### 2. Install WebDriverJS
+### 2. Installa WebDriverJS
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Connettiti a ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+L'uso di `selenium-webdriver` con Electron è basicamente lo stesso con l'upstream, eccetto che devi specificare manualmente come connettere chrome driver e dove trovare il binario di Electron:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
-  .usingServer('http://localhost:9515')
-  .withCapabilities({
-    chromeOptions: {
-      // Here is the path to your Electron binary.
+  // La "9515" è la porta aperta da chrome driver.
+  .usareServer('http://localhost:9515')
+  .conFunzioni({
+    chromeOpzioni: {
+      // Qui è il precorso al tuo binario di Electron.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
@@ -96,40 +96,40 @@ driver.wait(() => {
 driver.quit()
 ```
 
-## Setting up with WebdriverIO
+## Impostare WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) fornisce un pacchetto Node per testare con il driver web.
 
-### 1. Start ChromeDriver
+### 1. Avvia ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Prima devi scaricare il binario di `chromedriver` ed eseguirlo:
 
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Avviando ChromeDriver (v2.10.291558) sulla porta 9515
+Solo connessioni locali consentite.
 ```
 
-Remember the port number `9515`, which will be used later
+Ricorda il numero di porta `9515`, che sarà usato più tardi
 
-### 2. Install WebdriverIO
+### 2. Installa WebdriverIO
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Connettiti a chrome driver
 
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
+  host: 'localhost', // Usa host locale come server di chrome driver
+  port: 9515,        // "9515" è la porta aperta da chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
+      binary: '/Path-to-Your-App/electron', // Percorso al tuo binario Electron.
       args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
@@ -150,6 +150,6 @@ client
 
 ## Workflow
 
-To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Per testare la tua app senza ricompilare Electron, [piazza](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la tua fonte app nella directory delle risorse di Electron.
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+In alternativa, passa un argomento all'esecuzione con il tuo binario electron che punta alla tua cartella app. Questo elimina il bisogno di copia-incollare la tua app nella directory delle risorse di Electron.
