@@ -1,10 +1,10 @@
-## Class: MenuItem
+## MenuItem 클래스
 
-> Add items to native application menus and context menus.
+> 네이티브 애플리케이션 메뉴와 컨텍스트 메뉴에 아이템을 추가합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+[`Menu`](menu.md)에서 예제를 볼 수 있습니다.
 
 ### `new MenuItem(options)`
 
