@@ -34,26 +34,26 @@ It is best to specify `role` for any menu item that matches a standard role, rat
 
 The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
 
-The `role` property can have following values:
+`role` 속성은 다음의 값을 가질 수 있습니다:
 
 * `undo`
 * `redo`
 * `cut`
-* `복사`
+* `copy`
 * `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit`- Quit the application.
-* `reload` - Reload the current window.
-* `forceReload` - Reload the current window ignoring the cache.
-* `toggleDevTools` - Toggle developer tools in the current window.
-* `toggleFullScreen`- Toggle full screen mode on the current window.
-* `resetZoom` - Reset the focused page's zoom level to the original size.
-* `zoomIn` - Zoom in the focused page by 10%.
-* `zoomOut` - Zoom out the focused page by 10%.
+* `minimize` - 현재 윈도우를 최소화합니다.
+* `close` - 현재 윈도우를 닫습니다.
+* `quit`- 애플리케이션을 종료합니다.
+* `reload` - 현재 윈도우를 재로드합니다.
+* `forceReload` - 캐시를 무시하고 현재 윈도우를 재로드합니다.
+* `toggleDevTools` - 현재 윈도우에 개발자 도구를 토글합니다.
+* `toggleFullScreen`- 현재 윈도우의 풀스크린 모드를 토글합니다.
+* `resetZoom` - 포커스된 페이지의 줌을 기본 사이즈로 리셋합니다.
+* `zoomIn` - 포커스된 페이지를 10% 확대합니다.
+* `zoomOut` - 포커스된 페이지를 10% 축소합니다.
 * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
 * `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
 
