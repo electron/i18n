@@ -1,4 +1,4 @@
-# inAppPurchase
+# SpeseinApp
 
 > In-app purchases on Mac App Store.
 
