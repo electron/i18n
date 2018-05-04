@@ -53,10 +53,10 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying the plugin
+## Verificare il plugin
 
-To verify whether the plugin works, you can use following ways:
+Per verificare che il plugin funzioni, puoi usare i seguenti metodi:
 
-* Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* Apri gli strumenti dispositivo e controlla se `navigator.plugin` include il plugin Widevine CDM.
+* Apri https://shaka-player-demo.appspot.com/ e carica un manifesto che usi `Widevine`.
+* Apri http://www.dash-player.com/demo/drm-test-area/, controlla se la pagina dice `bitdash usa Widevine nel tuo browser`, poi riproduci il video.
