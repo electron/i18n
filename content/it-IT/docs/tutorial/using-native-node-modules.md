@@ -46,33 +46,33 @@ npm install --save-dev electron-rebuild
 
 ### Costruzione manuale per Electron
 
-Se stai sviluppando un modulo nativo e vuoi testarlo contro Electron, potresti voler ricostruire il modulo per Electron manualmente. You can use `node-gyp` directly to build for Electron:
+Se stai sviluppando un modulo nativo e vuoi testarlo contro Electron, potresti voler ricostruire il modulo per Electron manualmente. Puoi usare direttamente `node-gyp` per costruire per Electron:
 
 ```sh
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+`HOME=~/.electron-gyp` cambia dove trovare le intestazioni di sviluppo. `--target=1.2.3` è la versione di Electron. `--dist-url=...` specifica dove scaricare le intestazioni. `--arch=x64` dice che il modulo è costruito per sistemi a 6 bit.
 
 ## Risoluzione dei problemi
 
-If you installed a native module and found it was not working, you need to check following things:
+Se hai installato un modulo nativo ed hai trovato che non fosse funzionante, devi controllare le seguenti cose:
 
-* The architecture of the module has to match Electron's architecture (ia32 or x64).
-* After you upgrade Electron, you usually need to rebuild the modules.
-* When in doubt, run `electron-rebuild` first.
+* L'architettura del modulo deve corrispondere con quella di Electron (ia32 o x64).
+* Dopo il tuo aggiornamento di Electron, dovrai spesso ricostruire i moduli.
+* Quando in dubbio, esegui prima `electron-rebuild`.
 
-## Modules that rely on `prebuild`
+## Moduli rilevanti su `prebuild`
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild) fornisce un modo per pubblicare facilmente i moduli nativi di Node con binari precostruiti per multiple versioni di Node ed Electron.
 
-If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+Se i moduli forniscono binari per usarli in Electron, assicurati di omettere `--build-from-source` e l'ambiente variabile `npm_config_build_from_source` per prendere pieno vantaggio dai binari precostruiti.
 
-## Modules that rely on `node-pre-gyp`
+## Moduli rilevanti su `node-pre-gyp`
 
-The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
+Lo [strumento `node-pre-gyp`](https://github.com/mapbox/node-pre-gyp) fornisce un modo per implementare i moduli nativi di Node con binari precostruiti e molti moduli popolari lo usano.
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node, and there are ABI changes, bad things may happen. So in general it is recommended to always build native modules from source code.
+Spesso questi moduli lavorano bene sotto Electron, ma a volte quando Electron usa una nuova versione di V8 e ci sono cambiamenti ABI, posso succedere brutte cose. Quindi in generale si raccomanda di costruire sempre moduli nativi dal codice risorsa.
 
-If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+Se stai seguendo il metodo di installazione moduli `npm`, questo sarà fatto di default, altrimenti devi passare `--build-from-source` a `npm` o impostare la variabile ambiente `npm_config_build_from_source`.
