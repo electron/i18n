@@ -64,7 +64,7 @@ console.log(dialog)
 
 `extensions` の配列には、ワイルドカードやドットを含む拡張子 (例えば、`'png'` は問題ありませんが、`'.png'` や `'*.png'` はいけません) を入れないで下さい。 すべてのファイルを表示するには、`'*'` ワイルドカードを使用して下さい (その他のワイルドカードはサポートされていません)。
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
+`callback` が渡されると、APIの呼び出しが非同期になり、`callback(filenames)` 経由で結果が渡されます。
 
 **注:** WindowsとLinuxのオープンダイアログでは、ファイルとディレクトリの両方を選択することはできません。そのため、これらのプラットフォームで `properties` に `['openFile', 'openDirectory']` を設定すると、ディレクトリの選択が表示されます。
 
@@ -90,7 +90,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 `filters` には、表示することのできるファイルの種類の配列を指定します。例については、`dialog.showOpenDialog` を参照して下さい。
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`.
+`callback` が渡されると、APIの呼び出しが非同期になり、`callback(filename)` 経由で結果が渡されます。
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
