@@ -1,4 +1,4 @@
 # Oggetto RiportaCrash
 
-* `date` Date
+* `data` Data
 * `id` Stringa
