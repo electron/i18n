@@ -16,7 +16,7 @@
 
 * `menu` Menu 혹은 null
 
-`메뉴`를 맥 OS의 응용 프로그램 메뉴로 설정합니다. 윈도우와 리눅스에서는, `메뉴`를 각 창의 상단 메뉴로 설정 합니다.
+`menu`를 macOS의 애플리케이션 메뉴로 설정합니다. 윈도우와 리눅스에서는, `menu`를 각 창의 상단 메뉴로 설정 합니다.
 
 인자로 `null` 을 주면 윈도우와 리눅스에서는 메뉴 모음에서 메뉴를 제거 합니다. 하지만 맥 OS 에서는 제거하지 않습니다.
 
@@ -40,7 +40,7 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 * `template` MenuItemConstructorOptions[]
 
-Returns `Menu`
+`Menu`를 반환합니다.
 
 Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
@@ -48,7 +48,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### Instance Methods (인스턴스 메소드)
 
-The `menu` object has the following instance methods:
+`menu` 오브젝트는 다음과 같은 인스턴스 메소드를 가지고 있습니다:
 
 #### `menu.popup(options)`
 
@@ -71,20 +71,20 @@ Closes the context menu in the `browserWindow`.
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Appends the `menuItem` to the menu.
+메뉴에 `menuItem`을 추가합니다.
 
 #### `menu.getMenuItemById(id)`
 
 * `id` String
 
-Returns `MenuItem` the item with the specified `id`
+특정한 `id`를 가진 `MenuItem`을 반환합니다.
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+메뉴의 `pos`값의 위치에 `menuItem`을 추가합니다.
 
 ### 인스턴스 이벤트
 
