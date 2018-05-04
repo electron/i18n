@@ -1,5 +1,5 @@
-# WebSource Object
+# Oggetto WebSource
 
-* `codice` Stringa
+* `code` Stringa
 * `url` String (optional)
 * `startLine` Integer (optional) - Default is 1.
