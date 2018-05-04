@@ -1,23 +1,23 @@
 # Uso di Selenium e WebDriver
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+Da [ChromeDriver - WebDriver per Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver è uno strumento open source per testare automaticamente le app web per vari browser. Fornisce funzioni per navigare alle pagine web, per l'input utente, per l'esecuzione degli JavaScript ed altro. ChromeDriver è un server autonomo che migliora il protocollo di WebDriver per Chromium. Esso è stato sviluppato dai membri dei team di Chromium e WebDriver.
 
-## Setting up Spectron
+## Impostare Spectron
 
-[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron) è il ChromeDriver per testare i framework ufficialmente supportata per Electron. Essa è costruita sulla base di [WebdriverIO](http://webdriver.io/) ed ha degli aiuti per accedere alle API di Electron nei tuoi test e bundle di ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
-var Application = require('spectron').Application
+// Un semplice test per verificare se una finestra visibile è aperta con un titolo
+var Applicazione = require('spectron').Applicazione
 var assert = require('assert')
 
-var app = new Application({
+var app = nuova Applicazione({
   path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
 })
 
@@ -42,7 +42,7 @@ app.start().then(function () {
 })
 ```
 
-## Setting up with WebDriverJs
+## Impostare WebDriverJs
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
 
