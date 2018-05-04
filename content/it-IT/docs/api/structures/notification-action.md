@@ -5,15 +5,15 @@
 
 ## Supporto Piattaforma / Azione
 
-| Tipo di Azione | Supporto Piattaforma | Uso del `testo`                      | `testo` predefinito                                                                         | Limitazioni                                                                                                                                                                                                                                                               |
-| -------------- | -------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pulsante`     | macOS                | Usato come etichetta per il pulsante | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Only the first one is used. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Tipo di Azione | Piattaforme Supportate | Uso di `text`                        | `text` predefinito                                                                                                      | Limitazioni                                                                                                                                                                                                                                                                     |
+| -------------- | ---------------------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`       | macOS                  | Usato come etichetta per il pulsante | "Show" (oppure una stringa localizzata da impostazione predefinita di sistema se è il primo `button`, altrimenti vuota) | Solo il primo è usato. Se ne vengono forniti di più, quelli dopo il primo verranno elencati come azioni addizionali (mostrati quando il mouse è sopra il pulsante dell'azione). Inoltre l'azione è incompativile con `hasReply` e sarà ignorata se `hasReply` ha valore `true`. |
 
-### Pulsante supportato su macOS
+### Supporto pulsanti su macOS
 
-Per far funzionare i pulsanti di extra notificazione su macOS la tua app deve incontrare i seguenti criteri.
+Per far funzionare i pulsanti di notifiche extra su macOS l'app deve rispettare i seguenti criteri:
 
-* L'App è firmata
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
+* L'App deve essere firmata;
+* L'App deve avere il parametro `NSUserNotificationAlertStyle` settato a `alert` nel `Info.plist`.
 
 Se uno dei questi criteri non sono presenti il pulsante semplicemente non apparirà.
