@@ -51,9 +51,9 @@
   * [SeleniumとWebDriverを使用する](tutorial/using-selenium-and-webdriver.md)
   * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools エクステンション](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
+  * [カスタムドライバーを使った自動テスト](tutorial/automated-testing-with-a-custom-driver.md)
 * パッケージ化 
-  * [Code Signing](tutorial/code-signing.md)
+  * [コード署名](tutorial/code-signing.md)
 * [配布方法](tutorial/application-distribution.md) 
   * [サポート](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
