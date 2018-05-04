@@ -35,8 +35,8 @@ console.log(dialog)
     * `openDirectory` - ディレクトリを選択するのを許可します。
     * `multiSelections` - 複数のパスを選択するのを許可します。
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
-    * `createDirectory` *macOS* - ダイアログ上でディレクトリを作成するのを許可します。
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
+    * `createDirectory` *macOS* - ダイアログでディレクトリを作成するのを許可します。
+    * `promptToCreate` *Windows* - ダイアログで存在しないファイルパスを入力した場合に、作成を促します。 これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
   * `message` String (任意) *macOS* - 入力ボックスの上に表示するメッセージ。
