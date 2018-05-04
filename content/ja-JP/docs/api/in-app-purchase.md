@@ -24,8 +24,8 @@ The `inAppPurchase` module has the following methods:
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
 * `productID` String - 購入対象のプロダクトID。 (`com.example.app.product1` のIDは `product1` です).
-* `quantity` Integer (optional) - The number of items the user wants to purchase.
-* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. (You should add a listener with `inAppPurchase.addTransactionsListener` to get the transaction status). 
+* `quantity` Integer (任意) - ユーザーが購入しようとしている商品数
+* `callback` Function (任意) - PaymentQueueに支払い情報が追加されたときに呼び出されるコールバック。 (You should add a listener with `inAppPurchase.addTransactionsListener` to get the transaction status). 
   * `isProductValid` Boolean - Determine if the product is valid and added to the payment queue.
 
 ### `inAppPurchase.canMakePayments()`
