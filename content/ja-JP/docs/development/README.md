@@ -22,5 +22,5 @@ These guides are intended for people working on the Electron project itself. For
 * [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
 * [Chromiumをアップグレードする](upgrading-chromium.md)
 * [Upgrading Crashpad](upgrading-crashpad.md)
-* [Upgrading Node](upgrading-node.md)
+* [Nodeのアップグレード](upgrading-node.md)
 * [リリース](releasing.md)
