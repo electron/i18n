@@ -1,4 +1,4 @@
-# Oggetto FiltraFile
+# Oggetto FileFilter
 
-* `nome` Stringa
-* `estensioni` Stringa[]
+* `name` Stringa
+* `extensions` Stringa[]
