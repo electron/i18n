@@ -16,4 +16,4 @@
 * 应用程序已签名
 * App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
 
-任何一个条件不满足则按钮无法显示。
+如果不满足其中任何一个条件，则按钮无法显示。
