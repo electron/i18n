@@ -57,7 +57,7 @@ The `label` and `accelerator` values are optional when using a `role` and will d
 * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
 * `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
 
-The following additional roles are available on *macOS*:
+다음의 부가 role은 *macOS*에서 유효합니다:
 
 * `about` - Map to the `orderFrontStandardAboutPanel` action.
 * `hide` - Map to the `hide` action.
@@ -82,7 +82,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### Instance Properties (인스턴스 속성)
 
-The following properties are available on instances of `MenuItem`:
+다음의 속성은 `MenuItem`의 인스턴스에서 유효합니다:
 
 #### `menuItem.enabled`
 
