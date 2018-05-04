@@ -24,7 +24,7 @@ console.log(dialog)
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object 
   * `title` String (任意)
   * `defaultPath` String (任意)
@@ -35,7 +35,7 @@ console.log(dialog)
     * `openDirectory` - ディレクトリを選択するのを許可します。
     * `multiSelections` - 複数のパスを選択するのを許可します。
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+    * `createDirectory` *macOS* - ダイアログ上でディレクトリを作成するのを許可します。
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -70,7 +70,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object 
   * `title` String (任意)
   * `defaultPath` String (任意) - 既定で使用される絶対ディレクトリパス、絶対ファイルパスもしくはファイル名。
@@ -94,7 +94,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object 
   * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` のオプションを使用してアイコンを設定しない場合、`"question"` は、`"info"` と同じアイコンを表示します。 macOSでは、`"warning"` と `"error"` の両方で同じ警告アイコンを表示します。
   * `buttons` String[] (任意) - ボタンのテキストの配列。Windowsでは、空の配列だと、"OK" というラベルのついた1つのボタンだけになります。
@@ -131,7 +131,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - 信頼/インポートする証明書。
   * `message` String - ユーザーに表示するメッセージ。
