@@ -60,13 +60,13 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 * Linux: `$XDG_CACHE_HOME` или `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Windows: `$LOCALAPPDATA/electron/Cache` или `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+В старом Electron возможно использование папки `~/.electron`.
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+Также можно переопределить место кеша с помощью переменной окружения `ELECTRON_CACHE`.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+Кеш состоит из файлов zip для каждой версии с файлами контрольных сумм в текстовом формате. Например:
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -85,22 +85,22 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 При выполнении команды `npm install electron`, некоторые пользователи сталкиваются с проблемами установки.
 
-В большинстве случаев, эти ошибки являются результатом проблем сети и не связаны с npm пакетом `electron`. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. Лучшим решением в данном случае будет попытка подключения к другой сети или просто немного подождите, возможно это временное явление.
+В большинстве случаев, эти ошибки являются проблемами сети и не связаны с npm пакетом `electron`; это ошибки `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` и `ETIMEDOUT`. Лучшим решением в данном случае будет попытка подключения к другой сети или ожидание подключения, возможно это временное явление.
 
-Также вы можете попытаться скачать электронов непосредственно из [электронов/электронный/релизы](https://github.com/electron/electron/releases), если установка через `npm` терпит неудачу.
+Также вы можете попытаться скачать Electron непосредственно из [релизов](https://github.com/electron/electron/releases), если установка через `npm` терпит неудачу.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Если установка завершается с ошибкой `EACCESS`, нужно [поправить права npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Если ошибки не пропадают, можно использовать аргумент [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm):
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+На слабой сети следует использовать аргумент `--verbose`, чтобы задействовать замедленную загрузку:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+Если нужно перезагрузить файлы без кеша, нужно использовать переменную окружения `force_no_cache` = `true`.
