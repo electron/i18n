@@ -1,16 +1,16 @@
-# Electron Documentation Styleguide
+# Linee Guida Documentazione Electron
 
 Queste sono le linee guida per scrivere la documentazione di Electron.
 
 ## Titoli
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
+* Ogni pagina deve avere un singolo livello-`#` titolo all'apice.
+* I capitoli nella stessa pagina devono avere titoli livello-`##`.
+* I sotto capitoli devono aumentare il numero di `#` nel titoli in base alla loro profondità di annidamento.
 * Tutte le parole nel titolo della pagina devono essere in maiuscolo, ad eccezione di congiunzioni come "di" e "e".
 * Solo la prima parola di un titolo di capitolo deve essere in maiuscolo.
 
-Using `Quick Start` as example:
+Usando `Avvio Rapido` come esempio:
 
 ```markdown
 # Quick Start
