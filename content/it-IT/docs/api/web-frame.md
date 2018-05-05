@@ -55,7 +55,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Oggetto 
-  * `spellCheck` Function - Returns `Boolean`. 
+  * `spellCheck` Function - Returns `Booleano`. 
     * `testo` Stringa
 
 Sets a provider for spell checking in input fields and text areas.
