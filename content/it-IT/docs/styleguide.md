@@ -13,54 +13,54 @@ Queste sono le linee guida per scrivere la documentazione di Electron.
 Usando `Avvio Rapido` come esempio:
 
 ```markdown
-# Quick Start
+# Avvio Rapido
 
 ...
 
-## Main process
+## Processo principale
 
 ...
 
-## Renderer process
+## Processo Rendering
 
 ...
 
-## Run your app
+## Esegui la tua app
 
 ...
 
-### Run as a distribution
+### Esegui come distrubuzione
 
 ...
 
-### Manually downloaded Electron binary
+### Binario Electron scaricato manualmente
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Per le referenze API, ci sono eccezioni a questa regola.
 
 ## Regole di Markdown
 
 * Usa `sh` invece di `cmd` nei blocchi di codice (a causa dell'evidenziatore della sintassi).
-* Lines should be wrapped at 80 columns.
+* Le linee dovrebbero essere fissate ad 80 colonne.
 * Nessun elenco di nidificazione più di 2 livelli (a causa del renderizzatore di riduzione).
 * Tutti i blocchi di codice `js` e `javascript` sono allineati con il [Markdown standard](http://npm.im/standard-markdown).
 
-## Picking words
+## Ortografia
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Usa "will" oltre "Would" descrivendo i risultati.
+* Preferisci "nel ___ processo" a "su".
 
-## API references
+## Referenze API
 
-The following rules only apply to the documentation of APIs.
+Le regole seguenti si applicano solo alla documentazione delle API.
 
-### Page title
+### Titolo Pagina
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Ogni pagina deve usare il nome oggetto attuale restituito da `require('electron')` come titolo, come `FinestraBrowser`, `autoUpdatet` e `sessione`.
 
-Under the page title must be a one-line description starting with `>`.
+Sotto al titolo della pagina deve esserci una descrizione di una riga che inizi con `>`.
 
 Using `session` as example:
 
