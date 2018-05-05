@@ -142,7 +142,7 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 
-## Properties
+## Proprietà
 
 ### `remote.process`
 
