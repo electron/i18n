@@ -62,75 +62,75 @@ Ogni pagina deve usare il nome oggetto attuale restituito da `require('electron'
 
 Sotto al titolo della pagina deve esserci una descrizione di una riga che inizi con `>`.
 
-Using `session` as example:
+Usando `sessione` come esempio:
 
 ```markdown
-# session
+# sessione
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Gestisci le sessioni browser, cookie, cache, impostazioni proxy, etc.
 ```
 
-### Module methods and events
+### Metodi modulo ed eventi
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Per i moduli che non sono classi, i loro metodi ed eventi vanno elencati sotto i capitoli `## Metodi` e `## Eventi`.
 
-Using `autoUpdater` as an example:
+Usando `autoUpdatet` come esempio:
 
 ```markdown
 # autoUpdater
 
-## Events
+## Evento
 
-### Event: 'error'
+### Evento: 'errore'
 
-## Methods
+## Metodi
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
 ### Classi
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
+* Le classi API o le classi parte di moduli devono essere elencati sotto al capitolo `## Classe: IlNomeClasse`.
 * Una pagina può avere più classi.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* Tutti i metodi che hanno un valore di ritorno devono iniziare la loro descrizione con "Ritorna `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Le proprietà dell'istanza devono essere elencate sotto a `### Proprietà Istanza` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* I costruttori devono essere elencati con i titoli livello-`###`.
+* I [Metodi Statici](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) devono essere elencati sotto ad un capitolo `### Metodi Statici`.
+* I [Metodi Istanza](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) devono essere elencati sotto ad un capitolo `### Metodi Istanza.</li>
+<li>Tutti i metodi che hanno un valore di ritorno devono iniziare la loro descrizione con "Ritorna <code>[TYPE]` - Restituisci descrizione" 
+  * Se il metodo restituisxe un `Oggetto`, la sua struttura può essere specificata usando una colonna seguita da una nuova riga, quindi una lista disordinata di proprietà nello stesso stile come parametri funzione.
+* Gli eventi Istanza devono essere elencati sotto ad un capitoli `### Eventi Istanza`.
+* Le proprietà dell'istanza devono essere elencate sotto a `### Proprietà Istanza` capitolo. 
+  * Le proprietà istanza devono essere avviati con "Un [Tipo Proprietà] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Usando le classi `Sessione` e `Cookie` come esempio:
 
 ```markdown
-# session
+# sessione
 
-## Methods
+## Metodi
 
 ### session.fromPartition(partition)
 
-## Properties
+## Proprietà
 
 ### session.defaultSession
 
-## Class: Session
+## Classe: Sessione
 
-### Instance Events
+### Eventi Istanza
 
-#### Event: 'will-download'
+#### Evento: 'scaricherà'
 
-### Instance Methods
+### Metodi Istanza
 
 #### `ses.getCacheSize(callback)`
 
-### Instance Properties
+### Proprietà Istanza
 
 #### `ses.cookies`
 
-## Class: Cookies
+## Classe: Cookie
 
-### Instance Methods
+### Metodi Istanza
 
 #### `cookies.get(filter, callback)`
 ```
@@ -142,8 +142,8 @@ Il capitolo dei metodi deve essere nella seguente forma:
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `richiesta` Stringa - Una descrizione parametro.
+* `opzionale` Intero (opzionale) - Un'altra descrizione parametro.
 
 ...
 ```
