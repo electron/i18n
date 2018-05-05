@@ -148,56 +148,56 @@ Il capitolo dei metodi deve essere nella seguente forma:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Il titolo può essere `###` o `####` in base al fatto che si tratti do un metodo di un modulo o di una classe.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Per i moduli, `Nomeoggetto` è il nome del modulo. Per le classi, deve essere im nome dell'istanza della classe e non deve essere uguale al nome del modulo.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Per esempio, i metodi della classe `Sessione` sotto il modulo `sessione` devono usare `ses` come `Nomeoggetto`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Gli argomenti opzionali sono notati da parentesi quadre `[]` circondanti l'argomento opzionale così come la virgola è richiesta se questo argomento opzionale segue un altro argomento:
 
 ```sh
-required[, optional]
+richiesto[, opzionale]
 ```
 
 Sotto il metodo sono informazioni più dettagliate su ciascuno degli argomenti. Il tipo di argomento è indicato dai tipi comuni:
 
 * [`Stringa`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Numero`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Oggetto`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* [`Insieme`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`Booleano`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* O un tipo personalizzato come [`ContenutoWeb`](api/web-contents.md) di Electron
 
-Se un argomento o un metodo è univoco per certe piattaforme, tali piattaforme sono denotate utilizzando un elenco in corsivo delimitato dallo spazio che segue il tipo di dati. Values can be `macOS`, `Windows`, or `Linux`.
+Se un argomento o un metodo è univoco per certe piattaforme, tali piattaforme sono denotate utilizzando un elenco in corsivo delimitato dallo spazio che segue il tipo di dati. I valori possono essere `macOS`, `Windows` o `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* 'animato' Booleano (opzionale) _macOS_ _Windows_ - Anima la cosa.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+Il tipo argomenti `Insieme` deve specificare quali elementi potrebbero essere inclusi nell'insieme nella descrizione sotto.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+La descrizione per il tipo di argomenti `Funzione` dovrebbe rendere chiaro come potrebbe essere chiamata ed elenca i tipi di parametri che gli saranno passati.
 
 ### Eventi
 
 Il capitolo degli eventi deve essere nel seguente formato:
 
 ```markdown
-### Event: 'wake-up'
+### Evento: 'sveglia'
 
-Returns:
+Restituisce:
 
-* `time` String
+* `tempo` Stringa
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Il titolo può essere `###` o `####` in base al fatto che si tratti di un evento di un modulo o di una classe.
 
-The arguments of an event follow the same rules as methods.
+L'argomento di un evento segue le stesse regole dei metodi.
 
-### Properties
+### Proprietà
 
 Il capitolo proprietà dovrebbe essere nel seguente formato:
 
@@ -207,8 +207,8 @@ Il capitolo proprietà dovrebbe essere nel seguente formato:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Il titolo può essere `###` o `####` in base al fatto che si tratti di una proprietà di un modulo o di una classe.
 
-## Documentation Translations
+## Traduzione Documentazione
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Vedi [electron/i18n](https://github.com/electron/i18n#readme)
