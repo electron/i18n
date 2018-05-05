@@ -1,64 +1,64 @@
 # Установка
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+Чтобы установить скомпилированный Electron, используй [`npm`](https://docs.npmjs.com). Предпочитаемый метод установки как зависимости в приложении:
 
 ```sh
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
+Смотри [документацию к версиям Electron](./electron-versioning.md), чтобы узнать, как управлять версиями Electron в приложении.
 
-## Установка глобально
+## Глобальная установка
 
-You can also install the `electron` command globally in your `$PATH`:
+Ты можешь установить команду `electron` в переменной окружения `$PATH`:
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## Настройка
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Если хочешь изменить архитектуру загружаемого контента (например, `i32` на компьютере с `x64`), можно использовать аргумент `--arch` при установке или использовать переменную окружения `npm_config_arch`:
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Так же можно менять платформу приложения (например, `win32` или `linux`) при помощи аргумента `--platform`:
 
 ```shell
 npm install --platform=win32 electron
 ```
 
-## Proxies
+## Прокси
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+Если нужны HTTP прокси, то можно [задать переменные окружения](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Custom Mirrors and Caches
+## Пользовательские зеркала и кеши
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Во время установки модуль `electron` будет обращаться к [`electron-download`](https://github.com/electron-userland/electron-download), чтобы загрузить скомпилированные бинарники для твоей платформы, если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Если доступа к GitHub нет или нужна другая сборка, можно задать зеркало или папку кеша.
 
-#### Mirror
+#### Зеркало
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+Можно использовать переменную окружения, чтобы переопределить базовый URL, по которому ищутся бинарники или имена файлов. URL для `electron-download` выглядит таким образом:
 
 ```txt
-url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
+url = ссылка + папка + '/' + название файла
 ```
 
-For instance, to use the China mirror:
+Например, китайское зеркало:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
-#### Cache
+#### Кеш
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Кроме того, можно заменить локальный кеш. `electron-download` скачивает файлы в кеш, чтобы снизить нагрузку на сеть. Папку с кешем можно использовать для кастомных сборок или, чтобы полностью избежать сетевого трафика.
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
+* Linux: `$XDG_CACHE_HOME` или `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
