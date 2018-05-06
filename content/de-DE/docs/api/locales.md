@@ -13,9 +13,9 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | be         | Weißrussisch              |
 | bg         | Bulgarisch                |
 | bh         | Bihari                    |
-| bn         | Bengali                   |
+| bn         | Bengalisch                |
 | br         | Bretonisch                |
-| bs         | Bosnian                   |
+| bs         | Bosnisch                  |
 | ca         | Katalanisch               |
 | co         | Korsisch                  |
 | cs         | Tschechisch               |
@@ -37,8 +37,8 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | es         | Spanisch                  |
 | es-419     | Spanisch (Lateinamerika)  |
 | et         | Estnisch                  |
-| eu         | Basque                    |
-| fa         | Persian                   |
+| eu         | Baskisch                  |
+| fa         | Persisch                  |
 | fi         | Finnisch                  |
 | fil        | Filipino                  |
 | fo         | Faroese                   |
@@ -60,7 +60,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | hu         | Ungarisch                 |
 | hy         | Armenisch                 |
 | ia         | Interlingua               |
-| id         | Indonesian                |
+| id         | Indonesisch               |
 | is         | Icelandic                 |
 | it         | Italienisch               |
 | it-CH      | Italienisch (Schweiz)     |
@@ -81,7 +81,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | lv         | Latvian                   |
 | mk         | Macedonian                |
 | ml         | Malayalam                 |
-| mn         | Mongolian                 |
+| mn         | Mongolisch                |
 | mo         | Moldavian                 |
 | mr         | Marathi                   |
 | ms         | Malay                     |
@@ -98,8 +98,8 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | pl         | Polnisch                  |
 | ps         | Pashto                    |
 | pt         | Portugiesisch             |
-| pt-BR      | Portuguese (Brazil)       |
-| pt-PT      | Portuguese (Portugal)     |
+| pt-BR      | Portugiesisch (Brasilien) |
+| pt-PT      | Portugiesisch (Portugal)  |
 | qu         | Quechua                   |
 | rm         | Romansh                   |
 | ro         | Rumänisch                 |
@@ -123,7 +123,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | th         | Thailändisch              |
 | ti         | Tigrinya                  |
 | tk         | Turkmenisch               |
-| to         | Tonga                     |
+| to         | Tongaisch                 |
 | tr         | Türkisch                  |
 | tt         | Tatar                     |
 | tw         | Twi                       |
@@ -133,7 +133,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | uz         | Usbekisch                 |
 | vi         | Vietnamesisch             |
 | xh         | Xhosa                     |
-| yi         | Yiddish                   |
+| yi         | Jiddisch                  |
 | yo         | Yoruba                    |
 | zh         | Chinesisch                |
 | zh-CN      | Chinesisch (Vereinfacht)  |
