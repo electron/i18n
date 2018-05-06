@@ -1,5 +1,5 @@
-# WebSource Object
+# WebSource オブジェクト
 
 * `code` String
-* `url` String (optional)
-* `startLine` Integer (optional) - Default is 1.
+* `url` String (任意)
+* `startLine` Integer (任意) - デフォルトは 1。
