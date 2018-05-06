@@ -45,7 +45,7 @@ crashReporter.start({
 
 **注:** Windowsで子プロセスからクラッシュレポートを収集するためには、同様にこの追加のコードを付け加える必要があります。 これで監視してクラッシュレポートを送信するプロセスが開始されます。 `submitURL`、`productName`、`crashesDirectory`を適切な値に置換してください。
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**注釈:** 最初の `start` の呼び出しの後、追加/更新した `extra` パラメーターを送信する必要がある場合、macOS では、`addExtraParameter` を呼び出してください。Linux と Windows では、追加/更新した `extra` パラメーターとともに `start` を再度、呼び出してください。
 
 ```js
  const args = [
@@ -78,7 +78,7 @@ crashReporter.start({
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+戻り値 `Boolean` - レポートがサーバーに送信されるかどうか。`start` メソッドまたは `setUploadToServer` を通じて設定してください。
 
 **注:** このAPIは、メインプロセスからしか呼び出すことができません。
 
@@ -114,7 +114,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 * `ver` String - Electronのバージョン。
 * `platform` String - 例えば、'win32'。
 * `process_type` String - 例えば、'renderer'。
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
+* `guid` String - 例えば、'5e1286fc-da97-479e-918b-6bfb0c3d1c72'。
 * `_version` String - `package.json` のバージョン。
 * `_productName` String - `crashReporter` の `options` のプロダクト名。
 * `prod` String - 基底にあるプロダクトの名前。この場合は、Electronです。
