@@ -30,15 +30,15 @@
 
 * `options` Object 
   * `title` String - 通知ウィンドウの上部に表示される通知のタイトル.
-  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
-  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
-  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
-  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
-  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `subtitle` String (任意) *macOS* - タイトルの下に表示される、通知のサブタイトル。
+  * `body` String - タイトルやサブタイトルの下に表示さる、通知の本文。
+  * `silent` Boolean (任意) - 通知を表示するときにOSが通知音を鳴らすかどうか。
+  * `icon` (String | [NativeImage](native-image.md)) (任意) - 通知に使用されるアイコン。
+  * `hasReply` Boolean (任意) *macOS* - 通知に埋め込み返信オプションを追加するかどうか。
+  * `replyPlaceholder` String (任意) *macOS* - 埋め込み返信入力フィールド内に書かれるプレースホルダ。
+  * `sound` String (任意) *macOS* - 通知が表示されるときに再生される音声ファイルの名前。
+  * `actions` [NotificationAction[]](structures/notification-action.md) (任意) *macOS* - 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
+  * `closeButtonText` String (任意) *macOS* - アラートの閉じるボタンのカスタムタイトル。 空の文字列を使用すると、デフォルトのローカライズされたテキストが使用されます。
 
 ### インスタンスイベント
 
