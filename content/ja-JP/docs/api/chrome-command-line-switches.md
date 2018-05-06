@@ -28,7 +28,7 @@ HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
 ## --lang
 
-Set a custom locale.
+カスタムロケールを設定します。
 
 ## --inspect=`port` and --inspect-brk=`port`
 
