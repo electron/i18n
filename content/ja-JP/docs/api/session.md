@@ -340,7 +340,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+戻り値 `String[]` - 登録されているプリロードスクリプトへのパスの配列。
 
 ### インスタンスプロパティ
 
