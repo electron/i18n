@@ -100,9 +100,9 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
 #### `ses.clearStorageData([options, callback])`
 
 * `options` Object (任意) 
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
-  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+  * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
+  * `storages` String[] (任意) - ストレージをクリアするタイプ。`appcache`、`cookies`、`filesystem`、`indexdb`、`localstorage`、`shadercache`、`websql`、`serviceworkers` を含めることができます。
+  * `quotas` String[] (任意) - クォータをクリアするタイプ。`temporary`、`persistent`、`syncable` を含むことができます。
 * `callback` Function (任意) - 操作が完了したときに呼ばれる.
 
 ウェブストレージのデータをクリアします。
@@ -141,7 +141,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 * `socks4://foopy` - すべての URL に SOCKS 4 プロキシ `foopy:1080` を使用する。
 * `http=foopy,socks5://bar.com` - HTTP の URL には HTTP プロキシ `foopy` を使用し、`foopy` が使用できない場合は SOCKS 5 プロキシ `bar.com` にフェイルオーバーします。
 * `http=foopy,socks5://bar.com` - HTTP の URL には HTTP プロキシ `foopy` を使用し、`foopy` が使用できない場合はプロキシを使用しません。
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+* `http=foopy;socks=foopy2` - HTTP の URL には HTTP プロキシ `foopy` を、ほかの URLには `socks4://foopy2` を使用します。
 
 `proxyBypassRules` は以下に説明されているコンマ区切りのルールのリストです。
 
@@ -252,8 +252,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `permission` String - 'media'、'geolocation'、'notifications'、'midiSysex'、'pointerLock'、'fullscreen'、'openExternal' のいずれか。
   * `callback` Function 
     * `permissionGranted` Boolean - 権限の許可か拒否.
-  * `details` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String - The url of the `openExternal` request.
+  * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
+    * `externalURL` String - `openExternal` リクエストの URL。
 
 `session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。
 
@@ -276,7 +276,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
+* `domains` String - 統合認証が有効であるサーバーのコンマ区切りのリスト。
 
 HTTP NTLM またはネゴシエート認証の資格情報を常に送信するかどうかを動的に設定します。
 
@@ -334,9 +334,9 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - プリロードスクリプトへの絶対パスの配列
 
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+通常の `preload` スクリプトが実行される直前に、このセッションに関連するすべてのウェブコンテンツで実行されるスクリプトを追加します。
 
 #### `ses.getPreloads()`
 
