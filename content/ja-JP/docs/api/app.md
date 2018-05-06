@@ -731,13 +731,13 @@ macOSでは、ドックアイコンに表示されます。Linuxでは、Unity�
 * `openAsHidden` Boolean *macOS* - アプリがログイン時に隠して開くように設定されている場合、`true`。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
 * `wasOpenedAtLogin` Boolean *macOS* - アプリがログイン時に自動的に開かれた場合、`true`。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
 * `wasOpenedAsHidden` Boolean *macOS* - アプリが非表示のログイン項目として開かれていた場合、`true`。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
-* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+* `restoreState` Boolean *macOS* - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合は、`true`。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (任意) - アプリをログイン時に開く場合、`true`、ログイン項目からアプリを外す場合、`false`。 省略値は `false` です。
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができます。そのため、アプリが開いたときに現在の値を把握するため、`app.getLoginItemStatus().wasOpenedAsHidden` を確認するようにしてください。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+  * `openAsHidden` Boolean (任意) *macOS* - アプリを非表示で開く場合、`true`。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができます。そのため、アプリが開いたときに現在の値を把握するため、`app.getLoginItemStatus().wasOpenedAsHidden` を確認するようにしてください。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
   * `path` String (任意) *Windows* - ログイン時に起動する実行ファイルのパス。省略値は、`process.execPath` です。
   * `args` String[] (任意) *Windows* - 実行ファイルに引き渡すコマンドライン引数。省略値は空の配列です。パスは引用符で囲むように注意してください。
 
@@ -785,18 +785,18 @@ Aboutパネルのオプションを設定します。 これはアプリの `.pl
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
-* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+* `bookmarkData` String - `dialog.showOpenDialog` または `dialog.showSaveDialog` メソッドによって返された、base64 でエンコードされたセキュリティスコープのブックマークデータ。
 
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+戻り値 `Function` - セキュリティスコープ付きファイルへのアクセスが終了すると、この関数を呼び出す**必要が**あります。 ブックマークへのアクセスを忘れた場合は、[カーネルリソースがリークします](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)。アプリが再起動されるまで、サンドボックスの外部にアクセスする権限は失われます。
 
 ```js
-// Start accessing the file.
+// ファイルアクセス開始
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
 // You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
-Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+セキュリティスコープ付きリソースへのアクセスを開始します。 With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
