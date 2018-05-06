@@ -91,6 +91,6 @@ Windowsでは `releaseName` のみ利用可能です。
 
 更新プログラムがダウンロードされた後でアプリを再起動し、更新プログラムをインストールします。`update-downloaded` が発生した後でしか呼び出さないようにしてください。
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+`autoUpdater.quitAndInstall()` を呼ぶと、この中では最初にすべてのアプリケーションウィンドウを閉じ、すべてのウィンドウが閉じられた後に自動的に `app.quit()` を呼び出します。
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**注釈:** `update-downloaded` イベントが発行された後にこの API を呼び出さずにアプリケーションを終了した場合でも、アプリケーションは次の実行時に更新されたものに置き換えられます。
