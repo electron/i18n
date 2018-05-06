@@ -78,7 +78,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `recentDocuments` - "最近使った項目を開く"サブメニュー。
 * `clearRecentDocuments` - `clearRecentDocuments` アクションに割り当てる。
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。 ほかのすべてのオプションは無視されます。 小文字の `role`、`toggledevtools` などもまだサポートしています。
 
 ### インスタンスプロパティ
 
@@ -104,8 +104,8 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label.
+メニューアイテムに表示されているラベルの `String`。
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+MenuItem がクリックイベントを受け取った時に発火される `Function`。
