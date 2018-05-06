@@ -12,7 +12,7 @@
   * `minValue` Integer (任意) - 最小値。
   * `maxValue` Integer (任意) - 最大値。
   * `change` Function (任意) - スライダーが変更されたときに呼ぶ関数。 
-    * `newValue` Number - The value that the user selected on the Slider.
+    * `newValue` Number - Slider 上でユーザが選択した値。
 
 ### インスタンスプロパティ
 
