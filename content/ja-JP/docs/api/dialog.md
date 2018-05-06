@@ -38,9 +38,9 @@ console.log(dialog)
     * `createDirectory` *macOS* - ダイアログでディレクトリを作成するのを許可します。
     * `promptToCreate` *Windows* - ダイアログで存在しないファイルパスを入力した場合に、作成を促します。 これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
     * `noResolveAliases` *macOS* - 自動的にエイリアス (シンボリックリンク) のパスを解決しないようにします。選択したエイリアスはリンク先のパスの代わりにエイリアスのパスを返します。
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
   * `message` String (任意) *macOS* - 入力ボックスの上に表示するメッセージ。
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+  * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。
 * `callback` Function (任意) 
   * `filePaths` String[] - ユーザーによって選択されたファイルパスの配列
   * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
