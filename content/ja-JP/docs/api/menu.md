@@ -88,25 +88,25 @@ menu の `pos` の位置に `menuItem` を挿入します。
 
 ### インスタンスイベント
 
-Objects created with `new Menu` emit the following events:
+`new Menu` で作成されたオブジェクトでは以下のイベントが発生します。
 
 **注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
-#### Event: 'menu-will-show'
+#### イベント: 'menu-will-show'
 
 戻り値:
 
 * `event` Event
 
-Emitted when `menu.popup()` is called.
+`menu.popup()` が呼ばれたときに発生します。
 
-#### Event: 'menu-will-close'
+#### イベント: 'menu-will-close'
 
 戻り値:
 
 * `event` Event
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+手動か `menu.closePopup()` でポップアップが閉じられたときに発生します。
 
 ### インスタンスプロパティ
 
