@@ -257,8 +257,8 @@ win.webContents.on('will-prevent-unload', (event) => {
   * `isAutoRepeat` Boolean - [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `shift` Boolean - [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `control` Boolean - [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `alt` Boolean - [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
+  * `meta` Boolean - [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
 
 ページ内の `keydown` と `keyup` イベントが発生する直前に発行されます。 `event.preventDefault` を呼ぶと、ページの `keydown`/`keyup` イベントとメニューショートカットを阻害します。
 
@@ -297,7 +297,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `error` String - エラーコード.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
+  * `isTrusted` Boolean - 証明書が信頼できるとみなされるかどうかを示す。
 
 `url` の `certificate` の認証に失敗したときに発行されます。
 
@@ -311,7 +311,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
+  * `certificate` [Certificate](structures/certificate.md) - 指定されたリストの証明書でなければならない。
 
 クライアント証明書が要求されたときに発生します。
 
@@ -391,13 +391,13 @@ win.webContents.on('before-input-event', (event, input) => {
 * `event` Event
 * `type` String
 * `image` [NativeImage](native-image.md) (任意)
-* `scale` Float (optional) - scaling factor for the custom cursor.
-* `size` [Size](structures/size.md) (optional) - the size of the `image`.
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
+* `scale` Float (任意) - カスタムカーソルの拡大率。
+* `size` [Size](structures/size.md) (任意) - `image` のサイズ。
+* `hotspot` [Point](structures/point.md) (任意) - カスタムカーソルのホットスポットの座標。
 
-カーソルの種類が変更されたときに発行されます。 The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
+カーソルの種類が変更されたときに発行されます。 `type` は `default`、`crosshair`、`pointer`、`text`、`wait`、`help`、`e-resize`、`n-resize`,`ne-resize`、`nw-resize`、`s-resize`、`se-resize`、`sw-resize`、`w-resize`,`ns-resize`、`ew-resize`、`nesw-resize`、`nwse-resize`、`col-resize`,`row-resize`、`m-panning`、`e-panning`、`n-panning`、`ne-panning`、`nw-panning`,`s-panning`、`se-panning`、`sw-panning`、`w-panning`、`move`、`vertical-text`,`cell`、`context-menu`、`alias`、`progress`、`nodrop`、`copy`、`none`,`not-allowed`、`zoom-in`、`zoom-out`、`grab`、`grabbing`、`custom` になれます。
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+もし `type` パラメータが `custom` の場合、`image` パラメータはカスタムカーソルの [`NativeImage`](native-image.md) を、`scale`、`size`、`hotspot` はカスタムカーソルについての追加の情報を持ちます。
 
 #### イベント: 'context-menu'
 
@@ -420,7 +420,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
   * `misspelledWord` String - カーソルの下のスペルミスした単語 (もしあるならば)。
   * `frameCharset` String - メニューが呼び出されたときのフレームのテキストエンコーディング。
   * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
+  * `menuSourceType` String - コンテキストメニューが呼び出されたときの入力ソース。`none`、`mouse`、`keyboard`、`touch` または `touchMenu` にできます。
   * `mediaFlags` Object - コンテキストメニューが呼び出されたメディア要素のフラグ。 
     * `inError` Boolean - メディア要素がクラッシュしたかどうか。
     * `isPaused` Boolean - メディア要素が一時停止されているかどうか。
@@ -537,7 +537,7 @@ win.loadURL('http://github.com')
 * `options` Object (任意) 
   * `httpReferrer` String (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
-  * `extraHeaders` String (optional) - Extra headers separated by "\n".
+  * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
@@ -553,7 +553,7 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 
-Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
+指定されたファイルをウインドウにロードします。`filePath` は、アプリケーションのルートを基準にした HTML ファイルへのパスにする必要があります。 たとえば以下のようなアプリの構造において、
 
 ```sh
 | root
@@ -563,7 +563,7 @@ Loads the given file in the window, `filePath` should be a path to an HTML file 
 |   - index.html
 ```
 
-Would require code like this
+このようなコードが必要です。
 
 ```js
 win.loadFile('src/index.html')
@@ -699,7 +699,7 @@ console.log(currentURL)
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+実行されたコードの結果が Promise の場合、コールバックの結果は Promise の解決された値になります。返された Promise を使用して、Promise を生成するコードを処理することを推奨します。
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -739,9 +739,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - 拡大レベル。
 
-指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 The formula for this is `scale := 1.2 ^ level`.
+指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 この式は `scale := 1.2 ^ level` です。
 
 #### `contents.getZoomLevel(callback)`
 
@@ -829,11 +829,11 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `text` String - 検索するコンテンツ。空にしてはいけません。
 * `options` Object (任意) 
-  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. 他のいくつかの単語内一致を受け入れる。省略値は `false`。
+  * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
+  * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
+  * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
+  * `wordStart` Boolean (任意) - 単語の始めだけを見るかどうか。省略値は `false`。
+  * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
@@ -860,7 +860,7 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -893,7 +893,7 @@ console.log(requestId)
   * `printBackground` Boolean (任意) - ウェブページの背景色と画像も印刷するかどうか。省略値は `false`。
   * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
 * `callback` Function (任意) 
-  * `success` Boolean - Indicates success of the print call.
+  * `success` Boolean - 印刷呼び出しの成功を示す。
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
@@ -904,11 +904,11 @@ console.log(requestId)
 #### `contents.printToPDF(options, callback)`
 
 * `options` Object 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (任意) - 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
+  * `pageSize` String (任意) - 生成する PDF のページサイズを指定する。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
+  * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
+  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
 * `callback` Function 
   * `error` Error
   * `data` Buffer
@@ -977,15 +977,15 @@ win.webContents.on('devtools-opened', () => {
 
 * `devToolsWebContents` WebContents
 
-Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
+`devToolsWebContents` を開発者向けツールを表示するターゲット `WebContents` として使用します。
 
-The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
+`devToolsWebContents` はナビゲーションを行ってはいけません。また、コール後に他の目的に使用することはできません。
 
-By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
+デフォルトでは、Electron は開発者が制御を非常に制限したネイティブビューを持つ内部 `WebContents` を作成することによって開発者向けツールを管理します。 `setDevToolsWebContents` メソッドでは、開発者は任意の `WebContents` を使用して、`BrowserWindow`、`BrowserView`、`<webview>` タグなどの開発者向けツールを表示できます。
 
-Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
+開発者向けツールを閉じても `devToolsWebContents` は破棄されないことに注意してください。 `devToolsWebContents` を破棄するのは呼び出し元の責任です。
 
-An example of showing devtools in a `<webview>` tag:
+`<webview>` タグ内で開発者向けツールを表示する例:
 
 ```html
 <html>
@@ -1013,7 +1013,7 @@ An example of showing devtools in a `<webview>` tag:
 </html>
 ```
 
-An example of showing devtools in a `BrowserWindow`:
+`BrowserWindow` 内で開発者向けツールを表示する例:
 
 ```js
 const {app, BrowserWindow} = require('electron')
