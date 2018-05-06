@@ -88,7 +88,7 @@ console.log(systemPreferences.isDarkMode())
   * `event` String
   * `userInfo` Object
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
+`subscribeNotification` と同じですが、ローカルデフォルトでは `NSNotificationCenter` を使用します。これは、`NSUserDefaultsDidChangeNotification` などのイベントに必要です。
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -98,14 +98,14 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - a dictionary of (`key: value`) user defaults 
+* `defaults` Object - ユーザデフォルト (`key: value`) の辞書配列 
 
-Add the specified defaults to your application's `NSUserDefaults`.
+アプリケーションの `NSUserDefaults` へ指定したデフォルトを追加します。
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array` または `dictionary` にできます。
 
 戻り値 `any` - `NSUserDefaults` 内の `key` の値。
 
@@ -122,7 +122,7 @@ Add the specified defaults to your application's `NSUserDefaults`.
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
+* `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] を参照してください。
 * `value` String
 
 `NSUserDefaults` 内の `key` の値を設定します。
