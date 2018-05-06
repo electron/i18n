@@ -15,14 +15,14 @@
     * `event` Event
   * `role` String (任意) - メニューアイテムの動作を定義する。`click` プロパティを指定した場合は無視される。[roles](#roles) を参照。
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
-  * `label` String (optional)
-  * `sublabel` String (optional)
+  * `label` String (任意)
+  * `sublabel` String (任意)
   * `accelerator` [Accelerator](accelerator.md) (任意)
   * `icon` ([NativeImage](native-image.md) | String) (任意)
   * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできない。
   * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
   * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. もし `submenu` を指定した場合、`type: 'submenu'` は省略できる。 If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (任意) - type が `submenu` のメニューアイテムに対してのみ指定する必要がある。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できる。 値が [`Menu`](menu.md) でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換される。
   * `id` String (任意) - 一つの menu 内で一意なもの。これが定義されていれば、position 属性によってこのアイテムへの参照として利用できる。
   * `position` String (任意) - このフィールドは与えられたメニュー内の特定の場所を細かく定義できる。
 
@@ -48,16 +48,16 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `close` - 現在のウィンドウを閉じる.
 * `quit` - アプリケーションを終了する.
 * `reload` - 現在のウィンドウをリロード.
-* `forceReload` - Reload the current window ignoring the cache.
-* `toggleDevTools` - Toggle developer tools in the current window.
-* `toggleFullScreen`- Toggle full screen mode on the current window.
-* `resetZoom` - Reset the focused page's zoom level to the original size.
-* `zoomIn` - Zoom in the focused page by 10%.
-* `zoomOut` - Zoom out the focused page by 10%.
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
+* `forceReload` - キャッシュを無視して現在のウィンドウをリロード
+* `toggleDevTools` - 現在のウィンドウの開発者向けツールのトグル切り替え.
+* `toggleFullScreen`- 現在のウィンドウの全画面モードのトグル切り替え.
+* `resetZoom` - フォーカス中のページのズームレベルを元のサイズにリセット.
+* `zoomIn` - フォーカス中のページを 10% 拡大
+* `zoomOut` - フォーカス中のページを 10% 縮小
+* `editMenu` - デフォルトの"編集"メニュー全体 (元に戻す、コピー、等)。
+* `windowMenu` - デフォルトの"ウインドウ"メニュー全体 (最小化、閉じる、等)。
 
-The following additional roles are available on *macOS*:
+以下は *macOS* で有効な追加の role です。
 
 * `about` - `orderFrontStandardAboutPanel` アクションにマップ.
 * `hide` - `hide` アクションにマップ.
