@@ -71,8 +71,8 @@ app.on('ready', () => {
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
-* `position` [Point](structures/point.md) - The position of the event.
+* `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
+* `position` [Point](structures/point.md) - イベントの位置。
 
 tray アイコンがクリックされたときに発行されます。
 
@@ -83,7 +83,7 @@ tray アイコンがクリックされたときに発行されます。
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
 tray アイコンが右クリックされたときに発行されます。
 
@@ -94,7 +94,7 @@ tray アイコンが右クリックされたときに発行されます。
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
 tray アイコンがダブルクリックされたときに発行されます。
 
@@ -124,7 +124,7 @@ tray アイコン上にドラッグされたファイルがドロップされた
 #### イベント: 'drop-text' *macOS*
 
 * `event` Event
-* `text` String - the dropped text string.
+* `text` String - ドロップされたテキスト文字列。
 
 tray アイコン上にドラッグされたテキストがドロップされたときに発行されます。
 
@@ -147,7 +147,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - イベントの位置。
 
 マウスが tray アイコン内に入ったときに発行されます。
 
@@ -158,7 +158,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - イベントの位置。
 
 マウスが tray アイコン内から出たときに発行されます。
 
@@ -169,7 +169,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - イベントの位置。
 
 マウスが tray アイコン内で動いたときに発行されます。
 
