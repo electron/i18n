@@ -53,17 +53,17 @@ macOSネイティブなアクションに関しては[macOS Cocoa Event Handling
 #### `menu.popup(options)`
 
 * `options` Object 
-  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+  * `window` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
   * `x` Number (任意) - デフォルトはマウスカーソルの位置。`y` が宣言されている場合はこれを宣言しなければいけない。
   * `y` Number (任意) - デフォルトはマウスカーソルの位置。`x` が宣言されている場合はこれを宣言しなければいけない。
   * `positioningItem` Number (任意) *macOS* - マウスカーソルの位置に配置するメニューアイテムのインデックス。省略値は -1。
-  * `callback` Function (optional) - Called when menu is closed.
+  * `callback` Function (任意) - メニューが閉じたしたときに呼ばれます。
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+この menu を [`BrowserWindow`](browser-window.md) 内のコンテキストメニューとしてポップアップします。
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
 
 `browserWindow` 内のこのコンテキストメニューを閉じます。
 
