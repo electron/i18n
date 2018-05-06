@@ -64,8 +64,8 @@ win.show()
 * 透明なウインドウのサイズを変更することはできません。`resizable` を `true` に設定すると、いくつかのプラットフォームでは透明なウインドウが機能しなくなることがあります。
 * `blur` フィルターはWebページにしか適用されないため、ウインドウの下にあるコンテンツ (すなわち、ユーザーのシステムで開かれた他のアプリケーション) にぼかし効果を適用する方法はありません。
 * Windowsオペレーティングシステムでは、DWMが無効なとき、透明なウインドウは機能しません。
-* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-* On Mac, the native window shadow will not be shown on a transparent window.
+* Linux では、GPU を無効にして透明なウインドウを作成するための ARGB を許可するため、ユーザーがコマンドラインに `--enable-transparent-visuals --disable-gpu` を指定しなければなりません。これは、Linux における [いくつかの NVidia ドライバーでアルファチャンネルが機能しない](https://code.google.com/p/chromium/issues/detail?id=369209) という上流のバグによるものです。
+* Mac では、ネイティブウインドウの影は透明なウインドウには表示されません。
 
 ## クリックスルーウインドウ
 
