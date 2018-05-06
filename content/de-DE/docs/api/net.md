@@ -42,7 +42,7 @@ The `net` API can be used only after the application emits the `ready` event. Tr
 
 ## Methoden
 
-The `net` module has the following methods:
+Das Modul `net` besitzt folgende Methoden:
 
 ### `net.request(options)`
 
