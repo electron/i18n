@@ -117,7 +117,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | su         | Sundanese                 |
 | sv         | Schwedisch                |
 | sw         | Swahili                   |
-| ta         | Tamil                     |
+| ta         | Tamilisch                 |
 | te         | Telugu                    |
 | tg         | Tajik                     |
 | th         | Thailändisch              |
