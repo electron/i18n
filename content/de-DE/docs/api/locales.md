@@ -12,7 +12,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | az         | Aserbaidschanisch         |
 | be         | Weißrussisch              |
 | bg         | Bulgarisch                |
-| bh         | Bihari                    |
+| bh         | Biharisch                 |
 | bn         | Bengalisch                |
 | br         | Bretonisch                |
 | bs         | Bosnisch                  |
@@ -41,17 +41,17 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | fa         | Persisch                  |
 | fi         | Finnisch                  |
 | fil        | Filipino                  |
-| fo         | Faroese                   |
+| fo         | Färöisch                  |
 | fr         | Französisch               |
 | fr-CA      | Französisch (Kanada)      |
 | fr-CH      | Französisch (Schweiz)     |
 | fr-FR      | Französisch (Frankreich)  |
-| fy         | Frisian                   |
+| fy         | Friesisch                 |
 | ga         | Irisch                    |
 | gd         | Schottisches Gälisch      |
-| gl         | Galician                  |
+| gl         | Galizisch                 |
 | gn         | Guarani                   |
-| gu         | Gujarati                  |
+| gu         | Gujaratisch               |
 | ha         | Hausa                     |
 | haw        | Hawaiian                  |
 | he         | Hebräisch                 |
@@ -67,18 +67,18 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | it-IT      | Italienisch (Italian)     |
 | ja         | Japanisch                 |
 | jw         | Javanese                  |
-| ka         | Georgian                  |
-| kk         | Kazakh                    |
-| km         | Cambodian                 |
+| ka         | Georgisch                 |
+| kk         | Kasachisch                |
+| km         | Kambodschanisch           |
 | kn         | Kannada                   |
 | ko         | Koreanisch                |
 | ku         | Kurdisch                  |
-| ky         | Kyrgyz                    |
-| la         | Latin                     |
+| ky         | Kirgisisch                |
+| la         | Lateinisch                |
 | ln         | Lingala                   |
-| lo         | Laothian                  |
+| lo         | Laotisch                  |
 | lt         | Lithuanian                |
-| lv         | Latvian                   |
+| lv         | Lettisch                  |
 | mk         | Macedonian                |
 | ml         | Malayalam                 |
 | mn         | Mongolisch                |
@@ -105,7 +105,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | ro         | Rumänisch                 |
 | ru         | Russisch                  |
 | sd         | Sindhi                    |
-| sh         | Serbo-Croatian            |
+| sh         | Serbo-Kroatisch           |
 | si         | Sinhalese                 |
 | sk         | Slowakisch                |
 | sl         | Slowenisch                |
