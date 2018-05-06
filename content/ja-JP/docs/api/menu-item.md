@@ -68,15 +68,15 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `front` - `arrangeInFront` アクションに割り当てる。
 * `zoom` - `performZoom` アクションに割り当てる。
 * `toggleTabBar` - `toggleTabBar` アクションに割り当てる。
-* `selectNextTab` - Map to the `selectNextTab` action.
-* `selectPreviousTab` - Map to the `selectPreviousTab` action.
-* `mergeAllWindows` - Map to the `mergeAllWindows` action.
-* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - "ウインドウ"サブメニュー.
-* `help` - "ヘルプ"サブメニュー.
-* `services` - "サービス"サブメニュー.
-* `recentDocuments` - The submenu is an "Open Recent" menu.
-* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* `selectNextTab` - `selectNextTab` アクションに割り当てる。
+* `selectPreviousTab` - `selectPreviousTab` アクションに割り当てる。
+* `mergeAllWindows` - `mergeAllWindows` アクションに割り当てる。
+* `moveTabToNewWindow` - `moveTabToNewWindow` アクションに割り当てる。
+* `window` - "ウインドウ"サブメニュー。
+* `help` - "ヘルプ"サブメニュー。
+* `services` - "サービス"サブメニュー。
+* `recentDocuments` - "最近使った項目を開く"サブメニュー。
+* `clearRecentDocuments` - `clearRecentDocuments` アクションに割り当てる。
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
