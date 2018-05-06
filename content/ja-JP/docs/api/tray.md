@@ -203,7 +203,7 @@ macOS において、この tray アイコンが押されたときの関連付�
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
+ステータスバー内の tray アイコンの脇に表示されるタイトル (ANSI カラーサポート) を設定します。
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
