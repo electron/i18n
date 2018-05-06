@@ -2,21 +2,21 @@
 
 > Locale values returned by `app.getLocale()`.
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitteln. Mögliche Werte sind unten aufgeführt:
 
-| Sprachcode | Language Name             |
+| Sprachcode | Sprachname                |
 | ---------- | ------------------------- |
 | af         | Afrikanisch               |
-| am         | Amharic                   |
+| am         | Amharisch                 |
 | ar         | Arabisch                  |
 | az         | Aserbaidschanisch         |
-| be         | Belarusian                |
-| bg         | Bulgarian                 |
+| be         | Weißrussisch              |
+| bg         | Bulgarisch                |
 | bh         | Bihari                    |
 | bn         | Bengali                   |
-| br         | Breton                    |
+| br         | Bretonisch                |
 | bs         | Bosnian                   |
-| ca         | Catalan                   |
+| ca         | Katalanisch               |
 | co         | Korsisch                  |
 | cs         | Tschechisch               |
 | cy         | Walisisch                 |
@@ -36,7 +36,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | eo         | Esperanto                 |
 | es         | Spanisch                  |
 | es-419     | Spanisch (Lateinamerika)  |
-| et         | Estonian                  |
+| et         | Estnisch                  |
 | eu         | Basque                    |
 | fa         | Persian                   |
 | fi         | Finnisch                  |
@@ -54,7 +54,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | gu         | Gujarati                  |
 | ha         | Hausa                     |
 | haw        | Hawaiian                  |
-| he         | Hebrew                    |
+| he         | Hebräisch                 |
 | hi         | Hindi                     |
 | hr         | Croatian                  |
 | hu         | Ungarisch                 |
@@ -97,7 +97,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | pa         | Punjabi                   |
 | pl         | Polnisch                  |
 | ps         | Pashto                    |
-| pt         | Portuguese                |
+| pt         | Portugiesisch             |
 | pt-BR      | Portuguese (Brazil)       |
 | pt-PT      | Portuguese (Portugal)     |
 | qu         | Quechua                   |
