@@ -19,19 +19,19 @@
 
 ## メソッド
 
-The `inAppPurchase` module has the following methods:
+`inAppPurchase` モジュールには以下のメソッドがあります。
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
 * `productID` String - 購入対象のプロダクトID。 (`com.example.app.product1` のIDは `product1` です).
-* `quantity` Integer (任意) - ユーザーが購入しようとしている商品数
-* `callback` Function (任意) - PaymentQueueに支払い情報が追加されたときに呼び出されるコールバック。 (You should add a listener with `inAppPurchase.addTransactionsListener` to get the transaction status). 
-  * `isProductValid` Boolean - Determine if the product is valid and added to the payment queue.
+* `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
+* `callback` Function (任意) - PaymentQueueに支払い情報が追加されたときに呼び出されるコールバック。 (トランザクション状態を取得するのに `inAppPurchase.addTransactionsListener` でリスナを追加する必要があります)。 
+  * `isProductValid` Boolean - プロダクトが有効かつ支払いキューに追加されたかどうか決定する。
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `true` if the user can make a payment and `false` otherwise.
+ユーザーが支払いできる場合は `true` を、それ以外では `false` を返します。
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+戻り値 `String` - 領収書へのパス。
