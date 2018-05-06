@@ -44,30 +44,30 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `pasteAndMatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - 現在のウィンドウを最小化.
-* `close` - 現在のウィンドウを閉じる.
-* `quit` - アプリケーションを終了する.
-* `reload` - 現在のウィンドウをリロード.
-* `forceReload` - キャッシュを無視して現在のウィンドウをリロード
-* `toggleDevTools` - 現在のウィンドウの開発者向けツールのトグル切り替え.
-* `toggleFullScreen`- 現在のウィンドウの全画面モードのトグル切り替え.
-* `resetZoom` - フォーカス中のページのズームレベルを元のサイズにリセット.
-* `zoomIn` - フォーカス中のページを 10% 拡大
-* `zoomOut` - フォーカス中のページを 10% 縮小
+* `minimize` - 現在のウィンドウを最小化する。
+* `close` - 現在のウィンドウを閉じる。
+* `quit` - アプリケーションを終了する。
+* `reload` - 現在のウィンドウをリロードする。
+* `forceReload` - キャッシュを無視して現在のウィンドウをリロードする。
+* `toggleDevTools` - 現在のウィンドウの開発者向けツールのトグル切り替えをする。
+* `toggleFullScreen`- 現在のウィンドウの全画面モードのトグル切り替えをする。
+* `resetZoom` - フォーカス中のページのズームレベルを元のサイズにリセットする。
+* `zoomIn` - フォーカス中のページを 10% 拡大する。
+* `zoomOut` - フォーカス中のページを 10% 縮小する。
 * `editMenu` - デフォルトの"編集"メニュー全体 (元に戻す、コピー、等)。
 * `windowMenu` - デフォルトの"ウインドウ"メニュー全体 (最小化、閉じる、等)。
 
 以下は *macOS* で有効な追加の role です。
 
-* `about` - `orderFrontStandardAboutPanel` アクションにマップ.
-* `hide` - `hide` アクションにマップ.
-* `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - `unhideAllApplications` アクションにマップ.
-* `startSpeaking` - Map to the `startSpeaking` action.
-* `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - `arrangeInFront` アクションにマップ.
-* `zoom` - `performZoom` アクションにマップ.
-* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `about` - `orderFrontStandardAboutPanel` アクションに割り当てる。
+* `hide` - `hide` アクションに割り当てる。
+* `hideOthers` - `hideOtherApplications` アクションに割り当てる。
+* `unhide` - `unhideAllApplications` アクションに割り当てる。
+* `startSpeaking` - `startSpeaking` アクションに割り当てる。
+* `stopSpeaking` - `stopSpeaking` アクションに割り当てる。
+* `front` - `arrangeInFront` アクションに割り当てる。
+* `zoom` - `performZoom` アクションに割り当てる。
+* `toggleTabBar` - `toggleTabBar` アクションに割り当てる。
 * `selectNextTab` - Map to the `selectNextTab` action.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
 * `mergeAllWindows` - Map to the `mergeAllWindows` action.
