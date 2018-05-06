@@ -56,12 +56,12 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | haw        | Hawaiian                  |
 | he         | Hebräisch                 |
 | hi         | Hindi                     |
-| hr         | Croatian                  |
+| hr         | Kroatisch                 |
 | hu         | Ungarisch                 |
 | hy         | Armenisch                 |
 | ia         | Interlingua               |
 | id         | Indonesisch               |
-| is         | Icelandic                 |
+| is         | Isländisch                |
 | it         | Italienisch               |
 | it-CH      | Italienisch (Schweiz)     |
 | it-IT      | Italienisch (Italian)     |
@@ -77,31 +77,31 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | la         | Lateinisch                |
 | ln         | Lingala                   |
 | lo         | Laotisch                  |
-| lt         | Lithuanian                |
+| lt         | Litauisch                 |
 | lv         | Lettisch                  |
-| mk         | Macedonian                |
+| mk         | Mazedonisch               |
 | ml         | Malayalam                 |
 | mn         | Mongolisch                |
-| mo         | Moldavian                 |
+| mo         | Moldavisch                |
 | mr         | Marathi                   |
-| ms         | Malay                     |
-| mt         | Maltese                   |
-| nb         | Norwegian (Bokmal)        |
-| ne         | Nepali                    |
+| ms         | Malaiisch                 |
+| mt         | Maltesisch                |
+| nb         | Norwegisch (Bokmål)       |
+| ne         | Nepalesisch               |
 | nl         | Niederländisch            |
-| nn         | Norwegian (Nynorsk)       |
+| nn         | Norwegisch (Nynorsk)      |
 | no         | Norwegisch                |
-| oc         | Occitan                   |
+| oc         | Okzitanisch               |
 | om         | Oromo                     |
 | oder       | Oriya                     |
 | pa         | Punjabi                   |
 | pl         | Polnisch                  |
-| ps         | Pashto                    |
+| ps         | Paschtu                   |
 | pt         | Portugiesisch             |
 | pt-BR      | Portugiesisch (Brasilien) |
 | pt-PT      | Portugiesisch (Portugal)  |
 | qu         | Quechua                   |
-| rm         | Romansh                   |
+| rm         | Rätoromanisch             |
 | ro         | Rumänisch                 |
 | ru         | Russisch                  |
 | sd         | Sindhi                    |
