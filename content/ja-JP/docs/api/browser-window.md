@@ -646,7 +646,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 * `enable` Boolean
 
-Disable or enable the window.
+ウインドウを無効にするか有効にします。
 
 #### `win.setSize(width, height[, animate])`
 
@@ -942,7 +942,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+`webContents.loadFile` と同じで、`filePath` はアプリケーションのルートからの相対パスで指す HTML でなければいけません。詳細は `webContents` ドキュメントを参照してください。
 
 #### `win.reload()`
 
@@ -958,7 +958,7 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 
 * `progress` Double
 * `options` Object (任意) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+  * `mode` String *Windows* - プログレスバーのモード。`none`、`normal`、`indeterminate`、`error` または `paused` にすることができます。
 
 プログレスバーの進捗値を設定します。有効範囲は、[0, 1.0] です。
 
