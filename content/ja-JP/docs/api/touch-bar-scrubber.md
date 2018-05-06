@@ -28,7 +28,7 @@
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+スクラバー内の選択したアイテムのスタイルを表す `String`。この値を更新すると、すぐにタッチバーのコントロールが更新されます。以下は取りうる値です。
 
 * `background` - `[NSScrubberSelectionStyle roundedBackgroundStyle]` に割り当て.
 * `outline` - `[NSScrubberSelectionStyle outlineOverlayStyle]` に割り当て.
