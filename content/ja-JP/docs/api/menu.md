@@ -120,13 +120,13 @@ menu のアイテムが入った配列 `MenuItem[]`。
 
 ### インスタンスイベント
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+`new Menu` で作成されたオブジェクトまたは `Menu.buildFromTemplate` によって返されたオブジェクトは、以下のイベントが発生します。
 
 ## サンプル
 
 `Menu` クラスはメインプロセスでのみ有効ですが、[`remote`](remote.md) オブジェクトを介してレンダラープロセス内で使うこともできます。
 
-### メインプロセス (main process)
+### メインプロセス
 
 シンプルなテンプレートAPIを使用して、メインプロセスでアプリケーションメニューを作成するサンプル。
 
@@ -222,7 +222,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### レンダープロセス (render process)
+### レンダラープロセス
 
 以下はウェブページ (レンダープロセス) で [`remote`](remote.md) オブジェクトを用いて動的にメニューを作成し、ユーザがページを右クリックしたときに表示するサンプルです。
 
@@ -233,7 +233,7 @@ const {remote} = require('electron')
 const {Menu, MenuItem} = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clicked') }}))
+menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 がクリックされた') }}))
 menu.append(new MenuItem({type: 'separator'}))
 menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
