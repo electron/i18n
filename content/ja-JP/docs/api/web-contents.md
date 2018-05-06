@@ -1037,7 +1037,7 @@ app.once('ready', () => {
 
 開発者向けツールを開く。
 
-When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
+`contents` が `<webview>` タグである場合、デフォルトでは `mode` が `detach` になり、空の `mode` を明示的に渡すと最後に使用されたドックステートを使用して強制的に実行されます。
 
 #### `contents.closeDevTools()`
 
@@ -1073,7 +1073,7 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 
 `channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
 以下はメインプロセスからレンダラープロセスにメッセージを送る例です。
 
@@ -1097,7 +1097,7 @@ app.on('ready', () => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Prints 'whoooooooh!'
+      console.log(message)  // 'whoooooooh!' と出力
     })
   </script>
 </body>
@@ -1125,10 +1125,10 @@ app.on('ready', () => {
 #### `contents.sendInputEvent(event)`
 
 * `event` Object 
-  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
+  * `type` String (**必須**) - イベントのタイプ。`mouseDown`、`mouseUp`、`mouseEnter`、`mouseLeave`、`contextMenu`、`mouseWheel`、`mouseMove`、`keyDown`、`keyUp` または `char` にできる。
   * `modifiers` String[] - イベントの修飾子の配列。`shift`、`control`、`alt`、`meta`、`isKeypad`、`isAutoRepeat`、`leftButtonDown`、`middleButtonDown`、`rightButtonDown`、`capsLock`、`numLock`、`left`、`right` を含めることができる。
 
-入力 `event` をページに送ります。 **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
+入力 `event` をページに送ります。 **注釈:** `sendInputEvent()` が動くには、そのコンテツを含む [`BrowserWindow`](browser-window.md) がフォーカスされている必要があります。
 
 キーボードイベントでは、`event` オブジェクトは以下のプロパティも持ちます。
 
@@ -1138,7 +1138,7 @@ app.on('ready', () => {
 
 * `x` Integer (**必須**)
 * `y` Integer (**必須**)
-* `button` String - The button pressed, can be `left`, `middle`, `right`.
+* `button` String - 押されたボタン。`left`、`middle`、`right` にできる。
 * `globalX` Integer
 * `globalY` Integer
 * `movementX` Integer
@@ -1158,7 +1158,7 @@ app.on('ready', () => {
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
+* `onlyDirty` Boolean (任意) - 省略値は `false`。
 * `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1261,9 +1261,9 @@ win.webContents.on('did-finish-load', () => {
   * `default` - ユーザの公開IPとローカルIPを公開します。 これはデフォルトの動作です。 このポリシーが使用されるとき、WebRTC には、すべてのインターフェースを列挙し、それらを結合して公開インターフェースを検出する権利があります。
   * `default_public_interface_only` - ユーザの公開IPを公開しますが、ユーザのローカルIPは公開しません。 このポリシーが使用されるとき、WebRTC は HTTP が使用するデフォルトのルートのみを使用する必要があります。 これはどのローカルアドレスも公開しません。
   * `default_public_and_private_interfaces` - ユーザの公開IPとローカルIPを公開します。 このポリシーが使用されるとき、WebRTC は HTTP が使用するデフォルトのルートのみを使用する必要があります。 これは関連するデフォルトのプライベートアドレスも公開します。 デフォルトルートは、マルチホームのエンドポイント上で OS によって選択されたルートです。
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+  * `disable_non_proxied_udp` - 公開IPやローカルIPを公開しません。このポリシーが使用されるとき、WebRTCは、プロキシサーバーがUDPをサポートしていない限り、TCPを使用してピアまたはサーバーに接続する必要があります。
 
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+WebRTC IP ハンドリングポリシーを設定すると、WebRTC を介して公開される IP を制御できます。より詳しくは [BrowserLeaks](https://browserleaks.com/webrtc) を参照して下さい。
 
 #### `contents.getOSProcessId()`
 
