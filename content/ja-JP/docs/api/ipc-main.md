@@ -20,12 +20,12 @@
 // メインプロセス
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg)  // "ping"を表示
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg)  // "ping"を表示
   event.returnValue = 'pong'
 })
 ```
