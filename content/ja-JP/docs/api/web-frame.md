@@ -91,7 +91,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 * `options` Object (任意) 
-  * `secure` Boolean (optional) - Default true.
+  * `secure` Boolean (任意) - 省略値は true。
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
   * `supportFetchAPI` Boolean (optional) - Default true.
