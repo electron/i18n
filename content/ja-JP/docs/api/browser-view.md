@@ -6,7 +6,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). 外側のウインドウを基準にして配置される点を除いて、子ウインドウのようなものです。 `webview` タグの代替となるものです。
+`BrowserView` は、[`BrowserWindow`](browser-window.md) に追加のウェブコンテンツを埋め込むのに使用することができます。 外側のウインドウを基準にして配置される点を除いて、子ウインドウのようなものです。 `webview` タグの代替となるものです。
 
 ## 例
 
