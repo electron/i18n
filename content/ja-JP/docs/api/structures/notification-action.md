@@ -1,13 +1,13 @@
 # NotificationAction オブジェクト
 
 * `type` String - アクションタイプ。`button` にできる。
-* `text` String (optional) - The label for the given action.
+* `text` String (任意) - 指定されたアクションのラベル。
 
 ## プラットフォーム / 動作サポート
 
-| アクションタイプ | サポートプラットフォーム | `text` の用途 | デフォルト `text`                                                                                | 制限事項                                                                                                                                                                                                                                                                      |
-| -------- | ------------ | ---------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button` | macOS        | ボタンのラベル    | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Only the first one is used. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| アクションタイプ | サポートプラットフォーム | `text` の用途 | デフォルト `text`                                           | 制限事項                                                                                                                                                                               |
+| -------- | ------------ | ---------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button` | macOS        | ボタンのラベル    | "Show" (または `button` のようなシステムデフォルトでローカライズされた文字列か、空文字列) | 最初のもののみが使用されます。 複数が指定された場合、最初以外は追加のアクション (アクションボタンにマウスオーバーした時に表示される) としてリストされます。 Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### macOS でのボタンサポート
 
