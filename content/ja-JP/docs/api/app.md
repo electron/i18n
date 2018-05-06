@@ -148,7 +148,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` Object - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
 ### イベント: 'new-window-for-tab' *macOS*
 
@@ -313,14 +313,14 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 * `exitCode` Integer (任意)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+`exitCode` ですぐに終了します。`exitCode` の省略値は0です。
 
 ユーザに確認することなくすべてのウインドウがすぐに閉じられ、`before-quit` および `will-quit` イベントは発生しません。
 
 ### `app.relaunch([options])`
 
 * `options` Object (任意) 
-  * `args` String[] (optional)
+  * `args` String[] (任意)
   * `execPath` String (任意)
 
 現在のインスタンスが終了したときに、アプリを再起動します。
@@ -384,7 +384,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 * `pictures` ユーザのピクチャのディレクトリ。
 * `videos` ユーザのビデオのディレクトリ。
 * `logs` アプリのログフォルダのディレクトリ。
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
 
 ### `app.getFileIcon(path[, options], callback)`
 
