@@ -438,11 +438,11 @@ webview.addEventListener('dom-ready', () => {
 
 * `text` String - 検索するコンテンツ。空にしてはいけません。
 * `options` Object (任意) 
-  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. 他のいくつかの単語内一致を受け入れる。省略値は `false`。
+  * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
+  * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
+  * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
+  * `wordStart` Boolean (任意) - 単語の始めだけを見るかどうか。省略値は `false`。
+  * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
@@ -469,11 +469,11 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.printToPDF(options, callback)`
 
 * `options` Object 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (任意) - 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
+  * `pageSize` String (任意) - 生成する PDF のページサイズを指定する。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
+  * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
+  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
 * `callback` Function 
   * `error` Error
   * `data` Buffer
@@ -482,7 +482,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -513,7 +513,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - 拡大レベル。
 
 指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。
 
