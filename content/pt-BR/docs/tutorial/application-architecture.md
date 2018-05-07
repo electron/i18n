@@ -30,7 +30,7 @@ Electron oferece uma série de APIs que suportam o desenvolvimento de uma aplica
 const electron = require('electron')
 ```
 
-Todas as Electron APIs são atribuídas em um tipo de processo. Muitos deles só podem ser usados a partir do processo principal, algumas a partir do processo de renderização e outros em ambos. A documentação individual de cada API irá especificar a partir de qual processo ela pode ser utilizada.
+Todas as Electron APIs são atribuídas em um tipo de processo. Muitos deles só podem ser usados a partir do processo principal, algumas a partir do processo de renderização e outros em ambos. The documentation for each individual API will state which process it can be used from.
 
 Uma janela no Electron, por exemplo, é criada usando a classe `BrowserWindow`. Disponível apenas no processo principal.
 
@@ -53,7 +53,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## Usando Node.js APIs
 
 Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
 
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md) (it's easy).
+The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
