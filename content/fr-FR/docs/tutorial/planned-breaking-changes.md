@@ -1,4 +1,4 @@
-# Changements API non rétro-compatible prévus
+# Planned Breaking API Changes (3.0)
 
 La liste suivante inclut les APIs qui seront supprimés dans Electron 3.0.
 
@@ -146,3 +146,32 @@ Remplacé par : https://atom.io/download/electron
 ## commentaires `FIXME`
 
 La chaîne de caractère `FIXME` est utilisée dans les commentaires de code pour désigner les choses qu’il convient de fixer pour la version 3.0. Voir https://github.com/electron/electron/search?q=fixme
+
+# Planned Breaking API Changes (4.0)
+
+La liste suivante inclut les APIs qui seront supprimés dans Electron 4.0.
+
+Il n'y a pas de planning pour la sortie de cette version, mais des avertissements de dépréciation seront ajoutés au moins [une version majeure ](electron-versioning.md#semver)au préalable.
+
+## `app.makeSingleInstance`
+
+```js
+// Deprecated
+app.makeSingleInstance(function (argv, cwd) {
+
+})
+// Replace with
+app.requestSingleInstanceLock()
+app.on('second-instance', function (argv, cwd) {
+
+})
+```
+
+## `app.releaseSingleInstance`
+
+```js
+// Deprecated
+app.releaseSingleInstance()
+// Replace with
+app.releaseSingleInstanceLock()
+```
