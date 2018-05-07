@@ -50,7 +50,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 * `channel` String (Строка)
 * `listener` Function (Функция)
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+Слушает `channel`, когда приходит новое сообщение `listener` вызовется с `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
@@ -64,17 +64,17 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 * `channel` String (Строка)
 * `listener` Function (Функция)
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Удаляет указанный `listener` из массива слушателей конкретного `channel`.
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` String (Строка)
 
-Removes listeners of the specified `channel`.
+Удаляет всех слушателей `channel`.
 
-## Event object
+## Объект события
 
-The `event` object passed to the `callback` has the following methods:
+Объект события (`event`) переданный, в функцию обратного вызова (`callback`) обладает следующими методами:
 
 ### `event.returnValue`
 
