@@ -60,7 +60,7 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function
+* `listener` Function (Функция)
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
@@ -99,7 +99,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 * `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function
+* `listener` Function (Функция)
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
