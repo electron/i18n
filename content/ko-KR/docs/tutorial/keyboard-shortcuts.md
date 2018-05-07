@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-유저의 운영체제를 기반에 따라 서로 다른 키 조합을 설정하는 것 또한 쉽습니다.
+You can configure different key combinations based on the user's operating system.
 
 ```js
 {
