@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-Bardzo łatwo można skonfigurować inne skróty klawiszowe, zależne od systemu operacyjnego użytkownika.
+You can configure different key combinations based on the user's operating system.
 
 ```js
 {
