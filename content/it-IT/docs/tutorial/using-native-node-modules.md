@@ -65,7 +65,7 @@ Se hai installato un modulo nativo ed hai trovato che non fosse funzionante, dev
 
 ## Moduli rilevanti su `prebuild`
 
-[`prebuild`](https://github.com/mafintosh/prebuild) fornisce un modo per pubblicare facilmente i moduli nativi di Node con binari precostruiti per multiple versioni di Node ed Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
 
 Se i moduli forniscono binari per usarli in Electron, assicurati di omettere `--build-from-source` e l'ambiente variabile `npm_config_build_from_source` per prendere pieno vantaggio dai binari precostruiti.
 
