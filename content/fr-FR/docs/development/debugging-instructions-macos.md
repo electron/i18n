@@ -1,10 +1,10 @@
 # Débogage sur macOS
 
-Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, alors le débogage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le débogage natif/C++. Toutefois, à l’aide de base et du code source d'Electron, il est assez facile d'activer le débogage avec des points d’arrêt dans le code source d'Electron. Vous pouvez également utiliser [XCode pour le débogage](debugging-instructions-macos-xcode.md) si vous préférez une interface graphique.
+Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, alors le débogage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le débogage natif/C++. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. Vous pouvez également utiliser [XCode pour le débogage](debugging-instructions-macos-xcode.md) si vous préférez une interface graphique.
 
 ## Spécifications requises
 
-* **Une compilation debug d'Electron** : le moyen le plus simple est généralement de le compiler vous-même, en utilisant les outils et prérequis énumérées dans les [instructions de compilation pour macOS](build-instructions-osx.md). Alors que vous pouvez facilement déboguer Electron puisque vous pouvez le télécharger directement, vous trouverez qu’il est fortement optimisé, ce qui rend le débogage sensiblement plus difficile : le débogueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’inlining, liste d’appels et autres optimisations du compilateur.
+* **Une compilation debug d'Electron** : le moyen le plus simple est généralement de le compiler vous-même, en utilisant les outils et prérequis énumérées dans les [instructions de compilation pour macOS](build-instructions-osx.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
 * **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. Ils incluent LLDB, le débogueur par défaut dans Xcode sur Mac OS X. Il prend en charge le déboggage C, Objective-C et C++ sur les ordinateurs , les appareils iOS et simulateur.
 
@@ -22,7 +22,7 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 LLDB est un outil puissant et supporte plusieurs stratégies d'inspection de code. Pour cette introduction basique, assumons que vous exécutez une commande JavaScript qui ne se comporte pas correctement - donc vous aimeriez voir l'equivalent de cette commande en C++.
 
-Les fichiers de code appropriés peuvent se trouver dans `./atom/`, comme pour Brightray, se trouvant dans `./brightray/browser` et `./brightray/common`. Si vous êtes hardcore, vous pouvez également débogguer Chromium directement, qui se trouve évidemment dans `chromium_src`.
+Les fichiers de code appropriés peuvent se trouver dans `./atom/`, comme pour Brightray, se trouvant dans `./brightray/browser` et `./brightray/common`.
 
 Supposons que vous souhaitez déboguer `app.setName()`, qui est définie dans `browser.cc` comme `Browser::SetName()`. Définissez le point d’arrêt à l’aide de la commande de `breakpoint`, en spécifiant le fichier et la ligne à couper :
 
