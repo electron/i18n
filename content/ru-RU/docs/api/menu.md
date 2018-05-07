@@ -42,7 +42,7 @@ Process: [Main](../glossary.md#main-process)
 
 Возвращает `Menu`
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+В общем случае, `template` просто массив, содержащий `options` и конструирующий [MenuItem](menu-item.md). Пример использования смотрите выше.
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
