@@ -490,7 +490,7 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
-* `channel` String
+* `channel` String (Строка)
 * `...args` any[]
 
 Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
@@ -743,7 +743,7 @@ webview.addEventListener('close', () => {
 
 Возвращает:
 
-* `channel` String
+* `channel` String (Строка)
 * `args` Array
 
 Fired when the guest page has sent an asynchronous message to embedder page.
