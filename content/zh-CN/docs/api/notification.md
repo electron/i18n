@@ -24,7 +24,7 @@
 
 #### `Notification.isSupported()`
 
-Returns ` Boolean `-无论当前系统是否支持桌面通知
+Returns ` Boolean `-当前系统是否支持桌面通知
 
 ### `new Notification([options])` *实验功能*
 
