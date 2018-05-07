@@ -78,8 +78,8 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Установленное значение возращается в синхронном сообщении.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Возвращает `webContents` который послал сообщение. Вы можете вызвать `event.sender.send` чтобы ответить на асинхронное сообщение, [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) для дополнительной информации.
