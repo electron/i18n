@@ -1,6 +1,6 @@
 # Recent Documents (Windows & macOS)
 
-Jendela dan MacOS menyediakan akses mudah untuk daftar dokumen baru-baru ini dibuka oleh aplikasi melalui jumplist atau dermaga menu, masing-masing.
+Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
 **jumplist:**
 
