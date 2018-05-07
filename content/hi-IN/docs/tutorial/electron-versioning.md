@@ -31,7 +31,7 @@ Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spe
 1. semver का कड़ाई से इस्तेमाल
 2. semver-अनुरूप `-beta` टैग से परिचय
 3. [पारंपरिक कमिट संदेशों](https://conventionalcommits.org/) से परिचय
-4. स्पष्ट रूप से परिभाषित स्थिरीकरण शाखायें
+4. Well-defined stabilization branches
 5. The `master` branch is versionless; only stabilization branches contain version information
 
 गिट शाखा, एनपीएम टैगिंग, डेवलपर्स को कैसी अपेक्षा रखनी चाहिये, और कैसे कोई बैकपोर्ट परिवर्तन करें, इन सब चीजों पर हम विस्तार से बात करेंगे |
