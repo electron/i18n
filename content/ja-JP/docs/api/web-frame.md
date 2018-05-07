@@ -133,28 +133,28 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-Work like `executeJavaScript` but evaluates `scripts` in isolated context.
+`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
 
 * `worldId` Integer
 * `csp` String
 
-Set the content security policy of the isolated world.
+イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
 * `worldId` Integer
 * `name` String
 
-Set the name of the isolated world. Useful in devtools.
+イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
 
 * `worldId` Integer
 * `securityOrigin` String
 
-Set the security origin of the isolated world.
+イソレートコンテキストのセキュリティオリジンを設定します。
 
 ### `webFrame.getResourceUsage()`
 
