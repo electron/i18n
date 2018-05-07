@@ -35,7 +35,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
@@ -59,7 +59,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
 リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
@@ -82,7 +82,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
@@ -98,7 +98,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
 `listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
@@ -124,7 +124,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
@@ -143,7 +143,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
@@ -163,7 +163,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
@@ -182,7 +182,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
