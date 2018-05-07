@@ -31,7 +31,7 @@ npm install --save-dev electron@latest
 1. 严格使用 semver
 2. 引入符合 semver 的 `-beta` 标签
 3. 引入[常规提交消息](https://conventionalcommits.org/)
-4. 明确定义的稳定分支
+4. Well-defined stabilization branches
 5. `master`分支没有版本信息，只有稳定分支会包含版本信息。
 
 我们将详细介绍 git 分支是如何工作的，npm 标记是如何工作的，开发人员应该看到什么，以及如何能够支持更改。
