@@ -12,7 +12,7 @@ Anda dapat menggunakan modul  Menu </ 0> untuk mengkonfigurasi cara pintas keybo
    klik: () = & gt; { console.log ('waktu untuk mencetak barang')}}))
 `</pre> 
 
-Sangat mudah untuk mengkonfigurasi kombinasi tombol yang berbeda berdasarkan sistem operasi pengguna.
+You can configure different key combinations based on the user's operating system.
 
 ```js
 {akselerator: platform proses === 'darwin'? 'Alt + Cmd + I': 'Ctrl + Shift + I'}
