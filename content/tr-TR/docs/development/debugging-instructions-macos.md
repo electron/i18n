@@ -1,10 +1,10 @@
 # macOs'da Hata Ayıklama
 
-Eğer Electron'da JavaScriptten kaynaklanmadığını düşündüğünüz Electronun neden olduğu hatalarla karşılaşırsanız, hata ayıklama biraz can sıkıcı olabilir, özellikle yerel / C ++ için kullanılmayan geliştiriciler için hata ayıklama biraz zor olabilir. Bununla birlikte, Electron'un kaynak kodundaki kesme noktaları ile adım adım hata ayıklamayı etkinleştirmek için lldb ve Electron kaynak kodunu kullanmak oldukça kolaydır. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
+Eğer Electron'da JavaScriptten kaynaklanmadığını düşündüğünüz Electronun neden olduğu hatalarla karşılaşırsanız, hata ayıklama biraz can sıkıcı olabilir, özellikle yerel / C ++ için kullanılmayan geliştiriciler için hata ayıklama biraz zor olabilir. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
 ## Gereksinimler
 
-* **Electron'un bir hata ayıklama yapısı**: En kolay yol, genellikle [macOS için yapı talimatları](build-instructions-osx.md)'nda listelenen araçları ve ön koşulları kullanarak onu kendiniz kurmanızdır. Electron hata ayıklamada iken doğrudan indirebilirsiniz ve kolayca ekleyebilirsiniz, büyük çoğunluğunun uygun hale getirildiğini göreceksiniz, hata ayıklama işlemi aslında daha zor: Hata ayıklayıcı size tüm içeriğini gösteremeyecek değişkenleri ve yürütme yolu satırlayıcısı, kuyruk aramaları ve diğerderleyici uygun hale getirilmeleri nedeniyle tuhaf görünebilir.
+* **Electron'un bir hata ayıklama yapısı**: En kolay yol, genellikle [macOS için yapı talimatları](build-instructions-osx.md)'nda listelenen araçları ve ön koşulları kullanarak onu kendiniz kurmanızdır. While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
 * **Xcode**: Xcode'a ek olarak, ayrıca Xcode'un komut satırı araçlarını da yükler. Mac OS X'de Xcode'ın varsayılan hata ayıklayıcısı olan LLDB'yi içerirler. C, Objective-C ve C++ masaüstünde ve iOS aygıtlarında ve simülatöründe hata ayıklamayı destekler.
 
@@ -22,7 +22,7 @@ $ lldb ./out/D/Electron.app
 
 LLDB güçlü bir araçtır ve kod denetimi için birden fazla stratejiyi desteklemektedir. Bu temel giriş için, JavaScript'ten doğru şekilde davranmayan bir komut çağırdığınızı varsayalım -böylece, bu komutun Electron kaynağı içindeki C++ muadili parçasını kırmak istiyorsunuz.
 
-İlgili kod dosyaları, `./ atom / ` 'da olduğu gibi Brightray'de de bulunabilir `./ brightray / tarayıcı ` ve `./ brightray / common `. Eğer kararlı iseniz, Açıkçası ` chromium_src ` 'da bulunan Chromium'u doğrudan hata ayıklayabilirsiniz.
+İlgili kod dosyaları, `./ atom / ` 'da olduğu gibi Brightray'de de bulunabilir `./ brightray / tarayıcı ` ve `./ brightray / common `.
 
 `browser.cc`'da `Browser:: SetName()` olarak tanımlanan `app.setName()`'i hata ayıklamak istediğinizi varsayalım. Devre dışı bırakılacak dosya ve satırı belirterek, kesme noktasını `breakpoint` komutunu kullanarak ayarlayın:
 
