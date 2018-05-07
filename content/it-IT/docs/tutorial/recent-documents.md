@@ -1,6 +1,6 @@
 # Documenti recenti (Windows & macOS)
 
-Windows e macOS forniscono accesso facile alla lista dei documenti recentemente aperti dall'app tramite JumpList o menu dock, rispettivamente.
+Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
 **JumpList:**
 
