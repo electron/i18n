@@ -54,7 +54,7 @@ cd /path-to-module/ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=
 
 `HOME=~/.electron-gyp` geliştirme başlıklarını nerede bulacağınızı değiştirir. `--target=1.2.3` Electron versiyonudur. `--dist-url=...` Başlıkların yükleneceği noktayı belirler. `--arch=x64`: Modül 64bit sistem için kurulmuştur.
 
-## Arıza Giderme
+## Arıza giderme
 
 Yerel bir modül yüklediyseniz ve çalışmadığını tespit ettiyseniz, aşağıdaki hususları kontrol etmeniz gerekir:
 
@@ -64,7 +64,7 @@ Yerel bir modül yüklediyseniz ve çalışmadığını tespit ettiyseniz, aşa�
 </ul>
 
 <h2><code>prebuild`'e dayanan modüller</h2> 
-    [`prebuild`](https://github.com/mafintosh/prebuild), Node ve Elektronun birden fazla sürümüne yönelik önceden oluşturulmuş ikili dosyalarla yerel Node modüllerini kolayca yayınlamak için bir yol sağlar.
+    [`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
     
     Eğer modüller Electron'da kullanım için ikili dosyalar sağlıyorsa, önceden oluşturulmuş ikili dosyalardan tam avantaj sağlamak için `--build-from-source` ve `npm_config_build_from_source` ortam değişkenlerini dahil etmediğinizden emin olun.
     
