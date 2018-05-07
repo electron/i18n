@@ -92,10 +92,10 @@ webFrame.setSpellCheckProvider('en-US', true, {
 * `scheme` String
 * `options` Object (任意) 
   * `secure` Boolean (任意) - 省略値は true。
-  * `bypassCSP` Boolean (optional) - Default true.
-  * `allowServiceWorkers` Boolean (optional) - Default true.
-  * `supportFetchAPI` Boolean (optional) - Default true.
-  * `corsEnabled` Boolean (optional) - Default true.
+  * `bypassCSP` Boolean (任意) - 省略値は true。
+  * `allowServiceWorkers` Boolean (任意) - 省略値は true。
+  * `supportFetchAPI` Boolean (任意) - 省略値は true。
+  * `corsEnabled` Boolean (任意) - 省略値は true。
 
 `scheme` をセキュアとして登録し、リソースのコンテンツセキュリティポリシーをバイパスし、ServiceWorker の登録を許可し、フェッチ API をサポートします。
 
