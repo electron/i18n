@@ -66,7 +66,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3
 
 ## `पूर्वनिर्मित` पर निर्भर मोडयुल्स
 
-[`पूर्वनिर्मित`](https://github.com/mafintosh/prebuild), नोड और इलेक्ट्रॉन के बहु-संस्करणों के लिए पूर्वनिर्मित बाइनरिज़ के साथ मूल नोड मोडयुल्स को आसानी से जारी करने का एक रास्ता देता है |
+[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
 
 अगर मोडयुल्स इलेक्ट्रॉन में इस्तेमाल करने के लिए बाइनरिज़ प्रदान कर रहे हैं, तो पूर्वनिर्मित बाइनरिज़ का पूरा लाभ उठाने के लिए यह सुनिश्चित कर लें कि आपने वातावरण वेरिएबल से `--build-from-source` और `npm_config_build_from_source` को हटा दिया है |
 
