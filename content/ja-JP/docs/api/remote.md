@@ -79,7 +79,7 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 
 `close` イベントが発火されたとき、前にインストールしたコールバックが解放されるので、メインプロセス内で例外が発生され、状況を悪化させます。
 
-この問題を避けるため、メインプロセスに渡すレンダラーのコールバックへの参照を、確実にクリーンアップしてください。 This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.
+この問題を避けるため、メインプロセスに渡すレンダラーのコールバックへの参照を、確実にクリーンアップしてください。 これをするには、イベントハンドラをクリーンアップするか、メインプロセスからのコールバックを明示的に参照外しするように指示されているか、を確認するようにしてください。
 
 ## メインプロセスの組み込みモジュールへのアクセス
 
