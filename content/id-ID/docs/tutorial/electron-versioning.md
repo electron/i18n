@@ -31,7 +31,7 @@ Ada beberapa perubahan besar dari strategi 1.x yang kami diuraikan di bawah ini.
 1. Penggunaan semip yang ketat
 2. Pengenalan semver-compliant `-beta`tag
 3. Pengenalan [pesan komit konvensional](https://conventionalcommits.org/)
-4. Cabang stabilisasi yang didefinisikan dengan jelas
+4. Well-defined stabilization branches
 5. The `master` branch is versionless; only stabilization branches contain version information
 
 Kami akan membahas secara rinci bagaimana cara kerja git branching, bagaimana penandaan npm bekerja, apa yang diharapkan pengembang untuk dilihat, dan bagaimana seseorang dapat mengubah backport.
