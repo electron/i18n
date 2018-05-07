@@ -24,23 +24,23 @@ Process: [Main](../glossary.md#main-process)
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Возвращает `Menu | null` - меню приложения, если значение задано, в противном случае `null`.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Примечание:** Возвращенный экземпляр `Menu` не поддерживает динамическое добавление или удаление пунктов меню. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Обычно достаточно использовать параметр [`role`](menu-item.md#roles) из [`MenuItem`](menu-item.md).
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+Для дополнительной информации по нативным действиям в macOS смотрите [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7).
 
 #### `Menu.buildFromTemplate(template)`
 
 * `template` MenuItemConstructorOptions[]
 
-Returns `Menu`
+Возвращает `Menu`
 
 Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
