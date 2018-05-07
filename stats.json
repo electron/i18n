@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "9449",
-    "translated": "7615",
+    "translated": "7616",
     "approved": "39",
     "words": "86659",
-    "words_translated": "67106",
+    "words_translated": "67108",
     "words_approved": "257",
     "translated_progress": 77,
     "approved_progress": 0,
-    "qa_issues": "188"
+    "qa_issues": "189"
   },
   {
     "name": "Chinese Traditional",
@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "9449",
-    "translated": "2464",
+    "translated": "2521",
     "approved": "40",
     "words": "86659",
-    "words_translated": "14896",
+    "words_translated": "14977",
     "words_approved": "73",
     "translated_progress": 17,
     "approved_progress": 0,
-    "qa_issues": "931"
+    "qa_issues": "942"
   },
   {
     "name": "Hebrew",
@@ -159,27 +159,27 @@
     "name": "Italian",
     "code": "it",
     "phrases": "9449",
-    "translated": "3429",
+    "translated": "3493",
     "approved": "3",
     "words": "86659",
-    "words_translated": "26502",
+    "words_translated": "27146",
     "words_approved": "43",
-    "translated_progress": 30,
+    "translated_progress": 31,
     "approved_progress": 0,
-    "qa_issues": "1258"
+    "qa_issues": "1273"
   },
   {
     "name": "Japanese",
     "code": "ja",
     "phrases": "9449",
-    "translated": "7577",
+    "translated": "7913",
     "approved": "340",
     "words": "86659",
-    "words_translated": "62622",
+    "words_translated": "66735",
     "words_approved": "1765",
-    "translated_progress": 72,
+    "translated_progress": 77,
     "approved_progress": 2,
-    "qa_issues": "245"
+    "qa_issues": "253"
   },
   {
     "name": "Korean",
@@ -237,14 +237,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9449",
-    "translated": "4316",
+    "translated": "4365",
     "approved": "929",
     "words": "86659",
-    "words_translated": "27627",
+    "words_translated": "27968",
     "words_approved": "6543",
-    "translated_progress": 31,
+    "translated_progress": 32,
     "approved_progress": 7,
-    "qa_issues": "1148"
+    "qa_issues": "1164"
   },
   {
     "name": "Spanish",
