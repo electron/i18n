@@ -48,8 +48,8 @@ C++ コードは多くの Chromium の抽象クラスと型を使用している
 
 Electron API では、Node.js と同じ大文字表記が使用されます。
 
-* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
+* モジュール自体が `BrowserWindow` のようなクラスである場合は、`PascalCase` を使用します。
+* モジュールが `globalShortcut` のような API のセットである場合は、`camelCase` を使用します。
 * API がオブジェクトのプロパティで、`win.webContents` のような別の章に分けられるほど複雑な場合は、`mixedCase` を使用します。
 * 他の非モジュール API の場合は、`<webview>タグ` や `プロセスオブジェクト` などの自然なタイトルを使用します。
 
