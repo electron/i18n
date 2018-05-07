@@ -12,7 +12,7 @@ Por otro lado una herramienta de línea de comandos sigue para apoyarte a lo lar
 
 ## electron-forge
 
-Una "herramienta completa para las construcción de aplicaciones Electron modernas". La Fragua Electron unifica las herramientas de construcción existentes (y en buen estado) para el desarrollo de Electron en uno simple, fácil de usar empaquetado de manera que cualquiera pueda saltar dentro del desarrollo de Electron.
+Una "herramienta completa para las construcción de aplicaciones Electron modernas". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
 
 La Fragua viene con [Plantillas listas para usar](https://electronforge.io/templates) para infraestructuras populares como React, Vue o Angular. Utiliza los mismos módulos de nucleo usados por la gran comunidad Electron (como [`electron-packager`](https://github.com/electron-userland/electron-packager)) - los cambios hechos por los mantenedores a cargo de Electron (como Slack), benefician también a los usuarios de Fragua.
 
