@@ -1,4 +1,4 @@
-# 預計變更的 API
+# Planned Breaking API Changes (3.0)
 
 這份清單包含將會在 Electron 3.0 中被拿掉的 API。
 
@@ -146,3 +146,32 @@ This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url`
 ## `FIXME` 註解
 
 The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
+
+# Planned Breaking API Changes (4.0)
+
+這份清單包含將會在 Electron 4.0 中被拿掉的 API。
+
+There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
+
+## `app.makeSingleInstance`
+
+```js
+// Deprecated
+app.makeSingleInstance(function (argv, cwd) {
+
+})
+// Replace with
+app.requestSingleInstanceLock()
+app.on('second-instance', function (argv, cwd) {
+
+})
+```
+
+## `app.releaseSingleInstance`
+
+```js
+// Deprecated
+app.releaseSingleInstance()
+// Replace with
+app.releaseSingleInstanceLock()
+```
