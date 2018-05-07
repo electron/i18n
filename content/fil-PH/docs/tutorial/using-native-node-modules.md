@@ -65,7 +65,7 @@ Kung naka-install ka ng isang native na modyul at nalamang hindi ito gumagana, k
 
 ## Mga Modyul na nakadepende sa `prebuild`
 
-Ang [`prebuild`](https://github.com/mafintosh/prebuild) ay nagbibigay daan sa madaling paglathala ng mga native node na modyul kasama ang prebuilt na mga binary para sa sari-saring bersyon ng Node at Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
 
 Kung ang mga modyul ay nagbibigay ng mga binary para sa paggamit nito sa Electron, siguraduhing wag isali ang `--build-from-source` at ang `--build-from-source` na varyabol pang-environment upang magamit nang husto ang mga binary na prebuilt.
 
