@@ -17,7 +17,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
 * `channel` String (Строка)
 * `listener` Function (Функция)
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+Слушает `channel`, когда приходит новое сообщение `listener` вызовется с `listener(event, args...)`.
 
 ### `ipcRenderer.once(channel, listener)`
 
@@ -31,7 +31,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 * `channel` String (Строка)
 * `listener` Function (Функция)
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Удаляет указанный `listener` из массива слушателей конкретного `channel`.
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
