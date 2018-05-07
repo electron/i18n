@@ -12,7 +12,7 @@ Sebuah alat baris perintah di sisi lain terus mendukung Anda selama pengembangan
 
 ## elektron-penempa
 
-Sebuah "alat lengkap untuk membangun aplikasi Elektron modern". Electron Forge menyatukan alat build yang ada (dan terawat dengan baik) untuk pengembangan Elektron menjadi paket yang mudah dan mudah digunakan sehingga siapapun bisa langsung masuk ke pengembangan Elektron.
+Sebuah "alat lengkap untuk membangun aplikasi Elektron modern". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
 
 Forge hadir dengan  template siap pakai </ 0> untuk kerangka kerja populer seperti React, Vue, atau Angular. Menggunakan modul inti yang sama yang digunakan oleh komunitas Elektron yang lebih besar (seperti  packer elektron </ 0> ) -  
 perubahan yang dilakukan oleh pengelola Elektron (seperti Slack) menguntungkan pengguna Forge juga.</p>
@@ -27,7 +27,7 @@ perubahan yang dilakukan oleh pengelola Elektron (seperti Slack) menguntungkan p
 
 <p>Anda dapat menemukan lebih banyak informasi dan dokumentasi di <a href="https://github.com/electron-userland/electron-builder"> repositori </ 0> .</p>
 
-<h2>elektron-bereaksi-boilerplate</h2>
+<h2>electron-react-boilerplate</h2>
 
 <p>Jika Anda tidak ingin alat tetapi hanya sebuah boilerplate yang solid untuk membangun dari, CT Lin <a href="https://github.com/chentsulin/electron-react-boilerplate"><code> elektron-bereaksi-boilerplate </ 0> mungkin layak
  sebuah tampilan. Ini cukup populer di masyarakat dan menggunakan <code> pembangun elektron </ 0> secara 
