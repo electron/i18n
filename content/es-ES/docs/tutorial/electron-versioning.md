@@ -31,7 +31,7 @@ Hay varios cambios principales desde nuestra estrategia 1.x expresada abajo. Cad
 1. Uso estricto de semver
 2. Introducción de las etiquetas de semver-compliant `-beta`
 3. Introducción a [mensajes de compromiso convencionales](https://conventionalcommits.org/)
-4. Rama de estabilización claramente definidas
+4. Well-defined stabilization branches
 5. La rama `master` no tiene versiones: solo las ramas de estabilización contienen información de las versiones
 
 Reseñamos en detalle cómo funcionan las ramas git, cómo funcionan las etiquetas de npm, qué es lo que los desarrolladores esperan ver, y como se pueden portar cambios a versiones anteriores.
