@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-要依照使用者作業系統的不同而設定不同的按鍵組合，也很容易。
+You can configure different key combinations based on the user's operating system.
 
 ```js
 {
