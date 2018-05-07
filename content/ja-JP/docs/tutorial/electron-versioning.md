@@ -31,7 +31,7 @@ Electron バージョン *< 2.0* は、[semver](http://semver.org) 仕様に準�
 1. semver の厳格な使用
 2. semver 準拠の `-beta` タグの導入
 3. [conventional commit messages](https://conventionalcommits.org/) の導入
-4. 明確に定義された安定ブランチ
+4. Well-defined stabilization branches
 5. `master` ブランチにはバージョンがなく、安定ブランチのみがバージョン情報を含みます。
 
 git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発者が期待するべきこと、変更をバックポートする方法について詳しく説明します。
@@ -62,7 +62,7 @@ We allow for multiple stabilization branches to exist simultaneously, and intend
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
-# Beta Releases and Bug Fixes
+# ベータリリースとバグ修正
 
 Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
