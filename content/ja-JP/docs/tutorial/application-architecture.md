@@ -79,7 +79,7 @@ console.log(root)
 npm install --save aws-sdk
 ```
 
-そして、Electron アプリで、Node.js アプリケーションを構築しているようにモジュールを単に require して使用します。
+Then, in your Electron app, require and use the module as if you were building a Node.js application:
 
 ```javascript
 // S3 クライアントの準備
