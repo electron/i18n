@@ -1,6 +1,6 @@
 # Testing on Headless CI Systems (Travis CI, Jenkins)
 
-Berdasarkan Chromium , Electron mengharuskan penggerak tampilan berfungsi. Jika Chromium tidak dapat menemukan driver display, Elektron akan gagal diluncurkan - dan oleh karena itu tidak menjalankan tes Anda, terlepas dari bagaimana Anda menjalankannya. Menguji Aplikasi berbasis elektron pada Travis, Circle, Jenkins atau sejenisnya Sistem memerlukan sedikit konfigurasi. Intinya, kita perlu menggunakan driver display virtual.
+Berdasarkan Chromium , Electron mengharuskan penggerak tampilan berfungsi. If Chromium can't find a display driver, Electron will fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Menguji Aplikasi berbasis elektron pada Travis, Circle, Jenkins atau sejenisnya Sistem memerlukan sedikit konfigurasi. Intinya, kita perlu menggunakan driver display virtual.
 
 ## Mengkonfigurasi Server Tampilan Virtual
 
@@ -8,13 +8,13 @@ Pertama, instal  Xvfb </ 0> . Ini adalah framebuffer virtual, menerapkan protoko
 
 Kemudian, buat layar virtual xvfb dan ekspor variabel lingkungan disebut DISPLAY yang menunjukkan hal itu. Chromium in Electron secara otomatis akan mencari ` $ DISPLAY </ 0> , sehingga tidak diperlukan konfigurasi lebih lanjut dari aplikasi Anda.
 Langkah ini bisa diotomatisasi dengan Paul Betts's
- <a href="https://github.com/paulcbetts/xvfb-maybe"> xvfb-maybe </a> : Tuliskan perintah pengujian Anda dengan <code> xvfb-maybe ` dan alat kecil akan secara otomatis mengkonfigurasi xvfb, jika dibutuhkan oleh sistem saat ini. Pada Windows atau macos, itu akan sederhana tidak melakukan apapun.
+ <a href="https://github.com/paulcbetts/xvfb-maybe"> xvfb-maybe </a> : Tuliskan perintah pengujian Anda dengan <code> xvfb-maybe ` dan alat kecil akan secara otomatis mengkonfigurasi xvfb, jika dibutuhkan oleh sistem saat ini. On Windows or macOS, it will do nothing.
 
 ```sh
-## Pada Windows atau macos, ini hanya memanggil electron-mocha
-## Di Linux, jika kita berada dalam lingkungan tanpa kepala, ini akan sama
-## ke xvfb-run electron-mocha ./test/*.js
-xvfb-mungkin elektron-mocha ./test/*.js
+## On Windows or macOS, this invokes electron-mocha
+## On Linux, if we are in a headless environment, this will be equivalent
+## to xvfb-run electron-mocha ./test/*.js
+xvfb-maybe electron-mocha ./test/*.js
 ```
 
 ### Travis CI
