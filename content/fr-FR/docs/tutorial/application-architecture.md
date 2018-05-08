@@ -79,7 +79,7 @@ As an example, to use the official AWS SDK in your application, you'd first inst
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, simply require and use the module as if you were building a Node.js application:
+Then, in your Electron app, require and use the module as if you were building a Node.js application:
 
 ```javascript
 // Un client AWS S3 prêt à utiliser
