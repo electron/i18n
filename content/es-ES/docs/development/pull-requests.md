@@ -132,7 +132,7 @@ $ npm run test
 
 Asegúrese de que el linter no reporta ningún inconveniente y que pasa todas pruebas. Por favor no envíe parches que fallan en cualquiera de las verificaciones.
 
-Si estas actualizando las pruebas y sólo desea ejecutar una especificación única para comprobarlo:
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu
