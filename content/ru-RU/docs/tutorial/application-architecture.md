@@ -1,4 +1,4 @@
-# Electron Application Architecture
+# Архитектура приложения Electron
 
 Перед погружением в API нужно обсудить два доступных в Electron типа процессов. Они фундаментально различаются и их важно понимать. They are fundamentally different and important to understand.
 
@@ -14,7 +14,7 @@
 
 Основной процесс создает веб-страницы путем создания экземпляров `BrowserWindow`. Каждый экземпляр `BrowserWindow` запускает веб-страницу в процессе визуализации. Когда экземпляр `BrowserWindow` уничтожается, соответствующий процесс визуализации также прекращается.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Основной процесс управляет всеми веб-страницами и процессами их визуализации. Each renderer process is isolated and only cares about the web page running in it.
 
 В веб-страницах вызов нативного GUI связывать интерфейсы API не допускается, поскольку управление нативными GUI ресурсами на веб-страницах очень опасно, и это легко допустить утечку ресурсов. Если вы хотите выполнить GUI операции на веб-странице, процесс визуализации веб-страницы должен общаться с основным процессом для запроса выполнения этих операций основного процесса.
 
@@ -79,7 +79,7 @@ As you might already be able to guess, this has important security implications 
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+Затем в вашем приложении Electron, подключите и используйте модуль, так же как в Node.js приложение:
 
 ```javascript
 // A ready-to-use S3 Client
