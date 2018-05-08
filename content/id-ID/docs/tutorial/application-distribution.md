@@ -91,7 +91,7 @@ Anda dapat mengubah executable `electron` ke nama apapun yang anda suka.
 
 Selain Kemasan aplikasi anda secara manual, Anda juga dapat memilih untuk menggunakan alat pengemas pihak ketiga untuk melakukan pekerjaan untuk anda:
 
-* [elektron-penempa](https://github.com/electron-userland/electron-forge)
+* [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
