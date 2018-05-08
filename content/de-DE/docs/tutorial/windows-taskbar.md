@@ -32,7 +32,7 @@ app.setUserTasks([
 ])
 ```
 
-Um die Liste der Aufgaben zu leeren, rufen Sie lediglich `app.setUserTasks` mit einem leeren Array auf:
+To clean your tasks list, call `app.setUserTasks` with an empty array:
 
 ```javascript
 const { app } = require('electron')
@@ -47,7 +47,7 @@ On Windows you can add a thumbnail toolbar with specified buttons in a taskbar l
 
 From MSDN, it's illustrated:
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
