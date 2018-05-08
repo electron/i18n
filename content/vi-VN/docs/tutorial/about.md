@@ -40,7 +40,7 @@ Một bản cập nhật lớn đã đi kèm với phiên bản `v1.0.0`. Nếu 
 
 Để giữ cho Electron luôn luôn có kích thước nhỏ gọn và bền vững (độ lớn của các package đi kèm và các API), Electron luôn có các giới hạn cho phạm vi của dự án chính.
 
-Ví dụ, Electron chỉ sử dụng các thư viện render từ Chromium chứ không phải là tất cả các tính năng từ Chromium. Điều này khiến nó dễ dàng nâng cấp các phiên bản Chromium hơn nhưng cũng có nghĩa là một số tính năng được tìm thấy trên trình duyệt Google Chrome sẽ không tồn tại trong Electron.
+For instance, Electron uses Chromium's rendering library rather than all of Chromium. Điều này khiến nó dễ dàng nâng cấp các phiên bản Chromium hơn nhưng cũng có nghĩa là một số tính năng được tìm thấy trên trình duyệt Google Chrome sẽ không tồn tại trong Electron.
 
 Các tính năng mới được thêm vào Electron chủ yếu là các native API. Nếu một tính năng mới đã là một phần của một module Node.js nào đó. Thì giữ nguyên nó là module đó. Bạn có thể thêm nó vào dự án của bạn bằng cách thêm module đó từ npm chứ không được thêm sẳn vào Electron. Xem thêm tại [Công cụ Electron được xây dựng bởi cộng đồng](https://electronjs.org/community).
 
