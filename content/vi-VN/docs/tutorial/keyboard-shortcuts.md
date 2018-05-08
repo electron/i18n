@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-Rất là dễ để cài đặt phím tắt mà cần sự kết hợp giữa các phím khác nhau dựa trên hệ điều hành của người dùng. Như sau.
+You can configure different key combinations based on the user's operating system.
 
 ```js
 {
