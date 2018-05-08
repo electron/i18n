@@ -60,7 +60,7 @@ See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### yerel modüller
 
-Native modülleri (ayrıca Node.js'de [addons](https://nodejs.org/api/addons.html) olarak adlandırılır) require() işlevini kullanarak Node.js veya Electron'a yüklenebilen C veya C++ olarak yazılan modüllerdir ve sanki bir sıradan Node.js modülü gibi kullanılırlar. Temel olarak Node.js'de ve C/C++ kitaplıklarında çalışan JavaScript ile arasında bir arayüz sağlamak için kullanılırlar.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Temel olarak Node.js'de ve C/C++ kitaplıklarında çalışan JavaScript ile arasında bir arayüz sağlamak için kullanılırlar.
 
 Yerel düğüm modülleri Electron tarafından desteklenmektedir, ancak Electron'un sisteminizde kurulu olan Node ikilisinden farklı bir V8 versiyonu kullanması muhtemel olduğundan, yerli modülleri oluştururken Electron'un üstbilgilerinin konumunu elle belirtmeniz gerekir.
 
