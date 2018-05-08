@@ -94,27 +94,27 @@ A [API de visibilidade de página](https://developer.mozilla.org/en-US/docs/Web/
 * Em todas as plataformas, o estado de visibilidade verifica quando a janela é ocultada/minimizada ou não.
 * Adicionalmente, no macOS, o estado de visibilidade também verifica o estado de oclusão da janela. Caso a janela seja ocludida (ou seja, completamente coberta) por outra janela, o estado de visibilidade será `hidden`. Em outras plataformas, o estado de visibilidade será `hidden` somente quando a janela for minimizada ou explicitamente ocultada com o método `win.hide()`.
 * Se um `BrowserWindow` é criado com a propriedade `show: false`, a visibilidade inicial será `visible` independente da janela estar de fato ocultada.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* Caso a propriedade `backgroundThrottling` esteja desabilitada, o estado de visibilidade continuará `visible` mesmo que a janela esteja minimizada, escondida ou ocultada.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+É recomendado que você pause operações "caras" quando o estado de visibilidadade for `hidden` com o objetivo de minimizar o consumo de energia.
 
-### Platform notices
+### Características de plataformas
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* No macOS, janelas modal serão exibidas como "folhas" vinculadas a janela pai.
+* No macOS, as janelas filhas manterão a posição relativa com a janela pai quando a mesma se mover, enquanto que no Windows e Linux as janelas filhas não se movem.
+* No Windows, a mudança dinâmica de janela pai não é suportada.
+* No Linux, o tipo de janelas modais será modificado para `dialog`.
+* No Linux, vários ambientes desktop não suportam esconder janelas modais.
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Criar e controlar janelas do browser.
 
 Processo: [Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` é um [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a opção `options`.
 
 ### `new BrowserWindow([options])`
 
