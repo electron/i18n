@@ -123,7 +123,7 @@ Doğrudan Elektron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı
 
 * `ELECTRON_GITHUB_TOKEN` - GitHub'da sürümler oluşturabilen bir simge
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - node.js başlıklarını ve sembolleri yükleyeceğiniz yer
-* `ELECTRON_RELEASE`- ayarlamak`doğru` ve yükleme bölümü çalışacaktır. ayarlanmadan bırakmak için uygun olan herbir `surf-build` sadece CI-type kontrolleri yapacaktır.
+* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` ' ı `true` olarak değiştirin yoksa başarısız olur
 * `GITHUB_TOKEN` - aynı değerle ayarla `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - yolun çok uzun sürmesini önlemek için Windows'ta `C:\Temp` olarak ayarlayın
