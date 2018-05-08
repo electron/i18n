@@ -7,4 +7,4 @@ De oude "Snelle start" documentatie dat oorspronkelijk hier was, is verdeeld ove
 * Om te kijken hoe simpel het is om een Electron app te bouwen bekijk, [Het schrijven van je eerste Electron App](./first-app.md)
 * Om te kijken hoe de proces architectuur er uit ziet bekijk, [Standaard en Render Processen](./application-architecture.md#main-and-renderer-processes).
 
-Als je hier komt om Electron te leren bekijk dan de [Officiële uitleg](../README.md).
+To learn more about Electron, check out the [official guides](../README.md).
