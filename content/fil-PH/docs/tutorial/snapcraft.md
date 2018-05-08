@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### Unang hakbang: Package ng Iyong Application sa Electron
 
-I-package ang application gamit ang [ electron-packager ](https://github.com/electron-userland/electron-packager) (o isang katulad na kasangkapan). Tiyaking alisin ang `node_modules ` na hindi mo kailangan sa iyong huling aplikasyon, dahil ang anumang module na hindi mo talaga kailangan ay tataasan lamang ang laki ng iyong aplikasyon.
+I-package ang application gamit ang [ electron-packager ](https://github.com/electron-userland/electron-packager) (o isang katulad na kasangkapan). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 Ang output ay dapat magmukhang halos katulad nito:
 
@@ -124,7 +124,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-Tulad ng makikita mo, ang ` snapcraft.yaml ` ay nagtuturo sa system na ilunsad ang isang file tinatawag na ` electron-launch`. Sa halimbawang ito, ipinapasa lamang nito ang impormasyon sa binary ng app:
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
 ```sh
 #!/bin/sh
