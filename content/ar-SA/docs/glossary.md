@@ -62,10 +62,10 @@ Interface description language. Write function signatures and data types in a fo
 
 <h3>native modules</h3>
 
-<p>الوحدات الأصلية (وتسمى أيضا <a href="https://nodejs.org/api/addons.html"> أدونز </ 0> في
-Node.js) هي وحدات مكتوبة في C أو C ++ التي يمكن تحميلها في Node.js أو
-الكترون باستخدام تتطلب () وظيفة، وتستخدم تماما كما لو كانوا
-وحدة Node.js عادية. أنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت يعمل في مكتبات Node.js و C/c + +.</p>
+<p>Native modules (also called <a href="https://nodejs.org/api/addons.html">addons</a> in
+Node.js) are modules written in C or C++ that can be loaded into Node.js or
+Electron using the require() function, and used as if they were an
+ordinary Node.js module. أنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت يعمل في مكتبات Node.js و C/c + +.</p>
 
 <p>Native Node modules are supported by Electron, but since Electron is very
 likely to use a different V8 version from the Node binary installed in your
