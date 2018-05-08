@@ -2,7 +2,7 @@
 
 La renderización fuera de pantalla le permite obtener el contenido de una ventana del navegador en un mapa de bits, por lo que se puede renderizar en cualquier lugar, por ejemplo, en una textura en una escena 3D. La renderización fuera de pantalla en Electron utiliza un enfoque similar al del proyecto [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Se pueden usar dos modos de renderización y solo se pasa el área sucia en el evento `"pintar"` para que sea más eficiente. La renderización se puede detener, continuar y se puede establecer la velocidad de cuadros. La velocidad de fotogramas especificada es un valor límite superior, cuando no ocurre nada en una página web, no se generan marcos. La velocidad máxima de cuadros es 60, porque por encima de eso no hay beneficio, solo pérdida de rendimiento.
+Se pueden usar dos modos de renderización y solo se pasa el área sucia en el evento `"pintar"` para que sea más eficiente. La renderización se puede detener, continuar y se puede establecer la velocidad de cuadros. La velocidad de fotogramas especificada es un valor límite superior, cuando no ocurre nada en una página web, no se generan marcos. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
 
 **Nota:** siempre se crea una ventana fuera de pantalla como [Frameless Window](../api/frameless-window.md).
 
