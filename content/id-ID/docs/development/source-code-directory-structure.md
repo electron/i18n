@@ -49,10 +49,10 @@ Electron
 
 File di ` / chromium_src </ code> cenderung menjadi potongan Chromium yang bukan bagian dari
 lapisan konten Misalnya untuk menerapkan Pepper API, kita memerlukan beberapa kabel
-mirip dengan yang dilakukan Chrome resmi. Kita bisa membangun yang relevan
-sumber sebagai bagian dari <a href="../glossary.md#libchromiumcontent"> libcc </a> namun sebagian besar
-Seringkali kita tidak memerlukan semua fitur (beberapa cenderung berpemilik,
-analytics stuff) jadi kami hanya mengambil bagian dari kode. Ini bisa dengan mudah telah patch di libcc, tapi pada saat ini ditulis tujuan libcc adalah mempertahankan patch minimal dan perubahan kromium_src cenderung yang besar. Juga, perhatikan bahwa tambalan ini tidak pernah bisa diupgrade seperti yang lainnya patch libcc yang kita pertahankan sekarang.</p>
+mirip dengan yang dilakukan Chrome resmi. We could have built the relevant
+sources as a part of <a href="../glossary.md#libchromiumcontent">libcc</a> but most
+often we don't require all the features (some tend to be proprietary,
+analytics stuff) so we took parts of the code. Ini bisa dengan mudah telah patch di libcc, tapi pada saat ini ditulis tujuan libcc adalah mempertahankan patch minimal dan perubahan kromium_src cenderung yang besar. Juga, perhatikan bahwa tambalan ini tidak pernah bisa diupgrade seperti yang lainnya patch libcc yang kita pertahankan sekarang.</p>
 
 <h2>Struktur Direktori Lain</h2>
 
