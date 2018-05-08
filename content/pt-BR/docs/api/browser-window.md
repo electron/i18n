@@ -6,34 +6,34 @@ Processo: [Main](../glossary.md#main-process)
 
 ```javascript
 // No processo main.
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = require('electron') 
 
-// Or use `remote` from the renderer process.
-// const {BrowserWindow} = require('electron').remote
+// Ou utilize `remote` de renderer process.
+// const {BrowserWindow} = require('electron').remote 
 
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
-})
+let win = new BrowserWindow({width: 800, height: 600}) 
+win.on('closed', () => {   
+ win = null 
+}) 
 
-// Load a remote URL
-win.loadURL('https://github.com')
+// Carregar URL remota 
+win.loadURL('https://github.com') 
 
-// Or load a local HTML file
+// Ou carregar arquivo HTML local
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Janela sem frame
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Para criar uma janela sem frame ou uma janela transparente de formato arbitrário, use a API de [Frameless Window API](frameless-window.md).
 
-## Showing window gracefully
+## Exibindo janela de forma elegante
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Ao carregar a pagina na janela diretamente, os usuários podem visualizar o carregamento incremental da página, o que não é uma boa experiência para um aplicativo nativo. Para fazer com que a janela seja exibida sem um flash visual, existem duas soluções para diferentes situações.
 
-### Using `ready-to-show` event
+### Utilizando o evento `ready-to-show`
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+Enquanto a página é carregada, o evento `ready-to-show` será disparado quando o processo de renderização estiver renderizado completamente a página pela primeira vez, caso a janela ainda não tenha sido exibida. Exibindo a janela após este evento não resultará em um flash visual:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -43,11 +43,11 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Este evento geralmente é emitido depois do evento `did-finish-load`, porém para páginas com vários recursos remotos, tal evento pode ser emitido antes.
 
-### Setting `backgroundColor`
+### Especificando a cor de fundo (`backgroundColor`)
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Para um aplicativo complexo, o evento `ready-to-show` poderia ser emitido tarde demais, fazendo com que o aplicativo aparente lentidão. Neste caso, é recomendado exibir a janela imediatamente e utilizar a propriedade `backgroundColor` com cor semelhante a cor de fundo do seu aplicativo:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -56,11 +56,11 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Note que mesmo para aplicativos que utilizam o evento `ready-to-show`, é recomendado informar a propriedade `backgroundColor` para fazer com que o aplicativo passe a sensação de um aplicativo nativo.
 
-## Parent and child windows
+## Janelas parent e child
 
-By using `parent` option, you can create child windows:
+Ao utilizar a opção `parent`, é possível criar janelas filhas:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+A janela filha (`child`) sempre será exibida em frente a janela pai (`top`).
 
-### Modal windows
+### Janelas modal
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Uma janela modal é uma janela filha que desabilita a janela pai, para criar uma janela moda, você deve especificar ambas opções `parent` e `modal`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -87,12 +87,12 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Visibilidade de página
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+A [API de visibilidade de página](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) funciona da seguinte forma:
 
-* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
+* Em todas as plataformas, o estado de visibilidade verifica quando a janela é ocultada/minimizada ou não.
+* Adicionalmente, no macOS, o estado de visibilidade também verifica o estado de oclusão da janela. Caso a janela seja ocludida (ou seja, completamente coberta) por outra janela, o estado de visibilidade será `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
 * If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
 * If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
 
