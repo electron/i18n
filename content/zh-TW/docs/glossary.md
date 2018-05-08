@@ -60,7 +60,7 @@ See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### 原生模組
 
-原生模組 (在 Node.js 裡也叫做 [附加元件 (Addon)](https://nodejs.org/api/addons.html)) 是用 C 或 C++ 開發的模組。可以在 Node.js 或 Electron 中透過 require() 方法載入，使用起來就像一般的 Node.js 模組一樣。 主要是提供 Node.js 中的 JavaScript 與 C/C++ 程式庫溝通的介面。
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. 主要是提供 Node.js 中的 JavaScript 與 C/C++ 程式庫溝通的介面。
 
 Electron 支援 Node 原生模組，但是 Electron 很有可能會用跟你安裝的 Node 不同版本的 V8，因此建置原生模組時你要手動指定 Electron 標頭檔的位置。
 
