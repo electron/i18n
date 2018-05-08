@@ -159,14 +159,14 @@
     "name": "Italian",
     "code": "it",
     "phrases": "9454",
-    "translated": "3497",
+    "translated": "3514",
     "approved": "3",
     "words": "86631",
-    "words_translated": "26708",
+    "words_translated": "26977",
     "words_approved": "43",
-    "translated_progress": 30,
+    "translated_progress": 31,
     "approved_progress": 0,
-    "qa_issues": "1282"
+    "qa_issues": "1289"
   },
   {
     "name": "Japanese",
@@ -237,14 +237,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9454",
-    "translated": "4360",
+    "translated": "4371",
     "approved": "928",
     "words": "86631",
-    "words_translated": "27619",
+    "words_translated": "27742",
     "words_approved": "6526",
-    "translated_progress": 31,
+    "translated_progress": 32,
     "approved_progress": 7,
-    "qa_issues": "1159"
+    "qa_issues": "1161"
   },
   {
     "name": "Spanish",
