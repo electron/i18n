@@ -48,11 +48,11 @@ More details can be found in [Application packaging](application-packaging.md).
 
 After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
 
-### Windows
+### विंडोज
 
 You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
 
-### macOS
+### मैकओएस
 
 You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
 
@@ -83,7 +83,7 @@ MyApp.app/Contents
             └── MyApp Helper
 ```
 
-### Linux
+### लिनक्स
 
 You can rename the `electron` executable to any name you like.
 
