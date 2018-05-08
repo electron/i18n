@@ -14,7 +14,7 @@
 
 ## macOS SDK
 
-Если вы просто разрабатываете Electron и не планируют распространять пользовательские сборки Electron, вы можете пропустить этот раздел.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 Для работы некоторых функций (например pinch-zoom) правильно, вы должны выбрать macOS 10.10 SDK.
 
