@@ -127,7 +127,7 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Basitçe aşağıdaki dizini oluşturmak [bu hatayı düzeltmeli](https://stackoverflow.com/a/25095327/102704):
+Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
