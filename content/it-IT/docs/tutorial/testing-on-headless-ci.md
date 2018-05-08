@@ -1,18 +1,18 @@
 # Scrivere su Sistemi CI Headless (Travis CI, Jenkins)
 
-Essendo basata su Chromium, Electron richiese un driver schermo per funzionare. Se Chromium non trova un driver schermo, Electron semplicemente non si avvia, inoltre non esegue i tuoi testi, indipendente dal fatto che tu li stia eseguendo. Testare app basate su Electron su Travis, Circle, Jenkins o similari Sistemi richiede inoltre una piccola configurazione. In essenza, dobbiamo usare un driver schermo virtuale.
+Essendo basata su Chromium, Electron richiese un driver schermo per funzionare. If Chromium can't find a display driver, Electron will fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testare app basate su Electron su Travis, Circle, Jenkins o similari Sistemi richiede inoltre una piccola configurazione. In essenza, dobbiamo usare un driver schermo virtuale.
 
 ## Configurare il Server Schermo Virtuale
 
 Prima, installa [Xvfb](https://en.wikipedia.org/wiki/Xvfb). È un framebuffer virtuale, comprendente il protocollo server schermo X11, performa tutte le operazioni grafiche in memoria senza mostrare output schermo che esattamente ciò che ci serve.
 
-Poi, crea una schermata xvfb virtuale ed esporta una variabile ambiente detta SCHERMO che la punta. Chromium in Electron cercherà subito `$DISPLAY`, quindi niente lunghe configurazioni richieste per la tua app. Questo passo è reso automatico con [xvfb-forse](https://github.com/paulcbetts/xvfb-maybe) di Paul Bett: Anteponi i comandi di test con `xvfb-forse` ed il piccolo strumento configurerà subito xvfb, se richiesto dal sistema corrente. Su Windows o macOS, non farà nulla.
+Poi, crea una schermata xvfb virtuale ed esporta una variabile ambiente detta SCHERMO che la punta. Chromium in Electron cercherà subito `$DISPLAY`, quindi niente lunghe configurazioni richieste per la tua app. Questo passo è reso automatico con [xvfb-forse](https://github.com/paulcbetts/xvfb-maybe) di Paul Bett: Anteponi i comandi di test con `xvfb-forse` ed il piccolo strumento configurerà subito xvfb, se richiesto dal sistema corrente. On Windows or macOS, it will do nothing.
 
 ```sh
-## Su Windows o macOS, invoca solo electron-mocha
-## Su Linux se in un ambiente headless equivarrà
-## a xvfb-esegui electron-mocha ./test/*.js
-xvfb-forse electron-mocha ./test/*.js
+## On Windows or macOS, this invokes electron-mocha
+## On Linux, if we are in a headless environment, this will be equivalent
+## to xvfb-run electron-mocha ./test/*.js
+xvfb-maybe electron-mocha ./test/*.js
 ```
 
 ### Travis CI
