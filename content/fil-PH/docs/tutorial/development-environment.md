@@ -10,7 +10,7 @@ Una, i-install ang bagong bersyon ng Node.js. Nirerekomenda namin na i-install n
 
 Kung na download muna, i-execute ang installer at hayaang ang installation wizard ang mag gabay hanggang matapos ang installation.
 
-Kung natapos na ang pag install, isiguro kung gumagana na ang lahat sa inaasahan. Hanapin ang macOS `Terminal` na aplikasyon sa iyong `/Applications/Utilities` folder (o sa paghahanap gamit ang salita `Terminal` sa spotlight). Buksan ang `Terminal` o ibang command line client na iyong gusto at isiguro na ang dalawa `node` at `npm` ay pwedeng magamit:
+Kung natapos na ang pag install, isiguro kung gumagana na ang lahat sa inaasahan. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Buksan ang `Terminal` o ibang command line client na iyong gusto at isiguro na ang dalawa `node` at `npm` ay pwedeng magamit:
 
 ```sh
 # Ang utos na ito ay dapat maipakita sa bersyon ng Node.js
@@ -30,7 +30,7 @@ Una, i-install ang bagong bersyon ng Node.js. Nirerekomenda namin na i-install n
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Kung natapos na ang pag install, isiguro kung gumagana na ang lahat sa inaasahan. Hanapin ang Windows PowerShell sa paraan ng pag bukas ng Start Menu at pagsulat ng `PowerShell`. Buksan sa itaas `PowerShell` o ibang command line client na iyong gusto at siguraduhin na ang dalawang `node` at `npm` ay pwedeng magamit:
+Kung natapos na ang pag install, isiguro kung gumagana na ang lahat sa inaasahan. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Buksan sa itaas `PowerShell` o ibang command line client na iyong gusto at siguraduhin na ang dalawang `node` at `npm` ay pwedeng magamit:
 
 ```powershell
 # Ang utos na ito ay dapat maipakita sa bersyon ng Node.js
