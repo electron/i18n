@@ -32,7 +32,7 @@ app.setUserTasks([
 ])
 ```
 
-Untuk membersihkan daftar tugas Anda, silahkan hubungi `app.setUserTasks` dengan array kosong:
+To clean your tasks list, call `app.setUserTasks` with an empty array:
 
 ```javascript
 const { app } = require('electron')
@@ -47,7 +47,7 @@ Pada Windows Anda dapat menambahkan toolbar thumbnail dengan tombol yang ditetap
 
 Dari MSDN, itu bergambar:
 
-> toolbar ini adalah cukup akrab toolbar standar kontrol umum. Ia memiliki maksimal tujuh tombol. Masing-masing tombol ini ID, gambar, tooltip, dan negara didefinisikan dalam struktur, yang kemudian diteruskan ke taskbar. Aplikasi ini dapat menunjukkan, mengaktifkan, menonaktifkan, atau menyembunyikan tombol dari toolbar thumbnail seperti yang dipersyaratkan oleh perusahaan negara saat ini.
+> This toolbar is the familiar standard toolbar common control. Ia memiliki maksimal tujuh tombol. Masing-masing tombol ini ID, gambar, tooltip, dan negara didefinisikan dalam struktur, yang kemudian diteruskan ke taskbar. Aplikasi ini dapat menunjukkan, mengaktifkan, menonaktifkan, atau menyembunyikan tombol dari toolbar thumbnail seperti yang dipersyaratkan oleh perusahaan negara saat ini.
 > 
 > Sebagai contoh, Windows Media Player mungkin menawarkan kontrol media transportasi standar seperti play, pause, mute, dan berhenti.
 
