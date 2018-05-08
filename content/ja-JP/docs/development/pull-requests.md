@@ -132,7 +132,7 @@ $ npm run test
 
 リンターが問題を報告していないこと、そしてすべてのテストが合格していることを確認してください。 いずれかのチェックに失敗したパッチは提出しないでください。
 
-テストを更新していて、単一の仕様を実行してチェックしたい場合は、以下のようにします。
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu
