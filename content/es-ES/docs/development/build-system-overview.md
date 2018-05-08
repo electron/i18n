@@ -23,7 +23,7 @@ Todos los precompilados binarios de Chromium (`libchromiumcontent`) son descarga
 
 Por defecto, `libchromiumcontent` es descargado desde los servicios web de Amazon. Si la variable de ambiente de `LIBCHROMIUMCONTENT_MIRROR` es configurada, el comando de arranque será descargado desde él. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) es un espejo de `libchromiumcontent`. Si tiene problemas accesando AWS, puede cambiar la dirección de enlace a `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
-Si solo desea construir Electron rápidamente para pruebas o desarrollo, puede descargar solo las versiones de biblioteca compartida pasando el parámetro `--dev`:
+If you only want to build Electron quickly for testing or development, you can download the shared library versions by passing the `--dev` parameter:
 
 ```sh
 $ ./script/bootstrap.py --dev
@@ -40,7 +40,7 @@ Para trabajar alrededor de esto Electron usa una variable `gyp` `libchromiumcont
 
 A diferencia de la mayoría de los proyectos que utilizan `Lanzamiento` y `Depuración` como nombres destinos, Electron usa `R` y `D` en su lugar. Esto se debe a que `gyp` colapsa de manera aleatoria si hay solo una configuración de compilado definida en `lanzamiento` o `depuración`, y Electron solo tiene que generar un destino al mismo tiempo como se dijo arriba.
 
-Esto solo afecta a los desarrolladores, si solo estás compilando Electron para cambiar la marca usted no estás afectado.
+This only affects developers, if you are building Electron for rebranding you are not affected.
 
 ## Verificación
 
@@ -62,7 +62,7 @@ Cada vez que realice cambios en el código fuente de Electron, deberá volver a 
 $ npm run build && npm test
 ```
 
-Puede hacer que la prueba en suite corra más rápido al aislar la prueba específica o bloquear su trabajo actual en la característica [prueba exclusiva](https://mochajs.org/#exclusive-tests) de Mocha. Solo anexar `.only` a cualquier llamada de las funciones `descripción` o `eso`:
+Puede hacer que la prueba en suite corra más rápido al aislar la prueba específica o bloquear su trabajo actual en la característica [prueba exclusiva](https://mochajs.org/#exclusive-tests) de Mocha. Append `.only` to any `describe` or `it` function call:
 
 ```js
 describe.only('some feature', function () {
