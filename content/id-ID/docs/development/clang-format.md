@@ -1,4 +1,4 @@
-# Menggunakan clang-format pada C ++ Code
+# Menggunakan dentang-format pada kode C++ Code
 
 [` clang-format `](http://clang.llvm.org/docs/ClangFormat.html) adalah alat untuk secara otomatis format C/C++/Objective-C code, sehingga pengembang tidak perlu khawatir tentang masalah gaya selama pengkajian kode.
 
@@ -6,7 +6,7 @@ Sangat disarankan untuk memformat kode C++ yang Anda ubah sebelum membuka tarik 
 
 Anda bisa memasang `clang-format` dan `git-clang-format` via `npm install -g clang-format`.
 
-Untuk memformat file secara otomatis sesuai dengan kode gaya Elektron C++, jalankan saja `clang-format -i path/ke/electron/ file.cc`. Ini harus bekerja pada macOS/Linux/Windows.
+To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
 Alur kerja untuk memformat kode yang Anda ubah:
 
