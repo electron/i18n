@@ -40,7 +40,7 @@ Llegó una actualización importante con la versión `v1.0.0`. Si aún no está 
 
 Para mantener Electron pequeño (tamaño del fichero) y sostenible (la propagación de las dependencias y APIs) el proyecto limita el alcance del proyecto base.
 
-Por ejemplo, Electron utiliza sólo la biblioteca de renderizado de Chromium en lugar de todo Chromium. Esto facilita actualizar Chromium pero también significa encontrar algunas características del navegador en Google Chrome no existentes en Electron.
+For instance, Electron uses Chromium's rendering library rather than all of Chromium. Esto facilita actualizar Chromium pero también significa encontrar algunas características del navegador en Google Chrome no existentes en Electron.
 
 Las nuevas características añadidas a Electron principalmente deben ser API nativas. Si una característica puede ser su propio módulo Node.js, probablemente debería serlo. Ver las [herramientas electrónicas construidas por la comunidad](https://electronjs.org/community).
 
@@ -51,7 +51,7 @@ A continuación hay hitos en la historia de Electron.
 | :calendario:      | :tada:                                                                                                         |
 | ----------------- | -------------------------------------------------------------------------------------------------------------- |
 | **Abril de 2013** | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **May 2014**      | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                    |
+| **Mayo 2014**     | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                    |
 | **Abril de 2015** | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                             |
 | **Mayo 2016**     | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
 | **Mayo 2016**     | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                              |
