@@ -121,7 +121,7 @@ MyApp.app/Contents
 
 * `ELECTRON_GITHUB_TOKEN` - токен, который может создавать релизы на GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - место, куда вы будете отправлять node.js заголовки, а также символы
-* `ELECTRON_RELEASE` - установите `true` и отправьте часть выполняться, оставить без изменений, `surf-build` просто будет делать проверки CI-типа, необходимо запускать для каждого pull request'а.
+* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - установите в `true` или иначе произойдет сбой
 * `GITHUB_TOKEN` - установите его так же, как `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - установите в `C:\Temp` на Windows для предотвращения проблем слишком длинного пути
