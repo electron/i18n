@@ -27,11 +27,12 @@ npm yükleme -g elektron-windows-mağaza
 
 ## 1. Adım: Elektron Uygulamasını Paketleyin
 
-Uygulamayı  elektron paketleyici </ 0> (veya benzer bir alet) kullanarak paketleyin . Aslında ihtiyaç duymadığınız herhangi bir modül uygulamanızın boyutunu artıracağından, son uygulamanızda ihtiyacınız olmayan ` node_modules </ 0> ' i kaldırdığınızdan emin olun.</p>
+Uygulamayı  elektron paketleyici </ 0> (veya benzer bir alet) kullanarak paketleyin . Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.</p> 
 
-<p>Çıktı kabaca şöyle olmalıdır:</p>
+Çıktı kabaca şöyle olmalıdır:
 
-<pre><code class="text">├── Ghost.exe
+```text
+├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak
 ├── content_shell.pak
@@ -52,7 +53,7 @@ Uygulamayı  elektron paketleyici </ 0> (veya benzer bir alet) kullanarak paketl
 ├── snapshot_blob.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
-`</pre> 
+```
 
 ## 2. Adım: Elektron windows mağazasını çalıştırma
 
@@ -78,8 +79,9 @@ Son olarak, araç yeni AppX paketini imzalamak için bilgisayarınızda güvenil
 <p>Paketinizi çalıştırmak için, kullanıcıların gerekir Windows'u sözde "Yıldönümü Güncellemesi" ile 10 - Windows'un nasıl güncelleştirileceği ile ilgili ayrıntılar bulunabilir <a href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update">Burada</a>.</p>
 
 <p>Geleneksel UWP uygulamalarına karşı olarak, paketlenmiş uygulamaların şu anda bir elle doğrulama işlemi uygulayabilirsiniz. <a href="https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge">burada</a>.
-Bu arada, tüm kullanıcılar paketinizi çift tıklatarak yükleyebilecek,
-Dolayısıyla, yalnızca mağaza arıyorsanız, kolay kurulum yöntemi mağazaya teslim olmayabilir. Yönetilen ortamlarda (genellikle işletmeler), <code>Add-AppxPackage` [PowerShell Cmdlet otomatik olarak yüklemek için kullanılabilir](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+In the meantime, all users will be able to install your package by double-clicking it,
+so a submission to the store might not be necessary if you're looking for an
+easier installation method. Yönetilen ortamlarda (genellikle işletmeler), <code>Add-AppxPackage` [PowerShell Cmdlet otomatik olarak yüklemek için kullanılabilir](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Bir diğer önemli kısıtlama, derlenmiş AppX paketinin hala bir win32 yürütülebilir - ve bu nedenle Xbox, HoloLens veya Telefonlar üzerinde çalışmaz.
 
