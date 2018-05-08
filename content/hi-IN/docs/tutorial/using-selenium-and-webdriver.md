@@ -66,7 +66,7 @@ $ npm install selenium-webdriver
 
 ### 3. क्रोमड्राईवर से कनेक्ट करें
 
-इलेक्ट्रॉन के साथ `सेलेनियम-वेबड्राईवर` का इस्तेमाल मूलतः अपस्ट्रीम के साथ समान ही है, सिवाय इस बात के कि आपको मैन्युअली यह निर्दिष्ट करना होगा कि क्रोम ड्राईवर से कैसे जुड़ें और इलेक्ट्रॉन की लाइब्रेरी कहाँ ढूँढें:
+The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
@@ -150,6 +150,6 @@ client
 
 ## वर्कफ्लो
 
-इलेक्ट्रॉन का पुनर्निर्माण करे बिना अपनी एप्लीकेशन का परिक्षण करने के लिए, एप्प स्त्रोत को इलेक्ट्रॉन की रिसोर्स डायरेक्टरी में [रखें](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) |
+To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
 
 या फिर, इलेक्ट्रॉन बाइनरी के साथ चलने के लिए एक आर्गुमेंट भेजें को कि आपकी एप्प के फोल्डर की तरफ इशारा करता हो | इससे अपनी एप्प को इलेक्ट्रॉन की रिसोर्स डायरेक्टरी में कॉपी-पेस्ट करने की आपको ज़रुरत ही नहीं पड़ेगी |
