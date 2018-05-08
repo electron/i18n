@@ -268,7 +268,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### 왜냐구요?
 
-`eval()`은 문자열로 되어 있는 자바스크립트를 실행하는 것 딱 한 가지에 목표를 두고 있습니다. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+`eval()`은 문자열로 되어 있는 자바스크립트를 실행하는 것 딱 한 가지에 목표를 두고 있습니다. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
 
@@ -292,7 +292,7 @@ Loading the initial HTML of a website over `HTTPS` and attempting to load subseq
 
 ### 왜냐구요?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
 
 ### 어떻게 하나요?
 
