@@ -32,7 +32,7 @@ app.setUserTasks([
 ])
 ```
 
-要清除工作清單，只要在呼叫 `app.setUserTasks` 時帶入空陣列就行了:
+To clean your tasks list, call `app.setUserTasks` with an empty array:
 
 ```javascript
 const { app } = require('electron')
@@ -47,7 +47,7 @@ app.setUserTasks([])
 
 在 MSDN 中說明如下:
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
