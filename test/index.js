@@ -7,7 +7,6 @@ const {expect} = chai
 const {describe, it, xit} = require('mocha')
 const i18n = require('..')
 const cheerio = require('cheerio')
-const {chain} = require('lodash')
 
 describe('i18n.docs', () => {
   it('is an object with locales as keys', () => {
