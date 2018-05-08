@@ -6,7 +6,7 @@
 
 你可以通过 `npm install -g clang-format` 安装 `clang-format` 和 `git-clang-format`.
 
-根据 Electron C++ 代码样式自动格式化文件, 只要运行 `clang-format -i path/to/electron/file.cc` 即可. 它应该能够在 macOS/Linux/Windows 上运行.
+To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
 格式化已更改代码的工作流:
 
