@@ -264,7 +264,7 @@ Ang `eval()` ay isang core JavaScript na pamamaraan na naggpapahintulot ng exeku
 
 ### Bakit?
 
-Ang `eval` na pamamaraan ay mayroong isang tiyak na misyon: Para suriin ang serye ng mga character bilang isang JavaScript at patakbuhin. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+Ang `eval` na pamamaraan ay mayroong isang tiyak na misyon: Para suriin ang serye ng mga character bilang isang JavaScript at patakbuhin. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
 
@@ -288,7 +288,7 @@ Loading the initial HTML of a website over `HTTPS` and attempting to load subseq
 
 ### Bakit?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
 
 ### Paano?
 
