@@ -268,7 +268,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### ¿Por què?
 
-El método `eval()` tiene precisamente una misión: evaluar una serie de personajes como JavaScript y ejecutarlo. Es un método requerido cuando necesites evaluar códigos que no es conocido acerca del tiempo. Mientras que casos de uso legítimo existen, justo como cualquier otro generador de códigos, `eval()` es difícil de endurecer.
+El método `eval()` tiene precisamente una misión: evaluar una serie de personajes como JavaScript y ejecutarlo. Es un método requerido cuando necesites evaluar códigos que no es conocido acerca del tiempo. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 En general, Es más sencillo desactivar por completo `eval()` que hacerlo a prueba de balas. Por los tanto, si usted no lo necesita, es buena idea desactivarlo.
 
@@ -292,7 +292,7 @@ Descargar la inicial HTML de un sitio web mediante `HTTPS` e intentar descargar 
 
 ### ¿Por què?
 
-En pocas palabras, descargar contenido mediante `HTTPS` asegura la autenticidad e integridad de los recursos cargados mientras se cifrar el tráfico como tal. Ver la sección en [only displaying secure content](#1-only-load-secure-content) para más detalles.
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. Ver la sección en [only displaying secure content](#1-only-load-secure-content) para más detalles.
 
 ### ¿Còmo?
 
