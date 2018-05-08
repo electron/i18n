@@ -102,8 +102,9 @@ describe('i18n.glossary', () => {
 
   it('sets expected properties on every entry', () => {
     const glossary = Object.values(i18n.glossary['en-US'])
+    glossary.length.should.be.at.least(10)
     glossary.every(entry => {
-      return entry.term.length && entry.type.length && entry.description.length
+      return entry.term.length && entry.description.length
     }).should.eq(true)
   })
 })
