@@ -268,7 +268,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### Pourquoi ?
 
-La méthode `eval()` a précisément une seule mission : de compiler une série de caractères comme étant du Javascript, et de l'exécuter. C’est une méthode obligatoire chaque fois que vous avez besoin de compiler du code qui ne peut pas être connu à l'avance. Bien qu’il existe des cas d’utilisation légitimes, à l’instar de n’importe quel autre générateur de code, les protections d'`eval()` sont difficiles à durcir.
+La méthode `eval()` a précisément une seule mission : de compiler une série de caractères comme étant du Javascript, et de l'exécuter. C’est une méthode obligatoire chaque fois que vous avez besoin de compiler du code qui ne peut pas être connu à l'avance. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 De manière générale, il est plus facile de désactiver complètement `eval()` plutôt que de le blinder. Ainsi, si vous n’en avez pas besoin, c’est une bonne idée de le désactiver.
 
@@ -292,7 +292,7 @@ Loading the initial HTML of a website over `HTTPS` and attempting to load subseq
 
 ### Pourquoi ?
 
-En termes simples, télécharger du contenu via `HTTPS` assure l’authenticité et l’intégrité des ressources téléchargées en cryptant le trafic. Consultez la section sur l' [affichage du contenu sécurisé uniquement](#1-only-load-secure-content) pour plus de détails.
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. Consultez la section sur l' [affichage du contenu sécurisé uniquement](#1-only-load-secure-content) pour plus de détails.
 
 ### Comment ?
 
