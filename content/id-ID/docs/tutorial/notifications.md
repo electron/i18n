@@ -24,7 +24,7 @@ Selanjutnya, pada Windows 8, panjang maksimum untuk badan notifikasi adalah 250 
 
 Versi Windows selanjutnya memungkinkan pemberitahuan lanjutan, dengan template khusus, gambar, dan elemen fleksibel lainnya. Untuk mengirim pemberitahuan tersebut (dari proses utama atau proses renderer), menggunakan userland modul [elektron-windows-pemberitahuan](https://github.com/felixrieseberg/electron-windows-notifications), yang menggunakan asli Node addons untuk mengirim `ToastNotification` dan `TileNotification` objek.
 
-Sementara pemberitahuan termasuk tombol bekerja dengan hanya `elektron-windows-pemberitahuan`, penanganan Balasan memerlukan penggunaan [`elektron-windows-interaktif-pemberitahuan`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), yang membantu dengan pendaftaran komponen COM yang diperlukan dan memanggil app elektron Anda dengan data masuk pengguna.
+While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
 ### Jam Tenang / Mode Presentasi
 
