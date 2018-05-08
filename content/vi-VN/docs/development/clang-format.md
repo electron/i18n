@@ -6,7 +6,7 @@ Nó rất được khuyến khích để định dạng lại các thay đổi t
 
 Bạn có thể cài đặt `clang-format` và `git-clang-format` bằng cách sử dụng npm: `npm install -g clang-format`.
 
-Để tự động định dạng tập tin theo phong cách lập trình cho C++ trên Electron, chỉ cần chạy `clang-format -i path/to/electron/file.cc`. Nó sẽ làm việc trên cả macOS/Linux/Windows.
+To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
 Quy trình làm việc để format lại code thay đổi của bạn:
 
