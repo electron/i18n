@@ -1,7 +1,7 @@
 # Objeto NotificationAction
 
 * `tipo` String - El tipo de acción, puede ser `botón`.
-* `texto` Cadena (opcional) La etiqueta de la acción en cuestión.
+* `text` String (opcional) La etiqueta de la acción en cuestión.
 
 ## Soporte de Plataforma / Acción
 
