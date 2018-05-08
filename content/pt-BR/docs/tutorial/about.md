@@ -40,7 +40,7 @@ Uma atualização principal vem o número de versão `1.0.0`. Se você ainda nã
 
 Para manter Electron pequeno (tamanho de arquivo) e sustentável (a disseminação de dependências e APIs), o projeto limita o escopo do núcleo do projeto.
 
-Por exemplo, Electron usa apenas a biblioteca de renderização do Chromium ao invés do Chromium todo. Isso torna mais fácil atualizar o Chromium mas também significa que algumas características do browser encontradas no Google Chromium não existem no Electron.
+For instance, Electron uses Chromium's rendering library rather than all of Chromium. Isso torna mais fácil atualizar o Chromium mas também significa que algumas características do browser encontradas no Google Chromium não existem no Electron.
 
 Novas características adicionados ao Electron poderiam ser primariamente APIs nativas. Se uma característica pode ser um módulo Node.js, ele provavelmente será. Veja as [ferramentas do Electron criadas pela comunidade](https://electronjs.org/community).
 
