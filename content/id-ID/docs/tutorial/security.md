@@ -255,7 +255,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### Mengapa?
 
-`Metode()` eval memiliki satu misi tepat: Untuk mengevaluasi serangkaian karakter seperti JavaScript dan menjalankannya. Ini adalah metode yang diperlukan setiap kali anda perlu mengevaluasi kode yang tidak dikenal sebelumnya. Sementara penggunaan yang sah, sama seperti kasus generator kode yang lain `eval()` adalah sulit untuk mengeras.
+`Metode()` eval memiliki satu misi tepat: Untuk mengevaluasi serangkaian karakter seperti JavaScript dan menjalankannya. Ini adalah metode yang diperlukan setiap kali anda perlu mengevaluasi kode yang tidak dikenal sebelumnya. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 Secara umum, lebih mudah untuk benar-benar menonaktifkan `eval()` daripada membuat anti peluru itu. Dengan demikian, jika anda tidak membutuhkannya, itu adalah ide yang baik untuk menonaktifkannya.
 
@@ -279,7 +279,7 @@ Loading the initial HTML of a website over `HTTPS` and attempting to load subseq
 
 ### Mengapa?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
 
 ### Bagaimana?
 
