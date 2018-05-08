@@ -2,7 +2,7 @@
 
 Ang development ng Electron ay ang Node.js development. Upang mabago ang iyong operating system sa isang environment na pwedeng gumawa ng aplikasyon na pang desktop gamit ang Electron, kinakailangan mo ng Node.js, npm, isang code editor na iyong gusto at isang malalim na kaalaman tungkol sa pagoperate ng command line client ng system.
 
-## Pagsetup ng macOS
+## Setting ng macOS
 
 > Pagsuporta ng Electron sa Mac OS X 10.9 (at ang lahat ng bersyon ng macOS) at pataas. Hindi hinahayaan ng Apple na umandar ang macOS sa isang virtual machine kung hindi rin Apple ang host na kompyuter, kaya if kaylangan mo ng Mac, siguraduhing mayroon kang cloud service kung saan pwede kang mag renta ng access sa ibang Macs (tulad ng[MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
 
@@ -22,7 +22,7 @@ npm -v
 
 Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Sa hindi kapa magsimula, kung gusto mong mag install ng isang [code editor](#a-good-editor) na angkop para sa javaScript development.
 
-## Pagsetuo ng Windows
+## Setting ng Windows
 
 > Sinusuporta ng Electron ang Windows 7 ang mga bagong bersyon nito -layunin nitong i develop ang mga aplikasyon ng Electron sa mga bagong bersion ng Windows na hindi gumagana. Ang Microsoft ay nagbibigay ng libreng [virtual machine images sa Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) para sa mga developers.
 
@@ -42,7 +42,7 @@ npm -v
 
 Kung ang dalawang utos ay naipakita sa bersyon bilang numero, ikaw ay handa na! Sa hindi kapa magsimula, kung gusto mong mag install ng isang [code editor](#a-good-editor) na angkop para sa javaScript development.
 
-## Pagsetup ng Linux
+## Setting ng Linux
 
 > Sa madaling salita, ang Electron ay sumosuporta sa Ubuntu 12.04, Fedora 21, Debian 8 at ang mga bago pa.
 
