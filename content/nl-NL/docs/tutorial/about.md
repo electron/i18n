@@ -40,7 +40,7 @@ Er kwam een grote update met versie `v1.0.0`. Als je deze versie nog niet gebrui
 
 Om Electron klein te houden (bestandsgrootte) en onderhoudbaar (de spreiding van afhankelijkheden en API's) houdt het project het werkterrein van de het kernproject gelimiteerd.
 
-Bijvoorbeeld, Electron gebruikt alleen de rendering bibliotheek van Chromium in plaats van alles van Chromium. Dit zorgt ervoor dat het makkelijker is Chromium te upgraden, maar betekent ook dat sommige browser features van Google Chrome niet bestaan in Electron.
+For instance, Electron uses Chromium's rendering library rather than all of Chromium. Dit zorgt ervoor dat het makkelijker is Chromium te upgraden, maar betekent ook dat sommige browser features van Google Chrome niet bestaan in Electron.
 
 Nieuwe features toegevoegd door Electron moeten voornamelijk systeemeigen API's zijn. Als een feature zijn eigen Node.js module kan zijn, moet dit waarschijnlijk ook zo zijn. Bekijk de [Electron tools gebouwd door de gemeenschap](https://electronjs.org/community).
 
