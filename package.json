@@ -16,7 +16,7 @@
     "check-for-leaks": "^1.2.0",
     "cheerio": "^1.0.0-rc.2",
     "clean-deep": "^3.0.2",
-    "crowdin-glossary": "^1.1.2",
+    "crowdin-glossary": "^1.2.0",
     "del": "^3.0.0",
     "dotenv-safe": "^5.0.1",
     "electron-docs": "^3.0.2",
