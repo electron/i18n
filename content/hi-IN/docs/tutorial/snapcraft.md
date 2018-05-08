@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### पहला चरण: अपनी इलेक्ट्रॉन एप्लीकेशन पैकेज करें
 
-[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन को पैकेज करें | अपनी पूर्ण एप्लीकेशन में जो `नोड_मोड्यूलस` आपको नहीं चाहिये, उन्हें ज़रूर निकाल दें, नहीं तो गैर-ज़रूरी मोड्यूलस बस आपकी एप्लीकेशन का आकार ही बढ़ायेंगे |
+[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन को पैकेज करें | Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 आउटपुट कुछ इस तरह का दिखना चाहिये:
 
@@ -123,7 +123,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-जैसा कि आप देख सकते हैं, `snapcraft.yaml` सिस्टम को एक `electron-launch` नामक फाइल लांच करने का निर्देश देती है | इस उदाहरण में, यह केवल एप्प की बाइनरी पर जानकारी को पास करता है |
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
 ```sh
 #!/bin/sh
