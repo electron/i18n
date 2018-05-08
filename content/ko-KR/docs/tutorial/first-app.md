@@ -31,7 +31,7 @@ npm은 기본적인 `package.json`파일을 생성하여 여러분에게 정보�
 }
 ```
 
-**주의사항**: `package.json`에 `main` 필드가 없는 경우, Electron은 (Node.js 처럼) `index.js`를 로드하려고 할 것입니다. 이것이 간단한 Node 애플리케이션이었다면, 현재 패키지를 실행하는 `node` 명령어를 `start` 스크립트를 통해 추가할 수 있습니다.
+**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). 이것이 간단한 Node 애플리케이션이었다면, 현재 패키지를 실행하는 `node` 명령어를 `start` 스크립트를 통해 추가할 수 있습니다.
 
 ```json
 {
@@ -75,7 +75,7 @@ Electron apps are developed in JavaScript using the same principles and methods 
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might just wait for the application to be ready and open a window:
+The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
