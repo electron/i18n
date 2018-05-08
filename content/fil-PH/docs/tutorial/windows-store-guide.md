@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## Unang hakbang: Package ng Iyong Application sa Electron
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 Ang output ay dapat magmukhang halos katulad nito:
 
@@ -73,7 +73,7 @@ Once the expanded AppX files are created, the tool uses the Windows App Packager
 
 Upang patakbuhin ang iyong pakete, kakailanganin ng iyong mga user ang Windows 10 na may tinatawag na "Anniversary Update" - mga detalye sa kung paano i-update ang Windows ay matatagpuan [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-Sa pagsalungat sa mga tradisyunal na apps ng UWP, ang mga naka-package na apps ay kasalukuyang kailangang sumailalim sa isang manual verification process, kung saan maaari mong ilapat ang [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Samantala, ang lahat ng mga gumagamit ay magagawang i-install lamang ang iyong pakete sa pamamagitan ng pag-double-click ito, kaya ang pagsumite sa tindahan ay maaaring hindi kinakailangan kung naghahanap ka lamang ng isang mas madaling paraan ng pag-install. Sa mga pinamamahalaang kapaligiran (usually enterprises), ang `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+Sa pagsalungat sa mga tradisyunal na apps ng UWP, ang mga naka-package na apps ay kasalukuyang kailangang sumailalim sa isang manual verification process, kung saan maaari mong ilapat ang [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to install your package by double-clicking it, so a submission to the store might not be necessary if you're looking for an easier installation method. Sa mga pinamamahalaang kapaligiran (usually enterprises), ang `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Ang isa pang mahalagang limitasyon ay ang pinagsama-samang pakete ng AppX ay naglalaman pa rin ng isang win32 executable - at samakatuwid ay hindi tatakbo sa Xbox, HoloLens, o Phones.
 
