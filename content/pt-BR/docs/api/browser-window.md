@@ -92,8 +92,8 @@ child.once('ready-to-show', () => {
 A [API de visibilidade de página](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) funciona da seguinte forma:
 
 * Em todas as plataformas, o estado de visibilidade verifica quando a janela é ocultada/minimizada ou não.
-* Adicionalmente, no macOS, o estado de visibilidade também verifica o estado de oclusão da janela. Caso a janela seja ocludida (ou seja, completamente coberta) por outra janela, o estado de visibilidade será `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
+* Adicionalmente, no macOS, o estado de visibilidade também verifica o estado de oclusão da janela. Caso a janela seja ocludida (ou seja, completamente coberta) por outra janela, o estado de visibilidade será `hidden`. Em outras plataformas, o estado de visibilidade será `hidden` somente quando a janela for minimizada ou explicitamente ocultada com o método `win.hide()`.
+* Se um `BrowserWindow` é criado com a propriedade `show: false`, a visibilidade inicial será `visible` independente da janela estar de fato ocultada.
 * If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
