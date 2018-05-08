@@ -40,7 +40,7 @@ Główne zmiany wchodzą z wersją `v1.0.0`. Jeśli nie używasz tej wersji prog
 
 Aby zachować niewielki (rozmiar pliku) oraz zrównoważony ( ilość zależności oraz APIs) projekt, ogranicza się on do głównych funkcjonalności.
 
-Na przykład, Electron wykorzystuje tylko biblioteki do renderowania z Chromium zamiast całego Chromium. To powoduje, że łatwiej jest zaktualizować Chromium, ale oznacza również, że niektóre funkcjonalności z Google Chrome nie istnieją w Electron.
+For instance, Electron uses Chromium's rendering library rather than all of Chromium. To powoduje, że łatwiej jest zaktualizować Chromium, ale oznacza również, że niektóre funkcjonalności z Google Chrome nie istnieją w Electron.
 
 Nowe funkcjonalności dodawane w Electron powinny przede wszystkim być natywnymi API. Jeśli funkcja należy do modułu Node.js, prawdopodobnie powinna tam być. Spójrz na [narzędzia zbudowane przez społeczeństwo](https://electronjs.org/community).
 
