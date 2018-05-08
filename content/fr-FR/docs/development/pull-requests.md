@@ -132,7 +132,7 @@ $ npm run test
 
 Assurez-vous que linter ne renvoie aucun problème et que tous les tests passent. Ne soumettez aucun patch ne passant pas l'un des tests.
 
-If you are updating tests and just want to run a single spec to check it:
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu
