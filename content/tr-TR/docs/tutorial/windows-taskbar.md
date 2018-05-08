@@ -32,7 +32,7 @@ app.setUserTasks([
 ])
 ```
 
-Görevler listesini temizlemek için `app.setUserTasks` öğesini boş bir diziyle çağırmanız yeterlidir:
+To clean your tasks list, call `app.setUserTasks` with an empty array:
 
 ```javascript
 const { app } = require('electron')
@@ -47,7 +47,7 @@ Windows'ta bir görev çubuğunda belirtilen butonlarla küçük resim araç çu
 
 MSDN'den örneklendirilmiştir:
 
-> Bu araç sadece tanıdık Standart araç ortak kontrolüdür. En fazla yedi buton vardır. Her düğmenin kimliği, görüntüsü, araç ipucu ve durumu, görev çubuğuna konulan bir yapı içinde tanımlanır. Uygulama, mevcut durum gereği küçük resimleri araç çubuğunda gösterebilir, etkinleştirebilir, devre dışı bırakabilir veya gizleyebilir.
+> This toolbar is the familiar standard toolbar common control. En fazla yedi buton vardır. Her düğmenin kimliği, görüntüsü, araç ipucu ve durumu, görev çubuğuna konulan bir yapı içinde tanımlanır. Uygulama, mevcut durum gereği küçük resimleri araç çubuğunda gösterebilir, etkinleştirebilir, devre dışı bırakabilir veya gizleyebilir.
 > 
 > Örneğin, Windows Media Player, play, pause, mute ve stop gibi standart ortam taşıma denetimleri sunabilir.
 
