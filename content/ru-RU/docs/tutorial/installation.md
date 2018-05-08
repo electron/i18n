@@ -30,11 +30,11 @@ npm install --arch=ia32 electron
 npm install --platform=win32 electron
 ```
 
-## Прокси
+## Полномочия
 
 Если нужны HTTP прокси, то можно [задать переменные окружения](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Пользовательские зеркала и кеши
+## Пользовательские зеркала и кэши
 
 Во время установки модуль `electron` будет обращаться к [`electron-download`](https://github.com/electron-userland/electron-download), чтобы загрузить скомпилированные бинарники для твоей платформы, если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
 
@@ -85,9 +85,9 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 При выполнении команды `npm install electron`, некоторые пользователи сталкиваются с проблемами установки.
 
-В большинстве случаев, эти ошибки являются проблемами сети и не связаны с npm пакетом `electron`; это ошибки `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` и `ETIMEDOUT`. Лучшим решением в данном случае будет попытка подключения к другой сети или ожидание подключения, возможно это временное явление.
+В большинстве случаев, эти ошибки являются проблемами сети и не связаны с npm пакетом `electron`; Такие ошибки как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, и`ETIMEDOUT` возникают в результате проблем с сетью. The best resolution is to try switching networks, or wait a bit and try installing again.
 
-Также вы можете попытаться скачать Electron непосредственно из [релизов](https://github.com/electron/electron/releases), если установка через `npm` терпит неудачу.
+Также вы можете попытаться скачать Electron непосредственно из [electron/electron/releases](https://github.com/electron/electron/releases), если установка через `npm` терпит неудачу.
 
 Если установка завершается с ошибкой `EACCESS`, нужно [поправить права npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
