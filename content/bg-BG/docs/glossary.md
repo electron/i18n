@@ -60,7 +60,7 @@ See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### родния модули
 
-Родни модули (наричани [addons](https://nodejs.org/api/addons.html) в Node.js) са модули, написани на C или C++, които могат да бъдат заредени в Node.js или Електрон, използвайки функцията require(). Функциите от тези родни модули могат да се използват точно както ако бяха обикновени Node.js модули. Те се използват главно за осигурява интерфейс между JavaScript код в Node.js и C/C ++ библиотеки.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Те се използват главно за осигурява интерфейс между JavaScript код в Node.js и C/C ++ библиотеки.
 
 Родните Node модули се поддържат от Eлектрон, но тъй като Eлектрон е много вероятно да използва различна V8 версия от бинарната Node инсталация във вашата система, вие трябва ръчно да укажете местоположението на Електрон в заглавието при изграждането на родните модули.
 
