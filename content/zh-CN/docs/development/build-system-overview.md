@@ -23,7 +23,7 @@ Electron 使用 [gyp](https://gyp.gsrc.io/) 来生成项目, 使用 [ninja](http
 
 默认的，`libchromiumcontent` 是从 Amazon Web Services 上下载下来的. 如果设置了 `LIBCHROMIUMCONTENT_MIRROR` 环境变量，bootstrap脚本会从这里下载下来. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) 是 `libchromiumcontent` 的镜像. 如果你不能连接 AWS，你可以切换下载路径：`export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
-如果只是想快速搭建一个 Electron 的测试或开发环境，可以通过 `--dev` 参数只下载共享版本的库:
+If you only want to build Electron quickly for testing or development, you can download the shared library versions by passing the `--dev` parameter:
 
 ```sh
 $ ./script/bootstrap.py --dev
@@ -40,7 +40,7 @@ $ ./script/build.py -c D
 
 与大多数的项目不同，它们使用 `Release` 和 `Debug` 作为目标名字，而 Electron 使用使用的是 `R` 和 `D`. 这是因为如果只定义了一个 `Release` 或 `Debug` 构建配置，`gyp` 会随机崩溃，并且在同一时候，Electron 只生成一个目标，如上所述.
 
-这只对开发者可用，如果想重新构建 Electron ，将不会成功.
+This only affects developers, if you are building Electron for rebranding you are not affected.
 
 ## 测试
 
@@ -62,7 +62,7 @@ $ npm test
 $ npm run build && npm test
 ```
 
-你可以通过分离特定的测试来让测试套件运行速度更快或阻止你目前正在使用摩卡的 [独占性测试](https://mochajs.org/#exclusive-tests)功能. 只需将 `.only` 附加到任何 `describe` 或 `it` 函数调用中：
+你可以通过分离特定的测试来让测试套件运行速度更快或阻止你目前正在使用摩卡的 [独占性测试](https://mochajs.org/#exclusive-tests)功能. Append `.only` to any `describe` or `it` function call:
 
 ```js
 describe.only('some feature', function () {
