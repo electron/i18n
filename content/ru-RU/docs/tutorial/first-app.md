@@ -31,7 +31,7 @@ npm будет вести вас на протяжении создания ба
 }
 ```
 
-**Примечание**: Если поле `main` отсутствует в файле `package.json`, то Electron будет пытаться загрузить файл `index.js` (также как сам Node.js). Если это было простое Node приложение, вам нужно добавить `start` скрпт, который будет "говорить" `node` выполнить текущий пакет:
+**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). Если это было простое Node приложение, вам нужно добавить `start` скрпт, который будет "говорить" `node` выполнить текущий пакет:
 
 ```json
 {
@@ -75,7 +75,7 @@ Electron apps are developed in JavaScript using the same principles and methods 
 const electron = require('electron')
 ```
 
-Модуль `electron` предоставляет специальные особенности в пространство имен(namespaces). Например жизненный цикл приложения контролируется через `electron.app`, окна могут быть созданны пр использовании класса `electron.BrowserWindow`. Простой файл `main.js` может просто ждать пока приложение не будет готово и после этого открыть окно приложения:
+Модуль `electron` предоставляет специальные особенности в пространство имен(namespaces). Например жизненный цикл приложения контролируется через `electron.app`, окна могут быть созданны пр использовании класса `electron.BrowserWindow`. A simple `main.js` file might wait for the application to be ready and open a window:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
