@@ -92,11 +92,19 @@ describe('i18n.glossary', () => {
     locales.length.should.be.above(10)
   })
 
-  it('contains localized glossaries', () => {
+  it('contains localized glossary objects', () => {
     const glossary = i18n.glossary['en-US']
     glossary.should.be.an('object')
     const entry = glossary['DMG']
     entry.should.be.an('object')
+  })
+
+  it('sets expected properties on every entry', () => {
+    const glossary = Object.values(i18n.glossary['en-US'])
+    glossary.length.should.be.at.least(10)
+    glossary.every(entry => {
+      return entry.term.length && entry.description.length
+    }).should.eq(true)
   })
 })
 

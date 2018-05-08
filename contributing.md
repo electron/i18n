@@ -39,6 +39,25 @@ If you're using a platform like Utopian.io and would like to be promoted to
 proofreader status on the Electron project, please translate 1,000 words or 
 more before applying. When contacting us, please include a link to your existing translations on the project.
 
+## Glossaries
+
+There are two different "glossaries" in the Electron world:
+
+### 1. [The Electron Glossary](https://github.com/electron/electron/blob/master/docs/glossary.md)
+
+The Electron Glossary is a **hand-written** markdown file. It defines terms 
+that are common in Electron development, like "ASAR", "IPC", "V8", etc. 
+To add entries to it, open a pull request on the electron/electron repository.
+
+### 2. [The Crowdin Glossary](https://support.crowdin.com/glossary/) 
+
+The Crowdin Glossary is **programatically generated**. It defines terms to give 
+translators context when translating in the Crowdin UI, and to help avoid 
+translations of strings like `Array` and `win.open()` that should remain in 
+their original "English" form. It includes entries for JavaScript builtins, 
+Electron API names, method names, event names, etc. To modify this glossary,
+see [script/upload-crowdin-glossary.js](script/upload-crowdin-glossary.js)
+
 ## Developing `electron-i18n`
 
 The rest of this document describes how this repo is structured, how
