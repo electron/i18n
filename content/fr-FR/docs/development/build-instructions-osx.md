@@ -14,7 +14,7 @@ Si vous utilisez Python téléchargé par Homebrew, vous devez également instal
 
 ## SDK macOS
 
-Si vous développez simplement sur Electron et ne prévoyez pas de redistribuer votre build d'Electron custom, vous pouvez ignorer cette section.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 Pour que certaines fonctionnalités (par exemple pinch-zoom) fonctionnent correctement, vous devez cibler le SDK macOS 10.10.
 
