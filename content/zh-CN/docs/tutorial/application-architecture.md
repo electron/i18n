@@ -77,7 +77,7 @@ console.log(root)
 npm install --save aws-sdk
 ```
 
-然后，在你的Electron应用中，通过简单的require的方式引入并使用模块，就像构建Node.js应用程序那样：
+Then, in your Electron app, require and use the module as if you were building a Node.js application:
 
 ```javascript
 // 准备好被使用的S3 client模块
