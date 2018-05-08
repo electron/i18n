@@ -2,7 +2,7 @@
 
 你可以使用原生的Node.js开发环境来开发Electron应用。 为了打造一个Electron桌面程序的开发环境，你只需要安装好的Node.js、npm、一个顺手的代码编辑器以及对你的操作系统命令行客户端的基本了解。
 
-## MacOS开发环境配置
+## 配置 macOS
 
 > Electron 支持 Mac OS X 10.9及其以上版本和macOS所有版本。 目前Apple不允许在非Apple电脑上运行macOS虚拟机，所以，如果你需要一台Mac的话，可以考虑租用Mac云服务（比如[MacInCloud](https://www.macincloud.com/)或者 [xcloud](https://xcloud.me)）。
 
@@ -22,7 +22,7 @@ npm -v
 
 如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
-## Winodws开发环境配置
+## 配置 Windows
 
 > Electron 支持Windows 7 及以上版本\---任何在低版本Windows上开发Electron的尝试都将是徒劳无功的。 您可以使用微软向开发者免费提供的[Windows 10虚拟机镜像](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines)。
 
@@ -42,7 +42,7 @@ npm -v
 
 如果上述命令均打印出一个版本号，就说明Node.js已经安装好了！ 然后，你只需要安装一个适合JavaScript开发的[代码编辑器](#a-good-editor)就可以开始开发工作了。
 
-## Linux开发环境配置
+## 配置 Linux
 
 > 一般来说，Electron支持Ubuntu 12.04、Fedora 21、Debian 8 及其以上版本。
 
