@@ -4,7 +4,7 @@
 
 При выполнении команды `npm install electron`, некоторые пользователи сталкиваются с проблемами установки.
 
-В большинстве случаев, эти ошибки являются результатом проблем сети и не связаны с npm пакетом `electron`. Такие ошибки как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, и`ETIMEDOUT` возникают в результате проблем с сетью. Лучшим решением в данном случае будет попытка подключения к другой сети или просто немного подождите, возможно это временное явление.
+В большинстве случаев, эти ошибки являются результатом проблем сети и не связаны с npm пакетом `electron`. Такие ошибки как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, и`ETIMEDOUT` возникают в результате проблем с сетью. The best resolution is to try switching networks, or wait a bit and try installing again.
 
 Также вы можете попытаться скачать Electron непосредственно из [electron/electron/releases](https://github.com/electron/electron/releases), если установка через `npm` терпит неудачу.
 
