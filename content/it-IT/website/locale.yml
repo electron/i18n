@@ -38,8 +38,8 @@ community:
     bugs: "<a href='https://github.com/electron/electron/issues'>Riporta bug</b></a> aprendo problemi sulla repository <a href='https://github.com/electron/electron/issues'>electron/electron."
     feature_requests: "<a href='https://github.com/electron/electron/issues'>Richiedi funzioni</a> aprendo problemi sulla repository <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Riporta violazioni del Codice di Condotta</b></a> inviando una mail a <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    security: "<a href='mailto:security@electronjs.org'>Divulga problemi di sicurezza</b></a> inviando una mail a <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Dona</b></a> alla nostra <a href='/donors'>pagina OpenCollective</a>."
     other: "Per ogni altra domanda, invia una mail a <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Comunità Linguistiche
