@@ -269,7 +269,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### なぜ？
 
-`eval()` メソッドは確かな1つの役割――JavaScript として一連の文字を評価し、それを実行する――があります。 これは、事前に知ることができないコードを評価する必要がある場合に、必要なメソッドです。 正しい使用方法は他のコードジェネレータと同様に存在しますが、`eval()` ははっきりさせづらいです。
+`eval()` メソッドは確かな1つの役割――JavaScript として一連の文字を評価し、それを実行する――があります。 これは、事前に知ることができないコードを評価する必要がある場合に、必要なメソッドです。 While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 一般的に言えば、`eval()` を完全に無効にする方が、攻撃を防ぐには簡単です。 したがって、必要がない場合は、無効にすることを推奨します。
 
@@ -293,7 +293,7 @@ By default, Electron will not allow websites loaded over `HTTPS` to load and exe
 
 ### なぜ？
 
-簡単に言えば、`HTTPS` を介してコンテンツをロードすると、トラフィック自体を暗号化しながら、ロードされたリソースの信憑性と完全性が保証されます。 より詳しくは、[セキュアなコンテンツのみを表示する](#1-only-load-secure-content) を参照して下さい。
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. より詳しくは、[セキュアなコンテンツのみを表示する](#1-only-load-secure-content) を参照して下さい。
 
 ### どうすればいいの？
 
