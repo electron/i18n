@@ -17,6 +17,6 @@ Google は [開発者向けツールの優れたドキュメント](https://deve
 
 ## メインプロセス
 
-メインプロセスのデバッグは少し難解です。なぜなら、単純に開発者向けツールを開くことができないからです。 Google / Chrome と Node.js の緊密なコラボレーションのおかげで、Chromium デベロッパーツールを使用して [Electron のメインプロセスをデバッグする](https://nodejs.org/en/docs/inspector/) ことができます。しかし、コンソールに`require` が存在しないなどの奇妙な問題が発生する可能性があります。
+Debugging the main process is a bit trickier, since you cannot open developer tools for them. Google / Chrome と Node.js の緊密なコラボレーションのおかげで、Chromium デベロッパーツールを使用して [Electron のメインプロセスをデバッグする](https://nodejs.org/en/docs/inspector/) ことができます。しかし、コンソールに`require` が存在しないなどの奇妙な問題が発生する可能性があります。
 
 より詳しい情報は、[メインプロセスのデバッグのドキュメント](./debugging-main-process.md) を参照してください。
