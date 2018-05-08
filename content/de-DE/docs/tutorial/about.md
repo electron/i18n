@@ -40,7 +40,7 @@ Ein Haupt-Update kam mit der Version `v1.0.0`. Wenn Sie aktuell diese Version no
 
 Um Electron klein (Dateigröße) und nachhaltig (die Verbreitung von Abhängigkeiten und API's) zu halten, begrenzt das Projekt den Umfang des Kernprojekts.
 
-Beispielsweise verwendet Electron nur eine Render-Bibliothek, anstatt das gesamte Chromium. Dies macht es einfacher, Chromium zu aktualisieren, was aber auch heißt, dass manche Funktionen aus Google Chrome in Electron nicht funktionieren.
+For instance, Electron uses Chromium's rendering library rather than all of Chromium. Dies macht es einfacher, Chromium zu aktualisieren, was aber auch heißt, dass manche Funktionen aus Google Chrome in Electron nicht funktionieren.
 
 Neu zu Electron hinzugefügte Funktionen sollten in erste Linie systemeigene API's sein. Wenn eine Funktion ein eigenes Node.js-Model ist, dann soll dies wahrscheinlich auch so sein. Schauen Sie sich die [Electron-Tools an, die von der Community entwickelt wurden](https://electronjs.org/community).
 
