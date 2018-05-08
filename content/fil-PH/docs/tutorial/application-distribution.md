@@ -121,7 +121,7 @@ Kailangan mong mag fork Electron kapag ikaw ay mag pasadyang C++ na kodigo na iy
 
 * `ELECTRON_GITHUB_TOKEN` - ay isang token na maaring lumikha ng mga release sa GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - ang lugar kung saan maari kang mag-upload ng mga header sa node.js pati na rin ang mga simbolo
-* `ELECTRON_RELEASE` - Itakda sa `tama` at ang parte ng pag-upload ay gagana, iwanan ang i-unset At `surf-bumuo` gagawin namin ang mga pagsusuri ng CI-type, nararapat patakbuhin sa bawat pull ng kahilingan.
+* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Itakda sa `tama` o kung hindi ito ay mabibigo
 * `GITHUB_TOKEN` - itakda ito sa kaparehong `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - itakda sa `C:\Temp` sa windows upang maiwasan ang mga landas na isyu sa mahabang isyu
