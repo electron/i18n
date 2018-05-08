@@ -267,7 +267,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### Neden?
 
-The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. Bu ne zaman zorunlu bir yöntemdir önceden bilinmeyen kodu değerlendirmeliyiz. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. Bu ne zaman zorunlu bir yöntemdir önceden bilinmeyen kodu değerlendirmeliyiz. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 Genel olarak, `` eval () </ 0> işlevini tamamen devre dışı bırakmaktan daha kolaydır. Böylece, buna ihtiyacınız yoksa, devre dışı bırakmak iyi bir fikirdir.</p>
 
@@ -290,7 +290,7 @@ Loading the initial HTML of a website over `HTTPS` and attempting to load subseq
 
 ### Neden?
 
-Basitçe açıklayacak olursak, `HTTPS` üzerinden içerik yüklemek veri trafiğini şifreleyerek, yüklenen kaynakların güvenilirliğini ve bütünlüğünü sağlar. Detaylı bilgi için [Sadece güvenli içeriği yükleyin](#1-only-load-secure-content) bölümüne bakabilirsiniz.
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. Detaylı bilgi için [Sadece güvenli içeriği yükleyin](#1-only-load-secure-content) bölümüne bakabilirsiniz.
 
 ### Nasıl?
 
