@@ -14,7 +14,7 @@
 
 ## macOS SDK
 
-如果你只是开发 Electron，并且不打算重新分配你的自定义 Electron 构建，则可以跳过本节。
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 要使某些功能 (例如缩小缩放) 正常工作，你必须定位到 MacOS 10.10 SDK。
 
