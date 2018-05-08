@@ -6,7 +6,7 @@ Electron 应用的开发从来都不是死板的, 应用的开发、构建、打
 
 ## 模板与命令行界面
 
-一个模板就像是一张空白的画布，你可以以它为基础来搭建你的应用。 通常来说，你可以从一个代码仓库克隆一个模板，然后修改成你心仪的样子。
+A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. 通常来说，你可以从一个代码仓库克隆一个模板，然后修改成你心仪的样子。
 
 命令行工具则是在整个开发和分发过程中从另一方面给你提供帮助。 他们更有用，但同时也对代码结构和构建项目有着硬性的要求。 *特别是对于初学者来说，命令行工具十分有用。*
 
@@ -28,7 +28,7 @@ Electron Builder 是一个完备的Electron应用打包和分发解决方案，�
 
 ## electron-react-boilerplate
 
-如果你不希望任何工具，而想要简单地从一个模板开始构建，CT Lin的 [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) 可能值得一看。 它在社区中很受欢迎，并在内部使用了 `electron-builder`。
+If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. 它在社区中很受欢迎，并在内部使用了 `electron-builder`。
 
 ## 其它工具和模板
 
