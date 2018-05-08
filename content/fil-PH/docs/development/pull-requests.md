@@ -132,7 +132,7 @@ $ npm run test
 
 Tiyaking ang linter ay hindi nag-uulat ng anumang mga isyu at ang lahat ng mga pagsusulit ay pumasa. Mangyaring huwag magsumite ng mga patch na nabigo sa alinman na mga check.
 
-Kung nag-a-update ka ng mga pagsusulit at gusto mong magpatakbo ng isang pagsasapalaran upang suriin ito:
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu
