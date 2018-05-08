@@ -31,7 +31,7 @@ npm が基本的な `package.json` ファイルを作るガイドをします。
 }
 ```
 
-**注釈**: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は (Node.js のように) `index.js` の読み込みを試みます。 もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
+**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
 
 ```json
 {
@@ -75,7 +75,7 @@ Electron apps are developed in JavaScript using the same principles and methods 
 const electron = require('electron')
 ```
 
-`electron` オブジェクトは名前空間内の機能を公開します。 例として、`electron.app` を通じてアプリケーションのライフサイクルを管理したり、`electron.BrowserWindow` クラスを使用してウインドウを作成することができます。 この簡単な `main.js` ファイルは、アプリケーションの準備ができるまで待機してから、ウインドウを開くだけです。
+`electron` オブジェクトは名前空間内の機能を公開します。 例として、`electron.app` を通じてアプリケーションのライフサイクルを管理したり、`electron.BrowserWindow` クラスを使用してウインドウを作成することができます。 A simple `main.js` file might wait for the application to be ready and open a window:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
