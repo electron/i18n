@@ -85,7 +85,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 在运行 `npm install electron` 时，有些用户会偶尔遇到安装问题。
 
-大多是时候，这些错误都是网络问题导致的而不是 `electron` npm 包的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 The best resolution is to try switching networks, or wait a bit and try installing again.
+在大多数情况下，这些错误都是由网络问题导致，而不是因为 `electron` npm 包的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 The best resolution is to try switching networks, or wait a bit and try installing again.
 
 如果通过 `npm` 安装失败，您可以尝试直接从 [electron/electron/releases](https://github.com/electron/electron/releases) 直接下载 Electron。
 
