@@ -14,7 +14,7 @@ Eğer, Homebrew üzerinden kurduğunuz Python'u kullanıyorsanız, aşağıdaki 
 
 ## macOS SDK
 
-Eğer basitçe Electron geliştiriyorsanız ve kendinize özel bir Electron inşaası dağıtmayacaksanız, bu kısmı atlayabilirsiniz.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 Bazı özellikler için (pinch-zoom vb.) macOS 10.10 SDK'sını hedef almalısınız.
 
