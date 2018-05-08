@@ -15,7 +15,7 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     ## macOS SDK
     
-    Kung ikaw ay bumubuo ng Elektron at walang plano na muling ipakalat ang iyong sariing likha ng Elektron, ang bahaging ito ay maaari nang laktawan.
+    If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
     
     Para sa ilang tampok (halimbawa ng pinch-zoom) na maaayos na gawa, kinakailangan mong makuha ang mocOS 10.10 SDK.
     
