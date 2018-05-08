@@ -62,10 +62,10 @@ MAS, tingnan ang <a href="tutorial/mac-app-store-submission-guide.md"> Gabay sa 
 
 <h3>mga native module</h3>
 
-<p>Ang mga native na module (tinatawag ding <a href="https://nodejs.org/api/addons.html"> addons </a> sa
-Node.js) ay mga module na nakasulat sa C o C ++ na maaaring i-load sa Node.js o
-Electron gamit ang nangangailangan () function, at ginagamit lamang kung sila ay isang
-ordinaryong module na Node.js. Ang mga ito ay ginagamit lalo na upang magbigay ng isang interface
+<p>Native modules (also called <a href="https://nodejs.org/api/addons.html">addons</a> in
+Node.js) are modules written in C or C++ that can be loaded into Node.js or
+Electron using the require() function, and used as if they were an
+ordinary Node.js module. Ang mga ito ay ginagamit lalo na upang magbigay ng isang interface
 sa pagitan ng JavaScript na tumatakbo sa mga library ng Node.js at C/C++.</p>
 
 <p>Ang mga module ng Native Node ay sinusuportahan ng Electron, ngunit dahil ang Electron ay napaka
