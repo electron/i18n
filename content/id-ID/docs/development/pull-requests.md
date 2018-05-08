@@ -132,7 +132,7 @@ $ npm run test
 
 Pastikan bahwa linter tidak ada masalah apapun pada saat tes selesai. Mohon tidak mengirimkan patch yang gagal atau belum di cek.
 
-Jika anda sedang memperbaharui tes dan ingin menjalankan satu spec untuk memeriksanya:
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu
