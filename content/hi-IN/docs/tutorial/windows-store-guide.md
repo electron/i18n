@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## पहला चरण: अपनी इलेक्ट्रॉन एप्लीकेशन पैकेज करें
 
-[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन पैकेज करें | अपनी पूर्ण एप्लीकेशन में जो `नोड_मोड्यूल` आपको नहीं चाहिये, उन्हें ज़रूर निकाल दें, नहीं तो गैर-ज़रूरी मोड्यूल बस आपकी एप्लीकेशन का आकार ही बढ़ायेंगे |
+[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन पैकेज करें | Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 आउटपुट कुछ इस तरह का दिखना चाहिये:
 
@@ -73,7 +73,7 @@ electron-windows-store `
 
 आपके पैकेज को चलाने के लिए, उपयोगकर्ताओं को "सालगिरह अपडेट" के साथ विंडोज 10 की ज़रुरत होगी - विंडोज को अपडेट करने की विस्तृत जानकारी [यहाँ](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update) उपलब्ध है |
 
-पारंपरिक युडब्ल्यूपी एप्प्स के विपरीत, पैकेज्ड एप्प्स को फिलहाल एक मैन्युअल जांच प्रक्रिया से गुजरना पड़ता है, जिसके के लिए आप [यहाँ](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) पर आवेदन कर सकते है | तब तक, आपके सभी उपयोगकर्ता पैकेज को डबल-क्लिक कर इनस्टॉल कर सकते हैं, इसलिए हो सकता है कि आपको विंडोज स्टोर में आवेदन देने की ज़रुरत ही न पड़ें अगर आप सिर्फ इंस्टालेशन का एक आसान तरीका ढूंढ रहे हैं | प्रबंधित वातावरणों में (कंपनियों में ज्यादातर), `ऐड-एप्पएक्सपैकेज` [पॉवरशैल सीएमडीलेट का इस्तेमाल उसे एक स्वचालित रूप से इनस्टॉल करने के लिए किया जा सकता है](https://technet.microsoft.com/en-us/library/hh856048.aspx) |
+पारंपरिक युडब्ल्यूपी एप्प्स के विपरीत, पैकेज्ड एप्प्स को फिलहाल एक मैन्युअल जांच प्रक्रिया से गुजरना पड़ता है, जिसके के लिए आप [यहाँ](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) पर आवेदन कर सकते है | In the meantime, all users will be able to install your package by double-clicking it, so a submission to the store might not be necessary if you're looking for an easier installation method. प्रबंधित वातावरणों में (कंपनियों में ज्यादातर), `ऐड-एप्पएक्सपैकेज` [पॉवरशैल सीएमडीलेट का इस्तेमाल उसे एक स्वचालित रूप से इनस्टॉल करने के लिए किया जा सकता है](https://technet.microsoft.com/en-us/library/hh856048.aspx) |
 
 दूसरी महत्वपूर्ण सीमा यह है कि कम्पाइलड एप्पएक्स पैकेज में अभी भी एक विन32 एक्सीक्यूटेबल शामिल होती है - और इसलिए यह एक्सबॉक्स, होलोलेंस, या फ़ोन पर नहीं चलेगा |
 
