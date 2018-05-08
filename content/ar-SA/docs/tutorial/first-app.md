@@ -57,7 +57,7 @@ Turning this Node application into an Electron application is quite simple - we 
 }
 ```
 
-## Installing Electron
+## התקנת Electron
 
 At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
 
@@ -175,7 +175,7 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Running Your App
+## הפעלת האפליקציה שלך
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
