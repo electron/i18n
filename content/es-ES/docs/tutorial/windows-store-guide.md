@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## Paso 1: Empaqueta tu aplicación Electron
 
-Empaque la aplicación usando [electron-packager](https://github.com/electron-userland/electron-packager) (o una herramienta similar). Asegúrese de eliminar `node_modules` que no necesite en su aplicación final, ya que cualquier módulo que realmente no necesite solo aumentará el tamaño de su aplicación.
+Empaque la aplicación usando [electron-packager](https://github.com/electron-userland/electron-packager) (o una herramienta similar). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 La salida debería verse más o menos de esta forma:
 
@@ -73,7 +73,7 @@ Una vez que se crean los archivos de AppX expandidos, la herramienta usa el Empa
 
 Para ejecutar su paquete, sus usuarios necesitarán Windows 10 con la llamada "Actualización Aniversario". Se pueden encontrar detalles sobre cómo actualizar Windows [aquí](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-En oposición a las aplicaciones UWP tradicionales, las aplicaciones empaquetadas actualmente necesitan someterse a un proceso de verificación manual, para lo cual puede aplicar [aquí](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Mientras tanto, todos los usuarios podrán simplemente instalar su paquete haciendo doble clic en él, por lo que un envío a la tienda no sería necesario si simplemente está buscando un método de instalación más sencillo. En entornos administrados (generalmente empresas), se puede usar el `Add-AppxPackage` [PowerShell Cmdlet se puede utilizar para instalarlo de forma automática](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+En oposición a las aplicaciones UWP tradicionales, las aplicaciones empaquetadas actualmente necesitan someterse a un proceso de verificación manual, para lo cual puede aplicar [aquí](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to install your package by double-clicking it, so a submission to the store might not be necessary if you're looking for an easier installation method. En entornos administrados (generalmente empresas), se puede usar el `Add-AppxPackage` [PowerShell Cmdlet se puede utilizar para instalarlo de forma automática](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Otra limitación importante es que el paquete AppX compilado todavía contiene un ejecutable Win32 - y por lo tanto, no se ejecutará en Xbox, HoloLens o teléfonos.
 
