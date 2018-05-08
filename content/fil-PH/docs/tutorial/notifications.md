@@ -28,7 +28,7 @@ At saka, Windows 8, ang maximum na haba para sa notipikasyon ng katawan ay 250 c
 
 Ang susunod na mga bersyon ng Windows ay nagbibigay-daan para sa mga advanced na abiso, na may custom na mga template, mga imahe, at iba pang mga nabagong elemento. Para ipadala ang mga abiso (mula sa alinman sa pangunahing proseso o proseso ng renderer), gamitin ang module ng userland [ mga electron-windows-notification ](https://github.com/felixrieseberg/electron-windows-notifications), na gumagamit ng mga katutubong Node na addons upang magpadala ng mga bagay na `Toast na abiso` at ` Tile na abiso `.
 
-Habang gumagana ng mga abisong kasama ang mga pindutan na may lamang ` mga abiso na elektron-bintana `, Ang paghawak ng mga sagot ay nangangailangan ng paggamit ng [` elektron-bintana-interactive-abiso `](https://github.com/felixrieseberg/electron-windows-interactive-notifications), na tumutulong sa pagrerehistro ng mga kinakailangang sangkap ng COM at pagtawag sa iyong app para sa Electron ang ipinasok na ditalye ng user.
+While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
 ### Mga Oras ng Tahimikan / Pagtatanghal
 
