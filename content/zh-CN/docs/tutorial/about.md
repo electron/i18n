@@ -40,7 +40,7 @@ Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一�
 
 为了保持Electron的小巧 (文件体积) 和可持续性开发 (以防依赖库和API的泛滥) ，Electron限制了所使用的核心项目的数量。
 
-比如Electron只用了Chromium的渲染库而不是其全部组件。 这使得升级Chromium更加容易，但也意味着Electron缺少了Google Chrome里的一些浏览器相关的特性。
+For instance, Electron uses Chromium's rendering library rather than all of Chromium. 这使得升级Chromium更加容易，但也意味着Electron缺少了Google Chrome里的一些浏览器相关的特性。
 
 添加到Electron的新功能应该主要是原生 API。 如果可以的话，一个功能应该尽可能的成为一个Node.js模块。 参见[社区构建的Electron工具](https://electronjs.org/community)。
 
