@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### Fase 1: Impacchetta La Tua App Electron
 
-Impacchetta l'app usando [electron-impacchettatore](https://github.com/electron-userland/electron-packager) (o uno strumento simile). Assicurati di rimuovere i `moduli_node` che non necessiti nella tua app, visto che non ne necessiti ognuno, aumenterà solo le dimensioni della tua app.
+Impacchetta l'app usando [electron-impacchettatore](https://github.com/electron-userland/electron-packager) (o uno strumento simile). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 L'output dovrebbe sembrare questo:
 
@@ -124,7 +124,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-Come puoi vedere, il `snapcraft.yaml` istruisce il sistema a lanciare il file chiamato `electron-lancio`. In questo esempio, passa semplicemente informazioni sul binario della app:
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
 ```sh
 #!/bin/sh
