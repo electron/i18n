@@ -8,7 +8,7 @@ As of version 2.0.0, Electron follows [semver](#semver). The following command w
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Обновление до последней стабильной версии в существующем проекте:
 
 ```sh
 npm install --save-dev electron@latest
