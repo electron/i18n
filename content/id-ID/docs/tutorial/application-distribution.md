@@ -121,7 +121,7 @@ Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda pa
 
 * `ELECTRON_GITHUB_TOKEN` - token untuk membuat releases pada GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - merupakan tempat dimana anda akan mengunggah header node.js juga sebagai symbol
-* `ELECTRON_RELEASE` - atur ke `true` dan unggah bagian akan berjalan, biarkan unset dan `surfing-build` hanya akan melakukan cek CI-type, sesuai untuk menjalankan untuk setiap permintaan tarik.
+* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Atur ke `true` atau lainnya akan gagal
 * `GITHUB_TOKEN` - atur sama seperti `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - atur ke `C:\Temp` pada Windows untuk mencegah masalah terlalu panjang jalan
