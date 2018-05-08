@@ -31,7 +31,7 @@ npm vous guidera dans la création d'un fichier `package.json` basique. Le scrip
 }
 ```
 
-**Note**: Si le champ `main` n'est pas présent dans le fichier `package.json`, Electron tentera de charger un fichier `index.js` (comme le fait Node.js lui-même). En fait si c'était une simple application Node, vous ajouteriez un script `start` qui demanderait à `node` d'exécuter le package courant:
+**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). En fait si c'était une simple application Node, vous ajouteriez un script `start` qui demanderait à `node` d'exécuter le package courant:
 
 ```json
 {
@@ -75,7 +75,7 @@ Electron apps are developed in JavaScript using the same principles and methods 
 const electron = require('electron')
 ```
 
-Le module `electron` expose des fonctionnalités dans des espaces de noms. A titre d'exemple, le cycle de vie de l'application est géré par `electron.app`, des fenêtres peuvent être créées en utilisant la classe `electron.BrowserWindow`. Un simple fichier`main.js` peut attendre que l'application soit prête et ouvrir une fenêtre :
+Le module `electron` expose des fonctionnalités dans des espaces de noms. A titre d'exemple, le cycle de vie de l'application est géré par `electron.app`, des fenêtres peuvent être créées en utilisant la classe `electron.BrowserWindow`. A simple `main.js` file might wait for the application to be ready and open a window:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
