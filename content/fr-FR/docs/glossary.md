@@ -60,7 +60,7 @@ See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### modules natifs
 
-Les modules natifs (également appelés [addons](https://nodejs.org/api/addons.html) dans Node.js) sont des modules écrits en C ou C++ qui peuvent être chargés dans Node.js ou Electron à l'aide de la fonction require() et sont utilisés comme si ils étaient des modules de Node.js ordinaire. Ils sont utilisés principalement pour fournir une interface entre JavaScript s'exécutant dans les librairies Node.js et C/C++.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Ils sont utilisés principalement pour fournir une interface entre JavaScript s'exécutant dans les librairies Node.js et C/C++.
 
 Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est très susceptible d'utiliser une version différente de V8 du binaire Node installée sur votre système. Vous devez spécifier manuellement l'emplacement des en-têtes d'Electron, lors de la compilation de modules natifs.
 
