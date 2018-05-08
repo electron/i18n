@@ -22,7 +22,7 @@
 > 
 > В Electron у нас есть несколько способов взамимодействия между основным процессом и процессами визуализации. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Using Electron APIs
+## Использование API Electron
 
 Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
 
