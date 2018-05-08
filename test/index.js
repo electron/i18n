@@ -106,12 +106,6 @@ describe('i18n.glossary', () => {
       return entry.term.length && entry.type.length && entry.description.length
     }).should.eq(true)
   })
-
-  it('consists of electronJargon, but not Crowdin glossary entry types like electronInstanceMethod', () => {
-    const glossary = i18n.glossary['en-US']
-    const types = chain(glossary).map('type').uniq().sort().value()
-    types.should.deep.equal(['electronJargon'])
-  })
 })
 
 describe('i18n.website', () => {
