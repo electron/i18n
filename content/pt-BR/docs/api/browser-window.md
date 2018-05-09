@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Crier e controle janelas de navegação.
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -100,15 +100,15 @@ A [API de visibilidade de página](https://developer.mozilla.org/en-US/docs/Web/
 
 ### Características de plataformas
 
-* No macOS, janelas modal serão exibidas como "folhas" vinculadas a janela pai.
-* No macOS, as janelas filhas manterão a posição relativa com a janela pai quando a mesma se mover, enquanto que no Windows e Linux as janelas filhas não se movem.
-* No Windows, a mudança dinâmica de janela pai não é suportada.
+* No macOS, janelas modal serão exibidas como "folhas" vinculadas a janela principal.
+* No macOS, as janelas secundarias manterão a posição relativa com a janela principal quando a mesma se mover, enquanto que no Windows e Linux as janelas secundarias não se movem.
+* No Windows, não é suportada a mudança dinâmica da janela principal.
 * No Linux, o tipo de janelas modais será modificado para `dialog`.
-* No Linux, vários ambientes desktop não suportam esconder janelas modais.
+* No Linux, vários ambientes desktop não há suporte para esconder uma janela modal.
 
 ## Class: BrowserWindow
 
-> Criar e controlar janelas do browser.
+> Crier e controle janelas de navegação.
 
 Processo: [Main](../glossary.md#main-process)
 
