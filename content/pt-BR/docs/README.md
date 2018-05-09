@@ -52,7 +52,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensão de DevTools](tutorial/devtools-extension.md)
   * [Automatizando Teste com Driver Personalizado](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
+* Empacotando 
   * [Assinando Código](tutorial/code-signing.md)
 * [Distribuição](tutorial/application-distribution.md) 
   * [Suporte](tutorial/support.md)
