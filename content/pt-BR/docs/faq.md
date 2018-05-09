@@ -1,4 +1,4 @@
-# Electron FAQ
+# Perguntas Frequentes no Electron
 
 ## Por que estou tendo problemas para instalar o Electron?
 
