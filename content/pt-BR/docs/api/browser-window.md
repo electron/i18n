@@ -25,7 +25,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Janela sem frame
 
-Para criar uma janela sem frame ou uma janela transparente de formato arbitrário, use a API de [Frameless Window API](frameless-window.md).
+Para criar uma janela sem frame ou uma janela transparente de formato arbitrário, use a API [Frameless Window](frameless-window.md).
 
 ## Exibindo janela de forma elegante
 
