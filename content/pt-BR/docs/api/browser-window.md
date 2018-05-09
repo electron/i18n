@@ -45,7 +45,7 @@ win.once('ready-to-show', () => {
 
 Este evento geralmente é emitido depois do evento `did-finish-load`, porém para páginas com vários recursos remotos, tal evento pode ser emitido antes.
 
-### Especificando a cor de fundo (`backgroundColor`)
+### Configurando `backgroundColor`
 
 Para um aplicativo complexo, o evento `ready-to-show` poderia ser emitido tarde demais, fazendo com que o aplicativo aparente lentidão. Neste caso, é recomendado exibir a janela imediatamente e utilizar a propriedade `backgroundColor` com cor semelhante a cor de fundo do seu aplicativo:
 
@@ -60,7 +60,7 @@ Note que mesmo para aplicativos que utilizam o evento `ready-to-show`, é recome
 
 ## Janelas parent e child
 
-Ao utilizar a opção `parent`, é possível criar janelas filhas:
+Ao utilizar a opção `parent`, é possível criar janelas secundarias:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,7 +71,7 @@ child.show()
 top.show()
 ```
 
-A janela filha (`child`) sempre será exibida em frente a janela pai (`top`).
+A janela secundaria (`child`) sempre será exibida em frente a janela principal (`top`).
 
 ### Janelas Modais
 
