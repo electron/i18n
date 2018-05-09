@@ -43,7 +43,7 @@ community:
     other: "다른 문의가 있는 경우, <a href='mailto:info@electronjs.org'>info@electronjs.org</a> 메일로 보내주십시오."
   language_communities:
     title: 언어 커뮤니티
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    description: "Electron 커뮤니티는 전 세계에서 활동중이며, 영어가 모두에게는 모국어가 아닙니다. <a href='/languages'>당신의 언어로된 문서</a>를 찾거나 아래 언어 커뮤니티중 하나에 가입하십시오:"
   tools: 도구
   boilerplates: 상용구
   components: 컴포넌트
