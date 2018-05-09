@@ -6,7 +6,7 @@ Certifique-se de usar a documentação correspondente a versão do Electron que 
 
 Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
-* [Electron FAQ](faq.md)
+* [Perguntas Frequentes no Electron](faq.md)
 
 ## Guias e Tutoriais
 
