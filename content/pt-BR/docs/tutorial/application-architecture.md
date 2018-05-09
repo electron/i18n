@@ -20,7 +20,7 @@ Em páginas web, chamar APIs nativas relacionadas à interface gráfica de usuá
 
 > #### Aparte: Comunicação Entre Processos
 > 
-> No Electron, nós temos diversas maneiras de estabelecer uma comunicação entre o processo principal e os processos de renderização. Como os módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md) para o envio de mensagens, e o módulo [remote](../api/remote.md) para comunicação no estilo RPC. Também existe um tópico no FAQ sobre [como compartilhar dados entre páginas web](../faq.md#how-to-share-data-between-web-pages).
+> No Electron, nós temos diversas maneiras de estabelecer uma comunicação entre o processo principal e os processos de renderização. Como os módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md) para o envio de mensagens, e o módulo [remote](../api/remote.md) para comunicação no estilo RPC. Também existe um tópico de perguntas frequentes sobre [como compartilhar dados entre páginas web](../faq.md#how-to-share-data-between-web-pages).
 
 ## Usando Electron APIs
 
