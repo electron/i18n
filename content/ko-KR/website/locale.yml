@@ -39,10 +39,10 @@ community:
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    donations: "<a href='/donors'>OpenCollective 페이지</a>에서 <a href='donors'><b>기부</b></a>."
+    other: "다른 문의가 있는 경우, <a href='mailto:info@electronjs.org'>info@electronjs.org</a> 메일로 보내주십시오."
   language_communities:
-    title: Language Communities
+    title: 언어 커뮤니티
     description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
   tools: 도구
   boilerplates: 상용구
