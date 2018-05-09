@@ -41,17 +41,16 @@ Dependendo de suas necessidades, você pode escolher um destes:
 
 - [Hazel](https://github.com/zeit/hazel) - Um servidor de atualizações para aplicativos de código aberto ou privado, e pode ser implantado gratuitamente no [Now](https://zeit.co/now). Ele puxa do [GitHub Releases](https://help.github.com/articles/creating-releases/) e utiliza o poder dos GitHub CDN.
 - [Nuts](https://github.com/GitbookIO/nuts) - Também usar [GitHub Releases](https://help.github.com/articles/creating-releases/), mas armazena em cache as atualizações do app no disco e suporta repositórios.
-- [electron-resease-server](https://github.com/ArekSredzki/electron-release-server) - Fornece um painel para a manipulação de versões e não requer lançamentos que se originam do GitHub..</li> 
-    
-    - [Nucleus](https://github.com/atlassian/nucleus) - Um servidor de atualização completo para Electron apps mantido pela Atlassian. Suporta múltiplas aplicações e canais; usar um armazenamento de arquivo estático para diminuir o custo do servidor.</ul> 
-    
-    ## Implementando Atualizações em Seu App
-    
-    Uma vez que implantou em seu servidor de atualização, continue com a importação dos módulos em seu código. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
-    
-    **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
-    
-    ```javascript
+- [electron-resease-server](https://github.com/ArekSredzki/electron-release-server) - Fornece um painel para a manipulação de versões e não requer lançamentos que se originam do GitHub.
+- [Nucleus](https://github.com/atlassian/nucleus) - Um servidor de atualização completo para Electron apps mantido pela Atlassian. Suporta múltiplas aplicações e canais; usar um armazenamento de arquivo estático para diminuir o custo do servidor.
+
+## Implementando Atualizações em Seu App
+
+Uma vez que implantou em seu servidor de atualização, continue com a importação dos módulos em seu código. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+
+**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+
+```javascript
 const { app, autoUpdater, dialog } = require('electron')
 ```
 
