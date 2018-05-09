@@ -1,6 +1,6 @@
 # Objeto ShortcutDetails
 
-* `target` cadena - El objetivo a lanzar desde este acceso directo.
+* `target` String - El objetivo a lanzar desde este acceso directo.
 * `cwd` Cadena (opcional) - El directorio de trabajo. Vacío por defecto.
 * `args` Cadena (opcional) - el argumento a ser aplicado en `target` cuando se está lanzando desde este acceso directo. Está vacío por defecto.
 * `description` Cadena (opcional) - La descripción del acceso directo. Está vacío por defecto.
