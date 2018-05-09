@@ -26,7 +26,7 @@ C 运行时库 (CRT) 是包含了 ISO C99 标准库的 c + + 标准库的一部�
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+接口描述语言。用一种格式撰写函数签名和数据类型，被用于生成 Java, C++, JavaScript, 等程序接口。
 
 ### IPC
 
@@ -54,13 +54,13 @@ IPC 代表 Inter-Process Communication。Electron 使用 IPC 来在 [main](#main
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+一种用于进程内部或进程间通信的 IPC 系统, 这很重要, 因为 Chrome会依据内存压力等来决定是否将其工作分拆给不同的进程。
 
 See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### native modules
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. 它主要用于桥接在 JavaScript 上运行 Node.js 和 C/C++ 的库。
+原生模块 （在 Node.js 里也叫 addons），是一些使用 C or C++ 编写的能够在 Node.js 中加载或者在 Electron 中使用 require() 方法来加载的模块，它使用起来就如同 Node.js 的模块。 它主要用于桥接在 JavaScript 上运行 Node.js 和 C/C++ 的库。
 
 Electron 支持了原生的 Node 模块，但是 Electron 非常可能安装一个不一样的 V8 引擎通过 Node 二进制编码，所以在打包原生模块的时候你需要在 指定具体的 Electron 本地头文件。
 
