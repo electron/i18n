@@ -177,7 +177,7 @@ Finalmente, o `index.html` é a pagina da web que você quer mostrar:
 
 ## Executando Seu Aplicativo
 
-Depois de criar seus arquivos iniciais `main.js`,`index.html` e `package.json`, você pode tentar executar seu aplicativo com ` npm start` no diretório do seu aplicativo.
+Depois de criar seus arquivos iniciais `main.js`,`index.html` e `package.json`, você pode tentar executar seu aplicativo com `npm start` no diretório do seu aplicativo.
 
 ## Trying this Example
 
