@@ -73,9 +73,9 @@ top.show()
 
 A janela filha (`child`) sempre será exibida em frente a janela pai (`top`).
 
-### Janelas modal
+### Janelas Modais
 
-Uma janela modal é uma janela filha que desabilita a janela pai, para criar uma janela moda, você deve especificar ambas opções `parent` e `modal`:
+Uma janela modal é uma janela secundaria que desabilita a janela principal, para criar uma janela moda, você deve especificar ambas opções `parent` e `modal`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -92,13 +92,13 @@ child.once('ready-to-show', () => {
 A [API de visibilidade de página](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) funciona da seguinte forma:
 
 * Em todas as plataformas, o estado de visibilidade verifica quando a janela é ocultada/minimizada ou não.
-* Adicionalmente, no macOS, o estado de visibilidade também verifica o estado de oclusão da janela. Caso a janela seja ocludida (ou seja, completamente coberta) por outra janela, o estado de visibilidade será `hidden`. Em outras plataformas, o estado de visibilidade será `hidden` somente quando a janela for minimizada ou explicitamente ocultada com o método `win.hide()`.
+* Adicionalmente, no macOS, o estado de visibilidade também verifica o estado de oclusão da janela. Se a janela estive obstruída (ou seja, completamente coberta) por outra janela, o estado de visibilidade será `hidden`. Em outras plataformas, o estado de visibilidade será `hidden` somente quando a janela for minimizada ou explicitamente ocultada com o método `win.hide()`.
 * Se um `BrowserWindow` é criado com a propriedade `show: false`, a visibilidade inicial será `visible` independente da janela estar de fato ocultada.
-* Caso a propriedade `backgroundThrottling` esteja desabilitada, o estado de visibilidade continuará `visible` mesmo que a janela esteja minimizada, escondida ou ocultada.
+* Se a propriedade `backgroundThrottling` estive desativado, o estado de visibilidade continuará `visible` mesmo que a janela esteja minimizada, ocultada ou escondida.
 
 É recomendado que você pause operações "caras" quando o estado de visibilidadade for `hidden` com o objetivo de minimizar o consumo de energia.
 
-### Características de plataformas
+### Avisos de plataformas
 
 * No macOS, janelas modal serão exibidas como "folhas" vinculadas a janela principal.
 * No macOS, as janelas secundarias manterão a posição relativa com a janela principal quando a mesma se mover, enquanto que no Windows e Linux as janelas secundarias não se movem.
