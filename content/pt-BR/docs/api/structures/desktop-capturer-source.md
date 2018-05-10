@@ -1,4 +1,4 @@
-# Objeto DesktopCapturerSource
+# DesktopCapturerSource Object
 
 * `id` String - O identificador de uma janela ou tela que pode ser utilizado como limitação `chromeMediaSourceId` quando chamado [`navigator.webkitGetUserMedia`]. O formato do identificador será `window:XX` ou `screen:XX`, onde `XX` é um número gerado aleatoriamente.
 * `name` String - Uma janela será nomeada ou `Entire Screen` ou `Screen<index>`, onde o nome de uma janela será de acordo com o título da janela.
