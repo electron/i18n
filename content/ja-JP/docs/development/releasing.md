@@ -17,7 +17,7 @@ Run `npm run prepare-release -- --notesOnly` to view auto generated release note
 
 You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
 
-There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api * `JENKINS_AUTH_TOKEN` and `JENKINS_BUILD_TOKEN`: Are provided by a Jenkins admin
+There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
 
 ## Run the prepare-release script
 
@@ -67,9 +67,7 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) for Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) for OS X
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for OS X and Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
 
 ## リリースノートをコンパイルする
