@@ -17,7 +17,7 @@ Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang awtomatik
 
 You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
 
-There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api * `JENKINS_AUTH_TOKEN` and `JENKINS_BUILD_TOKEN`: Are provided by a Jenkins admin
+There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
 
 ## Paganahing ang prepare-release na skrip
 
@@ -67,9 +67,7 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 Ang `prepare-release` na skrip ay magti-trigger sa mga build sa pamamagitan ng mga API na tawag. Upang masubaybayan ang estado ng pagbubuo, tingnan ang mga sumusunod na pahina:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) para sa Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) para sa OS X
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) para sa Linux
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for OS X and Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) para sa Windows
 
 ## Tipunin ang mga kopya ng lathala
@@ -202,7 +200,7 @@ npm paganahin ang merge-release -- 1-7-x
 
 ## Ilathala ang release
 
-Kapag ang pagsasama ay matagumpay na natapos. paganahin ang `release` script sa pamamagitan ng `npm run release` upang tapusin ang proseso ng release. Ang iskrip na ito ay gagawin ang mga sumusunod: 1. Gumawa ng proyekto para patunayan na tama ang numero ng bersyon na nailabas na. 2. I-download ang mga binary at lumikha ng mga node header at ang .lib na linker na ginamit sa Windows sa pamamagitan ng node-gyp para mabuo ang mga native na modyul. 3. Gumawa at i-upload ang SHASUMS na mga file na inipon sa S3 para sa mga node na file. 4. Gawin at i-upload ang SHASUMS256.txt file na inipon sa GitHub na lathala. 5. Patunayan na ang lahat ng kinakailangang mga file na ay nasa GitHub at S3 at may mga tamang checksum gaya ng tinutukoy sa SHASUMS na mga file. 6. Ilathala ang release sa GitHub 7. Tanggalin ang `panlathalang` sangay.
+Kapag ang pagsasama ay matagumpay na natapos. paganahin ang `release` script sa pamamagitan ng `npm run release` upang tapusin ang proseso ng release. Ang iskrip na ito ay gagawin ang mga sumusunod: 1. Itayo ang proyekto para patunayan na tama ang numero ng bersyon na inilalabas. 2. I download ang binaries at i-generate ang node ng headers at ang .lib linker gamitin sa window sa pamamagitan ng node-gyp para mabuo ang negatibong modyul. 3. Gumawa at i-upload ang SHASUMS na mga file na inipon sa S3 para sa mga node na file. 4. Gumawa at i-upload ang SHASUMS256.txt file na nakatabi sa GitHub release. 5. Patunayan na ang lahat ng kinakailangang mga file na prinisinta sa GitHub at S3 at magkaroon ng tamang checksums gaya ng tinutukoy sa SHASUMS files. 6. Ilathala ang release sa GitHub 7. Tanggalin ang `release` na sangay.
 
 ## Ilathala sa npm
 
@@ -234,11 +232,11 @@ $ npm run publish-to-npm
 
 Note: In general you should be using the latest Node during this process; however, older versions of the `publish-to-npm` script may have trouble with Node 7 or higher. If you have trouble with this in an older branch, try running with an older version of Node, e.g. a 6.x LTS.
 
-## Ayusin ang mga nawawalang binary ng release ng mano-mano
+## Ayusin ang mga nawawalang binary ng isang lathala nang mano-mano
 
-Sa kaso ng isang nasirang release na may sirang CI machines, maaari nating muling i-upload ang binary para sa isang nailathalang release.
+Sa kaso ng isang nasirang release na may sirang CI na mga makina, maaari nating muling i-upload ang mga binary para sa isang nailathalang release.
 
-Ang unang hakbang ay pumunta sa [Releases](https://github.com/electron/electron/releases) pahina at tanggalin ang nasirang binary kasama ang `SHASUMS256.txt` checksum file.
+Ang unang hakbang ay pumunta sa [Mga Lathala](https://github.com/electron/electron/releases) na pahina at tanggalin ang nasirang mga binary kasama ang `SHASUMS256.txt` na checksum file.
 
 Pagkatapos ay manu-manong gawin ang distribusyon para sa bawat plataporma at i-upload ang mga ito:
 
@@ -253,7 +251,7 @@ git checkout vTHE.RELEASE.VERSION # gawin ang release build, pagtukoy ng isang t
 ./script/upload.py --overwrite
 ```
 
-Matapos muling pag-upload ang lahat distribusyon, ilathala muli upang mag-upload ang checksum:
+Matapos ng muling pag-upload ng lahat ng mga distribusyon, ilathala muli upang ma-upload ang checksum na file:
 
 ```sh
 npm paganahin ang release
