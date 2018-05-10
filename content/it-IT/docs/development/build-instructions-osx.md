@@ -32,7 +32,7 @@ Dovrai anche abilitare Xcode per costruire contro l'SDK 10.10:
 - Set the `MinimumSDKVersion` to `10.10`
 - Salva il file
 
-## Getting the Code
+## Ottenere i sorgenti
 
 ```sh
 $ git clone https://github.com/electron/electron
@@ -40,7 +40,7 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Lo script di bootstrap scaricherà tutte le dipendenze necessarie alla compilazione e creerà tutti i file di progetto. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```sh
 $ cd electron
