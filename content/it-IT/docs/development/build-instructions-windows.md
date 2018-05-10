@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Windows.
 
-## Prerequisites
+## Prerequisiti
 
 * Windows 7 / Server 2008 R2 or higher
 * Visual Studio 2017 - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
