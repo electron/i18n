@@ -1,12 +1,12 @@
 # Istruzioni per la compilazione (Linux)
 
-Segui le linee guida seguenti per costruire Electron su Linux.
+Segui le seguenti linee guida per compilare Electron su Linux.
 
-## Prerequisites
+## Prerequisiti
 
 * Almeno 25 GB di spazio su disco e 8 GB di RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. Esistono vari modi per installare Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Ciò consente di installare Node nella propria home directory come utente standard. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Python 2.7.x. Alcune distribuzioni, come ad esempio CentOS 6.x, utilizzano ancora Python 2.6.x potresti quindi avere la necessità di controllare la versione di Python installata con `python -V`.
+* Node.js. Ci sono diversi modi per installare Node. Puoi scaricare i sorgenti da [nodejs.org](https://nodejs.org) e compilarli. Ciò consente di installare Node nella propria home directory come utente standard. O puoi scaricarlo da un repository come ad esempio [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
 * Development headers of GTK+ and libnotify.
 
