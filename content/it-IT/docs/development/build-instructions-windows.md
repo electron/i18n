@@ -17,7 +17,7 @@ La costruzione di Electron viene eseguita interamente con script da riga di coma
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## Ottenere i sorgenti
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## Bootstrapping
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+Lo script di bootstrap scaricherà tutte le dipendenze necessarie alla compilazione e creerà tutti i file di progetto. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
 
 ```powershell
 $ cd electron
