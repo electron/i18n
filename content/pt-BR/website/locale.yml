@@ -40,10 +40,10 @@ community:
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    other: "Para todas as outras perguntas, envie um email para <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: Comunidades Linguísticas
+    description: "A comunidade do Electron abrange o globo, e o Inglês não é a primeira linguagem para todas. Veja a <a href='/languages'>documentação em sua linguagem</a>, ou Junte-se a uma das comunidades linguísticas abaixo:"
   tools: Ferramentas
   boilerplates: Boilerplates
   components: Componentes
