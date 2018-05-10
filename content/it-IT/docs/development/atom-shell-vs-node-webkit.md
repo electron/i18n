@@ -26,6 +26,6 @@ In NW.js, le integrazioni tra Node e le pagine web richiedono di applicare patch
 
 Se sei un utente NW.js con esperienza ti dovrebbe essere familiare il concetto di Contesto Node e Contesto Web. Questi concetti sono stati inventati per venire incontro al modo in cui è stato implementato NW.js.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+Utilizzando la feature [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) di Node, Electron non introduce un nuovo contesto JavaScript nelle pagine web.
 
-Note: NW.js has optionally supported multi-context since 0.13.
+Nota: NW.js ha introdotto il supporto opzionale per multi-context dalla versione 0.13.
