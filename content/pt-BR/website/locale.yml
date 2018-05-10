@@ -37,9 +37,9 @@ community:
     packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Relatório de violações do Código de Conduta</b></a> mande através do email <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Questões de segurança</b></a> mande através do email <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Doações</b></a> na nossa página do <a href='/donors'>OpenCollective</a>."
     other: "Para todas as outras perguntas, envie um email para <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Comunidades Linguísticas
