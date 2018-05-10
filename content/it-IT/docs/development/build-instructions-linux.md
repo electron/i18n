@@ -7,8 +7,8 @@ Segui le seguenti linee guida per compilare Electron su Linux.
 * Almeno 25 GB di spazio su disco e 8 GB di RAM.
 * Python 2.7.x. Alcune distribuzioni, come ad esempio CentOS 6.x, utilizzano ancora Python 2.6.x potresti quindi avere la necessità di controllare la versione di Python installata con `python -V`.
 * Node.js. Ci sono diversi modi per installare Node. Puoi scaricare i sorgenti da [nodejs.org](https://nodejs.org) e compilarli. Ciò consente di installare Node nella propria home directory come utente standard. O puoi scaricarlo da un repository come ad esempio [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* [clang](https://clang.llvm.org/get_started.html) 3.4 o successiva.
+* Headers di sviluppo per GTK+ e libnotify.
 
 Su Ubuntu, installa le seguenti librerie:
 
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+Su RHEL / CentOS, installa le seguenti librerie:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
@@ -38,9 +38,9 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Altre distribuzioni possono offrire pacchetti simili per l'installazione tramite gestori di pacchetti come pacman. O si può compilare dal codice sorgente.
+Altre distribuzioni possono offrire pacchetti simili per l'installazione tramite gestori di pacchetti come pacman. Oppure si possono compilare dai sorgenti.
 
-## Getting the Code
+## Ottenere i sorgenti
 
 ```sh
 $ git clone https://github.com/electron/electron
@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Il download di determinati file può richiedere molto tempo. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Lo script di bootstrap scaricherà tutte le dipendenze necessarie alla compilazione e creerà tutti i file di progetto. Python 2.7.x è nececssario per eseguire con successo lo script. Il download di determinati file può richiedere molto tempo. Per compilare electron viene utilizzato `ninja` per questo non viene generato nessun `Makefile`.
 
 ```sh
 $ cd electron
