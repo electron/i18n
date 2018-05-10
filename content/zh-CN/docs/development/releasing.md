@@ -17,7 +17,7 @@ Run `npm run prepare-release -- --notesOnly` to view auto generated release note
 
 You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
 
-There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api * `JENKINS_AUTH_TOKEN` and `JENKINS_BUILD_TOKEN`: Are provided by a Jenkins admin
+There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
 
 ## 运行 prepare-release 脚本
 
@@ -67,9 +67,7 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 `prepare-release` 脚本将通过 API 调用触发生成。要监视生成进度, 请参阅以下页面:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) 对于 Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) 对于 OS X
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) 对于 Linux
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for OS X and Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) 对于 Windows
 
 ## 编译发布说明
