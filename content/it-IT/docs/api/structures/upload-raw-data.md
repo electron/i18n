@@ -1,4 +1,4 @@
-# Oggetto CaricaDatiCrudi
+# Oggetto UploadRawData
 
-* `tipo` Stringa - `Datocrudo`.
-* `byte` Buffer - Dati da caricare.
+* `type` Stringa - `rawData`.
+* `bytes` Buffer - Dati da caricare.
