@@ -75,7 +75,7 @@ La finestra `child` sarà sempre mostrata sopra la finestra `top`.
 
 ### Finestre modali
 
-Una finestra modale è una finestra figlia che disabilita le finestre genitrici, per crearne una devi impostare entrambe le opzioni `parent` e `modal`:
+Una finestra modale è una finestra figlia che disabilita le finestre padri, per crearne una devi impostare entrambe le opzioni `parent` e `modal`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
