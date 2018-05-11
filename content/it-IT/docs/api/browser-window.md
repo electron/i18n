@@ -58,7 +58,7 @@ win.loadURL('https://github.com')
 
 Nota come anche per le app è usato l'evento `ready-to-show`, è raccomandato impostare il `backgroundColor` per far sembrare le app più native.
 
-## Finestre genitrici e figlie
+## Finestra padre e figlio
 
 Usando l'opzione `parent`, puoi creare finestre figlie, impostando una relazione gerarchica tra le finesre:
 
@@ -71,7 +71,7 @@ child.show()
 top.show()
 ```
 
-La finestra `figlia` sarà sempre mostrata sopra la finestra `top`.
+La finestra `child` sarà sempre mostrata sopra la finestra `top`.
 
 ### Finestre modali
 
