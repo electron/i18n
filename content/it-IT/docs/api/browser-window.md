@@ -1,4 +1,4 @@
-# FinestraBrowser
+# BrowserWindow
 
 > Crea e controlla le finestre del browser.
 
@@ -27,13 +27,13 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 Per creare una finestra senza chrome, o una finestra trasparente in forma arbitraria, puoi usare l'API [Frameless Window](frameless-window.md).
 
-## Mostrare finestra elegantemente
+## Mostrare la finestra in maniera elegante
 
-Quando si carica una pagina direttamente nella finestra, l'utente potrebbe vedere la pagina caricare in modo incrementale, che non è una esperienza buona per una app nativa. Permostrare la finestra senza flash visuale esistono due soluzioni per due differenti situazioni.
+Quando si carica una pagina direttamente nella finestra, l'utente potrebbe vedere la pagina caricare in modo incrementale, che non è una esperienza buona per un'app nativa. Per mostrare la finestra senza flash visuale esistono due soluzioni per due differenti situazioni.
 
-### Uso dell'evento `ready-to-show`
+### Utilizzare l'evento `ready-to-show`
 
-Durante il caricamento della pagina, l'evento `ready-to-show` verrà emesso quando il processo di rendering ha eseguito il rendering della pagina per la prima volta e se la finestra non è stata ancora visualizzata. Mostrare la finestra dopo questo evento non mostrerà flash visuali:
+Durante il caricamento della pagina, l'evento `ready-to-show` verrà emesso quando il Renderer Process ha eseguito il rendering della pagina per la prima volta e se la finestra non è stata ancora visualizzata. Mostrare la finestra dopo questo evento non mostrerà flash visuali:
 
 ```javascript
 const {BrowserWindow} = require('electron')
