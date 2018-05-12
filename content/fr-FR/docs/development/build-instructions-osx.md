@@ -87,7 +87,7 @@ Pour nettoyer uniquement les répertoires `out` et `dist` :
 $ npm run clean-build
 ```
 
-**Remarque :** Les deux commandes de nettoyage requière l’exécution de `bootstrap`.
+**Remarque :** Les deux commandes de nettoyage requièrent l’exécution de `bootstrap`.
 
 ## Tests
 
