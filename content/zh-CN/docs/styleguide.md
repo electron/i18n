@@ -169,7 +169,7 @@ required[, optional]
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * 或自定义类型, 就像 Electron 的 [`WebContent`](api/web-contents.md)
 
-如果参数或方法对某些平台是唯一的，那么这些平台将使用数据类型后面的空格分隔的斜体列表来表示。 值可以是 `macOS`，`Windows` 或 `Linux`.
+如果参数或方法对某些平台是唯一的，那么这些平台将使用数据类型后面的空格分隔的斜体列表来表示。 Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - 进行动画处理的事情.
