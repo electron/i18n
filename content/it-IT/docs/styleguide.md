@@ -169,7 +169,7 @@ Sotto il metodo sono informazioni più dettagliate su ciascuno degli argomenti. 
 * [`Booleano`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * O un tipo personalizzato come [`ContenutoWeb`](api/web-contents.md) di Electron
 
-Se un argomento o un metodo è univoco per certe piattaforme, tali piattaforme sono denotate utilizzando un elenco in corsivo delimitato dallo spazio che segue il tipo di dati. I valori possono essere `macOS`, `Windows` o `Linux`.
+Se un argomento o un metodo è univoco per certe piattaforme, tali piattaforme sono denotate utilizzando un elenco in corsivo delimitato dallo spazio che segue il tipo di dati. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * 'animato' Booleano (opzionale) _macOS_ _Windows_ - Anima la cosa.
