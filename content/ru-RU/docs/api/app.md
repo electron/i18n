@@ -148,7 +148,7 @@ app.on('window-all-closed', () => {
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - содержит специфичное для приложения состояние, сохраняющееся в хранилище по активности.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Иначе операция завершится ошибкой и будет вызвано `continue-activity-error`.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе операция завершится ошибкой и будет вызвано `continue-activity-error`.
 
 ### Событие: 'new-window-for-tab' *macOS*
 
@@ -320,7 +320,7 @@ Exits immediately with `exitCode`. `exitCode` defaults to 0.
 ### `app.relaunch([options])`
 
 * `options` Object (опционально) 
-  * `args` String[] (optional)
+  * `args` String[] (опционально)
   * `execPath` String (опиционально)
 
 Перезапуск приложения когда существует текущий экземпляр.
@@ -384,7 +384,7 @@ app.exit(0)
 * `pictures` каталог пользователя для фотографии.
 * `videos` каталог пользователя для видео.
 * `logs` директория для логов вашего приложения.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` путь к плагину Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -691,7 +691,7 @@ app.on('ready', () => {
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Возвращает [`ProcessMetric[]`](structures/process-metric.md): массив объектов `ProcessMetric`, которые соответствует статистике использования памяти всех process, связанных с app.
 
 ### `app.getGPUFeatureStatus()`
 
