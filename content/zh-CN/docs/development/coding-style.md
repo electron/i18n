@@ -18,7 +18,7 @@
   * Use `path.join()` to concatenate filenames.
   * 请使用`os.tmpdir()`而不是`/tmp`来引用临时目录。
 * Using a plain `return` when returning explicitly at the end of a function. 
-  * 不是`return null`，`return undefined`，`null`或`undefined`
+  * Not `return null`, `return undefined`, `null` or `undefined`
 
 ## C + + 和 Python
 
