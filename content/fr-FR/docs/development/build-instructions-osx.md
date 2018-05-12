@@ -47,7 +47,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+Si votre éditeur supporte un serveur de langage basé sur une [base de données de compilation JSON](http://clang.llvm.org/docs/JSONCompilationDatabase.html), vous pouvez la générer:
 
 ```sh
 $ ./script/build.py --compdb
@@ -71,7 +71,7 @@ Une fois la compilation terminée, vous trouverez `Electron.app` dans `out/D`.
 
 ## Support 32 bit
 
-Electron ne peut être compiler qu'en 64 bit sur macOS et il n'est pas prévu d'avoir un support 32 bit sur macOS dans le futur.
+Electron ne peut être compilé qu'en 64 bit sur macOS et il n'est pas prévu d'avoir un support 32 bit sur macOS dans le futur.
 
 ## Nettoyage
 
