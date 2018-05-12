@@ -728,16 +728,16 @@ app.on('ready', () => {
 Возвращает `Object`:
 
 * `openAtLogin` Boolean - `true` если приложение планируется открыть при входе в систему.
-* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Это означает, что приложению не следует открывать любое окно при запуске. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` если приложение должно запускаться закрытым при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Это означает, что приложению не следует открывать любое окно при запуске. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (опиционально) - `true` открыть приложение при входе в систему, `false` удалять приложение в качестве элемента входа. По умолчанию `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр из системных настроек, так `.wasOpenedAsHidden app.getLoginItemStatus ()` должен быть проверен при открытии приложения и знать текущее значение. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр из системных настроек, так `.wasOpenedAsHidden app.getLoginItemStatus ()` должен быть проверен при открытии приложения и знать текущее значение. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (опиционально) *Windows* - исполняемый файл запускается при входе в систему. По умолчанию `process.execPath`.
   * `args` String[] (опиционально) *Windows* - аргументы командной строки для передачи исполняемого файла. По умолчанию пустой массив. Позаботесь обернуть путь кавычками.
 
