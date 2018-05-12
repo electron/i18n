@@ -38,7 +38,7 @@ Pour contourner cela, Electron utilise la variable `libchromiumcontent_component
 
 ## Noms de destination
 
-Contrairement à la plupart des projets qui utilisent `Release` et `Debug` comme noms de cibles, Electrons utilise à la place `R` et `D`. C’est parce que `gyp` se bloque aléatoirement si il n’y a qu’une seule `Release` ou `Debug` configuration de compilation de définie, et Electron doit générer seulement une seule cible à la fois comme indiqué ci-dessus.
+Contrairement à la plupart des projets qui utilisent `Release` et `Debug` comme noms de cibles, Electron utilise à la place `R` et `D`. C’est parce que `gyp` se bloque aléatoirement si il n’y a qu’une seule `Release` ou `Debug` configuration de compilation de définie, et Electron doit générer seulement une seule cible à la fois comme indiqué ci-dessus.
 
 This only affects developers, if you are building Electron for rebranding you are not affected.
 
