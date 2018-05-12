@@ -2,13 +2,13 @@
 
 Electronでの開発は特定のやり方に固執しておらず、「一つの正しいやり方」はありません。 Electronのビルド、実行時に利用可能な追加的な機能は[npm](https://www.npmjs.com/search?q=electron)で独立したパッケージとして見つけることができるでできるでしょう。そのため、アプリケーションやビルドシステムを開発者が必要に応じて構築できるようになっています。
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+このモジュール性と拡張性により、Electronを使っている開発者はチームの大小に関わらず、開発ライフサイクルのある時点でできること、あるいはできないことに制限を受けません。 しかし、多くの開発者にとってはコミュニティーが提供するボイラープレートやコマンドラインツールにより劇的にコンパイル、パッケージ化、アプリのリリースが簡単になるのも確かです。
 
-## Boilerplate vs CLI
+## ボイラープレート vs CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+ボイラープレートはアプリケーションを構築するためのスタート地点、いわばカンバスです。 通常、ボイラープレートはクローン可能なレポジトリとして提供され、自分の要求に応じたカスタマイズができます。
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+一方で、コマンドラインツールは開発からリリースまでをサポートしてくれます。 They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
 
 ## electron-forge
 
