@@ -1,5 +1,5 @@
 # WebSource Object
 
 * `code` String
-* `url` String (optional)
-* `startLine` Integer (optional) - Default is 1.
+* `url` String (옵션)
+* `startLine` Integer (옵션) - 기본은 1.
