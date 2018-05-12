@@ -1,4 +1,4 @@
-# Разработка Chromium
+# Chromium Development
 
 > A collection of resources for learning about Chromium and tracking its development
 
