@@ -169,7 +169,7 @@ Debajo, el método es información detallada de cada uno de los argumentos. El t
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * O un tipo personalizado como [`WebContent`](api/web-contents.md) de Electron
 
-Si un argumento o un método es único para ciertas plataformas, esas plataformas son denotadas usando una lista con espacio delimitado y en cursiva siguiendo el tipo de data. Valores pueden ser `macOS`, `Windows`, o `Linux`.
+Si un argumento o un método es único para ciertas plataformas, esas plataformas son denotadas usando una lista con espacio delimitado y en cursiva siguiendo el tipo de data. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Booleano (opcional) _macOS_ _Windows_ - Anima la cosa.
