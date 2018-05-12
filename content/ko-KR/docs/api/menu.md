@@ -20,7 +20,7 @@
 
 인자로 `null` 을 주면 윈도우와 리눅스에서는 메뉴 모음에서 메뉴를 제거 합니다. 하지만 맥 OS 에서는 제거하지 않습니다.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**참고:**이 API는 `app` 모듈의 `ready`이벤트 이후에 호출 할 수 있습니다.
 
 #### `Menu.getApplicationMenu()`
 
