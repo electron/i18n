@@ -1,6 +1,6 @@
-# Boilerplates and CLIs
+# ボイラプレートとCLI
 
-Electron development is un-opinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+Electronでの開発は特定のやり方に固執しておらず、「一つの正しいやり方」はありません。 Electronのビルド、実行時に利用可能な追加的な機能は[npm](https://www.npmjs.com/search?q=electron)で独立したパッケージとして見つけることができるでできるでしょう。そのため、アプリケーションやビルドシステムを開発者が必要に応じて構築できるようになっています。
 
 That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
 
