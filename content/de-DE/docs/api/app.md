@@ -81,7 +81,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
     
     On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
     
-    ### Event: 'open-url' *macOS*
+    ### Ereignis: 'open-url' *macOS*
     
     Rückgabewert:
     
@@ -107,7 +107,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
       
       * ` Ereignis </ 0>  Ereignis</li>
 <li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-      * `userInfo` Object - Contains app-specific state stored by the activity on another device.
+      * `userInfo` Object - Enthält den app-spezifischen Zustand, der von einer Aktivität auf einem anderen Gerät gespeichert wurde.
       
       Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
       
@@ -302,13 +302,13 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ## Methoden
 
-The `app` object has the following methods:
+Das `app` Objekt enthält die folgenden Methoden:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Hinweis:** Manche Methoden sind nur auf spezifischen Betriebssystemen verfügbar und sind dementsprechend gekennzeichnet.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Versucht sämtliche Fenster zu schließen. Das `before-quit` Ereignis wird zuerst aufgerufen. Wurden alle Fenster erfolgreich geschlossen, wird das `will-quit` Ereignis aufgerufen und die Anwendung wird standardmäßig terminiert.
 
 This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
