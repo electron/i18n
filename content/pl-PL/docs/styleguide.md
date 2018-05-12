@@ -169,7 +169,7 @@ Poniżej metoda jest bardziej szczegółowa na każdym argumencie. Typ argumentu
 * [`Logiczny typ danych`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Lub wybrany tryp jak Electrony [`ZawartośćWitryny`](api/web-contents.md)
 
-Jeśli argument lub metoda są unikalne dla poszczególnych platform, te platformy są oznaczone używając nieograniczonego miejsca wymieniając następujący typ danych używając kursywy. Wartości mogą być `macOS`,`Windows`, lub `Linux`.
+Jeśli argument lub metoda są unikalne dla poszczególnych platform, te platformy są oznaczone używając nieograniczonego miejsca wymieniając następujący typ danych używając kursywy. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 ` ożywiony` Boolean (opcjonalnie) _macOS_ _Windows_ -Ożywić rzecz.
