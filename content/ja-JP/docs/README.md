@@ -24,7 +24,7 @@
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+  * [その他のツール、ボイラープレート](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [アプリケーションアーキテクチャ](tutorial/application-architecture.md) 
   * [メインプロセスとレンダラープロセス](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron の API を使用する](tutorial/application-architecture.md#using-electron-apis)
