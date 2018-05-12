@@ -168,7 +168,7 @@ required[, optional]
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Или пользовательский тип, например [`WebContent`](api/web-contents.md) Electron'а
 
-Если аргумент или метод является уникальным для определенных платформ, эти платформы обозначаются списком, разделенных пробелами, после типа данных. Значения могут быть `macOS`, `Windows` или `Linux`.
+Если аргумент или метод является уникальным для определенных платформ, эти платформы обозначаются списком, разделенных пробелами, после типа данных. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Boolean (опционально) _macOS_ _Windows_ - анимационные вещи.
