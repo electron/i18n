@@ -1,4 +1,4 @@
 # CrashReport-Objekt
 
-* `date` Date
+* `date` Datum
 * `id` Zeichenfolge
