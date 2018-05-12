@@ -18,7 +18,7 @@ Anda dapat menjalankan `npm run lint` untuk menunjukkan macam gaya yang terdetek
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
 * Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null`, or `undefined`
+  * Not `return null`, `return undefined`, `null` or `undefined`
 
 ## C ++ dan Python
 
