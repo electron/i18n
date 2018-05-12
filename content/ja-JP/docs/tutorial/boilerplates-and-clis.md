@@ -8,7 +8,7 @@ Electronでの開発は特定のやり方に固執しておらず、「一つの
 
 ボイラープレートはアプリケーションを構築するためのスタート地点、いわばカンバスです。 通常、ボイラープレートはクローン可能なレポジトリとして提供され、自分の要求に応じたカスタマイズができます。
 
-一方で、コマンドラインツールは開発からリリースまでをサポートしてくれます。 They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+一方で、コマンドラインツールは開発からリリースまでをサポートしてくれます。 より多くの点で開発を手助けしてくれますが、コードの構成やビルド方法についての制約を強制します。 *特に初心者はコマンドラインツールを使うのが良いでしょう。*
 
 ## electron-forge
 
@@ -30,6 +30,6 @@ You can find more information and documentation in [the repository](https://gith
 
 If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
 
-## Other Tools and Boilerplates
+## その他のツール、ボイラープレート
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+["Awesome Electron" リスト](https://github.com/sindresorhus/awesome-electron#boilerplates)はより多くのツールやボイラープレートを紹介しています。 If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
