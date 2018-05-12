@@ -98,7 +98,7 @@ Using `autoUpdater` as an example:
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Fall Eigenschaften` chapter. 
+* Instance Properties must be listed under an `### Instanz Eigenschaften` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
@@ -169,7 +169,7 @@ Below the method is more detailed information on each of the arguments. The type
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Or a custom type like Electron's [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
