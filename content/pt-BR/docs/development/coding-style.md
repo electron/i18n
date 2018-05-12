@@ -18,7 +18,7 @@ Você pode executar `npm run lint` para visualizar qualquer problemas de estilos
   * Use `path.join()` para concatenar nome de arquivos.
   * Use `os.tmpdir()` ao invés de `/tmp` quando você precisar fazer referência ao diretório temporário.
 * Usando um simples `return` ao explicitamente retornar no fim de uma função. 
-  * Não `return null`, `return undefined`, `null`, ou `undefined`
+  * Not `return null`, `return undefined`, `null` or `undefined`
 
 ## C++ e Python
 
