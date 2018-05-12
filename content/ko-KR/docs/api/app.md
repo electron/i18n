@@ -68,7 +68,7 @@ Returns:
 
 ### 이벤트: 'open-file' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
 * `path` String
