@@ -18,7 +18,7 @@
   * `path.join()` を使用してファイル名を連結します。
   * 一時ディレクトリを参照する必要がある場合は、`/tmp` ではなく `os.tmpdir()` を使用してください。
 * 関数の終わりで明示的に戻るときは、そのままの `return` を使用します。 
-  * `return null`、`return undefined`、`null` や、`undefined` ではありません
+  * Not `return null`, `return undefined`, `null` or `undefined`
 
 ## C++ と Python
 
