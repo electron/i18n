@@ -10,7 +10,7 @@ NW.js のように、Electron は JavaScript と HTML でデスクトップア�
 
 NW.js アプリケーションのメインエントリポイントはウェブページか JS スクリプトです。 `package.json` で HTML か JS ファイルを指定し、(HTML のエントリポイントの場合) それがアプリケーションのメインウインドウとしてブラウザウインドウで開かれるか、スクリプトが実行されます。
 
-Electron では、エントリポイントは JavaScript スクリプトです。 URL を直接指定するのではなく、手動でブラウザウインドウを作成し、API を用いて HTML ファイルを読み込みます。 また、アプリケーションをいつ終了するかを決定するためにウインドウイベントを傍受する必要があります。
+Electron では、エントリポイントは JavaScript スクリプトです。 URL を直接指定するのではなく、手動でブラウザウインドウを作成し、API を用いて HTML ファイルを読み込みます。 また、アプリケーションをいつ終了するかを決定するためにウインドウイベントを監視する必要があります。
 
 Electron は Node.js ランタイムによく似ています。 Electron の API はローレベルなので、[PhantomJS](http://phantomjs.org/) の代わりにブラウザテストに使用できます。
 
@@ -20,11 +20,11 @@ Chromium のすべてのビルドの複雑さを避けるため、Electron は C
 
 **3. Node Integration**
 
-NW.js では、ウェブページ内の Node integration では Chromium のパッチを適用する必要があります。Electron では、Chromium のハッキングを避けるために、libuv ループを各プラットフォームのメッセージループと統合する、別の方法を選択しました。 それがどのようにされたのかについては [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) コードを参照してください。
+NW.js では、ウェブページ内の Node integration では Chromium のパッチを適用する必要があります。Electron では、Chromium のハッキングを避けるために、libuv ループを各プラットフォームのメッセージループと統合する、別の方法を選択しました。 これがどのように行われているかについては [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) コードを参照してください。
 
 **4. マルチコンテキスト**
 
-あなたが NW.js の経験があるユーザの場合、Node コンテキストとウェブコンテキストの概念に馴染んでいるはずです。これらの概念は、NW.js の実装方法のために考案されました。
+NW.js の経験があるユーザには馴染みある、Node コンテキストとウェブコンテキストの概念は、NW.js の実装方法のために考案されました。
 
 Node の [マルチコンテキスト](https://github.com/nodejs/node-v0.x-archive/commit/756b622) 機能を使用すると、Electron はウェブページ内に新しい JavaScript コンテキストを導入しません。
 
