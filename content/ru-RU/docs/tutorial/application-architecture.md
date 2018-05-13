@@ -20,7 +20,7 @@
 
 > #### Aside: Communication Between Processes
 > 
-> В Electron у нас есть несколько способов взамимодействия между основным процессом и процессами визуализации. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> В Electron у нас есть несколько способов взамимодействия между основным процессом и процессами визуализации. Например, модули для отправки сообщений: [`ipcRenderer`](../api/ipc-renderer.md), [`ipcMain`](../api/ipc-main.md) и модуль для вызова удаленных процедур(RPC) - [remote](../api/remote.md). Так же доступен FAQ о [том, как обмениваться данными между веб-страницами](../faq.md#how-to-share-data-between-web-pages).
 
 ## Использование API Electron
 
