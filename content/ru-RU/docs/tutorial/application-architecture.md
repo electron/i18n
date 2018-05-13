@@ -20,11 +20,11 @@
 
 > #### Aside: Communication Between Processes
 > 
-> В Electron у нас есть несколько способов взамимодействия между основным процессом и процессами визуализации. Например, модули для отправки сообщений: [`ipcRenderer`](../api/ipc-renderer.md), [`ipcMain`](../api/ipc-main.md) и модуль для вызова удаленных процедур(RPC) - [remote](../api/remote.md). Так же доступен FAQ о [том, как обмениваться данными между веб-страницами](../faq.md#how-to-share-data-between-web-pages).
+> В Electron иммется несколько способов взамимодействия между основным процессом и процессами визуализации. Например, модули для отправки сообщений: [`ipcRenderer`](../api/ipc-renderer.md), [`ipcMain`](../api/ipc-main.md) и модуль для вызова удаленных процедур(RPC) - [remote](../api/remote.md). Так же доступен FAQ о [том, как обмениваться данными между веб-страницами](../faq.md#how-to-share-data-between-web-pages).
 
 ## Использование API Electron
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+В Electron доступен ряд API-интерфейсов, поддерживающих разработку настольных приложений в обоих процессах - main process и render process. Для доступа к этим процессам API Electron вам необходимо включить в проект следующий модуль:
 
 ```javascript
 const electron = require('electron')
