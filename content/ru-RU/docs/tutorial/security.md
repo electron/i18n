@@ -33,9 +33,9 @@
 Они не идеальны, но по крайней мере следуя им вы улучшите безопасность вашего приложения.
 
 1. [Загружайте только безопасный контент](#1-only-load-secure-content)
-2. [Выключите Node.js интеграцию во всех видах показывающих удаленный контент](#2-disable-nodejs-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
-4. [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#4-handle-session-permission-requests-from-remote-content)
+2. [Выключите Node.js интеграцию во всех видах (renderers) показывающих удаленный контент](#2-disable-nodejs-integration-for-remote-content)
+3. [Включите контекстную изоляцию для всех видов (renders) с удаленным контентом](#3-enable-context-isolation-for-remote-content)
+4. [Используйте `ses.setPermissionRequestHandler()` в сессиях с загрузкой удаленного контента](#4-handle-session-permission-requests-from-remote-content)
 5. [Do not disable `webSecurity`](#5-do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
 7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
