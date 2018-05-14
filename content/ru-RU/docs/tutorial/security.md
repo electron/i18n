@@ -36,18 +36,18 @@
 2. [Выключите Node.js интеграцию во всех видах (renderers) показывающих удаленный контент](#2-disable-nodejs-integration-for-remote-content)
 3. [Включите контекстную изоляцию для всех видов (renders) с удаленным контентом](#3-enable-context-isolation-for-remote-content)
 4. [Используйте `ses.setPermissionRequestHandler()` в сессиях с загрузкой удаленного контента](#4-handle-session-permission-requests-from-remote-content)
-5. [Do not disable `webSecurity`](#5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
-8. [Do not set `allowRunningInsecureContent` to `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
+5. [Не выключайте `webSecurity`](#5-do-not-disable-websecurity)
+6. [Определите `Content-Security-Policy`](#6-define-a-content-security-policy) и используйте ограничительные правила (i.e. `script-src 'self'`)
+7. [Откажитесь от `eval`](#7-override-and-disable-eval), которая позволяет строкам выполняться как код.
+8. [Не устанавливайте `allowRunningInsecureContent` в `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [Do not enable experimental features](#9-do-not-enable-experimental-features)
-10. [Do not use `blinkFeatures`](#10-do-not-use-blinkfeatures)
-11. [WebViews: Do not use `allowpopups`](#11-do-not-use-allowpopups)
-12. [WebViews: Verify the options and params of all `<webview>` tags](#12-verify-webview-options-before-creation)
+10. [Не испольхуйте `blinkFeatures`](#10-do-not-use-blinkfeatures)
+11. [WebViews: Не используйте `allowpopups`](#11-do-not-use-allowpopups)
+12. [WebViews: Проверьте параметры всех`<webview>` тэгов](#12-verify-webview-options-before-creation)
 
 ## 1) Загружать только безопасный контент
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+Все ресурсы не включенные в ваше приложение должны быть загружены с использованием безопасного протокола `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### Почему?
 
