@@ -823,11 +823,11 @@ Start accessing a security scoped resource. With this method electron applicatio
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+Возвращает `Boolean` - выполняется ли приложение сейчас из systems Application папки. Используется совместно с `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+Возвращает `Boolean` - Было ли перемещение успешным. Обратите внимание, если перемещение была успешным, ваше приложение может завершиться или совершит перезапуск.
 
 Диалог подтверждения не будет представлен по умолчанию, если Вы хотите позволить пользователю подтвердить операцию, Вы можете сделать это с помощью API [`диалогового окна`](dialog.md).
 
