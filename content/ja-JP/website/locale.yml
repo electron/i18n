@@ -37,7 +37,7 @@ community:
     packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>機能の要望がある</b></a> GitHub の <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>行動規範への違反を報告する</b></a> <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> までメールでご連絡ください。"
     security: "<a href='mailto:security@electronjs.org'><b>セキュリティの問題を連絡する</b></a> <a href='mailto:security@electronjs.org'>security@electronjs.org</a>までメールでお知らせください。"
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
     other: "これ以外のお問い合わせ内容については、<a href='mailto:info@electronjs.org'>info@electronjs.org</a> までメールでご連絡ください。"
