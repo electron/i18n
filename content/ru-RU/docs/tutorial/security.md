@@ -24,16 +24,16 @@
 
 ## Предупреждение безопасности Electron
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
+Электрон 2.0 показывает разработчикам предупреждения и рекомендации в консоли. Они показываются только тогда, когда имя исполняемого файла - Electron.
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+Вы можете принудительно включить или выключить эти предупреждения в настройках `ELECTRON_ENABLE_SECURITY_WARNINGS` или `ELECTRON_DISABLE_SECURITY_WARNINGS` на любом `process.env` или объекте `window`.
 
 ## Чеклист: рекомендации по безопасности
 
-This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+Они не идеальны, но по крайней мере следуя им вы улучшите безопасность вашего приложения.
 
-1. [Only load secure content](#1-only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#2-disable-nodejs-integration-for-remote-content)
+1. [Загружайте только безопасный контент](#1-only-load-secure-content)
+2. [Выключите Node.js интеграцию во всех видах показывающих удаленный контент](#2-disable-nodejs-integration-for-remote-content)
 3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
 4. [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#4-handle-session-permission-requests-from-remote-content)
 5. [Do not disable `webSecurity`](#5-do-not-disable-websecurity)
