@@ -16,11 +16,11 @@
 
 Мы понимаем, что наша текущая система обновления компонента Chromiumнарушает баланс между имеющимися у нас ресурсами и потребностями большинство приложений, построенных на его основе. Мы, безусловно, заинтересованы в получении дополнительной информации о работе с Электроном, от людей которые создают приложения на его основе. Мы будем очень благодарны за pull requests и поддержку проекта.
 
-## Ignoring Above Advice
+## Игнорирование вышеперечисленных советов
 
-Вопрос безопасности существует всегда, когда вы получаете код из удаленных источников и выполняете его на локальной машине. Для примера рассмотри удаленный сайт показываемый в [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+Вопрос безопасности существует всегда, когда вы получаете код из удаленных источников и выполняете его на локальной машине. Для примера рассмотри удаленный сайт показываемый в [`BrowserWindow`](../api/browser-window.md). Если злоумышленник каким-то образом модифицирует код (путем атаки напрямую или находясь между вашим приложением и удаленным источником), он будут в состоянии выполнить код на компьютере пользователя.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
+> :warning: ни при каких обстоятельствах не следует загружать и выполнять удаленный код с Node.js integration enabled. Вместо этого используйте только локальные файлы (упакованные вместе с вашим приложением), для выполнения Node.js кода. Показывайте удаленный контент используя [`webview`](../api/web-view.md) тэг и убедитесь что выключена `nodeIntegration`.
 
 ## Предупреждение безопасности Electron
 
