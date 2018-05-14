@@ -313,7 +313,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 * `exitCode` Integer (опиционально)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Выйти немедленно с `exitCode`. `exitCode` по умолчанию 0.
 
 Все окна будут закрыты сразу без запросов пользователя и `before-quit` и `will-quit` события не будут возникать.
 
@@ -323,7 +323,7 @@ Exits immediately with `exitCode`. `exitCode` defaults to 0.
   * `args` String[] (опционально)
   * `execPath` String (опиционально)
 
-Перезапуск приложения когда существует текущий экземпляр.
+Приложение возобновится при выходе из текущего экземпляра.
 
 По умолчанию новый экземпляр будет использовать тот же рабочий каталог и аргументы командной строки с текущим экземпляром. Когда `args` указан, `args` передаются как аргументы командной строки. Когда задано значение `execPath`, `execPath` будет выполняться для перезапуска вместо текущего приложения.
 
@@ -787,7 +787,7 @@ app.setLoginItemSettings({
 
 * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
 
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+Возвращает `Function`. Эта функция **должна** быть вызвана после того как вы have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
 
 ```js
 // Start accessing the file.
