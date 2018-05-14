@@ -4,7 +4,7 @@
 
 Когда вы работаете в среде Электрон, важно понимать, что это не веб браузер. Электрон позволяет создавать функционально развитые приложения для настольных компьютеров с помощью веб технологий, но ваш код обладает большими возможностями. JavaScript имеет доступ к файловой системе, пользовательским скриптам и т. д. Благодаря этим возможностям вы можете создавать высококачественные нативные приложения, но это так же множит риски увеличивающиеся с дополнительными полномочиями вашего кода.
 
-With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
+Учитывая это, учтите что показ произвольного содержимого от недовершенных источников влечет за собой риски безопасности, которые Электрон не предназначен купировать. К сведению, наиболее популярные приложения Электрон (Atom, Slack, Visual Studio Code, etc) предназначены для локальной работы (или доверенным удаленным узлам без Node интеграции). Если ваше приложение выполняет код из онлайн источника, вы обязаны обеспечить безопасность кода.
 
 ## Отчеты по безопасности
 
