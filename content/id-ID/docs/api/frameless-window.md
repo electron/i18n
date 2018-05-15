@@ -69,31 +69,31 @@ win.show()
     Untuk membuat jendela klik-tayang, yaitu membuat jendela mengabaikan semua peristiwa mouse, Anda dapat memanggil API  win.setIgnoreMouseEvents (ignore) </ 0> :</p> 
     
     ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-win.setIgnoreMouseEvents(true)
-```
-
-### Forwarding
-
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
-
-```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
-el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, {forward: true})
-})
-el.addEventListener('mouseleave', () => {
-  win.setIgnoreMouseEvents(false)
-})
-```
-
-This makes the web page click-through when over `el`, and returns to normal outside it.
-
-## Daerah serangga
-
-Secara default, jendela tanpa bingkai tidak dapat ditarik. Aplikasi harus menentukan ` - webkit - app-wilayah: menyeret </ 0> dalam CSS untuk pemesanan elektron yang daerah draggable (seperti OS standar titlebar), dan aplikasi juga dapat menggunakan <code> - webkit - app-wilayah: no- drag </ 0> untuk mengecualikan daerah bebas-draggable dari daerah draggable. Perhatikan bahwa hanya bentuk persegi panjang yang saat ini didukung.</p>
+    const {BrowserWindow} = require('electron')
+    let win = new BrowserWindow()
+    win.setIgnoreMouseEvents(true)
+    ```
+    
+    ### Forwarding
+    
+    Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+    
+    ```javascript
+    let win = require('electron').remote.getCurrentWindow()
+    let el = document.getElementById('clickThroughElement')
+    el.addEventListener('mouseenter', () => {
+      win.setIgnoreMouseEvents(true, {forward: true})
+    })
+    el.addEventListener('mouseleave', () => {
+      win.setIgnoreMouseEvents(false)
+    })
+    ```
+    
+    This makes the web page click-through when over `el`, and returns to normal outside it.
+    
+    ## Daerah serangga
+    
+    Secara default, jendela tanpa bingkai tidak dapat ditarik. Aplikasi harus menentukan ` - webkit - app-wilayah: menyeret </ 0> dalam CSS untuk pemesanan elektron yang daerah draggable (seperti OS standar titlebar), dan aplikasi juga dapat menggunakan <code> - webkit - app-wilayah: no- drag </ 0> untuk mengecualikan daerah bebas-draggable dari daerah draggable. Perhatikan bahwa hanya bentuk persegi panjang yang saat ini didukung.</p>
 
 <p>Catatan: <code> -webkit-app-region: drag </ 0> diketahui bermasalah saat alat pengembang terbuka. Lihat ini <a href="https://github.com/electron/electron/issues/3647"> Masalah GitHub </ 0> untuk informasi lebih lanjut termasuk solusi.</p>
 
@@ -103,27 +103,27 @@ Secara default, jendela tanpa bingkai tidak dapat ditarik. Aplikasi harus menent
 <pre><code class="html">&lt;body style="-webkit-app-region: drag"&gt; 
 </ 0>
 `</pre> 
-
-Dan perhatikan bahwa jika Anda telah membuat keseluruhan jendela draggable, Anda juga harus menandai tombol sebagai non-draggable, jika tidak, tidak mungkin bagi pengguna untuk mengekliknya:
-
-```css
-tombol {
-   -webkit-app-region: no-drag; }
-```
-
-Jika Anda menetapkan hanya titlebar kustom sebagai draggable, Anda juga perlu membuat semua tombol di titlebar yang tidak dapat digeser.
-
-## Pilihan teks
-
-Di jendela tanpa bingkai, perilaku menyeret mungkin bertentangan dengan pemilihan teks. Misalnya, saat Anda menyeret titlebar Anda mungkin secara tidak sengaja memilih teks pada titlebar. Untuk mencegah hal ini, Anda perlu menonaktifkan pemilihan teks dalam area yang dapat digeser seperti ini:
-
-```css
-.bar judul {
-  -webkit-user-select: none;
-  -webkit-app-region: drag;
-}
-```
-
-## Menu konteks
-
-Pada beberapa platform, area draggable akan diperlakukan sebagai bingkai non-klien, jadi Bila Anda klik kanan pada menu sistem akan muncul. Untuk membuat menu berperilaku benar pada semua platform Anda tidak boleh menggunakan menu konteks kustom pada daerah yang seret.
+    
+    Dan perhatikan bahwa jika Anda telah membuat keseluruhan jendela draggable, Anda juga harus menandai tombol sebagai non-draggable, jika tidak, tidak mungkin bagi pengguna untuk mengekliknya:
+    
+    ```css
+    tombol {
+       -webkit-app-region: no-drag; }
+    ```
+    
+    Jika Anda menetapkan hanya titlebar kustom sebagai draggable, Anda juga perlu membuat semua tombol di titlebar yang tidak dapat digeser.
+    
+    ## Pilihan teks
+    
+    Di jendela tanpa bingkai, perilaku menyeret mungkin bertentangan dengan pemilihan teks. Misalnya, saat Anda menyeret titlebar Anda mungkin secara tidak sengaja memilih teks pada titlebar. Untuk mencegah hal ini, Anda perlu menonaktifkan pemilihan teks dalam area yang dapat digeser seperti ini:
+    
+    ```css
+    .bar judul {
+      -webkit-user-select: none;
+      -webkit-app-region: drag;
+    }
+    ```
+    
+    ## Menu konteks
+    
+    Pada beberapa platform, area draggable akan diperlakukan sebagai bingkai non-klien, jadi Bila Anda klik kanan pada menu sistem akan muncul. Untuk membuat menu berperilaku benar pada semua platform Anda tidak boleh menggunakan menu konteks kustom pada daerah yang seret.
