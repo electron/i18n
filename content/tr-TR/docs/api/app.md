@@ -751,145 +751,145 @@ app.on('ready', () => {
       [Sincap](https://github.com/Squirrel/Squirrel.Windows) kullanan Windows'ta Elektronlar `otomatik Güncelleştiri` ile çalışmak için, Update.exe için başlatma yolunu ayarlamak ve uygulamanızı belirten argümanları aktarmak isteyecektir. Örneğin:
       
       ```javascript
-const appFolder = path.dirname(process.execPath)
-const updateExe = path.resolve(appFolder, '..', 'Update.exe')
-const exeName = path.basename(process.execPath)
-
-  app.setLoginItemSettings({
-  openAtLogin: true,
-  path: updateExe,
-  args: [
-    '--processStart', `"${exeName}"`,
-    '--process-start-args', `"--hidden"`
-  ]
-})
-```
-  
-  ### `app.isAccessibilitySupportEnabled()<0> <em>macOS<em><1>Windows</em></h3>
+      const appFolder = path.dirname(process.execPath)
+      const updateExe = path.resolve(appFolder, '..', 'Update.exe')
+      const exeName = path.basename(process.execPath)
+      
+        app.setLoginItemSettings({
+        openAtLogin: true,
+        path: updateExe,
+        args: [
+          '--processStart', `"${exeName}"`,
+          '--process-start-args', `"--hidden"`
+        ]
+      })
+      ```
+      
+      ### `app.isAccessibilitySupportEnabled()<0> <em>macOS<em><1>Windows</em></h3>
 
 <p><code>Boole Değeri<code> Chrome'un erişilebilirlik desteği etkinse <code>doğru` aksi halde yanlışa</code> çevirir. Bu API, `doğru` değerini geri döndürür. Yardımcı ekran okuyucuları gibi teknolojiler tespit edilir. Daha detaylar bilgi görmek için https://www.chromium.org/developers/design-documents/accessibility.</p> 
-  
-  ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
-  
-  * Mantıksal `enabled` [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) görüntülemeyi etkinleştirir veya devre dışı bırakır
-  
-  Manuel olarak Chrome'un erişilebilirlik desteğini etkinleştirir, erişilebilirlik anahtarını uygulama ayarlarındaki kullanıcılara göstermesine izin verir. daha fazla bilgi için https://www.chromium.org/developers/design-documents/accessibility. Varsayılan: Devre dışı.
-  
-  **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
-  
-  ### `app.setAboutPanelOptions(ayarlar)` *macOS*
-  
-  * `seçenekler` Nesne 
-    * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
-    * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
-    * `copyright` String (seçilebilir) - telif bilgisi.
-    * `credits` Dize (isteğe bağlı) - Kredi bilgileri.
-    * `version` Dize (İsteğe Bağlı) - Uygulamanın versiyon numarasını oluşturun.
-  
-  Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. Bakınız [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) daha fazla detay için.
-  
-  ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
-  
-  * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
-  
-  Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
-  
-  ```js
-// Start accessing the file.
-const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
-stopAccessingSecurityScopedResource()
-```
-
-Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
-
-### `app.commandLine.appendSwitch(switch[, value])`
-
-* `switch` String - Bir komut satırı anahtarı
-* `value` String (optional) - Verilen anahtarda bir değer
-
-Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
-
-**Note:** `process.argv`'ı etkilemez ve esas geliştiriciler tarafından düşük seviyeli bazı Krom hareketlerini kontrol etmek için kullanılır.
-
-### `app.commandLine.appendArgument(value)`
-
-* `value` String - Komut satırına eklenecek argüman
-
-Chromium'un komut satırına bağımsız bir değişken ekleyin. Argüman doğru şekilde alıntılanacaktır.
-
-**Note:** bu etkilenmeyecek `process.argv`.
-
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
-
-Uygulamada karışık kum havuzu modunu etkinleştirmektedir.
-
-Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
-
-### `app.isInApplicationsFolder()` *macOS*
-
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
-
-### `app.moveToApplicationsFolder()` *macOS*
-
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
-
-Kullanıcının [`dialog`](dialog.md) API kullanarak yapmış olduğunuz işlemi onaylamasını istiyorsanız, onay kutusu varsayılan olarak gösterilmeyecektir.
-
-**NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. Örneğin, kullanıcı yetkilendirme iletişim kutusunu iptal ederse, bu yöntem hata verir. Eğer kopyayı gerçekleştiremezsek bu yöntem bir hata verecektir. Hata mesajı bilgilendirici olmalı ve neyin yanlış gittiğini size söylemeli
-
-### `app.dock.bounce([type])` *macOS*
-
-* `type` Dize (İsteğe bağlı) - `critical` veya `informational` olabilir. Varsayılan değer `informational`
-
-`critical` geçildiğinde, dock simgesi uygulama aktifleşinceye veya istek iptal edilene kadar sıçrar.
-
-`informational` geçildiğinde, dock simgesi bir saniyeliğine sıçrar. Ancak, uygulamaya ya aktif hale gelir ya da istek iptal olana kadar talep etkin kalır.
-
-Returns `Integer` isteği temsil eden bir kimlik.
-
-### `app.dock.cancelBounce(id)` *macOS*
-
-* `id` tamsayı
-
-`id` sıçramasını iptal et.
-
-### `app.dock.downloadFinished(filePath)` *macOS*
-
-* `filePath` Dizi
-
-FilePath, İndirilenler klasörünün içindeyse İndirme yığınla geri döner.
-
-### `app.dock.setBadge(text)` *macOS*
-
-* `text` String
-
-Dock'un rozetleme alanında gösterilecek satırı ayarlar.
-
-### `app.dock.getBadge()` *macOS*
-
-`String` geri getirir - dock'un işaret dizisi.
-
-### `app.dock.hide()` *macOS*
-
-Dock simgesini gizler.
-
-### `app.dock.show()` *macOS*
-
-Dock simgesini gösterir.
-
-### `app.dock.isVisible()` *macOS*
-
-`Boolean` 'ı geri getirir - dock işareti görünür olduğunda. `app.dock.show()` araması eş zamanlı değil bu sebeple bu yöntem aramadan sonra hemen doğruya döndürmeyebilir.
-
-### `app.dock.setMenu(menu)` *macOS*
-
-* `menu` [Menü](menu.md)
-
-Uygulamanın [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) 'sünü ayarlar.
-
-### `app.dock.setIcon(image)` *macOS*
-
-* `image` ([NativeImage](native-image.md) | String)
-
-Dock simgesiyle ilişkilendirilmiş `image` 'ı ayarlar.
+      
+      ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+      
+      * Mantıksal `enabled` [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) görüntülemeyi etkinleştirir veya devre dışı bırakır
+      
+      Manuel olarak Chrome'un erişilebilirlik desteğini etkinleştirir, erişilebilirlik anahtarını uygulama ayarlarındaki kullanıcılara göstermesine izin verir. daha fazla bilgi için https://www.chromium.org/developers/design-documents/accessibility. Varsayılan: Devre dışı.
+      
+      **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
+      
+      ### `app.setAboutPanelOptions(ayarlar)` *macOS*
+      
+      * `seçenekler` Nesne 
+        * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
+        * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
+        * `copyright` String (seçilebilir) - telif bilgisi.
+        * `credits` Dize (isteğe bağlı) - Kredi bilgileri.
+        * `version` Dize (İsteğe Bağlı) - Uygulamanın versiyon numarasını oluşturun.
+      
+      Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. Bakınız [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) daha fazla detay için.
+      
+      ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+      
+      * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+      
+      Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+      
+      ```js
+      // Start accessing the file.
+      const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+      // You can now access the file outside of the sandbox 
+      stopAccessingSecurityScopedResource()
+      ```
+      
+      Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+      
+      ### `app.commandLine.appendSwitch(switch[, value])`
+      
+      * `switch` String - Bir komut satırı anahtarı
+      * `value` String (optional) - Verilen anahtarda bir değer
+      
+      Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
+      
+      **Note:** `process.argv`'ı etkilemez ve esas geliştiriciler tarafından düşük seviyeli bazı Krom hareketlerini kontrol etmek için kullanılır.
+      
+      ### `app.commandLine.appendArgument(value)`
+      
+      * `value` String - Komut satırına eklenecek argüman
+      
+      Chromium'un komut satırına bağımsız bir değişken ekleyin. Argüman doğru şekilde alıntılanacaktır.
+      
+      **Note:** bu etkilenmeyecek `process.argv`.
+      
+      ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+      
+      Uygulamada karışık kum havuzu modunu etkinleştirmektedir.
+      
+      Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
+      
+      ### `app.isInApplicationsFolder()` *macOS*
+      
+      Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+      
+      ### `app.moveToApplicationsFolder()` *macOS*
+      
+      Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+      
+      Kullanıcının [`dialog`](dialog.md) API kullanarak yapmış olduğunuz işlemi onaylamasını istiyorsanız, onay kutusu varsayılan olarak gösterilmeyecektir.
+      
+      **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. Örneğin, kullanıcı yetkilendirme iletişim kutusunu iptal ederse, bu yöntem hata verir. Eğer kopyayı gerçekleştiremezsek bu yöntem bir hata verecektir. Hata mesajı bilgilendirici olmalı ve neyin yanlış gittiğini size söylemeli
+      
+      ### `app.dock.bounce([type])` *macOS*
+      
+      * `type` Dize (İsteğe bağlı) - `critical` veya `informational` olabilir. Varsayılan değer `informational`
+      
+      `critical` geçildiğinde, dock simgesi uygulama aktifleşinceye veya istek iptal edilene kadar sıçrar.
+      
+      `informational` geçildiğinde, dock simgesi bir saniyeliğine sıçrar. Ancak, uygulamaya ya aktif hale gelir ya da istek iptal olana kadar talep etkin kalır.
+      
+      Returns `Integer` isteği temsil eden bir kimlik.
+      
+      ### `app.dock.cancelBounce(id)` *macOS*
+      
+      * `id` tamsayı
+      
+      `id` sıçramasını iptal et.
+      
+      ### `app.dock.downloadFinished(filePath)` *macOS*
+      
+      * `filePath` Dizi
+      
+      FilePath, İndirilenler klasörünün içindeyse İndirme yığınla geri döner.
+      
+      ### `app.dock.setBadge(text)` *macOS*
+      
+      * `text` String
+      
+      Dock'un rozetleme alanında gösterilecek satırı ayarlar.
+      
+      ### `app.dock.getBadge()` *macOS*
+      
+      `String` geri getirir - dock'un işaret dizisi.
+      
+      ### `app.dock.hide()` *macOS*
+      
+      Dock simgesini gizler.
+      
+      ### `app.dock.show()` *macOS*
+      
+      Dock simgesini gösterir.
+      
+      ### `app.dock.isVisible()` *macOS*
+      
+      `Boolean` 'ı geri getirir - dock işareti görünür olduğunda. `app.dock.show()` araması eş zamanlı değil bu sebeple bu yöntem aramadan sonra hemen doğruya döndürmeyebilir.
+      
+      ### `app.dock.setMenu(menu)` *macOS*
+      
+      * `menu` [Menü](menu.md)
+      
+      Uygulamanın [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) 'sünü ayarlar.
+      
+      ### `app.dock.setIcon(image)` *macOS*
+      
+      * `image` ([NativeImage](native-image.md) | String)
+      
+      Dock simgesiyle ilişkilendirilmiş `image` 'ı ayarlar.
