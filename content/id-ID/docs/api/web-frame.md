@@ -169,28 +169,28 @@ Set the content security policy of the isolated world.
   Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
   
   ```javascript
-const {webFrame} = require('electron')
-console.log(webFrame.getResourceUsage())
-```
-
-Ini akan menghasilkan:
-
-```javascript
-{
-  images: {
-    count: 22,
-    size: 2549,
-    liveSize: 2542
-  },
-  cssStyleSheets: { /* same with "images" */ },
-  xslStyleSheets: { /* same with "images" */ },
-  fonts: { /* same with "images" */ },
-  other: { /* same with "images" */ }
-}
-```
-
-### `webFrame.clearCache()`
-
-Upaya untuk membebaskan memori yang tidak lagi digunakan (seperti gambar dari a navigasi sebelumnya).
-
-Perhatikan bahwa secara membabi buta memanggil metode ini mungkin membuat Electron lebih lambat sejak itu harus mengisi ulang cache yang dikosongkan ini, sebaiknya Anda hanya menelponnya jika sebuah acara di aplikasi Anda telah terjadi yang membuat Anda menganggap halaman Anda benar-benar menggunakan lebih sedikit memori (yaitu Anda telah menavigasi dari halaman super berat ke yang kebanyakan kosong, dan berniat untuk tinggal di sana).
+  const {webFrame} = require('electron')
+  console.log(webFrame.getResourceUsage())
+  ```
+  
+  Ini akan menghasilkan:
+  
+  ```javascript
+  {
+    images: {
+      count: 22,
+      size: 2549,
+      liveSize: 2542
+    },
+    cssStyleSheets: { /* same with "images" */ },
+    xslStyleSheets: { /* same with "images" */ },
+    fonts: { /* same with "images" */ },
+    other: { /* same with "images" */ }
+  }
+  ```
+  
+  ### `webFrame.clearCache()`
+  
+  Upaya untuk membebaskan memori yang tidak lagi digunakan (seperti gambar dari a navigasi sebelumnya).
+  
+  Perhatikan bahwa secara membabi buta memanggil metode ini mungkin membuat Electron lebih lambat sejak itu harus mengisi ulang cache yang dikosongkan ini, sebaiknya Anda hanya menelponnya jika sebuah acara di aplikasi Anda telah terjadi yang membuat Anda menganggap halaman Anda benar-benar menggunakan lebih sedikit memori (yaitu Anda telah menavigasi dari halaman super berat ke yang kebanyakan kosong, dan berniat untuk tinggal di sana).
