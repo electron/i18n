@@ -7,14 +7,14 @@ Ang `repl` modyul na ito ay nagbibigay ng isang REPL implementasyon na maaaring 
 * Ipagpalagay na mayroon kang `elektron` o `elektron-prebuilt` naka-install bilang lokal na umaasa sa proyekto:
     
     ```sh
-./node_modules/.bin/electron --interactive
-```
+    ./node_modules/.bin/electron --interactive
+    ```
 
 * Ipagpalagay na mayroon kang `elektron` o `elektron-prebuilt` naka-install pangkalahatan:
     
     ```sh
-elektron –interactive
-```
+    elektron –interactive
+    ```
 
 Lumilikha lamang ito ng REPL para sa mga pangunahing proseso. Maaari mong gamitin ang tab ng Console Dev Tools upang makakuha ang REPL para sa mga tagasalin na proseso.
 
