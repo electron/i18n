@@ -112,10 +112,10 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 2. Erstellen Sie einen neuen S3 bucket und nutzen Sie die folgende leere Verzeichnis-Struktur:
     
     ```sh
-- atom-shell/
-  - symbols/
-  - dist/
-```
+    - atom-shell/
+      - symbols/
+      - dist/
+    ```
 
 3. Setzen Sie die folgenden Umgebungsvariablen:
 
