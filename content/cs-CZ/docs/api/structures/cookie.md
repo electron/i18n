@@ -1,11 +1,11 @@
-# עוגיות
+# Cookie Object
 
-* `name` String - שם העוגייה.
-* `value` String - הערך של העוגייה.
-* `domain` String (optional) - הדומיין של העוגייה.
-* `hostOnly` Boolean (optional) - האם העוגייה היא עוגייה מארחת בלבד.
-* `path` String (optional) - הכתובת של העוגייה.
-* `secure` Boolean (optional) - האם העוגייה סומנה כמאובטחת.
-* `httpOnly` Boolean (optional) - האם העוגייה סומנה כ-HTTP בלבד.
-* `session` Boolean (optional) - האם העוגייה היא עוגיית זמנית או עוגייה עם תאריך תפוגה.
-* `expirationDate` Double (optional) - תאריך התפוגה שלך העוגייה כמספר השניות מאז עידן UNIX. לא נמצא בעוגיות זמניות.
+* `name` String - The name of the cookie.
+* `value` String - The value of the cookie.
+* `domain` String (optional) - The domain of the cookie.
+* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
+* `path` String (optional) - The path of the cookie.
+* `secure` Boolean (optional) - Whether the cookie is marked as secure.
+* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
+* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
