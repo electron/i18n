@@ -110,121 +110,121 @@ Mengembalikan ` gambar asli </ 0></p>
 
 <p>Membuat instance <code>NativeImage` baru dari sebuah file yang berada di `path`. Metode ini mengembalikan gambar kosong jika `path` tidak ada, tidak bisa dibaca, atau tidak gambar yang valid.</p> 
  ```javascript
-const nativeImage = require('elektron').nativeImage
-
-let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
-console.log(gambar)
-```
-
-### `nativeImage.createFromBuffer(buffer[, pilihan])`
-
-* `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `pilihan` Objek (opsional)  * `width` Integer (opsional) - Diperlukan untuk buffer bitmap. *`tinggi` Integer (opsional) - Diperlukan untuk buffer bitmap. * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
-
-Mengembalikan ` gambar asli </ 0></p>
+ const nativeImage = require('elektron').nativeImage
+ 
+ let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
+ console.log(gambar)
+ ```
+ 
+ ### `nativeImage.createFromBuffer(buffer[, pilihan])`
+ 
+ * `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+ * `pilihan` Objek (opsional)  * `width` Integer (opsional) - Diperlukan untuk buffer bitmap. *`tinggi` Integer (opsional) - Diperlukan untuk buffer bitmap. * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
+ 
+ Mengembalikan ` gambar asli </ 0></p>
 
 <p>Membuat contoh<code>gambar baru` baru dari `penyangga`.
-
-### `gambar asli.buatdaridataURL(dataURL)`
-
-* ` dataURL ` tali
-
-Mengembalikan ` gambar asli </ 0></p>
+ 
+ ### `gambar asli.buatdaridataURL(dataURL)`
+ 
+ * ` dataURL ` tali
+ 
+ Mengembalikan ` gambar asli </ 0></p>
 
 <p>Menciptakan yang baru <code>Gambar Asli` contoh dari `dataURL`.
-
-### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
-
-* `imageName` String
-* `hslShift` Number[]
-
-Mengembalikan ` gambar asli </ 0></p>
+ 
+ ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+ 
+ * `imageName` String
+ * `hslShift` Number[]
+ 
+ Mengembalikan ` gambar asli </ 0></p>
 
 <p>Creates a new <code>NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
-
-The `hslShift` is applied to the image with the following rules
-
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
-
-This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
-
-## Kelas: Gambar asli
-
-> Bungkus gambar seperti nampan, dermaga, dan ikon aplikasi.
-
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
-
-### Metode Instance
-
-Metode berikut tersedia pada contoh kelas ` Gambar asli`:
-
-#### `gambar.untukPng([options])`
-
-* `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
-
-Mengembalikan `Penyangga` - A [ Penyangga](https://nodejs.org/api/buffer.html#buffer_class_buffer)berisi data yang dikodekan` PNG </ 0>.</p>
+ 
+ The `hslShift` is applied to the image with the following rules
+ 
+ * `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+ * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+ * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
+ 
+ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+ 
+ ## Kelas: Gambar asli
+ 
+ > Bungkus gambar seperti nampan, dermaga, dan ikon aplikasi.
+ 
+ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+ 
+ ### Metode Instance
+ 
+ Metode berikut tersedia pada contoh kelas ` Gambar asli`:
+ 
+ #### `gambar.untukPng([options])`
+ 
+ * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
+ 
+ Mengembalikan `Penyangga` - A [ Penyangga](https://nodejs.org/api/buffer.html#buffer_class_buffer)berisi data yang dikodekan` PNG </ 0>.</p>
 
 <h4><code>image.toJPEG(quality)`</h4> 
-
-* `kualitas`Integer (** wajib **) - Antara 0 - 100.
-
-Mengembalikan`Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data dikodekan `JPEG`.
-
-#### `image.toBitmap([options])`
-
-* `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
-
-Mengembalikan `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi salinan piksel bitmap mentah gambar data.
-
-#### `image.toDataURL([options])`
-
-* `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
-
-Mengembalikan ` String ` - URL data gambar.
-
-#### `image.getBitmap([options])`
-
-* `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
-
-Mengembalikan `Buffer` - A [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data piksel bitmap mentah gambar.
-
-Perbedaan antara `getBitmap() ` dan ` toBitmap ()` adalah, `getBitmap()` tidak salin data bitmap, jadi Anda harus segera menggunakan Buffer yang dikembalikan tick loop acara saat ini, jika tidak data bisa diubah atau dihancurkan.
-
-#### `image.getNativeHandle()` *macOS*
-
-Mengembalikan `Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang menyimpan pointer C ke pegangan asli yang mendasarinya foto. Di macOS, sebuah pointer ke instance` NSImage ` akan dikembalikan.
-
-Perhatikan bahwa pointer yang dikembalikan adalah pointer lemah ke native yang mendasarinya gambar bukan salinannya, jadi Anda *harus* memastikannya terkait `nativeImage` contoh disimpan di sekitar.
-
-#### `image.isEmpty()`
-
-Returns `Boolean` - Whether the image is empty.
-
-#### `image.getSize()`
-
-Mengembalikan [`Ukuran`](structures/size.md)
-
-#### `image.setTemplateImage(option)`
-
-* `pilihan` Boolean
-
-Menandai gambar sebagai gambar template.
-
-#### `image.isTemplateImage()`
-
-Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
-
-#### `image.crop(rect)`
-
-* `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong.
-
-Mengembalikan `NativeImage` - Gambar yang dipotong.
-
-#### `image.resize(options)`
-
-* ` pilihan </ 0> Objek
+ 
+ * `kualitas`Integer (** wajib **) - Antara 0 - 100.
+ 
+ Mengembalikan`Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data dikodekan `JPEG`.
+ 
+ #### `image.toBitmap([options])`
+ 
+ * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
+ 
+ Mengembalikan `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi salinan piksel bitmap mentah gambar data.
+ 
+ #### `image.toDataURL([options])`
+ 
+ * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
+ 
+ Mengembalikan ` String ` - URL data gambar.
+ 
+ #### `image.getBitmap([options])`
+ 
+ * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
+ 
+ Mengembalikan `Buffer` - A [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data piksel bitmap mentah gambar.
+ 
+ Perbedaan antara `getBitmap() ` dan ` toBitmap ()` adalah, `getBitmap()` tidak salin data bitmap, jadi Anda harus segera menggunakan Buffer yang dikembalikan tick loop acara saat ini, jika tidak data bisa diubah atau dihancurkan.
+ 
+ #### `image.getNativeHandle()` *macOS*
+ 
+ Mengembalikan `Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang menyimpan pointer C ke pegangan asli yang mendasarinya foto. Di macOS, sebuah pointer ke instance` NSImage ` akan dikembalikan.
+ 
+ Perhatikan bahwa pointer yang dikembalikan adalah pointer lemah ke native yang mendasarinya gambar bukan salinannya, jadi Anda *harus* memastikannya terkait `nativeImage` contoh disimpan di sekitar.
+ 
+ #### `image.isEmpty()`
+ 
+ Returns `Boolean` - Whether the image is empty.
+ 
+ #### `image.getSize()`
+ 
+ Mengembalikan [`Ukuran`](structures/size.md)
+ 
+ #### `image.setTemplateImage(option)`
+ 
+ * `pilihan` Boolean
+ 
+ Menandai gambar sebagai gambar template.
+ 
+ #### `image.isTemplateImage()`
+ 
+ Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
+ 
+ #### `image.crop(rect)`
+ 
+ * `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong.
+ 
+ Mengembalikan `NativeImage` - Gambar yang dipotong.
+ 
+ #### `image.resize(options)`
+ 
+ * ` pilihan </ 0> Objek
   * <code> lebar </ 0>  Integer (opsional) - Default ke lebar gambar.
  * <code>height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Nilai yang mungkin ` bagus </ 0> , <code> lebih baik </ 0> atau <code> terbaik </ 0> . Defaultnya adalah <code> terbaik </ 0> .
    Nilai ini mengekspresikan kualitas / kecepatan tradeoff yang diinginkan. Mereka diterjemahkan
@@ -238,10 +238,10 @@ Mengembalikan `NativeImage` - Gambar yang dipotong.
 <p>Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
 
 <h4><code>image.getAspectRatio()`</h4> 
- Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
+  Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
 
 <h4><code>image.addRepresentation(options)`</h4> 
- 
- * `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
- 
- Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
+  
+  * `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
+  
+  Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
