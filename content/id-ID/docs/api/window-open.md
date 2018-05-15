@@ -41,16 +41,16 @@ String `features` mengikuti format browser standar, namun masing-masing fitur ha
     Opsi ini juga dapat disetel pada tag `<webview>` juga:
     
     ```html
-<webview webpreferences="nativeWindowOpen=yes"></webview>
-```
-
-Pembuatan ` BrowserWindow ` dapat dikustomisasi melalui acara ` WebContents ` '`new-window`.
-
-```javascript
-// main process 
-const mainWindow = new BrowserWindow ({width: 800, height: 600, webPreferences: {nativeWindowOpen: true}}) mainWindow.webContents.on ('new-window', (event, url, frameName, disposition, options , AdditionalFeatures) = & gt; {if (frameName === 'modal') {//buka jendela sebagai modal event.preventDefault () Object.assign (opsi, {modal: true, parent: mainWindow, width: 100, height: 100}) event.newGuest = new BrowserWindow (pilihan)}})
-```
-
-```javascript
-// renderer process (mainWindow) biarkan modal = window.open ('', 'modal') modal.document.write('<h1>Halo</h1>')
-```
+    <webview webpreferences="nativeWindowOpen=yes"></webview>
+    ```
+    
+    Pembuatan ` BrowserWindow ` dapat dikustomisasi melalui acara ` WebContents ` '`new-window`.
+    
+    ```javascript
+    // main process 
+    const mainWindow = new BrowserWindow ({width: 800, height: 600, webPreferences: {nativeWindowOpen: true}}) mainWindow.webContents.on ('new-window', (event, url, frameName, disposition, options , AdditionalFeatures) = & gt; {if (frameName === 'modal') {//buka jendela sebagai modal event.preventDefault () Object.assign (opsi, {modal: true, parent: mainWindow, width: 100, height: 100}) event.newGuest = new BrowserWindow (pilihan)}})
+    ```
+    
+    ```javascript
+    // renderer process (mainWindow) biarkan modal = window.open ('', 'modal') modal.document.write('<h1>Halo</h1>')
+    ```
