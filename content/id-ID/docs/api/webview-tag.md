@@ -606,47 +606,47 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       Contoh kode berikut meneruskan semua pesan log ke konsol embedder tanpa memperhatikan tingkat log atau properti lainnya.
       
       ```javascript
-const webview = document.querySelector ('webview') webview.addEventListener ('console-message', (e) = > {console.log ('Halaman tamu mencatat pesan:', e.message)})
-```
-  
-  ### Event: 'ditemukan-di-halaman'
-  
-  Pengembalian:
-  
-  * `hasil` Obyek 
-    * `requestId` Bilangan bulat
-    * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
-    * `pertandingan` Bulat - jumlah pertandingan.
-    * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
-    * `finalUpdate` Boolean
-  
-  Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
+      const webview = document.querySelector ('webview') webview.addEventListener ('console-message', (e) = > {console.log ('Halaman tamu mencatat pesan:', e.message)})
+      ```
+      
+      ### Event: 'ditemukan-di-halaman'
+      
+      Pengembalian:
+      
+      * `hasil` Obyek 
+        * `requestId` Bilangan bulat
+        * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
+        * `pertandingan` Bulat - jumlah pertandingan.
+        * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
+        * `finalUpdate` Boolean
+      
+      Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
 
 <pre><code class="javascript">const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
 `</pre> 
-  
-  ### Peristiwa: 'baru-jendela'
-  
-  Pengembalian:
-  
-  * `url` String
-  * `nama bingkai` tali
-  * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
-  * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
-  
-  Fired when the guest page attempts to open a new browser window.
-  
-  Contoh kode berikut membuka url baru di browser default sistem.
-  
-  ```javascript
-const {shell} = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
-```
-
-### Peristiwa: 'akan navigasi'
-
-Pengembalian:
-
-* ` url </ 0> String</li>
+      
+      ### Peristiwa: 'baru-jendela'
+      
+      Pengembalian:
+      
+      * `url` String
+      * `nama bingkai` tali
+      * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
+      * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+      
+      Fired when the guest page attempts to open a new browser window.
+      
+      Contoh kode berikut membuka url baru di browser default sistem.
+      
+      ```javascript
+      const {shell} = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
+      ```
+      
+      ### Peristiwa: 'akan navigasi'
+      
+      Pengembalian:
+      
+      * ` url </ 0> String</li>
 </ul>
 
 <p>dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek <code> jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
@@ -654,117 +654,117 @@ Pengembalian:
 
 <p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
 API seperti <code>webContents.loadURL` dan `webContents.back`.</p> 
-  Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-  
-  Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
-  
-  ### Peristiwa: 'akan navigasi'
-  
-  Pengembalian:
-  
-  * `url` String
-  
-  Dibunyikan apabila navigasi dilakukan.
-  
-  Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-  
-  ### peristiwa: 'Apakah-menavigasi-di halaman'
-  
-  Pengembalian:
-  
-  * `adalah Bingkai Utama` Boolean
-  * `url` String
-  
-  Dibunyikan saat navigasi dalam halaman terjadi.
-  
-  Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
-  
-  ### Acara : 'dekat'
-  
-  Dipecat saat halaman tamu mencoba menutup diri.
-  
-  The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
-  
-  ```javascript
-const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
-```
-
-### Event: 'ipc-message'
-
-Pengembalian:
-
-* ` saluran </ 0>  String</li>
+        Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+        
+        Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
+        
+        ### Peristiwa: 'akan navigasi'
+        
+        Pengembalian:
+        
+        * `url` String
+        
+        Dibunyikan apabila navigasi dilakukan.
+        
+        Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+        
+        ### peristiwa: 'Apakah-menavigasi-di halaman'
+        
+        Pengembalian:
+        
+        * `adalah Bingkai Utama` Boolean
+        * `url` String
+        
+        Dibunyikan saat navigasi dalam halaman terjadi.
+        
+        Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
+        
+        ### Acara : 'dekat'
+        
+        Dipecat saat halaman tamu mencoba menutup diri.
+        
+        The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
+        
+        ```javascript
+        const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
+        ```
+        
+        ### Event: 'ipc-message'
+        
+        Pengembalian:
+        
+        * ` saluran </ 0>  String</li>
 <li><code>args` Array
-
-Fired when the guest page has sent an asynchronous message to the embedder page.
-
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
-
-```javascript
-// In embedder page. const webview = document.querySelector ('webview') webview.addEventListener ('ipc-message', (event) = > {console.log (event.channel) // Prints "pong"}) webview.send ('ping ')
-```
-
-```javascript
-// In guest page. const {ipcRenderer} = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
-```
-
-### Peristiwa: 'jatuh'
-
-Dipecat saat proses renderer jatuh.
-
-### Event: 'jatuh'
-
-Dipecat saat proses gpu jatuh.
-
-### Peristiwa: 'plugin-jatuh'
-
-Pengembalian:
-
-* ` nama </ 0>  String</li>
+        
+        Fired when the guest page has sent an asynchronous message to the embedder page.
+        
+        With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+        
+        ```javascript
+        // In embedder page. const webview = document.querySelector ('webview') webview.addEventListener ('ipc-message', (event) = > {console.log (event.channel) // Prints "pong"}) webview.send ('ping ')
+        ```
+        
+        ```javascript
+        // In guest page. const {ipcRenderer} = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
+        ```
+        
+        ### Peristiwa: 'jatuh'
+        
+        Dipecat saat proses renderer jatuh.
+        
+        ### Event: 'jatuh'
+        
+        Dipecat saat proses gpu jatuh.
+        
+        ### Peristiwa: 'plugin-jatuh'
+        
+        Pengembalian:
+        
+        * ` nama </ 0>  String</li>
 <li><code>Versi` String
-
-Dibunyikan ketika proses plugin telah jatuh.
-
-### Event: 'menghancurkan'
-
-Dipecat saat WebContents hancur.
-
-### Event: 'media-mulai-bermain''
-
-Emitted saat media mulai diputar.
-
-### Event: 'media-berhenti'
-
-Emitted saat media dijeda atau dilakukan bermain.
-
-### Event: 'apakah-ganti-tema-warna'
-
-Pengembalian:
-
-* `themeColor` String
-
-Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
-
-```html
-<meta name='theme-color' content='#ff0000'>
-```
-
-### Event: 'update-target-url'
-
-Pengembalian:
-
-* `url` String
-
-Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
-
-### Event: 'devtools-dibuka'
-
-Emitted saat DevTools dibuka.
-
-### Event: 'devtools-ditutup'
-
-Emitted saat DevTools ditutup.
-
-### Event: 'fokus devtools'
-
-Emitted saat DevTools difokuskan / dibuka.
+        
+        Dibunyikan ketika proses plugin telah jatuh.
+        
+        ### Event: 'menghancurkan'
+        
+        Dipecat saat WebContents hancur.
+        
+        ### Event: 'media-mulai-bermain''
+        
+        Emitted saat media mulai diputar.
+        
+        ### Event: 'media-berhenti'
+        
+        Emitted saat media dijeda atau dilakukan bermain.
+        
+        ### Event: 'apakah-ganti-tema-warna'
+        
+        Pengembalian:
+        
+        * `themeColor` String
+        
+        Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
+        
+        ```html
+        <meta name='theme-color' content='#ff0000'>
+        ```
+        
+        ### Event: 'update-target-url'
+        
+        Pengembalian:
+        
+        * `url` String
+        
+        Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
+        
+        ### Event: 'devtools-dibuka'
+        
+        Emitted saat DevTools dibuka.
+        
+        ### Event: 'devtools-ditutup'
+        
+        Emitted saat DevTools ditutup.
+        
+        ### Event: 'fokus devtools'
+        
+        Emitted saat DevTools difokuskan / dibuka.
