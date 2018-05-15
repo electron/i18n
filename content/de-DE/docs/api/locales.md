@@ -53,7 +53,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | gn         | Guarani                   |
 | gu         | Gujaratisch               |
 | ha         | Hausa                     |
-| haw        | Hawaiian                  |
+| haw        | Hawaiisch                 |
 | he         | Hebräisch                 |
 | hi         | Hindi                     |
 | hr         | Kroatisch                 |
@@ -66,7 +66,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | it-CH      | Italienisch (Schweiz)     |
 | it-IT      | Italienisch (Italian)     |
 | ja         | Japanisch                 |
-| jw         | Javanese                  |
+| jw         | Javanisch                 |
 | ka         | Georgisch                 |
 | kk         | Kasachisch                |
 | km         | Kambodschanisch           |
@@ -93,8 +93,8 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | no         | Norwegisch                |
 | oc         | Okzitanisch               |
 | om         | Oromo                     |
-| oder       | Oriya                     |
-| pa         | Punjabi                   |
+| or         | Oriya                     |
+| pa         | Pandschabi                |
 | pl         | Polnisch                  |
 | ps         | Paschtu                   |
 | pt         | Portugiesisch             |
@@ -106,7 +106,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | ru         | Russisch                  |
 | sd         | Sindhi                    |
 | sh         | Serbo-Kroatisch           |
-| si         | Sinhalese                 |
+| si         | Singhalesisch             |
 | sk         | Slowakisch                |
 | sl         | Slowenisch                |
 | sn         | Shona                     |
@@ -114,20 +114,20 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | sq         | Albanisch                 |
 | sr         | Serbisch                  |
 | st         | Sesotho                   |
-| su         | Sundanese                 |
+| su         | Sundanesisch              |
 | sv         | Schwedisch                |
-| sw         | Swahili                   |
+| sw         | Suaheli                   |
 | ta         | Tamilisch                 |
 | te         | Telugu                    |
-| tg         | Tajik                     |
+| tg         | Tadschikisch              |
 | th         | Thailändisch              |
-| ti         | Tigrinya                  |
+| ti         | Tigrinja                  |
 | tk         | Turkmenisch               |
 | to         | Tongaisch                 |
 | tr         | Türkisch                  |
-| tt         | Tatar                     |
+| tt         | Tatarisch                 |
 | tw         | Twi                       |
-| ug         | Uighur                    |
+| ug         | Uigurisch                 |
 | uk         | Ukrainisch                |
 | ur         | Urdu                      |
 | uz         | Usbekisch                 |
