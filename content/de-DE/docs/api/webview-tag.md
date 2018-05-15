@@ -737,87 +737,87 @@ are clicked or when the DOM <code>hashchange` event is triggered.</p>
       The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
       
       ```javascript
-const webview = document.querySelector('webview')
-webview.addEventListener('close', () => {
-  webview.src = 'about:blank'
-})
-```
-  
-  ### Event: 'ipc-message'
-  
-  Rückgabewert:
-  
-  * `channel` String
-  * `args` Array
-  
-  Fired when the guest page has sent an asynchronous message to embedder page.
-  
-  With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
-  
-  ```javascript
-// In embedder page.
-const webview = document.querySelector('webview')
-webview.addEventListener('ipc-message', (event) => {
-  console.log(event.channel)
-  // Prints "pong"
-})
-webview.send('ping')
-```
-
-```javascript
-// In guest page.
-const {ipcRenderer} = require('electron')
-ipcRenderer.on('ping', () => {
-  ipcRenderer.sendToHost('pong')
-})
-```
-
-### Event: 'crashed'
-
-Fired when the renderer process is crashed.
-
-### Event: 'gpu-crashed'
-
-Fired when the gpu process is crashed.
-
-### Event: 'plugin-crashed'
-
-Rückgabewert:
-
-* `name` Zeichenfolge
-* `version` String
-
-Fired when a plugin process is crashed.
-
-### Event: 'destroyed'
-
-Fired when the WebContents is destroyed.
-
-### Event: 'media-started-playing'
-
-Emitted when media starts playing.
-
-### Event: 'media-paused'
-
-Emitted when media is paused or done playing.
-
-### Event: 'did-change-theme-color'
-
-Rückgabewert:
-
-* `themeColor` String
-
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
-
-```html
-<meta name='theme-color' content='#ff0000'>
-```
-
-### Event: 'update-target-url'
-
-Rückgabewert:
-
-*  URL </ 0>  Zeichenfolge</li>
+      const webview = document.querySelector('webview')
+      webview.addEventListener('close', () => {
+        webview.src = 'about:blank'
+      })
+      ```
+      
+      ### Event: 'ipc-message'
+      
+      Rückgabewert:
+      
+      * `channel` String
+      * `args` Array
+      
+      Fired when the guest page has sent an asynchronous message to embedder page.
+      
+      With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+      
+      ```javascript
+      // In embedder page.
+      const webview = document.querySelector('webview')
+      webview.addEventListener('ipc-message', (event) => {
+        console.log(event.channel)
+        // Prints "pong"
+      })
+      webview.send('ping')
+      ```
+      
+      ```javascript
+      // In guest page.
+      const {ipcRenderer} = require('electron')
+      ipcRenderer.on('ping', () => {
+        ipcRenderer.sendToHost('pong')
+      })
+      ```
+      
+      ### Event: 'crashed'
+      
+      Fired when the renderer process is crashed.
+      
+      ### Event: 'gpu-crashed'
+      
+      Fired when the gpu process is crashed.
+      
+      ### Event: 'plugin-crashed'
+      
+      Rückgabewert:
+      
+      * `name` Zeichenfolge
+      * `version` String
+      
+      Fired when a plugin process is crashed.
+      
+      ### Event: 'destroyed'
+      
+      Fired when the WebContents is destroyed.
+      
+      ### Event: 'media-started-playing'
+      
+      Emitted when media starts playing.
+      
+      ### Event: 'media-paused'
+      
+      Emitted when media is paused or done playing.
+      
+      ### Event: 'did-change-theme-color'
+      
+      Rückgabewert:
+      
+      * `themeColor` String
+      
+      Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+      
+      ```html
+      <meta name='theme-color' content='#ff0000'>
+      ```
+      
+      ### Event: 'update-target-url'
+      
+      Rückgabewert:
+      
+      *  URL </ 0>  Zeichenfolge</li>
 </ul>
 
 <p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>

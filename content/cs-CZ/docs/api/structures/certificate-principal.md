@@ -1,8 +1,8 @@
 # CertificatePrincipal Object
 
-* `commonName` String - שם נפוץ
-* `organizations` String[] - שמות ארגונים
+* `commonName` String - Common Name
+* `organizations` String[] - Organization names
 * `organizationUnits` String[] - Organization Unit names
-* `locality` String - מקומיות
-* `state` String - מדינה או מחוז
-* `country` String - מדינה או אזור
+* `locality` String - Locality
+* `state` String - State or province
+* `country` String - Country or region

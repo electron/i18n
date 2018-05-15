@@ -145,7 +145,7 @@ bir komutun asar arşivinde bir dosya kullanıp kullanmadığı belirlemek için
     As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
     
     ```sh
-$ asar pack app app.asar --unpack *.node
-```
-
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+    $ asar pack app app.asar --unpack *.node
+    ```
+    
+    After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.

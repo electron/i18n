@@ -114,10 +114,10 @@ Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer di
 2. Créez un nouveau bucket S3 et créez la structure de répertoire vide suivante :
     
     ```sh
-- atom-shell/
-  - symbols/
-  - dist/
-```
+    - atom-shell/
+      - symbols/
+      - dist/
+    ```
 
 3. Définir les Variables d’environnement suivantes :
 

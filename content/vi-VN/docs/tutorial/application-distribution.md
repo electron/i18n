@@ -112,10 +112,10 @@ You need to fork Electron when you have custom C++ code that you have patched di
 2. Tạo một bucket S3 và tạo một cây thư mục như sau vào trong đó:
     
     ```sh
-- atom-shell/
-  - symbols/
-  - dist/
-```
+    - atom-shell/
+      - symbols/
+      - dist/
+    ```
 
 3. Thiết lập các biến môi trường sau đây:
 

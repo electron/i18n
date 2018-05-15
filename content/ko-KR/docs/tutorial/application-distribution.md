@@ -113,10 +113,10 @@ Electron의 커스텀 포크를 만드는 것은 거의 확실히 앱을 만드�
 2. 새로운 S3 bucket을 만들고 다음과 같은 빈 디렉토리 구조를 만듭니다:
     
     ```sh
-- atom-shell/
-  - symbols/
-  - dist/
-```
+    - atom-shell/
+      - symbols/
+      - dist/
+    ```
 
 3. 다음의 환경 변수들을 설정합니다:
 

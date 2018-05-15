@@ -7,14 +7,14 @@
 * 如果你的 `electron` 或 `electron-prebuilt` 已经安装为本地项目依赖项:
     
     ```sh
-./node_modules/.bin/electron --interactive
-```
+    ./node_modules/.bin/electron --interactive
+    ```
 
 * 如果你的 `electron` 或 `electron-prebuilt` 已经为全局方式安装:
     
     ```sh
-electron --interactive
-```
+    electron --interactive
+    ```
 
 这里只会为主进程创建一个REPL。 您可以使用 Dev Tools 的“控制台”选项卡来为渲染器进程获取一个REPL。
 

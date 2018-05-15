@@ -112,10 +112,10 @@ MyApp.app/Contents
 2. 创建一个新的 S3 bucket 并按照以下结构创建文件夹：
     
     ```sh
-- atom-shell/
-  - symbols/
-  - dist/
-```
+    - atom-shell/
+      - symbols/
+      - dist/
+    ```
 
 3. 设置以下环境变量：
 

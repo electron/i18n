@@ -189,52 +189,52 @@ Mengatur `gambar` yang terkait dengan ikon baki ini.
     **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
     
     ```javascript
-const {BrowserWindow, Tray} = require ('electron')
-
-const win = new BrowserWindow ({width: 800, height: 600})
-const tray = new Tray ('/ path / to / my / icon')
-
-tray.on ('klik', () = > {
-  win.isVisible ()? win.hide (): win.show ()
-})
-win.on ('show', () = > {
-  tray.setHighlightMode ('selalu')
-})
-win.on ('hide', () = > {
-  tray.setHighlightMode ('tidak pernah')
-})
-```
-
-#### `tray.displayBalloon(options)` *Windows*
-
-* `pilihan` Obyek 
-  * `ikon` ([NativeImage](native-image.md) | String) (opsional) -
-  * ` judul </ 0> String</li>
+    const {BrowserWindow, Tray} = require ('electron')
+    
+    const win = new BrowserWindow ({width: 800, height: 600})
+    const tray = new Tray ('/ path / to / my / icon')
+    
+    tray.on ('klik', () = > {
+      win.isVisible ()? win.hide (): win.show ()
+    })
+    win.on ('show', () = > {
+      tray.setHighlightMode ('selalu')
+    })
+    win.on ('hide', () = > {
+      tray.setHighlightMode ('tidak pernah')
+    })
+    ```
+    
+    #### `tray.displayBalloon(options)` *Windows*
+    
+    * `pilihan` Obyek 
+      * `ikon` ([NativeImage](native-image.md) | String) (opsional) -
+      * ` judul </ 0> String</li>
 <li><code>content` String
-
-Menampilkan balon baki.
-
-#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
-
-* ` teks ` String (opsional)
-* `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
-
-Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
-
-Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
-
-#### `tray.setContextMenu (menu)`
-
-* `menu` Menu
-
-Menetapkan menu konteks untuk ikon ini.
-
-#### `tray.getBounds()` *macOS * * Windows*
-
-Kembali [`Rectangle`](structures/rectangle.md)
-
-`Batas` dari ikon baki ini sebagai `Objek`.
-
-#### `tray.isDestroyed()`
-
-Mengembalikan `Boolean` - Apakah ikon baki rusak.
+    
+    Menampilkan balon baki.
+    
+    #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+    
+    * ` teks ` String (opsional)
+    * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
+    
+    Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
+    
+    Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
+    
+    #### `tray.setContextMenu (menu)`
+    
+    * `menu` Menu
+    
+    Menetapkan menu konteks untuk ikon ini.
+    
+    #### `tray.getBounds()` *macOS * * Windows*
+    
+    Kembali [`Rectangle`](structures/rectangle.md)
+    
+    `Batas` dari ikon baki ini sebagai `Objek`.
+    
+    #### `tray.isDestroyed()`
+    
+    Mengembalikan `Boolean` - Apakah ikon baki rusak.

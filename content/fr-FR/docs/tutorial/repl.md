@@ -7,14 +7,14 @@ Le module `repl` fournit une implémentation de REPL qui est accessibles via :
 * En supposant que vous avez `electron` ou `electron-prebuilt` installé comme une dépendance local à votre projet :
     
     ```sh
-./node_modules/.bin/electron --interactive
-```
+    ./node_modules/.bin/electron --interactive
+    ```
 
 * En supposant que vous avez `electron` ou `electron-prebuild` installé en global :
     
     ```sh
-electron --interactive
-```
+    electron --interactive
+    ```
 
 Cela crée un REPL seulement pour le processus principal. Vous pouvez utiliser l’onglet de la Console du DevTools pour avoir un REPL pour les processus de rendu.
 

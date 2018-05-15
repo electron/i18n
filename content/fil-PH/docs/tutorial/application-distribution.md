@@ -112,10 +112,10 @@ Kailangan mong mag fork Electron kapag ikaw ay mag pasadyang C++ na kodigo na iy
 2. Gumawa ng bagong S3 bucket at gumawa ng sumusunod na walang laman na direktoryong istraktura:
     
     ```sh
-- atom-shell/
-  - simbolo/
-  - dist/
-```
+    - atom-shell/
+      - simbolo/
+      - dist/
+    ```
 
 3. Itakda ang mga sumusunod na baryabol ng kapaligiran:
 

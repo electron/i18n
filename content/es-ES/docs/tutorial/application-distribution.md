@@ -114,10 +114,10 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 * Cree un nuevo depósito S3 y cree la siguiente estructura de directorio vacía:
     
     ```sh
-- atom-shell/
-  - symbols/
-  - dist/
-```
+    - atom-shell/
+      - symbols/
+      - dist/
+    ```
 
 * Establezca las siguientes variables de entorno:</ol> 
 

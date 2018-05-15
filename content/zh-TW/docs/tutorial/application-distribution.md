@@ -112,10 +112,10 @@ MyApp.app/Contents
 2. 建立新的 S3 Bucket，並建立以下空目錄:
     
     ```sh
-- atom-shell/
-  - symbols/
-  - dist/
-```
+    - atom-shell/
+      - symbols/
+      - dist/
+    ```
 
 3. 設定以下環境變數:
 
