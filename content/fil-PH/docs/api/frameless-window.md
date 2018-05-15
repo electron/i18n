@@ -81,31 +81,31 @@ hindi pinagana.</li>
     Upang lumikha ng isang click-through window, i.e. paggawa ng window huwag pansinin ang lahat ng mouse mga kaganapan, maaari mong tawagan ang  win.setIgnoreMouseEvents (ignore) </ 0> API:</p> 
     
     ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-win.setIgnoreMouseEvents(true)
-```
-
-### Forwarding
-
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
-
-```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
-el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, {forward: true})
-})
-el.addEventListener('mouseleave', () => {
-  win.setIgnoreMouseEvents(false)
-})
-```
-
-This makes the web page click-through when over `el`, and returns to normal outside it.
-
-## Draggable region 
-
-Bilang default, ang frameless window ay hindi draggable. Kailangan ng mga app na tukuyin ` -webkit-app-region: drag </ 0> sa CSS upang sabihin sa Electron kung saan ang mga rehiyon ay draggable
+    const {BrowserWindow} = require('electron')
+    let win = new BrowserWindow()
+    win.setIgnoreMouseEvents(true)
+    ```
+    
+    ### Forwarding
+    
+    Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+    
+    ```javascript
+    let win = require('electron').remote.getCurrentWindow()
+    let el = document.getElementById('clickThroughElement')
+    el.addEventListener('mouseenter', () => {
+      win.setIgnoreMouseEvents(true, {forward: true})
+    })
+    el.addEventListener('mouseleave', () => {
+      win.setIgnoreMouseEvents(false)
+    })
+    ```
+    
+    This makes the web page click-through when over `el`, and returns to normal outside it.
+    
+    ## Draggable region 
+    
+    Bilang default, ang frameless window ay hindi draggable. Kailangan ng mga app na tukuyin ` -webkit-app-region: drag </ 0> sa CSS upang sabihin sa Electron kung saan ang mga rehiyon ay draggable
 (tulad ng OS's standard titlebar), at maaari ring gamitin ang apps
 <code> -webkit-app-region: no-drag </ 0> upang ibukod ang hindi draggable na lugar mula sa
  draggable region. Tandaan na ang tanging hugis-parihaba na hugis ay kasalukuyang sinusuportahan.</p>
@@ -114,33 +114,33 @@ Bilang default, ang frameless window ay hindi draggable. Kailangan ng mga app na
 
 <p>Upang gawing draggable ang buong window, maaari kang magdagdag ng <code> -webkit-app-region: drag </ 0> as
 <code>body`'s style:
-
-```html
-<body style="-webkit-app-region: drag">
-</body>
-```
-
-At tandaan na kung ginawa mo ang buong window draggable, kailangan mo ring markahan ang mga pindutan bilang hindi draggable, kung hindi, imposible para sa mga gumagamit na mag-click sa kanila:
-
-```css
-button {
-  -webkit-app-region: no-drag;
-}
-```
-
-Kung ikaw ay nagtatakda lamang ng isang custom titlebar bilang draggable, kailangan mo ring gawin ang lahat mga pindutan sa titlebar non-draggable.
-
-## Text selection 
-
-Sa isang frameless window ang dragging behaviour ay maaaring sumalungat sa pagpili ng teksto. Halimbawa, kapag nag-drag ka sa titlebar maaari mong aksidenteng piliin ang teksto sa titlebar. Upang maiwasan ito, kailangan mong huwag paganahin ang pagpili ng teksto sa loob ng isang draggable na lugar tulad nito:
-
-```css
-.titlebar {
-  -webkit-user-select: none;
-  -webkit-app-region: drag;
-}
-```
-
-## Context menu 
-
-Sa ilang mga platform, ang draggable area ay ituturing bilang isang non-client frame, kaya kapag nag-right click ka dito ang isang sistema ng menu ay magpa-pop up. Upang gawin ang menu ng konteksto kumilos ng tama sa lahat ng mga platform na hindi ka dapat gumamit ng custom context menu sa draggable areas.
+    
+    ```html
+    <body style="-webkit-app-region: drag">
+    </body>
+    ```
+    
+    At tandaan na kung ginawa mo ang buong window draggable, kailangan mo ring markahan ang mga pindutan bilang hindi draggable, kung hindi, imposible para sa mga gumagamit na mag-click sa kanila:
+    
+    ```css
+    button {
+      -webkit-app-region: no-drag;
+    }
+    ```
+    
+    Kung ikaw ay nagtatakda lamang ng isang custom titlebar bilang draggable, kailangan mo ring gawin ang lahat mga pindutan sa titlebar non-draggable.
+    
+    ## Text selection 
+    
+    Sa isang frameless window ang dragging behaviour ay maaaring sumalungat sa pagpili ng teksto. Halimbawa, kapag nag-drag ka sa titlebar maaari mong aksidenteng piliin ang teksto sa titlebar. Upang maiwasan ito, kailangan mong huwag paganahin ang pagpili ng teksto sa loob ng isang draggable na lugar tulad nito:
+    
+    ```css
+    .titlebar {
+      -webkit-user-select: none;
+      -webkit-app-region: drag;
+    }
+    ```
+    
+    ## Context menu 
+    
+    Sa ilang mga platform, ang draggable area ay ituturing bilang isang non-client frame, kaya kapag nag-right click ka dito ang isang sistema ng menu ay magpa-pop up. Upang gawin ang menu ng konteksto kumilos ng tama sa lahat ng mga platform na hindi ka dapat gumamit ng custom context menu sa draggable areas.
