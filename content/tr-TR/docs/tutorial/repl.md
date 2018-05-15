@@ -7,14 +7,14 @@ Read-Eval-Print-Loop (REPL) basit, etkileşimli bilgisayar programlama ortamı t
 * Yerel proje bağımlılığı olarak `electron` veya `electron-prebuilt` yüklendiği varsayılır:
     
     ```sh
-./node_modules/.bin/electron --interactive
-```
+    ./node_modules/.bin/electron --interactive
+    ```
 
 * Global olarak `electron` veya `electron-prebuilt` yüklendiği varsayılır:
     
     ```sh
-electron --interactive
-```
+    electron --interactive
+    ```
 
 Bu sadece ana işlem için REPL oluşturur. İşlem süreçleri için REPL oluşturmak için Geliştirici Araçları'nın Konsol sekmesini kullanabilirsiniz.
 
