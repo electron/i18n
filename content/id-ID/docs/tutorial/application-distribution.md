@@ -112,10 +112,10 @@ Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda pa
 2. Buat bucket S3 baru dan buat struktur direktori kosong berikut:
     
     ```sh
-- atom-shell/
-  - symbols/
-  - dist/
-```
+    - atom-shell/
+      - symbols/
+      - dist/
+    ```
 
 3. Tetapkan variabel lingkungan berikut:
 
