@@ -117,19 +117,6 @@
     "qa_issues": "954"
   },
   {
-    "name": "Hebrew",
-    "code": "he",
-    "phrases": "9452",
-    "translated": "199",
-    "approved": "0",
-    "words": "86606",
-    "words_translated": "1490",
-    "words_approved": "0",
-    "translated_progress": 1,
-    "approved_progress": 0,
-    "qa_issues": "61"
-  },
-  {
     "name": "Hindi",
     "code": "hi",
     "phrases": "9452",
