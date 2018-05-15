@@ -7,14 +7,14 @@ Read-Eval-Print-Loop (REPL, レプル) は、単一のユーザー入力 (すな
 * ローカルプロジェクトの依存関係として`electron`または`electron-prebuilt`がインストールされている場合:
     
     ```sh
-./node_modules/.bin/electron --interactive
-```
+    ./node_modules/.bin/electron --interactive
+    ```
 
 * グローバルに`electron`または`electron-prebuilt`がインストールされている場合:
     
     ```sh
-electron --interactive
-```
+    electron --interactive
+    ```
 
 replモジュールはREPLをメインプロセス向けにしか生成しません。レンダラプロセス向けにREPLを生成する場合はDev ToolsのConsoleタブを使用してください。
 
