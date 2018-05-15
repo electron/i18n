@@ -31,15 +31,15 @@ community:
   description: Resources for connecting with people working on Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a>: <a href='/docs/tutorial/first-app'>クイックスタートガイド</a>アプリを読みながら、はじめてのElectronアプリを開発することができます。"
-    updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手する</b></a>: Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
-    localized_docs: "<a href='/languages'><b>母語に翻訳されたドキュメントを読む</b></a> <a href='/languages'>言語ページ</a>にアクセスしてください。"
+    updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手</b></a>: Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
+    localized_docs: "<a href='/languages'><b>翻訳されたドキュメント</b></a>: <a href='/languages'>言語ページ</a>からアクセスできます。"
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
-    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>機能の要望がある</b></a> GitHub の <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>行動規範への違反を報告する</b></a> <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> までメールでご連絡ください。"
-    security: "<a href='mailto:security@electronjs.org'><b>セキュリティの問題を連絡する</b></a> <a href='mailto:security@electronjs.org'>security@electronjs.org</a>までメールでお知らせください。"
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    packages: "<a href='/search/npmPackages'><b>便利な npm パッケージを探す</b></a>: <a href='/search/npmPackages'>こちらのページ</a>から検索できます。"
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>バグの報告</b></a>: <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>機能の要望</b></a>: GitHub の <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>行動規範への違反を報告</b></a>: <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> までメールでご連絡ください。"
+    security: "<a href='mailto:security@electronjs.org'><b>セキュリティの問題を報告する</b></a>: <a href='mailto:security@electronjs.org'>security@electronjs.org</a> までメールでお知らせください。"
+    donations: "<a href='donors'><b>寄付</b></a>: <a href='/donors'>OpenCollective</a>ページにてご寄付をお待ちしております。"
     other: "これ以外のお問い合わせ内容については、<a href='mailto:info@electronjs.org'>info@electronjs.org</a> までメールでご連絡ください。"
   language_communities:
     title: 言語別のコミュニティ
