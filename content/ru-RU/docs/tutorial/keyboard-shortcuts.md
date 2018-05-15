@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-Настроить сочетания клавиш на основе операционной системы пользователя легко.
+You can configure different key combinations based on the user's operating system.
 
 ```js
 {

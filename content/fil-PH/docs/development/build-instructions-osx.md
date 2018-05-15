@@ -15,7 +15,7 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     ## macOS SDK
     
-    Kung ikaw ay bumubuo ng Elektron at walang plano na muling ipakalat ang iyong sariing likha ng Elektron, ang bahaging ito ay maaari nang laktawan.
+    If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
     
     Para sa ilang tampok (halimbawa ng pinch-zoom) na maaayos na gawa, kinakailangan mong makuha ang mocOS 10.10 SDK.
     
@@ -33,22 +33,28 @@ Kinakailangan mo ring paganahin ang Xcode upang makabuo laban sa 10.10 SDK:
 - Itakda ang `MinimumSDKVersion` to `10.10`
 - Panatilihin ang file na ito
 
-## Pagkuha ng code
+## Ang Pagkuha ng "Code"
 
 ```sh
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## "Bootstrapping"
 
-Ang bootstrap script ay kinukuha (download) ang lahat ng mahahalagang dependencies at lumilikha ng pagbuo ng proyekto sa files. Pansinin na tayo'y gumagamit ng [ninja](https://ninja-build.org/) upang makabuo ng Elektron upang sa gayon ay walang proyekto ng Xcode ang mabuo.
+Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Pansinin na tayo'y gumagamit ng [ninja](https://ninja-build.org/) upang makabuo ng Elektron upang sa gayon ay walang proyekto ng Xcode ang mabuo.
 
 ```sh
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Pagbuo
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
+## Ang Pagbubuo
 
 Bumuo pareho ng `Release` at `Debug`:
 
@@ -68,7 +74,7 @@ Pagkatapos bumuo, maaari nang hanapin ang `Electron.app` sa ilalim ng `out/D`.
 
 Ang Elektron ay maaari lamang mabuo gamit ang inaasahan na 64bit sa macOS at walang planong suportahan maging sa hinaharap ang 32bit sa macOS.
 
-## Paglilinis
+## Ang Paglilinis
 
 Upang malinis ang binubuong files:
 
@@ -84,6 +90,6 @@ $ npm run clean-build
 
 Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng bootstrap</strong> bago mabuo.</p>
 
-<h2>Mga Pagsusuri</h2>
+<h2>Mga Pag-susuri</h2>
 
 <p>Tingnan ang <a href="build-system-overview.md#tests"> Buod ng Pagbuo ng Sistema: Mga Pagsusuri </a></p>

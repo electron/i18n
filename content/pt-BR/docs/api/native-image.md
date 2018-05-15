@@ -147,14 +147,8 @@ Cria uma nova instância de `NativeImage` a partir de NSImage o qual direciona p
 O `hslShift` é aplicado à imagem com as seguintes regras
 
 * `hsl_shift[0]` (matiz): O valor absoluto da matiz para a imagem - 0 e 1 direciona para 0 e 360 na roda de cores (vermelho).
-* `hsl_shift[1]` (saturação): Uma mudança de saturação para a imagem, com os seguintes valores chaves:  
- 0 = remove todas as cores:  
- 0.5 = permanece inalterada  
- 1 = realiza a saturação total da imagem. 
-* `hsl_shift[2]` (luminosidade): Uma mudança de luminosidade para a imagem, com os seguintes valores chaves:  
- 0 = remove totalmente a luminosidade (deixa todos os pixels pretos)  
- 0.5 = permanece inalterada  
- 1 = luminosidade total (deixa todos os pixels brancos).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
 Isso significa que `[-1, 0, 1]` irá deixar a imagem totalmente branca e `[-1, 1, 0]` irá deixar a imagem totalmente preta.
 
@@ -208,7 +202,7 @@ Perceba que o ponteiro retornado é um ponteiro fraco para a imagem nativa subja
 
 #### `image.isEmpty()`
 
-Retorna `Boolean` - estando a imagem vazia ou não.
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
@@ -226,13 +220,13 @@ Retorna `Boolean` - sendo a imagem uma imagem padrão ou não.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - A área da imagem a ser cortada
+* `rect` [Rectangle](structures/rectangle.md) - A área da imagem a ser cortada.
 
 Retorna `NativeImage` - A imagem cortada.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (opcional) - O padrão para a largura da imagem. * `height` Integer (opcional) - O padrão para a altura da imagem * `quality` String (opcional) - A qualidade desejada para a imagem cortada. Possíveis valores são `good`, `better` ou `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. Eles são traduzidos dentro de um método de algorítimo específico que depende da capacidade (CPU, GPU) da plataforma base. É possível para todos os três métodos serem mapeados para o mesmo algorítimo em uma determinada plataforma.
+* `options` Object * `width` Integer (opcional) - O padrão para a largura da imagem. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possíveis valores são `good`, `better` ou `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. Eles são traduzidos dentro de um método de algorítimo específico que depende da capacidade (CPU, GPU) da plataforma base. É possível para todos os três métodos serem mapeados para o mesmo algorítimo em uma determinada plataforma.
 
 Retorna `NativeImage` - A imagem redimensionada.
 

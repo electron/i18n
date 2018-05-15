@@ -1,4 +1,4 @@
-# Environment Variables 
+# Nagbabago sa kapaligiran
 
 > Kontrolin ang pagsasaayos ng application at pag-uugali nang walang pagbabago ng code.
 
@@ -6,7 +6,7 @@ Ang ilang mga pag-uugali ng Electron ay kinokontrol ng mga variable ng kapaligir
 
 Halimbawa sa POSIX shell:
 
-```bash
+```sh
 $i- export  and ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```

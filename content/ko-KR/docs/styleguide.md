@@ -159,7 +159,7 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 선택적인 인수는 각각을 컴마로 구분하여 대괄호 `[]` 로 감쌉니다:
 
 ```sh
-필수[, 선택적]
+필수[, 선택]
 ```
 
 아래 메소드에 각 인수에 대한 더 자세한 내용이 있습니다. 인수의 유형은 기본 유형 중 하나로 표시합니다.
@@ -171,7 +171,7 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * •또는 Electron 의 [`WebContent`](api/web-contents.md)와 같은 사용자 타입
 
-인수 또는 메소드가 특정 플랫폼에만 사용된다면, 이 플랫폼들은 자료형 다음에 공백으로 구분된 이탤릭체 목록으로 표시됩니다. 값은 <0>macOS</0>, <0>windows</0>, 또는 <0>Linux</0> 일 수 있습니다. 
+인수 또는 메소드가 특정 플랫폼에만 사용된다면, 이 플랫폼들은 자료형 다음에 공백으로 구분된 이탤릭체 목록으로 표시됩니다. 값은 <0>macOS</0>, <0>windows</0>, 또는 <0>Linux</0> 일 수 있습니다. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.

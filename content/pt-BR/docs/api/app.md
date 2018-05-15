@@ -84,7 +84,7 @@ No Windows, você tem que analisar `process.argv` (no processo principal) para o
 Retorna:
 
 * `event` Event
-* `url` String
+* String `url`
 
 Emitido quando o usuário deseja abrir um URL com a aplicação. O arquivo `Info.plist` da sua aplicação deve definir o esquema do URL dentro da chave `CFBundleURLTypes`, e definir `NSPrincipalClass` para `AtomApplication`.
 
@@ -148,7 +148,7 @@ Retorna:
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contém configurações específicas do app armazenadas na atividade.
 
-Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. Se você precisar atualizar o estado a ser transferido, você deve imediatamente chamar `event.preventDefault()`, construir um novo dicionário `userInfo` e chamar `app.updateCurrentActivity()` de forma pontual. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
+Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
 
 ### Evento: 'new-window-for-tab' no *macOS*
 
@@ -200,7 +200,7 @@ Retorna:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `url` String
+* String `url`
 * `error` String - O código do erro
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
@@ -313,14 +313,14 @@ Este método garante que todos os manipuladores de vento `beforeunload` e `unloa
 
 * `exitCode` Integer (opcional)
 
-Sai imediatamente com `exitCode`. `exitCode` padrão é 0.
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 Todas as janelas serão fechadas imediatamente sem perguntar ao usuário e os eventos `before-quit` e `will-quit` não serão emitidos.
 
 ### `app.relaunch([options])`
 
-* `opções` Objeto (opcional) 
-  * `args` String[] - (opcional)
+* `options` Objeto (opcional) 
+  * `args` String[] (optional)
   * `execPath` String (opcional)
 
 Reinicia a aplicação quando a instância atual sair.
@@ -384,12 +384,12 @@ Você pode solicitar os seguintes caminhos pelo o nome:
 * `pictures` Diretório para as imagens de um usuário.
 * `videos` Diretório para os vídeos de um usuário.
 * `logs` Diretório que armazena os logs da aplicação.
-* `pepperFlashSystemPlugin` Caminho completo até a versão do sistema do plugin Pepper Flash.
+* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opções` Objeto (opcional) 
+* `options` Objeto (opcional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -498,7 +498,7 @@ A API usa internamente o Registro do Windows e o LSCopyDefaultHandlerForURLSchem
 
 * `tasks` [Task[]](structures/task.md) - Um array de objetos `Task`
 
-Adiciona `tasks` à categoria [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) da JumpList no Windows.
+Adiciona `tasks` à categoria [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) da JumpList no Windows.
 
 `tasks` é um array de objetos [`Task`](structures/task.md).
 
@@ -689,13 +689,9 @@ Por padrão, o Chromium desativa APIs 3D (p. ex: WebGL) em domínios individuais
 
 Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
-### `app.getAppMemoryInfo()` *Descontinuado*
-
-Retorna [`ProcessMetric[]`](structures/process-metric.md): Um array de objetos `ProcessMetric` que correspondem às estatísticas de uso de memória e CPU de todos os processos associados ao aplicativo. **Nota:** Este método foi descontinuado. Ao invés dele, use `app.getAppMetrics()`.
-
 ### `app.getAppMetrics()`
 
-Retorna [`ProcessMetric[]`](structures/process-metric.md): Um array de objetos `ProcessMetric` que correspondem às estatísticas de uso de memória e CPU de todos os processos associados ao aplicativo.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
@@ -705,7 +701,7 @@ Retorna [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Os status de re
 
 * `count` Integer
 
-Retorna `Boolean` - Se a chamada foi realizada com sucesso ou não.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
 Muda o selo contador do aplicativo atual. Definí-lo como `` irá ocultar o selo.
 
@@ -732,18 +728,16 @@ Se você fornecer as opções `path` e `args` para `app.setLoginItemSettings` en
 Retorna `Object`:
 
 * `openAtLogin` Boolean - `true` se o aplicativo está configurado para abrir no login.
-* `openAsHidden` Boolean - `true` se o aplicativo está definido para abrir em modo oculto no login. Essa definição é suportada somente no macOS.
-* `wasOpenedAtLogin` Boolean - `true` se o aplicativo foi aberto automaticamente no login. Essa definição é suportada somente no macOS.
-* `wasOpenedAsHidden` Boolean - `true` se o aplicativo foi aberto mas definido como um ítem oculto no login. Isso indica que o aplicativo não deverá abrir nenhuma janela durante a inicialização. Essa definição é suportada somente no macOS.
-* `restoreState` Boolean - `true` se o aplicativo foi aberto como um ítem de login que deverá restaurar o estado da sessão anterior. Isso indica que o aplicativo deverá restaurar as janelas que foram abertas da última vez que o aplicativo fora fechado. Essa definição é suportada somente no macOS.
-
-**Nota:** Essa API não tem efeito em [Builds MAS](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Isso indica que o aplicativo não deverá abrir nenhuma janela durante a inicialização. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Isso indica que o aplicativo deverá restaurar as janelas que foram abertas da última vez que o aplicativo fora fechado. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (opcional) - `true` para abrir o aplicativo após o login, `false` para removê-lo da lista de inicialização automática. O padrão é `false`.
-  * `openAsHidden` Boolean (opcional) - `true` para abrir o aplicativo silenciosamente. Padrão sendo `false`. O usuário pode editar essa configuração a partir das Preferências do Sistema portanto `app.getLoginItemStatus().wasOpenedAsHidden` deverá ser verificado quando o aplicativo for aberto para saber o valor atual. Essa definição é suportada somente no macOS.
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Padrão sendo `false`. O usuário pode editar essa configuração a partir das Preferências do Sistema portanto `app.getLoginItemStatus().wasOpenedAsHidden` deverá ser verificado quando o aplicativo for aberto para saber o valor atual. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) *Windows* - O executável para ser rodado no login. Padrão sendo `process.execPath`.
   * `args` String[] (opcional) *Windows* - Os argumentos da linha de comando para passar para o executável. Padrão sendo uma array vazia. Tome cuidado ao envolver caminhos com aspas.
 
@@ -766,8 +760,6 @@ app.setLoginItemSettings({
 })
 ```
 
-**Nota:** Essa API não possui efeito nas [builds MAS](../tutorial/mac-app-store-submission-guide.md).
-
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
 Retorna `Boolean` - `true` se o suporte à acessibilidade do Chrome estiver ativado, `false` caso contrário. Essa API retornará `true` se o uso de tecnologias assistivas, tais como leitores de tela, foi detectado. Consulte https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
@@ -782,7 +774,7 @@ Ativa manualmente o suporte à acessibilidade do Chrome, permitindo expor uma op
 
 ### `app.setAboutPanelOptions(options)` no *macOS*
 
-* `opções` Object 
+* `options` Object 
   * `applicationName` String (opcional) - O nome do aplicativo.
   * `applicationVersion` String (opcional) - A versão do aplicativo.
   * `copyright` String (opcional) - Informações de copyright.
@@ -790,6 +782,21 @@ Ativa manualmente o suporte à acessibilidade do Chrome, permitindo expor uma op
   * `versão` String (opcional) - O número da versão de compilação do aplicativo.
 
 Define as opções do painel sobre. Isto substituirá os valores definidos no arquivo `.plist` do aplicativo. Consulte a [documentação da Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para mais detalhes.
+
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+
+* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+
+```js
+// Start accessing the file.
+const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// You can now access the file outside of the sandbox 
+stopAccessingSecurityScopedResource()
+```
+
+Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 

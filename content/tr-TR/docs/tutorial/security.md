@@ -32,18 +32,18 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 
 This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
 
-1. [Sadece güvenli içeriği yükleyin](#only-load-secure-content)
-2. [Uzaktan içeriği görüntülemek için Node.js entegrasyonunu bütün işleyicilerde etkisiz hale getirin](#disable-node.js-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
-4. [Uzak içeriği yükleyen tüm oturumlarda `ses.setPermissionRequestHandler()` kullanın](#handle-session-permission-requests-from-remote-content)
-5. [`webSecurity` i kapatmayın](#do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Geçersiz kıl ve devredışı bırak `eval`](#override-and-disable-eval), dizelerin kod olarak yürütülmesine izin verir.
-8. [`allowRunningInsecureContent` i `true` a ayarlamayın](#do-not-set-allowRunningInsecureContent-to-true)
-9. [Deneysel özellikleri aktifleştirmeyin](#do-not-enable-experimental-features)
-10. [`blinkFeatures` kullanmayın](#do-not-use-blinkfeatures)
-11. [WebViews:`allowpopups` kullanmayın](#do-not-use-allowpopups)
-12. [WebViews: Ayarlar ve parametreleri bütün `<webview>` etiketlerde doğrulayın](#verify-webview-options-before-creation)
+1. [Sadece güvenli içeriği yükleyin](#1-only-load-secure-content)
+2. [Uzaktan içeriği görüntülemek için Node.js entegrasyonunu bütün işleyicilerde etkisiz hale getirin](#2-disable-nodejs-integration-for-remote-content)
+3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
+4. [Uzak içeriği yükleyen tüm oturumlarda `ses.setPermissionRequestHandler()` kullanın](#4-handle-session-permission-requests-from-remote-content)
+5. [`webSecurity` i kapatmayın](#5-do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Geçersiz kıl ve devredışı bırak `eval`](#7-override-and-disable-eval), dizelerin kod olarak yürütülmesine izin verir.
+8. [`allowRunningInsecureContent` i `true` a ayarlamayın](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [Deneysel özellikleri aktifleştirmeyin](#9-do-not-enable-experimental-features)
+10. [`blinkFeatures` kullanmayın](#10-do-not-use-blinkfeatures)
+11. [WebViews:`allowpopups` kullanmayın](#11-do-not-use-allowpopups)
+12. [WebViews: Ayarlar ve parametreleri bütün `<webview>` etiketlerde doğrulayın](#12-verify-webview-options-before-creation)
 
 ## 1) Sadece Güvenli İçeriği Yükleyin
 
@@ -267,7 +267,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### Neden?
 
-The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. Bu ne zaman zorunlu bir yöntemdir önceden bilinmeyen kodu değerlendirmeliyiz. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. Bu ne zaman zorunlu bir yöntemdir önceden bilinmeyen kodu değerlendirmeliyiz. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 Genel olarak, `` eval () </ 0> işlevini tamamen devre dışı bırakmaktan daha kolaydır. Böylece, buna ihtiyacınız yoksa, devre dışı bırakmak iyi bir fikirdir.</p>
 
@@ -284,13 +284,13 @@ window.eval = global.eval = function () {
 
 *Tavsiye edilen ayar Electron'da varsayılandır*
 
-Electron varsayılan olarak, `HTTPS` üzerinden yüklenen websitelerine güvenliksiz kaynaklardan (`HTTP`) gelen betikler, CSS veya eklentileri yüklemeye izin verir. `allowRunningInsecureContent` i `true` a ayarlamak bu korumayı engeller.
+By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). `allowRunningInsecureContent` i `true` a ayarlamak bu korumayı engeller.
 
 Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
 
 ### Neden?
 
-Basitçe açıklayacak olursak, `HTTPS` üzerinden içerik yüklemek veri trafiğini şifreleyerek, yüklenen kaynakların güvenilirliğini ve bütünlüğünü sağlar. Detaylı bilgi için [Sadece güvenli içeriği yükleyin](#only-display-secure-content) bölümüne bakabilirsiniz.
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. Detaylı bilgi için [Sadece güvenli içeriği yükleyin](#1-only-load-secure-content) bölümüne bakabilirsiniz.
 
 ### Nasıl?
 

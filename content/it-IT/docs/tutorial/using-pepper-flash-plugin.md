@@ -46,9 +46,9 @@ app.on('ready', () => {
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+Puoi anche provare a caricare il sistema tramite il plugin Pepper Flash invece di attivarli da te, il suo percorso può essere ricevuto chiamando `app.getPath('pepperFlashSystemPlugin')`.
 
-## Attiva il Plugin Flash in un Tag `<webview>`
+## Abilita Flash Plugin in un `<webview>`Tag</0>
 
 Aggiungi l'attributo `plugins` al tag `<webview>`.
 
@@ -58,10 +58,10 @@ Aggiungi l'attributo `plugins` al tag `<webview>`.
 
 ## Risoluzione dei problemi
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Puoi controllare se il plugin Pepper Flash è stato caricato ispezionando `navigator.plugins` nella console degli strumenti dispositivo (anche se non puoi sapere se il percorso del plugin sia corretto).
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+L'architettura del plugin Pepper Flash deve corrispondere con quella di Electron. Su Windows, un errore comune è di usare la versione 32bit del plugin Flash contro la versione 64bit di Electron.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+Su Windows il percorso passato a `--ppapi-flash-path` deve usare `` come delimitatore di percorso, usando percorsi POSIX-style non funzionerà.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+Per alcune operazioni, come streaming media usando RTMP, è necessario garantire tutti i permessi ai lettori di file `.swf`. Un metodo per permetterlo è di usare [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).

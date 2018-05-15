@@ -6,7 +6,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Elektrona Katkıda Bulunmak](../../CONTRIBUTING.md)
 * [Sorunlar](issues.md)
 * [Değişiklik İsteği](pull-requests.md)
-* [Stil Kılavuz Dokümantasyonu](styleguide.md)
+* [Stil Kılavuz Dokümantasyonu](coding-style.md#documentation)
 * [Kaynak Kodu Dizin Yapısı](source-code-directory-structure.md)
 * [Kodlama Stili](coding-style.md)
 * [C++ Kodunda Clang-Format Kullanma](clang-format.md)

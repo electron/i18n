@@ -1,4 +1,4 @@
 # CrashReport-Objekt
 
-* `date` String
-* `ID` Integer
+* `date` Datum
+* `id` Zeichenfolge

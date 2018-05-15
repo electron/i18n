@@ -24,6 +24,10 @@
 
 इनपुट मेथड एडिटर | एक ऐसा प्रोग्राम, जो उपयोगकर्ताओं को उन करैक्टर्स और सिम्बल्स को इस्तेमाल करने की सुविधा देता है, जो कि उनके कीबोर्ड पर उपलब्ध नहीं होते | उदहारण के लिए, ये लैटिन कीबोर्ड के उपयोगकर्ताओं को चीनी, जापानी और इंडिक करैक्टरर्स को इस्तेमाल करने की सुविधा देता है |
 
+### IDL
+
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+
 ### आईपीसी
 
 आईपीसी का मतलब है अंतर-प्रक्रिया संवाद | इलेक्ट्रॉन आईपीसी का इस्तेमाल [मुख्य](#main-process) और [रेंदेरेर](#renderer-process) प्रक्रियाओं के बीच श्रृंखलाबद्ध जेएसओएन सन्देश भेजने के लिए करता है |
@@ -48,9 +52,15 @@
 
 इसका मतलब है मैक एप्पल स्टोर | एमऐएस पर अपनी एप्प सबमिट करने के लिए, [मैक एप्पल स्टोर सबमिशन गाइड](tutorial/mac-app-store-submission-guide.md) गाइड देखें |
 
+### Mojo
+
+An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+
+See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+
 ### मूल मोडयुल्स
 
-मूल मोडयुल्स (नोड.जेएस में इन्हें [ऐडओंन्स](https://nodejs.org/api/addons.html) भी कहा जाता है) सी या सी++ में लिखे वे मोडयुल्स हैं, जो रेकुआयर() फंक्शन का इस्तेमाल करके नोड.जेएस या इलेक्ट्रॉन में लोड किये जा सकते हैं, और उसी तरह से इस्तेमाल किये जाते हैं जैसे कि कोई सामान्य नोड.जेएस मोड्यूल हो | वे मुख्यतः नोड.जेएस और सी/सी++ लाइब्रेरीज में चल रही जावास्क्रिप्ट को इंटरफ़ेस प्रदान करने के लिए इस्तेमाल किये जाते हैं |
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. वे मुख्यतः नोड.जेएस और सी/सी++ लाइब्रेरीज में चल रही जावास्क्रिप्ट को इंटरफ़ेस प्रदान करने के लिए इस्तेमाल किये जाते हैं |
 
 मूल नोड मोडयुल्स इलेक्ट्रॉन द्वारा समर्थित हैं, पर चूँकि इस बात की काफी सम्भावना है कि इलेक्ट्रॉन आपके सिस्टम में इन्स्टाल नोड बाइनरी से अलग वी8 संस्करण इस्तेमाल करता हो; इसलिए मूल मोडयुल्स का निर्माण करते वक़्त आपको मैन्युअली ही इलेक्ट्रॉन के हेडर्स की लोकेशन निर्दिष्ट करनी होगी |
 

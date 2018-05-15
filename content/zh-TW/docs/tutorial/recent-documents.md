@@ -1,6 +1,6 @@
 # 最近的文件 (Windows & macOS)
 
-Windows 及 macOS 提供了捷徑清單或 Dock 選單功能，方便快速存取應用程式最近開啟過的文件。
+Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
 **捷徑清單 (JumpList):**
 

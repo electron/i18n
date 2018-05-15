@@ -88,7 +88,7 @@ Aboneyi `id` ile kaldırır.
   * `event` String
   * `userInfo` Object
 
-`subscribeNotification` gibidir fakat yerel varsayılanlar için `NSNotificationCenter` kullanır. Bu `NSUserDefaultsDidChangeNotification` gibi eventlar için gereklidir
+`subscribeNotification` gibidir fakat yerel varsayılanlar için `NSNotificationCenter` kullanır. Bu `NSUserDefaultsDidChangeNotification` gibi eventlar için gereklidir.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -96,10 +96,16 @@ Aboneyi `id` ile kaldırır.
 
 `unsubscribeNotification` gibidir fakat aboneyi `NSNotificationCenter`'den çıkarır.
 
+### `systemPreferences.registerDefaults(defaults)` *macOS*
+
+* `defaults` Object - a dictionary of (`key: value`) user defaults 
+
+Add the specified defaults to your application's `NSUserDefaults`.
+
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary` olabilir
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 `any` - `NSUserDefaults` 'te `key` değerini verir.
 
@@ -116,7 +122,7 @@ Bazı popüler `key` ve `type`'ler:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] bakın
+* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` String
 
 `NSUserDefaults`'de `key` değerini ayarlayın.

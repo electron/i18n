@@ -42,7 +42,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 戻り値:
 
 * `event` Event
-* `state` String
+* `state` String - `progressing` か `interrupted` にできます。
 
 ダウンロードが更新され、まだ未完了であるときに発生します。
 
@@ -56,7 +56,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 戻り値:
 
 * `event` Event
-* `state` String
+* `state` String - `completed`、`cancelled` か `interrupted` にできます。
 
 ダウンロードが終息状態になるときに発生します。これには、完了したダウンロード、(`downloadItem.cancel()` 経由で) キャンセルされたダウンロード、再開することができない中断されたダウンロードが含まれます。
 

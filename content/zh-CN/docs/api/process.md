@@ -40,7 +40,7 @@ process.once('loaded', () => {
 
 ### `process.noDeprecation`
 
-`Boolean` 类型，控制是否将弃用警告打印到`stderr`。将其设置为`true`会使弃用警告无效。 使用此属性代替 `-no-deprecation ` 命令行标志。
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. 使用此属性代替 `-no-deprecation ` 命令行标志。
 
 ### `process.resourcesPath`
 
@@ -48,15 +48,15 @@ process.once('loaded', () => {
 
 ### `process.throwDeprecation`
 
-`Boolean</ 0>类型，用于控制是否将弃用警告当做例外。  设置它为 <code>true` 时会抛出错误。 使用此属性而不是用 `--throw-deprecation ` 命令行标志。
+`Boolean</ 0>类型，用于控制是否将弃用警告当做例外。 设置它为 <code>true` 时会抛出错误。 使用此属性而不是用 `--throw-deprecation ` 命令行标志。
 
 ### `process.traceDeprecation`
 
-一个 ` Boolean `, 用于控制打印的 ` stderr ` 中是否包含其堆栈跟踪。 将此设置为 ` true ` 将会打印堆栈跟踪。 此属性代替 `--trace-deprecation` 命令行标志。
+一个 ` Boolean `, 用于控制打印的 ` stderr ` 中是否包含其堆栈跟踪。 Setting this to `true` will print stack traces for deprecations. 此属性代替 `--trace-deprecation` 命令行标志。
 
 ### `process.traceProcessWarnings`
 
-一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 ` true ` 将打印堆栈跟踪以处理进程的警告信息（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
+一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `process.type`
 
@@ -97,18 +97,18 @@ process.once('loaded', () => {
 * `workingSetSize` Integer- 当前占用的物理内存RAM总量
 * `peakWorkingSetSize` Integer - 已被占用的物理内存最大值。
 * `privateBytes` Integer - 独占内存，不被其他进程（如JavaScript堆或者HTML内容）共享的内存数量
-* `sharedBytes` Integer -共享内存，在进程之间共享的内存数量，通常是Electron自身消耗的内存量
+* `sharedBytes` Integer -共享内存，在进程之间共享的内存数量，通常是Electron自身消耗的内存量.
 
 返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
 
 ### `process.getSystemMemoryInfo()`
 
-返回 ` Object `:
+返回 `Object`:
 
 * `total` Integer - 系统可用的物理内存总量(Kb)。
 * `free` Integer - 应用程序或磁盘缓存未使用的内存总量。
-* ` swapTotal `Integer - 系统可使用的交换内存总量 (kb)。 * Windows ** Linux *
-* ` swapFree `Integer - 系统可使用的剩余交换内存总量 (kb)。 * Windows ** Linux *
+* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
 

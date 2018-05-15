@@ -70,10 +70,12 @@
 
 Обектът `autoUpdater` има следните методи:
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` String
-* `requestHeaders` Object *macOS* (по избор) - HTTP request headers.
+* `опции` Object 
+  * `url` String
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Поставя `url` и инициализира автоматичното обновяване.
 
@@ -89,4 +91,6 @@
 
 Връща приложението и инсталира обновяването, след като е било свалено. Може да бъде извикано само след като `update-downloaded` е било излъчено.
 
-**Забележка:** `autoUpdater.quitAndInstall()` първо ще затвори всички прозорци на приложението и тогава ще излъчи събитието `before-quit` на `app`. Това е различно от нормалната поредица събития при излизане.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.

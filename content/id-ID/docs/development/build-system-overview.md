@@ -1,4 +1,4 @@
-# Membangun Sistem Tinjauan
+# Membangun sistem Tinjauan
 
 Menggunakan Electron [gyp](https://gyp.gsrc.io/) proyek generasi dan [ninja](https://ninja-build.org/) untuk bangunan. Proyek konfigurasi dapat ditemukan di `.gyp` dan `.gypi` file.
 
@@ -23,7 +23,7 @@ Semua binari masa membangun Chromium (`libchromiumcontent`) diunduh saat menjala
 
 Secara sederhana, `libchromiumcontent` diunduh dari Amazon Web Services. Jika `LIBCHROMIUMCONTENT_MIRROR` variabel lingkungan disetel, bootstrap script akan mendownload dari itu. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) adalah kaca untuk `libchromiumcontent`. Jika Anda kesulitan mengakses AWS, Anda bisa ganti alamat downloadnya via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
-Jika Anda hanya ingin membangun Electron dengan cepat untuk pengujian atau pengembangan, Anda dapat mendownload hanya versi pembagian pustaka dengan melewatkan `--dev` parameter:
+If you only want to build Electron quickly for testing or development, you can download the shared library versions by passing the `--dev` parameter:
 
 ```sh
 $ ./script/bootstrap.py --dev
@@ -40,9 +40,9 @@ Untuk mengolah Electron ini menggunakan `gyp` variabel `libchromiumcontent_compo
 
 Tidak seperti kebanyakan proyek yang menggunakan `Melepaskan` dan `Debug` sebagai nama target, Electron menggunakan `R` dan `D` sebagai gantinya. Ini karena `gyp` secara tabrakan jika ada hanya satu `Melepaskan` atau `Debug` membangun konfigurasi yang ditentukan, dan hanya Electron untuk menghasilkan satu target pada satu waktu seperti yang dinyatakan di atas.
 
-Ini hanya mempengaruhi pengembang, jika Anda hanya membangun Electron untuk rebranding Anda tidak terpengaruh.
+This only affects developers, if you are building Electron for rebranding you are not affected.
 
-## Pengujian
+## Uji
 
 Menguji perubahan sesuai dengan proyek gaya pengkodean menggunakan:
 
@@ -62,7 +62,7 @@ Kapan pun Anda membuat perubahan pada kode sumber Electron, Anda harus menjalank
 $ npm run build && npm test
 ```
 
-Anda dapat membuat test suite berjalan lebih cepat dengan mengisolasi tes atau blok tertentu Anda sedang mengerjakan penggunaan Mocha's [tes eksklusif](https://mochajs.org/#exclusive-tests) fitur. Tambahkan saja `.hanya` untuk setiap `menjelaskan`atau`itu` fungsi panggilan:
+Anda dapat membuat test suite berjalan lebih cepat dengan mengisolasi tes atau blok tertentu Anda sedang mengerjakan penggunaan Mocha's [tes eksklusif](https://mochajs.org/#exclusive-tests) fitur. Append `.only` to any `describe` or `it` function call:
 
 ```js
 describe.only('some feature', function () {

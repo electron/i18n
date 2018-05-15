@@ -28,7 +28,7 @@ myNotification.onclick = () => {
 
 विंडोज के नवीनतम संस्करणों में उन्नत नोटीफीकेशंस भेजने की सुविधा मौज़ूद है, जिसमे कि कस्टम टेम्पलेटस, चित्र, और दुसरे लचीले तत्व शामिल हैं | उन नोटीफीकेशंस को भेजेने के लिए (मुख्य प्रक्रिया से या फिर रेंदेरेर प्रक्रिया से), यूजरलैंड मोड्यूल [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) का इस्तेमाल करें, जो कि `ToastNotification` और `TileNotification` ऑब्जेक्ट्स को भेजने के लिए मूल नोड ऐडओंन्स का इस्तेमाल करते हैं |
 
-हालाँकि बटन्स को शामिल करने वाली नोटीफीकेशंस केवल `electron-windows-notifications` के साथ भी सही काम करती है, पर उत्तरों को सँभालने के लिए [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) के इस्तेमाल की ज़रुरत पड़ती है, जो कि आवश्यक COM तत्वों को रजिस्टर करने और आपकी इलेक्ट्रॉन एप्प को उपयोगकर्ता द्वारा एंटर किये गये डाटा के साथ कॉल करने में मदद करता है |
+While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
 ### शांत घंटे/ प्रेजेंटेशन मोड
 

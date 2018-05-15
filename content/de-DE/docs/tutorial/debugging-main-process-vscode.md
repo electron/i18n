@@ -28,8 +28,6 @@ $ code electron-quick-start
 }
 ```
 
-**Bemerkung:** Für Windows verwenden Sie `"${workspaceRoot}/node_modules/.bin/electron.cmd"` für `runtimeExecutable`.
-
 ### 3. Debugging
 
 Setzen sie einige Haltepunkte in `main.js` und starten Sie das Debugging in der [Debug View](https://code.visualstudio.com/docs/editor/debugging). Es sollte Ihnen möglich sein, die Haltepunkte zu erreichen.

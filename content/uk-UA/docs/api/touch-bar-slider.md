@@ -12,9 +12,9 @@
   * `minValue` Integer (optional) - Minimum value.
   * `maxValue` Integer (optional) - Maximum value.
   * `change` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider
+    * `newValue` Number - The value that the user selected on the Slider.
 
-### Instance Properties
+### Властивості Екземпляра
 
 The following properties are available on instances of `TouchBarSlider`:
 

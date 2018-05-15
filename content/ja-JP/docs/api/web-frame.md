@@ -36,13 +36,6 @@ webFrame.setZoomFactor(2)
 
 戻り値 `Number` - 現在の拡大レベル。
 
-### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-**非推奨:** 視覚拡大レベルの制限を設定するには、代わりに `setVisualZoomLevelLimits` を呼びます。このメソッドは Electron 2.0 で削除されます。
-
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
@@ -62,7 +55,7 @@ webFrame.setZoomFactor(2)
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - 戻り値 `Boolean` 
+  * `spellCheck` Function - 戻り値 `Boolean`. 
     * `text` String
 
 入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
@@ -98,11 +91,11 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 * `options` Object (任意) 
-  * `secure` Boolean - (任意) 省略値は true。
-  * `bypassCSP` Boolean - (任意) 省略値は true。
-  * `allowServiceWorkers` Boolean - (任意) 省略値は true。
-  * `supportFetchAPI` Boolean - (任意) 省略値は true。
-  * `corsEnabled` Boolean - (任意) 省略値は true。
+  * `secure` Boolean (任意) - 省略値は true。
+  * `bypassCSP` Boolean (任意) - 省略値は true。
+  * `allowServiceWorkers` Boolean (任意) - 省略値は true。
+  * `supportFetchAPI` Boolean (任意) - 省略値は true。
+  * `corsEnabled` Boolean (任意) - 省略値は true。
 
 `scheme` をセキュアとして登録し、リソースのコンテンツセキュリティポリシーをバイパスし、ServiceWorker の登録を許可し、フェッチ API をサポートします。
 
@@ -131,6 +124,37 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ページ内の `code` を評価します。
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
+
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
+
+* `worldId` Integer
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (任意) - 省略値は `false`。
+* `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
+  * `result` Any
+
+`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
+
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+
+* `worldId` Integer
+* `csp` String
+
+イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
+
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+
+* `worldId` Integer
+* `name` String
+
+イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
+
+### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
+
+* `worldId` Integer
+* `securityOrigin` String
+
+イソレートコンテキストのセキュリティオリジンを設定します。
 
 ### `webFrame.getResourceUsage()`
 

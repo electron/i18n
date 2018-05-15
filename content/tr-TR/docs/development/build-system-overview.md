@@ -23,7 +23,7 @@ Chromium'un önceden oluşturulmuş ikili dosyalarının tümü (`libchromiumcon
 
 Varsayılan olarak, `libchromiumcontent` Amazon Web Servisleri'nden yüklenir. Eğer `LIBCHROMIUMCONTENT_MIRROR` ortamı değişken olarak ayarlanırsa, önyükleme komut dosyası oradan yüklenir. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) `libchromiumcontent` için bir yansımadır. Eğer AWS erişiminde sorun yaşıyorsanız, indirme adresini `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/` üzerinden değiştirebilisiniz
 
-Eğer sadece Electron'u sadece hızlıca denemek veya geliştirmek için oluşturuyorsanız, sadece paylaşılan kitaplık versiyonunu `--dev` parametresini atlayarak indirebilirsiniz:
+If you only want to build Electron quickly for testing or development, you can download the shared library versions by passing the `--dev` parameter:
 
 ```sh
 $ ./script/bootstrap.py --dev
@@ -40,7 +40,7 @@ Bunun etrafında çalışmak amacıyla Electron hangi bağlantı ayarlarını ku
 
 `Release` ve `Debug` 'ı hedef isim olarak kullanan çoğu projenin aksine, Electron hedef isim olarak `R` ve `D` 'ı kullanır. Bunun sebebi, eğer sadece bir `Release` veya `Debug` inşa yapılandırması tanımlı ise `gyp` rastgele çöker ve Electron yukarıda belirtildiği gibi belli bir zamanda sadece bir hedef üretir.
 
-Bu sadece geliştiricileri etkiler, eğer Electron'u sadece tekrar işlemek için kullanıyorsanız bu durum sizi etkilemez.
+This only affects developers, if you are building Electron for rebranding you are not affected.
 
 ## Testler
 
@@ -62,7 +62,7 @@ Electron kaynak kodunda ne zaman değişiklik yaparsanız, şu testten önce in�
 $ npm run build && npm test
 ```
 
-Test paketini belirli testi izole ederek veya hali hazırda kullandığınız Mocha' nın </a> özellikli  özel testlerini engelleyerek daha hızlı çalıştırabilirsiniz. Herhangi bir `describe` veya `it` işlevini çağırmak için sadece `.only` ekle:</p> 
+Test paketini belirli testi izole ederek veya hali hazırda kullandığınız Mocha' nın </a> özellikli  özel testlerini engelleyerek daha hızlı çalıştırabilirsiniz. Append `.only` to any `describe` or `it` function call:</p> 
 
 ```js
 describe.only('some feature', function () {

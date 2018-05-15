@@ -22,7 +22,7 @@ The `shell` modul memiliki metode berikut:
 
 * `fullPath` String
 
-Mengembalikan `Boolean` - Apakah item berhasil ditampilkan
+Mengembalikan `Boolean` - Apakah item berhasil ditampilkan.
 
 Tampilkan file yang diberikan di file manager. Jika memungkinkan, pilih file.
 
@@ -36,10 +36,10 @@ Buka file yang diberikan dengan cara default desktop.
 
 ### `shell.openExternal (url [, pilihan, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false
+* `url` String - max 2081 characters on windows, or the function returns false.
 * `options` Objek (opsional) *macOS* 
   * `Aktifkan` Aljabar Boolean - `benar` untuk membawa aplikasi dibuka latar depan. Default adalah `benar`.
-* `callback` Fungsi (opsional) - Jika ditentukan akan tampil terbuka secara asinkron. *macOS* 
+* `callback` Fungsi (opsional) *macOS* - If specified will perform the open asynchronously. 
   * Kesalahan `kesalahan`
 
 Mengembalikan `Boolean` - Apakah sebuah aplikasi tersedia untuk membuka URL. Jika callback ditentukan, selalu mengembalikan true.
@@ -50,7 +50,7 @@ Buka URL protokol eksternal yang diberikan dengan cara default desktop. (Misalny
 
 * `fullPath` String
 
-Kembali `Boolean` - Apakah item berhasil dipindahkan ke tempat sampah
+Kembali `Boolean` - Apakah item berhasil dipindahkan ke tempat sampah.
 
 Pindahkan file yang diberikan ke sampah dan mengembalikan status boolean untuk pengoperasiannya.
 
@@ -67,7 +67,7 @@ Bermain suara bip.
   * `menggantikan` - menimpa tombol cepat yang ada, gagal jika tidak ada jalan pintas.
 * `pilihan` [ShortcutDetails](structures/shortcut-details.md)
 
-Kembali `Boolean` - Apakah cara pintas telah dibuat berhasil
+Kembali `Boolean` - Apakah cara pintas telah dibuat berhasil.
 
 Membuat atau memperbarui tautan pintasan di `shortcutPath`.
 

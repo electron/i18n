@@ -2,7 +2,7 @@
 
 > 使用默认应用程序管理文件和 url。
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 ` shell ` 模块提供与桌面集成相关的功能。
 
@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-返回 `Boolean` - 文件是否成功显示
+返回 `Boolean` - 文件是否成功显示.
 
 在文件管理器中显示给定的文件。如果可以, 选中该文件。
 
@@ -36,10 +36,10 @@ shell.openExternal('https://github.com')
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url`字符串 - 在windows下最长2081字节，否则这个函数返回false
+* `url`字符串 - 在windows下最长2081字节，否则这个函数返回false.
 * `选项` Object (可选) *macOS* 
   * `activate` Boolean - ` true `将打开的应用程序置于前台. 默认值为 `true`.
-* `callback` Function (可选) - 如果指定将执行异步打开。 *macOS* 
+* `callback` Function (可选) *macOS* - If specified will perform the open asynchronously. 
   * `error` Error
 
 返回 `Boolean`类型 - 不管一个应用是否可以访问到URL，是否制定了回调，总是返回true
@@ -50,7 +50,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-返回 `Boolean` - 该对象是否成功移至垃圾箱。
+Returns `Boolean` - Whether the item was successfully moved to the trash.
 
 将给定的文件移动到垃圾箱，并返回操作的布尔状态。
 
@@ -67,7 +67,7 @@ shell.openExternal('https://github.com')
   * `replace` - 覆盖现有快捷方式, 如果快捷方式不存在将会失败。
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-返回 `Boolean` - 快捷方式是否被成功创建。
+Returns `Boolean` - Whether the shortcut was created successfully.
 
 在`shortcutPath`位置创建或更新一个快捷连接
 

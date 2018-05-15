@@ -2,15 +2,15 @@
 
 > Crea un seleccionador de color en la barra táctil para aplicaciones nativas de macOS
 
-Proceso: [principal](../tutorial/quick-start.md#main-process)
+Proceso: [Main](../tutorial/quick-start.md#main-process)
 
 ### `Nuevo seleccionador de color de la barra táctil(opciones)` *Experimental*
 
 * `opciones` Object 
   * `Colores disponibles` Cadena[] (opcional) - arreglo de códigos hexadecimales de los colores a aparecer como colores posibles a seleccionar.
   * `Color seleccionado` Cadena (opcional) - El código de color hexadecimal en el seleccionador, ejemplo `#ABCDEF`.
-  * `cambiar` Funcion (opcional) - Función a llamar cuando el color está seleccionado. 
-    * `color` Cadena - El color que el usuario seleccionó de entre las opciones
+  * `change` Funcion (opcional) - Función a llamar cuando el color está seleccionado. 
+    * `color` Cadena - El color que el usuario seleccionó de entre las opciones.
 
 ### Propiedades de Instancia
 

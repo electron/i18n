@@ -22,7 +22,7 @@ Ang isang isyu ay nangyayari tuwing makakatanggap ka ng code galing sa malayo na
 
 > :babala: Sa anumang pangyayari ay hindi ka maaaring mag-load at mag-execute ng remote code kasama ng Node.js integrasyong napagana. Sa halip, gamitin lamang ang lokal na mga file (nakabalot kasama ang iyong aplikasyon) para ma-execute ang Node.js na code. Para maipakita ang bahagyang nilalaman, gamiting ang [`webview`](../api/web-view.md) na tag para makasiguradong hindi gumana ang `nodeIntegration`.
 
-## Electron Security Warnings
+## Babala sa seguridad ng Electron
 
 From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
@@ -32,18 +32,18 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 
 This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
 
-1. [Mag load lamang ng siguradong nilalaman](#only-load-secure-content)
-2. [Huwang paganahin ang Node.js na integrasyon sa lahat ng mga renderer na maipakita ang bahagyang nilalaman.](#disable-node.js-integration-for-remote-content)
-3. [Paganahin ang kontekstong pagkakabukod na ipinakita ang bahagyang nilalaman.](#enable-context-isolation-for-remote-content)
-4. [Gamitin ang `ses.setPermissionRequestHandler()` sa lahat ng mga sesyon na maka-load ang bahagyang nilalaman.](#handle-session-permission-requests-from-remote-content)
-5. [Huwang i-disable ang `webSecurity`](#do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
-8. [Huwag i-set ang `allowRunningInsecureContent` sa `true`](#do-not-set-allowRunningInsecureContent-to-true)
-9. [Huwag paganahin ang mga experimental na katangian](#do-not-enable-experimental-features)
-10. [Huwag gamitin ang `blinkFeatures`](#do-not-use-blinkfeatures)
-11. [WebViews: Huwag gamitin ang `allowpopups`](#do-not-use-allowpopups)
-12. [WebViews: I-verify ang mga opsyun at mga param sa lahat ng `<webview>`mga tag](#verify-webview-options-before-creation)
+1. [Mag load lamang ng siguradong nilalaman](#1-only-load-secure-content)
+2. [Huwang paganahin ang Node.js na integrasyon sa lahat ng mga renderer na maipakita ang bahagyang nilalaman.](#2-disable-nodejs-integration-for-remote-content)
+3. [Paganahin ang kontekstong pagkakabukod na ipinakita ang bahagyang nilalaman.](#3-enable-context-isolation-for-remote-content)
+4. [Gamitin ang `ses.setPermissionRequestHandler()` sa lahat ng mga sesyon na maka-load ang bahagyang nilalaman.](#4-handle-session-permission-requests-from-remote-content)
+5. [Huwang i-disable ang `webSecurity`](#5-do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
+8. [Huwag i-set ang `allowRunningInsecureContent` sa `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [Huwag paganahin ang mga experimental na katangian](#9-do-not-enable-experimental-features)
+10. [Huwag gamitin ang `blinkFeatures`](#10-do-not-use-blinkfeatures)
+11. [WebViews: Huwag gamitin ang `allowpopups`](#11-do-not-use-allowpopups)
+12. [WebViews: I-verify ang mga opsyun at mga param sa lahat ng `<webview>`mga tag](#12-verify-webview-options-before-creation)
 
 ## 1) Only Load Secure Content
 
@@ -264,7 +264,7 @@ Ang `eval()` ay isang core JavaScript na pamamaraan na naggpapahintulot ng exeku
 
 ### Bakit?
 
-Ang `eval` na pamamaraan ay mayroong isang tiyak na misyon: Para suriin ang serye ng mga character bilang isang JavaScript at patakbuhin. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+Ang `eval` na pamamaraan ay mayroong isang tiyak na misyon: Para suriin ang serye ng mga character bilang isang JavaScript at patakbuhin. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
 
@@ -282,13 +282,13 @@ window.eval = global.eval = function () {
 
 *Ang rekomendasyon ay default ng Electron*
 
-By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
+By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
 Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
 
 ### Bakit?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
 
 ### Paano?
 

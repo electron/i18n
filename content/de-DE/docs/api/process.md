@@ -40,8 +40,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
-Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
 
 ### `process.resourcesPath`
 
@@ -98,7 +97,7 @@ Gibt das `Object` zurück:
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Integer - Die Speichergrösse die nicht mit anderen Prozessen wie zB. JS heap oder HTML geteilt wird.
-* `sharedBytes` Integer - Die Speichergrösse die mit anderen Prozessen geteilt wird, typischerweise Speicher, der von Electron code selber gebraucht wird
+* `sharedBytes` Integer - Die Speichergrösse die mit anderen Prozessen geteilt wird, typischerweise Speicher, der von Electron code selber gebraucht wird.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
@@ -108,8 +107,8 @@ Gibt das `Object` zurück:
 
 * `total` Integer - The total amount of physical memory in Kilobytes available to the system.
 * `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
-* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
+* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 

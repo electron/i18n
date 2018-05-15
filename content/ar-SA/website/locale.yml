@@ -1,16 +1,16 @@
 tagline: اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS
 nav:
-  docs: التوثيقات
-  donors: Donors
-  blog: المدونة
-  community: المجتمع
   apps: التطبيقات
-  userland: مساحة المستخدم
-  releases: اﻹصدارات
-  contact: تواصل معنا
-  languages: اللغات
+  blog: المدونة
   code_of_conduct: قواعد السلوك
+  community: المجتمع
+  contact: تواصل معنا
+  docs: التوثيقات
+  donors: الجهات المانحة
+  languages: اللغات
+  releases: اﻹصدارات
   search: بحث
+  userland: مساحة المستخدم
 docs:
   title: توثيقات الكترون
   description: مشاهدة <a href="/docs/all"> كافة المستندات في صفحة واحدة</a> أو التحقق من <a href="/docs/faq"> الأسئلة الأكثر تكرارًا</a>.
@@ -28,7 +28,22 @@ languages:
   current: الاختيار الحالي
 community:
   title: مجتمع Electron
-  description: 'أدوات، وقوالب، ومقاطع فيديو وغيرها من <a href="https://github.com/sindresorhus/awesome-electron">مطوّري Electron الرائعين</a> مفتوحة المصدر. اعثر على أو أضف<a href="/community#meetups">الملتقيات</a> القريبة منك.'
+  description: Resources for connecting with people working on Electron.
+  channels:
+    get_started: "<a href='/docs/tutorial/first-app'><b>لنبدأ</b></a> في تطوير تطبيق عبر قراءة <a href='/docs/tutorial/first-app'>دليل البدء السريع</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
+    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+  language_communities:
+    title: Language Communities
+    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
   tools: الأدوات
   boilerplates: القوالب
   components: المكونات
@@ -137,7 +152,7 @@ pages:
     title: Spectron
     description: سبيكترون إطار مفتوح المصدر يسهل كتابة اختبارات التكامل الخاصة بتطبيق إلكترون، وهو مبني بالاتماد على ChromeDriver و WebDriverIO.
   '/donors':
-    title: Donors
+    title: الجهات المانحة
 _404:
   page_not_found: الصفحة غير موجودة.
 search:

@@ -55,6 +55,12 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### Kompilacja międzyplatformowa
 
 Jeśli chcesz zbudować dla `arm` należy również zainstalować następujące zależności:
@@ -105,10 +111,10 @@ After building is done, you can find the `electron` debug binary under `out/D`.
 Aby wyczyścić pliki kompilacji:
 
 ```sh
-$ npm run clean
+$ npm działa bez problemu
 ```
 
-Aby oczyścić tylko `z` i `dist` katalogów:
+Aby oczyścić tylko `z` i `dist`katalogów:
 
 ```sh
 $ npm run clean-build

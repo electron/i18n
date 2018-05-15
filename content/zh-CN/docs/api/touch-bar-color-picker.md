@@ -2,15 +2,15 @@
 
 > 在macOS 应用程序中，为触控栏创建拾色器
 
-线程：[主线程](../tutorial/quick-start.md#main-process)
+进程：[主进程](../tutorial/quick-start.md#main-process)
 
 ### ` new TouchBarColorPicker(可选)` *实验功能*
 
-* `options` Object 
+* `选项` 对象 
   * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
   * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
   * `change` Function (optional) - Function to call when a color is selected. 
-    * `color` String - The color that the user selected from the picker
+    * `color` String - The color that the user selected from the picker.
 
 ### 实例属性
 

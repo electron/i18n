@@ -187,7 +187,7 @@ const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough()  // PassThrough は Readable stream でもある
+  const rv = new PassThrough() // PassThrough は Readable ストリームでもある
   rv.push(text)
   rv.push(null)
   return rv

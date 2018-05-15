@@ -24,6 +24,10 @@ Bir Apple Disk Görüntüsü, macOS tarafından kullanılan bir paketleme biçim
 
 Giriş yöntemi editörü. Kullanıcıların klavyelerinde bulunmayan karakterleri ve sembolleri girmesini olanaklı kılan bir program. Örneğin, bu, Latin klavye kullanıcılarının klavyelerini kullanarak Çince, Japonca, Korece ve Hint karakterlerini girmelerine olanak verir.
 
+### IDL
+
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+
 ### IPC
 
 IPC, Süreçlararası İletişim anlamına gelir. Elektron, [ana](#main-process) ve [oluşturucu](#renderer-process) işlemleri arasındaki seri hale getirilmiş JSON iletileri göndermek için IPC kullanır.
@@ -48,9 +52,15 @@ Ayrıca bkz: [process](#process), [renderer process](#renderer-process)
 
 Apple'ın Mac App Store'un kısaltması. Uygulamanızı, MAS'a gönderme ile ilgili ayrıntılar için, [ Mac App Store Gönderme Kılavuzu](tutorial/mac-app-store-submission-guide.md) 'na bakın.
 
+### Mojo
+
+An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+
+See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+
 ### yerel modüller
 
-Native modülleri (ayrıca Node.js'de [addons](https://nodejs.org/api/addons.html) olarak adlandırılır) require() işlevini kullanarak Node.js veya Electron'a yüklenebilen C veya C++ olarak yazılan modüllerdir ve sanki bir sıradan Node.js modülü gibi kullanılırlar. Temel olarak Node.js'de ve C/C++ kitaplıklarında çalışan JavaScript ile arasında bir arayüz sağlamak için kullanılırlar.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Temel olarak Node.js'de ve C/C++ kitaplıklarında çalışan JavaScript ile arasında bir arayüz sağlamak için kullanılırlar.
 
 Yerel düğüm modülleri Electron tarafından desteklenmektedir, ancak Electron'un sisteminizde kurulu olan Node ikilisinden farklı bir V8 versiyonu kullanması muhtemel olduğundan, yerli modülleri oluştururken Electron'un üstbilgilerinin konumunu elle belirtmeniz gerekir.
 
@@ -64,7 +74,7 @@ Nullsoft Scriptable Install System, Microsoft Windows için komut dosyası çal�
 
 OSR (Ekran dışı görüntü işleme) ağır sayfayı arka planda yüklemek ve sonra görüntülerken kullanabilir (çok daha hızlı olacaktır). Ekrandaki sayfayı göstermeden sayfayı oluşturmanıza izin verir.
 
-### süreç
+### işlem
 
 Bir işlem çalıştırılmakta olan bir bilgisayar programının bir örneğidir. [main](#main-process) ve bir veya daha fazla [renderer](#renderer-process) işlemini kullanan electron uygulamaları aslında aynı anda birden fazla programı çalıştırıyor.
 
@@ -99,7 +109,7 @@ Electron V8'i Chromium'un bir parçası olarak oluşturur ve arkasından devreyi
 V8'in sürüm numaraları her zaman Google Chrome'un sürüm numaralarına karşılık gelir. Chrome 59'un V8'i 5.9'u, Chrome 58'in V8'i 5.8'i vb. içerir.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
-- [modejs.org/api/v8.htm](https://nodejs.org/api/v8.html)
+- [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-devolopment.md](development/v8-development.md)
 
 ### web görünümü

@@ -28,7 +28,7 @@ myNotification. => {
 
 نسخه های جدید ویندوز به شما اجازه میدهد که اعلان های پیشرفته، در قالب های سفارشی، عکس و المنت های منعطف دیگر ارسال کنید. برای ارسال اینگونه اعلان ها (از فرایند اصلی یا فرایند رندرینگ)، شما میتوانید از ماژول [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) استفاده نمیایید که از افزونه های بودی Node برای ارسال اشیاء `ToastNotification` و `TileNotification` استفاده میکند.
 
-اعلان هایی که دارای دکمه می باشند، توسط `electron-windows-notifications` کار می کنند و برای پاسخ دادن به آن نیاز به استفاده از [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) می باشد که با ثبت کامپونیت های مورد نیاز COM و برنامه الکترون شما داده های کاربر را وارد می کند.
+While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
 ### ساعت آرام / حالت ارائه
 

@@ -6,7 +6,7 @@ Certifique-se de usar a documentação correspondente a versão do Electron que 
 
 Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
-* [Electron FAQ](faq.md)
+* [Perguntas Frequentes no Electron](faq.md)
 
 ## Guias e Tutoriais
 
@@ -40,31 +40,34 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [Ações Desktop Linux Personalizado](tutorial/linux-desktop-actions.md)
   * [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
   * [Detecção de Offline/Online](tutorial/online-offline-events.md)
-  * [Arquivo Representado para o macOS BrowserWindows](tutorial/represented-file.md)
+  * [Representação de Arquivo para o macOS BrowserWindows](tutorial/represented-file.md)
   * [Nativo Arquivo Drag & Drop](tutorial/native-file-drag-drop.md)
-* [Acessibilidade do Aplicativo](tutorial/accessibility.md) 
+* [Acessibilidade](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Permitindo Acessibilidade](tutorial/accessibility.md#enabling-accessibility)
-* [Testando e Depurando o Aplicativo](tutorial/application-debugging.md) 
+* [Teste e Depuração](tutorial/application-debugging.md) 
   * [O Processo Principal de Depuração](tutorial/debugging-main-process.md)
   * [Usando Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensão de DevTools](tutorial/devtools-extension.md)
-* [Distribuição de Aplicativos](tutorial/application-distribution.md) 
-  * [Plataformas Suportadas](tutorial/supported-platforms.md)
+  * [Automatizando Teste com Driver Personalizado](tutorial/automated-testing-with-a-custom-driver.md)
+* Empacotando 
+  * [Assinando Código](tutorial/code-signing.md)
+* [Distribuição](tutorial/application-distribution.md) 
+  * [Suporte](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Segurança do Aplicativo](tutorial/security.md) 
+* [Segurança](tutorial/security.md) 
   * [Reportando problemas de Segurança](tutorial/security.md#reporting-security-issues)
   * [Upgrades e Problemas de Segurança do Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Aviso de Segurança do Electron](tutorial/security.md#electron-security-warnings)
   * [Checklist de Segurança](tutorial/security.md#checklist-security-recommendations)
-* [Atualizações da Aplicação](tutorial/updates.md) 
+* [Atualizações](tutorial/updates.md) 
   * [Implementando um Servidor de Atualizações](tutorial/updates.md#deploying-an-update-server)
   * [Implementando Atualizações em Seu App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Aplicando Upgrades](tutorial/updates.md#applying-updates)
+  * [Aplicando Atualizações](tutorial/updates.md#applying-updates)
 
 ## Tutoriais Detalhados
 

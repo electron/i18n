@@ -65,7 +65,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 ## `prebuild`を使用したモジュール
 
-[`prebuild`](https://github.com/mafintosh/prebuild)は、様々なバージョンのNodeやElectron用のビルド済みのバイナリを含んだネイティブNodeモジュールを簡単に公開する方法を提供します。
+[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
 
 もしモジュールがElectronで使用するためのバイナリを提供しているなら、ビルド済みのバイナリを最大限活用できるように、`--build-from-source`と `npm_config_build_from_source`環境変数が外されていることを確認してください。
 

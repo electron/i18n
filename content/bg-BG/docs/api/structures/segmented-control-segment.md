@@ -1,5 +1,5 @@
 # Обект SegmentedControlSegment
 
-* `label` String - (по избор) Текстът, който се показва в този сегмент
-* `icon` NativeImage - (по избор) Изображението, което се появява в този сегмент
-* `enabled` Boolean - (по избор) Показва дали този сегмент може да бъде избран. Тази променлива има стойност по подразбиране: true
+* `label` String (optional) - The text to appear in this segment
+* `icon` NativeImage (optional) - The image to appear in this segment
+* `enabled` Boolean (optional) - Whether this segment is selectable. Default: true

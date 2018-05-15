@@ -30,7 +30,7 @@ Devuelve:
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 * `EsquemaColorinvertido` Boolean ' `verdad` si un color de esquema invertido, como un tema de alto contraste, está siendo usando, o de lo contrario `falso`.
 
 ## Métodos
@@ -60,7 +60,7 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `evento` Cadena
-* `callback` Función 
+* `callback` Function 
   * `evento` Cadena
   * `userInfo` Objeto
 
@@ -84,11 +84,11 @@ Remueve el subscriptor con el `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `evento` Cadena
-* `callback` Función 
+* `callback` Function 
   * `evento` Cadena
   * `userInfo` Objeto
 
-Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defectos locales. Esto es necesario para eventos como `NSUserDefaultsDidChangeNotification`
+Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defectos locales. Esto es necesario para eventos como `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -96,10 +96,16 @@ Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defec
 
 Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotificationCenter`.
 
+### `systemPreferences.registerDefaults(defaults)` *macOS*
+
+* `defaults` Object - a dictionary of (`key: value`) user defaults 
+
+Add the specified defaults to your application's `NSUserDefaults`.
+
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `llave` Cadena
-* `type` Cadena - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 Devuelve `any` - El valor de `Key` en `NSUserDefaults`.
 
@@ -116,7 +122,7 @@ Algún `key` y `type`s populares:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `llave` Cadena
-* `type` Cadena - Ver [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` Cadena - Ver [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` Cadena
 
 Establece el valor de `key` en `NSUserDefaults`.

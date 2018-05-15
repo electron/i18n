@@ -66,8 +66,8 @@ Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
-* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
 Emitted kapag nag click ang tray icon.
 
@@ -78,7 +78,7 @@ Emitted kapag nag click ang tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
 
 Emitted kapag nai-right click ang tray icon.
 
@@ -89,7 +89,7 @@ Emitted kapag nai-right click ang tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
 
 Emitted kapag ang tray icon ay na double-click.
 
@@ -119,7 +119,7 @@ Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 #### Event: 'drop-text' *macOS*
 
 * `kaganapan` kaganapan
-* `text` String -ang mga binitiwang text string
+* `text` String -ang mga binitiwang text string.
 
 Emitted kapag ang dragged text ay ibinagsak sa tray icon.
 
@@ -142,7 +142,7 @@ Emitted kapag ang drag operation ay nagtatapos sa tray o nagtatapos sa ibang lug
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
 Emitted kapag ang mouse ay pumapasok sa tray icon.
 
@@ -153,7 +153,7 @@ Emitted kapag ang mouse ay pumapasok sa tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
 Emitted kapag ang mouse ay lumalabas sa tray icon.
 
@@ -164,7 +164,7 @@ Emitted kapag ang mouse ay lumalabas sa tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
 Emitted when the mouse moves in the tray icon.
 
@@ -198,7 +198,7 @@ Nagseset sa hover text para sa tray icon na ito.
 
 * `title` String
 
-Nagseset sa title na naka-display sa tabi ng tray icon ng status bar.
+Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -231,7 +231,7 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Bagay 
-  * `icon` ([NativeImage](native-image.md) | String) - (optional)
+  * `icon` ([NativeImage](native-image.md) | String) (opsyonal) -
   * `title` String
   * `content` String
 

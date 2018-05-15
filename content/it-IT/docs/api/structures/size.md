@@ -1,4 +1,4 @@
-# Oggetto Dimensioni
+# Oggetto Size
 
-* `larghezza` Numero
-* `altezza` Numero
+* `width` Numero
+* `height` Numero

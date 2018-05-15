@@ -1,4 +1,4 @@
-# Instruções de Compilação (macOS)
+# Instruções para Compilação (macOS)
 
 Siga as instruções abaixo para compilar o Electron no macOS.
 
@@ -14,7 +14,7 @@ Se você esta usando o Python baixado pelo o Homebrew, você precisa instalar o 
 
 ## macOS SDK
 
-Se você esta somente desenvolvimento com Electron e não seja distribuir sua customização, talvez você queira pular esta seção.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 Para que algumas funcionalidades possam funcionar corretamente, por exemplo pinch-zoom. Você precisa utilizar o SDK 10.10 do macOS.
 
@@ -45,6 +45,12 @@ O script de inicialização irá baixar todas as dependências necessárias e cr
 ```sh
 $ cd electron
 $ ./script/bootstrap.py -v
+```
+
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
 ```
 
 ## Compilando

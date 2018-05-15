@@ -1,6 +1,6 @@
 # Electron 議題管理
 
-# 議題
+# 議題管理
 
 * [如何對議題做出貢獻](#how-to-contribute-in-issues)
 * [尋求一般協助](#asking-for-general-help)
@@ -18,7 +18,7 @@
 
 ## 尋求一般協助
 
-Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
+["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
 ## 提交 Bug 報告
 

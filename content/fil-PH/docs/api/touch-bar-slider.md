@@ -2,19 +2,19 @@
 
 > Maglikha ng slider sa touch bar para sa likas na aplikasyong macOs
 
-Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
+Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
 
 ### `bagong TouchBarSlider(opsyon)` *Eksperimento*
 
-* `mga pagpipilian` Bagay 
+* `pagpipilian` Bagay 
   * `pangalan` String (opsyonal) - label na teksto.
   * `halaga` Integer (opsyonal) - napiling halaga.
   * `minValue` Integer (opsyonal) - Pinakamaliit na halaga.
   * `maxValue` Integer (opsyonal) - Pinakamalaking halaga.
-  * `pagbabago` Tungkuli (opsyonal) - tungkuling tawagan kung ang slider ay napalitan. 
-    * `newValue` Numero - Ang halaga na pinili ng gumugamit sa Slider
+  * `baguhin` Tungkuli (opsyonal) - tungkuling tawagan kung ang slider ay napalitan. 
+    * `newValue` Numero - Ang halaga na pinili ng gumugamit sa Slider.
 
-### Instance Properties
+### Katangian ng pagkakataon
 
 Ang mga sumusunod na propyedad ai pwedeng gamitin sa pagkakataon ng `TouchBarSlider`:
 

@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on macOS.
 
-## Prerequisites
+## Prerequisiti
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
@@ -14,7 +14,7 @@ Se stai usando il Python scaricato da Homebrew, devi anche installare i seguenti
 
 ## macOS SDK
 
-If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
 
@@ -32,7 +32,7 @@ Dovrai anche abilitare Xcode per costruire contro l'SDK 10.10:
 - Set the `MinimumSDKVersion` to `10.10`
 - Salva il file
 
-## Getting the Code
+## Ottenere i sorgenti
 
 ```sh
 $ git clone https://github.com/electron/electron
@@ -40,11 +40,17 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Lo script di bootstrap scaricherà tutte le dipendenze necessarie alla compilazione e creerà tutti i file di progetto. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```sh
 $ cd electron
 $ ./script/bootstrap.py -v
+```
+
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
 ```
 
 ## Building

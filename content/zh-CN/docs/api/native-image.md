@@ -2,7 +2,7 @@
 
 > 使用 PNG 或 JPG 文件创建托盘、dock和应用程序图标。
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 在Electron中, 对所有创建 images 的 api 来说, 您可以传递文件路径或 ` NativeImage ` 实例。当传递 ` null ` 时, 将创建一个空的image 对象.
 
@@ -150,14 +150,8 @@ console.log(image)
 使用以下规则将`hslShift`应用于图像
 
 * `hsl_shift[0]` (色调): 图像的绝对色调值，-0 和1 映射到 0和360，在色环上 (红色)。
-* `hsl_shift[1]` (饱和度): 图像的饱和度变化, 可以为下列值:  
- 0 = 移除所有颜色.  
- 0.5 = 保持不变.  
- 1 = 图像完全饱和. 
-* `hsl_shift[2]` (亮度): 图像的亮度变化，可以为下列值:  
- 0 = 移除所有亮度 (使所有像素变黑).  
- 0.5 = 保持不变.  
- 1 = 高亮 (使所有像素变白).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
 这意味着 `[-1, 0, 1]` 将使图像完全变白，`[-1, 1, 0]`将使图像完全变黑.
 
@@ -165,7 +159,7 @@ console.log(image)
 
 > 本机图像，如托盘、dock栏和应用图标。
 
-进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 ### 实例方法
 
@@ -193,15 +187,15 @@ console.log(image)
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional) 
- * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+ * `scaleFactor` Double (可选) - 默认值为 1.0.
 
 返回 ` String `-图像的数据 URL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional) 
- * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+ * `scaleFactor` Double (可选) - 默认值为 1.0.
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
@@ -215,7 +209,7 @@ console.log(image)
 
 #### `image.isEmpty()`
 
-返回 ` Boolean `-图像是否为空。
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
@@ -233,13 +227,13 @@ Returns [`Size`](structures/size.md)
 
 #### `image.crop(rect)`
 
-* ` rect `[ Rectangle ](structures/rectangle.md)-要裁剪的图像区域
+* ` rect `[ Rectangle ](structures/rectangle.md)-要裁剪的图像区域.
 
 返回 ` NativeImage `-裁剪的图像。
 
 #### `image.resize(options)`
 
-* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (可选) - 默认为图像的高度 * `quality` String (可选) - 想要调整的图像质量. 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
+* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
 
 返回 ` NativeImage `-裁剪的图像。
 

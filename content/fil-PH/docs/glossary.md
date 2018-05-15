@@ -24,6 +24,10 @@ Ang isang Imahe ng Apple Disk ay isang format ng packaging na ginagamit ng macOS
 
 Input Method Editor. Ang isang program na nagpapahintulot sa mga gumagamit na ipasok ang mga character at mga simbolo na hindi natagpuan sa kanilang keyboard. Halimbawa, pinapayagan nito ang mga gumagamit ng Latin na mga keyboard upang mag-input ng mga karakter na Chinese, Japanese, Korean at Indic.
 
+### IDL
+
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+
 ### IPC
 
 Ang ibig sabihin ng IPC ay Communication Inter-Process. Ginagamit ng elektron ang IPC upang ipadala ang serialized JSON na mga mensahe sa pagitan ng mga proseso ng  main </ 0> at  renderer </ 1>.</p> 
@@ -50,12 +54,18 @@ pinalitan ng pangalan sa Electron upang maiwasan ang pagkalito sa mga proseso ng
 <p>Acronym para sa Mac App Store ng Apple. Para sa mga detalye sa pagsusumite ng iyong app sa
 MAS, tingnan ang <a href="tutorial/mac-app-store-submission-guide.md"> Gabay sa Pagsusumite ng Mac App Store </a>.</p>
 
+<h3>Mojo</h3>
+
+<p>An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.</p>
+
+<p>See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md</p>
+
 <h3>mga native module</h3>
 
-<p>Ang mga native na module (tinatawag ding <a href="https://nodejs.org/api/addons.html"> addons </a> sa
-Node.js) ay mga module na nakasulat sa C o C ++ na maaaring i-load sa Node.js o
-Electron gamit ang nangangailangan () function, at ginagamit lamang kung sila ay isang
-ordinaryong module na Node.js. Ang mga ito ay ginagamit lalo na upang magbigay ng isang interface
+<p>Native modules (also called <a href="https://nodejs.org/api/addons.html">addons</a> in
+Node.js) are modules written in C or C++ that can be loaded into Node.js or
+Electron using the require() function, and used as if they were an
+ordinary Node.js module. Ang mga ito ay ginagamit lalo na upang magbigay ng isang interface
 sa pagitan ng JavaScript na tumatakbo sa mga library ng Node.js at C/C++.</p>
 
 <p>Ang mga module ng Native Node ay sinusuportahan ng Electron, ngunit dahil ang Electron ay napaka

@@ -6,13 +6,13 @@ Ese nivel de modularidad y extensibilidad asegura que todos los desarrolladores 
 
 ## Boilerplate vs CLI
 
-Un boilerplate es simplemente un punto de inicio - un lienzo, por así decir - desde donde construya su aplicación. Generalmente vienen en la forma de repositorio, puede clonar y personalizar a su gusto.
+A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. Generalmente vienen en la forma de repositorio, puede clonar y personalizar a su gusto.
 
 Por otro lado una herramienta de línea de comandos sigue para apoyarte a lo largo del desarrollo y liberación. Son mas útiles y serviciales pero encarga lineas directrices en como su código debe ser estructurado y construido. *Especialmente para principiantes, usando una herramienta de linea de comando es probable que sea útil*.
 
 ## electron-forge
 
-Una "herramienta completa para las construcción de aplicaciones Electron modernas". La Fragua Electron unifica las herramientas de construcción existentes (y en buen estado) para el desarrollo de Electron en uno simple, fácil de usar empaquetado de manera que cualquiera pueda saltar dentro del desarrollo de Electron.
+Una "herramienta completa para las construcción de aplicaciones Electron modernas". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
 
 La Fragua viene con [Plantillas listas para usar](https://electronforge.io/templates) para infraestructuras populares como React, Vue o Angular. Utiliza los mismos módulos de nucleo usados por la gran comunidad Electron (como [`electron-packager`](https://github.com/electron-userland/electron-packager)) - los cambios hechos por los mantenedores a cargo de Electron (como Slack), benefician también a los usuarios de Fragua.
 
@@ -28,7 +28,7 @@ Puede encontrar mas información y documentación en [el repositorio](https://gi
 
 ## electron-react-boilerplate
 
-Si no desea ninguna herramienta si no simplemente un boilerplate solido desde donde construir, puede valer la pena darle un vistazo a [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) de CT Lin. Es muy popular en la comunidad y utiliza `electron-builder` internamente.
+If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. Es muy popular en la comunidad y utiliza `electron-builder` internamente.
 
 ## Otras Herramientas y Boilerplates
 

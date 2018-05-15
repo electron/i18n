@@ -12,10 +12,10 @@
   * [Paso 6: Reorganizar](#step-6-rebase)
   * [Paso 7: Prueba](#step-7-test)
   * [Paso 8: Push](#step-8-push)
-  * [Paso 9: Abriendo la Solicitud de Retiro](#step-8-opening-the-pull-request)
-  * [Paso 10: Analizar y actualizar](#step-9-discuss-and-update) 
+  * [Paso 9: Abriendo el Pull Request](#step-9-opening-the-pull-request)
+  * [Paso 10: Analizar y actualizar](#step-10-discuss-and-update) 
     * [Aprobación y Solicitud de Cambios de Workflow](#approval-and-request-changes-workflow)
-  * [Paso 11: Ejecutado](#step-10-landing)
+  * [Paso 11: Ejecutado](#step-11-landing)
   * [Prueba de Integración Continua](#continuous-integration-testing)
 
 ## Configurando tu entorno local
@@ -72,24 +72,42 @@ Tenga en cuenta que multiples commits a menudo colisionan cuando son ejecutadas.
 
 #### Directrices de mensaje commit
 
-Un buen mensaje de commit debe describir que ha cambiado y por qué.
+Un buen mensaje de commit debe describir que ha cambiado y por qué. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-1. La primera linea debe:
-  
+Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
+
+Examples of commit messages with semantic prefixes:
+
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux` 
+
+Common prefixes:
+
+    - fix: A bug fix
+    - feat: A new feature
+    - docs: Documentation changes
+    - test: Adding missing tests or correcting existing tests
+    - build: Changes that affect the build system
+    - ci: Changes to our CI configuration files and scripts
+    - perf: A code change that improves performance
+    - refactor: A code change that neither fixes a bug nor adds a feature
+    - style: Changes that do not affect the meaning of the code (linting)
+    
+
+Other things to keep in mind when writing a commit message:
+
+1. La primera linea debe: 
   * contener una breve descripción del cambio (preferiblemente 50 caracteres o menos, y no mas de 72 caracteres)
   * estar completamente en minúsculas con la excepción de nombres propios, acrónimos, y las palabras que refieren a un código, como nombres de función/variables
-    
-    Ejemplos:
-  
-  * `actualizar la documentacion de compilado osx para un nuevo sdk`
-  
-  * `fixed typos in atom_api_menu.h`
-
 2. Mantén la segunda linea vacía.
-
 3. Ajuste todas las otras linea en 72 columnas.
 
-Ver [este artículo](https://chris.beams.io/posts/git-commit/) para mas ejemplos de como escribir buenos mensajes git de commit.
+#### Breaking Changes
+
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+
+See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### Paso 6: Reorganizar
 
@@ -114,7 +132,7 @@ $ npm run test
 
 Asegúrese de que el linter no reporta ningún inconveniente y que pasa todas pruebas. Por favor no envíe parches que fallan en cualquiera de las verificaciones.
 
-Si estas actualizando las pruebas y sólo desea ejecutar una especificación única para comprobarlo:
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu
@@ -130,7 +148,7 @@ Una vez que tus commits están listos -- ya pasadas las pruebas y el linting -- 
 $ git push origin my-branch
 ```
 
-### Paso 9: Abriendo el Pull Request
+### Paso 9: Abriendo la Solicitud de Retiro
 
 Desde dentro de GitHub, abrir una nueva pull request te presentará con una plantilla que debe ser llenada:
 

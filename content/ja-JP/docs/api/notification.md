@@ -1,6 +1,6 @@
 # 通知
 
-> デスクトップ通知を作成します。
+> OSのデスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -14,7 +14,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`Notification` は [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) です。
+`Notification` は [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter) です。
 
 `options` によって設定されたネイティブプロパティで新しい `Notification` を生成します。
 
@@ -29,15 +29,16 @@
 ### `new Notification([options])` *実験的*
 
 * `options` Object 
-  * `title` String - 通知ウィンドウの上部に表示される通知のタイトル
-  * `subtitle` String - (任意) タイトルの下に表示される、通知のサブタイトル。*macOS*
+  * `title` String - 通知ウィンドウの上部に表示される通知のタイトル.
+  * `subtitle` String (任意) *macOS* - タイトルの下に表示される、通知のサブタイトル。
   * `body` String - タイトルやサブタイトルの下に表示さる、通知の本文。
-  * `silent` Boolean - (任意) 通知を表示するときにOSが通知音を鳴らすかどうか。
-  * `icon` (String | [NativeImage](native-image.md)) - (任意) 通知に使用されるアイコン。
-  * `hasReply` Boolean - (任意) 通知に埋め込み返信オプションを追加するかどうか。*macOS*
-  * `replyPlaceholder` String - (任意) 埋め込み返信入力フィールド内に書かれるプレースホルダ。*macOS*
-  * `sound` String - (任意) 通知が表示されるときに再生される音声ファイルの名前。*macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (任意) 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。*macOS*
+  * `silent` Boolean (任意) - 通知を表示するときにOSが通知音を鳴らすかどうか。
+  * `icon` (String | [NativeImage](native-image.md)) (任意) - 通知に使用されるアイコン。
+  * `hasReply` Boolean (任意) *macOS* - 通知に埋め込み返信オプションを追加するかどうか。
+  * `replyPlaceholder` String (任意) *macOS* - 埋め込み返信入力フィールド内に書かれるプレースホルダ。
+  * `sound` String (任意) *macOS* - 通知が表示されるときに再生される音声ファイルの名前。
+  * `actions` [NotificationAction[]](structures/notification-action.md) (任意) *macOS* - 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
+  * `closeButtonText` String (任意) *macOS* - アラートの閉じるボタンのカスタムタイトル。 空の文字列を使用すると、デフォルトのローカライズされたテキストが使用されます。
 
 ### インスタンスイベント
 
@@ -76,7 +77,7 @@
 戻り値:
 
 * `event` Event
-* `reply` String - ユーザが埋め込み返信フィールドに入力した文字列
+* `reply` String - ユーザが埋め込み返信フィールドに入力した文字列.
 
 `hasReply: true` の通知上で、ユーザが "返信" ボタンをクリックしたときに発行されます。
 
@@ -85,7 +86,7 @@
 戻り値:
 
 * `event` Event
-* `index` Number - アクティベートされたアクションのインデックス
+* `index` Number - アクティベートされたアクションのインデックス.
 
 ### インスタンスメソッド
 

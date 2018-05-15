@@ -1,12 +1,12 @@
 # Задачи в Electron
 
-# Задачи
+# Вопросы
 
-* [How to Contribute in Issues](#how-to-contribute-in-issues)
-* [Asking for General Help](#asking-for-general-help)
-* [Submitting a Bug Report](#submitting-a-bug-report)
-* [Triaging a Bug Report](#triaging-a-bug-report)
-* [Resolving a Bug Report](#resolving-a-bug-report)
+* [Как внести вклад в задачи](#how-to-contribute-in-issues)
+* [Просьба об общей помощи](#asking-for-general-help)
+* [Отправить отчет об ошибке](#submitting-a-bug-report)
+* [Прохождение сообщения об ошибке](#triaging-a-bug-report)
+* [Разрешение отчета об ошибке](#resolving-a-bug-report)
 
 ## Как внести вклад в задачи
 
@@ -18,7 +18,7 @@ For any issue, there are fundamentally three ways an individual can contribute:
 
 ## Просьба об общей помощи
 
-Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
+["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
 ## Отправить отчет об ошибке
 

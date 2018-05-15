@@ -50,26 +50,26 @@ You can also attach other fields to the element of the `template` and they will 
 
 The `menu` object has the following instance methods:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `optionen` Object (optional) 
+* `optionen` Object 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `callback` Function (optional) - Called when menu is closed.
 
-Dieses Menü öffnet als Kontextmenü im `Browserfenster`.
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 Closes the context menu in the `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Appends the `menuItem` to the menu.
 
@@ -82,29 +82,55 @@ Returns `MenuItem` the item with the specified `id`
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Fall Eigenschaften
+### Beispiel Events
 
-`menu` objects also have the following properties:
+Objects created with `new Menu` emit the following events:
 
-#### `menu.items`
+**Note:** Some events are only available on specific operating systems and are labeled as such.
 
-A `MenuItem[]` array containing the menu's items.
+#### Event: 'menu-will-show'
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Rückgabewert:
 
-## Beispiele
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+<p>Emitted when <code>menu.popup()` is called.</p> 
+  #### Event: 'menu-will-close'
+  
+  Rückgabewert:
+  
+  * ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-### Main-Prozess
-
-An example of creating the application menu in the main process with the simple template API:
-
-```javascript
+<p>Emitted when a popup is closed either manually or with <code>menu.closePopup()`.</p> 
+    ### Instanz Eigenschaften
+    
+    `menu` objects also have the following properties:
+    
+    #### `menu.items`
+    
+    A `MenuItem[]` array containing the menu's items.
+    
+    Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+    
+    ### Beispiel Events
+    
+    Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+    
+    ## Beispiele
+    
+    The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+    
+    ### Main-Prozess
+    
+    An example of creating the application menu in the main process with the simple template API:
+    
+    ```javascript
 const {app, Menu} = require('electron')
 
 const template = [
@@ -213,7 +239,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```
@@ -229,7 +255,6 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 * `window`
 * `help`
 * `services`
-
 ### Standard Menu Item Actions
 
 macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.

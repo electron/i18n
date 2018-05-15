@@ -1,4 +1,4 @@
-# Planlanmış API Değişimleri
+# Planned Breaking API Changes (3.0)
 
 Takip eden liste, Electron 3.0'da kaldırılacak API'leri içerir.
 
@@ -149,3 +149,32 @@ Kullanımdan kaldırıldı: https://atom.io/download/atom-shell
 ## `FIXME` yorumları
 
 The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
+
+# Planned Breaking API Changes (4.0)
+
+Takip eden liste, Electron 4.0'da kaldırılacak API'leri içerir.
+
+There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
+
+## `app.makeSingleInstance`
+
+```js
+// Deprecated
+app.makeSingleInstance(function (argv, cwd) {
+
+})
+// Replace with
+app.requestSingleInstanceLock()
+app.on('second-instance', function (argv, cwd) {
+
+})
+```
+
+## `app.releaseSingleInstance`
+
+```js
+// Deprecated
+app.releaseSingleInstance()
+// Replace with
+app.releaseSingleInstanceLock()
+```

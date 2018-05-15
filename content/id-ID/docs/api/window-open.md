@@ -2,7 +2,7 @@
 
 > Buka jendela baru dan muat URL.
 
-Ketika ` window.open ` dipanggil untuk membuat jendela baru di halaman web, sebuah instance baru dari ` BrowserWindow ` akan dibuat untuk ` url ` dan sebuah proxy akan dikembalikan ke ` window.open ` untuk membiarkan halaman memiliki kontrol terbatas terhadapnya.
+When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
 Proxy memiliki fungsionalitas standar terbatas yang diimplementasikan agar kompatibel dengan halaman web tradisional. Untuk kontrol penuh jendela baru Anda harus membuat ` BrowserWindow ` secara langsung.
 
@@ -10,8 +10,8 @@ Yang baru dibuat ` BrowserWindow ` akan mewarisi pilihan jendela induk secara de
 
 ### `window.open (url [, frameName] [, fitur])`
 
-* `url` String
-* `frameName`String (opsional)
+* ` url </ 0> String</li>
+<li><code>frameName`String (opsional)
 * `fitur` String (opsional)
 
 Mengembalikan [` BrowserWindowProxy `](browser-window-proxy.md) - Membuat jendela baru dan mengembalikan sebuah instance dari kelas ` BrowserWindowProxy `.
@@ -27,20 +27,20 @@ String `features` mengikuti format browser standar, namun masing-masing fitur ha
 
 ### `window.opener.postMessage (pesan, targetOrigin)`
 
-* `pesan` String
-* `targetOrigin` String
+* ` pesan </ 0> String</li>
+<li><code> targetOrigin </ 0> String</li>
+</ul>
 
-Mengirim pesan ke jendela induk dengan asal yang ditentukan atau `*` tanpa preferensi asal.
-
-### Menggunakan penerapan `window.open()` Chrome
-
-Jika Anda ingin menggunakan penerapan built-in `window.open()`, setel `nativeWindowOpen` ke `benar` di `webPreferences` pilihan objek
-
-Native `window.open()` memungkinkan akses sinkron ke jendela yang terbuka sehingga pilihan yang tepat jika Anda perlu membuka dialog atau jendela preferensi.
-
-Opsi ini juga dapat disetel pada tag `<webview>` juga:
-
-```html
+<p>Mengirim pesan ke jendela induk dengan asal yang ditentukan atau <code>*` tanpa preferensi asal.</p> 
+    ### Menggunakan penerapan `window.open()` Chrome
+    
+    Jika Anda ingin menggunakan penerapan built-in `window.open()`, setel `nativeWindowOpen` ke `benar` di `webPreferences` pilihan objek
+    
+    Native `window.open()` memungkinkan akses sinkron ke jendela yang terbuka sehingga pilihan yang tepat jika Anda perlu membuka dialog atau jendela preferensi.
+    
+    Opsi ini juga dapat disetel pada tag `<webview>` juga:
+    
+    ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 

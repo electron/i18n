@@ -169,7 +169,7 @@ En-dessous de la méthode, chaque argument est détaillé avec son type. Celui-c
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Ou un type personnalisé comme [`WebContent`](api/web-contents.md) venant d'Electron
 
-Si un argument ou une méthode est propre à certaines plateformes, ces plateformes sont listés en italique après le type de données. Les valeurs peuvent être `macOS`, `Windows` ou `Linux`.
+Si un argument ou une méthode est propre à certaines plateformes, ces plateformes sont listés en italique après le type de données. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.

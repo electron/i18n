@@ -55,6 +55,12 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### Başka sistemler için derleme
 
 Eğer `arm` üstüne inşaa etmek istiyorsanız aşağıdaki bağımlılıkları da indirmeniz gerekir:
@@ -117,7 +123,7 @@ $ npm run clean-build
 
 **Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
 
-## Arıza giderme
+## Arıza Giderme
 
 ### Hata mesajı: Error While Loading Shared Libraries: libtinfo.so.5
 
@@ -145,7 +151,7 @@ Varsayılan inşaa konfigurasyon'u belli başlı Linux masaüstü dağıtımlar�
 <li>Git alt modullerini çekin:</li>
 </ol>
 
-<pre><code class="sh">$ git submodule güncelleme --init - tekrar başlatma
+<pre><code class="sh">$ git submodule update --init --recursive
 `</pre> 
 
 1. `--build_release_libcc` argümanını `bootstrap.py` betiğine geçin:

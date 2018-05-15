@@ -32,18 +32,18 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 
 이것은 완벽한 보호책이 아니지만, 최소한 이 단계들을 따라서 여러분의 애플리케이션 보안을 향상해야 합니다.
 
-1. [안전한 콘텐츠만 로드하세요.](#only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
-4. [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content)
-5. [Do not disable `webSecurity`](#do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#override-and-disable-eval), which allows strings to be executed as code.
-8. [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
-9. [Do not enable experimental features](#do-not-enable-experimental-features)
-10. [`blinkFeatures`를 사용하지 마세요.](#do-not-use-blinkfeatures)
-11. [WebViews: `allowpopups`를 사용하지 마세요.](#do-not-use-allowpopups)
-12. [WebViews: 옵션과 모든 `<webview>` 태그의 매개 변수 확인](#verify-webview-options-before-creation)
+1. [안전한 콘텐츠만 로드하세요.](#1-only-load-secure-content)
+2. [Disable the Node.js integration in all renderers that display remote content](#2-disable-nodejs-integration-for-remote-content)
+3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
+4. [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#4-handle-session-permission-requests-from-remote-content)
+5. [Do not disable `webSecurity`](#5-do-not-disable-websecurity)
+6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
+8. [Do not set `allowRunningInsecureContent` to `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [Do not enable experimental features](#9-do-not-enable-experimental-features)
+10. [`blinkFeatures`를 사용하지 마세요.](#10-do-not-use-blinkfeatures)
+11. [WebViews: `allowpopups`를 사용하지 마세요.](#11-do-not-use-allowpopups)
+12. [WebViews: 옵션과 모든 `<webview>` 태그의 매개 변수 확인](#12-verify-webview-options-before-creation)
 
 ## 1) 안전한 콘텐츠만 로드하세요.
 
@@ -206,7 +206,7 @@ session
 
 ## 5) WebSecurity를 비활성화 하지 마세요.
 
-*Recommendation is Electron's default*
+*추천 값은 Electron의 기본값입니다.*
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) disables crucial security features.
 
@@ -268,7 +268,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### 왜냐구요?
 
-`eval()`은 문자열로 되어 있는 자바스크립트를 실행하는 것 딱 한 가지에 목표를 두고 있습니다. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+`eval()`은 문자열로 되어 있는 자바스크립트를 실행하는 것 딱 한 가지에 목표를 두고 있습니다. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
 
@@ -286,13 +286,13 @@ window.eval = global.eval = function () {
 
 *추천 값은 Electron의 기본값입니다.*
 
-By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
+By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
 Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
 
 ### 왜냐구요?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
 
 ### 어떻게 하나요?
 
@@ -340,7 +340,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 10) `blinkFeatures`를 사용하지 마세요.
 
-*Recommendation is Electron's default*
+*추천 값은 Electron의 기본값입니다.*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -377,10 +377,10 @@ If you do not need popups, you are better off not allowing the creation of new [
 ### 어떻게 하나요?
 
 ```html
-<!-- Bad -->
+<!-- 나쁜 예 -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- 좋은 예 -->
 <webview src="page.html"></webview>
 ```
 

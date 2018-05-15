@@ -2,17 +2,17 @@
 
 > Buat pemetik warna di bilah sentuh untuk aplikasi macOS asli
 
-Proses: [ Utama](../tutorial/quick-start.md#main-process)
+Proses: [utama](../tutorial/quick-start.md#main-process)
 
 ### `TouchBarColorPicker baru (pilihan)`*Eksperimental*
 
-* `pilihan` Sasaran 
+* `pilihan` Benda 
   * `tersediaWarna`String[](opsional) - Array string warna hex ke muncul sebagai warna yang mungkin dipilih.
   * `selectedColor` String (opsional) - Warna hex yang dipilih di pemetik, i.e`#ABCDEF`.
   * `perubahan` Fungsi (opsional) - Fungsi untuk memanggil saat warna dipilih. 
-    * `warna` String - Warna yang dipilih pengguna dari pemetik
+    * `warna` String - Warna yang dipilih pengguna dari pemetik.
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut tersedia pada contoh `TouchBarColorPicker`:
 

@@ -40,7 +40,7 @@ Electron 2.0 版開始[遵照 `semver` 規範](https://semver.org)。 對大多�
 
 為了保持 Electron 的精巧 (檔案大小) 及永續性 (相依套件及 API 擴展)，我們限縮了核心專案的範圍。
 
-例如，Electron 只用了 Chromium 中的畫面轉譯程式庫，而不是將整個 Chromium 整進來。 這使得升級 Chromium 更容易，但相對的也代表 Electron 可能會少了某些 Google Chrome 中有的功能。
+For instance, Electron uses Chromium's rendering library rather than all of Chromium. 這使得升級 Chromium 更容易，但相對的也代表 Electron 可能會少了某些 Google Chrome 中有的功能。
 
 新增進 Electron 中的功能主要都是原生 API。 如果一個功能可以獨立成為 Node.js 模組，就該這樣做。 請參閱[由社群打造的 Electron 工具](https://electronjs.org/community)。
 

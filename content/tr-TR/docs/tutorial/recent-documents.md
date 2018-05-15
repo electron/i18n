@@ -1,6 +1,6 @@
 # Recent Documents (Windows & macOS)
 
-Windows ve MacOS, tarafından açılan son belgelerin bir listesine kolay erişim sağlar. sırasıyla görev listesi veya dock menüsü aracılığıyla uygulama.
+Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
 **Görev Listesi:**
 

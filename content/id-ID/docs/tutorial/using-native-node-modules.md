@@ -65,7 +65,7 @@ Jika Anda menginstal modul asli dan merasa tidak berfungsi, Anda perlu memeriksa
 
 ## Modul yang mengandalkan `prebuild`
 
-[`prebuild`](https://github.com/mafintosh/prebuild) menyediakan cara mudah mempublikasikan modul Node asli dengan binari prebuilt untuk beberapa versi Node dan Elektron.
+[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
 
 Jika modul menyediakan binari untuk penggunaan di Elektron, pastikan untuk menghilangkan `--build-from-source` dan lingkungan `npm_config_build_from_source` variabel untuk memanfaatkan sepenuhnya binari prebuilt.
 

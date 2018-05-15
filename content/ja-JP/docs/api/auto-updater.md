@@ -70,10 +70,12 @@ Windowsでは `releaseName` のみ利用可能です。
 
 `autoUpdater` オブジェクトには以下のメソッドがあります
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` String
-* `requestHeaders` Object *MacOS* (任意) - HTTPリクエストヘッダー。
+* `options` Object 
+  * `url` String
+  * `headers` Object (任意) *macOS* - HTTP リクエストヘッダ。
+  * `serverType` String (任意) *macOS* - `json` または `default` のいずれかの詳細については、[Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README を参照してください。
 
 `url` を設定して自動更新を初期化します。
 
@@ -89,4 +91,6 @@ Windowsでは `releaseName` のみ利用可能です。
 
 更新プログラムがダウンロードされた後でアプリを再起動し、更新プログラムをインストールします。`update-downloaded` が発生した後でしか呼び出さないようにしてください。
 
-**注:** `autoUpdater.quitAndInstall()` はすべてのアプリケーションウインドウを最初に閉じ、その後、`app` で `before-quit` イベントだけが発生します。 これは通常の終了イベントの順序とは異なります。
+`autoUpdater.quitAndInstall()` を呼ぶと、この中では最初にすべてのアプリケーションウィンドウを閉じ、すべてのウィンドウが閉じられた後に自動的に `app.quit()` を呼び出します。
+
+**注釈:** `update-downloaded` イベントが発行された後にこの API を呼び出さずにアプリケーションを終了した場合でも、アプリケーションは次の実行時に更新されたものに置き換えられます。

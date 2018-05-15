@@ -20,12 +20,12 @@ ipcMain模块是EventEmitter类的一个实例。 当在主进程中使用时，
 // 在主进程中.
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg) // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg) // prints "ping"
   event.returnValue = 'pong'
 })
 ```
@@ -50,21 +50,21 @@ IpcMain模块有以下方法来侦听事件：
 * `channel` String
 * `listener` Function
 
-监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener。
+监听 `channel`，当接收到新的消息时 `listener` 会以 `listener(event, args...)` 的形式被调用。
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-为事件添加一个一次性用的listener 函数.这个 listener 只有在下次的消息到达 channel 时被请求调用，之后就被删除了.
+添加一次性的 `listener`。当且仅当下一个消息发送到 `channel` 时 `listener` 才会被调用，随后 <0>listener</0> 会被移除。
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-为特定的 channel 从监听队列中删除特定的 listener 监听者.
+从监听器数组中移除监听 `channel` 的指定 `listener`。
 
 ### `ipcMain.removeAllListeners([channel])`
 

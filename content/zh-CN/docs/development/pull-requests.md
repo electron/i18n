@@ -1,4 +1,4 @@
-# 合并请求
+# 拉取请求
 
 * [依赖项](#dependencies)
 * [设置您的本地环境](#setting-up-your-local-environment) 
@@ -12,10 +12,10 @@
   * [步骤6: 合并分支](#step-6-rebase)
   * [步骤7: 测试](#step-7-test)
   * [步骤8: 推送代码](#step-8-push)
-  * [步骤9: 新建一个合并代码请求](#step-8-opening-the-pull-request)
-  * [步骤10: 讨论和更新](#step-9-discuss-and-update) 
+  * [步骤9: 新建一个合并代码请求](#step-9-opening-the-pull-request)
+  * [步骤10: 讨论和更新](#step-10-discuss-and-update) 
     * [批准和请求更改工作流程](#approval-and-request-changes-workflow)
-  * [步骤11: 执行合并](#step-10-landing)
+  * [步骤11: 执行合并](#step-11-landing)
   * [持续集成测试](#continuous-integration-testing)
 
 ## 设置您的本地环境
@@ -72,24 +72,42 @@ $ git commit
 
 #### 提交代码说明的指导
 
-好的提交说明应描述更改的内容和原因。
+好的提交说明应描述更改的内容和原因。 The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-1. 第一行应该是:
-  
+Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
+
+Examples of commit messages with semantic prefixes:
+
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux` 
+
+Common prefixes:
+
+    - fix: A bug fix
+    - feat: A new feature
+    - docs: Documentation changes
+    - test: Adding missing tests or correcting existing tests
+    - build: Changes that affect the build system
+    - ci: Changes to our CI configuration files and scripts
+    - perf: A code change that improves performance
+    - refactor: A code change that neither fixes a bug nor adds a feature
+    - style: Changes that do not affect the meaning of the code (linting)
+    
+
+Other things to keep in mind when writing a commit message:
+
+1. 第一行应该是: 
   * 包含一个对代码改变的简短说明 (最好是50个字符或更少, 不超过72个字符)
   * 完全使用小写, 除了适当的名词, 缩写, 和引用代码的单词, 如函数/变量名
-    
-    示例：
-  
-  * `updated osx build documentation for new sdk`
-  
-  * `fixed typos in atom_api_menu.h`
-
 2. 将第二行留空。
-
 3. 每行文字在72列处换行。
 
-有关如何编写好的 git 提交消息的更多示例, 请参见 [ 本文 ](https://chris.beams.io/posts/git-commit/)。
+#### Breaking Changes
+
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+
+See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### 步骤6: 合并分支
 
@@ -114,7 +132,7 @@ $ npm run test
 
 请确保 linter 不报告任何问题, 并且所有测试都通过。 请不要提交失败的修补程序或检查。
 
-如果您正在更新测试并且只想运行单个规范来检查它:
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu

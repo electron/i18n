@@ -14,7 +14,7 @@
 
 ## macOS SDK
 
-Если вы просто разрабатываете Electron и не планируют распространять пользовательские сборки Electron, вы можете пропустить этот раздел.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 Для работы некоторых функций (например pinch-zoom) правильно, вы должны выбрать macOS 10.10 SDK.
 
@@ -45,6 +45,12 @@ $ git clone https://github.com/electron/electron
 ```sh
 $ cd electron
 $ ./script/bootstrap.py -v
+```
+
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
 ```
 
 ## Сборка

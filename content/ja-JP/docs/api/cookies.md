@@ -36,7 +36,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 #### イベント: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - 変更されたクッキー
+* `cookie` [Cookie](structures/cookie.md) - 変更されたクッキー.
 * `cause` String - 以下のいずれかの値となる変更の原因。 
   * `explicit` - ユーザーのアクションによってクッキーが直接変更されました。
   * `overwrite` - 上書きする挿入操作のため、クッキーが自動的に削除されました。

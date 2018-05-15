@@ -26,6 +26,10 @@ HTTPリクエストに対するディスクキャッシュを無効にします�
 
 HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
+## --lang
+
+カスタムロケールを設定します。
+
 ## --inspect=`port` and --inspect-brk=`port`
 
 デバッグ関連のフラグです。詳細については、[メインプロセスのデバッグ](../tutorial/debugging-main-process.md)ガイドを参照してください。
@@ -42,7 +46,7 @@ HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
 Node JSエンジンに渡すフラグを指定します。メインプロセスで `flags` を有効にしたい場合、Electronを開始するときに渡す必要があります。
 
-```bash
+```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
@@ -96,7 +100,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 例:
 
-```bash
+```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 

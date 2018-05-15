@@ -14,7 +14,7 @@ Si vous utilisez Python téléchargé par Homebrew, vous devez également instal
 
 ## SDK macOS
 
-Si vous développez simplement sur Electron et ne prévoyez pas de redistribuer votre build d'Electron custom, vous pouvez ignorer cette section.
+Si vous développez Electron et ne prévoyez pas de redistribuer votre version d'Electron vous pouvez sauter cette section.
 
 Pour que certaines fonctionnalités (par exemple pinch-zoom) fonctionnent correctement, vous devez cibler le SDK macOS 10.10.
 
@@ -47,6 +47,12 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
+Si votre éditeur supporte un serveur de langage basé sur une [base de données de compilation JSON](http://clang.llvm.org/docs/JSONCompilationDatabase.html), vous pouvez la générer:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ## Compilation
 
 Compiler une version `Release` et une version `Debug` :
@@ -65,7 +71,7 @@ Une fois la compilation terminée, vous trouverez `Electron.app` dans `out/D`.
 
 ## Support 32 bit
 
-Electron ne peut être compiler qu'en 64 bit sur macOS et il n'est pas prévu d'avoir un support 32 bit sur macOS dans le futur.
+Electron ne peut être compilé qu'en 64 bit sur macOS et il n'est pas prévu d'avoir un support 32 bit sur macOS dans le futur.
 
 ## Nettoyage
 
@@ -81,7 +87,7 @@ Pour nettoyer uniquement les répertoires `out` et `dist` :
 $ npm run clean-build
 ```
 
-**Remarque :** Les deux commandes de nettoyage requière l’exécution de `bootstrap`.
+**Remarque :** Les deux commandes de nettoyage requièrent l’exécution de `bootstrap`.
 
 ## Tests
 

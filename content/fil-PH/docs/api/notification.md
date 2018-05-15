@@ -14,7 +14,7 @@ Kung gusto mong ipakita ang mga Paunawa mula sa proseso ng tagasalin kailangan m
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-Ang `Notification` ay isang [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+Ang `Notification` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 Ito ay lumilikha ng isang bagong `Notification` na may sinaunang mga katangian na itinakda sa pamamagitan ng `options`.
 
@@ -29,15 +29,16 @@ Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusupor
 ### Ang `new Notification([options])` ay *Experimental*
 
 * `pagpipilian` Bagay 
-  * Ang `title` String - Ang isang pamagat sa mga paunawa, kung saan ay ipinakita sa ibabaw ng window ng paunawa kung saan ito ipinakita
-  * Ang `subtitle` String - (opsyonal) Ang pangalawang pamagat para sa paunawa, kung saan ay makikita sa ilalim ng pamagat. *macOS*
-  * Ang `body` String - Ang kabuuang teksto ng mga paunawa, kung saan ay makikita sa ilalim ng pamagat o pangalawang pamagat
-  * Ang `silent` Boolean - (opsyonal) Kung hindi man ay maglalabas ng isang paunawang ingay kapag ipinapakita ang paunawa
-  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
-  * Ang `hasReply` Boolean - (opsyonal) Kung hindi man ay magdagdag ng isang opsyon ng nasa linyang pagtugon sa mga paunawa. *macOS*
-  * Ang `replyPlaceholder` String - (opsyonal) Ang placeholder para sumulat sa input field ng nasa linyang pagtugon. *macOS*
-  * Ang `sound` String - (opsyonal) Ang pangalan ng file ng tunog ay tutunog kapag ang paunawa ay ipinakita. *macOS*
-  * Ang `actions` [NotificationAction[]](structures/notification-action.md) - (opsyonal) Ang mga aksyon na idadagdag sa mga paunawa. Pakiusap basahin ang magagamit na mga aksyon at mga limitasyon sa mga dokumentasyon ng `NotificationAction` sa *macOS*
+  * Ang `title` String - Ang isang pamagat sa mga paunawa, kung saan ay ipinakita sa ibabaw ng window ng paunawa kung saan ito ipinakita.
+  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+  * Ang `body` String - Ang kabuuang teksto ng mga paunawa, kung saan ay makikita sa ilalim ng pamagat o pangalawang pamagat.
+  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
+  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
+  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
+  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
+  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
+  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### Mga Instance na Kaganapan
 
@@ -76,7 +77,7 @@ This event is not guaranteed to be emitted in all cases where the notification i
 Ibinabalik ang:
 
 * `kaganapan` Kaganapan
-* `reply` String - Ang string na ipinasok ng gumagamit sa field ng nasa linyang pagtugon
+* `reply` String - Ang string na ipinasok ng gumagamit sa field ng nasa linyang pagtugon.
 
 Ay lalabas kapag ang gumagamit ay na-klik ang pindutan ng "Reply" sa paunawa na may `hasReeply: true`.
 
@@ -85,7 +86,7 @@ Ay lalabas kapag ang gumagamit ay na-klik ang pindutan ng "Reply" sa paunawa na 
 Ibinabalik ang:
 
 * `event` Event
-* Ang `index` Number - Ang indise ng mga aksyon na na-aktibeyt na
+* Ang `index` Number - Ang indise ng mga aksyon na na-aktibeyt na.
 
 ### Mga pamamaraan ng pagkakataon
 

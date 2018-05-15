@@ -2,11 +2,11 @@
 
 > Karugtong sa prosesong bagay.
 
-Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Ang `prosesong` bagay ng Electron ay pinalawak mula sa [Node.js `proseso` bagay](https://nodejs.org/api/process.html). Ito ay nagdaragdag ng mga sumusunod na pangyayari, katangian, at mga pamamaraan:
 
-## Pangyayari
+## Mga event
 
 ### Pangyayari: 'puno'
 
@@ -24,7 +24,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Mga Katangian
+## Properties
 
 ### `proseso.defaultApp`
 
@@ -40,8 +40,7 @@ Ang `Boolean` na nag kontrol ng ASAR ay nagsuporta sa loob ng iyong aplikasyon. 
 
 ### `proseso.noDeprecation`
 
-Ang `Boolean` na nag kokontrol kung ang mga babala ng deprecation ay ililimbag sa `stderr`.  
-Patatakda nito sa `totoo` ay patatahimikin ang babala ng deprecation. Ang propeyedad na ito ai ginagamit sa halip na `--walang-deprecation` nagt-utos ng linya ng bandila.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Ang propeyedad na ito ai ginagamit sa halip na `--walang-deprecation` nagt-utos ng linya ng bandila.
 
 ### `proseso.pinagkukunanPath`
 
@@ -53,11 +52,11 @@ Ang `Boolean` na kumokontrol kung o hindi ang mga babala sa deprecation ay matat
 
 ### `proseso.bakasDeprecation`
 
-Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stderr` isinama ng isinalansan na bakas. Ang pagtatakda nito sa `totoo` ay maglilimbag ng isinalansan na bakas. Ang propeyedad na ito ay sa halip na ang `--bakas-deprecation` naguutos ng linyang bandila.
+Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stderr` isinama ng isinalansan na bakas. Setting this to `true` will print stack traces for deprecations. Ang propeyedad na ito ay sa halip na ang `--bakas-deprecation` naguutos ng linyang bandila.
 
 ### `proseso.bakasProsesoBabala`
 
-Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Ang pagtatakda nito sa `totoo` ay maglilimbag nga isinalansan na bakas para sa mga babalang proseso (kasama ang deprecation). Ang propeyedad na ito ay sa halip sa `--bakas-babala`nag uutos na linya ng bandila.
+Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `proseso.uri`
 
@@ -75,7 +74,7 @@ Ang `String` nag representang bersyon ng Electron string.
 
 Ang `Boolean`. Kung ang app ay tumatakbo bilang Windows Store app (appx), ang propeyedad a `totoo`, para kung hindimna ito ay `malabo`.
 
-## Pamamaraan
+## Mga Paraan
 
 Ang `proseso` na bagay ay may mga sumusunod na paraan:
 
@@ -87,29 +86,29 @@ Ang mga dahilan ng pangunahing thread sa kasalukuyang proseso ay lumagpak.
 
 Pagbabalik [` CPUUsage `](structures/cpu-usage.md)
 
-### ` proseso.kuhaIOCounter()`*Windows**Linux*
+### `process.getIOCounters()` *Windows* *Linux*
 
 Pagbabalik [`IOCounters`](structures/io-counters.md)
 
 ### `proseso.getProsesoMemoryaInfo()`
 
-Nagbabalik `Object`:
+Returns `Object`:
 
 * `workingSetSize`Integer - Ang halaga ng memorya ay kasalukuyang naka-pin sa aktwal na pisikal na RAM.
 * `peakWorkingSetSize` Integer - Ang pinakamataas na halaga ng memorya na hindi pa nai-pin sa aktwal na pisikal RAM.
-* `privateBytes` Integer - Ang halaga ng memorya na hindi ibinahagi sa ibang mga proseso, tulad ng JS heap o HTML na nilalaman.
-* `sharedBytes` Integer - Ang halaga ng memorya na ibinahagi sa pagitan ng mga proseso, kadalasan ang memorya ay natupok ng Electron code mismo.
+* `privateBytes` Integer - Ang halaga ng memorya na hindi ibinahagi ng iba pang mga proseso, tulad ng tambakan ng JS o mga nilalaman ng HTML.
+* `sharedBytes` Integer - Ang halaga ng memorya na naibahagi sa bawat mga proseso, na kadalasan ay memoryang nagagamit ng mismong code ng Electron.
 
 Nagbabalik ng mga bagay at nagbibigay ng memoryang paggamit ng istatistika tungkol sa kasalukuyang proseso. Tandaan na ang lahat ng istatistik ay iniulat sa Kilobytes.
 
 ### `proseso.getSystemMemoryInfo()`
 
-Nagbabalik `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema. 
 * `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.
-* `swapTotal` Integer - Ang kabuuang halaga ng mapagpalitang memorya sa Kilobytes ay maggagamit sa sistema. *Windows**Linux*
-* `swapFree` Integer - Ang libreng halaga ng pinagpalitang memorya sa Kilobytes na magagamit sa sistema. *Windows**Linux*
+* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 Nagbabalik ng bagay at nagbibigay ng memoryang gamit na istatistika tungkol sa buong sistema. Tandaan na ang lahat ng istatistika ay inuulat sa Kilobytes.
 

@@ -2,7 +2,7 @@
 
 > Membuat permintaan HTTP/HTTPS.
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 `ClientRequest` mengimplementasikan antarmuka [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) dan karena itu [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -14,11 +14,11 @@ Proses: [Utama](../glossary.md#main-process)
   * `sesi` Objek (opsional) - contoh [`sesi`](session.md) yang permintaan tersebut terkait.
   * `partisi` String (opsional) - nama [`partisi`](session.md) yang permintaan tersebut terkait. Default untuk string kosong. Opsi `sesi` berlaku pada `partisi`. Dengan demikian jika `sesi` secara eksplisit ditetapkan, `partisi` diabaikan.
   * `protokol` String (opsional) - skema protokol dalam bentuk ' skema:'. Nilai-nilai yang didukung saat ini ' http:' atau ' https:'. Default ' http:'.
-  * `tuan rumah` String (opsional) - server host disediakan sebagai sebuah gabungan dari nama host dan port nomor 'hostname:port'
+  * `tuan rumah` String (opsional) - server host disediakan sebagai sebuah gabungan dari nama host dan port nomor 'hostname:port'.
   * `nama host` String (opsional) - nama host server.
   * `Port` Bulat (opsional) - nomor port server mendengarkan.
   * `jalan` String (opsional) - bagian jalan dari URL permintaan.
-  * `mengarahkan` String (opsional) - modus redirect untuk permintaan ini. Harus menjadi salah satu `mengikuti` `kesalahan` atau `manual`. Default untuk `mengikuti`. Bila mode `kesalahan`, pengalihan apapun akan dibatalkan. Bila mode `manual` pengalihan akan ditunda sampai [`request.followRedirect`](#requestfollowRedirect) dipanggil. Mendengarkan untuk [`mengarahkan`](#event-redirect) acara dalam mode ini untuk mendapatkan rincian lebih lanjut tentang redirect permintaan.
+  * `mengarahkan` String (opsional) - modus redirect untuk permintaan ini. Harus menjadi salah satu `mengikuti` `kesalahan` atau `manual`. Default untuk `mengikuti`. Bila mode `kesalahan`, pengalihan apapun akan dibatalkan. Bila mode `manual` pengalihan akan ditunda sampai [`request.followRedirect`](#requestfollowredirect) dipanggil. Mendengarkan untuk [`mengarahkan`](#event-redirect) acara dalam mode ini untuk mendapatkan rincian lebih lanjut tentang redirect permintaan.
 
 `pilihan` properti seperti `protokol`, `host`, `nama host`, `pelabuhan` dan `jalan` secara ketat mengikuti model Node.js seperti yang dijelaskan dalam modul [URL](https://nodejs.org/api/url.html).
 
@@ -32,7 +32,7 @@ permintaan Const = net.request ({metode: 'Mendapatkan', protokol: ' https:', nam
 
 #### Event: 'respon'
 
-Mengembalikan:
+Pengembalian:
 
 * `respon` IncomingMessage - sebuah objek yang mewakili pesan Respon HTTP.
 
@@ -40,7 +40,7 @@ Mengembalikan:
 
 Mengembalikan:
 
-* `authInfo` Sasaran 
+* `authInfo` Objek 
   * ` isProxy </ 0>  Boolean</li>
 <li><code>skema` String
   * `host` String
@@ -77,7 +77,7 @@ Dibunyikan apabila `permintaan` dibatalkan. `Membatalkan` acara tidak bisa dipec
 
 #### Acara: 'kesalahan'
 
-Mengembalikan:
+Mengirimkan:
 
 * `kesalahan` Kesalahan - kesalahan objek menyediakan beberapa informasi tentang kegagalan.
 
@@ -89,16 +89,16 @@ Dipancarkan sebagai acara terakhir dalam transaksi permintaan-respon HTTP. `Menu
 
 #### Event: 'mengalihkan'
 
-Mengembalikan:
+Kembali:
 
 * `statusCode` Bilangan bulat
 * `method` String
 * `redirectUrl` String
 * `responseHeaders` Objek
 
-Dibunyikan apabila ada pengalihan dan modus `manual`. Memanggil [`request.followRedirect`](#requestfollowRedirect) akan melanjutkan dengan pengalihan.
+Dibunyikan apabila ada pengalihan dan modus `manual`. Memanggil [`request.followRedirect`](#requestfollowredirect) akan melanjutkan dengan pengalihan.
 
-### Instance Properties
+### Contoh properti
 
 #### `request.chunkedEncoding`
 
@@ -106,7 +106,7 @@ Dibunyikan apabila ada pengalihan dan modus `manual`. Memanggil [`request.follow
 
 Menggunakan chunked pengkodean sangat dianjurkan jika Anda perlu mengirim permintaan besar tubuh sebagai data akan dialirkan secara potongan kecil bukannya internal buffered dalam memori proses elektron.
 
-### Metode Instance
+### Metode Contoh
 
 #### `request.setHeader (nama, nilai)`
 

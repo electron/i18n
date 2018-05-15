@@ -1,16 +1,16 @@
 tagline: JavaScript, HTML, CSSを用いてクロスプラットフォームなデスクトップアプリを開発
 nav:
+  apps: アプリ
+  blog: ブログ
+  code_of_conduct: 行動規範
+  community: コミュニティ
+  contact: お問い合わせ
   docs: ドキュメント
   donors: 寄付
-  blog: ブログ
-  community: コミュニティ
-  apps: アプリ
-  userland: ユーザーランド
-  releases: リリース
-  contact: お問い合わせ
   languages: 言語
-  code_of_conduct: 行動規範
+  releases: リリース
   search: 検索
+  userland: ユーザーランド
 docs:
   title: Electron ドキュメント
   description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。
@@ -28,7 +28,22 @@ languages:
   current: 選択中
 community:
   title: コミュニティ
-  description: '<a href="https://github.com/sindresorhus/awesome-electron">素晴らしい</a>オープンソース貢献者たちによるツール、ボイラープレートコード、動画などをご覧いただけます。<a href="/community#meetups">ミートアップイベント</a>を見つけたり、追加したりすることもできます。'
+  description: Resources for connecting with people working on Electron.
+  channels:
+    get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a>: <a href='/docs/tutorial/first-app'>クイックスタートガイド</a>アプリを読みながら、はじめてのElectronアプリを開発することができます。"
+    updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手</b></a>: Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
+    localized_docs: "<a href='/languages'><b>翻訳されたドキュメント</b></a>: <a href='/languages'>言語ページ</a>からアクセスできます。"
+    help: "<a href='http://atom-slack.herokuapp.com'><b>ヘルプとフィードバック</b></a>: <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>や<a href='https://discuss.atom.io/c/electron'>Discuss</a>、<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>などで得ることができます。"
+    packages: "<a href='/search/npmPackages'><b>便利な npm パッケージ</b></a>: <a href='/search/npmPackages'>こちらのページ</a>から検索できます。"
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>バグの報告</b></a>: <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>機能の要望</b></a>: GitHub の <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>行動規範への違反を報告</b></a>: <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> までメールでご連絡ください。"
+    security: "<a href='mailto:security@electronjs.org'><b>セキュリティの問題を報告する</b></a>: <a href='mailto:security@electronjs.org'>security@electronjs.org</a> までメールでお知らせください。"
+    donations: "<a href='donors'><b>寄付</b></a>: <a href='/donors'>OpenCollective</a>ページにてご寄付をお待ちしております。"
+    other: "これ以外のお問い合わせ内容については、<a href='mailto:info@electronjs.org'>info@electronjs.org</a> までメールでご連絡ください。"
+  language_communities:
+    title: 言語別のコミュニティ
+    description: "Electron のコミュニティは世界中に広がっており、英語が母語でないユーザもたくさんいます。<a href='/languages'>翻訳されたドキュメント</a>を閲覧できるほか、以下の言語別コミュニティに参加することも出来ます。"
   tools: ツール
   boilerplates: ボイラープレート
   components: コンポーネント
@@ -74,7 +89,7 @@ quick_start:
   dive_deeper: さらに詳細な情報が必要であれば<a href='/docs'>ドキュメント</a>を参照することもできます。
 need_help:
   title: お困りですか？
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: <a href='https://discuss.atom.io/c/electron'>ディスカッション</a>フォーラムや<a href='http://atom-slack.herokuapp.com/'>Slack</a>で質問することができます。また、Twitter（<a href="https://twitter.com/electronjs">@electronjs</a>）では Electron に関する重要な情報をツイートしているので、是非フォローしてみてください。もし、フォーラムやSNSといったパブリックな手段以外で連絡を取る必要がある場合は E メール ( <a href="mailto:info@electronjs.org">info@electronjs.org</a> ) でのお問い合わせも可能です。
 headings:
   languages: 言語
 taglines:

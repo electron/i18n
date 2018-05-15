@@ -37,7 +37,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
   * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Booleano (opcional) - Por defecto es `false`.
   * `extra` Objeto (opcional) - Un objeto que se puede definir que será enviado a través del informe. Solo las propiedades de la cadena son enviadas correctamente. No se admiten objetos anidados y los nombres de propiedades y valores tener menos de 64 caracteres.
-  * `crashesDirectory` String (opcional) - Directorio para almacenar temporalmente los informes de errores (solo se usa cuando el proceso de notificación de errores se inicia a través de `process.crashReporter.start`)
+  * `crashesDirectory` String (opcional) - Directorio para almacenar temporalmente los informes de errores (solo se usa cuando el proceso de notificación de errores se inicia a través de `process.crashReporter.start`).
 
 Es necesario llamar este método antes de utilizar cualquier otra API `crashReporter` y en cada proceso (main/renderer) del cual se quiera recopilar los informes de fallos. Se puede pasar diferentes opciones al `crashReporter.start` al llamar desde diferentes procesos.
 
@@ -45,7 +45,7 @@ Es necesario llamar este método antes de utilizar cualquier otra API `crashRepo
 
 **Nota:** para recopilar los informes de fallos de los procesos secundarios en Windows, es necesario añadir este código extra. Esto iniciará el proceso que monitoreará y enviará los informes de fallos. Reemplazar `submitURL`, `productName` y `crashesDirectory` con los valores adecuados.
 
-**Nota:** Si necesita enviar parámetros adicionales o actualizados `extra` después de llamar `Inicio` puede llamar `setExtraParameter` en macOS o llame a `start` otra vez con los parámetros nuevos o actualizados `extra` en Linux y Windows.
+**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
  const args = [
@@ -78,13 +78,13 @@ Devuelve todos los informes de fallos subidos. Cada informe contiene la fecha y 
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Devuelve `Boolean` - Si los informes deben enviarse o no al servidor. Establecer a través del método `start` o `setUploadToServer`.
+Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
 **Nota:** Esta API sólo se puede llamar desde el proceso principal.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Si los informes deben enviarse o no al servidor
+* `uploadToServer` Boolean *macOS* - Si los informes deben enviarse o no al servidor.
 
 Esto es controlado normalmente por las preferencias del usuario. Esto no tiene efecto alguno si se llama antes de que se llame `start`.
 
@@ -99,7 +99,7 @@ Establecer un parámetro adicional que se enviará con el informe de fallos. Los
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
-* `key` Cadena - La clave del parámetro debe tener menos de 64 caracteres.
+* `key` String - La clave del parámetro, debe tener menos de 64 caracteres.
 
 Elimina un parámetro extra del conjunto actual de parámetros para que no se envíe con el informe de fallos.
 
@@ -114,7 +114,7 @@ El informador de fallos enviará la siguiente información al `submitURL` como u
 * `ver` Cadena- La versión de Electron.
 * `platform` Cadena - por ejemplo, "win32".
 * `process_type` Cadena - por ejemplo, "renderizador".
-* `guid` Cadena - por ejemplo, "5e1286fc-da97-479e-918b-6bfb0c3d1c72"
+* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` Cadena - La versión en `package.json`.
 * `_productName` Cadena - El nombre del producto en el objeto `crashReporter` `options`.
 * `prod` Cadena- El nombre del producto subyacente. En este caso, Electron.

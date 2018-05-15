@@ -14,7 +14,7 @@
 
 ## macOS SDK
 
-단순히 일렉트론을 개발 중이고, 사용자 지정 일렉트론 빌드를 재배포하지 않으려는 경우, 이 섹션을 건너 뛰어도 됩니다.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 핀치 줌과 같은 특정 기능을 제대로 사용하려면 macOS 10.10 SDK를 이용해야 합니다.
 
@@ -45,6 +45,12 @@ $ git clone https://github.com/electron/electron
 ```sh
 $ cd electron
 $ ./script/bootstrap.py -v
+```
+
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
 ```
 
 ## 빌드하기

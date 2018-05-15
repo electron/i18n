@@ -1,16 +1,16 @@
 tagline: JavaScript, HTML, CSS를 이용하여 크로스 플랫폼 데스크탑 앱을 만들어보세요
 nav:
+  apps: 앱
+  blog: 블로그
+  code_of_conduct: 행동 규칙
+  community: 커뮤니티
+  contact: 연락처
   docs: 문서
   donors: 후원자
-  blog: 블로그
-  community: 커뮤니티
-  apps: 앱
-  userland: 사용자 공간
-  releases: 출시
-  contact: 연락처
   languages: 언어
-  code_of_conduct: 행동 규칙
+  releases: 출시
   search: 검색
+  userland: 사용자 공간
 docs:
   title: Electron 문서
   description: 모든 문서 <a href="/docs/all">한 페이지에서</a> 보기 및 <a href="/docs/faq"> FAQ</a> 문서를 확인하기
@@ -28,7 +28,22 @@ languages:
   current: 현재 선택된 단계
 community:
   title: Electron 커뮤니티
-  description: 'Electron의 <a href="https://github.com/sindresorhus/awesome-electron">멋진</a> 오픈소스 기여자들이 만든 도구들, 보일러플레이트, 비디오. 근처의 <a href="/community#meetups">모임</a>을 찾거나 만들어보세요.'
+  description: Resources for connecting with people working on Electron.
+  channels:
+    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
+    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='/donors'>OpenCollective 페이지</a>에서 <a href='donors'><b>기부</b></a>."
+    other: "다른 문의가 있는 경우, <a href='mailto:info@electronjs.org'>info@electronjs.org</a> 메일로 보내주십시오."
+  language_communities:
+    title: 언어 커뮤니티
+    description: "Electron 커뮤니티는 전 세계에서 활동중이며, 영어가 모두에게는 모국어가 아닙니다. <a href='/languages'>당신의 언어로된 문서</a>를 찾거나 아래 언어 커뮤니티중 하나에 가입하십시오:"
   tools: 도구
   boilerplates: 상용구
   components: 컴포넌트
@@ -129,7 +144,7 @@ pages:
   '/languages':
     title: 언어
   '/userland':
-    title: 매뉴얼
+    title: 사용자 공간
   '/devtron':
     title: Devtron
     description: Devtron은 Electron 앱에 대한 검사, 관찰, 디버깅을 도와주는 오픈 소스 도구이며 Chrome 개발자 도구에서 사용할 수 있습니다.

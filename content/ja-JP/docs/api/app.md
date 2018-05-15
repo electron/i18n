@@ -320,7 +320,7 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 ### `app.relaunch([options])`
 
 * `options` Object (任意) 
-  * `args` String[] - (任意)
+  * `args` String[] (任意)
   * `execPath` String (任意)
 
 現在のインスタンスが終了したときに、アプリを再起動します。
@@ -498,7 +498,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 * `tasks` [Task[]](structures/task.md) - `Task` オブジェクトの配列
 
-Windowsでジャンプリストの [タスク](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに `tasks` を追加します。
+Windowsでジャンプリストの [タスク](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに `tasks` を追加します。
 
 `tasks` は [`Task`](structures/task.md) オブジェクトの配列です。
 
@@ -527,7 +527,7 @@ Windowsでジャンプリストの [タスク](http://msdn.microsoft.com/en-us/l
 
 `categories` が `null` の場合、その前に設定されていたカスタムジャンプリスト (あれば) は、(Windowsによって管理される) アプリ標準のジャンプリストに置換されます。
 
-**注:** `JumpListCategory` オブジェクトが `type` プロパティも `name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティが設定されているが、`type` プロパティが省略された場合、`type` は `custom` と見做されます。
+**注:** `JumpListCategory` オブジェクトに `type` プロパティも `name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティは設定されている一方で `type` プロパティが省略された場合、`type` は `custom` と見做されます。
 
 **注:** ユーザはカスタムカテゴリからアイテムを削除できますが、Windowsは次の `app.setJumpList(categories)` の呼び出しが成功した**後**でないと、削除されたアイテムをカスタムカテゴリに追加し直すことを許可しません。 それより早くカスタムカテゴリに削除されたアイテムを再度追加しようとすると、ジャンプリストからカスタムカテゴリ全体が外れてしまいます。 削除されたアイテムのリストは、`app.getJumpListSettings()` を使って取得できます。
 
@@ -689,10 +689,6 @@ app.on('ready', () => {
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
-### `app.getAppMemoryInfo()` *非推奨*
-
-戻り値 [`ProcessMetric[]`](structures/process-metric.md): アプリに関連付けられたすべてのプロセスのメモリやCPU使用率の統計情報に対応した `ProcessMetric` オブジェクトの配列。 **注:** このメソッドは非推奨です。代わりに `app.getAppMetrics()` を使ってください。
-
 ### `app.getAppMetrics()`
 
 戻り値 [`ProcessMetric[]`](structures/process-metric.md): アプリに関連付けられたすべてのプロセスのメモリやCPU使用率の統計情報に対応した `ProcessMetric` オブジェクトの配列。
@@ -732,18 +728,16 @@ macOSでは、ドックアイコンに表示されます。Linuxでは、Unity�
 戻り値 `Object`:
 
 * `openAtLogin` Boolean - アプリがログイン時に開くように設定されている場合、`true`。
-* `openAsHidden` Boolean - アプリがログイン時に非表示で開くように設定されている場合、`true`。この設定は、macOSでのみサポートされています。
-* `wasOpenedAtLogin` Boolean - アプリがログイン時に自動的に開かれていた場合、`true`。この設定は、macOSでのみサポートされています。
-* `wasOpenedAsHidden` Boolean - アプリが非表示のログイン項目として開かれていた場合、`true`。 これは、アプリが起動時にウインドウを開く必要がないことを示します。 この設定は、macOSでのみサポートされています。
-* `restoreState` Boolean - 前回のセッションの状態を復元してアプリがログイン項目として開かれていた場合、`true`。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は、macOSでのみサポートされています。
-
-**注:** このAPIは [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) に影響を与えません。
+* `openAsHidden` Boolean *macOS* - アプリがログイン時に隠して開くように設定されている場合、`true`。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+* `wasOpenedAtLogin` Boolean *macOS* - アプリがログイン時に自動的に開かれた場合、`true`。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+* `wasOpenedAsHidden` Boolean *macOS* - アプリが非表示のログイン項目として開かれていた場合、`true`。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+* `restoreState` Boolean *macOS* - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合は、`true`。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (任意) - アプリをログイン時に開く場合、`true`、ログイン項目からアプリを外す場合、`false`。 省略値は `false` です。
-  * `openAsHidden` Boolean (任意) - アプリを非表示で開く場合、`true`。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができます。そのため、アプリが開いたときに現在の値を把握するため、`app.getLoginItemStatus().wasOpenedAsHidden` を確認するようにしてください。 この設定は、macOSでのみサポートされています。
+  * `openAsHidden` Boolean (任意) *macOS* - アプリを非表示で開く場合、`true`。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができます。そのため、アプリが開いたときに現在の値を把握するため、`app.getLoginItemStatus().wasOpenedAsHidden` を確認するようにしてください。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
   * `path` String (任意) *Windows* - ログイン時に起動する実行ファイルのパス。省略値は、`process.execPath` です。
   * `args` String[] (任意) *Windows* - 実行ファイルに引き渡すコマンドライン引数。省略値は空の配列です。パスは引用符で囲むように注意してください。
 
@@ -765,8 +759,6 @@ app.setLoginItemSettings({
   ]
 })
 ```
-
-**注:** このAPIは [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) に影響を与えません。
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
@@ -790,6 +782,21 @@ app.setLoginItemSettings({
   * `version` String (任意) - アプリのビルドバージョン番号。
 
 Aboutパネルのオプションを設定します。 これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。
+
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+
+* `bookmarkData` String - `dialog.showOpenDialog` または `dialog.showSaveDialog` メソッドによって返された、base64 でエンコードされたセキュリティスコープのブックマークデータ。
+
+戻り値 `Function` - セキュリティスコープ付きファイルへのアクセスが終了すると、この関数を呼び出す**必要が**あります。 ブックマークへのアクセスを忘れた場合は、[カーネルリソースがリークします](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)。アプリが再起動されるまで、サンドボックスの外部にアクセスする権限は失われます。
+
+```js
+// ファイルアクセス開始
+const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// You can now access the file outside of the sandbox 
+stopAccessingSecurityScopedResource()
+```
+
+セキュリティスコープ付きリソースへのアクセスを開始します。 このメソッドでは、Mac App Store 用にパッケージ化された Electron アプリケーションが、ユーザーが選択したファイルにアクセスするためにサンドボックスの外部にアクセスすることがあります。 このシステムの動作の詳細は、[Apple のドキュメント](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を参照してください。
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -860,11 +867,11 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 ### `app.dock.hide()` *macOS*
 
-ドックのアイコンを非表示にします。
+ドックのアイコンを非表示にする
 
 ### `app.dock.show()` *macOS*
 
-ドックのアイコンを表示します。
+ドックのアイコンを表示する
 
 ### `app.dock.isVisible()` *macOS*
 

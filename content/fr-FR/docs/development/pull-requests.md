@@ -1,9 +1,9 @@
-# Proposer une Evolution: Demande de Pull
+# Pull Requests
 
 * [Dependances](#dependencies)
 * [Configurer votre environnement local](#setting-up-your-local-environment) 
   * [Étape 1 : Dupliquer un projet](#step-1-fork)
-  * [Etape 2 : Construire, compiler](#step-2-build)
+  * [Etape 2 : construire, compiler](#step-2-build)
   * [Step 3: Branches](#step-3-branch)
 * [Apporter des changements](#making-changes) 
   * [Étape 4 : Code](#step-4-code)
@@ -12,10 +12,10 @@
   * [Étape 6 : Refonder - Rebase](#step-6-rebase)
   * [Étape 7 : Tester](#step-7-test)
   * [Étape 8 : Pousser](#step-8-push)
-  * [Étape 9 : Ouvrir la proposition d'évolution - la demande de Pull](#step-8-opening-the-pull-request)
-  * [Étape 10 : Examiner et mettre à jour](#step-9-discuss-and-update) 
+  * [Étape 9 : Ouvrir la proposition d'évolution - la demande de Pull](#step-9-opening-the-pull-request)
+  * [Étape 10 : Examiner et mettre à jour](#step-10-discuss-and-update) 
     * [Procédure de validation et de demandes d'évolutions](#approval-and-request-changes-workflow)
-  * [Étape 11 : Approbation](#step-10-landing)
+  * [Étape 11 : Approbation](#step-11-landing)
   * [Tests en intégration continue](#continuous-integration-testing)
 
 ## Configurer votre environnement local
@@ -31,7 +31,7 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Etape 2 : construire, compiler
+### Etape 2 : Construire, compiler
 
 Le type de système d'exploitation peut faire varier les étapes de construction et les dépendances. Reportez vous au guide dédié pour compiler Electron:
 
@@ -72,24 +72,42 @@ Au final lorsqu'ils sont revus, de nombreux commit sont fusionnés.
 
 #### Ecrire un messages de modification
 
-Un bon message de modification/commit doit décrire le changement et sa raison.
+Un bon message de modification/commit doit décrire le changement et sa raison. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-1. La première ligne doit :
-  
+Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
+
+Examples of commit messages with semantic prefixes:
+
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux` 
+
+Common prefixes:
+
+    - fix: A bug fix
+    - feat: A new feature
+    - docs: Documentation changes
+    - test: Adding missing tests or correcting existing tests
+    - build: Changes that affect the build system
+    - ci: Changes to our CI configuration files and scripts
+    - perf: A code change that improves performance
+    - refactor: A code change that neither fixes a bug nor adds a feature
+    - style: Changes that do not affect the meaning of the code (linting)
+    
+
+Other things to keep in mind when writing a commit message:
+
+1. La première ligne doit : 
   * contenir une courte description de la modification (de préférence moins de 50 caractères, et pas plus de 72)
   * être entièrement en minuscules à l’exception des noms propres, acronymes et les mots qui font référence au code, comme les noms de variable/fonction
-    
-    Exemples :
-  
-  * `mise à jour de la documentation pour la construction du nouveau SDK`
-  
-  * `fixed typos in atom_api_menu.h`
-
 2. Garder vide la deuxième ligne.
-
 3. Ne pas dépasser 72 caractères pour les lignes suivantes.
 
-Voir [cet article](https://chris.beams.io/posts/git-commit/) pour d'autres exemples décrivants comment écrire de bon messages de modification/commit git.
+#### Breaking Changes
+
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+
+See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### Étape 6 : Refonder - Rebase
 
@@ -114,7 +132,7 @@ $ npm run test
 
 Assurez-vous que linter ne renvoie aucun problème et que tous les tests passent. Ne soumettez aucun patch ne passant pas l'un des tests.
 
-If you are updating tests and just want to run a single spec to check it:
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu

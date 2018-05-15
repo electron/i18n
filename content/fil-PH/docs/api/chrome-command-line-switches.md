@@ -26,6 +26,10 @@ Wag paganahin ang disk cache para sa kahilingan ng HTTP.
 
 Huwag paganahin ang HTTP/2 at SPDY/3.1 protocol.
 
+## --lang
+
+Set a custom locale.
+
 ## --inspect=`port` and --inspect-brk=`port`
 
 May Kaugnayan ang debug sa mga flags, tingnan ang [ Debugging ang pangunahing Proseso ](../tutorial/debugging-main-process.md) gabay para sa mga detalye.
@@ -42,7 +46,7 @@ Gamitin ang pinakamataas na bakante ng disk cache, na magagamit, sa byte.
 
 Tukuyin ang mga flag na nalampasan ng Node JS engine. ito ay kailangang malampasan habang gumagana ang electron. kung gusto mong gumana ang `flags` na pangunahing process.
 
-```bash
+```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
@@ -96,7 +100,7 @@ Ang kuwit ang nag hihiwalay sa listahan ng mga servers para paganahin ang integr
 
 Halimbawa:
 
-```bash
+```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 

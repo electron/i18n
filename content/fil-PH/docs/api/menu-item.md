@@ -11,18 +11,18 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
 * `pagpipilian` Bagay 
   * `i-klik` Punsyon (opsyonal) - Ay tatawagin na may `i-klik ang(menuItem, browserWindow, event)` kapag ang aytem ng menu ay na-klik na. 
     * `menuItem`MenuItem
-    * `browserWindow` ang BrowserWindow
+    * `browserWindow` [BrowserWindow](browser-window.md)
     * `kaganapan` kaganapan
   * `role` String (opsyonal) - tukuyin ang aksyon ng mga aytem ng menu, kapag tinukoy ang katangian `click` ay hindi na papansinin. Tingnan ang [roles](#roles).
   * `type` String (opsyonal) - Ay maaaring `normal`, `separator`, `submenu`, `checkbox` o `radio`.
-  * `label` String - (opsyonal)
-  * `sublabel` String - (opsyonal)
+  * `label` String (optional)
+  * `sublabel` String (optional)
   * `accelerator` [Accelerator](accelerator.md) (opsyonal)
   * `icon` ([NativeImage](native-image.md) | String) (opsyonal)
   * `enabled` Boolean (opsyonal) - Kung hindi totoo, ang aytem ng menu ay naka-grey out at hindi maki-klik.
   * `visible` Boolean (opsyonal) - Kung hindi totoo, ang aytem ng menu ay lubusang itatago.
   * `checked` Boolean (opsyonal) - Dapat lamang na tinukoy para sa uri ng `checkbox` o `radio` ng mga aytem ng menu.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (opsyonal) - Dapat lamang na tinukoy para sa uri ng `submenu` ng mga aytem ng menu. Kung ang `submenu` ay tinukoy na, ang `type: 'submenu'` ay maaaring tanggalin. Kung ang halaga ay hindi isang `Menu` pagkatapos ito ay awtomatikong iko-konbert sa isa gamit ang `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. Kung ang `submenu` ay tinukoy na, ang `type: 'submenu'` ay maaaring tanggalin. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (opsyonal) - Kakaiba sa loob ng nag-iisang menu. Kung tinukoy samakatuwid ito ay maaaring gamitin bilang isang sanggunian sa aytem na ito sa pamamagitan ngkatangian ng posisyon.
   * `position` String (opsyonal) - Ang field na ito ay nagpapahintulot sa pinong kahulugan ng tiyak na lokasyon sa loob ng ibinigay na menu.
 
@@ -41,44 +41,46 @@ Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 * `cut`
 * `kopyahin`
 * `paste`
-* `istilongidikitatipares`
-* `piliinlahat`
+* `pasteAnd MatchStyle`
+* `selectAll`
 * `delete`
-* `minimize` - Paliitin ang kasalukuyang window
-* `close` - Isara ang kasalukuyang window
-* `quit` - Alisin ang aplikasyon
-* `reload` - Ikarga ulit ang kasalukuyang window
-* `forceload` - Ikarga ulit ang kasalukuyang window nang hindi pinapansin ang cache.
-* `toggledevtools` - Mga gamit ng taga-buo ng toggle sa kasalukuyang window
-* `togglefullscreen` - I-togel ang buong iskrin na moda ng kasalukuyang window
-* `resetzoom` - I-set na muli ang lebel na pampalaki sa orihinal na sukat ng nakapokus na pahina
-* `zoomin` - Palakihin ang nakapokus na pahina ng 10 porsyento
-* `zoomout` - Paliitin ang nakapokus na pahina ng 10 porsyento
-* `editMenu` - Ang kabuoang default na menu ng "Edit" (Undo, Kopya, atbp.)
-* `windowMenu` - Ang kabuoang default na menu ng "Window" (Paliitin, Isara, atbp.)
+* `minimize` - Paliitin ang kasalukuyang window.
+* `close` - Isara ang kasalukuyang window.
+* `quit` - Alisin ang aplikasyon.
+* `reload` - Ikarga ulit ang kasalukuyang window.
+* `forceReload` - Reload the current window ignoring the cache.
+* `toggleDevTools` - Toggle developer tools in the current window.
+* `toggleFullScreen`- Toggle full screen mode on the current window.
+* `resetZoom` - Reset the focused page's zoom level to the original size.
+* `zoomIn` - Zoom in the focused page by 10%.
+* `zoomOut` - Zoom out the focused page by 10%.
+* `editMenu` - Ang kabuoang default na menu ng "Edit" (Undo, Kopya, atbp.).
+* `windowMenu` - Ang kabuoang default na menu ng "Window" (Paliitin, Isara, atbp.).
 
-Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
+The following additional roles are available on *macOS*:
 
-* `about` - Ibalangkas sa mga aksyon ng `orderFrontStandardAboutPanel`
-* `hide` - Ibalangkas sa mga aksyon ng `hide`
-* `hideothers` - Ibalangkas sa mga aksyon ng `hideOtherApplicatios`
-* `unhide` - Ibalangkas sa mga aksyon ng `unhideAllApplications`
-* `startspeaking` - Ibalangkas sa mga aksyon ng `startspeaking`
-* `stopspeaking` - Ibalangkas sa mga aksyon ng `stopspeaking`
-* `front` - Ibalangkas sa mga aksyon ng `arrangeInFront`
-* `zoom` - Ibalangkas sa mga aksyon ng `performZoom`
-* `toggletabbar` - Map to the `toggleTabBar` action
-* `selectnexttab` - Map to the `selectNextTab` action
-* `selectprevioustab` - Map to the `selectPreviousTab` action
-* `mergeallwindows` - Map to the `mergeAllWindows` action
-* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - Ang submenu ay isang menu ng "Window"
-* `help` - Ang submenu ay isang menu ng "Help"
-* `services` - Ang submenu ay isang menu ng "Services"
+* `about` - Ibalangkas sa mga aksyon ng `orderFrontStandardAboutPanel`.
+* `hide` - Ibalangkas sa mga aksyon ng `hide`.
+* `hideOthers` - Map to the `hideOtherApplications` action.
+* `unhide` - Ibalangkas sa mga aksyon ng `unhideAllApplications`.
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `front` - Ibalangkas sa mga aksyon ng `arrangeInFront`.
+* `zoom` - Ibalangkas sa mga aksyon ng `performZoom`.
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
+* `services` - The submenu is a "Services" menu.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
-Kapag tinutukoy ang isang `role` sa macOS, ang `label` at ang `accelerator` ay ang tanging opsyon na makaka-apekto sa aytem ng menu. Lahat ng ibang opsyon ay hindi papansinin.
+When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
-### Mga Katangian ng Instance
+### Katangian ng pagkakataon
 
 Ang mga sumusunod na mga katangian ay makukuha sa mga instansya ng `MenuItem`:
 
@@ -102,8 +104,8 @@ Maaari kang magdagdag ng isang punsyon ng `click` para sa karagdagang gawain.
 
 #### `ang menuItem.label`
 
-Ang isang `String` ay kumakatawan sa mga aytem ng menu sa nakikitang tatak
+Ang isang `String` ay kumakatawan sa mga aytem ng menu sa nakikitang tatak.
 
 #### `ang menuItem.click`
 
-Ang isang `Function` na ititira kapag natanggap ng MenuItem ang isang event ng klik
+Ang isang `Function` na ititira kapag natanggap ng MenuItem ang isang event ng klik.

@@ -30,7 +30,7 @@ Electron は、メインプロセスとレンダラープロセスの両方で�
 const electron = require('electron')
 ```
 
-すべての Electron API にはプロセスタイプが割り当てられています。 それらの多くはメインプロセスからのみ使用することができ、レンダラープロセスからのものや、両方からのものなどがあります。 個々の API のドキュメントには、どのプロセスで使用できるかが明確に記載されています。
+すべての Electron API にはプロセスタイプが割り当てられています。 それらの多くはメインプロセスからのみ使用することができ、レンダラープロセスからのものや、両方からのものなどがあります。 The documentation for each individual API will state which process it can be used from.
 
 たとえば、Electronのウィンドウは `BrowserWindow` クラスを使用して作成されます。 これはメインプロセスでのみ利用可能です。
 
@@ -79,7 +79,7 @@ console.log(root)
 npm install --save aws-sdk
 ```
 
-そして、Electron アプリで、Node.js アプリケーションを構築しているようにモジュールを単に require して使用します。
+Then, in your Electron app, require and use the module as if you were building a Node.js application:
 
 ```javascript
 // S3 クライアントの準備
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 重要な注意点が1つあります。ネイティブな Node.js モジュール (ネイティブコードのコンパイルが必要なモジュール) は、Electron と一緒に使用するためにコンパイルする必要があります。
 
-Node.js モジュールの大部分はネイティブでは *ありません*。 ~650.000のモジュールのうち400個だけがネイティブです。 しかし、どうしてもネイティブモジュールが必要な場合は、[Electron を再コンパイルする方法についてのこのガイド](./using-native-node-modules.md) を参照してください (簡単です)。
+Node.js モジュールの大部分はネイティブでは *ありません*。 ~650.000のモジュールのうち400個だけがネイティブです。 However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).

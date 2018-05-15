@@ -93,40 +93,39 @@ Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
 
 #### `ses.clearCache(callback)`
 
-* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır
+* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
 
 Oturumun HTTP önbelleğini temizler.
 
 #### `ses.clearStorageData([options, callback])`
 
 * `seçenekler` Obje (opsiyonel) 
-  * `origin` Dizge - (isteğe bağlı) `window.location.origin` temsili için `scheme://host:port` takip etmelidir.
-  * `storages` String[] - (optional) Temizlenecek depo türleri, aşağıdakileri içerebilir: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[]</code> - (isteğe bağlı) Temizlenecek kota türleri şunları içerebilir: `temporary`, `persistent`, `syncable</0>.</li>
-</ul></li>
-<li>Fonksiyon <code>geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
-  
-  Web depolama alanları verilerini siler.
-  
-  #### `ses.flushStorageData()`
-  
-  Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
-  
-  #### `ses.setProxy(config, callback)`
-  
-  * `konfigurasyon` Nesne 
-    * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
-    * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
-    * `proxyBypassRules` Dizesi - Hangi URL'lerin proxy ayarlarını atlaması gerektiğini belirten kurallar.
-  * `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
-  
-  Proxy ayarlarını yap.
-  
-  `pacScript` ve `proxyRules` birlikte sağlandığında `proxyRules` seçeceği göz ardı edilir ve `pacScript` yapılandırması uygulanır.
-  
-  `proxyRules` aşağıdaki kurallara uymak zorundadır:
-  
-  ```sh
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
+
+Web depolama alanları verilerini siler.
+
+#### `ses.flushStorageData()`
+
+Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
+
+#### `ses.setProxy(config, callback)`
+
+* `konfigurasyon` Nesne 
+  * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
+  * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
+  * `proxyBypassRules` Dizesi - Hangi URL'lerin proxy ayarlarını atlaması gerektiğini belirten kurallar.
+* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
+
+Proxy ayarlarını yap.
+
+`pacScript` ve `proxyRules` birlikte sağlandığında `proxyRules` seçeceği göz ardı edilir ve `pacScript` yapılandırması uygulanır.
+
+`proxyRules` aşağıdaki kurallara uymak zorundadır:
+
+```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
 schemeProxies = [<urlScheme>"="]<proxyURIList>
 urlScheme = "http" | "https" | "ftp" | "socks"
@@ -142,7 +141,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 * `socks4://foopy` - Tüm URL'ler için SOCKS v4 proxy `foopy:1080`'yi kullanın.
 * `http=foopy,socks5://bar.com` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` yoksa SOCKS5 proxy `bar.com`'e başarısız olunur.
 * `http=foopy,direct://` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` kullanılamazsa proxy kullanmayın.
-* `http=foopy;socks=foopy2` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve diğer tüm URL'ler için `socks4://foopy2` kullanın.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
 `proxyBypassRules` yapısı aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
 
@@ -164,7 +163,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   
   Örnekler: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
-* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   Belirtilen aralık arasında kalan bir IP sabiti olan herhangi bir URL'yi eşleştirin. IP aralığı CIDR gösterimi kullanılarak belirtilir.
   
@@ -184,7 +183,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.setDownloadPath(path)`
 
-* `yol` String - İndirme konumu
+* `yol` String - İndirme konumu.
 
 İndirme, kaydetme dizini ayarlar. Varsayılan olarak, karşıdan yükleme dizini `İndirilenler` uygulama klasörü altındadır.
 
@@ -252,7 +251,9 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri aramak` Function 
-    * `permissionGranted` Boolean - İzin verme veya reddetme
+    * `permissionGranted` Boolean - İzin verme veya reddetme.
+  * `details` Object - Some properties are only available on certain permission types. 
+    * `externalURL` String - The url of the `openExternal` request.
 
 Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. İşleyiciyi temizlemek için `setPermissionRequestHandler(null)`'i çağırın.
 
@@ -275,7 +276,7 @@ Ana çözümleyici önbelleğini temizler.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` Dizgi - Tümleşik kimlik doğrulamanın etkinleştirildiği virgülle ayrılmış sunucular listesi.
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
 Dinamik olarak, HTTP, NTLM veya Müzakere kimlik doğrulaması için kimlik bilgilerini göndermeyi veya göndermemeyi ayarlar.
 
@@ -310,8 +311,6 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 * `geri aramak` Function 
   * `result` Tampon - Blob verileri.
 
-`Blob` döner - `identifier` ile ilişkili blob verisi.
-
 #### `ses.createInterruptedDownload(options)`
 
 * `seçenekler` Nesne 
@@ -329,9 +328,19 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır
+* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
 Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
+
+#### `ses.setPreloads(preloads)`
+
+* `preloads` String[] - An array of absolute path to preload scripts
+
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+
+#### `ses.getPreloads()`
+
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### Örnek Özellikler
 

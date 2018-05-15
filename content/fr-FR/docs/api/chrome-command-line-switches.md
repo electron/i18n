@@ -25,6 +25,10 @@ Désactive le cache disque pour les requêtes HTTP.
 
 Désactive les protocoles HTTP/2 et SPDY/3.1.
 
+## --lang
+
+Set a custom locale.
+
 ## --inspect=`port` et --inspect-brk=`port`
 
 Indicateurs relatifs au débogage, reportez-vous au guide [Déboguer le processus principal](../tutorial/debugging-main-process.md) pour plus de détails.
@@ -41,7 +45,7 @@ Force l'espace disque maximum à utiliser par le cache disque, en octets.
 
 Spécifie les indicateurs à transmettre au moteur de NodeJS. Cela doit être indiqué lors du démarrage d'Electron, si vous souhaitez activer les `flags` dans le processus principal.
 
-```bash
+```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" votre-app
 ```
 
@@ -95,7 +99,7 @@ Une liste de serveurs séparés par des virgules pour lesquels l'authentificatio
 
 Par exemple :
 
-```bash
+```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 

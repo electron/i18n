@@ -6,7 +6,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Contributing to Electron](../../CONTRIBUTING.md)
 * [Issues](issues.md)
 * [Pull Requests](pull-requests.md)
-* [Documentation Styleguide](styleguide.md)
+* [Documentation Styleguide](coding-style.md#documentation)
 * [Source Code Directory Structure](source-code-directory-structure.md)
 * [Styl kódování](coding-style.md)
 * [Using clang-format on C++ Code](clang-format.md)

@@ -1,5 +1,5 @@
-# Oggetto ControlloSegmentatoSegmento
+# Oggetto SegmentedControlSegment
 
-* `etichetta` Stringa (opzionale) Il testo da mostrare nel segmento
-* `icona` ImmagineNativa - (opzionale) L'immagine che appare nel segmento
-* `abilitato` Booleano - (opzionale) Se il segmento è selezionabile. Predefinito: True
+* `label` Stringa (opzionale) - Il testo da mostrare in questo segmento
+* `icon` NativeImage (opzionale) - L'immagine da mostrare in questo segmento
+* `enabled` Booleano (opzionale) - Indica se il segmento è abilitato. Default: true

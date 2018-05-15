@@ -2,7 +2,7 @@
 
 > Geçerli web sayfasının görünümünü özelleştirin.
 
-İşlem: [Renderer](../glossary.md#renderer-process)
+Süreç:[ İşleyici](../glossary.md#renderer-process)
 
 Geçerli sayfayı% 200'e yakınlaştırmaya bir örnek.
 
@@ -12,15 +12,15 @@ const {webFrame} = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Metodlar
+## Yöntemler
 
 `webFrame` modülü aşağıdaki metodları içerir:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Yakınlaştırma faktörü.
+* `factor` Sayı - Yakınlaştırma değeri.
 
-Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
+Yakınlaştırma değerini belirtilen değere değiştirir. Yakışlaştırma değeri, yakınlaştırma yüzdesi bölü 100'dür, bu yüzden %300 = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -28,20 +28,13 @@ Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Yakınlaştırma seviyesi
+* `level` Number - Yakınlaştırma seviyesi.
 
-Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder.
+Yakınlaştırma düzeyini belirtilen düzeye değiştirir. Orijinal boyut 0'dır ve her bir artış veya azalış, orijinal boyutun %300'ü ve %50'si olan varsayılan değerler içerisinde %20'lik bir büyümeyi veya küçülmeyi temsil eder.
 
 ### `webFrame.getZoomLevel()`
 
 `Number` döndürür - Geçerli yakınlaştırma seviyesi.
-
-### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-**Kullanım dışı:** Bunun yerine, görsel yakınlaştırma seviye sınırlarını ayarlamak için `setVisualZoomLevelLimits` 'i çağırın. Bu yöntem Elektron 2.0'da kaldırılacaktır.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -61,8 +54,8 @@ Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düz
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Object 
-  * `spellCheck` Function - döner `Boolean` 
+* `provider` Nesne 
+  * `spellCheck` Function - döner `Boole değeri`. 
     * `text` String
 
 Giriş alanlarında ve metin alanlarında yazım denetimi için bir provider ayarlar.
@@ -82,7 +75,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 ### `webFrame.registerURLSchemeAsSecure(scheme)`
 
-* `scheme` String
+* `scheme` Dizi
 
 `scheme`'yı güvenli scheme olarak kaydeder.
 
@@ -96,13 +89,13 @@ Geçerli sayfanın İçerik Güvenliği Politikası ne olursa olsun kaynaklar bu
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
-* `scheme` String
-* `options` Object (isteğe bağlı) 
-  * `secure` Boolean - (isteğe bağlı) Varsayılan true.
-  * `bypassCSP` Boolean - (isteğe bağlı) Varsayılan true.
-  * `allowServiceWorkers` Boolean - (isteğe bağlı) Varsayılan true.
-  * `supportFetchAPI` Boolean - (isteğe bağlı) Varsayılan true.
-  * `corsEnabled` Boolean - (isteğe bağlı) Varsayılan true.
+* `scheme` Dizi
+* `seçenekler` Obje (opsiyonel) 
+  * `secure` Boolean (optional) - Default true.
+  * `bypassCSP` Boolean (optional) - Default true.
+  * `allowServiceWorkers` Boolean (optional) - Default true.
+  * `supportFetchAPI` Boolean (optional) - Default true.
+  * `corsEnabled` Boolean (optional) - Default true.
 
 `Scheme`'i güvenli olarak kaydeder, kaynaklar için içerik güvenliği ilkesini atlar, ServiceWorker'ı kaydettirmenize izin verir ve getirme API'sini destekler.
 
@@ -123,18 +116,49 @@ Odaklanmış öğeye `metin` ekler.
 
 * `code` String
 * `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
-* `callback` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
   * `result` Any
 
 `Promise` döndürür - çalışan kodun sonucuyla çözülen bir söz veya kodun sonucu reddedilen bir söz ise reddedilir.
 
-Sayfadaki `code`'u ölçer.
+Sayfadaki `code`'u değerlendirir.
 
 Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
+
+* `worldId` Integer
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
+* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+  * `result` Any
+
+Work like `executeJavaScript` but evaluates `scripts` in isolated context.
+
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+
+* `worldId` Integer
+* `csp` String
+
+Set the content security policy of the isolated world.
+
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+
+* `worldId` Integer
+* `name` Dizi
+
+Set the name of the isolated world. Useful in devtools.
+
+### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
+
+* `worldId` Integer
+* `securityOrigin` String
+
+Set the security origin of the isolated world.
+
 ### `webFrame.getResourceUsage()`
 
-`Object` döndürür:
+`Object` 'i geri getirir:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)

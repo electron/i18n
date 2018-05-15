@@ -24,6 +24,10 @@
 
 محرر الكتابة. برنامج يسمح للمستخدمين بإدخال الأحرف والرموز التي لم يتم العثور عليها في لوحة المفاتيح. على سبيل المثال، هذا يسمح لمستخدمي لوحات المفاتيح اللاتينية إدخال الأحرف الصينية واليابانية، والكورية والهندية.
 
+### IDL
+
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+
 ### IPC
 
 إيبك تعني الاتصالات بين العملية. يستخدم الإلكترون إيبك لإرسال رسائل جسون المسلسلة بين عمليات  الرئيسية </ 0> و  renderer</ 1>.</p> 
@@ -50,12 +54,18 @@
 <p>اختصار لأبل ماك المتجر. للحصول على تفاصيل حول إرسال تطبيقك إلى
 ماس، اطلع على <a href="tutorial/mac-app-store-submission-guide.md"> دليل إرسال ماك أب ستور </ 0>.</p>
 
+<h3>Mojo</h3>
+
+<p>An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.</p>
+
+<p>See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md</p>
+
 <h3>native modules</h3>
 
-<p>الوحدات الأصلية (وتسمى أيضا <a href="https://nodejs.org/api/addons.html"> أدونز </ 0> في
-Node.js) هي وحدات مكتوبة في C أو C ++ التي يمكن تحميلها في Node.js أو
-الكترون باستخدام تتطلب () وظيفة، وتستخدم تماما كما لو كانوا
-وحدة Node.js عادية. أنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت يعمل في مكتبات Node.js و C/c + +.</p>
+<p>Native modules (also called <a href="https://nodejs.org/api/addons.html">addons</a> in
+Node.js) are modules written in C or C++ that can be loaded into Node.js or
+Electron using the require() function, and used as if they were an
+ordinary Node.js module. أنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت يعمل في مكتبات Node.js و C/c + +.</p>
 
 <p>Native Node modules are supported by Electron, but since Electron is very
 likely to use a different V8 version from the Node binary installed in your

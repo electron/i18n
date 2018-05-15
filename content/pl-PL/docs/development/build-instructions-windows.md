@@ -71,7 +71,7 @@ $ python script\bootstrap.py --msvs
 Aby wyczyścić pliki kompilacji:
 
 ```powershell
-$ npm działa bez problemu
+$ npm run clean
 ```
 
 Aby oczyścić tylko `z` i `dist` katalogów:
@@ -127,7 +127,7 @@ Try reinstalling 32bit Node.js.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm

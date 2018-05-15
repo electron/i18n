@@ -2,7 +2,7 @@
 
 > Busca y modifica las cookies de la sesión.
 
-Proceso: [Principal](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Las instancias de la clase `Cookies` son accedidas utilizado la propiedad `cookies` de una `Session`.
 
@@ -36,7 +36,7 @@ Los siguientes eventos están disponibles en las instancias de `Cookies`:
 #### Evento: "changed"
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado
+* `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado.
 * `cause` Cadena - La causa del cambio con uno de los siguientes valores: 
   * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
   * `overwrite` - La cookie se eliminó automáticamente debido a una operación insertada que la sobreescribió.
@@ -56,15 +56,15 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
 * `filtrar` Objeto 
   * `url` Cadena (opcional) - Recupera las cookies que estás asociadas con el `url`. Dejarlo en blanco implica recuperar las cookies de todos los Urls.
   * `name` Cadena (opcional) - Filtra las cookies por nombre.
-  * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`
+  * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`.
   * `path` Cadena (opcional) - Recupera las cookies de cuya ruta coincide con `path`.
   * `secure` Booleano (opcional) - Filtra las cookies por su propiedad Secure.
   * `session` Booleano (opcional) - Filtra las cookies fuera de la sesión o cookies persistentes.
-* `callback` Función 
+* `callback` Function 
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - un arreglo con objetos de cookies.
 
-Envía una solicitud para obtener todas las cookies que coinciden con `details`, `callback` y será llamada con `callback(error, cookies)` cuando termine.
+Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
 #### `cookies.set(details, callback)`
 
@@ -77,7 +77,7 @@ Envía una solicitud para obtener todas las cookies que coinciden con `details`,
   * `secure` Booleano (opcional) - Si la cookie debe ser marcada como Secure. Por defecto es false.
   * `httpOnly` Booleano (opcional) - Si la cookie debe ser marcada como HTTP solamente. Por defecto es false.
   * `expirationDate` Doble (opcional) - La fecha de vencimiento de la cookie como el número de segundos desde la época UNIX. Si se omite, entonces la cookie cambia a una cookie de sesión y no se conservará entre sesiones.
-* `callback` Función 
+* `callback` Function 
   * `error` Error
 
 Configura una cookie con `details`, `callback` y sera llamada con `callback(error)` cuando termine.

@@ -81,23 +81,27 @@ Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Wind
 
 <p>Das Objekt <code> autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 
-<h3><code>autoUpdater.setFeedURL (url [, requestHeaders])`</h3> 
+<h3><code>autoUpdater.setFeedURL(options)`</h3> 
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code> requestHeaders </ 0> Objekt <em> macOS </ 1> (optional) - HTTP-Request-Header.</li>
-</ul>
+* `optionen` Object 
+  * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-<p>Setzt die <code> URL </ 0> und initialisiert den automatischen Updater.</p>
+Setzt die ` URL </ 0> und initialisiert den automatischen Updater.</p>
 
 <h3><code>autoUpdater.getFeedURL ()`</h3> 
-    Gibt ` String </ 0> zurück - Die aktuelle URL des Aktualisierungsfeeds.</p>
+
+Gibt ` String </ 0> zurück - Die aktuelle URL des Aktualisierungsfeeds.</p>
 
 <h3><code>autoUpdater.checkForUpdates ()`</h3> 
-    
-    Fragt den Server, ob es ein Update gibt. Sie müssen ` setFeedURL </ 0> aufrufen, bevor Sie diese API verwenden .</p>
+
+Fragt den Server, ob es ein Update gibt. Sie müssen ` setFeedURL </ 0> aufrufen, bevor Sie diese API verwenden .</p>
 
 <h3><code>autoUpdater.quitAndInstall ()`</h3> 
-    
-    Startet die App neu und installiert das Update nach dem Herunterladen. Es sollte nur aufgerufen werden, nachdem  update-downloaded </ 0> ausgegeben wurde.</p>
 
-<p><strong> Hinweis: </ 0>  <code> autoUpdater.quitAndInstall () </ 1> beendet zuerst alle Anwendungsfenster und gibt nur das Ereignis <code> before-quit </ 1>  auf <code> app </ 1> aus danach. Dies unterscheidet sich von der normalen Quit- Ereignissequenz .</p>
+Startet die App neu und installiert das Update nach dem Herunterladen. Es sollte nur aufgerufen werden, nachdem ` update-downloaded </ 0> ausgegeben wurde.</p>
+
+<p>Under the hood calling <code>autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.

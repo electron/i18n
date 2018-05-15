@@ -28,8 +28,6 @@ $ code electron-quick-start
 }
 ```
 
-**Remarque :** Pour Windows, utilisez `"${workspaceRoot}/node_modules/.bin/electron.cmd"` pour `runtimeExecutable`.
-
 ### Débogage
 
 Définissez des points d’arrêt dans `main.js` et démarrez le débogage dans la [Vue Debug](https://code.visualstudio.com/docs/editor/debugging). Vous devriez être en mesure de toucher les points d’arrêt.

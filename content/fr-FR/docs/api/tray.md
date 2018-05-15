@@ -71,8 +71,8 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
-* `position` [Point](structures/point.md) - la position de l’événement
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
+* `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque l’utilisateur clique sur l’icône.
 
@@ -83,7 +83,7 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
@@ -94,7 +94,7 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur double clique sur l’icône.
 
@@ -124,7 +124,7 @@ Le module `Tray` émet les événements suivants :
 #### Événement : 'drop-text' *macOS*
 
 * `event` Événement
-* `text` String - le texte déposé
+* `text` String - le texte déposé.
 
 Émis lorsqu'un texte est déposé sur l’icône.
 
@@ -147,7 +147,7 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - la position de l’événement
+* `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris entre dans la zone de l’icône.
 
@@ -158,7 +158,7 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - la position de l’événement
+* `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris sort de la zone de l’icône.
 
@@ -169,7 +169,7 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - la position de l’événement
+* `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris bouge dans la zone de l’icône.
 
@@ -203,7 +203,7 @@ Définit le texte au survol pour l'icône.
 
 * `title` String
 
-Définit le titre affiché à côté de l’icône dans la barre d’État.
+Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -236,7 +236,7 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Objet 
-  * `icon` ([NativeImage](native-image.md) | String) - (facultatif)
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 

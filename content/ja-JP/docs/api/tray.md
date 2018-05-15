@@ -203,7 +203,7 @@ macOS において、この tray アイコンが押されたときの関連付�
 
 * `title` String
 
-ステータスバー内の tray アイコンの脇に表示されるタイトルを設定します。
+ステータスバー内の tray アイコンの脇に表示されるタイトル (ANSI カラーサポート) を設定します。
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -236,7 +236,7 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) - (任意)
+  * `icon` ([NativeImage](native-image.md) | String) (任意) -
   * `title` String
   * `content` String
 

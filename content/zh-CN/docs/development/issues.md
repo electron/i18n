@@ -3,7 +3,7 @@
 # 问题
 
 * [如何贡献一个Issue](#how-to-contribute-in-issues)
-* [请求一般性的帮助](#asking-for-general-help)
+* [请求一般的帮助](#asking-for-general-help)
 * [提交漏洞报告](#submitting-a-bug-report)
 * [鉴定漏洞报告](#triaging-a-bug-report)
 * [解决漏洞报告](#resolving-a-bug-report)
@@ -16,9 +16,9 @@
 2. 通过帮助鉴定问题：您可以通过提供辅助信息（一种可以让漏洞被发现的情况）或提出解决问题的建议。
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
-## 请求一般的帮助
+## 请求一般性的帮助
 
-Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
+["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
 ## 提交漏洞报告
 

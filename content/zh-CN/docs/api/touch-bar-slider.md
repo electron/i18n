@@ -2,17 +2,17 @@
 
 > 为本机 macOS 应用程序在触摸栏中创建滑块
 
-线程：[主线程](../tutorial/quick-start.md#main-process)
+进程：[主进程](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *实验功能*
 
-* `options` Object 
+* `选项` 对象 
   * `label` String (optional) - Label text.
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.
   * `maxValue` Integer (optional) - Maximum value.
   * `change` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider
+    * `newValue` Number - The value that the user selected on the Slider.
 
 ### 实例属性
 

@@ -46,7 +46,7 @@ Default_app ├── / - página de predeterminada para mostrar cuando el Elect
 
 ## `/chromium_src`
 
-Los archivos en `/chromium_src` tienden a ser piezas de Chromium que no son partes de la capa de contenido. Por ejemplo, para implementar Pepper API, necesitamos un poco de cableado similar a lo que hace el Chrome oficial. Podriamos tener compilado las fuentes relevantes como parte de [libcc](../glossary.md#libchromiumcontent) pero más a menudo no requerimos todas las características (algunas tienden a ser del propietario o de análisis) asi que solo tomamos partes del código. Estos podrían ser fácilmente parches en libcc, pero en el momento cuando estas fueron escritas, el objetivo de libcc fue el mantener parches muy mínimos y los cambios de chromium_src_ tienden a ser grandes. Además, tenga en cuenta que estos parches nunca pueden ser subidos de nivel a diferencia de otros parches libcc que mantenemos ahora.
+Los archivos en `/chromium_src` tienden a ser piezas de Chromium que no son partes de la capa de contenido. Por ejemplo, para implementar Pepper API, necesitamos un poco de cableado similar a lo que hace el Chrome oficial. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we took parts of the code. Estos podrían ser fácilmente parches en libcc, pero en el momento cuando estas fueron escritas, el objetivo de libcc fue el mantener parches muy mínimos y los cambios de chromium_src_ tienden a ser grandes. Además, tenga en cuenta que estos parches nunca pueden ser subidos de nivel a diferencia de otros parches libcc que mantenemos ahora.
 
 ## Estructura de otros directorios
 

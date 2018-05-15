@@ -1,10 +1,10 @@
 # Windows에서 Electron 디버깅하기
 
-만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. 그렇다 해도, Visual Studio, GitHub의 Electron이 호스팅하는 심볼 서버, Electron 소스 코드가 중단점을 통해 순차적으로 쉽게 디버깅할 수 있는 환경을 제공합니다.
+만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
 
 ## 요구 사항
 
-* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [Windows용 빌드 설명서](build-instructions-windows.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. 물론 직접 다운로드 받은 Electron 바이너리에도 디버거 연결 및 디버깅을 사용할 수 있지만, 실질적으로 디버깅이 까다롭게 고도의 최적화가 되어있음을 발견하게 될 것입니다: 인라인화, 꼬리 호출, 이외 여러 가지 생소한 최적화가 적용되어 디버거가 모든 변수와 실행 경로를 정상적으로 표시할 수 없습니다.
+* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [Windows용 빌드 설명서](build-instructions-windows.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
 * **Visual Studio와 C++ 툴**: Visual Studio 2013과 Visual Studio 2015 두 가지 커뮤니티 에디션 모두 잘 작동합니다. 설치가 완료되면, [Visual Studio가 GitHub의 Electron 심볼 서버를 사용하도록](setting-up-symbol-server.md) 설정해야 합니다. 이 작업은 Visual Studio가 Electron에서 무슨일이 일어나는지 더 잘 이해할 수 있도록 하며 변수를 사람이 읽기 좋은 포맷으로 쉽게 표현할 수 있도록 합니다.
 
@@ -22,7 +22,7 @@ $ ./out/D/electron.exe ~/my-electron-app/
 
 그리고, Visual Studio를 엽니다. Electron은 Visual Studio로 만들어지지 않았으며 이러한 이유로 인해 프로젝트 파일을 가지고 있지 않습니다. 하지만 "파일로 열기"를 통해 소스 코드 파일들을 열 수 있습니다. Visual Studio가 각각의 파일을 따로 연다는 것입니다. 여전히 중단점을 설정할 수 있습니다. Visual Studio는 현재 소스 코드와 일치하는 작동 중인 프로세스와 중단점을 자동으로 찾아냅니다.
 
-관련된 코드 파일들은 `./atom/`에서 찾을 수 있으며 또한 Brightray 안 `./brightray/browser`와 `./brightray/common`에서도 찾을 수 있습니다. 만약 하드코어를 좋아한다면, Chromium을 직접 디버깅할 수도 있습니다. 확실히 `chromium_src` 안에서 찾을 수 있습니다.
+관련된 코드 파일들은 `./atom/`에서 찾을 수 있으며 또한 Brightray 안 `./brightray/browser`와 `./brightray/common`에서도 찾을 수 있습니다.
 
 ### 디버거 연결
 

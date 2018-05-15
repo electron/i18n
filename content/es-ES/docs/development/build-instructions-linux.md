@@ -55,6 +55,12 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### Compilación cruzada
 
 Si quiere compilar para la arquitectura `arm` debe instalar también las siguientes dependencias:
@@ -109,7 +115,7 @@ Para limpiar los archivos de compilación:
 $ npm run clean
 ```
 
-Para limpiar solo los directorios `out` y `dist`:
+Para limpiar solo los directorios `fuera` y `dist`:
 
 ```sh
 $ npm run clean-build

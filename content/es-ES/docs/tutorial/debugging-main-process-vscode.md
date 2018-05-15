@@ -28,8 +28,6 @@ $ code electron-quick-start
 }
 ```
 
-**Nota:** Para Windows, usar `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
-
 ### 3. Depurar
 
 Establece unos puntos de interrupción en `main.js`, y empieza a depurar en la [Debug View](https://code.visualstudio.com/docs/editor/debugging). Debe ser capaz de toparse con los puntos de interrupción.

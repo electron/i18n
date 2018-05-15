@@ -28,8 +28,6 @@ $ codice electron-avvio-veloce
 }
 ```
 
-**Nota:** Per Windows usa `"${Radicespazialavoro}/nodo_moduli/.bin/electron.cmd"` per `tempoesecuzioneEseguibile`.
-
 ### 3. Debugging
 
 Imposta alcuni punti di rottura in `principale.js` e avvia il debugging in [Vista Debug](https://code.visualstudio.com/docs/editor/debugging). Dovresti poter colpire i punti di rottura.

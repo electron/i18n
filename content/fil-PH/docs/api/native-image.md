@@ -147,14 +147,8 @@ Gumagawa ng isang bagong `NativeImage` na instance mula sa NSImage na nagmamapa 
 Ang `hslShift` ay inaaplay sa imahe na may sumusunod na mga patakaran
 
 * `hsl_shift[0]` (hue): Ang ganap na halaga ng hue para sa imahe - 0 at 1 na minamapa sa 0 at 360 sa pangkulay na gulong ng hue (pula).
-* `hsl_shift[1]` (satyurasyon): Isang satyurasyon na shift para sa imahe kasa ang mga sumusunod na halaga:  
- 0 = tanggalin lahat ng kulay.  
- 0.5 = pabayaang hindi binago.  
- 1 = ganap na i-saturate ang imahe. 
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
- 0 = remove all lightness (make all pixels black).  
- 0.5 = leave unchanged.  
- 1 = full lightness (make all pixels white).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
@@ -209,7 +203,7 @@ Pansinin na ang mga binabalik sa panturo ay mahinang panturo sa pinagbatayang na
 
 #### `image.isEmpty()`
 
-Nagbabalik ng `Boolean` - kung ang imahe ay walang laman.
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
@@ -227,13 +221,13 @@ Nagbabalik `Boolean` - Kung ang imahe ay isang template image.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) -Ang lugar kung saan ika-crop ang imahe. 
+* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop.
 
 Nagbabalik sa`NativeImage` - Ang naka-crop na imahe.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Default sa lapad ng imahe. * `height` Integer (optional) - Default sa taas ng imahe * `quality` String (optional) - Ang nais na kalidad sa imaheng binago ang laki. Posibleng halaga ay mga `good`, `better` or `best`. Ang default ay `best`. Ang mga halagan ito ay nagpapahayag ng ninais na kalidad/bilis ng tradeooff. Ito ay isinalin sa algorithm-specific na paraan na nag depende sa kapabilidad (CPU, GPU) sa pinagbatayan na platform. Ito ay posible sa lahat ng tatlong pamamaraan na mai-map sa parehong algorithm sa binigay na platform. 
+* `options` Object * `width` Integer (optional) - Default sa lapad ng imahe. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Posibleng halaga ay mga `good`, `better` or `best`. Ang default ay `best`. Ang mga halagan ito ay nagpapahayag ng ninais na kalidad/bilis ng tradeooff. Ito ay isinalin sa algorithm-specific na paraan na nag depende sa kapabilidad (CPU, GPU) sa pinagbatayan na platform. Ito ay posible sa lahat ng tatlong pamamaraan na mai-map sa parehong algorithm sa binigay na platform. 
 
 Nagbabalik `NativeImage` - Ang imaheng nibago ang laki.
 

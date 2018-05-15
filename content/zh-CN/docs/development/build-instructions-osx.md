@@ -14,7 +14,7 @@
 
 ## macOS SDK
 
-如果你只是开发 Electron，并且不打算重新分配你的自定义 Electron 构建，则可以跳过本节。
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 要使某些功能 (例如缩小缩放) 正常工作，你必须定位到 MacOS 10.10 SDK。
 
@@ -45,6 +45,12 @@ Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. 注�
 ```sh
 $ cd electron
 $ ./script/bootstrap.py -v
+```
+
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
 ```
 
 ## 构建
@@ -85,4 +91,4 @@ $ npm run clean-build
 
 ## 测试
 
-查看[构建系统概览: 测试](build-system-overview.md#tests)
+查看 [构建系统概述: 测试](build-system-overview.md#tests)

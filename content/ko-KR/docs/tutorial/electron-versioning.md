@@ -31,7 +31,7 @@ Electron 버전 2.0 아래에서는 [semver](http://semver.org) 스펙을 따르
 1. 엄격한 semver 규칙 사용
 2. semver 규칙을 준수하는 `-beta` 태그 도입
 3. [관례적인 커밋 메시지](https://conventionalcommits.org/) 도입
-4. 명확하게 정의된 안정화(stabilization) 브랜치
+4. Well-defined stabilization branches
 5. `master` 브랜치는 버전 정보가 없음; 안정화 브랜치만 버전 정보를 가지고 있음
 
 git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶어하는 것, 백포트 방식으로 변경하는 방법에 대해서는 아래에서 자세히 다룰 예정입니다.

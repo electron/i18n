@@ -14,7 +14,7 @@ Jika Anda menggunakan Python yang didownload oleh Homebrew, Anda juga perlu meng
 
 ## macos SDK
 
-Jika Anda hanya mengembangkan Elektron dan tidak berencana untuk mendistribusikan ulang custom Electron build, Anda bisa melewati bagian ini.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 Untuk fitur tertentu (misalnya pinch-zoom) agar berfungsi dengan benar, Anda harus menargetkan SDK macos 10.10.
 
@@ -47,6 +47,12 @@ $ cd elektron
 $ ./script/bootstrap.py -v
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ## Bangunan 
 
 Jika Anda ingin membangun target ` Release ` dan ` Debug `:
@@ -58,7 +64,7 @@ $ ./script/build.py
 Anda juga dapat membangun target ` Debug ` saja:
 
 ```sh
-$ ./script/build.py
+$ ./script/build.py -c R
 ```
 
 Setelah selesai, Anda bisa menemukan biner debug ` elektron ` di bawah ` keluar / D `.
@@ -69,16 +75,16 @@ Elektron hanya bisa dibangun untuk target 64bit pada macOS dan tidak ada rencana
 
 ## Membersihkan
 
-Untuk membersihkan membangun file:
+Untuk membersihkan bangunan file:
 
 ```sh
-$ npm bersih
+$ npm run clean
 ```
 
 Untuk pembersihan hanya `keluar` dan `dist` direktori:
 
 ```sh
-$ npm bersih
+$ npm run clean-build
 ```
 
 **Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.

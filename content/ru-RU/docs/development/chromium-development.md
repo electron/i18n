@@ -1,10 +1,10 @@
-# Разработка Chromium
+# Chromium Development
 
 > A collection of resources for learning about Chromium and tracking its development
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com) on Slack
-- [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
-- [@googlechrome](https://twitter.com/googlechrome) on Twitter
+- [chromiumdev](https://chromiumdev-slack.herokuapp.com) в Slack
+- [@ChromiumDev](https://twitter.com/ChromiumDev) в Twitter
+- [@googlechrome](https://twitter.com/googlechrome) в Twitter
 - [Блог](https://blog.chromium.org)
 - [Code Search](https://cs.chromium.org/)
 - [Исходный код](https://cs.chromium.org/chromium/src/)

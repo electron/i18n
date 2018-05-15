@@ -145,14 +145,8 @@ Mengembalikan ` gambar asli </ 0></p>
 The `hslShift` is applied to the image with the following rules
 
 * `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
- 0 = remove all lightness (make all pixels black).  
- 0.5 = leave unchanged.  
- 1 = full lightness (make all pixels white).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
@@ -206,7 +200,7 @@ Perhatikan bahwa pointer yang dikembalikan adalah pointer lemah ke native yang m
 
 #### `image.isEmpty()`
 
-Mengembalikan `Boolean` - Apakah gambar itu kosong.
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
@@ -224,7 +218,7 @@ Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong
+* `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong.
 
 Mengembalikan `NativeImage` - Gambar yang dipotong.
 
@@ -232,9 +226,7 @@ Mengembalikan `NativeImage` - Gambar yang dipotong.
 
 * ` pilihan </ 0> Objek
   * <code> lebar </ 0>  Integer (opsional) - Default ke lebar gambar.
- * <code> tinggi </ 0>  bilangan bulat (opsional) - Default ke tinggi gambar
-  * <code> kualitas </ 0>  String (opsional) - Kualitas gambar mengubah ukuran yang diinginkan.
-   Nilai yang mungkin <code> bagus </ 0> , <code> lebih baik </ 0> atau <code> terbaik </ 0> . Defaultnya adalah <code> terbaik </ 0> .
+ * <code>height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Nilai yang mungkin ` bagus </ 0> , <code> lebih baik </ 0> atau <code> terbaik </ 0> . Defaultnya adalah <code> terbaik </ 0> .
    Nilai ini mengekspresikan kualitas / kecepatan tradeoff yang diinginkan. Mereka diterjemahkan
     ke dalam metode algoritma khusus yang bergantung pada kemampuan
     (CPU, GPU) dari platform yang mendasarinya. Ada kemungkinan ketiga metode

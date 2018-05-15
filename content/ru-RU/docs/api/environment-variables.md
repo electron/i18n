@@ -6,7 +6,7 @@
 
 Пример терминала POSIX:
 
-```bash
+```sh
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```

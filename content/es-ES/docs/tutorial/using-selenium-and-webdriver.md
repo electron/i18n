@@ -67,7 +67,7 @@ $ npm install selenium-webdriver
 
 ### 3. Conecte a ChromeDriver
 
-El uso de `selenium-webdriver` con Electron es básicamente e mismo que con upstream, excepto que tiene que ser especificado manualmente como conectar al chromedriver y donde encontrar el binario de Electron:
+The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
@@ -150,6 +150,6 @@ client
 
 ## Flujo de trabajo
 
-Para probar su aplicación sin reconstruir Electron, simplemente [coloque](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la fuente de su aplicación en el directorio de recursos de Electron.
+To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
 
 También puede pasar un argumento para ejecutar con su electron binario que lleva a la carpeta de su aplicación. Esto elimina la necesidad de copiar y pegar su aplicación en el directorio de recurso de Electron.

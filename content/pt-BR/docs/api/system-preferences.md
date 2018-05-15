@@ -24,7 +24,7 @@ Retorna:
 
 Retorna:
 
-* `event` Event
+* Evento `event`
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
@@ -88,7 +88,7 @@ Removes the subscriber with `id`.
   * `event` String
   * `userInfo` Object
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -96,10 +96,16 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
+### `systemPreferences.registerDefaults(defaults)` *macOS*
+
+* `defaults` Object - a dictionary of (`key: value`) user defaults 
+
+Add the specified defaults to your application's `NSUserDefaults`.
+
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 Returns `any` - The value of `key` in `NSUserDefaults`.
 
@@ -116,7 +122,7 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` String
 
 Set the value of `key` in `NSUserDefaults`.

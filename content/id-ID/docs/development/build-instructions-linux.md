@@ -55,6 +55,12 @@ $ cd elektron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### Kompilasi silang
 
 Jika Anda ingin membangun target ` lengan ` Anda juga harus menginstal dependensi berikut ini:
@@ -96,7 +102,7 @@ Ini akan menempatkan distribusi kerja dengan ukuran file yang jauh lebih kecil d
 Anda juga dapat membangun target ` Debug ` saja:
 
 ```sh
-$ ./script/build.py -c R
+$ ./script/build.py
 ```
 
 Setelah selesai, Anda bisa menemukan biner debug ` elektron ` di bawah ` keluar / D `.

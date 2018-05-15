@@ -22,7 +22,7 @@ O módulo `shell` tem os seguintes métodos:
 
 * `fullPath` String
 
-Retorna `Boolean` - Se o item for mostrado com sucesso
+Retorna `Boolean` - Se o item for mostrado com sucesso.
 
 Mostra o arquivo especificado em um gerenciador de arquivos. Se possível, seleciona o arquivo.
 
@@ -36,10 +36,10 @@ Abre o arquivo fornecido na maneira padrão da área de trabalho.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - Máximo de 2081 caracteres no windows, ou a função retorna falso
-* `opções` Objeto (opcional) *macOS* 
+* `url` String - Máximo de 2081 caracteres no windows, ou a função retorna falso.
+* `options` Objeto (opcional) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+* `callback` Function (opcional) *macOS* - If specified will perform the open asynchronously. 
   * `error` Error
 
 Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
@@ -50,7 +50,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash
+Returns `Boolean` - Whether the item was successfully moved to the trash.
 
 Move o arquivo fornecido para o lixo e retorna um boolean para o operação.
 
@@ -67,7 +67,7 @@ Toca o sinal sonoro.
   * `replace` - Sobrescreve um atalho existente, falha se o atalho não existir.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully
+Returns `Boolean` - Whether the shortcut was created successfully.
 
 Creates or updates a shortcut link at `shortcutPath`.
 

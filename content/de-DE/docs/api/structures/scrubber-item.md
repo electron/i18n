@@ -1,4 +1,4 @@
 # ScrubberItem Objekt
 
-* `label` String-(optional) der Text, der in diesem Element angezeigt werden soll
-* `label` String-(optional) der Text, der in diesem Element angezeigt werden soll
+* `label` String (optional) - The text to appear in this item
+* `icon` NativeImage (optional) - The image to appear in this item

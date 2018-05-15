@@ -6,4 +6,4 @@
 * `privateBytes` Integer - Die Speichergrösse die nicht mit anderen Prozessen wie zB. JS heap oder HTML geteilt wird.
 * `sharedBytes` Integer - Die Speichergrösse die mit anderen Prozessen geteilt wird, typischerweise Speicher, der von Electron code selber gebraucht wird
 
-Note that all statistics are reported in Kilobytes.
+Beachten Sie, dass alle Statistiken in Kilobyte angegeben werden.

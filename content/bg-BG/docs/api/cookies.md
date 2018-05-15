@@ -2,7 +2,7 @@
 
 > Достъп и промяна на потребителска сесия.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
 Инстанция на класа `Cookies` можете да достъпите с помощта на свойството `cookies` на класа `Session`.
 
@@ -35,8 +35,8 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 #### Събитие: 'changed'
 
-* `event` Event
-* `cookie` [Cookie](structures/cookie.md) - бисквитката, която е променена
+* `event` Събитие
+* `cookie` [Cookie](structures/cookie.md) - бисквитката, която е променена.
 * `cause` String - Причината за промяната, една от следните стойности: 
   * `explicit` - Бисквитката е променена директно чрез действие на потребителя.
   * `overwrite` - Бисквитката е изтрита автоматично поради действие 'Insert', което я е презаписало.
@@ -56,15 +56,15 @@ The following methods are available on instances of `Cookies`:
 * `filter` Object 
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
   * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
+  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `обратно повикване` Функция 
+* `обратно повикване` Function 
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
 #### `cookies.set(details, callback)`
 

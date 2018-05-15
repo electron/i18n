@@ -30,7 +30,7 @@ npm install --arch=ia32 electron
 npm install --platform=win32 electron
 ```
 
-## プロキシ環境下
+## プロキシ
 
 HTTP プロキシを使用する必要がある場合は、[これらの環境変数を設定](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables)してください。
 
@@ -85,7 +85,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 `npm install electron` を実行するとき、インストール時エラーが発生する場合があります。
 
-ほとんどの場合、これらのエラーはネットワークに起因し、`electron` のnpmパッケージに問題はないと考えられます。 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` といったエラーが表示されている場合、それはネットワークに問題があることを示しています。 最も良い解決策はネットワークを切り替えること、あるいは少し時間を置いてからもう一度インストールしてみることです。
+ほとんどの場合、これらのエラーはネットワークに起因し、`electron` のnpmパッケージに問題はないと考えられます。 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` といったエラーが表示されている場合、それはネットワークに問題があることを示しています。 The best resolution is to try switching networks, or wait a bit and try installing again.
 
 `npm` 経由でのインストールに失敗する場合、Electronを [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
 

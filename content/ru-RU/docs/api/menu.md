@@ -1,6 +1,6 @@
 ## Class: Menu
 
-> Создаёт меню и контекстное меню в нативных приложениях.
+> Создает меню приложения и контекстное меню.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -16,7 +16,7 @@ Process: [Main](../glossary.md#main-process)
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Задает `menu` в качестве меню приложения в macOS. В Windows и Linux `menu` будет задан как верхнее меню для каждого окна.
 
 Передача `null` удалит строку меню на Windows и Linux, но ничего не сделает на на macOS.
 
@@ -24,25 +24,25 @@ Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` w
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Возвращает `Menu | null` - меню приложения, если значение задано, в противном случае `null`.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Примечание:** Возвращенный экземпляр `Menu` не поддерживает динамическое добавление или удаление пунктов меню. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Обычно достаточно использовать параметр [`role`](menu-item.md#roles) из [`MenuItem`](menu-item.md).
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+Для дополнительной информации по нативным действиям в macOS смотрите [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7).
 
 #### `Menu.buildFromTemplate(template)`
 
 * `template` MenuItemConstructorOptions[]
 
-Returns `Menu`
+Возвращает `Menu`
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+В общем случае, `template` просто массив, содержащий `options` и конструирующий [MenuItem](menu-item.md). Пример использования смотрите выше.
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
@@ -50,26 +50,26 @@ You can also attach other fields to the element of the `template` and they will 
 
 Объект `меню` имеет следующие методы экземпляра:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Object (опционально) 
+* `options` Object 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `callback` Function (optional) - Called when menu is closed.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 Закрывает контекстное меню в `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Appends the `menuItem` to the menu.
 
@@ -82,9 +82,31 @@ Returns `MenuItem` the item with the specified `id`
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Inserts the `menuItem` to the `pos` position of the menu.
+
+### События экземпляра
+
+Objects created with `new Menu` emit the following events:
+
+**Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
+
+#### Event: 'menu-will-show'
+
+Возвращает:
+
+* `event` Event
+
+Emitted when `menu.popup()` is called.
+
+#### Event: 'menu-will-close'
+
+Возвращает:
+
+* `event` Event
+
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Instance Properties
 
@@ -96,11 +118,15 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
+### События экземпляра
+
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+
 ## Примеры
 
 Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
 
-### Основной (main) процесс
+### Главный процесс
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -213,7 +239,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```

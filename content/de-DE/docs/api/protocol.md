@@ -29,7 +29,7 @@ The `protocol` module has the following methods:
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - Custom schemes to be registered as standard schemes.
-* `optionen` Object (optional) 
+* `optionen` Objekt (optional) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
@@ -150,7 +150,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
               * ` URL </ 0>  Zeichenfolge</li>
 <li><code>method` String
               * `session` Object (optional)
-              * `uploadData` Object (optional) 
+              * `uploadData` Objekt (optional) 
                 * `contentType` String - MIME type of the content.
                 * `data` String - Content to be sent.
         * `completion` Function (optional) 
@@ -192,7 +192,7 @@ const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  const rv = new PassThrough() // PassThrough is also a Readable stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -307,7 +307,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
                                   * ` URL </ 0>  Zeichenfolge</li>
 <li><code>method` String
                                   * `session` Object (optional)
-                                  * `uploadData` Object (optional) 
+                                  * `uploadData` Objekt (optional) 
                                     * `contentType` String - MIME type of the content.
                                     * `data` String - Content to be sent.
                             * `completion` Function (optional) 

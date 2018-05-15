@@ -14,7 +14,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`Notification` 是 [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)
+`Notification` 是 [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter)
 
 通过 ` options ` 来设置的一个新的原生 ` Notification `。
 
@@ -24,20 +24,21 @@
 
 #### `Notification.isSupported()`
 
-Returns ` Boolean `-无论当前系统是否支持桌面通知
+Returns ` Boolean `-当前系统是否支持桌面通知
 
 ### `new Notification([options])` *实验功能*
 
 * `选项` 对象 
-  * ` title `String - 通知的标题, 将在通知窗口的顶部显示
-  * ` subtitle `String (可选) 通知的副标题, 将显示在标题下面。* macOS *
-  * ` body `String 通知的正文文本, 将显示在标题或副标题下面
-  * ` silent `Boolean (可选) 在显示通知时是否发出 OS 提示音
-  * `icon` (String | [NativeImage](native-image.md)) - (可选) 用于通知的图标
-  * ` hasReply `Boolean (可选) 是否向通知中添加内联答复选项。 * macOS *
-  * ` replyPlaceholder `String (可选) 内联答复输入字段中的占位符。* macOS *
-  * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
-  * ` actions `[ NotificationAction [] ](structures/notification-action.md) (可选) 要添加到通知中的操作。 请在 ` NotificationAction ` 文档 中的查看可用操作和限制* macOS *
+  * ` title `String - 通知的标题, 将在通知窗口的顶部显示.
+  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+  * ` body `String 通知的正文文本, 将显示在标题或副标题下面.
+  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
+  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
+  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
+  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
+  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
+  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### 实例事件
 
@@ -76,7 +77,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 返回:
 
 * `event` Event
-* ` reply `String-用户在内联答复字段中输入的字符串
+* ` reply `String-用户在内联答复字段中输入的字符串.
 
 当用户单击 ` hasReply: true ` 的通知上的 "Reply" 按钮时触发。
 
@@ -85,7 +86,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 返回:
 
 * `event` Event
-* `index` Number - 已激活的操作的索引
+* `index` Number - 已激活的操作的索引.
 
 ### 实例方法
 

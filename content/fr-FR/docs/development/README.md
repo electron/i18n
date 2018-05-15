@@ -1,12 +1,12 @@
 # Développer Electron
 
-Ces guides sont destinés aux personnes travaillant sur le projet Electron lui-même. Pour des guides sur le développement d'applications Electron, voir [/docs/README.md](../README.md#guides-and-tutorials).
+Ces guides sont destinés aux personnes travaillant sur le projet Electron lui-même. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [Code de conduite](../../CODE_OF_CONDUCT.md)
 * [Contribuer à Electron](../../CONTRIBUTING.md)
 * [Issues](issues.md)
-* [Pull Requests](pull-requests.md)
-* [Documentation Styleguide](styleguide.md)
+* [Proposer une Evolution: Demande de Pull](pull-requests.md)
+* [Documentation Styleguide](coding-style.md#documentation)
 * [Structure du répertoire du Code Source](source-code-directory-structure.md)
 * [Style de Codage](coding-style.md)
 * [Utilisation du clang-format sur du code C++](clang-format.md)

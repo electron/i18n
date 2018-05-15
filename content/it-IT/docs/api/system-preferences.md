@@ -17,20 +17,20 @@ The `systemPreferences` object emits the following events:
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
 Restituisce:
 
-* `event` Evento
+* `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
 ## Metodi
@@ -60,7 +60,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Funzione 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
@@ -84,11 +84,11 @@ Removes the subscriber with `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Funzione 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -96,10 +96,16 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
+### `systemPreferences.registerDefaults(defaults)` *macOS*
+
+* `defaults` Object - a dictionary of (`key: value`) user defaults 
+
+Add the specified defaults to your application's `NSUserDefaults`.
+
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 Returns `any` - The value of `key` in `NSUserDefaults`.
 
@@ -116,7 +122,7 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` String
 
 Set the value of `key` in `NSUserDefaults`.

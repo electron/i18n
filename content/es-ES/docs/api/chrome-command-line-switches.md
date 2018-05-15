@@ -26,6 +26,10 @@ Desactiva la cache de disco para las peticiones HTTP.
 
 Desactiva los protocolos HTTP/2 y SPDY/3.
 
+## --lang
+
+Set a custom locale.
+
 ## --inspect=`port` and --inspect-brk=`port`
 
 Parámetros de depuración, vea la guía [Debugging the Main Process](../tutorial/debugging-main-process.md) para mas detalles.
@@ -42,7 +46,7 @@ Fuerza el espacio máximo de disco a utilizar por la caché de disco, en bytes.
 
 Especifica las opciones a pasar al motor de NodeJS. Tienen que ser pasadas cuando Electron arranca si quieres habilitar los `flags` en el proceso principal.
 
-```bash
+```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
@@ -96,7 +100,7 @@ Una lista de servidores separadas por comas por los que la autentificación inte
 
 Por ejemplo:
 
-```bash
+```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 

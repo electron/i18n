@@ -2,7 +2,7 @@
 
 > Dapatkan preferensi sistem
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 ```javascript
 const {systemPreferences} = require('electron')
@@ -25,7 +25,7 @@ Objek
     
     <ul>
       <li>
-        <code>acara</code> Acara
+        <code>event</code> Event
       </li>
       <li>
         <code> newColor &lt;/ 0> String - Warna RGBA baru yang ditugaskan pengguna untuk menjadi sistem mereka
@@ -37,7 +37,7 @@ Aksen warna.&lt;/li>
 &lt;p>Pengembalian:&lt;/p>
 
 &lt;ul>
-&lt;li>&lt;code>peristiwa</code> Peristiwa
+&lt;li>&lt;code>event</code> Sinyal
       </li>
     </ul>
     
@@ -155,14 +155,26 @@ bersama dengan notifikasi.&lt;/p>
 &lt;/ul>&lt;/li>
 &lt;/ul>
 
-&lt;p>Sama seperti &lt;code> subscribeNotification &lt;/ 0> , namun gunakan &lt;code> NSNotificationCenter &lt;/ 0> untuk default lokal . Ini diperlukan untuk acara seperti &lt;code> NSUserDefaultsDidChangeNotification &lt;/ 0>&lt;/p>
-
-&lt;h3>&lt;code>System Preferences.unsubscribe Local Pemberitahuan (id)</code> <em>macOS</em></h3> <ul>
+&lt;p>Same as &lt;code>subscribeNotification</code>, but uses <code>NSNotificationCenter</code> for local defaults. This is necessary for events such as <code>NSUserDefaultsDidChangeNotification</code>.</p> <h3>
+                  <code>System Preferences.unsubscribe Local Pemberitahuan (id)</code> <em>macOS</em>
+                </h3>
+                <ul>
                   <li>
                     <code> id &lt;/ 0>  Integer&lt;/li>
 &lt;/ul>
 
 &lt;p>Sama seperti &lt;code> unsubscribeNotification </code>, namun menghapus pelanggan dari <code>NSNotificationCenter</code>.</p> <h3>
+                      <code>systemPreferences.registerDefaults(defaults)</code> <em>macOS</em>
+                    </h3>
+                    <ul>
+                      <li>
+                        <code>defaults</code> Object - a dictionary of (<code>key: value</code>) user defaults
+                      </li>
+                    </ul>
+                    <p>
+                      Add the specified defaults to your application's <code>NSUserDefaults</code>.
+                    </p>
+                    <h3>
                       <code>systempreferences.get userdefault (kunci, jenis) </code> <em>macOS</em>
                     </h3>
                     <ul>
@@ -170,7 +182,7 @@ bersama dengan notifikasi.&lt;/p>
                         <code>kunci</code> senar
                       </li>
                       <li>
-                        <code>ketik</code> String - Bisa <code>string</code>, <code>boolean </code>, <code>bilangan bulat</code>, <code>float</code>, <code>ganda</code>, <code>url</code>, <code>array</code>, <code>kamus</code>
+                        <code>type</code> String - Can be <code>string</code>, <code>boolean</code>, <code>integer</code>, <code>float</code>, <code>double</code>, <code>url</code>, <code>array</code> or <code>dictionary</code>.
                       </li>
                     </ul>
                     <p>
@@ -181,22 +193,22 @@ bersama dengan notifikasi.&lt;/p>
                     </p>
                     <ul>
                       <li>
-                        <code>AppleInterfaceStyle</code>: <code>senar</code>
+                        <code>AppleInterfaceStyle</code>: <code>string</code>
                       </li>
                       <li>
-                        <code>AppleAquaColorVariant</code>: <code>bilangan bulat</code>
+                        <code>AppleAquaColorVariant</code>: <code>integer</code>
                       </li>
                       <li>
-                        <code>AppleHighlightColor</code>: <code>senar</code>
+                        <code>AppleHighlightColor</code>: <code>string</code>
                       </li>
                       <li>
-                        <code>AppleShowScrollBars</code>: <code>senar</code>
+                        <code>AppleShowScrollBars</code>: <code>string</code>
                       </li>
                       <li>
                         <code>NSNavRecentPlaces</code>: <code>array</code>
                       </li>
                       <li>
-                        <code>NSPreferredWebServices</code>: <code>kamus</code>
+                        <code>NSPreferredWebServices</code>: <code>dictionary</code>
                       </li>
                       <li>
                         <code>NSUserDictionaryReplacementItems</code>: <code>array</code>
@@ -210,7 +222,7 @@ bersama dengan notifikasi.&lt;/p>
                         <code>kunci</code> senar
                       </li>
                       <li>
-                        <code>ketik</code> String - lihat [<code>getUserDefault</code>] [# systempreferencesgetuserdefaultkey-type-macos]
+                        <code>ketik</code> String - lihat [<code>getUserDefault</code>] [# systempreferencesgetuserdefaultkey-type-macos].
                       </li>
                       <li>
                         <code>nilai</code> Senar

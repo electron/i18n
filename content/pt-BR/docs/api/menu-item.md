@@ -11,18 +11,18 @@ Veja [`Menu`](menu.md) para exemplos.
 * `opções` Object 
   * `click` Function (opcional) - Vai ser chamado com `click(menuItem, browserWindow, event)` quando o item de menu for clicado. 
     * `menuItem` MenuItem
-    * `browserWindow` BrowserWindow
+    * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
   * `role` String (opcional) - Define a ação do click no menu, quando especificado a propriedade `click` será ignorada. Veja [roles](#roles).
   * `type` String (opcional) - Pode ser `normal`, `separator`, `submenu`, `checkbox` ou `radio`.
-  * `label` String - (opcional)
-  * `sublabel` String - (opcional)
+  * `label` String (optional)
+  * `sublabel` String (optional)
   * `accelerator` [Accelerator](accelerator.md) (opcional) - Atalho
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `enabled` Boolean (optional) - Se falso, o item do menu vai ser não-clicável e cinza.
   * `visible` Boolean (opcional) - Se falso, o item do menu será inteiramente escondido.
   * `checked` Boolean (opcinal) - Deve ser especificado apenas para `checkbox` ou `radio` tipos de item de menu.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (opcional) - Deve ser especificado para os tipos de menu `submenu`. Se `submenu` for especificado, o `type: 'submenu'` pode ser omitido. Se o valor não for um `Menu` então ele será automaticamente convertido para um, utilizando `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. Se `submenu` for especificado, o `type: 'submenu'` pode ser omitido. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (opcional) - Unico em um menu. Se definido, pode então ser utilizado como uma referencia para esse item pelo atributo de posição.
   * `position` String (opcional) - Esse campo permite definição estrita da localização específica dentro de um dado menu.
 
@@ -41,42 +41,44 @@ A propriedade `role` pode ter os seguintes valores:
 * `cut`
 * `copy`
 * `paste`
-* `pasteandmatchstyle`
-* `selectall`
+* `pasteAndMatchStyle`
+* `selectAll`
 * `delete`
-* `minimize` - Minimiza a janela atual
-* `close` - Fecha a janela atual
-* `quit`- Fecha a aplicação
-* `reload` - Recarrega a janela atual
-* `forcereload` - Recarrega a janela atual, ignorando o cache.
-* `toggledevtools` - Alterna ferramentas de desenvolvedor na janela atual
-* `togglefullscreen`- Alterna o modo de tela cheia na janela atual
-* `resetzoom` - Reseta o zoom da pagina focada para seu valor original
-* `zoomin` - O zoom na pagina focada é aumentado em 10%
-* `zoomout` - O zoom na pagina focada é diminuido em 10%
-* `editMenu` - Menu "Edit" padrão inteiro (Desfazer, Copiar, etc.)
-* `windowMenu` - Menu "Window" padrão inteiro (Minimizar, Fechar, etc.)
+* `minimize` - Minimiza a janela atual.
+* `close` - Fecha a janela atual.
+* `quit`- Fecha a aplicação.
+* `reload` - Recarrega a janela atual.
+* `forceReload` - Reload the current window ignoring the cache.
+* `toggleDevTools` - Toggle developer tools in the current window.
+* `toggleFullScreen`- Toggle full screen mode on the current window.
+* `resetZoom` - Reset the focused page's zoom level to the original size.
+* `zoomIn` - Zoom in the focused page by 10%.
+* `zoomOut` - Zoom out the focused page by 10%.
+* `editMenu` - Menu "Edit" padrão inteiro (Desfazer, Copiar, etc.).
+* `windowMenu` - Menu "Window" padrão inteiro (Minimizar, Fechar, etc.).
 
-As seguintes roles adicionais estão disponíveis no macOS:
+The following additional roles are available on *macOS*:
 
-* `about` - Mapeia para a ação `orderFrontStandardAboutPanel`
-* `hide` - Mapeia para a ação `hide`
-* `hideothers` - Mapeia para a ação `hideOtherApplications`
-* `hideothers` - Mapeia para a ação `unhideAllApplications`
-* `startspeaking` - Mapeia para a ação `startSpeaking`
-* `startspeaking` - Mapeia para a ação `stopSpeaking`
-* `hide` - Mapeia para a ação `arrangeInFront`
-* `zoom` - Mapeia para a ação `performZoom`
-* `toggletabbar` - Mapeia para a ação `toggleTabBar`
-* `selectnexttab` - Mapeia para a ação `selectNextTab`
-* `selectprevioustab` - Mapeia para a ação `selectPreviousTab`
-* `mergeallwindows` - Mapeia para a ação `mergeAllWindows`
-* `movetabtonewwindow` - Mapeia para a ação `moveTabToNewWindow`
-* `window` -O submenu é um menu "Window"
-* `help` - O submenu é um menu "Help"
-* `services` - O submenu é um menu "Services"
+* `about` - Mapeia para a ação `orderFrontStandardAboutPanel`.
+* `hide` - Mapeia para a ação `hide`.
+* `hideOthers` - Map to the `hideOtherApplications` action.
+* `hideothers` - Mapeia para a ação `unhideAllApplications`.
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `hide` - Mapeia para a ação `arrangeInFront`.
+* `zoom` - Mapeia para a ação `performZoom`.
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
+* `services` - The submenu is a "Services" menu.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
-Quando especificando uma `role` no macOS, `label` e `accelerator` são as únicas opções que irão afetar o item de menu. Todas as outras opções serão ignoradas.
+When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
 ### Propriedades da Instância
 
@@ -102,8 +104,8 @@ Você pode adicionar uma função `click` para comportamentos adicionais.
 
 #### `menuItem.label`
 
-Uma `String` representando os rótulos visíveis dos itens do menu
+Uma `String` representando os rótulos visíveis dos itens do menu.
 
 #### `menuItem.click`
 
-Uma `Function` que é ativada quando um item de menu recebe um evento de clique
+Uma `Function` que é ativada quando um item de menu recebe um evento de clique.

@@ -18,7 +18,7 @@
   * `path.join()` を使用してファイル名を連結します。
   * 一時ディレクトリを参照する必要がある場合は、`/tmp` ではなく `os.tmpdir()` を使用してください。
 * 関数の終わりで明示的に戻るときは、そのままの `return` を使用します。 
-  * `return null`、`return undefined`、`null` や、`undefined` ではありません
+  * Not `return null`, `return undefined`, `null` or `undefined`
 
 ## C++ と Python
 
@@ -48,8 +48,8 @@ C++ コードは多くの Chromium の抽象クラスと型を使用している
 
 Electron API では、Node.js と同じ大文字表記が使用されます。
 
-* モジュール自体が `BrowserWindow` のようなクラスである場合は、`CamelCase` を使用します。
-* モジュールが `globalShortcut` のような API のセットである場合は、`mixedCase` を使用します。
+* モジュール自体が `BrowserWindow` のようなクラスである場合は、`PascalCase` を使用します。
+* モジュールが `globalShortcut` のような API のセットである場合は、`camelCase` を使用します。
 * API がオブジェクトのプロパティで、`win.webContents` のような別の章に分けられるほど複雑な場合は、`mixedCase` を使用します。
 * 他の非モジュール API の場合は、`<webview>タグ` や `プロセスオブジェクト` などの自然なタイトルを使用します。
 

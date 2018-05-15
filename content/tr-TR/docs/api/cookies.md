@@ -2,7 +2,7 @@
 
 > Oturumdaki çerezleri sorgulayın veya değiştirin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `Cookies`'den türeyen objecler `Session'ın` `cookies` sembolü ile erişilir.
 
@@ -35,8 +35,8 @@ Aşağıdaki olaylar `Cookies` sınıfından türeyen objelerde mevcuttur:
 
 #### Olay: 'changed'
 
-* `event` Olay
-* `cookie` [Çerez](structures/cookie.md) - Değişen çerez
+* `event` Event
+* `cookie` [Çerez](structures/cookie.md) - Değişen çerez.
 * `cause` Katar - Olan değışimin nedeni (Aşağıdaki değerlerle): 
   * `explicit` - Çerez direkt olarak kullanıcının bir aksiyonu tarafından değiştirildi.
   * `overwrite` - Çerez, aynı isimde yeni bir çerez eklendiği için silindi.
@@ -47,28 +47,28 @@ Aşağıdaki olaylar `Cookies` sınıfından türeyen objelerde mevcuttur:
 
 Herhangi bir çerez eklenmiş, silinmiş, düzenlenmiş veya süresi bitmiş olduğunda gönderilir.
 
-### Sınıf örneği metodları
+### Örnek yöntemler
 
 Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Nesne 
+* `filter` Object 
   * `url` Katar (Opsiyonel) - `url` ile bağıntılı çerezleri çeker. Eğer boş girilirse tüm çerezler çekilir.
   * `name` Katar (opsiyonel) - Çerezleri isme göre filtrele.
-  * `domain` Katar (opsiyonel) - `domains` ile eşleşen domain'lerin çerezlerini çeker
+  * `domain` Katar (opsiyonel) - `domains` ile eşleşen domain'lerin çerezlerini çeker.
   * `path` Katar (opsiyonel) - `path` ile eşleşen çerezleri çeker.
   * `secure` Boolean (opsiyonel) - Secure özelliği olan çerezleri çeker.
   * `session` Boolean (opsiyonel) - Oturumu ya da kalıcı çerezleri filtreler.
-* `callback` Fonksiyon 
-  * `error` Hata
+* `geri aramak` Function 
+  * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - Çerez objeleri dizisi.
 
-`details` ile eşleşen tüm çerezlere istek gönderir, istek tamamlandığında `callback`, `callback(error, cookies)` ile çağırılır.
+Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
 #### `cookies.set(details, callback)`
 
-* `details` Nesne 
+* `details` Obje 
   * `url` Katar - Çerezin ilişkilendirileceği url.
   * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
   * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
@@ -77,8 +77,8 @@ Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
   * `secure` Katar (opsiyonel) - Çerez güvenli olarak işaretlensin mi? Varsayılan değeri False.
   * `httpOnly` Boolean (opsiyonel) - Çerez httpOnly olarak işaretlensin mi? Varsayılan değeri False.
   * `expirationDate` Double (opsiyonel) - UNIX epoch başlangıcından itibaren saniyeler cinsinden çerezin geçerliliğini yitirme süresi. Eğer boş geçilirse, çerez bir oturum çerezi olarak algılanır ve farklı oturumlar arasında kalıcı olmaz.
-* `callback` Fonksiyon 
-  * `error` Hata
+* `geri aramak` Function 
+  * `error` Error
 
 `details<code> ile bir çerez ataması yapar, tamamlandığında <code>callback(error)` çağırılır.
 
@@ -86,12 +86,12 @@ Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
 
 * `url` String - URL ile ilişkilendirilen çerez.
 * `name` Katar - Silinecek çerezin ismi.
-* `callback` Fonksiyon
+* `callback` Function
 
 `url` ve `name` ile eşleşen çerezleri siler, işlem tamamlandığında `callback`, `callback()` şeklinde çağırılır.
 
 #### `cookies.flushStore(callback)`
 
-* `callback` Fonksiyon
+* `callback` Function
 
 Yazılmamış çerezlerı disk'e yazar.

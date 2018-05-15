@@ -121,7 +121,7 @@ Sa ibaba ng paraan ay mas detalyadong impormasyon sa bawat isa sa mga argumento.
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * O isang pasadyang uri tulad ng elektron [`WebContent`](api/web-contents.md)
 
-Kung sa argumento o isang paraan na ito ay natatangi sa ilang mga plataporma, mga plataporma ay ipinahiwatig gamit ang isang delimited ng espasyo na naka-italic ang listahan kasunod ng mga datatype. Pagpapahalaga ay maaaring maging `macOS`, `Windows`, o `Linux`.
+Kung sa argumento o isang paraan na ito ay natatangi sa ilang mga plataporma, mga plataporma ay ipinahiwatig gamit ang isang delimited ng espasyo na naka-italic ang listahan kasunod ng mga datatype. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `E-animate` Boolean (opsyonal) _macOS_ _Windows_ - Pagalawin ang bagay.

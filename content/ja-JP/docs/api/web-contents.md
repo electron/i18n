@@ -136,14 +136,14 @@ console.log(webContents)
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
-* `options` Object - 新しい `BrowserWindow` を作成するのに使われるオプション。
+* `options` Object - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 
 ページが `url` の新しいウインドウを開くリクエストをするときに発行されます。`window.open` か `<a target='_blank'>` のようなリンクによってリクエストされる可能があります。
 
 デフォルトでは、`url` の新しい `BrowserWindow` が作成されます。
 
-`event.preventDefault()` を呼ぶと、Electron が自動的に新しい `BrowserWindow` を作成するのを防ぎます。 もし `event.preventDefault()` を呼び、新しい `BrowserWindow` を手動で作る場合、新しい `BrowserWindow` インスタンスの参照を `event.newGuest` にセットしなければ、予期しない動作になる可能性があります。 例:
+`event.preventDefault()` を呼ぶと、Electron が自動的に新しい [`BrowserWindow`](browser-window.md) を作成するのを防ぎます。 もし `event.preventDefault()` を呼び、新しい `BrowserWindow` を手動で作る場合、新しい [`BrowserWindow`](browser-window.md) インスタンスの参照を [`event.newGuest`](browser-window.md) にセットしなければ、予期しない動作になる可能性があります。 例:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -250,7 +250,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 戻り値:
 
 * `event` Event
-* `input` Object - プロパティ入力 
+* `input` Object - プロパティ入力. 
   * `type` String - `keyUp` か `keyDown`。
   * `key` String - [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `code` String - [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
@@ -262,7 +262,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 ページ内の `keydown` と `keyup` イベントが発生する直前に発行されます。 `event.preventDefault` を呼ぶと、ページの `keydown`/`keyup` イベントとメニューショートカットを阻害します。
 
-メニューショートカットだけを阻害するには、[`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts) を使用します。
+メニューショートカットだけを阻害するには、[`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental) を使用します。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -294,7 +294,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 * `event` Event
 * `url` String
-* `error` String - エラーコード
+* `error` String - エラーコード.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - 証明書が信頼できるとみなされるかどうかを示す。
@@ -390,14 +390,14 @@ win.webContents.on('before-input-event', (event, input) => {
 
 * `event` Event
 * `type` String
-* `image` NativeImage (任意)
+* `image` [NativeImage](native-image.md) (任意)
 * `scale` Float (任意) - カスタムカーソルの拡大率。
 * `size` [Size](structures/size.md) (任意) - `image` のサイズ。
 * `hotspot` [Point](structures/point.md) (任意) - カスタムカーソルのホットスポットの座標。
 
 カーソルの種類が変更されたときに発行されます。 `type` は `default`、`crosshair`、`pointer`、`text`、`wait`、`help`、`e-resize`、`n-resize`,`ne-resize`、`nw-resize`、`s-resize`、`se-resize`、`sw-resize`、`w-resize`,`ns-resize`、`ew-resize`、`nesw-resize`、`nwse-resize`、`col-resize`,`row-resize`、`m-panning`、`e-panning`、`n-panning`、`ne-panning`、`nw-panning`,`s-panning`、`se-panning`、`sw-panning`、`w-panning`、`move`、`vertical-text`,`cell`、`context-menu`、`alias`、`progress`、`nodrop`、`copy`、`none`,`not-allowed`、`zoom-in`、`zoom-out`、`grab`、`grabbing`、`custom` になれます。
 
-もし `type` パラメータが `custom` の場合、`image` パラメータはカスタムカーソルの `NativeImage` を、`scale`、`size`、`hotspot` はカスタムカーソルについての追加の情報を持ちます。
+もし `type` パラメータが `custom` の場合、`image` パラメータはカスタムカーソルの [`NativeImage`](native-image.md) を、`scale`、`size`、`hotspot` はカスタムカーソルについての追加の情報を持ちます。
 
 #### イベント: 'context-menu'
 
@@ -405,8 +405,8 @@ win.webContents.on('before-input-event', (event, input) => {
 
 * `event` Event
 * `params` Object 
-  * `x` Integer - x 座標
-  * `y` Integer - y 座標
+  * `x` Integer - x 座標.
+  * `y` Integer - y 座標.
   * `linkURL` String - コンテキストメニューが呼び出されたノードを囲うリンク URL。
   * `linkText` String - リンクに関連付けられたテキスト。リンクのコンテンツが画像の場合、空文字列になる。
   * `pageURL` String - コンテキストメニューが呼び出された最上位のページの URL。
@@ -420,7 +420,7 @@ win.webContents.on('before-input-event', (event, input) => {
   * `misspelledWord` String - カーソルの下のスペルミスした単語 (もしあるならば)。
   * `frameCharset` String - メニューが呼び出されたときのフレームのテキストエンコーディング。
   * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
-  * `menuSourceType` String - コンテキストメニューが呼び出されたときの入力ソース. `none`、`mouse`、`keyboard`、`touch`、`touchMenu` になれる。
+  * `menuSourceType` String - コンテキストメニューが呼び出されたときの入力ソース。`none`、`mouse`、`keyboard`、`touch` または `touchMenu` にできます。
   * `mediaFlags` Object - コンテキストメニューが呼び出されたメディア要素のフラグ。 
     * `inError` Boolean - メディア要素がクラッシュしたかどうか。
     * `isPaused` Boolean - メディア要素が一時停止されているかどうか。
@@ -518,7 +518,7 @@ win.loadURL('http://github.com')
 
 `<webview>` がこの webContents に適用されたときに発行されます。
 
-#### イベント: 'console-message'
+#### Event: 'console-message'
 
 戻り値:
 
@@ -537,8 +537,8 @@ win.loadURL('http://github.com')
 * `options` Object (任意) 
   * `httpReferrer` String (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
-  * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (任意)
+  * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 ウインドウ内に `url` を読み込みます。 `url` は、`http://` や `file://` のようなプロトコルの接頭子を含まなければなりません。 HTTP キャッシュをバイパスする必要があるロードの場合は、`pragma` ヘッダを使用してそれを実現します。
@@ -547,6 +547,26 @@ win.loadURL('http://github.com')
 const {webContents} = require('electron')
 const options = {extraHeaders: 'pragma: no-cache\n'}
 webContents.loadURL('https://github.com', options)
+```
+
+#### `contents.loadFile(filePath)`
+
+* `filePath` String
+
+指定されたファイルをウインドウにロードします。`filePath` は、アプリケーションのルートを基準にした HTML ファイルへのパスにする必要があります。 たとえば以下のようなアプリの構造において、
+
+```sh
+| root
+| - package.json
+| - src
+|   - main.js
+|   - index.html
+```
+
+このようなコードが必要です。
+
+```js
+win.loadFile('src/index.html')
 ```
 
 #### `contents.downloadURL(url)`
@@ -721,7 +741,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `level` Number - 拡大レベル。
 
-指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。
+指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 この式は `scale := 1.2 ^ level` です。
 
 #### `contents.getZoomLevel(callback)`
 
@@ -729,13 +749,6 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   * `zoomLevel` Number
 
 現在の拡大レベルを取得するリクエストを送ります。`callback` が `callback(zoomLevel)` で呼ばれます。
-
-#### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-**非推奨:** 視覚拡大レベルの制限を設定するには、代わりに `setVisualZoomLevelLimits` を呼びます。このメソッドは Electron 2.0 で削除されます。
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -816,11 +829,11 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `text` String - 検索するコンテンツ。空にしてはいけません。
 * `options` Object (任意) 
-  * `forward` Boolean - (任意) 前方または後方を検索するかどうか。省略値は `true`。
-  * `findNext` Boolean - (任意) 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
-  * `matchCase` Boolean - (任意) 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean - (任意) 単語の始めだけを見るかどうか。省略値は `false`。
-  * `medialCapitalAsWordStart` Boolean - (任意) `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
+  * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
+  * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
+  * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
+  * `wordStart` Boolean (任意) - 単語の始めだけを見るかどうか。省略値は `false`。
+  * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
@@ -871,7 +884,7 @@ console.log(requestId)
 
 システムプリンタのリストを取得します。
 
-戻り値 [`PrinterInfo[]`](structures/printer-info.md)
+戻り値 [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
@@ -880,7 +893,7 @@ console.log(requestId)
   * `printBackground` Boolean (任意) - ウェブページの背景色と画像も印刷するかどうか。省略値は `false`。
   * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
 * `callback` Function (任意) 
-  * success` Boolean - 印刷呼び出しの成功を示す。
+  * `success` Boolean - 印刷呼び出しの成功を示す。
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
@@ -891,11 +904,11 @@ console.log(requestId)
 #### `contents.printToPDF(options, callback)`
 
 * `options` Object 
-  * `marginsType` Integer - (任意) 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
-  * `pageSize` String - (任意) 生成する PDF のページサイズを指定する。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
-  * `printBackground` Boolean - (任意) CSS 背景を印刷するかどうか。
-  * `printSelectionOnly` Boolean - (任意) 選択部分だけを印刷するかどうか。
-  * `landscape` Boolean - (任意) `true` で横向き、`false` で縦向き。
+  * `marginsType` Integer (任意) - 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
+  * `pageSize` String (任意) - 生成する PDF のページサイズを指定する。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
+  * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
+  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
 * `callback` Function 
   * `error` Error
   * `data` Buffer
@@ -960,12 +973,71 @@ win.webContents.on('devtools-opened', () => {
 
 開発者向けツールのワークスペースから指定したパスを削除します。
 
+#### `contents.setDevToolsWebContents(devToolsWebContents)`
+
+* `devToolsWebContents` WebContents
+
+`devToolsWebContents` を開発者向けツールを表示するターゲット `WebContents` として使用します。
+
+`devToolsWebContents` はナビゲーションを行ってはいけません。また、コール後に他の目的に使用することはできません。
+
+デフォルトでは、Electron は開発者が制御を非常に制限したネイティブビューを持つ内部 `WebContents` を作成することによって開発者向けツールを管理します。 `setDevToolsWebContents` メソッドでは、開発者は任意の `WebContents` を使用して、`BrowserWindow`、`BrowserView`、`<webview>` タグなどの開発者向けツールを表示できます。
+
+開発者向けツールを閉じても `devToolsWebContents` は破棄されないことに注意してください。 `devToolsWebContents` を破棄するのは呼び出し元の責任です。
+
+`<webview>` タグ内で開発者向けツールを表示する例:
+
+```html
+<html>
+<head>
+  <style type="text/css">
+
+    * { margin: 0; }
+    #browser { height: 70%; }
+    #devtools { height: 30%; }
+  </style>
+</head>
+<body>
+  <webview id="browser" src="https://github.com"></webview>
+  <webview id="devtools"></webview>
+  <script>
+    const browserView = document.getElementById('browser')
+    const devtoolsView = document.getElementById('devtools')
+    browserView.addEventListener('dom-ready', () => {
+      const browser = browserView.getWebContents()
+      browser.setDevToolsWebContents(devtoolsView.getWebContents())
+      browser.openDevTools()
+    })
+  </script>
+</body>
+</html>
+```
+
+`BrowserWindow` 内で開発者向けツールを表示する例:
+
+```js
+const {app, BrowserWindow} = require('electron')
+
+let win = null
+let devtools = null
+
+app.once('ready', () => {
+  win = new BrowserWindow()
+  devtools = new BrowserWindow()
+  win.loadURL('https://github.com')
+  win.webContents.setDevToolsWebContents(devtools.webContents)
+  win.webContents.openDevTools({mode: 'detach'})
+})
+```
+
 #### `contents.openDevTools([options])`
 
 * `options` Object (任意) 
   * `mode` String - 指定したドック状態で開発者向けツールを開く。`right`、`bottom`、`undocked`、`detach` にできる。 省略値は最後に使用したときのドック状態。 `undocked` モードではドックを後ろにやれる。 `detach` モードではできない。
 
 開発者向けツールを開く。
+
+`contents` が `<webview>` タグである場合、デフォルトでは `mode` が `detach` になり、空の `mode` を明示的に渡すと最後に使用されたドックステートを使用して強制的に実行されます。
 
 #### `contents.closeDevTools()`
 
@@ -1001,7 +1073,7 @@ win.webContents.on('devtools-opened', () => {
 
 `channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-レンダラープロセスは `ipcRenderer` モジュールで `channel` を聞いてメッセージを処理できます。
+レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
 以下はメインプロセスからレンダラープロセスにメッセージを送る例です。
 
@@ -1025,7 +1097,7 @@ app.on('ready', () => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message)  // Prints 'whoooooooh!'
+      console.log(message)  // 'whoooooooh!' と出力
     })
   </script>
 </body>
@@ -1035,16 +1107,14 @@ app.on('ready', () => {
 #### `contents.enableDeviceEmulation(parameters)`
 
 * `parameters` Object 
-  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop`) 
-    * `desktop` - デスクトップ画面タイプ
-    * `mobile` - モバイル画面タイプ
-  * `screenSize` [Size](structures/size.md) - エミュレートされる画面サイズの設定 (screenPosition == mobile)
-  * `viewPosition` [Point](structures/point.md) - スクリーン上のビューの位置 (screenPosition == mobile) (省略値: `{x: 0, y: 0}`)
-  * `deviceScaleFactor` Integer - デバイスの拡大率の設定 (ゼロなら元々のデバイスの拡大率) (省略値: ``)
+  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop、`): 
+    * `desktop` - デスクトップ画面タイプ.
+    * `mobile` - モバイル画面タイプ.
+  * `screenSize` [Size](structures/size.md) - エミュレートされる画面サイズの設定 (screenPosition == mobile).
+  * `viewPosition` [Point](structures/point.md) - スクリーン上のビューの位置 (screenPosition == mobile) (省略値: `{x: 0, y: 0}`).
+  * `deviceScaleFactor` Integer - デバイスの拡大率の設定 (ゼロなら元々のデバイスの拡大率) (省略値: ``).
   * `screenSize` [Size](structures/size.md) - エミュレートされるビューのサイズの設定 (空は上書きしないことを意味する)
-  * `fitToView` Boolean - 有効なスペースにフィットさせる必要があるときに、エミュレートするビューを縮小させるかどうか。(省略値: `false`)
-  * `offset` [Point](structures/point.md) - 有効なスペース内のエミュレートするビューのオフセット。 (表示モードにフィットしない) (省略値: `{x: 0, y: 0}`)
-  * `scale` Float - 有効なスペース内のエミュレートするビューの拡大率。 (表示モードにフィットしない) (省略値: `1`)
+  * `scale` Float - 有効なスペース内のエミュレートするビューの拡大率。 (表示モードにフィットしない) (省略値: `1`).
 
 与えられた引数でデバイスのエミュレートを有効にします
 
@@ -1055,10 +1125,10 @@ app.on('ready', () => {
 #### `contents.sendInputEvent(event)`
 
 * `event` Object 
-  * `type` String (**必須**) - イベントのタイプ。`mouseDown`、`mouseUp`、`mouseEnter`、`mouseLeave`、`contextMenu`、`mouseWheel`、`mouseMove`、`keyDown`、`keyUp`、`char` にできる。
+  * `type` String (**必須**) - イベントのタイプ。`mouseDown`、`mouseUp`、`mouseEnter`、`mouseLeave`、`contextMenu`、`mouseWheel`、`mouseMove`、`keyDown`、`keyUp` または `char` にできる。
   * `modifiers` String[] - イベントの修飾子の配列。`shift`、`control`、`alt`、`meta`、`isKeypad`、`isAutoRepeat`、`leftButtonDown`、`middleButtonDown`、`rightButtonDown`、`capsLock`、`numLock`、`left`、`right` を含めることができる。
 
-ページへ `event` 入力イベントを送信します。 **注釈:** `sendInputEvent()` が動くには、そのコンテツを含む `BrowserWindow` がフォーカスされている必要があります。
+入力 `event` をページに送ります。 **注釈:** `sendInputEvent()` が動くには、そのコンテツを含む [`BrowserWindow`](browser-window.md) がフォーカスされている必要があります。
 
 キーボードイベントでは、`event` オブジェクトは以下のプロパティも持ちます。
 
@@ -1145,7 +1215,7 @@ win.webContents.on('did-finish-load', () => {
 ページのサイズを設定します。`<webview>` のゲストコンテンツでのみサポートされています。
 
 * `options` Object 
-  * `normal` Object (任意) - ページのノーマルサイズ。これを [`disableguestresize`](web-view-tag.md#disableguestresize) 属性と組み合わせて使用すると、webview のゲストコンテンツを手動でリサイズできます。 
+  * `normal` Object (任意) - ページのノーマルサイズ。これを [`disableguestresize`](webview-tag.md#disableguestresize) 属性と組み合わせて使用すると、webview のゲストコンテンツを手動でリサイズできます。 
     * `width` Integer
     * `height` Integer
 

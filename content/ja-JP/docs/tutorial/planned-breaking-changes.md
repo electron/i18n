@@ -1,4 +1,4 @@
-# 予定されている API の破壊的変更
+# Planned Breaking API Changes (3.0)
 
 次のリストには Electron 3.0 で削除される API が記載含まれています。
 
@@ -147,3 +147,32 @@ Replace with: https://atom.io/download/electron
 ## `FIXME` comments
 
 The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
+
+# Planned Breaking API Changes (4.0)
+
+次のリストには Electron 4.0 で削除される API が記載含まれています。
+
+このリリースのためのタイムテーブルはありませんが、最新の [メジャー バージョン](electron-versioning.md#semver) での廃止警告が追加されます。
+
+## `app.makeSingleInstance`
+
+```js
+// Deprecated
+app.makeSingleInstance(function (argv, cwd) {
+
+})
+// Replace with
+app.requestSingleInstanceLock()
+app.on('second-instance', function (argv, cwd) {
+
+})
+```
+
+## `app.releaseSingleInstance`
+
+```js
+// Deprecated
+app.releaseSingleInstance()
+// Replace with
+app.releaseSingleInstanceLock()
+```

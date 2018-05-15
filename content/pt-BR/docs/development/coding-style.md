@@ -18,7 +18,7 @@ Você pode executar `npm run lint` para visualizar qualquer problemas de estilos
   * Use `path.join()` para concatenar nome de arquivos.
   * Use `os.tmpdir()` ao invés de `/tmp` quando você precisar fazer referência ao diretório temporário.
 * Usando um simples `return` ao explicitamente retornar no fim de uma função. 
-  * Não `return null`, `return undefined`, `null`, ou `undefined`
+  * Not `return null`, `return undefined`, `null` or `undefined`
 
 ## C++ e Python
 
@@ -48,8 +48,8 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 Electron APIs uses the same capitalization scheme as Node.js:
 
-* When the module itself is a class like `BrowserWindow`, use `CamelCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
+* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
+* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
 * When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
 * For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
 

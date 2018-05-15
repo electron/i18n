@@ -6,13 +6,13 @@ Proses: [utama](../tutorial/quick-start.md#main-process)
 
 ### `baru TouchBarSlider(options)` *Experimental*
 
-* `pilihan` Objek 
+* `pilihan` Obyek 
   * `label` String (opsional) - Label teks.
   * `nilai` Bulat (opsional) - nilai dipilih.
   * `nilai` Bulat (opsional) - nilai dipilih.
   * `maxValue` Bulat (opsional) - nilai maksimum.
   * `perubahan` Fungsi (opsional) - fungsi untuk panggilan ketika slider berubah. 
-    * `newValue` Nomor - nilai yang dipilih pengguna pada Panel geser Slider
+    * `newValue` Nomor - nilai yang dipilih pengguna pada Panel geser Slider.
 
 ### Contoh properti
 

@@ -86,24 +86,24 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `size` Integer 缓存大小（单位：bytes）
 
 Callback会被调用，参数是session的当前缓存大小。
 
 #### `ses.clearCache(callback)`
 
-* 回调函数`callback`会在操作完成之后被调用。
+* `callback` Function - 会在操作完成之后被调用。
 
 清除session的HTTP缓存。
 
 #### `ses.clearStorageData([options, callback])`
 
 * `选项` Object (可选) 
-  * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`
-  * `storages` String[] - (可选项) 要清除的存储类型，可以为以下几种: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (可选) 要清除的配额类型, 可以包含: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - 会在操作完成后被调用.
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+* `callback` Function (可选) - 会在操作完成后被调用.
 
 清除Web storage的数据。
 
@@ -163,7 +163,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   
   例如: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
-* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   匹配位于给定范围之间的 IP 文本的任何 URL。IP 范围是使用 CIDR 表示法指定的。
   
@@ -183,7 +183,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - 下载地址
+* `path` String - 下载地址.
 
 设置下载保存目录。默认情况下, 下载目录将是相应应用程序文件夹下的 `Downloads`。
 
@@ -250,8 +250,10 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Function | null 
   * `webContents` [WebContents](web-contents.md) - 请求权限的WebContents。
   * `permission` String - 枚举 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
-    * `permissionGranted` Boolean - 允许或拒绝该权限
+  * `callback` Function - 回调函数 
+    * `permissionGranted` Boolean - 允许或拒绝该权限.
+  * `details` Object - Some properties are only available on certain permission types. 
+    * `externalURL` String - The url of the `openExternal` request.
 
 设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。 若要清除处理程序, 请调用 ` setPermissionRequestHandler (null) `。
 
@@ -274,7 +276,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - 一个逗号分隔的服务器列表, 用于启用集成身份验证。
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
 动态设置是否始终为 HTTP NTLM 发送凭据或协商身份验证。
 
@@ -305,10 +307,8 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - 有效的 UUID.
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `result` Buffer - Blob 数据.
-
-返回 `Blob` - `identifier` 关联的 blob 数据.
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -327,9 +327,19 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (可选) - 会在操作完成后被调用
+* `callback` Function (optional) - 会在操作完成后被调用.
 
 清除会话的 HTTP 身份验证缓存。
+
+#### `ses.setPreloads(preloads)`
+
+* `preloads` String[] - An array of absolute path to preload scripts
+
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+
+#### `ses.getPreloads()`
+
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### 实例属性
 

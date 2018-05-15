@@ -18,7 +18,7 @@ Anda dapat menjalankan `npm run lint` untuk menunjukkan macam gaya yang terdetek
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
 * Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null`, or `undefined`
+  * Not `return null`, `return undefined`, `null` or `undefined`
 
 ## C ++ dan Python
 
@@ -48,8 +48,8 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 API electron menggunakan skema kapitalisasi yang sama dengan Node.js:
 
-* Ketika modul itu sendiri adalah sebuah kelas seperti `BrowserWindow`, menggunakan `CamelCase`.
-* Ketika modul adalah seperangkat API, seperti `globalShortcut`, menggunakan `mixedCase`.
+* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
+* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
 * Ketika API adalah sebuah properti dari objek, dan cukup kompleks untuk berada di bab terpisah seperti `win.webContents`, menggunakan `mixedCase`.
 * Untuk API bukan-modul lain, menggunakan judul alami, seperti `<webview>Tag` atau `Objek Proses`.
 

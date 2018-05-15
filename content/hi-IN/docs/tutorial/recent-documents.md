@@ -1,6 +1,6 @@
 # Recent Documents (Windows & macOS)
 
-विंडोज और मैकओसएस, एप्लीकेशन के द्वारा हाल ही में खोले गये दस्तावेजों की एक सूची तक जम्पलिस्ट या डॉक मेन्यु के द्वारा आसान पहुँच उपलब्ध कराते हैं |
+Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
 **जम्पलिस्ट:**
 

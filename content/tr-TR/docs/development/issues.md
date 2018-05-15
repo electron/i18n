@@ -3,7 +3,7 @@
 # Sorunlar
 
 * [Sorunlara nasıl müdahil olunur](#how-to-contribute-in-issues)
-* [Genel Yardım İstemek](#asking-for-general-help)
+* [Genel Yardım İsteğinde Bulunmak](#asking-for-general-help)
 * [Hata raporu gönderme](#submitting-a-bug-report)
 * [Bir hata raporu düzenle](#triaging-a-bug-report)
 * [Bir hata raporu çözümlendir](#resolving-a-bug-report)
@@ -17,13 +17,15 @@ Herhangi bir sorun için temelde bireyin katkı sağlayabileceği üç yöntem v
 3. Bu sorunu gidermek için yardımcı olmak: Bunu bir hata olmadığını ya da düzeldiğini göstererek; fakat da çok somut ve incelenebilir biçimde ` elektron / elektron </ 0> 'da kaynağında görünmesini sağlayın.</li>
 </ol>
 
-<h2>Genel Yardım İsteğinde Bulunmak</h2>
+<h2>Genel Yardım İstemek</h2>
 
-<p>Çünkü, etkinlik düzeyi <code>Elektron/elektron` deposundaki aktivite düzeyi çok yüksek olduğundan, soru sorarak veya elektron kullanarak genel yardım talepleri [topluluk bölümü Kanal](https://atomio.slack.com) veya [forum](https://discuss.atom.io/c/electron) yönelik olmalıdır.</p> 
-    ## Hata raporu gönderme
-    
-    Sorun izleyici içinde yeni bir başlık açarken `electron/electron`, kullanıcılar tarafından doldurulması gereken bir şablon sunulacaktır.
-    
+<p><a href="../tutorial/support.md#finding-support">"Finding Support"</a> has a
+list of resources for getting programming help, reporting security issues,
+contributing, and more. Please use the issue tracker for bugs only!</p>
+
+<h2>Hata raporu gönderme</h2>
+
+<p>Sorun izleyici içinde yeni bir başlık açarken <code>electron/electron`, kullanıcılar tarafından doldurulması gereken bir şablon sunulacaktır.</p> 
     ```markdown
 & Lt;! -
 Bir sorunu açtığınız için teşekkür ederiz! Akılda tutulması gereken birkaç şey: 

@@ -5,11 +5,19 @@
 ## 决定从哪个版本发布
 
 - **如果发布beta版本，**请从`master`运行以下脚本。
-- **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
+- **If releasing a stable version,** run the scripts below from the branch you're stabilizing.
 
 ## 找出需要哪个版本更改
 
 Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
+
+**NB:** If releasing from a branch, e.g. 1-8-x, check out the branch with `git checkout 1-8-x` rather than `git checkout -b remotes/origin/1-8-x`. The scripts need `git rev-parse --abbrev-ref HEAD` to return a short name, e.g. no `remotes/origin/`
+
+## Set your tokens and environment variables
+
+You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
+
+There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
 
 ## 运行 prepare-release 脚本
 
@@ -49,13 +57,17 @@ npm run prepare-release -- beta
 npm run prepare-release -- --stable
 ```
 
+Tip: You can test the new version number before running `prepare-release` with a dry run of the `bump-version` script with the same major/minor/patch/beta arguments, e.g.:
+
+```sh
+$ ./script/bump-version.py --bump minor --dry-run
+```
+
 ## 等待构建 :hourglass_flowing_sand:
 
 `prepare-release` 脚本将通过 API 调用触发生成。要监视生成进度, 请参阅以下页面:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) 对于 Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) 对于 OS X
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) 对于 Linux
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for OS X and Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) 对于 Windows
 
 ## 编译发布说明
@@ -143,32 +155,82 @@ Tips: - Each listed item should reference a PR on electron/electron, not an issu
 
 ### Beta 发布
 
-使用与上述建议相同的格式, 但在日志的开头添加以下注释:
+Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
 
 ```sh
-**注意:** 这是一个测试版本，很可能会有一些不稳定 和/或 复原。
+**Note:** This is a beta release and most likely will have have some
+instability and/or regressions.
 
 请为您在其中找到的任何错误提出新问题。
 
-此版本发布到 [npm] (https://www.npmjs.com/package/electron) 下的 ' beta ' 标签, 并可以通过 'npm install electron@beta' 安装。
+This release is published to [npm](https://www.npmjs.com/package/electron)
+under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
 
 ## 编辑发布草稿
 
-1. 访问 [发行页面](https://github.com/electron/electron/releases) 然后你将看到一个新的带有发行说明的草稿版本.
+1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. 编辑版本并添加发行说明.
-3. 如果要发布稳定版本, 请取消选中 `prerelease` 复选框。让它检查测试版。
+3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
 4. 点击 'Save draft'. **不要点 'Publish release'!**
 5. 等待所有生成通过, 然后再继续。
-6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
+6. In the `release` branch, verify that the release's files have been created:
+
+```sh
+$ git rev-parse --abbrev-ref HEAD
+release
+$ npm run release -- --validateRelease
+```
+
+## Merge temporary branch (pre-2-0-x branches only)
+
+Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
+
+### 合并回 master
+
+```sh
+npm run merge-release -- master
+```
+
+### 合并回旧版本分支
+
+```sh
+npm run merge-release -- 1-7-x
+```
 
 ## 发布版本
 
-Once the release builds have finished, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. 在Github上发布release 7. Delete the `release` branch.
+Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. 在Github上发布release 7. Delete the `release` branch.
 
 ## 发布到 npm
 
-一旦发布成功，运行 `npm run publish-to-npm` 发布到 npm。
+Before publishing to npm, you'll need to log into npm as Electron. Optionally, you may find [npmrc](https://www.npmjs.com/package/npmrc) to be a useful way to keep Electron's profile side-by-side with your own:
+
+```sh
+$ sudo npm install -g npmrc
+$ npmrc -c electron
+Removing old .npmrc (default)
+Activating .npmrc "electron"
+```
+
+The Electron account's credentials are kept by GitHub. "Electron - NPM" for the URL "https://www.npmjs.com/login".
+
+```sh
+$ npm login
+Username: electron
+Password:
+Email: (this IS public) electron@github.com
+```
+
+Publish the release to npm.
+
+```sh
+$ npm whoami
+electron
+$ npm run publish-to-npm
+```
+
+Note: In general you should be using the latest Node during this process; however, older versions of the `publish-to-npm` script may have trouble with Node 7 or higher. If you have trouble with this in an older branch, try running with an older version of Node, e.g. a 6.x LTS.
 
 ## 手动修复发行版的缺失二进制文件
 

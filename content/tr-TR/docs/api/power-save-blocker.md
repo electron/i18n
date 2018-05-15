@@ -2,7 +2,7 @@
 
 > Sistemin düşük güç (uyku) moduna girmesini engelleyin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 Örneğin:
 
@@ -15,17 +15,17 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Metodlar
+## Yöntemler
 
 `powerSaveBlocker` modülü aşağıdaki yöntemleri içerir:
 
 ### `powerSaveBlocker.start(type)`
 
-* `tip` String - Güç tasarruf engelleyici tür. 
-  * `prevent-app-suspension` - Uygulamanın askıya alınmasını engeller. Sistemin aktif kalmasını sağlar, ancak ekranın kapatılmasına izin verir. Kullanım örnekleri: dosya indirme veya ses çalma.
-  * `prevent-display-sleep` - Ekranın uyku moduna geçmesini önler. Sistemi ve ekranı etkin tutar. Örnek kullanım durumu: video oynatma.
+* `türü` String - Güç tasarruf engelleyici tür. 
+  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
+  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-`Integer` Döndürür - Güç engelleyiciye atanan engelleyici kimliği
+`Integer` Döndürür - Güç engelleyiciye atanan engelleyici kimliği.
 
 Sistemin daha düşük güç moduna girmesini önler. Güç tasarrufu bloklarını tanımlayan bir tam sayı döndürür.
 

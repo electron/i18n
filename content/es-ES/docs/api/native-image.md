@@ -147,14 +147,8 @@ Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el n
 El `hslShift` se aplica a la imagen con las siguientes reglas
 
 * `hsl_shift[0]` (tonalidad): El valor de tonalidad absoluto para la imagen - 0 y 1 se mapean a 0 y 360 en la rueda de tonalidad de color (rojo).
-* `hsl_shift[1]` (saturación): Cambio en la saturación de la imagen, con las siguientes valores clave:  
- 0 = eliminar todo el color.  
- 0.5 = sin cambios.  
- 1 = saturación completa de la imagen. 
-* `hsl_shift[2]` (luminosidad): Cambio en la luminosidad de la imagen, con los siguientes valores clave:  
- 0 = elimina toda la luminosidad (convierte todos los píxeles al negro).  
- 0.5 = sin cambios.  
- 1 = luminosidad al máximo (convertie todos los píxeles al blanco).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
 Esto significa que `[-1, 0, 1]` hará la imagen completamente blanca y `[-1, 1, 0]` la hará completamente negra.
 
@@ -208,7 +202,7 @@ Observe que el puntero devuelto es un puntero debil a la imagen nativa subyacent
 
 #### `image.isEmpty()`
 
-Devuelve `Boolean` - Si la imagen está vacía.
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
@@ -226,13 +220,13 @@ Devuelve `Boolean` - Si la imagen es una imagen de plantilla.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - El área de la imagen para ser recortada
+* `rect` [Rectangle](structures/rectangle.md) - El área de la imagen para ser recortada.
 
 Devuelve `NativeImage` - La imagen recortada.
 
 #### `image.resize(options)`
 
-* `options` Objeto * `width` Entero (opcional) - Por defecto es el ancho de la imagen. * `height` Entero (opcional) - Por defecto es la altura de la imagen * `quality` Cadena (opcional) - La calidad deseada de la imagen redimensionada. Los valores posibles son `good`, `better` or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. Es posible asignar los tres métodos con el mismo algoritmo en una plataforma determinada.
+* `options` Objeto * `width` Entero (opcional) - Por defecto es el ancho de la imagen. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Los valores posibles son `good`, `better` or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. Es posible asignar los tres métodos con el mismo algoritmo en una plataforma determinada.
 
 Devuelve `NativeImage` - La imagen redimensionada.
 

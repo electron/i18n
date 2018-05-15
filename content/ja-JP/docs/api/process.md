@@ -40,8 +40,7 @@ process.once('loaded', () => {
 
 ### `process.noDeprecation`
 
-非推奨の警告を `stderr` に出力するかどうかを制御する `Boolean`。  
-これを`true` に設定すると、非推奨の警告を出力しません。 `--no-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
+非推奨の警告が `stderr` へ出力されるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨の警告が無効になります。 `--no-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
 
 ### `process.resourcesPath`
 
@@ -57,7 +56,7 @@ process.once('loaded', () => {
 
 ### `process.traceProcessWarnings`
 
-`stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定するとプロセスの警告のスタックトレースが出力されます (非推奨を含む)。 `--trace-warnings` コマンドラインフラグの代わりにこのプロパティを使用します。
+`stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定するとプロセスの (非推奨を含む) 警告のスタックトレースが出力されます。 `--trace-warnings` コマンドラインフラグの代わりにこのプロパティを使用します。
 
 ### `process.type`
 
@@ -98,7 +97,7 @@ Electron のバージョン文字列を表す `String`。
 * `workingSetSize` Integer - 現在、実際の物理 RAM に確保されているメモリ量。
 * `peakWorkingSetSize` Integer - 実際の物理 RAM に確保されたことのある最大メモリ量。
 * `privateBytes` Integer - JS ヒープや HTML コンテンツなど、他のプロセスと共有されないメモリ量。
-* `sharedBytes` Integer - プロセス間で共有されるメモリ量で、通常は、 Electron のコード自体が使っているメモリ。
+* `sharedBytes` Integer - プロセス間で共有されるメモリ量で、通常は、 Electron のコード自体が使っているメモリ量。
 
 現在のプロセスに関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
 
@@ -108,8 +107,8 @@ Electron のバージョン文字列を表す `String`。
 
 * `total` Integer - システムで利用可能な物理メモリの合計量 (キロバイト)。
 * `free` Integer - アプリケーションまたはディスクキャッシュで使用されていないメモリの合計量。
-* `swapTotal` Integer - システムが使用できるスワップメモリの合計量 (キロバイト)。*Windows* *Linux*
-* `swapFree` Integer - システムが使用できるスワップメモリの使用されていない合計量 (キロバイト)。*Windows* *Linux*
+* `swapTotal` Integer *Windows* *Linux* - システムが使用できるスワップメモリの合計量 (キロバイト)。
+* `swapFree` Integer *Windows* *Linux* - システムが使用できるスワップメモリの空き容量 (キロバイト)。
 
 システム全体に関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
 

@@ -28,7 +28,7 @@ Inoltre, in Windows 8, la lunghezza massima per il corpo notifica è 250 caratte
 
 Le ultime versioni di Windows consentono le notifiche avanzate, con template personalizzati, immagini ed altri elementi flessibili. Per inviare queste notifiche (dal processo principale o da quello di rendering), usa il modulo userland [electron-windows-notifiche](https://github.com/felixrieseberg/electron-windows-notifications) che usa componenti aggiuntivi nativi di Node per inviare oggetti `ToastNotifiche` e `TileNotifiche`.
 
-Mentre notifiche e pulsanti inclusi lavorano con solo `electron-windows-notifiche`, la gestione delle risposte necessita di [`electron-windows-interattive-notifiche`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), che aiuta a registrare i componenti COM richiesti e chiama la tua app Electron con i dati utente inseriti.
+While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
 ### Ore Silenziose / Modalità Presentazione
 

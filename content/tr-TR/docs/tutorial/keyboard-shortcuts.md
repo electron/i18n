@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-Kullanıcının işletim sistemine bağlı olarak farklı tuş kombinasyonlarını yapılandırmak kolaydır.
+You can configure different key combinations based on the user's operating system.
 
 ```js
 {

@@ -28,8 +28,6 @@ $ code electron-quick-start
 }
 ```
 
-**注意：** 在 Windows 中，`runtimeExecutable` 的参数是 `"${workspaceRoot}/node_modules/.bin/electron.cmd"`。
-
 ### 3. 调试
 
 在 `main.js`中设置一些断点，并在 [Debug 视图](https://code.visualstudio.com/docs/editor/debugging) 中开始调试。你应该能够捕获断点信息。

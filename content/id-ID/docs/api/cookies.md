@@ -2,7 +2,7 @@
 
 > Permintaan dan modifikasi cookie sesi.
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 Contoh dari ` Cookie </ 0> kelas diakses dengan menggunakan <code> cookie </ 0> properti dari <code> Sesi </ 0> .</p>
 
@@ -17,7 +17,7 @@ const cookie = {url: 'http://www.github.com', nama: 'dummy_name', nilai: 'dummy'
    if (error ) console.error (error)})
 `</pre> 
 
-### Instance Events
+### Contoh peristiwa
 
 Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 
@@ -26,7 +26,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <ul>
 <li><code>event` Event</li> 
 
-* `cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah
+* `cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah.
 * `sebab` String - Penyebab perubahan dengan salah satu dari nilai berikut: 
   * ` eksplisit </ 0> - Cookie diubah secara langsung oleh tindakan konsumen.</li>
 <li><code> menimpa </ 0> - Cookie dihapus secara otomatis karena operasi insert yang overwrote itu.</li>
@@ -43,24 +43,24 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 
 <p>Metode berikut tersedia pada contoh <code> Cookies </ 0> :</p>
 
-<h4><code>cookies.get (filter, callback)`</h4> 
-    * `menyaring` Sasaran 
+<h4><code>cookies.get(filter, panggilan kembali)`</h4> 
+    * `filter` Obyek 
       * ` url </ 0>  String (opsional) - Mengambil cookie yang dikaitkan dengan
  <code> url </ 0> . Empty berarti mengambil cookies dari semua url.</li>
 <li><code> nama </ 0>  String (opsional) - Menyaring kuki berdasarkan nama.</li>
-<li><code> domain </ 0>  String (opsional) - Mengambil cookie yang domainnya cocok atau merupakan subdomain dari <code> domain </ 0></li>
-<li><code> path </ 0>  String (opsional) - Mengambil cookie yang jalurnya cocok dengan <code> path </ 0> .</li>
+<li><code>domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
+      * ` path </ 0>  String (opsional) - Mengambil cookie yang jalurnya cocok dengan <code> path </ 0> .</li>
 <li><code>aman`Boolean (opsional) - Filter cookie oleh properti Aman mereka.
       * `aman` Boolean (opsional) - Filter cookie oleh properti Aman mereka.
     * `callback` Fungsi 
       * Kesalahan `kesalahan`
       * `cookies `[Cookie [] ](structures/cookie.md) - sebuah array dari objek cookie.
     
-    Mengirimkan permintaan agar semua cookie yang cocok dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error, cookies) </ 0> secara lengkap.</p>
-
-<h4><code>cookies.set (rincian, callback)`</h4> 
+    Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
     
-    * `rincian` Sasaran 
+    #### `cookies.set(details, panggilan kembali)`
+    
+    * `rincian` Objek 
       * `url`String - Url untuk mengaitkan cookie dengan.
       * `nama` String (opsional) - Nama cookie. Kosongkan secara default jika dihilangkan.
       * `value ` String (opsional) - Nilai cookie. Kosongkan secara default jika dihilangkan.

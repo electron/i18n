@@ -14,7 +14,7 @@ Jeśli używasz Python pobranego przez Homebrew, musisz również zainstalować 
 
 ## macOS SDK
 
-If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
 
@@ -45,6 +45,12 @@ Skrypt bootstrap pobierze wszystkie konieczne zależności budowy i stworzy plik
 ```sh
 $ cd electron
 $ ./script/bootstrap.py -v
+```
+
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
 ```
 
 ## Kompilowanie

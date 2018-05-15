@@ -2,7 +2,7 @@
 
 > Menambahkan item ke menu aplikasi asli dan menu konteks.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 Melihat [`Menu`](menu.md) untuk contoh.
 
@@ -11,18 +11,18 @@ Melihat [`Menu`](menu.md) untuk contoh.
 * `pilihan` Benda 
   * `klik` Fungsi (opsional) - akan dipanggil dengan `klik (menuItem, jendela browser, acara )` saat item menu diklik. 
     * `menuItem` MenuItem
-    * `browserWindow` BrowserWindow
+    * `browserWindow` [BrowserWindow](browser-window.md)
     * `acara` Acara
   * `peran` String (opsional) - menentukan tindakan menu item, bila ditentukan `Klik` properti akan diabaikan. Melihat [peran](#roles).
   * `jenis` String (opsional) - dapat `normal`, `pemisah`, `submenu`, `kotak centang` atau `radio`.
-  * `label` String - (opsional)
-  * `sublabel` String - (opsional)
+  * `label` String (optional)
+  * `sublabel` String (optional)
   * `Accelerator` [Accelerator](accelerator.md) (opsional)
   * `ikon` ([NativeImage](native-image.md) | String) (opsional)
   * `diaktifkan` Boolean (opsional) - jika palsu, menu item akan diklik keluar dan unclickable.
   * `terlihat` Boolean (opsional) - jika palsu, menu item akan sepenuhnya tersembunyi.
   * `memeriksa` Boolean (opsional) - harus hanya ditentukan untuk `centang` atau `radio` jenis item menu.
-  * `submenu` ([MenuItemConstructorOptions] | Menu) (opsional) - harus ditentukan untuk `submenu` jenis menu item. Jika `submenu` ditetapkan, `jenis: 'submenu'` dapat diabaikan. Jika nilai tidak `Menu` maka akan secara otomatis dikonversi ke salah satu menggunakan `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. Jika `submenu` ditetapkan, `jenis: 'submenu'` dapat diabaikan. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (opsional) - unik dalam menu tunggal. Jika ditentukan kemudian dapat digunakan sebagai referensi untuk item ini oleh posisi atribut.
   * `posisi` String (opsional) - bidang ini memungkinkan definisi yang halus lokasi tertentu dalam menu tertentu.
 
@@ -41,42 +41,44 @@ Properti `peran` dapat memiliki nilai-nilai berikut:
 * `memotong`
 * `salinan`
 * `pasta`
-* `pasteandmatchstyle`
-* `Pilih Semua`
+* `pasteAndMatchStyle`
+* `selectAll`
 * `menghapus`
-* ` minimize </ 0> - Minimalkan jendela saat ini</li>
-<li><code> tutup </ 0> - Tutup jendela saat ini</li>
-<li><code> berhenti </ 0> - Keluar dari aplikasi</li>
-<li><code> reload </ 0> - Muat ulang jendela aktif</li>
-<li><code> forcereload </ 0> - Muat ulang jendela aktif yang mengabaikan cache.</li>
-<li><code> toggledev alat </ 0> - Toggle alat pengembang di jendela aktif</li>
-<li><code> toggle penuh layar </ 0> - Beralih mode layar penuh pada jendela aktif</li>
-<li><code> reset zoom </ 0> - Reset tingkat zoom halaman terfokus ke ukuran aslinya</li>
-<li><code>zoomin` - Zoom di halaman terfokus sebesar 10%
-* `zoomout` - Zoom out halaman terfokus sebesar 10%
-* `editMenu` - default seluruh "Edit" menu (Undo, salin, dsb.)
-* `windowMenu` - default seluruh "Jendela" menu (Minimalkan, tutup, dll.)
+* ` minimize </ 0> - Minimalkan jendela saat ini.</li>
+<li><code> tutup </ 0> - Tutup jendela saat ini.</li>
+<li><code> berhenti </ 0> - Keluar dari aplikasi.</li>
+<li><code> reload </ 0> - Muat ulang jendela aktif.</li>
+<li><code>forceReload` - Reload the current window ignoring the cache.
+* `toggleDevTools` - Toggle developer tools in the current window.
+* `toggleFullScreen`- Toggle full screen mode on the current window.
+* `resetZoom` - Reset the focused page's zoom level to the original size.
+* `zoomIn` - Zoom in the focused page by 10%.
+* `zoomOut` - Zoom out the focused page by 10%.
+* `editMenu` - default seluruh "Edit" menu (Undo, salin, dsb.).
+* `windowMenu` - default seluruh "Jendela" menu (Minimalkan, tutup, dll.).
 
-Peran tambahan berikut tersedia pada macOS:
+The following additional roles are available on *macOS*:
 
-* `tentang` - peta tindakan `orderFrontStandardAboutPanel`
-* `menyembunyikan` - peta untuk `menyembunyikan` tindakan
-* `hideothers` - peta tindakan `hideOtherApplications`
-* `unhide` - peta tindakan `unhideAllApplications`
-* `startspeaking` - peta tindakan `startSpeaking`
-* `stopspeaking` - peta tindakan `stopSpeaking`
-* `depan` - peta tindakan `arrangeInFront`
-* `zoom` - peta tindakan `performZoom`
-* `toggletabbar` - Map to the `toggleTabBar` action
-* `selectnexttab` - Map to the `selectNextTab` action
-* `selectprevioustab` - Map to the `selectPreviousTab` action
-* `mergeallwindows` - Map to the `mergeAllWindows` action
-* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `jendela` - submenu adalah menu "Jendela"
-* `membantu` - submenu adalah menu "Bantuan"
-* `Layanan` - submenu adalah menu "Layanan"
+* `tentang` - peta tindakan `orderFrontStandardAboutPanel`.
+* `menyembunyikan` - peta untuk `menyembunyikan` tindakan.
+* `hideOthers` - Map to the `hideOtherApplications` action.
+* `unhide` - peta tindakan `unhideAllApplications`.
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `depan` - peta tindakan `arrangeInFront`.
+* `zoom` - peta tindakan `performZoom`.
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
+* `services` - The submenu is a "Services" menu.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
-Ketika menentukan `peran` pada macOS, `label` dan `akselerator` adalah satu-satunya pilihan yang akan mempengaruhi menu item. Semua pilihan lain akan diabaikan.
+When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
 ### Contoh properti
 
@@ -102,8 +104,8 @@ Anda dapat menambahkan sebuah `klik` fungsi untuk perilaku tambahan.
 
 #### `menuItem.label`
 
-Sebuah `String` yang mewakili label terlihat item menu
+Sebuah `String` yang mewakili label terlihat item menu.
 
 #### `menuItem.click`
 
-`Fungsi` yang dipecat ketika MenuItem menerima event klik
+`Fungsi` yang dipecat ketika MenuItem menerima event klik.

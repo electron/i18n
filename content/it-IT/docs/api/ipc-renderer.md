@@ -46,7 +46,7 @@ Rimuove tutti i listeners, oppure quelli del `channel` specificato.
 
 Invia un messaggio al processo principale in modo assincrono attraverso il canale, `channel`, è possibile inviare un numero qualsiasi di argomenti. Gli argomenti verranno serializzati internamenti in JSON e dunque le funzioni e la catena dei prototype non verrano inclusi.
 
-Il processo principale li tratta ascoltando il `channel` con il modulo `ipcMain`.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
@@ -57,7 +57,7 @@ Restituisce `any` - il valore inviato indietro dal gestore [`ipcMain`](ipc-main.
 
 Invia un messaggio al processo principale in modo sincrono attraverso il canale `channel`, si possono inviare un numero qualsiasi di argomenti. Gli argomenti verranno serializzati internamenti in JSON e dunque le funzioni e la catena dei prototype non verrano inclusi.
 
-Il processo principale li gestisce ascolatanto il canale, `channel`, con il modulo `ipcMain`, e risponde impostando un valore `event.returnValue`.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
 **Nota:** L'invio di un messaggio sincrono bloccherà il processo di rendering nel punto in cui invia il messaggio fino a quando il processo main non imposta il returnValue sull'oggetto event che ha ricevuto, a meno che non si sa cosa si stia facendo è meglio evitare di usarlo.
 
@@ -67,7 +67,7 @@ Il processo principale li gestisce ascolatanto il canale, `channel`, con il modu
 * `channel` String
 * `...args` any[]
 
-Invia un messaggio a una finestra con `windowid` tramite `channel`
+Invia un messaggio a una finestra con `windowid` tramite `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

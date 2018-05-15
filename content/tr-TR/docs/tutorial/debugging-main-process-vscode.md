@@ -28,8 +28,6 @@ $ code electron-quick-start
 }
 ```
 
-**Not:**Windows,`${workspaceRoot}/node_modules/.bin/electron.cmd"`kullanmak için`runtimeExecutable`.
-
 ### 3. Hata Ayıklama
 
 Bazı kesme noktaları ayarla `main.js`, ve hata ayıklamaya başla [Hata Ayıklama Görünümü](https://code.visualstudio.com/docs/editor/debugging) Kesme noktalarına tıklayabilirsiniz.

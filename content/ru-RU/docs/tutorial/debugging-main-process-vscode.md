@@ -28,8 +28,6 @@ $ code electron-quick-start
 }
 ```
 
-**Примечание:** Для Windows используйте `«${workspaceRoot}/node_modules/.bin/electron.cmd»` для `runtimeExecutable`.
-
 ### 3. Отладка
 
 Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.

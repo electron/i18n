@@ -1,8 +1,8 @@
-# Oggetto del CertificatoPrincipale
+# Oggetto CertificatePrincipal
 
-* `Nomecomune` Stringa - Nome Comune
-* `organizzazione` Stringa[] - Nomi organizzazione
-* `Unitàorganizzazione` Stringa[] - Nomi unità di organizzazione
-* `località` Stringa - Località
-* `stato` Stringa - Stato o provincia
-* `paese` Stringa - Paese o regione
+* `commonName` Stringa - Nome Comune
+* `organizations` Stringa[] - Nomi dell'organizzazione
+* `organizationUnits` Stringa[] - Nomi delle unità dell'organizzazione
+* `locality` Stringa - Località
+* `state` Stringa - Stato o provincia
+* `country` Stringa - Paese o regione

@@ -6,7 +6,7 @@ These guides are intended for people working on the Electron project itself. For
 * [इलेक्ट्रॉन के लिए योगदान](../../CONTRIBUTING.md)
 * [Issues](issues.md)
 * [Pull Requests](pull-requests.md)
-* [प्रलेखन स्टाइलगाइड](styleguide.md)
+* [प्रलेखन स्टाइलगाइड](coding-style.md#documentation)
 * [स्रोत कोड निर्देशिका संरचना](source-code-directory-structure.md)
 * [कोडिंग शैली](coding-style.md)
 * [सी++ कोड पर क्लैंग-फॉर्मेट इस्तेमाल करना](clang-format.md)

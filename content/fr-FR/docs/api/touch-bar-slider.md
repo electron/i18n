@@ -12,7 +12,7 @@ Processus : [Main](../tutorial/quick-start.md#main-process)
   * `minValue` Integer (facultatif) - Valeur minimale.
   * `maxValue` Integer (facultatif) - Valeur maximale.
   * `change` Function (facultatif) - Fonction à appeler lorsque que le curseur est modifié. 
-    * `newValue` Number - La valeur que l'utilisateur a sélectionnée sur le curseur
+    * `newValue` Number - La valeur que l'utilisateur a sélectionnée sur le curseur.
 
 ### Propriétés d'instance
 

@@ -18,7 +18,7 @@
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
 * Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null`, or `undefined`
+  * Not `return null`, `return undefined`, `null` or `undefined`
 
 ## C++과 Python
 
@@ -48,8 +48,8 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 Electron API는 Node.js와 비슷한 명명법을 사용합니다:
 
-* `BrowserWindow`와 같은 모듈 자체를 뜻하는 이름은, `CamelCase`를 사용합니다.
-* `globalShortcut`과 같은 API의 세트일 땐, `mixedCase`를 사용합니다.
+* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
+* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
 * API가 객체의 속성일 경우, 그리고 `win.webContents`와 같이 충분히 복잡하고 분리된 부분일 경우, `mixedCase`를 사용합니다.
 * 다른 모듈이 아닌 API를 구현할 땐, `<webview><webview> Tag` 또는 `Process Object`와 같이 단순하고 자연스러운 제목을 사용합니다
 

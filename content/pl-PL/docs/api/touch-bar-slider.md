@@ -12,7 +12,7 @@ Proces: [Main](../tutorial/quick-start.md#main-process)
   * `minValue` Integer (optional) - Minimum value.
   * `maxValue` Integer (optional) - Maximum value.
   * `zmień` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider
+    * `newValue` Number - The value that the user selected on the Slider.
 
 ### Właściwości instancji
 

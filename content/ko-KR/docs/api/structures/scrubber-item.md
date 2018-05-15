@@ -1,4 +1,4 @@
-# ScrubberItem Object
+# ScrubberItem 객체
 
-* `label` String - (optional) 이 아이템에 표시할 텍스트
-* `icon` NativeImage - (optional) 이 아이템에 표시할 이미지입니다.
+* `label` String (선택) - 이 항목에 표시할 텍스트
+* `icon` NativeImage (선택) - 이 항목에 표시할 이미지

@@ -1,4 +1,4 @@
 # HataRapor Nesnesi
 
-* `gün` Metin
-* `KOD` Sayı
+* `date` Date
+* `kimlik` dizesi

@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### 步骤 1: 打包你的 Electron 应用程序
 
-打包应用程序使用 [electron-packager](https://github.com/electron-userland/electron-packager) (或类似工具)。 确保在最终的应用程序中删除不需要的 `node_modules`, 因为这些你不需要模块只会额外增加你的应用程序大小.
+打包应用程序使用 [electron-packager](https://github.com/electron-userland/electron-packager) (或类似工具)。 Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 结构输出应该看起来大致像这样:
 
@@ -124,7 +124,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it simply passes information on to the app's binary:
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
 ```sh
 #!/bin/sh

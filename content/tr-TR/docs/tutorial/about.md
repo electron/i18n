@@ -40,7 +40,7 @@ Büyük güncelleme sürümü `v1.0.0` ile geldi. Eğer bu sürümü kullanmıyo
 
 Elektronu küçük (dosya boyutu) ve sürdürülebilir (bağımlılıkların ve API'ların yayılımı) tutmak için, proje çekirdek projenin kapsamını sınırlar.
 
-Örneğin, Electron, yalnızca Chromium'un tamamında değil, Chromium'daki işleme kütüphanesini kullanır. Bu, Chromium'u yükseltmeyi kolaylaştırır, ancak Google Chrome'da bulunan bazı tarayıcı özelliklerinin Electron'da bulunmadığı anlamına gelir.
+For instance, Electron uses Chromium's rendering library rather than all of Chromium. Bu, Chromium'u yükseltmeyi kolaylaştırır, ancak Google Chrome'da bulunan bazı tarayıcı özelliklerinin Electron'da bulunmadığı anlamına gelir.
 
 Electron'a eklenen yeni özellikler esas olarak yerel API'ler olmalıdır. Bir özellik kendi Node.js modülü olabilir, büyük olasılıkla olmalıdır. [Topluluk tarafından geliştirilen Electron araçlarını](https://electronjs.org/community) keşfedin.
 

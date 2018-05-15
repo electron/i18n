@@ -8,7 +8,7 @@ Estas son las directrices para escribir documentación de Electron.
 * Los capítulos en la misma página deben tener títulos de nivel `##`.
 * Los subcapítulos necesitan aumentar el número de `#` en el título acorde a su profundidad de anidamiento.
 * Todas las palabras en el título de la página deben comenzar con mayúscula, excepto las conjunciones como "de" e "y".
-* Sólo la primera palabra del título del capítulo se escribe con mayúscula.
+* Sólo la primera palabra del título de capítulo se escribir con mayúscula.
 
 Usando `Quick Start` como ejemplo:
 
@@ -169,7 +169,7 @@ Debajo, el método es información detallada de cada uno de los argumentos. El t
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * O un tipo personalizado como [`WebContent`](api/web-contents.md) de Electron
 
-Si un argumento o un método es único para ciertas plataformas, esas plataformas son denotadas usando una lista con espacio delimitado y en cursiva siguiendo el tipo de data. Valores pueden ser `macOS`, `Windows`, o `Linux`.
+Si un argumento o un método es único para ciertas plataformas, esas plataformas son denotadas usando una lista con espacio delimitado y en cursiva siguiendo el tipo de data. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Booleano (opcional) _macOS_ _Windows_ - Anima la cosa.

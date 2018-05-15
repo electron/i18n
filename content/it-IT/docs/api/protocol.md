@@ -29,7 +29,7 @@ The `protocol` module has the following methods:
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - Custom schemes to be registered as standard schemes.
-* `opzioni` Oggetto (opzionale) 
+* `options` Object (opzionale) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
@@ -66,16 +66,16 @@ app.on('ready', () => {
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `schema` Stringa
-* `handler` Funzione 
+* `handler` Function 
   * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
+  * `callback` Function 
     * `filePath` String (optional)
 * `completion` Function (optional) 
-  * `errore` Errore
+  * `error` Error
 
 Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
@@ -88,13 +88,13 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `schema` Stringa
-* `handler` Funzione 
+* `handler` Function 
   * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
+  * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Function (optional) 
   * `errore` Errore
@@ -118,16 +118,16 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `schema` Stringa
-* `handler` Funzione 
+* `handler` Function 
   * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
+  * `callback` Function 
     * `data` String (optional)
 * `completion` Function (optional) 
-  * `errore` Errore
+  * `error` Error
 
 Registers a protocol of `scheme` that will send a `String` as a response.
 
@@ -136,22 +136,22 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `schema` Stringa
-* `handler` Funzione 
+* `handler` Function 
   * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
+  * `callback` Function 
     * `redirectRequest` Oggetto 
       * `url` Stringa
       * `metodo` Stringa
       * `session` Object (optional)
-      * `uploadData` Oggetto (opzionale) 
+      * `uploadData` Object (opzionale) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
-  * `errore` Errore
+  * `error` Error
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
 
@@ -164,14 +164,14 @@ For POST requests the `uploadData` object must be provided.
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `schema` Stringa
-* `handler` Funzione 
+* `handler` Function 
   * `richiesta` Oggetto 
     * `url` Stringa
     * `headers` Object
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
+  * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `errore` Errore
@@ -187,7 +187,7 @@ const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  const rv = new PassThrough() // PassThrough is also a Readable stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -223,14 +223,14 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `schema` Stringa
 * `completion` Function (optional) 
-  * `errore` Errore
+  * `error` Error
 
 Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `schema` Stringa
-* `callback` Funzione 
+* `callback` Function 
   * `errore` Errore
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -238,29 +238,29 @@ The `callback` will be called with a boolean that indicates whether there is alr
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `schema` Stringa
-* `handler` Funzione 
+* `handler` Function 
   * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
+  * `callback` Function 
     * `Percorsofile` Stringa
 * `completion` Function (optional) 
-  * `errore` Errore
+  * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `schema` Stringa
-* `handler` Funzione 
+* `handler` Function 
   * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
+  * `callback` Function 
     * `data` String (optional)
 * `completion` Function (optional) 
   * `errore` Errore
@@ -270,13 +270,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `schema` Stringa
-* `handler` Funzione 
+* `handler` Function 
   * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
+  * `callback` Function 
     * `buffer` Buffer (optional)
 * `completion` Function (optional) 
   * `errore` Errore
@@ -286,18 +286,18 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `schema` Stringa
-* `handler` Funzione 
+* `handler` Function 
   * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
+  * `callback` Function 
     * `redirectRequest` Oggetto 
       * `url` Stringa
       * `metodo` Stringa
       * `session` Object (optional)
-      * `uploadData` Oggetto (opzionale) 
+      * `uploadData` Object (opzionale) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
@@ -308,14 +308,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `schema` Stringa
-* `handler` Funzione 
+* `handler` Function 
   * `richiesta` Oggetto 
     * `url` Stringa
     * `headers` Object
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Funzione 
+  * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `errore` Errore

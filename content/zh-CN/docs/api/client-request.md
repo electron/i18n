@@ -8,17 +8,17 @@
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) -如果 `options` 是一个String类型, 它被解释为请求的URL. 如果它是一个Object类型, 那么它可以通过以下属性指定一个HTTP请求: 
+* `选项` (Object | String) -如果 `选项` 是一个String类型, 它被解释为请求的URL. 如果它是一个Object类型, 那么它可以通过以下属性指定一个HTTP请求: 
   * `method` String (可选) - HTTP请求方法. 默认为GET方法.
   * `url` String (可选) - 请求的URL. 必须在指定了http或https的协议方案的独立表单中提供.
   * `session` Object (可选) - 与请求相关联的[`Session`](session.md)实例.
   * `partition` String (可选) - 与请求相关联的[`partition`](session.md)名称. 默认为空字符串. `session`选项优先于`partition`选项. 因此, 如果`session`是显式指定的, 则`partition`将被忽略.
   * `protocol` String (可选) - 在"scheme:"表单中的协议方案. 目前支持的值为'http:' 或者'https:'. 默认为'http:'.
-  * `host` String (可选) - 作为连接提供的服务器主机,主机名和端口号'hostname:port'
+  * `host` String (可选) - 作为连接提供的服务器主机,主机名和端口号'hostname:port'.
   * `hostname` String (可选) - 服务器主机名.
   * `port` Integer (可选) - 服务器侦听的端口号.
   * `path` String (可选) - 请求URL的路径部分.
-  * `redirect` String (可选) - 请求的重定向模式. 可选值为 `follow`, `error` 或 `manual`. 默认值为 `follow`. 当模式为`error`时, 重定向将被终止. 当模式为 `manual`时，表示延迟重定向直到调用了 [`request.followRedirect`](#requestfollowRedirect)。 在此模式中侦听 [`redirect`](#event-redirect)事件，以获得关于重定向请求的更多细节。
+  * `redirect` String (可选) - 请求的重定向模式. 可选值为 `follow`, `error` 或 `manual`. 默认值为 `follow`. 当模式为`error`时, 重定向将被终止. 当模式为 `manual`时，表示延迟重定向直到调用了 [`request.followRedirect`](#requestfollowredirect)。 在此模式中侦听 [`redirect`](#event-redirect)事件，以获得关于重定向请求的更多细节。
 
 `options` 属性，如 `protocol`, `host`, `hostname`, `port` 和 `path`，在 [URL](https://nodejs.org/api/url.html) 模块中会严格遵循 Node.js 的模式
 
@@ -99,7 +99,7 @@ request.on('login', (authInfo, callback) => {
 
 当 `net`网络模块没有发出网络请求时会触发。 通常情况下，当 `request`请求对象发出一个 `error`错误事件时，一个 `close`关闭事件会随之发生，并且不会提供响应对象。
 
-#### 事件：close
+#### 事件： 'close'
 
 作为HTTP 的 request-response 中的最后一个事件发出。 `close`事件表明，在`request`或`response` 对象中不会发出更多的事件。
 
@@ -112,7 +112,7 @@ request.on('login', (authInfo, callback) => {
 * `redirectUrl` String
 * `responseHeaders` Object
 
-当发出重定，并且模式为 `manuals(手动)`时触发。调用[`request.followRedirect`](#requestfollowRedirect) 将持续重定向
+当发出重定，并且模式为 `manuals(手动)`时触发。调用[`request.followRedirect`](#requestfollowredirect) 将持续重定向
 
 ### 实例属性
 

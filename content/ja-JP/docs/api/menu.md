@@ -50,26 +50,26 @@ macOSネイティブなアクションに関しては[macOS Cocoa Event Handling
 
 `menu` オブジェクトには以下のメソッドがあります。
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` BrowserWindow (任意) - 省略値はフォーカス中のウインドウ。
-* `options` Object (任意) 
+* `options` Object 
+  * `window` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
   * `x` Number (任意) - デフォルトはマウスカーソルの位置。`y` が宣言されている場合はこれを宣言しなければいけない。
   * `y` Number (任意) - デフォルトはマウスカーソルの位置。`x` が宣言されている場合はこれを宣言しなければいけない。
-  * `async` Boolean (任意) - `true` にすると即座にメソッドを抜け、`false` にするとメニューが選択されたか閉じた後に処理が戻る。 省略値は、`false` です。
   * `positioningItem` Number (任意) *macOS* - マウスカーソルの位置に配置するメニューアイテムのインデックス。省略値は -1。
+  * `callback` Function (任意) - メニューが閉じたしたときに呼ばれます。
 
-この menu を `browserWindow` 内のコンテキストメニューとしてポップアップします。
+この menu を [`BrowserWindow`](browser-window.md) 内のコンテキストメニューとしてポップアップします。
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (任意) - 省略値はフォーカス中のウインドウ。
+* `browserWindow` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
 
 `browserWindow` 内のこのコンテキストメニューを閉じます。
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 menu に `menuItem` を追加します。
 
@@ -82,9 +82,31 @@ menu に `menuItem` を追加します。
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 menu の `pos` の位置に `menuItem` を挿入します。
+
+### インスタンスイベント
+
+`new Menu` で作成されたオブジェクトでは以下のイベントが発生します。
+
+**注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
+
+#### イベント: 'menu-will-show'
+
+戻り値:
+
+* `event` Event
+
+`menu.popup()` が呼ばれたときに発生します。
+
+#### イベント: 'menu-will-close'
+
+戻り値:
+
+* `event` Event
+
+手動か `menu.closePopup()` でポップアップが閉じられたときに発生します。
 
 ### インスタンスプロパティ
 
@@ -96,11 +118,15 @@ menu のアイテムが入った配列 `MenuItem[]`。
 
 それぞれの `Menu` は複数の [`MenuItem`](menu-item.md) で構成され、それぞれの `MenuItem` はサブメニューを持つことができます。
 
+### インスタンスイベント
+
+`new Menu` で作成されたオブジェクトまたは `Menu.buildFromTemplate` によって返されたオブジェクトは、以下のイベントが発生します。
+
 ## サンプル
 
 `Menu` クラスはメインプロセスでのみ有効ですが、[`remote`](remote.md) オブジェクトを介してレンダラープロセス内で使うこともできます。
 
-### メインプロセス (main process)
+### メインプロセス
 
 シンプルなテンプレートAPIを使用して、メインプロセスでアプリケーションメニューを作成するサンプル。
 
@@ -196,7 +222,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### レンダープロセス (render process)
+### レンダラープロセス
 
 以下はウェブページ (レンダープロセス) で [`remote`](remote.md) オブジェクトを用いて動的にメニューを作成し、ユーザがページを右クリックしたときに表示するサンプルです。
 
@@ -207,13 +233,13 @@ const {remote} = require('electron')
 const {Menu, MenuItem} = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clicked') }}))
+menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 がクリックされた') }}))
 menu.append(new MenuItem({type: 'separator'}))
 menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```

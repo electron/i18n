@@ -2,7 +2,9 @@
 
 Perenderan di luar layar memungkinkan Anda mendapatkan konten jendela browser dalam bitmap, sehingga dapat ditampilkan di mana saja, misalnya pada tekstur dalam adegan 3D. Perenderan offscreen di Electron menggunakan pendekatan serupa dari proyek  Chromium Embedded Framework </ 0> .</p> 
 
-Dua mode rendering dapat digunakan dan hanya daerah kotor dilewatkan dalam ` 'cat' </ 0>  acara untuk menjadi lebih efisien. Perenderan bisa dihentikan, dilanjutkan dan frame rate bisa diatur. Frame rate yang ditentukan adalah nilai batas atas, bila tidak ada yang terjadi pada halaman web, tidak ada frame yang dihasilkan. Frame rate maksimal adalah 60, karena di atas itu tidak ada manfaatnya, hanya performance loss.</p>
+Dua mode rendering dapat digunakan dan hanya daerah kotor dilewatkan dalam ` 'cat' </ 0>  acara untuk menjadi lebih efisien. Perenderan bisa dihentikan, dilanjutkan dan frame rate bisa diatur. Frame rate yang ditentukan adalah nilai batas atas, bila tidak ada yang terjadi pada halaman web, tidak ada frame yang dihasilkan. The
+maximum frame rate is 60, because above that there is no benefit, only
+performance loss.</p>
 
 <p><strong> Catatan: </ 0> Sebuah jendela offscreen selalu dibuat sebagai <a href="../api/frameless-window.md"> Frameless Jendela </ 1> .</p>
 

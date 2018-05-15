@@ -2,7 +2,7 @@
 
 Il rendering fuori schermo permette di ottenere il contenuto di una finestra browser in bitmap, per poterlo renderizzare ovunque, ad esempio su una texture in una scena 3D. Il rendering fuori schermo in Electron usa un approccio simile al progetto Chromium Embedded Framework<0>.</p> 
 
-Due metodi di rendering possono essere usati e solo l'area sporca è passata nell'evento `'disegna'` per essere più efficiente. Il rendering può essere fermato, continuato e il frame rate è impostabile. Il frame rate specificato è un valore limite massimo quando non succede nulla su una pagina web, nessun fram è generato. Il frame rate massimo è 60, perchè sopra questo non ci sono benefici, solo perdite di performance.
+Due metodi di rendering possono essere usati e solo l'area sporca è passata nell'evento `'disegna'` per essere più efficiente. Il rendering può essere fermato, continuato e il frame rate è impostabile. Il frame rate specificato è un valore limite massimo quando non succede nulla su una pagina web, nessun fram è generato. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
 
 **Nota:** Una finestra fuori schermo è sempre creata come [Finestra Senza Frame](../api/frameless-window.md).
 

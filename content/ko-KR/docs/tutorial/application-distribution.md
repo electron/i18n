@@ -122,7 +122,7 @@ Electron의 커스텀 포크를 만드는 것은 거의 확실히 앱을 만드�
 
 * `ELECTRON_GITHUB_TOKEN` - GitHub에 릴리즈를 만들 수 있는 토큰.
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - node.js 헤더 뿐만 아니라 심볼을 업로드할 장소.
-* `ELECTRON_RELEASE` - `true`로 지정하고 업로드 부분이 실행되면, 설정되지 않은 부분을 남기고 `surf-build`가 CI-type 확인을 실행합니다. 모든 pull request를 실행할 때 적합합니다.
+* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` -`true`또는 다른 것을 지정하면 실패합니다.
 * `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN`과 같게 설정
 * `SURF_TEMP` - Windows에서는 `C:\Temp`로 설정하면 긴 경로 문제를 해결할 수 있습니다.

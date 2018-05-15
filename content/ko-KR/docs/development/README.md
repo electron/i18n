@@ -2,11 +2,11 @@
 
 These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [윤리 강령](../../CODE_OF_CONDUCT.md)
+* [행동 규칙](../../CODE_OF_CONDUCT.md)
 * [Electron에 기여하기](../../CONTRIBUTING.md)
 * [이슈](issues.md)
 * [풀 리퀘스트](pull-requests.md)
-* [문서 스타일 안내](styleguide.md)
+* [문서 스타일 안내](coding-style.md#documentation)
 * [소스 코드 디렉토리 구조](source-code-directory-structure.md)
 * [코딩 스타일](coding-style.md)
 * [C++ 코드에서 clang 형식 사용하기](clang-format.md)

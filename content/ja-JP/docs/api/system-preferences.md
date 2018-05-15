@@ -96,10 +96,16 @@ console.log(systemPreferences.isDarkMode())
 
 `unsubscribeNotification` と同じですが、`NSNotificationCenter` から監視者を削除します。
 
+### `systemPreferences.registerDefaults(defaults)` *macOS*
+
+* `defaults` Object - ユーザデフォルト (`key: value`) の辞書配列 
+
+アプリケーションの `NSUserDefaults` へ指定したデフォルトを追加します。
+
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array`、`dictionary` にできます。
+* `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array` または `dictionary` にできます。
 
 戻り値 `any` - `NSUserDefaults` 内の `key` の値。
 
@@ -116,7 +122,7 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] を参照
+* `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] を参照してください。
 * `value` String
 
 `NSUserDefaults` 内の `key` の値を設定します。

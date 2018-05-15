@@ -23,7 +23,7 @@ Tous les binaires précompilés de Chrome (`libchromiumcontent`) sont téléchar
 
 Par défaut, `libchromiumcontent` est téléchargé depuis Amazon Web Services. Si la variable d’environnement `LIBCHROMIUMCONTENT_MIRROR` est définie, le script bootstrap l'utilisera comme lien de téléchargement. [`libchromiumcontent-qiniu-miroir`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) est un miroir pour `libchromiumcontent`. Si vous avez des difficultés à accéder à AWS, vous pouvez changer l’adresse de téléchargement avec `export LIBCHROMIUMCONTENT_MIRROR = http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
-Si vous souhaitez compiler Electron rapidement pour des tests ou le développement, vous pouvez télécharger seulement les versions de bibliothèque partagée en passant le paramètre `--dev` :
+Si vous souhaitez seulement compiler Electron rapidement pour du test ou du développement, vous pouvez télécharger uniquement les bibliothèques partagées en ajoutant le paramètre `--dev`:
 
 ```sh
 $ ./script/bootstrap.py --dev
@@ -38,9 +38,9 @@ Pour contourner cela, Electron utilise la variable `libchromiumcontent_component
 
 ## Noms de destination
 
-Contrairement à la plupart des projets qui utilisent `Release` et `Debug` comme noms de cibles, Electrons utilise à la place `R` et `D`. C’est parce que `gyp` se bloque aléatoirement si il n’y a qu’une seule `Release` ou `Debug` configuration de compilation de définie, et Electron doit générer seulement une seule cible à la fois comme indiqué ci-dessus.
+Contrairement à la plupart des projets qui utilisent `Release` et `Debug` comme noms de cibles, Electron utilise à la place `R` et `D`. C’est parce que `gyp` se bloque aléatoirement si il n’y a qu’une seule `Release` ou `Debug` configuration de compilation de définie, et Electron doit générer seulement une seule cible à la fois comme indiqué ci-dessus.
 
-Cela affecte seulement les développeurs, si vous compiler Electron juste pour le rebranding, vous ne serez pas affecté.
+This only affects developers, if you are building Electron for rebranding you are not affected.
 
 ## Tests
 
@@ -62,7 +62,7 @@ Chaque fois que vous apportez des modifications au code source d'Electron, vous 
 $ npm run build && npm test
 ```
 
-Vous pouvez rendre la suite de tests plus rapide en isolant le test spécifique ou bloc que vous travaillez actuellement à l’aide de la fonctionnalité [tests exclusifs](https://mochajs.org/#exclusive-tests) de Mocha. Ajoutez simplement `.only` à tout appel de fonction `describe` ou `it` :
+Vous pouvez rendre la suite de tests plus rapide en isolant le test spécifique ou bloc que vous travaillez actuellement à l’aide de la fonctionnalité [tests exclusifs](https://mochajs.org/#exclusive-tests) de Mocha. Ajoutez `.only` pour chaque appel aux fonctions `describe` ou `it`:
 
 ```js
 describe.only('some feature', function () {

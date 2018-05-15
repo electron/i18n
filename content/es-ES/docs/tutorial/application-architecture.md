@@ -30,7 +30,7 @@ Electron ofrece un número de APIs que apoyan el desarrollo de una aplicación d
 const electron = require('electron')
 ```
 
-Todas las APIs de Electron son asignadas a un tipo de proceso. Muchos de ellos puede ser utilizados desde el proceso principal, algunos de estos sólo desde el proceso visualizador, algunos otros de ambos. La documentación para la API individual indicará claramente cuales procesos pueden ser utilizados.
+Todas las APIs de Electron son asignadas a un tipo de proceso. Muchos de ellos puede ser utilizados desde el proceso principal, algunos de estos sólo desde el proceso visualizador, algunos otros de ambos. The documentation for each individual API will state which process it can be used from.
 
 Una ventana en Electron es, por ejemplo, creada usando la clase `BrowserWindow`. Sólo esta disponible en el proceso principal.
 
@@ -79,7 +79,7 @@ Por ejemplo, para utilizar el SDK oficial de AWS en su aplicación, primero debe
 npm install --save aws-sdk
 ```
 
-Luego, en su aplicación Electron, simplemente requiera y utilice el módulo como si estuviera construyendo una aplicación Node.js:
+Then, in your Electron app, require and use the module as if you were building a Node.js application:
 
 ```javascript
 // A ready-to-use S3 Client
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 Hay un aviso importante: los módulos Node.Js originales (eso es, los módulos que requieren compilación del código original antes de que puedan ser usados) necesitarán ser reunidos para ser usados con Electron.
 
-La gran mayoría de módulos Node.js son *no* nativos. Solo 400 de los 650.000 módulos son nativos. Sin embargo, si necesita módulos nativos, por favor consulte [esta guía de como reunirlos para Electron](./using-native-node-modules.md) (es sencillo).
+La gran mayoría de módulos Node.js son *no* nativos. Solo 400 de los 650.000 módulos son nativos. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).

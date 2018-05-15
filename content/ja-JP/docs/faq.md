@@ -4,7 +4,7 @@
 
 `npm install electron` を実行するとき、インストール時エラーが発生する場合があります。
 
-ほとんどの場合、これらのエラーはネットワークに起因し、`electron` のnpmパッケージに問題はないと考えられます。 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` といったエラーが表示されている場合、それはネットワークに問題があることを示しています。 最も良い解決策はネットワークを切り替えること、あるいは少し時間を置いてからもう一度インストールしてみることです。
+ほとんどの場合、これらのエラーはネットワークに起因し、`electron` のnpmパッケージに問題はないと考えられます。 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` といったエラーが表示されている場合、それはネットワークに問題があることを示しています。 The best resolution is to try switching networks, or wait a bit and try installing again.
 
 `npm` 経由でのインストールに失敗する場合、Electronを [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
 
@@ -22,7 +22,7 @@ Node.js の新しいバージョンがリリースされたあと、Electron の
 
 通常、Node.js の新しい機能は V8 のアップグレードによってもたらされますが、Electron は Chromiumに搭載されている V8 を使用しているので、新しい Node.js に入ったばかりのピカピカに新しい JavaScript 機能は Electron ではたいてい既に導入されています。
 
-## Web ページ間でデータを共有するにはどうすればよいのですか？
+## ウェブページ間のデータを共有する方法は?
 
 ウェブページ（レンダラープロセス）間のデータを共有するために最も単純な方法は、ブラウザですでに提供されているHTML5 APIを使用することです。 良い候補として、[Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)があります。
 
@@ -47,9 +47,9 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## 何分か経つとアプリの Window/tray が消えてしまいます
 
-Window/trayを格納するのに使用している変数がガベージコレクトされたときに発生します。
+これは、Window/trayを格納するのに使用している変数がガベージコレクトされたときに発生します。
 
-以下のドキュメントが参考になるはずです。
+この問題に遭遇した時には、次のドキュメントを読むことをお勧めします。
 
 * [メモリ管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [変数スコープ](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)

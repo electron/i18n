@@ -50,26 +50,26 @@ menu类有以下静态方法：
 
 ` menu ` 对象具有以下实例方法:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* ` browserWindow `BrowserWindow (可选)-默认为焦点窗口。
-* `选项` Object (可选) 
+* `选项` Object 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * ` x ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` y `, 则必须声明。
   * ` y ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` x `, 则必须声明。
-  * ` async `Boolean (可选)-设置为 ` true `, 使此方法立即返回, ` false ` 在菜单被选中或关闭后返回。 默认值为 `false`.
   * ` positioningItem `数字 (可选) * macOS *-要在指定坐标下的鼠标光标下定位的菜单项的索引。默认值为-1。
+  * `callback` Function (optional) - Called when menu is closed.
 
-将此菜单作为 ` browserWindow ` 中的上下文菜单弹出。
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* ` browserWindow `BrowserWindow (可选)-默认为焦点窗口。
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 关闭 ` browserWindow ` 中的上下文菜单。
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 将 ` menuItem ` 追加到菜单。
 
@@ -82,9 +82,31 @@ menu类有以下静态方法：
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 将 ` menuItem ` 插入菜单的 ` pos ` 位置。
+
+### 实例事件
+
+Objects created with `new Menu` emit the following events:
+
+** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
+
+#### Event: 'menu-will-show'
+
+返回:
+
+* `event` Event
+
+Emitted when `menu.popup()` is called.
+
+#### Event: 'menu-will-close'
+
+返回:
+
+* `event` Event
+
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### 实例属性
 
@@ -95,6 +117,10 @@ menu类有以下静态方法：
 包含菜单项的 ` MenuItem [] ` 数组。
 
 每个 ` 菜单 ` 由多个 [` MenuItem `](menu-item.md) 组成, 每个 ` MenuItem `可以有子菜单。
+
+### 实例事件
+
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## 示例
 
@@ -213,7 +239,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```

@@ -2,12 +2,14 @@
 
 > Personalice la reproducción de la página web actual.
 
-Proceso: [Reproducir](../glossary.md#renderer-process)
+Proceso: [Renderer](../glossary.md#renderer-process)
 
 Un ejemplo de zoom de la página actual al 200%.
 
 ```javascript
 const {webFrame} = require('electron')
+
+webFrame.setZoomFactor(2)
 ```
 
 ## Métodos
@@ -16,9 +18,9 @@ El módulo `webFrame` tiene los siguientes métodos:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Factor Zoom.
 
-Cambia el factor de zoom al factor especificado. El factor de zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
+Cambia el factor zoom al factor especificado. El factor zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -26,20 +28,13 @@ Devuelve `Número` - El factor de zoom actual.
 
 ### `webFrame.setZoomLevel(nivel)`
 
-* `nivel` Número - Nivel de Zoom
+* `nivel` Número - Nivel de Zoom.
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
 
 ### `webFrame.getZoomLevel()`
 
 Devuelve `Número` - El nivel de zoom actual.
-
-### `webFrame.setZoomLevelLimits (minimumLevel, maximumLevel)`
-
-* `minimumLevel` Número
-* `maximumLevel` Número
-
-**Obsoleto:** Llamar al `setVisualZoomLevelLimits` en su lugar para establecer los límites del nivel de zoom visual. Este método se eliminará en Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -59,10 +54,10 @@ Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no 
 
 * `idioma` Cadena
 * `autoCorrectorPalabra` Boolean
-* `proveedor` Objeto 
+* `proveedor` Object 
   * `Corrector Ortográfico
-` Función - Devoluciones `Boolean` 
-    * `texto` Cadena
+` Función - Devoluciones `Boolean`. 
+    * `texto` String
 
 Establece un proveedor para la corrección ortográfica en campos de entrada y áreas de texto.
 
@@ -81,7 +76,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 ### `webFrame.registerURLSchemeAsSecure(esquema)`
 
-* `esquema` Cadena
+* `scheme` String
 
 Registra el `esquema` como esquema seguro.
 
@@ -89,19 +84,19 @@ Los esquemas seguros no activan advertencias de contenido mixto. Por ejemplo, `h
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(esquema)`
 
-* `esquema` Cadena
+* `scheme` String
 
 Los recursos se cargarán desde este `esquema` independientemente de la Política de Seguridad de Contenido de la página actual.
 
 ### `webFrame.registerURLSchemeAsPrivileged(esquema[, opciones])`
 
-* `esquema` Cadena
+* `scheme` String
 * `opciones` Objecto (opcional) 
-  * ` seguro` Boolean - (opcional) Predeterminado verdadero.
-  * `bypassCSP` Boolean - (opcional) Predeterminado verdadero.
-  * `allowServiceWorkers` Boolean - Predeterminado verdadero (opcional).
-  * `supportFetchAPI` Boolean - Predeterminado verdadero (opcional).
-  * `corsEnabled` Boolean - Predeterminado verdadero (opcional).
+  * `secure` Boolean (optional) - Default true.
+  * `bypassCSP` Boolean (optional) - Default true.
+  * `allowServiceWorkers` Boolean (optional) - Default true.
+  * `supportFetchAPI` Boolean (optional) - Default true.
+  * `corsEnabled` Boolean (optional) - Default true.
 
 Registra el `esquema` como seguro, omite la política de seguridad de contenido para los recursos, permite el registro de ServiceWorker y admite la API de recuperación.
 
@@ -114,26 +109,57 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.insertText(texto)`
 
-* `texto` Cadena
+* `texto` String
 
 Inserta `texto` en el elemento enfocado.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `código` Cadena
+* `codigo` String
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
 Devolver `Promesa`: una promesa se resuelve con el resultado del código ejecutado o se rechaza si el resultado del código es una promesa rechazada.
 
-Evalúa el `código` en la página.
+Evalúa el `code` en la página.
 
-En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
+En la ventana del buscador, algunas APIs HTML como `requestFullScreen` solo pueden ser invocadas por un gesto del usuario. Configurar `userGesture` a `true` eliminará esta limitación.
+
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
+
+* `worldId` Integer
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
+* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
+  * `resultado` Cualquiera
+
+Work like `executeJavaScript` but evaluates `scripts` in isolated context.
+
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+
+* `worldId` Integer
+* `csp` String
+
+Set the content security policy of the isolated world.
+
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+
+* `worldId` Integer
+* `name` String
+
+Set the name of the isolated world. Useful in devtools.
+
+### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
+
+* `worldId` Integer
+* `securityOrigin` String
+
+Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Devuelve el `Objecto`:
+Devuelve `Objecto`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -144,7 +170,7 @@ Devuelve el `Objecto`:
 Devuelve un objeto que describe la información de uso de las cachés de memoria interna de Blink.
 
 ```javascript
-const {webFrame} = require('electron')
+const {webFrame} = requiere('electron')
 console.log(webFrame.getResourceUsage())
 ```
 

@@ -2,7 +2,7 @@
 
 > Ouvre une nouvelle fenêtre et charge une URL.
 
-Lorsque `window.open` est appelée pour créer une nouvelle fenêtre dans une page web, une nouvelle instance de `BrowserWindow` sera créée pour l' `url` et un proxy est retourné à `window.open` pour que la page aie un contrôle limité sur elle.
+When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
 Le proxy implémente des fonctionnalités standard limitées pour être compatible avec des pages web traditionnelles. Pour un contrôle complet de la nouvelle fenêtre, vous devez créer directement un `BrowserWindow`.
 
@@ -18,7 +18,7 @@ Retourne [`BrowserWindowProxy`](browser-window-proxy.md) - Créer une nouvelle f
 
 La chaîne de caractère `features` suit le format du standard navigateur, mais chaque fonctionnalité doit être un champ d'options appartenant à `BrowserWindow`.
 
-**Remarque :**
+**Remarques:**
 
 * L'intégration de Node sera toujours désactivée dans le nouveau `window` si elle est désactivée sur la fenêtre parent.
 * L'isolation du context sera toujours activée dans le nouveau `window` si elle est activée sur la fenêtre parent.

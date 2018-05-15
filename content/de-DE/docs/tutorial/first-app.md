@@ -31,7 +31,7 @@ npm wird dich schrittweise durch die Erstellung einer `package.json` Datei führ
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (just like Node.js itself). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
 
 ```json
 {
@@ -69,13 +69,13 @@ Other means for installing Electron exist. Please consult the [installation guid
 
 ## Electron-Entwicklung auf einen Blick
 
-Electron Anwendungen werden in JavaScript entwickelt, wobei die gleichen Prinzipien und Methoden wie in der in Node.js Entwicklung Anwendung finden. Alle APIs und Features von Electron sind zugänglich durch das `electron`-Modul, das wie jedes andere Node.js-Modul eingebunden werden kann:
+Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. Alle APIs und Features von Electron sind zugänglich durch das `electron`-Modul, das wie jedes andere Node.js-Modul eingebunden werden kann:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might just wait for the application to be ready and open a window:
+The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -177,7 +177,7 @@ Zu guter Letzt die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 </html>
 ```
 
-## Starten deiner Anwendung
+## Ihre App ausführen
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 

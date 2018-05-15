@@ -14,7 +14,7 @@ Si está utilizando el Python descargado por Homebrew, también debe instalar lo
 
 ## macOS SDK
 
-Si simplemente estás desarrollando Electron y no planeas redistribuir tu compilación personalizada de Electron, puede omitir esta sección.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 Para que ciertas funciones (por ejemplo, pellizcar-zoom) funcionen correctamente, debe orientar el macOS 10.10 SDK.
 
@@ -40,14 +40,20 @@ $ git clone https://github.com/electron/electron
 
 ## Inicialización
 
-El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Tenga en cuenta que estamos usando [ninja](https://ninja-build.org/) para construir Electron por lo que no se genera ningún proyecto de Xcode.
+El comando de inicialización descargará el conjunto de archivos necesarios y creará archivos de proyecto. Tenga en cuenta que estamos usando [ninja](https://ninja-build.org/) para construir Electron por lo que no se genera ningún proyecto de Xcode.
 
 ```sh
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Edificio
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
+## Compilando
 
 Compilar ambos destinos `lanzamiento` y `Depuración`:
 

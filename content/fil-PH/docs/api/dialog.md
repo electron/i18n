@@ -24,7 +24,7 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
 
 ### `dialog.showOpenDialog([browserWindow, ]mga opsyon[, callback])`
 
-* `browserWindow` BrowserWindow (opsyonal)
+* `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `mga pagpipilian` Bagay 
   * `title` String (opsyonal)
   * `defaultPath` String (opsyonal)
@@ -35,13 +35,15 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
     * `openDirectory` - Nagpapahintulot na mapili ang mga direktoryo.
     * `multiSelections` - Nagpapahintulot na mapili ang mga ang maraming mga path.
     * `showHiddenFiles` - Ipakita ang mga nakatagong file sa dialog.
-    * `createDirectory` - Pinapahintulutan ang paggawa ng bagong mga direktoryo mula sa dialog. *macOS*
-    * `promptToCreate` - Nagsesenyas sa paglikha kung walang path ng file na pumasok sa dialog. Hindi nito aktwal na nilikha ang file sa path pero pinapayagan ang mga hindi nakikitang mga path na maibalik na dapat nilikha ng aplikasyon. *Windows*
-    * `noResolveAliases` - pinapahinto ang awtomatikong alyas (symlink) na resolusyon ng path. Ang piniling mga alyas ay babalik sa alyas na path sa halip na sa target na path. *macOS*
-    * `treatPackageAsDirectory` - tinatrato ang mga pakete, katulad ng `.app` na mga folder bilang isang direktoryo kaysa isang file. *macOS*
+    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Hindi nito aktwal na nilikha ang file sa path pero pinapayagan ang mga hindi nakikitang mga path na maibalik na dapat nilikha ng aplikasyon.
+    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
   * `message` String (opsyonal) *macOS* - mensaheng nagpapakita ng mga kahong pang-input sa itaas.
-* `callback` Function (optional) 
+  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+* `callback` Function (opsyonal) 
   * `filePaths` String[] - Isang hanay ng mga path ng file na pinili ng gumagamit
+  * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
 Ibinabalik ang `String[]`, isang hanay ng mga path ng file na napili ng gumagamit, kung ang callback ay ibinigay, ibinabalik nito ang `undefined`.
 
@@ -62,13 +64,13 @@ Ang mga `filter` ay nagtitiyak ng mga hanay ng mga uri ng file na maipapakita o 
 
 Ang mga `ekstensyon` na hanay ay dapat na naglalaman ng mga ekstensyon na walang mga wildcard o mga tuldok (halimbawa, maganda ang `'png'` pero ang `'.png'` at `'*.png'` ay hindi maganda). Upang ipakita ang lahat ng mga file, gamitin ang `'*'` na wildcard (wala nang ibang wildcard ang sinusuportahan).
 
-Kapag naipasa ang isang `callback`, ang API na tawag ay magiging asynchronous at ang resulta ay mapapasa sa `callback(filenames)`
+Kapag naipasa ang isang `callback`, ang API na tawag ay magiging asynchronous at ang resulta ay mapapasa sa `callback(filenames)`.
 
 **Tandaan:** Sa Windows at Linux, ang isang bukas na dialog ay hindi pwedeng sabay na tagapili ng file at tagapili ng direktoryo, upang kapag i-set mo ang `properties` sa `['openFile', 'openDirectory']` sa mga platapormang ito, ang isang tagapili ng direktoryo ay maipapakita.
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` Ang BrowserWindow (opsyonal)
+* `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Bagay 
   * `title` String (opsyonal)
   * `defaultPath` String (opsyonal) - isang ganap na path ng direktoryo, ganap na path ng file, o ang pangalan ng file na gagamitin pag naka-default.
@@ -77,8 +79,10 @@ Kapag naipasa ang isang `callback`, ang API na tawag ay magiging asynchronous at
   * `message` String (opsyonal) *macOS* - mensaheng ipinapakita sa ibabaw ng mga tekstong field.
   * `nameFieldLabel` String (opsyonal) *macOS* - karaniwang lebel para sa mga tekstong ipinapakita sa harapan ng filename na tekstong field.
   * `showsTagField` Boolean (opsyonal) *macOS* - Nagpapakita sa mga tag na input box, nagde-default sa `true`.
+  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 * `callback` Function (opsyonal) 
   * `filename` String
+  * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
 
 Ibinabalik ang `String`, ang path ng file na pinili ng gumagamit, kung ang isang callback ay ibinigay, ibinabalik nito ang `undefined`.
 
@@ -86,11 +90,11 @@ Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kany
 
 Ang `filters` ay nagtitiyak sa hanay ng mga uri ng file na maaaring maipakita, tingnan ang `dialog.showOpenDialog` bilang isang halimbawa.
 
-Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous at ang resulta ay mapapasa sa `callback(filename)`
+Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous at ang resulta ay mapapasa sa `callback(filename)`.
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (opsyonal)
+* `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Bagay 
   * `type` String (opsyonal) - Pwedeng `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. Sa Windows, ang `"question"` ay nagpapakita ng icon na pareho sa `"info"`, maliban kung nag-set ka ng icon gamit ang opsyong `"icon"`. Sa macOS, ang `"warning"` at `"error"` ay nagpapakita ng kaparehong babalang icon.
   * `buttons` String[] (opsyonal) - isang hanay ng mga teksto para sa mga pipindutin. Sa Windows, ang isang blankong hanay ay magreresulta sa isang pipindutin na may lebel na "OK".
@@ -105,7 +109,7 @@ Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous 
   * `noLink` Boolean (opsyonal) - Sa Windows, susubukang alamin ng Electron kung alin sa `buttons` ang karaniwang mga pipindutin (katulad ng "Cancel" o "Yes"), at ipinapakita ang iba bilang mga command link sa dialog. Pinapakita nito ang dialog sa istilo ng modernong mga Windows app. Kung ayaw mo ng ganitong galaw, pwede mong i-set ang `noLink` sa `true`.
   * `normalizeAccessKeys` Boolean (opsyonal) - ini-normalize ang mga key na pang-keyboard access sa mga plataporma. Ang default ay `false`. Ang pagpapagana nito ay pumapalit at ginagamit sa mga lebel ng mga pipindutin para sa paglalagay ng keyboard shortcut access key at ang mga lebel ay isasalin upang maayos silang gagana sa bawat plataporma, at ang mga karakter ay tinanggal sa macOS, isinalin sa `_` sa Linux at hindi pinakialaman sa Windows. Halimbawa, ang isang lebel ng pipindutin na `Vie&w` ay isasalin sa `Vie_w` sa Linux at `View` sa macOS at pwedeng piliin sa pamamagitan ng `Alt-W` sa Windows at Linux.
 * `callback` Function (opsyonal) 
-  * `response` Numero - ang index ng pipindutin na napindot
+  * `response` Numero - ang index ng pipindutin na napindot.
   * `checkboxChecked` Boolean - ang binagong estado ng checkbox kapang ang `checkboxLabel` at na-set. Kung hindi, ito ay `false`.
 
 Ibinabalik ang `Integer`, ang index ng napindot na pipindutin, kung ang isang callback ay naibigay, undefined ang ibinabalik nito.
@@ -118,8 +122,8 @@ Kung ang isang `callback` ay naipasa, hindi pipigilan ng dialog ang proseso. Ang
 
 ### `dialog.showErrorBox(titulo, nilalaman)`
 
-* `title` String - ang titulo na ipapakita sa kahon ng mali
-* `content` String - Ang tekstong nilalaman na ipapakita sa kahon ng mali
+* `title` String - ang titulo na ipapakita sa kahon ng mali.
+* `content` String - Ang tekstong nilalaman na ipapakita sa kahon ng mali.
 
 Ipinapakita ang isang modal na dialog na nagpapakita ng isang mensahe ng kamalian.
 
@@ -127,7 +131,7 @@ Ang API na ito ay maaaring ligtas kung tawagin bago ang `ready` na event na inil
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (opsyonal)
+* `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Bagay 
   * `certificate` [Certificate](structures/certificate.md) - Ang sertipiko ng pagtiwala/pag-import.
   * `message` String - Ang mensaheng ipapakita sa tagagamit.
@@ -142,6 +146,6 @@ Sa Windows, mas limitado ang mga pagpipilian, dahil sa mga Win32 na API na ginam
 
 ## Mga Sheet
 
-Sa macOs, ang mga dialog ay inilahad bilang mga sheet na inilakip sa isang window kapag nagbibigay ka ng isang `BrowserWindow` na batayan sa `browserWindow` na parametro, o modal kung walang window na inilaan.
+On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
 
 Maaari mong tawagin ang `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` upang baguhin ang offset mula sa window frame kung saan nakalakip ang mga sheet.

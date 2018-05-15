@@ -2,7 +2,7 @@
 
 > Buat notifikasi desktop OS
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 ## Menggunakan dalam proses renderer
 
@@ -12,10 +12,10 @@ Jika Anda ingin menampilkan Notifikasi dari proses renderer, Anda harus mengguna
 
 > Buat notifikasi desktop OS
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 ` Pemberitahuan </ 0> adalah
- <a href="http://nodejs.org/api/events.html#events_class_events_eventemitter"> acara Emitter </ 1> .</p>
+ <a href="https://nodejs.org/api/events.html#events_class_events_eventemitter"> acara Emitter </ 1> .</p>
 
 <p>Ini menciptakan baru <code> Pemberitahuan </ 0> dengan sifat asli yang ditetapkan oleh <code> Pilihan </ 0> .</p>
 
@@ -32,21 +32,20 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 <ul>
 <li><code>pilihan` Benda 
 
-* ` judul </ 0>  String - Judul untuk pemberitahuan, yang akan ditampilkan di bagian atas jendela pemberitahuan saat ditampilkan</li>
-<li><code> subtitle </ 0>  String - (opsional) Sebuah subjudul untuk pemberitahuan, yang akan ditampilkan di bawah judul. <em> macos </ 1></li>
-<li><code> tubuh </ 0> String - bahasa teks visual, yang akan ditampilkan di bawah judul atau subjudul</li>
-<li><code> diam </ 0>  Boolean - (opsional) Baik atau tidak untuk mengeluarkan suara pemberitahuan OS saat menampilkan notifikasi</li>
-<li><code>icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
-* ` hasReply </ 0>  Boolean - (opsional) Baik atau tidak untuk menambahkan opsi jawaban sebaris ke perintah.  <em> macos </ 1></li>
-<li><code>balasan pemegang tempat </ 0>  String - (opsional) pemegang tempat untuk menulis di kolom masukan jawaban inline. <em> macos </ 1></li>
-<li><code> suara </ 0>  String - (opsional) Nama file suara yang akan diputar saat pemberitahuan muncul di layar. <em> macos </ 1></li>
-<li><code> tindakan </ 0>  <a href="structures/notification-action.md"> pemberitahuan tindakan [] </ 1> - (opsional) Tindakan untuk ditambahkan ke pemberitahuan.  Harap baca tindakan dan batasan yang tersedia di dokumentasi < 0> tindakan pemberitahuan </ 0> <em> macos </ 1></li>
-</ul></li>
-</ul>
+* ` judul </ 0>  String - Judul untuk pemberitahuan, yang akan ditampilkan di bagian atas jendela pemberitahuan saat ditampilkan.</li>
+<li><code>subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+* ` tubuh </ 0> String - bahasa teks visual, yang akan ditampilkan di bawah judul atau subjudul.</li>
+<li><code>silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
+* `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
+* `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
+* `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
+* `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+* `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
+* `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.</li> </ul> 
 
-<h3>Perihal contoh</h3>
+### Perihal contoh
 
-<p>Objek yang dibuat dengan <code> Pemberitahuan baru </ 0> memancarkan peristiwa berikut:</p>
+Objek yang dibuat dengan ` Pemberitahuan baru </ 0> memancarkan peristiwa berikut:</p>
 
 <p><strong> Catatan: </ 0> Beberapa acara hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p>
 
@@ -55,13 +54,13 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 <p>Returns:</p>
 
 <ul>
-<li><code>event` Event
+<li><code>event` Sinyal</li> </ul> 
 
 Emitted saat pemberitahuan ditunjukkan kepada pengguna, perhatikan bahwa ini dapat dipecat beberapa kali karena pemberitahuan dapat ditampilkan beberapa kali melalui metode ` menunjukan() </ 0> .</p>
 
 <h4>Acara : 'klik'</h4>
 
-<p>Returns:</p>
+<p>Mengirimkan:</p>
 
 <ul>
 <li><code>peristiwa` Peristiwa</li> </ul> 
@@ -86,7 +85,7 @@ is closed.</p>
 
 <ul>
 <li><code>acara` Acara
-* ` balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan</li>
+* ` balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan.</li>
 </ul>
 
 <p>Emitted saat pengguna mengklik tombol "Balas" pada notifikasi dengan <code> telah di balas: benar </ 0> .</p>
@@ -97,7 +96,7 @@ is closed.</p>
 
 <ul>
 <li><code>acara` Acara
-* ` masukkan </ 0>  Nomor - Indeks tindakan yang diaktifkan</li>
+* ` masukkan </ 0>  Nomor - Indeks tindakan yang diaktifkan.</li>
 </ul>
 
 <h3>Metode Contoh</h3>

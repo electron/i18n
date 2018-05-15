@@ -1,5 +1,5 @@
 # Об'єкт SegmentedControlSegment
 
-* `label` String - (опціонально) Текст для відображення в сегменті
-* `icon` String - (опціонально) Зображення для відображення в сегменті
-* `enabled` Boolean - (опціонально) Показує чи можна сегмент виділяти. За замовчуванням: true
+* `label` String (optional) - The text to appear in this segment
+* `icon` NativeImage (optional) - The image to appear in this segment
+* `enabled` Boolean (optional) - Whether this segment is selectable. Default: true

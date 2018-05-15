@@ -14,7 +14,7 @@ Eğer, Homebrew üzerinden kurduğunuz Python'u kullanıyorsanız, aşağıdaki 
 
 ## macOS SDK
 
-Eğer basitçe Electron geliştiriyorsanız ve kendinize özel bir Electron inşaası dağıtmayacaksanız, bu kısmı atlayabilirsiniz.
+If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 Bazı özellikler için (pinch-zoom vb.) macOS 10.10 SDK'sını hedef almalısınız.
 
@@ -47,6 +47,12 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ## İnşaa
 
 Hem `Dağıtım` hem `Hata Ayıklama` hedefleri:
@@ -74,14 +80,14 @@ Electron sadece 64bit hedefleme ile macOS'a kurulabilir ve 32bit üzerinde de in
 $ npm run clean
 ```
 
-Sadece `out` ve `dist` dizinlerini temizlemek için:
+Sadece `out` and `dist` dizinlerini temizlemek için:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Not:** Her iki clean komutu `bootstrap` betiğinin inşaa öncesi çalıştırılmasını şart koşar.
+**Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
 
 ## Testler
 
-[İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests) sayfasını ziyaret edin
+Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests)

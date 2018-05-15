@@ -22,7 +22,7 @@
 
 #### イベント: 'aborted'
 
-現在進行している HTTP のやり取り中にリクエストがキャンセルされたときに発生します。
+現在進行しているHTTPのやり取り中にリクエストがキャンセルされたときに発生します。
 
 #### イベント: 'error'
 
@@ -38,7 +38,7 @@
 
 #### `response.statusCode`
 
-HTTP レスポンスステータスコードを表す `Integer`。
+HTTPレスポンスステータスコードを表す `Integer`。
 
 #### `response.statusMessage`
 
@@ -46,7 +46,7 @@ HTTPステータスメッセージを表す `String`。
 
 #### `response.headers`
 
-HTTP レスポンスヘッダを表す `Object`。`headers` オブジェクトは以下のとおりにフォーマットされます。
+HTTPレスポンスヘッダを表す `Object`。`headers` オブジェクトは、以下のようにフォーマットされます。
 
 * すべてのヘッダ名は小文字です。
 * 各ヘッダー名ごとに配列の値を返すプロパティがヘッダーオブジェクトに生成されます。
@@ -54,12 +54,12 @@ HTTP レスポンスヘッダを表す `Object`。`headers` オブジェクト�
 
 #### `response.httpVersion`
 
-HTTPプロトコルのバージョン番号を示す `String`。 典型的な値は、'1.0'や'1.1'です。 さらに、`httpVersionMajor` と `httpVersionMinor`は、それぞれ HTTP のメジャーバージョン番号とマイナーバージョン番号を返す、2つの読み取り可能な整数値のプロパティです。
+HTTPプロトコルのバージョン番号を示す `String`。 典型的な値は、'1.0'や'1.1'です。 さらに、`httpVersionMajor` と `httpVersionMinor` は、2つともIntegerの値を返す読み取り専用プロパティで、それぞれHTTPのメジャーとマイナーのバージョン番号を返します。
 
 #### `response.httpVersionMajor`
 
-HTTP プロトコルのメジャーバージョン番号を示す `Integer`。
+HTTPプロトコルのメジャーバージョン番号を示す `Integer`。
 
 #### `response.httpVersionMinor`
 
-HTTP プロトコルのマイナーバージョン番号を示す `Integer`。
+HTTPプロトコルのマイナーバージョン番号を示す `Integer`。

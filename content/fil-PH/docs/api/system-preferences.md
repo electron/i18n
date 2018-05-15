@@ -88,7 +88,7 @@ Tinatanggal ang nagsa-subscribe kasama ang `id`.
   * `event` na String
   * `userInfo` na Object
 
-Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` para sa lokal na mga default. Kinakailangan ito para sa mga pangyayaring katulad ng `NSUserDefaultsDidChangeNotification`
+Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` para sa lokal na mga default. Kinakailangan ito para sa mga pangyayaring katulad ng `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -96,10 +96,16 @@ Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` pa
 
 Kapareho sa `unsubscribeNotification`, pero tinatanggal ang nagsa-subscribe mula sa `NSNotificationCenter`.
 
+### `systemPreferences.registerDefaults(defaults)` *macOS*
+
+* `defaults` Object - a dictionary of (`key: value`) user defaults 
+
+Add the specified defaults to your application's `NSUserDefaults`.
+
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `key` String
-* `type` na String - pwedeng `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `key` na String
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 Ibinabalik ang `any` - Ang halaga ng `key` sa `NSUserDefaults`.
 
@@ -115,21 +121,21 @@ Ang ilang mga sikat na `key` at `type` ay:
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
-* `key` na String
-* `type` na String - Tinitingnan ang [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `key` String
+* `type` na String - Tinitingnan ang [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` na String
 
 Itakda ang halaga ng `key` sa `NSUserDefaults`.
 
 Tandaan na dapat tugma ang `type` sa akwal na uri ng `value`. Ang isang nabubukod ay ibinabato kapag hindi ito tugma.
 
-Ang ilang mga sikat na `key` at mga `type` ay:
+Ang ilang mga sikat na `key` at `type` ay:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
 ### `systemPreferences.removeUserDefault(key)` *macOS*
 
-* `key` na String
+* `key` String
 
 Tinatanggal ang `key` sa `NSUserDefaults`. Maaari itong gamitin sa pagbabalik ng default o pangkalahatang halaga ng isang `key` na naitakda gamit ang `setUserDefault`.
 

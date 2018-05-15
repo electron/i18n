@@ -84,11 +84,11 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `event` String
   * `userInfo` Object
 
-与` subscribeNotification `相同，但使用` NSNotificationCenter `作为本地默认值。 这对于诸如` NSUserDefaultsDidChangeNotification `的事件是必需的
+与` subscribeNotification `相同，但使用` NSNotificationCenter `作为本地默认值。 这对于诸如` NSUserDefaultsDidChangeNotification `的事件是必需的.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -96,10 +96,16 @@ console.log(systemPreferences.isDarkMode())
 
 与` unsubscribeNotification `相同，但将订户从` NSNotificationCenter `中删除。
 
+### `systemPreferences.registerDefaults(defaults)` *macOS*
+
+* `defaults` Object - a dictionary of (`key: value`) user defaults 
+
+Add the specified defaults to your application's `NSUserDefaults`.
+
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - 可以为 `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 返回 `any` - `NSUserDefaults` 中 `key` 的值.
 
@@ -116,7 +122,7 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - 请看 [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` String - 请看 [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` String
 
 设置 `NSUserDefaults` 中 `key` 的值.

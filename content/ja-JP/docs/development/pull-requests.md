@@ -12,10 +12,10 @@
   * [ステップ6: リベース](#step-6-rebase)
   * [ステップ7: テスト](#step-7-test)
   * [ステップ8: プッシュ](#step-8-push)
-  * [ステップ9: プルリクエストを開く](#step-8-opening-the-pull-request)
-  * [ステップ10: 議論と更新](#step-9-discuss-and-update) 
+  * [ステップ9: プルリクエストを開く](#step-9-opening-the-pull-request)
+  * [ステップ10: 議論と更新](#step-10-discuss-and-update) 
     * [承認とリクエストの変更ワークフロー](#approval-and-request-changes-workflow)
-  * [ステップ11: 取り込み](#step-10-landing)
+  * [ステップ11: 取り込み](#step-11-landing)
   * [継続的インテグレーションテスト](#continuous-integration-testing)
 
 ## ローカル環境のセットアップ
@@ -72,24 +72,42 @@ $ git commit
 
 #### コミットメッセージのガイドライン
 
-良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。
+良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。 The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-1. 最初の行は、以下の通りにしてください。
-  
+Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
+
+Examples of commit messages with semantic prefixes:
+
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux` 
+
+Common prefixes:
+
+    - fix: A bug fix
+    - feat: A new feature
+    - docs: Documentation changes
+    - test: Adding missing tests or correcting existing tests
+    - build: Changes that affect the build system
+    - ci: Changes to our CI configuration files and scripts
+    - perf: A code change that improves performance
+    - refactor: A code change that neither fixes a bug nor adds a feature
+    - style: Changes that do not affect the meaning of the code (linting)
+    
+
+Other things to keep in mind when writing a commit message:
+
+1. 最初の行は、以下の通りにしてください。 
   * 変更の簡単な説明が含まれている (50文字以下が好ましく、72文字未満である)
   * 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
-    
-    例:
-  
-  * `updated osx build documentation for new sdk`
-  
-  * `fixed typos in atom_api_menu.h`
-
 2. 2行目は空にしてください。
-
 3. 他のすべての行は72列で折り返します。
 
-良い git commit メッセージを書く方法の例については、[この記事](https://chris.beams.io/posts/git-commit/) を参照してください。
+#### Breaking Changes
+
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+
+See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### ステップ6: リベース
 
@@ -114,7 +132,7 @@ $ npm run test
 
 リンターが問題を報告していないこと、そしてすべてのテストが合格していることを確認してください。 いずれかのチェックに失敗したパッチは提出しないでください。
 
-テストを更新していて、単一の仕様を実行してチェックしたい場合は、以下のようにします。
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu

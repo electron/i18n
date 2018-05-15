@@ -55,6 +55,12 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### Multi-compilation
 
 Si vous voulez compiler une version `arm`, vous devez installer les dépendances suivantes :

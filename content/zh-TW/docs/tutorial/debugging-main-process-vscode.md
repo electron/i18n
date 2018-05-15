@@ -28,8 +28,6 @@ $ code electron-quick-start
 }
 ```
 
-**注意:** 在 Windows 下，將使用 `"${workspaceRoot}/node_modules/.bin/electron.cmd"` 為 `runtimeExecutable`。
-
 ### 3. Debug
 
 在 `main.js` 中設定一些中斷點，然後在 [Debug 視景](https://code.visualstudio.com/docs/editor/debugging) 中開始 debug。你應該能看到程式執行到中斷點時停下來。

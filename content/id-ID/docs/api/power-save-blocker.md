@@ -2,7 +2,7 @@
 
 > Memblokir sistem agar tidak masuk modus daya-rendah (tidur).
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 Sebagai contoh:
 
@@ -15,17 +15,17 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Methods
+## Metode
 
 Modul `powerSaveBlocker` mempunyai metods sebagai berikut:
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - jenis Power save blocker. 
-  * `prevent-app-suspension` Mencegah aplikasi agar tidak ditangguhkan/dibekukan. Menjaga sistem tetap aktif tetapi mengizinkan layar untuk dimatikan. Contoh kasus penggunaannya: mengunduh sebuah file atau memainkan audio.
-  * `prevent-display-sleep` - Mencegah tampilan agar tidak tidur (gelap). Menjaga sitem dan layar tetap aktif. Contoh kasus penggunaannya: memainkan video.
+* `mengetik` String - jenis Power save blocker. 
+  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
+  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-Returns `Integer` - ID bloker yang ditetapkan untuk pemblokir daya ini
+Returns `Integer` - ID bloker yang ditetapkan untuk pemblokir daya ini.
 
 Mulai mencegah sistem agar tidak memasuki mode daya-rendah. Mengembalikan sebuah integer yang mengidentifikasi pemblokir hemat daya.
 

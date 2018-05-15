@@ -6,7 +6,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Makadagdag sa elektron](../../CONTRIBUTING.md)
 * [Mga Isyu](issues.md)
 * [Pull Requests](pull-requests.md)
-* [Dekumentasyon ng patnubay ng Estilo](styleguide.md)
+* [Dekumentasyon ng patnubay ng Estilo](coding-style.md#documentation)
 * [Ang Direktoryo ng Istraktura ng "Source Code"](source-code-directory-structure.md)
 * [Paraan sa pagkukudigo](coding-style.md)
 * [Paggamit ng kumakalat na-format C++ Code](clang-format.md)

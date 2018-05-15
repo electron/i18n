@@ -50,26 +50,26 @@ Se pueden anexar otros campos al elemento de la `template` y pueden convertirse 
 
 El objeto`menu` tiene los siguientes métodos de instancia:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` BrowserWindow (opcional) - Por defecto es la ventana enfocada.
-* `opciones` Object (opcional) 
+* `opciones` Object 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
   * `y` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
-  * `async` Boolean (opcional) - Se establece a `true` para devolver este método llamado inmediatamente. `false` para devolver luego de que el menú ha sido seleccionado o cerrado. Por defecto es `false`.
   * `positioningItem` Número (opcional) *macOS* - El índice del elemento de menú está colocado por debajo del cursor del ratón en las coordenadas específicas. Por defecto es -1.
+  * `callback` Function (optional) - Called when menu is closed.
 
-Este menú aparece como un menú de contexto en la `browserWindow`.
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (opcional) - Por defecto es la ventana enfocada.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 Cierra el menú de contexto en la `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` Elemento del menú
+* `menuItem` [MenuItem](menu-item.md)
 
 Anexa el `menuItem` al menú.
 
@@ -82,9 +82,31 @@ Devuelve `MenuItem` el item con el `id` especificado
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Entero
-* `menuItem` Elemento del menú
+* `menuItem` [MenuItem](menu-item.md)
 
 Inserta el `menuItem` en la posición `pos` del menú.
+
+### Eventos de Instancia
+
+Objects created with `new Menu` emit the following events:
+
+**Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
+
+#### Event: 'menu-will-show'
+
+Devuelve:
+
+* `event` Event
+
+Emitted when `menu.popup()` is called.
+
+#### Event: 'menu-will-close'
+
+Devuelve:
+
+* `event` Event
+
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Propiedades de Instancia
 
@@ -95,6 +117,10 @@ Los objetos `menu` también tienen las siguientes propiedades:
 Un arreglo `MenuItem[]` contiene los elementos del menú.
 
 Cada `Menu` se compone de múltiples [`MenuItem`](menu-item.md) y cada `MenuItem` tiene un submenú.
+
+### Eventos de Instancia
+
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Ejemplos
 
@@ -213,7 +239,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```

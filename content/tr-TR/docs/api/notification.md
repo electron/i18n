@@ -14,7 +14,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 İşlem: [Ana](../glossary.md#main-process)
 
-`Notification` modülü [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) sınıfının bir örneğidir.
+`Notification` modülü [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter) sınıfının bir örneğidir.
 
 `options` ile belirlenen yerel özelliklere sahip yeni bir `Notification` oluşturur.
 
@@ -29,15 +29,16 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 ### `new Notification([options])` *Experimental*
 
 * `options` Nesnesi 
-  * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı
-  * `altyazı` Metin - (isteğe bağlı) Başlığın altında görüntülenen bildirim için bir altyazı. *macOS*
-  * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir
-  * `sessiz` Boolean - (isteğe bağlı) Bildirim gösterilirken bir İşetim Sistemi bildirim sesi yayınlayıp yayınlamayacağım
-  * `icon` (String | [NativeImage](native-image.md)) Bildirimde kullanılacak simgeyi tanımlar
-  * `hasReply` Boolean - (İsteğe bağlı) Bildirimler için satır içi cevap seçeneği eklemek isteyip istemediğinizi gösterir. *macOS*
-  * `replyPlaceholder` Dizi - (İsteğe Bağlı) - Satır içerisindeki açıklama alanları için yer tutucu özelliği vardır. *macOS*
-  * `sound` Dizi - (İsteğe Bağlı) Bildirim geldiğinde çalacak ses dosyasının adı yer alır.*macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (İsteğe Bağlı) Bildirimlere eylem eklenebilir. Lütfen `NotificationAction` belgelerinde mevcut eylem ve sınırlamarı okuyunuz. *macOS*
+  * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı.
+  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+  * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir.
+  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
+  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
+  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
+  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
+  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
+  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### Örnek Olaylar
 
@@ -75,8 +76,8 @@ Bu olayın, bildirimin kapalı olduğu tüm durumlarda bildirim vermesi garanti 
 
 Dönüşler:
 
-* `event` Olay
-* `reply` Dize - Kullanıcının satır içi açıklama kısmına girdiği dize
+* `event` Event
+* `reply` Dize - Kullanıcının satır içi açıklama kısmına girdiği dize.
 
 Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bildirimde "yanıtla" düğmesini tıklaması gerekir.
 
@@ -85,7 +86,7 @@ Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bi
 Dönüşler:
 
 * `event` Event
-* `index` Numara - Etkin olan eylem dizinini gösterir
+* `index` Numara - Etkin olan eylem dizinini gösterir.
 
 ### Sınıf örneği metodları
 

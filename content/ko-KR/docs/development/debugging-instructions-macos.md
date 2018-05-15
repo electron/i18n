@@ -1,10 +1,10 @@
 # MacOS 에서 디버깅하기
 
-만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. 그렇다 해도, lldb, Electron 소스 코드가 중단점을 통해 순차적으로 쉽게 디버깅할 수 있느 환경을 제공합니다. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
+만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
 ## 요구 사항
 
-* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [macOS용 빌드 설명서 ](build-instructions-osx.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. 물론 직접 다운로드 받은 Electron 바이너리에도 디버거 연결 및 디버깅을 사용할 수 있지만, 실질적으로 디버깅이 까다롭게 고도의 최적화가 되어있음을 발견하게 될 것입니다: 인라인화, 꼬리 호출, 이외 여러 가지 생소한 최적화가 적용되어 디버거가 모든 변수와 실행 경로를 정상적으로 표시할 수 없습니다.
+* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [macOS용 빌드 설명서 ](build-instructions-osx.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
 * **Xcode**: Xcode 뿐만 아니라, Xcode 명령 줄 도구를 설치합니다. 이것은 LLDB, macOS Xcode 의 기본 디버거를 포함합니다. 그것은 데스크톱과 iOS 기기와 시뮬레이터에서 C, Objective-C, C++ 디버깅을 지원합니다.
 
@@ -22,7 +22,7 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 LLDB 는 강력한 도구이며 코드 검사를 위한 다양한 전략을 제공합니다. 간단히 소개하자면, JavaScript 에서 올바르지 않은 명령을 호출한다고 가정합시다 - 당신은 명령의 C++ 부분에서 멈추길 원하며 그것은 Electron 소스 내에 있습니다.
 
-관련된 코드 파일들은 `./atom/`에서 찾을 수 있으며 또한 Brightray 안 `./brightray/browser`와 `./brightray/common`에서도 찾을 수 있습니다. 만약 하드코어를 좋아한다면, Chromium을 직접 디버깅할 수도 있습니다. 확실히 `chromium_src` 안에서 찾을 수 있습니다.
+관련된 코드 파일들은 `./atom/`에서 찾을 수 있으며 또한 Brightray 안 `./brightray/browser`와 `./brightray/common`에서도 찾을 수 있습니다.
 
 `app.setName()` 을 디버깅한다고 가정합시다, 이것은 `browser.cc` 에 `Browser::SetName()` 으로 정의되어있습니다. `breakpoint` 명령으로 멀추려는 파일과 줄을 명시하여 중단점을 설정합시다:
 

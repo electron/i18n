@@ -10,28 +10,28 @@ Process: [Main](../glossary.md#main-process)
 
 Кроме того, существует возможность пересылать сообщения из главного процесса в процессы рендеринга. Более подробно это описано в [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-).
 
-* When sending a message, the event name is the `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+* При отправке сообщения, событие именуется `channel`.
+* Чтобы ответить на синхронное сообщение, нужно задать `event.returnValue`.
+* Чтобы отправить ассинхронное сообщение назад отправителю, используйте `event.sender.send(...)`.
 
-An example of sending and handling messages between the render and main processes:
+Пример отправки и обработки сообщений между render и main процессами:
 
 ```javascript
-// In main process.
+// В main процессе.
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg) // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg) // prints "ping"
   event.returnValue = 'pong'
 })
 ```
 
 ```javascript
-// In renderer process (web page).
+// В renderer процессе (web страница).
 const {ipcRenderer} = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
@@ -43,43 +43,43 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## Методы
 
-The `ipcMain` module has the following method to listen for events:
+Модуль `ipcMain` имеет следующие методы для прослушивая событий:
 
 ### `ipcMain.on(channel, listener)`
 
-* `channel` String
-* `listener` Function
+* `channel` String (Строка)
+* `listener` Function (Функция)
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+Слушает `channel`, когда приходит новое сообщение `listener` вызовется с `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
-* `channel` String
-* `listener` Function
+* `channel` String (Строка)
+* `listener` Function (Функция)
 
 Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(channel, listener)`
 
-* `channel` String
-* `listener` Function
+* `channel` String (Строка)
+* `listener` Function (Функция)
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Удаляет указанный `listener` из массива слушателей конкретного `channel`.
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` String
+* `channel` String (Строка)
 
-Removes listeners of the specified `channel`.
+Удаляет всех слушателей `channel`.
 
-## Event object
+## Объект события
 
-The `event` object passed to the `callback` has the following methods:
+Объект события (`event`) переданный, в функцию обратного вызова (`callback`) обладает следующими методами:
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Установленное значение возращается в синхронном сообщении.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Возвращает `webContents` который послал сообщение. Вы можете вызвать `event.sender.send` чтобы ответить на асинхронное сообщение, [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) для дополнительной информации.

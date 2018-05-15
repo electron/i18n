@@ -1,16 +1,16 @@
-tagline: 使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式
+tagline: 使用 JavaScript、HTML 和 CSS 建構跨平台桌面應用程式
 nav:
+  apps: 應用程式
+  blog: 部落格
+  code_of_conduct: 行為準則
+  community: 社群
+  contact: 聯絡
   docs: 文件
   donors: 贊助者
-  blog: 部落格
-  community: 社群
-  apps: 應用程式
-  userland: 使用者園地
-  releases: 版本發佈
-  contact: 聯絡
   languages: 語言
-  code_of_conduct: 行為準則
+  releases: 版本發佈
   search: 搜尋
+  userland: 使用者園地
 docs:
   title: Electron 文件
   description: 也可以一次<a href="/docs/all">單頁顯示所有文件</a>，或到<a href="/docs/faq">常見問題集</a>看看。
@@ -28,7 +28,22 @@ languages:
   current: 目前選的
 community:
   title: Electron 社群
-  description: '出自 Electron <a href="https://github.com/sindresorhus/awesome-electron">超棒</a>原始碼貢獻者的工具、模版、影片及其他資源。 找找在你附近的<a href="/community#meetups">聚會</a>，或是自己創辦一個吧!'
+  description: Resources for connecting with people working on Electron.
+  channels:
+    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
+    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    packages: "在<a href='/search/npmPackages'>套件搜尋頁面</a>上<a href='/search/npmPackages'><b>探索實用的 npm 套件</b></a>。"
+    bugs: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 以<a href='https://github.com/electron/electron/issues'><b>回報 bug</b></a>。"
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    other: "其他問題請寄信至 <a href='mailto:info@electronjs.org'>info@electronjs.org</a>。"
+  language_communities:
+    title: 語言社群
+    description: "Electron 社群遍佈全球，且英文並非所有人的主要語言。尋找<a href='/languages'>您的語言</a>，或者加入一個下列的語言社群："
   tools: 工具
   boilerplates: 模版
   components: 元件

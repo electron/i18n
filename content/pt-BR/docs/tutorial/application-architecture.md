@@ -20,7 +20,7 @@ Em páginas web, chamar APIs nativas relacionadas à interface gráfica de usuá
 
 > #### Aparte: Comunicação Entre Processos
 > 
-> No Electron, nós temos diversas maneiras de estabelecer uma comunicação entre o processo principal e os processos de renderização. Como os módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md) para o envio de mensagens, e o módulo [remote](../api/remote.md) para comunicação no estilo RPC. Também existe um tópico no FAQ sobre [como compartilhar dados entre páginas web](../faq.md#how-to-share-data-between-web-pages).
+> No Electron, nós temos diversas maneiras de estabelecer uma comunicação entre o processo principal e os processos de renderização. Como os módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md) para o envio de mensagens, e o módulo [remote](../api/remote.md) para comunicação no estilo RPC. Também existe um tópico de perguntas frequentes sobre [como compartilhar dados entre páginas web](../faq.md#how-to-share-data-between-web-pages).
 
 ## Usando Electron APIs
 
@@ -30,7 +30,7 @@ Electron oferece uma série de APIs que suportam o desenvolvimento de uma aplica
 const electron = require('electron')
 ```
 
-Todas as Electron APIs são atribuídas em um tipo de processo. Muitos deles só podem ser usados a partir do processo principal, algumas a partir do processo de renderização e outros em ambos. A documentação individual de cada API irá especificar a partir de qual processo ela pode ser utilizada.
+Todas as Electron APIs são atribuídas em um tipo de processo. Muitos deles só podem ser usados a partir do processo principal, algumas a partir do processo de renderização e outros em ambos. The documentation for each individual API will state which process it can be used from.
 
 Uma janela no Electron, por exemplo, é criada usando a classe `BrowserWindow`. Disponível apenas no processo principal.
 
@@ -53,7 +53,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## Usando Node.js APIs
 
 Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
 
@@ -79,7 +79,7 @@ As an example, to use the official AWS SDK in your application, you'd first inst
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, simply require and use the module as if you were building a Node.js application:
+Then, in your Electron app, require and use the module as if you were building a Node.js application:
 
 ```javascript
 // A ready-to-use S3 Client
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md) (it's easy).
+The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).

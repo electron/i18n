@@ -71,8 +71,8 @@ El módulo `Tray` emite los siguientes eventos:
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
-* `position` [Point](structures/point.md) - La posición del evento
+* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
+* `position` [Point](structures/point.md) - La posición del evento.
 
 Emitido cuando se hace clic en el icono de bandeja.
 
@@ -83,7 +83,7 @@ Emitido cuando se hace clic en el icono de bandeja.
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
+* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 
 Emitido cuando se hace clic derecho en el icono de bandeja.
 
@@ -94,7 +94,7 @@ Emitido cuando se hace clic derecho en el icono de bandeja.
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
+* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 
 Emitido cuando se hace doble clic en el icono de bandeja.
 
@@ -116,7 +116,7 @@ Emitido cuando cualquier elemento arrastrado es dejado en el icono de bandeja.
 
 #### Evento: 'drop-files' *macOS*
 
-* `event` Evento
+* `event` Event
 * `files` String[] - Las rutas de los archivos dejados en la bandeja.
 
 Emitido cuando los archivos arrastrados son dejados en el icono de la bandeja.
@@ -124,7 +124,7 @@ Emitido cuando los archivos arrastrados son dejados en el icono de la bandeja.
 #### Evento: 'drop-text' *macOS*
 
 * `event` Event
-* `text` Cadena - la cadena del texto dejado
+* `text` Cadena - la cadena del texto dejado.
 
 Emitido cuando el texto arrastrado es arrojado en el icono de bandeja.
 
@@ -147,7 +147,7 @@ Emitido cuando termina una operación de arrastre en la bandeja o termina en otr
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - La posición del evento
+* `position` [Point](structures/point.md) - La posición del evento.
 
 Emitido cuando el ratón entra en el icono de la bandeja.
 
@@ -158,7 +158,7 @@ Emitido cuando el ratón entra en el icono de la bandeja.
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - La posición del evento
+* `position` [Point](structures/point.md) - La posición del evento.
 
 Emitido cuando el ratón sale del icono de la bandeja.
 
@@ -169,7 +169,7 @@ Emitido cuando el ratón sale del icono de la bandeja.
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - La posición del evento
+* `position` [Point](structures/point.md) - La posición del evento.
 
 Se emite cuando el ratón se mueve sobre el icono de la bandeja del sistema.
 
@@ -203,7 +203,7 @@ Configura la activación de texto para este icono de bandeja.
 
 * `title` Cadena
 
-Establece el título mostrado a un lado del icono de la bandeja en la barra de estado.
+Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -236,7 +236,7 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `opciones` Object 
-  * `icon` ([NativeImage](native-image.md) | String) - (opcional)
+  * `icon` ([NativeImage](native-image.md) | String) (opcional) -
   * `title` String
   * `content` String
 

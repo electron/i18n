@@ -1,4 +1,4 @@
-# Oggetto RiportaCrash
+# Oggetto CrashReport
 
-* Stringa `data`
-* `ID` Numero Intero
+* `date` Data
+* `id` Stringa

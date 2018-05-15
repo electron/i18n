@@ -11,18 +11,18 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
 * `opciones` Object 
   * `click` Function (opcional) - Será llamada con `click(menuItem, browserWindow, event)` cuando se hace click en el elemento del menú. 
     * `menuItem` MenuItem
-    * `browserWindow` BrowserWindow
+    * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
   * `rol` String (opcional) - Define la acción del elemento del menú, cuando se especifica el `click` la propiedad será ignorada. Vea [roles](#roles).
   * `tipo` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
-  * `etiqueta` String - (opcional)
-  * `subetiqueta` String - (opcional)
+  * `label` String (optional)
+  * `sublabel` String (optional)
   * `accelerator` [Accelerator](accelerator.md) (opcional)
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `enabled` Boolean (opcional) - Si es falso, el elemento de menú será gris y no se podrá hacer click en él.
   * `visible` Boolean (opcional) - Si es falso, el elemento del menú será totalmente invisible.
   * `checked` Boolean (opcional) - Solo debe especificarse para elementos del menú tipo `checkbox` o `radio`.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (opcional) - Debe ser especificado para elementos del menú tipo `submenu`. Si `submenu` es especificado, el `tipo: 'submenu'` puede ser omitido. Si el valor no es un `Menú` entonces será convertido automáticamente utilizando `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. Si `submenu` es especificado, el `tipo: 'submenu'` puede ser omitido. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (opcional) - Único dentro de un menú concreto. Si se define, entonces puede usarse como referencia a este elemento mediante el atributo de posición.
   * `position` String (opcional) - Este campo permite una definición granular de la posición específica dentro de un menú concreto.
 
@@ -41,44 +41,46 @@ La propiedad `role` puede tener los siguientes valores:
 * `cut`
 * `copy`
 * `paste`
-* `pasteandmatchstyle`
-* `selectall`
+* `pasteAndMatchStyle`
+* `selectAll`
 * `delete`
-* `minimize` - Minimizar la venta actual
-* `close` - Cerrar la ventana actual
-* `quit`- Salir de la aplicación
-* `reload` - Recargar la ventana actual
-* `forcereload` - Forzar la recarga de la ventana actual ignorando el caché.
-* `toggledevtools` - Conmuta las herramientas de desarrollador en la ventana actual
-* `togglefullscreen`- Conmuta el modo de pantalla completa en la ventana actual
-* `resetzoom` - Reinicia el nivel de zoom de la página activa a su valor original
-* `zoomin` - Aumenta el nivel de zoom en 10% en la página activa
-* `zoomout` - Reduce el nivel de zoom en 10% en la página activa
-* `editMenu` - Grupo por defecto de un menú "Edit" (Deshacer, Copiar, etc.)
-* `windowMenu` - Grupo por defecto de un menú "Window" (Minimizar, Cerrar, etc.)
+* `minimize` - Minimizar la venta actual.
+* `close` - Cerrar la ventana actual.
+* `quit`- Salir de la aplicación.
+* `reload` - Recargar la ventana actual.
+* `forceReload` - Reload the current window ignoring the cache.
+* `toggleDevTools` - Toggle developer tools in the current window.
+* `toggleFullScreen`- Toggle full screen mode on the current window.
+* `resetZoom` - Reset the focused page's zoom level to the original size.
+* `zoomIn` - Zoom in the focused page by 10%.
+* `zoomOut` - Zoom out the focused page by 10%.
+* `editMenu` - Grupo por defecto de un menú "Edit" (Deshacer, Copiar, etc.).
+* `windowMenu` - Grupo por defecto de un menú "Window" (Minimizar, Cerrar, etc.).
 
-Los siguientes roles adicionales están disponibles para macOS:
+The following additional roles are available on *macOS*:
 
-* `about` - Enlace a la acción `orderFrontStandardAboutPanel`
-* `hide` - Enlace a la acción `hide`
-* `hideothers` - Enlace a la acción `hideOtherApplications`
-* `unhide` - Enlace a la acción `unhideAllApplications`
-* `startspeaking` - Enlace a la acción `startSpeaking`
-* `stopspeaking` - Enlace a la acción `stopSpeaking`
-* `front` - Enlace a la acción `arrangeInFront`
-* `zoom` - Enlace a la acción `performZoom`
-* `toggletabbar` - Enlace a la acción `toggleTabBar`
-* `selectnexttab` - Enlace a la acción `selectNextTab`
-* `selectprevioustab` - Enlace a la acción `selectPreviousTab`
-* `mergeallwindows` - Enlace a la acción `mergeAllWindows`
-* `movetabtonewwindow` - Enlace a la acción `moveTabToNewWindow`
-* `window` - El submenú es un menú "Window"
-* `help` - El submenú es un menú "Help"
-* `services` - El submenú es un menú "Services"
+* `about` - Enlace a la acción `orderFrontStandardAboutPanel`.
+* `hide` - Enlace a la acción `hide`.
+* `hideOthers` - Map to the `hideOtherApplications` action.
+* `unhide` - Enlace a la acción `unhideAllApplications`.
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `front` - Enlace a la acción `arrangeInFront`.
+* `zoom` - Enlace a la acción `performZoom`.
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
+* `services` - The submenu is a "Services" menu.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
-Cuando se especifica un `rol` en macOS, la `etiqueta` y el `acelerador` son solo opciones que afectarán a los elementos del menú. Todas las demás opciones serán ignoradas.
+When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Las siguientes propiedades están disponibles en instancias del `menú de elementos`:
 
@@ -102,8 +104,8 @@ Puede añadir la función `click` para comportamientos adicionales.
 
 #### `menuItem.label`
 
-Una `Cadena` Representando la etiqueta de los elementos visibles en el menú
+Una `Cadena` Representando la etiqueta de los elementos visibles en el menú.
 
 #### `menuItem.click`
 
-Una `función` que se desencadena cuando los elementos del menú reciben un evento click
+Una `función` que se desencadena cuando los elementos del menú reciben un evento click.

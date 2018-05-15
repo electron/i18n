@@ -4,7 +4,7 @@ Follow the guidelines below for building Electron on Windows.
 
 ## Требования
 
-* Windows 7 / Server 2008 R2 or higher
+* Windows 7 / Server 2008 R2 или выше
 * Visual Studio 2017 - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
@@ -58,7 +58,7 @@ $ python script\bootstrap.py -v --target_arch=ia32
 
 The other building steps are exactly the same.
 
-## Visual Studio project
+## Visual Studio проект
 
 To generate a Visual Studio project, you can pass the `--msvs` parameter:
 
@@ -127,7 +127,7 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm

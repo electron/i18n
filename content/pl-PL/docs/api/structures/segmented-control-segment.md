@@ -1,5 +1,5 @@
 # Obiekt SegmentedControlSegment
 
-* `label` String - (opcjonalne) Tekst wyświetlany w tym segmencie
-* `icon` NativeImage - (opcjonalne) Obrazek wyświetlany dla tego segmentu
-* `enabled` Boolean - (opcjonalnie), określa czy ten segment jest możliwy do wybrania. Domyślnie: true
+* `label` String (optional) - The text to appear in this segment
+* `icon` NativeImage (optional) - The image to appear in this segment
+* `enabled` Boolean (optional) - Whether this segment is selectable. Default: true

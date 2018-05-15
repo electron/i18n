@@ -7,7 +7,7 @@ Prozess: [Haupt](../glossary.md#main-process)
 `DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
-// In the main process.
+// Im Hauptprozess.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
@@ -42,7 +42,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
-<li><code>state` String
+<li><code>state` String - Can be `progressing` or `interrupted`.
 
 Emitted when the download has been updated and is not done.
 
@@ -56,7 +56,7 @@ The `state` can be one of following:
 Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
-<li><code>state` String
+<li><code>state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 

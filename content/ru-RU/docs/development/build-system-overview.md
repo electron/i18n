@@ -23,14 +23,14 @@ All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when r
 
 By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
-If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
+If you only want to build Electron quickly for testing or development, you can download the shared library versions by passing the `--dev` parameter:
 
 ```sh
 $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
 
-## Two-Phase Project Generation
+## Двух-Фазная проектная генерация
 
 Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
 
@@ -40,7 +40,7 @@ To work around this Electron uses a `gyp` variable `libchromiumcontent_component
 
 В отличие от большинства проектов, использующих `выпуска` и `отладки` как целевые имена электрон вместо этого использует `R` и `D`. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
 
-This only affects developers, if you are just building Electron for rebranding you are not affected.
+This only affects developers, if you are building Electron for rebranding you are not affected.
 
 ## Тестирование
 
@@ -62,7 +62,7 @@ Whenever you make changes to Electron source code, you'll need to re-run the bui
 $ npm run build && npm test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Just append `.only` to any `describe` or `it` function call:
+You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Append `.only` to any `describe` or `it` function call:
 
 ```js
 describe.only('some feature', function () {

@@ -66,7 +66,7 @@ app.on('ready', () => {
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `manejador` Function 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referencia` String
@@ -126,7 +126,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `data` String (opcional)
-* `completion` Function (optional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Registra un protocolo de `esquema` que enviará una `cadena` como respuesta.
@@ -147,8 +147,8 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
       * `url` String
       * `method` String
       * `session` Object (opcional)
-      * `uploadData` Object (opcional) 
-        * `contentType` String - Tipo MIME del contenido.
+      * `uploadData` Objecto (opcional) 
+        * `contentType` String - tipo MIME del contenido.
         * `data` String - Contenido a ser enviado.
 * `completion` Function (opcional) 
   * `error` Error
@@ -187,7 +187,7 @@ const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  const rv = new PassThrough() // PassThrough is also a Readable stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -297,8 +297,8 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
       * `url` String
       * `method` String
       * `session` Object (opcional)
-      * `uploadData` Object (opcional) 
-        * `contentType` String - tipo MIME del contenido.
+      * `uploadData` Objecto (opcional) 
+        * `contentType` String - Tipo MIME del contenido.
         * `data` String - Contenido a ser enviado.
 * `completion` Function (opcional) 
   * `error` Error

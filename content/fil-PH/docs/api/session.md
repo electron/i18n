@@ -93,16 +93,16 @@ Ang callback ay tinatawag sa kasalukuyang sukat ng cache ng sesyon.
 
 #### `ses.clearCache(callback)`
 
-* `callback` na Function - Tinatawag kung ang operasyon ay tapos na
+* `callback` na Function - Tinatawag kung ang operason ay tapos na.
 
 Inaalis ang HTTP na cache ng sesyon.
 
 #### `ses.clearStorageData([options, callback])`
 
 * `mga opsyon` Bagay (opsyonal) 
-  * `origin` na String - (opsyonal) dapat sinusunod ng representasyon ng `window.location.origin` `scheme://host:port`.
-  * `storages` na String[] - (opsyonal) Ang uri ng mga imbakan na aalisin, maaaring maglalaman ng: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` na String[] - (opsyonal) Ang mga uri ng mga quota na aalisin, maaaring maglalaman ng: `temporary`, `persistent`, `syncable`.
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
 Inaalis ang datos ng mga web na imbakan.
@@ -141,7 +141,7 @@ Halimbawa:
 * `socks4://foopy` - Gamitin ang SOCKS v4 proxy `foopy:1080` sa lahat ng mga URL.
 * `http=foopy,socks5://bar.com` - Gamitin ang HTTP na proxy `foopy` para sa http na mga URL, at pumunta sa SOCKS5 proxy na `bar.com` kung ang `foopy` ay hindi magagamit.
 * `http=foopy,direct://` - Gamitin ang HTTP na proxy `foopy` para sa http Una mga URL, at gamitin nang walang proxy kung ang `foopy` ay hindi magagamit.
-* `http=foopy;socks=foopy2` - Gamitin ang HTTP na proxy na `foopy` para sa http na mga URL, at gamitin ang `socks4://foopy2` para sa lahat ng iba pang mga URL.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
 Ang `proxyBypassRules` ay isang listahan ng panuntunan na pinaghihiwalay ng kuwit na inilirawan sa ibaba:
 
@@ -163,7 +163,7 @@ Ang `proxyBypassRules` ay isang listahan ng panuntunan na pinaghihiwalay ng kuwi
   
   Mga halimbawa: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
-* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   Itugma ang anumang URL na para sa IP literal na nabibilang sa pagitan ng binigay na saklaw. Ang saklaw ng IP ay tinukoy gamit ang CIDR na notasyon.
   
@@ -183,7 +183,7 @@ Naglulutas ng impormasyon sa proxy para sa `url`. Ang `callback` ay tatawagin na
 
 #### `ses.setDownloadPath(path)`
 
-* `path` na String - Ang lokasyon ng pag-download
+* `path` na String - Ang lokasyon ng pag-download.
 
 Nagtatakda ng download saving na direktoryo. Bilang default, ang download na direktoryo ay ang`Downloads` sa ilalim ng kaukulang app na folder.
 
@@ -251,7 +251,9 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `webContents` na [WebContents](web-contents.md) - WebContents na naghihingi ng pahintulot.
   * `pahintulot` na String - Enum ng 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
-    * `permissionGranted` na Boolean - Pagpayag o pagtanggi sa pahintulot
+    * `permissionGranted` na Boolean - Pagpayag o pagtanggi sa pahintulot.
+  * `ang mga detalye` Object - Some properties are only available on certain permission types. 
+    * `externalURL` String - The url of the `openExternal` request.
 
 Nagtatakda sa tagahawak na magagamit upang tumugon sa mga kahilingan sa pahintulot para sa `session`. Ang pagtawag sa `callback(true)` ay maaring magbigay ng pahintulot at ang `callback(false)` ay magtatanggi ito. Upang linisin ang tagahawak, tawagin ang `setPermissionRequestHandler(null)`.
 
@@ -274,7 +276,7 @@ Nililinis ang cache ng tagalutas ng host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `mga domain` na String - Ang listahan ng mga server na pinaghihiwalay ng kuwit kung saan ang naka-integrate na pagpapatunay ay pinagana.
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
 Dinamikong itinatakda kung lagi bang magpadala ng mga kredensyal para sa HTTP NTLM o makipagpulungan para pagpapatunay.
 
@@ -309,8 +311,6 @@ Nagbabalik ng `String` - Ang tagagamit na ahente para sa sesyong ito.
 * `callback` Function 
   * `result` na Buffer - Blob na datos.
 
-Nagbabalik ng `Blob` - Ang blob na datos na nauugnay sa `identifier`.
-
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Bagay 
@@ -328,9 +328,19 @@ Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download gali
 #### `ses.clearAuthCache(options[, callback])`
 
 * `mga opsyon` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` na Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na
+* `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
 Nilinis ang sesyon ng HTTP authentication na cache.
+
+#### `ses.setPreloads(preloads)`
+
+* `preloads` String[] - An array of absolute path to preload scripts
+
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+
+#### `ses.getPreloads()`
+
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### Mga Katangian ng Instance
 

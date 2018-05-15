@@ -2,7 +2,7 @@
 
 > An alternate transport for Chrome's remote debugging protocol.
 
-Процеса: [основни](../glossary.md#main-process)
+Процеса: [Main](../glossary.md#main-process)
 
 Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
@@ -51,7 +51,7 @@ Detaches the debugger from the `webContents`.
 
 * `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
 * `commandParams` Object (optional) - JSON object with request parameters.
-* `обратно повикване` Function (optional) - Response 
+* `callback` Function (optional) - Response 
   * `error` Object - Error message indicating the failure of the command.
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
 

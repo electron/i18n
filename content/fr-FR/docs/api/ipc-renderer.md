@@ -46,7 +46,7 @@ Supprime tous les écouteurs, ou ceux du `channel` spécifié.
 
 Envoi un message au processus main de façon asynchrone via le `channel`, vous pouvez également envoyer des arguments arbitraire. Les arguments seront sérialisés en JSON en interne et par conséquent aucune fonction ou chaîne de prototype ne sera inclus.
 
-Le processus main récupère cela en écoutant les `channel` avec le module `ipcMain`.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
@@ -57,7 +57,7 @@ Retourne `any` - La valeur renvoyé par l'écouteur du [`ipcMain`](ipc-main.md).
 
 Envoi un message au processus main de façon synchrone via le `channel`, vous pouvez également envoyer des arguments arbitraire. Les arguments seront sérialisés en JSON en interne et par conséquent aucune fonction ou chaîne de prototype ne sera inclus.
 
-Le processus main récupère cela en écoutant les `channel` avec le module `ipcMain`, et répond en définissant `event.returnValue`.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
 **Remarque :** Envoyer un message synchrone permet de bloquer le processus renderer entièrement, sauf si vous savez ce que vous faites, vous ne devez jamais l'utiliser.
 
@@ -67,7 +67,7 @@ Le processus main récupère cela en écoutant les `channel` avec le module `ipc
 * `channel` String
 * `...args` any[]
 
-Envoi un message à une fenêtre avec `windowid` via `channel`
+Envoi un message à une fenêtre avec `windowid` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

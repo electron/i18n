@@ -6,7 +6,7 @@ These guides are intended for people working on the Electron project itself. For
 * [berkontribusi ke electron](../../CONTRIBUTING.md)
 * [Isu](issues.md)
 * [Ajukan Permintaan](pull-requests.md)
-* [Dokumentasi Styleguide](styleguide.md)
+* [Dokumentasi Styleguide](coding-style.md#documentation)
 * [Struktur direktori sumber kode](source-code-directory-structure.md)
 * [Model coding](coding-style.md)
 * [Menggunakan dentang-format pada kode C++ Code](clang-format.md)

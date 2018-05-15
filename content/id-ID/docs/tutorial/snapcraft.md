@@ -29,11 +29,12 @@ Sementara * mungkin </ em> untuk menginstal ` snapcraft </ code> di macos menggu
 
 ### Langkah 1: Kemas Aplikasi Elektron Anda
 
-Kemas aplikasi menggunakan [ paket elektron ](https://github.com/electron-userland/electron-packager) (atau alat serupa). Pastikan untuk menghapus ` node_modules </ code> yang tidak Anda butuhkan di komputer Anda Aplikasi terakhir, karena setiap modul yang sebenarnya tidak Anda butuhkan hanya akan meningkat ukuran aplikasi anda.</p>
+Kemas aplikasi menggunakan [ paket elektron ](https://github.com/electron-userland/electron-packager) (atau alat serupa). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
-<p>Outputnya harus terlihat kira-kira seperti ini:</p>
+Outputnya harus terlihat kira-kira seperti ini:
 
-<pre><code class="text">.
+```text
+.
 └── dist
     └── app-linux-x64
         ├── LISENSI
@@ -48,7 +49,7 @@ Kemas aplikasi menggunakan [ paket elektron ](https://github.com/electron-userla
         Sumber daya
         ├── snapshot_blob.bin
         Versi └──
-`</pre> 
+```
 
 ### Langkah 2: Menjalankan ` electron-installer-snap </ code></h3>
 
@@ -122,12 +123,13 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 `</pre> 
 
-Seperti yang Anda lihat, kode <kode> snapcraft.yaml </ code> menginstruksikan sistem untuk meluncurkan sebuah file disebut ` peluncuran elektron </ code>. Dalam contoh ini, informasi itu hanya lewat ke biner aplikasi:</p>
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
-<pre><code class="sh">#!/bin/sh
+```sh
+#!/bin/sh
 
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
-`</pre> 
+```
 
 Atau, jika Anda membuat ` snap </ code> dengan <code> strict </ code> confinement, Andandapat menggunakan perintah <code> desktop-launch </ code>:</p>
 

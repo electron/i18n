@@ -123,7 +123,7 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 
 * `ELECTRON_GITHUB_TOKEN` - Un token que puede crear versiones en GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - el lugar donde se cargan tanto encabezados node.js como símbolos
-* `ELECTRON_RELEASE` - Configurar a `true` y la parte cargada se ejecutará. Dejar sin configurar y `surf-build` solamente hará comprobaciones CI-type. Esto es adecuado para ejecutarse para cada solicitud de retiro.
+* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Configurar a `true` o algo distinto hará que falle
 * `GITHUB_TOKEN` - configurarlo como `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - configurar `C:\Temp` en Windows para evitar problemas con rutas muy largas

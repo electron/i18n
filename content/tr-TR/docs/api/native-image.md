@@ -147,11 +147,8 @@ NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği olu
 `hslShift` görüntü uygulaması aşağıdaki gibi uygulanır
 
 * `hsl_shift[0]` (renk tonu): Görüntünün mutlak renk tonu değeri - 0 ve 1, renk tonu tekerleğinde (kırmızı) 0 ve 360'a denk gelir.
-* aşağıdaki anahtar değerler: <1 />     0 = tüm rengi kaldırın. <1 />     0.5 = değişmeden bırakın. <1 />     1 = resme tamamen uygulayın. 
-* `hsl_shift [2]` (açık renk): Görüntüdeki açıklık değerleri     aşağıdaki anahtarlarla değişir:   
-     0 = tüm açıklığı kaldırın (tüm pikselleri siyah yapın).   
-     0.5 = değişmeden bırakın.   
-     1 = tam açıklık (tüm pikselleri beyaz yapın).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
 Bu, `[-1, 0, 1]` resmi tamamen beyaz yapar ve bu da `[-1, 1, 0]` görüntüyü tamamen siyah yapar.
 
@@ -167,7 +164,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toPNG([options])`
 
-* `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
+* `options` Obje (isteğe bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `PNG` kodlanmış verisini içeririr.
 
@@ -179,7 +176,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toBitmap([options])`
 
-* `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
+* `options` Obje (isteğe bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisinin kopyasını içeririr.
 
@@ -205,7 +202,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.isEmpty()`
 
-`Boolean` - Görüntünün boş olup olmadığını gösterir.
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
@@ -223,13 +220,13 @@ Görüntüyü şablon görüntüsü olarak işaretler.
 
 #### `image.crop(rect)`
 
-* `rect` [Dikdörtgen](structures/rectangle.md) - Kırpılacak resimin alanı
+* `rect` [Dikdörtgen](structures/rectangle.md) - Kırpılacak resimin alanı.
 
 Returns `NativeImage` - Kırpılan resim.
 
 #### `image.resize(options)`
 
-* `options` obje * `width` tamsayı(İsteğe bağlı) - Resmin varsayılan genişliğidir. * `height` Tamsayı (isteğe bağlı) - Resmin varsayılan yüksekliğidir. * `quality` dizi (isteğe bağlı) - Yeniden boyutlandırılan resmin istenen görüntü kalitesini gösterir. Olası değerler `good`, `better` or `best`. Varsayılan değer `best`. Bu değerler elde edilmek istenen kalite/hız dengesini ifade eder. Altta yatan platformun yeteneklerine (CPU, GPU) bağlı algoritmaya özgü bir yöntemle çevrilirler. Her üç yöntemin önceden belirlenmiş bir platformda aynı algoritma ile eşleştirilmesi mümkündür.
+* `options` obje * `width` tamsayı(İsteğe bağlı) - Resmin varsayılan genişliğidir. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Olası değerler `good`, `better` or `best`. Varsayılan değer `best`. Bu değerler elde edilmek istenen kalite/hız dengesini ifade eder. Altta yatan platformun yeteneklerine (CPU, GPU) bağlı algoritmaya özgü bir yöntemle çevrilirler. Her üç yöntemin önceden belirlenmiş bir platformda aynı algoritma ile eşleştirilmesi mümkündür.
 
 `NativeImage` Döndürür - Yeniden boyutlanmış resim.
 

@@ -18,7 +18,7 @@ Maaari mong paganahin ang `npm run lint` upang maipakita ang anumang istilo ng m
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
 * Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null`, or `undefined`
+  * Not `return null`, `return undefined`, `null` or `undefined`
 
 ## C++ and Python
 
@@ -48,8 +48,8 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 Ang Electron APIs ay parehong gumagamit ng capitalization scheme bilang Node.js:
 
-* Kapag ang modyul mismo ay tulas ng nasa uri ng `BrowserWindow`, gumamit ng `CamelCase`.
-* Kapag ang modyul ay nasa ayos ng APIs, tulad ng `globalShortcut`, gumamit ng `mixedCase`.
+* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
+* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
 * Kapag ang API ay isang pag-aari ng object, at masyadong kumplikado upang maibukod ang bawat sangay tulad ng `win.webContents`, gumamit ng `mixedCase`.
 * Para sa iba pang non-module ng APIs, gumamit ng likas na mga pamagat, tulad ng `<webview> Tag` o kaya naman ay `Process Object`.
 

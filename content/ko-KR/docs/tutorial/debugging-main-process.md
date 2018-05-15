@@ -6,15 +6,15 @@ Electron 브라우저 창의 개발자 도구는 윈도우(i.e 웹 페이지) �
 
 다음 커맨드 라인 스위치들을 사용하여 메인 프로세스를 디버깅 할 수 있습니다:
 
-### `<0>--debug=[port]</0>`
+### `--inspect=[port]`
 
 이 스위치를 사용하면 Electron은 지정한 `port`에 V8 디버거 프로토콜을 리스닝합니다. 기본 `port`는 `5858` 입니다.
 
 ```shell
-electron --debug=5858 your/app
+electron --inspect=5858 your/app
 ```
 
-### `<0>--debug-brk=[port]</0>`
+### `--inspect-brk=[port]`
 
 Like `--inspect` but pauses execution on the first line of JavaScript.
 

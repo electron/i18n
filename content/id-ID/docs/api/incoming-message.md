@@ -2,7 +2,7 @@
 
 > Tangani tanggapan terhadap permintaan HTTP / HTTPS.
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 ` IncomingMessage </ 0> mengimplementasikan 
 antarmuka <a href="https://nodejs.org/api/stream.html#stream_readable_streams"> Readable Stream </ 1> dan karena itu <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> EventEmitter </ 2> .</p>

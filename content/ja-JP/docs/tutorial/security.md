@@ -32,18 +32,18 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 
 これは攻撃を防ぐわけではありませんが、最低限、アプリケーションのセキュリティを改善するためにこれらの手順に従って下さい。
 
-1. [セキュアなコンテンツのみを読み込む](#only-load-secure-content)
-2. [リモートコンテンツを表示する全てのレンダラーで、Node.js integration を無効にする](#disable-node.js-integration-for-remote-content)
-3. [リモートコンテンツを表示するすべてのレンダラーで、コンテキストイソレーションを有効にする](#enable-context-isolation-for-remote-content)
-4. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する](#handle-session-permission-requests-from-remote-content)
-5. [`webSecurity` を無効にしない](#do-not-disable-websecurity)
-6. [`Content-Security-Policy` を定義](#define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
-7. 文字列をコードとして実行できる [`eval` を書き換えて無効にする](#override-and-disable-eval)。
-8. [`allowRunningInsecureContent` を `true` にしない](#do-not-set-allowRunningInsecureContent-to-true)
-9. [実験的な機能を有効にしない](#do-not-enable-experimental-features)
-10. [`blinkFeatures` を使用しない](#do-not-use-blinkfeatures)
-11. [WebViews: `allowpopups` を使用しない](#do-not-use-allowpopups)
-12. [WebViews: すべての `<webview>` タグのオプションとパラメータを確認する。](#verify-webview-options-before-creation)
+1. [セキュアなコンテンツのみを読み込む](#1-only-load-secure-content)
+2. [リモートコンテンツを表示する全てのレンダラーで、Node.js integration を無効にする](#2-disable-nodejs-integration-for-remote-content)
+3. [リモートコンテンツを表示するすべてのレンダラーで、コンテキストイソレーションを有効にする](#3-enable-context-isolation-for-remote-content)
+4. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する](#4-handle-session-permission-requests-from-remote-content)
+5. [`webSecurity` を無効にしない](#5-do-not-disable-websecurity)
+6. [`Content-Security-Policy` を定義](#6-define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
+7. 文字列をコードとして実行できる [`eval` を書き換えて無効にする](#7-override-and-disable-eval)。
+8. [`allowRunningInsecureContent` を `true` にしない](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [実験的な機能を有効にしない](#9-do-not-enable-experimental-features)
+10. [`blinkFeatures` を使用しない](#10-do-not-use-blinkfeatures)
+11. [WebViews: `allowpopups` を使用しない](#11-do-not-use-allowpopups)
+12. [WebViews: すべての `<webview>` タグのオプションとパラメータを確認する。](#12-verify-webview-options-before-creation)
 
 ## 1) セキュアなコンテンツのみを読み込む
 
@@ -269,7 +269,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### なぜ？
 
-`eval()` メソッドは確かな1つの役割――JavaScript として一連の文字を評価し、それを実行する――があります。 これは、事前に知ることができないコードを評価する必要がある場合に、必要なメソッドです。 正しい使用方法は他のコードジェネレータと同様に存在しますが、`eval()` ははっきりさせづらいです。
+`eval()` メソッドは確かな1つの役割――JavaScript として一連の文字を評価し、それを実行する――があります。 これは、事前に知ることができないコードを評価する必要がある場合に、必要なメソッドです。 While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 一般的に言えば、`eval()` を完全に無効にする方が、攻撃を防ぐには簡単です。 したがって、必要がない場合は、無効にすることを推奨します。
 
@@ -287,13 +287,13 @@ window.eval = global.eval = function () {
 
 *Electron のデフォルトを推奨しています*
 
-デフォルトでは、Electron は、`HTTPS` 上でロードされたウェブサイト上でのみ、安全でないソース (`HTTP`) からスクリプト、CSS、またはプラグインを読み込んで実行できるようにします。 `allowRunningInsecureContent` プロパティを `true` にすることで、その保護を無効にします。
+By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). `allowRunningInsecureContent` プロパティを `true` にすることで、その保護を無効にします。
 
 `HTTPS` 経由でウェブサイトの初期 HTML を読み込んで、`HTTP` 経由で後続のリソースを読み込もうとすることを "混合コンテンツ" といいます。
 
 ### なぜ？
 
-簡単に言えば、`HTTPS` を介してコンテンツをロードすると、トラフィック自体を暗号化しながら、ロードされたリソースの信憑性と完全性が保証されます。 より詳しくは、[セキュアなコンテンツのみを表示する](#only-display-secure-content) を参照して下さい。
+Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. より詳しくは、[セキュアなコンテンツのみを表示する](#1-only-load-secure-content) を参照して下さい。
 
 ### どうすればいいの？
 

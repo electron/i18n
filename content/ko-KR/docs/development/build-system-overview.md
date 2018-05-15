@@ -23,7 +23,7 @@ Prebuilt된 모든 Chromium 바이너리(`libchromiumcontent`) 들은 부트스�
 
 기본적으로 `libchromiumcontent`는 Amazon Web Service를 통해 다운로드 됩니다. 만약 `LIBCHROMIUMCONTENT_MIRROR` 환경 변수가 설정되어 있으면 부트스트랩은 해당 링크를 사용하여 바이너리를 다운로드 합니다. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror)는 `libchromiumcontent`의 미러입니다. 만약 AWS에 접근할 수 없다면 `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/` 미러를 통해 다운로드 할 수 있습니다.
 
-만약 빠르게 Electron의 개발 또는 테스트만 하고 싶다면 `--dev` 플래그를 추가하여 공유 라이브러리만 다운로드할 수 있습니다:
+If you only want to build Electron quickly for testing or development, you can download the shared library versions by passing the `--dev` parameter:
 
 ```sh
 $ ./script/bootstrap.py --dev
@@ -40,7 +40,7 @@ Electron은 `Release`와 `Debug` 빌드가 서로 다른 라이브러리 링크 
 
 많은 프로젝트에서 타겟 이름을 `Release` 와 `Debug`를 사용하는데 반해 Electron은 `R`과 `D`를 대신 사용합니다. 이유는 가끔 알 수 없는 이유(randomly) 로 `Release` 와 `Debug` 중 하나만 빌드 설정에 정의되어 있을때 `gyp`가 크래시를 일으키는데 이유는 앞서 말한 바와 같이 Electron은 한번에 한개의 타겟만을 생성할 수 있기 때문입니다.
 
-이 문제는 개발자에게만 영향을 미칩니다. 만약 단순히 Electron을 rebranding 하기 위해 빌드 하는 것이라면 이 문제에 신경 쓸 필요가 없습니다.
+This only affects developers, if you are building Electron for rebranding you are not affected.
 
 ## 테스트
 
@@ -62,7 +62,7 @@ Electron 소스 코드를 변경할 때 마다, 테스트 전에 빌드를 다�
 $ npm run build && npm test
 ```
 
-모카의 [전용 테스트](https://mochajs.org/#exclusive-tests) 기능을 사용해서 특정 테스트 또는 블록을 분리하여 테스트 세트 실행을 빠르게 할 수 있습니다. `describe` 또는 `it` 함수 호출에 `.only` 만 붙이세요:
+모카의 [전용 테스트](https://mochajs.org/#exclusive-tests) 기능을 사용해서 특정 테스트 또는 블록을 분리하여 테스트 세트 실행을 빠르게 할 수 있습니다. Append `.only` to any `describe` or `it` function call:
 
 ```js
 describe.only('some feature', function () {

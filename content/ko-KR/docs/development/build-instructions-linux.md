@@ -55,6 +55,12 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### 크로스 컴파일
 
 `arm` 아키텍쳐로 빌드 하려면 다음 의존성 라이브러리를 설치해야 합니다:

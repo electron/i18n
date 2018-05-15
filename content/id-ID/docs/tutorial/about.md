@@ -40,7 +40,7 @@ Update besar datang pada versi `v1.0.0`. Jika Anda belum menggunakan versi ini, 
 
 Untuk menjaga Electron kecil (ukuran file) dan berkelanjutan (penyebaran dependensi dan api) proyek membatasi lingkup proyek inti.
 
-Sebagai contoh, electron menggunakan hanya render library dari Chromium daripada semua Chromium. Hal ini membuat lebih mudah untuk meng-upgrade Kromium tetapi juga berarti beberapa fitur browser yang ditemukan di Google Chrome tidak ada di elektron.
+For instance, Electron uses Chromium's rendering library rather than all of Chromium. Hal ini membuat lebih mudah untuk meng-upgrade Kromium tetapi juga berarti beberapa fitur browser yang ditemukan di Google Chrome tidak ada di elektron.
 
 Fitur baru yang ditambahkan ke elektron terutama harus API asli. Jika fitur berupa modul Node.js sendiri, itu harus mungkin. Lihat [alat Electron yang dibangun oleh komunitas](https://electronjs.org/community).
 

@@ -33,7 +33,7 @@ Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spe
 <li>Semver-uyumlu <code>-beta` etiketlerinin tanıtımı</li> 
 
 - [Konvansiyonel taahhüt mesajları](https://conventionalcommits.org/)'na giriş
-- Açıkça tanımlanan stabilizasyon dalları
+- Well-defined stabilization branches
 - The `master` branch is versionless; only stabilization branches contain version information</ol> 
 
 Git dallanmasının nasıl çalıştığını, npm etiketinin nasıl çalıştığını, geliştiricilerin neler bekleyebileceğini ve değişikliklerin nasıl geri alınabileceğini ayrıntılı olarak ele alacağız.

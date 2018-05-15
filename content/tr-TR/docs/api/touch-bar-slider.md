@@ -2,19 +2,19 @@
 
 > Dokunmatik çubukta yerel macOS uygulamaları için bir kaydırıcı oluşturun
 
-Süreç: [Ana](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/quick-start.md#main-process)
 
 ### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` *Deneysel*
 
-* `seçenekler` Nesne 
+* `seçenekler` Nesnesi 
   * `label` Dize (İsteğe bağlı) - Görüntülenecek metin.
   * `value` Integer (isteğe bağlı) - Seçilen değer.
   * `minValue` Integer (isteğe bağlı) - Minimum değer.
   * `maxValue` Integer (isteğe bağlı) - Maksimum değer.
   * `change` Fonksiyon (isteğe bağlı) - Kaydırıcı değiştiğinde çağırılacak işlev. 
-    * `newValue` Sayı - Kullanıcının kaydırıcıda seçtiği değer
+    * `newValue` Sayı - Kullanıcının kaydırıcıda seçtiği değer.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 Aşağıdaki özelliklere sahip örneklerde `TouchBarSlider`:
 

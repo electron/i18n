@@ -2,7 +2,7 @@
 
 > Mampu melaksanakan tugas yang diberikan sepenuhnya.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 Contoh penerapan protokol yang memiliki efek yang sama seperti protokol `file://`:
 
@@ -105,8 +105,8 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
   * `skema` String
   * `handler` Fungsi 
     * `permintaan` Obyek 
-      * `url` String
-      * `pengarah` String
+      * ` url </ 0> String</li>
+<li><code>pengarah` String
       * `method` String
       * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -177,7 +177,7 @@ const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  const rv = new PassThrough() // PassThrough is also a Readable stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -281,8 +281,8 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
           * `skema` String
           * `handler` Fungsi 
             * `permintaan` Obyek 
-              * `url` String
-              * `pengarah` String
+              * ` url </ 0> String</li>
+<li><code>pengarah` String
               * `method` String
               * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -304,8 +304,8 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
             * `skema` String
             * `handler` Fungsi 
               * `permintaan` Obyek 
-                * `url` String
-                * `header` Obyek
+                * ` url </ 0> String</li>
+<li><code>header` Obyek
                 * `pengarah` String
                 * `method` String
                 * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>

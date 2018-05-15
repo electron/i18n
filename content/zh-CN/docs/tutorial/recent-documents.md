@@ -1,6 +1,6 @@
 # Recent Documents (Windows & macOS)
 
-Windows 和 macOS 分别通过打开跳转列表和dock菜单使应用程序能够快速的访问最近打开的文档列表。
+Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
 **跳转列表**
 

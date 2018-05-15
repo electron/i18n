@@ -55,6 +55,12 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
+If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+
+```sh
+$ ./script/build.py --compdb
+```
+
 ### Compile đa nền tảng
 
 Nếu bạn muốn build cho nền tảng `arm` bạn cần cài thêm những phần phụ thuộc sau:
@@ -79,7 +85,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Build
 
-Nếu bạn muốn build cả hai phiên bản là `Release` và `Debug`, hãy chạy:
+Nếu bạn nhắm tới mong muốn xây dựng cả hai phiên bản là `Bản phát hành chính thức` và `Bản debug`:
 
 ```sh
 $ ./script/build.py

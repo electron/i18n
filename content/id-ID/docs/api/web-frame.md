@@ -2,7 +2,7 @@
 
 > Sesuaikan render halaman web saat ini.
 
-Proses: [Renderer](../glossary.md#renderer-process)
+Proses:[Renderer](../glossary.md#renderer-process)
 
 Contoh dari halaman saat ini pembesaran 200%.
 
@@ -12,7 +12,7 @@ const {webFrame} = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Metode
+## Methods
 
 Modul `webBingkai` memiliki metode berikut:
 
@@ -28,7 +28,7 @@ Kembali `nomor` - faktor zoom saat ini.
 
 ### `webBingkai.tetapkanFaktorZoom(level)`
 
-* `level` Angka - level zoom
+* `level` Angka - level zoom.
 
 Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
 
@@ -36,17 +36,10 @@ Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-ma
 
 Kembali `nomor` - tingkat zoom saat ini.
 
-### `webBingkai.tetapkanBatasLevelZoom(minimalLevel, maksimalLevel)`
-
-* `minimumLevel` Nomor
-* `minimumLevel` Nomor
-
-**Tidak berlaku lagi:**Panggil`setVisualZoomLevelLimits` untuk mengatur zoom visual batas tingkat Metode ini akan dihapus di Electron 2.0.
-
 ### `webBingkai.setBatasLevelVisualZoom(minimalLevel, maksimalLevel)`
 
-* `minimumLevel` Nomor
-* `minimumLevel` Nomor
+* `minimalLevel` Nomor
+* `maksimalLevel` Nomor
 
 Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 
@@ -61,8 +54,8 @@ Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-vi
 
 * `bahasa` String
 * `otomatisBenarkanKata` Boolean
-* `penyedia` Objek 
-  * `cekEjaan` Fungsi - kembali `Boolean` 
+* `penyedia` Obyek 
+  * `cekEjaan` Fungsi - kembali `boolean`. 
     * `teks` String
 
 Menetapkan penyedia pemeriksaan ejaan di bidang masukan dan area teks.
@@ -98,11 +91,11 @@ Sumber daya akan dimuat dari skema `ini` terlepas dari halaman sekarang Kebijaka
 
 * `skema` String
 * `pilihan` Objek (opsional) 
-  * `aman` Boolean - (opsional) Default benar.
-  * `bypassCSP` Boolean - (opsional) Default benar.
-  * `allowServiceWorkers` Boolean - (opsional) Default benar.
-  * `supportFetchAPI` Boolean - (opsional) Default benar.
-  * `corsEnabled` Boolean - (opsional) Default benar.
+  * `secure` Boolean (optional) - Default true.
+  * `bypassCSP` Boolean (optional) - Default true.
+  * `allowServiceWorkers` Boolean (optional) - Default true.
+  * `supportFetchAPI` Boolean (optional) - Default true.
+  * `corsEnabled` Boolean (optional) - Default true.
 
 Mendaftarkan `skema` sebagai aman, bypass kebijakan keamanan konten untuk sumber daya, memungkinkan mendaftarkan ServiceWorker dan mendukung pengambilan API.
 
@@ -121,9 +114,9 @@ Sisipan `teks` ke elemen yang terfokus.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `kode` String
-* `userGesture` Boolean (opsional) - Default adalah `false`.
-* `panggilkembali` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
+* ` kode </ 0> String</li>
+<li><code>userGesture` Boolean (opsional) - Default adalah `false`.
+* `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `hasil` Ada
 
 Mengembalikan `Janji` - Janji yang diselesaikan dengan hasil kode yang dijalankan atau ditolak jika hasil dari kode tersebut adalah janji yang ditolak.
@@ -132,19 +125,50 @@ Evaluasi `kode` di halaman.
 
 Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
 
-### `webFrame.getResourceUsage()`
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-Mengembalikan `Boolean`:
+* `worldId` Integer
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (opsional) - Default adalah `false`.
+* `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
+  * `hasil` Ada
 
-* `gambar` [DetailPemakaianMemori](structures/memory-usage-details.md)
-* `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
-* `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
-* `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
-* `lain` [DetailPemakaianMemori](structures/memory-usage-details.md)
+Work like `executeJavaScript` but evaluates `scripts` in isolated context.
 
-Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
 
-```javascript
+* `worldId` Integer
+* `csp` String
+
+Set the content security policy of the isolated world.
+
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+
+* `worldId` Integer
+* ` nama </ 0>  String</li>
+</ul>
+
+<p>Set the name of the isolated world. Useful in devtools.</p>
+
+<h3><code>webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`</h3> 
+  * `worldId` Integer
+  * `securityOrigin` String
+  
+  Set the security origin of the isolated world.
+  
+  ### `webFrame.getResourceUsage()`
+  
+  Mengembalikan `Objek`:
+  
+  * `gambar` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `lain` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  
+  Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
+  
+  ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```

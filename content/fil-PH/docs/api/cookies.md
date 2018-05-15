@@ -2,11 +2,11 @@
 
 > Query at ang pagbabago ng sesyon ng cookies "Query" at pagbabago ng ilang parte ng sesyon ng "cookies".
 
-Prosseso: [Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 May ilang pagkakataon na ang `Cookies` class ay mapupuntahan gamit ang `cookies` na katangian ng `Session`.
 
-Halimbawa ng:
+Halimbawa:
 
 ```javascript
 const {session} = kinakailangan ng ('electron')
@@ -29,14 +29,14 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### Mga halimbawa ng mga kaganapan
+### Mga Halimbawa ng "Events"
 
 Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
 #### Kaganapan: 'nagbago'
 
-* `event` na Kaganapan
-* `cookie` [Cookie](structures/cookie.md) - Ang "cookie" na binago
+* `kaganapan` Kaganapan
+* `cookie` [Cookie](structures/cookie.md) - Ang "cookie" na binago.
 * `sanhi` String - Ang mga sanhi ng mga pagbabago sa isa't isa sa mga sumusunod na mga halaga: 
   * `explicit` - Ang cookie ay direktang nagbago sa pamamagitan ng pagkilos ng isang mamimili.
   * `overwrite` - Ang cookie ay awtomatikong natanggal dahil sa ipinasok na operasyon na i-overwrite.
@@ -47,16 +47,16 @@ Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
 Napalabas kapag ang cookie ay nagbago dahil ito'y idinagdag, inedit, natanggal, o napaso.
 
-### Instance Methods
+### Mga Pamamaraan ng Instance
 
 Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
 
-#### `cookies.get(filter,callback)`
+#### `cookies.get(filter, callback)`
 
 * `salain` Bagay 
   * `url` String (opsyunal) - Nakuhang cookies na may kaugnayan sa `url`. Ang walang laman ay nagpapahiwatig na pagkuha ng mga cookies ng buong url.
   * `name` String (opsyunal) - Efilter ang mga cookies sa kanilang pangalan.
-  * `domain` String (opsyunal) - Ang mga kinuhang cookies na ang domain ay nagtugma o ang mga subdomain ng `domain`
+  * `domain` String (opsyunal) - Ang mga kinuhang cookies na ang domain ay nagtugma o ang mga subdomain ng `domain`.
   * `path` String (opsyunal) - Ang nakuhang cookies na nagtugma ang patungohan `path`.
   * `secure` Boolesn (opsyunal) - Nafilter na cookies ng kanilang Secure na ari-arian.
   * `session` Booelan (opsyunal) - Efilter ang sesyon o ang nagpapatuloy na cookies.
@@ -64,9 +64,9 @@ Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
   * `error` Error
   * `cookies` [Cookie](structures/cookie.md) - ang isang array ng mga bagay ng cookie.
 
-Magpadala ng hiling para nakuha ang lahat ng cookies na nagtugma sa `detalye`, `baliktawag` itatawag sa `baliktawag(mali, cookies)` na kumpleto.
+Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
-#### `cookies.set(detalye, baliktawag)`
+#### `cookies.set(details, callback)`
 
 * `ang mga detalye` Bagay 
   * `url` String - Ang url ay maiuugnay sa cookie.
@@ -86,12 +86,12 @@ Eset ang cookie sa mga`details`, `callback` ay pwedeng itawag na may `callback(e
 
 * `url` String - Ang isang URL na maiugnay sa may cookie.
 * `name` String - Ang pangalan ng isang cookie na natanggal.
-* `callback` Function
+* `baliktawag` ginagawa
 
 Tanggalin ang mga cookies na nagtugma sa `url` at `name`, `callback` ay tinatawag na may `callback()` kung kumpleto.
 
 #### `cookies.flushStore(callback)`
 
-* `callback` Function
+* `baliktawag` ginagawa
 
 Nasusulat ang anumang di-nakasulat na cookies datos para sa disk.

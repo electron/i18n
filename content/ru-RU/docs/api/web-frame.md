@@ -28,20 +28,13 @@ webFrame.setZoomFactor(2)
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - уровень увеличения
+* `level` Number - уровень увеличения.
 
 Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно.
 
 ### `webFrame.getZoomLevel()`
 
 Возвращает `Number` - текущего уровня маштаба.
-
-### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-**Устарело:** Вызовите `setVisualZoomLevelLimits` вместо этого предельного уровня визуального масштабирования. Этот метод будет удален в Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -62,7 +55,7 @@ webFrame.setZoomFactor(2)
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - возвращает `Boolean` 
+  * `spellCheck` Function - возвращает `Boolean`. 
     * `text` String
 
 Задает поставщика для проверки орфографии в полях ввода и текстовых областях.
@@ -97,12 +90,12 @@ webFrame.setSpellCheckProvider('en-US', true, {
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (опиционально) 
-  * `secure` Boolean - (опционально) по умолчанию true.
-  * `bypassCSP` Boolean - (опционально) по умолчанию true.
-  * `allowServiceWorkers` Boolean - (опционально) по умолчанию true.
-  * `supportFetchAPI` Boolean - (опционально) по умолчанию true.
-  * `corsEnabled` Boolean - (опционально) по умолчанию true.
+* `options` Object (опционально) 
+  * `secure` Boolean (optional) - Default true.
+  * `bypassCSP` Boolean (optional) - Default true.
+  * `allowServiceWorkers` Boolean (optional) - Default true.
+  * `supportFetchAPI` Boolean (optional) - Default true.
+  * `corsEnabled` Boolean (optional) - Default true.
 
 Регистрирует `scheme` как безопасную, обходит политику безопасности контента для ресурсов, позволяет регистрировать ServiceWorker и поддерживает получение API.
 
@@ -121,7 +114,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* Строка `code`
+* `code` String
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
 * `callback` Function (опционально) - вызывается после выполнения сценария. 
   * `result` Any
@@ -131,6 +124,37 @@ Returns `Promise` - A promise that resolves with the result of the executed code
 Вычисляет `code` на странице.
 
 В окне браузера некоторые HTML API как `requestFullScreen` может быть только вызван жестом пользователя. Указание `userGesture` как `true` снимает это ограничение.
+
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
+
+* `worldId` Integer
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (опиционально) - по умолчанию `false`.
+* `callback` Function (опционально) - вызывается после выполнения сценария. 
+  * `result` Any
+
+Work like `executeJavaScript` but evaluates `scripts` in isolated context.
+
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+
+* `worldId` Integer
+* `csp` String
+
+Set the content security policy of the isolated world.
+
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+
+* `worldId` Integer
+* `name` String
+
+Set the name of the isolated world. Useful in devtools.
+
+### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
+
+* `worldId` Integer
+* `securityOrigin` String
+
+Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 

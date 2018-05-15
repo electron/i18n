@@ -50,26 +50,26 @@ Ayrıca, `template` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar o
 
 `menu` nesnesi aşağıdaki örnek yöntemlerine sahiptir:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
-* `seçenekler` Obje (opsiyonel) 
+* `seçenekler` Nesne 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Sayı (isteğe bağlı) - Varsayılan, geçerli fare imleci konumudur. Eğer `y` bildirilmişse, bildirilmelidir.
   * `y` Sayı (isteğe bağlı) Varsayılan geçerli fare imleci konumudur. Eğer `x` bildirilmişse, bildirilmelidir.
-  * `async` Boolean (isteğe bağlı) - Bu yöntemin hemen çağrılmasını sağlamak için `true`, menü seçildikten veya kapatıldıktan sonra geri dönmek için `false` olarak ayarlayın. Varsayılanı `false` olarak belirler.
   * `positioningItem` Sayı (isteğe bağlı) *macOS* - Belirtilen koordinattaki fare imlecinin altına konumlandırılacak menü öğesinin dizini. Varsayılan değer -1'dir.
+  * `callback` Function (optional) - Called when menu is closed.
 
-Bu menüyü `browserWindow` 'nde bir bağlam menüsü olarak açar.
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 `browserWindow` 'nde bağlam menüsünü kapatır.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenüÖğesi
+* `menuItem` [MenuItem](menu-item.md)
 
 Menüye `menuItem` ekler.
 
@@ -82,11 +82,33 @@ Belirtilen `MenuItem`'ye sahip öğeyi `id` döndürür
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Tamsayı
-* `menuItem` MenüÖğesi
+* `menuItem` [MenuItem](menu-item.md)
 
 `menuItem` 'ı menünün `pos` konumuna yerleştirir.
 
-### Örnek Özellikler
+### Örnek Events
+
+Objects created with `new Menu` emit the following events:
+
+**Not:** Bazı özellikler sadece belirli işletim sistemlerinde mevcuttur ve çalıştıkları işletim sistemlerinin isimleriyle etiketlenmiştir.
+
+#### Event: 'menu-will-show'
+
+Dönüşler:
+
+* `event` Olay
+
+Emitted when `menu.popup()` is called.
+
+#### Event: 'menu-will-close'
+
+Dönüşler:
+
+* `event` Olay
+
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
+
+### Örnek Özellikleri
 
 `menu` nesneleri aşağıdaki özelliklere de sahiptir:
 
@@ -96,11 +118,15 @@ Belirtilen `MenuItem`'ye sahip öğeyi `id` döndürür
 
 Her `Menu` birden fazla [`MenuItem`](menu-item.md) den oluşur ve her `MenuItem` bir alt menüye sahip olabilir.
 
+### Örnek Events
+
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+
 ## Örnekler
 
 `Menu` sınıfı yalnızca ana işlemde kullanılabilir, ancak [`remote`](remote.md) modül vasıtasıyla oluşturma işleminde de kullanabilirsiniz.
 
-### Ana işlem
+### Ana süreç
 
 Ana süreçte uygulama menüsünü basit şablon API'si ile oluşturmak için bir örnek:
 
@@ -213,7 +239,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```

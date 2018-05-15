@@ -65,7 +65,7 @@ app.on('ready', () => {
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `halledici` Fonksiyon 
+* `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
@@ -121,7 +121,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `data` Dizge (İsteğe Bağlı)
@@ -179,14 +179,14 @@ Yanıt olarak `Readable` gönderen bir `scheme` protokolünü kaydeder.
 
 Kullanımı, diğer `register{Any}Protocol`'e benzer, ancak `callback`'nin bir `Readable` nesne veya `data`, `statusCode` ve `headers` özelliklere sahip bir nesneyle çağrılması gerekir.
 
-Örnek:
+Örneğin:
 
 ```javascript
 const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  const rv = new PassThrough() // PassThrough is also a Readable stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -252,7 +252,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
@@ -268,7 +268,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
@@ -294,7 +294,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
   * `geri aramak` Function 
     * `talebi yönlendir` Nesne 
       * `url` Dize
-      * `method` String
+      * `method` Dizi
       * `session` Obje isteğe bağlı
       * `bilgiyi yükle` Obje (opsiyonel) 
         * `contentType` Dize - İçeriğin MIME türünü gösterir.
@@ -323,7 +323,7 @@ Mevcut bir protokol işlecinin yerini alması dışında, `protocol.registerStre
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 

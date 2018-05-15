@@ -64,8 +64,8 @@ win.show()
 * 透明窗口不可调整大小。在某些平台上，将 ` resizable ` 设置为 ` true ` 可能会使透明窗口停止工作。
 * `blur ` 筛选器仅适用于网页, 因此无法对位于透明窗口下方的内容应用模糊效果 (例如在用户系统上打开的其他应用程序) 。
 * 在 windows 操作系统上, 当 DWM 被禁用时, 透明窗口将无法工作。
-* 在 linux 上, 用户必须在命令行中放置 `--enable-transparent-visuals --disable-gpu ` 来禁用 gpu, 并允许 ARGB 使透明窗口, 这是由一个上游的 bug 导致的, 即 [ alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209)。
-* 在 Mac 上, 原生窗口阴影不会显示在透明窗口中。
+* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
+* On Mac, the native window shadow will not be shown on a transparent window.
 
 ## 点击穿透 window
 

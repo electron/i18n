@@ -93,17 +93,17 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - 操作が完了したときに呼ばれる
+* `callback` Function - 操作が完了したときに呼ばれる。
 
 セッションの HTTP キャッシュをクリアします。
 
 #### `ses.clearStorageData([options, callback])`
 
 * `options` Object (任意) 
-  * `origin` String - (任意) `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
-  * `storages` String[] - (任意) ストレージをクリアするタイプ。`appcache`、`cookies`、`filesystem`、`indexdb`、`localstorage`、`shadercache`、`websql`、`serviceworkers` を含めます。
-  * `quotas` String[] - (任意) クォータをクリアするタイプ。`temporary`、`persistent`、`syncable` を含めます。
-* `callback` Function (任意) - 操作が完了したときに呼ばれる。
+  * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
+  * `storages` String[] (任意) - ストレージをクリアするタイプ。`appcache`、`cookies`、`filesystem`、`indexdb`、`localstorage`、`shadercache`、`websql`、`serviceworkers` を含めることができます。
+  * `quotas` String[] (任意) - クォータをクリアするタイプ。`temporary`、`persistent`、`syncable` を含むことができます。
+* `callback` Function (任意) - 操作が完了したときに呼ばれる.
 
 ウェブストレージのデータをクリアします。
 
@@ -117,7 +117,7 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
   * `pacScript` String - PAC ファイルに関連付けられたURL。
   * `proxyRules` String - 使用するプロキシを示すルール。
   * `proxyBypassRules` String - プロキシ設定をバイパスするURLを示すルール。
-* `callback` Function - 操作が完了したときに呼ばれる。
+* `callback` Function - 操作が完了したときに呼ばれる.
 
 プロキシ設定を設定します。
 
@@ -163,7 +163,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   
   例: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
-* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   指定された範囲内の IP リテラルに一致する URL のマッチ。IP の範囲は CIDR 表記で指定します。
   
@@ -183,7 +183,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - ダウンロード位置
+* `path` String - ダウンロード位置.
 
 ダウンロード保存ディレクトリを設定します。 デフォルトでは、ダウンロードディレクトリはそれぞれのアプリフォルダの下の `ダウンロード(Downloads)` になります。
 
@@ -251,7 +251,9 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。
   * `permission` String - 'media'、'geolocation'、'notifications'、'midiSysex'、'pointerLock'、'fullscreen'、'openExternal' のいずれか。
   * `callback` Function 
-    * `permissionGranted` Boolean - 権限の許可か拒否
+    * `permissionGranted` Boolean - 権限の許可か拒否.
+  * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
+    * `externalURL` String - `openExternal` リクエストの URL。
 
 `session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。
 
@@ -309,8 +311,6 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `callback` Function 
   * `result` Buffer - Blob データ。
 
-戻り値 `Blob` - `identifier` に関連付けられた Blob データ。
-
 #### `ses.createInterruptedDownload(options)`
 
 * `options` オブジェクト 
@@ -328,9 +328,19 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (任意) - 操作が完了したときに呼ばれる
+* `callback` Function (任意) - 操作が完了したときに呼ばれる。
 
 セッションの HTTP 認証キャッシュをクリアします。
+
+#### `ses.setPreloads(preloads)`
+
+* `preloads` String[] - プリロードスクリプトへの絶対パスの配列
+
+通常の `preload` スクリプトが実行される直前に、このセッションに関連するすべてのウェブコンテンツで実行されるスクリプトを追加します。
+
+#### `ses.getPreloads()`
+
+戻り値 `String[]` - 登録されているプリロードスクリプトへのパスの配列。
 
 ### インスタンスプロパティ
 

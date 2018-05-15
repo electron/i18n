@@ -68,7 +68,7 @@ Ang kaganapang ito ay tulad ng `did-finish-load` ngunit inilalabas kapag nabigo 
 Ibinabalik ang:
 
 * `event` na Pangyayari
-* `ay pangunahing kuwadro` Boolean
+* `isMainFrame` Boolean
 
 Napalabas kapag ang frame ay nagawa na ang nabigasyon.
 
@@ -124,7 +124,7 @@ Napalabas kapag ang dokumento na ibinigay sa frame ay na-load.
 Ibinabalik ang:
 
 * `event` Event
-* `favicons` String[] - Hanay ng mga URL
+* `favicons` String[] - Hanay ng mga URL.
 
 Pinapalabas kapag natanggap ng pahina ang mga url ng favicon.
 
@@ -136,14 +136,14 @@ Ibinabalik ang:
 * `url` Tali
 * `frameName` String
 * `disposition` String- Pwedeng `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `mga pagpipilian` Object - Ang mga pagpipilian na gagamitin para sa paglikha ng bagong `BrowserWindow`.
+* `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `Mga karagdagang tampok` String [] - Ang di-karaniwang mga tampok (mga tampok na hindi hinahawakan sa pamamagitan ng Kromo o Elektron) na ibinigay sa `window.open()`.
 
 Lumalabas kapag ang pahina ay humiling na magbukas ng bagong bintana para sa isang `url`. Maaaring ito ay hiniling ng `window.open` o isang panlabas na link tulad ng `<a target='_blank'>`.
 
 Sa pamamagitan ng default ng isang bagong `BrowserWindow` ay nilikha para sa `url`.
 
-Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang Elektron mula sa awtomatikong paglikha ng isang bagong `BrowserWindow`. Kung tumawag ka `event.preventDefault ()` at manu-manong pag likha ng bagong `BrowserWindow` at pagkatapos ay dapat mong itakda ang `kaganapan.newGuest` upang isangguni sa bagong `BrowserWindow` Halimbawa, ang hindi pagtupad nito ay maaaring magresulta sa hindi inaasahang asal. Halimbawa:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Halimbawa:
 
 ```javascript
 myBrowserWindow.webContents.on('bagong-window', (event, url) => {
@@ -250,19 +250,19 @@ Nagpapalabas kapag ang `webContents` ay nawasak.
 Ibinabalik ang:
 
 * `kaganapan` Kaganapan
-* `input` Bagay - Input properties 
-  * `uri` Pisi - Alinman `keyUp` o `keyDown`
-  * `susi` Pisi - Katumbas ng [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `code` Pisi - Katumbas ng [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `isAutoRepeat` Boolean - Katumbas ng [KeyboardEvent.ulitin](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `shift` Boolean - Katumbas ng [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `kontrol` Boolean - Katumbas ng [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `alt` Boolean - Katumbas ng [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `meta` Boolean - Katumbas ng [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+* `input` Bagay - Input properties. 
+  * `uri` Pisi - Alinman `keyUp` o `keyDown`.
+  * `susi` Pisi - Katumbas ng [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `code` Pisi - Katumbas ng [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `isAutoRepeat` Boolean - Katumbas ng [KeyboardEvent.ulitin](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `shift` Boolean - Katumbas ng [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `kontrol` Boolean - Katumbas ng [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `alt` Boolean - Katumbas ng [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `meta` Boolean - Katumbas ng [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
 
 Pinapalabas bago ipadala ang `keydown` at `keyup` mga kaganapan sa pahina. Ang pagtawag sa `kaganapan.preventDefault` ay mapipigilan ang pahina `keydown`/`keyup` ng mga kaganapanat at ng shortcut sa menu.
 
-Upang mapigilan lamang ang mga shortcut sa menu, gamitin ang [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
+Upang mapigilan lamang ang mga shortcut sa menu, gamitin ang [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental):
 
 ```javascript
 const {BrowserWindow} = nangangailangan('elektron')
@@ -294,10 +294,10 @@ Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `url` Tali
-* `error` String - Ang code ng error
+* `error` String - Ang code ng error.
 * `certificate` [Certificate](structures/certificate.md)
 * `mulingtawag` Punsyon 
-  * `isTrusted` Boolean - ay nagpapahiwatig kung ang sertipiko ay maaaring ituring na pinagkakatiwalaan
+  * `isTrusted` Boolean - ay nagpapahiwatig kung ang sertipiko ay maaaring ituring na pinagkakatiwalaan.
 
 Naipalalabas kapag nabigo upang i-verify ang `sertipiko` para sa `url`.
 
@@ -311,7 +311,7 @@ Ibinabalik ang:
 * `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Punsyon 
-  * `sertipiko` [Sertipiko](structures/certificate.md) - Dapat ay isang sertipiko mula sa ibinigay na listahan
+  * `sertipiko` [Sertipiko](structures/certificate.md) - Dapat ay isang sertipiko mula sa ibinigay na listahan.
 
 Lalabas kapag ang sertipiko ng kliyente ay hiniling.
 
@@ -390,14 +390,14 @@ Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `uri` Pisi
-* `imahe` NativeImage (opsyonal)
-* `scale` Lumutang (opsyonal) - scaling factor para sa mga pasadyang cursor
-* `sukat` [Sukat](structures/size.md) (opsyonal) - ang sukat ng `imahe`
-* `hotspot` [Punto](structures/point.md) (opsyonal) - mga coordinate ng hotspot ng pasadyang cursor
+* `image` [NativeImage](native-image.md) (opsiyonal)
+* `scale` Lumutang (opsyonal) - scaling factor para sa mga pasadyang cursor.
+* `sukat` [Sukat](structures/size.md) (opsyonal) - ang sukat ng `imahe`.
+* `hotspot` [Punto](structures/point.md) (opsyonal) - mga coordinate ng hotspot ng pasadyang cursor.
 
-Naipalalabas kapag ang uri ng cursor ay nagbago. Ang `uri` maaring maging parameter `default`, `crosshair`, `pointer`, `text`, `maghintay`, `tulungan`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `ilipat`, `vertical-text`, `cell`, `context-menu`, `alias`, `pagunlad`, `nodrop`, `kopya`, `none`, `hindi pwede`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `pasadya`.
+Naipalalabas kapag ang uri ng cursor ay nagbago. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
-Kung ang `uri` ng parameter ay `pasadya`, ang `imahe` ng parameter ang hahawak sa pinasadyang cursor ng imahe sa isang `NativeImage`, at `scale`, `laki` at `hotspot` at hawak ang karagdagang impormasyon tungkol sa mga pasadyang cursor.
+If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
 #### Kaganapan: 'context-menu'
 
@@ -405,8 +405,8 @@ Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `params` Bagay 
-  * `x` Integer - x coordinate
-  * `y` Integer - y coordinate
+  * `x` Integer - x coordinate.
+  * `y` Integer - y coordinate.
   * `linkURL` Pisi - ang link ng URL na nakapaloob sa node sa menu ng konteksto ay tinawag sa.
   * `linkText` Pisi - Teksto na nauugnay sa link. Maaaring walang laman ang pisi kung ang mga nilalaman ng link ay isang imahe.
   * `pageURL` Pisi - ang URL ng tuktok na antas ng pahina na ang menu ng konteksto ay nananawagan.
@@ -420,7 +420,7 @@ Ibinabalik ang:
   * `misspelledWord` Pisi - Ang maling salita sa ilalim ng cursor, kung mayroon man.
   * `frameCharset` Pisi - Ang encoding ng karakter ng frame kung saan hiniling ang menu.
   * `inputFieldType` Pisi - Kung ang konteksto ng menu ay sinasabing sa isang patlang na input, ang uri ng patlang na iyon. Ang posibleng mga halaga ay `wala`, `plainText`, `password`, `iba pang`.
-  * ` menuSourceType` Pisi - Ipasok ang pinagmulan na nagsasagawa ng konteksto ng menu. Maaaring `wala`, `mouse`, `keyboard`, `touch`, `touchMenu`.
+  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
   * `mediaFlags` Bagay - Ang mga bandila para sa elemento ng media ang menu ng konteksto ay nananawagan. 
     * `inError` Boolean - Kung ang elemento ng media ay bumagsak.
     * `isPaused` Boolean - Kung ang elemento ng media ay nakahinto.
@@ -448,7 +448,7 @@ Ibinabalik ang:
 * `kaganapan` Kaganapan
 * `Mga aparato` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
-  * `deviceId` na String
+  * `deviceId` String
 
 Ipinalalabas kapag kailangang pumili ng bluetooth device sa tawag sa `navigator.bluetooth.requestDevice`. Upang gamitin ang `navigator.bluetooth` api `webBluetooth` ay dapat na paganahin. Kung ang `kaganapan.preventDefault` ay hindi tinatawag, Ang unang magagamit na aparato ang mapipili. `callback` ay dapat na tawagin `deviceId` na mapipili, magpasa ng walang laman na pisi sa `callback` ay kanselahin ang kahilingan.
 
@@ -533,12 +533,12 @@ Pinapalabas kapag nag-log ang nauugnay na window sa isang mensahe ng console. Hi
 #### `contents.loadURL(url[, mga pagpipilian])`
 
 * `url` Tali
-* `options` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `httpReferrer` Pisi (opsyonal) - Isang HTTP Referrer url.
   * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
-  * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsyonal)
-  * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kailangan kung ang tinutukoy ng `url` iy isang datos ng url at kailangan maikarga sa ibang dokumento.
+  * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n".
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
 Naglo-load ang `url` sa bintana. Ang `url` ay dapat naglalaman ng prefix ng protocol, hal. ang `http://` o `file://`. Kung ang load ay dapat mag-bypass http cache pagkatapos gamitin ang `pragma` header upang makamit ito.
 
@@ -546,6 +546,26 @@ Naglo-load ang `url` sa bintana. Ang `url` ay dapat naglalaman ng prefix ng prot
 const {webContents} = nangangailangan('elektron')
 const mga pagpiilian = {extraHeaders: 'pragma: no-cache\n'}
 webContents.loadURL('https://github.com', mga pagpipilian)
+```
+
+#### `contents.loadFile(filePath)`
+
+* `filePath` String
+
+Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
+
+```sh
+| root
+| - package.json
+| - src
+|   - main.js
+|   - index.html
+```
+
+Would require code like this
+
+```js
+win.loadFile('src/index.html')
 ```
 
 #### `mga nilalaman.downloadURL(url)`
@@ -623,7 +643,7 @@ Ibinabalik `Boolean` - Kung ang pahina ng web ay maaring pumunta sa `offset`.
 
 #### `mga nilalaman.clearHistory()`
 
-Nililimas ang kasaysayan ng pag-navigate.
+Linisin ang kasaysayan ng nabigasyon.
 
 #### `mga nilalaman.goBack()`
 
@@ -651,7 +671,7 @@ Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
 
 #### `mga nilalaman.setUserAgent(userAgent)`
 
-* `userAgent` String
+* `userAgent` na String
 
 Naka-override ang ahenteng gumagamit para sa pahina ng web na ito.
 
@@ -661,7 +681,7 @@ Ibinabalik`Pisi` - Ang ahenteng gumagamit para sa pahina ng web na ito.
 
 #### `mga nilalaman.insertCSS(css)`
 
-* `css` String
+* `css` Pisi
 
 Mga pagturok ng CSS sa kasalukuyang pahina ng web.
 
@@ -670,7 +690,7 @@ Mga pagturok ng CSS sa kasalukuyang pahina ng web.
 * `code` String
 * `userGesture` Boolean (opsyonal) - Default ay `huwad`.
 * `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
-  * `resulta` Anuman
+  * `result` Any
 
 Ibinabalik ang mga `Pangako` - Ang isang pangako na lumulutas sa resulta ng naipatupad na code o tinanggihan kung ang resulta ng code ay isang tinanggihang pangako.
 
@@ -678,7 +698,7 @@ Sinusuri ang mga `code` sa pahina.
 
 Sa window ng browser ang ilang mga HTML API tulad ng `requestFullScreen` ay maaari lamang nananawagan ng kilos mula sa gumagamit. Ang pagtatakda ng `userGesture` sa `totoo` ay alisin ang limitasyon na ito.
 
-Kung ang resulta ng code na isinagawa ay isang pangako ang resulta ng muling pagtawag ay nalutas na halaga ng pangako. Inirerekomenda naming gamitin mo ang ibinalik na Pangako upang mahawakan ang code na nagreresulta sa isang Pangako.
+If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
 ```js
 contents.executeJavaScript ('fetch("https://jsonplaceholder.typicode.com/users/1").
@@ -706,7 +726,7 @@ Bumalik `Boolean` - Kung naka-mute ang pahinang ito.
 
 #### `mga nilalaman.setZoomFactor(kadahilanan)`
 
-* `factor` Numero - paktor ng zoom.
+* `kadahilanan`Numero - Zoom factor.
 
 Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay porsiyento ng zoom na hinati sa 100, so 300% = 3.0.
 
@@ -719,23 +739,16 @@ Nagpapadala ng kahilingan upang makakuha ng kasalukuyang factor ng pag-zoom, `ca
 
 #### `mga nilalaman.setZoomLevel(antas)`
 
-* `antas` Numero - antas ng Zoom
+* `antas` Numero - antas ng Zoom.
 
-Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit.
+Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit. The formula for this is `scale := 1.2 ^ level`.
 
 #### `mga nilalaman.getZoomLevel (callback)`
 
-* `callback` Punsyon 
+* `callback` Function 
   * `zoomLevel` Numero
 
 Tinatapos ang isang kahilingan upang makakuha ng kasalukuyang antas sa pag-zoom,`callback`ay tinatawag na `callback(zoomLevel)`.
-
-#### `mga nilalaman.setZoomLevelLimits (pinakamaliit na Antas, pinakamataas na Antas)`
-
-* `pinakamaliitna Antas` na Numero
-* `Pinakamataas na Antas` na Numero
-
-**Deprecated:** Tumawag `setVisualZoomLevelLimits` sa halip na itakda ang visual zoom ng mga limitasyon sa antas. Ang paraan na ito ay aalisin sa Elektron 2.0.
 
 #### `mga nilalaman.setVisualZoomLevelLimits(pinakamababang antas, pinakamataas na antas)`
 
@@ -815,12 +828,12 @@ Pagsingit `text` para sa nakapukos na elemento.
 #### `mga nilalaman.findInPage (teksto [, mga pagpipilian])`
 
 * `teksto` String - Ang nilalaman na hahanapin, ay hindi dapat walang laman.
-* `options` Bagay (opsyonal) 
-  * `abanti` Boolean - (opsyonal) Kung mananaliksik ka ng paabanti o patalikod, defaults sa `true`.
-  * `findNext` Boolean - (opsyonal) Kung ang operasyon isang kahilingan o isang pagsasagawang kasunod, mga defaults sa `false`.
-  * `matchCase` Boolean - (opsyonal) Kung saan ang paghahanap ay dapat case-sensitive, mga defaults sa `false`.
-  * `wordStart` Boolean - (opsyonal) Kung saan maghahanap ka lang ng simula ng salita. mga defaults sa `false`.
-  * `medialCapitalAsWordStart` Boolean - (opsyonal) Kung ang pinagsama na may `wordStart`, tinatanggap ang kapareha sa gitna ng salita at kung ang kapareha nag nagsimula ng malaking titik at sinundan ng maliit na titik o walang-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
+* `options` Na Bagay (opsyonal) 
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
 
 Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
 
@@ -847,8 +860,8 @@ console.log(requestId)
 
 #### `mga nilalaman.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin
-* `callback` Punsyon 
+* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin.
+* `callback` Function 
   * `imahe` [NativeImage](native-image.md)
 
 Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. Ang `imahe` ay isang halimbawa ng [NativeImage](native-image.md) na nag-iimbak ng data ng snapshot. Umupo `rect` ay kukunin ang buong nakikitang pahina.
@@ -871,16 +884,16 @@ Unregister ang anumang ServiceWorker kung kasalukuyan at nagbabalik ng isang boo
 
 Kunin ang listahan ng sistema ng printer.
 
-Ibinabalik [`PrinterInfo[]`](structures/printer-info.md)
+Ibinabalik [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `mga nilalaman.print([options], [callback])`
 
-* `options` Na Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
 * `callback` Function (opsyonal) 
-  * tagumpay` Boolean - Nagpapahiwatig ng tagumpay ng naka-print na tawag.
+  * `success` Boolean - Indicates success of the print call.
 
 Nagpiprint ng pahina ng web sa mga window. Kapag ang `tahimik` ay naka-set sa `totoo`, ang Elektron ay pipiliin ang sistema ng default na printer kung ang `deviceName` ay walang laman at ang mga default na magtatakda para sa pag-print.
 
@@ -890,12 +903,12 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `mga opsyon` Bagay 
-  * `marginsType` Integer - (opsyonal) Itinatakda ang uri ng mga margin na gagamitin. Gumagamit ng 0 para sa naka-default na margin, 1 para sa walang margin, at 2 para sa pinakamaliit na maaaring gawing margin.
-  * `pageSize` String - (opsyonal) Itinatakda ang sukat ng page ng nalilikhang PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
-  * `printBackground` Boolean - (opsyonal) Pwedeng i-imprinta ang mga background ng CSS.
-  * `printSelectionOnly` Boolean - (opsyonal) Pwedeng i-imprinta ang mga napili lamang.
-  * `landscape` Boolean - (opsyonal) `true` para sa landscape, `false` para sa portrait.
+* `options` Bagay 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String (optional) - Specify page size of the generated PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Punsyon 
   * `error` Error
   * `data` Buffer
@@ -960,12 +973,71 @@ manalo.webContents.on('devtools-binuksan', () = > {
 
 Tinatanggal ang landas na tinutukoy mula sa DevTools workspace.
 
+#### `contents.setDevToolsWebContents(devToolsWebContents)`
+
+* `devToolsWebContents` WebContents
+
+Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
+
+The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
+
+By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
+
+Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
+
+An example of showing devtools in a `<webview>` tag:
+
+```html
+<html>
+<head>
+  <style type="text/css">
+
+    * { margin: 0; }
+    #browser { height: 70%; }
+    #devtools { height: 30%; }
+  </style>
+</head>
+<body>
+  <webview id="browser" src="https://github.com"></webview>
+  <webview id="devtools"></webview>
+  <script>
+    const browserView = document.getElementById('browser')
+    const devtoolsView = document.getElementById('devtools')
+    browserView.addEventListener('dom-ready', () => {
+      const browser = browserView.getWebContents()
+      browser.setDevToolsWebContents(devtoolsView.getWebContents())
+      browser.openDevTools()
+    })
+  </script>
+</body>
+</html>
+```
+
+An example of showing devtools in a `BrowserWindow`:
+
+```js
+const {app, BrowserWindow} = require('electron')
+
+let win = null
+let devtools = null
+
+app.once('ready', () => {
+  win = new BrowserWindow()
+  devtools = new BrowserWindow()
+  win.loadURL('https://github.com')
+  win.webContents.setDevToolsWebContents(devtools.webContents)
+  win.webContents.openDevTools({mode: 'detach'})
+})
+```
+
 #### `contents.openDevTools([mga pagpipilian])`
 
-* `opsyon` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `mode` String - Binubuksan ang mga devtools na may tinukoy na estado ng dock, ay maaaring maging `kanan`, `ibaba`, `undocked`, `detach`. Mga Default na huling ginagamit sa estado ng dock. Sa `undocked` mode posible na i-dock pabalik. Sa `detach` mode ito ay hindi.
 
 Binubuksan ang mga devtools.
+
+When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `mga nilalaman.closeDevTools()`
 
@@ -1001,7 +1073,7 @@ Binubuksan ang mga kasangkapan ng nag-develop para sa konteksto ng serbisyo ng m
 
 Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
-Ang proseso ng tagapag-render ay maaaring panghawakan ang mensahe sa pamamagitan ng pakikinig sa `channel` kasama ang `ipcRenderer` modyul.
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
 Isang halimbawa ng pagpapadala ng mga mensahe mula sa pangunahing proseso sa tagapag-render ng proseso:
 
@@ -1020,12 +1092,12 @@ app.on('handa', () = > {
 ```
 
 ```html
-<! - index.html - >
+<!-- index.html -->
 <html>
 <body>
   <script>
-    nangangailangan('elektron').ipcRenderer.on('ping', (kaganapan, mensahe) => {
-      console.log(mensahe) // Prints 'whoooooooh!'
+    require('electron').ipcRenderer.on('ping', (event, message) => {
+      console.log(message) // Prints 'whoooooooh!'
     })
   </script>
 </body>
@@ -1035,16 +1107,14 @@ app.on('handa', () = > {
 #### `mga nilalaman.enableDeviceEmulation(mga parameters)`
 
 * `mga parameter` Bagay 
-  * `screenPosisyon` String - Tukuyin ang uri ng screen upang tularan (default: `desktop`) 
-    * `desktop` - Desktop screen type
-    * `mobile` - Uri ng screen ng mobile
-  * `screenSize` [Sukat](structures/size.md) - Itakda ang emulated na laki ng screen (screenPosisyon == mobile)
-  * `viewPosition` [Point](structures/point.md) - Iposisyon ang view sa screen (screenPosisyon == mobile) (default: `{x: 0, y: 0}`)
-  * `deviceScaleFactor` Integer - Itakda ang aparato ng scale factor (kung zero ang default orihinal na kadahilanan ng sukat ng aparato) (default: ``)
+  * `screenPosisyon` String - Tukuyin ang uri ng screen upang tularan (default: `desktop`): 
+    * `desktop` - Desktop screen type.
+    * `mobile` - Uri ng screen ng mobile.
+  * `screenSize` [Sukat](structures/size.md) - Itakda ang emulated na laki ng screen (screenPosisyon == mobile).
+  * `viewPosition` [Point](structures/point.md) - Iposisyon ang view sa screen (screenPosisyon == mobile) (default: `{x: 0, y: 0}`).
+  * `deviceScaleFactor` Integer - Itakda ang aparato ng scale factor (kung zero ang default orihinal na kadahilanan ng sukat ng aparato) (default: ``).
   * `viewSize` [Sukat](structures/size.md) - Itakda ang emulated at tignan ang laki (walang laman ang ibig sabihin nito ay walang override)
-  * `fitToView` Boolean - Kung ang emulated view ay dapat na pinaliit kung kinakailangan upang umangkop sa magagamit na espasyo (default: `huwad`)
-  * `offset` [Point](structures/point.md) - Offset ng emulated view sa loob ng puwang na magagamit (hindi angkop upang tingnan ang mode) (default: `{x: 0, y: 0}`)
-  * `scale` Lumutang - Sukat ng emulated view sa loob ng magagamit na espasyo (hindi angkop upang tignan ang mode) (default: `1`)
+  * `scale` Lumutang - Sukat ng emulated view sa loob ng magagamit na espasyo (hindi angkop upang tignan ang mode) (default: `1`).
 
 Paganahin ang aparato pagtulad sa ibinigay na mga parameter.
 
@@ -1054,11 +1124,11 @@ Huwag paganahin ang pagtulad ng aparato na pinagana ng `webContents.enableDevice
 
 #### `mga nilalaman.sendInputEvent(kaganapan)`
 
-* `kaganapan` Bagay 
-  * `uri` String (**kinakailangan**) - Ang uri ng kaganapan, maaaring `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel` `mouseMove`, `keyDown`, `keyUp`, `char`.
+* `event` Bagay 
+  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
   * `modifier` String[] - Isang hanay ng mga modifier ng kaganapan, maaaring isama `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock` `numLock`, `kaliwa`, `kanan`.
 
-Nagpapadala ng input `kaganapan` sa pahina. **Tandaan:** Ang `BrowserWindow` na naglalaman ng mga nilalaman na kailangang nakatuon para sa `sendInputEvent()` upang gumana.
+Nagpapadala ng input na `event` sa page. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
 
 Para sa mga kaganapan sa keyboard, ang `kaganapan` ang bagay ay mayroon ding mga sumusunod na katangian:
 
@@ -1068,7 +1138,7 @@ Para sa mga kaganapan ng mouse, ang `kaganapan` ang bagay na mayroon ding mga su
 
 * `x` Integer (**kailangan**)
 * `y` Integer (**kailangan**)
-* `pindutan` String - Ang pindutan ng pinindot, ay maaaring `kaliwa`, `gitna`, `kanan`
+* `pindutan` String - Ang pindutan ng pinindot, ay maaaring `kaliwa`, `gitna`, `kanan`.
 * `globalX` Integer
 * `globalY` Integer
 * `movementX` Integer
@@ -1088,8 +1158,8 @@ Para sa `mouseWheel` kaganapan, ang `kaganapan` ay mayroon ding mga sumusunod na
 
 #### `mga nilalaman.beginFrameSubscription([onlyDirty ,]tumawagmuli)`
 
-* `onlyDirty` Boolean (opsyonal) - Mga Default sa `huwad`
-* `callback` Function 
+* `onlyDirty` Boolean (opsyonal) - Mga Default sa `huwad`.
+* `callback` Punsyon 
   * `frameBuffer` Buffer
   * `dirtyRect` [Parihaba](structures/rectangle.md)
 
@@ -1118,7 +1188,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` Punsyon - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
@@ -1145,7 +1215,7 @@ Pinapakita ang pop-up na diksyonaryo na naghahanap ng mga napiling salita sa pag
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
 * `options` Bagay 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `lapad` Integer
     * `taas` Integer
 

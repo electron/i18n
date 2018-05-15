@@ -64,7 +64,7 @@ Yerel bir modül yüklediyseniz ve çalışmadığını tespit ettiyseniz, aşa�
 </ul>
 
 <h2><code>prebuild`'e dayanan modüller</h2> 
-    [`prebuild`](https://github.com/mafintosh/prebuild), Node ve Elektronun birden fazla sürümüne yönelik önceden oluşturulmuş ikili dosyalarla yerel Node modüllerini kolayca yayınlamak için bir yol sağlar.
+    [`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
     
     Eğer modüller Electron'da kullanım için ikili dosyalar sağlıyorsa, önceden oluşturulmuş ikili dosyalardan tam avantaj sağlamak için `--build-from-source` ve `npm_config_build_from_source` ortam değişkenlerini dahil etmediğinizden emin olun.
     

@@ -31,7 +31,7 @@ May mga ilang malaking pagbabago mula sa ating 1.x na stratehiya na nakabalangka
 1. Striktong paggamit ng semver
 2. Pambungad ng semver-compliant `-beta` tags
 3. Pambungad sa [conventional commit messages](https://conventionalcommits.org/)
-4. Malinaw na pagpapaliwanag sa pagpapanatag ng mga sangay
+4. Well-defined stabilization branches
 5. The `master` branch is versionless; only stabilization branches contain version information
 
 Tatalakayin natin bawat detalye kung paano gumagana ang git branching, pati ang nmp tagging, at kung ano ang aasahang makikita ng mga developers, at kung paano ka makapagbabago ng backport.

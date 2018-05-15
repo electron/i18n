@@ -6,11 +6,11 @@ Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarColorPicker(options)` *Experimental*
 
-* `options` Object 
+* `options` Objet 
   * `availableColors` String[] (facultatif) - Tableau de chaîne de caractères de couleurs en hexadécimal pouvant être choisi.
   * `selectedColor` String (facultatif) - La couleur en hexadécimal selectionné dans le sélecteur, c.-à-d. `#ABCDEF`.
   * `change` Function (facultatif) - Fonction à appeler lorsque qu'une couleur est sélectionnée. 
-    * `color` String - La couleur que l'utilisateur a sélectionnée dans le sélecteur
+    * `color` String - La couleur que l'utilisateur a sélectionnée dans le sélecteur.
 
 ### Propriétés d'instance
 

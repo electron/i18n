@@ -93,16 +93,16 @@ La retrollamada es invocada con el tamaño actual de caché usado en la sesión.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Invocada cuando la operación ha finalizado
+* `Llamada` Funcion - Llamada cuando la operación está completada.
 
 Borra la memoria caché del HTTP de la sesión.
 
 #### `ses.clearStorageData([options, callback])`
 
 * `options` Object (opcional) 
-  * `origin` String - (opcional) Debe seguir la representación de `window.location.origin` `scheme://host:port`.
-  * `storages` String[] - (optional) Los tipos de almacenaje a limpiar, puede contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`.
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
 Borra los datos de almacenamiento web.
@@ -117,7 +117,7 @@ Escribe cualquier dato DOMStorage que no lo haya sido en disco.
   * `pacScript` Cadena - El URL asociado con el archivo PAC.
   * `proxyRules` Cadena - Reglas indicando cual proxy utilizar.
   * `proxyBypassRules` Cadena - Reglas indicando cuál URL deben eludir la configuración del proxy.
-* `Llamada` Función - llamada cuando se realiza la operación.
+* `callback` Function - Invocada cuando la operación ha finalizado.
 
 Configurar proxy.
 
@@ -141,7 +141,7 @@ Por ejemplo:
 * `socks4://foopy` - Usa SOCKS v4 proxy `foopy:1080` para todas las URLs.
 * `http=foopy,socks5://bar.com` - Usa HTTP proxy `foopy` para las URLs http, y falla para el proxy SOCKS5 `bar.com` si `foopy` no está disponible.
 * `http=foopy,direct://` - Usa el proxy HTTP `foopy` para URLs http, y no usa el proxy si `foopy` no está disponible.
-* `http=foopy;socks=foopy2` - Usa el proxy HTTP `foopy` para URLs HTTP, y usa `socks4://foopy2` para el resto de URLs.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
 El `proxyBypassRules` es una lista separada por comas de las reglasa que se describen a continuación:
 
@@ -163,7 +163,7 @@ El `proxyBypassRules` es una lista separada por comas de las reglasa que se desc
   
   Ejemplos: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
-* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   Une cualquier URL que es literal a una IP que cae en un rango determinado. El rango de IP es especificado usando la notación CIDR.
   
@@ -176,14 +176,14 @@ El `proxyBypassRules` es una lista separada por comas de las reglasa que se desc
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
-* `callback` Función 
+* `callback` Function 
   * `proxy` Cadena
 
 Resuelve la información del proxy para una `url`. La `llamada` será hecha con `callback(proxy)` cuando se realice la solicitud.
 
 #### `ses.setDownloadPath(path)`
 
-* `ruta` Cadena - la ubicación de descarga
+* `ruta` Cadena - la ubicación de descarga.
 
 Configura el directorio de descargas. Por defecto, el directorio de descargas será `Descargas` en la carpeta respectiva de la aplicación.
 
@@ -250,8 +250,10 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `manejador` Function | null 
   * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso.
   * `permiso` cadena - Enumeración de 'medios', 'geolocalización', 'notificaciones', 'midiSysex', 'bloque de puntero', 'Pantalla completa', 'Apertura externa'.
-  * `callback` Función 
-    * `permiso concedido` Booleano - Permiso o denegado de permiso
+  * `callback` Function 
+    * `permiso concedido` Booleano - Permiso o denegado de permiso.
+  * `details` Object - Some properties are only available on certain permission types. 
+    * `externalURL` String - The url of the `openExternal` request.
 
 Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. Para limpiar el manejador, llamar a `setPermissionRequestHandler(null)`.
 
@@ -268,13 +270,13 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación.
+* `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
 Borra la caché de resolución de host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `dominio` Cadena - Una lista separada por coma de servidores para los cuales la autenticación integrada está habilitada.
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
 Configura dinámicamente cada vez que se envíen credenciales para HTTP NTLM o negociaciones de autenticación.
 
@@ -306,10 +308,8 @@ Devuelve `Cadena` - El agente usuario para esta sesión.
 #### `ses.getBlobData(identifier, callback)`
 
 * `identificador` Cadena - UUID válido.
-* `callback` Función 
+* `callback` Function 
   * `resultado` Buffer - datos Blob.
-
-Devuelve `Blob` - Los datos blob asociados con el `identificador`.
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -328,9 +328,19 @@ Permite `cancelar` o `interrumpir` descargas de una `Sesión` previa. La API gen
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación
+* `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
 Limpia caché de autenticación HTTP de la sesión.
+
+#### `ses.setPreloads(preloads)`
+
+* `preloads` String[] - An array of absolute path to preload scripts
+
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+
+#### `ses.getPreloads()`
+
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### Propiedades de Instancia
 

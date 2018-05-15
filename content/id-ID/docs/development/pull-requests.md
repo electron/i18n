@@ -3,19 +3,19 @@
 * [Ketergantungan](#dependencies)
 * [Atur ulang lingkungan lokal anda](#setting-up-your-local-environment) 
   * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes) 
-  * [Step 4: Code](#step-4-code)
-  * [Step 5: Commit](#step-5-commit) 
-    * [Commit message guidelines](#commit-message-guidelines)
-  * [Step 6: Rebase](#step-6-rebase)
-  * [Step 7: Test](#step-7-test)
-  * [Step 8: Push](#step-8-push)
-  * [Step 9: Opening the Pull Request](#step-8-opening-the-pull-request)
-  * [Step 10: Discuss and Update](#step-9-discuss-and-update) 
+  * [Langkah 2: Membangun](#step-2-build)
+  * [Langkah 3: Cabang](#step-3-branch)
+* [Membuat Perubahan](#making-changes) 
+  * [Langkah 4: Kode](#step-4-code)
+  * [Langkah 5: Mempercayakan](#step-5-commit) 
+    * [Panduan pesan Commit](#commit-message-guidelines)
+  * [Langkah 6: Rebase](#step-6-rebase)
+  * [Langkah 7: Tes](#step-7-test)
+  * [Langkah 8: Push](#step-8-push)
+  * [Step 9: Opening the Pull Request](#step-9-opening-the-pull-request)
+  * [Step 10: Discuss and Update](#step-10-discuss-and-update) 
     * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
-  * [Step 11: Landing](#step-10-landing)
+  * [Step 11: Landing](#step-11-landing)
   * [Continuous Integration Testing](#continuous-integration-testing)
 
 ## Atur ulang lingkungan lokal anda
@@ -72,24 +72,42 @@ Perhatikan bahwa commit yang bebeapa kali sering terjepit ketika commit tersebut
 
 #### Panduan pesan Commit
 
-Sebuah pesan commit yang bagus harus menjelaskan perubahan apa dan mengapa.
+Sebuah pesan commit yang bagus harus menjelaskan perubahan apa dan mengapa. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-1. Baris pertama harus:
-  
+Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
+
+Examples of commit messages with semantic prefixes:
+
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux` 
+
+Common prefixes:
+
+    - fix: A bug fix
+    - feat: A new feature
+    - docs: Documentation changes
+    - test: Adding missing tests or correcting existing tests
+    - build: Changes that affect the build system
+    - ci: Changes to our CI configuration files and scripts
+    - perf: A code change that improves performance
+    - refactor: A code change that neither fixes a bug nor adds a feature
+    - style: Changes that do not affect the meaning of the code (linting)
+    
+
+Other things to keep in mind when writing a commit message:
+
+1. Baris pertama harus: 
   * mengandung deskripsi yang singkat tentang perubahan ( Disarankan 50 karakter atau kurang dan tidak lebih dari 72 karakter)
   * masukkan semuanya dengan huruf kecil dengan pengecualian kata benda, akronim dan kata yang berhubungan dengan kode, seperti fungsi/ nama variabel
-    
-    Contoh:
-  
-  * `osx membangun dokumentasi untuk sdk baru diperbaharui`
-  
-  * `memperbaiki kesalahan penulisan di atom_api_menu.h`
-
 2. Biarkan baris kedua kosong.
-
 3. Jadikan semua baris pada 72 kolom.
 
-Lihat [Artikel ini](https://chris.beams.io/posts/git-commit/) untuk contoh lainnya mengenai bagaimana cara membuat pesan git commit yang bagus.
+#### Breaking Changes
+
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+
+See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### Langkah 6: Rebase
 
@@ -114,7 +132,7 @@ $ npm run test
 
 Pastikan bahwa linter tidak ada masalah apapun pada saat tes selesai. Mohon tidak mengirimkan patch yang gagal atau belum di cek.
 
-Jika anda sedang memperbaharui tes dan ingin menjalankan satu spec untuk memeriksanya:
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu

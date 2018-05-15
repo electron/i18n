@@ -46,7 +46,7 @@ Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
 
 Magpadala ng mensahe sa pangunahing proseso ng magkahiwalay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
-Ang pangunahing proseso ay hinahawakan ito sa pamamagitan ng pakikinig para sa `channel` na may modyul ng `ipcMain`.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
 
 ### `ipcRenderer.sendSync(channel[,arg1][,arg2][, ...])`
 
@@ -57,7 +57,7 @@ Magbabalik ng `any` - Ang halaga ay ipinadala pabalik sa pamamagitan ng tagahawa
 
 Magpadala ng mensahe sa pangunahing proseso ng magkasabay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
-Ang pangunahing proseso ay hinahawakan ito sa pamamagitan ng pakikinig para sa `channel` na may modyul ng `ipcMain`, at tumugon sa pamamagitan ng pagtatakda ng `event.returnValue`.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
 **Note:** Ang pagpapadala ng magkasabay na mensahe ay iba-block ang buong prosesong tagabigay, maliban kung alam mo ang ginagawa mo huwag mo itong gagamitin.
 
@@ -67,7 +67,7 @@ Ang pangunahing proseso ay hinahawakan ito sa pamamagitan ng pakikinig para sa `
 * `channel` String
 * `...args` anuman[]
 
-Sends a message to a window with `windowid` via `channel`
+Sends a message to a window with `windowid` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[,arg1][, arg2][, ...])`
 

@@ -10,7 +10,7 @@ Primo, installa una versione recente di Node.js. Ti raccomandiamo do installare 
 
 Una volta scaricato, esegui l'installatore e permetti di essere guidato per l'installazione.
 
-Una volta installato, conferma che tutto lavori come aspettato. Trova l'app `Terminale` di macOS nella tua cartella `/Applicazioni/Utilità` (o cercando semplicemente la parola `Terminale` in Spotlight). Apri il `Terminale` o un'altra linea di comando del client a tua scelta e conferma che sia `node` che `npm` siano disponibili:
+Una volta installato, conferma che tutto lavori come aspettato. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Apri il `Terminale` o un'altra linea di comando del client a tua scelta e conferma che sia `node` che `npm` siano disponibili:
 
 ```sh
 # Questo comando dovrebbe stampare la versione di Node.js
@@ -30,7 +30,7 @@ Primo, installa una versione recente di Node.js. Ti raccomandiamo do installare 
 
 Sulla schermata che ti permette di configuare l'installazione, assicurati di selezionare le opzioni `esegui Node.js`, `gestione pacchetto npm` e `Aggiungi al PERCORSO`.
 
-Una volta installato, conferma che tutto lavori come aspettato. Trova la PowerShell di Windows semplicemente aprendo il Menu Start e digitando `PowerShell`. Apri `PowerShell` o un'altra linea di comando del client a tua scelta e conferma che sia `node` che `npm` siano disponibili:
+Una volta installato, conferma che tutto lavori come aspettato. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Apri `PowerShell` o un'altra linea di comando del client a tua scelta e conferma che sia `node` che `npm` siano disponibili:
 
 ```powershell
 # Questo comando dovrebbe stampare la versione di Node.js

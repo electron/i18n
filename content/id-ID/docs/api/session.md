@@ -2,7 +2,7 @@
 
 > Mengelola sesi browser, cookies, cache, pengaturan proxy, dll.
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 Modul ` sesi ` dapat digunakan untuk membuat objek ` Sesi ` baru.
 
@@ -41,7 +41,7 @@ Sebuah `Sesi` objek, objek sesi bawaan pada aplikasi.
 
 > Dapatkan dan atur peralatan dari sebuah sesi.
 
-Proses: [Utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 Kamu bisa membuat sebuah `Sesi` objek di `sesi` modul:
 
@@ -55,7 +55,7 @@ Peristiwa berikut tersedia pada contoh `Sesi`:
 
 #### Perihan: 'akan-terunduh'
 
-* `acara` Acara
+* `event` Sinyal
 * `barang` [unduhbarang](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -80,16 +80,16 @@ Callback dipanggil dengan ukuran cache sesi saat ini.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Fungsi - Disebut saat operasi selesai
+* `callback` Fungsi - Disebut saat operasi selesai.
 
 Membersihkan sesi-sesi HTTP cache.
 
 #### `ses.clearStorageData([options, panggilan kembali])`
 
 * `pilihan-pilihan` Objek (pilihan) 
-  * `asal` Senar - (pilihan) Harus mengikuti `jendela.lokasi.asal`’s representasi `scheme://host:port`.
-  * `penyimpanan` Senar[] - (pilihan) Jenis penyimpanan yang bisa dihapus, bisa berisi: `chacheaplikasi`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `kuota` Senar[] - (pilihan) Jenis kuota untuk menghapus, dapat berisi: `sementara`, `gigih`, `syncable`.
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
 
 Menghapus data penyimpanan web.
@@ -150,7 +150,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   Contoh: "127.0.1", "[0:0::1]", "[:: 1]", "http://[::1]:99"
 
-* `IP_LITERAL PREFIX_LENGHT_IN_BITS "/"`
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   Cocokkan URL yang ada pada literatur IP yang ada di kisaran yang diberikan Kisaran IP ditentukan dengan menggunakan notasi CIDR.
   
@@ -170,7 +170,7 @@ Menyelesaikan informasi proksi untuk `url`. `Callback` akan dipanggil dengan `ca
 
 #### `ses.setDownloadPath(path)`
 
-* `jalan` String - lokasi download
+* `jalan` String - lokasi download.
 
 Set download menyimpan direktori. Secara default, direktori download akan `Download` di bawah folder app masing-masing.
 
@@ -226,7 +226,9 @@ const {BrowserWindow} = require('electron') membiarkan memenangkan = win.webCont
   * `webContents` [WebContents](web-contents.md) - WebContents meminta izin.
   * `izin` String - Enum 'media', 'geolocation', 'pemberitahuan', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Fungsi 
-    * `permissionGranted` Boolean - mengizinkan atau menolak izin
+    * `permissionGranted` Boolean - mengizinkan atau menolak izin.
+  * `rincian` Object - Some properties are only available on certain permission types. 
+    * `externalURL` String - The url of the `openExternal` request.
 
 Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Memanggil `callback(true)` akan memungkinkan izin dan `callback(false)` akan menolaknya. To clear the handler, call `setPermissionRequestHandler(null)`.
 
@@ -243,7 +245,7 @@ Menghapus cache resolver host.
 
 #### `ses.allowNTLMCredentialsForDomains(domain)`
 
-* `domain` String - daftar dipisahkan koma server untuk otentikasi Terpadu yang diaktifkan.
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
 Secara dinamis tetapkan apakah akan selalu mengirim kredensial untuk HTTP NTLM atau Negotiate otentikasi.
 
@@ -274,8 +276,6 @@ Mengembalikan `String` - user agent untuk sesi ini.
 * `callback` Fungsi 
   * `hasil` Luapan penyangga - gumpalan data.
 
-Mengembalikan `gumpalan` - gumpalan data yang terkait dengan `pengenal`.
-
 #### `ses.createInterruptedDownload(options)`
 
 * `pilihan` Obyek 
@@ -293,9 +293,19 @@ Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebe
 #### `ses.clearAuthCache(options[, panggilan kembali])`
 
 * `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai
+* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
 
 Membersihkan cache otentikasi HTTP sesi.
+
+#### `ses.setPreloads(preloads)`
+
+* `preloads` String[] - An array of absolute path to preload scripts
+
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+
+#### `ses.getPreloads()`
+
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### Contoh properti
 

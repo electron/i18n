@@ -67,7 +67,7 @@ $ npm pasang selenium-webdriver
 
 ### 3. Sambungkan ke ChromeDriver
 
-Penggunaan `selenium-webdriver` dengan Elektron pada dasarnya sama dengan hulu, kecuali bahwa Anda harus secara manual menentukan cara menghubungkan driver krom dan di mana menemukan biner Elektron:
+The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
 
 ```javascript
 const webdriver = require ('selenium-webdriver')
@@ -154,6 +154,6 @@ Context | Request Context
 
 ## Alur kerja
 
-Untuk menguji aplikasi Anda tanpa membangun kembali Electron, cukup [tempat](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) sumber aplikasi Anda ke direktori sumber Elektron.
+To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
 
 Sebagai alternatif, berikan argumen untuk dijalankan dengan biner elektron Anda yang ditunjukkan folder aplikasi Anda Ini menghilangkan kebutuhan untuk menyalin-tempel aplikasi Anda Direktori sumber elektron.

@@ -31,7 +31,7 @@ Il y a plusieurs changements majeurs par rapport à notre stratégie 1.x décrit
 1. Utilisation stricte de semver
 2. Introduction de semver compatible avec les tags `-beta`
 3. Introduction des [messages de commit conventionnels](https://conventionalcommits.org/)
-4. Définition claire des branches de stabilisation
+4. Well-defined stabilization branches
 5. The `master` branch is versionless; only stabilization branches contain version information
 
 Nous expliquerons en détail comment les branches de git fonctionnent, comment le tagging npm fonctionne, ce que les développeurs devraient d'attendre à voir, et comment l'on peut rapporter les changements antérieurement.

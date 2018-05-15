@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-उपयोगकर्ता के ऑपरेटिंग सिस्टम के आधार पर विभिन्न कुंजी संयोजनों को कॉन्फ़िगर करना बेहद आसान है |
+You can configure different key combinations based on the user's operating system.
 
 ```js
 {

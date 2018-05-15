@@ -2,7 +2,7 @@
 
 > Buat menu aplikasi asli dan menu konteks.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 ### `menu Menu()`
 
@@ -55,26 +55,26 @@ Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menj
 
 The `menu` object has the following instance methods:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
-* `pilihan` Objek (opsional) 
+* `pilihan` Obyek 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` minor (options) - Default adalah posisi kursor mouse saat ini. harus dinyatakan jika `y<\0> dinyatakan.</li>
 <li><code>y` Nomor (opsional) - Default adalah posisi kursor mouse saat ini. Harus dinyatakan jika `x` dinyatakan.
-  * `async` Boolean (opsional) - Atur ke `true` agar metode ini segera dipanggil, `false` untuk kembali setelah menu dipilih atau ditutup. Default ke ` false </ 0> .</li>
-<li><code>positioningItem`Nomor (opsional) *macOS* - Indeks item menu ke diposisikan di bawah kursor mouse pada koordinat yang ditentukan. Default adalah -1.
+  * `positioningItem`Nomor (opsional) *macOS* - Indeks item menu ke diposisikan di bawah kursor mouse pada koordinat yang ditentukan. Default adalah -1.
+  * `callback` Function (optional) - Called when menu is closed.
 
-Menutup menu konteks di `browserWindow`.
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 Menutup menu konteks di `browserWindow`.
 
 #### `menu.append(menuItem) menuItem`
 
-* `menu` Menu
+* `menuItem` [MenuItem](menu-item.md)
 
 Appends the `menuItem` to the menu.
 
@@ -87,9 +87,31 @@ Returns `MenuItem` the item with the specified `id`
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Sisipkan `menuItem` ke posisi `pos` pada menu.
+
+### Perihal contoh
+
+Objects created with `new Menu` emit the following events:
+
+** Catatan: </ 0> Beberapa acara hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p> 
+
+#### Event: 'menu-will-show'
+
+Pengembalian:
+
+* `acara` Acara
+
+Emitted when `menu.popup()` is called.
+
+#### Event: 'menu-will-close'
+
+Pengembalian:
+
+* `acara` Acara
+
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Contoh properti
 
@@ -100,6 +122,10 @@ Sisipkan `menuItem` ke posisi `pos` pada menu.
 A `MenuItem[]` array containing the menu's items.
 
 Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
+
+### Contoh peristiwa
+
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Contoh
 
@@ -218,7 +244,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```

@@ -2,11 +2,11 @@
 
 > Ekstensi untuk memproses objek.
 
-Proses:  Utama </ 0> ,  Renderer </ 1></p> 
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Objek `proses` Elektron diperpanjang dari [Node.js `proses` objek](https://nodejs.org/api/process.html). Ini menambahkan peristiwa, properti, dan metode berikut:
 
-## Acara
+## Kejadian
 
 ### Acara: 'dimuat'
 
@@ -24,7 +24,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properti
+## Properti/peralatan
 
 ### `process.defaultApp`
 
@@ -40,8 +40,7 @@ A `Boolean` yang mengontrol dukungan ASAR di dalam aplikasi Anda. Setting ini ke
 
 ### `process.noDeprecation`
 
-A `Boolean` yang mengontrol apakah peringatan pencabutan atau tidak diinginkan dicetak ke `stderr`.   
-Menetapkan ini ke `benar` akan membungkam peringatan penolakan. Properti ini digunakan bukan flag baris perintah `--no-deprecation `.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Properti ini digunakan bukan flag baris perintah `--no-deprecation `.
 
 ### `process.resourcesPath`
 
@@ -53,11 +52,11 @@ A `Boolean` yang mengontrol apakah peringatan dimusnahkan atau tidak akan dilemp
 
 ### `process.traceDeprecation`
 
-A `Boolean` yang mengontrol apakah pencabutan atau tidak dicocokkan ke `stderr ` sertakan jejak tumpukan mereka. Menetapkan ini ke `benar` akan mencetak tumpukan jejak untuk penyangkalan. Properti ini bukan flag baris perintah `- trace deprecation`.
+A `Boolean` yang mengontrol apakah pencabutan atau tidak dicocokkan ke `stderr ` sertakan jejak tumpukan mereka. Setting this to `true` will print stack traces for deprecations. Properti ini bukan flag baris perintah `- trace deprecation`.
 
 ### `process.traceProcessWarnings`
 
-A `Boolean` yang mengontrol apakah proses peringatan atau tidak untuk mencetak `stderr` disertakan  jejak tumpukan mereka. Menetapkan ini ke`benar` akan mencetak jejak stack untuk peringatan proses   (termasuk penolakan). Properti ini bukan perintah `-trace-warning `   baris bendera.
+A `Boolean` yang mengontrol apakah proses peringatan atau tidak untuk mencetak `stderr` disertakan  jejak tumpukan mereka. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `process.type`
 
@@ -97,19 +96,19 @@ Mengembalikan `Objek`:
 
 * `workingSetSize` Integer - Jumlah memori yang saat ini disematkan pada fisik sebenarnya RAM.
 * `peakWorkingSetSize` Integer - Jumlah maksimum memori yang pernah disematkan ke RAM fisik yang sebenarnya.
-* `privateBytes` Integer - Jumlah memori yang tidak dibagi oleh proses lain, seperti Tumpukan JS atau konten HTML.
-* `sharedBytes `Integer - Jumlah memori dibagi antara proses, biasanya memori yang dikonsumsi oleh kode Elektron itu sendiri
+* ` privateBytes </ 0>  Integer - Jumlah memori yang tidak dibagi oleh proses lain, seperti tumpukan JS atau konten HTML.</li>
+<li><code>sharedBytes `Integer - Jumlah memori dibagi antara proses, biasanya memori yang dikonsumsi oleh kode Elektron itu sendiri.
 
 Mengembalikan objek yang memberikan statistik penggunaan memori tentang proses saat ini. Catatan bahwa semua statistik dilaporkan di Kilo byte.
 
 ### `process.getSystemMemoryInfo()`
 
-Mengembalikan `Objek`:
+Mengembalikan `Boolean`:
 
 * `total`Integer - Jumlah total memori fisik di Kilobyte tersedia untuk sistem.
 * `gratis` Integer - Jumlah total memori yang tidak digunakan oleh aplikasi atau disk cache.
-* `swapTotal` Integer - Jumlah total memori swap di Kilobyte tersedia untuk sistem. *Windows* *Linux*
-* `swapFree` Integer - Jumlah memori swap gratis di Kilobyne tersedia untuk sistem. *Windows * *Linux*
+* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 Mengembalikan objek yang memberikan statistik penggunaan memori tentang keseluruhan sistem. Catatan bahwa semua statistik dilaporkan di Kilobytes.
 

@@ -18,7 +18,7 @@ Electron için kodlama stili rehberleri.
   * Dosya isimlerini birleştirmek için `path.join()` kullanın.
   * Geçiçi dizine gönderme yapmaya ihtiyaç duyduğunuzda `/tmp` yerine `os.tmpdir()` kullanın.
 * Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null`, or `undefined`
+  * Not `return null`, `return undefined`, `null` or `undefined`
 
 ## C++ and Python
 
@@ -48,8 +48,8 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 Electron API'leri Node.js ile aynı büyük/küçük harf düzenini kullanır:
 
-* Modülün kendisi `BrowserWindow` gibi bir sınıfsa `CamelCase`.
-* Modül birkaç API'den oluşuyorsa, `globalShortcut` gibi, `mixedCase` kullanın.
+* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
+* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
 * API bir objenin bir mülkü ise, ve ayrı bir bölüme sahip olacak kadar karmaşık ise, `win.webContents` gibi, `mixedCase` kullanın.
 * Modül olmayan API'lar için, `<webview> Tag` veya `Process Object` gibi doğal başlıklar kullanın.
 

@@ -26,6 +26,10 @@ Menonaktifkan disk cache untuk permintaan HTTP.
 
 Menonaktifkan protokol HTTP/2 dan SPDY 3.1.
 
+## --lang
+
+Set a custom locale.
+
 ## --memeriksa = `port` dan--memeriksa-brk = `port`
 
 Bendera terkait debug, lihat panduan [Debugging proses utama](../tutorial/debugging-main-process.md) untuk rincian.
@@ -42,7 +46,7 @@ Pasukan ruang disk maksimum yang akan digunakan oleh cache disk, dalam bytes.
 
 Menentukan bendera dilewatkan ke mesin Node JS. Itu harus disampaikan ketika mulai elektron jika Anda ingin mengaktifkan `bendera` dalam proses utama.
 
-```bash
+```sh
 $ elektron--js-bendera = "--harmony_proxies--harmony_collections" Anda-app
 ```
 
@@ -96,7 +100,7 @@ Daftar server yang dipisahkan koma yang otentikasinya telah diaktifkan.
 
 Sebagai contoh:
 
-```bash
+```sh
 --auth-server-whitelist='*example.com, * foobar.com, * baz'
 ```
 

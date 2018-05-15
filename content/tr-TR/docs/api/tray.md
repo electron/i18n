@@ -71,8 +71,8 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
-* `position` [Point](structures/point.md) - event'ın pozisyonu
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Tray simgesi tıklandığında çıkar.
 
@@ -83,7 +83,7 @@ Tray simgesi tıklandığında çıkar.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
 Tray simgesi sağ tıkladığında ortaya çıkar.
 
@@ -94,7 +94,7 @@ Tray simgesi sağ tıkladığında ortaya çıkar.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
 Tray simgesi sağ tıkladığında tetiklenir.
 
@@ -124,7 +124,7 @@ Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 #### Event: 'drop-text' *macOS*
 
 * `event` Olay
-* `text` String - Düşürülen yazı stringi
+* `text` String - Düşürülen yazı stringi.
 
 Sürüklenen metin tepsi simgesine düştüğünde ortaya çıkar.
 
@@ -147,7 +147,7 @@ Bir sürükleme işlemi tepside bittiğinde veya başka bir yerde bittiğinde or
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - event'ın pozisyonu
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Fare tepsi simgesine girdiğinde ortaya çıkar.
 
@@ -158,7 +158,7 @@ Fare tepsi simgesine girdiğinde ortaya çıkar.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - event'ın pozisyonu
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Fare tepsi simgesinden çıktığında ortaya çıkar.
 
@@ -169,7 +169,7 @@ Fare tepsi simgesinden çıktığında ortaya çıkar.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - event'ın pozisyonu
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Fare tepsi simgesini hareket ettirdikçe ortaya çıkar.
 
@@ -203,7 +203,7 @@ Bu tepsi simgesinin üzerine gelen metni ayarlar.
 
 * `title` String
 
-Durum çubuğunda tepsi simgesinin bir kenara görünen başlığını ayarlar.
+Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -236,7 +236,7 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `seçenekler` Nesne 
-  * `icon` ([NativeImage](native-image.md) | String) - (isteğe bağlı)
+  * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı) -
   * `title` String
   * `content` Dizge
 

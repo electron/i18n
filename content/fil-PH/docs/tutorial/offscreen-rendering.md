@@ -2,7 +2,7 @@
 
 Ang offscreen rendering ay nagpapahintulot sa iyo na kumuha ng nilalaman ng isang browser window sa bitmap, kaya ito ay nai-render kahit saan, halimbawa sa isang texture ng 3D scene. Ang offscreen rendering sa electron ay gumagamit ng katulad na pamamaraan kaysa sa[Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) na proyekto.
 
-May dalawang mode ng rendering na pwedeng magamit at ang maruming lugar lamang ay nakapasa sa `'pintura'`event upang maging mas mahusay. Ang rendering ay maaring tumigil, magpatuloy at maaring magtakda ng frame rate. Ang tinukoy na frame rate ay isang nangungunang limit value, kapag mayroong walang nangyayari sa isang webpage, walang mga frame ang nabuo. Ang pinakamataas na frame rate ay 60, dahil sa itaas na walang pakinabang, lamang pagkawala ng pagganap.
+May dalawang mode ng rendering na pwedeng magamit at ang maruming lugar lamang ay nakapasa sa `'pintura'`event upang maging mas mahusay. Ang rendering ay maaring tumigil, magpatuloy at maaring magtakda ng frame rate. Ang tinukoy na frame rate ay isang nangungunang limit value, kapag mayroong walang nangyayari sa isang webpage, walang mga frame ang nabuo. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
 
 **Note:** Ang offscreen window ay laging nilikha bilang isang[Frameless Window](../api/frameless-window.md).
 

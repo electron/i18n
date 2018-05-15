@@ -1,7 +1,7 @@
 # Pull Requests
 
 * [Mga Dependency](#dependencies)
-* [Setting up your local environment](#setting-up-your-local-environment) 
+* [Ang pag-set up ng sariling lokal na kapaligiran](#setting-up-your-local-environment) 
   * [Unang hakbang: Fork](#step-1-fork)
   * [Ikalawang hakbang: Bumuo](#step-2-build)
   * [Ikatlong hakbang: Sangay](#step-3-branch)
@@ -12,10 +12,10 @@
   * [Ikaanim na hakbang: Rebase](#step-6-rebase)
   * [Ikapitong hakbang: Pagsubok](#step-7-test)
   * [Ikawalong hakbang: Itulak](#step-8-push)
-  * [Ikasiyam na hakbang: Pagbukas ng Kahilingan ng Pull](#step-8-opening-the-pull-request)
-  * [Ikasampong hakbang: Talakayin at I-update](#step-9-discuss-and-update) 
+  * [Ikasiyam na hakbang: Pagbukas ng Kahilingan ng Pull](#step-9-opening-the-pull-request)
+  * [Ikasampong hakbang: Talakayin at I-update](#step-10-discuss-and-update) 
     * [Pag-apruba at Kahilingan sa Pagbabago ng Workflow](#approval-and-request-changes-workflow)
-  * [Ikalabin-isang hakbang: Landing](#step-10-landing)
+  * [Ikalabin-isang hakbang: Landing](#step-11-landing)
   * [Patuloy na Pagsubok sa Pagsasamasama](#continuous-integration-testing)
 
 ## Ang pag-set up ng sariling lokal na kapaligiran
@@ -72,24 +72,42 @@ Tandaan na ang maramihang mga gumagawa ay madalas na na-nasquashed kapag sila ay
 
 #### Magsagawa ng mga alituntunin ng mensahe
 
-Ang isang mabuting mensahe ng gumawa ay dapat maglarawan kung ano ang nagbago at kung bakit.
+Ang isang mabuting mensahe ng gumawa ay dapat maglarawan kung ano ang nagbago at kung bakit. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-1. Ang unang linya ay dapat na:
-  
+Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
+
+Examples of commit messages with semantic prefixes:
+
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux` 
+
+Common prefixes:
+
+    - fix: A bug fix
+    - feat: A new feature
+    - docs: Documentation changes
+    - test: Adding missing tests or correcting existing tests
+    - build: Changes that affect the build system
+    - ci: Changes to our CI configuration files and scripts
+    - perf: A code change that improves performance
+    - refactor: A code change that neither fixes a bug nor adds a feature
+    - style: Changes that do not affect the meaning of the code (linting)
+    
+
+Other things to keep in mind when writing a commit message:
+
+1. Ang unang linya ay dapat na: 
   * naglalaman ng isang maikling paglalarawan ng pagbabago (mas mabuti na 50 karakter o mas mababa, at hindi hihigit sa 72 na karakter)
   * maging ganap sa lowercase na may pagbubukod ng mga tamang nouns, acronyms, at ang mga salita na tumutukoy sa code, tulad ng mga pangalan ng function / variable
-    
-    Mga Halimbawa:
-  
-  * `na-update na dokumentasyon ng build osx para sa bagong sdk`
-  
-  * `fixed typos in atom_api_menu.h`
-
 2. Panatilihing blangko ang ikalawang linya.
-
 3. I-wrap ang lahat ng iba pang mga linya sa 72 na mga haligi.
 
-Tingnan ang [this article](https://chris.beams.io/posts/git-commit/) para sa higit pang mga halimbawa kung paano sumulat ng mga magandang git commit messages.
+#### Breaking Changes
+
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+
+See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### Ikaanim na hakbang: Rebase
 
@@ -114,7 +132,7 @@ $ npm run test
 
 Tiyaking ang linter ay hindi nag-uulat ng anumang mga isyu at ang lahat ng mga pagsusulit ay pumasa. Mangyaring huwag magsumite ng mga patch na nabigo sa alinman na mga check.
 
-Kung nag-a-update ka ng mga pagsusulit at gusto mong magpatakbo ng isang pagsasapalaran upang suriin ito:
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu

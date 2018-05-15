@@ -5,7 +5,7 @@
 Proses:[Renderer](../glossary.md#renderer-process)
 
 The ` ipcRenderer </ 0> modul adalah turunan dari
- <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> acara Emitter </ 1> kelas. Ini menyediakan beberapa metode sehingga Anda dapat mengirim pesan sinkron dan asinkron dari proses render (halaman web) ke proses utama.  Anda juga bisa menerima balasan dari proses utama.</p>
+ <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> acara Emitter </ 1> kelas. Ini menyediakan beberapa metode sehingga Anda dapat mengirim pesan sinkron dan asinkron dari proses render (halaman web) ke proses utama. Anda juga bisa menerima balasan dari proses utama.</p>
 
 <p>Lihat <a href="ipc-main.md"> ipcMain </ 0> untuk contoh kode.</p>
 
@@ -49,9 +49,9 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 
 <p>Kirim pesan ke proses utama secara asinkron melalui <code> saluran </ 0> , Anda juga dapat mengirim argumen yang sewenang-wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p>
 
-<p>Proses utama menangani dengan mendengarkan modul <code> saluran </ 0> dengan <code> ipcMain </ 0> .</p>
-
-<h3><code>ipcRenderer.sikron di kirim (saluran [, arg1] [, arg2] [, ...])`</h3> 
+<p>The main process handles it by listening for <code>channel` with [`ipcMain`](ipc-main.md) module.</p> 
+                ### `ipcRenderer.sikron di kirim (saluran [, arg1] [, arg2] [, ...])`
+                
                 * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
@@ -60,17 +60,17 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 
 <p>Kirim pesan ke proses utama secara serentak melalui <code> saluran </ 0> , Anda juga dapat mengirim argumen yang sewenang-wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p>
 
-<p>Proses utama mengatasinya dengan mendengarkan modul <code> channel </ 0> dengan <code> ipcMain </ 0> , dan balasannya dengan menyetel <code> acara.kembali di nilai </ 0> .</p>
-
-<p><strong> Catatan: </ 0> Mengirimkan pesan sinkron akan memblokir keseluruhan proses perenderan, kecuali jika Anda tahu apa yang Anda lakukan, Anda tidak boleh menggunakannya.</p>
-
-<h3><code>ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`</h3> 
+<p>The main process handles it by listening for <code>channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.</p> 
+                    ** Catatan: </ 0> Mengirimkan pesan sinkron akan memblokir keseluruhan proses perenderan, kecuali jika Anda tahu apa yang Anda lakukan, Anda tidak boleh menggunakannya.</p> 
+                    
+                    ### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+                    
                     * `windowId` Number
-                    * ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+                    * `channel` String
+                    * ` ... args </ 0> ada []</li>
 </ul>
 
-<p>Sends a message to a window with <code>windowid` via `channel`</p> 
+<p>Sends a message to a window with <code>windowid` via `channel`.</p> 
                         ### `ipcRenderer.kirim ke tuan rumah(saluran [, arg1] [, arg2] [, ...])`
                         
                         * ` saluran </ 0>  String</li>

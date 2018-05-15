@@ -31,9 +31,9 @@ API sebelum memulai reporter kecelakaan.</p>
 <li><code> ungkah ke Server </ 0>  Boolean (opsional) - Apakah laporan kerusakan harus dikirim ke server Default adalah <code> true </ 0> .</li>
 <li><code> mengabaikan Sistem jatuh Handler </ 0>  Boolean (opsional) - Default adalah <code> false </ 0> .</li>
 <li><code> ekstra </ 0> Objek (opsional) - Objek yang dapat Anda tentukan yang akan dikirim bersamaan dengan laporan. Hanya properti string yang dikirim dengan benar. Objek bersarang tidak didukung dan nama dan nilai properti harus panjangnya kurang dari 64 karakter.</li>
-<li><code>crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
+<li><code>crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
-Anda diminta untuk memanggil metode ini sebelum menggunakan API `` crashReporter </ 0> lainnya dan dalam setiap proses (utama / perender) yang ingin Anda kumpulkan laporan kerusakan.
+Anda diminta untuk memanggil metode ini sebelum menggunakan API ` crashReporter </ 0> lainnya dan dalam setiap proses (utama / perender) yang ingin Anda kumpulkan laporan kerusakan.
 Anda bisa melewati pilihan yang berbeda untuk <code> kecelakaan Reporter.mulai </ 0> saat memanggil dari berbagai proses.</p>
 
 <p><strong> Catatan </ 0> Proses anak yang dibuat melalui modul <code> child_process </ 1> tidak akan memiliki akses ke modul Elektron .
@@ -43,10 +43,10 @@ Oleh karena itu, untuk mengumpulkan laporan kerusakan dari mereka, gunakan <code
 Ini akan memulai proses yang akan memantau dan mengirim laporan kecelakaan. Ganti <code> submit Url </ 0> , <code> nama produk</ 0> 
 dan <code> crash Direktori</ 0> dengan nilai yang sesuai.</p>
 
-<p><strong> Catatan: </ 0> Jika Anda memerlukan parameter tambahan / update <code> ekstra </ 1> setelah panggilan pertama <code> mulai </ 1> Anda dapat memanggil <code> set Extra Parameter </ 1> di macOS atau panggil <code> mulai </ 1> 
-lagi dengan parameter <code> ekstra </ 1> baru di-update di Linux dan Windows .</p>
+<p><strong>Note:</strong> If you need send additional/updated <code>extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
-<pre><code class="js"> const args = [
+```js
+ const args = [
     `--reporter-url = $ {submitURL} `,
     `--application-name = $ {productName} `,
     `--crashes-directory = $ {crashesDirectory} `
@@ -58,7 +58,7 @@ lagi dengan parameter <code> ekstra </ 1> baru di-update di Linux dan Windows .<
     env: env,
     dilepas: true
   })
-``</pre> 
+```
 
 ** Catatan: </ 0> Pada macos , Electron menggunakan klien ` crashpad </ 1> baru untuk pengumpulan dan pelaporan kecelakaan.
 Jika Anda ingin mengaktifkan laporan kerusakan, menginisialisasi <code> crashpad </ 0> dari proses utama menggunakan <code> crashReporter.start </ 0> diperlukan terlepas dari proses mana yang ingin Anda kumpulkan. Setelah diinisialisasi dengan cara ini, pengendara crashpad mengumpulkan crash dari semua proses. Anda masih harus menghubungi <code> crashReporter.start </ 0> dari proses renderer atau child, jika tidak crash dari mereka akan dilaporkan tanpa <code> companyName </ 0> , <code> productName </ 0> atau salah satu dari informasi <code> ekstra </ 0> .</p>
@@ -77,21 +77,21 @@ Mengembalikan ` kecelakaan Report [] </ 0> :</p>
 
 <h3><code>kecelakaan Reporter.dapatkan unggahan ke Server () </ 0>  <em> Linux </ 1>  <em> macos </ 1></h3>
 
-<p>Mengembalikan <code> Boolean </ 0> - Apakah laporan harus diserahkan ke server. Tetapkan melalui <code> start </ 0> method atau <code> set unggahan ke Server </ 0> .</p>
+<p>Returns <code>Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.</p> 
 
-<p><strong> Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p>
+** Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p> 
 
-<h3><code> kecelakaan Reporter.dapatkan unggahan ke Server () </ 0> <em> Linux </ 1> <em> macos </ 1></h3>
+### ` kecelakaan Reporter.dapatkan unggahan ke Server () </ 0> <em> Linux </ 1> <em> macos </ 1></h3>
 
 <ul>
-<li><code> unggah ke Server </ 0>  Boolean  <em> macOS </ 1> - Apakah laporan harus diserahkan ke server</li>
+<li><code> unggah ke Server </ 0>  Boolean  <em> macOS </ 1> - Apakah laporan harus diserahkan ke server.</li>
 </ul>
 
 <p>Ini biasanya dikendalikan oleh preferensi pengguna. Ini tidak berpengaruh jika dipanggil sebelum <code> mulai </ 0> dipanggil.</p>
 
 <p><strong> Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p>
 
-<h3><code>crashReporter.addExtraParameter(key, value)` *macOS*</h3> 
+<h3><code>crashReporter.addExtraParameter(key, value)` *macOS*
 
 * ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
 <li><code>value` String - Parameter value, must be less than 64 characters long.
@@ -116,7 +116,7 @@ Tetapkan parameter tambahan untuk dikirim dengan laporan kerusakan. The values s
 <li><code> ver </ 0>  String - Versi Elektron .</li>
 <li><code> platform </ 0>  String - misal 'win32'.</li>
 <li><code> proses_tipe </ 0>  String - misalnya 'renderer'.</li>
-<li><code> guid </ 0>  String - misal '5e1286fc-da97-479e-918b-6bfb0c3d1c72'</li>
+<li><code> guid </ 0>  String - misal '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.</li>
 <li><code> _version </ 0>  String - Versi di <code> package.json </ 0> .</li>
 <li><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok</li> 
   

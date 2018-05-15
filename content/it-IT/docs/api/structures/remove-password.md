@@ -1,8 +1,8 @@
-# Oggetto RimuoviPassword
+# Oggetto RemovePassword
 
-* `tipo` Stringa - `password`.
-* `origine` Stringa (opzionale) - Quando fornite, le informazioni di autenticazione relative all'origine saranno solo rimosse mentre l'intera cache sarà pulita.
-* `schema` Stringa (opzionale) - Schema di autenticazione. Può essere `base`, `assimilato`, `ntlm`, `negoziato`. Deve essere fornito se rimosso dall'`origine`.
-* `regno` Stringa (opzionale) - Regno dell'autenticazione. Deve essere fornita se rimossa dall'`origine`.
-* `nomeutente` Stringa (opzionale) - Credenziali di autenticazione. Devono essere fornite se rimosse dall'`origine`.
-* `password` Stringa (opzionale) - Credenziali di autenticazione. Devono essere fornite se rimosse dall'`origine`.
+* `type` Stringa - `password`.
+* `origin` Stringa (opzionale) - Quando fornita, le informazioni di autenticazione relative all'origine saranno solo rimosse, altrimenti l'intera cache sarà pulita.
+* `scheme` Stringa (opzionale) - Scheme di autenticazione. I possibili valori sono: `basic`, `digest`, `ntlm`, `negotiate`. Deve essere fornito se rimosso dall'`origin`.
+* `realm` Stringa (opzionale) - Realm di autenticazione. Deve essere fornita se rimossa dall'`origin`.
+* `username` Stringa (opzionale) - Credenziali di autenticazione. Devono essere fornite se rimosse dall'`origin`.
+* `password` Stringa (opzionale) - Credenziali di autenticazione. Devono essere fornite se rimosse dall'`origin`.

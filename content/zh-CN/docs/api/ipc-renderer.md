@@ -46,7 +46,7 @@
 
 通过 `channel` 发送异步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
 
-主进程可以使用 `ipcMain` 监听 `channel` 来接收这些消息。
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
@@ -57,7 +57,7 @@
 
 通过 `channel` 发送同步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
 
-主进程可以使用 `ipcMain` 监听 `channel` 来接收这些消息，并通过设置 `event.returnValue` 回复消息。
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
 **注意:** 发送同步消息将会阻塞整个渲染进程，你应该避免使用这种方式 - 除非你知道你在做什么。
 
@@ -67,7 +67,7 @@
 * `channel` String
 * `...args` any[]
 
-通过 `channel` 发送消息到带有 `windowid` 的窗口
+通过 `channel` 发送消息到带有 `windowid` 的窗口.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

@@ -26,6 +26,10 @@ Disabilita la cache del disco per le richieste HTTP.
 
 Disabilita protocolli HTTP/2 e SPDY/3.1.
 
+## --lang
+
+Set a custom locale.
+
 ## --ispeziona=`porta` e --ispeziona-brk=`porta`
 
 Segnalazioni relative al debug, vedi la guida [Processi Principali di Debugging](../tutorial/debugging-main-process.md) per dettagli.
@@ -42,7 +46,7 @@ Forza lo spazio massimo su disco da utilizzare dalla cache del disco, in byte.
 
 Specifica i flag passati all engine Node JS. Deve essere passato all'avvio di Electron, se si desidera abilitare il `flag` nel processo principale (main process).
 
-```bash
+```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
@@ -96,7 +100,7 @@ Un elenco di server separati da virgola per i quali è abilitata l'autenticazion
 
 Ad esempio:
 
-```bash
+```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
@@ -146,4 +150,4 @@ Fornisce i livelli massimi di V-logging per modulo, per sovrascrivere il valore 
 
 Qualsiasi pattern contenente una barra avanti o indietro (forward e back slash) verrà testato rispetto all'intero percorso e non solo al modulo. Ad esempio. `*/foo/bar/*=2` cambierebbe il livello di logging per tutto il codice sorgente nei file all interno della directory `foo/bar`.
 
-Questa opzione funziona solo quando viene anche eseguito il *--enable-logging*.
+Questa opzione funziona solo quando viene passato anche `--enable-logging`.

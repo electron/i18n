@@ -2,9 +2,9 @@
 
 > Monitorea los cambios de estado de energía.
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-No se puede solicitar o usar este módulo hasta que el evento `ready` del módulo `app` sea emitido.
+No puedes requerir o usar este módulo hasta que el evento `ready` de el módulo `app` sea emitido.
 
 Por ejemplo:
 
@@ -38,3 +38,7 @@ Se emite cuando el sistema se cambia a la corriente alterna.
 ### Evento: "on-battery" *Windows*
 
 Se emite cuando el sistema se cambia a la energía de batería.
+
+### Event: 'shutdown' *Linux* *macOS*
+
+Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.

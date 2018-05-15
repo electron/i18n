@@ -32,7 +32,7 @@ app.setUserTasks([
 ])
 ```
 
-Upang linisin ang listahan ng mga gawain, tawagin lang ang `app.setUserTasks` gamit ang array na walang laman:
+To clean your tasks list, call `app.setUserTasks` with an empty array:
 
 ```javascript
 const { app } = require('electron')
@@ -47,7 +47,7 @@ Sa Windows, maaari kang magdagdag ng isang thumbnail toolbar na may partikular n
 
 Mula sa MSDN, inihahayag ito:
 
-> Ang toolbar ay isa lamang karaniwang control ng istandard na toolbar. Mayroon itong hindi lalagpas sa pitong pipindutin. Ang bawat ID ng pipindutin, imahe, tooltip, at estado ay inilarawan sa isang balangkas, na ipinapasa sa taskbar. Ang aplikasyon ay nakapagpakita, nagpapagana, nagpapatigil, o nagtatago ng mga pipindutin mula sa thumbnail toolbar na itinutugon ng kanyang kasalukuyang estado.
+> This toolbar is the familiar standard toolbar common control. Mayroon itong hindi lalagpas sa pitong pipindutin. Ang bawat ID ng pipindutin, imahe, tooltip, at estado ay inilarawan sa isang balangkas, na ipinapasa sa taskbar. Ang aplikasyon ay nakapagpakita, nagpapagana, nagpapatigil, o nagtatago ng mga pipindutin mula sa thumbnail toolbar na itinutugon ng kanyang kasalukuyang estado.
 > 
 > Halimbawa, ang Windows Media Player ay possibleng magbibigay ng istandard na kontrol sa paglilipat ng media, katulad ng play, pause, mute at stop.
 

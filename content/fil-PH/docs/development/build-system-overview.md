@@ -23,7 +23,7 @@ Ang lahat ng maaaring buuin sa Chromium na mga binary (`libchromiumcontet`) ay m
 
 Bilang default, ang `libchromiumcontent` ay makukuha galing sa Amazon Web Services. Kung ang `LIBCHROMIUMCONTENT_MIRROR` ay nakaayos bilang environment variable, maaaring makuha mula dito ang bootstrap script. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) ay sumasalamin para sa `libchromiumcontent`. Kung ikaw ay nakakaranas ng mahirap na pagpasok sa AWS, maaaring palitan ang nakuhang address nito sa pamamagitan ng `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
-Kung nais mo lamang na mapabilis ang pagbuo ng Elektron upang masubukan o pag-unalarin ito, maaaring kunin ang mga bersyon ng shared library sa pamamagitan ng parameter ng `--dev`:
+If you only want to build Electron quickly for testing or development, you can download the shared library versions by passing the `--dev` parameter:
 
 ```sh
 $ ./script/bootstrap.py --dev
@@ -40,7 +40,7 @@ Para sa pagtakbo, ang Elektron ay gumagamit ng `gyp` variable `libchromiumconten
 
 Di katulad ng karamihan sa proyekto na gumagamit ng `Release` at `Debug` bilang mga tinatanging pangalan, sa halip, ang Elektron ay gumagamit ng `R` ay `D`. Ito ay sa kadahilanang kapag ang `gyp` ay biglaang bumagsak sa pagbuo ng kahit aliman sa `Release` o `Debug` na tinukoy sa kumpigurasyon, a1ng Elektron ay maaari lamang bumuo ng isang itinatangi sa oras na itinakda ayon sa nakasaad sa itaas.
 
-Ito ay makaaaàpekto lamang sa mga bumubuo, kung ikaw ay nagsasagawa ng Elektron para sa rebranding na hindi makakaapekto sa'yo.
+This only affects developers, if you are building Electron for rebranding you are not affected.
 
 ## Mga Pagsusuri
 
@@ -62,7 +62,7 @@ Kapag ika'y nagsagawa ng anumang pagbabago sa source code ng Electron, kinakaila
 $ npm run build && npm test
 ```
 
-Maaaring pabilis ang paggana nito kung ikaw ay magsasagawa ng bukod na pagsusuri tungkol dito o kaya nama'y maaari ring harangin ang kasalukuyan mong ginagawa gamit ang itinatampok ng Mocha na [exclusive tests](https://mochajs.org/#exclusive-tests). Idagdag lang ang `.only` sa kahit anumang `describe` o `it` na function call:
+Maaaring pabilis ang paggana nito kung ikaw ay magsasagawa ng bukod na pagsusuri tungkol dito o kaya nama'y maaari ring harangin ang kasalukuyan mong ginagawa gamit ang itinatampok ng Mocha na [exclusive tests](https://mochajs.org/#exclusive-tests). Append `.only` to any `describe` or `it` function call:
 
 ```js
 describe.only('some feature', function () {

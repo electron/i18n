@@ -1,4 +1,4 @@
-# Acceleratore
+# Accelerator
 
 > Definisci scorciatoie tastiera.
 

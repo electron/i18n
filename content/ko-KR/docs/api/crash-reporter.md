@@ -31,13 +31,13 @@ crashReporter.start({
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String (선택적)
+  * `companyName` String (선택)
   * `submitURL` String - POST로 보낼 충돌 보고서 URL 입니다.
-  * `productName` String (선택적) - 기본 값은 `app.getName()` 입니다.
-  * `uploadToServer` Boolean (선택적) - 충돌 보고서가 서버로 전송될지를 결정합니다. 기본값은 `true` 입니다.
-  * `ignoreSystemCrashHandler` Boolean (선택적) - 기본값은 `false` 입니다.
-  * `extra` Object (선택적) - 보고서와 함께 보낼 객체를 정의할 수 있습니다. 오직 문자열 속성들만 제대로 보내집니다. 중첩된 객체는 지원되지 않고, 속성 이름과 값은 64글자보다 작아야 합니다.
-  * `crashesDirectory` String (선택적) - crashreports를 임시로 저장할 디렉터리입니다. (충돌 보고서가 `process.crashReporter.start`로 시작되었을 때만 사용됩니다.)
+  * `productName` String (선택) - 기본 값은 `app.getName()` 입니다.
+  * `uploadToServer` Boolean (선택) - 충돌 보고서가 서버로 전송될지를 결정합니다. 기본값은 `true` 입니다.
+  * `ignoreSystemCrashHandler` Boolean (선택) - 기본값은 `false` 입니다.
+  * `extra` Object (선택) - 보고서와 함께 보낼 객체를 정의할 수 있습니다. 오직 문자열 속성들만 제대로 보내집니다. 중첩된 객체는 지원되지 않고, 속성 이름과 값은 64글자보다 작아야 합니다.
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 다른 `crashReporter` API 혹은 각각의 프로세스 (메인/렌더러) 에서 충돌 보고서를 수집을 사용하기 전에, 이 메서드를 호출해야 합니다. 서로 다른 프로세스에서 호출할 때 다른 옵션을 `crashReporter.start`로 전달할 수 있습니다.
 
@@ -45,7 +45,7 @@ crashReporter.start({
 
 **참고:** Windows에서 자식 프로세스의 충돌 보고서를 수집하려면, 이 코드를 추가해야 합니다. 이 코드는 계속 감시하고 충돌 보고서를 보내는 프로세스를 시작합니다. `submitURL`, `productName` 와 `crashesDirectory`를 적절한 값으로 교체하세요.
 
-**참고:** 추가하거나 업데이트한 `extra` 매개 변수를 `start`를 호출한 뒤에 전송하려면 macOS인 경우 `setExtraParameter`를 호출할 수 있고, Linux 나 Windows 인 경우, `start`를 추가되거나 업데이트된 `extra` 매개 변수로 다시 호출 할 수 있습니다.
+**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
  const args = [
@@ -78,13 +78,13 @@ crashReporter.start({
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-`Boolean`을 반환합니다. - 보고서가 서버에 전송될 지를 표시합니다. `start` 매서드나 `setUploadToServer`를 통해 지정할 수 있습니다.
+Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
 **참고:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - 보고서가 서버에 전송될 지를 정합니다.
+* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
 
 주로 유저 설정에 의해 제어됩니다. `start`가 호출 되기 전에는 효과가 없습니다.
 
@@ -114,7 +114,7 @@ crashReporter.start({
 * `ver` String - Electron의 버전입니다.
 * `platform` String - 예를 들어 'win32' 같은 값입니다.
 * `process_type` String - 예를 들어 'renderer' 같은 값입니다.
-* `guid` String - 예를 들어 '5e1286fc-da97-479e-918b-6bfb0c3d1c72' 같은 값입니다.
+* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` String - `package.json`의 버전입니다.
 * `_productName` String - `crashReporter` `options` 객체의 애플리케이션 이름입니다.
 * `prod` String - 기본 애플리케이션 이름 입니다. 이 경우엔 Electron입니다.

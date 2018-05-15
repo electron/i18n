@@ -42,7 +42,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 Ibinabalik ang:
 
 * `kaganapan` Kaganapan
-* `state` String
+* `state` String - Can be `progressing` or `interrupted`.
 
 Ito ay lumalabas kapag ang "download" ay kinakailangan baguhin at itatakda ang mga bagong impormasyon na nakapaloob dito, at kung ito ay hindi tapos.
 
@@ -56,7 +56,7 @@ Ang `state` ay maaaring isa sa mga sumusunod:
 Ibinabalik ang:
 
 * `event` na Pangyayari
-* `state` String
+* `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 Ang mga ito ay lumalabas kapag ang "download" ay nasa estado ng terminal. Kasama dito ang matagumpay na "download", inihintong "download" (via `downloadItem.cancel()`), at itinigil ngunit hindi ma maaaring ituloy na "download".
 
@@ -136,7 +136,7 @@ Pagbabalik ng `String` - Ang Content-Disposition galing sa tugon ng "header".
 
 #### `downloadItem.getState()`
 
-Pagbabalik sa `String` - Ang kasalukuyang estado. Maaaring maging `progressing`, `completed`, `cancelled` o `interrupted`.
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
 **Note:** Ang mga sumusunod na paraan ay kapaki-pakinabang lalo na para paganahing muli ang aytem na `cancelled` kapag ang sesyon ay muling inumpisahan.
 

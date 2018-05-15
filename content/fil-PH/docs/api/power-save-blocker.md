@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-For example:
+Halimbawa:
 
 ```javascript
 const {powerSaveBlocker} = kailangan('electron')
@@ -21,11 +21,11 @@ Ang modyul ng `powerSaveBlock` ay mayroon ng mga sumusunod na mga pamamaraan:
 
 ### `ang powerSaveBlock.start(uri)`
 
-* `ang uri` String - Ang uri ng tagaharang ng power save. 
-  * Ang `prevent-app-suspension` - Pinipigilan ang aplikasyon mula sa pagiging suspendido. Panatilihin ang sistema sa pagiging aktibo ngunit pinapayagan ang iskrin na mamatay. Halimbawa ng mga ginamit na pagkakataon: pagda-download ng isang file o pagpapatugtog ng audio.
-  * `prevent-display-sleep` - Pipigilan ang displey mula sa pagtulog, pinapanatiling aktibo ang sistema at ang iskrin. Halimbawa ng ginamit na pagkakataon: naglalaro ng video.
+* `uri` String - Ang uri ng tagaharang ng power save. 
+  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
+  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-Nagbabalik sa `Integer` - Ang ID ng tagaharang na itinalaga para sa tagaharang ng lakas na ito
+Nagbabalik sa `Integer` - Ang ID ng tagaharang na itinalaga para sa tagaharang ng lakas na ito.
 
 Sinisimulang pigilan ang sistema mula sa pagpasok sa moda ng mababang power. Nagbabalik ang isang integer na kinikilala ang tagaharang sa power save.
 

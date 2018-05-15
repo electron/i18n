@@ -29,7 +29,7 @@ The `protocol` module has the following methods:
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - Custom schemes to be registered as standard schemes.
-* `opções` Objeto (opcional) 
+* `options` Objeto (opcional) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
@@ -68,7 +68,7 @@ app.on('ready', () => {
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
+    * String `url`
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -90,7 +90,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
+    * String `url`
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -120,7 +120,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
+    * String `url`
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -138,13 +138,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
+    * String `url`
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Object 
-      * `url` String
+      * String `url`
       * `method` String
       * `session` Object (optional)
       * `uploadData` Objeto (opcional) 
@@ -166,7 +166,7 @@ For POST requests the `uploadData` object must be provided.
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
+    * String `url`
     * `headers` Object
     * `referrer` String
     * `method` String
@@ -187,7 +187,7 @@ const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  const rv = new PassThrough() // PassThrough is also a Readable stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -240,7 +240,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
+    * String `url`
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -256,7 +256,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
+    * String `url`
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -272,7 +272,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
+    * String `url`
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -288,13 +288,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
+    * String `url`
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Object 
-      * `url` String
+      * String `url`
       * `method` String
       * `session` Object (optional)
       * `uploadData` Objeto (opcional) 
@@ -310,7 +310,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
+    * String `url`
     * `headers` Object
     * `referrer` String
     * `method` String

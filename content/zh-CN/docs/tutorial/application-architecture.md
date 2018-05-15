@@ -2,7 +2,7 @@
 
 在我们深入了解Electron的API之前，我们需要探讨一下在Electron中可能遇到的两种进程类型。 它们是完全不同的，因此理解它们非常重要。
 
-## 主进程和渲染进程
+## 主进程和渲染器进程
 
 Electron 运行 `package.json` 的 `main` 脚本的进程被称为**主进程**。 在主进程中运行的脚本通过创建web页面来展示用户界面。 一个 Electron 应用总是有且只有一个主进程。
 
@@ -30,7 +30,7 @@ Electron在主进程和渲染进程中提供了大量API去帮助开发桌面应
 const electron = require('electron')
 ```
 
-所有Electron的API都被指派给一种进程类型。 许多API只能被用于主进程中，有些API又只能被用于渲染进程，又有一些主进程和渲染进程中都可以使用。 针对特定API 的文档将明确说明可以在哪种进程中使用。
+所有Electron的API都被指派给一种进程类型。 许多API只能被用于主进程中，有些API又只能被用于渲染进程，又有一些主进程和渲染进程中都可以使用。 The documentation for each individual API will state which process it can be used from.
 
 Electron中的窗口是使用`BrowserWindow`类型创建的一个实例， 它只能在主进程中使用。
 
@@ -51,7 +51,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## 使用Node.js的API
+## 使用 Node.js 的 API
 
 Electron同时在主进程和渲染进程中对Node.js 暴露了所有的接口。 这里有两个重要的定义：
 
@@ -77,7 +77,7 @@ console.log(root)
 npm install --save aws-sdk
 ```
 
-然后，在你的Electron应用中，通过简单的require的方式引入并使用模块，就像构建Node.js应用程序那样：
+Then, in your Electron app, require and use the module as if you were building a Node.js application:
 
 ```javascript
 // 准备好被使用的S3 client模块
@@ -86,4 +86,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 有一个非常重要的提示: 原生Node.js模块 (即指，需要编译源码过后才能被使用的模块) 需要在编译后才能和Electron一起使用。
 
-绝大多数的Node.js模块都*不*是原生的， 只有大概400~650个模块是原生的。 当然了，如果你确实需要原生模块，可以在这里查询指南[如何重新为Electron编译它们](./using-native-node-modules.md)(很简单)。
+绝大多数的Node.js模块都*不*是原生的， 只有大概400~650个模块是原生的。 However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).

@@ -1,4 +1,4 @@
-# "Debugging Ang pangunahing Proseso sa "VSCode"
+# "Debugging", Pangunahing Proseso sa "VSCode"
 
 ### 1. Buksan ang proyekto ng Elektron sa VSCode.
 
@@ -27,8 +27,6 @@ $ code electron-quick-start
   ]
 }
 ```
-
-**Paalala:** Para sa "Windows", gumamit ng `"${workspaceRoot}/node_modules/.bin/electron.cmd"` para sa `runtimeExecutable`.
 
 ### 3. "Debugging"
 

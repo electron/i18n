@@ -6,7 +6,7 @@
 
 POSIXシェルの例:
 
-```bash
+```sh
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```

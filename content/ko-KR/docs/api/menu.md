@@ -1,30 +1,30 @@
-## 클라스 메뉴
+## Menu 클래스
 
-> 크레이트 네이티브 애플리케이션 과 콘텍스트 메뉴
+> 네이티브 애플리케이션 메뉴와 컨텍스트 메뉴를 생성합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-메뉴 생성
+새로운 메뉴를 생성합니다.
 
-### Static Methods (클래스 메서드)
+### 정적 메서드
 
 `menu` 클라스는 다음의 클래스(static) 메서드들을 가집니다.
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu 혹은 null
 
-`메뉴`를 맥 OS의 응용 프로그램 메뉴로 설정합니다. 윈도우와 리눅스에서는, `메뉴`를 각 창의 상단 메뉴로 설정 합니다.
+`menu`를 macOS의 애플리케이션 메뉴로 설정합니다. 윈도우와 리눅스에서는, `menu`를 각 창의 상단 메뉴로 설정 합니다.
 
 인자로 `null` 을 주면 윈도우와 리눅스에서는 메뉴 모음에서 메뉴를 제거 합니다. 하지만 맥 OS 에서는 제거하지 않습니다.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**참고:**이 API는 `app` 모듈의 `ready`이벤트 이후에 호출 할 수 있습니다.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+`Menu 혹은 null`을 반환합니다. 애플리케이션 메뉴가 설정되어있다면 애플리케이션 메뉴를, 설정되어있지 않으면 `null`을 반환합니다.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -40,51 +40,73 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 * `template` MenuItemConstructorOptions[]
 
-Returns `Menu`
+`Menu`를 반환합니다.
 
 Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
-The `menu` object has the following instance methods:
+`menu` 오브젝트는 다음과 같은 인스턴스 메소드를 가지고 있습니다:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Object (optional) 
+* `options` Object 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `callback` Function (optional) - Called when menu is closed.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (선택) - 기본 값은 포커스된 윈도우 입니다.
 
-Closes the context menu in the `browserWindow`.
+`browserWindow`의 컨텍스트 메뉴를 닫습니다.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
-Appends the `menuItem` to the menu.
+메뉴에 `menuItem`을 추가합니다.
 
 #### `menu.getMenuItemById(id)`
 
 * `id` String
 
-Returns `MenuItem` the item with the specified `id`
+특정한 `id`를 가진 `MenuItem`을 반환합니다.
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+메뉴의 `pos`값의 위치에 `menuItem`을 추가합니다.
+
+### 인스턴스 이벤트
+
+Objects created with `new Menu` emit the following events:
+
+**Note:** Some events are only available on specific operating systems and are labeled as such.
+
+#### Event: 'menu-will-show'
+
+Returns:
+
+* `event` Event
+
+Emitted when `menu.popup()` is called.
+
+#### Event: 'menu-will-close'
+
+반환:
+
+* `event` Event
+
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Instance Properties (인스턴스 속성)
 
@@ -96,11 +118,15 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
+### 인스턴스 이벤트
+
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+
 ## 예시
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### 메인 프로세스
+### 주 프로세스
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -213,7 +239,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```

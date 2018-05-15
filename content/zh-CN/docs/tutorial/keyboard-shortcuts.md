@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-还可以很容易的根据用户的操作系统配置不同的组合键。
+You can configure different key combinations based on the user's operating system.
 
 ```js
 {

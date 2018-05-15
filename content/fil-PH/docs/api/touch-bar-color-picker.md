@@ -2,17 +2,17 @@
 
 > Lumikha nang tagapili ng kulay sa touch bar sa likas na macOS na mga aplikasyon
 
-Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
+Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
 
 ### `bagong TouchBarColorPicker(options)` *Experimental*
 
 * `pagpipilian` Bagay 
   * `availableColors` String[] (optional) - Pagkakasunod-sunod ng mga linya ng kulay para ipakitang bilang posibleng kulay na mapili.
   * `selectedColor` String (optional) - Ang napiling kulay sa tagapili, i.e `#ABCDEF`.
-  * `baguhin` Function (optional) - tungkuling taga tawag kung merong kulay na mapili. 
-    * `color` String - Ang kulay na napili ng gumagamit sa pilian
+  * `pagbabago` Function (optional) - tungkuling taga tawag kung merong kulay na mapili. 
+    * `color` String - Ang kulay na napili ng gumagamit sa pilian.
 
-### Instance Properties
+### Katangian ng pagkakataon
 
 Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBarColorPicker`:
 

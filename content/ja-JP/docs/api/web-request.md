@@ -34,7 +34,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Object - (任意) 
+* `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
@@ -58,7 +58,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object - (任意) 
+* `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
@@ -81,7 +81,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object - (任意) 
+* `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
@@ -97,7 +97,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Object - (任意) 
+* `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
@@ -123,7 +123,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Object - (任意) 
+* `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
@@ -142,7 +142,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Object - (任意) 
+* `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
@@ -162,7 +162,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Object - (任意) 
+* `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 
@@ -181,7 +181,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Object - (任意) 
+* `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function 
   * `details` Object 

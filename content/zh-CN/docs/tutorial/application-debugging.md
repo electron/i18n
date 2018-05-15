@@ -17,6 +17,6 @@ win.webContents.openDevTools()
 
 ## 主进程
 
-调试主进程有点棘手, 因为您不能简单地为它们打开开发者工具。 多亏了谷歌和Node.js的紧密合作，Chromium开发者工具可以[被用来调试Electron的主进程](https://nodejs.org/en/docs/inspector/)，否则你也许会遇到许多怪事就像`require`不能再控制台中显示。
+Debugging the main process is a bit trickier, since you cannot open developer tools for them. 多亏了谷歌和Node.js的紧密合作，Chromium开发者工具可以[被用来调试Electron的主进程](https://nodejs.org/en/docs/inspector/)，否则你也许会遇到许多怪事就像`require`不能再控制台中显示。
 
 如果想获取更多信息，可以看[调试主进程的文档](./debugging-main-process.md)

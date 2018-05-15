@@ -2,7 +2,7 @@
 
 > Gawin ang mga kahilingan ng HTTP/HTTPS.
 
-Proseso: [Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 `ClientRequest`ipinatupad ng mga [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface at samakatuwid ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -11,17 +11,17 @@ Proseso: [Main](../glossary.md#main-process)
 Context | Request Context
 `
 
-* `options` (Object | String) - Kung `options` ay isang String, nangangahulugang hiling ng URL. Kung ito ay isang object, inaasahang ganap na tumutukoy ang isang HTTP mag-request sa pamamagitan ng sumusunod na: 
+* `pagpipilian` (Object | String) - Kung `mga opsyon` ay isang String, nangangahulugang hiling ng URL. Kung ito ay isang object, inaasahang ganap na tumutukoy ang isang HTTP mag-request sa pamamagitan ng sumusunod na: 
   * `method` String (opsyonal) - Paraan ng HTTP request. Mga defaults sa GET na paraan.
   * `url` String (opsyonal) - Ang request ng URL. Dapat maibigay ang ganap na anyo ng pamamaraan ng protocol na tinutukoy bilang http or https. 
   * `session` Object (opsyonal) - Ang [`Session`](session.md) halimbawa kung saan nauugnay ang request.
   * `partition` String (opsyonal) - Ang pangalan ng [`partition`](session.md) kung saan nauunay ang request. Defaults ng mga walang laman na string. Ang `session` opsyon na mananaig sa `partition`. Kaya kung ang isang `session` ay maliwanag na tinutukoy, ang `partition` ay binabalewala.
   * `protocol` String (opsyonal) - Ang pamamaraan ng protocol sa 'scheme:' form. Kasalukuyang suportadong values ay 'http:' o 'https:'. Defaults sa 'http:'.
-  * `host` String (opsyonal) - Ang server sa host ay ibinigay upnag pagdugtungin ang hostname at ang port number bilang 'hostname:port' 
+  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (opsyonal) - Ang host name ng server.
   * `port` Integer (opsyonal) - Ang listening port number ng server.
   * `path` String (opsyonal) - Ang path na parte sa request URL.
-  * `redirect` String (opsyonal) - Ang redirect mode para sa request na ito. Nararapat na isa sa `follow`, `error` o `manual`. Ang defaults sa `follow`. Kapag mode ay `error`, anumang redirection ay mauudlot. Kapag mode ay `manual` ang redirection ay ipinagpaliban hanggang [`request.followRedirect`](#requestfollowRedirect) ay mapakiusapan. Pakinggan ang [`redirect`](#event-redirect) na event sa mode na ito upang makakakuha ng nmga detalye tungkol sa redirect na request.
+  * `redirect` String (opsyonal) - Ang redirect mode para sa request na ito. Nararapat na isa sa `follow`, `error` o `manual`. Ang defaults sa `follow`. Kapag mode ay `error`, anumang redirection ay mauudlot. Kapag mode ay `manual` ang redirection ay ipinagpaliban hanggang [`request.followRedirect`](#requestfollowredirect) ay mapakiusapan. Pakinggan ang [`redirect`](#event-redirect) na event sa mode na ito upang makakakuha ng nmga detalye tungkol sa redirect na request.
 
 `options` properties gaya ng `protocol`, `host`, `hostname`, `port` at `path` mahigpit na sundan ang Node.js na model gaya ng inilarawan sa [URL](https://nodejs.org/api/url.html) module.
 
@@ -37,21 +37,21 @@ const request = net.request({
 })
 ```
 
-### Halimbawa ng mga Events
+### Halimbawa ng mga Event
 
 #### Event: 'response'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `response` IncomingMessage - Isang bagay na kumakatawan ng HTTP response message.
 
 #### Event: 'login'
 
-Magbabalik ng:
+Pagbabalik:
 
-* `authInfo` Bagay 
-  * `isProxy` Boolean
-  * `scheme` String
+* `ang authInfo` Bagay 
+  * `isProxy` Ang Boolean
+  * `scheme` na String
   * `host` String
   * `port` Integer
   * `realm` String
@@ -96,36 +96,36 @@ Matatanggal kapag ang `request` ay naudlot. Ang `abort` event ay hindi matitiwal
 
 #### Event: 'error'
 
-Magbabalik ng:
+Ibinabalik ang:
 
 * `error` Error - isang error object na nagbibigay impormasyon tungkol sa kabiguan.
 
 Matatanggal kapag nabigo ang `net` na module sa pag-issue ng network request. Karaniwan kapag ang `request` object ay nagtanggal ng `error` na event, isang `close` na event na sumusubaybay at walang response na object ang ilalaan.
 
-#### Event: 'close'
+#### Event: 'isara'
 
 Tinatanggal bilang panghuling event sa HTTP request-response transaction. Ang `close` na event ay nagsasaad na walang tatanggalin na events alinman sa `request` o `response` na mga object.
 
 #### Event: 'redirect'
 
-Magbabalik ng:
+Ibinabalik ang:
 
 * `statusCode` Integer
-* `method` String
+* `method` na String
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Tinatanggal kapag mayroong redirection at ang mode ay `manual`. Pagtatawag sa [`request.followRedirect`](#requestfollowRedirect) ay magpapatuloy sa redirection.
+Tinatanggal kapag mayroong redirection at ang mode ay `manual`. Pagtatawag sa [`request.followRedirect`](#requestfollowredirect) ay magpapatuloy sa redirection.
 
-### Instance Properties
+### Mga Katangian ng Instansya
 
 #### `request.chunkedEncoding`
 
-Ang `Boolean` ay ang pagtitiyak kung ang request ay gagamit ng HTTP chunked transfer encoding o hindi. I-default sa false Ang property ay nababasa at nasusulat, ngunit ito ay mai-set lamang kapag hindi pa nailagay sa wire ang first write operation bilang HTTP headers. Subukang i-set ang `chunkedEncoding` property matapos ang first write ay magiging isang error.
+Ang `Boolean` ay ang pagtitiyak kung ang request ay gagamit ng HTTP chunked transfer encoding o hindi. Naka-default sa false. Ang property ay nababasa at nasusulat, ngunit ito ay mai-set lamang kapag hindi pa nailagay sa wire ang first write operation bilang HTTP headers. Subukang i-set ang `chunkedEncoding` property matapos ang first write ay magiging isang error.
 
 Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag-send ng large request body bilang data ay mai-steam sa small chunks sa halip na mag-buffer sa loob ng Electron process memory.
 
-### Instance Methods
+### Mga pamamaraan ng pagkakataon
 
 #### `request.setHeader(name, value)`
 
@@ -134,13 +134,13 @@ Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag
 
 Nagdadagdag ng extra HTTP header. Ang header name ay iniisyu na parang walang lowercasing. Ito ay maaaring lamang tawagin bago ang first write. Ang pagtatawag ng method na ito matapos ang first write ay magiging error. KUng ang napasa na value ay hindi `String`, ang `toString()` na method ay tatawagin para kumuha ng huling value.
 
-#### `request.getHeader(pangalan)`
+#### `request.getHeader(name)`
 
 * `name` String - Tumukoy ng dugtong na pangalan ng header.
 
 Returns `Object` - Ang value ng nauunang dugtong na pangalan ng header.
 
-#### `request.removeHeader(pangalan)`
+#### `request.removeHeader(name)`
 
 * `name` String - Tumukoy ng dugtong na pangalan ng header.
 

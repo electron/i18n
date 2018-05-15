@@ -28,8 +28,6 @@ $ code electron-quick-start
 }
 ```
 
-**Lưu ý:** Đối với Windows, sử dụng đoạn mã sau `"${workspaceRoot}/node_modules/.bin/electron.cmd"` cho `runtimeExecutable`.
-
 ### 3. Debugging
 
 Thiết lập các breakpoint trong `main.js` và bắt đầu chạy debug trong [Debug View](https://code.visualstudio.com/docs/editor/debugging). Bạn sẽ thấy quá trình được ngắt tại các breakpoint.
