@@ -114,10 +114,10 @@ Doğrudan Elektron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı
 2. Yeni bir S3 kovası oluşturun ve boş dizin yapısını izleyin:
     
     ```sh
-- atom-shell/
-  - symbols/
-  - dist/
-```
+    - atom-shell/
+      - symbols/
+      - dist/
+    ```
 
 3. Aşağıdaki Ortam Değişkenlerini ayarlayın:
 
