@@ -7,14 +7,14 @@
 * 假設您已將 `electron` 或 `electron-prebuild` 安裝為專案本地的相依元件:
     
     ```sh
-./node_modules/.bin/electron --interactive
-```
+    ./node_modules/.bin/electron --interactive
+    ```
 
 * 假設您已將 `electron` 或 `electron-prebuild` 安裝為全域元件:
     
     ```sh
-electron --interactive
-```
+    electron --interactive
+    ```
 
 這只會建立主處理序的 REPL。在畫面轉譯處理序中，可以直接用 Dev Tools 的 Console 頁籤使用 REPL。
 
