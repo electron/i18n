@@ -30,8 +30,8 @@ community:
   title: コミュニティ
   description: Resources for connecting with people working on Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a> <a href='/docs/tutorial/first-app'>クイックスタートガイド</a>アプリを読みながら、はじめてのElectronアプリを開発することができます。"
-    updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手する</b></a> Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
+    get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a>: <a href='/docs/tutorial/first-app'>クイックスタートガイド</a>アプリを読みながら、はじめてのElectronアプリを開発することができます。"
+    updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手する</b></a>: Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
     localized_docs: "<a href='/languages'><b>母語に翻訳されたドキュメントを読む</b></a> <a href='/languages'>言語ページ</a>にアクセスしてください。"
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
@@ -43,7 +43,7 @@ community:
     other: "これ以外のお問い合わせ内容については、<a href='mailto:info@electronjs.org'>info@electronjs.org</a> までメールでご連絡ください。"
   language_communities:
     title: 言語別のコミュニティ
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    description: "Electron のコミュニティは世界中に広がっており、英語が母語でないユーザもたくさんいます。<a href='/languages'>翻訳されたドキュメント</a>を閲覧できるほか、以下の言語別コミュニティに参加することも出来ます。"
   tools: ツール
   boilerplates: ボイラープレート
   components: コンポーネント
