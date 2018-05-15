@@ -97,78 +97,78 @@ Gibt das `Object` zurück:
   **Notiz:** Viele Anwendungen unter Windows unterstützen das Einfügen von Lesezeichen nicht. In diesem Fall kann man `clipboard.write` benutzen, um sowohl ein Lesezeichen, als auch Text als Fallback-Variante in die Zwischenablage zu schreiben.
   
   ```js
-clipboard.write({
-  text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
-})
-```
-
-### `clipboard.readFindText()` *macOS*
-
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
-
-### `clipboard.writeFindText(text)` *macOS*
-
-* `text` String
-
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
-
-### `clipboard.clear([type])`
-
-* `type` String (optional)
-
-Löscht den Inhalt aus der Zwischenablage.
-
-### `clipboard.availableFormats([type])`
-
-* `type` String (optional)
-
-Gibt ein `String[]` zurück - Ein Array mit allen von der Zwischenablage unterstützten Formattypen `type`.
-
-### `clipboard.has(format[, type])` *Experimentell*
-
-* `format` String
-* `type` String (optional)
-
-Gibt einen `Boolean` zurück - Prüft, ob die Zwischenablage das angegebene `format` unterstützt.
-
-```javascript
-const {clipboard} = require('electron')
-console.log(clipboard.has('<p>selection</p>'))
-```
-
-### `clipboard.read(format)` *Experimentell*
-
-* `format` String
-
-Gibt den `String` zurück - Liest den `format` Typ von der Zwischenablage.
-
-### `clipboard.readBuffer(format)` *Experimentell*
-
-* `format` String
-
-Gibt den `Buffer` zurück - Liest den `format` Typ von der Zwischenablage.
-
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimentell*
-
-* `format` String
-* `buffer` Puffer
-* `type` String (optional)
-
-Schreibt den `buffer` mit dem angegebenen `format` in die Zwischenablage.
-
-### `clipboard.write(data[, type])`
-
-* `data` Object 
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
-  * `bookmark` String (optional) - Der Titel von der URL bei `text`.
-* `type` String (optional)
-```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
-```
-
-Schreibt `data` in die Zwischenablage.
+  clipboard.write({
+    text: 'https://electronjs.org',
+    bookmark: 'Electron Homepage'
+  })
+  ```
+  
+  ### `clipboard.readFindText()` *macOS*
+  
+  Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+  
+  ### `clipboard.writeFindText(text)` *macOS*
+  
+  * `text` String
+  
+  Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+  
+  ### `clipboard.clear([type])`
+  
+  * `type` String (optional)
+  
+  Löscht den Inhalt aus der Zwischenablage.
+  
+  ### `clipboard.availableFormats([type])`
+  
+  * `type` String (optional)
+  
+  Gibt ein `String[]` zurück - Ein Array mit allen von der Zwischenablage unterstützten Formattypen `type`.
+  
+  ### `clipboard.has(format[, type])` *Experimentell*
+  
+  * `format` String
+  * `type` String (optional)
+  
+  Gibt einen `Boolean` zurück - Prüft, ob die Zwischenablage das angegebene `format` unterstützt.
+  
+  ```javascript
+  const {clipboard} = require('electron')
+  console.log(clipboard.has('<p>selection</p>'))
+  ```
+  
+  ### `clipboard.read(format)` *Experimentell*
+  
+  * `format` String
+  
+  Gibt den `String` zurück - Liest den `format` Typ von der Zwischenablage.
+  
+  ### `clipboard.readBuffer(format)` *Experimentell*
+  
+  * `format` String
+  
+  Gibt den `Buffer` zurück - Liest den `format` Typ von der Zwischenablage.
+  
+  ### `clipboard.writeBuffer(format, buffer[, type])` *Experimentell*
+  
+  * `format` String
+  * `buffer` Puffer
+  * `type` String (optional)
+  
+  Schreibt den `buffer` mit dem angegebenen `format` in die Zwischenablage.
+  
+  ### `clipboard.write(data[, type])`
+  
+  * `data` Object 
+    * `text` String (optional)
+    * `html` String (optional)
+    * `image` [NativeImage](native-image.md) (optional)
+    * `rtf` String (optional)
+    * `bookmark` String (optional) - Der Titel von der URL bei `text`.
+  * `type` String (optional)
+  ```javascript
+  const {clipboard} = require('electron')
+  clipboard.write({text: 'test', html: '<b>test</b>'})
+  ```
+  
+  Schreibt `data` in die Zwischenablage.
