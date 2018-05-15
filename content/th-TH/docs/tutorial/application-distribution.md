@@ -112,10 +112,10 @@ You need to fork Electron when you have custom C++ code that you have patched di
 2. Create a new S3 bucket and create the following empty directory structure:
     
     ```sh
-- atom-shell/
-  - symbols/
-  - dist/
-```
+    - atom-shell/
+      - symbols/
+      - dist/
+    ```
 
 3. Set the following Environment Variables:
 
