@@ -1,4 +1,4 @@
-# קיצורי מקלדת
+# Keyboard Shortcuts
 
 > Configure local and global keyboard shortcuts
 
