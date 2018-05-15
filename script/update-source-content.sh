@@ -12,7 +12,7 @@ set -o nounset    # fail on unset variables
 
 git clone "https://github.com/electron/i18n" module
 cd module
-npm install
+npm ci
 npm run collect
 npm run content-cleanup
 
