@@ -145,12 +145,12 @@ Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/
 Devuelve:
 
 * `event` Event
-* `type` String - Una cadena que identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object: contiene el estado específico de la aplicación almacenado por la actividad.
 
 Emitido cuando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va a ser reanudado en otro artefacto. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. De otra forma, la operación fallará y se llamará a `continue-activity-error`.
 
-### Evento: 'new-window-for-tab' *macOS*
+### Event: 'new-window-for-tab' *macOS*
 
 Devuelve:
 
@@ -190,7 +190,7 @@ Emitido cuando se crea un [browserWindow](browser-window.md).
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 
 Emitido cuando un nuevo [webContents](web-contents.md) es creado.
 
@@ -199,7 +199,7 @@ Emitido cuando un nuevo [webContents](web-contents.md) es creado.
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `url` String
 * `error` String - El código de error
 * `certificate` [Certificate](structures/certificate.md)
@@ -227,7 +227,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `url` URL
 * `certificateList`[Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -246,12 +246,12 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Evento: 'login'
+### Event:'login'
 
 Devuelve:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `request` Object 
   * `method` String
   * `url` URL
@@ -279,7 +279,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Evento: 'gpu-process-crashed'
+### Event: 'gpu-process-crashed'
 
 Devuelve:
 
@@ -288,7 +288,7 @@ Devuelve:
 
 Se emite cuando se produce una excepción en el proceso de gpu o es finalizado de forma inesperada.
 
-### Evento: 'accessibility-support-changed' *macOS* *Windows*
+### Event: 'accessibility-support-changed' *macOS* *Windows*
 
 Devuelve:
 
@@ -319,7 +319,7 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuario y los eve
 
 ### `app.relaunch([options])`
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `args` String[] (optional)
   * `execPath` String (opcional)
 
@@ -389,14 +389,14 @@ Usted puede pedir las siguientes direcciones por nombre:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Objecto (opcional) 
+* `opciones` Objecto (opcional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 en *Linux*, 32x32 en *Windows*, no soportado *macOS*.
 * `callback` Function 
   * `error` Error
-  * `icon` [NativeImage](native-image.md)
+  * `ícono` [NativeImage](native-image.md)
 
 Obtiene el icono asociado a la ruta.
 
@@ -662,7 +662,7 @@ Actualiza la actividad actual si su tipo coincide `type`, fusionando las entrada
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` Cadena
+* `id` String
 
 Cambia el [Id Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) a `id`.
 
@@ -718,13 +718,13 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `path` Cadena (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
   * `args` Cadena[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
 
 Si tú has dado las opciones `path` y `args` a `app.setLoginItemSettings` entonces tú necesitas pasar los mismos argumentos aquí para `openAtLogin` para que se establezca correctamente.
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
 * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
