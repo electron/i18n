@@ -137,7 +137,7 @@ When this attribute is present the guest page will have web security disabled. W
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electronjs.org" partition="electron"></webview>
+<webview src="https://electron.atom.io" partition="electron"></webview>
 ```
 
 Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
@@ -243,7 +243,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` String (optionnel) - Une URL de référent HTTP.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
@@ -334,10 +334,10 @@ Returns `String` - The user agent for guest page.
 
 Injects CSS into the guest page.
 
-### `<webview>.executeJavaScript(code[, userGesture, callback])`
+### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default `false`.
+* `userGesture` Boolean - Default `false`.
 * `callback` Function (facultatif) - Appelé après l'exécution du script. 
   * `result` Any
 
@@ -438,19 +438,17 @@ Insère le `text` à l'élément ciblé.
 
 * `text` String - Content to be searched, must not be empty.
 * `options` Object (facultatif) 
-  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
+  * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Returns `Integer` - The request id used for the request.
-
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -469,11 +467,11 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 ### `<webview>.printToPDF(options, callback)`
 
 * `options` Objet 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
+  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
 * `callback` Function 
   * `error` Error
   * `data` Buffer
@@ -482,7 +480,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture.
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -493,9 +491,9 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
-See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
+See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -503,7 +501,7 @@ See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examp
 
 Sends an input `event` to the page.
 
-See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
+See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -513,7 +511,7 @@ Change le facteur de zoom par le facteur spécifié. Le facteur de zoom est le p
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Niveau de zoom.
+* `level` Number - Zoom level
 
 Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement.
 
@@ -654,7 +652,7 @@ Retourne :
   * `selectionArea` Object - Coordonnées de la région du premier résultat.
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
+Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -673,7 +671,7 @@ Retourne :
 * `url` String
 * `frameName` String
 * `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
-* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
 Fired when the guest page attempts to open a new browser window.
 
@@ -774,7 +772,7 @@ Fired when the renderer process is crashed.
 
 ### Événement : 'gpu-crashed'
 
-Déclenché lorsque le processus du gpu crash.
+Fired when the gpu process is crashed.
 
 ### Événement : 'plugin-crashed'
 
@@ -783,11 +781,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Déclenché lorsqu’un processus de plugin crash.
+Fired when a plugin process is crashed.
 
 ### Événement : 'destroyed'
 
-Déclenché lorsque le WebContents est détruit.
+Fired when the WebContents is destroyed.
 
 ### Événement : 'media-started-playing'
 
@@ -803,7 +801,7 @@ Retourne :
 
 * `themeColor` String
 
-Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
