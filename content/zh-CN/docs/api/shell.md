@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-返回 `Boolean` - 文件是否成功显示.
+Returns `Boolean` - Whether the item was successfully shown
 
 在文件管理器中显示给定的文件。如果可以, 选中该文件。
 
@@ -36,10 +36,10 @@ shell.openExternal('https://github.com')
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url`字符串 - 在windows下最长2081字节，否则这个函数返回false.
+* `url` String
 * `选项` Object (可选) *macOS* 
   * `activate` Boolean - ` true `将打开的应用程序置于前台. 默认值为 `true`.
-* `callback` Function (可选) *macOS* - If specified will perform the open asynchronously. 
+* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error
 
 返回 `Boolean`类型 - 不管一个应用是否可以访问到URL，是否制定了回调，总是返回true
@@ -50,7 +50,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Returns `Boolean` - Whether the item was successfully moved to the trash
 
 将给定的文件移动到垃圾箱，并返回操作的布尔状态。
 
@@ -67,7 +67,7 @@ Returns `Boolean` - Whether the item was successfully moved to the trash.
   * `replace` - 覆盖现有快捷方式, 如果快捷方式不存在将会失败。
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Returns `Boolean` - Whether the shortcut was created successfully
 
 在`shortcutPath`位置创建或更新一个快捷连接
 
