@@ -1172,82 +1172,80 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
             Set the size of the page. This is only supported for `<webview>` guest contents.
             
             * `pilihan` Sasaran 
-              * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
-                * ` width </ 0>  Integer</li>
-<li><code> tinggi </ 0>  Integer</li>
-</ul></li>
-</ul></li>
-</ul>
-
-<h4><code>contents.isOffscreen()`</h4> 
-                  Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
-                  
-                  #### `contents.startPainting()`
-                  
-                  If *offscreen rendering* is enabled and not painting, start painting.
-                  
-                  #### `contents.stopPainting()`
-                  
-                  If *offscreen rendering* is enabled and painting, stop painting.
-                  
-                  #### `contents.isPainting()`
-                  
-                  Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
-                  
-                  #### `contents.setFrameRate(fps)`
-                  
-                  * `fps` Integer
-                  
-                  If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
-                  
-                  #### `contents.getFrameRate()`
-                  
-                  Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
-                  
-                  #### `contents.invalidate()`
-                  
-                  Schedules a full repaint of the window this web contents is in.
-                  
-                  If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
-                  
-                  #### `contents.getWebRTCIPHandlingPolicy()`
-                  
-                  Returns `String` - Returns the WebRTC IP Handling Policy.
-                  
-                  #### `contents.setWebRTCIPHandlingPolicy(policy)`
-                  
-                  * `policy` String - Specify the WebRTC IP Handling Policy. 
-                    * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-                    * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-                    * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
-                    * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
-                  
-                  Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
-                  
-                  #### `contents.getOSProcessId()`
-                  
-                  Returns `Integer` - The `pid` of the associated renderer process.
-                  
-                  ### Contoh properti
-                  
-                  #### `contents.id`
-                  
-                  A `Integer` representing the unique ID of this WebContents.
-                  
-                  #### `contents.session`
-                  
-                  A [`Session`](session.md) used by this webContents.
-                  
-                  #### `contents.hostWebContents`
-                  
-                  A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
-                  
-                  #### `contents.devToolsWebContents`
-                  
-                  A `WebContents` of DevTools for this `WebContents`.
-                  
-                  **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
-                  
-                  #### `contents.debugger`
-                  
-                  A [Debugger](debugger.md) instance for this webContents.
+              * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+              * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+              * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+              * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+            #### `contents.isOffscreen()`
+            
+            Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+            
+            #### `contents.startPainting()`
+            
+            If *offscreen rendering* is enabled and not painting, start painting.
+            
+            #### `contents.stopPainting()`
+            
+            If *offscreen rendering* is enabled and painting, stop painting.
+            
+            #### `contents.isPainting()`
+            
+            Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+            
+            #### `contents.setFrameRate(fps)`
+            
+            * `fps` Integer
+            
+            If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+            
+            #### `contents.getFrameRate()`
+            
+            Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+            
+            #### `contents.invalidate()`
+            
+            Schedules a full repaint of the window this web contents is in.
+            
+            If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+            
+            #### `contents.getWebRTCIPHandlingPolicy()`
+            
+            Returns `String` - Returns the WebRTC IP Handling Policy.
+            
+            #### `contents.setWebRTCIPHandlingPolicy(policy)`
+            
+            * `policy` String - Specify the WebRTC IP Handling Policy. 
+              * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+              * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+              * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+              * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+            
+            Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+            
+            #### `contents.getOSProcessId()`
+            
+            Returns `Integer` - The `pid` of the associated renderer process.
+            
+            ### Contoh properti
+            
+            #### `contents.id`
+            
+            A `Integer` representing the unique ID of this WebContents.
+            
+            #### `contents.session`
+            
+            A [`Session`](session.md) used by this webContents.
+            
+            #### `contents.hostWebContents`
+            
+            A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+            
+            #### `contents.devToolsWebContents`
+            
+            A `WebContents` of DevTools for this `WebContents`.
+            
+            **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+            
+            #### `contents.debugger`
+            
+            A [Debugger](debugger.md) instance for this webContents.
