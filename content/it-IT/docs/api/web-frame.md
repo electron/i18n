@@ -145,7 +145,7 @@ Set the content security policy of the isolated world.
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
 * `worldId` Integer
-* `nome` Stringa
+* `name` Stringa
 
 Set the name of the isolated world. Useful in devtools.
 
