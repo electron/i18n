@@ -12,7 +12,7 @@ Electron の大きな特徴は、レンダラープロセスで Node.js を実�
 
 サンドボックス化されたレンダラーには Node.js 環境が実行されず、Node.js JavaScript API がクライアントコードに公開されません。 唯一の例外はプリロードスクリプトで、Electron レンダラー API のサブセットにアクセスできます。
 
-他の違いは、サンドボックス化されたレンダラーはデフォルトの JavaScript API を変更しないという点です。 したがって、`window.open` などの一部の API は Chromium と同じように動作します (つまり [`BrowserWindowProxy`](browser-window-proxy.md) を返しません)。
+他の違いは、サンドボックス化されたレンダラーはデフォルトの JavaScript API を変更しないという点です。 Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
 ## サンプル
 
@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-上記のコードでは、作成された [`BrowserWindow`](browser-window.md) では Node.js が無効になっており、IPC 経由でのみ通信できます。 このオプションを使用すると、Electron がレンダラー内の Node.js ランタイムを作成しなくなります。 また、この新しいウィンドウ内では、`window.open` はネイティブの動作に従います (デフォルトで Electron は [`BrowserWindow`](browser-window.md) を作成し、`window.open` を介してこれへプロキシを返します)。
+In the above code the [`BrowserWindow`](browser-window.md) that was created has node.js disabled and can communicate only via IPC. このオプションを使用すると、Electron がレンダラー内の Node.js ランタイムを作成しなくなります。 Also, within this new window `window.open` follows the native behaviour (by default electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 このオプションだけでは OS が施行するサンドボックスが有効にならないことに注意することが重要です。 この機能を有効にするには、`--enable-sandbox` コマンドライン引数を電子に渡す必要があります。これにより、すべての `BrowserWindow` インスタンスに対して `sandbox: true` が強制されます。
 
@@ -39,7 +39,7 @@ app.on('ready', () => {
 ```js
 let win
 app.on('ready', () => {
-  // `--enable-sandbox` を有効にしてからは `sandbox: true` を渡す必要はない
+  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
@@ -134,7 +134,7 @@ browserify バンドルを作成してプリロードスクリプトとして使
 
 まだ実験的な機能なので、`sandbox` オプションは慎重に使用してください。 プリロードスクリプトにいくつかの Electron レンダラー API を公開することによるセキュリティの影響をまだ確認していませんが、信頼できないコンテンツをレンダリングする前に考慮すべき点がいくつかあります。
 
-- プリロードスクリプトは、誤って特権 API を信頼できないコードにリークさせる可能性があります。
+- A preload script can accidentally leak privileged APIs to untrusted code.
 - V8 エンジンのいくつかのバグで、悪意のあるコードがレンダラープリロード API にアクセスし、`remote` モジュールを介してシステムに完全にアクセスできるようにする可能性があります。
 
 信頼できないコンテンツを Electron で描画することはまだ未知の領域なので、サンドボックスプリロードスクリプトに公開されている API は他の Electron API よりも不安定であるとみなされ、セキュリティ上の問題を修正するための変更が行われる可能性があります。
