@@ -164,14 +164,14 @@ For POST requests the `uploadData` object must be provided.
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Function 
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
     * `headers` Objek
     * `referer` String
     * `method` na String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
@@ -286,13 +286,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Function 
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
     * `referer` String
     * `method` na String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `ang redirectRequest` Bagay 
       * `url` Tali
       * `method` na String
@@ -308,14 +308,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Function 
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
     * `headers` Objek
     * `referer` String
     * `method` na String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
