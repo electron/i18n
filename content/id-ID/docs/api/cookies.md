@@ -26,7 +26,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <ul>
 <li><code>event` Event</li> 
 
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
+* `cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah.
 * `sebab` String - Penyebab perubahan dengan salah satu dari nilai berikut: 
   * ` eksplisit </ 0> - Cookie diubah secara langsung oleh tindakan konsumen.</li>
 <li><code> menimpa </ 0> - Cookie dihapus secara otomatis karena operasi insert yang overwrote itu.</li>
