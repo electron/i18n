@@ -75,7 +75,7 @@ Uses the PAC script at the specified `url`.
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+Не використовувати проксі-сервер і завжди робити прямі з'єднання. Замінює будь-які інші проксі-сервер прапорів, які передаються.
 
 ## --host-rules=`rules`
 
