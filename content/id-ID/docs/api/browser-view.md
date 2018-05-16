@@ -12,21 +12,7 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 
 ```javascript
 // In the main process.
-const {BrowserView, BrowserWindow} = require('electron')
-
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
-})
-
-let view = new BrowserView({
-  webPreferences: {
-    nodeIntegration: false
-  }
-})
-win.setBrowserView(view)
-view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+const {BrowserView, BrowserWindow} = require('elektron') nyalakan = baru BrowserWindow ({width: 800, height: 600}) win.on('tertutup', () => {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300 }) view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `baru lihat browser([options])` *Eksperimental*
@@ -46,27 +32,27 @@ Returns `BrowserView[]` - An array of all opened BrowserViews.
 
 Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
-#### `BrowserView.fromId(id)`
+#### `Lihat Browser.fromId(id)`
 
 * `identitas` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Kembali `lihat Browser` - Tampilan dengan `id` yang diberikan.
 
 ### Contoh properti
 
-Objects created with `new BrowserView` have the following properties:
+Objek yang dibuat dengan `lihat Browser baru` memiliki properti berikut:
 
-#### `view.webContents` *Experimental*
+#### `baru lihat browser` *Eksperimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Sebuah [`isi Web`](web-contents.md) objek yang dimiliki oleh pandangan ini.
 
-#### `view.id` *Experimental*
+#### `lihat.id` *Eksperimental*
 
-A `Integer` representing the unique ID of the view.
+A `bilangan bulat` mewakili ID unik dari tampilan.
 
 ### Metode Contoh
 
-Objects created with `new BrowserView` have the following instance methods:
+Objek yang dibuat dengan `lihat Browser baru` memiliki metode contoh berikut:
 
 #### `view.destroy()`
 
@@ -76,18 +62,18 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `lihat.set otomatis ubah ukuran (pilihan)` *Eksperimental*
 
-* `pilihan` Sasaran 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+* `pilihan` Obyek 
+  * `lebar` Boolean - Jika `benar`, lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. `false` secara default.
+  * `tinggi` Boolean - Jika `benar `, tinggi tampilan akan tumbuh dan menyusut bersamaan dengan jendela. `salah` secara default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `lihat.set batas (batas)` *Eksperimental*
 
 * `batas` [Empat persegi panjang](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Mengubah ukuran dan memindahkan pandangan ke batas yang tersedia relatif terhadap jendela.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `lihat.set latar belakang warna(warna)` *Eksperimental*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `warna` tali - Warna dalam `#aarrggbb` atau `#argb`. Saluran alfa bersifat opsional.
