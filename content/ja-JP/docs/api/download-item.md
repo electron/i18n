@@ -42,7 +42,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 戻り値:
 
 * `event` Event
-* `state` String - Can be `progressing` or `interrupted`.
+* `state` String - `progressing` か `interrupted` にできます。
 
 ダウンロードが更新され、まだ未完了であるときに発生します。
 
@@ -56,7 +56,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 戻り値:
 
 * `event` Event
-* `state` String - Can be `completed`, `cancelled` or `interrupted`.
+* `state` String - `completed`、`cancelled` か `interrupted` にできます。
 
 ダウンロードが終息状態になるときに発生します。これには、完了したダウンロード、(`downloadItem.cancel()` 経由で) キャンセルされたダウンロード、再開することができない中断されたダウンロードが含まれます。
 
@@ -96,7 +96,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+戻り値 `Boolean` - ダウンロードを再開できるかどうか。
 
 #### `downloadItem.cancel()`
 
@@ -136,7 +136,7 @@ Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+戻り値 `String` - 現在の状態。`progressing`、`completed`、`cancelled` または `interrupted` のいずれかです。
 
 **注:** 以下のメソッドは、セッションが再開されたときに `cancelled` アイテムを再開するのに特に有用です。
 
