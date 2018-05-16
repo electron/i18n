@@ -22,7 +22,7 @@ The `shell` modul memiliki metode berikut:
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown.
+Mengembalikan `Boolean` - Apakah item berhasil ditampilkan.
 
 Tampilkan file yang diberikan di file manager. Jika memungkinkan, pilih file.
 
@@ -50,7 +50,7 @@ Buka URL protokol eksternal yang diberikan dengan cara default desktop. (Misalny
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Kembali `Boolean` - Apakah item berhasil dipindahkan ke tempat sampah.
 
 Pindahkan file yang diberikan ke sampah dan mengembalikan status boolean untuk pengoperasiannya.
 
@@ -67,7 +67,7 @@ Bermain suara bip.
   * `menggantikan` - menimpa tombol cepat yang ada, gagal jika tidak ada jalan pintas.
 * `pilihan` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Kembali `Boolean` - Apakah cara pintas telah dibuat berhasil.
 
 Membuat atau memperbarui tautan pintasan di `shortcutPath`.
 
