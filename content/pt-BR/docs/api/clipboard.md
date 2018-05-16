@@ -40,7 +40,7 @@ Escreve o `text` na área de transferência como texto sem formatação.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (opcional)
+* `features` String (opcional)
 
 Retorna `String` - o conteúdo da área de transferência como marcação.
 
@@ -82,14 +82,14 @@ Escreve o `text` na área de transferência em RTF.
 Retorna `Object`:
 
 * `title` String
-* `url` String
+* String `url`
 
 Retorna um Objeto que contém as chaves `title` e `url` representando o bookmark na área de transferência. Os valores de `title` e `url` serão strings vazias quando o bookmark estiver indisponível.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
 * `title` String
-* `url` String
+* String `url`
 * `features` String (opcional)
 
 Escreve o `title` e o `url` na área de transferência como um bookmark.
@@ -128,7 +128,7 @@ Returns `String[]` - An array of supported formats for the clipboard `type`.
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (opcional)
+* `features` String (opcional)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
