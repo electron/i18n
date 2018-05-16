@@ -6,7 +6,7 @@ Proses:[Renderer](../glossary.md#renderer-process)
 
 The `remote` Modul menyediakan cara sederhana untuk melakukan komunikasi antar proses (IPC) antara proses renderer (halaman web) dan proses utama.
 
-Di Elektron, modul yang berhubungan dengan GUI (seperti `dialog`,`menu` etc.) hanya tersedia dalam proses utama, bukan dalam proses renderer. Untuk menggunakannya Dari proses renderer, `ipc` modul diperlukan untuk mengirim antar proses pesan ke proses utama. Dengan `remote` modul, Anda dapat memanggil metode dari objek proses utama tanpa secara eksplisit mengirim pesan antar proses, mirip dengan Java [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). Contoh membuat jendela browser dari a Proses renderer:
+Di Elektron, modul yang berhubungan dengan GUI (seperti `dialog`,`menu` etc.) hanya tersedia dalam proses utama, bukan dalam proses renderer. Untuk menggunakannya Dari proses renderer, `ipc` modul diperlukan untuk mengirim antar proses pesan ke proses utama. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). Contoh membuat jendela browser dari a Proses renderer:
 
 ```javascript
 const {BrowserWindow} = membutuhkan ('elektron'). remote
