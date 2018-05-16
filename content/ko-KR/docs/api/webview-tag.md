@@ -531,7 +531,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-반환:
+Returns:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -544,7 +544,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-반환:
+Returns:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -571,7 +571,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-반환:
+Returns:
 
 * `status` Boolean
 * `newURL` String
@@ -586,7 +586,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-반환:
+Returns:
 
 * `oldURL` String
 * `newURL` String
@@ -600,7 +600,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-반환:
+Returns:
 
 * `title` String
 * `explicitSet` Boolean
@@ -625,7 +625,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-반환:
+Returns:
 
 * `level` Integer
 * `message` String
@@ -645,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-반환:
+Returns:
 
 * `result` Object 
   * `requestId` Integer
@@ -668,7 +668,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-반환:
+Returns:
 
 * `url` String
 * `frameName` String
@@ -707,7 +707,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-반환:
+Returns:
 
 * `url` String
 
@@ -717,7 +717,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-반환:
+Returns:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -741,7 +741,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-반환:
+Returns:
 
 * `channel` String
 * `args` Array
@@ -778,7 +778,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
 * PrinterInfo Object
 * `version` String
@@ -799,7 +799,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-반환:
+Returns:
 
 * `themeColor` String
 
