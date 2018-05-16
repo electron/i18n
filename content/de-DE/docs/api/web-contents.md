@@ -711,7 +711,7 @@ Rückgabewert:
       })
     ```
     
-    #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+    #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
     
     * `ignore` Boolean
     
@@ -831,7 +831,7 @@ Rückgabewert:
     #### `contents.findInPage(text[, options])`
     
     * `text` String - Content to be searched, must not be empty.
-    * `options` Objekt (optional) 
+    * `optionen` Objekt (optional) 
       * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
       * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
       * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1035,7 +1035,7 @@ Rückgabewert:
     
     #### `contents.openDevTools([options])`
     
-    * `options` Objekt (optional) 
+    * `optionen` Objekt (optional) 
       * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
     
     Opens the devtools.
@@ -1190,7 +1190,7 @@ Rückgabewert:
       * `HTMLOnly` - Save only the HTML of the page.
       * `HTMLComplete` - Save complete-html page.
       * `MHTML` - Save complete-html page as MHTML.
-    * `callback` Function - `(error) => {}`. 
+    * `callback` Funktion - `(error) => {}`. 
       * ` Fehler </ 0> Fehler</li>
 </ul></li>
 </ul>
@@ -1217,7 +1217,7 @@ Rückgabewert:
         
         Set the size of the page. This is only supported for `<webview>` guest contents.
         
-        * `options` Object 
+        * `optionen` Object 
           * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
           * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
           * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
