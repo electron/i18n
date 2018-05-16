@@ -172,7 +172,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-navigate'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -224,7 +224,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-Returns:
+반환:
 
 * `event` Event
 * `killed` Boolean
@@ -386,7 +386,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Returns:
+반환:
 
 * `event` Event
 * `type` String
@@ -401,7 +401,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-Returns:
+반환:
 
 * `event` Event
 * `params` Object 
@@ -443,7 +443,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-반환:
+Returns:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -473,7 +473,7 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-반환:
+Returns:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -511,7 +511,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### Event: 'did-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
@@ -1188,7 +1188,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` 함수 - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
