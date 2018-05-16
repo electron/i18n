@@ -32,122 +32,122 @@ Set a custom locale.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+May Kaugnayan ang debug sa mga flags, tingnan ang [ Debugging ang pangunahing Proseso ](../tutorial/debugging-main-process.md) gabay para sa mga detalye.
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Paganahin ang remote debugging bago ang HTTP sa pag tukoy sa `port`.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Gamitin ang pinakamataas na bakante ng disk cache, na magagamit, sa byte.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Tukuyin ang mga flag na nalampasan ng Node JS engine. ito ay kailangang malampasan habang gumagana ang electron. kung gusto mong gumana ang `flags` na pangunahing process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Tingnan ang [Node documentation](https://nodejs.org/api/cli.html) o kaya paganahin ang `node --help` sa iyong terminal para sa listahan ng mga magagamit na flag. Bukod pa dito, paganahin ang `node --v8-options` para makita ang listahan ng mga flags na tumutukoy sa Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Gumamit ng isang uri ng proxy server, para mapatungan ang system setting. Lumipat lamang kung nakakaapekto ang request ng HTTP protocol, pati na ang HTTPS at WebSocker request. Maaring kapansin-pansin na ang lahat ng proxy servers ay sumusuporta sa HTTPS at sa hiling ng WebSocket.
 
 ## --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+Turuan ang Electron na lampasan ang proxy server na semi-colon-separated ang listahan ng mga hosts. ito ay magkakaapekto lamang sa pinagsamang paggamit nito `--proxy-server`.
 
-For example:
+Halimbawa:
 
 ```javascript
 const {app} = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
+Gamitin ang proxy server sa lahat ng host, maliban sa local address (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, ang host na nag lalaman ng suffix na `foo.com` at kahit ano sa `1.2.3.4:5678`.
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+Gumagamit ng mga PAC script at tukuyin ang `url`.
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+Huwag gumamit ng proxy server at palaging gumawa ng mga direktang koneksiyon. patungan ang iba pang mga proxy server flag na nkalipas na.
 
 ## --host-rules=`rules`
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+Ang kuwit ay nag hihiwalay sa listan ng `rules` na nag kokontrol kung paano ang hostname ay itinalaga.
 
-For example:
+Halimbawa:
 
 * `MAP * 127.0.0.1` kailangang gawin na ang lahat ng hostname ay 127.0.0.1
 * `MAP *.google.com proxy` kailangang lahat ng google.com subdomains ay maresolbahan ng "proxy".
 * `MAP test.com [::1]:77` pinilit ng "test.com" na maayos ng IPv6 loopback. at pilitin ang port na resultahan ang socket address kailangan ay 77.
 * `MAP * baz http, ibukod ang www.google.com` ilipat sa lahat ng bagay na may "baz http", maliban sa "www.google.com".
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+Ang pag mappings ay inaaplay sa dulo ng host. sa kahilingan ng net (ang TCP kumonekta at mag-host ng resolver ay isang direktang koneksyon, at ang `CONNECT` sa koneksiyon ng HTTP proxy connection, at ang dulo ng host sa `SOCKS` proxy connection).
 
 ## --host-resolver-rules=`rules`
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+Gusto ng `--host-rules` subalit ang `rules` ay maaplay lamang sa host resolver.
 
 ## --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+Ang kuwit ang nag hihiwalay sa listahan ng mga servers para paganahin ang integrated authentication.
 
-For example:
+Halimbawa:
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+ang anumang `url` na nagtatapos sa `example.com`,`foobar.com`, `baz` ay isinaalang-alang Para sa pinagsama-samang pag papatunay. Walang `*` ang prefix ng url ay kailangang tugmang-tugma.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+Ang kuwit ay nag hihiwalay sa listahan ng mga server para sa kung aling delegasyon ng mga kredensyal ay kinakailangan. Walang `*` ang prefix ng url ay kailangang tugmang-tugma.
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Balewalain ang sertipiko na may kaugnay sa mga pagkakamali.
 
 ## --ppapi-flash-path=`path`
 
-Sets the `path` of the pepper flash plugin.
+Italaga ang `path` para sa plugin ng pepper flash.
 
 ## --ppapi-flash-version=`version`
 
-Sets the `version` of the pepper flash plugin.
+Italaga ang `version` para sa plugin ng pepper flash.
 
 ## --log-net-log=`path`
 
-Enables net log events to be saved and writes them to `path`.
+Paganahin ang net log ng mga nangyari isulat at i-save sila sa `path`.
 
 ## --disable-renderer-backgrounding
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+Pinipigilan ang Chromium mula sa pagpapababa ng priyoridad ng renderer ng mga pahina na hindi nakikita sa proseso.
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+Etong flag ay pangkalahatang proseso ng renderer. at kung gusto mong wag paganahin ang throtting ng isang window, maaari mong kunin ang hack ng [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
-## --enable-logging
+## --Enable-logging
 
-Prints Chromium's logging into console.
+Itala ang mga log ng Chromium's sa console.
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+Ang Switch na ito ay hindi pwedeng magamit ng `app.commandLine.appendSwitch` dahil ito ay parsed na mas maaga kaysa sa mga gumagamit ng app, ngunit maaari mong i-talaga ang `ELECTRON_ENABLE_LOGGING` sa paligid variable upang makamtan ang parehong epekto nito.
 
 ## --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Binigyan ng default na pinaka mainam at aktibong antas ng V-logging: 0 ang default. pangkaraniwan na ang mga positibong halaga ay ginagamit sa antas ng V-logging.
 
-This switch only works when `--enable-logging` is also passed.
+Ang pagpapalit nato ay gagana lamang kapag ang `--enable-logging` ay tapos na.
 
 ## --vmodule=`pattern`
 
-Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Binigyan ang kada-modyul ng mainam na antas ng V-logging para i-override ang halaga na binigay ng `--v`. E.g. `my_module=2,foo*=3` ibig baguhin ang antas ng logging sa lahat ng code sa pinagkunan ng file na `my_module.*` at `foo*.*`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Ang anumang pattern na naglalaman ng isang pasulong o kaya paurong na slash ay susuriin laban sa lahat ng pathname at hindi lang ang modyul na ito. E.g. `*/foo/bar/*=2` ay maaaring mabago ang antas ng logging sa lahat ng code na pinanggalingan ng files sa ilalim ng `foo/bar` directory.
 
-This switch only works when `--enable-logging` is also passed.
+Ang pagpapalit nato ay gagana lamang kapag ang `--enable-logging` ay tapos na.
