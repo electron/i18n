@@ -12,7 +12,7 @@ Karaniwang ito ay hindi problema para sa mga aplikasyon ng desktop dahil ang mga
 
 Ang tagasalin ng isang sandbox ay hindi magkakaroon ng gumaganang kapaligiran ng isang node.js at hindi ilalantad ang mga JavaScript API ng node.js sa kodigo ng kliyente. Ang tanging eksepsyon ay ang preload script, kung saan ay may access sa isang tagasalin ng API ng electron.
 
-Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
+Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
 ## Mga halimbawa
 
@@ -26,28 +26,29 @@ app.on('ready', () => {
       sandbox: true
     }
   })
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
-In the above code the [`BrowserWindow`](browser-window.md) that was created has node.js disabled and can communicate only via IPC. Ang paggamit nitong pagpipilian ay mahihinto ang elektron sa paglika ng isang node.js runtime sa tagatanghal. Also, within this new window `window.open` follows the native behaviour (by default electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
+In the above code the `BrowserWindow` that was created has node.js disabled and can communicate only via IPC. Ang paggamit nitong pagpipilian ay mahihinto ang elektron sa paglika ng isang node.js runtime sa tagatanghal. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
 
 Ito ay mahalaga na tandaan na ang opsyun nito na nag-iisa ay hindi nkapagpapagana ng OS-enforced sandbox. Upang paganahin ang tampok na ito, ang `– mapagana-sandbox` ang linya ng utos sa argumento dapat maipasa sa elektron, na kung saan ay pipilitin `sandbox: totoo` para sa lahat ng mga kaganapan ng `BrowserWindow`.
 
 Upang paganahin ang OS-enforced sandbox sa `BrowserWindow` o `webview` na proseso na may `sandbox:tama` na walang sanhi ng buong app sa sandbox, `--enable-mixed-sandbox` utos-sa-linya ay dapat maipasa sa elektron. Ang opsyun na ito ay kasalukuyang suportado sa macOS at Windows lamang.
 
 ```js
-hayaan manalo ang app.on('ready',() => { // hindi kailangan na maipasa 'sandbox: tama 'sapagkat ' --enable-sandbox' ay gumagana.
-win = newBrowerWindow()
-win.loadURL('http://google.com')
+let win
+app.on('ready', () => {
+  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  win = new BrowserWindow()
+  w.loadURL('http://google.com')
 })
 ```
 
 Tandaan na ito ay hindi sapat upang tawagin ang `app.commandLine.appendSwitch('--enable-sandbox')`, bilang elektron o node startup code na tumatakbo pagkatapos ito ay posibleng gumawa ng mga pagbabago sa mga settings ng chromium sandbox. Ang switch ay dapat dumaan sa elektron sa mga command-line:
 
-```sh
-elektron --enable-sandbox app.js
-```
+    elektron --enable-sandbox app.js
+    
 
 Ito ay hindi posible na magkaroon ng OS sandbox na aktibo lamang para sa ilang mga renderers, kung `--enable-sandbox` ay gumagana, ang normal na elektron windows ay hindi malilikha.
 
@@ -60,13 +61,13 @@ Ang app na ito ay maaaring makapagcustomize sa sandboxed renderers gamit ang pre
 ```js
 let win
 app.on('ready', () => {
-win = new BrowserWindow({
-   webPreferences: { 
-     sandbox: true, 
-     preload: 'preload.js'
- }
-})
-win.loadURL('http://google.com')
+  win = new BrowserWindow({
+    webPreferences: {
+      sandbox: true,
+      preload: 'preload.js'
+    }
+  })
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -102,23 +103,18 @@ Mahahalagang bagay na mapapansin sa preload script:
 
 Sa paglikha ng isang bungkos ng browserify at gamitin ito bilang isang preload na iskrip, ang sumusunod ay dapat gamitin:
 
-```sh
-  browserify preload/index.js \
-    -x electron \
-    -x fs \
-    --insert-global-vars=__filename,__dirname -o preload.js
-```
+    browserify preload/index.js \
+      -x electron \
+      -x fs \
+      --insert-global-vars=__filename,__dirname -o preload.js
+    
 
 Ang `-x` na watawat ay dapat gamitin sa anumang modyul na kasalukuyang nka-ekspos sa preload na saklaw, at nagsasabi sa browserify na gamitin ang enclosing na `require` na function nito. `--paningit-global-vars` ay tinitiyak na `proseso`, `Buffer` at `setlmmediate` ay nakukuha rin mula sa nka-enclose na saklaw(normally browserify injects code para sa mga).
 
 Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na inilalantad sa mga sumusunod na mga modyul:
 
 - `child_process`
-- `electron` 
-  - `kalabog ng tagapagbalita`
-  - `kamuntik`
-  - `ipcrenderer`
-  - `lumikha ng bahay-alalawa`
+- `electron` (crashReporter, remote and ipcRenderer)
 - `fs`
 - `os`
 - `mga timers`
@@ -130,7 +126,7 @@ Maaring marami ang maidagdag sa kinakailngan na mailantad na maraming elektron A
 
 Pakiusap na gamitin ang `sandbox` na opsyun na may pangangalaga, katulad pa rin sa isang experimentong tampok nito. Kami ay wala pa ring kamalayan sa seguridad ng paglalantad sa ilang elektron na tagatanghal APIs sa preload na iskrip, pero narito ang mga ilang bagay na isinasaalang-alang bago e-render ang di-pinagkakatiwalaan na nilalaman:
 
-- A preload script can accidentally leak privileged APIs to untrusted code.
+- A preload script can accidentaly leak privileged APIs to untrusted code.
 - Ang ilang bug sa V8 engine ay maaring payagan ang malisyusong kodigo para ma-akses ang renderer preload APIs, na epiktibong bigyan ng buong akses sa sistema sa pamamagitan ng `remote` na modyul.
 
 Dahil sa pagrender ng hindi makapagtiwalaang nilalaman sa elektron ay wala pa sa mapa ng teritoryo, ang APIs ay nakalantad sa sandbox preload na iskrip na dapt na maisaalang-alang na maraming hindi matatag kaysa sa ilang elektron ng APIs, ay maaring mayroong pagsira sa mga pagbabago para ayusin ang isyu sa seguridad.
