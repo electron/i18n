@@ -77,9 +77,9 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-### Yönlendir
+### Forwarding
 
-Fare mesajlarını yok saymak, web sayfasını fare hareketi yapmaktan habersiz hale getirir, yani fare hareketi olaylarının yayılamayacağı anlamına gelir. Windows işletim sistemlerinde fare hareket iletilerini web sayfasına iletmek için isteğe bağlı bir parametre `mouseleave` kullanılabilir ve olayların yayımlanmasına izin verilir:
+Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
 
 ```javascript
 let win = require('electron').remote.getCurrentWindow()
@@ -92,21 +92,22 @@ el.addEventListener('mouseleave', () => {
 })
 ```
 
-Bu, web sayfasını `el` üzerinde tıklandığında aktifleşir ve bunun dışında olursa normal duruma döner.
+This makes the web page click-through when over `el`, and returns to normal outside it.
 
 ## Sürüklenebilir bölge
 
-Varsayılan olarak, çerçevesiz pencere sürüklenemez. Uygulamalar hangi bölgelerin sürüklenebilir olduğunu (OS'nin standart başlık çubuğu gibi) Elektron'a bildirmek için CSS'de `-webkit-app-region: drag` belirtmelidir ve uygulamalar da `-webkit-app-region: no-drag` sürüklenemez alanı sürüklenebilir bölgeden çıkarmak için kullanabilir. Şu anda yalnızca dikdörtgen şekiller desteklenmektedir.
+By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
 
-Not: `-webkit-app-region: drag`'ın geliştirici araçları açıkken sorun yaşadığı bilinmektedir. Geçici bir çözüm de dahil olmak üzere daha fazla bilgi için [GitHub sorun](https://github.com/electron/electron/issues/3647) kısmına bakın.
+Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
 
-Tüm pencereyi sürüklenebilir yapmak için, `-webkit-app-region: drag`'i `body` tarzında ekleyebilirsiniz:
+To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
 
-<pre><code class="html">&lt;body style="-webkit-app-region: drag"&gt;<body style="-webkit-app-region: drag">
-</body>&lt;/body&gt;
-</code></pre>
+```html
+<body style="-webkit-app-region: drag">
+</body>
+```
 
-Ve tüm pencereyi sürüklenebilir yapmışsanız, düğmeleri sürüklenemez olarak işaretlemeniz gerektiğini unutmayın, aksi halde kullanıcıların onlara tıklaması imkansız olacaktır:
+And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
 
 ```css
 button {
@@ -114,11 +115,11 @@ button {
 }
 ```
 
-Yalnızca özel bir başlık çubuğunu sürüklenebilir olarak ayarlıyorsanız, başlık çubuğundaki tüm düğmeleri sürüklenemez yapmanız gerekiyor.
+If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
 ## Metin seçimi
 
-Çerçevesiz pencerede sürükleme hareketi, metin seçimi ile çakışabilir. Örneğin, başlık çubuğunu sürüklediğinizde, yanlışlıkla başlık çubuğu üstündeki metni seçebilirsiniz. Bunu önlemek için, sürüklenebilir alandaki metin seçimini bu şekilde devre dışı bırakmanız gerekiyor:
+In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
 
 ```css
 .titlebar {
@@ -129,4 +130,4 @@ Yalnızca özel bir başlık çubuğunu sürüklenebilir olarak ayarlıyorsanız
 
 ## Kaynak menüsü
 
-Bazı platformlarda, sürüklenebilir alan, istemci olmayan bir çerçeve olarak değerlendirilir; bu nedenle sağ tıkladığınızda bir sistem menüsü açılır. Tüm platformlarda doğru davranan bir bağlam menüsü yapmak için sürüklenebilir alanlarda hiçbir şekilde bir özel bağlam menüsü kullanmamalısınız.
+On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
