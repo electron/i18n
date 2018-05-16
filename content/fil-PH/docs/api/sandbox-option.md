@@ -37,11 +37,9 @@ Ito ay mahalaga na tandaan na ang opsyun nito na nag-iisa ay hindi nkapagpapagan
 Upang paganahin ang OS-enforced sandbox sa `BrowserWindow` o `webview` na proseso na may `sandbox:tama` na walang sanhi ng buong app sa sandbox, `--enable-mixed-sandbox` utos-sa-linya ay dapat maipasa sa elektron. Ang opsyun na ito ay kasalukuyang suportado sa macOS at Windows lamang.
 
 ```js
-let win
-app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
-  win = new BrowserWindow()
-  win.loadURL('http://google.com')
+hayaan manalo ang app.on('ready',() => { // hindi kailangan na maipasa 'sandbox: tama 'sapagkat ' --enable-sandbox' ay gumagana.
+win = newBrowerWindow()
+win.loadURL('http://google.com')
 })
 ```
 
@@ -62,13 +60,13 @@ Ang app na ito ay maaaring makapagcustomize sa sandboxed renderers gamit ang pre
 ```js
 let win
 app.on('ready', () => {
-  win = new BrowserWindow({
-    webPreferences: {
-      sandbox: true,
-      preload: 'preload.js'
-    }
-  })
-  win.loadURL('http://google.com')
+win = new BrowserWindow({
+   webPreferences: { 
+     sandbox: true, 
+     preload: 'preload.js'
+ }
+})
+win.loadURL('http://google.com')
 })
 ```
 
@@ -117,7 +115,7 @@ Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na 
 
 - `child_process`
 - `electron` 
-  - `crashReporter`
+  - `kalabog ng tagapagbalita`
   - `kamuntik`
   - `ipcrenderer`
   - `lumikha ng bahay-alalawa`
