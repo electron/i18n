@@ -20,12 +20,12 @@ ipcMain模块是EventEmitter类的一个实例。 当在主进程中使用时，
 // 在主进程中.
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg)  // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg)  // prints "ping"
   event.returnValue = 'pong'
 })
 ```
