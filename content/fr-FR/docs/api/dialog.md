@@ -24,7 +24,7 @@ Le module `dialog` dispose des méthodes suivantes :
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Objet 
   * `title` String (facultatif)
   * `defaultPath` String (facultatif)
@@ -35,13 +35,15 @@ Le module `dialog` dispose des méthodes suivantes :
     * `openDirectory` - Permet la sélection de dossiers.
     * `multiSelections` - Permet la sélection de multiples chemins.
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
-    * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
+    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
+    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
+  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 * `callback` Function (facultatif) 
   * `filePaths` String[] - Un tableau de chemins d'accès choisi par l'utilisateur
+  * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
 Retourne `String[]`, un tableau de chemins d'accès choisi par l'utilisateur, si le callback est fourni, cela retourne `undefined`.
 
@@ -62,13 +64,13 @@ Les `filters` spécifie un tableau de types de fichiers pouvant être affichés 
 
 Le tableau d'`extensions` devrait contenir les extensions sans caractères génériques ou de point (par exemple `'png'` est correct, mais `'.png'` et `'*.png'` ne l'est pas). Pour afficher tous les fichiers, utilisez le caractère générique `'*'` (aucun autre caractère générique n'est pris en charge).
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`
+Si un `callback` est passé, l'appel de l'API sera asynchrone et le résultat sera transmis via `callback(filenames)`.
 
 **Remarque :** Sur Windows et Linux, une boîte de dialogue ne peux pas être à la fois une sélection de fichier et une sélection de dossier, donc si vous définissez `properties` à `['openFile', 'openDirectory']` sur ces plateformes, c'est la sélection de dossier qui s'affichera.
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Objet 
   * `title` String (facultatif)
   * `defaultPath` String (facultatif) - Chemin d'accès absolu, le chemin d'accès absolu du fichier, ou le nom du fichier à utiliser par défaut.
@@ -77,8 +79,10 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) *macOS* - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
   * `showsTagField` Boolean (facultatif) *macOS* - Affiche le champ de texte. `true` par défaut.
+  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 * `callback` Function (facultatif) 
   * `filename` String
+  * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
 
 Retourne `String`, le chemin d'accès du fichier choisi par l'utilisateur, si le callback est fourni, cela retourne `undefined`.
 
@@ -86,11 +90,11 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
 
 Les `filters` spécifie un tableau de types de fichiers qui peuvent être affichés, allez voir `dialog.showOpenDialog` pour un exemple.
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
+Si un `callback` est passé, l'appel de l'API sera asynchrone et le résultat sera transmis via `callback(filename)`.
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object 
   * `type` String (facultatif) - Peut être `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -105,7 +109,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Par défaut la valeur est `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
 * `callback` Function (facultatif) 
-  * `response` Number - The index of the button that was clicked
+  * `response` Number - The index of the button that was clicked.
   * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
 
 Returns `Integer`, the index of the clicked button, if a callback is provided it returns undefined.
@@ -118,8 +122,8 @@ If a `callback` is passed, the dialog will not block the process. The API call w
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box
-* `content` String - The text content to display in the error box
+* `title` String - The title to display in the error box.
+* `content` String - The text content to display in the error box.
 
 Displays a modal dialog that shows an error message.
 
@@ -127,7 +131,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Objet 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
@@ -142,6 +146,6 @@ On Windows the options are more limited, due to the Win32 APIs used:
 
 ## Feuilles
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
+On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
 
 You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
