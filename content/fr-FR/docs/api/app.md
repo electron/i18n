@@ -111,45 +111,6 @@ Retourne :
 
 Une activité d'utilisateur peut être poursuivie seulement dans une application qui a le même identifiant d'équipe développeur que l'application d'origine de la source d'activité et qui prend en charge le type d'activité. La prise en charge d’activité types est spécifiée dans le `Info.plist` de l'application sous la clé `NSUserActivityType`.
 
-### Événement: 'wil-continue-activity' *macOS*
-
-Retourne :
-
-* `event` Événement
-* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Émis au cours de la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quand une activité depuis un périphérique différent veut reprendre. Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet événement.
-
-### Événement : 'continue-activity-error' *macOS*
-
-Retourne :
-
-* `event` Événement
-* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - Une chaîne de caractères avec la description localisée de l'erreur.
-
-Émis au cours de la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quand une activité depuis un périphérique différent n'arrive pas à reprendre.
-
-### Événement : 'activity-was-continued' *macOS*
-
-Retourne :
-
-* `event` Événement
-* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contient l'état spécifique à l'application stocké par l'activité.
-
-Émis au cours de la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)après qu'une activité depuis un périphérique différent a bien repris.
-
-### Événement : 'update-activity-state' *macOS*
-
-Retourne :
-
-* `event` Événement
-* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contient l'état spécifique à l'application stocké par l'activité.
-
-Émis lorsque la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va être repris par un autre appareil. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Dans le cas contraire, l'opération échouera et `continue-activity-error` sera appelée.
-
 ### Événement : 'new-window-for-tab' *macOS*
 
 Retourne :
@@ -163,7 +124,7 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Émis lorsqu'un [browserWindow](browser-window.md) perd le focus.
 
@@ -172,7 +133,7 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Émis lorsqu'un [browserWindow](browser-window.md) gagne le focus.
 
@@ -181,7 +142,7 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `window` [BrowserWindow](browser-window.md)
+* `window` BrowserWindow
 
 Émis lorsqu'un nouveau [browserWindow](browser-window.md) est créé.
 
@@ -190,7 +151,7 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `webContents` [WebContents](web-contents.md)
+* `webContents` WebContents
 
 Émis lorsqu'un nouveau [webContents](web-contents.md) est créé.
 
@@ -283,7 +244,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `killed` Boolean
 
 Émis lorsque le processus gpu crash ou est interrompu.
@@ -313,14 +274,14 @@ Cette méthode garantit que tous les écouteurs d’événements de `beforeunloa
 
 * `exitCode` Integer (facultatif)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Ferme immédiatement avec `exitCode`. `exitCode` est 0 par défaut.
 
 Toutes les fenêtres se ferment immédiatement sans prévenir l’utilisateur et les événements `before-quit` et `will-quit` ne seront pas émis.
 
 ### `app.relaunch([options])`
 
 * `options` Object (facultatif) 
-  * `args` String[] (optional)
+  * `args` String[] - (facultatif)
   * `execPath` String (facultatif)
 
 Relance l’application lorsque l’instance en cours se termine.
@@ -383,8 +344,7 @@ Vous pouvez demander les chemins suivants sous le nom :
 * `music` Dossier de musique de l’utilisateur.
 * `pictures` Dossier des images de l’utilisateur.
 * `videos` Dossier des vidéos de l’utilisateur.
-* `logs` Répertoire du dossier de log de votre application.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Chemin d’accès complet à la version du système du plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -440,7 +400,7 @@ Retourne `String` - La localisation actuelle de l'application. Les valeurs possi
 
 **Remarque :** À la distribution de votre application empaquetée, vous devrez également inclure le dossier `locales`.
 
-**Remarque :** Sous Windows, vous ne pouvez appeler cette fonction qu'après que l'événement `ready` soit émit.
+**Remarque :** Sous Windows, vous devrez l’appeler après que l'événement `prêt` soit émit.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -454,13 +414,13 @@ Cette liste est contrôlée par le système d'exploitation. Sous Windows, vous p
 
 Efface la liste des documents récents.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])`
+### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Le nom de votre protocole, sans le préfixe `://`. Si vous voulez que votre application gère les liens `electron://`, appelez cette méthode avec `electron` comme paramètre.
 * `path` String (facultatif) *Windows* - `process.execPath` par défaut
 * `args` String[] (facultatif) *Windows* - Un tableau vide par défaut
 
-Retourne `Boolean` - Si l'appel a réussi.
+Returns `Boolean` - Si l'appel a réussi.
 
 Cette méthode définit l'exécutable courant comme gestionnaire par défaut pour un protocole. (par exemple le modèle URI). Il vous permet d'intégrer votre application plus en profondeur dans le système d'exploitation. Une fois enregistré, tous les liens avec `votre-protocole://` seront ouverts avec l'exécutable courant. L'ensemble du lien, y compris le protocole, sera transmis en paramètre à votre application.
 
@@ -476,7 +436,7 @@ L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerFor
 * `path` String (facultatif) *Windows* - `process.execPath` par défaut
 * `args` String[] (facultatif) *Windows* - Un tableau vide par défaut
 
-Retourne `Boolean` - Si l'appel a réussi.
+Returns `Boolean` - Si l'appel a réussi.
 
 Cette méthode vérifie si l'application actuel est l'application par défaut pour un protocole (par exemple le modèle URI). Si c'est le cas, il retirera l’application comme application par défaut.
 
@@ -498,11 +458,11 @@ L'API utilise en interne le registre de Windows ainsi que LSCopyDefaultHandlerFo
 
 * `tasks` [Task[]](structures/task.md) - Tableau d'objets `Task`
 
-Ajoute `tasks` dans la catégorie [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) de la JumpList sur Windows.
+Ajoute `tasks` dans la catégorie [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) de la JumpList sur Windows.
 
 `tasks` est un tableau d’objets [`Task`](structures/task.md).
 
-Returns `Boolean` - Si l'appel a réussi.
+Retourne `Boolean` - Si l'appel a réussi.
 
 **Remarque :** Si vous souhaitez personnaliser encore plus la JumpList, utilisez `app.setJumpList(categories)` à la place.
 
@@ -648,19 +608,6 @@ Creates an `NSUserActivity` and sets it as the current activity. The activity is
 
 Retourne `String` - le type de l’activité en cours d’exécution.
 
-### `app.invalidateCurrentActivity()` *macOS*
-
-* `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Invalide l'activité [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) courante de l'utilisateur.
-
-### `app.updateCurrentActivity(type, userInfo)` *macOS*
-
-* `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - État spécifique de l'application à stocker pour une utilisation par un autre périphérique.
-
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
-
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
@@ -689,11 +636,15 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
 
+### `app.getAppMemoryInfo()` *Deprecated*
+
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+
 ### `app.getAppMetrics()`
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
-### `app.getGPUFeatureStatus()`
+### `app.getGpuFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - L'état des fonctions graphiques de `chrome://gpu/`.
 
@@ -728,16 +679,18 @@ If you provided `path` and `args` options to `app.setLoginItemSettings` then you
 Retourne `Object`:
 
 * `openAtLogin` Boolean - `true` si l'application est configurée pour s'ouvrir à la connexion.
-* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
+* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
+* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
+* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+
+**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Objet 
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
@@ -760,17 +713,11 @@ app.setLoginItemSettings({
 })
 ```
 
+**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
-
-### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
-
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
-
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
-
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -782,21 +729,6 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
   * `version` String (optional) - Numéro de version de l'application.
 
 Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
-
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
-
-* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
-
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
-
-```js
-// Start accessing the file.
-const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
-stopAccessingSecurityScopedResource()
-```
-
-Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -820,18 +752,6 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 Enables mixed sandbox mode on the app.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
-
-### `app.isInApplicationsFolder()` *macOS*
-
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
-
-### `app.moveToApplicationsFolder()` *macOS*
-
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
-
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
-
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
