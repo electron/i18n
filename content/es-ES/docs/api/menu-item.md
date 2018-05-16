@@ -44,29 +44,29 @@ La propiedad `role` puede tener los siguientes valores:
 * `pasteAndMatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit`- Quit the application.
-* `reload` - Reload the current window.
+* `minimize` - Minimizar la venta actual.
+* `close` - Cerrar la ventana actual.
+* `quit`- Salir de la aplicación.
+* `reload` - Recargar la ventana actual.
 * `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `toggleFullScreen`- Toggle full screen mode on the current window.
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
+* `editMenu` - Grupo por defecto de un menú "Edit" (Deshacer, Copiar, etc.).
+* `windowMenu` - Grupo por defecto de un menú "Window" (Minimizar, Cerrar, etc.).
 
 The following additional roles are available on *macOS*:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
-* `hide` - Map to the `hide` action.
+* `about` - Enlace a la acción `orderFrontStandardAboutPanel`.
+* `hide` - Enlace a la acción `hide`.
 * `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
+* `unhide` - Enlace a la acción `unhideAllApplications`.
 * `startSpeaking` - Map to the `startSpeaking` action.
 * `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
+* `front` - Enlace a la acción `arrangeInFront`.
+* `zoom` - Enlace a la acción `performZoom`.
 * `toggleTabBar` - Map to the `toggleTabBar` action.
 * `selectNextTab` - Map to the `selectNextTab` action.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
@@ -104,8 +104,8 @@ Puede añadir la función `click` para comportamientos adicionales.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label.
+Una `Cadena` Representando la etiqueta de los elementos visibles en el menú.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+Una `función` que se desencadena cuando los elementos del menú reciben un evento click.
