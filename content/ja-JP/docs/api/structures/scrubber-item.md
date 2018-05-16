@@ -1,4 +1,4 @@
 # ScrubberItem オブジェクト
 
-* `label` String (optional) - The text to appear in this item
-* `icon` NativeImage (optional) - The image to appear in this item
+* `label` String (任意) - このアイテムに表示されるテキスト。
+* `icon` NativeImage (任意) - このアイテムに表示される画像。
