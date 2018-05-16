@@ -26,39 +26,35 @@ app.on('ready', () => {
 
 禁用HTTP/2和SPDY/3.1协议.
 
-## --lang
-
-Set a custom locale.
-
 ## --inspect=`port` and --inspect-brk=`port`
 
-调试相关的标识, 更多详细信息请查看 [Debugging the Main Process](../tutorial/debugging-main-process.md)指南.
+Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
 
 ## --remote-debugging-port=`port`
 
-在指定`端口`开启HTTP远程调试.
+Enables remote debugging over HTTP on the specified `port`.
 
 ## --disk-cache-size=`size`
 
-强制磁盘缓存使用的最大磁盘空间（以字节为单位）。
+Forces the maximum disk space to be used by the disk cache, in bytes.
 
 ## --js-flags=`flags`
 
-指定传递给Node JS引擎的标志. 如果你想在主进程中启用`flags`, 则必须在启动Electron时传递.
+Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
-```sh
+```bash
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-访问[Node documentation](https://nodejs.org/api/cli.html)文档或者在终端中运行`node --help`命令查看可用的标志列表. 此外，还可以运行`node --v8-options`来查看与Node的V8 JavaScript引擎特定相关的flags列表。
+See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
-使用指定的覆盖系统设置的代理服务器. 这个开关只影响HTTP协议请求, 包括HTTPS和WebSocket请求. 值得注意的是并不是所有的代理服务器都支持HTTPS和WebSocket请求.
+Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
 
 ## --proxy-bypass-list=`hosts`
 
-指示 Electron绕过给定的分号分隔的代理服务器主机列表. 这个标志只有在与`--proxy-server`配合使用时才会生效。
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 例如：
 
@@ -67,19 +63,19 @@ const {app} = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-上面的代码, 除了本地地址(`localhost`,`127.0.0.1`等等.), `google.com`子域名, 包含`foo.com`后缀的主机地址, 以及任何在`1.2.3.4:5678`上的地址以外的所有主机都将使用代理服务器.
+Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
 
 ## --proxy-pac-url=`url`
 
-在指定`url`中使用PAC脚本.
+Uses the PAC script at the specified `url`.
 
 ## --no-proxy-server
 
-不要使用代理服务器，并始终直接连接. 覆盖传递的任何其他代理服务器标志。
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
-以逗号分隔的`rules`列表，用于控制主机名的映射方式
+A comma-separated list of `rules` that control how hostnames are mapped.
 
 例如：
 
@@ -88,66 +84,65 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 * `MAP test.com [::1]:77` 强制"test.com"解析为IPv6环回地址. 也将强制生成的套接字地址端口为77.
 * `MAP * baz, EXCLUDE www.google.com` 把所有地址重新映射到“baz”, 除了"www.google.com".
 
-这些映射适用于网络请求中的端点主机. 网络请求包括TCP连接和直连的主机解析器, 以及HTTP代理连接中的`CONNECT`方式, 以及在`SOCKS`代理连接中的端点主机.
+These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
 ## --host-resolver-rules=`rules`
 
-与`--host-rules`类似, 但是这些`rules`仅适用于主机解析器.
+Like `--host-rules` but these `rules` only apply to the host resolver.
 
 ## --auth-server-whitelist=`url`
 
-启用了集成身份验证的以逗号分隔的服务器列表。
+A comma-separated list of servers for which integrated authentication is enabled.
 
 例如：
 
-```sh
---auth-server-whitelist='*example.com, *foobar.com, *baz'
-```
+    --auth-server-whitelist='*example.com, *foobar.com, *baz'
+    
 
-则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. 没有`*`前缀，则url必须完全匹配.
+then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-需要身份验证的服务器的逗号分隔列表. 没有`*`前缀则url必须完全匹配.
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
 
 ## --ignore-certificate-errors
 
-忽略证书相关的错误.
+Ignores certificate related errors.
 
 ## --ppapi-flash-path=`path`
 
-设置pepper flash插件的`path`属性.
+Sets the `path` of the pepper flash plugin.
 
 ## --ppapi-flash-version=`version`
 
-设置pepper flash插件的`version`属性.
+Sets the `version` of the pepper flash plugin.
 
 ## --log-net-log=`path`
 
-启用需要保存的网络日志事件并将其写入`path`路径下.
+Enables net log events to be saved and writes them to `path`.
 
 ## --disable-renderer-backgrounding
 
-防止Chromium降低不可见的页面渲染进程的优先级.
+Prevents Chromium from lowering the priority of invisible pages' renderer processes.
 
-这个标识是全局的, 影响所有渲染进程. 如果你只想禁用一个窗口的节流保护，你可以采取[playing silent audio](https://github.com/atom/atom/pull/9485/files).
+This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
 ## --enable-logging
 
-在控制台打印Chromium日志.
+Prints Chromium's logging into console.
 
-这个开关不能用于`app.commandLine.appendSwitch`, 因为它在用户应用程序加载之前就被解析了, 但是你可以设置`ELECTRON_ENABLE_LOGGING`环境变量来达到同样的效果.
+This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
 
 ## --v=`log_level`
 
-给定默认的最大的有效V-logging等级; 0是默认值。 通常V-logging等级为正值.
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
-这个开关只有在`--enable-logging`也被传递时才起效.
+This switch only works when `--enable-logging` is also passed.
 
 ## --vmodule=`pattern`
 
-给定每个模块最大的V-logging等级, 覆盖`--v`设定的值. 例如, `my_module=2,foo*=3`将改变所有`my_module.*`和`foo*.*`源文件的代码的日志等级.
+Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-针对完整的路径名, 任何包含斜杠或反斜杠的格式都要被检测, 对于模块也不例外. 例如, `*/foo/bar/*=2`会改变`foo/bar`目录下源文件的所有代码的日志等级.
+Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-这个开关只有在`--enable-logging`也被传递时才起效.
+This switch only works when `--enable-logging` is also passed.
