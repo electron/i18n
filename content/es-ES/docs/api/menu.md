@@ -24,7 +24,7 @@ Pasar `null` eliminará la barra de menús en Windows y Linux pero no tiene efec
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Devuelve `Menu | null` - El menú de aplicación, si se creó, o `null` en caso contrario.
 
 **Nota:** La instancia devuelta `Menu` no soporta adiciones dinámicas o la eliminación de elementos del menú. [Instance properties](#instance-properties) todavía puede ser modificada dinámicamente.
 
@@ -52,11 +52,11 @@ El objeto`menu` tiene los siguientes métodos de instancia:
 
 #### `menu.popup(options)`
 
-* `opciones` Objeto 
+* `opciones` Object 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `x` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
+  * `y` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
+  * `positioningItem` Número (opcional) *macOS* - El índice del elemento de menú está colocado por debajo del cursor del ratón en las coordenadas específicas. Por defecto es -1.
   * `callback` Function (optional) - Called when menu is closed.
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
@@ -75,16 +75,16 @@ Anexa el `menuItem` al menú.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` String
+* `id` Cadena
 
-Returns `MenuItem` the item with the specified `id`
+Devuelve `MenuItem` el item con el `id` especificado
 
 #### `menu.insert(pos, menuItem)`
 
-* `pos` Integer
+* `pos` Entero
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Inserta el `menuItem` en la posición `pos` del menú.
 
 ### Eventos de Instancia
 
@@ -110,13 +110,13 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Propiedades de Instancia
 
-`menu` objects also have the following properties:
+Los objetos `menu` también tienen las siguientes propiedades:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+Un arreglo `MenuItem[]` contiene los elementos del menú.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Cada `Menu` se compone de múltiples [`MenuItem`](menu-item.md) y cada `MenuItem` tiene un submenú.
 
 ### Eventos de Instancia
 
@@ -124,11 +124,11 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 ## Ejemplos
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+La clase `Menu` solo está disponible en el proceso principal, pero también se puede usar en el proceso de renderizado a través del módulo [`remote`](remote.md).
 
 ### Main process
 
-An example of creating the application menu in the main process with the simple template API:
+Ejemplo de la creación del menú de la aplicación en el proceso principal con la API de plantilla:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -222,9 +222,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### Proceso de renderizado
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+A continuación, un ejemplo de cómo crear un menú dinámicamente en una página web (proceso de renderizado) utilizando el módulo [`remote`](remote.md), y mostrarlo cuando el usuario le dé clic derecho a la ventana:
 
 ```html
 <!-- index.html -->
@@ -246,43 +246,43 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Notas sobre el menú de la aplicación en macOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS tiene un estilo de menú de aplicaciones completamente diferente de Windows y Linux. Aquí hay algunas notas sobre cómo hacer que el menú de su aplicación sea más parecido a un nativo.
 
-### Standard Menus
+### Menús Estándar
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+En macOS hay muchos menús estándares definidos por el sistema, como los menus `Services` y `Windows`. Para hacer que el menú sea un menú estándar, se debe configurar el `role` del menú a uno de los siguientes y Electron los reconocerá y convertirá en menús estándares:
 
 * `window`
 * `help`
 * `services`
 
-### Standard Menu Item Actions
+### Acciones estándares de los elementos del menú
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS ha proporcionado acciones estándares para algunos elementos del menú, como `About xxx`, `Hide xxx`, y `Hide Others`. Para establecer la acción de un elemento de menú en una acción estándar, debe establecer el atributo `función` del elemento del menú.
 
-### Main Menu's Name
+### Nombre del menú principal
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. Para mayor información, ver[About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html).
 
 ## Menú de configuración para la ventana del navegador específico (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+El [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
 
 ## La posición del elemento del menú
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+Se puede hacer uso de `position` y `id` para controlar cómo el elemento será colocado cuando se cree un menú con `Menu.buildFromTemplate`.
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+El atributo `position` del `MenuItem` tiene la forma `[placement]=[id]`, donde `placement` es uno de `before`, `after`, o `endof` y `id` es el ID único de un elemento existente en el menú:
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+* `before` - Inserta este elemento antes del elemento al que hace referencia el id. Si el elemento al que hace referencia no existe, el elemento será insertado al final del menú.
+* `before` - Inserta este elemento despues del elemento al que hace referencia el id. Si el elemento al que hace referencia no existe, el elemento será insertado al final del menú.
+* `endof` - Inserta este elemento al final del grupo lógico que contiene el elemento al que hace referencia el id (los grupos son creados por los elementos separadores). Si el elemento al que se hace la referencia no existe, se crea un nuevo grupo separador con el id proporcionado y este elemento se inserta después del separador.
 
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+Cuando se coloca un elemento, todos los elementos desubicados se insertan después hasta que se coloca un nuevo elemento. Entonces, si quieres posicionar un grupo de elementos de menú en la misma ubicación solo necesitas especificar una posición para el primer artículo.
 
 ### Ejemplos
 
-Template:
+Plantilla:
 
 ```javascript
 [
@@ -294,7 +294,7 @@ Template:
 ]
 ```
 
-Menu:
+Menú:
 
 ```sh
 <br />- 1
@@ -304,7 +304,7 @@ Menu:
 - 5
 ```
 
-Template:
+Plantilla:
 
 ```javascript
 [
@@ -317,7 +317,7 @@ Template:
 ]
 ```
 
-Menu:
+Menú:
 
 ```sh
 <br />- ---
