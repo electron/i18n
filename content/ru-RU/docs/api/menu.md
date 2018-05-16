@@ -24,7 +24,7 @@ Process: [Main](../glossary.md#main-process)
 
 #### `Menu.getApplicationMenu()`
 
-Возвращает `Menu | null` - меню приложения, если значение задано, в противном случае `null`.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Примечание:** Возвращенный экземпляр `Menu` не поддерживает динамическое добавление или удаление пунктов меню. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
 
@@ -124,9 +124,9 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 ## Примеры
 
-Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Главный процесс
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -248,7 +248,7 @@ window.addEventListener('contextmenu', (e) => {
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Стандартные меню
+### Standard Menus
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Примеры
 
-Шаблон:
+Template:
 
 ```javascript
 [
@@ -294,7 +294,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 ]
 ```
 
-Меню:
+Menu:
 
 ```sh
 <br />- 1
@@ -304,7 +304,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 - 5
 ```
 
-Шаблон:
+Template:
 
 ```javascript
 [
@@ -317,7 +317,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 ]
 ```
 
-Меню:
+Menu:
 
 ```sh
 <br />- ---
