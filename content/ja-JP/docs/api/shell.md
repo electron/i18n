@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown.
+戻り値 `Boolean` - アイテムが正常に表示されているかどうか.
 
 指定したファイルをファイルマネージャに表示します。可能であれば、ファイルを選択します。
 
@@ -36,10 +36,10 @@ Returns `Boolean` - Whether the item was successfully shown.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false.
+* `url` String - Windows では最大2081文字で、そうでないと関数は false を返します。
 * `options` Object (任意) *macOS* 
   * `activate` Boolean - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。
-* `callback` Function (任意) *macOS* - If specified will perform the open asynchronously. 
+* `callback` Function (任意) *macOS* - 指定されている場合は、非同期で開く処理を実行します。 
   * `error` Error
 
 戻り値 `Boolean` - アプリケーションが URL を開けたかどうか。callback が指定されている場合、常に true を返します。
@@ -50,7 +50,7 @@ Returns `Boolean` - Whether the item was successfully shown.
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+戻り値 `Boolean` - アイテムが正常にゴミ箱に移動されたかどうか.
 
 指定されたファイルをゴミ箱に移動し、操作の状態の Boolean を返します。
 
@@ -67,7 +67,7 @@ Returns `Boolean` - Whether the item was successfully moved to the trash.
   * `replace` - 既にあるショートカットを上書きし、存在しなければ失敗します。
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+戻り値 `Boolean` - ショートカットが正常に作成されたかどうか.
 
 `shortcutPath` のショートカットリンクを作成か更新します。
 
