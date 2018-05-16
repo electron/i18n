@@ -6,7 +6,7 @@
 
 `remote` モジュールは、レンダラープロセス (ウェブページ) とメインプロセスの間で、簡単にプロセス間通信 (IPC) をする方法を提供します。
 
-Electronでは、GUI 関係のモジュール (たとえば `dialog`、`menu` 等) はレンダラープロセスではなく、メインプロセスでのみ有効です。 レンダラープロセスからそれらを使用するためには、`ipc` モジュールがメインプロセスにプロセス間メッセージを送る必要があります。 `remote` モジュールでは、明示的にプロセス間メッセージを送ることなく、Java の [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation) のように、メインプロセスのオブジェクトのメソッドを呼び出せます。 以下はレンダラープロセスからブラウザウインドウを作成するサンプルです。
+Electronでは、GUI 関係のモジュール (たとえば `dialog`、`menu` 等) はレンダラープロセスではなく、メインプロセスでのみ有効です。 レンダラープロセスからそれらを使用するためには、`ipc` モジュールがメインプロセスにプロセス間メッセージを送る必要があります。 With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). 以下はレンダラープロセスからブラウザウインドウを作成するサンプルです。
 
 ```javascript
 const {BrowserWindow} = require('electron').remote
@@ -20,7 +20,7 @@ win.loadURL('https://github.com')
 
 `remote` モジュールによって返される各オブジェクト (関数を含む) は、メインプロセスのオブジェクトを表しています (リモートオブジェクト、リモート関数と呼びます)。 リモートオブジェクトのメソッドを呼び出すとき、リモート関数を呼ぶとき、リモートコンストラクタ (関数) で新しいオブジェクトを作成するとき、実際にはプロセス間の同期メッセージが送信されています。
 
-上記のサンプルでは、[`BrowserWindow`](browser-window.md) と `win` の両方がリモートオブジェクトで、レンダラープロセス内の `new BrowserWindow` では、`BrowserWindow` オブジェクトは作成されていません。 代わりに、`BrowserWindow` オブジェクトはメインプロセス内で作成され、レンダラープロセス内の対応するリモートオブジェクト、すなわち `win` オブジェクトを返しました。
+In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. 代わりに、`BrowserWindow` オブジェクトはメインプロセス内で作成され、レンダラープロセス内の対応するリモートオブジェクト、すなわち `win` オブジェクトを返しました。
 
 **注釈:** リモートオブジェクトが最初に参照された時に存在する、[列挙可能なプロパティ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)だけが、remote を経由してアクセスできます。
 
@@ -79,7 +79,7 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 
 `close` イベントが発火されたとき、前にインストールしたコールバックが解放されるので、メインプロセス内で例外が発生され、状況を悪化させます。
 
-この問題を避けるため、メインプロセスに渡すレンダラーのコールバックへの参照を、確実にクリーンアップしてください。 これをするには、イベントハンドラをクリーンアップするか、メインプロセスからのコールバックを明示的に参照外しするように指示されているか、を確認するようにしてください。
+この問題を避けるため、メインプロセスに渡すレンダラーのコールバックへの参照を、確実にクリーンアップしてください。 This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.
 
 ## メインプロセスの組み込みモジュールへのアクセス
 
