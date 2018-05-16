@@ -93,7 +93,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Événement : 'error'
 
-Retourne :
+Renvoie :
 
 * `error` Error - an error object providing some information about the failure.
 
