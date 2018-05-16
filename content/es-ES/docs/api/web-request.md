@@ -34,7 +34,7 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filtrar` Object (opcional) 
+* `filtrar` Objecto (opcional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `oyente` Function 
   * `details` Object 
@@ -43,7 +43,7 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
+    * `fecha y hora` Doble
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `respuesta` Object 
@@ -58,7 +58,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filtrar` Object (opcional) 
+* `filtrar` Objecto (opcional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Función
 
@@ -70,8 +70,8 @@ El `oyente` se llamará con `listener(details, callback)` Antes de enviar la sol
   * `method` String
   * `webContentsId` Integer (optional)
   * `resourceType` String
-  * `timestamp` Double
-  * `requestHeaders` Object
+  * `fecha y hora` Doble
+  * `Encabezado de solicitud` Objecto
 * `callback` Function 
   * `respuesta` Object 
     * `cancelar` Booleano (opcional)
@@ -81,7 +81,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filtrar` Object (opcional) 
+* `filtrar` Objecto (opcional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `oyente` Function 
   * `details` Object 
@@ -90,14 +90,14 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
-    * `requestHeaders` Object
+    * `fecha y hora` Doble
+    * `Encabezado de solicitud` Objecto
 
 El`oyente` Será llamado con `listener(details)` justo antes que una solicitud vaya a ser enviada al servidor, modificaciones de previas respuestas `onBeforeSendHeaders` son visibles en el momento que este oyente esté en funcionamiento.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filtrar` Object (opcional) 
+* `filtrar` Objecto (opcional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Función
 
@@ -109,8 +109,8 @@ El `oyente` será cancelado con `listener(details, callback)` cuando la respuest
   * `method` String
   * `webContentsId` Integer (optional)
   * `resourceType` String
-  * `timestamp` Double
-  * `statusLine` String
+  * `fecha y hora` Doble
+  * `linea de estatus` Cadena
   * `Estatus de código` entero
   * `headers de respuesta` objeto
 * `callback` Function 
@@ -132,11 +132,11 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
+    * `fecha y hora` Doble
     * `headers de respuesta` objeto
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `Desde Cache` Booleano - Indica cuando al respuesta fue obtenida desde la memoria caché.
     * `Estatus de código` entero
-    * `statusLine` String
+    * `linea de estatus` Cadena
 
 El `oyente` será cancelado con `listener(details)` cuando se reciba el primer byte del cuerpo de la respuesta. Para las solicitudes HTTP, esto significa que la línea de estado y los encabezados de respuesta están disponibles.
 
@@ -151,18 +151,18 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
+    * `fecha y hora` Doble
     * `redirectURL` String
     * `Estatus de código` entero
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
-    * `fromCache` Boolean
+    * `ip` Cadena (opcional) - La dirección IP del servidor al cual fue enviada en realidad la solicitud.
+    * `Desde cache` Booleano
     * `headers de respuesta` objeto
 
 El `oyente` Será cancelado con `listener(details)` cuando la redirección del servidor esté por ocurrir.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filtrar` Object (opcional) 
+* `filtrar` Objecto (opcional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `oyente` Function 
   * `details` Object 
@@ -171,17 +171,17 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
+    * `fecha y hora` Doble
     * `headers de respuesta` objeto
-    * `fromCache` Boolean
+    * `Desde cache` Booleano
     * `Estatus de código` entero
-    * `statusLine` String
+    * `linea de estatus` Cadena
 
 The `listener` will be called with `listener(details)` when a request is completed.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filtrar` Object (opcional) 
+* `filtrar` Objecto (opcional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `oyente` Function 
   * `details` Object 
@@ -190,8 +190,8 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
-    * `timestamp` Double
-    * `fromCache` Boolean
-    * `error` String - The error description.
+    * `fecha y hora` Doble
+    * `Desde cache` Booleano
+    * `error` Cadena - la descripción del error.
 
 El `oyente` será cancelado con `listener(details)` cuando ocurra un error.
