@@ -27,14 +27,14 @@ Il modulo di `Appunti` ha i seguenti metodi:
 
 ### `clipboard.readText([type])`
 
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
 Restituisce la `stringa` - il contenuto degli Appunti come testo normale.
 
 ### `clipboard.writeText(text[, tipo])`
 
 * `testo` Stringa
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
 Scrive il `testo` negli Appunti come testo normale.
 
@@ -60,20 +60,20 @@ Restituisce [`NativeImage`](native-image.md) - l'immagine contenuta negli appunt
 ### `clipboard.writeImage(image[, tipo])`
 
 * `image` [NativeImage](native-image.md)
-* `tipo` Stringa (opzionale)
+* `tipo` String (optional)
 
 Scrive la `image` negli appunti.
 
 ### `clipboard.readRTF([tipo])`
 
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
 Restituisce la `stringa` - il contenuto negli Appunti come RTF.
 
 ### `clipboard.writeRTF(text[, tipo])`
 
 * `testo` Stringa
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
 Scrive il `testo` negli Appunti come RTF.
 
@@ -90,7 +90,7 @@ Restituisce un oggetto contenente `titolo` e `url` chiavi rappresentative del se
 
 * `Titolo` Stringa
 * `url` Stringa
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
 Scrivere il `titolo` e `url` negli appunti come un segnaposto.
 
@@ -115,20 +115,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -137,13 +137,13 @@ const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` *Sperimentale*
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` *Sperimentale*
 
 * `format` String
 
@@ -153,11 +153,11 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
 Writes the `buffer` into the clipboard as `format`.
 
-### `clipboard.write(data[, type])`
+### `clipboard.write(data[, tipo])`
 
 * `data` Oggetto 
   * `text` String (optional)
@@ -165,7 +165,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `tipo` String (optional)
+* `tipo` Stringa (opzionale)
 
 ```javascript
 const {clipboard} = require('electron')
