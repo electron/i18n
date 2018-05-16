@@ -36,7 +36,7 @@ Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 #### Kaganapan: 'nagbago'
 
 * `kaganapan` Kaganapan
-* `cookie` [Cookie](structures/cookie.md) - Ang "cookie" na binago.
+* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
 * `sanhi` String - Ang mga sanhi ng mga pagbabago sa isa't isa sa mga sumusunod na mga halaga: 
   * `explicit` - Ang cookie ay direktang nagbago sa pamamagitan ng pagkilos ng isang mamimili.
   * `overwrite` - Ang cookie ay awtomatikong natanggal dahil sa ipinasok na operasyon na i-overwrite.
@@ -56,7 +56,7 @@ Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
 * `salain` Bagay 
   * `url` String (opsyunal) - Nakuhang cookies na may kaugnayan sa `url`. Ang walang laman ay nagpapahiwatig na pagkuha ng mga cookies ng buong url.
   * `name` String (opsyunal) - Efilter ang mga cookies sa kanilang pangalan.
-  * `domain` String (opsyunal) - Ang mga kinuhang cookies na ang domain ay nagtugma o ang mga subdomain ng `domain`.
+  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
   * `path` String (opsyunal) - Ang nakuhang cookies na nagtugma ang patungohan `path`.
   * `secure` Boolesn (opsyunal) - Nafilter na cookies ng kanilang Secure na ari-arian.
   * `session` Booelan (opsyunal) - Efilter ang sesyon o ang nagpapatuloy na cookies.
@@ -64,7 +64,7 @@ Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
   * `error` Error
   * `cookies` [Cookie](structures/cookie.md) - ang isang array ng mga bagay ng cookie.
 
-Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
+Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
 
 #### `cookies.set(details, callback)`
 
