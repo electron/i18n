@@ -1,4 +1,4 @@
 # CrashReport 객체
 
-* `date` String
-* `ID` Integer
+* `date` 날짜
+* `id` String
