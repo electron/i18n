@@ -36,7 +36,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 #### イベント: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - 変更されたクッキー.
+* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
 * `cause` String - 以下のいずれかの値となる変更の原因。 
   * `explicit` - ユーザーのアクションによってクッキーが直接変更されました。
   * `overwrite` - 上書きする挿入操作のため、クッキーが自動的に削除されました。
@@ -56,7 +56,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 * `filter` Object 
   * `url` String (任意) - `url` と関連付けられたクッキーを取得します。空は、すべてのURLのクッキーを取得することを意味します。
   * `name` String (任意) - 名前でクッキーをフィルタリングします。
-  * `domain` String (任意) - クッキーのドメインと一致するか、ドメインが `domains` のサブドメインであるクッキーを取得します。
+  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
   * `path` String (任意) - クッキーのパスが `path` と一致するクッキーを取得します。
   * `secure` Boolean (任意) - Secureプロパティでクッキーをフィルタリングします。
   * `session` Boolean (任意) - セッションまたは永続的クッキーでフィルタリングします。
@@ -64,7 +64,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - クッキーオブジェクトの配列。
 
-`filter` と一致するすべてのクッキーを取得するリクエストを送信します。完了時に `callback(error, cookies)` で `callback` が呼び出されます。
+Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
 #### `cookies.set(details, callback)`
 
