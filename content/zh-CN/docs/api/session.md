@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `选项` Object (可选) 
+* `选项` Object - 过滤器对象，包含过滤参数 
   * `cache` Boolean - 是否可以使用缓存.
 
 Returns `Session` - 根据`partition`字符串产生的session实例。 当这里已存在一个`Session`具有相同的`partition`, 它将被返回; 否则一个新的`Session`实例将根据`options`被创建。
@@ -93,16 +93,16 @@ Callback会被调用，参数是session的当前缓存大小。
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - 会在操作完成之后被调用。
+* `callback` Function - Called when operation is done
 
 清除session的HTTP缓存。
 
 #### `ses.clearStorageData([options, callback])`
 
 * `选项` Object (可选) 
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
-  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
+  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (可选) - 会在操作完成后被调用.
 
 清除Web storage的数据。
@@ -125,13 +125,12 @@ Callback会被调用，参数是session的当前缓存大小。
 
 `proxyRules` 要遵循以下规则:
 
-```sh
-proxyRules = schemeProxies[";"<schemeProxies>]
-schemeProxies = [<urlScheme>"="]<proxyURIList>
-urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <proxyURL>[","<proxyURIList>]
-proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-```
+    proxyRules = schemeProxies[";"<schemeProxies>]
+    schemeProxies = [<urlScheme>"="]<proxyURIList>
+    urlScheme = "http" | "https" | "ftp" | "socks"
+    proxyURIList = <proxyURL>[","<proxyURIList>]
+    proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+    
 
 例如：
 
@@ -163,7 +162,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   
   例如: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
-* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
+* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
   匹配位于给定范围之间的 IP 文本的任何 URL。IP 范围是使用 CIDR 表示法指定的。
   
@@ -183,7 +182,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - 下载地址.
+* `path` String - The download location
 
 设置下载保存目录。默认情况下, 下载目录将是相应应用程序文件夹下的 `Downloads`。
 
@@ -219,11 +218,10 @@ window.webContents.session.enableNetworkEmulation({offline: true})
   * `request` Object 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - chromium证书验证结果
-    * `errorCode` Integer - 错误代码
+    * `error` String - Verification result from chromium.
   * `callback` Function - 回调函数 
     * `verificationResult` Integer - 证书错误代码之一，来自 [这里](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)。 除了证书错误代码外，还可以使用以下特殊代码。 
-      * `-0` - 表示成功并禁用证书透明度验证
+      * `` - Indicates success and disables Certificate Transperancy verification.
       * `-2` - 表示失败
       * `-3` - 使用chromium的验证结果
 
@@ -247,15 +245,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function | null 
+* `handler` Function 
   * `webContents` [WebContents](web-contents.md) - 请求权限的WebContents。
   * `permission` String - 枚举 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function - 回调函数 
-    * `permissionGranted` Boolean - 允许或拒绝该权限.
-  * `details` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String - The url of the `openExternal` request.
+    * `permissionGranted` Boolean - Allow or deny the permission
 
-设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。 若要清除处理程序, 请调用 ` setPermissionRequestHandler (null) `。
+设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。
 
 ```javascript
 const {session} = require('electron')
@@ -276,7 +272,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
+* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
 
 动态设置是否始终为 HTTP NTLM 发送凭据或协商身份验证。
 
@@ -310,6 +306,8 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `callback` Function - 回调函数 
   * `result` Buffer - Blob 数据.
 
+Returns `Blob` - The blob data associated with the `identifier`.
+
 #### `ses.createInterruptedDownload(options)`
 
 * `选项` Object 
@@ -322,40 +320,30 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
   * `eTag` String - ETag 标头值。
   * `startTime` Double (optional) - 下载的时间是从 UNIX 时代以来的秒数开始的。
 
-允许从上一个 `Session` 恢复 ` cancelled ` 或 ` interrupted ` 下载。 该 API 将生成一个 [ DownloadItem ](download-item.md), 可使用 [ will-download ](#event-will-download) 事件进行访问。 [ DownloadItem ](download-item.md) 将不具有与之关联的任何 ` WebContents `, 并且初始状态将为 ` interrupted `。 只有在 [ DownloadItem ](download-item.md) 上调用 ` resume ` API 时, 才会启动下载。
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - 会在操作完成后被调用.
+* `callback` Function (optional) - Called when operation is done
 
-清除会话的 HTTP 身份验证缓存。
-
-#### `ses.setPreloads(preloads)`
-
-* `preloads` String[] - An array of absolute path to preload scripts
-
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
-
-#### `ses.getPreloads()`
-
-Returns `String[]` an array of paths to preload scripts that have been registered.
+Clears the session’s HTTP authentication cache.
 
 ### 实例属性
 
-以下属性在` Session </ 0>实例上可用：</p>
+The following properties are available on instances of `Session`:
 
-<h4><code>ses.cookies`</h4> 
+#### `ses.cookies`
 
-此会话的 [ cookie ](cookies.md) 对象。
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-此会话的 [WebRequest](web-request.md) 对象。
+A [WebRequest](web-request.md) object for this session.
 
 #### `ses.protocol`
 
-此会话的 [ 协议 ](protocol.md) 对象。
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
 const {app, session} = require('electron')
