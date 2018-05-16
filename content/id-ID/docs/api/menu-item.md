@@ -44,29 +44,29 @@ Properti `peran` dapat memiliki nilai-nilai berikut:
 * `pasteAndMatchStyle`
 * `selectAll`
 * `menghapus`
-* ` minimize </ 0> - Minimalkan jendela saat ini.</li>
-<li><code> tutup </ 0> - Tutup jendela saat ini.</li>
-<li><code> berhenti </ 0> - Keluar dari aplikasi.</li>
-<li><code> reload </ 0> - Muat ulang jendela aktif.</li>
-<li><code>forceReload` - Reload the current window ignoring the cache.
+* `minimize` - Minimize current window.
+* `close` - Close current window.
+* `quit`- Quit the application.
+* `reload` - Reload the current window.
+* `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `toggleFullScreen`- Toggle full screen mode on the current window.
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
-* `editMenu` - default seluruh "Edit" menu (Undo, salin, dsb.).
-* `windowMenu` - default seluruh "Jendela" menu (Minimalkan, tutup, dll.).
+* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
+* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
 
 The following additional roles are available on *macOS*:
 
-* `tentang` - peta tindakan `orderFrontStandardAboutPanel`.
-* `menyembunyikan` - peta untuk `menyembunyikan` tindakan.
+* `about` - Map to the `orderFrontStandardAboutPanel` action.
+* `hide` - Map to the `hide` action.
 * `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - peta tindakan `unhideAllApplications`.
+* `unhide` - Map to the `unhideAllApplications` action.
 * `startSpeaking` - Map to the `startSpeaking` action.
 * `stopSpeaking` - Map to the `stopSpeaking` action.
-* `depan` - peta tindakan `arrangeInFront`.
-* `zoom` - peta tindakan `performZoom`.
+* `front` - Map to the `arrangeInFront` action.
+* `zoom` - Map to the `performZoom` action.
 * `toggleTabBar` - Map to the `toggleTabBar` action.
 * `selectNextTab` - Map to the `selectNextTab` action.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
@@ -104,8 +104,8 @@ Anda dapat menambahkan sebuah `klik` fungsi untuk perilaku tambahan.
 
 #### `menuItem.label`
 
-Sebuah `String` yang mewakili label terlihat item menu.
+A `String` representing the menu items visible label.
 
 #### `menuItem.click`
 
-`Fungsi` yang dipecat ketika MenuItem menerima event klik.
+A `Function` that is fired when the MenuItem receives a click event.
