@@ -25,7 +25,7 @@ Le module `session` dispose des méthodes suivantes :
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Objet 
+* `options` Object (facultatif) 
   * `cache` Boolean - Si vous voulez activer le cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
@@ -93,16 +93,16 @@ Le callback est appelé avec la taille de cache actuelle de la session.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `callback` Function - Appelée lorsque l’opération est effectuée.
 
 Efface le cache HTTP de la session.
 
 #### `ses.clearStorageData([options, callback])`
 
 * `options` Object (facultatif) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée.
 
 Efface les données de stockage du web.
@@ -125,12 +125,13 @@ When `pacScript` and `proxyRules` are provided together, the `proxyRules` option
 
 Les `proxyRules` doivent suivre les règles ci-dessous :
 
-    proxyRules = schemeProxies[";"<schemeProxies>]
-    schemeProxies = [<urlScheme>"="]<proxyURIList>
-    urlScheme = "http" | "https" | "ftp" | "socks"
-    proxyURIList = <proxyURL>[","<proxyURIList>]
-    proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-    
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
 
 Par exemple :
 
@@ -162,7 +163,7 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
   
   Exemples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
-* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   Correspond à n'importe quelle URL qui est une IP littérale, comprise dans la fourchette d'adresse donnée. La portée IP est spécifiée avec la notation CIDR.
   
@@ -182,7 +183,7 @@ Résout les informations du proxy pour l'`url`. Le `callback` sera appelé avec 
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location
+* `path` String - The download location.
 
 Paramètre le répertoire de sauvegarde des téléchargements. Par défaut, le répertoire des téléchargements sera `Downloads` dans le dossier de l'application respective.
 
@@ -218,10 +219,11 @@ Désactive toute émulation de réseau déjà active pour la `session`. Réiniti
   * `request` Objet 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `error` String - Verification result from chromium.
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `callback` Function 
     * `verificationResult` Integer - La valeur peut être un des codes d'erreur de certificat trouvés [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Mis à part les codes d’erreur de certificat, les codes spéciaux suivants peuvent être utilisés. 
-      * `` - Indicates success and disables Certificate Transperancy verification.
+      * `` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Indique l'échec.
       * `-3` - Utilise le résultat de la vérification de Chromium.
 
@@ -245,13 +247,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function 
+* `handler` Function | null 
   * `webContents` [WebContents](web-contents.md) - WebContents qui demandent la permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
-    * `permissionGranted` Boolean - Allow or deny the permission
+    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `details` Object - Some properties are only available on certain permission types. 
+    * `externalURL` String - The url of the `openExternal` request.
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
+Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
@@ -272,7 +276,7 @@ Vide le cache de résolution de l'hôte.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
 Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
@@ -307,8 +311,6 @@ Renvoie `String` - L'utilisateur de cette session.
 * `callback` Function 
   * `result` Buffer - données Blob.
 
-Returns `Blob` - The blob data associated with the `identifier`.
-
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Objet 
@@ -326,9 +328,19 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - Called when operation is done
+* `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée.
 
 Clears the session’s HTTP authentication cache.
+
+#### `ses.setPreloads(preloads)`
+
+* `preloads` String[] - An array of absolute path to preload scripts
+
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+
+#### `ses.getPreloads()`
+
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### Instance Properties
 
