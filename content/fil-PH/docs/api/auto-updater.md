@@ -30,66 +30,66 @@ Hindi gaya ng sa Squirrel.Mac, ang Windows ay kayang mag-host ng update sa S3 o 
 
 ## Pangyayari
 
-The `autoUpdater` object emits the following events:
+Ang `autoUpdater` maglalabas ng mga ganitong pangyayari:
 
-### Event: 'error'
+### Pangyayari: 'error'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Lumabas kapag mayroong mali habang ina-update.
 
-### Event: 'checking-for-update'
+### Pangyayari:'checking-for-update'
 
-Emitted when checking if an update has started.
+Lumalabas kapag sinusuri kung ang update ay nagsimula na.
 
-### Event: 'update-available'
+### Pangyayari: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Lumalabas kapag mayroong pagbabago. Ang pag-update ay awtomatikong na-download.
 
-### Event: 'update-not-available'
+### Pangyayari: 'update-not-available'
 
-Emitted when there is no available update.
+Napalabas kapag walang available na pag-update.
 
-### Event: 'update-downloaded'
+### Pangyayari: 'update-downloaded'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` na Kaganapan
-* `releaseNotes` String
-* `releaseName` String
-* `releaseDate` Date
-* `updateURL` String
+* `releaseNotes` Lupid
+* `releaseNotes` Lubid
+* `releaseDate` Petsa
+* `updateURL` Lubid
 
-Emitted when an update has been downloaded.
+Lumalabas kung ang update ay nadownload na.
 
-On Windows only `releaseName` is available.
+Tanging Windows lamang`releaseName` is available.
 
 ## Pamamaraan
 
-The `autoUpdater` object has the following methods:
+Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `pagpipilian` Bagay 
+* `options` Bagay 
   * `url` Tali
   * `headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Sets the `url` and initialize the auto updater.
+Tinatakda ang `url` at nagpapasimula ng auto-updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Bumalik `String` - Ang kasalukuyang update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Itanong sa server kung merong bago. Kaylangan mong tumawag `setFeedURL` bago gamitin itong API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Uulitin ang app at iinstall ang mga update pagkatapos itong ma download. Ito ay dapat lamang tawagin pagkatapos ng `update-downloaded` ay lumabas na.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
