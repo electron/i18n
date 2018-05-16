@@ -24,7 +24,7 @@ console.log(dialog)
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object 
   * `title` String (任意)
   * `defaultPath` String (任意)
@@ -35,15 +35,15 @@ console.log(dialog)
     * `openDirectory` - ディレクトリを選択するのを許可します。
     * `multiSelections` - 複数のパスを選択するのを許可します。
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `createDirectory` *macOS* - ダイアログでディレクトリを作成するのを許可します。
+    * `promptToCreate` *Windows* - ダイアログで存在しないファイルパスを入力した場合に、作成を促します。 これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
+    * `noResolveAliases` *macOS* - 自動的にエイリアス (シンボリックリンク) のパスを解決しないようにします。選択したエイリアスはリンク先のパスの代わりにエイリアスのパスを返します。
+    * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
   * `message` String (任意) *macOS* - 入力ボックスの上に表示するメッセージ。
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+  * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。
 * `callback` Function (任意) 
   * `filePaths` String[] - ユーザーによって選択されたファイルパスの配列
-  * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+  * `bookmarks` String[] *macOS* *mas* - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。
 
 戻り値 `String[]` - ユーザが選択したファイルパスの配列。callback が指定されている場合は `undefined` を返します。
 
@@ -64,13 +64,13 @@ console.log(dialog)
 
 `extensions` の配列には、ワイルドカードやドットを含む拡張子 (例えば、`'png'` は問題ありませんが、`'.png'` や `'*.png'` はいけません) を入れないで下さい。 すべてのファイルを表示するには、`'*'` ワイルドカードを使用して下さい (その他のワイルドカードはサポートされていません)。
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
+`callback` が渡されると、APIの呼び出しが非同期になり、`callback(filenames)` 経由で結果が渡されます。
 
 **注:** WindowsとLinuxのオープンダイアログでは、ファイルとディレクトリの両方を選択することはできません。そのため、これらのプラットフォームで `properties` に `['openFile', 'openDirectory']` を設定すると、ディレクトリの選択が表示されます。
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object 
   * `title` String (任意)
   * `defaultPath` String (任意) - 既定で使用される絶対ディレクトリパス、絶対ファイルパスもしくはファイル名。
@@ -79,10 +79,10 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `message` String (任意) *macOS* - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) *macOS* - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
   * `showsTagField` Boolean (任意) *macOS* - タグの入力ボックスを表示します。省略値は、`true` です。
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
+  * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。 このオプションが有効でファイルが存在しない場合は、選択したパスに空のファイルが作成されます。
 * `callback` Function (任意) 
   * `filename` String
-  * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+  * `bookmark` String *macOS* *mas* - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するために `securityScopedBookmarks` を有効にする必要があります。
 
 戻り値 `String` - ユーザが選択したファイルパス。callback が指定されている場合は `undefined` を返します。
 
@@ -90,11 +90,11 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 `filters` には、表示することのできるファイルの種類の配列を指定します。例については、`dialog.showOpenDialog` を参照して下さい。
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`.
+`callback` が渡されると、APIの呼び出しが非同期になり、`callback(filename)` 経由で結果が渡されます。
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object 
   * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` のオプションを使用してアイコンを設定しない場合、`"question"` は、`"info"` と同じアイコンを表示します。 macOSでは、`"warning"` と `"error"` の両方で同じ警告アイコンを表示します。
   * `buttons` String[] (任意) - ボタンのテキストの配列。Windowsでは、空の配列だと、"OK" というラベルのついた1つのボタンだけになります。
@@ -109,7 +109,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `noLink` Boolean (任意) - WindowsでElectronはどの `buttons` が ("Cancel" や "Yes" のような) 一般的なボタンかを把握し、その他をダイアログでコマンドリンクとして表示しようとします。 これにより、モダンなWindowsアプリのスタイルでダイアログを表示させることができます。 この動作が気に入らない場合、`noLink` を `true` に設定することができます。
   * `normalizeAccessKeys` Boolean (任意) - プラットフォーム間でキーボードのアクセスキーを正規化します。 省略値は `false` です。 これを有効にすると、`&` が、ボタンのラベルでキーボードショートカットアクセスキーの位置として使用されているとみなされ、各プラットフォームで正常に動作するようにラベルが変換されます。macOSでは、`&` の文字は削除され、Linuxでは、`_` に変換され、Windowsでは、そのままにされます。 例えば、`Vie&w` というボタンラベルは、Linuxでは、`Vie_w`、macOSでは、`View` に変換され、WindowsとLinuxでは、`Alt-W` 経由で選択できます。
 * `callback` Function (任意) 
-  * `response` Number - The index of the button that was clicked.
+  * `response` Number - クリックされたボタンのインデックス.
   * `checkboxChecked` Boolean - `checkboxLabel` が設定された場合、チェックボックスのチェック状態。そうでない場合は、`false` です。
 
 クリックされたボタンのインデックスである `Integer` を返します。callbackが指定されている場合、undefinedを返します。
@@ -122,8 +122,8 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box.
-* `content` String - The text content to display in the error box.
+* `title` String - エラーボックスに表示するタイトル.
+* `content` String - エラーボックスに表示するテキストの内容.
 
 エラーメッセージを表示するモーダルダイアログを表示します。
 
@@ -131,7 +131,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - 信頼/インポートする証明書。
   * `message` String - ユーザーに表示するメッセージ。
@@ -146,6 +146,6 @@ Windowsでは、使用されているWin32 APIのため、オプションはよ�
 
 ## シート
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
+macOS では、`browserWindow` パラメータに [`BrowserWindow`](browser-window.md) の参照を指定した場合、ダイアログは、ウインドウにアタッチされたシートとして表示されます。ウインドウを指定しない場合、モーダルで表示されます。
 
 `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` を呼び出すことで、シートがアタッチされるウインドウフレームからのオフセットを変更することができます。
