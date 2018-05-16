@@ -14,7 +14,7 @@ menu类有以下静态方法：
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 当在MacOS、Windows、Linux中使用`menu`设置程序菜单时，会设置在各个程序窗体的顶层。
 
@@ -24,7 +24,7 @@ menu类有以下静态方法：
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+返回 `Menu | null` - 如果有设置, 则返回应用程序菜单， 如果没设置，则返回 ` null `。
 
 ** 注意: **返回的 ` menu ` 实例不支持动态添加或删除菜单项。 但仍然可以动态修改 [ 实例属性 ](#instance-properties)。
 
@@ -50,53 +50,85 @@ Returns `Menu` - The application menu, if set, or `null`, if not set.
 
 ` menu ` 对象具有以下实例方法:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `选项` Object (可选) 
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+* `选项` Object 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+  * ` x ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` y `, 则必须声明。
+  * ` y ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` x `, 则必须声明。
+  * ` positioningItem `数字 (可选) * macOS *-要在指定坐标下的鼠标光标下定位的菜单项的索引。默认值为-1。
+  * `callback` Function (optional) - Called when menu is closed.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 关闭 ` browserWindow ` 中的上下文菜单。
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 将 ` menuItem ` 追加到菜单。
+
+#### `menu.getMenuItemById(id)`
+
+* `id` String
+
+返回具有指定`id`项的`MenuItem`
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+将 ` menuItem ` 插入菜单的 ` pos ` 位置。
+
+### 实例事件
+
+Objects created with `new Menu` emit the following events:
+
+** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
+
+#### Event: 'menu-will-show'
+
+返回:
+
+* `event` Event
+
+Emitted when `menu.popup()` is called.
+
+#### Event: 'menu-will-close'
+
+返回:
+
+* `event` Event
+
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### 实例属性
 
-`menu` objects also have the following properties:
+` menu ` 对象还具有以下属性:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+包含菜单项的 ` MenuItem [] ` 数组。
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+每个 ` 菜单 ` 由多个 [` MenuItem `](menu-item.md) 组成, 每个 ` MenuItem `可以有子菜单。
+
+### 实例事件
+
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## 示例
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+` Menu ` 仅在主进程（ main process）中可用, 但您也可以在渲染进程（render process）中通过 [` remote `](remote.md) 模块使用它。
 
 ### Main process
 
-An example of creating the application menu in the main process with the simple template API:
+在主进程中创建程序菜单的简单API模版示例:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -142,7 +174,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -190,9 +222,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### 渲染进程
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+下面是通过 [` remote `](remote.md) 模块在网页（render process）中动态创建右击菜单的示例:
 
 ```html
 <!-- index.html -->
@@ -207,50 +239,50 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```
 
 ## MacOS中应用菜单注意事项
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+MacOS中的应用程序有着和windows，linux完全不同风格的菜单样式。这里有一些说明，可以让你的程序菜单看起来更贴合原生系统。
 
-### Standard Menus
+### 标准菜单
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+在MacOS有一些系统自定的标准菜单，像`Services`和`Windows`。 让你的菜单更像MacOS标准菜单，只需设置菜单`role`值为如下示之一，Electron便会自动认出并设置成标准菜单，：
 
 * `window`
 * `help`
 * `services`
 
-### Standard Menu Item Actions
+### 标准菜单项操作
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide xxx ` 和 ` Hide Others `。 若要将菜单项的操作设置为标准操作, 应设置菜单项的 `  role` 属性。
 
-### Main Menu's Name
+### 主菜单的名称
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 ` Info. plist ` 文件。 有关详细信息, 请参阅 [ About Information Property List Files ](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)。
 
 ## 设置特定浏览器窗口的菜单 (* Linux * * Windows *)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+浏览器窗口的 [ ` setMenu ` 方法 ](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) 可以设置特定浏览器窗口的菜单。
 
 ## 菜单项位置
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+您在使用`Menu.buildFromTemplate  `生成菜单时，可以用` position ` 和 ` id ` 来控制定位菜单项的位置。
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+`MenuItem`中的`[placement]=[id]`属性，其中` placement`值可以是` before`、`after`、和 `endof`之一，`id`值则是现有菜单项的唯一ID
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+* ` before `-在匹配的菜单项id 之前插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
+* ` after `-在匹配菜单项id 之后插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
+* ` endof `-在匹配的菜单项id 的逻辑组的末尾插入此项 (由分隔符项创建组)。 如果匹配的项不存在, 则使用给定 id 创建新的分隔符组, 并在该分隔符之后插入此项。
 
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+当在菜单项中有一项有位置信息, 其后面所有未定位的项将紧跟其后, 直到后面出现新的菜单项有的位置。 因此, 如果要在同一位置放置一组菜单项, 则只需指定第一项的位置信息。
 
 ### 示例
 
-Template:
+模板：
 
 ```javascript
 [
@@ -262,16 +294,17 @@ Template:
 ]
 ```
 
-Menu:
+菜单:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
-Template:
+模板：
 
 ```javascript
 [
@@ -284,13 +317,15 @@ Template:
 ]
 ```
 
-Menu:
+菜单:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```
