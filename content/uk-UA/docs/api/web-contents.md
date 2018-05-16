@@ -708,7 +708,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Експериментальний*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Експериментальна*
 
 * `ignore` Boolean
 
