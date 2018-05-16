@@ -64,7 +64,7 @@ Ang mga `filter` ay nagtitiyak ng mga hanay ng mga uri ng file na maipapakita o 
 
 Ang mga `ekstensyon` na hanay ay dapat na naglalaman ng mga ekstensyon na walang mga wildcard o mga tuldok (halimbawa, maganda ang `'png'` pero ang `'.png'` at `'*.png'` ay hindi maganda). Upang ipakita ang lahat ng mga file, gamitin ang `'*'` na wildcard (wala nang ibang wildcard ang sinusuportahan).
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
+Kapag naipasa ang isang `callback`, ang API na tawag ay magiging asynchronous at ang resulta ay mapapasa sa `callback(filenames)`.
 
 **Tandaan:** Sa Windows at Linux, ang isang bukas na dialog ay hindi pwedeng sabay na tagapili ng file at tagapili ng direktoryo, upang kapag i-set mo ang `properties` sa `['openFile', 'openDirectory']` sa mga platapormang ito, ang isang tagapili ng direktoryo ay maipapakita.
 
@@ -90,7 +90,7 @@ Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kany
 
 Ang `filters` ay nagtitiyak sa hanay ng mga uri ng file na maaaring maipakita, tingnan ang `dialog.showOpenDialog` bilang isang halimbawa.
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`.
+Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous at ang resulta ay mapapasa sa `callback(filename)`.
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
@@ -109,7 +109,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `noLink` Boolean (opsyonal) - Sa Windows, susubukang alamin ng Electron kung alin sa `buttons` ang karaniwang mga pipindutin (katulad ng "Cancel" o "Yes"), at ipinapakita ang iba bilang mga command link sa dialog. Pinapakita nito ang dialog sa istilo ng modernong mga Windows app. Kung ayaw mo ng ganitong galaw, pwede mong i-set ang `noLink` sa `true`.
   * `normalizeAccessKeys` Boolean (opsyonal) - ini-normalize ang mga key na pang-keyboard access sa mga plataporma. Ang default ay `false`. Ang pagpapagana nito ay pumapalit at ginagamit sa mga lebel ng mga pipindutin para sa paglalagay ng keyboard shortcut access key at ang mga lebel ay isasalin upang maayos silang gagana sa bawat plataporma, at ang mga karakter ay tinanggal sa macOS, isinalin sa `_` sa Linux at hindi pinakialaman sa Windows. Halimbawa, ang isang lebel ng pipindutin na `Vie&w` ay isasalin sa `Vie_w` sa Linux at `View` sa macOS at pwedeng piliin sa pamamagitan ng `Alt-W` sa Windows at Linux.
 * `callback` Function (opsyonal) 
-  * `response` Number - The index of the button that was clicked.
+  * `response` Numero - ang index ng pipindutin na napindot.
   * `checkboxChecked` Boolean - ang binagong estado ng checkbox kapang ang `checkboxLabel` at na-set. Kung hindi, ito ay `false`.
 
 Ibinabalik ang `Integer`, ang index ng napindot na pipindutin, kung ang isang callback ay naibigay, undefined ang ibinabalik nito.
@@ -122,8 +122,8 @@ Kung ang isang `callback` ay naipasa, hindi pipigilan ng dialog ang proseso. Ang
 
 ### `dialog.showErrorBox(titulo, nilalaman)`
 
-* `title` String - The title to display in the error box.
-* `content` String - The text content to display in the error box.
+* `title` String - ang titulo na ipapakita sa kahon ng mali.
+* `content` String - Ang tekstong nilalaman na ipapakita sa kahon ng mali.
 
 Ipinapakita ang isang modal na dialog na nagpapakita ng isang mensahe ng kamalian.
 
