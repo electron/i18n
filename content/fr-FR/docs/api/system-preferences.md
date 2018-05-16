@@ -88,7 +88,7 @@ Supprime l'abonnement avec `l'id`.
   * `event` String
   * `userInfo` Object
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -96,20 +96,14 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
-### `systemPreferences.registerDefaults(defaults)` *macOS*
-
-* `defaults` Object - a dictionary of (`key: value`) user defaults 
-
-Add the specified defaults to your application's `NSUserDefaults`.
-
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+Returns `any` - The value of `key` in system preferences.
 
-Some popular `key` and `type`s are:
+This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -122,22 +116,16 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - Voir [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
+* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+Set the value of `key` in system preferences.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Some popular `key` and `type`s are:
+This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
-
-### `systemPreferences.removeUserDefault(key)` *macOS*
-
-* `key` String
-
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
@@ -181,21 +169,21 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - Une des valeurs suivantes : 
-  * `3d-dark-shadow` - Ombre noir pour les éléments affichés en trois dimensions.
-  * `3d-face` - Couleur de la face pour les éléments affichés en trois dimensions et le fond des boîtes de dialogue.
-  * `3d-hihlight` - Couleur de surlignage pour les éléments affichés en trois dimensions.
-  * `3d-light` - Couleur de la lumière pour les éléments affichés en trois dimensions.
-  * `3d-shadow` - Couleur d'ombre pour les éléments affichés en trois dimensions.
-  * `active-border` - Bordure de la fenêtre active.
-  * `active-caption` - Barre de titre de la fenêtre active. Retourne la couleur du côté gauche du dégradé de couleur si la barre de titre de la fenêtre a l'effet de dégradé actif.
-  * `active-caption-gradient` - Couleur du côté droit du dégradé de couleur de la barre de titre de la fenêtre active.
-  * `app-workspace` - Couleur de fond d'une interface d'application de document multiple (MDI).
-  * `button-text` - Texte sur les boutons d'envoi.
-  * `caption-text` - Texte dans une légende, boîte de dimensions, boîte avec la flèche pour la barre de défilement.
-  * `desktop` - Couleur de fond du bureau.
-  * `disabled-text` - Texte grisé (désactivé).
-  * `highlight` - Élément(s) sélectionné(s) dans un groupe.
+* `color` String - One of the following values: 
+  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
+  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
+  * `3d-highlight` - Highlight color for three-dimensional display elements.
+  * `3d-light` - Light color for three-dimensional display elements.
+  * `3d-shadow` - Shadow color for three-dimensional display elements.
+  * `active-border` - Active window border.
+  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
+  * `app-workspace` - Background color of multiple document interface (MDI) applications.
+  * `button-text` - Text on push buttons.
+  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
+  * `desktop` - Desktop background color.
+  * `disabled-text` - Grayed (disabled) text.
+  * `highlight` - Item(s) selected in a control.
   * `highlight-text` - Text of item(s) selected in a control.
   * `hotlight` - Color for a hyperlink or hot-tracked item.
   * `inactive-border` - Inactive window border.
@@ -217,4 +205,4 @@ Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`).
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Retourne `Boolean` - `true` si le jeu de couleurs est inversé, comme un thème de contraste élevé en cours d'utilisation, `false` autrement.
+Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
