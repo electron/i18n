@@ -52,7 +52,7 @@ The `menu` object has the following instance methods:
 
 #### `menu.popup(options)`
 
-* `options` Object 
+* `options` Об'єкт 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -126,7 +126,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Головний (Main) процес
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 
