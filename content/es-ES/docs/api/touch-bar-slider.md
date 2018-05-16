@@ -12,7 +12,7 @@ Proceso: [principal](../tutorial/quick-start.md#main-process)
   * `minValue` Integer (opcional) - Valor mínimo.
   * `maxValue` Integer (opcional) - Valor máximo.
   * `change` Función (opcional) - Function para llamar cuando se cambie el control deslizante. 
-    * `newValue` Number - The value that the user selected on the Slider.
+    * `newValue` Number - El valor que el usuario seleccionó en el control deslizante.
 
 ### Propiedades de Instancia
 
