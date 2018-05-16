@@ -40,7 +40,7 @@ process.once('loaded', () => {
 
 ### `process.noDeprecation`
 
-非推奨の警告が `stderr` へ出力されるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨の警告が無効になります。 `--no-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
 
 ### `process.resourcesPath`
 
@@ -52,11 +52,11 @@ process.once('loaded', () => {
 
 ### `process.traceDeprecation`
 
-`stderr` に出力される非推奨にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨のスタックトレースが出力されます。 `--trace-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
+`stderr` に出力される非推奨にスタックトレースを含めるかどうかを制御する `Boolean`。 Setting this to `true` will print stack traces for deprecations. `--trace-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
 
 ### `process.traceProcessWarnings`
 
-`stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定するとプロセスの (非推奨を含む) 警告のスタックトレースが出力されます。 `--trace-warnings` コマンドラインフラグの代わりにこのプロパティを使用します。
+`stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `process.type`
 
@@ -97,7 +97,7 @@ Electron のバージョン文字列を表す `String`。
 * `workingSetSize` Integer - 現在、実際の物理 RAM に確保されているメモリ量。
 * `peakWorkingSetSize` Integer - 実際の物理 RAM に確保されたことのある最大メモリ量。
 * `privateBytes` Integer - JS ヒープや HTML コンテンツなど、他のプロセスと共有されないメモリ量。
-* `sharedBytes` Integer - プロセス間で共有されるメモリ量で、通常は、 Electron のコード自体が使っているメモリ量。
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 現在のプロセスに関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
 
@@ -107,8 +107,8 @@ Electron のバージョン文字列を表す `String`。
 
 * `total` Integer - システムで利用可能な物理メモリの合計量 (キロバイト)。
 * `free` Integer - アプリケーションまたはディスクキャッシュで使用されていないメモリの合計量。
-* `swapTotal` Integer *Windows* *Linux* - システムが使用できるスワップメモリの合計量 (キロバイト)。
-* `swapFree` Integer *Windows* *Linux* - システムが使用できるスワップメモリの空き容量 (キロバイト)。
+* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 システム全体に関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
 
