@@ -12,7 +12,7 @@ Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
   * `minValue` Integer (opsyonal) - Pinakamaliit na halaga.
   * `maxValue` Integer (opsyonal) - Pinakamalaking halaga.
   * `baguhin` Tungkuli (opsyonal) - tungkuling tawagan kung ang slider ay napalitan. 
-    * `newValue` Number - The value that the user selected on the Slider.
+    * `newValue` Numero - Ang halaga na pinili ng gumugamit sa Slider.
 
 ### Katangian ng pagkakataon
 
