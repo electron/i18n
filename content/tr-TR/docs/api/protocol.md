@@ -163,23 +163,23 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `halledici` Fonksiyon 
+* `halledici` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `headers` Nesne
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Fonksiyon 
+  * `geri aramak` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Readable` as a response.
+Yanıt olarak `Readable` gönderen bir `scheme` protokolünü kaydeder.
 
-The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+Kullanımı, diğer `register{Any}Protocol`'e benzer, ancak `callback`'nin bir `Readable` nesne veya `data`, `statusCode` ve `headers` özelliklere sahip bir nesneyle çağrılması gerekir.
 
-Örneğin:
+Örnek:
 
 ```javascript
 const {protocol} = require('electron')
@@ -205,7 +205,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+Okunabilir akış API (emits`data`/`end`/`error` events)'ı uygulayan herhangi bir nesneyi iletmek mümkündür. Örneğin, bir dosyanın nasıl geri gönderilebileceği aşağıda açıklanmıştır:
 
 ```javascript
 const {protocol} = require('electron')
@@ -224,7 +224,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
-Unregisters the custom protocol of `scheme`.
+`şemanın` özel protokol kaydını iptal eder.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
@@ -232,23 +232,23 @@ Unregisters the custom protocol of `scheme`.
 * `geri aramak` Function 
   * `error` Error
 
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+`callback`, `scheme` için zaten halihazırda bir işleyici olup olmadığını gösteren bir boolean ile çağrılır.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `filePath` Dizi
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+`scheme` protokolünü böler ve cevap olarak bir dosya yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -264,9 +264,25 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+`scheme` protokolünü böler ve cevap olarak bir `String` yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
+
+* `scheme` String
+* `halledici` Function 
+  * `istek` Nesne 
+    * `url` Dize
+    * `referrer` Dize
+    * `method` Dizi
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `geri aramak` Function 
+    * `buffer` Arabellek (isteğe bağlı)
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
+  * `error` Error
+
+`scheme` protokolünü böler ve cevap olarak bir `Buffer` yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
+
+### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
 * `halledici` Function 
@@ -276,50 +292,34 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `buffer` Buffer (optional)
-* `tamamlanış` Fonksiyon (isteğe bağlı) 
-  * `error` Error
-
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
-
-### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
-
-* `scheme` Dizi
-* `halledici` Fonksiyon 
-  * `istek` Nesne 
-    * `url` String
-    * `referrer` Dize
-    * `method` Dizi
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Fonksiyon 
     * `talebi yönlendir` Nesne 
-      * `url` String
+      * `url` Dize
       * `method` Dizi
       * `session` Obje isteğe bağlı
-      * `bilgiyi yükle` Nesne (isteğe bağlı) 
+      * `bilgiyi yükle` Obje (opsiyonel) 
         * `contentType` Dize - İçeriğin MIME türünü gösterir.
         * `data` Dize - Gönderilecek içerik.
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+`scheme` protokolünü böler ve cevap olarak yeni bir HTTP isteği yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `halledici` Fonksiyon 
+* `halledici` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `headers` Nesne
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Fonksiyon 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+  * `geri aramak` Function 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (isteğe bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+Mevcut bir protokol işlecinin yerini alması dışında, `protocol.registerStreamProtocol` ile aynı.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -327,4 +327,4 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+`Şema` için kurulmuş olan önleyiciyi kaldırın ve orijinal işleyicisini geri yükleyin.
