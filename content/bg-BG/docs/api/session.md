@@ -250,7 +250,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Function | null 
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `обратно повикване` Function 
+  * `обратно повикване` Функция 
     * `permissionGranted` Boolean - Allow or deny the permission.
   * `details` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
