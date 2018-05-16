@@ -25,14 +25,14 @@ specified, `partition` is ignored.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'.
 Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of
-the hostname and the port number 'hostname:port'
+the hostname and the port number 'hostname:port'.
   * `hostname` String (optional) - The server host name.
   * `port` Integer (optional) - The server's listening port number.
   * `path` String (optional) - The path part of the request URL.
   * `redirect` String (optional) - The redirect mode for this request. Should be
 one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`,
 any redirection will be aborted. When mode is `manual` the redirection will be
-deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in
+deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in
 this mode to get more details about the redirect request.
 
 `options` properties such as `protocol`, `host`, `hostname`, `port` and `path`
@@ -137,7 +137,7 @@ Returns:
 * `responseHeaders` Object
 
 Emitted when there is redirection and the mode is `manual`. Calling
-[`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
+[`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
 
 ### Instance Properties
 

@@ -6,11 +6,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "app",
     "websiteUrl": "http://electron.atom.io/docs/api/app",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/app.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/app.md",
     "methods": [
       {
         "name": "quit",
@@ -20,7 +20,7 @@
       {
         "name": "exit",
         "signature": "([exitCode])",
-        "description": "Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.",
+        "description": "Exits immediately with exitCode. exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.",
         "parameters": [
           {
             "name": "exitCode",
@@ -270,10 +270,6 @@
       {
         "name": "setAsDefaultProtocolClient",
         "signature": "(protocol[, path, args])",
-        "platforms": [
-          "macOS",
-          "Windows"
-        ],
         "description": "This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.",
         "parameters": [
           {
@@ -526,6 +522,47 @@
         }
       },
       {
+        "name": "invalidateCurrentActivity",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Invalidates the current Handoff user activity.",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "String",
+            "collection": false,
+            "description": "Uniquely identifies the activity. Maps to .",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "updateCurrentActivity",
+        "signature": "(type, userInfo)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Updates the current activity if its type matches type, merging the entries from userInfo into its current userInfo dictionary.",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "String",
+            "collection": false,
+            "description": "Uniquely identifies the activity. Maps to .",
+            "required": true
+          },
+          {
+            "name": "userInfo",
+            "type": "Object",
+            "collection": false,
+            "description": "App-specific state to store for use by another device.",
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "setAppUserModelId",
         "signature": "(id)",
         "platforms": [
@@ -599,18 +636,6 @@
         "description": "By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour. This method can only be called before app is ready."
       },
       {
-        "name": "getAppMemoryInfo",
-        "signature": "()",
-        "platforms": [
-          "Deprecated"
-        ],
-        "returns": {
-          "type": "ProcessMetric",
-          "collection": true,
-          "description": "Array of ProcessMetric objects that correspond to memory and cpu usage statistics of all the processes associated with the app. Note: This method is deprecated, use app.getAppMetrics() instead."
-        }
-      },
-      {
         "name": "getAppMetrics",
         "signature": "()",
         "returns": {
@@ -620,7 +645,7 @@
         }
       },
       {
-        "name": "getGpuFeatureStatus",
+        "name": "getGPUFeatureStatus",
         "signature": "()",
         "returns": {
           "type": "GPUFeatureStatus",
@@ -682,7 +707,7 @@
           "macOS",
           "Windows"
         ],
-        "description": "If you provided path and args options to app.setLoginItemSettings then you need to pass the same arguments here for openAtLogin to be set correctly. Note: This API has no effect on MAS builds.",
+        "description": "If you provided path and args options to app.setLoginItemSettings then you need to pass the same arguments here for openAtLogin to be set correctly.",
         "parameters": [
           {
             "name": "options",
@@ -745,28 +770,28 @@
               "name": "openAsHidden",
               "type": "Boolean",
               "collection": false,
-              "description": "true if the app is set to open as hidden at login. This setting is only supported on macOS.",
+              "description": "true if the app is set to open as hidden at login. This setting is not available on .",
               "required": true
             },
             {
               "name": "wasOpenedAtLogin",
               "type": "Boolean",
               "collection": false,
-              "description": "true if the app was opened at login automatically. This setting is only supported on macOS.",
+              "description": "true if the app was opened at login automatically. This setting is not available on .",
               "required": true
             },
             {
               "name": "wasOpenedAsHidden",
               "type": "Boolean",
               "collection": false,
-              "description": "true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.",
+              "description": "true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is not available on .",
               "required": true
             },
             {
               "name": "restoreState",
               "type": "Boolean",
               "collection": false,
-              "description": "true if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.",
+              "description": "true if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is not available on .",
               "required": true
             }
           ]
@@ -779,7 +804,7 @@
           "macOS",
           "Windows"
         ],
-        "description": "Set the app's login item settings. To work with Electron's autoUpdater on Windows, which uses Squirrel, you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example: Note: This API has no effect on MAS builds.",
+        "description": "Set the app's login item settings. To work with Electron's autoUpdater on Windows, which uses Squirrel, you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:",
         "parameters": [
           {
             "name": "settings",
@@ -798,7 +823,7 @@
                 "name": "openAsHidden",
                 "type": "Boolean",
                 "collection": false,
-                "description": "true to open the app as hidden. Defaults to false. The user can edit this setting from the System Preferences so app.getLoginItemStatus().wasOpenedAsHidden should be checked when the app is opened to know the current value. This setting is only supported on macOS.",
+                "description": "true to open the app as hidden. Defaults to false. The user can edit this setting from the System Preferences so app.getLoginItemStatus().wasOpenedAsHidden should be checked when the app is opened to know the current value. This setting is not available on .",
                 "required": false
               },
               {
@@ -831,6 +856,24 @@
           "collection": false,
           "description": "true if Chrome's accessibility support is enabled, false otherwise. This API will return true if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details."
         }
+      },
+      {
+        "name": "setAccessibilitySupportEnabled",
+        "signature": "(enabled)",
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
+        "description": "Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default. Note: Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.",
+        "parameters": [
+          {
+            "name": "enabled",
+            "type": "Boolean",
+            "collection": false,
+            "description": "Enable or disable rendering",
+            "required": true
+          }
+        ]
       },
       {
         "name": "setAboutPanelOptions",
@@ -886,6 +929,28 @@
         ]
       },
       {
+        "name": "startAccessingSecurityScopedResource",
+        "signature": "(bookmarkData)",
+        "platforms": [
+          "macOS (mas)"
+        ],
+        "description": "Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See Apple's documentation for a description of how this system works.",
+        "parameters": [
+          {
+            "name": "bookmarkData",
+            "type": "String",
+            "collection": false,
+            "description": "The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.",
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": "Function",
+          "collection": false,
+          "description": "This function must be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, kernel resources will be leaked and your app will lose its ability to reach outside the sandbox completely, until your app is restarted."
+        }
+      },
+      {
         "name": "enableMixedSandbox",
         "signature": "()",
         "platforms": [
@@ -894,6 +959,31 @@
           "Windows"
         ],
         "description": "Enables mixed sandbox mode on the app. This method can only be called before app is ready."
+      },
+      {
+        "name": "isInApplicationsFolder",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "returns": {
+          "type": "Boolean",
+          "collection": false,
+          "description": "Whether the application is currently running from the systems Application folder. Use in combination with app.moveToApplicationsFolder()"
+        }
+      },
+      {
+        "name": "moveToApplicationsFolder",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the dialog API. NOTE: This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong",
+        "returns": {
+          "type": "Boolean",
+          "collection": false,
+          "description": "Whether the move was successful. Please note that if the move is successful your application will quit and relaunch."
+        }
       }
     ],
     "events": [
@@ -1047,6 +1137,115 @@
             "type": "Object",
             "collection": false,
             "description": "Contains app-specific state stored by the activity on another device.",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "will-continue-activity",
+        "description": "Emitted during Handoff before an activity from a different device wants to be resumed. You should call event.preventDefault() if you want to handle this event.",
+        "platforms": [
+          "macOS"
+        ],
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "type",
+            "type": "String",
+            "collection": false,
+            "description": "A string identifying the activity. Maps to .",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "continue-activity-error",
+        "description": "Emitted during Handoff when an activity from a different device fails to be resumed.",
+        "platforms": [
+          "macOS"
+        ],
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "type",
+            "type": "String",
+            "collection": false,
+            "description": "A string identifying the activity. Maps to .",
+            "required": true
+          },
+          {
+            "name": "error",
+            "type": "String",
+            "collection": false,
+            "description": "A string with the error's localized description.",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "activity-was-continued",
+        "description": "Emitted during Handoff after an activity from this device was successfully resumed on another one.",
+        "platforms": [
+          "macOS"
+        ],
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "type",
+            "type": "String",
+            "collection": false,
+            "description": "A string identifying the activity. Maps to .",
+            "required": true
+          },
+          {
+            "name": "userInfo",
+            "type": "Object",
+            "collection": false,
+            "description": "Contains app-specific state stored by the activity.",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "update-activity-state",
+        "description": "Emitted when Handoff is about to be resumed on another device. If you need to update the state to be transferred, you should call event.preventDefault() immediately, construct a new userInfo dictionary and call app.updateCurrentActiviy() in a timely manner. Otherwise the operation will fail and continue-activity-error will be called.",
+        "platforms": [
+          "macOS"
+        ],
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "type",
+            "type": "String",
+            "collection": false,
+            "description": "A string identifying the activity. Maps to .",
+            "required": true
+          },
+          {
+            "name": "userInfo",
+            "type": "Object",
+            "collection": false,
+            "description": "Contains app-specific state stored by the activity.",
             "required": true
           }
         ]
@@ -1619,29 +1818,46 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "auto-updater",
     "websiteUrl": "http://electron.atom.io/docs/api/auto-updater",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/auto-updater.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/auto-updater.md",
     "methods": [
       {
         "name": "setFeedURL",
-        "signature": "(url[, requestHeaders])",
+        "signature": "(options)",
         "description": "Sets the url and initialize the auto updater.",
         "parameters": [
           {
-            "name": "url",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "requestHeaders",
+            "name": "options",
             "type": "Object",
             "collection": false,
-            "description": "HTTP request headers.",
-            "required": false
+            "required": true,
+            "properties": [
+              {
+                "name": "url",
+                "type": "String",
+                "collection": false,
+                "description": "",
+                "required": true
+              },
+              {
+                "name": "headers",
+                "type": "Object",
+                "collection": false,
+                "description": "HTTP request headers.",
+                "required": false,
+                "properties": []
+              },
+              {
+                "name": "serverType",
+                "type": "String",
+                "collection": false,
+                "description": "Either json or default, see the README for more information.",
+                "required": false
+              }
+            ]
           }
         ]
       },
@@ -1662,7 +1878,7 @@
       {
         "name": "quitAndInstall",
         "signature": "()",
-        "description": "Restarts the app and installs the update after it has been downloaded. It should only be called after update-downloaded has been emitted. Note: autoUpdater.quitAndInstall() will close all application windows first and only emit before-quit event on app after that. This is different from the normal quit event sequence."
+        "description": "Restarts the app and installs the update after it has been downloaded. It should only be called after update-downloaded has been emitted. Under the hood calling autoUpdater.quitAndInstall() will close all application windows first, and automatically call app.quit() after all windows have been closed. Note: If the application is quit without calling this API after the update-downloaded event has been emitted, the application will still be replaced by the updated one on the next run."
       }
     ],
     "events": [
@@ -1730,11 +1946,11 @@
   },
   {
     "name": "BluetoothDevice",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "bluetooth-device",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/bluetooth-device",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/bluetooth-device.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/bluetooth-device.md",
     "properties": [
       {
         "name": "deviceName",
@@ -1759,12 +1975,47 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "browser-view",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-view",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/browser-view.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/browser-view.md",
     "staticMethods": [
+      {
+        "name": "getAllViews",
+        "signature": "()",
+        "returns": {
+          "type": "BrowserView",
+          "collection": true,
+          "description": "An array of all opened BrowserViews."
+        }
+      },
+      {
+        "name": "fromWebContents",
+        "signature": "(webContents)",
+        "parameters": [
+          {
+            "name": "webContents",
+            "type": "WebContents",
+            "collection": false,
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": [
+            {
+              "typeName": "BrowserView",
+              "collection": false
+            },
+            {
+              "typeName": "null",
+              "collection": false
+            }
+          ],
+          "collection": false,
+          "description": "The BrowserView that owns the given webContents or null if the contents are not owned by a BrowserView."
+        }
+      },
       {
         "name": "fromId",
         "signature": "(id)",
@@ -1806,6 +2057,20 @@
     },
     "instanceName": "view",
     "instanceMethods": [
+      {
+        "name": "destroy",
+        "signature": "()",
+        "description": "Force closing the view, the unload and beforeunload events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible."
+      },
+      {
+        "name": "isDestroyed",
+        "signature": "()",
+        "returns": {
+          "type": "Boolean",
+          "collection": false,
+          "description": "Whether the view is destroyed."
+        }
+      },
       {
         "name": "setAutoResize",
         "signature": "(options)",
@@ -1892,11 +2157,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "browser-window",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-window",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/browser-window.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/browser-window.md",
     "staticMethods": [
       {
         "name": "getAllWindows",
@@ -1931,6 +2196,32 @@
           "type": "BrowserWindow",
           "collection": false,
           "description": "The window that owns the given webContents."
+        }
+      },
+      {
+        "name": "fromBrowserView",
+        "signature": "(browserView)",
+        "parameters": [
+          {
+            "name": "browserView",
+            "type": "BrowserView",
+            "collection": false,
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": [
+            {
+              "typeName": "BrowserWindow",
+              "collection": false
+            },
+            {
+              "typeName": "null",
+              "collection": false
+            }
+          ],
+          "collection": false,
+          "description": "The window that owns the given browserView. If the given view is not attached to any window, returns null."
         }
       },
       {
@@ -2166,6 +2457,13 @@
               "required": false
             },
             {
+              "name": "simpleFullscreen",
+              "type": "Boolean",
+              "collection": false,
+              "description": "Use pre-Lion fullscreen on macOS. Default is false.",
+              "required": false
+            },
+            {
               "name": "skipTaskbar",
               "type": "Boolean",
               "collection": false,
@@ -2262,7 +2560,7 @@
               "name": "backgroundColor",
               "type": "String",
               "collection": false,
-              "description": "Window's background color as Hexadecimal value, like #66CD00 or #FFF or #80FFFFFF (alpha is supported). Default is #FFF (white).",
+              "description": "Window's background color as a hexadecimal value, like #66CD00 or #FFF or #80FFFFFF (alpha is supported). Default is #FFF (white).",
               "required": false
             },
             {
@@ -2270,6 +2568,13 @@
               "type": "Boolean",
               "collection": false,
               "description": "Whether window should have a shadow. This is only implemented on macOS. Default is true.",
+              "required": false
+            },
+            {
+              "name": "opacity",
+              "type": "Number",
+              "collection": false,
+              "description": "Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.",
               "required": false
             },
             {
@@ -2309,10 +2614,6 @@
                   "description": "Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (\"traffic lights\") in the top left."
                 },
                 {
-                  "value": "hidden-inset",
-                  "description": "Deprecated, use <code>hiddenInset</code> instead."
-                },
-                {
                   "value": "hiddenInset",
                   "description": "Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge."
                 },
@@ -2326,7 +2627,7 @@
               "name": "fullscreenWindowTitle",
               "type": "Boolean",
               "collection": false,
-              "description": "Shows the title in the tile bar in full screen mode on macOS for all titleBarStyle options. Default is false.",
+              "description": "Shows the title in the title bar in full screen mode on macOS for all titleBarStyle options. Default is false.",
               "required": false
             },
             {
@@ -2340,7 +2641,7 @@
               "name": "vibrancy",
               "type": "String",
               "collection": false,
-              "description": "Add a type of vibrancy effect to the window, only on macOS. Can be appearance-based, light, dark, titlebar, selection, menu, popover, sidebar, medium-light or ultra-dark.",
+              "description": "Add a type of vibrancy effect to the window, only on macOS. Can be appearance-based, light, dark, titlebar, selection, menu, popover, sidebar, medium-light or ultra-dark. Please note that using frame: false in combination with a vibrancy value requires that you use a non-default titleBarStyle as well.",
               "required": false,
               "possibleValues": [
                 {
@@ -2443,6 +2744,13 @@
                   "type": "String",
                   "collection": false,
                   "description": "Sets the session used by the page according to the session's partition string. If partition starts with persist:, the page will use a persistent session available to all pages in the app with the same partition. If there is no persist: prefix, the page will use an in-memory session. By assigning the same partition, multiple pages can share the same session. Default is the default session.",
+                  "required": false
+                },
+                {
+                  "name": "affinity",
+                  "type": "String",
+                  "collection": false,
+                  "description": "When specified, web pages with the same affinity will run in the same renderer process. Note that due to reusing the renderer process, certain webPreferences options will also be shared between the web pages even when you specified different values for them, including but not limited to preload, sandbox and nodeIntegration. So it is suggested to use exact same webPreferences for web pages with the same affinity.",
                   "required": false
                 },
                 {
@@ -2626,7 +2934,7 @@
                   "name": "backgroundThrottling",
                   "type": "Boolean",
                   "collection": false,
-                  "description": "Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API][#page-visibility]. Defaults to true.",
+                  "description": "Whether to throttle animations and timers when the page becomes background. This also affects the . Defaults to true.",
                   "required": false
                 },
                 {
@@ -2655,6 +2963,13 @@
                   "type": "Boolean",
                   "collection": false,
                   "description": "Whether to enable the . Defaults to the value of the nodeIntegration option. The preload script configured for the <webview> will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a <webview> tag with a possibly malicious preload script. You can use the will-attach-webview event on to strip away the preload script and to validate or alter the <webview>'s initial settings.",
+                  "required": false
+                },
+                {
+                  "name": "additionArguments",
+                  "type": "String",
+                  "collection": true,
+                  "description": "A list of strings that will be appended to process.argv in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.",
                   "required": false
                 }
               ]
@@ -2797,6 +3112,34 @@
         }
       },
       {
+        "name": "setSimpleFullScreen",
+        "signature": "(flag)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Enters or leaves simple fullscreen mode. Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).",
+        "parameters": [
+          {
+            "name": "flag",
+            "type": "Boolean",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "isSimpleFullScreen",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "returns": {
+          "type": "Boolean",
+          "collection": false,
+          "description": "Whether the window is in simple (pre-Lion) fullscreen mode."
+        }
+      },
+      {
         "name": "setAspectRatio",
         "signature": "(aspectRatio[, extraSize])",
         "platforms": [
@@ -2905,6 +3248,19 @@
           "type": "Rectangle",
           "collection": false
         }
+      },
+      {
+        "name": "setEnabled",
+        "signature": "(enable)",
+        "description": "Disable or enable the window.",
+        "parameters": [
+          {
+            "name": "enable",
+            "type": "Boolean",
+            "collection": false,
+            "required": true
+          }
+        ]
       },
       {
         "name": "setSize",
@@ -3635,6 +3991,19 @@
         ]
       },
       {
+        "name": "loadFile",
+        "signature": "(filePath)",
+        "description": "Same as webContents.loadFile, filePath should be a path to an HTML file relative to the root of your application.  See the webContents docs for more information.",
+        "parameters": [
+          {
+            "name": "filePath",
+            "type": "String",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "reload",
         "signature": "()",
         "description": "Same as webContents.reload."
@@ -3686,7 +4055,7 @@
                 "name": "mode",
                 "type": "String",
                 "collection": false,
-                "description": "Mode for the progress bar. Can be none, normal, indeterminate, error, or paused.",
+                "description": "Mode for the progress bar. Can be none, normal, indeterminate, error or paused.",
                 "required": true,
                 "possibleValues": [
                   {
@@ -3700,6 +4069,9 @@
                   },
                   {
                     "value": "error"
+                  },
+                  {
+                    "value": "paused"
                   }
                 ]
               }
@@ -3758,6 +4130,37 @@
           "type": "Boolean",
           "collection": false,
           "description": "Whether the window has a shadow."
+        }
+      },
+      {
+        "name": "setOpacity",
+        "signature": "(opacity)",
+        "platforms": [
+          "Windows",
+          "macOS"
+        ],
+        "description": "Sets the opacity of the window. On Linux does nothing.",
+        "parameters": [
+          {
+            "name": "opacity",
+            "type": "Number",
+            "collection": false,
+            "description": "between 0.0 (fully transparent) and 1.0 (fully opaque)",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "getOpacity",
+        "signature": "()",
+        "platforms": [
+          "Windows",
+          "macOS"
+        ],
+        "returns": {
+          "type": "Number",
+          "collection": false,
+          "description": "between 0.0 (fully transparent) and 1.0 (fully opaque)"
         }
       },
       {
@@ -3965,7 +4368,7 @@
       },
       {
         "name": "setIgnoreMouseEvents",
-        "signature": "(ignore)",
+        "signature": "(ignore[, options])",
         "description": "Makes the window ignore all mouse events. All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.",
         "parameters": [
           {
@@ -3973,6 +4376,21 @@
             "type": "Boolean",
             "collection": false,
             "required": true
+          },
+          {
+            "name": "options",
+            "type": "Object",
+            "collection": false,
+            "required": false,
+            "properties": [
+              {
+                "name": "forward",
+                "type": "Boolean",
+                "collection": false,
+                "description": "If true, forwards mouse move messages to Chromium, enabling mouse related events such as mouseleave. Only used when ignore is true. If ignore is false, forwarding is always disabled regardless of this value.",
+                "required": false
+              }
+            ]
           }
         ]
       },
@@ -4061,6 +4479,62 @@
         ]
       },
       {
+        "name": "selectPreviousTab",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Selects the previous tab when native tabs are enabled and there are other tabs in the window."
+      },
+      {
+        "name": "selectNextTab",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Selects the next tab when native tabs are enabled and there are other tabs in the window."
+      },
+      {
+        "name": "mergeAllWindows",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window."
+      },
+      {
+        "name": "moveTabToNewWindow",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window."
+      },
+      {
+        "name": "toggleTabBar",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window."
+      },
+      {
+        "name": "addTabbedWindow",
+        "signature": "(browserWindow)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Adds a window as a tab on this window, after the tab for the window instance.",
+        "parameters": [
+          {
+            "name": "browserWindow",
+            "type": "BrowserWindow",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "setVibrancy",
         "signature": "(type)",
         "platforms": [
@@ -4132,7 +4606,6 @@
         "platforms": [
           "Experimental"
         ],
-        "description": "Note: The BrowserView API is currently experimental and may change or be removed in future Electron releases.",
         "parameters": [
           {
             "name": "browserView",
@@ -4141,6 +4614,28 @@
             "required": true
           }
         ]
+      },
+      {
+        "name": "getBrowserView",
+        "signature": "()",
+        "platforms": [
+          "Experimental"
+        ],
+        "description": "Note: The BrowserView API is currently experimental and may change or be removed in future Electron releases.",
+        "returns": {
+          "type": [
+            {
+              "typeName": "BrowserView",
+              "collection": false
+            },
+            {
+              "typeName": "null",
+              "collection": false
+            }
+          ],
+          "collection": false,
+          "description": "an attached BrowserView. Returns null if none is attached."
+        }
       }
     ],
     "instanceProperties": [
@@ -4178,7 +4673,7 @@
       },
       {
         "name": "close",
-        "description": "Emitted when the window is going to be closed. It's emitted before the beforeunload and unload event of the DOM. Calling event.preventDefault() will cancel the close. Usually you would want to use the beforeunload handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than undefined would cancel the close. For example:",
+        "description": "Emitted when the window is going to be closed. It's emitted before the beforeunload and unload event of the DOM. Calling event.preventDefault() will cancel the close. Usually you would want to use the beforeunload handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than undefined would cancel the close. For example: Note: There is a subtle difference between the behaviors of window.onbeforeunload = handler and window.addEventListener('beforeunload', handler). It is recommended to always set the event.returnValue explicitly, instead of just returning a value, as the former works more consistently within Electron.",
         "returns": [
           {
             "name": "event",
@@ -4367,11 +4862,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "browser-window-proxy",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-window-proxy",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/browser-window-proxy.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/browser-window-proxy.md",
     "instanceName": "win",
     "instanceMethods": [
       {
@@ -4438,11 +4933,11 @@
   },
   {
     "name": "Certificate",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "certificate",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/certificate",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/certificate.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/certificate.md",
     "properties": [
       {
         "name": "data",
@@ -4518,11 +5013,11 @@
   },
   {
     "name": "CertificatePrincipal",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "certificate-principal",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/certificate-principal",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/certificate-principal.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/certificate-principal.md",
     "properties": [
       {
         "name": "commonName",
@@ -4575,11 +5070,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "client-request",
     "websiteUrl": "http://electron.atom.io/docs/api/client-request",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/client-request.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/client-request.md",
     "constructorMethod": {
       "signature": "(options)",
       "parameters": [
@@ -4639,7 +5134,7 @@
               "name": "host",
               "type": "String",
               "collection": false,
-              "description": "The server host provided as a concatenation of the hostname and the port number 'hostname:port'",
+              "description": "The server host provided as a concatenation of the hostname and the port number 'hostname:port'.",
               "required": false
             },
             {
@@ -5018,11 +5513,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "clipboard",
     "websiteUrl": "http://electron.atom.io/docs/api/clipboard",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/clipboard.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/clipboard.md",
     "methods": [
       {
         "name": "readText",
@@ -5443,11 +5938,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "content-tracing",
     "websiteUrl": "http://electron.atom.io/docs/api/content-tracing",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/content-tracing.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/content-tracing.md",
     "methods": [
       {
         "name": "getCategories",
@@ -5643,11 +6138,11 @@
   },
   {
     "name": "Cookie",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "cookie",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/cookie",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/cookie.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/cookie.md",
     "properties": [
       {
         "name": "name",
@@ -5721,17 +6216,17 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "cookies",
     "websiteUrl": "http://electron.atom.io/docs/api/cookies",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/cookies.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/cookies.md",
     "instanceName": "cookies",
     "instanceMethods": [
       {
         "name": "get",
         "signature": "(filter, callback)",
-        "description": "Sends a request to get all cookies matching details, callback will be called with callback(error, cookies) on complete.",
+        "description": "Sends a request to get all cookies matching filter, callback will be called with callback(error, cookies) on complete.",
         "parameters": [
           {
             "name": "filter",
@@ -5757,7 +6252,7 @@
                 "name": "domain",
                 "type": "String",
                 "collection": false,
-                "description": "Retrieves cookies whose domains match or are subdomains of domains",
+                "description": "Retrieves cookies whose domains match or are subdomains of domains.",
                 "required": false
               },
               {
@@ -5949,7 +6444,7 @@
             "name": "cookie",
             "type": "Cookie",
             "collection": false,
-            "description": "The cookie that was changed",
+            "description": "The cookie that was changed.",
             "required": true
           },
           {
@@ -5994,11 +6489,11 @@
   },
   {
     "name": "CPUUsage",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "cpu-usage",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/cpu-usage",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/cpu-usage.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/cpu-usage.md",
     "properties": [
       {
         "name": "percentCPUUsage",
@@ -6011,29 +6506,29 @@
         "name": "idleWakeupsPerSecond",
         "type": "Number",
         "collection": false,
-        "description": "The number of average idle cpu wakeups per second since the last call to getCPUUsage. First call returns 0.",
+        "description": "The number of average idle cpu wakeups per second since the last call to getCPUUsage. First call returns 0. Will always return 0 on Windows.",
         "required": true
       }
     ]
   },
   {
     "name": "CrashReport",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "crash-report",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/crash-report",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/crash-report.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/crash-report.md",
     "properties": [
       {
         "name": "date",
-        "type": "String",
+        "type": "Date",
         "collection": false,
         "description": "",
         "required": true
       },
       {
-        "name": "ID",
-        "type": "Integer",
+        "name": "id",
+        "type": "String",
         "collection": false,
         "description": "",
         "required": true
@@ -6047,16 +6542,16 @@
       "main": true,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "crash-reporter",
     "websiteUrl": "http://electron.atom.io/docs/api/crash-reporter",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/crash-reporter.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/crash-reporter.md",
     "methods": [
       {
         "name": "start",
         "signature": "(options)",
-        "description": "You are required to call this method before using any other crashReporter APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to crashReporter.start when calling from different processes. Note Child processes created via the child_process module will not have access to the Electron modules. Therefore, to collect crash reports from them, use process.crashReporter.start instead. Pass the same options as above along with an additional one called crashesDirectory that should point to a directory to store the crash reports temporarily. You can test this out by calling process.crash() to crash the child process. Note: To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace submitURL, productName and crashesDirectory with appropriate values. Note: If you need send additional/updated extra parameters after your first call start you can call setExtraParameter on macOS or call start again with the new/updated extra parameters on Linux and Windows. Note: On macOS, Electron uses a new crashpad client for crash collection and reporting. If you want to enable crash reporting, initializing crashpad from the main process using crashReporter.start is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call crashReporter.start from the renderer or child process, otherwise crashes from them will get reported without companyName, productName or any of the extra information.",
+        "description": "You are required to call this method before using any other crashReporter APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to crashReporter.start when calling from different processes. Note Child processes created via the child_process module will not have access to the Electron modules. Therefore, to collect crash reports from them, use process.crashReporter.start instead. Pass the same options as above along with an additional one called crashesDirectory that should point to a directory to store the crash reports temporarily. You can test this out by calling process.crash() to crash the child process. Note: To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace submitURL, productName and crashesDirectory with appropriate values. Note: If you need send additional/updated extra parameters after your first call start you can call addExtraParameter on macOS or call start again with the new/updated extra parameters on Linux and Windows. Note: On macOS, Electron uses a new crashpad client for crash collection and reporting. If you want to enable crash reporting, initializing crashpad from the main process using crashReporter.start is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call crashReporter.start from the renderer or child process, otherwise crashes from them will get reported without companyName, productName or any of the extra information.",
         "parameters": [
           {
             "name": "options",
@@ -6106,6 +6601,13 @@
                 "description": "An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.",
                 "required": false,
                 "properties": []
+              },
+              {
+                "name": "crashesDirectory",
+                "type": "String",
+                "collection": false,
+                "description": "Directory to store the crashreports temporarily (only used when the crash reporter is started via process.crashReporter.start).",
+                "required": false
               }
             ]
           }
@@ -6156,13 +6658,13 @@
             "name": "uploadToServer",
             "type": "Boolean",
             "collection": false,
-            "description": "Whether reports should be submitted to the server",
+            "description": "Whether reports should be submitted to the server.",
             "required": true
           }
         ]
       },
       {
-        "name": "setExtraParameter",
+        "name": "addExtraParameter",
         "signature": "(key, value)",
         "platforms": [
           "macOS"
@@ -6180,10 +6682,32 @@
             "name": "value",
             "type": "String",
             "collection": false,
-            "description": "Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.",
+            "description": "Parameter value, must be less than 64 characters long.",
             "required": true
           }
         ]
+      },
+      {
+        "name": "removeExtraParameter",
+        "signature": "(key)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "collection": false,
+            "description": "Parameter key, must be less than 64 characters long.",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "getParameters",
+        "signature": "()",
+        "description": "See all of the current parameters being passed to the crash reporter."
       }
     ]
   },
@@ -6194,11 +6718,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "debugger",
     "websiteUrl": "http://electron.atom.io/docs/api/debugger",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/debugger.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/debugger.md",
     "instanceName": "debugger",
     "instanceMethods": [
       {
@@ -6330,11 +6854,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "desktop-capturer",
     "websiteUrl": "http://electron.atom.io/docs/api/desktop-capturer",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/desktop-capturer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/desktop-capturer.md",
     "methods": [
       {
         "name": "getSources",
@@ -6391,11 +6915,11 @@
   },
   {
     "name": "DesktopCapturerSource",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "desktop-capturer-source",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/desktop-capturer-source",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/desktop-capturer-source.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/desktop-capturer-source.md",
     "properties": [
       {
         "name": "id",
@@ -6427,16 +6951,16 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "dialog",
     "websiteUrl": "http://electron.atom.io/docs/api/dialog",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/dialog.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/dialog.md",
     "methods": [
       {
         "name": "showOpenDialog",
         "signature": "([browserWindow, ]options[, callback])",
-        "description": "The browserWindow argument allows the dialog to attach itself to a parent window, making it modal. The filters specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example: The extensions array should contain extensions without wildcards or dots (e.g. 'png' is good but '.png' and '*.png' are bad). To show all files, use the '*' wildcard (no other wildcard is supported). If a callback is passed, the API call will be asynchronous and the result will be passed via callback(filenames) Note: On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set properties to ['openFile', 'openDirectory'] on these platforms, a directory selector will be shown.",
+        "description": "The browserWindow argument allows the dialog to attach itself to a parent window, making it modal. The filters specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example: The extensions array should contain extensions without wildcards or dots (e.g. 'png' is good but '.png' and '*.png' are bad). To show all files, use the '*' wildcard (no other wildcard is supported). If a callback is passed, the API call will be asynchronous and the result will be passed via callback(filenames). Note: On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set properties to ['openFile', 'openDirectory'] on these platforms, a directory selector will be shown.",
         "parameters": [
           {
             "name": "browserWindow",
@@ -6503,19 +7027,19 @@
                   },
                   {
                     "value": "createDirectory",
-                    "description": "Allow creating new directories from dialog. <em>macOS</em>"
+                    "description": ""
                   },
                   {
                     "value": "promptToCreate",
-                    "description": "Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. <em>Windows</em>"
+                    "description": ""
                   },
                   {
                     "value": "noResolveAliases",
-                    "description": "Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. <em>macOS</em>"
+                    "description": ""
                   },
                   {
                     "value": "treatPackageAsDirectory",
-                    "description": "Treat packages, such as <code>.app</code> folders, as a directory instead of a file. <em>macOS</em>"
+                    "description": ""
                   }
                 ]
               },
@@ -6524,6 +7048,13 @@
                 "type": "String",
                 "collection": false,
                 "description": "Message to display above input boxes.",
+                "required": false
+              },
+              {
+                "name": "securityScopedBookmarks",
+                "type": "Boolean",
+                "collection": false,
+                "description": "Create when packaged for the Mac App Store.",
                 "required": false
               }
             ]
@@ -6540,6 +7071,13 @@
                 "collection": true,
                 "description": "An array of file paths chosen by the user",
                 "required": true
+              },
+              {
+                "name": "bookmarks",
+                "type": "String",
+                "collection": true,
+                "description": "An array matching the filePaths array of base64 encoded strings which contains security scoped bookmark data. securityScopedBookmarks must be enabled for this to be populated.",
+                "required": true
               }
             ]
           }
@@ -6553,7 +7091,7 @@
       {
         "name": "showSaveDialog",
         "signature": "([browserWindow, ]options[, callback])",
-        "description": "The browserWindow argument allows the dialog to attach itself to a parent window, making it modal. The filters specifies an array of file types that can be displayed, see dialog.showOpenDialog for an example. If a callback is passed, the API call will be asynchronous and the result will be passed via callback(filename)",
+        "description": "The browserWindow argument allows the dialog to attach itself to a parent window, making it modal. The filters specifies an array of file types that can be displayed, see dialog.showOpenDialog for an example. If a callback is passed, the API call will be asynchronous and the result will be passed via callback(filename).",
         "parameters": [
           {
             "name": "browserWindow",
@@ -6615,6 +7153,13 @@
                 "collection": false,
                 "description": "Show the tags input box, defaults to true.",
                 "required": false
+              },
+              {
+                "name": "securityScopedBookmarks",
+                "type": "Boolean",
+                "collection": false,
+                "description": "Create a when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.",
+                "required": false
               }
             ]
           },
@@ -6629,6 +7174,13 @@
                 "type": "String",
                 "collection": false,
                 "description": "",
+                "required": true
+              },
+              {
+                "name": "bookmark",
+                "type": "String",
+                "collection": false,
+                "description": "Base64 encoded string which contains the security scoped bookmark data for the saved file. securityScopedBookmarks must be enabled for this to be present.",
                 "required": true
               }
             ]
@@ -6753,7 +7305,7 @@
                 "name": "response",
                 "type": "Number",
                 "collection": false,
-                "description": "The index of the button that was clicked",
+                "description": "The index of the button that was clicked.",
                 "required": true
               },
               {
@@ -6775,20 +7327,20 @@
       {
         "name": "showErrorBox",
         "signature": "(title, content)",
-        "description": "Displays a modal dialog that shows an error message. This API can be called safely before the ready event the app module emits, it is usually used to report errors in early stage of startup.  If called before the app readyevent on Linux, the message will be emitted to stderr, and no GUI dialog will appear.",
+        "description": "Displays a modal dialog that shows an error message. This API can be called safely before the ready event the app module emits, it is usually used to report errors in early stage of startup. If called before the app readyevent on Linux, the message will be emitted to stderr, and no GUI dialog will appear.",
         "parameters": [
           {
             "name": "title",
             "type": "String",
             "collection": false,
-            "description": "The title to display in the error box",
+            "description": "The title to display in the error box.",
             "required": true
           },
           {
             "name": "content",
             "type": "String",
             "collection": false,
-            "description": "The text content to display in the error box",
+            "description": "The text content to display in the error box.",
             "required": true
           }
         ]
@@ -6842,11 +7394,11 @@
   },
   {
     "name": "Display",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "display",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/display",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/display.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/display.md",
     "properties": [
       {
         "name": "id",
@@ -6924,11 +7476,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "download-item",
     "websiteUrl": "http://electron.atom.io/docs/api/download-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/download-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/download-item.md",
     "instanceName": "downloadItem",
     "instanceMethods": [
       {
@@ -6976,7 +7528,11 @@
       {
         "name": "canResume",
         "signature": "()",
-        "description": "Resumes Boolean - Whether the download can resume."
+        "returns": {
+          "type": "Boolean",
+          "collection": false,
+          "description": "Whether the download can resume."
+        }
       },
       {
         "name": "cancel",
@@ -7124,7 +7680,16 @@
             "name": "state",
             "type": "String",
             "collection": false,
-            "required": true
+            "description": "Can be `progressing` or `interrupted`.",
+            "required": true,
+            "possibleValues": [
+              {
+                "value": "progressing"
+              },
+              {
+                "value": "interrupted"
+              }
+            ]
           }
         ]
       },
@@ -7142,7 +7707,19 @@
             "name": "state",
             "type": "String",
             "collection": false,
-            "required": true
+            "description": "Can be `completed`, `cancelled` or `interrupted`.",
+            "required": true,
+            "possibleValues": [
+              {
+                "value": "completed"
+              },
+              {
+                "value": "cancelled"
+              },
+              {
+                "value": "interrupted"
+              }
+            ]
           }
         ]
       }
@@ -7150,11 +7727,11 @@
   },
   {
     "name": "FileFilter",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "file-filter",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/file-filter",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/file-filter.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/file-filter.md",
     "properties": [
       {
         "name": "name",
@@ -7179,11 +7756,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "global-shortcut",
     "websiteUrl": "http://electron.atom.io/docs/api/global-shortcut",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/global-shortcut.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/global-shortcut.md",
     "methods": [
       {
         "name": "register",
@@ -7244,11 +7821,11 @@
   },
   {
     "name": "GPUFeatureStatus",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "gpu-feature-status",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/gpu-feature-status",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/gpu-feature-status.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/gpu-feature-status.md",
     "properties": [
       {
         "name": "2d_canvas",
@@ -7344,17 +7921,107 @@
     ]
   },
   {
+    "name": "inAppPurchase",
+    "description": "In-app purchases on Mac App Store.",
+    "process": {
+      "main": true,
+      "renderer": false
+    },
+    "version": "2.0.0",
+    "type": "Module",
+    "slug": "in-app-purchase",
+    "websiteUrl": "http://electron.atom.io/docs/api/in-app-purchase",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/in-app-purchase.md",
+    "methods": [
+      {
+        "name": "purchaseProduct",
+        "signature": "(productID, quantity, callback)",
+        "parameters": [
+          {
+            "name": "productID",
+            "type": "String",
+            "collection": false,
+            "description": "The id of the product to purchase. (the id of `com.example.app.product1` is `product1`).",
+            "required": true
+          },
+          {
+            "name": "quantity",
+            "type": "Integer",
+            "collection": false,
+            "description": "The number of items the user wants to purchase.",
+            "required": false
+          },
+          {
+            "name": "callback",
+            "type": "Function",
+            "collection": false,
+            "description": "The callback called when the payment is added to the PaymentQueue. (You should add a listener with `inAppPurchase.addTransactionsListener` to get the transaction status).",
+            "required": false,
+            "parameters": [
+              {
+                "name": "isProductValid",
+                "type": "Boolean",
+                "collection": false,
+                "description": "Determine if the product is valid and added to the payment queue.",
+                "required": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "canMakePayments",
+        "signature": "()",
+        "returns": {
+          "type": "true",
+          "collection": false,
+          "description": "if the user can make a payment and false otherwise."
+        }
+      },
+      {
+        "name": "getReceiptURL",
+        "signature": "()",
+        "returns": {
+          "type": "String",
+          "collection": false,
+          "description": ", the path to the receipt."
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": "transactions-updated",
+        "description": "Emitted when one or more transactions have been updated.",
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "transactions",
+            "type": "Transaction",
+            "collection": true,
+            "description": "Array of transactions.",
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "IncomingMessage",
     "description": "Handle responses to HTTP/HTTPS requests.",
     "process": {
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "incoming-message",
     "websiteUrl": "http://electron.atom.io/docs/api/incoming-message",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/incoming-message.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/incoming-message.md",
     "instanceName": "response",
     "instanceProperties": [
       {
@@ -7424,11 +8091,11 @@
   },
   {
     "name": "IOCounters",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "io-counters",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/io-counters",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/io-counters.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/io-counters.md",
     "properties": [
       {
         "name": "readOperationCount",
@@ -7481,11 +8148,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "ipc-main",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-main",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/ipc-main.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/ipc-main.md",
     "methods": [
       {
         "name": "on",
@@ -7566,11 +8233,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "ipc-renderer",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-renderer",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/ipc-renderer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/ipc-renderer.md",
     "methods": [
       {
         "name": "on",
@@ -7631,14 +8298,14 @@
       },
       {
         "name": "removeAllListeners",
-        "signature": "([channel])",
+        "signature": "(channel)",
         "description": "Removes all listeners, or those of the specified channel.",
         "parameters": [
           {
             "name": "channel",
             "type": "String",
             "collection": false,
-            "required": false
+            "required": true
           }
         ]
       },
@@ -7686,6 +8353,31 @@
         }
       },
       {
+        "name": "sendTo",
+        "signature": "(windowId, channel, [, arg1][, arg2][, ...])",
+        "description": "Sends a message to a window with windowid via channel.",
+        "parameters": [
+          {
+            "name": "windowId",
+            "type": "Number",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "channel",
+            "type": "String",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "...args",
+            "type": "any",
+            "collection": true,
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "sendToHost",
         "signature": "(channel[, arg1][, arg2][, ...])",
         "description": "Like ipcRenderer.send but the event will be sent to the <webview> element in the host page instead of the main process.",
@@ -7708,11 +8400,11 @@
   },
   {
     "name": "JumpListCategory",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "jump-list-category",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/jump-list-category",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/jump-list-category.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/jump-list-category.md",
     "properties": [
       {
         "name": "type",
@@ -7757,11 +8449,11 @@
   },
   {
     "name": "JumpListItem",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "jump-list-item",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/jump-list-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/jump-list-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/jump-list-item.md",
     "properties": [
       {
         "name": "type",
@@ -7837,11 +8529,11 @@
   },
   {
     "name": "MemoryInfo",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "memory-info",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/memory-info",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/memory-info.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/memory-info.md",
     "properties": [
       {
         "name": "pid",
@@ -7882,11 +8574,11 @@
   },
   {
     "name": "MemoryUsageDetails",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "memory-usage-details",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/memory-usage-details",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/memory-usage-details.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/memory-usage-details.md",
     "properties": [
       {
         "name": "count",
@@ -7918,11 +8610,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "menu",
     "websiteUrl": "http://electron.atom.io/docs/api/menu",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/menu.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/menu.md",
     "staticMethods": [
       {
         "name": "setApplicationMenu",
@@ -7931,7 +8623,16 @@
         "parameters": [
           {
             "name": "menu",
-            "type": "Menu",
+            "type": [
+              {
+                "typeName": "Menu",
+                "collection": false
+              },
+              {
+                "typeName": "null",
+                "collection": false
+              }
+            ],
             "collection": false,
             "required": true
           }
@@ -7942,7 +8643,16 @@
         "signature": "()",
         "description": "Note: The returned Menu instance doesn't support dynamic addition or removal of menu items. Instance properties can still be dynamically modified.",
         "returns": {
-          "type": "Menu",
+          "type": [
+            {
+              "typeName": "Menu",
+              "collection": false
+            },
+            {
+              "typeName": "null",
+              "collection": false
+            }
+          ],
           "collection": false,
           "description": "The application menu, if set, or null, if not set."
         }
@@ -7988,22 +8698,22 @@
     "instanceMethods": [
       {
         "name": "popup",
-        "signature": "([browserWindow, options])",
-        "description": "Pops up this menu as a context menu in the browserWindow.",
+        "signature": "(options)",
+        "description": "Pops up this menu as a context menu in the BrowserWindow.",
         "parameters": [
-          {
-            "name": "browserWindow",
-            "type": "BrowserWindow",
-            "collection": false,
-            "description": "Default is the focused window.",
-            "required": false
-          },
           {
             "name": "options",
             "type": "Object",
             "collection": false,
-            "required": false,
+            "required": true,
             "properties": [
+              {
+                "name": "window",
+                "type": "BrowserWindow",
+                "collection": false,
+                "description": "Default is the focused window.",
+                "required": false
+              },
               {
                 "name": "x",
                 "type": "Number",
@@ -8019,18 +8729,19 @@
                 "required": false
               },
               {
-                "name": "async",
-                "type": "Boolean",
-                "collection": false,
-                "description": "Set to true to have this method return immediately called, false to return after the menu has been selected or closed. Defaults to false.",
-                "required": false
-              },
-              {
                 "name": "positioningItem",
                 "type": "Number",
                 "collection": false,
                 "description": "The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.",
                 "required": false
+              },
+              {
+                "name": "callback",
+                "type": "Function",
+                "collection": false,
+                "description": "Called when menu is closed.",
+                "required": false,
+                "parameters": []
               }
             ]
           }
@@ -8064,6 +8775,23 @@
         ]
       },
       {
+        "name": "getMenuItemById",
+        "signature": "(id)",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "String",
+            "collection": false,
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": "MenuItem",
+          "collection": false,
+          "description": "the item with the specified id"
+        }
+      },
+      {
         "name": "insert",
         "signature": "(pos, menuItem)",
         "description": "Inserts the menuItem to the pos position of the menu.",
@@ -8090,6 +8818,32 @@
         "type": "MenuItem",
         "collection": true
       }
+    ],
+    "instanceEvents": [
+      {
+        "name": "menu-will-show",
+        "description": "Emitted when menu.popup() is called.",
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "menu-will-close",
+        "description": "Emitted when a popup is closed either manually or with menu.closePopup().",
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          }
+        ]
+      }
     ]
   },
   {
@@ -8099,11 +8853,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "menu-item",
     "websiteUrl": "http://electron.atom.io/docs/api/menu-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/menu-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/menu-item.md",
     "constructorMethod": {
       "signature": "(options)",
       "parameters": [
@@ -8245,7 +8999,7 @@
                 }
               ],
               "collection": false,
-              "description": "Should be specified for submenu type menu items. If submenu is specified, the type: 'submenu' can be omitted. If the value is not a Menu then it will be automatically converted to one using Menu.buildFromTemplate.",
+              "description": "Should be specified for submenu type menu items. If submenu is specified, the type: 'submenu' can be omitted. If the value is not a then it will be automatically converted to one using Menu.buildFromTemplate.",
               "required": false
             },
             {
@@ -8288,13 +9042,13 @@
       },
       {
         "name": "label",
-        "description": "A String representing the menu items visible label",
+        "description": "A String representing the menu items visible label.",
         "type": "String",
         "collection": false
       },
       {
         "name": "click",
-        "description": "A Function that is fired when the MenuItem receives a click event",
+        "description": "A Function that is fired when the MenuItem receives a click event.",
         "type": "Function",
         "collection": false
       }
@@ -8302,11 +9056,11 @@
   },
   {
     "name": "MimeTypedBuffer",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "mime-typed-buffer",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/mime-typed-buffer",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/mime-typed-buffer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/mime-typed-buffer.md",
     "properties": [
       {
         "name": "mimeType",
@@ -8331,11 +9085,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "native-image",
     "websiteUrl": "http://electron.atom.io/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/native-image.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/native-image.md",
     "instanceName": "image",
     "instanceMethods": [
       {
@@ -8521,7 +9275,7 @@
             "name": "rect",
             "type": "Rectangle",
             "collection": false,
-            "description": "The area of the image to crop",
+            "description": "The area of the image to crop.",
             "required": true
           }
         ],
@@ -8553,7 +9307,7 @@
                 "name": "height",
                 "type": "Integer",
                 "collection": false,
-                "description": "Defaults to the image's height",
+                "description": "Defaults to the image's height.",
                 "required": false
               },
               {
@@ -8640,11 +9394,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "native-image",
     "websiteUrl": "http://electron.atom.io/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/native-image.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/native-image.md",
     "methods": [
       {
         "name": "createEmpty",
@@ -8734,6 +9488,32 @@
           "type": "NativeImage",
           "collection": false
         }
+      },
+      {
+        "name": "createFromNamedImage",
+        "signature": "(imageName[, hslShift])",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Creates a new NativeImage instance from the NSImage that maps to the given image name. See NSImageName for a list of possible values. The hslShift is applied to the image with the following rules This means that [-1, 0, 1] will make the image completely white and [-1, 1, 0] will make the image completely black.",
+        "parameters": [
+          {
+            "name": "imageName",
+            "type": "String",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "hslShift",
+            "type": "Number",
+            "collection": true,
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": "NativeImage",
+          "collection": false
+        }
       }
     ]
   },
@@ -8744,11 +9524,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "net",
     "websiteUrl": "http://electron.atom.io/docs/api/net",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/net.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/net.md",
     "methods": [
       {
         "name": "request",
@@ -8786,11 +9566,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "notification",
     "websiteUrl": "http://electron.atom.io/docs/api/notification",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/notification.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/notification.md",
     "staticMethods": [
       {
         "name": "isSupported",
@@ -8815,7 +9595,7 @@
               "name": "title",
               "type": "String",
               "collection": false,
-              "description": "A title for the notification, which will be shown at the top of the notification window when it is shown",
+              "description": "A title for the notification, which will be shown at the top of the notification window when it is shown.",
               "required": true
             },
             {
@@ -8829,21 +9609,30 @@
               "name": "body",
               "type": "String",
               "collection": false,
-              "description": "The body text of the notification, which will be displayed below the title or subtitle",
+              "description": "The body text of the notification, which will be displayed below the title or subtitle.",
               "required": true
             },
             {
               "name": "silent",
               "type": "Boolean",
               "collection": false,
-              "description": "Whether or not to emit an OS notification noise when showing the notification",
+              "description": "Whether or not to emit an OS notification noise when showing the notification.",
               "required": false
             },
             {
               "name": "icon",
-              "type": "NativeImage",
+              "type": [
+                {
+                  "typeName": "String",
+                  "collection": false
+                },
+                {
+                  "typeName": "NativeImage",
+                  "collection": false
+                }
+              ],
               "collection": false,
-              "description": "An icon to use in the notification",
+              "description": "An icon to use in the notification.",
               "required": false
             },
             {
@@ -8871,7 +9660,14 @@
               "name": "actions",
               "type": "NotificationAction",
               "collection": true,
-              "description": "Actions to add to the notification. Please read the available actions and limitations in the NotificationAction documentation",
+              "description": "Actions to add to the notification. Please read the available actions and limitations in the NotificationAction documentation.",
+              "required": false
+            },
+            {
+              "name": "closeButtonText",
+              "type": "String",
+              "collection": false,
+              "description": "A custom title for the close button of an alert. An empty string will cause the default localized text to be used.",
               "required": false
             }
           ]
@@ -8883,7 +9679,12 @@
       {
         "name": "show",
         "signature": "()",
-        "description": "Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a new Notification does not immediately show it to the user, you need to call this method before the OS will display it."
+        "description": "Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a new Notification does not immediately show it to the user, you need to call this method before the OS will display it. If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties."
+      },
+      {
+        "name": "close",
+        "signature": "()",
+        "description": "Dismisses the notification."
       }
     ],
     "instanceEvents": [
@@ -8913,7 +9714,7 @@
       },
       {
         "name": "close",
-        "description": "Emitted when the notification is closed by manual intervention from the user. This event is not guarunteed to be emitted in all cases where the notification is closed.",
+        "description": "Emitted when the notification is closed by manual intervention from the user. This event is not guaranteed to be emitted in all cases where the notification is closed.",
         "returns": [
           {
             "name": "event",
@@ -8940,7 +9741,7 @@
             "name": "reply",
             "type": "String",
             "collection": false,
-            "description": "The string the user entered into the inline reply field",
+            "description": "The string the user entered into the inline reply field.",
             "required": true
           }
         ]
@@ -8961,7 +9762,7 @@
             "name": "index",
             "type": "Number",
             "collection": false,
-            "description": "The index of the action that was activated",
+            "description": "The index of the action that was activated.",
             "required": true
           }
         ]
@@ -8970,11 +9771,11 @@
   },
   {
     "name": "NotificationAction",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "notification-action",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/notification-action",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/notification-action.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/notification-action.md",
     "properties": [
       {
         "name": "type",
@@ -8999,11 +9800,11 @@
   },
   {
     "name": "Point",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "point",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/point",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/point.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/point.md",
     "properties": [
       {
         "name": "x",
@@ -9028,11 +9829,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "power-monitor",
     "websiteUrl": "http://electron.atom.io/docs/api/power-monitor",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/power-monitor.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/power-monitor.md",
     "events": [
       {
         "name": "suspend",
@@ -9055,6 +9856,14 @@
         "platforms": [
           "Windows"
         ]
+      },
+      {
+        "name": "shutdown",
+        "description": "Emitted when the system is about to reboot or shut down. If the event handler invokes e.preventDefault(), Electron will attempt to delay system shutdown in order for the app to exit cleanly. If e.preventDefault() is called, the app should exit as soon as possible by calling something like app.quit().",
+        "platforms": [
+          "Linux",
+          "macOS"
+        ]
       }
     ]
   },
@@ -9065,11 +9874,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "power-save-blocker",
     "websiteUrl": "http://electron.atom.io/docs/api/power-save-blocker",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/power-save-blocker.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/power-save-blocker.md",
     "methods": [
       {
         "name": "start",
@@ -9097,7 +9906,7 @@
         "returns": {
           "type": "Integer",
           "collection": false,
-          "description": "The blocker ID that is assigned to this power blocker"
+          "description": "The blocker ID that is assigned to this power blocker."
         }
       },
       {
@@ -9136,11 +9945,11 @@
   },
   {
     "name": "PrinterInfo",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "printer-info",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/printer-info",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/printer-info.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/printer-info.md",
     "properties": [
       {
         "name": "name",
@@ -9179,11 +9988,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "process",
     "websiteUrl": "http://electron.atom.io/docs/api/process",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/process.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/process.md",
     "methods": [
       {
         "name": "crash",
@@ -9243,7 +10052,7 @@
               "name": "sharedBytes",
               "type": "Integer",
               "collection": false,
-              "description": "The amount of memory shared between processes, typically memory consumed by the Electron code itself",
+              "description": "The amount of memory shared between processes, typically memory consumed by the Electron code itself.",
               "required": true
             }
           ]
@@ -9338,7 +10147,7 @@
       },
       {
         "name": "noDeprecation",
-        "description": "A Boolean that controls whether or not deprecation warnings are printed to stderr. Setting this to true will silence deprecation warnings.  This property is used instead of the --no-deprecation command line flag.",
+        "description": "A Boolean that controls whether or not deprecation warnings are printed to stderr. Setting this to true will silence deprecation warnings. This property is used instead of the --no-deprecation command line flag.",
         "type": "Boolean",
         "collection": false
       },
@@ -9350,19 +10159,19 @@
       },
       {
         "name": "throwDeprecation",
-        "description": "A Boolean that controls whether or not deprecation warnings will be thrown as exceptions.  Setting this to true will throw errors for deprecations.  This property is used instead of the --throw-deprecation command line flag.",
+        "description": "A Boolean that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to true will throw errors for deprecations. This property is used instead of the --throw-deprecation command line flag.",
         "type": "Boolean",
         "collection": false
       },
       {
         "name": "traceDeprecation",
-        "description": "A Boolean that controls whether or not deprecations printed to stderr include their stack trace.  Setting this to true will print  stack traces for deprecations. This property is instead of the --trace-deprecation command line flag.",
+        "description": "A Boolean that controls whether or not deprecations printed to stderr include their stack trace. Setting this to true will print stack traces for deprecations. This property is instead of the --trace-deprecation command line flag.",
         "type": "Boolean",
         "collection": false
       },
       {
         "name": "traceProcessWarnings",
-        "description": "A Boolean that controls whether or not process warnings printed to stderr include their stack trace.  Setting this to true will print stack traces for process warnings (including deprecations).  This property is instead of the --trace-warnings command line flag.",
+        "description": "A Boolean that controls whether or not process warnings printed to stderr include their stack trace. Setting this to true will print stack traces for process warnings (including deprecations). This property is instead of the --trace-warnings command line flag.",
         "type": "Boolean",
         "collection": false
       },
@@ -9403,11 +10212,11 @@
   },
   {
     "name": "ProcessMetric",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "process-metric",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/process-metric",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/process-metric.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/process-metric.md",
     "properties": [
       {
         "name": "pid",
@@ -9446,11 +10255,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "protocol",
     "websiteUrl": "http://electron.atom.io/docs/api/protocol",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/protocol.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/protocol.md",
     "methods": [
       {
         "name": "registerStandardSchemes",
@@ -9884,6 +10693,112 @@
                         ]
                       }
                     ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "completion",
+            "type": "Function",
+            "collection": false,
+            "required": false,
+            "parameters": [
+              {
+                "name": "error",
+                "type": "Error",
+                "collection": false,
+                "description": "",
+                "required": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "registerStreamProtocol",
+        "signature": "(scheme, handler[, completion])",
+        "description": "Registers a protocol of scheme that will send a Readable as a response. The usage is similar to the other register{Any}Protocol, except that the callback should be called with either a Readable object or an object that has the data, statusCode, and headers properties. Example: It is possible to pass any object that implements the readable stream API (emits data/end/error events). For example, here's how a file could be returned:",
+        "parameters": [
+          {
+            "name": "scheme",
+            "type": "String",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "handler",
+            "type": "Function",
+            "collection": false,
+            "required": true,
+            "parameters": [
+              {
+                "name": "request",
+                "type": "Object",
+                "collection": false,
+                "description": "",
+                "required": true,
+                "properties": [
+                  {
+                    "name": "url",
+                    "type": "String",
+                    "collection": false,
+                    "description": "",
+                    "required": true
+                  },
+                  {
+                    "name": "headers",
+                    "type": "Object",
+                    "collection": false,
+                    "description": "",
+                    "required": true,
+                    "properties": []
+                  },
+                  {
+                    "name": "referrer",
+                    "type": "String",
+                    "collection": false,
+                    "description": "",
+                    "required": true
+                  },
+                  {
+                    "name": "method",
+                    "type": "String",
+                    "collection": false,
+                    "description": "",
+                    "required": true
+                  },
+                  {
+                    "name": "uploadData",
+                    "type": "UploadData",
+                    "collection": true,
+                    "description": "",
+                    "required": true
+                  }
+                ]
+              },
+              {
+                "name": "callback",
+                "type": "Function",
+                "collection": false,
+                "description": "",
+                "required": true,
+                "parameters": [
+                  {
+                    "name": "stream",
+                    "type": [
+                      {
+                        "typeName": "ReadableStream",
+                        "collection": false
+                      },
+                      {
+                        "typeName": "StreamProtocolResponse",
+                        "collection": false
+                      }
+                    ],
+                    "collection": false,
+                    "description": "",
+                    "required": false
                   }
                 ]
               }
@@ -10366,6 +11281,112 @@
         ]
       },
       {
+        "name": "interceptStreamProtocol",
+        "signature": "(scheme, handler[, completion])",
+        "description": "Same as protocol.registerStreamProtocol, except that it replaces an existing protocol handler.",
+        "parameters": [
+          {
+            "name": "scheme",
+            "type": "String",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "handler",
+            "type": "Function",
+            "collection": false,
+            "required": true,
+            "parameters": [
+              {
+                "name": "request",
+                "type": "Object",
+                "collection": false,
+                "description": "",
+                "required": true,
+                "properties": [
+                  {
+                    "name": "url",
+                    "type": "String",
+                    "collection": false,
+                    "description": "",
+                    "required": true
+                  },
+                  {
+                    "name": "headers",
+                    "type": "Object",
+                    "collection": false,
+                    "description": "",
+                    "required": true,
+                    "properties": []
+                  },
+                  {
+                    "name": "referrer",
+                    "type": "String",
+                    "collection": false,
+                    "description": "",
+                    "required": true
+                  },
+                  {
+                    "name": "method",
+                    "type": "String",
+                    "collection": false,
+                    "description": "",
+                    "required": true
+                  },
+                  {
+                    "name": "uploadData",
+                    "type": "UploadData",
+                    "collection": true,
+                    "description": "",
+                    "required": true
+                  }
+                ]
+              },
+              {
+                "name": "callback",
+                "type": "Function",
+                "collection": false,
+                "description": "",
+                "required": true,
+                "parameters": [
+                  {
+                    "name": "stream",
+                    "type": [
+                      {
+                        "typeName": "ReadableStream",
+                        "collection": false
+                      },
+                      {
+                        "typeName": "StreamProtocolResponse",
+                        "collection": false
+                      }
+                    ],
+                    "collection": false,
+                    "description": "",
+                    "required": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "completion",
+            "type": "Function",
+            "collection": false,
+            "required": false,
+            "parameters": [
+              {
+                "name": "error",
+                "type": "Error",
+                "collection": false,
+                "description": "",
+                "required": true
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "uninterceptProtocol",
         "signature": "(scheme[, completion])",
         "description": "Remove the interceptor installed for scheme and restore its original handler.",
@@ -10397,11 +11418,11 @@
   },
   {
     "name": "Rectangle",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "rectangle",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/rectangle",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/rectangle.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/rectangle.md",
     "properties": [
       {
         "name": "x",
@@ -10440,11 +11461,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "remote",
     "websiteUrl": "http://electron.atom.io/docs/api/remote",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/remote.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/remote.md",
     "methods": [
       {
         "name": "require",
@@ -10509,11 +11530,11 @@
   },
   {
     "name": "RemoveClientCertificate",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "remove-client-certificate",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/remove-client-certificate",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/remove-client-certificate.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/remove-client-certificate.md",
     "properties": [
       {
         "name": "type",
@@ -10533,11 +11554,11 @@
   },
   {
     "name": "RemovePassword",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "remove-password",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/remove-password",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/remove-password.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/remove-password.md",
     "properties": [
       {
         "name": "type",
@@ -10604,11 +11625,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "screen",
     "websiteUrl": "http://electron.atom.io/docs/api/screen",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/screen.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/screen.md",
     "methods": [
       {
         "name": "getCursorScreenPoint",
@@ -10749,11 +11770,11 @@
   },
   {
     "name": "ScrubberItem",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "scrubber-item",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/scrubber-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/scrubber-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/scrubber-item.md",
     "properties": [
       {
         "name": "label",
@@ -10773,11 +11794,11 @@
   },
   {
     "name": "SegmentedControlSegment",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "segmented-control-segment",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/segmented-control-segment",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/segmented-control-segment.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/segmented-control-segment.md",
     "properties": [
       {
         "name": "label",
@@ -10809,11 +11830,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "session",
     "websiteUrl": "http://electron.atom.io/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/session.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/session.md",
     "methods": [
       {
         "name": "fromPartition",
@@ -10830,7 +11851,7 @@
             "name": "options",
             "type": "Object",
             "collection": false,
-            "required": true,
+            "required": false,
             "properties": [
               {
                 "name": "cache",
@@ -10865,11 +11886,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "session",
     "websiteUrl": "http://electron.atom.io/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/session.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/session.md",
     "instanceName": "ses",
     "instanceMethods": [
       {
@@ -10903,7 +11924,7 @@
             "name": "callback",
             "type": "Function",
             "collection": false,
-            "description": "Called when operation is done",
+            "description": "Called when operation is done.",
             "required": true
           }
         ]
@@ -10930,7 +11951,7 @@
                 "name": "storages",
                 "type": "String",
                 "collection": true,
-                "description": "The types of storages to clear, can contain: appcache, cookies, filesystem, indexdb, localstorage, shadercache, websql, serviceworkers",
+                "description": "The types of storages to clear, can contain: appcache, cookies, filesystem, indexdb, localstorage, shadercache, websql, serviceworkers.",
                 "required": false
               },
               {
@@ -11036,7 +12057,7 @@
             "name": "path",
             "type": "String",
             "collection": false,
-            "description": "The download location",
+            "description": "The download location.",
             "required": true
           }
         ]
@@ -11122,10 +12143,17 @@
                     "required": true
                   },
                   {
-                    "name": "error",
+                    "name": "verificationResult",
                     "type": "String",
                     "collection": false,
                     "description": "Verification result from chromium.",
+                    "required": true
+                  },
+                  {
+                    "name": "errorCode",
+                    "type": "Integer",
+                    "collection": false,
+                    "description": "Error code.",
                     "required": true
                   }
                 ]
@@ -11153,11 +12181,20 @@
       {
         "name": "setPermissionRequestHandler",
         "signature": "(handler)",
-        "description": "Sets the handler which can be used to respond to permission requests for the session. Calling callback(true) will allow the permission and callback(false) will reject it.",
+        "description": "Sets the handler which can be used to respond to permission requests for the session. Calling callback(true) will allow the permission and callback(false) will reject it. To clear the handler, call setPermissionRequestHandler(null).",
         "parameters": [
           {
             "name": "handler",
-            "type": "Function",
+            "type": [
+              {
+                "typeName": "Function",
+                "collection": false
+              },
+              {
+                "typeName": "null",
+                "collection": false
+              }
+            ],
             "collection": false,
             "required": true,
             "parameters": [
@@ -11186,7 +12223,23 @@
                     "name": "permissionGranted",
                     "type": "Boolean",
                     "collection": false,
-                    "description": "Allow or deny the permission",
+                    "description": "Allow or deny the permission.",
+                    "required": true
+                  }
+                ]
+              },
+              {
+                "name": "details",
+                "type": "Object",
+                "collection": false,
+                "description": "Some properties are only available on certain permission types.",
+                "required": true,
+                "properties": [
+                  {
+                    "name": "externalURL",
+                    "type": "String",
+                    "collection": false,
+                    "description": "The url of the openExternal request.",
                     "required": true
                   }
                 ]
@@ -11218,7 +12271,7 @@
             "name": "domains",
             "type": "String",
             "collection": false,
-            "description": "A comma-seperated list of servers for which integrated authentication is enabled.",
+            "description": "A comma-separated list of servers for which integrated authentication is enabled.",
             "required": true
           }
         ]
@@ -11277,12 +12330,7 @@
               }
             ]
           }
-        ],
-        "returns": {
-          "type": "Blob",
-          "collection": false,
-          "description": "The blob data associated with the identifier."
-        }
+        ]
       },
       {
         "name": "createInterruptedDownload",
@@ -11379,10 +12427,33 @@
             "name": "callback",
             "type": "Function",
             "collection": false,
-            "description": "Called when operation is done",
+            "description": "Called when operation is done.",
             "required": false
           }
         ]
+      },
+      {
+        "name": "setPreloads",
+        "signature": "(preloads)",
+        "description": "Adds scripts that will be executed on ALL web contents that are associated with this session just before normal preload scripts run.",
+        "parameters": [
+          {
+            "name": "preloads",
+            "type": "String",
+            "collection": true,
+            "description": "An array of absolute path to preload scripts",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "getPreloads",
+        "signature": "()",
+        "returns": {
+          "type": "String",
+          "collection": true,
+          "description": "an array of paths to preload scripts that have been registered."
+        }
       }
     ],
     "instanceProperties": [
@@ -11439,11 +12510,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "shell",
     "websiteUrl": "http://electron.atom.io/docs/api/shell",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/shell.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/shell.md",
     "methods": [
       {
         "name": "showItemInFolder",
@@ -11460,7 +12531,7 @@
         "returns": {
           "type": "Boolean",
           "collection": false,
-          "description": "Whether the item was successfully shown"
+          "description": "Whether the item was successfully shown."
         }
       },
       {
@@ -11490,6 +12561,7 @@
             "name": "url",
             "type": "String",
             "collection": false,
+            "description": "max 2081 characters on windows, or the function returns false.",
             "required": true
           },
           {
@@ -11545,7 +12617,7 @@
         "returns": {
           "type": "Boolean",
           "collection": false,
-          "description": "Whether the item was successfully moved to the trash"
+          "description": "Whether the item was successfully moved to the trash."
         }
       },
       {
@@ -11598,7 +12670,7 @@
         "returns": {
           "type": "Boolean",
           "collection": false,
-          "description": "Whether the shortcut was created successfully"
+          "description": "Whether the shortcut was created successfully."
         }
       },
       {
@@ -11625,11 +12697,11 @@
   },
   {
     "name": "ShortcutDetails",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "shortcut-details",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/shortcut-details",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/shortcut-details.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/shortcut-details.md",
     "properties": [
       {
         "name": "target",
@@ -11684,11 +12756,11 @@
   },
   {
     "name": "Size",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "size",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/size",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/size.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/size.md",
     "properties": [
       {
         "name": "width",
@@ -11707,17 +12779,49 @@
     ]
   },
   {
+    "name": "StreamProtocolResponse",
+    "version": "2.0.0",
+    "type": "Structure",
+    "slug": "stream-protocol-response",
+    "websiteUrl": "http://electron.atom.io/docs/api/structures/stream-protocol-response",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/stream-protocol-response.md",
+    "properties": [
+      {
+        "name": "statusCode",
+        "type": "Number",
+        "collection": false,
+        "description": "The HTTP response code",
+        "required": true
+      },
+      {
+        "name": "headers",
+        "type": "Object",
+        "collection": false,
+        "description": "An object containing the response headers",
+        "required": true,
+        "properties": []
+      },
+      {
+        "name": "data",
+        "type": "ReadableStream",
+        "collection": false,
+        "description": "A Node.js readable stream representing the response body",
+        "required": true
+      }
+    ]
+  },
+  {
     "name": "systemPreferences",
     "description": "Get system preferences.",
     "process": {
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "system-preferences",
     "websiteUrl": "http://electron.atom.io/docs/api/system-preferences",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/system-preferences.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/system-preferences.md",
     "methods": [
       {
         "name": "isDarkMode",
@@ -11848,7 +12952,7 @@
         "platforms": [
           "macOS"
         ],
-        "description": "Same as subscribeNotification, but uses NSNotificationCenter for local defaults. This is necessary for events such as NSUserDefaultsDidChangeNotification",
+        "description": "Same as subscribeNotification, but uses NSNotificationCenter for local defaults. This is necessary for events such as NSUserDefaultsDidChangeNotification.",
         "parameters": [
           {
             "name": "event",
@@ -11898,12 +13002,29 @@
         ]
       },
       {
+        "name": "registerDefaults",
+        "signature": "(defaults)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Add the specified defaults to your application's NSUserDefaults.",
+        "parameters": [
+          {
+            "name": "defaults",
+            "type": "Object",
+            "collection": false,
+            "description": "a dictionary of (`key: value`) user defaults",
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "getUserDefault",
         "signature": "(key, type)",
         "platforms": [
           "macOS"
         ],
-        "description": "This API uses NSUserDefaults on macOS. Some popular key and types are:",
+        "description": "Some popular key and types are:",
         "parameters": [
           {
             "name": "key",
@@ -11915,7 +13036,7 @@
             "name": "type",
             "type": "String",
             "collection": false,
-            "description": "Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`",
+            "description": "Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.",
             "required": true,
             "possibleValues": [
               {
@@ -11948,7 +13069,7 @@
         "returns": {
           "type": "any",
           "collection": false,
-          "description": "The value of key in system preferences."
+          "description": "The value of key in NSUserDefaults."
         }
       },
       {
@@ -11957,7 +13078,7 @@
         "platforms": [
           "macOS"
         ],
-        "description": "Set the value of key in system preferences. Note that type should match actual type of value. An exception is thrown if they don't. This API uses NSUserDefaults on macOS. Some popular key and types are:",
+        "description": "Set the value of key in NSUserDefaults. Note that type should match actual type of value. An exception is thrown if they don't. Some popular key and types are:",
         "parameters": [
           {
             "name": "key",
@@ -11969,11 +13090,27 @@
             "name": "type",
             "type": "String",
             "collection": false,
-            "description": "See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]",
+            "description": "See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].",
             "required": true
           },
           {
             "name": "value",
+            "type": "String",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "removeUserDefault",
+        "signature": "(key)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Removes the key in NSUserDefaults. This can be used to restore the default or global value of a key previously set with setUserDefault.",
+        "parameters": [
+          {
+            "name": "key",
             "type": "String",
             "collection": false,
             "required": true
@@ -12222,11 +13359,11 @@
   },
   {
     "name": "Task",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "task",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/task",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/task.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/task.md",
     "properties": [
       {
         "name": "program",
@@ -12274,11 +13411,11 @@
   },
   {
     "name": "ThumbarButton",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "thumbar-button",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/thumbar-button",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/thumbar-button.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/thumbar-button.md",
     "properties": [
       {
         "name": "icon",
@@ -12318,11 +13455,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "touch-bar",
     "websiteUrl": "http://electron.atom.io/docs/api/touch-bar",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/touch-bar.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar.md",
     "staticProperties": [
       {
         "name": "TouchBarButton",
@@ -12331,11 +13468,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "1.7.15",
+        "version": "2.0.0",
         "type": "Class",
         "slug": "touch-bar-button",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-button",
-        "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/touch-bar-button.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-button.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -12425,11 +13562,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "1.7.15",
+        "version": "2.0.0",
         "type": "Class",
         "slug": "touch-bar-color-picker",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-color-picker",
-        "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/touch-bar-color-picker.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-color-picker.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -12464,7 +13601,7 @@
                       "name": "color",
                       "type": "String",
                       "collection": false,
-                      "description": "The color that the user selected from the picker",
+                      "description": "The color that the user selected from the picker.",
                       "required": true
                     }
                   ]
@@ -12496,11 +13633,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "1.7.15",
+        "version": "2.0.0",
         "type": "Class",
         "slug": "touch-bar-group",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-group",
-        "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/touch-bar-group.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-group.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -12530,11 +13667,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "1.7.15",
+        "version": "2.0.0",
         "type": "Class",
         "slug": "touch-bar-label",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-label",
-        "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/touch-bar-label.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-label.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -12585,11 +13722,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "1.7.15",
+        "version": "2.0.0",
         "type": "Class",
         "slug": "touch-bar-popover",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-popover",
-        "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/touch-bar-popover.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-popover.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -12654,11 +13791,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "1.7.15",
+        "version": "2.0.0",
         "type": "Class",
         "slug": "touch-bar-scrubber",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-scrubber",
-        "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/touch-bar-scrubber.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-scrubber.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -12672,21 +13809,21 @@
                   "name": "items",
                   "type": "ScrubberItem",
                   "collection": true,
-                  "description": "An array of items to place in this scrubber",
+                  "description": "An array of items to place in this scrubber.",
                   "required": true
                 },
                 {
                   "name": "select",
                   "type": "Function",
                   "collection": false,
-                  "description": "Called when the user taps an item that was not the last tapped item",
+                  "description": "Called when the user taps an item that was not the last tapped item.",
                   "required": true,
                   "parameters": [
                     {
                       "name": "selectedIndex",
                       "type": "Integer",
                       "collection": false,
-                      "description": "The index of the item the user selected",
+                      "description": "The index of the item the user selected.",
                       "required": true
                     }
                   ]
@@ -12695,14 +13832,14 @@
                   "name": "highlight",
                   "type": "Function",
                   "collection": false,
-                  "description": "Called when the user taps any item",
+                  "description": "Called when the user taps any item.",
                   "required": true,
                   "parameters": [
                     {
                       "name": "highlightedIndex",
                       "type": "Integer",
                       "collection": false,
-                      "description": "The index of the item the user touched",
+                      "description": "The index of the item the user touched.",
                       "required": true
                     }
                   ]
@@ -12756,13 +13893,13 @@
           },
           {
             "name": "selectedStyle",
-            "description": "A String representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar.  Possible values:",
+            "description": "A String representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:",
             "type": "String",
             "collection": false
           },
           {
             "name": "overlayStyle",
-            "description": "A String representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar.  Possible values:",
+            "description": "A String representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Possible values:",
             "type": "String",
             "collection": false
           },
@@ -12793,11 +13930,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "1.7.15",
+        "version": "2.0.0",
         "type": "Class",
         "slug": "touch-bar-segmented-control",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-segmented-control",
-        "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/touch-bar-segmented-control.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-segmented-control.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -12836,7 +13973,7 @@
                     },
                     {
                       "value": "capsule",
-                      "description": "The control is displayed using the capsule style"
+                      "description": "The control is displayed using the capsule style."
                     },
                     {
                       "value": "small-square",
@@ -12887,7 +14024,7 @@
                   "name": "change",
                   "type": "Function",
                   "collection": false,
-                  "description": "Called when the user selects a new segment",
+                  "description": "Called when the user selects a new segment.",
                   "required": true,
                   "parameters": [
                     {
@@ -12914,19 +14051,19 @@
         "instanceProperties": [
           {
             "name": "segmentStyle",
-            "description": "A String representing the controls current segment style.  Updating this value immediately updates the control in the touch bar.",
+            "description": "A String representing the controls current segment style. Updating this value immediately updates the control in the touch bar.",
             "type": "String",
             "collection": false
           },
           {
             "name": "segments",
-            "description": "A SegmentedControlSegment[] array representing the segments in this control.  Updating this value immediately updates the control in the touch bar.  Updating deep properties inside this array does not update the touch bar.",
+            "description": "A SegmentedControlSegment[] array representing the segments in this control. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array does not update the touch bar.",
             "type": "SegmentedControlSegment",
             "collection": true
           },
           {
             "name": "selectedIndex",
-            "description": "An Integer representing the currently selected segment.  Changing this value immediately updates the control in the touch bar.  User interaction with the touch bar will update this value automatically.",
+            "description": "An Integer representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.",
             "type": "Integer",
             "collection": false
           }
@@ -12939,11 +14076,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "1.7.15",
+        "version": "2.0.0",
         "type": "Class",
         "slug": "touch-bar-slider",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-slider",
-        "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/touch-bar-slider.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-slider.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -12992,7 +14129,7 @@
                       "name": "newValue",
                       "type": "Number",
                       "collection": false,
-                      "description": "The value that the user selected on the Slider",
+                      "description": "The value that the user selected on the Slider.",
                       "required": true
                     }
                   ]
@@ -13036,11 +14173,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "1.7.15",
+        "version": "2.0.0",
         "type": "Class",
         "slug": "touch-bar-spacer",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-spacer",
-        "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/touch-bar-spacer.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-spacer.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13169,6 +14306,10 @@
                 {
                   "typeName": "TouchBarSpacer",
                   "collection": false
+                },
+                {
+                  "typeName": "null",
+                  "collection": false
                 }
               ],
               "collection": false,
@@ -13183,7 +14324,84 @@
     "instanceProperties": [
       {
         "name": "escapeItem",
-        "description": "The TouchBarButton that will replace the \"esc\" button on the touch bar when set. Setting to null restores the default \"esc\" button. Changing this value immediately updates the escape item in the touch bar."
+        "description": "A TouchBarItem that will replace the \"esc\" button on the touch bar when set. Setting to null restores the default \"esc\" button. Changing this value immediately updates the escape item in the touch bar.",
+        "type": "TouchBarItem",
+        "collection": false
+      }
+    ]
+  },
+  {
+    "name": "Transaction",
+    "version": "2.0.0",
+    "type": "Structure",
+    "slug": "transaction",
+    "websiteUrl": "http://electron.atom.io/docs/api/structures/transaction",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/transaction.md",
+    "properties": [
+      {
+        "name": "transactionIdentifier",
+        "type": "String",
+        "collection": false,
+        "description": "",
+        "required": true
+      },
+      {
+        "name": "transactionDate",
+        "type": "String",
+        "collection": false,
+        "description": "",
+        "required": true
+      },
+      {
+        "name": "originalTransactionIdentifier",
+        "type": "String",
+        "collection": false,
+        "description": "",
+        "required": true
+      },
+      {
+        "name": "transactionState",
+        "type": "String",
+        "collection": false,
+        "description": "The transaction sate (\"purchasing\", \"purchased\", \"failed\", \"restored\", or \"deferred\")",
+        "required": true
+      },
+      {
+        "name": "errorCode",
+        "type": "Integer",
+        "collection": false,
+        "description": "",
+        "required": true
+      },
+      {
+        "name": "errorMessage",
+        "type": "String",
+        "collection": false,
+        "description": "",
+        "required": true
+      },
+      {
+        "name": "payment",
+        "type": "Object",
+        "collection": false,
+        "description": "",
+        "required": true,
+        "properties": [
+          {
+            "name": "productIdentifier",
+            "type": "String",
+            "collection": false,
+            "description": "",
+            "required": true
+          },
+          {
+            "name": "quantity",
+            "type": "Integer",
+            "collection": false,
+            "description": "",
+            "required": true
+          }
+        ]
       }
     ]
   },
@@ -13194,11 +14412,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "tray",
     "websiteUrl": "http://electron.atom.io/docs/api/tray",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/tray.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/tray.md",
     "constructorMethod": {
       "signature": "(image)",
       "parameters": [
@@ -13283,7 +14501,7 @@
         "platforms": [
           "macOS"
         ],
-        "description": "Sets the title displayed aside of the tray icon in the status bar.",
+        "description": "Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).",
         "parameters": [
           {
             "name": "title",
@@ -13351,7 +14569,7 @@
                   }
                 ],
                 "collection": false,
-                "description": "",
+                "description": "-",
                 "required": false
               },
               {
@@ -13359,14 +14577,14 @@
                 "type": "String",
                 "collection": false,
                 "description": "",
-                "required": false
+                "required": true
               },
               {
                 "name": "content",
                 "type": "String",
                 "collection": false,
                 "description": "",
-                "required": false
+                "required": true
               }
             ]
           }
@@ -13447,7 +14665,14 @@
             "name": "bounds",
             "type": "Rectangle",
             "collection": false,
-            "description": "The bounds of tray icon",
+            "description": "The bounds of tray icon.",
+            "required": true
+          },
+          {
+            "name": "position",
+            "type": "Point",
+            "collection": false,
+            "description": "The position of the event.",
             "required": true
           }
         ]
@@ -13470,7 +14695,7 @@
             "name": "bounds",
             "type": "Rectangle",
             "collection": false,
-            "description": "The bounds of tray icon",
+            "description": "The bounds of tray icon.",
             "required": true
           }
         ]
@@ -13493,7 +14718,7 @@
             "name": "bounds",
             "type": "Rectangle",
             "collection": false,
-            "description": "The bounds of tray icon",
+            "description": "The bounds of tray icon.",
             "required": true
           }
         ]
@@ -13565,7 +14790,7 @@
             "name": "text",
             "type": "String",
             "collection": false,
-            "description": "the dropped text string",
+            "description": "the dropped text string.",
             "required": true
           }
         ]
@@ -13608,7 +14833,7 @@
             "name": "position",
             "type": "Point",
             "collection": false,
-            "description": "The position of the event",
+            "description": "The position of the event.",
             "required": true
           }
         ]
@@ -13630,7 +14855,29 @@
             "name": "position",
             "type": "Point",
             "collection": false,
-            "description": "The position of the event",
+            "description": "The position of the event.",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "mouse-move",
+        "description": "Emitted when the mouse moves in the tray icon.",
+        "platforms": [
+          "macOS"
+        ],
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "position",
+            "type": "Point",
+            "collection": false,
+            "description": "The position of the event.",
             "required": true
           }
         ]
@@ -13639,11 +14886,11 @@
   },
   {
     "name": "UploadBlob",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "upload-blob",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-blob",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/upload-blob.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/upload-blob.md",
     "properties": [
       {
         "name": "type",
@@ -13663,11 +14910,11 @@
   },
   {
     "name": "UploadData",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "upload-data",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-data",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/upload-data.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/upload-data.md",
     "properties": [
       {
         "name": "bytes",
@@ -13694,11 +14941,11 @@
   },
   {
     "name": "UploadFile",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "upload-file",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-file",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/upload-file.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/upload-file.md",
     "properties": [
       {
         "name": "type",
@@ -13732,18 +14979,18 @@
         "name": "modificationTime",
         "type": "Double",
         "collection": false,
-        "description": "Last Modification time in number of seconds sine the UNIX epoch.",
+        "description": "Last Modification time in number of seconds since the UNIX epoch.",
         "required": true
       }
     ]
   },
   {
     "name": "UploadFileSystem",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "upload-file-system",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-file-system",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/upload-file-system.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/upload-file-system.md",
     "properties": [
       {
         "name": "type",
@@ -13777,18 +15024,18 @@
         "name": "modificationTime",
         "type": "Double",
         "collection": false,
-        "description": "Last Modification time in number of seconds sine the UNIX epoch.",
+        "description": "Last Modification time in number of seconds since the UNIX epoch.",
         "required": true
       }
     ]
   },
   {
     "name": "UploadRawData",
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Structure",
     "slug": "upload-raw-data",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-raw-data",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/structures/upload-raw-data.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/upload-raw-data.md",
     "properties": [
       {
         "name": "type",
@@ -13813,11 +15060,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "web-contents",
     "websiteUrl": "http://electron.atom.io/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/web-contents.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/web-contents.md",
     "methods": [
       {
         "name": "getAllWebContents",
@@ -13863,11 +15110,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "web-contents",
     "websiteUrl": "http://electron.atom.io/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/web-contents.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/web-contents.md",
     "instanceName": "contents",
     "instanceMethods": [
       {
@@ -13905,7 +15152,7 @@
                 "name": "extraHeaders",
                 "type": "String",
                 "collection": false,
-                "description": "Extra headers separated by \"\\n\"",
+                "description": "Extra headers separated by \"\\n\".",
                 "required": false
               },
               {
@@ -13940,6 +15187,19 @@
                 "required": false
               }
             ]
+          }
+        ]
+      },
+      {
+        "name": "loadFile",
+        "signature": "(filePath)",
+        "description": "Loads the given file in the window, filePath should be a path to an HTML file relative to the root of your application.  For instance an app structure like this: Would require code like this",
+        "parameters": [
+          {
+            "name": "filePath",
+            "type": "String",
+            "collection": false,
+            "required": true
           }
         ]
       },
@@ -14162,7 +15422,7 @@
       {
         "name": "executeJavaScript",
         "signature": "(code[, userGesture, callback])",
-        "description": "Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation. If the result of the executed code is a promise the callback result will be the resolved value of the promise.  We recommend that you use the returned Promise to handle code that results in a Promise.",
+        "description": "Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation. If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.",
         "parameters": [
           {
             "name": "code",
@@ -14277,13 +15537,13 @@
       {
         "name": "setZoomLevel",
         "signature": "(level)",
-        "description": "Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.",
+        "description": "Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is scale := 1.2 ^ level.",
         "parameters": [
           {
             "name": "level",
             "type": "Number",
             "collection": false,
-            "description": "Zoom level",
+            "description": "Zoom level.",
             "required": true
           }
         ]
@@ -14307,25 +15567,6 @@
                 "required": true
               }
             ]
-          }
-        ]
-      },
-      {
-        "name": "setZoomLevelLimits",
-        "signature": "(minimumLevel, maximumLevel)",
-        "description": "Deprecated: Call setVisualZoomLevelLimits instead to set the visual zoom level limits. This method will be removed in Electron 2.0.",
-        "parameters": [
-          {
-            "name": "minimumLevel",
-            "type": "Number",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "maximumLevel",
-            "type": "Number",
-            "collection": false,
-            "required": true
           }
         ]
       },
@@ -14473,7 +15714,7 @@
       {
         "name": "findInPage",
         "signature": "(text[, options])",
-        "description": "Starts a request to find all matches for the text in the web page and returns an Integer representing the request id used for the request. The result of the request can be obtained by subscribing to found-in-page event.",
+        "description": "Starts a request to find all matches for the text in the web page. The result of the request can be obtained by subscribing to found-in-page event.",
         "parameters": [
           {
             "name": "text",
@@ -14525,7 +15766,12 @@
               }
             ]
           }
-        ]
+        ],
+        "returns": {
+          "type": "Integer",
+          "collection": false,
+          "description": "The request id used for the request."
+        }
       },
       {
         "name": "stopFindInPage",
@@ -14564,7 +15810,7 @@
             "name": "rect",
             "type": "Rectangle",
             "collection": false,
-            "description": "The area of the page to be captured",
+            "description": "The area of the page to be captured.",
             "required": false
           },
           {
@@ -14634,12 +15880,13 @@
         "description": "Get the system printer list.",
         "returns": {
           "type": "PrinterInfo",
-          "collection": true
+          "collection": true,
+          "description": "."
         }
       },
       {
         "name": "print",
-        "signature": "([options])",
+        "signature": "([options], [callback])",
         "description": "Prints window's web page. When silent is set to true, Electron will pick the system's default printer if deviceName is empty and the default settings for printing. Calling window.print() in web page is equivalent to calling webContents.print({silent: false, printBackground: false, deviceName: ''}). Use page-break-before: always; CSS style to force to print to a new page.",
         "parameters": [
           {
@@ -14668,6 +15915,21 @@
                 "collection": false,
                 "description": "Set the printer device name to use. Default is ''.",
                 "required": false
+              }
+            ]
+          },
+          {
+            "name": "callback",
+            "type": "Function",
+            "collection": false,
+            "required": false,
+            "parameters": [
+              {
+                "name": "success",
+                "type": "Boolean",
+                "collection": false,
+                "description": "Indicates success of the print call.",
+                "required": true
               }
             ]
           }
@@ -14772,9 +16034,22 @@
         ]
       },
       {
+        "name": "setDevToolsWebContents",
+        "signature": "(devToolsWebContents)",
+        "description": "Uses the devToolsWebContents as the target WebContents to show devtools. The devToolsWebContents must not have done any navigation, and it should not be used for other purposes after the call. By default Electron manages the devtools by creating an internal WebContents with native view, which developers have very limited control of. With the setDevToolsWebContents method, developers can use any WebContents to show the devtools in it, including BrowserWindow, BrowserView and <webview> tag. Note that closing the devtools does not destroy the devToolsWebContents, it is caller's responsibility to destroy devToolsWebContents. An example of showing devtools in a <webview> tag: An example of showing devtools in a BrowserWindow:",
+        "parameters": [
+          {
+            "name": "devToolsWebContents",
+            "type": "WebContents",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "openDevTools",
         "signature": "([options])",
-        "description": "Opens the devtools.",
+        "description": "Opens the devtools. When contents is a <webview> tag, the mode would be detach by default, explicitly passing an empty mode can force using last used dock state.",
         "parameters": [
           {
             "name": "options",
@@ -14893,16 +16168,16 @@
                 "name": "screenPosition",
                 "type": "String",
                 "collection": false,
-                "description": "Specify the screen type to emulate (default: desktop)",
+                "description": "Specify the screen type to emulate (default: desktop):",
                 "required": true,
                 "possibleValues": [
                   {
                     "value": "desktop",
-                    "description": "Desktop screen type"
+                    "description": "Desktop screen type."
                   },
                   {
                     "value": "mobile",
-                    "description": "Mobile screen type"
+                    "description": "Mobile screen type."
                   }
                 ]
               },
@@ -14910,21 +16185,21 @@
                 "name": "screenSize",
                 "type": "Size",
                 "collection": false,
-                "description": "Set the emulated screen size (screenPosition == mobile)",
+                "description": "Set the emulated screen size (screenPosition == mobile).",
                 "required": true
               },
               {
                 "name": "viewPosition",
                 "type": "Point",
                 "collection": false,
-                "description": "Position the view on the screen (screenPosition == mobile) (default: {x: 0, y: 0})",
+                "description": "Position the view on the screen (screenPosition == mobile) (default: {x: 0, y: 0}).",
                 "required": true
               },
               {
                 "name": "deviceScaleFactor",
                 "type": "Integer",
                 "collection": false,
-                "description": "Set the device scale factor (if zero defaults to original device scale factor) (default: 0)",
+                "description": "Set the device scale factor (if zero defaults to original device scale factor) (default: 0).",
                 "required": true
               },
               {
@@ -14935,24 +16210,10 @@
                 "required": true
               },
               {
-                "name": "fitToView",
-                "type": "Boolean",
-                "collection": false,
-                "description": "Whether emulated view should be scaled down if necessary to fit into available space (default: false)",
-                "required": true
-              },
-              {
-                "name": "offset",
-                "type": "Point",
-                "collection": false,
-                "description": "Offset of the emulated view inside available space (not in fit to view mode) (default: {x: 0, y: 0})",
-                "required": true
-              },
-              {
                 "name": "scale",
                 "type": "Float",
                 "collection": false,
-                "description": "Scale of emulated view inside available space (not in fit to view mode) (default: 1)",
+                "description": "Scale of emulated view inside available space (not in fit to view mode) (default: 1).",
                 "required": true
               }
             ]
@@ -14979,7 +16240,7 @@
                 "name": "type",
                 "type": "String",
                 "collection": false,
-                "description": "() The type of the event, can be mouseDown, mouseUp, mouseEnter, mouseLeave, contextMenu, mouseWheel, mouseMove, keyDown, keyUp, char.",
+                "description": "() The type of the event, can be mouseDown, mouseUp, mouseEnter, mouseLeave, contextMenu, mouseWheel, mouseMove, keyDown, keyUp or char.",
                 "required": true,
                 "possibleValues": [
                   {
@@ -15034,7 +16295,7 @@
             "name": "onlyDirty",
             "type": "Boolean",
             "collection": false,
-            "description": "Defaults to `false`",
+            "description": "Defaults to `false`.",
             "required": false
           },
           {
@@ -15263,7 +16524,7 @@
       {
         "name": "setWebRTCIPHandlingPolicy",
         "signature": "(policy)",
-        "description": "Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC.  See BrowserLeaks for more details.",
+        "description": "Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See BrowserLeaks for more details.",
         "parameters": [
           {
             "name": "policy",
@@ -15541,7 +16802,7 @@
             "name": "favicons",
             "type": "String",
             "collection": true,
-            "description": "Array of URLs",
+            "description": "Array of URLs.",
             "required": true
           }
         ]
@@ -15599,7 +16860,7 @@
             "name": "options",
             "type": "Object",
             "collection": false,
-            "description": "The options which will be used for creating the new `BrowserWindow`.",
+            "description": "The options which will be used for creating the new .",
             "required": true
           },
           {
@@ -15743,63 +17004,63 @@
             "name": "input",
             "type": "Object",
             "collection": false,
-            "description": "Input properties",
+            "description": "Input properties.",
             "required": true,
             "properties": [
               {
                 "name": "type",
                 "type": "String",
                 "collection": false,
-                "description": "Either keyUp or keyDown",
+                "description": "Either keyUp or keyDown.",
                 "required": true
               },
               {
                 "name": "key",
                 "type": "String",
                 "collection": false,
-                "description": "Equivalent to",
+                "description": "Equivalent to .",
                 "required": true
               },
               {
                 "name": "code",
                 "type": "String",
                 "collection": false,
-                "description": "Equivalent to",
+                "description": "Equivalent to .",
                 "required": true
               },
               {
                 "name": "isAutoRepeat",
                 "type": "Boolean",
                 "collection": false,
-                "description": "Equivalent to",
+                "description": "Equivalent to .",
                 "required": true
               },
               {
                 "name": "shift",
                 "type": "Boolean",
                 "collection": false,
-                "description": "Equivalent to",
+                "description": "Equivalent to .",
                 "required": true
               },
               {
                 "name": "control",
                 "type": "Boolean",
                 "collection": false,
-                "description": "Equivalent to",
+                "description": "Equivalent to .",
                 "required": true
               },
               {
                 "name": "alt",
                 "type": "Boolean",
                 "collection": false,
-                "description": "Equivalent to",
+                "description": "Equivalent to .",
                 "required": true
               },
               {
                 "name": "meta",
                 "type": "Boolean",
                 "collection": false,
-                "description": "Equivalent to",
+                "description": "Equivalent to .",
                 "required": true
               }
             ]
@@ -15838,7 +17099,7 @@
             "name": "error",
             "type": "String",
             "collection": false,
-            "description": "The error code",
+            "description": "The error code.",
             "required": true
           },
           {
@@ -15857,7 +17118,7 @@
                 "name": "isTrusted",
                 "type": "Boolean",
                 "collection": false,
-                "description": "Indicates whether the certificate can be considered trusted",
+                "description": "Indicates whether the certificate can be considered trusted.",
                 "required": true
               }
             ]
@@ -15896,7 +17157,7 @@
                 "name": "certificate",
                 "type": "Certificate",
                 "collection": false,
-                "description": "Must be a certificate from the given list",
+                "description": "Must be a certificate from the given list.",
                 "required": true
               }
             ]
@@ -16075,7 +17336,31 @@
       },
       {
         "name": "did-change-theme-color",
-        "description": "Emitted when a page's theme color changes. This is usually due to encountering a meta tag:"
+        "description": "Emitted when a page's theme color changes. This is usually due to encountering a meta tag:",
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "color",
+            "type": [
+              {
+                "typeName": "String",
+                "collection": false
+              },
+              {
+                "typeName": "null",
+                "collection": false
+              }
+            ],
+            "collection": false,
+            "description": "Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.",
+            "required": true
+          }
+        ]
       },
       {
         "name": "update-target-url",
@@ -16097,7 +17382,7 @@
       },
       {
         "name": "cursor-changed",
-        "description": "Emitted when the cursor's type changes. The type parameter can be default, crosshair, pointer, text, wait, help, e-resize, n-resize, ne-resize, nw-resize, s-resize, se-resize, sw-resize, w-resize, ns-resize, ew-resize, nesw-resize, nwse-resize, col-resize, row-resize, m-panning, e-panning, n-panning, ne-panning, nw-panning, s-panning, se-panning, sw-panning, w-panning, move, vertical-text, cell, context-menu, alias, progress, nodrop, copy, none, not-allowed, zoom-in, zoom-out, grab, grabbing, custom. If the type parameter is custom, the image parameter will hold the custom cursor image in a NativeImage, and scale, size and hotspot will hold additional information about the custom cursor.",
+        "description": "Emitted when the cursor's type changes. The type parameter can be default, crosshair, pointer, text, wait, help, e-resize, n-resize, ne-resize, nw-resize, s-resize, se-resize, sw-resize, w-resize, ns-resize, ew-resize, nesw-resize, nwse-resize, col-resize, row-resize, m-panning, e-panning, n-panning, ne-panning, nw-panning, s-panning, se-panning, sw-panning, w-panning, move, vertical-text, cell, context-menu, alias, progress, nodrop, copy, none, not-allowed, zoom-in, zoom-out, grab, grabbing or custom. If the type parameter is custom, the image parameter will hold the custom cursor image in a NativeImage, and scale, size and hotspot will hold additional information about the custom cursor.",
         "returns": [
           {
             "name": "event",
@@ -16121,21 +17406,21 @@
             "name": "scale",
             "type": "Float",
             "collection": false,
-            "description": "scaling factor for the custom cursor",
+            "description": "scaling factor for the custom cursor.",
             "required": false
           },
           {
             "name": "size",
             "type": "Size",
             "collection": false,
-            "description": "the size of the `image`",
+            "description": "the size of the `image`.",
             "required": false
           },
           {
             "name": "hotspot",
             "type": "Point",
             "collection": false,
-            "description": "coordinates of the custom cursor's hotspot",
+            "description": "coordinates of the custom cursor's hotspot.",
             "required": false
           }
         ]
@@ -16160,14 +17445,14 @@
                 "name": "x",
                 "type": "Integer",
                 "collection": false,
-                "description": "x coordinate",
+                "description": "x coordinate.",
                 "required": true
               },
               {
                 "name": "y",
                 "type": "Integer",
                 "collection": false,
-                "description": "y coordinate",
+                "description": "y coordinate.",
                 "required": true
               },
               {
@@ -16288,7 +17573,7 @@
                 "name": "menuSourceType",
                 "type": "String",
                 "collection": false,
-                "description": "Input source that invoked the context menu. Can be none, mouse, keyboard, touch, touchMenu.",
+                "description": "Input source that invoked the context menu. Can be none, mouse, keyboard, touch or touchMenu.",
                 "required": true,
                 "possibleValues": [
                   {
@@ -16437,7 +17722,7 @@
       },
       {
         "name": "select-bluetooth-device",
-        "description": "Emitted when bluetooth device needs to be selected on call to navigator.bluetooth.requestDevice. To use navigator.bluetooth api webBluetooth should be enabled.  If event.preventDefault is not called, first available device will be selected. callback should be called with deviceId to be selected, passing empty string to callback will cancel the request.",
+        "description": "Emitted when bluetooth device needs to be selected on call to navigator.bluetooth.requestDevice. To use navigator.bluetooth api webBluetooth should be enabled. If event.preventDefault is not called, first available device will be selected. callback should be called with deviceId to be selected, passing empty string to callback will cancel the request.",
         "returns": [
           {
             "name": "event",
@@ -16522,6 +17807,55 @@
             "required": true
           }
         ]
+      },
+      {
+        "name": "did-attach-webview",
+        "description": "Emitted when a <webview> has been attached to this web contents.",
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "webContents",
+            "type": "WebContents",
+            "collection": false,
+            "description": "The guest web contents that is used by the `<webview>`.",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "console-message",
+        "description": "Emitted when the associated window logs a console message. Will not be emitted for windows with offscreen rendering enabled.",
+        "returns": [
+          {
+            "name": "level",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "message",
+            "type": "String",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "line",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "sourceId",
+            "type": "String",
+            "collection": false,
+            "required": true
+          }
+        ]
       }
     ]
   },
@@ -16532,11 +17866,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Module",
     "slug": "web-frame",
     "websiteUrl": "http://electron.atom.io/docs/api/web-frame",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/web-frame.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/web-frame.md",
     "methods": [
       {
         "name": "setZoomFactor",
@@ -16570,7 +17904,7 @@
             "name": "level",
             "type": "Number",
             "collection": false,
-            "description": "Zoom level",
+            "description": "Zoom level.",
             "required": true
           }
         ]
@@ -16583,25 +17917,6 @@
           "collection": false,
           "description": "The current zoom level."
         }
-      },
-      {
-        "name": "setZoomLevelLimits",
-        "signature": "(minimumLevel, maximumLevel)",
-        "description": "Deprecated: Call setVisualZoomLevelLimits instead to set the visual zoom level limits. This method will be removed in Electron 2.0.",
-        "parameters": [
-          {
-            "name": "minimumLevel",
-            "type": "Number",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "maximumLevel",
-            "type": "Number",
-            "collection": false,
-            "required": true
-          }
-        ]
       },
       {
         "name": "setVisualZoomLevelLimits",
@@ -16668,7 +17983,7 @@
                 "name": "spellCheck",
                 "type": "Function",
                 "collection": false,
-                "description": "Returns Boolean",
+                "description": "Returns Boolean.",
                 "required": true,
                 "parameters": [
                   {
@@ -16821,6 +18136,105 @@
         }
       },
       {
+        "name": "executeJavaScriptInIsolatedWorld",
+        "signature": "(worldId, scripts[, userGesture, callback])",
+        "description": "Work like executeJavaScript but evaluates scripts in isolated context.",
+        "parameters": [
+          {
+            "name": "worldId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "scripts",
+            "type": "WebSource",
+            "collection": true,
+            "required": true
+          },
+          {
+            "name": "userGesture",
+            "type": "Boolean",
+            "collection": false,
+            "description": "Default is `false`.",
+            "required": false
+          },
+          {
+            "name": "callback",
+            "type": "Function",
+            "collection": false,
+            "description": "Called after script has been executed.",
+            "required": false,
+            "parameters": [
+              {
+                "name": "result",
+                "type": "Any",
+                "collection": false,
+                "description": "",
+                "required": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "setIsolatedWorldContentSecurityPolicy",
+        "signature": "(worldId, csp)",
+        "description": "Set the content security policy of the isolated world.",
+        "parameters": [
+          {
+            "name": "worldId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "csp",
+            "type": "String",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "setIsolatedWorldHumanReadableName",
+        "signature": "(worldId, name)",
+        "description": "Set the name of the isolated world. Useful in devtools.",
+        "parameters": [
+          {
+            "name": "worldId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "setIsolatedWorldSecurityOrigin",
+        "signature": "(worldId, securityOrigin)",
+        "description": "Set the security origin of the isolated world.",
+        "parameters": [
+          {
+            "name": "worldId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "securityOrigin",
+            "type": "String",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "getResourceUsage",
         "signature": "()",
         "description": "Returns an object describing usage information of Blink's internal memory caches. This will generate:",
@@ -16880,11 +18294,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Class",
     "slug": "web-request",
     "websiteUrl": "http://electron.atom.io/docs/api/web-request",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/web-request.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/web-request.md",
     "instanceName": "webRequest",
     "instanceMethods": [
       {
@@ -16896,7 +18310,7 @@
             "name": "filter",
             "type": "Object",
             "collection": false,
-            "required": true,
+            "required": false,
             "properties": [
               {
                 "name": "urls",
@@ -16940,6 +18354,13 @@
                     "collection": false,
                     "description": "",
                     "required": true
+                  },
+                  {
+                    "name": "webContentsId",
+                    "type": "Integer",
+                    "collection": false,
+                    "description": "",
+                    "required": false
                   },
                   {
                     "name": "resourceType",
@@ -17009,7 +18430,7 @@
             "name": "filter",
             "type": "Object",
             "collection": false,
-            "required": true,
+            "required": false,
             "properties": [
               {
                 "name": "urls",
@@ -17037,7 +18458,7 @@
             "name": "filter",
             "type": "Object",
             "collection": false,
-            "required": true,
+            "required": false,
             "properties": [
               {
                 "name": "urls",
@@ -17081,6 +18502,13 @@
                     "collection": false,
                     "description": "",
                     "required": true
+                  },
+                  {
+                    "name": "webContentsId",
+                    "type": "Integer",
+                    "collection": false,
+                    "description": "",
+                    "required": false
                   },
                   {
                     "name": "resourceType",
@@ -17119,7 +18547,7 @@
             "name": "filter",
             "type": "Object",
             "collection": false,
-            "required": true,
+            "required": false,
             "properties": [
               {
                 "name": "urls",
@@ -17147,7 +18575,7 @@
             "name": "filter",
             "type": "Object",
             "collection": false,
-            "required": true,
+            "required": false,
             "properties": [
               {
                 "name": "urls",
@@ -17191,6 +18619,13 @@
                     "collection": false,
                     "description": "",
                     "required": true
+                  },
+                  {
+                    "name": "webContentsId",
+                    "type": "Integer",
+                    "collection": false,
+                    "description": "",
+                    "required": false
                   },
                   {
                     "name": "resourceType",
@@ -17250,7 +18685,7 @@
             "name": "filter",
             "type": "Object",
             "collection": false,
-            "required": true,
+            "required": false,
             "properties": [
               {
                 "name": "urls",
@@ -17276,7 +18711,7 @@
                 "properties": [
                   {
                     "name": "id",
-                    "type": "String",
+                    "type": "Integer",
                     "collection": false,
                     "description": "",
                     "required": true
@@ -17294,6 +18729,13 @@
                     "collection": false,
                     "description": "",
                     "required": true
+                  },
+                  {
+                    "name": "webContentsId",
+                    "type": "Integer",
+                    "collection": false,
+                    "description": "",
+                    "required": false
                   },
                   {
                     "name": "resourceType",
@@ -17360,7 +18802,7 @@
             "name": "filter",
             "type": "Object",
             "collection": false,
-            "required": true,
+            "required": false,
             "properties": [
               {
                 "name": "urls",
@@ -17404,6 +18846,13 @@
                     "collection": false,
                     "description": "",
                     "required": true
+                  },
+                  {
+                    "name": "webContentsId",
+                    "type": "Integer",
+                    "collection": false,
+                    "description": "",
+                    "required": false
                   },
                   {
                     "name": "resourceType",
@@ -17463,7 +18912,7 @@
             "name": "filter",
             "type": "Object",
             "collection": false,
-            "required": true,
+            "required": false,
             "properties": [
               {
                 "name": "urls",
@@ -17509,6 +18958,13 @@
                     "required": true
                   },
                   {
+                    "name": "webContentsId",
+                    "type": "Integer",
+                    "collection": false,
+                    "description": "",
+                    "required": false
+                  },
+                  {
                     "name": "resourceType",
                     "type": "String",
                     "collection": false,
@@ -17545,17 +19001,48 @@
     ]
   },
   {
+    "name": "WebSource",
+    "version": "2.0.0",
+    "type": "Structure",
+    "slug": "web-source",
+    "websiteUrl": "http://electron.atom.io/docs/api/structures/web-source",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/web-source.md",
+    "properties": [
+      {
+        "name": "code",
+        "type": "String",
+        "collection": false,
+        "description": "",
+        "required": true
+      },
+      {
+        "name": "url",
+        "type": "String",
+        "collection": false,
+        "description": "",
+        "required": false
+      },
+      {
+        "name": "startLine",
+        "type": "Integer",
+        "collection": false,
+        "description": "Default is 1.",
+        "required": false
+      }
+    ]
+  },
+  {
     "name": "webviewTag",
     "description": "Display external web content in an isolated frame and process.",
     "process": {
       "main": false,
       "renderer": true
     },
-    "version": "1.7.15",
+    "version": "2.0.0",
     "type": "Element",
     "slug": "webview-tag",
     "websiteUrl": "http://electron.atom.io/docs/api/webview-tag",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.7.15/docs/api/webview-tag.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/webview-tag.md",
     "methods": [
       {
         "name": "loadURL",
@@ -17616,7 +19103,7 @@
                   }
                 ],
                 "collection": false,
-                "description": "",
+                "description": "-",
                 "required": false
               },
               {
@@ -17803,7 +19290,7 @@
       },
       {
         "name": "executeJavaScript",
-        "signature": "(code, userGesture, callback)",
+        "signature": "(code[, userGesture, callback])",
         "description": "Evaluates code in page. If userGesture is set, it will create the user gesture context in the page. HTML APIs like requestFullScreen, which require user action, can take advantage of this option for automation.",
         "parameters": [
           {
@@ -17817,7 +19304,7 @@
             "type": "Boolean",
             "collection": false,
             "description": "Default `false`.",
-            "required": true
+            "required": false
           },
           {
             "name": "callback",
@@ -17998,7 +19485,7 @@
       {
         "name": "findInPage",
         "signature": "(text[, options])",
-        "description": "Starts a request to find all matches for the text in the web page and returns an Integer representing the request id used for the request. The result of the request can be obtained by subscribing to found-in-page event.",
+        "description": "Starts a request to find all matches for the text in the web page. The result of the request can be obtained by subscribing to found-in-page event.",
         "parameters": [
           {
             "name": "text",
@@ -18050,7 +19537,12 @@
               }
             ]
           }
-        ]
+        ],
+        "returns": {
+          "type": "Integer",
+          "collection": false,
+          "description": "The request id used for the request."
+        }
       },
       {
         "name": "stopFindInPage",
@@ -18197,7 +19689,7 @@
             "name": "rect",
             "type": "Rectangle",
             "collection": false,
-            "description": "The area of the page to be captured",
+            "description": "The area of the page to be captured.",
             "required": false
           },
           {
@@ -18272,7 +19764,7 @@
             "name": "level",
             "type": "Number",
             "collection": false,
-            "description": "Zoom level",
+            "description": "Zoom level.",
             "required": true
           }
         ]
@@ -18678,7 +20170,7 @@
             "name": "options",
             "type": "Object",
             "collection": false,
-            "description": "The options which should be used for creating the new `BrowserWindow`.",
+            "description": "The options which should be used for creating the new .",
             "required": true
           }
         ]

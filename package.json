@@ -62,6 +62,6 @@
     "upload-crowdin-glossary": "node script/upload-crowdin-glossary.js",
     "wordcount": "node script/wordcount.js > wordcount.md"
   },
-  "electronLatestStableTag": "v1.7.15",
+  "electronLatestStableTag": "v2.0.0",
   "electronMasterBranchCommit": "2a161e172515e7211b4f8bf0d6b9e1ff40e3670d"
 }

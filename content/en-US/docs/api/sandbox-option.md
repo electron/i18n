@@ -33,7 +33,7 @@ which has access to a subset of the electron renderer API.
 
 Another difference is that sandboxed renderers don't modify any of the default
 JavaScript APIs. Consequently, some APIs such as `window.open` will work as they
-do in chromium (i.e. they do not return a `BrowserWindowProxy`).
+do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
 ## Example
 
@@ -47,13 +47,13 @@ app.on('ready', () => {
       sandbox: true
     }
   })
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
-In the above code the `BrowserWindow` that was created has node.js disabled and can communicate
+In the above code the [`BrowserWindow`](browser-window.md) that was created has node.js disabled and can communicate
 only via IPC. The use of this option stops electron from creating a node.js runtime in the renderer. Also,
-within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow`
+within this new window `window.open` follows the native behaviour (by default electron creates a [`BrowserWindow`](browser-window.md)
 and returns a proxy to this via `window.open`).
 
 It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the
@@ -69,7 +69,7 @@ let win
 app.on('ready', () => {
   // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
   win = new BrowserWindow()
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
@@ -78,7 +78,7 @@ Note that it is not enough to call
 code runs after it is possible to make changes to chromium sandbox settings. The
 switch must be passed to electron on the command-line:
 
-```
+```sh
 electron --enable-sandbox app.js
 ```
 
@@ -104,7 +104,7 @@ app.on('ready', () => {
       preload: 'preload.js'
     }
   })
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
@@ -151,10 +151,12 @@ Important things to notice in the preload script:
 To create a browserify bundle and use it as a preload script, something like
 the following should be used:
 
-    browserify preload/index.js \
-      -x electron \
-      -x fs \
-      --insert-global-vars=__filename,__dirname -o preload.js
+```sh
+  browserify preload/index.js \
+    -x electron \
+    -x fs \
+    --insert-global-vars=__filename,__dirname -o preload.js
+```
 
 The `-x` flag should be used with any required module that is already exposed in
 the preload scope, and tells browserify to use the enclosing `require` function
@@ -166,7 +168,11 @@ Currently the `require` function provided in the preload scope exposes the
 following modules:
 
 - `child_process`
-- `electron` (crashReporter, remote and ipcRenderer)
+- `electron`
+  - `crashReporter`
+  - `remote`
+  - `ipcRenderer`
+  - `webFrame`
 - `fs`
 - `os`
 - `timers`
@@ -183,7 +189,7 @@ feature. We are still not aware of the security implications of exposing some
 electron renderer APIs to the preload script, but here are some things to
 consider before rendering untrusted content:
 
-- A preload script can accidentaly leak privileged APIs to untrusted code.
+- A preload script can accidentally leak privileged APIs to untrusted code.
 - Some bug in V8 engine may allow malicious code to access the renderer preload
   APIs, effectively granting full access to the system through the `remote`
   module.
