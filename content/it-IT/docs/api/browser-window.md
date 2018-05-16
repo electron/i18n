@@ -112,7 +112,7 @@ Si raccomanda di mettere in pausa le operazioni dispendiose quando lo stato di v
 
 Processo: [Main](../glossary.md#main-process)
 
-`BrowserWindow` è un [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
 
@@ -138,33 +138,32 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
   * `alwaysOnTop` Booleano (opzionale) - Se la finestra dovrebbe sempre rimanere al top delle altre finestre. Di default è `false`.
   * `fullscreen` Booleano (opzionale) - Se la finestra dovrebbe mostrarsi a schermo intero. Quando esplicitamente impostati a `false` il pulsante schermo intero sarà nascosto o disabilitato su macOS. Di default è `false`.
   * `fullscreenable` Booleano (opzionale) - Se la finestra è impostabile in modalità schermo intero. Su macOS, anche se il pulsante massimizza/ingrandisci potrebbe impostare la modalità schermo intero o massimizza finestra. Di default `true`.
-  * `simpleFullscreen` Booleano (opzionale) - Modalità a schermo intero su macOS pre-Lion. Default è `false`.
-  * `skipTaskbar` Booleano (opzionale) - Se mostrare la finestra nella taskbar. Di default è `false`.
-  * `kiosk` Booleano (opzionale) - Modalità kiosk. Di default è `false`.
-  * `title` Stringa (opzionale) Titolo di default della finestra. Di default è `"Electron"`.
-  * `icon` ([>NativeImage](native-image.md) | Stringa) (opzionale) - L'icona della finestra. Su Windows si raccomanda di usare le icone `ICO` per ottenere migliori effetti visuali, puoi anche lasciarlo non impostato, così sarà usata l'icona dell'eseguibile.
-  * `show` Boolean (opzionale) - Se la finestra deve essere visualizzata quando creata. Di default è `true`.
-  * `frame` Booleano (opzionale) - Specifica `false` per creare una [Finestra senza bordi](frameless-window.md). Di default è `true`.
-  * `parent` BrowserWindow (opzionale) - Specifica la finestra genitore. Di default è `null`.
-  * `modal` Booleano (opzionale) - Se si tratta di una finestra modale. Funziona solo se la finestra è figlia. Di default è `false`.
-  * `acceptFirstMouse` Booleano (opzionale) - Se la web view accetta un singolo evento mouse-down che simultaneamente attiva la finestra. Di default è `false`.
-  * `disableAutoHideCursor` Booleano (opzionale) - Se nascondere il cursore in digitazione. Di default è `false`.
-  * `autoHideMenuBar` Booleano (opzionale) - Nascondi automaticamente la barra dei menu senza che il tasto `Alt` sia premuto. Di default è `false`.
-  * `enableLargerThanScreen` Booleano (opzionale) - Abilita la finestra ad un ridimensionamento più elevato dello schermo. Di default è `false`.
-  * `backgroundColor` Stringa (opzionale) - Colore di sfondo della finestra rappresentato come valore esadecimale, come `#66CD00` o `#FFF` o `#80FFFFFF` (la trasparenza è supportata). Di default è `#FFF` (bianco).
-  * `hasShadow` Booleano (opzionale) - Specifica se la finestra debba supportare l'ombreggiamento. Questa impostazione è solo implementata per macOS. Di default è `true`.
-  * `opacity` Numero (opzionale) - Imposta l'opacità iniziale della finestra, tra 0.0 (completamente trasparente) e 1.0 (completamente opaco). Questo è implementato solo su Windows e macOS.
-  * `darkTheme` Booleano (opzionale) - Forza l'utilizzo del tema scuro per la finestra, funziona solo su alcuni ambienti desktop GTK+3. Di default è `false`.
-  * `transparent` Boolean (opzionale) - rende la finestra [trasparente](frameless-window.md). Valore predefinito è `false`.
-  * `type` String (opzionale): il tipo di finestra, impostazione predefinita è normale finestra. Vedi di più su questo qui sotto.
-  * `<0>titleBarStyle</0>` Stringa (opzionale) - lo stile della barra del titolo della finestra. Impostazione predefinita è `default`. I valori possibili sono: 
-    * `default` - risultato di colore grigio opaco come barra del titolo del Mac.
-    * `hidden` - genera una barra del titolo nascosta e una finestra a tutto schermo per il contenuto e inoltre la barra del titolo contiene nell'angolo in alto a sinistra i tipici controlli per la finestra ("semaforo").
+  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
+  * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
+  * `title` String (optional) - Default window title. Default is `"Electron"`.
+  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
+  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
+  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
+  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
+  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
+  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
+  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
+  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
+  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
+  * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
+  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
+  * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
+    * `default` - Results in the standard gray opaque Mac title bar.
+    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
+    * `hidden-inset` - Deprecated, use `hiddenInset` instead.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
+  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Di default `true`.
-  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well.
+  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Di default è `false`.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
   * `webPreferences` Object (optional) - Settings of web page's features. 
@@ -175,7 +174,6 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`.
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
     * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Di default `true`.
@@ -188,8 +186,8 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
     * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
     * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
-    * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
-    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
+    * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
     * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
       * `standard` String (optional) - Defaults to `Times New Roman`.
       * `serif` String (optional) - Defaults to `Times New Roman`.
@@ -201,12 +199,11 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
     * `minimumFontSize` Integer (optional) - Defaults to ``.
     * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
+    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the \[Page Visibility API\]\[#page-visibility\]. Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to the value of the `nodeIntegration` option. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
-    * `additionArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -251,11 +248,9 @@ window.onbeforeunload = (e) => {
   // a non-void value will silently cancel the close.
   // It is recommended to use the dialog API to let the user confirm closing the
   // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  e.returnValue = false
 }
 ```
-
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
 
 #### Event: 'closed'
 
@@ -412,12 +407,6 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
 
 Returns `BrowserWindow` - The window that owns the given `webContents`.
 
-#### `BrowserWindow.fromBrowserView(browserView)`
-
-* `browserView` [BrowserView](browser-view.md)
-
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
-
 #### `BrowserWindow.fromId(id)`
 
 * `id` Numero Intero
@@ -436,7 +425,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `nome` Stringa
+* `name` Stringa
 
 Remove a Chrome extension by name.
 
@@ -462,7 +451,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `nome` Stringa
+* `name` Stringa
 
 Remove a DevTools extension by name.
 
@@ -518,53 +507,53 @@ Force closing the window, the `unload` and `beforeunload` event won't be emitted
 
 Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
 
-#### `win.focus()`
+#### `win.focalizza()`
 
-Focalizza la finestra.
+Focuses on the window.
 
 #### `win.blur()`
 
-Rimuove la focalizzazione dalla finestra.
+Removes focus from the window.
 
 #### `win.isFocused()`
 
-Ritorna `Boolean` - Se la finestra é focalizzata.
+Returns `Boolean` - Whether the window is focused.
 
 #### `win.isDestroyed()`
 
-Ritorna `Boolean` - se la finestra é stata distrutta.
+Returns `Boolean` - Whether the window is destroyed.
 
 #### `win.show()`
 
-Visualizza la finestra e la focalizza.
+Shows and gives focus to the window.
 
 #### `win.showInactive()`
 
-Mostra la finestra, senza focalizzarla.
+Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Nasconde la finestra.
+Hides the window.
 
 #### `win.isVisible()`
 
-Ritorna `Boolean` - Se la finestra é visibile all'utente.
+Returns `Boolean` - Whether the window is visible to the user.
 
 #### `win.isModal()`
 
-Ritorna `Boolean` - Se la finestra corrente é modale.
+Returns `Boolean` - Whether current window is a modal window.
 
 #### `win.maximize()`
 
-Ingrandisce la finestra. Nel caso in cui non sia giá visualizzata, la finestra verrá mostrata (ma non focalizzata).
+Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
 
 #### `win.unmaximize()`
 
-Rimuove l'ingrandimento della finestra.
+Unmaximizes the window.
 
 #### `win.isMaximized()`
 
-Ritorna `Boolean` - se la finestra é stata ingrandita.
+Returns `Boolean` - Whether the window is maximized.
 
 #### `win.minimize()`
 
@@ -586,19 +575,7 @@ Sets whether the window should be in fullscreen mode.
 
 #### `win.isFullScreen()`
 
-Ritorna `Boolean` - Se la finestra é a tutto schermo.
-
-#### `win.setSimpleFullScreen(flag)` *macOS*
-
-* `flag` Boolean
-
-Enters or leaves simple fullscreen mode.
-
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
-
-#### `win.isSimpleFullScreen()` *macOS*
-
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Returns `Boolean` - Whether the window is in fullscreen mode.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -640,13 +617,7 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 
 #### `win.getContentBounds()`
 
-Ritorna [`Rectangle`](structures/rectangle.md)
-
-#### `win.setEnabled(enable)`
-
-* `enable` Boolean
-
-Disabilita o abilita la finestra.
+Returns [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
@@ -907,7 +878,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Same as `webContents.loadURL(url[, options])`.
@@ -938,12 +909,6 @@ win.loadURL('http://localhost:8000/post', {
 })
 ```
 
-#### `win.loadFile(filePath)`
-
-* `Percorsofile` Stringa
-
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
-
 #### `win.reload()`
 
 Same as `webContents.reload`.
@@ -958,7 +923,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 
 * `progress` Double
 * `options` Object (opzionale) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
 
@@ -987,16 +952,6 @@ Returns `Boolean` - Whether the window has a shadow.
 
 On Windows and Linux always returns `true`.
 
-#### `win.setOpacity(opacity)` *Windows* *macOS*
-
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
-
-Sets the opacity of the window. On Linux does nothing.
-
-#### `win.getOpacity()` *Windows* *macOS*
-
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
-
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
@@ -1009,20 +964,20 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Pulsante` Oggetto 
-  * `icona` [ImmagineNativa](native-image.md) - L'icona mostrata nella barra degli strumenti miniaturizzata.
+* `Button` Oggetto 
+  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Funzione
-  * `aiuto` Stringa (opzionale) - Il testo del pulsante di aiuto.
-  * `bandiere` Stringa[] (opzionale) - Controlla specifici comportamenti e stati del pulsante. Di default é `['abilitato']`.
+  * `tooltip` Stringa (opzionale) - Il testo del tooltip del pulsante.
+  * `flags` Stringa[] (opzionale) - Controlla specifici comportamenti e comportamenti del pulsante. Di default è `['enabled']`.
 
-La `bandiera` é un insieme che include le seguenti `Stringhe`:
+I `flags` sono un insieme che include le seguenti `String`:
 
-* `abilitato` - Il pulsante è attivato e disponibile all'utente.
-* `disabilitato` - Il pulsante é disabilitato. È presente ma lo stato visuale che lo indica non risponderà all'azione dell'utente.
-* `dismessoalclick` - Quando il pulsante è cliccato, la finestra miniaturizzata si chiude immediatamente.
-* `nobackground` - Non disegnare un limite del pulsante, usa solo l'immagine.
-* `nascosto` - Il pulsante non è mostrato all'utente.
-* `noninterattivo` - Il pulsante è abilitato ma non interattivo; il pulsante non premuto è disegnato. Questo valore è inteso per istanze in cui il pulsante è usato in una notifica.
+* `enabled` - Il pulsante è attivato e disponibile all'utente.
+* `disabled` - Il pulsante é disabilitato. È presente ma lo stato visuale che lo indica non risponderà all'azione dell'utente.
+* `dismissonclick` - Quando il pulsante è cliccato, la finestra miniaturizzata si chiude immediatamente.
+* `nobackground` - Non disegna i bordi del pulsante, usa solo l'immagine.
+* `hidden` - Il pulsante non è mostrato all'utente.
+* `noninteractive` - Il pulsante è abilitato ma non interattivo; il pulsante è mostrato in uno stato di 'non premuto'. Questo valore è inteso per istanze in cui il pulsante è usato in una notifica.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
@@ -1095,11 +1050,9 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 **Note:** This API always returns false on Windows.
 
-#### `win.setIgnoreMouseEvents(ignore[, options])`
+#### `win.setIgnoreMouseEvents(ignore)`
 
 * `ignore` Boolean
-* `options` Object (opzionale) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Makes the window ignore all mouse events.
 
@@ -1139,35 +1092,9 @@ Returns `BrowserWindow[]` - All child windows.
 
 Controls whether to hide cursor when typing.
 
-#### `win.selectPreviousTab()` *macOS*
-
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
-
-#### `win.selectNextTab()` *macOS*
-
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
-
-#### `win.mergeAllWindows()` *macOS*
-
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
-
-#### `win.moveTabToNewWindow()` *macOS*
-
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
-
-#### `win.toggleTabBar()` *macOS*
-
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
-
-#### `win.addTabbedWindow(browserWindow)` *macOS*
-
-* `browserWindow` BrowserWindow
-
-Adds a window as a tab on this window, after the tab for the window instance.
-
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
+* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
@@ -1179,12 +1106,8 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Sperimentale*
+#### `win.setBrowserView(browserView)` *Experimental*
 
 * `browserView` [BrowserView](browser-view.md)
-
-#### `win.getBrowserView()` *Sperimentale*
-
-Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
 **Nota:** La VistaBrowser API è attualmente sperimentale e potrebbe cambiare o essere rimossa nei rilasci futuri di Electron.
