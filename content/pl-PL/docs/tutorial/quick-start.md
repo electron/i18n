@@ -7,4 +7,4 @@ Stary dokument "Szybki start", który kiedyś tu był, został podzielony na dwa
 * Aby sprawdzić, jak prosto jest Electron zbudowany, zobacz [Pisanie Swojej Pierwszej Aplikacji Używając Electron](./first-app.md)
 * Aby sprawdzić, architekturę procesu, zobacz [Proces główny i renderer](./application-architecture.md#main-and-renderer-processes).
 
-To learn more about Electron, check out the [official guides](../README.md).
+To learn more about Electron, check out the [official guides](../).
