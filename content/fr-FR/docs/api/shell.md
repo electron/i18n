@@ -22,7 +22,7 @@ Le module `shell` dispose des méthodes suivantes :
 
 * `fullPath` String
 
-Retourne `Boolean` - Si l'élément s'est bien affiché.
+Returns `Boolean` - Whether the item was successfully shown
 
 Affiche le fichier donné dans un gestionnaire de fichier. Si possible, sélectionne le fichier.
 
@@ -36,10 +36,10 @@ Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - 2081 caractères maximum sur windows, sinon la fonction retourne false.
+* `url` String
 * `options` Object (facultatif) *macOS* 
   * `activate` Boolean - `true` pour mettre l'application ouverte au premier-plan. La valeur par défaut est `true`.
-* `callback` Function (facultatif) *macOS* - If specified will perform the open asynchronously. 
+* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error
 
 Retourne `Boolean` - Si une application à pu ouvrir l'URL. Si le callback est spécifié, cela retournera toujours true.
@@ -50,7 +50,7 @@ Ouvre le protocole externe donné dans la manière par défaut de l'ordinateur. 
 
 * `fullPath` String
 
-Retourne `Boolean` - Si l'élément s'est bien déplacé dans la poubelle.
+Returns `Boolean` - Whether the item was successfully moved to the trash
 
 Déplace le fichier donné dans la poubelle et retourne un booléen.
 
@@ -67,7 +67,7 @@ Déplace le fichier donné dans la poubelle et retourne un booléen.
   * `replace` - Remplace un raccourci existant, échoue si le raccourci n'existe pas.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Retourne `Boolean` - Si le raccourci a été créé avec succès.
+Returns `Boolean` - Whether the shortcut was created successfully
 
 Créer ou met à jour un lien raccourci à `shortcutPath`.
 
