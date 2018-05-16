@@ -14,7 +14,7 @@ SI vous voulez afficher des notifications depuis un processus de rendu, vous dev
 
 Processus : [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 Cela crée une nouvelle `Notification` avec les propriétés natives définies par les `options`.
 
@@ -29,15 +29,16 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 ### `new Notification([options])` *Experimental*
 
 * `options` Object 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
-  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
-  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
-  * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
-  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
+  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
+  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
+  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
+  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
+  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
+  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### Événements d’instance
 
@@ -69,14 +70,14 @@ Renvoie :
 
 Émis lorsque la notification est fermée manuellement par l'utilisateur.
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+This event is not guaranteed to be emitted in all cases where the notification is closed.
 
 #### Événement : 'reply' *macOS*
 
 Renvoie :
 
 * `event` Événement
-* `reply` String - The string the user entered into the inline reply field
+* `reply` String - The string the user entered into the inline reply field.
 
 Émis lorsque l'utilisateur clique sur le bouton "Reply" sur une notification avec `hasReply: true`.
 
@@ -85,7 +86,7 @@ Renvoie :
 Renvoie :
 
 * `event` Événement
-* `index` Number - The index of the action that was activated
+* `index` Number - The index of the action that was activated.
 
 ### Méthodes d’instance
 
@@ -94,6 +95,12 @@ Les objets créés avec `new Notification` ont les méthodes d'instance suivante
 #### `notification.show()`
 
 Affiche immédiatement la notification à l'utilisateur, veuillez notez que cela signifie, contrairement à l'implémentation des Notifications HTML5, que simplement instancier un `new Notification` ne va pas afficher immédiatement la notification à l'utilisateur. Pour que l'OS l'affiche à l'écran, vous devez appeler cette méthode.
+
+If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+
+#### `notification.close()`
+
+Dismisses the notification.
 
 ### Lire un son
 
