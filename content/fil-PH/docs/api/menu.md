@@ -14,7 +14,7 @@ Ang klaseng `menu` ay mayroong mga sumusunod na mga istatikong pamamaraan:
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Nagtatakda ng `menu` bilang aplikasyon ng menu sa macOS. Sa Windows at Linux, ang `menu` ay itatakda sa ibabaw ng menu ng bawat window.
 
@@ -24,7 +24,7 @@ Ang pagpasa ng `null` ay magtatanggal ng menu bar sa Windows at sa Linux ngunit 
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Tandaan:** Ang ibinalik na instance ng `Menu` ay hindi suportado ang dinamikong pagdadagdag o pagtatanggal ng mga aytem ng menu. [Ang mga instance na katangian ](#instance-properties) ay maaring baguhin sa dinamikong paraan.
 
@@ -50,35 +50,63 @@ Mailalakip mo rin ang iba pang mga patlang sa mga elemento ng mga `template` at 
 
 Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup(options)`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `pagpipilian` Bagay (opsyonal) 
+* `pagpipilian` Bagay 
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `callback` Function (optional) - Called when menu is closed.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 Isinasara ang konteksto ng menu sa `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `menuItem`MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Idinagdag ang `menuItem` sa menu.
+
+#### `menu.getMenuItemById(id)`
+
+* `id` String
+
+Returns `MenuItem` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem`MenuItem
+* `menuItem` [MenuItem](menu-item.md)
 
 Inserts the `menuItem` to the `pos` position of the menu.
+
+### Halimbawa ng mga Event
+
+Objects created with `new Menu` emit the following events:
+
+**Note:** Ang ilang mga event ay magagamit lamang sapartikular na mga operating system at ay tinatakan tulad nito.
+
+#### Event: 'menu-will-show'
+
+Pagbabalik:
+
+* `event` na Kaganapan
+
+Emitted when `menu.popup()` is called.
+
+#### Event: 'menu-will-close'
+
+Pagbabalik:
+
+* `event` na Kaganapan
+
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Instance Properties
 
@@ -89,6 +117,10 @@ Inserts the `menuItem` to the `pos` position of the menu.
 A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+
+### Halimbawa ng mga Event
+
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Mga Halimbawa
 
@@ -142,7 +174,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -207,7 +239,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup(remote.getCurrentWindow())
+  menu.popup({window: remote.getCurrentWindow()})
 }, false)
 </script>
 ```
@@ -264,12 +296,13 @@ Template:
 
 Menu:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Template:
 
@@ -286,11 +319,13 @@ Template:
 
 Menu:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```
