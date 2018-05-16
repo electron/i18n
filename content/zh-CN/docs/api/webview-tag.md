@@ -486,7 +486,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 * `callback` Function - 回调函数 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
+捕获 `requestFullScreen` 的页面的一个快照，类似于 `webContents.capturePage([rect, ]callback)`。
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
@@ -495,7 +495,7 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 
 通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
+示例请进传送门： [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -527,7 +527,7 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 
 ## DOM 事件
 
-The following DOM events are available to the `webview` tag:
+`webview` 标签具有以下有效的 DOM 事件：
 
 ### Event: 'load-commit'
 
@@ -536,11 +536,11 @@ The following DOM events are available to the `webview` tag:
 * `url` String
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+发生load 加载时触发。 这包括当前文档中的导航以及子框架文档级加载(subframe document-level loads)，但不包括异步资源加载。
 
 ### Event: 'did-finish-load'
 
-Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+导航完成时触发，即选项卡的旋转器将停止旋转，并指派` onload `事件后。（译者：网页加载的过程中，并不是所有的浏览器都是转圈圈，而且浏览器版本不同，加载效果也有可能不一样。其中 ie 和 chrome 是转圈圈，safari 是进度条，firefox是一个小点左右来回移动--20180103）
 
 ### Event: 'did-fail-load'
 
@@ -551,7 +551,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 
 
 ### Event: 'did-frame-finish-load'
 
