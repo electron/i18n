@@ -34,7 +34,7 @@ Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Obje (opsiyonel) 
+* `filter` Nesne (isteğe bağlı) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Fonksiyon 
   * `details` Nesne 
@@ -42,7 +42,7 @@ Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
     * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
-    * `resourceType` Dize
+    * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
@@ -58,7 +58,7 @@ Bir istek gerçekleşmek üzereyken `listener` `listener(details, callback)` ile
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Obje (opsiyonel) 
+* `filter` Nesne (isteğe bağlı) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Fonksiyon
 
@@ -69,7 +69,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
   * `url` Dize
   * `method` String
   * `webContentsId` Integer (optional)
-  * `resourceType` Dize
+  * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
 * `geri aramak` Fonksiyon 
@@ -81,7 +81,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Obje (opsiyonel) 
+* `filter` Nesne (isteğe bağlı) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
@@ -89,7 +89,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
     * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
-    * `resourceType` Dize
+    * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -97,7 +97,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Obje (opsiyonel) 
+* `filter` Nesne (isteğe bağlı) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Fonksiyon
 
@@ -108,10 +108,10 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
   * `url` Dize
   * `method` Dizi
   * `webContentsId` Integer (optional)
-  * `resourceType` Dize
+  * `resourceType` String
   * `timestamp` Double
   * `statusLine` String
-  * `statusCode` Tamsayı
+  * `statusCode` Integer
   * `responseHeaders` Object
 * `geri aramak` Function 
   * `cevap` Nesne 
@@ -123,7 +123,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Obje (opsiyonel) 
+* `filter` Nesne (isteğe bağlı) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
@@ -131,18 +131,18 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
     * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
-    * `resourceType` Dize
+    * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
-    * `fromCache` Boolean - Yanıtın disk önbelleğinden getirilip getirilmediğini gösterir.
-    * `statusCode` Tamsayı
+    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `statusCode` Integer
     * `statusLine` String
 
 Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` ile birlikte çağırılacaktır. HTTP istekleri için bu, durum satırı ve yanıt başlıklarının mevcut olduğu anlamına gelmektedir.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Obje (opsiyonel) 
+* `filter` Nesne (isteğe bağlı) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
@@ -150,11 +150,11 @@ Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` i
     * `url` Dize
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` Dize
+    * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
-    * `statusCode` Tamsayı
-    * `ip` String (isteğe bağlı) - Gönderilen isteğin olduğu sunucu IP adresi.
+    * `statusCode` Integer
+    * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
     * `responseHeaders` Object
 
@@ -162,7 +162,7 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Obje (opsiyonel) 
+* `filter` Nesne (isteğe bağlı) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
@@ -170,18 +170,18 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
     * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
-    * `resourceType` Dize
+    * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
-    * `statusCode` Tamsayı
+    * `statusCode` Integer
     * `statusLine` String
 
 Bir istek tamamlandığında `listener` `listener(details)` ile birlikte çağırılacaktır.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Obje (opsiyonel) 
+* `filter` Nesne (isteğe bağlı) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
@@ -189,9 +189,9 @@ Bir istek tamamlandığında `listener` `listener(details)` ile birlikte çağı
     * `url` Dize
     * `method` Dizi
     * `webContentsId` Integer (optional)
-    * `resourceType` Dize
+    * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - Hata açıklaması.
+    * `error` String - The error description.
 
 Bir hata oluştuğunda `listener` `listener(details)` ile birlikte çağırılacaktır.
