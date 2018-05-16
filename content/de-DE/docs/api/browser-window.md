@@ -112,7 +112,7 @@ Es wird empfohlen aufwendige Aufgaben zu pausieren wenn der Sichtbarkeitszustand
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` ist ein [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `options` gesetzt wurden.
 
@@ -138,30 +138,30 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `alwaysOnTop` Boolean (optional) - Gibt an ob das Fenster immer über anderen Fenstern angezeigt werden soll. Standard ist `false`.
   * `fullscreen` Boolean (optional) - Gibt an ob das Fenster im Vollbildmodus angezeigt werden soll. Wenn diese Option explizit auf `false` gesetzt wird, wird der Button für Vollbildmodus unter macOS versteckt oder deaktiviert. Standard ist `false`.
   * `fullscreenable` Boolean (optional) - Gibt an ob das Fenster in den Vollbildmodus versetzt werden kann. Unter macOS gibt diese Option auch an, ob der Maximieren/Zoom Button das Fenster in den Vollbildmodus versetzt oder maximiert. Standard ist `true`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
-    * `default` - Results in the standard gray opaque Mac title bar.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-    * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
+  * `simpleFullscreen` Boolean (optional) - Gibt an ob der pre-Lion Vollbildmodus unter macOS verwendet wird. Standard ist `false`.
+  * `skipTaskbar` Boolean (optional) - Gibt an ob das Fenster in der Taskbar anzeigt wird. Standard ist `false`.
+  * `kiosk` Boolean (optional) - Kioskmodus. Standard ist `false`.
+  * `title` String (optional) - Fenstertitel. Standard ist `"Electron"`.
+  * `icon` ([NativeImage](native-image.md) | String) (optional) - Das Fenstericon. Es empfiehlt sich unter Windows ein `ICO` Icon zu verwenden um die besten visuellen Effekte zu erreichen. Das Icon der Executable wird verwendet wenn dieser Wert nicht definiert wird.
+  * `show` Boolean (optional) - Gibt an ob das Fenster angezeigt wird wenn es erstellt wurde. Standard ist `true`.
+  * `frame` Boolean (optional) - Spezifizieren sie `false` für ein [Frameless Window](frameless-window.md). Standard ist `true`.
+  * `parent` BrowserWindow (optional) - Gibt das übergeordnete Fenster an. Standard ist `null`.
+  * `modal` Boolean (optional) - Gibt an ob das Fenster ein Modalfenster ist. Dies funktioniert nur bei untergeordneten Fenstern. Standard ist `false`.
+  * `acceptFirstMouse` Boolean (optional) - Gibt an ob die Webanzeige ein mouse-down Ereignis annimmt, das gleichzeitig das Fenster aktiviert. Standard ist `false`.
+  * `disableAutoHideCursor` Boolean (optional) - Gibt an ob der Mauszeiger versteckt werden soll wenn getippt wird. Standard ist `false`.
+  * `autoHideMenuBar` Boolean (optional) - Versteckt die Menüleiste wenn `Alt` Taste nicht gedrückt ist. Standard ist `false`.
+  * `enableLargerThanScreen` Boolean (optional) - Erlaubt dem Fenster größer zu werden als der Bildschirm. Standard ist `false`.
+  * `backgroundColor` String (optional) - Die Hintergrundfarbe des Fensters als Hexadezimalwert, beispielsweise `#66CD00` oder `#FFF` oder `#80FFFFFF` (Alpha wird unterstützt). Standard ist `#FFF` (Weiss).
+  * `hasShadow` Boolean (optional) - Gibt an ob das Fenster einene Schatten hat. Nur unter macOS unterstützt. Standard ist `true`.
+  * `opacity` Number (optional) - Setzt die anfängliche Opazität des Fensters. Zwischen 0,0 (vollständig transparent) und 1,0 (vollständig opak). Nur unter Windows und macOS unterstützt.
+  * `darkTheme` Boolean (optional) - Erzwingt ein dunkles Farbschema. Funktioniert nur mit manchen GTK+3 Desktopumgebungen. Standard ist `false`.
+  * `transparent` Boolean (optional) - Macht das Fenster [transparent](frameless-window.md). Standard ist `false`.
+  * `type` String (optional) - Der Fenstertyp. Standard ist ein normales Fenster. Mehr dazu kann weiter unten gelesen werden.
+  * `titleBarStyle` String (optional) - Stil der Fenstertitelleiste. Standard ist `default`. Mögliche Werte sind: 
+    * `default` - Resultiert in der opaken, grauen Standardfenstertitelleiste von Mac.
+    * `hidden` - Resultiert in einer versteckten Titelleiste und einem Fenster mit voller Inhaltsgröße. Das Fenster hat noch immer die standardmäßigen Steuerelemente ("Ampelleuchten") in der oberen linken Ecke.
+    * `hiddenInset` - Resultiert in einer versteckten Titelleiste mit einem alternativem Aussehen, bei dem die Ampelleuchten Buttons vom Fensterrand etwas weiter nach innen gerückt wurden.
+    * `customButtonsOnHover` Boolean (optional) - Zeichnet benutzerdefinierte Schließen-, Minimieren-, und Vollbildbuttons auf einem rahmenlosen macOS Fenster. Diese Knöpfe werden nur angezeigt wenn man den Mauszeiger über die obere linke Ecke des Fensters bewegt. Diese benutzerdefinierten Buttons verhindern Probleme mit Mauszeiger Ereignissen die bei normalen Fenster Werkzeugleistenbuttons auftreten. **Beachte:** Diese Option ist experimentell.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Standard ist `true`.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well.
@@ -1011,7 +1011,7 @@ Rückgabewert:
   The `buttons` is an array of `Button` objects:
   
   * `Button` Object 
-    * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+    * ` Icon ` [ NativeImage ](native-image.md)-das Symbol zeigt in Thumbnail Leiste.
     * ` Klicken Sie auf ` Funktion
     * ` Tooltip ` String (optional)-der Text der Tooltip der Schaltfläche.
     * ` Flags ` String [] (optional)-Steuern Sie bestimmte Zustände und Verhaltensweisen der Schalt. Standardmäßig ist es ` [' Enabled '] `.
@@ -1179,10 +1179,10 @@ Rückgabewert:
   
   **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
   
-  #### `win.setBrowserView(browserView)` *Experimental*
+  #### `win.setBrowserView(browserView)` *Experimentell*
   
   * `browserView` [BrowserView](browser-view.md)
-  #### `win.getBrowserView()` *Experimental*
+  #### `win.getBrowserView()` *Experimentell*
   
   Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
   
