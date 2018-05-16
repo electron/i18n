@@ -40,7 +40,7 @@ Uygulamanızın içindeki ASAR desteğini kontrol eden bir `Boolean`. Bunu `true
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Bu özellik `--no-deprecation` komut satırı etiketi yerine kullanılır.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
 
 ### `process.resourcesPath`
 
@@ -97,7 +97,7 @@ Geçerli işlemin ana iş parçacığının çökmesine neden olur.
 * `workingSetSize` Tamsayı - O anda gerçek fiziksel RAM'e sabitlenmiş bellek miktarı.
 * `peakWorkingSetSize` Tamsayı - Gerçek fiziksel RAM'e sabitlenmiş maksimum bellek miktarı.
 * `privateBytes` Tam sayı - Diğer işlemler tarafından paylaşılmayan bellek miktarı, Js heap veya HTML içeriği gibi.
-* `sharedBytes` Tamsayı - İşlemler arasında paylaşılan bellek miktarı, genel olarak Elektron kodunun kendisi tarafından tüketilen bellek.
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm istatistiklerin Kilobayt olarak raporlandığına dikkat edin.
 
