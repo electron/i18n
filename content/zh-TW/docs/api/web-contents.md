@@ -124,7 +124,7 @@ Emitted when the document in the given frame is loaded.
 回傳:
 
 * `event` Event
-* `favicons` String[] - URL 陣列.
+* `favicons` String[] - URL 陣列。
 
 Emitted when page receives favicon urls.
 
@@ -293,7 +293,7 @@ Emitted when DevTools is focused / opened.
 
 * `event` Event
 * `url` String
-* `error` String - The error code.
+* `error` String - 錯誤代碼.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -533,7 +533,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -703,11 +703,11 @@ If the result of the executed code is a promise the callback result will be the 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+    console.log(result) // 會是 fetch 執行結果的 JSON 物件
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *試驗中*
 
 * `ignore` Boolean
 
@@ -827,7 +827,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -883,11 +883,11 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 Get the system printer list.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md).
+回傳 [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -946,7 +946,7 @@ win.webContents.on('did-finish-load', () => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
       if (error) throw error
-      console.log('Write PDF successfully.')
+      console.log('PDF 寫入成功。')
     })
   })
 })
@@ -1031,7 +1031,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1077,7 +1077,7 @@ The renderer process can handle the message by listening to `channel` with the [
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// 在主處理序中.
+// 在主處理序裡。
 const {app, BrowserWindow} = require('electron')
 let win = null
 
@@ -1135,8 +1135,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**必填**)
+* `y` Integer (**必填**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`.
 * `globalX` Integer
 * `globalY` Integer
@@ -1157,7 +1157,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
+* `onlyDirty` Boolean (選用) - 預設值是 `false`.
 * `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1182,7 +1182,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
-* `fullPath` String - The full file path.
+* `fullPath` String - 檔案完整路徑。
 * `saveType` String - Specify the save type. 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
@@ -1200,7 +1200,7 @@ win.loadURL('https://github.com')
 
 win.webContents.on('did-finish-load', () => {
   win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+    if (!error) console.log('頁面儲存成功')
   })
 })
 ```
