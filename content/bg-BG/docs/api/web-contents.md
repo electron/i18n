@@ -294,7 +294,7 @@ Emitted when DevTools is focused / opened.
 
 * `event` Събитие
 * `url` String
-* `error` String - Кодът на грешката.
+* `error` String - The error code.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Функция 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -447,7 +447,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 * `event` Събитие
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `обратно повикване` Функция 
+* `callback` Function 
   * `deviceId` String - Идентификационен номер на устройството
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -690,7 +690,7 @@ Injects CSS into the current web page.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
-* `обратно повикване` Function (optional) - Called after script has been executed. 
+* `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -732,7 +732,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `обратно повикване` Функция 
+* `callback` Function 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -745,7 +745,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 #### `contents.getZoomLevel(callback)`
 
-* `обратно повикване` Function 
+* `callback` Function 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -861,21 +861,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-* `обратно повикване` Функция 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Функция 
+* `callback` Function 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `обратно повикване` Функция 
+* `callback` Function 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -909,7 +909,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Функция 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
@@ -1159,7 +1159,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `обратно повикване` Функция 
+* `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1188,7 +1188,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `обратно повикване` Функция - `(error) => {}`. 
+* `callback` Function - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
@@ -1215,9 +1215,10 @@ Shows pop-up dictionary that searches the selected word on the page.
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
 * `опции` Object 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
-    * `width` Integer
-    * `height` Integer
+  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 
