@@ -1,4 +1,4 @@
 # 崩溃报告对象
 
-* `date` String
-* `ID` Integer
+* 日期 字符串
+* `id` String
