@@ -14,7 +14,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 İşlem: [Ana](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` modülü [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter) sınıfının bir örneğidir.
 
 `options` ile belirlenen yerel özelliklere sahip yeni bir `Notification` oluşturur.
 
@@ -29,9 +29,9 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 ### `new Notification([options])` *Experimental*
 
 * `options` Nesnesi 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
+  * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
   * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
   * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
@@ -70,14 +70,14 @@ Dönüşler:
 
 Bildirim, kullanıcı tarafından manuel müdahale edilerek kapatıldığında ortaya çıkar.
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+Bu olayın, bildirimin kapalı olduğu tüm durumlarda bildirim vermesi garanti edilmez.
 
 #### Etkinlik: 'hızlı kaydır' *macOS*
 
 Dönüşler:
 
 * `event` Event
-* `reply` String - The string the user entered into the inline reply field.
+* `reply` Dize - Kullanıcının satır içi açıklama kısmına girdiği dize.
 
 Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bildirimde "yanıtla" düğmesini tıklaması gerekir.
 
@@ -86,7 +86,7 @@ Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bi
 Dönüşler:
 
 * `event` Event
-* `index` Number - The index of the action that was activated.
+* `index` Numara - Etkin olan eylem dizinini gösterir.
 
 ### Sınıf örneği metodları
 
@@ -96,19 +96,19 @@ Dönüşler:
 
 Bildirimi kullanıcıya anında gösterir, lütfen bu, HTML5 Bildirim uygulamasının aksine, `new Notification` ın basit bir örneğini hemen kullanıcıya göstermediğini, OS'nin bunu görüntülemeden önce bu yöntemi aramanız gerektiğini unutmayın.
 
-If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+Bildirim daha önce gösterilmişse, bu yöntem önceden gösterilen bildirimi reddedecek ve aynı özelliklere sahip yeni bir bildirim oluşturacaktır.
 
 #### `notification.close()`
 
-Dismisses the notification.
+Bildirimleri yoksay.
 
 ### Çalınan sesler
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Macos'ta, bildirim görüntülendiği zaman çalmak istediğiniz sesin adını belirtebilirsiniz. Varsayılan seslerden herhangi biri ( Sistem tercihleri altında > Ses) özel ses dosyalarına ekstra olarak kullanılabilir. Ses dosyalarının uygulama paketi altında (e.g., `YourApp.app/Contents/Resources`) yada aşağıdaki yerlerden birinde kopyalanmış olduğundan emin olun:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Daha fazla bilgi için [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) dosyalarına bakın.
