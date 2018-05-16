@@ -22,7 +22,7 @@ The `shell` modülünün aşağıdaki yöntemleri vardır:
 
 * `fullPath` Dizgi
 
-`Boolean` Döndürür - Öğenin başarıyla gösterilip gösterilmediği.
+Returns `Boolean` - Whether the item was successfully shown.
 
 Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı seçin.
 
@@ -36,7 +36,7 @@ Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` Dizge - Windows üzerinde max 2081 karakter veya işlev kopya değerini gönderir.
+* `url` String - max 2081 characters on windows, or the function returns false.
 * `seçenekler` Obje (opsiyonel) *macOS* 
   * `activate` Mantıksal - `true` açık uygulamayı ön plana getirmek için. Varsayılan `true`'dır.
 * `geri aramak` Fonksiyon (isteğe bağlı) *macOS* - If specified will perform the open asynchronously. 
@@ -50,7 +50,7 @@ Verilen harici protokol URL'sini masaüstünde varsayılan şekilde açın. (Ör
 
 * `fullPath` Dizgi
 
-`Boolean` Döndürür - Öğenin çöp kutusuna başarıyla taşınıp taşınmadığı.
+Returns `Boolean` - Whether the item was successfully moved to the trash.
 
 Verilen dosyayı çöp kutusuna taşır ve işlem için bir boolean durumu döndürür.
 
@@ -67,7 +67,7 @@ Bip sesini oynatın.
   * `replace` - Varolan bir kısayolun üzerine yazar, kısayol yoksa başarısız olur.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-`Boolean` Döndürür - Kısayolun başarıyla oluşturulup oluşturulmadığı.
+Returns `Boolean` - Whether the shortcut was created successfully.
 
 `shortcutPath` bir kısayol bağlantısı oluşturur veya güncelleştirir.
 
