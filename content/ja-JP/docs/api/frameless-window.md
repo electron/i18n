@@ -64,8 +64,8 @@ win.show()
 * 透明なウインドウのサイズを変更することはできません。`resizable` を `true` に設定すると、いくつかのプラットフォームでは透明なウインドウが機能しなくなることがあります。
 * `blur` フィルターはWebページにしか適用されないため、ウインドウの下にあるコンテンツ (すなわち、ユーザーのシステムで開かれた他のアプリケーション) にぼかし効果を適用する方法はありません。
 * Windowsオペレーティングシステムでは、DWMが無効なとき、透明なウインドウは機能しません。
-* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-* On Mac, the native window shadow will not be shown on a transparent window.
+* Linux では、GPU を無効にして透明なウインドウを作成するための ARGB を許可するため、ユーザーがコマンドラインに `--enable-transparent-visuals --disable-gpu` を指定しなければなりません。これは、Linux における [いくつかの NVidia ドライバーでアルファチャンネルが機能しない](https://code.google.com/p/chromium/issues/detail?id=369209) という上流のバグによるものです。
+* Mac では、ネイティブウインドウの影は透明なウインドウには表示されません。
 
 ## クリックスルーウインドウ
 
@@ -77,9 +77,9 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-### Forwarding
+### 転送
 
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+マウスのメッセージを無視すると、Webページでマウスの移動が検出されなくなり、マウスの移動イベントが発生しません。 Windowsオペレーティングシステムでは、`mouseleave` のようなイベントを発生させられるよう、マウスの移動メッセージをWebページに転送するのに、オプションパラメーターが使用されます。
 
 ```javascript
 let win = require('electron').remote.getCurrentWindow()
@@ -92,22 +92,22 @@ el.addEventListener('mouseleave', () => {
 })
 ```
 
-This makes the web page click-through when over `el`, and returns to normal outside it.
+これにより、`el` の上のとき、Webページはクリックスルーになり、その外側では、通常に戻ります。
 
 ## ドラッグ可能な領域
 
-By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+既定では、フレームレスウインドウはドラッグできません。 アプリは、どの領域が (OSの標準のタイトルバーのように) ドラッグ可能であるかをElectronに伝えるため、CSSで `-webkit-app-region: drag` を指定することが必要です。また、アプリは、ドラッグ可能な領域からドラッグ不可能な領域を除外するため、`-webkit-app-region: no-drag` を使用することもできます。 現在のところ、長方形の形状しかサポートされていないことに注意して下さい。
 
-Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
+注: `-webkit-app-region: drag` は、開発者ツールが開かれている間、問題があることが知られています。 回避策を含む詳細については、この[GitHubの課題](https://github.com/electron/electron/issues/3647)を参照して下さい。
 
-To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
+ウインドウ全体をドラッグ可能にするには、`body` のスタイルとして `-webkit-app-region: drag` を追加して下さい。
 
 ```html
 <body style="-webkit-app-region: drag">
 </body>
 ```
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+そして、ウインドウ全体をドラッグ可能にした場合、ボタンをドラッグ不可として同時にマークしなければなりません。そうでなければ、ユーザーがボタンをクリックすることができなくなります。
 
 ```css
 button {
@@ -115,11 +115,11 @@ button {
 }
 ```
 
-If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+カスタムのタイトルバーだけをドラッグ可能に設定する場合、同時にタイトルバーのすべてのボタンをドラッグ不可にする必要があります。
 
 ## テキストの選択
 
-In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+フレームレスウインドウでは、ドラッグの挙動がテキストの選択と競合する可能性があります。 例えば、タイトルバーをドラッグするとき、誤ってタイトルバーのテキストを選択する可能性があります。 これを防止するには、このようにドラッグ可能な領域内のテキスト選択を無効にする必要があります。
 
 ```css
 .titlebar {
@@ -130,4 +130,4 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 
 ## コンテキストメニュー
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+いくつかのプラットフォームでは、ドラッグ可能な領域は非クライアントのフレームとして扱われます。そのため、ドラッグ可能な領域を右クリックすると、システムメニューが現れます。 すべてのプラットフォームでコンテキストメニューが正しく動作するようにするには、絶対にカスタムのコンテキストメニューをドラッグ可能な領域で使用しないようにしてください。
