@@ -44,29 +44,29 @@ A propriedade `role` pode ter os seguintes valores:
 * `pasteAndMatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - Minimiza a janela atual.
-* `close` - Fecha a janela atual.
-* `quit`- Fecha a aplicação.
-* `reload` - Recarrega a janela atual.
+* `minimize` - Minimize current window.
+* `close` - Close current window.
+* `quit`- Quit the application.
+* `reload` - Reload the current window.
 * `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `toggleFullScreen`- Toggle full screen mode on the current window.
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
-* `editMenu` - Menu "Edit" padrão inteiro (Desfazer, Copiar, etc.).
-* `windowMenu` - Menu "Window" padrão inteiro (Minimizar, Fechar, etc.).
+* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
+* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
 
 The following additional roles are available on *macOS*:
 
-* `about` - Mapeia para a ação `orderFrontStandardAboutPanel`.
-* `hide` - Mapeia para a ação `hide`.
+* `about` - Map to the `orderFrontStandardAboutPanel` action.
+* `hide` - Map to the `hide` action.
 * `hideOthers` - Map to the `hideOtherApplications` action.
-* `hideothers` - Mapeia para a ação `unhideAllApplications`.
+* `unhide` - Map to the `unhideAllApplications` action.
 * `startSpeaking` - Map to the `startSpeaking` action.
 * `stopSpeaking` - Map to the `stopSpeaking` action.
-* `hide` - Mapeia para a ação `arrangeInFront`.
-* `zoom` - Mapeia para a ação `performZoom`.
+* `front` - Map to the `arrangeInFront` action.
+* `zoom` - Map to the `performZoom` action.
 * `toggleTabBar` - Map to the `toggleTabBar` action.
 * `selectNextTab` - Map to the `selectNextTab` action.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
@@ -104,8 +104,8 @@ Você pode adicionar uma função `click` para comportamentos adicionais.
 
 #### `menuItem.label`
 
-Uma `String` representando os rótulos visíveis dos itens do menu.
+A `String` representing the menu items visible label.
 
 #### `menuItem.click`
 
-Uma `Function` que é ativada quando um item de menu recebe um evento de clique.
+A `Function` that is fired when the MenuItem receives a click event.
