@@ -180,7 +180,7 @@ Registers a protocol of `scheme` that will send a `Readable` as a response.
 
 The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
 
-Exemple:
+Exemple :
 
 ```javascript
 const {protocol} = require('electron')
@@ -277,7 +277,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (facultatif)
 * `completion` Function (facultatif) 
   * `error` Error
 
