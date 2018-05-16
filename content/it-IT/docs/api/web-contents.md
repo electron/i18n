@@ -294,7 +294,7 @@ Restituisce:
 
 * `event` Event
 * `url` Stringa
-* `errore` Stringa - Il codice d'errore.
+* `error` String - The error code.
 * `certificato` [Certificato](structures/certificate.md)
 * `callback` Funzione 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -448,7 +448,7 @@ Restituisce:
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
-  * `diapositivold` Stringa
+  * `deviceId` Stringa
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
@@ -708,7 +708,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Sperimentale*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
 
@@ -841,7 +841,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] richiesta. 
+* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -899,27 +899,27 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
 
-Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `options` Oggetto 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String (optional) - Specify page size of the generated PDF. Può essere `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un oggetto contenente `height`(altezza) e la `width`(larghezza) in micron.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
-  * `error` Error - il valore é diverso da nulla se si verifica un qualunque errore durante la generazione del pdf
+  * `errore` Errore
   * `data` Buffer - contiene il pdf generato
 
-Stampa la pagina web della finestra come PDF con le impostazioni di stampa personalizzate di Chromium.
+Prints window's web page as PDF with Chromium's preview printing custom settings.
 
-Il `callback` verrà chiamato con `callback (error, data)` al completamento. I `data` è un `Buffer` che contiene i dati del PDF generato.
+The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
 
-Il `landscape` verrà ignorato se la regola CSS `@page` è utilizzato nella pagina web.
+The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
 
-Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato il seguente:
+By default, an empty `options` will be regarded as:
 
 ```javascript
 {
@@ -930,9 +930,9 @@ Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato 
 }
 ```
 
-Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Un esempio di `webContents.printToPDF`:
+An example of `webContents.printToPDF`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -942,7 +942,7 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // vengono utilizzate le impostazioni predefinite decritte sopra
+  // Use default printing options
   win.webContents.printToPDF({}, (error, data) => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
@@ -1189,7 +1189,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
 * `callback` Function - `(error) => {}`. 
-  * `error` Error
+  * `errore` Errore
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
 
