@@ -36,7 +36,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 #### Event: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
+* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
 * `cause` String - coodie 值变动的原因，该变量可能的值为： 
   * ` explicit ` - cookie 是由消费者的操作直接更改的。
   * ` overwrite ` - 一个覆盖原值的插入操作导致的 cookie 被自动删除。
@@ -56,7 +56,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 * `filter` Object - 过滤器对象，包含过滤参数 
   * ` url `String (可选) - 检索与 ` url ` 关联的 cookie。空意味着检索所有 url 的 cookie。
   * ` name `String (可选) - 按名称筛选 cookie。
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
+  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
   * ` path `String (可选) - 检索路径与 ` path ` 匹配的 cookie。
   * ` secure `Boolean (可选) - 通过其Secure 属性筛选 cookie。
   * ` session `Boolean (可选) - 筛选出session 内可用或持久性 cookie。
@@ -64,7 +64,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - 返回的cookie 对象数组.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
 #### `cookies.set(details, callback)`
 
