@@ -32,33 +32,33 @@ Set a custom locale.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Hata ayıklama ile ilgili bayrakları, ayrıntılar için [Debugging the Main Process](../tutorial/debugging-main-process.md) kılavuzuna bakın.
+Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
 
 ## --remote-debugging-port=`port`
 
-Belirtilen `port` noktasında HTTP üzerinden uzaktan hata ayıklamayı etkinleştirir.
+Enables remote debugging over HTTP on the specified `port`.
 
 ## --disk-cache-size=`size`
 
-Disk önbelleği tarafından kullanılacak maksimum disk alanını bayt cinsinden ifade etmeye zorlar.
+Forces the maximum disk space to be used by the disk cache, in bytes.
 
 ## --js-flags=`flags`
 
-Node JS motoruna geçirilen bayrakları belirtir. Ana işlemdeki `bayrakları` etkinleştirmek isterseniz, Elektron başlatırken değerlerin geçmiş olması gerekir.
+Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" app'iniz
 ```
 
-[Node documentation](https://nodejs.org/api/cli.html) bakın veya kullanılabilir bayrakların bir listesi için terminalde `node --help` çalıştırın. Ayrıca, özellikle Node'un V8 JavaScript motoruna atıfta bulunan bayrakların listesini görmek için `node --v8-options`'ni çalıştırın.
+See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
-Sistem ayarını geçersiz kılan belirli bir proxy sunucusu kullanın. Bu anahtar HTTPS ve WebSocket istekleri dahil olmak üzere yalnızca HTTP protokollü istekleri etkiler. Ayrıca, tüm proxy sunucuların HTTPS'yi ve WebSocket isteklerini desteklemediği de dikkat çeken bir noktadır.
+Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
 
 ## --proxy-bypass-list=`hosts`
 
-Verilen yarı-kolonla ayrılmış ana bilgisayarların listesi için Electron talimatları proxy sunucusunu atlar. Bu bayrak yalnızca tandem içerisinde `--proxy-server` ile kullanılmışsa etki eder.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 Örneğin:
 
@@ -67,19 +67,19 @@ const {app} = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Local adreslerde (`localhost`, `127.0.0.1` etc.), `google.com` alt alan adları ile yer alan tüm ana bilgisayarlar dışında kullanılacak proxy sunucuları `foo.com` suffix içermeli ve `1.2.3.4:5678` içinde bulundurmalı.
+Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
 
 ## --proxy-pac-url=`url`
 
-PAC komut dosyasını belirtilen `url`'de kullanır.
+Uses the PAC script at the specified `url`.
 
 ## --no-proxy-server
 
-Bir proxy sunucusu kullanmayın ve daima doğrudan bağlantılar kurun. Geçen proxy sunucu bayrakları diğerlerini geçersiz kılar.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
-Ana bilgisayar adlarının nasıl eşleştirileceğini denetleyen virgülle ayrılmış `kurallar`.
+A comma-separated list of `rules` that control how hostnames are mapped.
 
 Örneğin:
 
@@ -88,15 +88,15 @@ Ana bilgisayar adlarının nasıl eşleştirileceğini denetleyen virgülle ayr�
 * `MAP test.com [::1]:77` "test.com" u IPv6 loopback için çözülmesini zorlar. Elde edilen soket adresinin bağlantı noktasını da 77 olacak şekilde zorlar.
 * `MAP * baz, EXCLUDE www.google.com` "www.google.com" dışında her şeyi "baz" a yeniden eşler.
 
-Bu eşlemeler, net istekli bitiş noktası sunucusu için geçerlidir (TCP bağlantısı ve ana çözümleyici doğrudan bir bağlantıda ve `CONNECT` Http proxy bağlantısında ve `SOCKS` proxy bağlantısı bitiş noktası sunucusu içerisinde).
+These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
 ## --host-resolver-rules=`rules`
 
-Gibi `--host-rules` ama bu `kurallar` sadece ana çözümleyici için geçerlidir.
+Like `--host-rules` but these `rules` only apply to the host resolver.
 
 ## --auth-server-whitelist=`url`
 
-Tümleşik kimlik doğrulamanın etkinleştirildiği virgülle ayrılmış sunucular listesi.
+A comma-separated list of servers for which integrated authentication is enabled.
 
 Örneğin:
 
@@ -104,50 +104,50 @@ Tümleşik kimlik doğrulamanın etkinleştirildiği virgülle ayrılmış sunuc
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-o zaman `example.com`, ` foobar.com`, `baz` ile biten herhangi bir `url` entegre kimlik doğrulama için kabul edilmiş olacaktır. `*` öneki olmadan Url'nin tam olarak eşleşmesi gerekir.
+then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-Kullanıcı kimlik bilgilerinin temsilciliğinin gerekli olduğu, virgülle ayrılmış bir sunucu listesi. `*` öneki olmadan Url'nin tam olarak eşleşmesi gerekir.
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
 
 ## --ignore-certificate-errors
 
-Sertifika ile ilgili hataları yok sayar.
+Ignores certificate related errors.
 
 ## --ppapi-flash-path=`path`
 
-Pepper flash eklentisi `yolunu` belirler.
+Sets the `path` of the pepper flash plugin.
 
 ## --ppapi-flash-version=`version`
 
-Pepper flash eklentisi `sürümünü` ayarlar.
+Sets the `version` of the pepper flash plugin.
 
 ## --log-net-log=`path`
 
-Kaydedilecek net günlük olaylarını etkinleştirir ve bunları `yoluna` yazar.
+Enables net log events to be saved and writes them to `path`.
 
 ## --disable-renderer-backgrounding
 
-Chromium görünmez sayfa oluşturucu işlemlerinin önceliğinin düşürülmesini engeller.
+Prevents Chromium from lowering the priority of invisible pages' renderer processes.
 
-Eğer sadece bir pencere içindeki daralmaları devre dışı bırakmak istiyorsanız, tüm global render işlemlerinde bu bayrak ile [playing silent audio](https://github.com/atom/atom/pull/9485/files)'i alabilirsiniz.
+This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
 ## --enable-logging
 
-Chromium loglarını konsol içerisine yazdırır.
+Prints Chromium's logging into console.
 
-Kullanıcının uygulaması yüklenene kadar bu anahtar `app.commandLine.appendSwitch` içerisinde kullanılamaz fakat aynı etkiyi yaratması için `ELECTRON_ENABLE_LOGGING` ortam değişkenini ayarlayabilirsiniz.
+This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
 
 ## --v=`log_level`
 
-Varsayılan maximum aktif V-logging seviyesini verir, varsayılan 0'dır. Normalde V-logging seviyeleri için pozitif değerler kullanılır.
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
-Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
+This switch only works when `--enable-logging` is also passed.
 
-## -vmodule=`pattern`
+## --vmodule=`pattern`
 
-Modül başına `--v` tarafından verilen değeri geçersiz kılmak için maksimal V-logging düzeylerini verir. Örneğin `my_module.*` ve `foo*.*` kaynak dosyaları içindeki tüm kodlar için `my_module=2,foo*=3` logging seviyelerini değiştirebilir.
+Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-İleri veya geri eğik çizgi içeren herhangi bir desen sadece modüle karşı değil aynı zamanda bütün yol adına karşı test edilir. Örneğin `foo/bar` dizini altındaki kaynak dosyaları tüm kodlar için `*/foo/bar/*=2` ile logging seviyeleri değiştirilebilir.
+Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
+This switch only works when `--enable-logging` is also passed.
