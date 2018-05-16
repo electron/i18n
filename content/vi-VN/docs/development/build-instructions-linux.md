@@ -6,7 +6,17 @@ Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
 
 * Ít nhất là 25GB ổ cứng và 8GB bộ nhớ RAM.
 * Python phiên bản 2.7.x. Một số bản phân phối như CentOS 6.x vẫn sử dụng Python 2.6.x vì vậy bạn có thể cần phải kiểm tra phiên bản Python của bạn với `python -V`.
+    
+    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    
+    ```sh
+    $ python ./script/check-tls.py
+    ```
+    
+    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+
 * Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. Bạn có thể tải mã nguồn từ [nodejs.org](https://nodejs.org), sau đó compile. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+
 * [clang](https://clang.llvm.org/get_started.html) 3.4 hoặc mới hơn.
 * Header của GTK+ và libnotify.
 
