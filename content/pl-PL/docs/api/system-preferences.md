@@ -181,7 +181,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `kolor` String - One of the following values: 
+* `color` String - One of the following values: 
   * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
   * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
   * `3d-highlight` - Highlight color for three-dimensional display elements.
