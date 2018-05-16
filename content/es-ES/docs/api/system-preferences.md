@@ -88,7 +88,7 @@ Remueve el subscriptor con el `id`.
   * `evento` Cadena
   * `userInfo` Objeto
 
-Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defectos locales. Esto es necesario para eventos como `NSUserDefaultsDidChangeNotification`.
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -104,12 +104,12 @@ Add the specified defaults to your application's `NSUserDefaults`.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `llave` Cadena
+* `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Devuelve `any` - El valor de `Key` en `NSUserDefaults`.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-Algún `key` y `type`s populares:
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -121,29 +121,29 @@ Algún `key` y `type`s populares:
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
-* `llave` Cadena
-* `type` Cadena - Ver [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
-* `value` Cadena
+* `key` String
+* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
+* `value` String
 
-Establece el valor de `key` en `NSUserDefaults`.
+Set the value of `key` in `NSUserDefaults`.
 
-Nota que `type` debería coincidir el tipo actual de `value`. Una excepción es arrojada si no es así.
+Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Algún `key` y `type`s populares:
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
 ### `systemPreferences.removeUserDefault(key)` *macOS*
 
-* `llave` Cadena
+* `key` String
 
-Elimina el `key` en `NSUserDefaults`. Puede usarse para reestablecer el valor por defecto o el valor global de un `key` establecido previamente con `setUserDefault`.
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Devuelve `Boolean` - `true` si [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) está habilitada, y `false` de lo contrario.
+Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
 
-Un ejemplo de usarlo para determinar si deberías crear una ventana transparente o no (las ventanas transparentes no funcionarán correctamente cuando la composición de DWM está deshabilitada):
+An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
 ```javascript
 onst {BrowserWindow, systemPreferences} = requiere('electron')
@@ -169,7 +169,7 @@ si (browserOptions.transparent) {
 
 ### `systemPreferences.getAccentColor()` *Windows*
 
-Devuelve `Cadena` - El sistema actual de usuarios amplía el acento del color de preferencia en la forma hexadecimal de RGBA.
+Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -181,40 +181,40 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` Cadena - Uno de los siguientes valores: 
-  * `3d-dark-shadow` - Sombra oscura para elementos de tres dimensiones mostrados.
-  * `3d-face` - Color facial para elementos de tres dimensiones mostrados y para cuadro de fondos de las caja de diálogo.
-  * `3d-highlight` - Resalta color para elementos de tres dimensiones mostrados.
-  * `3d-light` - Color claro para elementos de tres dimensiones mostrados.
-  * `3d-shadow` - Color oscuro para elementos de tres dimensiones mostrados.
-  * `active-border` - Borde de ventana activo.
-  * `active-caption` - Título de barra de la ventana activo. Especifica el color del lado izquierdo en el tono del color de un título de barra de ventana activa si el efecto de tono está habilitado.
-  * `active-caption-gradient` - El color del lado derecho en el tono del color de un título de barra de una ventana activa.
-  * `app-workspace` - Color de fondo de múltiples documentos de aplicaciones de interfase.
-  * `button-text` - Texto en los botones de presión.
-  * `caption-text` - Textos en subtítulos, tamaño de la caja y la barra de desplazamiento de la caja de flecha.
-  * `desktop` - Color de fondo del escritorio.
-  * `disabled-text` - Gris (desactivado) texto.
-  * 0>highlight</code> - objeto(s) seleccionados en un control.
-  * `highlight-text` - Texto de objeto(s) seleccionados en un control.
-  * `hotlight` - Color para un hiperlink o un muy rastreado objeto.
-  * `inactive-border` - Borde de ventana inactivo.
-  * `inactive-caption` - Subtítulo de ventana inactivo. Especifica el color del lado izquierdo en el tono de color de una barra de título de una ventana inactiva si el efecto de tono está habilitado.
-  * `inactive-caption-gradient` - Color del lado derecho en el tono de color de un título de barra de una ventana inactiva.
-  * `inactive-caption-text` - Color del texto en un subtítulo inactivo.
-  * `info-background` - Color de fondo para control de información de herramientas.
-  * `info-text` - Color de texto para controles de información de herramientas.
-  * `menu` - Fondo del menú.
-  * `menu-highlight` - El color usado para resaltar los objetos del menú cuando el menú aparece como un menú plano.
-  * `menubar` - El color de fondo para la barra del menú cuando los menús aparecen como menús planos.
-  * `menu-text` - Textos en menús.
-  * `scrollbar` - Desplazar la barra en el área gris.
-  * `window` - Fondo de la ventana.
-  * `window-frame` - Cuadro de ventana.
-  * `window-text` - Texto en ventanas.
+* `color` String - One of the following values: 
+  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
+  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
+  * `3d-highlight` - Highlight color for three-dimensional display elements.
+  * `3d-light` - Light color for three-dimensional display elements.
+  * `3d-shadow` - Shadow color for three-dimensional display elements.
+  * `active-border` - Active window border.
+  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
+  * `app-workspace` - Background color of multiple document interface (MDI) applications.
+  * `button-text` - Text on push buttons.
+  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
+  * `desktop` - Desktop background color.
+  * `disabled-text` - Grayed (disabled) text.
+  * `highlight` - Item(s) selected in a control.
+  * `highlight-text` - Text of item(s) selected in a control.
+  * `hotlight` - Color for a hyperlink or hot-tracked item.
+  * `inactive-border` - Inactive window border.
+  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
+  * `inactive-caption-text` - Color of text in an inactive caption.
+  * `info-background` - Background color for tooltip controls.
+  * `info-text` - Text color for tooltip controls.
+  * `menu` - Menu background.
+  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
+  * `menubar` - The background color for the menu bar when menus appear as flat menus.
+  * `menu-text` - Text in menus.
+  * `scrollbar` - Scroll bar gray area.
+  * `window` - Window background.
+  * `window-frame` - Window frame.
+  * `window-text` - Text in windows.
 
-Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Ver el [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) para más detalles.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Devuelve `Boolean` - `true` si un esquema de color invertido, como un tema de alto contraste, es activo, `false` de lo contrario.
+Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
