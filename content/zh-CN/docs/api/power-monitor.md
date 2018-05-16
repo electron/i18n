@@ -38,7 +38,3 @@ app.on('ready', () => {
 ### Event: 'on-battery' *Windows*
 
 当系统更改为电池电量时触发。
-
-### Event: 'shutdown' *Linux* *macOS*
-
-Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
