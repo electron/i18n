@@ -164,14 +164,14 @@ For POST requests the `uploadData` object must be provided.
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `schemat` String
-* `handler` Function 
+* `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funkcja 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Funkcja (opcjonalne) 
   * `error` Error
@@ -286,13 +286,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `schemat` String
-* `handler` Function 
+* `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funkcja 
     * `redirectRequest` Obiekt 
       * `url` String
       * `method` String
@@ -308,14 +308,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `schemat` String
-* `handler` Function 
+* `handler` Funkcja 
   * `żądanie` Obiekt 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funkcja 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Funkcja (opcjonalne) 
   * `error` Error
