@@ -39,6 +39,6 @@ app.on('ready', () => {
 
 システムがバッテリー電源に切り替わったときに発生します。
 
-### Event: 'shutdown' *Linux* *macOS*
+### イベント: 'shutdown' *Linux* *macOS*
 
-Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
+システムが再起動またはシャットダウンしようとしているときに発生します。 イベントハンドラが `e.preventDefault()` を呼び出した場合、Electron は正常にアプリを終了するためにシステムのシャットダウンの遅延を試みます。 `e.preventDefault()` が呼ばれた場合、出来る限り `app.quit()` のようなものを呼ぶのと同じようにアプリを終了します。
