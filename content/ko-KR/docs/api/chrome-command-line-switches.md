@@ -26,13 +26,17 @@ HTTP 요청 캐시를 비활성화합니다.
 
 HTTP/2와 SPDY/3.1 프로토콜을 비활성화합니다.
 
+## --lang
+
+Set a custom locale.
+
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+디버깅관련 플래그입니다. 자세한 내용은 [메인프로세스 디버깅하기] [Debugging the Main Process](../tutorial/debugging-main-process.md) 안내서를 보세요.
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+지정한 `port`에 HTTP 기반의 리모트 디버거를 활성화합니다. (개발자 도구)
 
 ## --disk-cache-size=`size`
 
@@ -40,17 +44,17 @@ Forces the maximum disk space to be used by the disk cache, in bytes.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Node JS 엔진에 지정한 플래그를 전달합니다. `flags`를 메인 프로세스에서 활성화하고자 한다면, Electron이 시작되기 전에 스위치를 전달해야 합니다.
 
-```bash
+```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+가능한 플래그 목록은 [Node 문서](https://nodejs.org/api/cli.html)를 보거나 터미널에서 <0>node --help</0> 명령을 실행하세요. 또한, 구체적으로 노드의 V8 자바스크립트 엔진과 관련있는 플래그의 목록을 보려면 <0>node --v8-options</0> 를 실행하세요. 
 
 ## --proxy-server=`address:port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+시스템 설정의 프록시 서버를 무시하고 지정한 서버로 연결합니다. HTTP와 HTTPS 요청에만 적용됩니다. 시스템 프록시 서버 설정을 무시하고 지정한 서버로 연결합니다. 이 스위치는 HTTP와 HTTPS 그리고 WebSocket 요청에만 적용됩니다. 그리고 모든 프록시 서버가 HTTPS가 WebSocket 요청을 지원하지 않고 있을 수 있으므로 사용시 주의해야 합니다. 
 
 ## --proxy-bypass-list=`hosts`
 
@@ -67,11 +71,11 @@ Will use the proxy server for all hosts except for local addresses (`localhost`,
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+지정한 `url`의 PAC 스크립트를 사용합니다.
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+프록시 서버를 사용하지 않습니다. 다른 프록시 서버 플래그 및 설정을 무시하고 언제나 직접 연결을 사용합니다.
 
 ## --host-rules=`rules`
 
@@ -96,8 +100,9 @@ A comma-separated list of servers for which integrated authentication is enabled
 
 예시:
 
-    --auth-server-whitelist='*example.com, *foobar.com, *baz'
-    
+```sh
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
 then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 
