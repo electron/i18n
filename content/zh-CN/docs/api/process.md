@@ -40,7 +40,8 @@ process.once('loaded', () => {
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. 使用此属性代替 `-no-deprecation ` 命令行标志。
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
+Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
 
 ### `process.resourcesPath`
 
@@ -48,7 +49,7 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 ### `process.throwDeprecation`
 
-`Boolean</ 0>类型，用于控制是否将弃用警告当做例外。 设置它为 <code>true` 时会抛出错误。 使用此属性而不是用 `--throw-deprecation ` 命令行标志。
+`Boolean</ 0>类型，用于控制是否将弃用警告当做例外。  设置它为 <code>true` 时会抛出错误。 使用此属性而不是用 `--throw-deprecation ` 命令行标志。
 
 ### `process.traceDeprecation`
 
@@ -97,7 +98,7 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 * `workingSetSize` Integer- 当前占用的物理内存RAM总量
 * `peakWorkingSetSize` Integer - 已被占用的物理内存最大值。
 * `privateBytes` Integer - 独占内存，不被其他进程（如JavaScript堆或者HTML内容）共享的内存数量
-* `sharedBytes` Integer -共享内存，在进程之间共享的内存数量，通常是Electron自身消耗的内存量.
+* `sharedBytes` Integer -共享内存，在进程之间共享的内存数量，通常是Electron自身消耗的内存量
 
 返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
 
@@ -107,8 +108,8 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 * `total` Integer - 系统可用的物理内存总量(Kb)。
 * `free` Integer - 应用程序或磁盘缓存未使用的内存总量。
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
+* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
 
 返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
 
