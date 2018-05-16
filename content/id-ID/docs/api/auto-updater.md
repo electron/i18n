@@ -4,13 +4,13 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-**Anda dapat menemukan petunjuk lebih lanjut mengenai penerapan pembaharuan ke dalam aplikasi anda [disini.](../tutorial/updates.md).**
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
 ## Platform Notices
 
-Saat ini, hanya di macOS dan Windows Yang masih mendukung. Tidak ada dukungan untuk pembaharuan automatis pada linux, sehingga disarankan untuk menggunakan paket distribusi manejer untuk memperbaharui aplikasi anda.
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-Sebagai tambahan, ada beberapa perbedaan kecil pada setiap platform:
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -30,66 +30,66 @@ Tidak seperti Squirrel.Mac, Windows dapat menginangi update pada S3 atau host fi
 
 ## Events
 
-Objek `autoUpdater` mengirimkan sinyal berikut:
+The `autoUpdater` object emits the following events:
 
-### Sinyal: 'Error'
+### Acara: 'kesalahan'
 
-Returns:
+Mengembalikan:
 
 * Kesalahan `kesalahan`
 
-Dikirimkan saat ada kesalahan saat mengupdate.
+Emitted when there is an error while updating.
 
-### Sinyal: 'check-for-update'
+### Event: 'checking-for-update'
 
-Dikirimkan saat memeriksa apakah update telah dimulai.
+Emitted when checking if an update has started.
 
-### Sinyal: 'update-available'
+### Event: 'update-available'
 
-Dikirimkan saat ada update yang tersedia. Pembaruan diunduh secara otomatis.
+Emitted when there is an available update. The update is downloaded automatically.
 
-### Sinyal: 'update-not-available'
+### Event: 'update-not-available'
 
-Dikirimkan saat tidak ada update yang tersedia.
+Emitted when there is no available update.
 
-### Sinyal: 'update-download'
+### Event: 'update-downloaded'
 
-Mengirimkan:
+Mengembalikan:
 
 * `event` Sinyal
 * `releaseNotes` String
 * `releaseName` String
-* `releaseDate` Tanggal
+* `releaseDate` Date
 * `updateURL` String
 
-Emitted saat update telah didownload.
+Emitted when an update has been downloaded.
 
-`releaseName` hanya tersedia pada Windows.
+On Windows only `releaseName` is available.
 
 ## Metode
 
-Objek `autoUpdater` memiliki metode berikut:
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `pilihan` Objek 
-  * `url` String
-  * `headers` Object (optional) *macOS* - HTTP request headers.
+* `pilihan` Sasaran 
+  * ` url </ 0> String</li>
+<li><code>headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Menetapkan `url` dan menginisialisasi updater otomatis.
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Mengembalikan `String` - URL feed pembaruan saat ini.
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Meminta server apakah ada update. Anda harus menghubungi `setFeedURL` sebelumnya menggunakan API ini.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Menjalankan ulang app dan menginstall pembaharuan setelah selesai di unduh. hanya di gunakan setelah sinyal `update-downloaded` telah di kirimkan.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
