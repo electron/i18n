@@ -6,7 +6,17 @@ Siga as instruções abaixo para configurar o Electron no Linux.
 
 * Pelo o menos o 25GB de espaço em disco e 8GB de memória RAM.
 * Python 2.7x. Para algumas distribuições como o CentOS 6.x continue usando o Python 2.6.x, então você precisa verificar a versão do Python com o comando `python -V`.
+    
+    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    
+    ```sh
+    $ python ./script/check-tls.py
+    ```
+    
+    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+
 * Node.js. Existem várias maneiras para instalar o Node. Você pode baixar o código fonte do [nodejs.org](https://nodejs.org) e compilar. Isto permite somente instalar o Node em seu próprio diretório como o usuário padrão. Ou pode tentar no repositório [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+
 * [clang](https://clang.llvm.org/get_started.html) 3.4 ou mais antigo.
 * Cabeçalho do GTK+ e libnotify.
 
