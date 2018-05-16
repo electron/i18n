@@ -7,11 +7,11 @@ Proses: [utama](../tutorial/quick-start.md#main-process)
 ### `TouchBarScrubberbaru(pilihan) ` * Eksperimental *
 
 * `pilihan` Benda 
-  * `item` [ScrubberItem[] ](structures/scrubber-item.md) - Kumpulan item yang akan ditempatkan di scrubber ini.
-  * `memilih` Fungsi - Disebut saat pengguna mengetuk item yang bukan item terakhir yang disadap. 
-    * `selectedIndex` Bulat - indeks dari item yang dipilih pengguna.
-  * `sorot` Fungsi - disebut ketika pengguna keran item. 
-    * `highlightedIndex` Bulat - indeks dari item pengguna menyentuh.
+  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
+  * `memilih` Function - Called when the user taps an item that was not the last tapped item. 
+    * `selectedIndex` Integer - The index of the item the user selected.
+  * `sorot` Function - Called when the user taps any item. 
+    * `highlightedIndex` Integer - The index of the item the user touched.
   * `selectedStyle` String - gaya item yang dipilih. Default ke `null`.
   * `overlayStyle` String - gaya item dipilih overlay. Default ke `null`.
   * `showArrowButtons` Aljabar Boolean - default ke `false`.
@@ -30,19 +30,19 @@ Properti berikut tersedia pada contoh-contoh dari `TouchBarScrubber`:
 
 A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
 
-* `latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `null` - sebenarnya null, bukan string, menghilangkan semua gaya.
+* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `null` - Actually null, not a string, removes all styles.
 
 #### `touchBarScrubber.overlayStyle`
 
 A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Gaya ini overlayed di atas item scrubber bukan ditempatkan di balik itu. Segera memperbarui nilai ini update kontrol di bar sentuhan. Nilai yang mungkin:</p>
 
 <ul>
-<li><code>latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`.</li> 
+<li><code>background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.</li> 
 
-* `latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `null` - sebenarnya null, bukan string, menghilangkan semua gaya.</ul> 
+* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `null` - Actually null, not a string, removes all styles.</ul> 
 
 #### `sentuhBarScrubber.showArrowButtons`
 
@@ -53,9 +53,9 @@ A ` Boolean </ 0> mewakili apakah akan menampilkan panah pilihan kiri / kanan di
 A ` String </ 0> mewakili mode scrubber ini. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh. Nilai yang mungkin:</p>
 
 <ul>
-<li><code>tetap` - peta ke `NSScrubberModeFixed`.</li> 
+<li><code>fixed` - Maps to `NSScrubberModeFixed`.</li> 
 
-* `gratis` - peta ke `NSScrubberModeFree`.</ul> 
+* `free` - Maps to `NSScrubberModeFree`.</ul> 
 
 #### `sentuhBarScrubber.kontinu`
 
