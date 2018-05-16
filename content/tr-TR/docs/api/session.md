@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` Dizgi
-* `seçenekler` Obje (opsiyonel) 
+* `seçenekler` Nesne (isteğe bağlı) 
   * `cache` Mantıksal - Önbelleği etkinleştirip etkinleştirmeyeceğini belirtir.
 
 `Oturum` Döndürür - `bölümden` bir oturum örneği metini. Aynı `partition`'a sahip olan `Session` varsa, döndürülecektir; aksi taktirde `Session` örneği `options` ile yaratılacaktır.
@@ -183,7 +183,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.setDownloadPath(path)`
 
-* `yol` String - İndirme konumu.
+* `path` String - The download location.
 
 İndirme, kaydetme dizini ayarlar. Varsayılan olarak, karşıdan yükleme dizini `İndirilenler` uygulama klasörü altındadır.
 
@@ -219,11 +219,11 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
   * `istek` Nesne 
     * `hostname` Dizgi
     * `certificate` [sertifika](structures/certificate.md)
-    * `verificationResult` Dizgi - Kromdan doğrulama sonucu.
-    * `errorCode` Tamsayı - Hata kodu.
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `geri aramak` Function 
     * `doğrulama Sonucu` Tamsayı: Değer sertifika hata kodlarından olabilir [buraya](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
-      * `` - Sonucu gösterir ve Sertifika Şeffaflığı doğrulamasını devre dışı bırakır.
+      * `` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
 
@@ -247,15 +247,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `halledici` İşlev | boş 
+* `halledici` Function | null 
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri aramak` Function 
-    * `permissionGranted` Boolean - İzin verme veya reddetme.
+    * `permissionGranted` Boolean - Allow or deny the permission.
   * `details` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
 
-Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. İşleyiciyi temizlemek için `setPermissionRequestHandler(null)`'i çağırın.
+Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
@@ -323,14 +323,14 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
   * `eTag` String - ETag başlık değeri.
   * `startTime` Çift (isteğe bağlı) - indirmenin UNİX epoch'tan sonraki birkaç saniye içinde başlama zamanı.
 
-Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. [DownloadItem](download-item.md) ile ilişkili herhangi bir `WebContents` yok ve başlangıç durumu `interrupted` olacak. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
-Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
+Clears the session’s HTTP authentication cache.
 
 #### `ses.setPreloads(preloads)`
 
@@ -344,19 +344,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Örnek Özellikler
 
-Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
+The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-Bu oturum için [çerezler](cookies.md) nesnesi.
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-Bu oturum için [Webistek](web-request.md) nesnesi.
+A [WebRequest](web-request.md) object for this session.
 
 #### `ses.protocol`
 
-Bu oturum için bir [Protokol](protocol.md) nesnesi.
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
 const {app, session} = require('electron')
