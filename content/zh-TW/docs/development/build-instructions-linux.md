@@ -6,7 +6,17 @@ Follow the guidelines below for building Electron on Linux.
 
 * 至少 25GB 的磁碟空間及 8GB 的 RAM。
 * Python 2.7.x。某些發行版本，例如 CentOS 6.x 還是用 Python 2.6.x。所以請由 `python -V` 確認 Python 的版本。
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+    
+    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    
+    ```sh
+    $ python ./script/check-tls.py
+    ```
+    
+    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+
+* Node.js。 There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+
 * [clang](https://clang.llvm.org/get_started.html) 3.4 或之後的版本。
 * Development headers of GTK+ and libnotify.
 
