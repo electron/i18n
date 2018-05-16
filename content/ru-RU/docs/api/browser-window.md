@@ -164,7 +164,7 @@ Process: [Main](../glossary.md#main-process)
     * `customButtonsOnHover` Boolean (необязательно) - Отобразить настраиваемые кнопки закрыть, свернуть и во весь экран на бескаркасных окнах в macOS. Эти кнопки не будут отображаться за исключением соприкосновения над левым верхним углом окна. Эти пользовательские кнопки предотвращают проблемы с событиями мыши, которые происходят с кнопками стандартной панели инструментов. **Заметка:** Этот параметр в настоящее время экспериментален.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolenan (необязательно) - Использовать стиль `WS_THICKFRAME` на окнах с отсутствием рамок на Windows, добавляющий стандартные рамки окна. Установив значение `false` тень окна и анимация окна будут удалены. По умолчанию - `true`.
-  * `vibrancy` String (опционально) - добавить тип эффекта вибрации к окну, только на macOS. Может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, или `ultra-dark`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well.
+  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. По умолчанию - `false`.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
   * `webPreferences` Object (optional) - Settings of web page's features. 
@@ -267,7 +267,7 @@ Emitted when window session is going to end due to force shutdown or machine res
 
 #### Событие: 'unresponsive'
 
-Вызывается, когда страница "не отвечает".
+Emitted when the web page becomes unresponsive.
 
 #### Событие: 'responsive'
 
@@ -275,11 +275,11 @@ Emitted when the unresponsive web page becomes responsive again.
 
 #### Событие: 'blur'
 
-Вызывается, когда окно теряет фокус.
+Emitted when the window loses focus.
 
 #### Событие: 'focus'
 
-Вызывается, когда на окне фокусируются.
+Emitted when the window gains focus.
 
 #### Событие: 'show'
 
@@ -410,7 +410,7 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
 
 * `webContents` [WebContents](web-contents.md)
 
-Возвращает `BrowserWindow` - окно, которое владеет указанным `webContents`.
+Returns `BrowserWindow` - The window that owns the given `webContents`.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -422,7 +422,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Возвращает `BrowserWindow` - окно с указанным `id`.
+Returns `BrowserWindow` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
@@ -438,7 +438,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Удаляет расширение Chrome с указанным именем.
+Remove a Chrome extension by name.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -464,7 +464,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Удаляет расширение DevTools с указанным именем.
+Remove a DevTools extension by name.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -544,7 +544,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Скрывает окно.
+Hides the window.
 
 #### `win.isVisible()`
 
@@ -564,7 +564,7 @@ Unmaximizes the window.
 
 #### `win.isMaximized()`
 
-Возвращает `Boolean` - если окно развернуто.
+Returns `Boolean` - Whether the window is maximized.
 
 #### `win.minimize()`
 
@@ -576,7 +576,7 @@ Restores the window from minimized state to its previous state.
 
 #### `win.isMinimized()`
 
-Возвращает `Boolean` - если окно свернуто.
+Returns `Boolean` - Whether the window is minimized.
 
 #### `win.setFullScreen(flag)`
 
@@ -903,7 +903,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (опционально) 
+* `options` Object (опиционально) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -957,7 +957,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (опционально) 
+* `options` Object (опиционально) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -983,9 +983,9 @@ Sets whether the window should have a shadow. On Windows and Linux does nothing.
 
 #### `win.hasShadow()` *macOS*
 
-Возвращает `Boolean` - был ли вызов успешным.
+Returns `Boolean` - Whether the window has a shadow.
 
-В Windows и Linux всегда возвращает `true`.
+On Windows and Linux always returns `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
@@ -1001,16 +1001,16 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Возвращает `Boolean` - успешно ли добавлены кнопки
+Returns `Boolean` - Whether the buttons were added successfully
 
 Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
 
 The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
-`buttons` является массивом объектов `Button`:
+The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - значок, отображаемый на панели инструментов эскизов.
+  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
   * `tooltip` String (опиционально) - текст всплывающей подсказки на кнопке.
   * `flags` String[] (опиционально) - контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
@@ -1026,7 +1026,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Область окна
+* `region` [Rectangle](structures/rectangle.md) - Region of the window
 
 Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
 
@@ -1093,15 +1093,15 @@ Sets whether the window should be visible on all workspaces.
 
 Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Примечание:** Данный API всегда возвращает false в Windows.
+**Note:** This API always returns false on Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Логическое значение
-* `options` Object (опционально) 
+* `options` Object (опиционально) 
   * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
-Включает для окна игнорирование событий от мыши.
+Makes the window ignore all mouse events.
 
 All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 
@@ -1109,7 +1109,7 @@ All mouse events happened in this window will be passed to the window below this
 
 * `enable` Boolean
 
-Предотвращает захват содержимого окна другими приложениями.
+Prevents the window contents from being captured by other apps.
 
 On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
@@ -1127,11 +1127,11 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 #### `win.getParentWindow()`
 
-Возвращает `BrowserWindow` - родительское окно.
+Returns `BrowserWindow` - The parent window.
 
 #### `win.getChildWindows()`
 
-Возвращает `BrowserWindow[]` - все дочерние окна.
+Returns `BrowserWindow[]` - All child windows.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
@@ -1179,11 +1179,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
-#### `win.setBrowserView(browserView)` *Экспериментально*
+#### `win.setBrowserView(browserView)` *Experimental*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Экспериментально*
+#### `win.getBrowserView()` *Experimental*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
