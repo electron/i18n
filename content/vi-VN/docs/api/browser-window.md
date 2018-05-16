@@ -520,11 +520,11 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.focus()`
 
-Focus lên cửa sổ.
+Focuses on the window.
 
 #### `win.blur()`
 
-Ngừng focus cửa sổ đó.
+Removes focus from the window.
 
 #### `win.isFocused()`
 
@@ -544,7 +544,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Ẩn cửa sổ.
+Hides the window.
 
 #### `win.isVisible()`
 
@@ -560,7 +560,7 @@ Maximizes the window. This will also show (but not focus) the window if it isn't
 
 #### `win.unmaximize()`
 
-Unmaximizes cửa sổ.
+Unmaximizes the window.
 
 #### `win.isMaximized()`
 
@@ -1057,7 +1057,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Thay đổi biểu tượng cửa sổ.
+Changes window icon.
 
 #### `win.setAutoHideMenuBar(hide)`
 
@@ -1179,11 +1179,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Đang thử nghiệm*
+#### `win.setBrowserView(browserView)` *Experimental*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Đang thử nghiệm*
+#### `win.getBrowserView()` *Experimental*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
