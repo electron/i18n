@@ -72,7 +72,7 @@ app.on('ready', () => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Функция 
     * `filePath` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -171,7 +171,7 @@ For POST requests the `uploadData` object must be provided.
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Function 
+  * `обратно повикване` Функция 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -230,7 +230,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `схема` Низ
-* `callback` Функция 
+* `обратно повикване` Функция 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -244,7 +244,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `обратно повикване` Function 
     * `filePath` String
 * `completion` Function (optional) 
   * `error` Error
@@ -292,7 +292,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Функция 
     * `redirectRequest` Object 
       * `url` String
       * `method` String
@@ -315,7 +315,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Функция 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
