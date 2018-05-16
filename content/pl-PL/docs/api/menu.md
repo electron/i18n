@@ -126,7 +126,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Główny proces
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -222,7 +222,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Proces renderowania
+### Render process
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -248,19 +248,19 @@ window.addEventListener('contextmenu', (e) => {
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Menu standardowe
+### Standard Menus
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
-* `okno`
-* `pomoc`
-* `usługi`
+* `window`
+* `help`
+* `services`
 
 ### Standard Menu Item Actions
 
 macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### Nazwa głównego Menu
+### Main Menu's Name
 
 On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Przykłady
 
-Szablon:
+Template:
 
 ```javascript
 [
@@ -304,7 +304,7 @@ Menu:
 - 5
 ```
 
-Szablon:
+Template:
 
 ```javascript
 [
