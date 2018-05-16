@@ -14,7 +14,7 @@
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu 혹은 null
+* `menu` Menu | null
 
 `menu`를 macOS의 애플리케이션 메뉴로 설정합니다. 윈도우와 리눅스에서는, `menu`를 각 창의 상단 메뉴로 설정 합니다.
 
@@ -24,7 +24,7 @@
 
 #### `Menu.getApplicationMenu()`
 
-`Menu 혹은 null`을 반환합니다. 애플리케이션 메뉴가 설정되어있다면 애플리케이션 메뉴를, 설정되어있지 않으면 `null`을 반환합니다.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -63,7 +63,7 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (선택) - 기본 값은 포커스된 윈도우 입니다.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 `browserWindow`의 컨텍스트 메뉴를 닫습니다.
 
@@ -77,14 +77,14 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `id` String
 
-특정한 `id`를 가진 `MenuItem`을 반환합니다.
+Returns `MenuItem` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-메뉴의 `pos`값의 위치에 `menuItem`을 추가합니다.
+Inserts the `menuItem` to the `pos` position of the menu.
 
 ### 인스턴스 이벤트
 
@@ -94,7 +94,7 @@ Objects created with `new Menu` emit the following events:
 
 #### Event: 'menu-will-show'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -108,7 +108,7 @@ Emitted when `menu.popup()` is called.
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 `menu` objects also have the following properties:
 
@@ -126,7 +126,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### 주 프로세스
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### 예시
 
-템플릿:
+Template:
 
 ```javascript
 [
@@ -294,7 +294,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 ]
 ```
 
-메뉴
+Menu:
 
 ```sh
 <br />- 1
@@ -304,7 +304,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 - 5
 ```
 
-템플릿:
+Template:
 
 ```javascript
 [
@@ -317,7 +317,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 ]
 ```
 
-메뉴
+Menu:
 
 ```sh
 <br />- ---
