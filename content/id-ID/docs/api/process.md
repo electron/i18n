@@ -40,7 +40,7 @@ A `Boolean` yang mengontrol dukungan ASAR di dalam aplikasi Anda. Setting ini ke
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Properti ini digunakan bukan flag baris perintah `--no-deprecation `.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
 
 ### `process.resourcesPath`
 
@@ -97,7 +97,7 @@ Mengembalikan `Objek`:
 * `workingSetSize` Integer - Jumlah memori yang saat ini disematkan pada fisik sebenarnya RAM.
 * `peakWorkingSetSize` Integer - Jumlah maksimum memori yang pernah disematkan ke RAM fisik yang sebenarnya.
 * ` privateBytes </ 0>  Integer - Jumlah memori yang tidak dibagi oleh proses lain, seperti tumpukan JS atau konten HTML.</li>
-<li><code>sharedBytes `Integer - Jumlah memori dibagi antara proses, biasanya memori yang dikonsumsi oleh kode Elektron itu sendiri.
+<li><code>sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Mengembalikan objek yang memberikan statistik penggunaan memori tentang proses saat ini. Catatan bahwa semua statistik dilaporkan di Kilo byte.
 
