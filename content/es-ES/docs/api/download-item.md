@@ -96,7 +96,7 @@ Reanuda la descarga que ha sido pausada.
 
 #### `downloadItem.canResume()`
 
-Devuelve `Boolean` - Si se puede reanudar la descarga.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
