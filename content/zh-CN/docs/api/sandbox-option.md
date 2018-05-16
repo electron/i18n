@@ -12,7 +12,7 @@ Chromium主要的安全特征之一便是所有的blink渲染或者JavaScript代
 
 一个沙箱环境下的渲染器没有node.js运行环境，并且没有对客户端代码暴露node.js JavaScript APIs。 唯一的例外是预加载脚本, 它可以访问electron渲染器 API 的一个子集。
 
-另一个区别是沙箱渲染器不修改任何默认的 JavaScript api。 Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
+另一个区别是沙箱渲染器不修改任何默认的 JavaScript api。 Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
 ## 示例
 
@@ -26,11 +26,11 @@ app.on('ready', () => {
       sandbox: true
     }
   })
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
-In the above code the [`BrowserWindow`](browser-window.md) that was created has node.js disabled and can communicate only via IPC. 使用这个选项阻止electron在渲染器中创建一个node.js运行时环境。 Also, within this new window `window.open` follows the native behaviour (by default electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
+In the above code the `BrowserWindow` that was created has node.js disabled and can communicate only via IPC. 使用这个选项阻止electron在渲染器中创建一个node.js运行时环境。 Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
 
 需要注意的是，这个选项本身不会启用操作系统强制的沙箱。 要启用此功能，必须在命令行参数里加上 `--enable-sandbox` 传递给 electron, 这将会使所有的 `BrowserWindow` 实例强制使用 `sandbox: true`.
 
@@ -41,15 +41,14 @@ let win
 app.on('ready', () => {
   // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
   win = new BrowserWindow()
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
 请注意, 只调用 ` app.commandLine.appendSwitch('--enable-sandbox')` 是不够的, 因为 electron/node 会在 chromium 改变沙箱设置后才运行代码。 参数必须在命令行里传递给 electron:
 
-```sh
-electron --enable-sandbox app.js
-```
+    electron --enable-sandbox app.js
+    
 
 如果启用了 `--enable-sandbox`, 则无法创建正常的电子窗口, 因此不能只为某些渲染激活 OS 沙盒。
 
@@ -68,7 +67,7 @@ app.on('ready', () => {
       preload: 'preload.js'
     }
   })
-  win.loadURL('http://google.com')
+  w.loadURL('http://google.com')
 })
 ```
 
@@ -106,23 +105,18 @@ window.open = customWindowOpen
 
 要创建 browserify 包并将其用作预加载脚本, 应使用类似下面的内容:
 
-```sh
-  browserify preload/index.js \
-    -x electron \
-    -x fs \
-    --insert-global-vars=__filename,__dirname -o preload.js
-```
+    browserify preload/index.js \
+      -x electron \
+      -x fs \
+      --insert-global-vars=__filename,__dirname -o preload.js
+    
 
 `-x ` 标志应该和已经在预加载作用域中公开的所有引用到的模块一起使用, 并通知 browserify 使用封闭的 ` require ` 函数。 `--insert-global-vars ` 将确保 ` process `、` Buffer ` 和 ` setImmediate ` 也从封闭作用域 (通常 browserify 为这些代码注入代码) 中获取。
 
 当前预加载作用域中提供的 ` require ` 函数公开了以下模块:
 
 - `child_process`
-- `electron` 
-  - `crashReporter`
-  - `remote`
-  - `ipcRenderer`
-  - `webFrame`
+- `electron` (crashReporter, remote and ipcRenderer)
 - `fs`
 - `os`
 - `timers`
@@ -134,7 +128,7 @@ window.open = customWindowOpen
 
 请小心使用`sandbox`选项，它仍是一个实验性特性。 我们仍然不知道将某些 electron api 暴露给预加载脚本的安全性问题, 但在显示不受信任的内容之前, 需要考虑以下一些事项:
 
-- A preload script can accidentally leak privileged APIs to untrusted code.
+- A preload script can accidentaly leak privileged APIs to untrusted code.
 - V8 引擎中的某些 bug 可能允许恶意代码访问渲染器预加载 api, 从而有效地通过 ` remote ` 模块授予对系统的完全访问权限。
 
 由于在 electron 中渲染不受信任的内容仍然是未知的领域, 因此暴露在沙盒预加载脚本中的 api 应被认为比其他 electron api 更不稳定, 并且可能会破坏修复安全问题的更改。
