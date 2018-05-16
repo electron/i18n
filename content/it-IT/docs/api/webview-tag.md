@@ -336,7 +336,7 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -478,7 +478,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `error` Error
   * `data` Buffer - contiene il pdf generato
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+Stampa la pagina web del `webview` in formato PDF, questo metodo è identico a `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -780,7 +780,7 @@ Fired when the gpu process is crashed.
 
 Restituisce:
 
-* `nome` Stringa
+* `name` Stringa
 * `version` String
 
 Fired when a plugin process is crashed.
