@@ -7,11 +7,11 @@
 ### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` *Deneysel*
 
 * `seçenekler` Nesnesi 
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
-  * `seç` Function - Called when the user taps an item that was not the last tapped item. 
-    * `selectedIndex` Integer - The index of the item the user selected.
-  * `vurgulamak` Function - Called when the user taps any item. 
-    * `highlightedIndex` Integer - The index of the item the user touched.
+  * `items` [ScrubberItem[]](structures/scrubber-item.md) - Bu kaydırıcıya yerleştirilecek bir dizi madde.
+  * `seç` Fonksiyon - Kullanıcı, son tıklanan öğe olmayan bir öğeyi tıklattığında çağrılır. 
+    * `selectedIndex` Integer - Kullanıcının seçtiği öğenin dizini.
+  * `vurgulamak` Fonksiyon - Kullanıcı herhangi bir öğeyi tıklattığında çağrılır. 
+    * `highlightedIndex` Integer - Kullanıcının dokunduğu maddenin endeksi.
   * `selectedStyle` String - Seçilen öğe stili. Varsayılan değer: `null`.
   * `overlayStyle` String - Seçili yer paylaşım öğesi stili. Varsayılan değer: `null`.
   * `showArrowButtons` Boolean - Varsayılan değer `false`.
@@ -30,17 +30,17 @@ Bir `ScrubberItem[]` array bu kaydırıcıdaki öğeleri temsil eder. Bu değeri
 
 A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `null` - Actually null, not a string, removes all styles.
+* `background` - Haritaları `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Haritaları `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `null` - Aslında boş bir dize değil, tüm stilleri kaldırır.
 
 #### `touchBarScrubber.overlayStyle`
 
 Sepet içindeki seçili öğelerin stilini temsil eden bir `String` olmalıdır. Bu stil, arkasına yerleştirilmek yerine kaydırıcı maddenin üzerine eklenir. Bu değeri güncellemek dokunmatik bardaki kontrolü hemen günceller. Olası değerler:
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `null` - Actually null, not a string, removes all styles.
+* `background` - Haritaları `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Haritaları `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `null` - Aslında boş bir dize değil, tüm stilleri kaldırır.
 
 #### `touchBarScrubber.showArrowButtons`
 
@@ -50,8 +50,8 @@ Bu tarayıcıda sol / sağ seçim oklarının gösterilip gösterilmeyeceğini g
 
 Bu kaydırıcı modunu temsil eden bir `String`. Bu değeri hemen güncelleme dokunmatik bardaki kontrolü günceller. Olası değerler:
 
-* `fixed` - Maps to `NSScrubberModeFixed`.
-* `free` - Maps to `NSScrubberModeFree`.
+* `fixed` - Haritaları `NSScrubberModeFixed`.
+* `fixed` - Haritaları `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
