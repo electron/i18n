@@ -33,9 +33,9 @@
 
 `channel` 의 listener 배열에서 지정한 `listener`를 제거합니다.
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` String (optional)
+* `channel` String
 
 모든 listener를 제거하거나 지정된 `channel`의 listener를 제거합니다.
 
@@ -46,7 +46,7 @@
 
 `channel`을 통해 main 프로세스에 비동기 메시지를 보내고 임의의 인수를 보낼 수도 있습니다. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
 
-The main process handles it by listening for `channel` with `ipcMain` module.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
@@ -57,13 +57,21 @@ The main process handles it by listening for `channel` with `ipcMain` module.
 
 `channel`을 통해 main 프로세스에 동기 메시지를 보내고 임의의 인수를 보낼 수도 있습니다. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
 
-The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
+The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
 **참고:** 동기 메시지를 보내는 것은 전체 renderer 프로세스를 차단합니다. 만약 무엇이 동작하는지 알지 못한다면 이것을 사용해선 안됩니다.
+
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` String
+* `...args` any[]
+
+Sends a message to a window with `windowid` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+`ipcRenderer.send`와 같지만 main 프로세스 대신 호스트 페이지의 `<webview>` 엘리먼트로 이벤트를 전달합니다.
