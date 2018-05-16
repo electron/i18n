@@ -6,7 +6,7 @@ Processus : [Renderer](../glossary.md#renderer-process)
 
 The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
 
-In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
+In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
 
 ```javascript
 const {BrowserWindow} = require('electron').remote
@@ -20,7 +20,7 @@ win.loadURL('https://github.com')
 
 Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
 
-In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
 
 **Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
 
@@ -79,7 +79,7 @@ But remember the callback is referenced by the main process until you explicitly
 
 To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.
 
 ## Accessing built-in modules in the main process
 
@@ -102,14 +102,15 @@ Returns `any` - The object returned by `require(module)` in the main process. Mo
 
 exemple :
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // main process: main/index.js
