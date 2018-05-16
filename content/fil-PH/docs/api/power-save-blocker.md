@@ -25,7 +25,7 @@ Ang modyul ng `powerSaveBlock` ay mayroon ng mga sumusunod na mga pamamaraan:
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-Nagbabalik sa `Integer` - Ang ID ng tagaharang na itinalaga para sa tagaharang ng lakas na ito.
+Returns `Integer` - The blocker ID that is assigned to this power blocker
 
 Sinisimulang pigilan ang sistema mula sa pagpasok sa moda ng mababang power. Nagbabalik ang isang integer na kinikilala ang tagaharang sa power save.
 
