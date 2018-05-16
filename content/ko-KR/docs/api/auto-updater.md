@@ -4,18 +4,13 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-`autoUpdater` 모듈은 [Squirrel](https://github.com/Squirrel) 프레임워크에 대한 인터페이스를 제공합니다.
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-다음 프로젝트 중 하나를 선택하여, 애플리케이션을 배포하기 위한 멀티-플랫폼 릴리즈 서버를 손쉽게 구축할 수 있습니다:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts): *애플리케이션을 위한 똑똑한 릴리즈 서버이며 GitHub를 백엔드로 사용합니다. Squirrel을 통해 자동 업데이트를 지원합니다. (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *완벽하게 모든 기능을 지원하는 electron 애플리케이션을 위한 자가 호스트 릴리즈 서버입니다. autoUpdater와 호환됩니다.*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *GitHub 릴리즈를 사용하는 Squirrel.Mac 와 Squirrel.Windows를 위한 간단한 node.js 기반 서버입니다.*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Squirrel을 위한 간단한 PHP 어플리케이션입니다. Windows which reads updates from a folder. Supports delta updates.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## 플랫폼별 참고 사항
-
-`autoUpdater`는 기본적으로 모든 플랫폼에 대해 같은 API를 제공하지만, 여전히 플랫폼별로 약간씩 다른 점이 있습니다.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,17 +28,13 @@ Squirrel로 생성된 인스톨러는 [Application User Model ID](https://msdn.m
 
 Squirrel.Mac과 다르게, Windows는 S3 또는 다른 static file host에서 host updates를 할 수 있습니다. Squirrel.Windows의 동작에 대한 자세한 내용은 [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)을 참고하세요.
 
-### Linux
-
-Linux는 따로 autoUpdater를 지원하지 않습니다. 각 배포판의 패키지 관리자를 통해 애플리케이션 업데이트를 제공하는 것을 권장합니다.
-
 ## 이벤트
 
 `autoUpdater` 객체는 다음과 같은 이벤트를 발생시킵니다:
 
 ### Event: 'error'
 
-Returns:
+반환:
 
 * `error` Error
 
@@ -79,10 +70,12 @@ Windows에서는 `releaseName`만 사용이 가능합니다.
 
 `autoUpdater` 객체에서 사용할 수 있는 메서드입니다:
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP 요청 헤더.
+* `options` Object 
+  * `url` String
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 `url`을 설정하고 자동 업데이터를 초기화합니다.
 
@@ -98,4 +91,6 @@ Returns `String` - 현재 업데이트 피드 URL.
 
 애플리케이션을 다시 시작하고 다운로드된 업데이트를 설치합니다. 이메소드는 `update-downloaded` 이벤트가 발생한 이후에만 사용할 수 있습니다.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
