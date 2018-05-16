@@ -138,23 +138,6 @@ console.log(image)
 
 从 ` dataURL ` 创建新的 ` NativeImage ` 实例。
 
-### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
-
-* `imageName` String
-* `hslShift` Number[]
-
-返回 `NativeImage`
-
-从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 可以使用的值, 请参见 [` NSImageName `](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) 文档。
-
-使用以下规则将`hslShift`应用于图像
-
-* `hsl_shift[0]` (色调): 图像的绝对色调值，-0 和1 映射到 0和360，在色环上 (红色)。
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
-
-这意味着 `[-1, 0, 1]` 将使图像完全变白，`[-1, 1, 0]`将使图像完全变黑.
-
 ## 类: NativeImage
 
 > 本机图像，如托盘、dock栏和应用图标。
@@ -163,49 +146,49 @@ console.log(image)
 
 ### 实例方法
 
-以下方法可用于 ` NativeImage ` 类的实例:
+The following methods are available on instances of the `NativeImage` class:
 
 #### `image.toPNG([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
 
 #### `image.toJPEG(quality)`
 
-* ` quality ` Integer (** 必需 **)-介于 0-100 之间。
+* `quality` Integer (**required**) - Between 0 - 100.
 
-返回 ` Buffer `-一个包含图像 ` JPEG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
 
 #### `image.toDataURL([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-返回 ` String `-图像的数据 URL。
+Returns `String` - The data URL of the image.
 
 #### `image.getBitmap([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
 
-`getBitmap()` 和 `toBitmap() 的不同之处在于，<code>getBitmap()` 不会拷贝位图数据，所以你必须在返回 Buffer 后立刻使用它，否则数据可能会被更改或销毁
+The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` *macOS*
 
-返回 ` Buffer `-一个 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer), 它将 C 指针存储在图像的基础本机句柄上。 在 macOS 上, 将返回指向 ` NSImage ` 实例的指针。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
 
-请注意, 返回的指针是指向基础本机映像而不是副本的弱指针, 因此 * 必须 * 确保关联的 ` nativeImage ` 实例保留在周围。
+Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
 
 #### `image.isEmpty()`
 
@@ -219,32 +202,32 @@ Returns [`Size`](structures/size.md)
 
 * `option` Boolean
 
-将图像标记为模板图像。
+Marks the image as a template image.
 
 #### `image.isTemplateImage()`
 
-返回 ` Boolean `-图像是否为模板图像。
+Returns `Boolean` - Whether the image is a template image.
 
 #### `image.crop(rect)`
 
-* ` rect `[ Rectangle ](structures/rectangle.md)-要裁剪的图像区域.
+* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
 
-返回 ` NativeImage `-裁剪的图像。
+Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
-* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
+* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
-返回 ` NativeImage `-裁剪的图像。
+Returns `NativeImage` - The resized image.
 
-如果只指定` height `或` width `，那么当前的长宽比将保留在缩放图像中。
+If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
 #### `image.getAspectRatio()`
 
-返回 `Float` - 图像的长宽比.
+Returns `Float` - The image's aspect ratio.
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - 要添加图像的缩放系数. * `width` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `height` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区. * `dataURL` String (可选) - data URL 可以为 base 64 编码的 PNG 或 JPEG 图像.
+* `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
-添加特定比例的图像表示。这可以明确地用来向图像添加不同的比例表示。这可以在空图像上调用。
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
