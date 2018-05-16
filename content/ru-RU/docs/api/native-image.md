@@ -160,7 +160,7 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 ### Методы экземпляра
 
-Для экземпляров класса `NativeImage` доступны следующие методы:
+The following methods are available on instances of the `NativeImage` class:
 
 #### `image.toPNG([options])`
 
@@ -206,7 +206,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Возвращает [`Size`](structures/size.md)
+Returns [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
@@ -220,9 +220,9 @@ Returns `Boolean` - Whether the image is a template image.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - область изображения до которой нужно обрезать.
+* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop.
 
-Возвращает `NativeImage` - обрезанное изображение.
+Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
@@ -234,7 +234,7 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 #### `image.getAspectRatio()`
 
-Возвращает `Float` - пропорции изображения.
+Returns `Float` - The image's aspect ratio.
 
 #### `image.addRepresentation(options)`
 
