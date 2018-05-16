@@ -7,4 +7,4 @@ El anterior documento "Inicio Rápido" que solías ver aquí, ha sido dividido e
 * Para revisar cómo está construida una aplicación Electron simple, mira [Escribe tu primer aplicación Electron](./first-app.md)
 * Para ver la arquitectura del proceso, mira [Proceso Principal y Renderización](./application-architecture.md#main-and-renderer-processes).
 
-To learn more about Electron, check out the [official guides](../README.md).
+To learn more about Electron, check out the [official guides](../).
