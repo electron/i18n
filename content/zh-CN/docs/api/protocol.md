@@ -171,7 +171,7 @@ protocol.registerBufferProtocol('atom', () => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
@@ -238,7 +238,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -260,7 +260,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `data` String (可选)
 * `completion` Function (可选) 
   * `error` Error
@@ -286,13 +286,13 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
       * `method` String

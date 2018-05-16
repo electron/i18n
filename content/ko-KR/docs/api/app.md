@@ -152,7 +152,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
 

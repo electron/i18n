@@ -1,14 +1,14 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Mở ứng dụng để tự động cập nhật.
 
 Quá trình: [Main](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**Bạn có thể tìm một hướng dẫn chi tiết về cách triển khai tính năng cập nhật vào trong ứng dụng [tại đây](../tutorial/updates.md).**
 
 ## Platform Notices
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Hiện tại, chỉ macOS và Windows được hỗ trợ. Chưa có bản built-in hỗ trợ auto-updater trên Linux, nên chỉ có khuyến cáo sử dụng các distribution's package manager để cập nhật ứng dụng của bạn.
 
 In addition, there are some subtle differences on each platform:
 

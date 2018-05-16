@@ -151,7 +151,7 @@ Devuelve `Buffer` - Lee el `formato` del portapapeles.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
-* `formato` Cadena
+* `format` Cadena
 * `buffer` Buffer
 * `type` Cadena (opcional)
 

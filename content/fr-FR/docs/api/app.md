@@ -83,7 +83,7 @@ Sur Windows, vous devrez analyser `process.argv` (dans le main process) pour obt
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 
 Émis lorsque l’utilisateur souhaite ouvrir une URL avec l’application. Le fichier `Info.plist` de votre application doit définir le schéma d'URL dans la clé `CFBundleURLTypes`, et définir la valeur `AtomApplication` dans `NSPrincipaleClass`.
@@ -250,7 +250,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `request` Objet 
   * `method` String
@@ -283,7 +283,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `killed` Boolean
 
 Émis lorsque le processus gpu crash ou est interrompu.

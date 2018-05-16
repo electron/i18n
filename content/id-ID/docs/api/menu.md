@@ -91,7 +91,7 @@ Returns `MenuItem` the item with the specified `id`
 
 Sisipkan `menuItem` ke posisi `pos` pada menu.
 
-### Perihal contoh
+### Contoh peristiwa
 
 Objects created with `new Menu` emit the following events:
 

@@ -518,7 +518,7 @@ win.loadURL('http://github.com')
 
 `<webview>` がこの webContents に適用されたときに発行されます。
 
-#### Event: 'console-message'
+#### イベント: 'console-message'
 
 戻り値:
 
@@ -1107,7 +1107,7 @@ app.on('ready', () => {
 #### `contents.enableDeviceEmulation(parameters)`
 
 * `parameters` Object 
-  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop、`): 
+  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop`): 
     * `desktop` - デスクトップ画面タイプ.
     * `mobile` - モバイル画面タイプ.
   * `screenSize` [Size](structures/size.md) - エミュレートされる画面サイズの設定 (screenPosition == mobile).
@@ -1215,9 +1215,10 @@ win.webContents.on('did-finish-load', () => {
 ページのサイズを設定します。`<webview>` のゲストコンテンツでのみサポートされています。
 
 * `options` Object 
-  * `normal` Object (任意) - ページのノーマルサイズ。これを [`disableguestresize`](webview-tag.md#disableguestresize) 属性と組み合わせて使用すると、webview のゲストコンテンツを手動でリサイズできます。 
-    * `width` Integer
-    * `height` Integer
+  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 

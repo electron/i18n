@@ -221,7 +221,7 @@ win.on('resize', () => {
 })
 ```
 
-## Mga Paraan
+## Mga Pamamaraan
 
 Nag `webview` na tag ay may mga susmusunod na pamamaraan:
 
@@ -418,7 +418,7 @@ Paggawa ng pag-edit sa utos na `unselect` sa pahina.
 
 ### `<webview>.replace(text)`
 
-* `text` String
+* `text` String 
 
 Paggawa ng pag-edit sa utos na `replace` sa pahina.
 
@@ -697,7 +697,7 @@ Ibinabalik ang:
 
 * `url` Tali
 
-Ilabas kapang ang user o ang mismong page ay gustong magsimula ng nabigasyon. Ito'y pwedeng mangyari kapag ang `window.location` ng objek ay nabago o ang kiniclick ng user ang link sa page.
+Napalabas kapag nais ng isang user o ng pahina na magsimulang mag-navigate. Maaari itong mangyari kung kailan ang bagay na `bintana.lokasyon` ay nagbago o ang isang gumagamit ay nag-click ng isang link sa pahina.
 
 Itong event na ito ay hindi ilalabas kapag ang nabigasyon ay na-istart na ang gamit ay programa na may mga API tulad ng `<webview>.loadURL` and `<webview>.back`.
 
@@ -722,9 +722,9 @@ Ibinabalik ang:
 * `ay pangunahing kuwadro` Boolean
 * `url` Tali
 
-Ilalabas kapag nangyari ang nabigasyon sa loob ng page.
+Inilalabas kapag nangyari ang pag-navigate sa pahina.
 
-Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
+Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngunit hindi ito magiging dahilan ng nabigasyon sa labas ng pahina. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
 
 ### Event: 'isara'
 
@@ -791,7 +791,7 @@ Itigil kapag ang nasira ang mga WebContent.
 
 ### Kaganapan: 'media-started-playing'
 
-Naipalalabas kapag nagsimula ng maglaro ang media.
+Ilabas kapag ang medya ay nagsimula.
 
 ### Kaganapan: 'media-paused'
 
@@ -815,7 +815,7 @@ Ibinabalik ang:
 
 * `url` Tali
 
-Ilabas kapag ang mouse ay napunta sa link o ang keyboard ay nagalaw ang pukos sa link.
+Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.
 
 ### Kaganapan: 'devtools-binuksan'
 
@@ -823,8 +823,8 @@ Ilabas kapag ang mga DevTool ay nabuksan.
 
 ### Kaganapan: 'devtools-sarado'
 
-Nilalabas kapag ang DevTools ay sarado.
+Ilabas kapag ang mga DevTool ay nasarado.
 
 ### Kaganapan: 'devtools-nakatuon'
 
-Ilabas kapag ang mga DevTool ay napukos / nabuksan.
+Nilalabas kapag ang DevTools ay nakatuon/binuksan.

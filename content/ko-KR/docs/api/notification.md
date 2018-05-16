@@ -18,7 +18,7 @@
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods (클래스 메서드)
+### 정적 메서드
 
 The `Notification` class has the following static methods:
 
@@ -88,7 +88,7 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 * `event` Event
 * `index` Number - The index of the action that was activated.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 Objects created with `new Notification` have the following instance methods:
 

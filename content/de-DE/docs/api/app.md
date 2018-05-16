@@ -391,7 +391,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         ### `app.getFileIcon(path[, options], callback)`
         
         * `path` String
-        * `optionen` Objekt (optional) 
+        * `options` Objekt (optional) 
           * `size` String 
             * `small` - 16x16
             * `normal` - 32x32
@@ -664,7 +664,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setAppUserModelId(id)` *Windows*
         
-        * `id` String
+        * `id` Zeichenfolge
         
         Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
         
@@ -774,7 +774,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setAboutPanelOptions(options)` *macOS*
         
-        * `optionen` Object 
+        * `options` Object 
           * `applicationName` String (optional) - The app's name.
           * `applicationVersion` String (optional) - The app's version.
           * `copyright` String (optional) - Copyright information.

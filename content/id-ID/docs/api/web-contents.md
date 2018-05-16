@@ -272,8 +272,8 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
     Pengembalian:
     
     * `acara` Acara
-    * `url` String
-    * `error` String - Kode kesalahan.
+    * ` url </ 0> String</li>
+<li><code>error` String - Kode kesalahan.
     * `sertifikat` [Sertifikat](structures/certificate.md)
     * `callback` Fungsi 
       * `Terpercaya` Boolean -Menunjukkan apakah sertifikat bisa dianggap terpercaya.
@@ -358,15 +358,17 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
     Pengembalian:
     
     * `acara` Acara
-    * `url` String
-    
-    Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
-    
-    #### Event: 'kursor-berubah'
-    
-    Pengembalian:
-    
-    * `acara` Acara
+    * ` url </ 0> String</li>
+</ul>
+
+<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
+
+<h4>Event: 'kursor-berubah'</h4>
+
+<p>Pengembalian:</p>
+
+<ul>
+<li><code>acara` Acara
     * `jenis` String
     * ` gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
 <li><code>skala` Mengambang (opsional) - skala faktor untuk kursor kustom.
@@ -851,7 +853,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
         
         * `pilihan` Obyek 
           * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-          * `pageSize` String (optional) - Specify page size of the generated PDF. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
+          * `pageSize` String (optional) - Specify page size of the generated PDF. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
           * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
           * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
           * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -989,8 +991,8 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
             
             #### `contents.send (saluran [, arg1][, arg2][, ...])`
             
-            * ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+            * `channel` String
+            * ` ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
@@ -1126,82 +1128,80 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
               Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
               
               * `pilihan` Obyek 
-                * `normal` Objek (opsional) - Ukuran normal halaman. Ini bisa digunakan di kombinasi dengan [`disableguestresize`](webview-tag.md#disableguestresize) atribut untuk mengubah ukuran isi guestview secara manual. 
-                  * ` width </ 0>  Integer</li>
-<li><code> tinggi </ 0>  Integer</li>
-</ul></li>
-</ul></li>
-</ul>
-
-<h4><code>contents.isOffscreen()`</h4> 
-                    Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
-                    
-                    #### `contents.startPainting()`
-                    
-                    If *offscreen rendering* is enabled and not painting, start painting.
-                    
-                    #### `contents.stopPainting()`
-                    
-                    If *offscreen rendering* is enabled and painting, stop painting.
-                    
-                    #### `contents.isPainting()`
-                    
-                    Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
-                    
-                    #### `contents.setFrameRate(fps)`
-                    
-                    * `fps` Integer
-                    
-                    If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
-                    
-                    #### `contents.getFrameRate()`
-                    
-                    Mengembalikan `Integer` - Jika *rendering offscreen* diaktifkan mengembalikan frame rate saat ini.
-                    
-                    #### `contents.invalidate()`
-                    
-                    Jadwal repaint penuh dari jendela isi web ini masuk.
-                    
-                    Jika *offscreen rendering* diaktifkan akan membuat frame tidak valid dan menghasilkan yang baru satu melalui acara `'paint' `.
-                    
-                    #### `contents.getWebRTCIPHandlingPolicy()`
-                    
-                    Mengembalikan `String` - Mengembalikan Kebijakan Penanganan IP WebRTC.
-                    
-                    #### `contents.setWebRTCIPHandlingPolicy(policy)`
-                    
-                    * `policy` String - Tentukan Kebijakan Penanganan IP WebRTC. 
-                      * `default ` - Mengekspos IP publik dan lokal pengguna. Ini adalah defaultnya tingkah laku. Bila kebijakan ini digunakan, WebRTC berhak untuk menghitung semua antarmuka dan mengikat mereka untuk menemukan antarmuka publik.
-                      * `default_public_interface_only` - Mengekspos IP publik pengguna, namun tidak paparkan IP lokal pengguna. When this policy is used, WebRTC should only use the default route used by http. Ini tidak mengekspos alamat lokal apapun.
-                      * `default_public_and_private_interfaces` - Paparkan IP publik dan lokal pengguna. Saat kebijakan ini digunakan, WebRTC seharusnya hanya menggunakan rute default yang digunakan dengan http. Ini juga menunjukkan alamat pribadi default yang terkait. Default Rute adalah rute yang dipilih oleh OS pada titik akhir multi-homed.
-                      * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
-                    
-                    Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
-                    
-                    #### `contents.getOSProcessId()`
-                    
-                    Mengembalikan `Integer` - `pid` dari proses renderer yang terkait.
-                    
-                    ### Contoh properti
-                    
-                    #### `contents.id`
-                    
-                    A `Integer` mewakili ID unik dari Konten Web ini.
-                    
-                    #### `contents.session`
-                    
-                    [`Sesi`](session.md) digunakan oleh webContents ini.
-                    
-                    #### `contents.hostWebContents`
-                    
-                    Sebuah instance [`WebContents`](web-contents.md) yang mungkin sendiri ini `WebContents`.
-                    
-                    #### `contents.devToolsWebContents`
-                    
-                    `WebContents` dari DevTools untuk ini `WebContents`.
-                    
-                    **Catatan:** Pengguna harus tidak pernah menyimpan objek ini karena hal itu mungkin menjadi `null` ketika DevTools telah ditutup.
-                    
-                    #### `contents.debugger`
-                    
-                    Contoh [Debugger](debugger.md) untuk webContents ini.
+                * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+                * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+                * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+                * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+              #### `contents.isOffscreen()`
+              
+              Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+              
+              #### `contents.startPainting()`
+              
+              If *offscreen rendering* is enabled and not painting, start painting.
+              
+              #### `contents.stopPainting()`
+              
+              If *offscreen rendering* is enabled and painting, stop painting.
+              
+              #### `contents.isPainting()`
+              
+              Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+              
+              #### `contents.setFrameRate(fps)`
+              
+              * `fps` Integer
+              
+              If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+              
+              #### `contents.getFrameRate()`
+              
+              Mengembalikan `Integer` - Jika *rendering offscreen* diaktifkan mengembalikan frame rate saat ini.
+              
+              #### `contents.invalidate()`
+              
+              Jadwal repaint penuh dari jendela isi web ini masuk.
+              
+              Jika *offscreen rendering* diaktifkan akan membuat frame tidak valid dan menghasilkan yang baru satu melalui acara `'paint' `.
+              
+              #### `contents.getWebRTCIPHandlingPolicy()`
+              
+              Mengembalikan `String` - Mengembalikan Kebijakan Penanganan IP WebRTC.
+              
+              #### `contents.setWebRTCIPHandlingPolicy(policy)`
+              
+              * `policy` String - Tentukan Kebijakan Penanganan IP WebRTC. 
+                * `default ` - Mengekspos IP publik dan lokal pengguna. Ini adalah defaultnya tingkah laku. Bila kebijakan ini digunakan, WebRTC berhak untuk menghitung semua antarmuka dan mengikat mereka untuk menemukan antarmuka publik.
+                * `default_public_interface_only` - Mengekspos IP publik pengguna, namun tidak paparkan IP lokal pengguna. When this policy is used, WebRTC should only use the default route used by http. Ini tidak mengekspos alamat lokal apapun.
+                * `default_public_and_private_interfaces` - Paparkan IP publik dan lokal pengguna. Saat kebijakan ini digunakan, WebRTC seharusnya hanya menggunakan rute default yang digunakan dengan http. Ini juga menunjukkan alamat pribadi default yang terkait. Default Rute adalah rute yang dipilih oleh OS pada titik akhir multi-homed.
+                * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+              
+              Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+              
+              #### `contents.getOSProcessId()`
+              
+              Mengembalikan `Integer` - `pid` dari proses renderer yang terkait.
+              
+              ### Contoh properti
+              
+              #### `contents.id`
+              
+              A `Integer` mewakili ID unik dari Konten Web ini.
+              
+              #### `contents.session`
+              
+              [`Sesi`](session.md) digunakan oleh webContents ini.
+              
+              #### `contents.hostWebContents`
+              
+              Sebuah instance [`WebContents`](web-contents.md) yang mungkin sendiri ini `WebContents`.
+              
+              #### `contents.devToolsWebContents`
+              
+              `WebContents` dari DevTools untuk ini `WebContents`.
+              
+              **Catatan:** Pengguna harus tidak pernah menyimpan objek ini karena hal itu mungkin menjadi `null` ketika DevTools telah ditutup.
+              
+              #### `contents.debugger`
+              
+              Contoh [Debugger](debugger.md) untuk webContents ini.

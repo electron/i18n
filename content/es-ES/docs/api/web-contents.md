@@ -534,7 +534,7 @@ Emitido cuando la ventana asociada registra un mensaje de consola. No se emite p
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `httpReferrer` String (opcional) - Un url de HTTP referencial.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n".
@@ -668,7 +668,7 @@ Navega a la compensación especifica desde la "entrada actual".
 
 #### `contents.isCrashed()`
 
-Devuelve `Boolean` - Aunque el proceso del renderizador se haya arruinado.
+Devuelve `Boolean` - Si el proceso de renderizado ha fallado.
 
 #### `contents.setUserAgent(userAgent)`
 
@@ -689,15 +689,15 @@ Inserta CSS en la página web actual.
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `codigo` String
-* `userGesture` Boolean (opcional) - Por de `false`.
-* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
+* `callback` Function (opcional) - Es llamado luego de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
 Devolver `Promesa`: una promesa se resuelve con el resultado del código ejecutado o se rechaza si el resultado del código es una promesa rechazada.
 
 Evalúa el `código` en la página.
 
-En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Configurar `userGesture` a `true` eliminará esta limitación.
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -888,7 +888,7 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
   * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
@@ -1032,7 +1032,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado de dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
 
 Abre las herramientas del desarrolador.
@@ -1057,7 +1057,7 @@ Alterna las herramientas de desarrollador.
 
 #### `contents.inspectElement(x, y)`
 
-* `x` Integer
+* `x` Íntegro
 * `y` Íntegro
 
 Empieza a inspeccionar elementos en la posición (`x`, `y`).
@@ -1071,7 +1071,7 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
+Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1208,16 +1208,17 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.showDefinitionForSelection()` *macOS*
 
-Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
+Muestra un diccionario que busca la palabra seleccionada en la página.
 
 #### `contents.setSize(options)`
 
 Configura el tamaño de la página. Esto sólo es compatible con el `<webview>` contenido de invitado.
 
 * `opciones` Object 
-  * `normal` Object (opcional) - Tamaño normal de la página. Esto también se puede utilizar en combinación con el [`disableguestresize`](webview-tag.md#disableguestresize) atributo para redimensionar manualmente el contenido de invitado en la vista web. 
-    * `width` Integer
-    * `alto` Integer
+  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 

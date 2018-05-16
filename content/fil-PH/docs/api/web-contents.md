@@ -103,11 +103,11 @@ Ibinabalik ang:
 * `kaganapan` Kaganapan
 * `oldURL` String
 * `newURL` String
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
 * ang `referer` String
-* `header` Bagay
+* `headers` Objek
 
 Pinapalabas kapag natanggap ang pag-redirect habang humihiling ng mapagkukuhanan.
 
@@ -292,7 +292,7 @@ Ilabas kapag ang mga DevTool ay napukos / nabuksan.
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `event` Ang event
 * `url` Tali
 * `error` String - Ang code ng error.
 * `certificate` [Certificate](structures/certificate.md)
@@ -382,7 +382,7 @@ Ibinabalik ang:
 * `kaganapan` kaganapan
 * `url` Tali
 
-Ilabas kapag ang mouse ay napunta sa link o ang keyboard ay nagalaw ang pukos sa link.
+Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.
 
 #### Kaganapan: 'cursor-changed'
 
@@ -732,7 +732,7 @@ Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay 
 
 #### `mga nilalaman.getZoomFactor(callback)`
 
-* `callback` Punsyon 
+* `callback` Function 
   * `zoomFactor` Numero
 
 Nagpapadala ng kahilingan upang makakuha ng kasalukuyang factor ng pag-zoom, `callback `ay tinatawag na `callback(zoomFactor)`.
@@ -745,7 +745,7 @@ Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki 
 
 #### `mga nilalaman.getZoomLevel (callback)`
 
-* `callback` Function 
+* `callback` Punsyon 
   * `zoomLevel` Numero
 
 Tinatapos ang isang kahilingan upang makakuha ng kasalukuyang antas sa pag-zoom,`callback`ay tinatawag na `callback(zoomLevel)`.
@@ -828,7 +828,7 @@ Pagsingit `text` para sa nakapukos na elemento.
 #### `mga nilalaman.findInPage (teksto [, mga pagpipilian])`
 
 * `teksto` String - Ang nilalaman na hahanapin, ay hindi dapat walang laman.
-* `options` Na Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -841,7 +841,7 @@ Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `te
 
 #### `mga nilalaman.stopFindInPage(aksyon)`
 
-* `aksyon` String - Tinutukoy ang aksyon upang maganap kapag nagtatapos [`webContents.findInPage`] kahilingan. 
+* `aksyon` String - Tinutukoy ang aksyon upang maganap kapag nagtatapos [`webContents.findInPage`] hiling. 
   * `clearSelection` - Tanggalin ang mga napili.
   * `keepSelection` - Isalin ang seleksyon sa isang normal na seleksyon.
   * `activateSelect` - Tumuon at i-click ang node ng pagpili.
@@ -888,7 +888,7 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `mga nilalaman.print([options], [callback])`
 
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
@@ -909,7 +909,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Punsyon 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
@@ -1159,7 +1159,7 @@ Para sa `mouseWheel` kaganapan, ang `kaganapan` ay mayroon ding mga sumusunod na
 #### `mga nilalaman.beginFrameSubscription([onlyDirty ,]tumawagmuli)`
 
 * `onlyDirty` Boolean (opsyonal) - Mga Default sa `huwad`.
-* `callback` Punsyon 
+* `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Parihaba](structures/rectangle.md)
 
@@ -1214,10 +1214,11 @@ Pinapakita ang pop-up na diksyonaryo na naghahanap ng mga napiling salita sa pag
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Bagay 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
-    * `lapad` Integer
-    * `taas` Integer
+* `mga opsyon` Bagay 
+  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 

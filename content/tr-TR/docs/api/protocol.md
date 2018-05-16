@@ -168,7 +168,7 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
     * `url` Dize
     * `headers` Nesne
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
@@ -179,7 +179,7 @@ Yanıt olarak `Readable` gönderen bir `scheme` protokolünü kaydeder.
 
 Kullanımı, diğer `register{Any}Protocol`'e benzer, ancak `callback`'nin bir `Readable` nesne veya `data`, `statusCode` ve `headers` özelliklere sahip bir nesneyle çağrılması gerekir.
 
-Örneğin:
+Örnek:
 
 ```javascript
 const {protocol} = require('electron')
@@ -236,12 +236,12 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `filePath` Dizi
@@ -273,7 +273,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `buffer` Arabellek (isteğe bağlı)
@@ -284,7 +284,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
@@ -306,7 +306,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize

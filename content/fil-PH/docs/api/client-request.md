@@ -55,7 +55,7 @@ Pagbabalik:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Punsyon 
   * `username` String
   * `password` String
 
@@ -94,7 +94,7 @@ Naalis pagkatapos ng huling tipak sa `request` ng mga data na isinulat para sa `
 
 Matatanggal kapag ang `request` ay naudlot. Ang `abort` event ay hindi matitiwalag kung ang `request` ay nakasara na.
 
-#### Event: 'error'
+#### Pangyayari: 'error'
 
 Ibinabalik ang:
 

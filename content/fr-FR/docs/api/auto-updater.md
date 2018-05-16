@@ -34,7 +34,7 @@ L'objet `autoUpdater` émet les événements suivants :
 
 ### Événement : 'error'
 
-Retourne :
+Renvoie :
 
 * `error` Error
 

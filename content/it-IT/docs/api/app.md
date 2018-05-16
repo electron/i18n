@@ -116,7 +116,7 @@ Un'attività dell'utente può essere continuata solo in un app con lo stesso dev
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` Stringa - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), prima che un'attività da un dispositivo differente richieda di essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
@@ -125,7 +125,7 @@ Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/U
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `error` String - Una stringa contenente la descrizione localizzata dell'errore.
 
 Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un dispositivo diverso fallisce nel ripristino.
@@ -145,7 +145,7 @@ Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/U
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `Infoutente` Object - Contiene uno stato specifico per l'app archiviato dall'attività.
 
 Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Altrimenti l'operazione fallirà e sarà chiamato l'`continue-activity-error`.
@@ -190,7 +190,7 @@ Emesso quando una [browserWindow](browser-window.md) è creata.
 Restituisce:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 
 Emesso quando un nuovo [webContents](web-contents.md) è creato.
 
@@ -199,7 +199,7 @@ Emesso quando un nuovo [webContents](web-contents.md) è creato.
 Restituisce:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `url` String
 * `error` String - Il codice d'errore
 * `certificate` [Certificato](structures/certificate.md)
@@ -228,7 +228,7 @@ app.on ('certificate-error', (event, webContents, url, error, certificate, callb
 Restituisce:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -252,12 +252,12 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 Restituisce:
 
 * `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `richiesta` Object 
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
+* `richiesta` Oggetto 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Oggetto 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -364,7 +364,7 @@ Restituisce `String` - La directory dell'app corrente.
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` Stringa
 
 Restituisce `String` - Un percorso ad una directory speciale o ai file associati con `name`. In caso di fallimento avviene lanciato un `Error`.
 
@@ -411,7 +411,7 @@ Su *Linux* e *macOS* le icone dipendono dall'app associata con il tipo di file m
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` Stringa
 * `path` String
 
 Sostituisce il `path` ad una directory speciale o ad un file associato con `name`. Se il percorso specifica una directory che non esiste, la directory sarà creata da questo metodo. In caso di fallimento viene generato un `Error`.
@@ -432,7 +432,7 @@ Spesso il campo `name` del `package.json` è un breve nome in minuscolo, seconda
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` Stringa
 
 Sostituisce l'attuale nome dell'app.
 
@@ -474,9 +474,9 @@ L'API usa il Registro Windows e LSImpostaGestionaleDefaultPerSchemaURL intername
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - Il nome del tuo protocollo, senza `://`.
-* `path` String (opzionale) *Windows* - Di default a `process.execPath`
-* `args` String[] (opzionale) *Windows* - Di default ad un array vuoto
+* `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
+* `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
+* `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
 
 Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
@@ -484,9 +484,9 @@ Questo metodo controlla se l'eseguibile attuale è come un gestionale di default
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - Il nome del tuo protocollo, senza `://`.
-* `path` String (opzionale) *Windows* - Di default a `process.execPath`
-* `args` String[] (opzionale) *Windows* - Di default ad un array vuoto
+* `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
+* `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
+* `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
 
 Restituisci `Boolean`
 
@@ -510,7 +510,7 @@ Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Ritorna `Object`:
+Restituisci `Object`:
 
 * `minItems` Integer - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Insieme degli oggetti `JumpListItem` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **next** chiamata a `app.setJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
@@ -529,7 +529,7 @@ Imposta o rimuovi una JumpList personalizzata per l'app, e restituisci una delle
 
 Se le `categories` sono `null` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
 
-**Note:** Se un oggetto `SalaCategoriaLista` non ha nè `tipo` nè `nome` impostati il suo tipo diviene `predefinito`. Se la proprietà `nome` é impostata ma la proprietà `tipo` é omessa, il `tipo` sarà considerato`modificato`.
+**Note:** Se un oggetto `JumpListCategory` non ha nè `type` nè `name` impostati, il suo `type` diventa `tasks`. Se la proprietà `name` è impostata ma la proprietà `type` é omessa, il `type` sarà considerato `custom`.
 
 **Note:** Gli utenti possono rimuovere gli elementi dalle categorie personalizzate, e Windows non permetterà ad un elemento rimosso di essere ri-aggiunto in una categoria personalizzata fino a **dopo** la successiva chiamata di successo a `app.impostaJumpList(categorie)`. Qualsiasi tentativo di aggiunta di un elemento rimosso ad una categoria personalizzata prima che questo risulterà nell'intera categoria personalizzata sarà omesso dalla Jump List. La lista degli elementi rimossi può essere ottenuta usando `app.ottieniImpostazioniJumpList()`.
 
@@ -641,7 +641,7 @@ Rilascia tutti i blocchi creati da `makeSingleInstance`. Permetterà alle istanz
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Stato app specifico al magazzino per usare da altro dispositivo.
+* `userInfo` Oggetto - Stato app specifico al magazzino per usare da altro dispositivo.
 * `webpageURL` String (opzionale) - La pagina web da caricare nel browser se non sono installate app adatte nel dispositivo ripristinante. Lo schema deve essere `http` o `https`.
 
 Crea un'`NSUserActivity` e la imposta come attività corrente. L'attività è eleggibile per [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ad un altro dispositivo poi.
@@ -652,7 +652,7 @@ Restituisce `String` - Il tipo di attività al momento in esecuzione.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Invalida l'attività [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) corrente dell'utente.
 
@@ -665,13 +665,13 @@ Aggiorna l'attività corrente se il suo tipo corrisponde al `type`, fondendo le 
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` String
+* `id` Stringa
 
 Cambia il [Modello Id Applicazione Utente](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) ad `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `options` Oggetto 
   * `certificate` Stringa - Percorso per il file pkcs12.
   * `password` String - Frase d'accesso per il certificato.
 * `callback` Function 
@@ -737,7 +737,7 @@ Ritorna `Object`:
 
 ### `app.impostaImpostazioniElementoAccesso(impostazioni)` *macOS* *Windows*
 
-* `settings` Object 
+* `settings` Oggetto 
   * `openAtLogin` Boolean (opzionale) - `true` per aprire l'app all'accesso, `false` per rimuovere l'app come elemento di accesso. Di default a `false`.
   * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Di default `false`. L'utente può editare questa impostazione dalle Preferenze di Sistema quindi `app.getLoginItemStatus().wasOpenedAsHidden` potrebbe essere controllato quando l'app è aperta per conoscere il valore attuale. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opzionale) *Windows*. L'eseguibile al lancio all'accesso. Di default a `process.execPath`.
@@ -776,7 +776,7 @@ Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre 
 
 ### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
 
-* `options` Object 
+* `options` Oggetto 
   * `applicationName` String (opzionale) - Il nome dell'app.
   * `applicationVersion` String (opzionale) - La versione dell'app.
   * `copyright` String (opzionale) - Informazioni di copyright.

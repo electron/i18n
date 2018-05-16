@@ -142,7 +142,7 @@ Questa opzione non può essere utilizzata in `app.commandLine.appendSwitch` poic
 
 Fornisce il massimo livello di V-logging attivo predefinito; 0 è il valore predefinito. I valori di norma positivi vengono utilizzati per i livelli di registrazione V (*V-logging levels*).
 
-Questa opzione funziona solo quando viene passato anche `--enable-logging`.
+Questa opzione funziona solo quando viene anche eseguito il *--enable-logging*.
 
 ## --vmodule=`pattern`
 

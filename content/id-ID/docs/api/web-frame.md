@@ -169,7 +169,7 @@ Set the content security policy of the isolated world.
   Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
   
   ```javascript
-  const {webFrame} = require('electron')
+  onst {webFrame} = require('electron')
   console.log(webFrame.getResourceUsage())
   ```
   

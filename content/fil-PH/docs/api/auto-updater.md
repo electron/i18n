@@ -32,7 +32,7 @@ Hindi gaya ng sa Squirrel.Mac, ang Windows ay kayang mag-host ng update sa S3 o 
 
 Ang `autoUpdater` maglalabas ng mga ganitong pangyayari:
 
-### Event: 'error'
+### Pangyayari: 'error'
 
 Ibinabalik ang:
 

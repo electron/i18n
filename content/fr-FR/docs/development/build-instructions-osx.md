@@ -7,8 +7,23 @@ Suivez les indications ci-dessous pour compiler Electron sur macOS.
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](https://nodejs.org) (externe)
+- Python 2.7 with support for TLS 1.2
 
-Si vous utilisez Python téléchargé par Homebrew, vous devez également installer les modules Python suivants :
+## Python
+
+Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
+
+```sh
+$ python ./script/check-tls.py
+```
+
+If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+
+```sh
+$ brew install python@2 && brew link python@2 --force
+```
+
+If you are using Python as provided by Homebrew, you also need to install the following Python modules:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
@@ -71,7 +86,7 @@ Une fois la compilation terminée, vous trouverez `Electron.app` dans `out/D`.
 
 ## Support 32 bit
 
-Electron ne peut être compilé qu'en 64 bit sur macOS et il n'est pas prévu d'avoir un support 32 bit sur macOS dans le futur.
+Electron ne peut être compiler qu'en 64 bit sur macOS et il n'est pas prévu d'avoir un support 32 bit sur macOS dans le futur.
 
 ## Nettoyage
 
@@ -87,7 +102,7 @@ Pour nettoyer uniquement les répertoires `out` et `dist` :
 $ npm run clean-build
 ```
 
-**Remarque :** Les deux commandes de nettoyage requièrent l’exécution de `bootstrap`.
+**Remarque :** Les deux commandes de nettoyage requière l’exécution de `bootstrap`.
 
 ## Tests
 

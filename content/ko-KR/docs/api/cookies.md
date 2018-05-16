@@ -47,7 +47,7 @@ The following events are available on instances of `Cookies`:
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 The following methods are available on instances of `Cookies`:
 

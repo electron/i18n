@@ -78,8 +78,8 @@ Modul ` protocol ` memiliki beberapa metode berikut:
         * `skema` String
         * `handler` Fungsi 
           * `permintaan` Obyek 
-            * `url` String
-            * `pengarah` String
+            * ` url </ 0> String</li>
+<li><code>pengarah` String
             * `method` String
             * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -155,8 +155,8 @@ Modul ` protocol ` memiliki beberapa metode berikut:
                   * `skema` String
                   * `handler` Fungsi 
                     * `permintaan` Obyek 
-                      * `url` String
-                      * `header` Obyek
+                      * ` url </ 0> String</li>
+<li><code>header` Obyek
                       * `pengarah` String
                       * `method` String
                       * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
@@ -281,8 +281,8 @@ Modul ` protocol ` memiliki beberapa metode berikut:
                           * `skema` String
                           * `handler` Fungsi 
                             * `permintaan` Obyek 
-                              * ` url </ 0> String</li>
-<li><code>pengarah` String
+                              * `url` String
+                              * `pengarah` String
                               * `method` String
                               * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -304,8 +304,8 @@ Modul ` protocol ` memiliki beberapa metode berikut:
                             * `skema` String
                             * `handler` Fungsi 
                               * `permintaan` Obyek 
-                                * ` url </ 0> String</li>
-<li><code>header` Obyek
+                                * `url` String
+                                * `header` Obyek
                                 * `pengarah` String
                                 * `method` String
                                 * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>

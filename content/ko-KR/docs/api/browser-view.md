@@ -34,7 +34,7 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (선택) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
-### Static Methods (클래스 메서드)
+### 정적 메서드
 
 #### `BrowserView.getAllViews()`
 
@@ -64,7 +64,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 Objects created with `new BrowserView` have the following instance methods:
 

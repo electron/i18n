@@ -91,7 +91,7 @@ Emitido justo antes de que el último paquete de los datos de la `solicitud` hay
 
 Emitido cuando la `solicitud` es abortada. El evento `abortar` no será disparado si la `solicitud` ya está cerrada.
 
-#### Evento: 'error'
+#### Evento: "error"
 
 Devuelve:
 
@@ -99,7 +99,7 @@ Devuelve:
 
 Emitido cuando el módulo `net` falla en emitir una solicitud de red. Típicamente cuando el objeto `solicitud` emite un evento `error`, un evento `cerrar` lo seguirá subsecuentemente y ningún objeto respuesta será proporcionado.
 
-#### Evento: 'close'
+#### Evento: "close"
 
 Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. El evento `cerrar` indica que ningún otro evento será emitido en los objetos `solicitud` o `respuesta`.
 

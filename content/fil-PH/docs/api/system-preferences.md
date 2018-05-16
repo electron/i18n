@@ -104,7 +104,7 @@ Add the specified defaults to your application's `NSUserDefaults`.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `key` na String
+* `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 Ibinabalik ang `any` - Ang halaga ng `key` sa `NSUserDefaults`.

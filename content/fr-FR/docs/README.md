@@ -64,7 +64,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
   * [Problèmes de sécurité et mises à jour de Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Avertissements de sécurité d'Electron](tutorial/security.md#electron-security-warnings)
   * [Checklist Sécurité](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
+* [Mises à jour](tutorial/updates.md) 
   * [Déploiement d’un serveur de mise à jour](tutorial/updates.md#deploying-an-update-server)
   * [Implémentation des mises à jour dans votre application](tutorial/updates.md#implementing-updates-in-your-app)
   * [Application des mises à jour](tutorial/updates.md#applying-updates)

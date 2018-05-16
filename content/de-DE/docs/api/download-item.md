@@ -53,7 +53,7 @@ The `state` can be one of following:
 
 #### Event: 'done'
 
-Rückgabewert:
+Kehrt zurück:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>state` String - Can be `completed`, `cancelled` or `interrupted`.

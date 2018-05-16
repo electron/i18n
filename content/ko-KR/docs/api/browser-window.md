@@ -395,7 +395,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods (클래스 메서드)
+### 정적 메서드
 
 The `BrowserWindow` class has the following static methods:
 
@@ -505,7 +505,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -951,7 +951,7 @@ Same as `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
-* `menu` Menu
+* `menu` Menu 혹은 null
 
 Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
 

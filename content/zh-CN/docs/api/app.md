@@ -394,7 +394,7 @@ app.exit(0)
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - *Linux*上是 48x48, *Windows* 上是 32x32, *macOS* 中无效
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -672,7 +672,7 @@ app.on('ready', () => {
 * `选项` Object 
   * `certificate` String - pkcs12 文件的路径
   * `password` String - 证书的密码
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `result` Integer - 导入结果
 
 将 pkcs12 格式的证书导入到平台证书库。 ` callback ` 使用导入操作的 ` result ` 调用, ` 0 ` 的表示成功, 其他值标识失败，参照 [ net_error_list ](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) 。

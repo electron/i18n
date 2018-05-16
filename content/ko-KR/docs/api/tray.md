@@ -173,7 +173,7 @@ Emitted when the mouse exits the tray icon.
 
 Emitted when the mouse moves in the tray icon.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 The `Tray` class has the following methods:
 

@@ -66,7 +66,7 @@ Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
-#### `cookies.set(details, callback)`
+#### `cookies.set(details,callback)`
 
 * `ang mga detalye` Bagay 
   * `url` String - Ang url ay maiuugnay sa cookie.
@@ -86,7 +86,7 @@ Eset ang cookie sa mga`details`, `callback` ay pwedeng itawag na may `callback(e
 
 * `url` String - Ang isang URL na maiugnay sa may cookie.
 * `name` String - Ang pangalan ng isang cookie na natanggal.
-* `baliktawag` ginagawa
+* `callback` na Function
 
 Tanggalin ang mga cookies na nagtugma sa `url` at `name`, `callback` ay tinatawag na may `callback()` kung kumpleto.
 

@@ -25,7 +25,7 @@ El módulo `sesión` tiene los siguientes métodos:
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `cache` Boolean - En el caso de activar la memoria cache.
 
 Regresa `Session` - Una instancia de session de la cadena `partition`. Cuando hay una `Session` existente con la misma `partition`, se devolverá la misma; de otra manera, una nueva instancia `Session` será creada con `options`.

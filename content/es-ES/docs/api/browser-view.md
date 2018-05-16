@@ -42,13 +42,13 @@ Devuelve `BrowserView[]` - Un array con tolas las BrowserViews abiertas.
 
 #### `BrowserView.fromWebContents(webContents)`
 
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 
 Devuelve `BrowserView | null` - La BrowserView propietaria del `webContents` indicado o `null` si la BrowserView no es la propietaria del contenido.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Íntegro
 
 Devuelve `BrowserView` - La vista con el `id` especificado.
 

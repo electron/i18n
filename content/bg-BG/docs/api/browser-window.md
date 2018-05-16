@@ -895,7 +895,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `обратно повикване` Функция 
+* `обратно повикване` Function 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.
@@ -1009,7 +1009,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Бутон` Object 
+* `Button` Object 
   * `icon` [NativeImage](native-image.md) - Иконата, показваща се в миниатюрата на toolbar лентата.
   * `click` Function - Функцията, която се изпълнява при натискане на бутона
   * `tooltip` String (по избор) - Пояснителният текст на бутона.

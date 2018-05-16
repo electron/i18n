@@ -32,7 +32,7 @@ A diferencia de Squirrel, Mac OS, Windows puede recibir actualizaciones sobre S3
 
 El objeto `app` emite los siguientes eventos:
 
-### Evento: "error"
+### Evento: 'error'
 
 Devuelve:
 

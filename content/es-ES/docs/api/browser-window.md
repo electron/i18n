@@ -228,7 +228,7 @@ Los objetos creados con `new BrowserWindow` emiten los siguientes eventos:
 
 Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `title` String
 
 Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie.
@@ -420,7 +420,7 @@ Devuelve `BrowserWindow | null` - La ventana propietaria del `browserView` espec
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Integer
+* `id` Íntegro
 
 Devuelve `BrowserWindow` - La ventana que posee el `id` especificado.
 
@@ -780,8 +780,8 @@ Mueve la ventana al centro de la pantalla.
 
 #### `win.setPosition(x, y[, animate])`
 
-* `x` Integer
-* `y` Íntegro
+* `x` Íntegro
+* `y` Integer
 * `animate` Boolean (opcional) *macOS*
 
 Mueve la ventana a `x` y `y`.
@@ -903,10 +903,10 @@ Es igual a `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `httpReferrer` String (opcional) - Un url de HTTP referencial.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
-  * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
+  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 

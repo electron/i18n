@@ -67,7 +67,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
 * `details` Obje 
   * `id` tamsayı
   * `url` Dize
-  * `method` String
+  * `method` Dizi
   * `webContentsId` Integer (optional)
   * `resourceType` Dize
   * `timestamp` Double
@@ -148,7 +148,7 @@ Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` i
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
-    * `method` String
+    * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double

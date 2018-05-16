@@ -95,7 +95,7 @@ Disuarakan saat file terseret dijatuhkan di ikon baki.
 
 #### Event: 'drop-teks' *macOS*
 
-* `event` Acara
+* `acara` Acara
 * `teks` String - string teks menjatuhkan.
 
 Dibunyikan apabila menyeret teks jatuh dalam ikon tray.

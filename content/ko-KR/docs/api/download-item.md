@@ -66,7 +66,7 @@ The `state` can be one of following:
 * `cancelled` - The download has been cancelled.
 * `interrupted` - The download has interrupted and can not resume.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 The `downloadItem` object has the following methods:
 

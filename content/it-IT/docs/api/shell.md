@@ -1,4 +1,4 @@
-# shell
+# guscio
 
 > Manage files and URLs using their default applications.
 

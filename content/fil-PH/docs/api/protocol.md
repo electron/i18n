@@ -94,7 +94,7 @@ Batay sa default ang `scheme` ay tinatrato katulad ng `http`, na sinusuri ng kak
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsyonal)
 * `pagkumpleto` Function (opsyonal) 
   * `error` Error
@@ -142,7 +142,7 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `ang redirectRequest` Bagay 
       * `url` Tali
       * `method` na String
@@ -167,11 +167,11 @@ For POST requests the `uploadData` object must be provided.
 * `tagahawak` Function 
   * `kahilingan` Bagay 
     * `url` Tali
-    * `header` Bagay
+    * `headers` Objek
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `pagkumpleto` Function (opsyonal) 
   * `error` Error
@@ -227,10 +227,10 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 Unregisters the custom protocol of `scheme`.
 
-### `protocol.isProtocolHandled(scheme,callback)`
+### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` na String
-* `callback` Punsyon 
+* `callback` Function 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -270,7 +270,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Function 
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
     * `referer` String
@@ -292,7 +292,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `ang redirectRequest` Bagay 
       * `url` Tali
       * `method` na String
@@ -308,7 +308,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Punsyon 
+* `tagahawak` Function 
   * `kahilingan` Bagay 
     * `url` Tali
     * `headers` Objek

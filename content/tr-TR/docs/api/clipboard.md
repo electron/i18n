@@ -66,7 +66,7 @@ Yazar `markup` panoya.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (isteğe bağlı)
+* `type` Dize (isteğe bağlı)
 
 `Dize` - RTF olarak pano içeriği.
 
@@ -109,7 +109,7 @@ clipboard.write({
 
 ### `clipboard.writeFindText(text)` *macOS*
 
-* `text` String
+* `text` Dizi
 
 `text` komutu içerisindeki metin karton bulma alanına düz yazı olarak yazılır. Oluşturucu işleminden çağrılan bu yöntem senkron IPC kullanır.
 

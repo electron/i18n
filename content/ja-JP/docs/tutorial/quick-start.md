@@ -7,4 +7,4 @@ Electronは、豊富なネイティブ (オペレーティング・システム)
 * シンプルな Electron アプリの構築方法を確認するには、[最初の Electron アプリの作成](./first-app.md) を参照してください。
 * プロセスアーキテクチャを確認するには、[メインプロセスとレンダラープロセス](./application-architecture.md#main-and-renderer-processes) を参照してください。
 
-To learn more about Electron, check out the [official guides](../README.md).
+To learn more about Electron, check out the [official guides](../).

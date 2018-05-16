@@ -891,7 +891,7 @@ Rückgabewert:
     
     #### `contents.print([options], [callback])`
     
-    * `optionen` Objekt (optional) 
+    * `options` Objekt (optional) 
       * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
       * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
       * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -1218,9 +1218,10 @@ Rückgabewert:
         Set the size of the page. This is only supported for `<webview>` guest contents.
         
         * `optionen` Object 
-          * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
-            * `width` Integer
-            * `height` Integer
+          * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+          * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+          * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+          * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
         #### `contents.isOffscreen()`
         
         Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.

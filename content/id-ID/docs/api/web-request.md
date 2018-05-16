@@ -41,7 +41,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
-    * `Jenissumberdaya` Tali
+    * `TipeSumberdaya` String
     * `timestamp` Duakali
     * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -79,7 +79,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
     
     `panggilan kembali` harus dipanggil dengan `respon` objek.
     
-    #### `webRequest.onSendHeaders([filter, ]listener)`
+    #### `webRequest.onSendHeaders([filter, ]pendengar)`
     
     * `menyaring` Objek (opsional) 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
@@ -170,7 +170,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
           * `url` String
           * `method` String
           * `webContentsId` Integer (optional)
-          * `Jenissumberdaya` Tali
+          * `TipeSumberdaya` String
           * `timestamp` Duakali
           * `responseHeaders` Objek
           * `dariCache` Boolean

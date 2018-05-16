@@ -1,8 +1,8 @@
-# desktopCapturer
+# Catturadesktop
 
 > Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
 
-Processo: [Renderizzatore](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
 The following example shows how to capture video from a desktop window whose title is `Electron`:
 
@@ -70,11 +70,11 @@ The `desktopCapturer` module has the following methods:
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `opzioni` Oggetto 
+* `options` Oggetto 
   * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
-* `callback` Funzione 
-  * `errore` Errore
+* `callback` Function 
+  * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
 Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.

@@ -837,7 +837,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
           
           ### `app.dock.downloadFinished(filePath)` *Windows*
           
-          * `fullPath` String
+          * `format` String
           
           Memantapkan Download stack jika filePath ada di dalam folder Downloads.
           

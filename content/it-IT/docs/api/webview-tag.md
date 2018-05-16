@@ -336,7 +336,7 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -780,7 +780,7 @@ Fired when the gpu process is crashed.
 
 Restituisce:
 
-* `nome` Stringa
+* `name` Stringa
 * `version` String
 
 Fired when a plugin process is crashed.

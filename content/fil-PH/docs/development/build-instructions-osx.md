@@ -7,9 +7,24 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
 - macOS >=10.11.6
 - Xcode<0/> >= 8.2.1</li> 
     
-    - [node.js](https://nodejs.org) (external)</ul> 
+    - [node.js](https://nodejs.org) (external)
+    - Python 2.7 with support for TLS 1.2</ul> 
     
-    Kung ikaw ay gumagamit ng Python na nakapaloob gamit ang Homebrew, kinakailangang mo ring ikabit ang mga sumusunod na Python modyuls:
+    ## Python
+    
+    Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
+    
+    ```sh
+    $ python ./script/check-tls.py
+    ```
+    
+    If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+    
+    ```sh
+    $ brew install python@2 && brew link python@2 --force
+    ```
+    
+    If you are using Python as provided by Homebrew, you also need to install the following Python modules:
     
     - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
     
@@ -33,13 +48,13 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     - Itakda ang `MinimumSDKVersion` to `10.10`
     - Panatilihin ang file na ito
     
-    ## Ang Pagkuha ng "Code"
+    ## Pagkuha ng code
     
     ```sh
     $ git clone https://github.com/electron/electron
     ```
     
-    ## "Bootstrapping"
+    ## Bootstrapping
     
     Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Pansinin na tayo'y gumagamit ng [ninja](https://ninja-build.org/) upang makabuo ng Elektron upang sa gayon ay walang proyekto ng Xcode ang mabuo.
     
@@ -74,7 +89,7 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     Ang Elektron ay maaari lamang mabuo gamit ang inaasahan na 64bit sa macOS at walang planong suportahan maging sa hinaharap ang 32bit sa macOS.
     
-    ## Ang Paglilinis
+    ## Paglilinis
     
     Upang malinis ang binubuong files:
     
@@ -90,6 +105,6 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng bootstrap</strong> bago mabuo.</p>
 
-<h2>Mga Pag-susuri</h2>
+<h2>Mga Pagsusuri</h2>
 
-<p>Tingnan ang <a href="build-system-overview.md#tests"> Buod ng Pagbuo ng Sistema: Mga Pagsusuri </a></p>
+<p>Tingnan ang <a href="build-system-overview.md#tests">Buod ng Pagbuo ng Sistema: Mga Pagsusuri</a></p>

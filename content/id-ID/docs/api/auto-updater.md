@@ -34,7 +34,7 @@ Objek `autoUpdater` mengirimkan sinyal berikut:
 
 ### Sinyal: 'Error'
 
-Returns:
+Mengirimkan:
 
 * Kesalahan `kesalahan`
 
@@ -54,7 +54,7 @@ Dikirimkan saat tidak ada update yang tersedia.
 
 ### Sinyal: 'update-download'
 
-Mengirimkan:
+Pengembalian:
 
 * `event` Sinyal
 * `releaseNotes` String

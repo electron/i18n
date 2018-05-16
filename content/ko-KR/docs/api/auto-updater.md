@@ -34,7 +34,7 @@ Squirrel.Mac과 다르게, Windows는 S3 또는 다른 static file host에서 ho
 
 ### Event: 'error'
 
-Returns:
+반환:
 
 * `error` Error
 

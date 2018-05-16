@@ -237,7 +237,7 @@ win.on('hide', () => {
 
 * `opciones` Object 
   * `icon` ([NativeImage](native-image.md) | String) (opcional) -
-  * `title` String
+  * `title` Cadena
   * `content` String
 
 Muestra un globo de la bandeja.

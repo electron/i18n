@@ -7,8 +7,23 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 - macOS > = 10.11.6
 - [@googlechrome](https://developer.apple.com/technologies/tools/) pada Twitter
 - [node.js](https://nodejs.org) untuk Linux)
+- Python 2.7 with support for TLS 1.2
 
-Jika Anda menggunakan Python yang didownload oleh Homebrew, Anda juga perlu menginstal modul Python berikut ini:
+## Python
+
+Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
+
+```sh
+$ python ./script/check-tls.py
+```
+
+If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+
+```sh
+$ brew install python@2 && brew link python@2 --force
+```
+
+If you are using Python as provided by Homebrew, you also need to install the following Python modules:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
@@ -53,7 +68,7 @@ If you are using editor supports [JSON compilation database](http://clang.llvm.o
 $ ./script/build.py --compdb
 ```
 
-## Bangunan 
+## Bangunan
 
 Jika Anda ingin membangun target ` Release ` dan ` Debug `:
 
@@ -78,17 +93,17 @@ Elektron hanya bisa dibangun untuk target 64bit pada macOS dan tidak ada rencana
 Untuk membersihkan bangunan file:
 
 ```sh
-$ npm run clean
+$ npm bersih
 ```
 
 Untuk pembersihan hanya `keluar` dan `dist` direktori:
 
 ```sh
-$ npm run clean-build
+$ npm berjalan bersih-bangun
 ```
 
 **Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.
 
 ## Uji
 
-Lihat [Bangun Gambaran Sistem: Pengujian](build-system-overview.md#tests)
+Lihat [ Bangun Ikhtisar Sistem: Pengujian ](build-system-overview.md#tests)

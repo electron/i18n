@@ -338,10 +338,10 @@ CSS'i misafir sayfasının içine yerleştirir.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default `false`.
-* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
   * `result` Any
 
-Sayfadaki `code`'u değerlendirir. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
+Sayfadaki `code`'u ölçer. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
 
 ### `<webview>.openDevTools()`
 
@@ -432,7 +432,7 @@ Sayfada düzenleme komutu olan `replaceMisspelling`'i yerine getirir.
 
 * `text` Dizi
 
-Odaklanmış öğeye `metin` ekler.
+Odaklanılan ögeye `text`'i ekler.
 
 ### `<webview>.findInPage(text[, options])`
 
@@ -791,11 +791,11 @@ WebContents işlemi çöktüğünde tetiklenir.
 
 ### Olay: Medya oynamaya başladı
 
-Medya oynamaya başladığında belirir.
+Medya oynatılmaya başladığında yayınlanır.
 
 ### Etkinlik: 'medya-duraklatıldı'
 
-Medya duraklatıldığında veya oynatıldığında yaydır.
+Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
 
 ### Olay: tema rengi değiştirildi
 

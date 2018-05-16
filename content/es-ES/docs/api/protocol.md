@@ -164,16 +164,16 @@ Para solicitudes POST el objeto `uploadData` debe ser proporcionado.
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `manejador` Function 
   * `request` Object 
     * `url` String
-    * `headers` Object
-    * `referrer` String
+    * `headers` Objeto
+    * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (opcional)
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Registra un protocolo de `schema` que se enviará a `Readable` como respuesta.
@@ -222,7 +222,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (opcional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Anula el registro del protocolo predeterminado de `esquema`.
@@ -286,10 +286,10 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `manejador` Function 
   * `request` Object 
     * `url` String
-    * `referrer` String
+    * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -298,7 +298,7 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
       * `method` String
       * `session` Object (opcional)
       * `uploadData` Objecto (opcional) 
-        * `contentType` String - Tipo MIME del contenido.
+        * `contentType` String - tipo MIME del contenido.
         * `data` String - Contenido a ser enviado.
 * `completion` Function (opcional) 
   * `error` Error
@@ -312,12 +312,12 @@ Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlado
   * `request` Object 
     * `url` String
     * `headers` Object
-    * `referrer` String
+    * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (opcional)
-* `completion` Function (opcional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Mismo que `protocol.registerStreamProtocol`, excepto que reemplaza un manejador de protocolo existente.
@@ -325,7 +325,7 @@ Mismo que `protocol.registerStreamProtocol`, excepto que reemplaza un manejador 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (opcional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Elimina el interceptor instalado para el `scheme` y restaura su controlador original.

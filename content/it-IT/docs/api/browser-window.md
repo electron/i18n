@@ -159,7 +159,7 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
   * `type` String (opzionale): il tipo di finestra, impostazione predefinita è normale finestra. Vedi di più su questo qui sotto.
   * `<0>titleBarStyle</0>` Stringa (opzionale) - lo stile della barra del titolo della finestra. Impostazione predefinita è `default`. I valori possibili sono: 
     * `default` - risultato di colore grigio opaco come barra del titolo del Mac.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
+    * `hidden` - genera una barra del titolo nascosta e una finestra a tutto schermo per il contenuto e inoltre la barra del titolo contiene nell'angolo in alto a sinistra i tipici controlli per la finestra ("semaforo").
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
@@ -436,7 +436,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `nome` Stringa
+* `name` Stringa
 
 Remove a Chrome extension by name.
 
@@ -462,7 +462,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `nome` Stringa
+* `name` Stringa
 
 Remove a DevTools extension by name.
 
@@ -518,53 +518,53 @@ Force closing the window, the `unload` and `beforeunload` event won't be emitted
 
 Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
 
-#### `win.focalizza()`
+#### `win.focus()`
 
-Focuses on the window.
+Focalizza la finestra.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Rimuove la focalizzazione dalla finestra.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Ritorna `Boolean` - Se la finestra é focalizzata.
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+Ritorna `Boolean` - se la finestra é stata distrutta.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Visualizza la finestra e la focalizza.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Mostra la finestra, senza focalizzarla.
 
 #### `win.hide()`
 
-Hides the window.
+Nasconde la finestra.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Ritorna `Boolean` - Se la finestra é visibile all'utente.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Ritorna `Boolean` - Se la finestra corrente é modale.
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Ingrandisce la finestra. Nel caso in cui non sia giá visualizzata, la finestra verrá mostrata (ma non focalizzata).
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Rimuove l'ingrandimento della finestra.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Ritorna `Boolean` - se la finestra é stata ingrandita.
 
 #### `win.minimize()`
 
@@ -586,7 +586,7 @@ Sets whether the window should be in fullscreen mode.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Ritorna `Boolean` - Se la finestra é a tutto schermo.
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
@@ -629,7 +629,7 @@ Resizes and moves the window to the supplied bounds
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Ritorna [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -640,13 +640,13 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Ritorna [`Rectangle`](structures/rectangle.md)
 
 #### `win.setEnabled(enable)`
 
 * `enable` Boolean
 
-Disable or enable the window.
+Disabilita o abilita la finestra.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -1009,20 +1009,20 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Pulsante` Oggetto 
-  * `icona` [ImmagineNativa](native-image.md) - L'icona mostrata nella barra degli strumenti miniaturizzata.
+* `Button` Oggetto 
+  * `icon` [NativeImage](native-image.md) - L'icona mostrata nella barra degli strumenti come anteprima.
   * `click` Funzione
-  * `aiuto` Stringa (opzionale) - Il testo del pulsante di aiuto.
-  * `bandiere` Stringa[] (opzionale) - Controlla specifici comportamenti e stati del pulsante. Di default é `['abilitato']`.
+  * `tooltip` Stringa (opzionale) - Il testo del tooltip del pulsante.
+  * `flags` Stringa[] (opzionale) - Controlla specifici comportamenti e comportamenti del pulsante. Di default è `['enabled']`.
 
-La `bandiera` é un insieme che include le seguenti `Stringhe`:
+I `flags` sono un insieme che include le seguenti `String`:
 
-* `abilitato` - Il pulsante è attivato e disponibile all'utente.
-* `disabilitato` - Il pulsante é disabilitato. È presente ma lo stato visuale che lo indica non risponderà all'azione dell'utente.
-* `dismessoalclick` - Quando il pulsante è cliccato, la finestra miniaturizzata si chiude immediatamente.
-* `nobackground` - Non disegnare un limite del pulsante, usa solo l'immagine.
-* `nascosto` - Il pulsante non è mostrato all'utente.
-* `noninterattivo` - Il pulsante è abilitato ma non interattivo; il pulsante non premuto è disegnato. Questo valore è inteso per istanze in cui il pulsante è usato in una notifica.
+* `enabled` - Il pulsante è attivato e disponibile all'utente.
+* `disabled` - Il pulsante é disabilitato. È presente ma lo stato visuale che lo indica non risponderà all'azione dell'utente.
+* `dismissonclick` - Quando il pulsante è cliccato, la finestra miniaturizzata si chiude immediatamente.
+* `nobackground` - Non disegna i bordi del pulsante, usa solo l'immagine.
+* `hidden` - Il pulsante non è mostrato all'utente.
+* `noninteractive` - Il pulsante è abilitato ma non interattivo; il pulsante è mostrato in uno stato di 'non premuto'. Questo valore è inteso per istanze in cui il pulsante è usato in una notifica.
 
 #### `win.setThumbnailClip(region)` *Windows*
 

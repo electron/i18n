@@ -126,7 +126,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 La clase `Menu` solo está disponible en el proceso principal, pero también se puede usar en el proceso de renderizado a través del módulo [`remote`](remote.md).
 
-### Proceso principal
+### Main process
 
 Ejemplo de la creación del menú de la aplicación en el proceso principal con la API de plantilla:
 

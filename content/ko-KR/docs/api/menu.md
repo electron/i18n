@@ -102,7 +102,7 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -126,7 +126,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### 주 프로세스
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 
