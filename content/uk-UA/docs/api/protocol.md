@@ -165,7 +165,7 @@ For POST requests the `uploadData` object must be provided.
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Об'єкт 
     * `url` String
     * `headers` Object
     * `referrer` String
@@ -287,13 +287,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Об'єкт 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` Object 
+    * `redirectRequest` Об'єкт 
       * `url` String
       * `method` String
       * `session` Object (optional)
@@ -309,7 +309,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Об'єкт 
     * `url` String
     * `headers` Object
     * `referrer` String
