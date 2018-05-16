@@ -513,7 +513,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) fo
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - уровень увеличения.
+* `level` Number - Zoom level.
 
 Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно.
 
