@@ -40,7 +40,7 @@ Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando est
 
 ### `proceso.noDepreación`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
 
 ### `proceso.Rutaderecursos`
 
@@ -97,7 +97,7 @@ Devuelve `Objeto`:
 * `workingSetSize` entero - La cantidad de memoria actualmente cubierta por la RAM física real.
 * `peakWorkingSetSize` Entero - La cantidad máxima de memoria que ha sido cubierta por la RAM física real.
 * `privateBytes` Entero - la cantidad de memoria no compartida por otros procesos, como JS heap o contenido HTML.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
+* `sharedBytes` Entero - La cantidad de memoria que ha sido compartida entre procesos, típicamente memoria consumida por el código propio de Electron.
 
 Devuelve un objeto que contiene las estadísticas del uso de la memoria del proceso en curso. Note que todas las estadísticas son reportadas en Kilobytes.
 
