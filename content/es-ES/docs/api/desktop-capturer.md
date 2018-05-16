@@ -73,7 +73,7 @@ El módulo `desktopCapturer` tiene los siguientes métodos:
 * `opciones` Object 
   * `types` String[] - Un arreglo de cadenas que crea una lista de los tipos de fuentes de escritorio para ser capturadas. Los tipos disponibles son `screen` y `window`.
   * `thumbnailSize` [Size](structures/size.md) (opcional) - El tamaño de la vista previa de la fuente al cual debe ser modificado. Por defecto es `150` x `150`.
-* `callback` Función 
+* `callback` Function 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
