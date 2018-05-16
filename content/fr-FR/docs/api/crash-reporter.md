@@ -109,15 +109,15 @@ See all of the current parameters being passed to the crash reporter.
 
 ## Payload du Crash Report
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+Le rapporteur de plantage enverra les données suivantes à `submitURL` comme un `POST` en `multipart/form-data` :
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+* `ver` String - La version d'Electron.
+* `platform` String - Par exemple 'win32'.
+* `process_type` String - Par exemple 'renderer'.
+* `guid` String - Par exemple '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
+* `_version` String - La version dans `package.json`.
+* `_productName` String - Le nom du produit dans l'objet `options` de `crashReporter`.
+* `prod` String - Nom du produit sous-jacent. Dans ce cas Electron.
+* `_companyName` String - Le nom de l'entreprise dans l'objet `options` de `crashReporter`.
+* `upload_file_minidump` File - Le rapport d'incident dans le format `minidump`.
+* Toutes les propriétés de niveau 1 de l'objet `extra` dans l'objet `options` de `crashReporter`.
