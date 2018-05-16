@@ -534,12 +534,12 @@ Emitido cuando la ventana asociada registra un mensaje de consola. No se emite p
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `httpReferrer` String (opcional) - Un url de HTTP referencial.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
-  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n".
+  * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` Cadena (opcional) - url base (con arrastrar separadores de camino) para archivos a ser cargados por la data del url. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
+  * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Carga el `url` en la ventana. El `url` debe contener el prefijo de protocolo. Por ejemplo `http://` o `file://`. Si la carga debe omitir el caché http entonces hay que utilizar el encabezado `pragma` para lograrlo.
 
@@ -690,14 +690,14 @@ Inserta CSS en la página web actual.
 
 * `codigo` String
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
-* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
+* `callback` Function (opcional) - Es llamado luego de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
 Devolver `Promesa`: una promesa se resuelve con el resultado del código ejecutado o se rechaza si el resultado del código es una promesa rechazada.
 
 Evalúa el `código` en la página.
 
-En la ventana del buscador, algunas APIs HTML como `requestFullScreen` solo pueden ser invocadas por un gesto del usuario. Configurar `userGesture` a `true` eliminará esta limitación.
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -783,7 +783,7 @@ Ejecuta el comando de edición `copy` en la página web.
 #### `contents.copyImageAt(x, y)`
 
 * `x` Integer
-* `y` Íntegro
+* `y` Integer
 
 Copia la imagen en la posición determinada al portapapeles.
 
@@ -823,7 +823,7 @@ Ejecuta el comando de edición `replaceMisspelling` en página web.
 
 * `texto` String
 
-Inserta `texto` al elemento centrado.
+Inserta `texto` en el elemento enfocado.
 
 #### `contents.findInPage(text[, options])`
 
@@ -888,10 +888,10 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
-  * `deviceName` Cadena (opcional) - Establece el nombre del dispositivo de impresión a usar. Por defecto es `"`.
+  * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
 * `callback` Función (opcional) 
   * `success` Boolean - Indicates success of the print call.
 
@@ -1032,7 +1032,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado de dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
 
 Abre las herramientas del desarrolador.
@@ -1058,7 +1058,7 @@ Alterna las herramientas de desarrollador.
 #### `contents.inspectElement(x, y)`
 
 * `x` Íntegro
-* `y` Integer
+* `y` Íntegro
 
 Empieza a inspeccionar elementos en la posición (`x`, `y`).
 
