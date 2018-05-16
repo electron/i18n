@@ -69,9 +69,9 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 Sends a message to a window with `windowid` via `channel`.
 
-### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.sendToHost(channel[,arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` anuman[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+Katulad ng `ipcRenderer.send` ngunit ang event ay ipapadala sa `<webview>` bahagi sa pahina ng host sa halip na sa pangunahing proseso.
