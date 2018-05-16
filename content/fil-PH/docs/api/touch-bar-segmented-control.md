@@ -13,7 +13,7 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
     * `textured-rounded` -Ang control ay naipapakita gamit ang textured rounded style.
     * `round-rect`Ang control ay naipapakita gamit ang round rect style.
     * `textured-square` - Ang control ay naipapakita gamit ang textured square style.
-    * `capsule` - The control is displayed using the capsule style.
+    * `capsule` - Ang control ay naipapakita gamit ang capsule style.
     * `small-square` -Ang contol ay naipapakita gamit ang small square style.
     * `separated` - Ang mga segment sa control ay naka-display malapit sa isat'isa ngunit hindi hawakan.
   * `mode` String (optional) - The selection mode of the control: 
@@ -22,7 +22,7 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
     * `buttons` -Gumawa ng mga segment act bilang mga button, bawat segment ay pinindot at inilabas pero hindi kailanman minarkahan bilang aktibo.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md)Isang array ng mga segment na dapat ilagay sa control nito.
   * `selectedIndex` Integer (opsyonal) - Ang index ng kasalukuyang selected segment, ay awtomatikong iaupdate sa pakikipag ugnayan ng user. Kapag ang mode ay maramihan ito ay magiging huling napiling item.
-  * `pagbabago` Function - Called when the user selects a new segment. 
+  * `pagbabago` Function-ito ay tinatawag kapag ang user ay pumili ng isang bagong segment. 
     * `selectedIndex` Integer - Ang index ng segment sa user na napili.
     * `isSelected` Boolean -Anuman ang bunga ng resulta ng user selection ng segment ay pinili o hindi.
 
