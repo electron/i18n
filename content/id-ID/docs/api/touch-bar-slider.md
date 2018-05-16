@@ -12,7 +12,7 @@ Proses: [utama](../tutorial/quick-start.md#main-process)
   * `nilai` Bulat (opsional) - nilai dipilih.
   * `maxValue` Bulat (opsional) - nilai maksimum.
   * `perubahan` Fungsi (opsional) - fungsi untuk panggilan ketika slider berubah. 
-    * `newValue` Number - The value that the user selected on the Slider.
+    * `newValue` Nomor - nilai yang dipilih pengguna pada Panel geser Slider.
 
 ### Contoh properti
 
