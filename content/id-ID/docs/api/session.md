@@ -80,7 +80,7 @@ Callback dipanggil dengan ukuran cache sesi saat ini.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Fungsi - Disebut saat operasi selesai.
+* `memanggil kembali` Fungsi - terpanggil ketika operasi selesai.
 
 Membersihkan sesi-sesi HTTP cache.
 
@@ -170,7 +170,7 @@ Menyelesaikan informasi proksi untuk `url`. `Callback` akan dipanggil dengan `ca
 
 #### `ses.setDownloadPath(path)`
 
-* `jalan` String - lokasi download.
+* `path` String - The download location.
 
 Set download menyimpan direktori. Secara default, direktori download akan `Download` di bawah folder app masing-masing.
 
@@ -226,7 +226,7 @@ const {BrowserWindow} = require('electron') membiarkan memenangkan = win.webCont
   * `webContents` [WebContents](web-contents.md) - WebContents meminta izin.
   * `izin` String - Enum 'media', 'geolocation', 'pemberitahuan', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Fungsi 
-    * `permissionGranted` Boolean - mengizinkan atau menolak izin.
+    * `permissionGranted` Boolean - Allow or deny the permission.
   * `rincian` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
 
@@ -288,14 +288,14 @@ Mengembalikan `String` - user agent untuk sesi ini.
   * `eTag` String - ETag header nilai.
   * `startTime` Kamar Double (opsional) - waktu download mulai dalam jumlah detik sejak zaman UNIX.
 
-Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebelumnya. API akan menghasilkan [DownloadItem](download-item.md) yang dapat diakses dengan acara [akan-download](#event-will-download). [DownloadItem](download-item.md) tidak akan memiliki apapun `WebContents` terkait dengan itu dan keadaan awal akan `terganggu`. Download akan mulai hanya ketika `melanjutkan` API disebut di [DownloadItem](download-item.md).
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, panggilan kembali])`
 
 * `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
+* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
 
-Membersihkan cache otentikasi HTTP sesi.
+Clears the session’s HTTP authentication cache.
 
 #### `ses.setPreloads(preloads)`
 
@@ -309,19 +309,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Contoh properti
 
-Properti berikut tersedia pada contoh-contoh dari `sesi`:
+The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-Sebuah objek [cookie](cookies.md) sesi ini.
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-Sebuah objek [WebRequest](web-request.md) sesi ini.
+A [WebRequest](web-request.md) object for this session.
 
-#### `ses.Protocol`
+#### `ses.protocol`
 
-Sebuah objek [protokol](protocol.md) untuk sesi ini.
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
 const {app, session} = require('electron') const path = require('path') app.on ('siap', function {const protokol = session.fromPartition('some-partition').protocol protocol.registerFileProtocol ('atom', fungsi (permintaan, callback) {var url = Request.Url.substr(7) callback ({jalan: path.normalize('${__dirname}/${url}')})}, fungsi (error) {jika (error) console.error ('gagal untuk mendaftarkan protokol')})})
