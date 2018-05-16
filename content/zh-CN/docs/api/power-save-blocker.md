@@ -25,7 +25,7 @@ powerSaveBlocker.stop(id)
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-Returns `Integer` - The blocker ID that is assigned to this power blocker
+Returns ` Integer `-指派给此电源拦截器的 id.
 
 开始阻止系统进入低功耗模式。返回一个整数的拦截器标识（identifying）
 
