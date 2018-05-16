@@ -161,76 +161,18 @@ By default the HTTP request will reuse the current session. If you want the requ
 
 For POST requests the `uploadData` object must be provided.
 
-### `protocol.registerStreamProtocol(scheme, handler[, completion])`
-
-* `scheme` na String
-* `tagahawak` Function 
-  * `kahilingan` Bagay 
-    * `url` Tali
-    * `header` Bagay
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `pagkumpleto` Function (opsyonal) 
-  * `error` Error
-
-Registers a protocol of `scheme` that will send a `Readable` as a response.
-
-The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
-
-Halimbawa:
-
-```javascript
-const {protocol} = require('electron')
-const {PassThrough} = require('stream')
-
-function createStream (text) {
-  const rv = new PassThrough() // PassThrough is also a Readable stream
-  rv.push(text)
-  rv.push(null)
-  return rv
-}
-
-protocol.registerStreamProtocol('atom', (request, callback) => {
-  callback({
-    statusCode: 200,
-    headers: {
-      'content-type': 'text/html'
-    },
-    data: createStream('<h5>Response</h5>')
-  })
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
-})
-```
-
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
-
-```javascript
-const {protocol} = require('electron')
-const fs = require('fs')
-
-protocol.registerStreamProtocol('atom', (request, callback) => {
-  callback(fs.createReadStream('index.html'))
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
-})
-```
-
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` na String
-* `pagkumpleto` Function (opsyonal) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Unregisters the custom protocol of `scheme`.
 
-### `protocol.isProtocolHandled(scheme,callback)`
+### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` na String
-* `callback` Punsyon 
+* `callback` Function 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -238,15 +180,15 @@ The `callback` will be called with a boolean that indicates whether there is alr
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Function 
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
     * `referer` String
     * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
+    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
     * `filePath` String
-* `pagkumpleto` Function (opsyonal) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
@@ -292,12 +234,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `ang redirectRequest` Bagay 
       * `url` Tali
       * `method` na String
       * `session` Bagay (opsyonal)
-      * `ang uploadData` Na Bagay (opsyonal) 
+      * `ang uploadData` Bagay (opsyonal) 
         * `contentType` String - Ang uri ng MIME ng mga nilalaman.
         * `data` String - Mga nilalaman na ipapadala.
 * `pagkumpleto` Function (opsyonal) 
@@ -305,27 +247,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
-### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
-
-* `scheme` na String
-* `tagahawak` Punsyon 
-  * `kahilingan` Bagay 
-    * `url` Tali
-    * `headers` Objek
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `pagkumpleto` Function (opsyonal) 
-  * `error` Error
-
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
-
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` na String
-* `pagkumpleto` Function (opsyonal) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Remove the interceptor installed for `scheme` and restore its original handler.
