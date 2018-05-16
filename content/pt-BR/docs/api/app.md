@@ -719,7 +719,7 @@ Retorna `Boolean` - Indica se o ambiente de trabalho atual é o Unity ou não.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (opcional) 
+* `options` Objeto (opcional) 
   * `path` String (opcional) *Windows* - O caminho do executável a ser comparado. O padrão é `process.execPath`.
   * `args` String[] (opcional) *Windows* - Os argumentos de linha de comando a serem comparados. O padrão é um array vazio.
 
