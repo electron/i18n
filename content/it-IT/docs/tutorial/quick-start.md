@@ -7,4 +7,4 @@ Il vecchio documento "Avvio Veloce" che viveva qui è stato separato in due docu
 * Per controllare come una app Electron semplice è costruita, vedi [Scrivendo la Tua Prima App Electron](./first-app.md)
 * Per controllare l'architettura del processo, vedi [Processi Principali e di Rendering](./application-architecture.md#main-and-renderer-processes).
 
-To learn more about Electron, check out the [official guides](../README.md).
+To learn more about Electron, check out the [official guides](../).
