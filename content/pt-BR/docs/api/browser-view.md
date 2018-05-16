@@ -38,35 +38,35 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - Uma array of todos os BrowserViews abertos.
+Returns `BrowserView[]` - An array of all opened BrowserViews.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Retorna `BrowserView | null` - O BrowserView que possui o `webContents` ou `null` se um BrowserView não é o dono.
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `BrowserView.fromId(id)`
 
 * `id` Inteiro
 
-Retorna `BrowserView` - A view com o `id` passado.
+Returns `BrowserView` - The view with the given `id`.
 
 ### Propriedades de Instância
 
-Objectos criados com `new BrowserView` posuem as seguintes propriedades:
+Objects created with `new BrowserView` have the following properties:
 
 #### `view.webContents` *Experimental*
 
-Um objeto [`WebContents`](web-contents.md) que pertence à esta vizualização.
+A [`WebContents`](web-contents.md) object owned by this view.
 
 #### `view.id` *Experimental*
 
-Um `Integer` representanto o único ID da visualização.
+A `Integer` representing the unique ID of the view.
 
 ### Métodos de Instância
 
-Objectos criados com `new BrowserView` possuem os seguintes métodos de instâncias:
+Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.destroy()`
 
