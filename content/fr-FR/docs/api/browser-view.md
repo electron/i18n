@@ -38,56 +38,56 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Retourne `BrowserView[]` - Un tableau de tous les BrowserViews ouverts.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Retourne `BrowserView | null` - Le BrowserView qui possède le contenu donné `webContents` ou `null` si le contenu n'est pas possédé par un BrowserView.
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Retourne `BrowserView` - La vue avec l'`id` donné.
 
 ### Propriétés d'instance
 
-Objects created with `new BrowserView` have the following properties:
+Les objets créés avec `new BrowserView` ont les propriétés suivantes :
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Un objet [`WebContents`](web-contents.md) appartient à cette vue.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+Un`Integer` représentant l’ID unique de la vue.
 
 ### Méthodes d’instance
 
-Objects created with `new BrowserView` have the following instance methods:
+Les objets créés avec `new BrowserView` ont les méthodes d’instance suivant :
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+Force la fermeture de la vue, les événements `unload` et `beforeunload` ne seront pas émis pour la page web. Une fois que vous avez terminé avec une vue, appelez cette fonction afin libérer de la mémoire et autres ressources dès que possible.
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+Retourne `Boolean` - Si la vue est détruite.
 
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Objet 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - Si `true`, la largeur de la vue va se redimensionner pour être de la même largeur que la fenêtre. `false` par défaut.
+  * `height` Boolean - Si `true`, la hauteur de la vue va se redimensionner pour être de la même hauteur que la fenêtre. `false` par défaut.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Redimensionne et déplace la vue vers les limites fournies par rapport à la fenêtre.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - Couleur dans le format `#aarrggbb` ou `#argb`. Le canal alpha est facultatif.
