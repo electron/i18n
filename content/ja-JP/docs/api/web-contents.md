@@ -1185,13 +1185,13 @@ app.on('ready', () => {
 
 * `fullPath` String - 完全なファイルパス。
 * `saveType` String - 保存タイプの指定。 
-  * `HTMLOnly` - Save only the HTML of the page.
-  * `HTMLComplete` - Save complete-html page.
-  * `MHTML` - Save complete-html page as MHTML.
+  * `HTMLOnly` - ページの HTML だけを保存する。
+  * `HTMLComplete` - 完全な HTML ページを保存する。
+  * `MHTML` - MHTML として完全な HTML ページを保存する。
 * `callback` Function - `(error) => {}`. 
   * `error` Error
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
+戻り値 `Boolean` - ページ保存のプロセスが正常に開始された場合に true。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -1201,7 +1201,7 @@ win.loadURL('https://github.com')
 
 win.webContents.on('did-finish-load', () => {
   win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+    if (!error) console.log('ページ保存成功')
   })
 })
 ```
@@ -1212,7 +1212,7 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.setSize(options)`
 
-Set the size of the page. This is only supported for `<webview>` guest contents.
+ページのサイズを設定します。`<webview>` のゲストコンテンツでのみサポートされています。
 
 * `options` Object 
   * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
@@ -1222,74 +1222,74 @@ Set the size of the page. This is only supported for `<webview>` guest contents.
 
 #### `contents.isOffscreen()`
 
-Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+戻り値 `Boolean` - *オフスクリーンレンダリング* が有効にされているかどうかを示す。
 
 #### `contents.startPainting()`
 
-If *offscreen rendering* is enabled and not painting, start painting.
+もし *オフスクリーンレンダリング* が有効かつ描画中でなければ、描画を開始します。
 
 #### `contents.stopPainting()`
 
-If *offscreen rendering* is enabled and painting, stop painting.
+もし *オフスクリーンレンダリング* が有効かつ描画中であれば、描画を終了します。
 
 #### `contents.isPainting()`
 
-Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在描画中かどうかを返します。
 
 #### `contents.setFrameRate(fps)`
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+もし *オフスクリーンレンダリング* が有効であれば指定された数字にフレームレートをセットします。1 から 60 の値のみを受け取ります。
 
 #### `contents.getFrameRate()`
 
-Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在のフレームレートを返します。
 
 #### `contents.invalidate()`
 
-Schedules a full repaint of the window this web contents is in.
+このウェブコンテンツが入っているウインドウの完全な再描画をスケジュールします。
 
-If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+もし *オフスクリーンレンダリング* が有効であれば、フレームを無効にし、`'paint'` を通して新しいフレームを生成します。
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
-Returns `String` - Returns the WebRTC IP Handling Policy.
+戻り値 `String` - WebRTC IP ハンドリングポリシーを返します。
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy. 
-  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+* `policy` String - 指定するWebRTC IP ハンドリングポリシー。 
+  * `default` - ユーザの公開IPとローカルIPを公開します。 これはデフォルトの動作です。 このポリシーが使用されるとき、WebRTC には、すべてのインターフェースを列挙し、それらを結合して公開インターフェースを検出する権利があります。
+  * `default_public_interface_only` - ユーザの公開IPを公開しますが、ユーザのローカルIPは公開しません。 このポリシーが使用されるとき、WebRTC は HTTP が使用するデフォルトのルートのみを使用する必要があります。 これはどのローカルアドレスも公開しません。
+  * `default_public_and_private_interfaces` - ユーザの公開IPとローカルIPを公開します。 このポリシーが使用されるとき、WebRTC は HTTP が使用するデフォルトのルートのみを使用する必要があります。 これは関連するデフォルトのプライベートアドレスも公開します。 デフォルトルートは、マルチホームのエンドポイント上で OS によって選択されたルートです。
+  * `disable_non_proxied_udp` - 公開IPやローカルIPを公開しません。このポリシーが使用されるとき、WebRTCは、プロキシサーバーがUDPをサポートしていない限り、TCPを使用してピアまたはサーバーに接続する必要があります。
 
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+WebRTC IP ハンドリングポリシーを設定すると、WebRTC を介して公開される IP を制御できます。より詳しくは [BrowserLeaks](https://browserleaks.com/webrtc) を参照して下さい。
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The `pid` of the associated renderer process.
+戻り値 `Integer` - 関連するレンダラープロセスの `pid`。
 
 ### インスタンスプロパティ
 
 #### `contents.id`
 
-A `Integer` representing the unique ID of this WebContents.
+この WebContents の一意のIDを表す `Integer`。
 
 #### `contents.session`
 
-A [`Session`](session.md) used by this webContents.
+この webContents で使われる [`Session`](session.md)。
 
 #### `contents.hostWebContents`
 
-A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+この `WebContents` を所有するかもしれない [`WebContents`](web-contents.md) インスタンス。
 
 #### `contents.devToolsWebContents`
 
-A `WebContents` of DevTools for this `WebContents`.
+この `WebContents` の開発者向けツールの `WebContents` インスタンス。
 
-**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+**注釈:** 開発者向けツールが閉じられたときに `null` になる可能性があるので、このオブジェクトは決して格納しないで下さい。
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+この webContents の [Debugger](debugger.md)。
