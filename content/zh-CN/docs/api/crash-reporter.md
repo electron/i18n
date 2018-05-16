@@ -37,6 +37,7 @@ crashReporter.start({
   * `uploadToServer` 布尔型(可选) - 控制是否将崩溃日志发送给服务器，默认为`true`.
   * `ignoreSystemCrashHandler` 布尔型(可选) - 默认为`false`.
   * `extra` 对象(可选) - 一个随崩溃日志发送的对象. 只有字符串属性能够被正确发送. 不支持发送嵌套对象，且属性名称和属性值必须小于64个字符长度.
+  * ` crashesDirectory `String (可选)-用于临时存储 crashreports 的目录 (仅在崩溃报告器通过 ` process.crashReporter.start ` 启动时使用).
 
 你需要调用任何其他的`crashReporter` API，您必须调用此方法. 在每个需要收集崩溃日志的进程 (主进程 / 渲染器进程) 中，也必须先调用此方法. 从不同的进程调用时, 可以传不同的配置给 ` crashReporter. start `。
 
@@ -44,7 +45,7 @@ crashReporter.start({
 
 ** 注意: **要从 Windows 中的子进程收集崩溃报告, 您也需要添加这样额外的代码。 这将启动一个进程来监视和发送崩溃报告。 用适当的值去替换 ` submitURL `、` productName ` 和 ` crashesDirectory `。
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `setExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
  const args = [
@@ -83,30 +84,40 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+* `uploadToServer` Boolean *macOS* - 是否将报告提交到服务器.
 
 通常, 是否提交是由用户对系统进行偏好设置而决定的。不能在 `start` 之前调用该方法，否则无效.
 
 **注意：** 这个API仅可从主进程调用。
 
-### `crashReporter.setExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` String - 参数键，长度必须小于64个字符
-* `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
+* `value` String - 参数值, 长度必须小于64个字符
 
-设置一个在发送崩溃报告时将额外包含的参数。 The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+设置一个在发送崩溃报告时将额外包含的参数。 当调用 `start` 时, 除了通过 `extra` 选项设置的值之外, 此处指定值也将被发送。 此 API 仅在 macOS 上可用, `start` 首次调用后, 如果您希望在在 Linux 和 Windows 上添加或更新额外参数, 您可以更新 `extra` 选项并再次调用 `start` 。
+
+### `crashReporter.removeExtraParameter(key)` *macOS*
+
+* `key` String - 参数键，长度必须小于64个字符
+
+从当前设定的参数中移除一个额外的参数, 以便它不会与崩溃报告一起发送。
+
+### `crashReporter.getParameters()`
+
+查看传递给崩溃报告的所有当前参数。
 
 ## 崩溃报告内容
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+崩溃报告将发送下面 `multipart/form-data` `POST` 型的数据给 `submitURL`:
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
+* `ver` String - Electron 的版本.
+* `platform` String - 例如 'win32'.
+* `process_type` String - 例如 'renderer'.
+* `guid` String - 例如 '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
+* `_version` String - `package.json` 里的版本号.
+* `_productName` String - `crashReporter` `options` 对象中的产品名字
+* `prod` String - 基础产品名字. 在这种情况下为 Electron.
+* `_companyName` String - `crashReporter` `options` 对象中的公司名称
+* `upload_file_minidump` File - `minidump` 格式的崩溃报告
 * All level one properties of the `extra` object in the `crashReporter` `options` object.
