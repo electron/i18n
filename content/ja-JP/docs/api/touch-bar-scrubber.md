@@ -7,11 +7,11 @@
 ### `new TouchBarScrubber(options)` *実験的*
 
 * `options` オブジェクト 
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - このスクラバーに配置するアイテムの配列.
-  * `select` Function - ユーザーが最後にタップしたアイテムではないアイテムをタップすると呼ばれる. 
-    * `selectedIndex` Integer - ユーザが選択したアイテムのインデックス.
-  * `highlight` Function - ユーザが任意のアイテムをタップしたときに呼ばれる. 
-    * `highlightedIndex` Integer - ユーザがタッチしたアイテムのインデックス.
+  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
+  * `select` Function - Called when the user taps an item that was not the last tapped item. 
+    * `selectedIndex` Integer - The index of the item the user selected.
+  * `highlight` Function - Called when the user taps any item. 
+    * `highlightedIndex` Integer - The index of the item the user touched.
   * `selectedStyle` String - 選択したアイテムのスタイル。省略値は `null`。
   * `overlayStyle` String - 選択して重なったアイテムのスタイル。省略値は `null`。
   * `showArrowButtons` Boolean - 省略値は `false`。
@@ -28,19 +28,19 @@
 
 #### `touchBarScrubber.selectedStyle`
 
-スクラバー内の選択したアイテムのスタイルを表す `String`。この値を更新すると、すぐにタッチバーのコントロールが更新されます。以下は取りうる値です。
+A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
 
-* `background` - `[NSScrubberSelectionStyle roundedBackgroundStyle]` に割り当て.
-* `outline` - `[NSScrubberSelectionStyle outlineOverlayStyle]` に割り当て.
-* `null` - ヌル文字列ではなく、本物の null で、すべてのスタイルを削除します.
+* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `null` - Actually null, not a string, removes all styles.
 
 #### `touchBarScrubber.overlayStyle`
 
 スクラバー内の選択したアイテムのスタイルを表す `String`。 このスタイルは、その後ろに置かれるのではなく、スクラバーアイテムの上に重ねられます。 この値を更新すると、タッチバーのコントロールがすぐに更新されます。 取りうる値:
 
-* `background` - `[NSScrubberSelectionStyle roundedBackgroundStyle]` に割り当て.
-* `outline` - `[NSScrubberSelectionStyle outlineOverlayStyle]` に割り当て.
-* `null` - ヌル文字列ではなく、本物の null で、すべてのスタイルを削除します.
+* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `null` - Actually null, not a string, removes all styles.
 
 #### `touchBarScrubber.showArrowButtons`
 
@@ -50,8 +50,8 @@
 
 このスクラバのモードを表す `String`。この値を更新すると、すぐにタッチバーのコントロールが更新されます。以下は取りうる値です。
 
-* `fixed` - `NSScrubberModeFixed` に割り当て.
-* `free` - `NSScrubberModeFree` に割り当て.
+* `fixed` - Maps to `NSScrubberModeFixed`.
+* `free` - Maps to `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
