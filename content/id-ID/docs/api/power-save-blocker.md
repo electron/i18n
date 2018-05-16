@@ -25,7 +25,7 @@ Modul `powerSaveBlocker` mempunyai metods sebagai berikut:
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-Returns `Integer` - ID bloker yang ditetapkan untuk pemblokir daya ini.
+Returns `Integer` - The blocker ID that is assigned to this power blocker.
 
 Mulai mencegah sistem agar tidak memasuki mode daya-rendah. Mengembalikan sebuah integer yang mengidentifikasi pemblokir hemat daya.
 
