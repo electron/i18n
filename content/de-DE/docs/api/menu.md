@@ -108,7 +108,7 @@ Rückgabewert:
 </ul>
 
 <p>Emitted when a popup is closed either manually or with <code>menu.closePopup()`.</p> 
-    ### Instance Properties
+    ### Instanz Eigenschaften
     
     `menu` objects also have the following properties:
     
@@ -293,7 +293,7 @@ Rückgabewert:
     ]
     ```
     
-    Menu:
+    Menü:
     
     ```sh
     <br />- 1
@@ -316,7 +316,7 @@ Rückgabewert:
     ]
     ```
     
-    Menu:
+    Menü:
     
     ```sh
     <br />- ---
