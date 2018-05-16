@@ -14,7 +14,7 @@ Yeni bir menü oluşturun.
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menü | boş
+* `menu` Menu | null
 
 MacOS'ta uygulama `menu` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üst menüsü olarak ayarlanır.
 
@@ -24,7 +24,7 @@ MacOS'ta uygulama `menu` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üs
 
 #### `Menu.getApplicationMenu()`
 
-Döner `Menu | null` - Uygulama menüsü, ayarlanmışsa veya `null` ayarlanmamışsa.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Note:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Instance properties](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
 
@@ -54,9 +54,9 @@ Ayrıca, `template` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar o
 
 * `seçenekler` Nesne 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
-  * `x` Sayı (isteğe bağlı) - Varsayılan, geçerli fare imleci konumudur. Eğer `y` bildirilmişse, bildirilmelidir.
-  * `y` Sayı (isteğe bağlı) Varsayılan geçerli fare imleci konumudur. Eğer `x` bildirilmişse, bildirilmelidir.
-  * `positioningItem` Sayı (isteğe bağlı) *macOS* - Belirtilen koordinattaki fare imlecinin altına konumlandırılacak menü öğesinin dizini. Varsayılan değer -1'dir.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Function (optional) - Called when menu is closed.
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
@@ -77,14 +77,14 @@ Menüye `menuItem` ekler.
 
 * `kimlik` dizesi
 
-Belirtilen `MenuItem`'ye sahip öğeyi `id` döndürür
+Returns `MenuItem` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
-* `pos` Tamsayı
+* `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-`menuItem` 'ı menünün `pos` konumuna yerleştirir.
+Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Örnek Events
 
@@ -108,15 +108,15 @@ Dönüşler:
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Örnek Özellikleri
+### Örnek özellikleri
 
-`menu` nesneleri aşağıdaki özelliklere de sahiptir:
+`menu` objects also have the following properties:
 
 #### `menu.items`
 
-`MenuItem[]` Menünün Öğelerini içeren bir dizidir.
+A `MenuItem[]` array containing the menu's items.
 
-Her `Menu` birden fazla [`MenuItem`](menu-item.md) den oluşur ve her `MenuItem` bir alt menüye sahip olabilir.
+Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
 ### Örnek Events
 
@@ -124,11 +124,11 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 ## Örnekler
 
-`Menu` sınıfı yalnızca ana işlemde kullanılabilir, ancak [`remote`](remote.md) modül vasıtasıyla oluşturma işleminde de kullanabilirsiniz.
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Ana süreç
+### Main process
 
-Ana süreçte uygulama menüsünü basit şablon API'si ile oluşturmak için bir örnek:
+An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -222,9 +222,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### İşleme süreci
+### Render process
 
-Aşağıda, [`remote`](remote.md) modülü kullanarak bir web sayfasında (işleme süreci) dinamik olarak bir menü oluşturmak ve kullanıcı sayfayı sağ tıklattığında oluşturmak için bir örnek görünmektedir:
+Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
 ```html
 <!-- index.html -->
@@ -246,43 +246,43 @@ window.addEventListener('contextmenu', (e) => {
 
 ## MacOS Uygulama Menüleri Hakkında Notlar
 
-macOS, Windows ve Linux'dan tamamen farklı bir uygulama menüsü stiline sahiptir. İşte, uygulamanızın menüsünü daha yerli yapmaya ilişkin bazı notlar.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Standart Menüler
+### Standard Menus
 
-MacOS'da, `Services` ve `Windows` menüleri gibi birçok sistem tanımlı standart menü vardır. Menünüzü standart bir menü yapmak için menünüzün `role` aşağıdakilerden birine ayarlamanız gerekir ve Electron bunları tanır ve onları standart menüler haline getirir:
+On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
-* `pencere`
-* `yardım`
-* `hizmetler`
+* `window`
+* `help`
+* `services`
 
-### Standart Menü Öğesi İşlemleri
+### Standard Menu Item Actions
 
-macOS, `About xxx`, `Hide xxx` ve `Hide Others` gibi bazı menü öğeleri için standart eylemler önermiştir. Bir menü öğesinin eylemini standart bir eylem olarak ayarlamak için, menü öğesinin `role` özniteliğini ayarlamanız gerekir.
+macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### Ana Menünün Adı
+### Main Menu's Name
 
-MacOS'da hangi etiketi ayarlarsanız ayarlayın uygulama menüsünün ilk öğesinin etiketi daima uygulamanızın adıdır. Bunu değiştirmek için uygulama paketinin `Info.plist` dosyasını geliştirin. Daha fazla bilgi için [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) bakın.
+On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
 ## Belirli Tarayıcı Penceresi için Menü Ayarlama (*Linux* *Windows*)
 
-Tarayıcı pencerelerinin [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows), belirli tarayıcı pencerelerinin menüsünü ayarlayabilir.
+The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
 ## Menü Öğesi Konumu
 
-`Menu.buildFromTemplate` ile bir menü oluştururken öğenin nasıl yerleştirileceğini kontrol etmek için `position` ve `id` kullanabilirsiniz.
+You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-`MenuItem` `position` özniteliği `[placement]=[id]` formundadır; burada `placement`, `before`, `after` veya `endof` ve `id` 'den biridir, menüdeki mevcut bir öğenin benzersiz kimliğidir:
+The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
 
-* `before` - Bu öğeyi kimliği belirtilen maddeden önce ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
-* `after` - Bu öğeyi, kimliği belirtilen öğenin üzerine ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
-* `endof` - Bu öğeyi kimliği referanslı öğeyi içeren mantıksal grubun sonuna ekler (gruplar ayırıcı öğeler tarafından oluşturulur). Başvurulan öğe yoksa, verilen bir kimliği kullanarak yeni bir ayırıcı grubu oluşturulur ve bu öğe bu ayırıcıdan sonra eklenir.
+* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
 
-Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni bir öğe yerleştirilene kadar arkaya eklenir. Dolayısıyla, bir grup menü öğesini aynı konuma yerleştirmek istiyorsanız, yalnızca ilk öğe için bir konum belirtmeniz yeterlidir.
+When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
 ### Örnekler
 
-Şablonlar:
+Template:
 
 ```javascript
 [
@@ -294,7 +294,7 @@ Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni 
 ]
 ```
 
-Menü:
+Menu:
 
 ```sh
 <br />- 1
@@ -304,7 +304,7 @@ Menü:
 - 5
 ```
 
-Şablonlar:
+Template:
 
 ```javascript
 [
@@ -317,7 +317,7 @@ Menü:
 ]
 ```
 
-Menü:
+Menu:
 
 ```sh
 <br />- ---
