@@ -338,10 +338,10 @@ CSS'i misafir sayfasının içine yerleştirir.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default `false`.
-* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
   * `result` Any
 
-Sayfadaki `code`'u değerlendirir. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
+Sayfadaki `code`'u ölçer. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
 
 ### `<webview>.openDevTools()`
 
@@ -432,7 +432,7 @@ Sayfada düzenleme komutu olan `replaceMisspelling`'i yerine getirir.
 
 * `text` Dizi
 
-Odaklanmış öğeye `metin` ekler.
+Odaklanılan ögeye `text`'i ekler.
 
 ### `<webview>.findInPage(text[, options])`
 
@@ -455,7 +455,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
   * `keepSelection` - Seçimi normal bir seçime çevirir.
   * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
 
-Stops any `findInPage` request for the `webview` with the provided `action`.
+`action` ile sağlanan `webview` için herhangi `findInPage` isteğini durdurur.
 
 ### `<webview>.print([options])`
 
@@ -464,7 +464,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
   * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
 
-Prints `webview`'s web page. Same as `webContents.print([options])`.
+`webview`'ün web sayfasını yazdırır. Tıpkı `webContents.print([options])` gibi.
 
 ### `<webview>.printToPDF(options, callback)`
 
@@ -478,7 +478,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `error` Error
   * `data` Buffer
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+`webview`'ün web sayfasını PDF olarak yazdırır, tıpkı `webContents.printToPDF(options, callback)` gibi.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -486,7 +486,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 * `geri aramak` Function 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
+`webview` sayfasının anlık görüntüsünü alır. Tıpkı `webContents.capturePage([rect, ]callback)` gibi.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
@@ -495,7 +495,7 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 
 İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
+Örnekler için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 'i ziyaret edin.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -503,19 +503,19 @@ See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examp
 
 `event` girdisini sayfaya yollar.
 
-See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
+`event` nesnesinin detaylı açıklaması için [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) 'i ziyaret edin.
 
 ### `<webview>.setZoomFactor(factor)`
 
 * `factor` Number - Yakınlaştırma faktörü.
 
-Yakınlaştırma değerini belirtilen değere değiştirir. Yakışlaştırma değeri, yakınlaştırma yüzdesi bölü 100'dür, bu yüzden %300 = 3.0.
+Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
 
 ### `<webview>.setZoomLevel(level)`
 
 * `level` Number - Yakınlaştırma seviyesi.
 
-Yakınlaştırma düzeyini belirtilen düzeye değiştirir. Orijinal boyut 0'dır ve her bir artış veya azalış, orijinal boyutun %300'ü ve %50'si olan varsayılan değerler içerisinde %20'lik bir büyümeyi veya küçülmeyi temsil eder.
+Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -523,11 +523,11 @@ Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
 
 ### `<webview>.getWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişkilendirilmiştir.
 
 ## DOM etkinlikleri
 
-The following DOM events are available to the `webview` tag:
+Aşağıdaki DOM etkinlikleri `webview` etiketinde kullanılabilir:
 
 ### Etkinlik: 'load-commit'
 
@@ -536,11 +536,11 @@ Dönüşler:
 * `url` Dize
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+Bir yükleme işlendiğinde tetiklenir. Bu, subframe belge düzeyi yüklemeleri içinde olduğu kadar, mevcut belge içinde de gezinmeyi içerir, ancak eş zamanlı olmayan kaynak yüklemelerini içermez.
 
 ### Olay: 'did-finish-load'
 
-Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+Gezinme bittiğinde tetiklenir, diğer bir ifadeyle sekmedeki topaç dönmeyi durduracaktır ve `onload` etkinliği gönderilecektir.
 
 ### Olay: 'did-fail-load'
 
@@ -551,7 +551,7 @@ Dönüşler:
 * `validatedURL` Koşul
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+Bu etkinlik `did-finish-load` gibidir, fakat yükleme başarısız olduğunda veya iptal edildiğinde, örneğin: `window.stop()` çağrılır.
 
 ### Olay: 'did-frame-finish-load'
 
@@ -559,15 +559,15 @@ Dönüşler:
 
 * `isMainFrame` Boolean
 
-Fired when a frame has done navigation.
+Bir kare, navigasyonunu tamamladığında tetiklenir.
 
 ### Olay: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab starts spinning.
+Sekmenin döndürücüsünün dönmeye başladığı andaki noktalara karşılık gelir.
 
 ### Olay: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stops spinning.
+Sekmenin döndürücüsünün dönmeyi durdurduğu andaki noktalara karşılık gelir.
 
 ### Olay: 'did-get-response-details'
 
@@ -582,7 +582,7 @@ Dönüşler:
 * `headers` Nesne
 * `resourceType` Dize
 
-Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+İstenen bir kaynağın geçerli olduğuyla ilgili ayrıntılar geldiğinde tetiklenir. `status` kaynağı yüklemek için olan soket bağlantısını belirtir.
 
 ### Olay: 'did-get-redirect-request'
 
@@ -592,11 +592,11 @@ Dönüşler:
 * `newURL` Dize
 * `isMainFrame` Boolean
 
-Fired when a redirect was received while requesting a resource.
+Bir kaynak sorgulanırken yönlendirme alınırsa tetiklenir.
 
 ### Olay: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+Verilen karedeki belge yüklendiğinde tetiklenir.
 
 ### Etkinlik: 'sayfa-başlığı-güncellendi'
 
@@ -605,7 +605,7 @@ Dönüşler:
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Gezinme sırasında sayfa başlığı ayarlanırsa tetiklenir. Başlık dosya url'inden sentezlenmişse `explicitSet` yanlıştır.
 
 ### Olay: 'page-favicon-updated'
 
@@ -613,15 +613,15 @@ Dönüşler:
 
 * `favicons` Dize[] - URL dizisi.
 
-Fired when page receives favicon urls.
+Sayfa favicon url'lerini aldığında tetiklenir.
 
 ### Etkinlik: 'enter-html-full-screen'
 
-Fired when page enters fullscreen triggered by HTML API.
+Tam ekran HTML API tarafından etkinleştirildiğinde ateşlenir.
 
 ### Etkinlik: 'leave-html-full-screen'
 
-Fired when page leaves fullscreen triggered by HTML API.
+Tam ekran HTML API tarafından çıkıldığında ateşlenir.
 
 ### Etkinlik: 'console-message'
 
@@ -632,9 +632,9 @@ Dönüşler:
 * `line` Integer
 * `sourceId` String
 
-Fired when the guest window logs a console message.
+Misafir pencere konsol mesajı girdiğinde ateşlenir.
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+Aşağıdaki örnek kod, günlük düzeyini veya diğer özellikleri dikkate almadan tüm günlük iletilerini karıştırıcının konsoluna iletir.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -654,7 +654,7 @@ Dönüşler:
   * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
+Bir sonuç [`webview.findInPage`](#webviewfindinpagetext-options) isteği için geçerli hale geldiğinde tetiklenir.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -675,9 +675,9 @@ Dönüşler:
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
-Fired when the guest page attempts to open a new browser window.
+Misafir sayfası yeni bir tarayıcı penceresi açmaya çalıştığında tetiklenir.
 
-The following example code opens the new url in system's default browser.
+Aşağıdaki örnek kod, sistemin varsayılan tarayıcısında yeni url'yi açar.
 
 ```javascript
 const {shell} = require('electron')
@@ -699,11 +699,11 @@ Dönüşler:
 
 Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+Bu olay navigasyon programlı bir şekilde `<webview>.loadURL` ve `<webview>.back` API gibi başlatıldığında sinyal yaymaz.
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Sayfa içi navigasyon sırasında, çapa linklere tıklama ya da `window.location.hash` güncellendiğindede sinyal yaymaz. `did*navigate-in-page` olayını bu amaçla kullanınız.
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+`event.preventDefault()` öğesinin çağırılmasının herhangi bir etkisi **yoktur**.
 
 ### Olay: 'did-navigate'
 
@@ -728,9 +728,9 @@ Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın 
 
 ### Etkinlik: 'kapalı'
 
-Fired when the guest page attempts to close itself.
+Misafir sayfası kendisini kapatmaya çalıştığında tetiklenir.
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+Misafir kapatmaya çalıştığında örnek kod `webview`, `about:blank` arasında dolaşmaya başlar.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -746,9 +746,9 @@ Dönüşler:
 * `channel` Dizesi
 * `args` Array
 
-Fired when the guest page has sent an asynchronous message to embedder page.
+Ziyaretçi sayfası, katıştırıcı sayfasına bir eşzamansız mesaj gönderdiğinde tetiklenir.
 
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+`sendToHost` yöntemi ve `ipc-message` etkinliği ile misafir sayfa ve gömülü sayfa arasında kolayca geçiş yapabilirsiniz:
 
 ```javascript
 // In embedder page.
@@ -770,11 +770,11 @@ ipcRenderer.on('ping', () => {
 
 ### Etkinlik: 'çöktü'
 
-Fired when the renderer process is crashed.
+Renderer işlemi çöktüğünde tetiklenir.
 
 ### Etkinlik: 'gpu-çöktü'
 
-Fired when the gpu process is crashed.
+Gpu işlemi çöktüğünde tetiklenir.
 
 ### Event: 'plugin-crashed'
 
@@ -783,15 +783,15 @@ Dönüşler:
 * `name` Dizi
 * `versiyon` String
 
-Fired when a plugin process is crashed.
+Plugin işlemi çöktüğünde tetiklenir.
 
 ### Etkinlik: 'yıkıldı'
 
-Fired when the WebContents is destroyed.
+WebContents işlemi çöktüğünde tetiklenir.
 
 ### Olay: Medya oynamaya başladı
 
-Medya oynamaya başladığında belirir.
+Medya oynatılmaya başladığında yayınlanır.
 
 ### Etkinlik: 'medya-duraklatıldı'
 
@@ -803,7 +803,7 @@ Dönüşler:
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Sayfanın tema rengi değiştiğinde belirtilir. Bu, genellikle bir meta etiketi ile karşılaşılmasından dolayıdır:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
