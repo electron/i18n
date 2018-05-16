@@ -37,7 +37,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
   * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Booleano (opcional) - Por defecto es `false`.
   * `extra` Objeto (opcional) - Un objeto que se puede definir que será enviado a través del informe. Solo las propiedades de la cadena son enviadas correctamente. No se admiten objetos anidados y los nombres de propiedades y valores tener menos de 64 caracteres.
-  * `crashesDirectory` String (opcional) - Directorio para almacenar temporalmente los informes de errores (solo se usa cuando el proceso de notificación de errores se inicia a través de `process.crashReporter.start`).
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 Es necesario llamar este método antes de utilizar cualquier otra API `crashReporter` y en cada proceso (main/renderer) del cual se quiera recopilar los informes de fallos. Se puede pasar diferentes opciones al `crashReporter.start` al llamar desde diferentes procesos.
 
@@ -84,7 +84,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Si los informes deben enviarse o no al servidor.
+* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
 
 Esto es controlado normalmente por las preferencias del usuario. Esto no tiene efecto alguno si se llama antes de que se llame `start`.
 
@@ -93,31 +93,31 @@ Esto es controlado normalmente por las preferencias del usuario. Esto no tiene e
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` String - La clave del parámetro, debe tener menos de 64 caracteres.
-* `value` String - Valor del parámetro, debe tener menos de 64 caracteres.
+* `value` String - Parameter value, must be less than 64 characters long.
 
-Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. Esta API solo está disponible en macOS, si necesita añadir/actualizar parámetros extra en Linux y Windows después de la primera llamada a `start`, puede llamar otra vez a `start` con las opciones `extra` actualizadas.
+Establecer un parámetro adicional que se enviará con el informe de fallos. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
 * `key` String - La clave del parámetro, debe tener menos de 64 caracteres.
 
-Elimina un parámetro extra del conjunto actual de parámetros para que no se envíe con el informe de fallos.
+Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
 
 ### `crashReporter.getParameters()`
 
-Muestra todos los parámetros que se enviarán al informador de fallos.
+See all of the current parameters being passed to the crash reporter.
 
 ## Carga útil del informe de fallos
 
-El informador de fallos enviará la siguiente información al `submitURL` como un `multipart/form-data` `POST`:
+The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
-* `ver` Cadena- La versión de Electron.
-* `platform` Cadena - por ejemplo, "win32".
-* `process_type` Cadena - por ejemplo, "renderizador".
+* `ver` String - The version of Electron.
+* `platform` String - e.g. 'win32'.
+* `process_type` String - e.g. 'renderer'.
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
-* `_version` Cadena - La versión en `package.json`.
-* `_productName` Cadena - El nombre del producto en el objeto `crashReporter` `options`.
-* `prod` Cadena- El nombre del producto subyacente. En este caso, Electron.
-* `_companyName` Cadena - El nombre de la empresa en el objeto `crashReporter` `options`.
-* `upload_file_minidump` Archivo - El informe de fallos en el formato de `minidump`.
-* Todas las propiedades de nivel uno del objeto `extra` en el objeto `crashReporter` `options`.
+* `_version` String - The version in `package.json`.
+* `_productName` String - The product name in the `crashReporter` `options` object.
+* `prod` String - Name of the underlying product. In this case Electron.
+* `_companyName` String - The company name in the `crashReporter` `options` object.
+* `upload_file_minidump` File - The crash report in the format of `minidump`.
+* All level one properties of the `extra` object in the `crashReporter` `options` object.
