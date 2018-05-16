@@ -183,7 +183,7 @@ Résout les informations du proxy pour l'`url`. Le `callback` sera appelé avec 
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `path` String - Emplacement de téléchargement.
 
 Paramètre le répertoire de sauvegarde des téléchargements. Par défaut, le répertoire des téléchargements sera `Downloads` dans le dossier de l'application respective.
 
@@ -219,11 +219,11 @@ Désactive toute émulation de réseau déjà active pour la `session`. Réiniti
   * `request` Objet 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` String - Résultat de la vérification par Chromium.
+    * `errorCode` Integer - Code d'erreur.
   * `callback` Function 
     * `verificationResult` Integer - La valeur peut être un des codes d'erreur de certificat trouvés [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Mis à part les codes d’erreur de certificat, les codes spéciaux suivants peuvent être utilisés. 
-      * `` - Indicates success and disables Certificate Transparency verification.
+      * `` - Indique la réussite et désactive la vérification de transparence de certificat.
       * `-2` - Indique l'échec.
       * `-3` - Utilise le résultat de la vérification de Chromium.
 
@@ -328,9 +328,9 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée.
+* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
 
-Clears the session’s HTTP authentication cache.
+Vide le cache d'authentification HTTP de la session.
 
 #### `ses.setPreloads(preloads)`
 
@@ -344,19 +344,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Instance Properties
 
-The following properties are available on instances of `Session`:
+Les propriétés suivantes sont disponibles pour les instances de `Session` :
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Un objet [Cookies](cookies.md) pour cette session.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Un objet [WebRequest](web-request.md) pour cette session.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Un objet [Protocol](protocol.md) pour cette session.
 
 ```javascript
 const {app, session} = require('electron')
