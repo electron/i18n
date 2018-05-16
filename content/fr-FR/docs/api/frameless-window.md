@@ -64,8 +64,8 @@ win.show()
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
 * On Windows operating systems, transparent windows will not work when DWM is disabled.
-* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-* On Mac, the native window shadow will not be shown on a transparent window.
+* On Linux users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
+* On Mac the native window shadow will not be shown on a transparent window.
 
 ## Fenêtre non cliquable
 
@@ -76,23 +76,6 @@ const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
-
-### Forwarding
-
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
-
-```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
-el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, {forward: true})
-})
-el.addEventListener('mouseleave', () => {
-  win.setIgnoreMouseEvents(false)
-})
-```
-
-This makes the web page click-through when over `el`, and returns to normal outside it.
 
 ## Région déplaçable
 
