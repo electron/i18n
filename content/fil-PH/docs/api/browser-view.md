@@ -12,19 +12,19 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 
 ```javascript
 // Ang pangunahing pag-proseso.
-const {BrowserView, BrowserWindow} = require('electron')
+const {BrowserView, BrowserWindow} = kailangan('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+hayaang manalo = bagong BrowserWindow({width: 800, height: 600})
 win.on('closed', () => {
-  win = null
+  manalo = null
 })
 
-let view = new BrowserView({
+hayaang makita = bagong BrowserView({
   webPreferences: {
     nodeIntegration: false
   }
 })
-win.setBrowserView(view)
+win.setBrowserView(tingnan)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
@@ -48,25 +48,25 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 #### `BrowserView.fromId(id)`
 
-* `id` na Integer
+* `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Nagbabalik ang `BrowserView` - Ang pagtanaw sa ibinigay na mga `id`.
 
 ### Mga Katangian ng Instansya
 
-Objects created with `new BrowserView` have the following properties:
+Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na ito.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
 
 ### Instance Methods
 
-Objects created with `new BrowserView` have the following instance methods:
+Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamaraan ng pagkakataon:
 
 #### `view.destroy()`
 
@@ -78,16 +78,16 @@ Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `pagpipilian` Bagay 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+* `mga opsyon` Bagay 
+  * `width` Boolean - Kung ang `true`, ang lapad ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
+  * `height` Boolean - Kung ang `true`, ang taas ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Binabago ang laki at inililipat ang view mula sa ibinibigay na hangganan na may kaugnayan sa window.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - Ang kulay sa form ng `#aarrggbb` o sa `#argb`. Ang channel ng alpha ay opsyonal.
