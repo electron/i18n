@@ -144,7 +144,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `filter` Object (по избор) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Функция 
+* `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -183,7 +183,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `filter` Object (по избор) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Функция 
+* `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
