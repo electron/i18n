@@ -14,7 +14,7 @@ La classe `menu` dispose des méthodes statiques suivantes :
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu | null
+* `menu` Menu
 
 Définit le `menu` en tant que menu de l’application sur macOS. Sous Windows et Linux, le `menu` sera définie comme le menu principal de chaque fenêtre.
 
@@ -24,7 +24,7 @@ Passer `null` supprime la barre de menus sous Windows et Linux mais n’a aucun 
 
 #### `Menu.getApplicationMenu()`
 
-Retourne `Menu | null` - Le menu de l’application, si défini, ou `null`, si non défini.
+Returns `Menu` - The application menu, if set, or `null`, if not set.
 
 **Remarque :** L'instance du `Menu` retourné, ne supporte pas l'ajout ou la suppression dynamique d’éléments de menu. Les [propriétés de l’instance](#instance-properties) peuvent encore être modifiées dynamiquement.
 
@@ -50,63 +50,35 @@ Vous pouvez également attacher d'autres champs à l'élément du `template` et 
 
 L'objet `menu` a les méthodes d'instance suivantes:
 
-#### `menu.popup(options)`
+#### `menu.popup([browserWindow, options])`
 
-* `options` Objet 
-  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `options` Object (facultatif) 
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
-  * `callback` Function (optional) - Called when menu is closed.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+Pops up this menu as a context menu in the `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `browserWindow` BrowserWindow (optional) - Default is the focused window.
 
 Closes the context menu in the `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` [MenuItem](menu-item.md)
+* `menuItem` MenuItem
 
 Appends the `menuItem` to the menu.
-
-#### `menu.getMenuItemById(id)`
-
-* `id` String
-
-Returns `MenuItem` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` [MenuItem](menu-item.md)
+* `menuItem` MenuItem
 
 Inserts the `menuItem` to the `pos` position of the menu.
-
-### Événements d’instance
-
-Objects created with `new Menu` emit the following events:
-
-**Remarque :** Certains événements sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
-
-#### Event: 'menu-will-show'
-
-Retourne :
-
-* `event` Événement
-
-Emitted when `menu.popup()` is called.
-
-#### Event: 'menu-will-close'
-
-Retourne :
-
-* `event` Événement
-
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Propriétés d'instance
 
@@ -117,10 +89,6 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
-
-### Événements d’instance
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Exemples
 
@@ -174,7 +142,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternal('https://electron.atom.io') }
       }
     ]
   }
@@ -222,7 +190,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Processus de rendu
+### Render process
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -239,7 +207,7 @@ menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup({window: remote.getCurrentWindow()})
+  menu.popup(remote.getCurrentWindow())
 }, false)
 </script>
 ```
@@ -282,7 +250,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Exemples
 
-Modèle :
+Template:
 
 ```javascript
 [
@@ -294,17 +262,16 @@ Modèle :
 ]
 ```
 
-Menu :
+Menu:
 
-```sh
-<br />- 1
-- 2
-- 3
-- 4
-- 5
-```
+    <br />- 1
+    - 2
+    - 3
+    - 4
+    - 5
+    
 
-Modèle :
+Template:
 
 ```javascript
 [
@@ -317,15 +284,13 @@ Modèle :
 ]
 ```
 
-Menu :
+Menu:
 
-```sh
-<br />- ---
-- a
-- b
-- c
-- ---
-- 1
-- 2
-- 3
-```
+    <br />- ---
+    - a
+    - b
+    - c
+    - ---
+    - 1
+    - 2
+    - 3
