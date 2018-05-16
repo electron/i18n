@@ -14,11 +14,11 @@ Prozess: [Haupt](../glossary.md#main-process)
   * `session` Object (optional) - Der [`Session`](session.md) Fall, welcher mit der Anfrage zusammenhängt.
   * `partition` String (optional) - Der name der [`partition`](session.md) mit welcher der Anfrage in Verbindung steht. Standard ist ein leerer String. Die `session` option überwiegt `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
   * `protocol` String (optional) - Das Protokoll Schema im 'scheme' Formular:. Die momentan unterstützten Werte sind 'http:' oder 'https:' Der Standardwert ist 'http:'.
-  * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung von dem Hostnamen und der Port Nummer 'hostname:port'.
+  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
   * `hostname` String (optional) - Der Server Host Name.
   * `port` Integer (optional) - Die Port Nummer des Servers.
   * `path` String (optional) - Der Pfad teil der URL Anfrage.
-  * `redirect` String (optional) - Der Umleitung-Modus für die Anfrage. Sollte eins der folgenden sein: `follow`, `error` or `manual`. Der Standardwert ist `follow`. Falls der Modus `error` ist, werden alle Weiterleitungen abgebrochen. Wenn der Modus `manual` ist, werden alle Weiterleitungen aufgeschoben bis [`request.followRedirect`](#requestfollowredirect) aufgerufen wird. Höre nach dem [`redirect`](#event-redirect) Event in diesem Modus um mehr Informationen über die Weiterleitungs-Anforderungen zu erhalten.
+  * `redirect` String (optional) - Der Umleitung-Modus für die Anfrage. Sollte eins der folgenden sein: `follow`, `error` or `manual`. Der Standardwert ist `follow`. Falls der Modus `error` ist, werden alle Weiterleitungen abgebrochen. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Höre nach dem [`redirect`](#event-redirect) Event in diesem Modus um mehr Informationen über die Weiterleitungs-Anforderungen zu erhalten.
 
 `options` Eigenschaften wie zum Beispiel `protocol`, `host`, `hostname`, `port` und `path`, folgen strikt dem Node.js Modell, wie im [URL](https://nodejs.org/api/url.html) Modul beschrieben.
 
@@ -112,7 +112,7 @@ Rückgabewert:
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Ausgelöst, wenn es eine Weiterleitung gibt und der Modus `manual` ist. Der Aufruf von [`request.followRedirect`](#requestfollowredirect) wird die Weiterleitung fortsetzen.
+Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
 ### Instanz Eigenschaften
 
