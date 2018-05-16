@@ -483,7 +483,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
+* `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -502,7 +502,7 @@ See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examp
 
 * `event` Objeto
 
-Sends an input `event` to the page.
+Envía un input `event` a la página.
 
 See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
 
@@ -514,7 +514,7 @@ Cambia el factor zoom al factor especificado. El factor zoom es el porcentaje de
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `nivel` Número - Nivel de Zoom.
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
 
