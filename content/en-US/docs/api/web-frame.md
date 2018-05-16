@@ -29,7 +29,7 @@ Returns `Number` - The current zoom factor.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - Zoom level
 
 Changes the zoom level to the specified level. The original size is 0 and each
 increment above or below represents zooming 20% larger or smaller to default
@@ -38,6 +38,14 @@ limits of 300% and 50% of original size, respectively.
 ### `webFrame.getZoomLevel()`
 
 Returns `Number` - The current zoom level.
+
+### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom
+level limits. This method will be removed in Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -58,7 +66,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Object
-  * `spellCheck` Function - Returns `Boolean`.
+  * `spellCheck` Function - Returns `Boolean`
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
@@ -98,11 +106,11 @@ Content Security Policy.
 
 * `scheme` String
 * `options` Object (optional)
-  * `secure` Boolean (optional) - Default true.
-  * `bypassCSP` Boolean (optional) - Default true.
-  * `allowServiceWorkers` Boolean (optional) - Default true.
-  * `supportFetchAPI` Boolean (optional) - Default true.
-  * `corsEnabled` Boolean (optional) - Default true.
+  * `secure` Boolean - (optional) Default true.
+  * `bypassCSP` Boolean - (optional) Default true.
+  * `allowServiceWorkers` Boolean - (optional) Default true.
+  * `supportFetchAPI` Boolean - (optional) Default true.
+  * `corsEnabled` Boolean - (optional) Default true.
 
 Registers the `scheme` as secure, bypasses content security policy for resources,
 allows registering ServiceWorker and supports fetch API.
@@ -136,37 +144,6 @@ Evaluates `code` in page.
 In the browser window some HTML APIs like `requestFullScreen` can only be
 invoked by a gesture from the user. Setting `userGesture` to `true` will remove
 this limitation.
-
-### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
-
-* `worldId` Integer
-* `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed.
-  * `result` Any
-
-Work like `executeJavaScript` but evaluates `scripts` in isolated context.
-
-### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
-
-* `worldId` Integer
-* `csp` String
-
-Set the content security policy of the isolated world.
-
-### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
-
-* `worldId` Integer
-* `name` String
-
-Set the name of the isolated world. Useful in devtools.
-
-### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
-
-* `worldId` Integer
-* `securityOrigin` String
-
-Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 

@@ -44,7 +44,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 Returns:
 
 * `event` Event
-* `state` String - Can be `progressing` or `interrupted`.
+* `state` String
 
 Emitted when the download has been updated and is not done.
 
@@ -58,7 +58,7 @@ The `state` can be one of following:
 Returns:
 
 * `event` Event
-* `state` String - Can be `completed`, `cancelled` or `interrupted`.
+* `state` String
 
 Emitted when the download is in a terminal state. This includes a completed
 download, a cancelled download (via `downloadItem.cancel()`), and interrupted
@@ -100,11 +100,11 @@ Returns `Boolean` - Whether the download is paused.
 
 Resumes the download that has been paused.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning. 
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Resumes `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
@@ -147,7 +147,7 @@ header.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Returns `String` - The current state.  Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
 **Note:** The following methods are useful specifically to resume a
 `cancelled` item when session is restarted.

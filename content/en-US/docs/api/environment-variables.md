@@ -7,7 +7,7 @@ are initialized earlier than the command line flags and the app's code.
 
 POSIX shell example:
 
-```sh
+```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
