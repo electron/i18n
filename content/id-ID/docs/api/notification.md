@@ -14,10 +14,9 @@ Jika Anda ingin menampilkan Notifikasi dari proses renderer, Anda harus mengguna
 
 Proses: [Main](../glossary.md#main-process)
 
-` Pemberitahuan </ 0> adalah
- <a href="https://nodejs.org/api/events.html#events_class_events_eventemitter"> acara Emitter </ 1> .</p>
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-<p>Ini menciptakan baru <code> Pemberitahuan </ 0> dengan sifat asli yang ditetapkan oleh <code> Pilihan </ 0> .</p>
+Ini menciptakan baru ` Pemberitahuan </ 0> dengan sifat asli yang ditetapkan oleh <code> Pilihan </ 0> .</p>
 
 <h3>Metode Statis</h3>
 
@@ -32,10 +31,10 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 <ul>
 <li><code>pilihan` Benda 
 
-* ` judul </ 0>  String - Judul untuk pemberitahuan, yang akan ditampilkan di bagian atas jendela pemberitahuan saat ditampilkan.</li>
-<li><code>subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-* ` tubuh </ 0> String - bahasa teks visual, yang akan ditampilkan di bawah judul atau subjudul.</li>
-<li><code>silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
+* `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+* `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+* `body` String - The body text of the notification, which will be displayed below the title or subtitle.
+* `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
 * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
 * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
 * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
@@ -85,43 +84,41 @@ is closed.</p>
 
 <ul>
 <li><code>acara` Acara
-* ` balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan.</li>
-</ul>
+* `reply` String - The string the user entered into the inline reply field.
 
-<p>Emitted saat pengguna mengklik tombol "Balas" pada notifikasi dengan <code> telah di balas: benar </ 0> .</p>
+Emitted saat pengguna mengklik tombol "Balas" pada notifikasi dengan ` telah di balas: benar </ 0> .</p>
 
 <h4>Acara: 'aktifkan' <em> macOS </ 0></h4>
 
 <p>Pengembalian:</p>
 
 <ul>
-<li><code>acara` Acara
-* ` masukkan </ 0>  Nomor - Indeks tindakan yang diaktifkan.</li>
-</ul>
+<li><code>acara` Acara</li> 
 
-<h3>Metode Contoh</h3>
+* `index` Number - The index of the action that was activated.</ul> 
 
-<p>Objek yang dibuat dengan <code> Notifikasi baru </ 0> memiliki metode contoh berikut:</p>
+### Metode Contoh
+
+Objek yang dibuat dengan ` Notifikasi baru </ 0> memiliki metode contoh berikut:</p>
 
 <h4><code>pemberitahuan.menunjukkan ()`</h4> 
-  Segera tunjukkan notifikasi tersebut kepada pengguna, mohon perhatikan hal ini tidak seperti penerapan Pemberitahuan HTML5, cukup memberi contoh ` Notifikasi baru </ 0> tidak segera menunjukkannya kepada pengguna, Anda perlu memanggil metode ini sebelum OS akan ditampilkan. saya t.</p>
+
+Segera tunjukkan notifikasi tersebut kepada pengguna, mohon perhatikan hal ini tidak seperti penerapan Pemberitahuan HTML5, cukup memberi contoh ` Notifikasi baru </ 0> tidak segera menunjukkannya kepada pengguna, Anda perlu memanggil metode ini sebelum OS akan ditampilkan. saya t.</p>
 
 <p>If the notification has been shown before, this method will dismiss the previously
 shown notification and create a new one with identical properties.</p>
 
 <h4><code>notification.close()`</h4> 
-  
-  Dismisses the notification.
-  
-  ### Memutar Suara
-  
-  Di macos , Anda dapat menentukan nama suara yang ingin Anda putar saat pemberitahuan ditampilkan. Salah satu suara default (di bawah Preferensi Sistem> Suara) dapat digunakan, selain file suara khusus. Pastikan file suara disalin di bawah kumpulan aplikasi (misalnya, `App kamu .app/isi/sumber daya </ 0> ), atau salah satu dari lokasi berikut:</p>
 
-<ul>
-<li><code>~ / Perpustakaan / Suara`</li> 
-  
-  * `/ Perpustakaan / Suara`
-  * `/ Jaringan / Perpustakaan / Suara`
-  * `/ Sistem / Perpustakaan / Suara`</ul> 
-  
-  Lihat dokumen  NS suara </ 0> untuk informasi lebih lanjut.</p>
+Dismisses the notification.
+
+### Memutar Suara
+
+On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+
+* `~ / Perpustakaan / Suara`
+* `/ Perpustakaan / Suara`
+* `/ Jaringan / Perpustakaan / Suara`
+* `/ Sistem / Perpustakaan / Suara`
+
+See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
