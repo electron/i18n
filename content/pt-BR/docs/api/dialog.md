@@ -64,7 +64,7 @@ Os `filters` designam um array dos tipos que podem ser apresentados ou seleciona
 
 As array de `extensions` devem conter extensões sem caracteres-curinga ou pontos. (`'png'` é bom mas, `'.png'` e `'*.png'` são ruins). Para mostrar todos os arquivos use o caracter-curinga `*` (nenhum ouro caracter-curinga é suportado).
 
-Se um `callback` é passado, a solicitação à API será dessincronizada e o resultado será passado via `callback(filenames)`.
+If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
 
 **Nota.:** No Windows e Linux um diálogo aberto não pode ser usado ao mesmo tempo para selecionar arquivos e diretórios, portanto se você estabelecer `properties` para `['openFile', 'openDirectory']` nessas plataformas, um seletor de diretório será mostrado.
 
@@ -90,7 +90,7 @@ O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent
 
 Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, veja `dialog.ShowOpenDialog` para exemplos.
 
-Se um `callback` é passado, a solicitação à API será dessincronizada e o resultado será passado via `callback(filename)`.
+If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`.
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
@@ -109,7 +109,7 @@ Se um `callback` é passado, a solicitação à API será dessincronizada e o re
   * `noLink` Boolean (opcional) - No Windows, o Electron tentará identificar qual dos `buttons` são botões comuns (como "cancelar" ou "sim"), e exibir os outros como links de comandos no diálogo. Ele pode fazer o diálogo ser apresentado com o estilo dos aplicativos modernos do Windows. Se você não deseja esse comportamento, você pode definir `noLink` para `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normaliza o acesso às teclas do teclado entre as plataformas. Por padrão é `false`. Ativando-o assume-se que `&` é usado nos rótulos dos botões para atribuir a tecla de atalho de acesso do teclado assim os rótulos serão convertidos para que funcionem corretamente em cada plataforma, os caracteres `&` são removidos no macOS, convertidos para `_` no Linux, e deixados intactos no Windows. Por exemplo, um rótulo de botão `Vie&w` será convertido para `Vie_w` no Linux e `View` no macOS e pode ser selecionado através de `Alt-W` no Windows e Linux.
 * `callback` Function (opcional) 
-  * `response` Number - O indicador do botão que foi clicado.
+  * `response` Number - The index of the button that was clicked.
   * `checkboxChecked` Boolean - O estado ativo da caixa de seleção se `checkboxLabel` foi definido. Senão `false`.
 
 Retorna `Integer`, o indicador do botão clicado, se um callback é fornecido ele retorna undefined.
@@ -122,8 +122,8 @@ Se um `callback` é passado, o dialog mão bloquearáo proceso. A solicitação 
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - O título a ser exibido na caixa de erro.
-* `content` String - O conteúdo a ser exibido na caixa de erro.
+* `title` String - The title to display in the error box.
+* `content` String - The text content to display in the error box.
 
 Exibe um dialog modal que apresenta uma mensagem de erro.
 
