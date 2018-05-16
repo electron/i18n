@@ -41,32 +41,32 @@ Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 * `cut`
 * `kopyahin`
 * `paste`
-* `pasteAndMatchStyle`
+* `pasteAnd MatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit`- Quit the application.
-* `reload` - Reload the current window.
+* `minimize` - Paliitin ang kasalukuyang window.
+* `close` - Isara ang kasalukuyang window.
+* `quit` - Alisin ang aplikasyon.
+* `reload` - Ikarga ulit ang kasalukuyang window.
 * `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `toggleFullScreen`- Toggle full screen mode on the current window.
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
+* `editMenu` - Ang kabuoang default na menu ng "Edit" (Undo, Kopya, atbp.).
+* `windowMenu` - Ang kabuoang default na menu ng "Window" (Paliitin, Isara, atbp.).
 
 The following additional roles are available on *macOS*:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
-* `hide` - Map to the `hide` action.
+* `about` - Ibalangkas sa mga aksyon ng `orderFrontStandardAboutPanel`.
+* `hide` - Ibalangkas sa mga aksyon ng `hide`.
 * `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
+* `unhide` - Ibalangkas sa mga aksyon ng `unhideAllApplications`.
 * `startSpeaking` - Map to the `startSpeaking` action.
 * `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
+* `front` - Ibalangkas sa mga aksyon ng `arrangeInFront`.
+* `zoom` - Ibalangkas sa mga aksyon ng `performZoom`.
 * `toggleTabBar` - Map to the `toggleTabBar` action.
 * `selectNextTab` - Map to the `selectNextTab` action.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
@@ -104,8 +104,8 @@ Maaari kang magdagdag ng isang punsyon ng `click` para sa karagdagang gawain.
 
 #### `ang menuItem.label`
 
-A `String` representing the menu items visible label.
+Ang isang `String` ay kumakatawan sa mga aytem ng menu sa nakikitang tatak.
 
 #### `ang menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+Ang isang `Function` na ititira kapag natanggap ng MenuItem ang isang event ng klik.
