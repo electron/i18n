@@ -25,7 +25,7 @@ El módulo `sesión` tiene los siguientes métodos:
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `cache` Boolean - En el caso de activar la memoria cache.
 
 Regresa `Session` - Una instancia de session de la cadena `partition`. Cuando hay una `Session` existente con la misma `partition`, se devolverá la misma; de otra manera, una nueva instancia `Session` será creada con `options`.
@@ -93,7 +93,7 @@ La retrollamada es invocada con el tamaño actual de caché usado en la sesión.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Invocada cuando la operación ha finalizado.
+* `Llamada` Funcion - Llamada cuando la operación está completada.
 
 Borra la memoria caché del HTTP de la sesión.
 
@@ -183,7 +183,7 @@ Resuelve la información del proxy para una `url`. La `llamada` será hecha con 
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `ruta` Cadena - la ubicación de descarga.
 
 Configura el directorio de descargas. Por defecto, el directorio de descargas será `Descargas` en la carpeta respectiva de la aplicación.
 
@@ -219,11 +219,11 @@ Deshabilita cualquier emulación de red activa durante la `sesión`. Reinicia a 
   * `request` Object 
     * `hostname` String
     * `certificate` [certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` String - Resultado de la verificación de chromium.
+    * `errorCode` Integer - Código de error.
   * `callback` Function 
     * `verificationResult` Integer - Valor que puede ser uno de los códigos de error certificado de [aquí](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Además de los códigos de error certificado, los siguientes códigos especiales pueden ser usados. 
-      * `` - Indicates success and disables Certificate Transparency verification.
+      * `` - Indica éxito y deshabilita la verificación Certificate Transparency.
       * `-2` - Indica falla.
       * `-3` - Usa el resultado de verificación de chromium.
 
@@ -251,11 +251,11 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso.
   * `permiso` cadena - Enumeración de 'medios', 'geolocalización', 'notificaciones', 'midiSysex', 'bloque de puntero', 'Pantalla completa', 'Apertura externa'.
   * `callback` Function 
-    * `permissionGranted` Boolean - Allow or deny the permission.
+    * `permiso concedido` Booleano - Permiso o denegado de permiso.
   * `details` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
 
-Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. To clear the handler, call `setPermissionRequestHandler(null)`.
+Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. Para limpiar el manejador, llamar a `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
@@ -323,14 +323,14 @@ Devuelve `Cadena` - El agente usuario para esta sesión.
   * `eTag` Cadena - Valor Etag del encabezado.
   * `Tiempo de inicio` Doble (opcional) - Tiempo en que se inició la descarga en números de segundo desde epoch de UNIX.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Permite `cancelar` o `interrumpir` descargas de una `Sesión` previa. La API generará un [elemento de descarga](download-item.md) que puede ser accesado con el evento [se descargará](#event-will-download). El [Elemento de descarga](download-item.md) no tendrá ningún `contenido web` asociado con el y el estado inicial será `interrumpido`. La descarga empezará solo cuando la `reanudación` de la API sea llamada en el [elemento descargado](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
-Clears the session’s HTTP authentication cache.
+Limpia caché de autenticación HTTP de la sesión.
 
 #### `ses.setPreloads(preloads)`
 
@@ -344,19 +344,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Propiedades de Instancia
 
-The following properties are available on instances of `Session`:
+Las siguientes propiedades están disponibles en instancias de `Sesión`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Un objeto de [Cookies](cookies.md) para esta esión.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Un objeto [petición web](web-request.md) para esta sesión.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Un objeto de [protocolo](protocol.md) para esta sesión.
 
 ```javascript
 const {app, session} = require('electron')
