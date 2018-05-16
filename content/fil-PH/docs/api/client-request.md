@@ -21,7 +21,7 @@ Context | Request Context
   * `hostname` String (opsyonal) - Ang host name ng server.
   * `port` Integer (opsyonal) - Ang listening port number ng server.
   * `path` String (opsyonal) - Ang path na parte sa request URL.
-  * `redirect` String (opsyonal) - Ang redirect mode para sa request na ito. Nararapat na isa sa `follow`, `error` o `manual`. Ang defaults sa `follow`. Kapag mode ay `error`, anumang redirection ay mauudlot. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Pakinggan ang [`redirect`](#event-redirect) na event sa mode na ito upang makakakuha ng nmga detalye tungkol sa redirect na request.
+  * `redirect` String (opsyonal) - Ang redirect mode para sa request na ito. Nararapat na isa sa `follow`, `error` o `manual`. Ang defaults sa `follow`. Kapag mode ay `error`, anumang redirection ay mauudlot. Kapag mode ay `manual` ang redirection ay ipinagpaliban hanggang [`request.followRedirect`](#requestfollowredirect) ay mapakiusapan. Pakinggan ang [`redirect`](#event-redirect) na event sa mode na ito upang makakakuha ng nmga detalye tungkol sa redirect na request.
 
 `options` properties gaya ng `protocol`, `host`, `hostname`, `port` at `path` mahigpit na sundan ang Node.js na model gaya ng inilarawan sa [URL](https://nodejs.org/api/url.html) module.
 
@@ -55,7 +55,7 @@ Pagbabalik:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Punsyon 
   * `username` String
   * `password` String
 
@@ -94,7 +94,7 @@ Naalis pagkatapos ng huling tipak sa `request` ng mga data na isinulat para sa `
 
 Matatanggal kapag ang `request` ay naudlot. Ang `abort` event ay hindi matitiwalag kung ang `request` ay nakasara na.
 
-#### Event: 'error'
+#### Pangyayari: 'error'
 
 Ibinabalik ang:
 
@@ -115,7 +115,7 @@ Ibinabalik ang:
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
+Tinatanggal kapag mayroong redirection at ang mode ay `manual`. Pagtatawag sa [`request.followRedirect`](#requestfollowredirect) ay magpapatuloy sa redirection.
 
 ### Mga Katangian ng Instansya
 
