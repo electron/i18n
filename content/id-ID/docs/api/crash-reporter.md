@@ -84,13 +84,14 @@ Mengembalikan ` kecelakaan Report [] </ 0> :</p>
 ### ` kecelakaan Reporter.dapatkan unggahan ke Server () </ 0> <em> Linux </ 1> <em> macos </ 1></h3>
 
 <ul>
-<li><code>uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.</li> </ul> 
+<li><code> unggah ke Server </ 0>  Boolean  <em> macOS </ 1> - Apakah laporan harus diserahkan ke server.</li>
+</ul>
 
-Ini biasanya dikendalikan oleh preferensi pengguna. Ini tidak berpengaruh jika dipanggil sebelum ` mulai </ 0> dipanggil.</p>
+<p>Ini biasanya dikendalikan oleh preferensi pengguna. Ini tidak berpengaruh jika dipanggil sebelum <code> mulai </ 0> dipanggil.</p>
 
 <p><strong> Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p>
 
-<h3><code>crashReporter.addExtraParameter(key, value)` *macOS*</h3> 
+<h3><code>crashReporter.addExtraParameter(key, value)` *macOS*
 
 * ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
 <li><code>value` String - Parameter value, must be less than 64 characters long.
@@ -109,15 +110,17 @@ Tetapkan parameter tambahan untuk dikirim dengan laporan kerusakan. The values s
   
   ## Laporan Kecelakaan Payload
   
-  The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+  Reporter kecelakaan akan mengirimkan data berikut ke ` submitURL </ 0> sebagai <code> multipart / form-data </ 0>  <code> POST </ 0> :</p>
+
+<ul>
+<li><code> ver </ 0>  String - Versi Elektron .</li>
+<li><code> platform </ 0>  String - misal 'win32'.</li>
+<li><code> proses_tipe </ 0>  String - misalnya 'renderer'.</li>
+<li><code> guid </ 0>  String - misal '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.</li>
+<li><code> _version </ 0>  String - Versi di <code> package.json </ 0> .</li>
+<li><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok</li> 
   
-  * `ver` String - The version of Electron.
-  * `platform` String - e.g. 'win32'.
-  * `process_type` String - e.g. 'renderer'.
-  * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
-  * `_version` String - The version in `package.json`.
-  * `_productName` String - The product name in the `crashReporter` `options` object.
-  * `prod` String - Name of the underlying product. In this case Electron.
-  * `_companyName` String - The company name in the `crashReporter` `options` object.
-  * `upload_file_minidump` File - The crash report in the format of `minidump`.
-  * All level one properties of the `extra` object in the `crashReporter` `options` object.
+  * `prod` String - Nama produk yang mendasarinya. Dalam hal ini Elektron.
+  * `_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek.
+  * `upload_file_minidump` File - Laporan kerusakan dalam format `minidump`.
+  * Semua tingkat satu sifat objek `ekstra` di `crashReporter` `pilihan` objek.</ul>
