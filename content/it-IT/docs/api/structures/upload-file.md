@@ -2,6 +2,6 @@
 
 * `type` Stringa - `file`.
 * `filePath` Stringa - Percorso dei file da caricare.
-* `offset` Numero Intero - Default a ``.
-* `length` Integer - Numero di byte da leggere a partire dall'`offset`. Default a ``.
-* `modificationTime` Double - Last Modification time in number of seconds since the UNIX epoch.
+* `offset` Integer - Valore predefinito ``.
+* `length` Integer - Numeto di bytes da leggere a partire dall' `offset`. Valore predefinito ``.
+* `modificationTime` Double - Timestamp dell'ultima modifica in secondi a partire dall'epoca UNIX.
