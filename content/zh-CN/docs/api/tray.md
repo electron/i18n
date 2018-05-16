@@ -179,13 +179,13 @@ The `Tray` class has the following methods:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+立即销毁该任务栏图标
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+设置`image`作为托盘中显示的图标
 
 #### `tray.setPressedImage(image)` *macOS*
 
@@ -235,8 +235,8 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `选项` Object - 过滤器对象，包含过滤参数 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+* `选项` Object 
+  * `icon` ([NativeImage](native-image.md) | String) (可选) -
   * `title` String
   * `content` String
 
@@ -265,4 +265,4 @@ The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+返回 `Boolean` -判断托盘图标是否被销毁
