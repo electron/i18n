@@ -28,20 +28,13 @@ Retourne `Number` - Le facteur de zoom actuel.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - Zoom level.
 
 Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement.
 
 ### `webFrame.getZoomLevel()`
 
 Retourne `Number` - Le niveau de zoom actuel.
-
-### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
-
-* `minimumLevel` Number
-* `maximumLevel` Number
-
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -62,7 +55,7 @@ Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'es
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Objet 
-  * `spellCheck` Function - Returns `Boolean` 
+  * `spellCheck` Function - Returns `Boolean`. 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
@@ -98,11 +91,11 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 
 * `scheme` String
 * `options` Object (facultatif) 
-  * `secure` Boolean - (optional) Default true.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+  * `secure` Boolean (optional) - Default true.
+  * `bypassCSP` Boolean (optional) - Default true.
+  * `allowServiceWorkers` Boolean (optional) - Default true.
+  * `supportFetchAPI` Boolean (optional) - Default true.
+  * `corsEnabled` Boolean (optional) - Default true.
 
 Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
@@ -131,6 +124,37 @@ Retourne `Promise` - Une promesse qui se résout avec le résultat du code exéc
 Évalue le `code` dans la page.
 
 Dans la fenêtre du navigateur, certaines APIs HTML comme `requestFullScreen` peut être invoqué seulement par un geste de l'utilisateur. Définir `userGesture` à `true` supprimera cette limitation.
+
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
+
+* `worldId` Integer
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (facultatif) - `false` par défaut.
+* `callback` Function (facultatif) - Appelé après l'exécution du script. 
+  * `result` Any
+
+Work like `executeJavaScript` but evaluates `scripts` in isolated context.
+
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+
+* `worldId` Integer
+* `csp` String
+
+Set the content security policy of the isolated world.
+
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+
+* `worldId` Integer
+* `name` String
+
+Set the name of the isolated world. Useful in devtools.
+
+### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
+
+* `worldId` Integer
+* `securityOrigin` String
+
+Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
