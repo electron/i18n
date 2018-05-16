@@ -71,8 +71,8 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
-* `position` [Point](structures/point.md) - The position of the event.
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
+* `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque l’utilisateur clique sur l’icône.
 
@@ -83,7 +83,7 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
@@ -94,7 +94,7 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur double clique sur l’icône.
 
@@ -124,7 +124,7 @@ Le module `Tray` émet les événements suivants :
 #### Événement : 'drop-text' *macOS*
 
 * `event` Événement
-* `text` String - the dropped text string.
+* `text` String - le texte déposé.
 
 Émis lorsqu'un texte est déposé sur l’icône.
 
@@ -147,7 +147,7 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris entre dans la zone de l’icône.
 
@@ -158,46 +158,46 @@ Le module `Tray` émet les événements suivants :
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris sort de la zone de l’icône.
 
-#### Event: 'mouse-move' *macOS*
+#### Événement : 'mouse-move' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - la position de l’événement.
 
-Emitted when the mouse moves in the tray icon.
+Émis lorsque la souris bouge dans la zone de l’icône.
 
 ### Méthodes d’instance
 
-The `Tray` class has the following methods:
+La classe `Tray` dispose des méthodes suivantes :
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Détruit l’icône immédiatement.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Définit l’`image` associée à l'icône.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Définit l’`image` associée à l'icône quand elle est pressée sur macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Définit le texte au survol pour l'icône.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -207,14 +207,14 @@ Sets the title displayed aside of the tray icon in the status bar (Support ANSI 
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` String - mode de surbrillance avec l'une des valeurs suivante : 
+  * `selection` - Met en surbrillance l'icône de la barre d'État lorsqu'il est cliqué et quand son menu contextuel est ouvert. C'est la valeur par défaut.
+  * `always` - Toujours mettre en surbrillance l’icône.
+  * `never` - Jamais mettre en surbrillance l’icône.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Définit quand l'icône de la barre d'état est mis en surbrillance (en blue).
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Remarque :** Vous pouvez utiliser `highlightMode` avec [`BrowserWindow`](browser-window.md) en alternant les modes `'never'` et `'always'` lorsque la visibilité de la fenêtre change.
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -240,29 +240,29 @@ win.on('hide', () => {
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+Affiche une bulle dans la barre d'État.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menu (facultatif)
+* `position` [Point](structures/point.md) (facultatif) - Position du menu.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Ouvre le menu contextuel de l’icône. Lorsque le `menu` est passé, le `menu` s’affichera au lieu du menu contextuel de l’icône de la barre d’État.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu
 
-Sets the context menu for this icon.
+Définit le menu contextuel de l'icône.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Retourne [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Les `limites` de l'icône de la barre d’État en tant qu'`Objet`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Retourne `Boolean` - si l’icône est détruite.
