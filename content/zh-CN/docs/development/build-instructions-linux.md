@@ -6,7 +6,17 @@
 
 * 至少 25GB 硬盘空间 和 8GB 内存.
 * Python 2.7.x. 一些发行版如 CentOS 6.x 仍然使用 Python 2.6.x ，所以或许需要 check 你的 Python 版本，使用 `python -V`.
+    
+    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    
+    ```sh
+    $ python ./script/check-tls.py
+    ```
+    
+    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+
 * Node.js. 有多种方法安装 Node.js。 您可以从 [ Nodejs.org ](https://nodejs.org) 下载源代码并进行编译。 也可以作为一个标准的用户在 home 目录下安装 node. 或者尝试使用 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) 仓库
+
 * [ clang ](https://clang.llvm.org/get_started.html) 3.4 或更高版本。
 * GTK+ 开发头文件和 libnotify.
 
