@@ -1,4 +1,4 @@
 # CrashReport na Bagay
 
-* `date` Date
-* `id` String
+* `date` String
+* `ID` Integer
