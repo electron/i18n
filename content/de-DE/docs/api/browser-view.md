@@ -6,7 +6,7 @@
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
 ## Beispiel
 
@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *Experimental*
@@ -35,6 +35,16 @@ view.webContents.loadURL('https://electron.atom.io')
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### Static Methods
+
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [WebContents](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `BrowserView.fromId(id)`
 
@@ -57,6 +67,14 @@ A `Integer` representing the unique ID of the view.
 ### Beispiel Methoden
 
 Objects created with `new BrowserView` have the following instance methods:
+
+#### `view.destroy()`
+
+Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+
+#### `view.isDestroyed()`
+
+Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` *Experimental*
 
