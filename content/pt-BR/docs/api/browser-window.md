@@ -112,7 +112,7 @@ A [API de visibilidade de página](https://developer.mozilla.org/en-US/docs/Web/
 
 Processo: [Main](../glossary.md#main-process)
 
-`BrowserWindow` é um [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a opção `options`.
 
@@ -588,7 +588,7 @@ Sets whether the window should be in fullscreen mode.
 
 Returns `Boolean` - Whether the window is in fullscreen mode.
 
-#### `win.setSimpleFullScreen(flag)` no *macOS*
+#### `win.setSimpleFullScreen(flag)` *macOS*
 
 * `flag` Boolean
 
@@ -596,7 +596,7 @@ Enters or leaves simple fullscreen mode.
 
 Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
 
-#### `win.isSimpleFullScreen()` no *macOS*
+#### `win.isSimpleFullScreen()` *macOS*
 
 Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
 
@@ -616,7 +616,7 @@ Consider a normal window with an HD video player and associated controls. Perhap
 
 Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
 
-#### `win.closeFilePreview()` no *macOS*
+#### `win.closeFilePreview()` *macOS*
 
 Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
 
@@ -868,23 +868,23 @@ Unhook the window message.
 
 Unhooks all of the window messages.
 
-#### `win.setRepresentedFilename(filename)` no *macOS*
+#### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
 Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
 
-#### `win.getRepresentedFilename()` no *macOS*
+#### `win.getRepresentedFilename()` *macOS*
 
 Returns `String` - The pathname of the file the window represents.
 
-#### `win.setDocumentEdited(edited)` no *macOS*
+#### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
 Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
 
-#### `win.isDocumentEdited()` no *macOS*
+#### `win.isDocumentEdited()` *macOS*
 
 Returns `Boolean` - Whether the window's document has been edited.
 
@@ -975,13 +975,13 @@ On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeter
 
 Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
 
-#### `win.setHasShadow(hasShadow)` no *macOS*
+#### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
 Sets whether the window should have a shadow. On Windows and Linux does nothing.
 
-#### `win.hasShadow()` no *macOS*
+#### `win.hasShadow()` *macOS*
 
 Returns `Boolean` - Whether the window has a shadow.
 
@@ -1010,7 +1010,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - O icone exibido na barra de ferramentas de miniaturas.
+  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
   * `tooltip` String (opcional) - O texto do tooltip do botão.
   * `flags` String[] (opcional) - Controla estados específicos e comportamentos do botão. Por padrão é definido `['enabled']`.
@@ -1049,7 +1049,7 @@ Sets the properties for the window's taskbar button.
 
 **Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
 
-#### `win.showDefinitionForSelection()` no *macOS*
+#### `win.showDefinitionForSelection()` *macOS*
 
 Same as `webContents.showDefinitionForSelection()`.
 
@@ -1133,39 +1133,39 @@ Returns `BrowserWindow` - The parent window.
 
 Returns `BrowserWindow[]` - All child windows.
 
-#### `win.setAutoHideCursor(autoHide)` no *macOS*
+#### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
 Controls whether to hide cursor when typing.
 
-#### `win.selectPreviousTab()` no *macOS*
+#### `win.selectPreviousTab()` *macOS*
 
 Selects the previous tab when native tabs are enabled and there are other tabs in the window.
 
-#### `win.selectNextTab()` no *macOS*
+#### `win.selectNextTab()` *macOS*
 
 Selects the next tab when native tabs are enabled and there are other tabs in the window.
 
-#### `win.mergeAllWindows()` no *macOS*
+#### `win.mergeAllWindows()` *macOS*
 
 Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
 
-#### `win.moveTabToNewWindow()` no *macOS*
+#### `win.moveTabToNewWindow()` *macOS*
 
 Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
 
-#### `win.toggleTabBar()` no *macOS*
+#### `win.toggleTabBar()` *macOS*
 
 Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
 
-#### `win.addTabbedWindow(browserWindow)` no *macOS*
+#### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
 Adds a window as a tab on this window, after the tab for the window instance.
 
-#### `win.setVibrancy(type)` no *macOS*
+#### `win.setVibrancy(type)` *macOS*
 
 * `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
 
