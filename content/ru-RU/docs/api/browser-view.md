@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Экспериментально*
 
-* `options` Object (опционально) 
+* `options` Object (опиционально) 
   * `webPreferences` Объект (опционально) - см. [BrowserWindow](browser-window.md).
 
 ### Статические методы
