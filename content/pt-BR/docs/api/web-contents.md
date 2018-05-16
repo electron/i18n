@@ -294,7 +294,7 @@ Retorna:
 
 * `event` Event
 * String `url`
-* `error` String - O código do erro.
+* `error` String - The error code.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -1206,7 +1206,7 @@ win.webContents.on('did-finish-load', () => {
 })
 ```
 
-#### `contents.showDefinitionForSelection()` no *macOS*
+#### `contents.showDefinitionForSelection()` *macOS*
 
 Shows pop-up dictionary that searches the selected word on the page.
 
