@@ -11,18 +11,18 @@
 * `options` Object 
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
-    * `browserWindow` BrowserWindow
+    * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
   * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
+  * `label` String (optional)
+  * `sublabel` String (optional)
   * `accelerator` [Accelerator](accelerator.md) (optional)
   * `icon` ([NativeImage](native-image.md) | String) (optional)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
@@ -41,37 +41,44 @@ The `label` and `accelerator` values are optional when using a `role` and will d
 * `cut`
 * `copy`
 * `paste`
-* `pasteandmatchstyle`
-* `selectall`
+* `pasteAndMatchStyle`
+* `selectAll`
 * `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
-* `zoomout` - Zoom out the focused page by 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* `minimize` - 현재 윈도우를 최소화합니다.
+* `close` - 현재 윈도우를 닫습니다.
+* `quit`- 애플리케이션을 종료합니다.
+* `reload` - 현재 윈도우를 재로드합니다.
+* `forceReload` - 캐시를 무시하고 현재 윈도우를 재로드합니다.
+* `toggleDevTools` - 현재 윈도우에 개발자 도구를 토글합니다.
+* `toggleFullScreen`- 현재 윈도우의 풀스크린 모드를 토글합니다.
+* `resetZoom` - 포커스된 페이지의 줌을 기본 사이즈로 리셋합니다.
+* `zoomIn` - 포커스된 페이지를 10% 확대합니다.
+* `zoomOut` - 포커스된 페이지를 10% 축소합니다.
+* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
+* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
 
-The following additional roles are available on macOS:
+다음의 부가 role은 *macOS*에서 유효합니다:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
-* `hideothers` - Map to the `hideOtherApplications` action
-* `unhide` - Map to the `unhideAllApplications` action
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `about` - Map to the `orderFrontStandardAboutPanel` action.
+* `hide` - Map to the `hide` action.
+* `hideOthers` - Map to the `hideOtherApplications` action.
+* `unhide` - Map to the `unhideAllApplications` action.
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `front` - Map to the `arrangeInFront` action.
+* `zoom` - Map to the `performZoom` action.
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
+* `services` - The submenu is a "Services" menu.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
 ### Instance Properties (인스턴스 속성)
 
@@ -97,8 +104,8 @@ You can add a `click` function for additional behavior.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label
+A `String` representing the menu items visible label.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event
+A `Function` that is fired when the MenuItem receives a click event.
