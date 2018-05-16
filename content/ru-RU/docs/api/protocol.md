@@ -297,7 +297,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (опционально) 
+      * `uploadData` Object (опиционально) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
