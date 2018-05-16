@@ -172,13 +172,13 @@ POST リクエストの場合、`uploadData` オブジェクトを提供する�
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (任意)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (任意) 
   * `error` Error
 
-`Readable` をレスポンスとして送信する `scheme` のプロトコルを登録します。
+Registers a protocol of `scheme` that will send a `Readable` as a response.
 
-使用法は `register{Any}Protocol` と同じですが、 `callback` を `Readable` オブジェクト、または `data`、`statusCode` 、`headers` プロパティを持つオブジェクトで呼び出す必要があります。
+The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
 
 サンプル:
 
@@ -187,7 +187,7 @@ const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough() // PassThrough は Readable ストリームでもある
+  const rv = new PassThrough() // PassThrough is also a Readable stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -202,11 +202,11 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     data: createStream('<h5>Response</h5>')
   })
 }, (error) => {
-  if (error) console.error('プロトコルの登録に失敗しました')
+  if (error) console.error('Failed to register protocol')
 })
 ```
 
-Readable ストリーム API (`data` / `end` / `error` イベントが発生する) を実装するオブジェクトを渡すことは可能です。例として、ファイルを返す方法を以下に示します。
+It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
 
 ```javascript
 const {protocol} = require('electron')
@@ -215,7 +215,7 @@ const fs = require('fs')
 protocol.registerStreamProtocol('atom', (request, callback) => {
   callback(fs.createReadStream('index.html'))
 }, (error) => {
-  if (error) console.error('プロトコルの登録に失敗しました')
+  if (error) console.error('Failed to register protocol')
 })
 ```
 
@@ -225,7 +225,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (任意) 
   * `error` Error
 
-`scheme` のカスタムプロトコルを登録解除します。
+Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
@@ -233,7 +233,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `callback` Function 
   * `error` Error
 
-`scheme` のハンドラがすでにあるかどうかを示す Boolean で `callback` が呼び出されます。
+The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
@@ -249,7 +249,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (任意) 
   * `error` Error
 
-`scheme` プロトコルを傍受し、ファイルをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -265,7 +265,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (任意) 
   * `error` Error
 
-`scheme` プロトコルを傍受し、`String` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -277,11 +277,11 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` Buffer (任意)
+    * `buffer` Buffer (optional)
 * `completion` Function (任意) 
   * `error` Error
 
-`scheme` プロトコルを傍受し、`Buffer` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
@@ -303,7 +303,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (任意) 
   * `error` Error
 
-`scheme` プロトコルを傍受し、新しい HTTP リクエストをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
@@ -316,11 +316,11 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (任意)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (任意) 
   * `error` Error
 
-`protocol.registerStreamProtocol` と同じですが、既存のプロトコルハンドラを置き換える点が異なります。
+Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -328,4 +328,4 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (任意) 
   * `error` Error
 
-`scheme` のためにインストールされた傍受するハンドラを削除し、元のハンドラを復元します。
+Remove the interceptor installed for `scheme` and restore its original handler.
