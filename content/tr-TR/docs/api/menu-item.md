@@ -44,37 +44,37 @@ Bir `click` fonksiyonu içinde davranışını el ile uygulamaya çalışmaktans
 * `pasteAndMatchStyle`
 * `selectAll`
 * `sil`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit`- Quit the application.
-* `reload` - Reload the current window.
+* ` minimize ` - Geçerli pencereyi simge durumuna küçültme.
+* `close` - Geçerli pencereyi kapatma.
+* ` quit ` - Uygulamadan çıkma.
+* `reload` - Geçerli pencereyi yeniden yükleme.
 * `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `toggleFullScreen`- Toggle full screen mode on the current window.
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
+* `editMenu` - Tüm varsayılan "Düzenle" menüsü (Geri alma, Kopyalama, vb.).
+* `windowMenu` - Tüm varsayılan "Pencere" menüsü (Simge durumuna küçült, kapat, vb.).
 
 The following additional roles are available on *macOS*:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
-* `hide` - Map to the `hide` action.
+* `about` - `orderFrontStandardAboutPanel` eylemine eşleme.
+* `hide` - `hide` eylemine eşleme.
 * `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
+* `unhide` - `unhideAllApplications` eylemine eşleme.
 * `startSpeaking` - Map to the `startSpeaking` action.
 * `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
+* `front` - `arrangeInFront` eylemine eşleme.
+* `zoom` - `performZoom` eylemine eşleme.
 * `toggleTabBar` - Map to the `toggleTabBar` action.
 * `selectNextTab` - Map to the `selectNextTab` action.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
 * `mergeAllWindows` - Map to the `mergeAllWindows` action.
 * `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
-* `services` - The submenu is a "Services" menu.
+* ` window ` - Alt menü bir "Pencere" menüsüdür.
+* `help` - Alt menü bir "Yardım" menüsüdür.
+* `services` - Alt menü bir "Servisler" menüsüdür.
 * `recentDocuments` - The submenu is an "Open Recent" menu.
 * `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
@@ -104,8 +104,8 @@ Ek davranış için bir `click` işlevi ekleyebilirsiniz.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label.
+Görünen menü öğelerini bir `String` temsil eder.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+MenuItem bir tıklama olayı aldığında tetiklenen bir `Function`'dır.
