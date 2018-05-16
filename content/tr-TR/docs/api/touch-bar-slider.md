@@ -12,7 +12,7 @@
   * `minValue` Integer (isteğe bağlı) - Minimum değer.
   * `maxValue` Integer (isteğe bağlı) - Maksimum değer.
   * `change` Fonksiyon (isteğe bağlı) - Kaydırıcı değiştiğinde çağırılacak işlev. 
-    * `newValue` Number - The value that the user selected on the Slider.
+    * `newValue` Sayı - Kullanıcının kaydırıcıda seçtiği değer.
 
 ### Örnek Özellikler
 
