@@ -6,7 +6,7 @@
 
 ` remote ` 模块为渲染进程（web页面）和主进程通信（IPC）提供了一种简单方法。
 
-在Electron中, GUI 相关的模块 (如 ` dialog`、` menu ` 等) 仅在主进程中可用, 在渲染进程中不可用。 为了在渲染进程中使用它们, ` ipc ` 模块是向主进程发送进程间消息所必需的。 With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation).   
+在Electron中, GUI 相关的模块 (如 ` dialog`、` menu ` 等) 仅在主进程中可用, 在渲染进程中不可用。 为了在渲染进程中使用它们, ` ipc ` 模块是向主进程发送进程间消息所必需的。 使用 ` remote ` 模块, 你可以调用 main 进程对象的方法, 而不必显式发送进程间消息, 类似于 Java 的 [ RMI ](https://en.wikipedia.org/wiki/Java_remote_method_invocation)。   
 例如：从渲染进程创建浏览器窗口
 
 ```javascript
@@ -21,7 +21,7 @@ win.loadURL('https://github.com')
 
 ` remote ` 模块返回的每个对象 (包括函数) 表示主进程中的一个对象 (我们称它为远程对象或远程函数)。 当调用远程对象的方法时, 调用远程函数, 或者使用远程构造函数 (函数) 创建新对象时, 实际上是在发送同步进程消息。
 
-In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. 取而代之的是，它在主进程中创建了一个 `BrowserWindow`对象，并且在渲染进程中返回相应的远程对象，即` win </ 0>对象。</p>
+In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. 取而代之的是，它在主进程中创建了一个 `BrowserWindow`对象，并且在渲染进程中返回相应的远程对象，即` win </ 0>对象。</p>
 
 <p><strong>注意： </strong>当远程对象被第一次引用时，只有<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举的属性</a>可以通过远程访问。</p>
 
@@ -80,7 +80,7 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 
 更糟的是, 由于以前安装的回调的上下文已释放, 因此在发出 ` close ` 事件时, 将在主进程中引发异常。
 
-为了避免这个问题，请确保清除对传递给主进程的渲染器回调的引用。 This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+为了避免这个问题，请确保清除对传递给主进程的渲染器回调的引用。 This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.
 
 ## 访问主进程中的内置模块
 
@@ -103,14 +103,15 @@ console.log(app)
 
 例如:
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // main process: main/index.js
