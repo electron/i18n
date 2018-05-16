@@ -447,7 +447,7 @@ Zwraca:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Funkcja 
+* `callback` Function 
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -626,7 +626,7 @@ Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Przeładowuje obecną stronę i ignoruje cache.
 
 #### `contents.canGoBack()`
 
@@ -1215,9 +1215,10 @@ Shows pop-up dictionary that searches the selected word on the page.
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
 * `options` Obiekt 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
-    * `width` Integer
-    * `height` Integer
+  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 
