@@ -37,70 +37,71 @@ Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Wind
 
 <h2>Veranstaltungen</h2>
 
-<p>The <code>autoUpdater` object emits the following events:
+<p>Das <code> autoUpdater </ 0> -Objekt gibt die folgenden Ereignisse aus:</p>
 
-### Ereignis : "Fehler
+<h3>Ereignis : "Fehler</h3>
 
-Rückgabewert:
+<p>Rückgabewert:</p>
 
-* ` Fehler </ 0> Fehler</li>
+<ul>
+<li><code> Fehler </ 0> Fehler</li>
 </ul>
 
-<p>Emitted when there is an error while updating.</p>
+<p>Wird gesendet, wenn beim Aktualisieren ein Fehler auftritt.</p>
 
-<h3>Event: 'checking-for-update'</h3>
+<h3>Ereignis : "Nach Updates suchen"</h3>
 
-<p>Emitted when checking if an update has started.</p>
+<p>Wird gesendet, wenn geprüft wird, ob ein Update gestartet wurde.</p>
 
-<h3>Event: 'update-available'</h3>
+<h3>Ereignis : 'Update-verfügbar'</h3>
 
-<p>Emitted when there is an available update. The update is downloaded
-automatically.</p>
+<p>Wird gesendet, wenn ein Update verfügbar ist. Das Update wird automatisch heruntergeladen.</p>
 
-<h3>Event: 'update-not-available'</h3>
+<h3>Ereignis : "Update nicht verfügbar"</h3>
 
-<p>Emitted when there is no available update.</p>
+<p>Wird gesendet, wenn kein Update verfügbar ist.</p>
 
-<h3>Event: 'update-downloaded'</h3>
+<h3>Ereignis : 'Update-Download'</h3>
 
 <p>Rückgabewert:</p>
 
 <ul>
 <li><code> Ereignis </ 0>  Ereignis</li>
-<li><code>releaseNotes` String
-* `releaseName` String
-* `releaseDate` Date
-* `updateURL` String
+<li><code> Release Notes </ 0>  String</li>
+<li><code> releaseName </ 0>  String</li>
+<li><code> releaseDate </ 0> Datum</li>
+<li><code> updateURL </ 0>  String</li>
+</ul>
 
-Emitted when an update has been downloaded.
+<p>Wird gesendet, wenn ein Update heruntergeladen wurde.</p>
 
-On Windows only `releaseName` is available.
+<p>Unter Windows ist nur <code> releaseName </ 0> verfügbar.</p>
 
-## Methoden
+<h2>Methoden</h2>
 
-The `autoUpdater` object has the following methods:
+<p>Das Objekt <code> autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 
-### `autoUpdater.setFeedURL(options)`
+<h3><code>autoUpdater.setFeedURL(options)`</h3> 
 
 * `options` Object 
   * ` URL </ 0>  Zeichenfolge</li>
 <li><code>headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Sets the `url` and initialize the auto updater.
+Setzt die ` URL </ 0> und initialisiert den automatischen Updater.</p>
 
-### `autoUpdater.getFeedURL()`
+<h3><code>autoUpdater.getFeedURL ()`</h3> 
 
-Returns `String` - The current update feed URL.
+Gibt ` String </ 0> zurück - Die aktuelle URL des Aktualisierungsfeeds.</p>
 
-### `autoUpdater.checkForUpdates()`
+<h3><code>autoUpdater.checkForUpdates ()`</h3> 
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Fragt den Server, ob es ein Update gibt. Sie müssen ` setFeedURL </ 0> aufrufen, bevor Sie diese API verwenden .</p>
 
-### `autoUpdater.quitAndInstall()`
+<h3><code>autoUpdater.quitAndInstall ()`</h3> 
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Startet die App neu und installiert das Update nach dem Herunterladen. Es sollte nur aufgerufen werden, nachdem ` update-downloaded </ 0> ausgegeben wurde.</p>
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+<p>Under the hood calling <code>autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
 **Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
