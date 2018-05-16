@@ -126,7 +126,7 @@ Rückgabewert:
 
 <ul>
 <li><code> Ereignis </ 0>  Ereignis</li>
-<li><code>favicons` String[] - Array of URLs
+<li><code>favicons` String[] - Array of URLs.
 
 Emitted when page receives favicon urls.
 
@@ -138,14 +138,14 @@ Rückgabewert:
 <li><code> URL </ 0>  Zeichenfolge</li>
 <li><code>frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which will be used for creating the new `BrowserWindow`.
+* `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
 
 Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
 By default a new `BrowserWindow` will be created for the `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. For example:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. For example:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -252,19 +252,19 @@ Rückgabewert:
   Rückgabewert:
   
   * ` Ereignis </ 0>  Ereignis</li>
-<li><code>input` Object - Input properties 
-    * `type` String - Either `keyUp` or `keyDown`
-    * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+<li><code>input` Object - Input properties. 
+    * `type` String - Either `keyUp` or `keyDown`.
+    * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
   
   Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
   
-  To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
+  To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental):
   
   ```javascript
   const {BrowserWindow} = require('electron')
@@ -296,10 +296,10 @@ Rückgabewert:
   
   * ` Ereignis </ 0>  Ereignis</li>
 <li><code> URL </ 0>  Zeichenfolge</li>
-<li><code>error` String - The error code
+<li><code>error` String - The error code.
   * `certificate` [Certificate](structures/certificate.md)
   * `callback` Funktion 
-    * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
+    * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
   
   Emitted when failed to verify the `certificate` for `url`.
   
@@ -313,7 +313,7 @@ Rückgabewert:
 <li><code>url` URL
   * `certificateList` [Certificate[]](structures/certificate.md)
   * `callback` Funktion 
-    * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
+    * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
   
   Emitted when a client certificate is requested.
   
@@ -372,6 +372,10 @@ Rückgabewert:
   <meta name='theme-color' content='#ff0000'>
   ```
   
+  Rückgabewert:
+  
+  * ` Ereignis </ 0>  Ereignis</li>
+<li><code>color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
   #### Event: 'update-target-url'
   
   Rückgabewert:
@@ -389,14 +393,14 @@ Rückgabewert:
 <ul>
 <li><code> Ereignis </ 0>  Ereignis</li>
 <li><code>type` String
-  * `image` NativeImage (optional)
-  * `scale` Float (optional) - scaling factor for the custom cursor
-  * `size` [Size](structures/size.md) (optional) - the size of the `image`
-  * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+  * `image` [NativeImage](native-image.md) (optional)
+  * `scale` Float (optional) - scaling factor for the custom cursor.
+  * `size` [Size](structures/size.md) (optional) - the size of the `image`.
+  * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
   
-  Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+  Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
   
-  If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+  If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
   
   #### Event: 'context-menu'
   
@@ -404,8 +408,8 @@ Rückgabewert:
   
   * ` Ereignis </ 0>  Ereignis</li>
 <li><code>params` Object 
-    * `x` Integer - x coordinate
-    * `y` Integer - y coordinate
+    * `x` Integer - x coordinate.
+    * `y` Integer - y coordinate.
     * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
     * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
     * `pageURL` String - URL of the top level page that the context menu was invoked on.
@@ -419,7 +423,7 @@ Rückgabewert:
     * `misspelledWord` String - The misspelled word under the cursor, if any.
     * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
     * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
-    * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
+    * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
     * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
       * `inError` Boolean - Whether the media element has crashed.
       * `isPaused` Boolean - Whether the media element is paused.
@@ -508,6 +512,26 @@ Rückgabewert:
   
   **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
   
+  #### Event: 'did-attach-webview'
+  
+  Rückgabewert:
+  
+  * ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` WebContents - The guest web contents that is used by the `<webview>`.
+  
+  Emitted when a `<webview>` has been attached to this web contents.
+  
+  #### Event: 'console-message'
+  
+  Rückgabewert:
+  
+  * `level` Integer
+  * `message` String
+  * `line` Integer
+  * `sourceId` String
+  
+  Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+  
   ### Beispiel Methoden
   
   #### `contents.loadURL(url[, options])`
@@ -516,8 +540,8 @@ Rückgabewert:
 <li><code>options` Objekt (optional) 
     * `httpReferrer` String (optional) - A HTTP Referrer url.
     * `userAgent` String (optional) - A user agent originating the request.
-    * `extraHeaders` String (optional) - Extra headers separated by "\n"
-    * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+    * `extraHeaders` String (optional) - Extra headers separated by "\n".
+    * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
     * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
   
   Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
@@ -526,6 +550,26 @@ Rückgabewert:
   const {webContents} = require('electron')
   const options = {extraHeaders: 'pragma: no-cache\n'}
   webContents.loadURL('https://github.com', options)
+  ```
+  
+  #### `contents.loadFile(filePath)`
+  
+  * `filePath` String
+  
+  Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
+  
+  ```sh
+  | root
+  | - package.json
+  | - src
+  |   - main.js
+  |   - index.html
+  ```
+  
+  Would require code like this
+  
+  ```js
+  win.loadFile('src/index.html')
   ```
   
   #### `contents.downloadURL(url)`
@@ -698,9 +742,9 @@ Rückgabewert:
     
     #### `contents.setZoomLevel(level)`
     
-    * `level` Number - Zoom level
+    * `level` Number - Zoom level.
     
-    Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+    Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
     
     #### `contents.getZoomLevel(callback)`
     
@@ -708,13 +752,6 @@ Rückgabewert:
       * `zoomLevel` Number
     
     Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
-    
-    #### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
-    
-    * `minimumLevel` Number
-    * `maximumLevel` Number
-    
-    **Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
     
     #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
     
@@ -795,13 +832,15 @@ Rückgabewert:
     
     * `text` String - Content to be searched, must not be empty.
     * `options` Objekt (optional) 
-      * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
-      * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
-      * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
-      * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
-      * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+      * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+      * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+      * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+      * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+      * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
     
-    Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+    Returns `Integer` - The request id used for the request.
+    
+    Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
     
     #### `contents.stopFindInPage(action)`
     
@@ -824,7 +863,7 @@ Rückgabewert:
     
     #### `contents.capturePage([rect, ]callback)`
     
-    * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+    * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
     * `callback` Funktion 
       * `image` [NativeImage](native-image.md)
     
@@ -848,14 +887,16 @@ Rückgabewert:
     
     Get the system printer list.
     
-    Returns [`PrinterInfo[]`](structures/printer-info.md)
+    Returns [`PrinterInfo[]`](structures/printer-info.md).
     
-    #### `contents.print([options])`
+    #### `contents.print([options], [callback])`
     
     * `options` Objekt (optional) 
       * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
       * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
       * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+    * `callback` Function (optional) 
+      * `success` Boolean - Indicates success of the print call.
     
     Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
     
@@ -865,12 +906,12 @@ Rückgabewert:
     
     #### `contents.printToPDF(options, callback)`
     
-    * `options` Object 
-      * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-      * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-      * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-      * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-      * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
+    * `optionen` Object 
+      * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+      * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+      * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+      * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+      * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
     * `callback` Funktion 
       * ` Fehler </ 0> Fehler</li>
 <li><code>data` Buffer
@@ -935,12 +976,71 @@ Rückgabewert:
     
     Removes the specified path from DevTools workspace.
     
+    #### `contents.setDevToolsWebContents(devToolsWebContents)`
+    
+    * `devToolsWebContents` WebContents
+    
+    Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
+    
+    The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
+    
+    By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
+    
+    Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
+    
+    An example of showing devtools in a `<webview>` tag:
+    
+    ```html
+    <html>
+    <head>
+      <style type="text/css">
+    
+        * { margin: 0; }
+        #browser { height: 70%; }
+        #devtools { height: 30%; }
+      </style>
+    </head>
+    <body>
+      <webview id="browser" src="https://github.com"></webview>
+      <webview id="devtools"></webview>
+      <script>
+        const browserView = document.getElementById('browser')
+        const devtoolsView = document.getElementById('devtools')
+        browserView.addEventListener('dom-ready', () => {
+          const browser = browserView.getWebContents()
+          browser.setDevToolsWebContents(devtoolsView.getWebContents())
+          browser.openDevTools()
+        })
+      </script>
+    </body>
+    </html>
+    ```
+    
+    An example of showing devtools in a `BrowserWindow`:
+    
+    ```js
+    const {app, BrowserWindow} = require('electron')
+    
+    let win = null
+    let devtools = null
+    
+    app.once('ready', () => {
+      win = new BrowserWindow()
+      devtools = new BrowserWindow()
+      win.loadURL('https://github.com')
+      win.webContents.setDevToolsWebContents(devtools.webContents)
+      win.webContents.openDevTools({mode: 'detach'})
+    })
+    ```
+    
     #### `contents.openDevTools([options])`
     
-    * `optionen` Objekt (optional) 
+    * `options` Objekt (optional) 
       * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
     
     Opens the devtools.
+    
+    When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
     
     #### `contents.closeDevTools()`
     
@@ -976,7 +1076,7 @@ Rückgabewert:
     
     Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
     
-    The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
+    The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
     
     An example of sending messages from the main process to the renderer process:
     
@@ -1000,7 +1100,7 @@ Rückgabewert:
     <body>
       <script>
         require('electron').ipcRenderer.on('ping', (event, message) => {
-          console.log(message)  // Prints 'whoooooooh!'
+          console.log(message) // Prints 'whoooooooh!'
         })
       </script>
     </body>
@@ -1010,16 +1110,14 @@ Rückgabewert:
     #### `contents.enableDeviceEmulation(parameters)`
     
     * `parameters` Object 
-      * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
-        * `desktop` - Desktop screen type
-        * `mobile` - Mobile screen type
-      * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
-      * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
-      * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
+      * `screenPosition` String - Specify the screen type to emulate (default: `desktop`): 
+        * `desktop` - Desktop screen type.
+        * `mobile` - Mobile screen type.
+      * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
+      * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`).
+      * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``).
       * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
-      * `fitToView` Boolean - Whether emulated view should be scaled down if necessary to fit into available space (default: `false`)
-      * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
-      * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
+      * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
     
     Enable device emulation with the given parameters.
     
@@ -1030,10 +1128,10 @@ Rückgabewert:
     #### `contents.sendInputEvent(event)`
     
     * `event` Object 
-      * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
+      * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
       * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
     
-    Sends an input `event` to the page. **Note:** The `BrowserWindow` containing the contents needs to be focused for `sendInputEvent()` to work.
+    Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
     
     For keyboard events, the `event` object also have following properties:
     
@@ -1043,7 +1141,7 @@ Rückgabewert:
     
     * `x` Integer (**required**)
     * `y` Integer (**required**)
-    * `button` String - The button pressed, can be `left`, `middle`, `right`
+    * `button` String - The button pressed, can be `left`, `middle`, `right`.
     * `globalX` Integer
     * `globalY` Integer
     * `movementX` Integer
@@ -1062,7 +1160,7 @@ Rückgabewert:
     * `canScroll` Boolean
     #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
     
-    * `onlyDirty` Boolean (optional) - Defaults to `false`
+    * `onlyDirty` Boolean (optional) - Defaults to `false`.
     * `callback` Funktion 
       * `frameBuffer` Buffer
       * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1120,7 +1218,7 @@ Rückgabewert:
         Set the size of the page. This is only supported for `<webview>` guest contents.
         
         * `options` Object 
-          * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+          * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
             * `width` Integer
             * `height` Integer
         #### `contents.isOffscreen()`
