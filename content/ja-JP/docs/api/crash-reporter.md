@@ -37,7 +37,7 @@ crashReporter.start({
   * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバーに送信するかどうか。省略値は、`true` です。
   * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は、`false` です。
   * `extra` Object (任意) - レポートと一緒に送信される定義可能なオブジェクト。 文字列のプロパティだけしか正しく送信されません。 ネストしたオブジェクトはサポートされておらず、プロパティの名前と値の長さは、64文字未満にするようにしてください。
-  * `crashesDirectory` String (任意) - クラッシュレポートを一時的に保存するディレクトリ (クラッシュレポーターが `process.crashReporter.start` 経由で起動されたときのみ使用されます).
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 他の `crashReporter` APIを使用する前に、クラッシュレポートを収集したい各プロセス (メイン/レンダラー) で、このメソッドを呼び出す必要があります。 異なるプロセスから呼び出すときは、`crashReporter.start` に異なるオプションを渡すことができます。
 
@@ -45,7 +45,7 @@ crashReporter.start({
 
 **注:** Windowsで子プロセスからクラッシュレポートを収集するためには、同様にこの追加のコードを付け加える必要があります。 これで監視してクラッシュレポートを送信するプロセスが開始されます。 `submitURL`、`productName`、`crashesDirectory`を適切な値に置換してください。
 
-**注釈:** 最初の `start` の呼び出しの後、追加/更新した `extra` パラメーターを送信する必要がある場合、macOS では、`addExtraParameter` を呼び出してください。Linux と Windows では、追加/更新した `extra` パラメーターとともに `start` を再度、呼び出してください。
+**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
  const args = [
@@ -78,13 +78,13 @@ crashReporter.start({
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-戻り値 `Boolean` - レポートがサーバーに送信されるかどうか。`start` メソッドまたは `setUploadToServer` を通じて設定してください。
+Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
 **注:** このAPIは、メインプロセスからしか呼び出すことができません。
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - レポートがサーバーに送信されるかどうか.
+* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
 
 通常、ユーザプリファレンスによって制御されます。`start` が呼び出される前に呼び出しても無効です。
 
@@ -93,31 +93,31 @@ crashReporter.start({
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` String - パラメータキー。長さは、64文字未満でなければなりません。
-* `value` String - パラメータの値。長さは、64文字未満でなければなりません。
+* `value` String - Parameter value, must be less than 64 characters long.
 
-クラッシュレポートで送信される追加のパラメータを設定します。 ここで指定された値は、`start` が呼び出されたときに `extra` オプション経由で設定された値と一緒に送信されます。 このAPIはmacOSでのみ利用可能です。LinuxとWindowsで最初の `start` の呼び出しの後、追加/更新した追加のパラメーターを送信する必要がある場合、更新した `extra` オプションと一緒に `start` を再度、呼び出してください。
+クラッシュレポートで送信される追加のパラメータを設定します。 The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
 * `key` String - パラメータキー。長さは、64文字未満でなければなりません。
 
-クラッシュレポートと一緒に送信されないように、現在のパラメータセットから追加したパラメータを削除します。
+Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
 
 ### `crashReporter.getParameters()`
 
-クラッシュレポーターに渡されているすべての現在のパラメータを参照します。
+See all of the current parameters being passed to the crash reporter.
 
 ## クラッシュレポートの内容
 
-クラッシュレポーターは、以下のデータを `submitURL` に `multipart/form-data` の `POST` で送信します。
+The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
-* `ver` String - Electronのバージョン。
-* `platform` String - 例えば、'win32'。
-* `process_type` String - 例えば、'renderer'。
-* `guid` String - 例えば、'5e1286fc-da97-479e-918b-6bfb0c3d1c72'。
-* `_version` String - `package.json` のバージョン。
-* `_productName` String - `crashReporter` の `options` のプロダクト名。
-* `prod` String - 基底にあるプロダクトの名前。この場合は、Electronです。
-* `_companyName` String - `crashReporter` の `options` の会社名。
-* `upload_file_minidump` File - `minidump` 形式でのクラッシュレポート。
-* `crashReporter` の `options` オブジェクトにある `extra` オブジェクトのすべてのレベル1プロパティ。
+* `ver` String - The version of Electron.
+* `platform` String - e.g. 'win32'.
+* `process_type` String - e.g. 'renderer'.
+* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
+* `_version` String - The version in `package.json`.
+* `_productName` String - The product name in the `crashReporter` `options` object.
+* `prod` String - Name of the underlying product. In this case Electron.
+* `_companyName` String - The company name in the `crashReporter` `options` object.
+* `upload_file_minidump` File - The crash report in the format of `minidump`.
+* All level one properties of the `extra` object in the `crashReporter` `options` object.
