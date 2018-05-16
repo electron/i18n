@@ -28,13 +28,20 @@ Retourne `Number` - Le facteur de zoom actuel.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Niveau de zoom.
+* `level` Number - Zoom level
 
 Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement.
 
 ### `webFrame.getZoomLevel()`
 
 Retourne `Number` - Le niveau de zoom actuel.
+
+### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -55,14 +62,14 @@ Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'es
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Objet 
-  * `spellCheck` Function - Retourne `Boolean`. 
+  * `spellCheck` Function - Returns `Boolean` 
     * `text` String
 
-Définit un fournisseur pour la correction orthographique dans les champs de saisie et les zones de texte.
+Sets a provider for spell checking in input fields and text areas.
 
-Le `provider` doit être un objet contenant la méthode `spellCheck` qui indiquera si le mot donné est correctement orthographié.
+The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
 
-Un exemple d'utilisation de [node-spellchecker](https://github.com/atom/node-spellchecker) comme fournisseur :
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -77,29 +84,29 @@ webFrame.setSpellCheckProvider('fr-FR', true, {
 
 * `scheme` String
 
-Enregistre le `scheme` comme schéma sécurisé.
+Registers the `scheme` as secure scheme.
 
-Les schémas sécurisés ne déclenchent pas d'avertissements de contenu mixtes. Par exemple, `https` et `data` sont des schémas sécurisés car il ne peuvent pas être altérées par des attaquants de réseau actif.
+Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Des ressources seront chargées de ce `scheme` quelle que soit la politique de sécurité de la page courante.
+Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
 * `options` Object (facultatif) 
-  * `secure` Boolean (optional) - Default true.
-  * `bypassCSP` Boolean (optional) - Default true.
-  * `allowServiceWorkers` Boolean (optional) - Default true.
-  * `supportFetchAPI` Boolean (optional) - Default true.
-  * `corsEnabled` Boolean (optional) - Default true.
+  * `secure` Boolean - (optional) Default true.
+  * `bypassCSP` Boolean - (optional) Default true.
+  * `allowServiceWorkers` Boolean - (optional) Default true.
+  * `supportFetchAPI` Boolean - (optional) Default true.
+  * `corsEnabled` Boolean - (optional) Default true.
 
-Enregistre le `scheme` comme étant sécurisé, contournant la politique de sécurité du contenu des ressources, permet d'enregistrer ServiceWorker et prend en charge l'API fetch.
+Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
-Spécifier une option avec la valeur `false` afin de l'omettre de l'enregistrement. Un exemple d'enregistrement d'un schema prioritaire, sans contourner la politique de sécurité du contenu :
+Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -125,37 +132,6 @@ Retourne `Promise` - Une promesse qui se résout avec le résultat du code exéc
 
 Dans la fenêtre du navigateur, certaines APIs HTML comme `requestFullScreen` peut être invoqué seulement par un geste de l'utilisateur. Définir `userGesture` à `true` supprimera cette limitation.
 
-### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
-
-* `worldId` Integer
-* `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (facultatif) - `false` par défaut.
-* `callback` Function (facultatif) - Appelé après l'exécution du script. 
-  * `result` Any
-
-Work like `executeJavaScript` but evaluates `scripts` in isolated context.
-
-### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
-
-* `worldId` Integer
-* `csp` String
-
-Set the content security policy of the isolated world.
-
-### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
-
-* `worldId` Integer
-* `name` String
-
-Set the name of the isolated world. Useful in devtools.
-
-### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
-
-* `worldId` Integer
-* `securityOrigin` String
-
-Set the security origin of the isolated world.
-
 ### `webFrame.getResourceUsage()`
 
 Retourne `Object`:
@@ -166,14 +142,14 @@ Retourne `Object`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Retourne un objet décrivant les informations d'utilisation de caches de mémoire interne de Blink.
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-Cela va générer :
+This will generate:
 
 ```javascript
 {
@@ -191,6 +167,6 @@ Cela va générer :
 
 ### `webFrame.clearCache()`
 
-Tente de libérer de la mémoire qui n'est plus utilisée (comme les images d'une navigation précédente).
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-Notez que le fait d'appeler aveuglément cette méthode rend probablement Electron plus lent car il devra remplir ces caches vides, vous ne devriez l'appeler que si un événement dans votre application s'est produit vous faisant penser que votre page utilise réellement moins mémoire (c. -à-d. que vous avez navigué d'une page super lourde à une page presque vide, et avez l'intention d'y rester).
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
