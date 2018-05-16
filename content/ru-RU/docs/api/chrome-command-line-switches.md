@@ -32,17 +32,17 @@ Set a custom locale.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Связанные с отладкой флаги, смотрите [Отладка основного процесса](../tutorial/debugging-main-process.md) для деталей.
+Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
 
-## --remote-debugging-port=`порт`
+## --remote-debugging-port=`port`
 
-Включает удалённую отладку через HTTP для указанного `порта`.
+Enables remote debugging over HTTP on the specified `port`.
 
-## --disk-cache-size=`размер`
+## --disk-cache-size=`size`
 
-Максимальный размер кеша на жёстком диске в байтах.
+Forces the maximum disk space to be used by the disk cache, in bytes.
 
-## --js-flags=`флаги`
+## --js-flags=`flags`
 
 Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
@@ -50,15 +50,15 @@ Specifies the flags passed to the Node JS engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-Смотрите [Node документацию](https://nodejs.org/api/cli.html) или запустите `node --help` в командной строке для списка доступных флагов. Дополнительно, запустите `node --v8-options` для просмотра списка флагов которые касаются Node's V8 JavaScript engine.
+See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
-Использует указанный proxy сервер, который перезаписывает системные настройки. Этот параметр влияет только на запросы HTTP протокола, включая HTTPS и WebSocket. Примечательно также, что не все proxy серверы поддерживают HTTPS и WebSocket протоколы.
+Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
 
 ## --proxy-bypass-list=`hosts`
 
-Инструктирует Electron не использовать proxy сервер для списка хостов, разделённых точкой с запятой. Данные параметр используется в связке с `--proxy-server`.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 Например:
 
@@ -67,19 +67,19 @@ const {app} = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Будет использовать прокси сервер для всех хостов, за исключением локальных адресов (`localhost`, `127.0.0.1` и т. д.), `google.com` поддоменов, хостов которые содержат `foo.com` и `1.2.3.4:5678`.
+Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
 
 ## --proxy-pac-url=`url`
 
-Использовать PAC скрипт для указанного `url`.
+Uses the PAC script at the specified `url`.
 
 ## --no-proxy-server
 
-Не использоваться прокси сервер и всегда делать прямое соединение. Перезаписывает все прокси серверы, параметры которых были переданы.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
-Список `правил`, разделённых точкой с запятой, которые контролируют как сопоставляются имена хостов.
+A comma-separated list of `rules` that control how hostnames are mapped.
 
 Например:
 
@@ -96,7 +96,7 @@ Like `--host-rules` but these `rules` only apply to the host resolver.
 
 ## --auth-server-whitelist=`url`
 
-Список серверов (разделенные запятой), для которых разрешена интегрированная аутентификация.
+A comma-separated list of servers for which integrated authentication is enabled.
 
 Например:
 
@@ -112,7 +112,7 @@ A comma-separated list of servers for which delegation of user credentials is re
 
 ## --ignore-certificate-errors
 
-Игнорировать ошибки, связанные с сертификатами.
+Ignores certificate related errors.
 
 ## --ppapi-flash-path=`path`
 
