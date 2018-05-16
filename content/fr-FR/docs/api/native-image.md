@@ -170,7 +170,7 @@ Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_bu
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* `quality` Integer (**requis**) - Entre 0 et 100.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
 
@@ -206,7 +206,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Retourne [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
