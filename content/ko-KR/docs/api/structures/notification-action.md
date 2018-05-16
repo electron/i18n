@@ -1,19 +1,19 @@
 # NotificationAction 객체
 
 * `type` String - 동작 유형, `button` 입니다.
-* `text` String (선택) 지정된 동작의 라벨입니다.
+* `text` String - (optional) The label for the given action.
 
 ## 플랫폼 / 동작 지원
 
-| 동작 종류    | 플랫폼 지원 | `text` 사용법  | 기본 `text`                                               | 제한 사항                                                                                                                                                      |
-| -------- | ------ | ----------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button` | macOS  | 버튼의 라벨로 사용됨 | "Show" (혹은 `버튼` 같은 첫 번째라면 시스템 기본값의 지역화 된 문자열, 혹은 비어 있음) | 첫 번째 값만 사용됩니다. 만약 여러 개 의 값이 주어지면, 첫 번째 뒤에 있는 값들은 추가 작업 (작업 버튼위에 마우스를 올리고 있으면 표시되는 것) 에 등록됩니다. 그런 동작들은 `hasReply`와 호환되지 않고, `hasReply` 가 `true`면 무시 될 것입니다. |
+| 동작 종류    | 플랫폼 지원 | `text` 사용법  | 기본 `text` | 제한 사항                                                                                                                                                               |
+| -------- | ------ | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button` | macOS  | 버튼의 라벨로 사용됨 | "Show"    | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### macOS에서의 버튼 지원
 
 macOS에서 추가 알림 버튼을 사용하려면 앱에서 다음과 같은 기준을 충족해야 합니다.
 
 * 앱이 서명됨
-* 앱이 `Info.plist`에서 `NSUserNotificationAlertStyle`이 `alert`로 설정되어 있음
+* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
 
 이러한 요구 사항 중 하나라도 충족되지 않으면 버튼이 나타나지 않습니다.
