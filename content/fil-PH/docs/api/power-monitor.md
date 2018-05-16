@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Pangyayari
+## Mga event
 
 Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:
 
