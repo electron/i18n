@@ -197,7 +197,7 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 * `toolTip` String
 
-Ustawia tekst w dymku ikony w zasobniku systemowym.
+Sets the hover text for this tray icon.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -240,7 +240,7 @@ win.on('hide', () => {
   * `title` String
   * `content` String
 
-Wyświetla dymek w zasobniku systemowym.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
