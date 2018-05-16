@@ -13,7 +13,7 @@ Proceso: [Main](../tutorial/quick-start.md#main-process)
     * `textured-rounded` - El control se muestra utilizando el estilo de textura redondeado.
     * `round-rect` - Los controles se muestran utilizando el estilo rectángulo redondeado.
     * `textured-square` - El control se muestra utilizando el estilo de textura cuadrado.
-    * `capsule` - El control se muestra utilizando el estilo de cápsula.
+    * `capsule` - The control is displayed using the capsule style.
     * `small-square` - El control se muestra utilizando el estilo de cuadrado pequeño.
     * `separated` - Los segmentos en el control se muestran muy cerca del otro pero sin llegar a tocarse.
   * `mode` String (optional) - The selection mode of the control: 
@@ -22,7 +22,7 @@ Proceso: [Main](../tutorial/quick-start.md#main-process)
     * `buttons` - Hace que los segmentos actúen como botones. Cada segmento puede ser presionado y liberado pero nunca ser marcado como activo.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Un arreglo de elementos para colocar en este control.
   * `selectedIndex` Integer (opcional) - El índice del segmento actual seleccionado, se actualizará automáticamente con la interacción del usuario. Cuando el modo es múltiple, será el ultimo elemento seleccionado.
-  * `cambiar` Function - Es llamado cuando el usuario selecciona un nuevo segmento. 
+  * `cambiar` Function - Called when the user selects a new segment. 
     * `selectedIndex` Integer - El índice del elemento seleccionado por el usuario.
     * `isSelected` Boolean - Si el elemento es seleccionado o no como resultado de la selección del usuario.
 
