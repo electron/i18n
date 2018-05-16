@@ -48,7 +48,7 @@ Restituisce `BrowserView | null`-The BrowserView che possiede il dato `webConten
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Numero Intero
 
 Restituisce `BrowserView` - La vista con l'`id` dato.
 
@@ -78,7 +78,7 @@ Restituisce `Boolean` - Se la vista viene distrutta.
 
 #### `view.setAutoResize(options)` *Sperimentale*
 
-* `options` Object 
+* `options` Oggetto 
   * `width` Boolean - Se `true` la larghezza della vista crescerà e si contrarrà insieme alla finestra. `false` di default.
   * `height` Boolean - Se `true`, la vista dell'altezza crescerà e si contrarrà con la finestra. `false` di default.
 
