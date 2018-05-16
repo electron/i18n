@@ -71,8 +71,8 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
-* `position` [Point](structures/point.md) - The position of the event.
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Tray simgesi tıklandığında çıkar.
 
@@ -83,7 +83,7 @@ Tray simgesi tıklandığında çıkar.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
 Tray simgesi sağ tıkladığında ortaya çıkar.
 
@@ -94,7 +94,7 @@ Tray simgesi sağ tıkladığında ortaya çıkar.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
 Tray simgesi sağ tıkladığında tetiklenir.
 
@@ -124,7 +124,7 @@ Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 #### Event: 'drop-text' *macOS*
 
 * `event` Olay
-* `text` String - the dropped text string.
+* `text` String - Düşürülen yazı stringi.
 
 Sürüklenen metin tepsi simgesine düştüğünde ortaya çıkar.
 
@@ -147,7 +147,7 @@ Bir sürükleme işlemi tepside bittiğinde veya başka bir yerde bittiğinde or
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Fare tepsi simgesine girdiğinde ortaya çıkar.
 
@@ -158,46 +158,46 @@ Fare tepsi simgesine girdiğinde ortaya çıkar.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Fare tepsi simgesinden çıktığında ortaya çıkar.
 
-#### Event: 'mouse-move' *macOS*
+#### Olay: 'mouse-move' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - event'ın pozisyonu.
 
-Emitted when the mouse moves in the tray icon.
+Fare tepsi simgesini hareket ettirdikçe ortaya çıkar.
 
 ### Örnek Yöntemleri
 
-The `Tray` class has the following methods:
+The `Tray` sınıfı aşağıdaki yöntemleri içerir:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Tepsi simgesini derhal imha eder.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Bu tepsi simgesiyle ilişkili `image` 'i ayarlar.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+MacOS üzerine basıldığında bu tepsi simgesiyle ilişkili `image`'i ayarlar.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Bu tepsi simgesinin üzerine gelen metni ayarlar.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -207,14 +207,14 @@ Sets the title displayed aside of the tray icon in the status bar (Support ANSI 
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` Dizge - Aşağıdaki değerlerden biriyle vurgulama modunu seçin: 
+  * `selection` - Tepsi simgesini tıklattığınızda ve bağlam menüsü açık olduğunda vurgulayın. Varsayılan budur.
+  * `always` - Daima tepsi simgesini vurgulayın.
+  * `never` - Asla tepsi simgesini vurgulamayın.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Tepsinin simge arka planı vurgulandığında (mavi renkte) ayarlar.
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Note:** pencere görünürlüğü değiştiğinde `'never'` ve `'always'` modları arasında geçiş yaparak [`BrowserWindow`](browser-window.md) ile `highlightMode` kullanabilirsiniz.
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -236,33 +236,33 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `seçenekler` Nesne 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı) -
   * `title` String
-  * `content` String
+  * `content` Dizge
 
-Displays a tray balloon.
+Bir tepsi balonunu görüntüler.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menü (İsteğe bağlı)
+* `position` [Point](structures/point.md) (İsteğe bağlı) - Pop up pozisyonu.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi simgesi içerik menüsü yerine açılır.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+`position` yalnızca Windows'ta kullanılabilir ve varsayılan olarak (0, 0) değerindedir.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menü
 
-Sets the context menu for this icon.
+Bu simgenin bağlam menüsünü ayarlar.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
-The `bounds` of this tray icon as `Object`.
+`bounds` tepsi simgesinin `Object`' i olarak belirtilir.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Returns `Boolean` - Tepsi simgesinin yok edilip edilmediği.
