@@ -10,7 +10,7 @@ Proses: [utama](../tutorial/quick-start.md#main-process)
   * `tersediaWarna`String[](opsional) - Array string warna hex ke muncul sebagai warna yang mungkin dipilih.
   * `selectedColor` String (opsional) - Warna hex yang dipilih di pemetik, i.e`#ABCDEF`.
   * `perubahan` Fungsi (opsional) - Fungsi untuk memanggil saat warna dipilih. 
-    * `color` String - The color that the user selected from the picker.
+    * `warna` String - Warna yang dipilih pengguna dari pemetik.
 
 ### Contoh properti
 
