@@ -97,7 +97,7 @@ Retourne un objet contenant les clés `title` et `url` représentant le marque-p
 
 ```js
 clipboard.write({
-  text: 'https://electronjs.org',
+  text: 'https://electronjs.org', 
   bookmark: 'Electron Homepage'
 })
 ```
