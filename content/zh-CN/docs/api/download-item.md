@@ -42,7 +42,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 返回:
 
 * `event` Event
-* `state` String
+* `state` String - Can be `progressing` or `interrupted`.
 
 当下载正在执行但还没完成的时候发出。
 
@@ -56,7 +56,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 返回:
 
 * `event` Event
-* `state` String
+* `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 当下载文件已经到本地时发出。这包括一个完整的下载，取消下载（`downloadItem.cancel()`）和中断不可恢复的下载。
 
@@ -96,7 +96,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+返回`Boolean` - 下载是否可以恢复。
 
 #### `downloadItem.cancel()`
 
