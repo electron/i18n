@@ -4,18 +4,13 @@
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Plattformhinweise
-
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -39,11 +34,6 @@ macOS , die ` AutoUpdater </ 0> Modul wird auf gebaut <a href="https://github.co
 
 <p>Im Gegensatz zu Squirrel.Mac kann Windows Updates auf S3 oder einem anderen statischen Dateihost hosten.
 Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Windows"> Squirrel.Windows </ 0> lesen , um mehr über die Funktionsweise von Squirrel.Windows zu erfahren.</p>
-
-<h3>Linux</h3>
-
-<p>There is no built-in support for auto-updater on Linux, so it is recommended to
-use the distribution's package manager to update your app.</p>
 
 <h2>Veranstaltungen</h2>
 
@@ -90,10 +80,12 @@ On Windows only `releaseName` is available.
 
 The `autoUpdater` object has the following methods:
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `options` Object 
+  * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Sets the `url` and initialize the auto updater.
 
@@ -109,4 +101,6 @@ Asks the server whether there is an update. You must call `setFeedURL` before us
 
 Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
