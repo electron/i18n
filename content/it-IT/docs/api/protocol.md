@@ -231,7 +231,7 @@ Unregisters the custom protocol of `scheme`.
 
 * `schema` Stringa
 * `callback` Function 
-  * `errore` Errore
+  * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
@@ -263,7 +263,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `callback` Function 
     * `data` String (optional)
 * `completion` Function (optional) 
-  * `errore` Errore
+  * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
@@ -301,7 +301,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
-  * `errore` Errore
+  * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
@@ -326,6 +326,6 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 
 * `schema` Stringa
 * `completion` Function (optional) 
-  * `errore` Errore
+  * `error` Error
 
 Remove the interceptor installed for `scheme` and restore its original handler.
