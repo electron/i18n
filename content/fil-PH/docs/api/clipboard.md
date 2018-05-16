@@ -109,7 +109,7 @@ Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
 
 ```js
 clipboard.write({
-  text: 'https://electronjs.org',
+  text: 'https://electron.atom.io',
   bookmark: 'Electron Homepage'
 })
 ```
