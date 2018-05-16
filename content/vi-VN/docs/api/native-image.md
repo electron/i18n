@@ -158,7 +158,7 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Các phương thức riêng
+### Instance Methods
 
 The following methods are available on instances of the `NativeImage` class:
 
