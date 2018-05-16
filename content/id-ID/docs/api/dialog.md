@@ -62,7 +62,7 @@ The `filters` menentukan kumpulan jenis file yang dapat ditampilkan atau dipilih
 
 Elemen `ekstensi` harus berisi ekstensi tanpa wildcard atau titik (misalnya `'png'` bagus tapi ` '. Png'` dan ` '*.png'` buruk). Untuk menampilkan semua file, gunakan wildcard `'*'` (tidak ada wildcard lain yang didukung).
 
-Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan dilewatkan melalui ` callback (nama file)`.
+If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
 
 **Catatan:** Pada Windows dan Linux, sebuah dialog terbuka tidak dapat berupa pemilih file dan pemilih direktori, jadi jika Anda menetapkan `properti` ke ` ['openFile', ' openDirectory ']` pada platform ini, pemilih direktori akan ditampilkan.
 
@@ -88,7 +88,7 @@ Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, m
 
 Filter `` menentukan kumpulan jenis file yang dapat ditampilkan, lihat `dialog.showOpenDialog ` untuk sebuah contoh.
 
-Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan dilewatkan melalui ` callback (namafile) `.
+If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`.
 
 ### `dialog.showMessageBox ([browserWindow,] options [, callback])`
 
@@ -107,7 +107,7 @@ Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan 
   * `noLink` Boolean (opsional) - Pada Windows Electron akan mencoba untuk mencari tahu dari mana `buttons` adalah tombol yang umum (seperti "Batal" atau "Ya"), dan menampilkan yang lain sebagai link perintah dalam dialog. Hal ini bisa membuat dialog tampil dengan gaya aplikasi Windows modern . Jika Anda tidak menyukai perilaku ini, Anda dapat mengatur `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (opsional) - Menormalisasi tombol akses keyboard. Defaultnya adalah ` false </ 0> . Mengaktifkan asumsi ini <code>&` digunakan pada label tombol untuk penempatan tombol akses pintas keyboard dan label akan dikonversi sehingga bekerja dengan benar pada setiap platform, `&` karakter dihapus di macos, dikonversi ke `_` di Linux, dan tidak tersentuh pada Windows. Misalnya, label tombol `Vie&w` akan dikonversi ke `Vie_w` di Linux dan ` View ` di macos dan dapat dipilih melalui `Alt-W` pada Windows dan Linux.
 * `callback` Fungsi (opsional) 
-  * `response` Number - Indeks tombol yang diklik.
+  * `response` Number - The index of the button that was clicked.
   * `checkboxChecked` Boolean - Status kotak centang jika `checkboxLabel` telah ditetapkan. Jika tidak `false`.
 
 Mengembalikan `Integer`, indeks tombol yang diklik, jika callback diberikan, ia akan kembali terdefinisi.
@@ -120,8 +120,8 @@ Jika `callback` dilewati, dialog tidak akan memblokir prosesnya. Panggilan API a
 
 ### `dialog.showErrorBox(judul, konten)`
 
-* `title` String - Judul yang akan ditampilkan di kotak kesalahan.
-* `content` String - Isi teks untuk ditampilkan di kotak kesalahan.
+* `title` String - The title to display in the error box.
+* `content` String - The text content to display in the error box.
 
 Menampilkan dialog modal yang menunjukkan pesan kesalahan.
 
