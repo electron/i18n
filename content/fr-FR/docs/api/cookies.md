@@ -36,7 +36,7 @@ Les événements suivants sont disponibles pour les instances de `Cookies` :
 #### Événement : 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
+* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
 * `cause` String - La cause du changement avec l'une des valeurs suivantes : 
   * `explicit` - Le cookie a été modifié directement par l'action du consommateur.
   * `overwrite` - Le cookie a été supprimé automatiquement a cause d'une insertion écrasante.
@@ -56,7 +56,7 @@ Les méthodes suivants sont disponibles pour les instances de `Cookies` :
 * `filter` Objet 
   * `url` String (facultatif) - Récupère les cookies qui sont associés à des `url`. S'il est vide, cela va récupérer les cookies avec toutes les urls.
   * `name` String (facultatif) - Filtre les cookies par nom.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
+  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
   * `path` String (facultatif) - Récupère les cookies dont le chemin correspond à `path`.
   * `secure` Boolean (facultatif) - Filtre les cookies par leur propriété de sécuritée.
   * `session` Boolean (facultatif) - filtre les session ou les cookies persistants.
@@ -64,7 +64,7 @@ Les méthodes suivants sont disponibles pour les instances de `Cookies` :
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - Un tableau d'objet de cookie.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
 #### `cookies.set(details, callback)`
 
