@@ -6,11 +6,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "app",
     "websiteUrl": "http://electron.atom.io/docs/api/app",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/app.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/app.md",
     "methods": [
       {
         "name": "quit",
@@ -1818,11 +1818,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "auto-updater",
     "websiteUrl": "http://electron.atom.io/docs/api/auto-updater",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/auto-updater.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/auto-updater.md",
     "methods": [
       {
         "name": "setFeedURL",
@@ -1946,11 +1946,11 @@
   },
   {
     "name": "BluetoothDevice",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "bluetooth-device",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/bluetooth-device",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/bluetooth-device.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/bluetooth-device.md",
     "properties": [
       {
         "name": "deviceName",
@@ -1975,11 +1975,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "browser-view",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-view",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/browser-view.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/browser-view.md",
     "staticMethods": [
       {
         "name": "getAllViews",
@@ -2157,11 +2157,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "browser-window",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-window",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/browser-window.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/browser-window.md",
     "staticMethods": [
       {
         "name": "getAllWindows",
@@ -4862,11 +4862,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "browser-window-proxy",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-window-proxy",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/browser-window-proxy.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/browser-window-proxy.md",
     "instanceName": "win",
     "instanceMethods": [
       {
@@ -4933,11 +4933,11 @@
   },
   {
     "name": "Certificate",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "certificate",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/certificate",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/certificate.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/certificate.md",
     "properties": [
       {
         "name": "data",
@@ -5013,11 +5013,11 @@
   },
   {
     "name": "CertificatePrincipal",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "certificate-principal",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/certificate-principal",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/certificate-principal.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/certificate-principal.md",
     "properties": [
       {
         "name": "commonName",
@@ -5070,11 +5070,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "client-request",
     "websiteUrl": "http://electron.atom.io/docs/api/client-request",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/client-request.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/client-request.md",
     "constructorMethod": {
       "signature": "(options)",
       "parameters": [
@@ -5513,11 +5513,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "clipboard",
     "websiteUrl": "http://electron.atom.io/docs/api/clipboard",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/clipboard.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/clipboard.md",
     "methods": [
       {
         "name": "readText",
@@ -5938,11 +5938,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "content-tracing",
     "websiteUrl": "http://electron.atom.io/docs/api/content-tracing",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/content-tracing.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/content-tracing.md",
     "methods": [
       {
         "name": "getCategories",
@@ -6138,11 +6138,11 @@
   },
   {
     "name": "Cookie",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "cookie",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/cookie",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/cookie.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/cookie.md",
     "properties": [
       {
         "name": "name",
@@ -6216,11 +6216,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "cookies",
     "websiteUrl": "http://electron.atom.io/docs/api/cookies",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/cookies.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/cookies.md",
     "instanceName": "cookies",
     "instanceMethods": [
       {
@@ -6489,11 +6489,11 @@
   },
   {
     "name": "CPUUsage",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "cpu-usage",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/cpu-usage",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/cpu-usage.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/cpu-usage.md",
     "properties": [
       {
         "name": "percentCPUUsage",
@@ -6513,11 +6513,11 @@
   },
   {
     "name": "CrashReport",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "crash-report",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/crash-report",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/crash-report.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/crash-report.md",
     "properties": [
       {
         "name": "date",
@@ -6542,11 +6542,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "crash-reporter",
     "websiteUrl": "http://electron.atom.io/docs/api/crash-reporter",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/crash-reporter.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/crash-reporter.md",
     "methods": [
       {
         "name": "start",
@@ -6718,11 +6718,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "debugger",
     "websiteUrl": "http://electron.atom.io/docs/api/debugger",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/debugger.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/debugger.md",
     "instanceName": "debugger",
     "instanceMethods": [
       {
@@ -6854,11 +6854,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "desktop-capturer",
     "websiteUrl": "http://electron.atom.io/docs/api/desktop-capturer",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/desktop-capturer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/desktop-capturer.md",
     "methods": [
       {
         "name": "getSources",
@@ -6915,11 +6915,11 @@
   },
   {
     "name": "DesktopCapturerSource",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "desktop-capturer-source",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/desktop-capturer-source",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/desktop-capturer-source.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/desktop-capturer-source.md",
     "properties": [
       {
         "name": "id",
@@ -6951,11 +6951,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "dialog",
     "websiteUrl": "http://electron.atom.io/docs/api/dialog",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/dialog.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/dialog.md",
     "methods": [
       {
         "name": "showOpenDialog",
@@ -7394,11 +7394,11 @@
   },
   {
     "name": "Display",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "display",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/display",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/display.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/display.md",
     "properties": [
       {
         "name": "id",
@@ -7476,11 +7476,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "download-item",
     "websiteUrl": "http://electron.atom.io/docs/api/download-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/download-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/download-item.md",
     "instanceName": "downloadItem",
     "instanceMethods": [
       {
@@ -7727,11 +7727,11 @@
   },
   {
     "name": "FileFilter",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "file-filter",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/file-filter",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/file-filter.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/file-filter.md",
     "properties": [
       {
         "name": "name",
@@ -7756,11 +7756,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "global-shortcut",
     "websiteUrl": "http://electron.atom.io/docs/api/global-shortcut",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/global-shortcut.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/global-shortcut.md",
     "methods": [
       {
         "name": "register",
@@ -7821,11 +7821,11 @@
   },
   {
     "name": "GPUFeatureStatus",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "gpu-feature-status",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/gpu-feature-status",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/gpu-feature-status.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/gpu-feature-status.md",
     "properties": [
       {
         "name": "2d_canvas",
@@ -7927,11 +7927,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "in-app-purchase",
     "websiteUrl": "http://electron.atom.io/docs/api/in-app-purchase",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/in-app-purchase.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/in-app-purchase.md",
     "methods": [
       {
         "name": "purchaseProduct",
@@ -7973,9 +7973,9 @@
         "name": "canMakePayments",
         "signature": "()",
         "returns": {
-          "type": "true",
+          "type": "Boolean",
           "collection": false,
-          "description": "if the user can make a payment and false otherwise."
+          "description": ", whether a user can make a payment."
         }
       },
       {
@@ -8017,11 +8017,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "incoming-message",
     "websiteUrl": "http://electron.atom.io/docs/api/incoming-message",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/incoming-message.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/incoming-message.md",
     "instanceName": "response",
     "instanceProperties": [
       {
@@ -8091,11 +8091,11 @@
   },
   {
     "name": "IOCounters",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "io-counters",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/io-counters",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/io-counters.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/io-counters.md",
     "properties": [
       {
         "name": "readOperationCount",
@@ -8148,11 +8148,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "ipc-main",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-main",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/ipc-main.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/ipc-main.md",
     "methods": [
       {
         "name": "on",
@@ -8233,11 +8233,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "ipc-renderer",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-renderer",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/ipc-renderer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/ipc-renderer.md",
     "methods": [
       {
         "name": "on",
@@ -8400,11 +8400,11 @@
   },
   {
     "name": "JumpListCategory",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "jump-list-category",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/jump-list-category",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/jump-list-category.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/jump-list-category.md",
     "properties": [
       {
         "name": "type",
@@ -8449,11 +8449,11 @@
   },
   {
     "name": "JumpListItem",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "jump-list-item",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/jump-list-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/jump-list-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/jump-list-item.md",
     "properties": [
       {
         "name": "type",
@@ -8529,11 +8529,11 @@
   },
   {
     "name": "MemoryInfo",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "memory-info",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/memory-info",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/memory-info.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/memory-info.md",
     "properties": [
       {
         "name": "pid",
@@ -8574,11 +8574,11 @@
   },
   {
     "name": "MemoryUsageDetails",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "memory-usage-details",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/memory-usage-details",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/memory-usage-details.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/memory-usage-details.md",
     "properties": [
       {
         "name": "count",
@@ -8610,11 +8610,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "menu",
     "websiteUrl": "http://electron.atom.io/docs/api/menu",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/menu.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/menu.md",
     "staticMethods": [
       {
         "name": "setApplicationMenu",
@@ -8853,11 +8853,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "menu-item",
     "websiteUrl": "http://electron.atom.io/docs/api/menu-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/menu-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/menu-item.md",
     "constructorMethod": {
       "signature": "(options)",
       "parameters": [
@@ -9056,11 +9056,11 @@
   },
   {
     "name": "MimeTypedBuffer",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "mime-typed-buffer",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/mime-typed-buffer",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/mime-typed-buffer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/mime-typed-buffer.md",
     "properties": [
       {
         "name": "mimeType",
@@ -9085,11 +9085,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "native-image",
     "websiteUrl": "http://electron.atom.io/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/native-image.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/native-image.md",
     "instanceName": "image",
     "instanceMethods": [
       {
@@ -9394,11 +9394,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "native-image",
     "websiteUrl": "http://electron.atom.io/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/native-image.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/native-image.md",
     "methods": [
       {
         "name": "createEmpty",
@@ -9524,11 +9524,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "net",
     "websiteUrl": "http://electron.atom.io/docs/api/net",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/net.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/net.md",
     "methods": [
       {
         "name": "request",
@@ -9566,11 +9566,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "notification",
     "websiteUrl": "http://electron.atom.io/docs/api/notification",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/notification.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/notification.md",
     "staticMethods": [
       {
         "name": "isSupported",
@@ -9771,11 +9771,11 @@
   },
   {
     "name": "NotificationAction",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "notification-action",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/notification-action",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/notification-action.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/notification-action.md",
     "properties": [
       {
         "name": "type",
@@ -9800,11 +9800,11 @@
   },
   {
     "name": "Point",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "point",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/point",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/point.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/point.md",
     "properties": [
       {
         "name": "x",
@@ -9829,11 +9829,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "power-monitor",
     "websiteUrl": "http://electron.atom.io/docs/api/power-monitor",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/power-monitor.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/power-monitor.md",
     "events": [
       {
         "name": "suspend",
@@ -9874,11 +9874,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "power-save-blocker",
     "websiteUrl": "http://electron.atom.io/docs/api/power-save-blocker",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/power-save-blocker.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/power-save-blocker.md",
     "methods": [
       {
         "name": "start",
@@ -9945,11 +9945,11 @@
   },
   {
     "name": "PrinterInfo",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "printer-info",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/printer-info",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/printer-info.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/printer-info.md",
     "properties": [
       {
         "name": "name",
@@ -9988,11 +9988,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "process",
     "websiteUrl": "http://electron.atom.io/docs/api/process",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/process.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/process.md",
     "methods": [
       {
         "name": "crash",
@@ -10212,11 +10212,11 @@
   },
   {
     "name": "ProcessMetric",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "process-metric",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/process-metric",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/process-metric.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/process-metric.md",
     "properties": [
       {
         "name": "pid",
@@ -10255,11 +10255,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "protocol",
     "websiteUrl": "http://electron.atom.io/docs/api/protocol",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/protocol.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/protocol.md",
     "methods": [
       {
         "name": "registerStandardSchemes",
@@ -11418,11 +11418,11 @@
   },
   {
     "name": "Rectangle",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "rectangle",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/rectangle",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/rectangle.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/rectangle.md",
     "properties": [
       {
         "name": "x",
@@ -11461,11 +11461,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "remote",
     "websiteUrl": "http://electron.atom.io/docs/api/remote",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/remote.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/remote.md",
     "methods": [
       {
         "name": "require",
@@ -11530,11 +11530,11 @@
   },
   {
     "name": "RemoveClientCertificate",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "remove-client-certificate",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/remove-client-certificate",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/remove-client-certificate.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/remove-client-certificate.md",
     "properties": [
       {
         "name": "type",
@@ -11554,11 +11554,11 @@
   },
   {
     "name": "RemovePassword",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "remove-password",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/remove-password",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/remove-password.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/remove-password.md",
     "properties": [
       {
         "name": "type",
@@ -11625,11 +11625,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "screen",
     "websiteUrl": "http://electron.atom.io/docs/api/screen",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/screen.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/screen.md",
     "methods": [
       {
         "name": "getCursorScreenPoint",
@@ -11770,11 +11770,11 @@
   },
   {
     "name": "ScrubberItem",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "scrubber-item",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/scrubber-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/scrubber-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/scrubber-item.md",
     "properties": [
       {
         "name": "label",
@@ -11794,11 +11794,11 @@
   },
   {
     "name": "SegmentedControlSegment",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "segmented-control-segment",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/segmented-control-segment",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/segmented-control-segment.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/segmented-control-segment.md",
     "properties": [
       {
         "name": "label",
@@ -11830,11 +11830,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "session",
     "websiteUrl": "http://electron.atom.io/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/session.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/session.md",
     "methods": [
       {
         "name": "fromPartition",
@@ -11886,11 +11886,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "session",
     "websiteUrl": "http://electron.atom.io/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/session.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/session.md",
     "instanceName": "ses",
     "instanceMethods": [
       {
@@ -12510,11 +12510,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "shell",
     "websiteUrl": "http://electron.atom.io/docs/api/shell",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/shell.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/shell.md",
     "methods": [
       {
         "name": "showItemInFolder",
@@ -12697,11 +12697,11 @@
   },
   {
     "name": "ShortcutDetails",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "shortcut-details",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/shortcut-details",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/shortcut-details.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/shortcut-details.md",
     "properties": [
       {
         "name": "target",
@@ -12756,11 +12756,11 @@
   },
   {
     "name": "Size",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "size",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/size",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/size.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/size.md",
     "properties": [
       {
         "name": "width",
@@ -12780,11 +12780,11 @@
   },
   {
     "name": "StreamProtocolResponse",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "stream-protocol-response",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/stream-protocol-response",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/stream-protocol-response.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/stream-protocol-response.md",
     "properties": [
       {
         "name": "statusCode",
@@ -12817,11 +12817,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "system-preferences",
     "websiteUrl": "http://electron.atom.io/docs/api/system-preferences",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/system-preferences.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/system-preferences.md",
     "methods": [
       {
         "name": "isDarkMode",
@@ -13359,11 +13359,11 @@
   },
   {
     "name": "Task",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "task",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/task",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/task.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/task.md",
     "properties": [
       {
         "name": "program",
@@ -13411,11 +13411,11 @@
   },
   {
     "name": "ThumbarButton",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "thumbar-button",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/thumbar-button",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/thumbar-button.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/thumbar-button.md",
     "properties": [
       {
         "name": "icon",
@@ -13455,11 +13455,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "touch-bar",
     "websiteUrl": "http://electron.atom.io/docs/api/touch-bar",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/touch-bar.md",
     "staticProperties": [
       {
         "name": "TouchBarButton",
@@ -13468,11 +13468,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.0",
+        "version": "2.0.1",
         "type": "Class",
         "slug": "touch-bar-button",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-button",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-button.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/touch-bar-button.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13562,11 +13562,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.0",
+        "version": "2.0.1",
         "type": "Class",
         "slug": "touch-bar-color-picker",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-color-picker",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-color-picker.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/touch-bar-color-picker.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13633,11 +13633,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.0",
+        "version": "2.0.1",
         "type": "Class",
         "slug": "touch-bar-group",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-group",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-group.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/touch-bar-group.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13667,11 +13667,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.0",
+        "version": "2.0.1",
         "type": "Class",
         "slug": "touch-bar-label",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-label",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-label.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/touch-bar-label.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13722,11 +13722,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.0",
+        "version": "2.0.1",
         "type": "Class",
         "slug": "touch-bar-popover",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-popover",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-popover.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/touch-bar-popover.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13791,11 +13791,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.0",
+        "version": "2.0.1",
         "type": "Class",
         "slug": "touch-bar-scrubber",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-scrubber",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-scrubber.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/touch-bar-scrubber.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13930,11 +13930,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.0",
+        "version": "2.0.1",
         "type": "Class",
         "slug": "touch-bar-segmented-control",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-segmented-control",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-segmented-control.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/touch-bar-segmented-control.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -14076,11 +14076,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.0",
+        "version": "2.0.1",
         "type": "Class",
         "slug": "touch-bar-slider",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-slider",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-slider.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/touch-bar-slider.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -14173,11 +14173,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.0",
+        "version": "2.0.1",
         "type": "Class",
         "slug": "touch-bar-spacer",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-spacer",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/touch-bar-spacer.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/touch-bar-spacer.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -14332,11 +14332,11 @@
   },
   {
     "name": "Transaction",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "transaction",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/transaction",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/transaction.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/transaction.md",
     "properties": [
       {
         "name": "transactionIdentifier",
@@ -14412,11 +14412,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "tray",
     "websiteUrl": "http://electron.atom.io/docs/api/tray",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/tray.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/tray.md",
     "constructorMethod": {
       "signature": "(image)",
       "parameters": [
@@ -14886,11 +14886,11 @@
   },
   {
     "name": "UploadBlob",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "upload-blob",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-blob",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/upload-blob.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/upload-blob.md",
     "properties": [
       {
         "name": "type",
@@ -14910,11 +14910,11 @@
   },
   {
     "name": "UploadData",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "upload-data",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-data",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/upload-data.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/upload-data.md",
     "properties": [
       {
         "name": "bytes",
@@ -14941,11 +14941,11 @@
   },
   {
     "name": "UploadFile",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "upload-file",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-file",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/upload-file.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/upload-file.md",
     "properties": [
       {
         "name": "type",
@@ -14986,11 +14986,11 @@
   },
   {
     "name": "UploadFileSystem",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "upload-file-system",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-file-system",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/upload-file-system.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/upload-file-system.md",
     "properties": [
       {
         "name": "type",
@@ -15031,11 +15031,11 @@
   },
   {
     "name": "UploadRawData",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "upload-raw-data",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-raw-data",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/upload-raw-data.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/upload-raw-data.md",
     "properties": [
       {
         "name": "type",
@@ -15060,11 +15060,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "web-contents",
     "websiteUrl": "http://electron.atom.io/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/web-contents.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/web-contents.md",
     "methods": [
       {
         "name": "getAllWebContents",
@@ -15110,11 +15110,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "web-contents",
     "websiteUrl": "http://electron.atom.io/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/web-contents.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/web-contents.md",
     "instanceName": "contents",
     "instanceMethods": [
       {
@@ -16431,27 +16431,32 @@
             "required": true,
             "properties": [
               {
+                "name": "enableAutoSize",
+                "type": "Boolean",
+                "collection": false,
+                "description": "true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.",
+                "required": false
+              },
+              {
                 "name": "normal",
-                "type": "Object",
+                "type": "Size",
                 "collection": false,
                 "description": "Normal size of the page. This can be used in combination with the attribute to manually resize the webview guest contents.",
-                "required": false,
-                "properties": [
-                  {
-                    "name": "width",
-                    "type": "Integer",
-                    "collection": false,
-                    "description": "",
-                    "required": true
-                  },
-                  {
-                    "name": "height",
-                    "type": "Integer",
-                    "collection": false,
-                    "description": "",
-                    "required": true
-                  }
-                ]
+                "required": false
+              },
+              {
+                "name": "min",
+                "type": "Size",
+                "collection": false,
+                "description": "Minimum size of the page. This can be used in combination with the attribute to manually resize the webview guest contents.",
+                "required": false
+              },
+              {
+                "name": "max",
+                "type": "Size",
+                "collection": false,
+                "description": "Maximium size of the page. This can be used in combination with the attribute to manually resize the webview guest contents.",
+                "required": false
               }
             ]
           }
@@ -17866,11 +17871,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Module",
     "slug": "web-frame",
     "websiteUrl": "http://electron.atom.io/docs/api/web-frame",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/web-frame.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/web-frame.md",
     "methods": [
       {
         "name": "setZoomFactor",
@@ -18294,11 +18299,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Class",
     "slug": "web-request",
     "websiteUrl": "http://electron.atom.io/docs/api/web-request",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/web-request.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/web-request.md",
     "instanceName": "webRequest",
     "instanceMethods": [
       {
@@ -19002,11 +19007,11 @@
   },
   {
     "name": "WebSource",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Structure",
     "slug": "web-source",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/web-source",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/structures/web-source.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/structures/web-source.md",
     "properties": [
       {
         "name": "code",
@@ -19038,11 +19043,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "Element",
     "slug": "webview-tag",
     "websiteUrl": "http://electron.atom.io/docs/api/webview-tag",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.0/docs/api/webview-tag.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v2.0.1/docs/api/webview-tag.md",
     "methods": [
       {
         "name": "loadURL",
