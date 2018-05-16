@@ -478,7 +478,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `error` Error
   * `data` Buffer - contiene il pdf generato
 
-Stampa la pagina web del `webview` in formato PDF, questo metodo è identico a `webContents.printToPDF(options, callback)`.
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
