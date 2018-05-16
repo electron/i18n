@@ -175,11 +175,11 @@ bersama dengan notifikasi.&lt;/p>
                       Add the specified defaults to your application's <code>NSUserDefaults</code>.
                     </p>
                     <h3>
-                      <code>systempreferences.get userdefault (kunci, jenis) </code> <em>macOS</em>
+                      <code>systemPreferences.getUserDefault(key, type)</code> <em>macOS</em>
                     </h3>
                     <ul>
                       <li>
-                        <code>kunci</code> senar
+                        <code>key</code> String
                       </li>
                       <li>
                         <code>type</code> String - Can be <code>string</code>, <code>boolean</code>, <code>integer</code>, <code>float</code>, <code>double</code>, <code>url</code>, <code>array</code> or <code>dictionary</code>.
@@ -215,24 +215,24 @@ bersama dengan notifikasi.&lt;/p>
                       </li>
                     </ul>
                     <h3>
-                      <code>systemPreferences.setUserDefault (kunci, jenis, nilai) </code> <em> macOS</em>
+                      <code>systemPreferences.setUserDefault(key, type, value)</code> <em>macOS</em>
                     </h3>
                     <ul>
                       <li>
-                        <code>kunci</code> senar
+                        <code>key</code> String
                       </li>
                       <li>
-                        <code>ketik</code> String - lihat [<code>getUserDefault</code>] [# systempreferencesgetuserdefaultkey-type-macos].
+                        <code>type</code> String - See [<code>getUserDefault</code>][#systempreferencesgetuserdefaultkey-type-macos].
                       </li>
                       <li>
-                        <code>nilai</code> Senar
+                        <code>value</code> String
                       </li>
                     </ul>
                     <p>
                       Set the value of <code>key</code> in <code>NSUserDefaults</code>.
                     </p>
                     <p>
-                      Perhatikan bahwa <code>tipe</code> harus sesuai dengan tipe <code>nilai</code> yang sebenarnya. Sebuah pengecualian dilemparkan jika tidak.
+                      Note that <code>type</code> should match actual type of <code>value</code>. An exception is thrown if they don't.
                     </p>
                     <p>
                       Some popular <code>key</code> and <code>type</code>s are:
@@ -247,7 +247,7 @@ bersama dengan notifikasi.&lt;/p>
                     </h3>
                     <ul>
                       <li>
-                        <code>kunci</code> senar
+                        <code>key</code> String
                       </li>
                     </ul>
                     <p>
@@ -257,10 +257,10 @@ bersama dengan notifikasi.&lt;/p>
                       <code>systemPreferences.isAeroGlassEnabled()</code> <em>Windows</em>
                     </h3>
                     <p>
-                      Mengembalikan <code>Boolean</code> - <code>benar</code> jika <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx">komposisi DWM</a> (Aero Glass) adalah diaktifkan, dan <code>salah</code> sebaliknya.
+                      Returns <code>Boolean</code> - <code>true</code> if <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx">DWM composition</a> (Aero Glass) is enabled, and <code>false</code> otherwise.
                     </p>
                     <p>
-                      Contoh penggunaannya untuk menentukan apakah Anda harus membuat jendela transparan atau tidak (jendela transparan tidak akan bekerja dengan benar saat komposisi DWM dinonaktifkan):
+                      An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
                     </p>
                     <pre><code class="javascript">const {BrowserWindow, systemPreferences} = require ('elektron')
 biarkan browserOptions = {width: 1000, height: 800}
@@ -283,10 +283,10 @@ jika (browserOptions.transparent) {
 }
 </code></pre>
                     <h3>
-                      <code>systemPreferences.getAccentColor()</code> <em>Jendela</em>
+                      <code>systemPreferences.getAccentColor()</code> <em>Windows</em>
                     </h3>
                     <p>
-                      Mengembalikan <code>String</code> - Pengguna saat ini memiliki preferensi warna aksen lebar di RGBA bentuk heksadesimal.
+                      Returns <code>String</code> - The users current system wide accent color preference in RGBA hexadecimal form.
                     </p>
                     <pre><code class="js">const color = systemPreferences.getAccentColor() // `"aabbccdd"`
 const red = color.substr(0, 2) // "aa"
@@ -295,110 +295,110 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 </code></pre>
                     <h3>
-                      <code>systemPreferences.getColor(warna)</code> <em>jendela</em>
+                      <code>systemPreferences.getColor(color)</code> <em>Windows</em>
                     </h3>
                     <ul>
                       <li>
-                        <code>warna</code> String - Salah satu nilai berikut: <ul>
+                        <code>color</code> String - One of the following values: <ul>
                           <li>
-                            <code>3d-dark-shadow</code> - bayangan gelap untuk elemen tampilan tiga dimensi.
+                            <code>3d-dark-shadow</code> - Dark shadow for three-dimensional display elements.
                           </li>
                           <li>
-                            <code>3d-face</code> - Warna wajah untuk elemen tampilan tiga dimensi dan untuk dialog latar belakang kotak.
+                            <code>3d-face</code> - Face color for three-dimensional display elements and for dialog box backgrounds.
                           </li>
                           <li>
-                            <code>3d-highlight </code> - Sorot warna untuk elemen tampilan tiga dimensi.
+                            <code>3d-highlight</code> - Highlight color for three-dimensional display elements.
                           </li>
                           <li>
-                            <code>3d-light</code> - Warna terang untuk elemen tampilan tiga dimensi.
+                            <code>3d-light</code> - Light color for three-dimensional display elements.
                           </li>
                           <li>
-                            <code>3d-shadow</code> - Warna bayangan untuk elemen tampilan tiga dimensi.
+                            <code>3d-shadow</code> - Shadow color for three-dimensional display elements.
                           </li>
                           <li>
-                            <code>border aktif</code> - Batas jendela aktif.
+                            <code>active-border</code> - Active window border.
                           </li>
                           <li>
-                            <code>active-caption</code> - Bilah judul jendela aktif. Menentukan warna sisi kiri pada gradien warna bar judul jendela aktif jika efek gradiennya diaktifkan.
+                            <code>active-caption</code> - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
                           </li>
                           <li>
-                            <code>active-caption-gradient</code> - Warna sisi kanan pada gradien warna bar judul jendela aktif.
+                            <code>active-caption-gradient</code> - Right side color in the color gradient of an active window's title bar.
                           </li>
                           <li>
-                            <code>app-workspace</code> - Warna latar belakang beberapa dokumen antarmuka (MDI) aplikasi.
+                            <code>app-workspace</code> - Background color of multiple document interface (MDI) applications.
                           </li>
                           <li>
-                            <code>tombol-teks</code> - Teks pada tombol push.
+                            <code>button-text</code> - Text on push buttons.
                           </li>
                           <li>
-                            <code>caption-text</code> - Teks dalam keterangan, kotak ukuran, dan kotak panah gulir.
+                            <code>caption-text</code> - Text in caption, size box, and scroll bar arrow box.
                           </li>
                           <li>
-                            <code>desktop</code> - Warna latar belakang desktop.
+                            <code>desktop</code> - Desktop background color.
                           </li>
                           <li>
-                            <code>teks nonaktif</code> - Teks abu-abu (dinonaktifkan).
+                            <code>disabled-text</code> - Grayed (disabled) text.
                           </li>
                           <li>
-                            <code>sorot</code> - Item (s) dipilih dalam kontrol.
+                            <code>highlight</code> - Item(s) selected in a control.
                           </li>
                           <li>
-                            <code>highlight-text</code> - Teks item(s) yang dipilih dalam kontrol.
+                            <code>highlight-text</code> - Text of item(s) selected in a control.
                           </li>
                           <li>
-                            <code>hotlight</code> - Warna untuk item hyperlink atau hot-tracked.
+                            <code>hotlight</code> - Color for a hyperlink or hot-tracked item.
                           </li>
                           <li>
-                            <code>tidak aktif-batas</code> - Batas jendela tidak aktif.
+                            <code>inactive-border</code> - Inactive window border.
                           </li>
                           <li>
-                            <code>tidak aktif-caption</code> - Judul keterangan tidak aktif. Menentukan warna sisi kiri pada gradien warna bar judul jendela yang tidak aktif jika gradiennya efek diaktifkan.
+                            <code>inactive-caption</code> - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
                           </li>
                           <li>
-                            <code>tidak aktif-caption-gradient</code> - Warna sisi kanan pada gradien warna dari bilah judul jendela yang tidak aktif.
+                            <code>inactive-caption-gradient</code> - Right side color in the color gradient of an inactive window's title bar.
                           </li>
                           <li>
-                            <code>teks keterangan tidak aktif</code> - Warna teks dalam teks tidak aktif.
+                            <code>inactive-caption-text</code> - Color of text in an inactive caption.
                           </li>
                           <li>
-                            <code>info-background</code> - Warna latar belakang untuk kontrol tooltip.
+                            <code>info-background</code> - Background color for tooltip controls.
                           </li>
                           <li>
-                            <code>info-text</code> - Warna teks untuk kontrol tooltip.
+                            <code>info-text</code> - Text color for tooltip controls.
                           </li>
                           <li>
-                            <code>menu</code> - Latar belakang menu.
+                            <code>menu</code> - Menu background.
                           </li>
                           <li>
-                            <code>menu-highlight</code> - Warna yang digunakan untuk menyorot item menu saat menu muncul sebagai menu datar.
+                            <code>menu-highlight</code> - The color used to highlight menu items when the menu appears as a flat menu.
                           </li>
                           <li>
-                            <code>menubar</code> - Warna latar untuk bilah menu saat menu tampil rata menu.
+                            <code>menubar</code> - The background color for the menu bar when menus appear as flat menus.
                           </li>
                           <li>
-                            <code>menu-text</code> - Teks dalam menu.
+                            <code>menu-text</code> - Text in menus.
                           </li>
                           <li>
-                            <code>scrollbar</code> - Area gulir batang abu-abu.
+                            <code>scrollbar</code> - Scroll bar gray area.
                           </li>
                           <li>
-                            <code>jendela</code> - Latar belakang jendela.
+                            <code>window</code> - Window background.
                           </li>
                           <li>
-                            <code>bingkai jendela</code> - Bingkai jendela.
+                            <code>window-frame</code> - Window frame.
                           </li>
                           <li>
-                            <code>jendela-teks</code> - teks di jendela.
+                            <code>window-text</code> - Text in windows.
                           </li>
                         </ul>
                       </li>
                     </ul>
                     <p>
-                      Mengembalikan <code>Senar</code> - Pengaturan warna sistem dalam bentuk heksadesimal RGB (<code>#ABCDEF</code>). Lihat <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> untuk lebih jelasnya.
+                      Returns <code>String</code> - The system color setting in RGB hexadecimal form (<code>#ABCDEF</code>). See the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> for more details.
                     </p>
                     <h3>
-                      <code>systemPreferences.isInvertedColorScheme () </code> <em>Jendela</em>
+                      <code>systemPreferences.isInvertedColorScheme()</code> <em>Windows</em>
                     </h3>
                     <p>
-                      Mengembalikan <code>Boolean</code> - <code>benar</code> jika skema warna terbalik, seperti tema kontras tinggi, aktif, <code> salah </code> sebaliknya.
+                      Returns <code>Boolean</code> - <code>true</code> if an inverted color scheme, such as a high contrast theme, is active, <code>false</code> otherwise.
                     </p>
