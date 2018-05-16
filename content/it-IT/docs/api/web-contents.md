@@ -236,7 +236,7 @@ Emitted when the renderer process crashes or is killed.
 Restituisce:
 
 * `event` Event
-* `nome` Stringa
+* `name` Stringa
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -294,9 +294,9 @@ Restituisce:
 
 * `event` Event
 * `url` Stringa
-* `error` String - The error code.
+* `errore` Stringa - Il codice d'errore.
 * `certificato` [Certificato](structures/certificate.md)
-* `callback` Funzione 
+* `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -688,7 +688,7 @@ Injects CSS into the current web page.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -708,7 +708,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Sperimentale*
 
 * `ignore` Boolean
 
@@ -899,7 +899,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
 #### `contents.printToPDF(options, callback)`
 
@@ -910,16 +910,16 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
-  * `errore` Errore
+  * `error` Error - il valore é diverso da nulla se si verifica un qualunque errore durante la generazione del pdf
   * `data` Buffer - contiene il pdf generato
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+Stampa la pagina web della finestra come PDF con le impostazioni di stampa personalizzate di Chromium.
 
-The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+Il `callback` verrà chiamato con `callback (error, data)` al completamento. I `data` è un `Buffer` che contiene i dati del PDF generato.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+Il `landscape` verrà ignorato se la regola CSS `@page` è utilizzato nella pagina web.
 
-By default, an empty `options` will be regarded as:
+Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato il seguente:
 
 ```javascript
 {
@@ -930,9 +930,9 @@ By default, an empty `options` will be regarded as:
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
-An example of `webContents.printToPDF`:
+Un esempio di `webContents.printToPDF`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -942,7 +942,7 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // Use default printing options
+  // vengono utilizzate le impostazioni predefinite decritte sopra
   win.webContents.printToPDF({}, (error, data) => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
