@@ -36,7 +36,7 @@ Aşağıdaki olaylar `Cookies` sınıfından türeyen objelerde mevcuttur:
 #### Olay: 'changed'
 
 * `event` Event
-* `cookie` [Çerez](structures/cookie.md) - Değişen çerez.
+* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
 * `cause` Katar - Olan değışimin nedeni (Aşağıdaki değerlerle): 
   * `explicit` - Çerez direkt olarak kullanıcının bir aksiyonu tarafından değiştirildi.
   * `overwrite` - Çerez, aynı isimde yeni bir çerez eklendiği için silindi.
@@ -56,7 +56,7 @@ Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
 * `filter` Object 
   * `url` Katar (Opsiyonel) - `url` ile bağıntılı çerezleri çeker. Eğer boş girilirse tüm çerezler çekilir.
   * `name` Katar (opsiyonel) - Çerezleri isme göre filtrele.
-  * `domain` Katar (opsiyonel) - `domains` ile eşleşen domain'lerin çerezlerini çeker.
+  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
   * `path` Katar (opsiyonel) - `path` ile eşleşen çerezleri çeker.
   * `secure` Boolean (opsiyonel) - Secure özelliği olan çerezleri çeker.
   * `session` Boolean (opsiyonel) - Oturumu ya da kalıcı çerezleri filtreler.
