@@ -294,7 +294,7 @@ Emitted when DevTools is focused / opened.
 
 * `event` Event
 * `url` String
-* `error` String - Код помилки.
+* `error` String - The error code.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -404,7 +404,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 Повертає:
 
 * `event` Event
-* `params` Object 
+* `params` Об'єкт 
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -537,7 +537,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 * `options` Object (опціонально) 
   * `httpReferrer` String (опціонально) - HTTP URL вІдправника.
   * `userAgent` String (опціонально) - User agent відправника запиту.
-  * `extraHeaders` String (опціонально) - Додаткові заголовки, розділені "\n".
+  * `extraHeaders` String (optional) - Extra headers separated by "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. Це необхідно, лише якщо вказане `url` є посилання на дані і потребує завантаження інших файлів.
 
@@ -708,7 +708,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Експериментальний*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
 
@@ -903,7 +903,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `options` Об'єкт 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -1106,7 +1106,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
+* `parameters` Об'єкт 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`): 
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1124,7 +1124,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` Object 
+* `event` Об'єкт 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1175,7 +1175,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object 
+* `item` Об'єкт 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1214,7 +1214,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Object 
+* `options` Об'єкт 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer
