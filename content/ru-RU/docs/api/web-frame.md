@@ -28,7 +28,7 @@ webFrame.setZoomFactor(2)
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - уровень увеличения.
+* `level` Number - Zoom level.
 
 Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно.
 
@@ -55,14 +55,14 @@ webFrame.setZoomFactor(2)
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - возвращает `Boolean`. 
+  * `spellCheck` Function - Returns `Boolean`. 
     * `text` String
 
-Задает поставщика для проверки орфографии в полях ввода и текстовых областях.
+Sets a provider for spell checking in input fields and text areas.
 
-`provider` должен быть объект, имеющий `spellCheck` метод, возвращающий, результат правильного написания слова.
+The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
 
-Пример использования [node-spellchecker](https://github.com/atom/node-spellchecker) как поставщик:
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -77,29 +77,29 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Регистрирует `scheme` как безопасную схему.
+Registers the `scheme` as secure scheme.
 
-Безопасные схемы не допускают смешанного контента предупреждений. Например `https` и `data` являются безопасными схемами, потому что они не могут быть повреждены активными сетевыми атаками.
+Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Ресурсы будут загружены из этой `scheme` независимо от текущей страницы и политики безопасности контента.
+Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (опционально) 
+* `options` Object (опиционально) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
   * `supportFetchAPI` Boolean (optional) - Default true.
   * `corsEnabled` Boolean (optional) - Default true.
 
-Регистрирует `scheme` как безопасную, обходит политику безопасности контента для ресурсов, позволяет регистрировать ServiceWorker и поддерживает получение API.
+Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
-Указав параметр со значением `false` - исключит его из регистрации. Пример регистрации привилегированной схемы, без обхода политики безопасности контента:
+Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -166,14 +166,14 @@ Set the security origin of the isolated world.
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Возвращает объект, описывающий сведения об использовании Blink внутренней памяти кэшей.
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-Это будет генерировать:
+This will generate:
 
 ```javascript
 {
@@ -191,6 +191,6 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.clearCache()`
 
-Пытается освободить память, которая больше не используется (например, изображения из предыдущей навигации).
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-Обратите внимание, что безрассудный вызов этого метода вероятно замедлит Electron, поскольку ему придется чистить кэши даже если они уже пустые, так что этот метод следует вызывать только в случае, когда вы уверены, что страница стала использовать меньше памяти (например, произошел переход с супер-тяжёлой страницы на лёгкую без ожидаемого возврата обратно на тяжёлую).
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
