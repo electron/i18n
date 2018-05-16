@@ -93,16 +93,16 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - 操作が完了したときに呼ばれる.
+* `callback` Function - 操作が完了したときに呼ばれる。
 
 セッションの HTTP キャッシュをクリアします。
 
 #### `ses.clearStorageData([options, callback])`
 
 * `options` Object (任意) 
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
-  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+  * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
+  * `storages` String[] (任意) - ストレージをクリアするタイプ。`appcache`、`cookies`、`filesystem`、`indexdb`、`localstorage`、`shadercache`、`websql`、`serviceworkers` を含めることができます。
+  * `quotas` String[] (任意) - クォータをクリアするタイプ。`temporary`、`persistent`、`syncable` を含むことができます。
 * `callback` Function (任意) - 操作が完了したときに呼ばれる.
 
 ウェブストレージのデータをクリアします。
@@ -141,7 +141,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 * `socks4://foopy` - すべての URL に SOCKS 4 プロキシ `foopy:1080` を使用する。
 * `http=foopy,socks5://bar.com` - HTTP の URL には HTTP プロキシ `foopy` を使用し、`foopy` が使用できない場合は SOCKS 5 プロキシ `bar.com` にフェイルオーバーします。
 * `http=foopy,socks5://bar.com` - HTTP の URL には HTTP プロキシ `foopy` を使用し、`foopy` が使用できない場合はプロキシを使用しません。
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+* `http=foopy;socks=foopy2` - HTTP の URL には HTTP プロキシ `foopy` を、ほかの URLには `socks4://foopy2` を使用します。
 
 `proxyBypassRules` は以下に説明されているコンマ区切りのルールのリストです。
 
@@ -183,7 +183,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `path` String - ダウンロード位置.
 
 ダウンロード保存ディレクトリを設定します。 デフォルトでは、ダウンロードディレクトリはそれぞれのアプリフォルダの下の `ダウンロード(Downloads)` になります。
 
@@ -219,11 +219,11 @@ window.webContents.session.enableNetworkEmulation({offline: true})
   * `request` Object 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` String - Chromium からの認証結果。
+    * `errorCode` Integer - エラーコード。
   * `callback` Function 
     * `verificationResult` Integer - 値は [ここ](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)の証明書エラーコードの1つです。 証明書エラーコードの他に、以下の特別なコードを使用することができます。 
-      * `` - Indicates success and disables Certificate Transparency verification.
+      * `` - 成功を示し、証明書の透明性の検証を無効にします。
       * `-2` - 失敗を示します。
       * `-3` - Chromium からの認証結果を使用します。
 
@@ -251,11 +251,11 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。
   * `permission` String - 'media'、'geolocation'、'notifications'、'midiSysex'、'pointerLock'、'fullscreen'、'openExternal' のいずれか。
   * `callback` Function 
-    * `permissionGranted` Boolean - Allow or deny the permission.
-  * `details` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String - The url of the `openExternal` request.
+    * `permissionGranted` Boolean - 権限の許可か拒否.
+  * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
+    * `externalURL` String - `openExternal` リクエストの URL。
 
-`session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 To clear the handler, call `setPermissionRequestHandler(null)`.
+`session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。
 
 ```javascript
 const {session} = require('electron')
@@ -276,7 +276,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
+* `domains` String - 統合認証が有効であるサーバーのコンマ区切りのリスト。
 
 HTTP NTLM またはネゴシエート認証の資格情報を常に送信するかどうかを動的に設定します。
 
@@ -323,40 +323,40 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
   * `eTag` String - ヘッダの ETag の値。
   * `startTime` Double (任意) - ダウンロードが開始されたときの UNIX エポックからの秒数。
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (任意) - 操作が完了したときに呼ばれる.
+* `callback` Function (任意) - 操作が完了したときに呼ばれる。
 
-Clears the session’s HTTP authentication cache.
+セッションの HTTP 認証キャッシュをクリアします。
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - プリロードスクリプトへの絶対パスの配列
 
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+通常の `preload` スクリプトが実行される直前に、このセッションに関連するすべてのウェブコンテンツで実行されるスクリプトを追加します。
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+戻り値 `String[]` - 登録されているプリロードスクリプトへのパスの配列。
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `Session`:
+`Session` のインスタンスには以下のプロパティがあります。
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+このセッションの [Cookies](cookies.md) オブジェクト。
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+このセッションの [WebRequest](web-request.md) オブジェクト。
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+このセッションの [Protocol](protocol.md) オブジェクト。
 
 ```javascript
 const {app, session} = require('electron')
