@@ -71,8 +71,8 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
-* `position` [Point](structures/point.md) - event'ın pozisyonu.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `position` [Point](structures/point.md) - The position of the event.
 
 Tray simgesi tıklandığında çıkar.
 
@@ -83,7 +83,7 @@ Tray simgesi tıklandığında çıkar.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Tray simgesi sağ tıkladığında ortaya çıkar.
 
@@ -94,7 +94,7 @@ Tray simgesi sağ tıkladığında ortaya çıkar.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Tray simgesi sağ tıkladığında tetiklenir.
 
@@ -124,7 +124,7 @@ Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 #### Event: 'drop-text' *macOS*
 
 * `event` Olay
-* `text` String - Düşürülen yazı stringi.
+* `text` String - the dropped text string.
 
 Sürüklenen metin tepsi simgesine düştüğünde ortaya çıkar.
 
@@ -147,7 +147,7 @@ Bir sürükleme işlemi tepside bittiğinde veya başka bir yerde bittiğinde or
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - event'ın pozisyonu.
+* `position` [Point](structures/point.md) - The position of the event.
 
 Fare tepsi simgesine girdiğinde ortaya çıkar.
 
@@ -158,46 +158,46 @@ Fare tepsi simgesine girdiğinde ortaya çıkar.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - event'ın pozisyonu.
+* `position` [Point](structures/point.md) - The position of the event.
 
 Fare tepsi simgesinden çıktığında ortaya çıkar.
 
-#### Olay: 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - event'ın pozisyonu.
+* `position` [Point](structures/point.md) - The position of the event.
 
-Fare tepsi simgesini hareket ettirdikçe ortaya çıkar.
+Emitted when the mouse moves in the tray icon.
 
 ### Örnek Yöntemleri
 
-The `Tray` sınıfı aşağıdaki yöntemleri içerir:
+The `Tray` class has the following methods:
 
 #### `tray.destroy()`
 
-Tepsi simgesini derhal imha eder.
+Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Bu tepsi simgesiyle ilişkili `image` 'i ayarlar.
+Sets the `image` associated with this tray icon.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-MacOS üzerine basıldığında bu tepsi simgesiyle ilişkili `image`'i ayarlar.
+Sets the `image` associated with this tray icon when pressed on macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Bu tepsi simgesinin üzerine gelen metni ayarlar.
+Sets the hover text for this tray icon.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -207,14 +207,14 @@ Sets the title displayed aside of the tray icon in the status bar (Support ANSI 
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` Dizge - Aşağıdaki değerlerden biriyle vurgulama modunu seçin: 
-  * `selection` - Tepsi simgesini tıklattığınızda ve bağlam menüsü açık olduğunda vurgulayın. Varsayılan budur.
-  * `always` - Daima tepsi simgesini vurgulayın.
-  * `never` - Asla tepsi simgesini vurgulamayın.
+* `mode` String - Highlight mode with one of the following values: 
+  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+  * `always` - Always highlight the tray icon.
+  * `never` - Never highlight the tray icon.
 
-Tepsinin simge arka planı vurgulandığında (mavi renkte) ayarlar.
+Sets when the tray's icon background becomes highlighted (in blue).
 
-**Note:** pencere görünürlüğü değiştiğinde `'never'` ve `'always'` modları arasında geçiş yaparak [`BrowserWindow`](browser-window.md) ile `highlightMode` kullanabilirsiniz.
+**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -236,33 +236,33 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `seçenekler` Nesne 
-  * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı) -
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
-  * `content` Dizge
+  * `content` String
 
-Bir tepsi balonunu görüntüler.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menü (İsteğe bağlı)
-* `position` [Point](structures/point.md) (İsteğe bağlı) - Pop up pozisyonu.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi simgesi içerik menüsü yerine açılır.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-`position` yalnızca Windows'ta kullanılabilir ve varsayılan olarak (0, 0) değerindedir.
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menü
+* `menu` Menu
 
-Bu simgenin bağlam menüsünü ayarlar.
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
-`bounds` tepsi simgesinin `Object`' i olarak belirtilir.
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Tepsi simgesinin yok edilip edilmediği.
+Returns `Boolean` - Whether the tray icon is destroyed.
