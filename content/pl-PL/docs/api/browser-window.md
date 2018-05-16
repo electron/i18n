@@ -544,7 +544,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Hides the window.
+Ukrywa okno.
 
 #### `win.isVisible()`
 
@@ -625,7 +625,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Zmienia rozmiar i przenosi okno do dostarczonych granic
 
 #### `win.getBounds()`
 
@@ -895,7 +895,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Funkcja 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.
@@ -1009,8 +1009,8 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Button` Obiekt 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+* `Przycisk` Obiekt 
+  * `icon` [NativeImage](native-image.md) - Wyświetlana miniatura w pasku narzędzi.
   * `click` Function
   * `tooltip` String (opcjonalnie) - Tekst etykiety przycisku.
   * `flags` String[] (opcjonalnie) - Kontroluje określone stany oraz zachowania przycisku. Domyślnie jest ustawione na `['enabled']`.
@@ -1057,7 +1057,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Zmienia ikonę okna.
 
 #### `win.setAutoHideMenuBar(hide)`
 
@@ -1117,7 +1117,7 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows i
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Zmienia czy okno może zostać wyostrzone.
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
