@@ -36,7 +36,7 @@ L'oggetto `autoAggiornatore` emette i seguenti eventi:
 
 Restituisce:
 
-* `error` Error
+* `errore` Errore
 
 Emesso quando avviene un errore in aggiornamento.
 
