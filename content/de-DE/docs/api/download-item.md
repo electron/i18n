@@ -42,7 +42,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
-<li><code>state` String - Can be `progressing` or `interrupted`.
+<li><code>state` String
 
 Emitted when the download has been updated and is not done.
 
@@ -56,7 +56,7 @@ The `state` can be one of following:
 Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
-<li><code>state` String - Can be `completed`, `cancelled` or `interrupted`.
+<li><code>state` String
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
@@ -96,7 +96,7 @@ Resumes the download that has been paused.
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Resumes `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
