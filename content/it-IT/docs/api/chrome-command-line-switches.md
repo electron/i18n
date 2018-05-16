@@ -30,35 +30,35 @@ Disabilita protocolli HTTP/2 e SPDY/3.1.
 
 Set a custom locale.
 
-## --ispeziona=`porta` e --ispeziona-brk=`porta`
+## --inspect=`port` and --inspect-brk=`port`
 
-Segnalazioni relative al debug, vedi la guida [Processi Principali di Debugging](../tutorial/debugging-main-process.md) per dettagli.
+Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
 
-## --porta-debugging-remoto=`porta`
+## --remote-debugging-port=`port`
 
-Abilita debugging remoto oltre HTTP sulla `porta` specificata.
+Enables remote debugging over HTTP on the specified `port`.
 
 ## --disk-cache-size=`size`
 
-Forza lo spazio massimo su disco da utilizzare dalla cache del disco, in byte.
+Forces the maximum disk space to be used by the disk cache, in bytes.
 
-## --js-flags=flags
+## --js-flags=`flags`
 
-Specifica i flag passati all engine Node JS. Deve essere passato all'avvio di Electron, se si desidera abilitare il `flag` nel processo principale (main process).
+Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-Vedere la [Documentazione di Node Js](https://nodejs.org/api/cli.html) o lanciare da terminale il comando `node --help` per ottenere la lista dei flag disponibili. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
-Utilizzare un server proxy specificato, che sostituisce l'impostazione di sistema. Questa opzione riguarda solo le richieste con protocollo HTTP, inclusi HTTPS e WebSocket. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
 
 ## --proxy-bypass-list=`hosts`
 
-Indica ad Electron di "bypassare" il server proxy, per l'elenco degli host forniti separati da punto e virgola. Questo flag ha effetto solo se usato in tandem con `--proxy-server`.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
 Ad esempio:
 
@@ -71,7 +71,7 @@ Will use the proxy server for all hosts except for local addresses (`localhost`,
 
 ## --proxy-pac-url=`url`
 
-Utilizza lo script di PAC all' `url` specificato.
+Uses the PAC script at the specified `url`.
 
 ## --no-proxy-server
 
@@ -79,7 +79,7 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 ## --host-rules=`rules`
 
-Un elenco di regole separate da virgole che controllano il modo in cui i nomi degli host sono mappati.
+A comma-separated list of `rules` that control how hostnames are mapped.
 
 Ad esempio:
 
@@ -88,15 +88,15 @@ Ad esempio:
 * MAP test.com [:: 1]: 77 Forza "test.com" per risolvere il loopback IPv6. Forzerà anche la porta dell'indirizzo socket risultante a 77.
 * MAP * baz, EXCLUDE www.google.com Rimappa tutto in "baz", ad eccezione di "www.google.com".
 
-Questi mapping si applicano all'host dell'endpoint in una richiesta net (il TCP connect e il resolver host in una connessione diretta e CONNECT in una connessione proxy HTTP e l'host endpoint in una connessione proxy SOCKS).
+These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
 ## --host-resolver-rules=`rules`
 
-Come `--host-rules` ma queste `regole` si applicano solo al resolver host.
+Like `--host-rules` but these `rules` only apply to the host resolver.
 
 ## --auth-server-whitelist=`url`
 
-Un elenco di server separati da virgola per i quali è abilitata l'autenticazione integrata.
+A comma-separated list of servers for which integrated authentication is enabled.
 
 Ad esempio:
 
@@ -104,50 +104,50 @@ Ad esempio:
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-per cui qualsiasi `url` che termina con `example.com`, `foobar.com`, `baz` verrà preso in considerazione per l'autenticazione integrata. Senza il prefisso `*` l'Url deve corrispondere esattamente.
+then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-Un elenco di server separato da virgole, per il quale è necessaria la delega delle credenziali utente. Senza il prefisso `*`, l url deve corrispondere esattamente.
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
 
 ## --ignore-certificate-errors
 
-Ignora gli errori di certificato correlati.
+Ignores certificate related errors.
 
 ## --ppapi-flash-path=`path`
 
-Imposta il `percorso` del plugin flash pepper.
+Sets the `path` of the pepper flash plugin.
 
 ## --ppapi-flash-version=`version`
 
-Imposta la `versione` del plugin flash pepper.
+Sets the `version` of the pepper flash plugin.
 
 ## --log-net-log=`path`
 
-Consente di salvare gli eventi del registro di rete e li scrive sul percorso.
+Enables net log events to be saved and writes them to `path`.
 
 ## --disable-renderer-backgrounding
 
-Impedisce a Chromium di ridurre la priorità dei processi di rendering delle pagine invisibili.
+Prevents Chromium from lowering the priority of invisible pages' renderer processes.
 
-Questo flag è globale per tutti i processi di rendering, se si desidera disattivare la limitazione delle richieste in un'unica finestra, si può prendere l'hack di [playing silent audio.](https://github.com/atom/atom/pull/9485/files).
+This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
 ## --enable-logging
 
-Stampa il logging di Chromium in console.
+Prints Chromium's logging into console.
 
-Questa opzione non può essere utilizzata in `app.commandLine.appendSwitch` poiché viene analizzata prima del caricamento dell' `app` dell utente, ma puoi impostare la variabile di ambiente ELECTRON_ENABLE_LOGGING per ottenere lo stesso effetto.
+This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
 
 ## --v=`log_level`
 
-Fornisce il massimo livello di V-logging attivo predefinito; 0 è il valore predefinito. I valori di norma positivi vengono utilizzati per i livelli di registrazione V (*V-logging levels*).
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
-Questa opzione funziona solo quando viene passato anche `--enable-logging`.
+This switch only works when `--enable-logging` is also passed.
 
 ## --vmodule=`pattern`
 
-Fornisce i livelli massimi di V-logging per modulo, per sovrascrivere il valore fornito da `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-Qualsiasi pattern contenente una barra avanti o indietro (forward e back slash) verrà testato rispetto all'intero percorso e non solo al modulo. Ad esempio. `*/foo/bar/*=2` cambierebbe il livello di logging per tutto il codice sorgente nei file all interno della directory `foo/bar`.
+Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-Questa opzione funziona solo quando viene passato anche `--enable-logging`.
+This switch only works when `--enable-logging` is also passed.
