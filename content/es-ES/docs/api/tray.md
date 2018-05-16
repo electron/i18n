@@ -71,8 +71,8 @@ El módulo `Tray` emite los siguientes eventos:
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
-* `position` [Point](structures/point.md) - La posición del evento.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `position` [Point](structures/point.md) - The position of the event.
 
 Emitido cuando se hace clic en el icono de bandeja.
 
@@ -83,7 +83,7 @@ Emitido cuando se hace clic en el icono de bandeja.
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitido cuando se hace clic derecho en el icono de bandeja.
 
@@ -94,7 +94,7 @@ Emitido cuando se hace clic derecho en el icono de bandeja.
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitido cuando se hace doble clic en el icono de bandeja.
 
@@ -124,7 +124,7 @@ Emitido cuando los archivos arrastrados son dejados en el icono de la bandeja.
 #### Evento: 'drop-text' *macOS*
 
 * `event` Event
-* `text` Cadena - la cadena del texto dejado.
+* `text` String - the dropped text string.
 
 Emitido cuando el texto arrastrado es arrojado en el icono de bandeja.
 
@@ -147,7 +147,7 @@ Emitido cuando termina una operación de arrastre en la bandeja o termina en otr
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - La posición del evento.
+* `position` [Point](structures/point.md) - The position of the event.
 
 Emitido cuando el ratón entra en el icono de la bandeja.
 
@@ -158,63 +158,63 @@ Emitido cuando el ratón entra en el icono de la bandeja.
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - La posición del evento.
+* `position` [Point](structures/point.md) - The position of the event.
 
 Emitido cuando el ratón sale del icono de la bandeja.
 
-#### Evento: 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS*
 
-* `event` Evento 
+* `event` Event 
   * `altKey` Booleano
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - La posición del evento.
+* `position` [Point](structures/point.md) - The position of the event.
 
-Se emite cuando el ratón se mueve sobre el icono de la bandeja del sistema.
+Emitted when the mouse moves in the tray icon.
 
 ### Métodos de Instancia
 
-La clase `Tray` tiene los siguientes métodos:
+The `Tray` class has the following methods:
 
 #### `tray.destroy()`
 
-Destruye inmediatamente el icono de la bandeja.
+Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Configura la `image` asociada con este icono de bandeja.
+Sets the `image` associated with this tray icon.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-En macOS, configura la `image` asociada con este icono de bandeja cuando se presiona.
+Sets the `image` associated with this tray icon when pressed on macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` Cadena
 
-Configura la activación de texto para este icono de bandeja.
+Sets the hover text for this tray icon.
 
 #### `tray.setTitle(title)` *macOS*
 
-* `title` Cadena
+* `title` String
 
 Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` Cadena - Modo de resaltado con uno de los siguientes valores: 
-  * `selection` - Resalta el icono de la bandeja cuando se hace clic sobre él y también cuando se abre su menú de contexto. Esta es la opción por defecto.
-  * `always` - Siempre resalta el icono de la bandeja.
-  * `never` - Nunca resalta el icono de la bandeja.
+* `mode` String - Highlight mode with one of the following values: 
+  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+  * `always` - Always highlight the tray icon.
+  * `never` - Never highlight the tray icon.
 
-Establece cuando se resalta (en azul) el fondo del icono de la bandeja.
+Sets when the tray's icon background becomes highlighted (in blue).
 
-**Nota:** Puede utilizarse `highlightMode` con una [`BrowserWindow`](browser-window.md) al alternar entre los modos `'never'` y `'always'` cuando la visibilidad de la ventana cambia.
+**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -235,34 +235,34 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `opciones` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (opcional) -
+* `opciones` Objeto 
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
-Muestra un globo de la bandeja.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (opcional)
-* `position` [Point](structures/point.md) (optional) - La posición del elemento emergente.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-Aparece el menú de contexto del icono de la bandeja. Cuando se pasa `menu`, el `menu` se mostrará en lugar el menú de contexto del icono de la bandeja.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-La `position` solo está disponible en Windows, y por defecto es (0, 0).
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu
 
-Configura el menú de contexto para este icono.
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
-Los `bounds` de este icono de la bandeja como `Object`.
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Devuelve `Boolean` - Si el icono de la bandeja es destruido o no.
+Returns `Boolean` - Whether the tray icon is destroyed.
