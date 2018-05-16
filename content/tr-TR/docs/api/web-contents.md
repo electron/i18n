@@ -499,7 +499,7 @@ Devtools penceresi webContents'ü yeniden yüklemeye yönlendirdiğinde çıkar
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `webPreferences` Nesne - Konuk sayfanın kullanacağı web tercihleri. Bu nesne konuk sayfası tercihlerini ayarlamak için değiştirilebilir.
 * `params` Nesne - `src` URL gibi diğer `<webview>` parametreleri. Bu nesne konuk sayfası tercihlerini ayarlamak için değiştirilebilir.
 
@@ -513,7 +513,7 @@ Bu event, `<webview>` yüklenmeden önce ` webContents`'inin `webPreferences<0>'
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
@@ -618,7 +618,7 @@ Web sayfasına odaklanır.
 
 #### `contents.stop()`
 
-Bekleyen gezinmeleri durdurur.
+Bekleyen gezinmeyi durdurur.
 
 #### `contents.reload()`
 
@@ -697,7 +697,7 @@ Yürürlükteki web sayfasına CSS ekler.
 
 Sayfadaki `code`'u ölçer.
 
-Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
+Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -823,7 +823,7 @@ Verilen pozisyondaki görüntüyü panoya kopyalar.
 
 * `text` Dizi
 
-Odaklanılan öğeye `text`'i yerleştirir.
+Odaklanmış öğeye `metin` ekler.
 
 #### `contents.findInPage(text[, options])`
 
@@ -905,7 +905,7 @@ Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stili
 
 * `seçenekler` Nesne 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A%`, `Legal`, `Letter`, `Tabloid` veya mikron formatında `height` ve `width` içeren bir nesne olabilir.
+  * `pageSize` String (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -1057,7 +1057,7 @@ Geliştirme araçlarına geçiş yapar.
 
 #### `contents.inspectElement(x, y)`
 
-* `x` Tamsayı
+* `x` Integer
 * `x` Integer
 
 (`x`,`y`) pozisyonundaki ögeyi incelemeye başlar.
