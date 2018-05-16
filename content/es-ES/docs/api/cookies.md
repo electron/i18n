@@ -36,7 +36,7 @@ Los siguientes eventos están disponibles en las instancias de `Cookies`:
 #### Evento: "changed"
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado.
+* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
 * `cause` Cadena - La causa del cambio con uno de los siguientes valores: 
   * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
   * `overwrite` - La cookie se eliminó automáticamente debido a una operación insertada que la sobreescribió.
@@ -56,7 +56,7 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
 * `filtrar` Objeto 
   * `url` Cadena (opcional) - Recupera las cookies que estás asociadas con el `url`. Dejarlo en blanco implica recuperar las cookies de todos los Urls.
   * `name` Cadena (opcional) - Filtra las cookies por nombre.
-  * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`.
+  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
   * `path` Cadena (opcional) - Recupera las cookies de cuya ruta coincide con `path`.
   * `secure` Booleano (opcional) - Filtra las cookies por su propiedad Secure.
   * `session` Booleano (opcional) - Filtra las cookies fuera de la sesión o cookies persistentes.
