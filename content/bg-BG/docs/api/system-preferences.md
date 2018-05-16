@@ -84,7 +84,7 @@ Removes the subscriber with `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `обратно повикване` Функция 
+* `обратно повикване` Function 
   * `event` String
   * `userInfo` Object
 
