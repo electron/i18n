@@ -14,7 +14,7 @@ Jeśli chcesz wyświetlać powiadomienia z procesu renderowania należy użyć i
 
 Proces: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` jest [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
@@ -111,4 +111,4 @@ On macOS, you can specify the name of the sound you'd like to play when the noti
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Zobacz dokumentacje [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) po więcej informacji.
