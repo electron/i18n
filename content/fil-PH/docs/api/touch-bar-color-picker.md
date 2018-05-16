@@ -10,7 +10,7 @@ Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
   * `availableColors` String[] (optional) - Pagkakasunod-sunod ng mga linya ng kulay para ipakitang bilang posibleng kulay na mapili.
   * `selectedColor` String (optional) - Ang napiling kulay sa tagapili, i.e `#ABCDEF`.
   * `pagbabago` Function (optional) - tungkuling taga tawag kung merong kulay na mapili. 
-    * `color` String - The color that the user selected from the picker
+    * `color` String - The color that the user selected from the picker.
 
 ### Katangian ng pagkakataon
 
