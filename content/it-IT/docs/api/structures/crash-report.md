@@ -1,4 +1,4 @@
 # Oggetto CrashReport
 
-* `date` Date
+* `date` Data
 * `id` Stringa
