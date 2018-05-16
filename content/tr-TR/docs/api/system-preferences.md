@@ -88,7 +88,7 @@ Aboneyi `id` ile kaldırır.
   * `event` String
   * `userInfo` Object
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
+`subscribeNotification` gibidir fakat yerel varsayılanlar için `NSNotificationCenter` kullanır. Bu `NSUserDefaultsDidChangeNotification` gibi eventlar için gereklidir.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -107,9 +107,9 @@ Add the specified defaults to your application's `NSUserDefaults`.
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+`any` - `NSUserDefaults` 'te `key` değerini verir.
 
-Some popular `key` and `type`s are:
+Bazı popüler `key` ve `type`'ler:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -125,11 +125,11 @@ Some popular `key` and `type`s are:
 * `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+`NSUserDefaults`'de `key` değerini ayarlayın.
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+`type`'ın `value`'nin gerçek türü ile eşleşmesi gerektiğini unutmayın. Eğer uyuşmazlarsa bir hata fırlatılacaktır.
 
-Some popular `key` and `type`s are:
+Bazı popüler `key` ve `type`'ler:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -137,13 +137,13 @@ Some popular `key` and `type`s are:
 
 * `key` String
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+`NSUserDefaults`'deki `key`'i kaldırır. Bu, önceden ayarlanmış `key`'ün varsayılan değerini veya genel değerini `setUserDefault` ile geri yüklemek için kullanılabilir.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Eğer [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) aktifse `true` aksi takdirde `false` `Boolean` değerini döndürecektir.
 
-An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+Şeffaf bir pencere oluşturmanız gerekip gerekmediğini belirlemek için bunu kullanıp kullanmamanın bir örneği (DWM kompozisyonu devre dışı bırakıldığında şeffaf pencere düzgün çalışmaz):
 
 ```javascript
 const {BrowserWindow, systemPreferences} = require('electron')
@@ -169,7 +169,7 @@ if (browserOptions.transparent) {
 
 ### `systemPreferences.getAccentColor()` *Windows*
 
-Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
+RGBA'da onaltılık formda kullanıcıların mevcut sistemindeki geniş vurgulu renk tercihini `String` olarak döndürür.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -181,40 +181,40 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - One of the following values: 
-  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
-  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
-  * `3d-highlight` - Highlight color for three-dimensional display elements.
-  * `3d-light` - Light color for three-dimensional display elements.
-  * `3d-shadow` - Shadow color for three-dimensional display elements.
-  * `active-border` - Active window border.
-  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
-  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
-  * `app-workspace` - Background color of multiple document interface (MDI) applications.
-  * `button-text` - Text on push buttons.
-  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
-  * `desktop` - Desktop background color.
-  * `disabled-text` - Grayed (disabled) text.
-  * `highlight` - Item(s) selected in a control.
-  * `highlight-text` - Text of item(s) selected in a control.
-  * `hotlight` - Color for a hyperlink or hot-tracked item.
-  * `inactive-border` - Inactive window border.
-  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
-  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
-  * `inactive-caption-text` - Color of text in an inactive caption.
-  * `info-background` - Background color for tooltip controls.
-  * `info-text` - Text color for tooltip controls.
-  * `menu` - Menu background.
-  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
-  * `menubar` - The background color for the menu bar when menus appear as flat menus.
-  * `menu-text` - Text in menus.
-  * `scrollbar` - Scroll bar gray area.
-  * `window` - Window background.
-  * `window-frame` - Window frame.
-  * `window-text` - Text in windows.
+* `color` String - aşağıdaki değerlerden biri: 
+  * `3d-dark-shadow` - Üç boyutlu görüntüleme öğeleri için koyu renkli gölge.
+  * `3d-face` - Üç boyutlu görüntüleme öğeleri ve diyalog için yüz rengi kutu arka planları.
+  * `3d-highlight` - Üç boyutlu görüntüleme öğeleri için vurgulama rengi.
+  * `3d-light` - Üç boyutlu görüntüleme elemanları için açık renk.
+  * `3d-shadow` - Üç boyutlu görüntüleme öğeleri için gölge rengi.
+  * `active-border` - Etkin pencere kenarı.
+  * `active-caption` - Etkin pencere başlık çubuğu. Eğer gradient efekt aktifse aktif pencerenin başlık barındaki gradient rengin sol taraftaki rengini belirtir.
+  * `active-caption-gradient` - Aktif pencerenin başlık barının gradient renginin içindeki sağ taraf rengi.
+  * `app-workspace` Çoklu dosya arayürüz (MDI) uygulamlarının arkaplan rengi.
+  * `button-text` - Push butonlarındaki yazı.
+  * `caption-text` - Başlığın içindeki yazı, boyut kutusu ve kaydırma çubuğu ok kutusu.
+  * `desktop` - Masaüstü arkaplan rengi.
+  * `disabled-text` - Gri (devre dışı) metin.
+  * `highlight` - Bir kontrolde seçilen öğe(ler).
+  * `highlight-text` - Bir kontrol içindeki seçilen öğe(ler)'nin yazısı.
+  * `hotlight` - Bir hot-tracked öğe veya hyperlink için renk.
+  * `inactive-border` - Aktif olmayan pencere kenarı.
+  * `inactive-caption` - Aktif olmayan pencere başlığı. Eğer gradient efekt aktifse aktif pencerenin başlık barındaki gradient rengin sol taraftaki rengini belirtir.
+  * `inactive-caption-gradient` - Aktif olmayan pencerenin başlık barının gradient renginin içindeki sağ taraf rengi.
+  * `inactive-caption-text` - Aktif olmayan bir altyazıdaki metin rengi.
+  * `info-background` - Araç ipucu denetimleri için arka plan rengi.
+  * `info-text` - Araç ipucu denetimleri için yazı rengi.
+  * `menu` - Menü arkaplanı.
+  * `menu-highlight` - Menü öğelerini vurgulamak için kullanılan renk düz bir menü olarak görünür.
+  * `menubar` - Menüler düz olarak göründüğünde menü çubuğunun arkaplan rengi.
+  * `menu-text` - Menüdeki yazılar.
+  * `scrollbar` - Kaydırma çubuğu gri alanı.
+  * `window` - Pencere arkaplanı.
+  * `window-frame` - Pencere çerçevesi.
+  * `window-text` - Pencerelerdeki yazılar.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+RGB onaltılık form (`#ABCDEF`) içindeki sistem renk ayarlarını `String` olarak döndürür. Daha fazla bilgi için [Windows Dokümanlarına](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) bakın.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+Eğer ters kontrastlı bir renk şeması yüksek kontrast tema gibi ve etkin ise `true` aksi halde `false` `Boolean` değerini döndürecektir.
