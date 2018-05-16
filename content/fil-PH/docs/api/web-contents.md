@@ -447,7 +447,7 @@ Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `callback` Punsyon 
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -731,7 +731,7 @@ Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay 
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Function 
+* `callback` Punsyon 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -744,7 +744,7 @@ Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki 
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Function 
+* `callback` Punsyon 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -860,21 +860,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-* `callback` Function 
+* `callback` Punsyon 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Punsyon 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Punsyon 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -908,7 +908,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Punsyon 
   * `error` Error
   * `data` Buffer
 
@@ -1158,7 +1158,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Function 
+* `callback` Punsyon 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1214,9 +1214,10 @@ Pinapakita ang pop-up na diksyonaryo na naghahanap ng mga napiling salita sa pag
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
 * `pagpipilian` Bagay 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
-    * `lapad` Integer
-    * `taas` Integer
+  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 
