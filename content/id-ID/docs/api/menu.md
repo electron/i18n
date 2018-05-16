@@ -14,7 +14,7 @@ Kelas ` BrowserWindow ` memiliki metode statis berikut:
 
 #### `Menu.set Aaplikasi Menu (menu)`
 
-* `menu` Menu | null
+* `menu` Menu | batal
 
 Set ` menu </ 0> sebagai menu aplikasi pada macOS. Pada Windows dan Linux,
  <code> menu </ 0> akan ditetapkan sebagai menu atas setiap jendela.</p>
