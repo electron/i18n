@@ -28,126 +28,126 @@ HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
 ## --lang
 
-カスタムロケールを設定します。
+Set a custom locale.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-デバッグ関連のフラグです。詳細については、[メインプロセスのデバッグ](../tutorial/debugging-main-process.md)ガイドを参照してください。
+Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
 
 ## --remote-debugging-port=`port`
 
-指定された `port` でHTTP越しのリモートデバッグを有効にします。
+Enables remote debugging over HTTP on the specified `port`.
 
 ## --disk-cache-size=`size`
 
-ディスクキャッシュによって使用されるバイト単位での最大のディスク容量を強制的に設定します。
+Forces the maximum disk space to be used by the disk cache, in bytes.
 
 ## --js-flags=`flags`
 
-Node JSエンジンに渡すフラグを指定します。メインプロセスで `flags` を有効にしたい場合、Electronを開始するときに渡す必要があります。
+Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-利用できるフラグの一覧については、[Nodeのドキュメント](https://nodejs.org/api/cli.html)を参照するか、ターミナルで `node --help` を実行してください。 さらに、NodeのV8 JavaScriptエンジンに関するフラグの一覧を具体的に見るには、`node --v8-options` を実行してください。
+See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
-システム設定よりも優先して、指定したプロキシサーバーを使用します。 このスイッチは、HTTPSとWebSocketリクエストを含むHTTPプロトコルでのリクエストにしか影響しません。 また、すべてのプロキシサーバーがHTTPSとWebSocketリクエストに対応している訳ではないことにも注意してください。
+Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
 
 ## --proxy-bypass-list=`hosts`
 
-指定したホストのセミコロン区切りのリストに対してプロキシサーバーをバイパスするよう、Electronに指示します。このフラグは、`--proxy-server` と併用する場合にしか効果がありません。
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-例:
+For example:
 
 ```javascript
 const {app} = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-ローカルアドレス (`localhost`、`127.0.0.1` など)、`google.com` のサブドメイン、`foo.com` で終わるホストと `1.2.3.4:5678` を除く、すべてのホストに対してプロキシサーバーが使用されます。
+Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
 
 ## --proxy-pac-url=`url`
 
-指定した `url` のPACスクリプトを使用します。
+Uses the PAC script at the specified `url`.
 
 ## --no-proxy-server
 
-プロキシサーバーを使用せず、常に直接接続します。渡された他のプロキシサーバーのフラグを上書きします。
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
 ## --host-rules=`rules`
 
-ホスト名をどのようにマッピングするかを制御する `rules` のコンマ区切りのリスト。
+A comma-separated list of `rules` that control how hostnames are mapped.
 
-例:
+For example:
 
 * `MAP * 127.0.0.1` は、すべてのホスト名を強制的に127.0.0.1にマッピングします。
 * `MAP *.google.com proxy` は、すべてのgoogle.comのサブドメインを強制的に "proxy" で解決されるようにします。
 * `MAP test.com [::1]:77` は、"test.com" を強制的にIPv6ループバックにします。また、最終的なソケットアドレスのポートを強制的に77にします。
 * `MAP * baz, EXCLUDE www.google.com` は、"www.google.com" 以外のすべてを "baz" に再マッピングします。
 
-これらのマッピングは、ネットワークリクエストのエンドポイントのホスト (直接接続でのTCP接続とホストリゾルバー、HTTPプロキシ接続での `CONNECT`、`SOCKS` プロキシ接続でのエンドポイントホスト) に対して適用されます。
+These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
 ## --host-resolver-rules=`rules`
 
-`--host-rules` と似ていますが、これらの `rules` は、ホストリゾルバーにしか適用されません。
+Like `--host-rules` but these `rules` only apply to the host resolver.
 
 ## --auth-server-whitelist=`url`
 
-統合認証が有効であるサーバーのコンマ区切りのリスト。
+A comma-separated list of servers for which integrated authentication is enabled.
 
-例:
+For example:
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-末尾が `example.com`、`foobar.com`、`baz` である `url` は、統合認証の対象になります。 `*` のプリフィックスがない場合は、URLは厳密に一致する必要があります。
+then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-ユーザーの資格情報の委任が必要となるサーバーのコンマ区切りのリスト。`*` のプリフィックスがない場合は、URLは厳密に一致する必要があります。
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
 
 ## --ignore-certificate-errors
 
-証明書関連のエラーを無視します。
+Ignores certificate related errors.
 
 ## --ppapi-flash-path=`path`
 
-Pepper Flashプラグインの `path` を設定します。
+Sets the `path` of the pepper flash plugin.
 
 ## --ppapi-flash-version=`version`
 
-Pepper Flashプラグインの `version` を設定します。
+Sets the `version` of the pepper flash plugin.
 
 ## --log-net-log=`path`
 
-保存されるネットワークログイベントを有効にし、`path` にそれらを書き込みます。
+Enables net log events to be saved and writes them to `path`.
 
 ## --disable-renderer-backgrounding
 
-Chromiumが隠れたページのレンダラープロセスの優先順位を下げるのを防止します。
+Prevents Chromium from lowering the priority of invisible pages' renderer processes.
 
-このフラグはすべてのレンダラープロセスに影響を及ぼすので、1つのウインドウの制限を無効にしたいだけの場合、[無音のオーディオを再生する](https://github.com/atom/atom/pull/9485/files)というテクニックを使うことができます。
+This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
 ## --enable-logging
 
-コンソールにChromiumのログを出力します。
+Prints Chromium's logging into console.
 
-このスイッチは、ユーザのアプリがロードされるよりも早く解析されるため、`app.commandLine.appendSwitch` で使用することはできませんが、同じ効果を得るために `ELECTRON_ENABLE_LOGGING` 環境変数を設定することができます。
+This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
 
 ## --v=`log_level`
 
-既定の最大のアクティブなVログレベルを指定します。0が省略値です。通常、正の値がVログレベルには使われます。
+Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
-このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
+This switch only works when `--enable-logging` is also passed.
 
 ## --vmodule=`pattern`
 
-`--v` で指定された値を上書きするモジュール単位の最大のVログレベルを指定します。 例えば、`my_module=2,foo*=3` は、`my_module.*` と `foo*.*` のソースファイルにあるすべてのコードのログレベルを変更します。
+Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-スラッシュまたはバックスラッシュを含むパターンは、モジュールにだけでなく、全体のパス名に対してテストされます。 例えば、`*/foo/bar/*=2` は、`foo/bar` ディレクトリの下にあるソースファイルのすべてのコードのログレベルを変更します。
+Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
+This switch only works when `--enable-logging` is also passed.
