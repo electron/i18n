@@ -73,8 +73,8 @@ ng blur effect sa nilalaman sa ibaba ng window (ibig sabihin, iba pang mga appli
 ang sistema ng gumagamit).</li>
 <li>Sa mga operating system ng Windows, ang mga transparent windows ay hindi gagana kapag ang DWM ay
 hindi pinagana.</li>
-<li>On Linux, users have to put <code>--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-    * On Mac, the native window shadow will not be shown on a transparent window.</ul> 
+<li>On Linux users have to put <code>--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
+    * On Mac the native window shadow will not be shown on a transparent window.</ul> 
     
     ## Click-through window 
     
@@ -86,41 +86,20 @@ hindi pinagana.</li>
     win.setIgnoreMouseEvents(true)
     ```
     
-    ### Forwarding
-    
-    Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
-    
-    ```javascript
-    let win = require('electron').remote.getCurrentWindow()
-    let el = document.getElementById('clickThroughElement')
-    el.addEventListener('mouseenter', () => {
-      win.setIgnoreMouseEvents(true, {forward: true})
-    })
-    el.addEventListener('mouseleave', () => {
-      win.setIgnoreMouseEvents(false)
-    })
-    ```
-    
-    This makes the web page click-through when over `el`, and returns to normal outside it.
-    
     ## Draggable region 
     
-    Bilang default, ang frameless window ay hindi draggable. Kailangan ng mga app na tukuyin ` -webkit-app-region: drag </ 0> sa CSS upang sabihin sa Electron kung saan ang mga rehiyon ay draggable
-(tulad ng OS's standard titlebar), at maaari ring gamitin ang apps
-<code> -webkit-app-region: no-drag </ 0> upang ibukod ang hindi draggable na lugar mula sa
- draggable region. Tandaan na ang tanging hugis-parihaba na hugis ay kasalukuyang sinusuportahan.</p>
-
-<p>Tandaan: <code> -webkit-app-region: drag </ 0> ay kilala na mayroong mga problema habang bukas ang mga tool ng developer. Tingnan ang <a href="https://github.com/electron/electron/issues/3647"> GitHub isyu </ 0> para sa iba pang mga impormasyon kabilang na ang isang workaround.</p>
-
-<p>Upang gawing draggable ang buong window, maaari kang magdagdag ng <code> -webkit-app-region: drag </ 0> as
-<code>body`'s style:
+    By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+    
+    Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
+    
+    To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
     
     ```html
     <body style="-webkit-app-region: drag">
     </body>
     ```
     
-    At tandaan na kung ginawa mo ang buong window draggable, kailangan mo ring markahan ang mga pindutan bilang hindi draggable, kung hindi, imposible para sa mga gumagamit na mag-click sa kanila:
+    And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
     
     ```css
     button {
@@ -128,11 +107,11 @@ hindi pinagana.</li>
     }
     ```
     
-    Kung ikaw ay nagtatakda lamang ng isang custom titlebar bilang draggable, kailangan mo ring gawin ang lahat mga pindutan sa titlebar non-draggable.
+    If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
     
     ## Text selection 
     
-    Sa isang frameless window ang dragging behaviour ay maaaring sumalungat sa pagpili ng teksto. Halimbawa, kapag nag-drag ka sa titlebar maaari mong aksidenteng piliin ang teksto sa titlebar. Upang maiwasan ito, kailangan mong huwag paganahin ang pagpili ng teksto sa loob ng isang draggable na lugar tulad nito:
+    In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
     
     ```css
     .titlebar {
@@ -143,4 +122,4 @@ hindi pinagana.</li>
     
     ## Context menu 
     
-    Sa ilang mga platform, ang draggable area ay ituturing bilang isang non-client frame, kaya kapag nag-right click ka dito ang isang sistema ng menu ay magpa-pop up. Upang gawin ang menu ng konteksto kumilos ng tama sa lahat ng mga platform na hindi ka dapat gumamit ng custom context menu sa draggable areas.
+    On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
