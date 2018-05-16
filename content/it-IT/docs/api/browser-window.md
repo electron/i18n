@@ -564,7 +564,7 @@ Rimuove l'ingrandimento della finestra.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Ritorna `Boolean` - se la finestra é stata ingrandita.
 
 #### `win.minimize()`
 
@@ -586,7 +586,7 @@ Sets whether the window should be in fullscreen mode.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Ritorna `Boolean` - Se la finestra é a tutto schermo.
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
@@ -640,13 +640,13 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Ritorna [`Rectangle`](structures/rectangle.md)
 
 #### `win.setEnabled(enable)`
 
 * `enable` Boolean
 
-Disable or enable the window.
+Disabilita o abilita la finestra.
 
 #### `win.setSize(width, height[, animate])`
 
