@@ -1,4 +1,4 @@
-# powerSaveBlocker
+# BloccaSalvaPotenza
 
 > Block the system from entering low-power (sleep) mode.
 
