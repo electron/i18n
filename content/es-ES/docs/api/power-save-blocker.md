@@ -25,7 +25,7 @@ El módulo `powerSaveBlocker` tiene los siguientes métodos:
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-Devuelve `Integer` - El ID bloqueador que se asigna al bloqueador de energía.
+Returns `Integer` - The blocker ID that is assigned to this power blocker.
 
 Comienza evitando que el sistema entre en modo bajo consumo de energía. Devuelve un entero que identifica el bloqueador de ahorro de energía.
 
