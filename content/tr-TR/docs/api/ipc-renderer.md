@@ -63,15 +63,15 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 ### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
 
-* `windowId` Number
+* `windowId` Sayı
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Sends a message to a window with `windowid` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+`ipcRenderer.send` gibi ancak olay ana işlem yerine ana sayfadaki `<webview>` öğesine gönderilecektir.
