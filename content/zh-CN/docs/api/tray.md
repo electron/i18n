@@ -71,8 +71,7 @@ app.on('ready', () => {
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
-* `position` [Point](structures/point.md) - The position of the event.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
 
 当该图标被点击时触发。
 
@@ -83,7 +82,7 @@ app.on('ready', () => {
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
 
 当该图标被右击时触发。
 
@@ -94,7 +93,7 @@ app.on('ready', () => {
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
 
 当该图标被双击时触发。
 
@@ -124,7 +123,7 @@ Emitted when dragged files are dropped in the tray icon.
 #### Event: 'drop-text' *macOS*
 
 * `event` Event
-* `text` String - the dropped text string.
+* `text` String - the dropped text string
 
 Emitted when dragged text is dropped in the tray icon.
 
@@ -147,7 +146,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the mouse enters the tray icon.
 
@@ -158,20 +157,9 @@ Emitted when the mouse enters the tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the mouse exits the tray icon.
-
-#### Event: 'mouse-move' *macOS*
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
-
-Emitted when the mouse moves in the tray icon.
 
 ### 实例方法
 
@@ -179,13 +167,13 @@ The `Tray` class has the following methods:
 
 #### `tray.destroy()`
 
-立即销毁该任务栏图标
+Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-设置`image`作为托盘中显示的图标
+Sets the `image` associated with this tray icon.
 
 #### `tray.setPressedImage(image)` *macOS*
 
@@ -203,7 +191,7 @@ Sets the hover text for this tray icon.
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
+Sets the title displayed aside of the tray icon in the status bar.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -235,10 +223,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `选项` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (可选) -
-  * `title` String
-  * `content` String
+* `选项` Object - 过滤器对象，包含过滤参数 
+  * `icon` ([NativeImage](native-image.md) | String) - (optional)
+  * `title` String - (optional)
+  * `content` String - (optional)
 
 Displays a tray balloon.
 
@@ -265,4 +253,4 @@ The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-返回 `Boolean` -判断托盘图标是否被销毁
+Returns `Boolean` - Whether the tray icon is destroyed.
