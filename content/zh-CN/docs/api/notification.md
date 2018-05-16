@@ -14,7 +14,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`Notification` 是 [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter)
+`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 通过 ` options ` 来设置的一个新的原生 ` Notification `。
 
@@ -29,16 +29,15 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 ### `new Notification([options])` *实验功能*
 
 * `选项` 对象 
-  * ` title `String - 通知的标题, 将在通知窗口的顶部显示.
-  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-  * ` body `String 通知的正文文本, 将显示在标题或副标题下面.
-  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
-  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
-  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
-  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
+  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
+  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
+  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
+  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
+  * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
+  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
+  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
+  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
 
 ### 实例事件
 
@@ -70,14 +69,14 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 当用户手动关闭通知时触发
 
-当通知关闭后，这个事件不能保证在所有情况下都会触发。
+This event is not guarunteed to be emitted in all cases where the notification is closed.
 
 #### 事件: 'reply' *macOS*
 
 返回:
 
 * `event` Event
-* ` reply `String-用户在内联答复字段中输入的字符串.
+* `reply` String - The string the user entered into the inline reply field
 
 当用户单击 ` hasReply: true ` 的通知上的 "Reply" 按钮时触发。
 
@@ -86,7 +85,7 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 返回:
 
 * `event` Event
-* `index` Number - 已激活的操作的索引.
+* `index` Number - The index of the action that was activated
 
 ### 实例方法
 
@@ -96,19 +95,13 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 立即显示通知给用户，请注意这一点不同于 HTML5通知实现，只实例化一个 `new Notification` 不会马上显示给用户，你需要在OS将要显示它之前调用这个方法将显示它。
 
-如果以前已显示通知, 则此方法将忽略以前显示的通知，并创建具有相同属性的新通知
-
-#### `notification.close()`
-
-忽略这条通知
-
 ### 播放声音
 
-在 macOS 上, 您可以指定在显示通知时要播放的声音的名称。 除了自定义声音文件之外, 还可以使用任何默认声音 ("系统首选项" > "声音")。 请确保声音文件是在应用程序包(例如, ` YourApp.app/Contents/Resources`) 内存在副本, 或者是下列位置之一:
+On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-有关详细信息, 请参见 [` NSSound `](https://developer.apple.com/documentation/appkit/nssound) 文档。
+See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
