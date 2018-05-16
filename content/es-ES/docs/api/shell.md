@@ -22,7 +22,7 @@ El módulo `shell` tiene los siguientes métodos:
 
 * `fullPath` Cadena
 
-Devuelve `Boolean` - Si el elemento se mostró o no con éxito.
+Returns `Boolean` - Whether the item was successfully shown.
 
 Muestra el archivo determinado en un administrador de archivo. Si es posible, selecciona el archivo.
 
@@ -36,7 +36,7 @@ Abre el archivo determinado en el escritorio por defecto.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - 2081 caracteres como máximo en windows, o la función devuelve falso.
+* `url` String - max 2081 characters on windows, or the function returns false.
 * `opciones` Object (opcional) *macOS* 
   * `activate` Booleano - `true` para traer la aplicación abierta al primer plano. Por defecto es `true`.
 * `callback` Function (opcional) *macOS* - If specified will perform the open asynchronously. 
@@ -50,7 +50,7 @@ Abre el URL determinado de protocolo externo en el escritorio de forma predeterm
 
 * `fullPath` Cadena
 
-Devuelve `Boolean` - Si el elemento se movió o no con éxito a la papelera.
+Returns `Boolean` - Whether the item was successfully moved to the trash.
 
 Mueve el archivo determinado a la papelera y devuelve un valor boleano para la operación.
 
@@ -67,7 +67,7 @@ Reproduce el sonido bip.
   * `replace` - Sobrescribe un acceso directo existente. Y falla si el acceso directo no existe.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Devuelve `Boolean` - Si el acceso directo fue creado con éxito.
+Returns `Boolean` - Whether the shortcut was created successfully.
 
 Crea o actualiza un enlace de acceso directo a `shortcutPath`.
 
