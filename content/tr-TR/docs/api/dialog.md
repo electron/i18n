@@ -91,9 +91,9 @@ Iade`dize`kullanıcı tarafından seçilen dosyanın yolu, bir geri arama sağla
 
 ` filtreleri </ 0>, görüntülenebilen dosya türleri dizisini belirtir, bir örnek için <code> dialog.showOpenDialog </ 0> konusuna bakın.</p>
 
-<p>Bir <code> geri arama </ 0> geçilirse, API çağrısı eş zamansız olur ve sonuç <code> Geri arama (dosya adı) </ 0> üzerinden geçilecek.</p>
+<p>If a <code>callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`.
 
-<h3><code>dialog.showMessageBox([browserWindow, ]seçenekleri[, callback])`</h3> 
+### `dialog.showMessageBox([browserWindow, ]seçenekleri[, callback])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `seçenekler` Nesne 
@@ -110,7 +110,7 @@ Iade`dize`kullanıcı tarafından seçilen dosyanın yolu, bir geri arama sağla
   * `noLink` Boolean (isteğe bağlı) - Windows Elektron' da `buttons`' dan hangisinin ortak düğmeler olduğunu ve diğer iletişim kutusundaki komutların bağlantılarını anlamaya çalışacağız ("İptal" veya "Evet" gibi). Bu işlem diyaloğun modern Windows aplikasyonu tarzında çıkmasını sağlar. Bu davranış hoşunuza gitmiyorsa, `noLink` `true` ayarlayabilirsiniz.
   * `normalizeAccessKeys` Boolean (İsteğe Bağlı) - Platformlar arasında klavye erişim anahtarlarını normalize eder. Varsayılan `false`'dur. Bunun etkinleştirilmesi, klavye kısayol erişim anahtarının yerleştirilmesi için düğme etiketlerinde `&` kullanıldığını ve etiketlerin her platformda doğru şekilde çalışacak şekilde dönüştürüleceğini varsayar, `&` karakterler macOS'ta kaldırılır, Linux'ta `_` olarak dönüştürülür ve Windows'ta dokunulmaz bırakılır. Örneğin; `Vie&w` düğme etiketi Linux' ta `Vie_w` ve macOS' ta `View` olarak dönüştürülecektir, Windows ve Linux' ta `Alt-W` yoluyla seçilebilir.
 * `geri aramak` Fonksiyon (isteğe bağlı) 
-  * `response` Number - Tıklanan düğmenin yolu.
+  * `response` Number - The index of the button that was clicked.
   * `checkboxChecked` Boolean - `checkboxLabel` onay kutusu işaretli olarak ayarlanmış olmalıdır. Aksi halde `false`.
 
 `Integer` tıklanan düğmenin indeksini döndürür, eğer bir geri dönüş sağlanırsa tanımsız bir şekilde geri döndürür.
@@ -123,8 +123,8 @@ Eğer bir `callback` geçilirse, Sonuç `callback(response)`üzerinden iletilece
 
 ### `diyalog.showErrorBox(başlık, içerik)`
 
-* `title` dizi - Hata kutusunda görüntülenecek başlığı belirler.
-* `content` dizi - Hata kutusunda görüntülenecek olan metnin içeriğini belirler.
+* `title` String - The title to display in the error box.
+* `content` String - The text content to display in the error box.
 
 Bir hata iletisi gösteren bir kalıcı iletişim kutusu görüntüler.
 
