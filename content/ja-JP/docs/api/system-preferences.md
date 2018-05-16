@@ -88,7 +88,7 @@ console.log(systemPreferences.isDarkMode())
   * `event` String
   * `userInfo` Object
 
-`subscribeNotification` と同じですが、ローカルデフォルトでは `NSNotificationCenter` を使用します。これは、`NSUserDefaultsDidChangeNotification` などのイベントに必要です。
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -98,18 +98,18 @@ console.log(systemPreferences.isDarkMode())
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - ユーザデフォルト (`key: value`) の辞書配列 
+* `defaults` Object - a dictionary of (`key: value`) user defaults 
 
-アプリケーションの `NSUserDefaults` へ指定したデフォルトを追加します。
+Add the specified defaults to your application's `NSUserDefaults`.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array` または `dictionary` にできます。
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-戻り値 `any` - `NSUserDefaults` 内の `key` の値。
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-いくつかの一般的な `key` と `value` は以下です。
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -122,14 +122,14 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] を参照してください。
+* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` String
 
-`NSUserDefaults` 内の `key` の値を設定します。
+Set the value of `key` in `NSUserDefaults`.
 
-`type` は `value` の実際の型と一致する必要があります。そうでない場合は例外がスローされます。
+Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-いくつかの一般的な `key` と `value` は以下です。
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -137,13 +137,13 @@ console.log(systemPreferences.isDarkMode())
 
 * `key` String
 
-`NSUserDefaults` の `key` を削除します。 これは、以前に `setUserDefault`で設定された `key` のデフォルトまたはグローバル値を復元するために使用できます。
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-戻り値 `Boolean` - [DWM Composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) が有効な場合は `true`、それ以外は `false`。
+Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
 
-透明なウィンドウを作成するかどうかを決定するためにこのメソッドを使用する例です (透明なウィンドウは、DWM Composition が無効のときは正しく動作しません)。
+An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
 ```javascript
 const {BrowserWindow, systemPreferences} = require('electron')
@@ -169,7 +169,7 @@ if (browserOptions.transparent) {
 
 ### `systemPreferences.getAccentColor()` *Windows*
 
-戻り値 `String` - RGBA の16進数形式で、ユーザの現在のシステム全体のアクセント色の設定を表します。
+Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -181,40 +181,40 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - 以下の値の一つ。 
-  * `3d-dark-shadow` - 3D 表示要素の暗い影の色。
-  * `3d-face` - 3D 表示要素とダイアログボックスの背景の表面の色。
-  * `3d-highlight` - 3D 表示要素のハイライト色。
-  * `3d-light` - 3D 表示要素の光源色。
-  * `3d-shadow` - 3D 表示要素の影の色。
-  * `active-border` - アクティブなウインドウの縁の色。
-  * `active-caption` - アクティブなウインドウのタイトルバー色。グラデーション効果が有効な場合は、その左側の色になります。
-  * `active-caption-gradient` - アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
-  * `app-workspace` - マルチドキュメントインターフェース (MDI) アプリケーションの背景色。
-  * `button-text` - 押しボタンのテキスト色。
-  * `caption-text` - キャプション、サイズボックス、スクロールバー、矢印ボックス内のテキスト色。
-  * `desktop` - デスクトップ背景色。
-  * `disabled-text` - グレーの (無効化された) テキスト色。
-  * `highlight` - コントロール内で選択されたアイテム色。
-  * `highlight-text` - コントロール内で選択されたアイテムのテキスト色。
-  * `hotlight` - ハイパーリンクかホットトラックされたアイテムの色。
-  * `inactive-border` - 非アクティブなウインドウの縁の色。
-  * `inactive-caption` - 非アクティブなウインドウのキャプション色。グラデーション効果が有効な場合は、その左側の色になります。
-  * `inactive-caption-gradient` - 非アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
-  * `inactive-caption-text` - 非アクティブなキャプション内のテキストの色。
-  * `info-background` - ツールチップコントロールの背景色。
-  * `info-text` - ツールチップコントロールのテキスト色。
-  * `menu` - メニューの背景色。
-  * `menu-highlight` - メニューがフラットメニューとして表示されたときにメニュー項目をハイライト表示するために使用される色。
-  * `menubar` - メニューがフラットメニューとして表示されたときのメニューの背景色。
-  * `menu-text` - メニューのテキスト色。
-  * `scrollbar` - スクロールバーのグレーの領域の色。
-  * `window` - ウインドウの背景色。
-  * `window-frame` - ウインドウフレームの色。
-  * `window-text` - ウインドウ内のテキスト色。
+* `color` String - One of the following values: 
+  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
+  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
+  * `3d-highlight` - Highlight color for three-dimensional display elements.
+  * `3d-light` - Light color for three-dimensional display elements.
+  * `3d-shadow` - Shadow color for three-dimensional display elements.
+  * `active-border` - Active window border.
+  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
+  * `app-workspace` - Background color of multiple document interface (MDI) applications.
+  * `button-text` - Text on push buttons.
+  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
+  * `desktop` - Desktop background color.
+  * `disabled-text` - Grayed (disabled) text.
+  * `highlight` - Item(s) selected in a control.
+  * `highlight-text` - Text of item(s) selected in a control.
+  * `hotlight` - Color for a hyperlink or hot-tracked item.
+  * `inactive-border` - Inactive window border.
+  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
+  * `inactive-caption-text` - Color of text in an inactive caption.
+  * `info-background` - Background color for tooltip controls.
+  * `info-text` - Text color for tooltip controls.
+  * `menu` - Menu background.
+  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
+  * `menubar` - The background color for the menu bar when menus appear as flat menus.
+  * `menu-text` - Text in menus.
+  * `scrollbar` - Scroll bar gray area.
+  * `window` - Window background.
+  * `window-frame` - Window frame.
+  * `window-text` - Text in windows.
 
-戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳細については、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) を参照してください。
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-戻り値 `Boolean` - ハイコントラストテーマなどの反転したカラースキームがアクティブな場合は `true`、そうでない場合は `false` です。
+Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
