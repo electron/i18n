@@ -32,25 +32,25 @@ Set a custom locale.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Flagi związane z debugowaniem, zobacz więcej w poradniku dla debugowania [Main Process](../tutorial/debugging-main-process.md).
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Włącz zdalne debugowanie poprzez HTTP na określonym `port`.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Wymuś użycie maksymalnego miejsca na dysku dla pamięci podręcznej wyrażonej w bajtach.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Określa flagi przekazywane do silnika Node JS. Musi być przekazane podczas uruchamiania Electron'a, jeśli chcesz włączyć `flagi` w głównym procesie.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Zobacz więcej w [dokumentacji Node'a](https://nodejs.org/api/cli.html) albo uruchom komendę `node --help` w wierszu poleceń aby zobaczyć listę dostępnych flag. Dodatkowo wpisz polecenie `node --v8-options`, aby zobaczyć listę flag które odnoszą się do silnika Node V8 JavaScript.
 
 ## --proxy-server=`address:port`
 
@@ -112,7 +112,7 @@ A comma-separated list of servers for which delegation of user credentials is re
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Ignoruje błędy powiązane z certyfikatami.
 
 ## --ppapi-flash-path=`path`
 
