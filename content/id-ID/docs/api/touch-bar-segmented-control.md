@@ -15,7 +15,7 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
   * `bertekstur-bulat` - kontrol ditampilkan menggunakan gaya bulat bertekstur.
   * `putaran-rect` - kontrol ditampilkan menggunakan gaya rect bulat.
   * `bertekstur persegi` - kontrol ditampilkan menggunakan gaya persegi bertekstur.
-  * `capsule` - The control is displayed using the capsule style.
+  * `kapsul` - kontrol ditampilkan menggunakan gaya kapsul.
   * `persegi kecil` - kontrol ditampilkan menggunakan gaya persegi kecil.
   * `dipisahkan` - segmen dalam pengendalian ditampilkan sangat dekat satu sama lain tetapi tidak menyentuh.
 * `modus` String (optional) - The selection mode of the control: 
@@ -24,7 +24,7 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
   * `tombol` - membuat segmen bertindak sebagai tombol, setiap segmen dapat ditekan dan dirilis tapi tidak pernah ditandai aktif.
 * `segmen` [[SegmentedControlSegment]](structures/segmented-control-segment.md) - serangkaian segmen untuk menempatkan di kontrol ini.
 * `selectedIndex` Bulat (opsional) - indeks dari segmen yang dipilih, akan diperbarui secara otomatis dengan interaksi pengguna. Bila beberapa itu akan terakhir item yang dipilih.
-* `perubahan` Function - Called when the user selects a new segment. 
+* `perubahan` Fungsi - disebut ketika pengguna memilih segmen baru. 
   * `selectedIndex` Bulat - indeks dari segmen pengguna yang dipilih.
   * `isSelected` Boolean - baik yang merupakan pengguna pilihan segmen yang dipilih atau tidak.</li> </ul> 
 
