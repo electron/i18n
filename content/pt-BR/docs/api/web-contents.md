@@ -1206,7 +1206,7 @@ win.webContents.on('did-finish-load', () => {
 })
 ```
 
-#### `contents.showDefinitionForSelection()` *macOS*
+#### `contents.showDefinitionForSelection()` no *macOS*
 
 Shows pop-up dictionary that searches the selected word on the page.
 
