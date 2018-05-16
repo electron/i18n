@@ -6,7 +6,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). 它就像一个子窗口，除了它的位置是相对于父窗口。 这意味着可以替代`webview`标签.
+`BrowserView`被用来让`BrowserWindow`嵌入更多的 web 内容。 它就像一个子窗口，除了它的位置是相对于父窗口。 这意味着可以替代`webview`标签.
 
 ## 示例
 
@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+view.webContents.loadURL('https://electron.atom.io')
 ```
 
 ### `new BrowserView([可选])` *实验功能*
@@ -35,16 +35,6 @@ view.webContents.loadURL('https://electronjs.org')
   * `webPreferences` Object (可选) - 详情请看 [BrowserWindow](browser-window.md).
 
 ### 静态方法
-
-#### `BrowserView.getAllViews()`
-
-返回 `BrowserWindow[]` - 所有打开的窗口的数组
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-返回 `BrowserView | null` - 如果内容不属于BrowserView，则它拥有返回的`webContents`或`null`。
 
 #### `BrowserView.fromId(id)`
 
@@ -67,14 +57,6 @@ view.webContents.loadURL('https://electronjs.org')
 ### 实例方法
 
 使用 `new BrowserView`创建的对象具有以下实例方法:
-
-#### `view.destroy()`
-
-强制关闭视图, 不会为网页发出 ` unload ` 和 ` beforeunload ` 事件。 完成视图后, 请调用此函数, 以便尽快释放内存和其他资源。
-
-#### `view.isDestroyed()`
-
-返回 `Boolean` -判断窗口是否被销毁
 
 #### `view.setAutoResize(options)` *实验功能*
 
