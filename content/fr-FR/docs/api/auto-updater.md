@@ -4,18 +4,13 @@
 
 Processus : [Principal](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
-
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
-
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+**Vous trouverez un guide détaillé sur la façon d'implémenter des mises à jour dans votre application [ici](../tutorial/updates.md).**
 
 ## Avertissement sur les plateformes
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+Actuellement, seuls MacOS et Windows sont supportés. Il n' y a pas de support intégré pour la mise à jour automatique sous Linux, il est donc recommandé d'utiliser le gestionnaire de paquetages de la distribution pour mettre à jour votre application.
+
+En outre, il y a quelques différences subtiles sur chaque plateforme :
 
 ### macOS
 
@@ -33,35 +28,31 @@ L'installateur généré avec Squirrel va créer une icône de raccourci avec un
 
 Contrairement à Squirrel.Mac, Windows peut héberger des mises à jour sur S3 ou tout autre hôte de fichiers statiques. Vous pouvez lire les documents de [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) pour obtenir plus de détails sur le fonctionnement de Squirrel.Windows.
 
-### Linux
-
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
-
 ## Événements
 
-The `autoUpdater` object emits the following events:
+L'objet `autoUpdater` émet les événements suivants :
 
 ### Événement : 'error'
 
-Retourne :
+Renvoie :
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Émis lorsqu’il y a une erreur pendant la mise à jour.
 
-### Event: 'checking-for-update'
+### Événement : 'checking-for-update'
 
-Emitted when checking if an update has started.
+Émis lors de la vérification du commencement d'une mise à jour.
 
-### Event: 'update-available'
+### Événement : 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Émis lorsqu’il y a une mise à jour disponible. La mise à jour est téléchargé automatiquement.
 
-### Event: 'update-not-available'
+### Événement : 'update-not-available'
 
-Emitted when there is no available update.
+Émis quand il n’y a aucune mise à jour disponible.
 
-### Event: 'update-downloaded'
+### Événement : 'update-downloaded'
 
 Retourne :
 
@@ -71,7 +62,7 @@ Retourne :
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Émis lorsqu'une mise à jour a été téléchargée.
 
 On Windows only `releaseName` is available.
 
@@ -79,10 +70,12 @@ On Windows only `releaseName` is available.
 
 The `autoUpdater` object has the following methods:
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `options` Objet 
+  * `url` String
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Sets the `url` and initialize the auto updater.
 
@@ -98,4 +91,6 @@ Asks the server whether there is an update. You must call `setFeedURL` before us
 
 Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
