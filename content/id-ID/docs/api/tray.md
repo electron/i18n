@@ -43,8 +43,8 @@ Modul `Tray` memancarkan peristiwa berikut:
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
-* `position` [Point](structures/point.md) - The position of the event.
+* `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
+* `posisi` [Point](structures/point.md) - posisi acara.
 
 Emitted saat ikon baki diklik.
 
@@ -55,7 +55,7 @@ Emitted saat ikon baki diklik.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 
 Dibunyikan ketika ikon tray benar diklik.
 
@@ -66,7 +66,7 @@ Dibunyikan ketika ikon tray benar diklik.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 
 Dipancarkan saat ikon baki diklik dua kali.
 
@@ -95,8 +95,8 @@ Disuarakan saat file terseret dijatuhkan di ikon baki.
 
 #### Event: 'drop-teks' *macOS*
 
-* `event` Acara
-* `text` String - the dropped text string.
+* `acara` Acara
+* `teks` String - string teks menjatuhkan.
 
 Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
 
@@ -119,7 +119,7 @@ Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi la
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `posisi` [Point](structures/point.md) - posisi acara.
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
@@ -130,7 +130,7 @@ Dibunyikan apabila operasi drag yang memasuki ikon tray.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `posisi` [Point](structures/point.md) - posisi acara.
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
@@ -141,52 +141,52 @@ Dibunyikan apabila operasi drag yang memasuki ikon tray.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `posisi` [Point](structures/point.md) - posisi acara.
 
 Emitted when the mouse moves in the tray icon.
 
 ### Metode Instance
 
-The `Tray` class has the following methods:
+Itu `net` modul memiliki metode berikut:
 
-#### `tray.destroy()`
+#### `tray.destroy ()`
 
-Destroys the tray icon immediately.
+Segera hancurkan ikon baki.
 
 #### `tray.setImage(image)`
 
 * `gambar` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Mengatur `gambar` yang terkait dengan ikon baki ini.
 
-#### `tray.setPressedImage(image)` *macOS*
+#### `tray.setPressedImage(gambar) ` *macos*
 
 * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul>
 
-<p>Sets the <code>image` associated with this tray icon when pressed on macOS.</p> 
+<p>Mengatur <code> gambar ` yang terkait dengan ikon baki ini saat ditekan pada macOS.</p> 
   #### `tray.setToolTip(toolTip)`
   
   * `toolTip` String
   
-  Sets the hover text for this tray icon.
+  Menyetel teks hover untuk ikon baki ini.
   
-  #### `tray.setTitle(title)` *macOS*
+  #### `tray.setTitle(judul) ` *macos*
   
-  * ` judul</ 0>  String</li>
+  * ` judul </ 0> String</li>
 </ul>
 
 <p>Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).</p>
 
-<h4><code>tray.setHighlightMode(mode)` *macOS*</h4> 
-    * `modus` String - Highlight mode with one of the following values: 
-      * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-      * `always` - Always highlight the tray icon.
-      * `never` - Never highlight the tray icon.
+<h4><code>tray.setHighlightMode(mode)` * macos*</h4> 
+    * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
+      * `selection` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
+      * `selalu` - Selalu sorot ikon baki.
+      * `tidak pernah` - Jangan menyorot ikon baki.
     
-    Sets when the tray's icon background becomes highlighted (in blue).
+    Menyetel saat latar belakang ikon baki disorot (berwarna biru).
     
-    **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+    **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
     
     ```javascript
     const {BrowserWindow, Tray} = require ('electron')
@@ -207,34 +207,34 @@ Sets the `image` associated with this tray icon.
     
     #### `tray.displayBalloon(options)` *Windows*
     
-    * `pilihan` Sasaran 
-      * `icon` ([NativeImage](native-image.md) | String) (optional) -
-      * ` judul</ 0>  String</li>
+    * `pilihan` Obyek 
+      * `ikon` ([NativeImage](native-image.md) | String) (opsional) -
+      * ` judul </ 0> String</li>
 <li><code>content` String
     
-    Displays a tray balloon.
+    Menampilkan balon baki.
     
     #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
     
-    * `menu` Menu (optional)
-    * `position` [Point](structures/point.md) (optional) - The pop up position.
+    * ` teks ` String (opsional)
+    * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
     
-    Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+    Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
     
-    The `position` is only available on Windows, and it is (0, 0) by default.
+    Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
     
-    #### `tray.setContextMenu(menu)`
+    #### `tray.setContextMenu (menu)`
     
     * `menu` Menu
     
-    Sets the context menu for this icon.
+    Menetapkan menu konteks untuk ikon ini.
     
-    #### `tray.getBounds()` *macOS* *Windows*
+    #### `tray.getBounds()` *macOS * * Windows*
     
     Kembali [`Rectangle`](structures/rectangle.md)
     
-    The `bounds` of this tray icon as `Object`.
+    `Batas` dari ikon baki ini sebagai `Objek`.
     
     #### `tray.isDestroyed()`
     
-    Returns `Boolean` - Whether the tray icon is destroyed.
+    Mengembalikan `Boolean` - Apakah ikon baki rusak.
