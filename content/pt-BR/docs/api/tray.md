@@ -187,7 +187,7 @@ Destroys the tray icon immediately.
 
 Sets the `image` associated with this tray icon.
 
-#### `tray.setPressedImage(image)` *macOS*
+#### `tray.setPressedImage(image)` no *macOS*
 
 * `image` [NativeImage](native-image.md)
 
@@ -199,13 +199,13 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 Sets the hover text for this tray icon.
 
-#### `tray.setTitle(title)` *macOS*
+#### `tray.setTitle(title)` no *macOS*
 
 * `title` String
 
 Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
 
-#### `tray.setHighlightMode(mode)` *macOS*
+#### `tray.setHighlightMode(mode)` no *macOS*
 
 * `mode` String - Highlight mode with one of the following values: 
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
@@ -236,7 +236,7 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (opcional) -
   * `title` String
   * `content` String
 
