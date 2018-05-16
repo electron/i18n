@@ -35,13 +35,13 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (任意)
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -59,7 +59,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function
 
 リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
@@ -68,7 +68,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `id` Integer
   * `url` String
   * `method` String
-  * `webContentsId` Integer (任意)
+  * `webContentsId` Integer (optional)
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
@@ -82,13 +82,13 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (任意)
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
@@ -98,7 +98,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function
 
 `listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
@@ -107,7 +107,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `id` Integer
   * `url` String
   * `method` String
-  * `webContentsId` Integer (任意)
+  * `webContentsId` Integer (optional)
   * `resourceType` String
   * `timestamp` Double
   * `statusLine` String
@@ -124,17 +124,17 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (任意)
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
-    * `fromCache` Boolean - レスポンスがディスクキャッシュからフェッチされたかどうかを示します。
+    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
     * `statusCode` Integer
     * `statusLine` String
 
@@ -143,18 +143,18 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (任意)
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
-    * `ip` String (任意) - リクエストが実際に送信されたサーバーの IP アドレス。
+    * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
     * `responseHeaders` Object
 
@@ -163,13 +163,13 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (任意)
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
@@ -182,16 +182,16 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Object (任意) 
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (任意)
+    * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - エラーの内容。
+    * `error` String - The error description.
 
 `listener` は、エラーが発生したときに `listener(details)` で呼ばれます。
