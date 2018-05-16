@@ -10,7 +10,7 @@
   * `availableColors` String[] (isteğe bağlı) - Seçilecek olası renkler olarak görünecek altılı renk dizeleri dizisi.
   * `selectedColor` Dizge (isteğe bağlı) - Seçicide seçili altı renk, yani `#ABCDEF`.
   * `change` Fonksiyon (isteğe bağlı) - Bir renk seçildiğinde aranacak fonksiyon. 
-    * `color` String - The color that the user selected from the picker.
+    * `renk` Metin - Kullanıcının seçiciden seçtiği renk.
 
 ### Örnek Özellikler
 
