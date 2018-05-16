@@ -66,8 +66,8 @@ Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
-* `position` [Point](structures/point.md) - The position of the event.
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
 Emitted kapag nag click ang tray icon.
 
@@ -78,7 +78,7 @@ Emitted kapag nag click ang tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
 
 Emitted kapag nai-right click ang tray icon.
 
@@ -89,7 +89,7 @@ Emitted kapag nai-right click ang tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
 
 Emitted kapag ang tray icon ay na double-click.
 
@@ -119,7 +119,7 @@ Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 #### Event: 'drop-text' *macOS*
 
 * `kaganapan` kaganapan
-* `text` String - the dropped text string.
+* `text` String -ang mga binitiwang text string.
 
 Emitted kapag ang dragged text ay ibinagsak sa tray icon.
 
@@ -142,7 +142,7 @@ Emitted kapag ang drag operation ay nagtatapos sa tray o nagtatapos sa ibang lug
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
 Emitted kapag ang mouse ay pumapasok sa tray icon.
 
@@ -153,46 +153,46 @@ Emitted kapag ang mouse ay pumapasok sa tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
 Emitted kapag ang mouse ay lumalabas sa tray icon.
 
 #### Event: 'mouse-move' *macOS*
 
-* `kaganapan` Event 
+* `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
 Emitted when the mouse moves in the tray icon.
 
 ### Mga Pamamaraan ng Instance
 
-The `Tray` class has the following methods:
+Ang 0>Tray</code>class ay may mga sumusunod na mga pamamaraan:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Agad na sumisira sa tray icon.
 
 #### `tray.setImage(image)`
 
 * `image` [NativeImage](native-image.md) (String)
 
-Sets the `image` associated with this tray icon.
+Nagseset sa `image` na may kaugnayan sa tray icon na ito.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Nagseset sa `image`na may kaugnayan sa tray icon kapag pinindot ang macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Nagseset sa hover text para sa tray icon na ito.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -202,14 +202,14 @@ Sets the title displayed aside of the tray icon in the status bar (Support ANSI 
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` String-Highlight mode sa isa mga mga sumusunod na mga value: 
+  * `seleksyon` -Highlight ang tray icon kapag it ay nag-click at kapag ang context menu ay nakabukas. Ito ay ang default.
+  * `palagi` - Palaging ihighlight ang tray icon.
+  * `hindikailanman` - Hindi kailanman ihighlight ang tray icon.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Nagseset kapang ang tray's icon background ay nagiging highlighted(sa asul).
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Note:**Maari mong gamitin ang`highlightMode`sa isang [`BrowserWindow`](browser-window.md)sa pamamagitan ng toggling sa pagitan `'never'` and `'always'` modes kapag ang window visibility ay nagbago.
 
 ```javascript
 const {BrowserWindow, Tray} = nangangailanganng('electron')
@@ -230,34 +230,34 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `pagpipilian` Bagay 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+* `options` Bagay 
+  * `icon` ([NativeImage](native-image.md) | String) (opsyonal) -
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+Nagdidisplay ng isang tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
 * `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `position` [Point](structures/point.md) (optional) - Ang posisyon ng pop up.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+May lilitaw na context menu sa tray icon. Kapag ang `menu`ay nakapasa, ang`menu`ay maipapakita sa halip na tray icon's context menu.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+Ang`position` ay tanging magagamit sa Windows, at ito ay (0, 0) sa pamamagitan ng default,.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu
 
-Sets the context menu for this icon.
+Nagseset ng context menu para sa icon na ito.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Nagbabalik[`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Ang `bounds`ng tray icon na ito bilang isang`Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Nagbabalik`Boolean` -Kahit pa ang tray icon ay nawasak.
