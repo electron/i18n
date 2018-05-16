@@ -159,7 +159,7 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
   * `type` String (opzionale): il tipo di finestra, impostazione predefinita è normale finestra. Vedi di più su questo qui sotto.
   * `<0>titleBarStyle</0>` Stringa (opzionale) - lo stile della barra del titolo della finestra. Impostazione predefinita è `default`. I valori possibili sono: 
     * `default` - risultato di colore grigio opaco come barra del titolo del Mac.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
+    * `hidden` - genera una barra del titolo nascosta e una finestra a tutto schermo per il contenuto e inoltre la barra del titolo contiene nell'angolo in alto a sinistra i tipici controlli per la finestra ("semaforo").
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
@@ -518,49 +518,49 @@ Force closing the window, the `unload` and `beforeunload` event won't be emitted
 
 Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
 
-#### `win.focalizza()`
+#### `win.focus()`
 
-Focuses on the window.
+Focalizza la finestra.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Rimuove la focalizzazione dalla finestra.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Ritorna `Boolean` - Se la finestra é focalizzata.
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+Ritorna `Boolean` - se la finestra é stata distrutta.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Visualizza la finestra e la focalizza.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Mostra la finestra, senza focalizzarla.
 
 #### `win.hide()`
 
-Hides the window.
+Nasconde la finestra.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Ritorna `Boolean` - Se la finestra é visibile all'utente.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Ritorna `Boolean` - Se la finestra corrente é modale.
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Ingrandisce la finestra. Nel caso in cui non sia giá visualizzata, la finestra verrá mostrata (ma non focalizzata).
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Rimuove l'ingrandimento della finestra.
 
 #### `win.isMaximized()`
 
