@@ -4,18 +4,13 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-` autoUpdater`模块提供一个接口给[ Squirrel](https://github.com/Squirrel)框架
+**您可以在 [这里](../tutorial/updates.md) 找到一个详细的指南，介绍如何将更新应用到您的应用程序。**
 
-你可以使用这些项目之一进行快速启动多平台发布服务器以分发应用程序:
+## 跨平台提醒
 
-* [nuts](https://github.com/GitbookIO/nuts): *为你的应用程序提供智能版本服务器, 使用GitHub作为后端。使用Squirrel(Mac和Windows) 自动更新*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *功能齐全, 自主托管的electron应用程序的发布服务器, 兼容自动更新器*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *对于使用 GitHub 版本的 Squirrel.Mac 和 Squirrel.Windows 的一个简单的 node.js 服务器*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *一个简单的 Squirrel.Windows 的 PHP 应用程序，它从文件夹读取更新。并支持增量更新</1> *
+目前，只有 macOS 和 Window 支持该功能。在 Linux 上没有对自动更新程序的内置支持，因此建议使用发行版的包管理器来更新您的应用程序。
 
-## 平台相关的提示
-
-虽然 `autoUpdater` 模块提供了一套各平台通用的接口，但是在每个平台间依然会有一些微小的差异。
+此外，每个平台都有一些细微的差别:
 
 ### macOS
 
@@ -32,10 +27,6 @@
 使用Squirrel生成的安装程序将以`com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`,的格式创建一个带有[Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 的快捷图标,例子是 `com.squirrel.slack.Slack` 和 `com.squirrel.code.Code`.。 你应该在自己的应用中使用 `app.setAppUserModelId` API 方法设置相同的 API和ID，不然 Windows 将不能正确地把你的应用固定在任务栏上。
 
 与 Squirrel.Mac 不同，Windows 版可以将更新文件放在 S3 或者其他静态主机上。 你可以阅读 [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)的文档来获得更多详细信息。
-
-### Linux
-
-在Linux上没有自动更新器的内置支持, 因此建议使用分发包的包管理器来更新您的应用程序。
 
 ## 事件
 
@@ -57,7 +48,7 @@
 
 当发现一个可用更新的时候触发，更新包下载会自动开始。
 
-### Event: 'update-available'
+### Event: 'update-not-available'
 
 当没有可用更新的时候触发。
 
@@ -79,10 +70,12 @@
 
 `autoUpdater` 对象具有以下方法:
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(options)`
 
-* `url` String
-* `requestHeaders` Object *macOS* (可选) - HTTP 请求头.
+* `选项` Object 
+  * `url` String
+  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 设置检查更新的 `url`，并且初始化自动更新。
 
@@ -98,4 +91,6 @@
 
 在下载完成后，重启当前的应用并且安装更新。这个方法应该仅在 `update-downloaded` 事件触发后被调用。
 
-**注意:** `autoUpdater.quitAndInstall()` 将先关闭所有应用程序窗口, 并且只在 `app` 上发出 `before-quit`事件。 这和正常退出的事件序列不同。
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
