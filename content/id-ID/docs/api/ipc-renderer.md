@@ -66,15 +66,15 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
                     ### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
                     
                     * `windowId` Number
-                    * `channel` String
-                    * ` ... args </ 0> ada []</li>
+                    * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
 </ul>
 
 <p>Sends a message to a window with <code>windowid` via `channel`.</p> 
-                        ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
+                        ### `ipcRenderer.kirim ke tuan rumah(saluran [, arg1] [, arg2] [, ...])`
                         
                         * `channel` String
                         * ` ... args </ 0> ada []</li>
 </ul>
 
-<p>Like <code>ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.</p>
+<p>Seperti <code> ipcrenderer.kirim </ 0> tapi acara akan dikirim ke <code><webview>` elemen di tuan rumah halaman bukan proses utama.</p>
