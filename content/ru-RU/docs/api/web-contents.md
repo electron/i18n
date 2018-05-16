@@ -523,7 +523,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 Возвращает:
 
 * `level` Integer
-* `message` String
+* Строка `message`
 * `line` Integer
 * `sourceId` String
 
