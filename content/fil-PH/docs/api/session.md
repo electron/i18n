@@ -25,7 +25,7 @@ Ang `session` na modyul ay ang mga sumusunod na pamamaraan:
 ### `sesyon.galingPartisyon(partisyon[, mga opsyon])`
 
 * `partisyon` na String
-* `mga opsyon` Bagay 
+* `mga opsyon` Bagay (opsyonal) 
   * `cache` na Boolean - Kung pagaganahin ang cache.
 
 Ibinabalik ang `session` - Isang instance ng sesyon mula sa `partisyon` na string. Kapag merong umiiral sa `session` ng may kaparehong `partisyon`, ito ay ibabalik: sa kabilang banda ang isang bagong `session` na instance ay malilikha kasama ang `options`.
@@ -93,16 +93,16 @@ Ang callback ay tinatawag sa kasalukuyang sukat ng cache ng sesyon.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `callback` na Function - Tinatawag kung ang operason ay tapos na.
 
 Inaalis ang HTTP na cache ng sesyon.
 
 #### `ses.clearStorageData([options, callback])`
 
 * `mga opsyon` Bagay (opsyonal) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
 Inaalis ang datos ng mga web na imbakan.
@@ -125,12 +125,13 @@ Kung ang `pacScript` at `proxyRules` ay kasabay na ibinigay, ang `proxyRules` na
 
 Ang `proxyRules` ay dapat sumunod sa mga panuntunan sa ibaba:
 
-    proxyRules = schemeProxies[";"<schemeProxies>]
-    schemeProxies = [<urlScheme>"="]<proxyURIList>
-    urlScheme = "http" | "https" | "ftp" | "socks"
-    proxyURIList = <proxyURL>[","<proxyURIList>]
-    proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-    
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
 
 Halimbawa:
 
@@ -162,7 +163,7 @@ Ang `proxyBypassRules` ay isang listahan ng panuntunan na pinaghihiwalay ng kuwi
   
   Mga halimbawa: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
-* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   Itugma ang anumang URL na para sa IP literal na nabibilang sa pagitan ng binigay na saklaw. Ang saklaw ng IP ay tinukoy gamit ang CIDR na notasyon.
   
@@ -182,7 +183,7 @@ Naglulutas ng impormasyon sa proxy para sa `url`. Ang `callback` ay tatawagin na
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location
+* `path` String - The download location.
 
 Nagtatakda ng download saving na direktoryo. Bilang default, ang download na direktoryo ay ang`Downloads` sa ilalim ng kaukulang app na folder.
 
@@ -218,10 +219,11 @@ Hindi pinapagana ang anumang network na pag-emulate na aktibo na para sa `sesyon
   * `kahilingan` Bagay 
     * `hostname` na String
     * `certificate` na [Sertipiko](structures/certificate.md)
-    * `error` String - Verification result from chromium.
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `callback` Function 
     * `verificationResult` Integer - Ang halaga ay maaring isa sa mga error na code ng sertipiko na mula [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Bukod sa mga error na code sa sertipiko, ang mga sumusunod na mga espesyal na code ay magagamit. 
-      * `` - Indicates success and disables Certificate Transperancy verification.
+      * `` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Nagpapahiwatig sa kabiguan.
       * `-3` - Gumagamit ng resulta ng pagpapatunay galing sa chromium.
 
@@ -245,13 +247,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `tagahawak` Function 
+* `tagahawak` Function | null 
   * `webContents` na [WebContents](web-contents.md) - WebContents na naghihingi ng pahintulot.
   * `pahintulot` na String - Enum ng 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
-    * `permissionGranted` Boolean - Allow or deny the permission
+    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `ang mga detalye` Object - Some properties are only available on certain permission types. 
+    * `externalURL` String - The url of the `openExternal` request.
 
-Nagtatakda sa tagahawak na magagamit upang tumugon sa mga kahilingan sa pahintulot para sa `session`. Ang pagtawag sa `callback(true)` ay maaring magbigay ng pahintulot at ang `callback(false)` ay magtatanggi ito.
+Nagtatakda sa tagahawak na magagamit upang tumugon sa mga kahilingan sa pahintulot para sa `session`. Ang pagtawag sa `callback(true)` ay maaring magbigay ng pahintulot at ang `callback(false)` ay magtatanggi ito. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
@@ -272,7 +276,7 @@ Nililinis ang cache ng tagalutas ng host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
 Dinamikong itinatakda kung lagi bang magpadala ng mga kredensyal para sa HTTP NTLM o makipagpulungan para pagpapatunay.
 
@@ -307,8 +311,6 @@ Nagbabalik ng `String` - Ang tagagamit na ahente para sa sesyong ito.
 * `callback` Function 
   * `result` na Buffer - Blob na datos.
 
-Returns `Blob` - The blob data associated with the `identifier`.
-
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Bagay 
@@ -326,9 +328,19 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `mga opsyon` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - Called when operation is done
+* `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
 Clears the session’s HTTP authentication cache.
+
+#### `ses.setPreloads(preloads)`
+
+* `preloads` String[] - An array of absolute path to preload scripts
+
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+
+#### `ses.getPreloads()`
+
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### Mga Katangian ng Instance
 
