@@ -6,7 +6,7 @@
 
 `remote` 모듈은 메인 프로세스와 렌더러 프로세스(웹 페이지) 사이의 inter-process (IPC) 통신을 간단하게 추상화 한 모듈입니다.
 
-Electron의 메인 프로세스에선 GUI와 관련 있는(`dialog`, `menu`등) 모듈만 사용할 수 있습니다. 렌더러 프로세스에서 이러한 모듈들을 사용하려면 `ipc` 모듈을 통해 메인 프로세스와 inter-process 통신을 해야 합니다. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). 다음 예시는 렌더러 프로세스에서 브라우저 창을 만드는 예시입니다:
+Electron의 메인 프로세스에선 GUI와 관련 있는(`dialog`, `menu`등) 모듈만 사용할 수 있습니다. 렌더러 프로세스에서 이러한 모듈들을 사용하려면 `ipc` 모듈을 통해 메인 프로세스와 inter-process 통신을 해야 합니다. 또한, `remote` 모듈을 사용하면 inter-process 통신을 하지 않고도 간단한 API를 통해 직접 메인 프로세스의 모듈과 메서드를 사용할 수 있습니다. 이 개념은 Java의 [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation)와 비슷합니다. 다음 예시는 렌더러 프로세스에서 브라우저 창을 만드는 예시입니다:
 
 ```javascript
 const {BrowserWindow} = require('electron').remote
@@ -20,7 +20,7 @@ win.loadURL('https://github.com')
 
 `remote` 모듈로부터 반환된 각 객체(메서드 포함)는 메인 프로세스의 객체를 추상화 한 객체입니다. (우리는 그것을 remote 객체 또는 remote 함수라고 부릅니다) When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
 
-In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
 
 **Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
 
@@ -79,7 +79,7 @@ But remember the callback is referenced by the main process until you explicitly
 
 To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.
 
 ## Accessing built-in modules in the main process
 
@@ -102,14 +102,15 @@ Returns `any` - The object returned by `require(module)` in the main process. Mo
 
 e.g.
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // main process: main/index.js
