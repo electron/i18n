@@ -28,7 +28,7 @@ webFrame.setZoomFactor(2)
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - 拡大レベル。
+* `level` Number - Zoom level.
 
 指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。
 
@@ -55,14 +55,14 @@ webFrame.setZoomFactor(2)
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - 戻り値 `Boolean`. 
+  * `spellCheck` Function - Returns `Boolean`. 
     * `text` String
 
-入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
+Sets a provider for spell checking in input fields and text areas.
 
-`provider` は、渡された単語が正しいかどうかを返すメソッド `spellCheck` を持つオブジェクトでなければいけません。
+The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
 
-[node-spellchecker](https://github.com/atom/node-spellchecker) をプロバイダとして使用するサンプルです。
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -77,29 +77,29 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-セキュアなスキームとして `scheme` を登録します。
+Registers the `scheme` as secure scheme.
 
-セキュアなスキームは、混在するコンテンツの警告をトリガーしません。 たとえば、`https` と `data` は、アクティブなネットワーク攻撃者によって壊されないため、セキュアなスキームです。
+Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-現在のページのコンテンツセキュリティポリシーに関係なく、この `scheme` からリソースが読み込まれます。
+Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
 * `options` Object (任意) 
-  * `secure` Boolean (任意) - 省略値は true。
-  * `bypassCSP` Boolean (任意) - 省略値は true。
-  * `allowServiceWorkers` Boolean (任意) - 省略値は true。
-  * `supportFetchAPI` Boolean (任意) - 省略値は true。
-  * `corsEnabled` Boolean (任意) - 省略値は true。
+  * `secure` Boolean (optional) - Default true.
+  * `bypassCSP` Boolean (optional) - Default true.
+  * `allowServiceWorkers` Boolean (optional) - Default true.
+  * `supportFetchAPI` Boolean (optional) - Default true.
+  * `corsEnabled` Boolean (optional) - Default true.
 
-`scheme` をセキュアとして登録し、リソースのコンテンツセキュリティポリシーをバイパスし、ServiceWorker の登録を許可し、フェッチ API をサポートします。
+Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
-`false` の値を指定してオプションを指定すると、その登録が省略されます。以下は Content Security Policy をバイパスすることなく、特権スキームを登録する例です。
+Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -133,28 +133,28 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
+Work like `executeJavaScript` but evaluates `scripts` in isolated context.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
 
 * `worldId` Integer
 * `csp` String
 
-イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
+Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
 * `worldId` Integer
 * `name` String
 
-イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
+Set the name of the isolated world. Useful in devtools.
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
 
 * `worldId` Integer
 * `securityOrigin` String
 
-イソレートコンテキストのセキュリティオリジンを設定します。
+Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
@@ -166,14 +166,14 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Blink の内部メモリキャッシュの使用情報を記述しているオブジェクトを返します。
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-これが生成されます。
+This will generate:
 
 ```javascript
 {
@@ -191,6 +191,6 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.clearCache()`
 
-以前使用していたメモリを解放しようとします (以前のナビゲーションの画像など)。
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-このメソッドを盲目的に呼び出すと、空になったキャッシュを補充する必要があるため、Electron の処理速度が遅くなる可能性があることに注意してください。アプリ内のイベントが発生してページの実際のメモリ使用量が少なくなったと思われる場合にのみ呼び出すようにしてください (即ち、とても重いページから空のページへナビゲートし、そこにとどまるとき)。
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
