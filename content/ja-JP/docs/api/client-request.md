@@ -14,11 +14,11 @@
   * `session` Object (任意) - リクエストが関連付けられている [`Session`](session.md) のインスタンス。
   * `partition` String (任意) - リクエストが関連付けられている [`partition`](session.md) の名前。 省略値は、空の文字列です。 `session` オプションは、`partition` よりも優先されます。 そのため、`session` が明示的に指定されている場合、`partition` は無視されます。
   * `protocol` String (任意) - 'scheme:' という形式のプロトコルスキーム。 現在サポートされている値は、'http:' または 'https:' です。省略値は、'http:' です。
-  * `host` String (任意) - ホスト名とポート番号を連結した 'hostname:port' として指定されたサーバーホスト。
+  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (任意) - サーバーホスト名。
   * `port` Integer (任意) - サーバーのリスニングポート番号。
   * `path` String (任意) - リクエストURLのパスの部分。
-  * `redirect` String (任意) - このリクエストのリダイレクトモード。 `follow`、`error` または `manual` のいずれかにする必要があります。 省略値は、`follow` です。 モードが `error` のとき、リダイレクトは中止されます。 モードが `manual` のとき、[`request.followRedirect`](#requestfollowredirect) が呼び出されるまで、リダイレクトは遅延されます。 リダイレクトリクエストの詳細を得るため、このモードでは、[`redirect`](#event-redirect) イベントを待ち受けるようにしてください。
+  * `redirect` String (任意) - このリクエストのリダイレクトモード。 `follow`、`error` または `manual` のいずれかにする必要があります。 省略値は、`follow` です。 モードが `error` のとき、リダイレクトは中止されます。 When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. リダイレクトリクエストの詳細を得るため、このモードでは、[`redirect`](#event-redirect) イベントを待ち受けるようにしてください。
 
 `protocol`、`host`、`hostname`、`port` や `path` といった `options` プロパティは、[URL](https://nodejs.org/api/url.html) モジュールで説明されている Node.js モデルに厳密に従うようにしてください。
 
@@ -112,7 +112,7 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 * `redirectUrl` String
 * `responseHeaders` Object
 
-リダイレクトがあり、モードが `manual` のときに発生します。[`request.followRedirect`](#requestfollowredirect) を呼び出すことでリダイレクトが続行されます。
+Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
 
 ### インスタンスプロパティ
 
