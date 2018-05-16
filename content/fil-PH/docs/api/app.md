@@ -697,53 +697,53 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 Nagbabalik ang [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Ang mga Tampok na Katayuan ng mga Grapiko mula sa `chrome://gpu/`.
 
-### `app.setBadgeCount(count)` *Linux* *macOS*
+### `app.setBadgeCount(bilangin)` *Linux* *macOS*
 
-* `count` Integer
+* ang `count` Integer
 
-Returns `Boolean` - Kung ang tawag ay naging matagumpay.
+Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge kapag ang itinatakdang bilang ay ``.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+Sa macOS ipinapakita ito sa dock icon. Sa Linux ito ay gumagalaw lamang para sa tagapaglunsad ng Unity,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Ang tagalunsad ng Unity ay nangangailangan ng pagkakaroon ng isang file na `.desktop` para gumana, para sa karagdagan impormasyon mangyaring basahin ang [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Nagbabalik ang `Integer` - Ang kasalukuyang halaga ay ipinapakita sa mga tagabilang ng badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Unity.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `pagpipilian` Bagay (opsyonal) 
-  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+* `mga opsyon` Na Bagay (opsyonal) 
+  * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
+  * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Kung ibinigay mo ang mga opsyon ng mga `path` at mga `args` sa `app.setLoginItemSettings` kung gayon dapat mong ipasa ang mga parehong argumento dito para mai-set ng tama ang `openAtLogin`.
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
+* `openAtLogin` Boolean - `true` kung ang app ay naka-set na bumukas sa pag-login.
 * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Nagpapahiwatig ito na ang app ay hindi dapat magbukas ng kahit anong window sa startup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Nagpapahiwatig ito na ang app ay dapat i-restore ang windows na bukas sa huling beses na ang app ay isinara. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `settings` Bagay 
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+* `mga setting` Bagay 
+  * `openAtLogin` Boolean (opsyonal) - `true` para buksan ang app sa pag-login, `false` para tanggalin ang app bilang aytem sa pag-login. Mga default sa `false`.
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Mga default sa `false`. Maaaring i-edit ng user ang setting na ito mula sa System Preferences kaya `app.getLoginitemStatus().wasOpenedAsHidden` ay dapat namasuri kapag ang app ay nabuksan para malaman ang kasalukuyang halaga. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `path` String (opsyonal) *Windows* - Ang maipapatupad para maglunsad sa login. Ay mga default sa `process.execPath`.
+  * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ipapasa sa ipinapatupad. Mga default sa isang walang lamang hanay. Alalayan para isama ang mga landas sa mga quote.
 
-Set the app's login item settings.
+I-set ang mga login aytem setting ng app.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+Makipagtulungan sa `autoUpdater` ng Electron sa Windows,kung saan gumagamit ng [Squirrel](https://github.com/Squirrel/Squirrel.Windows),gusto mong i-set ang landas ng pag-launch patungo sa Update.exe, at ipasa ang mga argumento na nagsasaad ng pangalan ng iyong aplikasyon. Halimbawa:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -764,7 +764,7 @@ Context | Request Context
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `false` kung hindi naman. Ang API na ito ay babalik sa `true` kung ang paggamit ng nakatutulong na teknolohiya, tulad ng mga screen reader, ay nakita. Tingnan ang https://www.chrmium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -776,14 +776,14 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `pagpipilian` Bagay 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+* `mga opsyon` Bagay 
+  * `applicationName` String (opsyonal) - Ang pangalan ng app.
+  * `applicationVersion` String (opsyonal) - Ang bersyon ng app.
+  * `copyright` String (opsyonal) - Ang impormasyon ng copyright.
+  * `credits` String (opsyonal) - Ang impormasyon ng credit.
+  * `version` String (opsyonal) - Ang build version number ng app.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+I-set ang mga pagpipilian tungkol sa panel. Ipinapawang-bisa nito ang halaga ng ipinaliwanag na `.plist` na file ng app. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -802,24 +802,24 @@ Start accessing a security scoped resource. With this method electron applicatio
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `switch` String - Ang swits ng command-line
+* `value` String (opsyonal) - Ang halaga para sa ibinigay na swits
 
-Append a switch (with optional `value`) to Chromium's command line.
+Ilapit ang swits (na may opsyonal `value`) sa linya ng command ng Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Note:** Ito ay hindi makaka-apekto sa `process.argv`, at ito ay pangunahing ginagamit ng mga developer para kontrolin ang ilang mabababang mga katangian ng Chromium.
 
-### `app.commandLine.appendArgument(value)`
+### `app.commandLine.appendArgument(halaga)`
 
-* `value` String - The argument to append to the command line
+* `value` String - Ang argumento ay ilakip sa linya ng command
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Ilakip ang isang argumento sa linya ng command ng Chromium Ang argumento ay iko-qoute ng tama.
 
-**Note:** This will not affect `process.argv`.
+**Note:** Ito ay hindi makaka-apekto sa `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Ang pinaghalong paraan ng sandbox sa app ay pinagana.
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
@@ -837,56 +837,56 @@ No confirmation dialog will be presented by default, if you wish to allow the us
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (opsyonal) - ay maaaring `critical` o `informational`. Ang default ay `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Kapag ang `critical` ay lumipas, ang icon ng dock ay tatalon hanggang alinman sa mga aplikasyon ay naging aktibo o ang kahilingan ay kinansela.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Kapag ang `informational` ay lumipas na, ang icon ng dock ay tatalon ng isang segundo. Gayunpaman, ang kahilingan ay nananatiling aktibo hanggang alinman sa mga aplikasyon ay nagiging aktibo o ang kahilingan ay kinansela.
 
-Returns `Integer` an ID representing the request.
+Nagbabalik ang `integer` ang isang ID na kumakatawan sa mga kahilingan.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
-* `id` na Integer
+* `id` Integer
 
-Cancel the bounce of `id`.
+Kanselahin ang pagtalon ng `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Pinatatalon ang mga istak ng Download kung ang filePath ay nasa loob ng folder ng mga Download.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Ise-set ang string upang maipakita sa badging area ng dock.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Nagbabalik ang `String` - Ang string ng badge ng dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Itinatago ang icon ng dock.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Ipinapakita ang icon ng dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Nagbabalik ang `Boolean` - Kung ang mga icon sa dock ay nakikita. Ang tawag ng `app.dock.show()` ay asynchronous kaya ang pamamaraan na ito ay hindi babalik na totoo agad-agad matapos ang tawag na iyon.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+I-set ang [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) ng aplikasyon.
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` [NativeImage](native-image.md) (String)
 
-Sets the `image` associated with this dock icon.
+I-set ang `image` na may kaugnayan sa dock icon na ito.
