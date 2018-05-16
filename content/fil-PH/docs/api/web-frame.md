@@ -28,7 +28,7 @@ Returns `Number` - The current zoom factor.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `antas` Numero - antas ng Zoom.
 
 Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit.
 
@@ -90,7 +90,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` na String
-* `pagpipilian` Bagay (opsyonal) 
+* `mga opsyon` Bagay (opsyonal) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
@@ -110,14 +110,14 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Ipasok ang `teksto` sa nakatutok na elemento.
+Pagsingit `text` para sa nakapukos na elemento.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
 * `userGesture` Boolean (opsyonal) - Default ay `huwad`.
 * `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
-  * `resulta` Anuman
+  * `result` Any
 
 Ibinabalik ang mga `Pangako` - Ang isang pangako na lumulutas sa resulta ng naipatupad na code o tinanggihan kung ang resulta ng code ay isang tinanggihang pangako.
 
@@ -131,7 +131,7 @@ Sa window ng browser ang ilang mga HTML API tulad ng `requestFullScreen` ay maaa
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opsyonal) - Default ay `huwad`.
 * `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
-  * `resulta` Anuman
+  * `result` Any
 
 Work like `executeJavaScript` but evaluates `scripts` in isolated context.
 
