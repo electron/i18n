@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown.
+Возвращает `Boolean` - Успешно ли был показан объект.
 
 Показывает данный файл в файловом менеджере. Если возможно, выбирает файл.
 
