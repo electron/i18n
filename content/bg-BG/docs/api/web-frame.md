@@ -75,7 +75,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 ### `webFrame.registerURLSchemeAsSecure(scheme)`
 
-* `scheme` String
+* `схема` Низ
 
 Registers the `scheme` as secure scheme.
 
@@ -130,7 +130,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 * `worldId` Integer
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `обратно повикване` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Work like `executeJavaScript` but evaluates `scripts` in isolated context.
