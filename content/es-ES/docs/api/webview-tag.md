@@ -242,7 +242,7 @@ webview.addEventListener('dom-ready', () => {
 * `url` URL
 * `opciones` Objecto (opcional) 
   * `httpReferrer` String (opcional) - Un url de HTTP referencial.
-  * `userAgent` String (opcional) - Un agente de usuario originando el pedido.
+  * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
@@ -438,7 +438,7 @@ Inserta `text` al elemento enfocado.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - El contenido para ser buscado, no debe quedar en blanco.
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -451,21 +451,21 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `acción` String - Especifica la acción que se llevará a cabo cuando finalice [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
+* `acción` String - Especifica la acción que se llevará a cabo cuando finalice [`<webview>.findInPage`](#webviewfindinpagetext-options) la solicitud. 
   * `clearSelection` - Borrar la selección.
   * `keepSelection` - Traduce la selección en una selección normal.
   * `activateSelection` - Enfoca y hace clic en el nodo de selección.
 
-Stops any `findInPage` request for the `webview` with the provided `action`.
+Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 
 ### `<webview>.print([options])`
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
   * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
 
-Prints `webview`'s web page. Same as `webContents.print([options])`.
+Imprime la página web de `webview`. Al igual que `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
@@ -479,7 +479,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `error` Error
   * `data` Buffer
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+Imprime la página web de `webview` como un PDF, al igual que `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -487,16 +487,16 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
+Captura una instantánea de la página de `webview`. Al igual que `webContents.capturePage([rect, ]callback)`.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
+Ver [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para ejemplos.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -504,13 +504,13 @@ See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examp
 
 Envía un input `event` a la página.
 
-See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
+Ver [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) para una descripción detallada del objeto `event`.
 
 ### `<webview>.setZoomFactor(factor)`
 
 * `factor` Number - Zoom factor.
 
-Cambia el factor zoom al factor especificado. El factor zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
+Cambia el factor de zoom al factor especificado. El factor de zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
@@ -520,15 +520,15 @@ Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada i
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Muestra un diccionario que busca la palabra seleccionada en la página.
+Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
 ### `<webview>.getWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con esto `webview`.
 
 ## Eventos DOM
 
-The following DOM events are available to the `webview` tag:
+Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 
 ### Evento: 'load-commit'
 
@@ -537,11 +537,11 @@ Devuelve:
 * `url` Cadena
 * `EsElFramePrincipal` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+Disparado cuando una carga ha sido cometida, Esto incluye navegaciones dentro del documento actual así como cargas de documentos de bajo nivel, pero no incluye fuentes asincrónicas de cargas.
 
 ### Evento: 'did-finish-load'
 
-Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+Disparado cuando la navegación es terminada, i.e. el girador del tabulador dejará de girar, y el evento `onload` es discapacitado.
 
 ### Evento: 'did-fail-load'
 
@@ -552,7 +552,7 @@ Devuelve:
 * `validatedURL` String
 * `EsElFramePrincipal` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
 ### Evento: 'did-frame-finish-load'
 
@@ -560,15 +560,15 @@ Devuelve:
 
 * `EsElFramePrincipal` Boolean
 
-Fired when a frame has done navigation.
+Disparado cuando un frame ha terminado la navegación.
 
 ### Evento: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab starts spinning.
+Corresponde a los puntos en tiempo cuando el girador del tabulador empieza a girar.
 
 ### Evento: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stops spinning.
+Corresponde a los puntos en tiempo cuando el girador del tabulador termina de girar.
 
 ### Evento: 'did-get-response-details'
 
@@ -583,7 +583,7 @@ Devuelve:
 * `headers` Objeto
 * `resourceType` String
 
-Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+Disparado cuando los detalles que corresponden a una fuente pedida está disponible. `status` indica conexión de media para descargar la fuente.
 
 ### Evento: 'did-get-redirect-request'
 
@@ -593,11 +593,11 @@ Devuelve:
 * `newURL` String
 * `isMainFrame` Boolean
 
-Fired when a redirect was received while requesting a resource.
+Disparado cuando una redirección fue recibida mientras se solicitaba una fuente.
 
 ### Evento: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+Disparado cuando el documento en el frame dado es cargado.
 
 ### Evento: "page-title-updated"
 
@@ -606,7 +606,7 @@ Devuelve:
 * `title` Cadena
 * `explicitSet` Boolen
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Disparado cuando el título de la página es establecido durante la navegación. `explicitSet` es falso cuando el título es sintetizado del archivo url.
 
 ### Evento: 'page-favicon-updated'
 
@@ -614,15 +614,15 @@ Devuelve:
 
 * `favicons` String[] - matriz de URLs.
 
-Fired when page receives favicon urls.
+Disparado cuando la página recibe urls de favicon.
 
 ### Evento: "enter-html-full-screen"
 
-Fired when page enters fullscreen triggered by HTML API.
+Disparado cuando la página entra en pantalla entera i¿y es activado por HTML API.
 
 ### Evento: "leave-html-full-screen"
 
-Fired when page leaves fullscreen triggered by HTML API.
+Disparado cuando la página deja la pantalla completa activada por HTML API.
 
 ### Evento: 'console-message'
 
@@ -633,9 +633,9 @@ Devuelve:
 * `line` Íntegro
 * `sourceId` Cadena
 
-Fired when the guest window logs a console message.
+Disparado cuando la ventana invitada entra un mensaje de consola.
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+El siguiente código ejemplo sigue con todos los mensajes guardados a la consola embebedora sin preocupación por el nivel de guardado u otras propiedades.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -655,7 +655,7 @@ Devuelve:
   * `selectionArea` Object - Coordenadas del lugar de la primera coincidencia.
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
+Disparado cuando un resultado es disponible en la solicitud [`webview.findInPage`](#webviewfindinpagetext-options).
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -676,9 +676,9 @@ Devuelve:
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
-Fired when the guest page attempts to open a new browser window.
+Disparado cuando la página de invitado intenta abrir una nueva ventana de buscador.
 
-The following example code opens the new url in system's default browser.
+El siguiente código ejemplo abre el nuevo url en el buscador por defecto del sistema.
 
 ```javascript
 const {shell} = require('electron')
@@ -700,11 +700,11 @@ Devuelve:
 
 Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `<webview>.loadURL` y `<webview>.back`.
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Tampoco es emitido durante la navegación en la página, como hacerle click a links o actualizando el `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+Llamar a `event.preventDefault()`, **NO** tiene ningún efecto.
 
 ### Evento: 'did-navigate'
 
@@ -725,13 +725,13 @@ Devuelve:
 
 Emitido cuando una navegación dentro de la página sucede.
 
-Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de esto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
+Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
 ### Evento: 'close'
 
-Fired when the guest page attempts to close itself.
+Disparado cuando la página de invitado intenta cerrarse.
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+El siguiente código ejemplo navega el `webview` a `about:blank` cuando el invitado intenta cerrase.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -747,9 +747,9 @@ Devuelve:
 * `channel` Cadena
 * `args` Arreglo
 
-Fired when the guest page has sent an asynchronous message to embedder page.
+Disparado cuando la página de invitado ha enviado un mensaje asincrónico a la página de embebido.
 
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+Con el método `sendToHost` y el evento `ipc-message` puedes comunicarte fácilmente entre la pagina de invitado y la de embebido:
 
 ```javascript
 // In embedder page.
@@ -771,11 +771,11 @@ ipcRenderer.on('ping', () => {
 
 ### Evento: 'crashed'
 
-Fired when the renderer process is crashed.
+Disparado cuando el proceso de renderizado se cierra.
 
 ### Evento: 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+Disparado cuando el proceso gpu se cae.
 
 ### Evento: 'plugin-crashed'
 
@@ -784,11 +784,11 @@ Devuelve:
 * `name` String
 * `version` Cadena
 
-Fired when a plugin process is crashed.
+Disparado cuando el proceso de plugin se cae.
 
 ### Evento: 'destroyed'
 
-Fired when the WebContents is destroyed.
+Disparado cuando el WebContents es destrozado.
 
 ### Evento: 'media-started-playing'
 
@@ -804,7 +804,7 @@ Devuelve:
 
 * `themeColor` Cadena
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Emitido cuando el color de tema de una página cambia. Esto usualmente se debe a encontrar una etiqueta meta:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -824,7 +824,7 @@ Emitido cuando DevTools es abierto.
 
 ### Evento: 'devtools-closed'
 
-Emitido cuando DevTools es cerrado.
+Emitido cuando Devtools es cerrado.
 
 ### Evento: 'devtools-focused'
 
