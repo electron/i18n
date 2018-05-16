@@ -6,7 +6,7 @@ Electrond的某些行为受环境变量的控制, 因为它们比命令行标志
 
 POSIX shell示例:
 
-```sh
+```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
