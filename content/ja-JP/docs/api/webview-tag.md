@@ -243,7 +243,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` String (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (任意) -
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 `url` を webview にロードします。`url` には、`http://` または `file://` のような、プロトコルのプレフィックスを含みます。
@@ -337,7 +337,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (任意) - 省略値は `false`。
+* `userGesture` Boolean (optional) - Default `false`.
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
@@ -438,15 +438,15 @@ webview.addEventListener('dom-ready', () => {
 
 * `text` String - 検索するコンテンツ。空にしてはいけません。
 * `options` Object (任意) 
-  * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
-  * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
-  * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (任意) - 単語の始めだけを見るかどうか。省略値は `false`。
-  * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
-戻り値 `Integer` - リクエストに使われたリクエスト ID。
+Returns `Integer` - The request id used for the request.
 
-ウェブページ内の `text` のすべてのマッチを探すリクエストを開始します。 リクエストの結果は [`found-in-page`](webview-tag.md#event-found-in-page) イベントを読むことで取得できます。
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -455,7 +455,7 @@ webview.addEventListener('dom-ready', () => {
   * `keepSelection` - その選択を通常の選択に変換する。
   * `activateSelection` - 選択ノードをフォーカスして、クリックする。
 
-指定された `action` で、`webview` の `findInPage` リクエストを停止します。
+Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
@@ -464,46 +464,46 @@ webview.addEventListener('dom-ready', () => {
   * `printBackground` Boolean (任意) - ウェブページの背景色と画像も印刷するかどうか。省略値は `false`。
   * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
 
-`webview` のウェブページを印刷します。`webContents.print([options])` と同じです。
+Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
 * `options` Object 
-  * `marginsType` Integer (任意) - 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
-  * `pageSize` String (任意) - 生成する PDF のページサイズを指定する。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
-  * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
-  * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
-  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String (optional) - Specify page size of the generated PDF. `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
   * `error` Error
   * `data` Buffer
 
-`webview` のウェブページを PDF として印刷します。`webContents.printToPDF(options, callback)` と同じです。
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-`webview` のページのスナップショットを取得します。`webContents.capturePage([rect, ]callback)` と同じです。
+Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 レンダラープロセスは [`ipcRenderer`](ipc-renderer.md) モジュールで `channel` イベントをリッスンしてメッセージを処理できます。
+`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-サンプルについては [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) を参照して下さい。
+See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
 * `event` Object
 
-入力 `event` をページに送ります。
+Sends an input `event` to the page.
 
-`event` オブジェクトの詳細については、[webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) を参照してください。
+See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -513,7 +513,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - 拡大レベル。
+* `level` Number - Zoom level.
 
 指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。
 
@@ -523,11 +523,11 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.getWebContents()`
 
-戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
+Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
 ## DOM イベント
 
-`webview` タグでは、以下の DOM イベントを使用できます。
+The following DOM events are available to the `webview` tag:
 
 ### イベント: 'load-commit'
 
@@ -536,11 +536,11 @@ webview.addEventListener('dom-ready', () => {
 * `url` String
 * `isMainFrame` Boolean
 
-ロードがコミットされたときに発生します。これには、現在のドキュメント内のナビゲーションとサブフレームのドキュメントレベルの読み込みが含まれますが、非同期のリソース読み込みは含まれません。
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### イベント: 'did-finish-load'
 
-ナビゲーションが終了した時、すなわち、タブのくるくるが止まったときや、`onload` イベントが送られた後に、発行されます。
+Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
 ### イベント: 'did-fail-load'
 
@@ -551,7 +551,7 @@ webview.addEventListener('dom-ready', () => {
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-このイベントは `did-finish-load` のようですが、ロードが失敗した、キャンセルされた、`window.stop()` が呼び出されたなどで発生します。
+This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
 ### イベント: 'did-frame-finish-load'
 
@@ -559,15 +559,15 @@ webview.addEventListener('dom-ready', () => {
 
 * `isMainFrame` Boolean
 
-フレームのナビゲーションが終了したときに発行されます。
+Fired when a frame has done navigation.
 
 ### イベント: 'did-start-loading'
 
-タブのくるくるが始まるタイミングに対応しています。
+Corresponds to the points in time when the spinner of the tab starts spinning.
 
 ### イベント: 'did-stop-loading'
 
-タブのくるくるが止まるタイミングに対応しています。
+Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### イベント: 'did-get-response-details'
 
@@ -582,7 +582,7 @@ webview.addEventListener('dom-ready', () => {
 * `headers` Object
 * `resourceType` String
 
-要求されたリソースに関する詳細が利用可能なときに発行されます。`status` はリソースをダウンロードするためのソケット接続状態を示します。
+Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
 ### イベント: 'did-get-redirect-request'
 
@@ -592,11 +592,11 @@ webview.addEventListener('dom-ready', () => {
 * `newURL` String
 * `isMainFrame` Boolean
 
-リソースのリクエスト中にリダイレクトを受けたときに発行されます。
+Fired when a redirect was received while requesting a resource.
 
 ### イベント: 'dom-ready'
 
-指定のフレームの document が読み込まれたときに発行されます。
+Fired when document in the given frame is loaded.
 
 ### イベント: 'page-title-updated'
 
@@ -605,7 +605,7 @@ webview.addEventListener('dom-ready', () => {
 * `title` String
 * `explicitSet` Boolean
 
-ナビゲーション中にページタイトルが設定されたときに発生します。 `explicitSet` は、タイトルがファイル URL から合成されている場合に false になります。
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### イベント: 'page-favicon-updated'
 
@@ -613,15 +613,15 @@ webview.addEventListener('dom-ready', () => {
 
 * `favicons` String[] - URLの配列。
 
-ページがファビコンの URL を受け取ると発行されます。
+Fired when page receives favicon urls.
 
 ### イベント: 'enter-html-full-screen'
 
-HTML API にトリガーされてページがフルスクリーンになるときに発生します。
+Fired when page enters fullscreen triggered by HTML API.
 
 ### イベント: 'leave-html-full-screen'
 
-HTML API にトリガーされてページがフルスクリーンから抜けるときに発生します。
+Fired when page leaves fullscreen triggered by HTML API.
 
 ### イベント: 'console-message'
 
@@ -632,9 +632,9 @@ HTML API にトリガーされてページがフルスクリーンから抜け�
 * `line` Integer
 * `sourceId` String
 
-ゲストウィンドウがコンソールメッセージをロギングすると発行されます。
+Fired when the guest window logs a console message.
 
-以下のサンプルコードは、ログレベルやその他のプロパティに関係なく、すべてのログメッセージを埋め込みのコンソールに転送します。
+The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -654,7 +654,7 @@ webview.addEventListener('console-message', (e) => {
   * `selectionArea` Object - 最初のマッチ領域の座標。
   * `finalUpdate` Boolean
 
-[`webview.findInPage`](#webviewfindinpagetext-options) リクエストの結果が有効なときに発行されます。
+Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -673,11 +673,11 @@ console.log(requestId)
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
-* `options` Object - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
+* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
-ゲストページが新しいブラウザウィンドウを開くときに発生します。
+Fired when the guest page attempts to open a new browser window.
 
-以下のサンプルコードは、システムのデフォルトブラウザで新しい URL を開きます。
+The following example code opens the new url in system's default browser.
 
 ```javascript
 const {shell} = require('electron')
@@ -699,11 +699,11 @@ webview.addEventListener('new-window', (e) => {
 
 ユーザまたはページがナビゲーションを開始したいときに発行されます。 `window.location` オブジェクトが変更されるか、ユーザがページ内のリンクをクリックしたときに発生します。
 
-このイベントは、 `<webview>.loadURL` や `<webview>.back` のような、API によってプログラム上から開始されるナビゲーションのときには発行されません。
+This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
-アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでも発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-`event.preventDefault()` を呼んでも効果は **ありません**。
+Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### イベント: 'did-navigate'
 
@@ -728,9 +728,9 @@ webview.addEventListener('new-window', (e) => {
 
 ### イベント: 'close'
 
-ゲストのページ自身が閉じようとしたときに発生します。
+Fired when the guest page attempts to close itself.
 
-以下のサンプルコードは、ゲストが自身を閉じるときに `webview` を `about:blank` にナビゲートします。
+The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -746,9 +746,9 @@ webview.addEventListener('close', () => {
 * `channel` String
 * `args` Array
 
-ゲストページが埋め込みページに非同期メッセージを送信したときに発生します。
+Fired when the guest page has sent an asynchronous message to embedder page.
 
-`sendToHost` メソッドと `ipc-message` イベントを使用すると、ゲストページと埋め込みページの間で簡単に通信できます。
+With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
 
 ```javascript
 // 埋め込みページ。
@@ -770,11 +770,11 @@ ipcRenderer.on('ping', () => {
 
 ### イベント: 'crashed'
 
-レンダラープロセスがクラッシュしたときに発生します。
+Fired when the renderer process is crashed.
 
 ### イベント: 'gpu-crashed'
 
-GPU のプロセスがクラッシュしたときに発生します。
+Fired when the gpu process is crashed.
 
 ### イベント: 'plugin-crashed'
 
@@ -783,11 +783,11 @@ GPU のプロセスがクラッシュしたときに発生します。
 * `name` String
 * `version` String
 
-プラグインプロセスがクラッシュしたときに発行されます。
+Fired when a plugin process is crashed.
 
 ### イベント: 'destroyed'
 
-webContents が破棄されたときに発生します。
+Fired when the WebContents is destroyed.
 
 ### イベント: 'media-started-playing'
 
@@ -803,7 +803,7 @@ webContents が破棄されたときに発生します。
 
 * `themeColor` String
 
-ページのテーマカラーが変更されたときに発行されます。これはよく、このような meta タグによって発生します。
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
