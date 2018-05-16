@@ -64,7 +64,7 @@ Los `filters` especifican un arreglo de tipo de archivos que pueden ser desplega
 
 Los `extensions` arreglos deberían contener extensiones sin comodines o puntos (e.g. `'png'` es bueno, pero `'.png'` y `'*.png'` son malos). Para mostrar todos los archivos, usa el `'*'` comodín (ningún otro comodín es compatible).
 
-Si un `callback` es pasado, la llamada API será asincrónica y el resultado será pasado vía `callback(filenames)`.
+If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
 
 **Nota:** En Windows y Linux, un diálogo abierto no puede ser un selector de archivo y un selector de directorio a la vez, así que si estableces `properties` a el `['openFile', 'openDirectory']` en estas plataformas, un selector de directorio.
 
@@ -90,7 +90,7 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
 
 Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mostrados, ver `dialog.showOpenDialog` por un ejemplo.
 
-Si un `callback` es pasado, la llamada API será asincrónica y el resultado será pasado vía `callback(filename)`.
+If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`.
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
@@ -109,7 +109,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
   * `noLink` Boolean (opcional) - En Windows Electron se tratará de averiguar cuál de los `buttons` son botones comunes (como "Cancelar" o "Sí"), y muestra los otros como links de comandos en el diálogo. Esto puede hacer que el diálogo aparezca en el estilo de las aplicaciones modernas de Windows. Si no te gusta este comportamiento, puedes establecer `noLink` a `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normalizar el acceso al teclado a través de las plataformas. Por defecto es `false`. Permitir esto asume que `&` es usado en las etiquetas de los botones para el colocamiento de los atajos de acceso de las teclas del teclado y las etiquetas serán convertidas para que funcionen correctamente en cada plataforma, `&` personajes serán eliminados de macOS, convertidos a `_` en Linux, y dejado intacto en Windows. Por ejemplo, una etiqueta de botón de `Vie&w` será convertida a `Vie_w` en Linux y `View` en macOS y puede ser seleccionado vía `Alt-W` en Windows y Linux.
 * `callback` Function (opcional) 
-  * `response` Número - El índice del botón que fue clickeado.
+  * `response` Number - The index of the button that was clicked.
   * `checkboxChecked` Boolean - El estado chequeado de la caja si `checkboxLabel` fue establecido. De otra manera, `false`.
 
 Devuelve `Integer`, el índice del botón al que se le hizo clic, si una llamada de vuelta es proveída se puede volver indefinida.
@@ -122,8 +122,8 @@ Si una `callback` es pasada, el diálogo no bloqueará el proceso. La llamada AP
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` Cadena - El título a mostrar en la caja de error.
-* `content` Cadena - El texto contiene a mostrar en la caja de error.
+* `title` String - The title to display in the error box.
+* `content` String - The text content to display in the error box.
 
 Muestra un diálogo de modalidad que muestra un error de mensaje.
 
