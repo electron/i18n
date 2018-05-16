@@ -107,9 +107,9 @@ Add the specified defaults to your application's `NSUserDefaults`.
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Возвращает `any` - Значение `key` в `NSUserDefaults`.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-Самые популярные `key` и `type`:
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -125,11 +125,11 @@ Add the specified defaults to your application's `NSUserDefaults`.
 * `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` String
 
-Устанавливает значение `key` в `NSUserDefaults`.
+Set the value of `key` in `NSUserDefaults`.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Самые популярные `key` и `type`:
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -212,8 +212,8 @@ const alpha = color.substr(6, 2) // "dd"
   * `window-frame` - Window frame.
   * `window-text` - Text in windows.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). Смотрите [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) для получения более подробной информации.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Возвращает ` Boolean ` - ` true `, если инвертированная цветовая схема, например тема с высоким контрастом, активна, ` false ` в противном случае.
+Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
