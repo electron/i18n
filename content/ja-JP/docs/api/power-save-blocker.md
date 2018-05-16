@@ -22,10 +22,10 @@ powerSaveBlocker.stop(id)
 ### `powerSaveBlocker.start(type)`
 
 * `type` String - powerSaveBlocker のタイプ。 
-  * `prevent-app-suspension` - アプリケーションが中断されるのを防ぎます。システムをアクティブに保ちますが、画面はオフにすることができます。使用例: ファイルのダウンロードや音声の再生。
-  * `prevent-display-sleep` - ディスプレイがスリープされるのを防ぎます。システムとスクリーンをアクティブに保ちます。使用例: 映像の再生。
+  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
+  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-戻り値 `Integer` - この powerSaveBlocker に割り当てられたブロッカー ID.
+Returns `Integer` - The blocker ID that is assigned to this power blocker.
 
 システムが省電力モードに入るのを防止します。その powerSaveBlocker を識別する整数を返します。
 
