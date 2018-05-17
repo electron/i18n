@@ -1,4 +1,4 @@
-# Оновдення Застосунків
+# Оновлення Додатків
 
 There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
 
@@ -44,7 +44,7 @@ Depending on your needs, you can choose from one of these:
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
 - [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
 
-## Реалізація Оновлення в Вашому Застосунку
+## Реалізація Оновлення Вашого Додатку
 
 Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
 
