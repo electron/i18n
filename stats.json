@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "9463",
-    "translated": "7574",
+    "translated": "7577",
     "approved": "33",
     "words": "86814",
-    "words_translated": "66190",
+    "words_translated": "66227",
     "words_approved": "178",
     "translated_progress": 76,
     "approved_progress": 0,
-    "qa_issues": "188"
+    "qa_issues": "189"
   },
   {
     "name": "Chinese Traditional",
@@ -94,10 +94,10 @@
     "name": "French",
     "code": "fr",
     "phrases": "9463",
-    "translated": "7021",
+    "translated": "7023",
     "approved": "44",
     "words": "86814",
-    "words_translated": "52510",
+    "words_translated": "52521",
     "words_approved": "166",
     "translated_progress": 60,
     "approved_progress": 0,
@@ -224,12 +224,12 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9463",
-    "translated": "3958",
+    "translated": "3959",
     "approved": "234",
     "words": "86814",
-    "words_translated": "27770",
+    "words_translated": "27791",
     "words_approved": "1412",
-    "translated_progress": 31,
+    "translated_progress": 32,
     "approved_progress": 1,
     "qa_issues": "1205"
   },
@@ -309,7 +309,7 @@
     "words_approved": "733",
     "translated_progress": 23,
     "approved_progress": 0,
-    "qa_issues": "1213"
+    "qa_issues": "1211"
   },
   {
     "name": "Vietnamese",
