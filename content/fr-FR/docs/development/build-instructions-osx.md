@@ -7,7 +7,7 @@ Suivez les indications ci-dessous pour compiler Electron sur macOS.
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](https://nodejs.org) (externe)
-- Python 2.7 with support for TLS 1.2
+- Python 2.7 avec le support de TLS 1.2
 
 ## Python
 
