@@ -31,7 +31,7 @@ npm vai guiá-lo você para criação de um arquivo básico o `package.json`. O 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). Se isso fosse realmente um simples aplicativo em Node, você adicionaria um script `start`, para instruir o `node` para executar o pacote atual:
+**Nota**: se o campo `main` não se encontra em `package.json`, Electron tentará carregar um `index.js` (assim como Node.js faz). Se isso fosse realmente um simples aplicativo em Node, você adicionaria um script `start`, para instruir o `node` para executar o pacote atual:
 
 ```json
 {
@@ -69,7 +69,7 @@ Há outros meios para instalar o Electron. Por favor, consulte o [guia de instal
 
 ## Desenvolvimento Electron em um Nutshell
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. Todas as APIs e funcionalidades encontradas no Electron estão acessíveis através do módulo do `electron`, que pode ser necessário, como qualquer outro módulo Node.js:
+Os apps em Electron são desenvolvidos em JavaScript usando os mesmos princípios e métodos encontrados no desenvolvimento Node.js. Todas as APIs e funcionalidades encontradas no Electron estão acessíveis através do módulo do `electron`, que pode ser necessário, como qualquer outro módulo Node.js:
 
 ```javascript
 const electron = require('electron')
