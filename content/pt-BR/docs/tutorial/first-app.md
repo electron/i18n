@@ -75,7 +75,7 @@ Os apps em Electron são desenvolvidos em JavaScript usando os mesmos princípio
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. Como exemplos, o ciclo de vida da aplicação é gerenciado pelo `electron.app`, janelas podem ser criadas utilizando a classe `electron.BrowserWindow`. A simple `main.js` file might wait for the application to be ready and open a window:
+O módulo de `elétron` expõe recursos em namespaces. Como exemplos, o ciclo de vida da aplicação é gerenciado pelo `electron.app`, janelas podem ser criadas utilizando a classe `electron.BrowserWindow`. Um simples arquivo `main.js` que espera a aplicação estar pronta para então abrir uma janela:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -179,11 +179,11 @@ Finalmente, o `index.html` é a pagina da web que você quer mostrar:
 
 Depois de criar seus arquivos iniciais `main.js`,`index.html` e `package.json`, você pode tentar executar seu aplicativo com `npm start` no diretório do seu aplicativo.
 
-## Trying this Example
+## Experimente esse Exemplo
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Clona e execute o código nesse tutorial utilizando o repositório [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**Nota**: A execução desse exemplo requer [Git](https://git-scm.com).
 
 ```sh
 # Clone o repositório
