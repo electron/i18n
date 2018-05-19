@@ -1,4 +1,4 @@
-# FileFilter 객체
+# FileFilter 개체
 
 * PrinterInfo Object
-* `extensions` String[]
+* `extensions` 문자열 배열
