@@ -24,7 +24,7 @@ Dans les pages web, l'appel aux GUI natifs associés aux APIs n'est pas autoris�
 
 ## Utiliser les APIs Electron
 
-Électrons offre un certain nombre d’API qui prennent en charge le développement d’une application de bureau dans le processus principal et le processus de rendu. In both processes, you'd access Electron's APIs by requiring its included module:
+Électrons offre un certain nombre d’API qui prennent en charge le développement d’une application de bureau dans le processus principal et le processus de rendu. Dans les deux processus vous pouvez accéder aux APIs d'Electron en utilisant require sur le module 'electron' :
 
 ```javascript
 const electron = require('electron')
