@@ -165,7 +165,7 @@ Returns:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+[browserWindow](browser-window.md)에서 벗어날 때 발생됩니다.
 
 ### Event: 'browser-window-focus'
 
@@ -174,7 +174,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+[browserWindow](browser-window.md)에 초첨이 위치할 때 발생됩니다.
 
 ### Event: 'browser-window-created'
 
@@ -183,7 +183,7 @@ Returns:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+[browserWindow](browser-window.md)가 생성되었을 때 발생됩니다.
 
 ### Event: 'web-contents-created'
 
@@ -192,7 +192,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when a new [webContents](web-contents.md) is created.
+[webContents](web-contents.md)가 생성되었을 때 발생됩니다.
 
 ### Event: 'certificate-error'
 
@@ -201,10 +201,10 @@ Emitted when a new [webContents](web-contents.md) is created.
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
+* `error` String - 에러 코드
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` 함수 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - 인증서를 신뢰할 수있는 것으로 간주할지 여부
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
