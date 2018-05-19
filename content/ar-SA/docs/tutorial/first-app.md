@@ -1,6 +1,6 @@
 # Writing Your First Electron App
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+يمكنك الكترون من إنشاء تطبيقات مدهشة لأجهزة الحاسب المكتبي باستخدام منظومة الجافا اسكريبت و ذلك لأنه يحتوي على مكتبة غنية من النماذج المعدة و المهيئة للتعامل مع مختلف عمليات (نظام التشغيل) التي سوف يحتاجها تطبيقك. تستطيع القول أن الكيترون ما هو الا شكل آخر لمنظومة النود جافا سكريبت و لكن بدلا من استخدامها في انشاء تطبيقات الويب فانها متخصصة في انشاء تطبيقات الحاسب المكتبي خاصتا الغير متصلة بالانترنت.
 
 This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
 
