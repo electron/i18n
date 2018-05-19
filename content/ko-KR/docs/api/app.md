@@ -206,7 +206,7 @@ Returns:
 * `callback` 함수 
   * `isTrusted` Boolean - 인증서를 신뢰할 수있는 것으로 간주할지 여부
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+`url`에 대한 `certificate`를 확인하지 못했을 때 발생하며, 인증서를 신뢰할 경우 `event.preventDefault()`선언과 `callback(true)`의 호출로 기본 동작의 실행을 방지해야 합니다.
 
 ```javascript
 const {app} = require('electron')
