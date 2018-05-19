@@ -30,12 +30,12 @@ Dans les pages web, l'appel aux GUI natifs associés aux APIs n'est pas autoris�
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for each individual API will state which process it can be used from.
+Toutes les API d’électrons sont assignés à un type de processus. Beaucoup d'entre elles ne peuvent être utilisées que dans le processus principal, certaines dans le processus de rendu uniquement et d'autres dans les deux types de processus. La documentation de chaque API indique dans quel processus elle peut-être utilisée.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+Par exemple, une fenêtre est créée à l’aide de la classe `BrowserWindow` qui n'est accessible que dans le processus principal.
 
 ```javascript
-// Cela va fonctionner dans le processus principal, mais sera`undefined`
+// Ceci va fonctionner dans le processus principal, mais sera`undefined`
 // dans un processus de rendu :
 const { BrowserWindow } = require('electron')
 
