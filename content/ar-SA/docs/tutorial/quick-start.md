@@ -4,7 +4,7 @@
 
 كانت تحتوي هذه الصفحة قديما على الجزء الخاص ببداية تعلم الكترون السريعة و لكننا الآن قد قمنا بتقسيمها الى جزئين:
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* لتري بنفسك سهولة عملية انشاء تطبيق باستخدام الكترون ابدأ بهذا الشرح الممتع [ خطوات إنشاء تطبيقك الأول باستخدام منظومة الكترون ](./first-app.md)
+* لتقرأ عن بنائية الكترون و كيفية تقسيمه لعملية إنشاء التطبيقات, اقرأ الملف التالي [ العملية الرئيسية و عملية التقديم النهائي للتطبيقات ](./application-architecture.md#main-and-renderer-processes).
 
 To learn more about Electron, check out the [official guides](../).
