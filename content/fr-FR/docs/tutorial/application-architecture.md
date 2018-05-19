@@ -69,11 +69,11 @@ const root = fs.readdirSync('/')
 console.log(root)
 ```
 
-Comme vous pouvez l'imaginer, ceci à de lourdes implications sur la sécurité si vous tentez de charger du contenu distant. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+Comme vous pouvez l'imaginer, ceci à de lourdes implications sur la sécurité si vous tentez de charger du contenu distant. Vous pouvez trouver plus d’informations et conseils sur le chargement de contenu distant dans notre [Documentation sur la sécurité](./security.md).
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) Vous pouvez utiliser des modules Node.js dans votre application. Choisissez votre module npm préféré. npm offre actuellement le plus grand repository de code open-source au monde –&nbsp;la possibilité d'utiliser du code bien maintenu et testé qui est normalement réservé à des applications de serveur est une des fonctionnalités majeures d'Electron.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+Par exemple, afin d'utiliser les SDK officiel d'AWS dans votre application, vous l'installerez comme une dépendance npm :
 
 ```sh
 npm install --save aws-sdk
