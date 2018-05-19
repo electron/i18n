@@ -22,7 +22,7 @@ Dans les pages web, l'appel aux GUI natifs associés aux APIs n'est pas autoris�
 > 
 > Avec Electron, nous avons plusieurs façons de communiquer entre le processus principal et les processus de rendu. Comme les modules [`ipcRenderer`](../api/ipc-renderer.md) et [`ipcMain`](../api/ipc-main.md) pour envoyer des messages, et le module [remote](../api/remote.md) pour une communication de style RPC. Il y a également une entrée dans la FAQ sur [le partage des données entre les pages web](../faq.md#how-to-share-data-between-web-pages).
 
-## Utiliser les APIs Electron
+## Utilisation des APIs Electron
 
 Électrons offre un certain nombre d’API qui prennent en charge le développement d’une application de bureau dans le processus principal et le processus de rendu. Dans les deux processus vous pouvez accéder aux APIs d'Electron en utilisant require sur le module 'electron' :
 
@@ -55,21 +55,21 @@ const win = new BrowserWindow()
 
 ## Utilisation des APIs de Node.js
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron expose un accès total à Node.js dans le processus principal et dans les processus de rendu. Cela a deux conséquences importantes :
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Toutes les APIs disponibles dans Node.js sont disponibles dans Electron. Appeler le code suivant dans une application Electron fonctionne :
 
 ```javascript
 const fs = require('fs')
 
 const root = fs.readdirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// Ceci affichera tous les fichiers présents à la racine du disque,
+// pour '/' ou 'C:\'.
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+Comme vous pouvez l'imaginer, ceci à de lourdes implications sur la sécurité si vous tentez de charger du contenu distant. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
 
 2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
 
