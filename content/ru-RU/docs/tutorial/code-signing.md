@@ -1,8 +1,8 @@
-# Code Signing
+# Цифровая подпись
 
-Code signing is a security technology that you use to certify that an app was created by you.
+Цифровая подпись — технология защиты, используемая для подтверждения прав на приложение.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+macOS обнаруживает любое изменение приложение — случайное или вредоносное.
 
 On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application. Trust level builds over time so it's better to start code signing as early as possible.
 
