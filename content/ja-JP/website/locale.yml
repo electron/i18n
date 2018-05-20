@@ -28,7 +28,7 @@ languages:
   current: 選択中
 community:
   title: コミュニティ
-  description: Resources for connecting with people working on Electron.
+  description: Electron に関する活動を行う人々のための情報
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a>: <a href='/docs/tutorial/first-app'>クイックスタートガイド</a>アプリを読みながら、はじめてのElectronアプリを開発することができます。"
     updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手</b></a>: Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
@@ -89,7 +89,7 @@ quick_start:
   dive_deeper: さらに詳細な情報が必要であれば<a href='/docs'>ドキュメント</a>を参照することもできます。
 need_help:
   title: お困りですか？
-  description: <a href='https://discuss.atom.io/c/electron'>ディスカッション</a>フォーラムや<a href='http://atom-slack.herokuapp.com/'>Slack</a>で質問することができます。また、Twitter（<a href="https://twitter.com/electronjs">@electronjs</a>）では Electron に関する重要な情報をツイートしているので、是非フォローしてみてください。もし、フォーラムやSNSといったパブリックな手段以外で連絡を取る必要がある場合は E メール ( <a href="mailto:info@electronjs.org">info@electronjs.org</a> ) でのお問い合わせも可能です。
+  description: <a href='https://discuss.atom.io/c/electron'>ディスカッション</a>フォーラムや<a href='http://atom-slack.herokuapp.com/'>Slack</a>で質問することができます。また、Twitter（<a href="https://twitter.com/electronjs">@electronjs</a>）では Electron に関する重要な情報をツイートしているので、是非フォローしてみてください。もし、フォーラムやSNSといったパブリックな手段を避けたい場合は E メール ( <a href="mailto:info@electronjs.org">info@electronjs.org</a> ) でのお問い合わせも可能です。
 headings:
   languages: 言語
 taglines:
