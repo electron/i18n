@@ -13,7 +13,7 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-谷歌为他们的开发者工具提供了[杰出的文档](https://developer.chrome.com/devtools) 我们建议您让自己熟悉它们，它们对于任何Electron开发者通常都是工具包中最强大的工具之一。
+谷歌为他们的开发者工具提供了[杰出的文档](https://developer.chrome.com/devtools) 我们建议您熟悉它们，它们对于任何Electron开发者来说通常都是工具包中最强大的工具之一。
 
 ## 主进程
 
