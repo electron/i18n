@@ -4,27 +4,27 @@
 
 macOS обнаруживает любое изменение приложение — случайное или вредоносное.
 
-On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application. Trust level builds over time so it's better to start code signing as early as possible.
+Windows назначает уровень доверия к подписи сертификата; если у вас его нет — система не будет доверять приложению и будет показывать окна безопасности перед запуском. Trust level builds over time so it's better to start code signing as early as possible.
 
-While it is possible to distribute unsigned apps, it is not recommended. For example, here's what macOS users see when attempting to start an unsigned app:
+Можно распространять неподписанные приложения, но не рекомендуется. Вот что видят пользователи macOS, когда запускают неподписанные приложения:
 
 ![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
 
-> App can't be opened because it is from an unidentified developer
+> Программа не может быть открыта, так как её автор является неустановленным разработчиком
 
-If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
+Если вы собираете приложение на Electron и будете его распространять, его следует подписать. Магазины приложени Mac и Windows не позволяют распространять неподписанные приложения.
 
-# Signing macOS builds
+# Подписывание сборок для macOS
 
-Before signing macOS builds, you must do the following:
+Перед подписью, следует:
 
-1. Enroll in the <Apple Developer Program> (requires an annual fee)
-2. Download and install Xcode
-3. Generate, download, and install [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+1. Зарегистрироваться в <Apple Developer Program> (требует оплату раз в год)
+2. Установить Xcode
+3. Сгенерировать [подписанные сертификаты](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
-There are a number of tools for signing your packaged app:
+Существует ряд инструментов для подписывания приложений:
 
-- [`electron-osx-sign`] is a standalone tool for signing macOS packages.
+- [`electron-osx-sign`] — устанавливаемая утилита для подписи.
 - [`electron-packager`] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build. 
     - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
 - [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
@@ -45,7 +45,7 @@ You can get a code signing certificate from a lot of resellers, popular ones inc
 - [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 - Amongst others, please shop around to find one that suits your needs, Google is your friend :)
 
-There are a number of tools for signing your packaged app:
+Существует ряд инструментов для подписывания приложений:
 
 - [`electron-winstaller`] will generate an installer for windows and sign it for you
 - [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
