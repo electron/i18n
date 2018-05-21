@@ -2,9 +2,9 @@
 
 Electron zengin yerel (işletim sistemi) API'ler ile bir çalışma zamanı sağlayarak, saf JavaScript ile masaüstü uygulamalar oluşturmanıza olanak sağlar. Bunu, web sunucuları yerine masaüstü uygulamalarına odaklanan Node.js çalışma sürecinin bir çeşiti olarak görebilirsiniz.
 
-The old "Quick Start" document that used to live here has been split up into two documents:
+Burada daha önce bulunan eski "Hızlı Başlangıç" dokümanı iki parçaya ayrıldı:
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* Temel bir Electron uygulamasının nasıl geliştirildiğine göz atmak için: [Writing Your First Electron App](./first-app.md)
+* Süreç mimarisini gözden geçirmek için: [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
 
-To learn more about Electron, check out the [official guides](../).
+Electron hakkında daha fazla bilgi edinmek için: [official guides](../).
