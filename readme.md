@@ -19,11 +19,11 @@ The following languages are currently being translated, but we can
 
 <!-- start language-table -->
 - [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
-- [Indonesian](https://crowdin.com/project/electron/id)
 - [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
 - [Filipino](https://crowdin.com/project/electron/fil)
-- [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
+- [Indonesian](https://crowdin.com/project/electron/id)
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
+- [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
 - [Français (French)](https://crowdin.com/project/electron/fr)
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)
 - [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
