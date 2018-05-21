@@ -54,7 +54,7 @@ community:
 releases: Lanzamientos
 electron_is_easy:
   title: Es más fácil de lo que piensas
-  description: Si puedes desarrollar un sitio web. puedes hacer aplicaciones de escritorio. Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML, y CSS. El se encarga de las partes mas difíciles así puedes enfocarte en el núcleo de tu aplicación.
+  description: Si puedes crear un sitio web, puedes crear una aplicación de escritorio. Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS. Se encargará de las partes más difíciles para que puedas enfocarte en el núcleo de tu aplicación.
   video_link: Ver vídeo
 web_technologies:
   title: Tecnologías Web
@@ -112,7 +112,7 @@ or: o
 pages:
   '/':
     title: Electron | Crea aplicaciones multiplataforma de escritorio con JavaScript, HTML y CSS.
-    description: 'Construya aplicaciones multiplataforma de escritorio con JavaScript, HTML y CSS.'
+    description: 'Crea aplicaciones multiplataforma de escritorio con JavaScript, HTML y CSS.'
   '/apps':
     title: Aplicaciones de Electron
     description: Aplicaciones hechas con Electron
