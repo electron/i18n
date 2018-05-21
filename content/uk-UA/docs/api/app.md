@@ -148,7 +148,7 @@ app.on('window-all-closed', () => {
 * `type` String - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Містить стан застосунку, збережений діяльністю.
 
-Відбувається коли [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) має бути відновлена на іншому пристрої. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. В іншому випадку операція не виконається і буде викликано `continue-activity-error`.
+Відбувається коли [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) має бути відновлена на іншому пристрої. Якщо вам потрібно оновити статус для передачі, потрібно викликати `event.preventDefault()` негайно, сформувати новий `userInfo` словник та викликати `app.updateCurrentActivity()` в потрібний момент. В іншому випадку операція не виконається і буде викликано `continue-activity-error`.
 
 ### Подія: 'new-window-for-tab' *macOS*
 
@@ -313,14 +313,14 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 * `exitCode` Integer (опціонально)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Негайно виходить з `exitCode`. `exitCode` за замовчуванням 0.
 
 Всі вікна будуть закриті негайно без підтвердження користувача і події `before-quit` та `will-quit` не відбудуться.
 
 ### `app.relaunch([options])`
 
 * `options` Object (опціонально) 
-  * `args` String[] (optional)
+  * `args` String[] (опціонально)
   * `execPath` String (опціонально)
 
 Перезавантажує застосуонк, якщо поточний екземпляр існує.
@@ -384,7 +384,7 @@ app.exit(0)
 * `pictures` Директорія для зображень користувача.
 * `videos` Директорія для відео користувача.
 * `logs` Директорія для логів вашого застосунку.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Повний шлях до системної версії плагіну Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -691,7 +691,7 @@ app.on('ready', () => {
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Повертає [`ProcessMetric[]`](structures/process-metric.md): масив об'єктів `ProcessMetric`, який відповідає статистиці використання пам'яті та ресурсів центрального процесора всіма процесами застосунку.
 
 ### `app.getGPUFeatureStatus()`
 
@@ -731,13 +731,13 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Це показує, що застосунок не має відкривати ніяких вікон під час запуску. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Це показує, що застосунок має відновити ті вікна, які були відкриті минулого разу. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` якщо було відкрито при вході в систему, як такий що має відновити стан з минулої сесії. Це показує, що застосунок має відновити ті вікна, які були відкриті минулого разу. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (опціонально) - `true` щоб відкрити застосунок при вході в систему, `false` для видалення його з автозавантаження. За замовчуванням `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. За замовчуванням `false`. Користувач може редагувати це значення з Налаштувань Системи, тому `app.getLoginItemStatus().wasOpenedAsHidden` має перевірятися коли застосунок відкрито, щоб знати поточне значення. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (опціонально) *macOS* - `true` щоб відкрити застосунок як прихований. За замовчуванням `false`. Користувач може редагувати це значення з Налаштувань Системи, тому `app.getLoginItemStatus().wasOpenedAsHidden` має перевірятися коли застосунок відкрито, щоб знати поточне значення. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (опціонально) *Windows* - Виконуваний файл для запуску при вході в систему. За замовчуванням `process.execPath`.
   * `args` String[] (опціонально) *Windows* - Аргументи командного рядка, для запуску виконуваного файлу. За замовчуванням пустий масив. Оберніть шляхи в лапки.
 
@@ -823,11 +823,11 @@ Start accessing a security scoped resource. With this method electron applicatio
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+Повертає `Boolean` - Показує чи застосунок запущено з системної директої Застосунки. Використовуйте в крмбінації з `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+Повертає `Boolean` - Показує чи переміщення було успішним. Буль ласка, майте на увазі, що якщо переміщення було іспішним ваш застосунок зупиниться та перезапуститься.
 
 За замовчуванням, діалогу пітвердження не буде показано, якщо ви хочете дозволити користувачу підтверджувати операцію, потрібно буде використати [`dialog`](dialog.md) API.
 
