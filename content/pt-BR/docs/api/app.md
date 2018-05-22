@@ -47,6 +47,8 @@ Emitido antes de a aplicação começar a fechar suas janelas. Chamar `event.pre
 
 **Nota:** Se o encerramento da aplicação foi iniciado por `autoUpdater.quitAndInstall()`, então `before-quit` é emitido *depois* de lançar o evento `close` em todas as janelas e fechá-las.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Evento: 'will-quit'
 
 Retorna:
@@ -57,6 +59,8 @@ Emitido quando todas as janelas foram fechadas e a aplicação irá encerrar. Ch
 
 Consulte a descrição do evento `window-all-closed` para as diferenças entre os eventos `will-quit` e `window-all-closed`.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Evento: 'quit'
 
 Retorna:
@@ -65,6 +69,8 @@ Retorna:
 * `exitCode` Integer
 
 Emitido quando a aplicação esta sendo encerrada(quitting).
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Evento: 'open-file' *macOS*
 
@@ -165,7 +171,7 @@ Retorna:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido quando uma [browserWindow](browser-window.md) fica em segundo plano.
+Emitido quando uma [browserWindow](browser-window.md) é desfocada.
 
 ### Evento: 'browser-window-focus'
 
@@ -174,7 +180,7 @@ Retorna:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido quando uma [browserWindow](browser-window.md) fica em primeiro plano.
+Emitido quando [browserWindow](browser-window.md) é focado.
 
 ### Evento: 'browser-window-created'
 
@@ -183,7 +189,7 @@ Retorna:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido quando uma nova [browserWindow](browser-window.md) é criada.
+Emitido quando um novo [browserWindow](browser-window.md) é criado.
 
 ### Evento: 'web-contents-created'
 
@@ -436,7 +442,9 @@ Sobrescreve o atual nome da aplicação.
 
 ### `app.getLocale()`
 
-Retorna `String` - A atual localização da aplicação. Possíveis retornos estão documentados [aqui](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Nota:** Quando estiver distribuindo seu aplicativo, você também deve entregar a pasta `locales`.
 
@@ -527,7 +535,7 @@ Define ou remove uma Jump List personalizada para a aplicação e retorna uma da
 
 Se `categories` for `null`, a Jump List personalizada anteriormente definida (se houver) será substituída por uma Jump List padrão para o app (gerenciada pelo Windows).
 
-**Nota:** Se um objeto `JumpListCategory` não tem o `type` nem a propriedade do `name` definido, então seu `type` é assumido como `tasks`. Se a propriedade `name` está definida mas a propriedade `type` é omissa, então o `type` é assumido como `custom`.
+**Nota:** Se um objeto `JumpListCategory` não tem o `type` nem a propriedade do `name` definido, então seu `type` é assumido como `tasks`. Se a propriedade do `name` está definida mas a propriedade do `type` é omissa, então o `type` é assumido como `custom`.
 
 **Note:** Os usuários podem remover itens de categorias personalizadas, e o Windows não permitirá que um item removido seja adicionado novamente a uma categoria personalizada até **após** a próxima chamada bem-sucedida a `app.setJumpList(categories)`. Qualquer tentativa de adicionar novamente um item removido de uma categoria personalizada antes disso resultará na omissão da categoria inteira da Jump List. A lista dos itens removidos pode ser obtida usando `app.getJumpListSettings()`.
 
