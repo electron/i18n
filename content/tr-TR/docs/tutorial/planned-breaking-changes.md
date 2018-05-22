@@ -16,15 +16,25 @@ app.getAppMetrics()
 ## `BrowserWindow`
 
 ```js
-// Kullanım Dışı
+// Deprecated
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// İle Değiştirin
+// Replace with
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
- 
-Context | Request Context
 
+// Deprecated
+window.on('app-command', (e, cmd) => {
+  if (cmd === 'media-play_pause') {
+    // do something
+  }
+})
+// Replace with
+window.on('app-command', (e, cmd) => {
+  if (cmd === 'media-play-pause') {
+    // do something
+  }
+})
 ```
 
 ## `pano`

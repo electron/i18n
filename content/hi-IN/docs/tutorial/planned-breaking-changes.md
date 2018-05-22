@@ -16,12 +16,25 @@ app.getAppMetrics()
 ## `ब्राउज़र विंडो`
 
 ```js
-// निरस्त
+// Deprecated
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// इससे बदलें
+// Replace with
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
+
+// Deprecated
+window.on('app-command', (e, cmd) => {
+  if (cmd === 'media-play_pause') {
+    // do something
+  }
+})
+// Replace with
+window.on('app-command', (e, cmd) => {
+  if (cmd === 'media-play-pause') {
+    // do something
+  }
+})
 ```
 
 ## `क्लिपबोर्ड`

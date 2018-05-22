@@ -22,5 +22,5 @@ These guides are intended for people working on the Electron project itself. For
 * [디버거에서 디버그 심볼 서버 설정](setting-up-symbol-server.md)
 * [Chromium 업그레이드](upgrading-chromium.md)
 * [Upgrading Crashpad](upgrading-crashpad.md)
-* [Upgrading Node](upgrading-node.md)
+* [Node 업그레이드](upgrading-node.md)
 * [릴리즈](releasing.md)

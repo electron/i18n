@@ -1,4 +1,4 @@
-# PrinterInfo Object
+# PrinterInfo 개체
 
 * `name` String
 * `description` String

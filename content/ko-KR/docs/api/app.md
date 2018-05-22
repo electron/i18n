@@ -73,9 +73,9 @@ Returns:
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+사용자가 파일을 열려 할 때 송출됩니다. 주로 `open-file` 이벤트는 OS가 이미 열려있는 파일을 재사용하려 할 때에 송출됩니다. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
 
-You should call `event.preventDefault()` if you want to handle this event.
+이 이벤트를 처리하려면 `event.preventDefault()`를 호출해야 합니다.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
@@ -88,7 +88,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+이 이벤트를 처리하려면 `event.preventDefault()`를 호출해야 합니다.
 
 ### 이벤트: 'activate' *macOS*
 
@@ -165,7 +165,7 @@ Returns:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+[browserWindow](browser-window.md)에서 벗어날 때 발생됩니다.
 
 ### Event: 'browser-window-focus'
 
@@ -174,7 +174,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+[browserWindow](browser-window.md)에 초첨이 위치할 때 발생됩니다.
 
 ### Event: 'browser-window-created'
 
@@ -183,7 +183,7 @@ Returns:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+[browserWindow](browser-window.md)가 생성되었을 때 발생됩니다.
 
 ### Event: 'web-contents-created'
 
@@ -192,7 +192,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when a new [webContents](web-contents.md) is created.
+[webContents](web-contents.md)가 생성되었을 때 발생됩니다.
 
 ### Event: 'certificate-error'
 
@@ -201,12 +201,12 @@ Emitted when a new [webContents](web-contents.md) is created.
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
+* `error` String - 에러 코드
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` 함수 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - 인증서를 신뢰할 수있는 것으로 간주할지 여부
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+`url`에 대한 `certificate`를 확인하지 못했을 때 발생하며, 인증서를 신뢰할 경우 `event.preventDefault()`선언과 `callback(true)`의 호출로 기본 동작의 실행을 방지해야 합니다.
 
 ```javascript
 const {app} = require('electron')

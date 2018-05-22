@@ -28,17 +28,17 @@ languages:
   current: 현재 선택된 단계
 community:
   title: Electron 커뮤니티
-  description: Resources for connecting with people working on Electron.
+  description: Electron을 쓰는 사람들과 함께하기 위한 자료들입니다.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
-    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    get_started: "<a href='/docs/tutorial/first-app'>퀵스타트 가이드</a>로 앱 만들기를 <a href='/docs/tutorial/first-app'><b>시작</b></a>해보세요."
+    updates: "트위터에서 <a href='https://twitter.com/electronjs'>@electronjs</a>를 팔로우하고 블로그 피드에 가입하여 <a href='https://twitter.com/electronjs'><b>최신 정보를 유지</b></a>하십시오."
+    localized_docs: "<a href='/languages'>언어 페이지</a>에서 <a href='/languages'><b>모국어로 된 문서를 읽어</b></a>보세요."
+    help: "<a href='http://atom-slack.herokuapp.com'>atomio Slack</a> 참여, <a href='https://discuss.atom.io/c/electron'>Discuss</a>에 글을 올리는 것, 또는 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>를 방문하는 것으로 <a href='http://atom-slack.herokuapp.com'><b>도움을 얻거나 의견을 들어</b></a>보세요."
+    packages: "<a href='/search/npmPackages'>패키지 검색 페이지</a>에서 <a href='/search/npmPackages'><b>유용한 npm 패키지를 찾아</b></a>보세요."
+    bugs: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>버그를 알려</b></a>주세요."
+    feature_requests: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>기능을 요청</b></a>해보세요."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>행위규범 위반 신고</b></a>는 <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> 계정으로 해주세요."
+    security: "<a href='mailto:security@electronjs.org'><b>보안 문제 공개</b></a>는 <a href='mailto:security@electronjs.org'>security@electronjs.org</a> 계정으로 해 주세요."
     donations: "<a href='/donors'>OpenCollective 페이지</a>에서 <a href='donors'><b>기부</b></a>."
     other: "다른 문의가 있는 경우, <a href='mailto:info@electronjs.org'>info@electronjs.org</a> 메일로 보내주십시오."
   language_communities:

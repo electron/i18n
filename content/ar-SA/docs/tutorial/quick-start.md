@@ -1,10 +1,10 @@
-# Quick Start
+# بداية سريعة
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+يمكنك الكترون من إنشاء تطبيقات مدهشة لأجهزة الحاسب المكتبي باستخدام منظومة الجافا اسكريبت و ذلك لأنه يحتوي على مكتبة غنية من النماذج المعدة و المهيئة للتعامل مع مختلف عمليات (نظام التشغيل) التي سوف يحتاجها تطبيقك. تستطيع القول أن الكيترون ما هو الا شكل آخر لمنظومة النود جافا سكريبت و لكن بدلا من استخدامها في انشاء تطبيقات الويب فانها متخصصة في انشاء تطبيقات الحاسب المكتبي خاصتا الغير متصلة بالانترنت.
 
-The old "Quick Start" document that used to live here has been split up into two documents:
+كانت تحتوي هذه الصفحة قديما على الجزء الخاص ببداية تعلم الكترون السريعة و لكننا الآن قد قمنا بتقسيمها الى جزئين:
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* لتري بنفسك سهولة عملية انشاء تطبيق باستخدام الكترون ابدأ بهذا الشرح الممتع [ خطوات إنشاء تطبيقك الأول باستخدام منظومة الكترون ](./first-app.md)
+* لتقرأ عن بنائية الكترون و كيفية تقسيمه لعملية إنشاء التطبيقات, اقرأ الملف التالي [ العملية الرئيسية و عملية التقديم النهائي للتطبيقات ](./application-architecture.md#main-and-renderer-processes).
 
-To learn more about Electron, check out the [official guides](../).
+و للتعلم المزيد عن الكترون, تستطيع التبحر في [ مقالات الإرشادات الرسمية ](../).

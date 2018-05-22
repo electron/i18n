@@ -6,7 +6,7 @@ nav:
   community: Comunidad
   contact: Contacto
   docs: Documentación
-  donors: Donors
+  donors: Donaciones
   languages: Idiomas
   releases: Lanzamientos
   search: Buscar
@@ -30,7 +30,7 @@ community:
   title: Comunidad Electron
   description: Resources for connecting with people working on Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Empieza a</b></a> crear una app leyendo el <a href='/docs/tutorial/first-app'>quick-start guide</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
     localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
@@ -54,7 +54,7 @@ community:
 releases: Lanzamientos
 electron_is_easy:
   title: Es más fácil de lo que piensas
-  description: Si puedes desarrollar un sitio web. puedes hacer aplicaciones de escritorio. Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML, y CSS. El se encarga de las partes mas difíciles así puedes enfocarte en el núcleo de tu aplicación.
+  description: Si puedes crear un sitio web, puedes crear una aplicación de escritorio. Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS. Se encargará de las partes más difíciles para que puedas enfocarte en el núcleo de tu aplicación.
   video_link: Ver vídeo
 web_technologies:
   title: Tecnologías Web
@@ -112,7 +112,7 @@ or: o
 pages:
   '/':
     title: Electron | Crea aplicaciones multiplataforma de escritorio con JavaScript, HTML y CSS.
-    description: 'Construya aplicaciones multiplataforma de escritorio con JavaScript, HTML y CSS.'
+    description: 'Crea aplicaciones multiplataforma de escritorio con JavaScript, HTML y CSS.'
   '/apps':
     title: Aplicaciones de Electron
     description: Aplicaciones hechas con Electron
@@ -152,7 +152,7 @@ pages:
     title: Spectron
     description: Spectron es un framework de código abierto para escribir fácilmente tests de integración para sus aplicaciones de Electron. Está construido sobre ChromeDriver y WebDriverIO.
   '/donors':
-    title: Donors
+    title: Donaciones
 _404:
   page_not_found: Página no encontrada.
 search:

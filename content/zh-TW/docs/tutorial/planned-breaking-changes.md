@@ -16,12 +16,25 @@ app.getAppMetrics()
 ## `BrowserWindow`
 
 ```js
-// 已被取代
+// Deprecated
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// 請寫成
+// Replace with
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
+
+// Deprecated
+window.on('app-command', (e, cmd) => {
+  if (cmd === 'media-play_pause') {
+    // do something
+  }
+})
+// Replace with
+window.on('app-command', (e, cmd) => {
+  if (cmd === 'media-play-pause') {
+    // do something
+  }
+})
 ```
 
 ## `clipboard`
