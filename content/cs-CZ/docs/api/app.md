@@ -47,6 +47,8 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Event: 'will-quit'
 
 Vrací:
@@ -57,6 +59,8 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Event: 'quit'
 
 Vrací:
@@ -65,6 +69,8 @@ Vrací:
 * `exitCode` Integer
 
 Emitted when the application is quitting.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Event: 'open-file' *macOS*
 
@@ -438,6 +444,8 @@ Overrides the current application's name.
 
 Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
 
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
 **Note:** On Windows you have to call it after the `ready` events gets emitted.
@@ -715,7 +723,7 @@ Returns `Integer` - The current value displayed in the counter badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Vrací Boolean - Kdykoliv kdy je aktuální prostředí plochy Unity spouštěč.
+Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
