@@ -47,6 +47,8 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### 事件: 'will-quit'
 
 回傳:
@@ -57,6 +59,8 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### 事件: 'quit'
 
 回傳:
@@ -65,6 +69,8 @@ See the description of the `window-all-closed` event for the differences between
 * `exitCode` Integer
 
 Emitted when the application is quitting.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### 事件: 'open-file' *macOS*
 
@@ -350,7 +356,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-將所有應用程式視窗隱藏但沒有將視窗縮到最小。
+Hides all application windows without minimizing them.
 
 ### `app.show()` *macOS*
 
@@ -366,7 +372,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-您可以通過名稱請求以下路徑：
+You can request the following paths by the name:
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -432,11 +438,13 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-重寫當前應用程式的名稱。
+Overrides the current application's name.
 
 ### `app.getLocale()`
 
 Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
@@ -452,7 +460,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
-清除最近使用的文件清單。
+Clears the recent documents list.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
