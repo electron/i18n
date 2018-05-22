@@ -51,6 +51,9 @@ Emitted sebelum aplikasi mulai menutup jendela-jendelanya. Memanggil ` event.pre
 <p><strong> Catatan: </ 0> Jika aplikasi berhenti diprakarsai oleh <code> autoUpdater.quitAndInstall () </ 1> 
 lalu <code> sebelum-berhenti </ 1> dipancarkan <em> setelah </ 2> memancarkan < 1> dekat </ 1>  acara pada semua jendela dan menutup mereka.</p>
 
+<p><strong>Note:</strong> On Windows, this event will not be emitted if the app is closed due
+to a shutdown/restart of the system or a user logout.</p>
+
 <h3>Acara : 'akan-berhenti'</h3>
 
 <p>Pengembalian:</p>
@@ -61,6 +64,9 @@ lalu <code> sebelum-berhenti </ 1> dipancarkan <em> setelah </ 2> memancarkan < 
 Emitted ketika semua jendela telah ditutup dan aplikasi akan berhenti. Memanggil ` event.preventDefault () </ 0> akan mencegah perilaku default, yang mengakhiri aplikasi.</p>
 
 <p>Lihat deskripsi <code> jendela-semua-ditutup </ 0>  acara untuk perbedaan antara <code> akan-berhenti </ 0> dan <code> jendela-semua-ditutup </ 0> peristiwa.</p>
+
+<p><strong>Note:</strong> On Windows, this event will not be emitted if the app is closed due
+to a shutdown/restart of the system or a user logout.</p>
 
 <h3>Acara : 'berhenti'</h3>
 
@@ -74,6 +80,9 @@ Emitted ketika semua jendela telah ditutup dan aplikasi akan berhenti. Memanggil
 
 <p>Emitted saat aplikasi berhenti.</p>
 
+<p><strong>Note:</strong> On Windows, this event will not be emitted if the app is closed due
+to a shutdown/restart of the system or a user logout.</p>
+
 <h3>Event : 'open-file' <em> macos </ 0></h3>
 
 <p>Pengembalian:</p>
@@ -85,9 +94,9 @@ Emitted ketika semua jendela telah ditutup dan aplikasi akan berhenti. Memanggil
 Emitted saat pengguna ingin membuka file dengan aplikasi. The ` open-file yang </ 0> 
 event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan kembali aplikasi untuk membuka file. <code> open-file </ 0> juga dipancarkan saat sebuah file diturunkan ke dok dan aplikasi belum berjalan. Pastikan untuk mendengarkan <code> open-file yang </ 0> acara sangat awal di startup aplikasi Anda untuk menangani kasus ini (bahkan sebelum <code> siap </ 0>  acara dipancarkan).</p>
 
-<p>Anda harus menghubungi <code>event.preventDefault()` jika Anda ingin menangani acara ini.
+<p>Anda harus menghubungi <code> event .preventDefault () </ 0> jika Anda ingin menangani acara ini .</p>
 
-Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untuk mendapatkan filepath.</p>
+<p>Pada Windows, Anda harus mengurai <code> process.argv </ 0> (dalam proses utama) untuk mendapatkan filepath.</p>
 
 <h3>Acara: 'buka-url' <em> macos </em></h3>
 
@@ -101,14 +110,16 @@ Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untu
 
 <p>Emitted saat pengguna ingin membuka URL dengan aplikasi. File <code> Info.plist <code> aplikasi Anda
  harus menentukan skema url di dalam kunci <code> CFBundleURLTypes `, dan set ` NSPrincipalClass ` ke <0> AtomApplication </code>.</p> 
-  Anda harus menghubungi `event.preventDefault()` jika Anda ingin menangani acara ini.
+  Anda harus menghubungi ` event .preventDefault () </ 0> jika Anda ingin menangani acara ini .</p>
+
+<h3>Acara: 'aktifkan' <em>macOS</em></h3>
+
+<p>Pengembalian:</p>
+
+<ul>
+<li><code>acara` Acara</li> 
   
-  ### Acara: 'aktifkan' *macOS*
-  
-  Pengembalian:
-  
-  * `acara` Acara
-  * `hasVisibleWindows` Boolean
+  * `hasVisibleWindows` Boolean</ul> 
   
   Emitted saat aplikasi diaktifkan. Berbagai tindakan dapat memicu acara ini, seperti meluncurkan aplikasi untuk pertama kalinya, mencoba meluncurkan ulang aplikasi saat sudah berjalan, atau mengklik ikon dok atau ikon taskbar.
   
@@ -213,8 +224,8 @@ Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untu
     
     * `event</ 0> Acara</li>
 <li><code>webContents` [WebContents](web-contents.md)
-    * `url` String
-    * `error` String - Kode kesalahan
+    * ` url </ 0> String</li>
+<li><code>error` String - Kode kesalahan
     * `sertifikat` [Sertifikat](structures/certificate.md)
     * `callback` Fungsi 
       * `isTrusted` Boolean - Apakah akan mempertimbangkan sertifikat sebagai terpercaya
@@ -440,7 +451,9 @@ Pada Windows, Anda harus mengurai ` process.argv </ 0> (dalam proses utama) untu
 <p>Mengabaikan nama aplikasi saat ini.</p>
 
 <h3><code>app.getLocale()`</h3> 
-        Mengembalikan `String` - Lokal aplikasi saat ini. Nilai pengembalian yang mungkin didokumentasikan [di sini](locales.md).
+        Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+        
+        To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
         
         **Catatan:** Saat mendistribusikan aplikasi yang dikemas, Anda juga harus mengirimkan map `locales`.
         
