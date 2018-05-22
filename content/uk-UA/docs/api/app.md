@@ -47,6 +47,8 @@ app.on('window-all-closed', () => {
 
 **Примітка:** Якщо вихід з застосунку був ініційований `autoUpdater.quitAndInstall()`, тоді `before-quit` відбувається *після* події `close` на всіх вікнах і закриває їх.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Подія: 'will-quit'
 
 Повертає:
@@ -57,6 +59,8 @@ app.on('window-all-closed', () => {
 
 Дивіться опис події `window-all-closed` для різниці між рлжіями `will-quit` і `window-all-closed`.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Подія: 'quit'
 
 Повертає:
@@ -65,6 +69,8 @@ app.on('window-all-closed', () => {
 * `exitCode` Integer
 
 Відбувається коли застосунок припиняє роботу.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Подія: 'open-file' *macOS*
 
@@ -436,7 +442,9 @@ app.exit(0)
 
 ### `app.getLocale()`
 
-Повертає `String` - Поточна локаль застосунку. Можливі значення перелічені [тут](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Примітка:** При пощиренні пакету застосунку, ви повинні також надати папку `locales`.
 
