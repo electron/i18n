@@ -356,7 +356,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+將所有應用程式視窗隱藏但沒有將視窗縮到最小。
 
 ### `app.show()` *macOS*
 
@@ -372,7 +372,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+您可以通過名稱請求以下路徑：
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -438,7 +438,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+重寫當前應用程式的名稱。
 
 ### `app.getLocale()`
 
@@ -460,7 +460,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
-Clears the recent documents list.
+清除最近使用的文件清單。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
