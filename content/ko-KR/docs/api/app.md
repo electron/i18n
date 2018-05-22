@@ -47,15 +47,19 @@ Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에
 
 **참고:** 만약 어플리케이션이 `autoUpdater.quitAndInstall()`에 의해 종료되는 경우 모든 윈도우에서 `close`이벤트를 발생한 *후* `before-quit` 가 발생되고 윈도우를 닫습니다.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### 이벤트: 'will-quit'
 
-Returns:
+반환:
 
 * `event` Event
 
 모든 윈도우가 닫히고 어플리케이션이 종료될 때 발생된다. `event.preventDefault()`를 호출하면 기본 동작인 어플리케이션 종료를 하지 않습니다.
 
 `will-quit` 와 `window-all-closed` 이벤트들의 차이점에 대해서는 `window-all-closed`이벤트 설명을 참조하세요.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### 이벤트: 'quit'
 
@@ -65,6 +69,8 @@ Returns:
 * `exitCode` Integer
 
 어플리케이션을 종료할 때 발생된다.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### 이벤트: 'open-file' *macOS*
 
@@ -92,7 +98,7 @@ Emitted when the user wants to open a URL with the application. Your application
 
 ### 이벤트: 'activate' *macOS*
 
-반환:
+Returns:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -113,7 +119,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### 이벤트: 'will-continue-activity' *macOS*
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -122,7 +128,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### 이벤트: 'continue-activity-error' *macOS*
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -187,7 +193,7 @@ Returns:
 
 ### Event: 'web-contents-created'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -196,7 +202,7 @@ Returns:
 
 ### Event: 'certificate-error'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -224,7 +230,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -281,7 +287,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-반환:
+Returns:
 
 * `event` Event
 * `killed` Boolean
@@ -290,7 +296,7 @@ Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+반환:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
@@ -437,6 +443,8 @@ Overrides the current application's name.
 ### `app.getLocale()`
 
 Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
