@@ -64,6 +64,9 @@ terminating the application.
 then `before-quit` is emitted *after* emitting `close` event on all windows and
 closing them.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due
+to a shutdown/restart of the system or a user logout.
+
 ### Event: 'will-quit'
 
 Returns:
@@ -77,6 +80,9 @@ terminating the application.
 See the description of the `window-all-closed` event for the differences between
 the `will-quit` and `window-all-closed` events.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due
+to a shutdown/restart of the system or a user logout.
+
 ### Event: 'quit'
 
 Returns:
@@ -85,6 +91,9 @@ Returns:
 * `exitCode` Integer
 
 Emitted when the application is quitting.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due
+to a shutdown/restart of the system or a user logout.
 
 ### Event: 'open-file' _macOS_
 
@@ -522,8 +531,9 @@ Overrides the current application's name.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented
-[here](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Note:** When distributing your packaged app, you have to also ship the
 `locales` folder.
