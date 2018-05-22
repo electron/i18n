@@ -47,6 +47,8 @@ Ilalabas bago magsimula ang aplikasyon sa pagsasara ng mga window nito. Ang pagt
 
 **Note:** Kung sinimulan ang paghinto sa aplikasyon ng `autoUpdater.quitAndInstall()` tapos ang `before-quit` ay lumabas *after* ilalabas ang event na `close` sa lahat ng mga window at isasarado sila.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Event: 'will-quit'
 
 Ibinabalik ang:
@@ -57,6 +59,8 @@ Ilalabas kung ang lahat ng mga window ay isinarado at ang aplikasyon ay ihihinto
 
 Tingnan ang deskripsyon ng event ng `window-all-closed` para sa mga pagkakaiba sa pagitan ng mga event ng `will-quit` at `window-all-closed`.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Event: 'quit'
 
 Ibinabalik ang:
@@ -65,6 +69,8 @@ Ibinabalik ang:
 * `exitCode` Integer
 
 Lalabas kung humihinto ang aplikasyon.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Event: 'open-file' *macOS*
 
@@ -101,7 +107,7 @@ Lalabas kapag ang aplikasyon ay naka-aktibeyt. Iba't-ibang mga aksyon ang maaari
 
 ### Event: 'continue-activity' *macOS*
 
-Ibabalik:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -319,7 +325,7 @@ Ang lahat ng mga window ay kaagad na magsasara kahit walang pahintulot ng user a
 
 ### `app.relaunch([options])`
 
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Bagay (opsyonal) 
   * `args` String[] (optional)
   * `execPath` String (opsyonal)
 
@@ -389,12 +395,12 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `mga opsyon` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `sukat` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 sa *Linux*, 32x32 sa *Windows*, hindi suportado sa *macOS*.
-* `callback` Punsyon 
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -436,7 +442,9 @@ Ino-override ang pangalan ng kasalukuyang aplikasyon.
 
 ### `app.getLocale()`
 
-Magbabalik ng `String` - Ang lokal ng kasalukuyang aplikasyon. Ang posibleng mga halaga ng pagbabalik ay dokumentado na sa [here](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Tandaan:** Habang ipinamamahagi ang iyong naka-package na app, dapat mo ring isama ang polder ng `locales`.
 
@@ -476,7 +484,7 @@ Ang API ay ginagamit ang Windows Registry at ang LSSetDefaultHandlerForURLScheme
 * `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
 * `args` String[] (opsyonal) *Windows* - Magdedefault sa isang walang laman na array
 
-Returns `Boolean` - Kung ang tawag ay naging matagumpay.
+Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
 Ang mga paraan na ito ay sinusuri kung ang kasalukuyang naipapatupad bilang default handler para sa isang protocol (aka URI scheme), Kung gayon, tatanggalin nito ang app bilang default handler.
 
@@ -672,7 +680,7 @@ Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/lib
 * `options` Bagay 
   * `certificate` String - Ang landas para sa mga file ng pkcs12.
   * `password` String - Ang passphrase para sa mga sertipiko.
-* `callback` Punsyon 
+* `callback` Function 
   * `result` Integer - Ang resulta ng pag-import.
 
 Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. Ang `callback` ay tinatawag na kasama ng `result` ng operasyon ng pag-import, ang halaga ng `` ay nagpapahiwatig ng tagumpay samantalang ang iba pang mga halaga ay nagpapahiwatig ng kabiguan ayon sa [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) ng chromium.
@@ -719,7 +727,7 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Bagay (opsyonal) 
   * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
@@ -776,7 +784,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `applicationName` String (opsyonal) - Ang pangalan ng app.
   * `applicationVersion` String (opsyonal) - Ang bersyon ng app.
   * `copyright` String (opsyonal) - Ang impormasyon ng copyright.
