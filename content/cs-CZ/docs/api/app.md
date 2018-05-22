@@ -723,7 +723,7 @@ Returns `Integer` - The current value displayed in the counter badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Vrací Boolean - Kdykoliv kdy je aktuální prostředí plochy Unity spouštěč.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
