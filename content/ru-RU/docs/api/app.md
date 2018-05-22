@@ -286,14 +286,14 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Происходит, когда процесс gpu аварийно завершает работу или был убит.
+Происходит, когда процесс gpu аварийно завершает работу или был завершен.
 
 ### Событие: 'accessibility-support-changed' *macOS* *Windows*
 
 Возвращает:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` когда поддержка специальных возможностей от Chrome включена, `false` в противном случае.
+* `accessibilitySupportEnabled` Boolean - `true` когда включена поддержка специальных возможностей от Chrome, `false` в противном случае.
 
 Происходит при изменении поддержки специальных возможностей от Chrome. Это событие срабатывает, когда вспомогательные технологии, такие как чтения с экрана, включены или отключены. См. https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
