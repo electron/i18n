@@ -86,7 +86,7 @@ function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // index.html을 불러옵니다
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
@@ -179,11 +179,11 @@ Finally the `index.html` is the web page you want to show:
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
-## Trying this Example
+## 예제
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**주의**: 이 코드를 실행하려면 [Git](https://git-scm.com)이 필요합니다.
 
 ```sh
 # Clone the repository
