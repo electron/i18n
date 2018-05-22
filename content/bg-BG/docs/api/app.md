@@ -301,19 +301,19 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Събитие
 * `accessibilitySupportEnabled` Boolean - Когато допълнителната поддръжка на Chrome е включена, стойността на тази променлива е `true`, в противен случай е `false`.
 
-Излъчено, при промяна на допълнителната поддръжка на Chrome. Това събитие е излъчено, когато помощни технологии, като екранни четци, са разрешени или забранени. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Излъчено, при промяна на допълнителната поддръжка на Chrome. Това събитие е излъчено, когато помощни технологии, като екранни четци, са разрешени или забранени. Вижте https://www.chromium.org/developers/design-documents/accessibility за повече подробности.
 
 ## Методи
 
-The `app` object has the following methods:
+Обектът `app` има следните методи:
 
 **Забележка:** Някои методи са достъпни само в конкретни операционни системи и са етикетирани като такива.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Опитва да затвори всички прозорци. Събитието `before-quit` ще бъде излъчено първо. Ако успешно са затворени всички прозорци, събитието `will-quit` ще се излъчи и по подразбиране ще прекрати приложението.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Този метод гарантира, че всички събития `beforeunload` и `unload` са правилно изпълнени. Възможно е прозорец да откаже да се затвори, като върне `false` в манипулатора на събитието `beforeunload`.
 
 ### `app.exit([exitCode])`
 
@@ -321,7 +321,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Всички прозорци ще бъдат затворени веднага без да бъде питан потребителя, като събитията `before-quit` и `will-quit` няма да бъдат излъчени.
 
 ### `app.relaunch([options])`
 
@@ -329,15 +329,15 @@ All windows will be closed immediately without asking user and the `before-quit`
   * `args` String[] (optional)
   * `execPath` String (по избор)
 
-Relaunches the app when current instance exits.
+Рестартира приложението, когато сегашната му инстанция се затвори.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+По подразбиране, новата инстанция на приложението ще използва същата работна папка и командни аргументи също като сегашната инстанция. Когато `args` е специфицирано, `args` ще бъдат изпратени като нови командни аргументи. Когато `execPath` е зададен, `execPath` ще бъде изпълнен за подновяването на текущото приложение.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Забележете, че когато се изпълнява, този метод не изключва приложението, трябва да изпълните `app.quit` или `app.exit` след извикването на `app.relaunch`, за да направите рестартиране на приложението.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Когато `app.relaunch` е изпълнено няколко пъти, множество инстанции ще се стартират след изключване на текущата инстанция.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Пример за рестартиране текущата инстанция веднага и добавяне на нов команден аргумент за новата инстанция:
 
 ```javascript
 const {app} = require('electron')
@@ -348,31 +348,31 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Връща `Boolean` - `true` ако Електрон завърши инициализирането, `false` в противен случай.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+На Linux се фокусира върху първия видим прозорец. На macOS прави приложението активно приложение. На Windows се фокусира върху първия прозорец на приложението.
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Скрива всички прозорци на приложението без да ги минимизира.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Показва прозорците на приложението, след като те са били скрити. Не се фокусира върху тях автоматично.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Връща `String` - Текущата папка на приложението.
 
 ### `app.getPath(name)`
 
 * `name` String - Име
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Връща `String` - Път към специална папка или файл, асоцииран с `name`. При грешка бива хвърлен `Error`.
 
-You can request the following paths by the name:
+Може да заявите следните пътища по име:
 
 * `home` Потребителската начална/home папка.
 * `appData` Папката на приложението за всеки потребител, която по подразбиране сочи към: 
@@ -404,41 +404,41 @@ You can request the following paths by the name:
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Хваща асоциираната икона за съответния път.
 
-On *Windows*, there a 2 kinds of icons:
+На *Windows*, има 2 типа икони:
 
 * Икони асоциирани с конкретни разширения на файлове, като `.mp3`, `.png`, др.
 * Икони в самия файл, като `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* и *macOS*, иконите зависят от асоциацията им с конкретния mime тип на файла.
 
 ### `app.setPath(name, path)`
 
 * `name` String - Име
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Презаписва стойността на `path` към специална папка или файл свързан с `name`. Ако пътят определя директория, която не съществува, директорията ще бъде създаден от този метод. При неуспех `Error` е хвърлена.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Можете само да презапишете пътищата на `name`, дефинирани в `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+По подразбиране бисквитките и кеша на уеб страниците ще бъдат съхранени в `userData` директорията. Ако искате да промените това местоположение, трябва да презапишете пътя `userData` преди събитието `ready` на `app` модула да се излъчи.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Връща `String` - Версията на зареденото приложение. Ако няма намерена версия в `package.json` файла на приложението, връща се версията на текущия пакет или изпълнител.
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Връща `String` - Името на текущото приложение, което е името във файла `package.json` на приложението.
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Обикновено полето `name` на `package.json` е кратко наименование с малки букви според npm спецификацията за модулите. Обикновено трябва също така да укажете полето `productName`, което е пълното име на вашето приложение, само в главни букви. То ще бъде предпочетено пред `name` от Електрон.
 
 ### `app.setName(name)`
 
 * `name` String - Име
 
-Overrides the current application's name.
+Замества името на текущото приложение.
 
 ### `app.getLocale()`
 
@@ -446,21 +446,21 @@ Returns `String` - The current application locale. Possible return values are do
 
 To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Забележка:** Когато се разпространявате пакетираното приложение, трябва също така да изпратите и `locales` папката.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Забележка:** На Windows трябва да го извикате след като събитието `ready` бива излъчено.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
 * `path` String
 
-Adds `path` to the recent documents list.
+Добавя `path` към списъка на последните документи.
 
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+Този списък се управлява от операционната система. В Windows можете да посетите списъка от лентата на задачите, а на macOS можете да го посетите от док менюто.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Изчиства списъка на последните документи.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
@@ -468,15 +468,15 @@ Clears the recent documents list.
 * `path` String (по избор) *Windows* - По подразбиране е `process.execPath`
 * `args` String [] (по избор) *Windows* - По подразбиране е празен масив
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Този метод определя текущия изпълнимия файл като манипулатор по подразбиране за протокола (известно още като URI схема). Позволява ви да интегрирате вашето приложение по-дълбоко в операционната система. Веднъж регистрирана, всички връзки с `вашият-протокол://` ще бъдат отворени със сегашния изпълним файл. Цялата връзка, включително и протокола, ще бъде изпратена към вашето приложение, като параметър.
 
-On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+На Windows, можете да добавите допълнителни параметри по избор, пътят към вашия изпълним файл и args - масив от аргументи, които да бъдат използвани от вашето приложение при стартирането му.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Забележка:** На macOS можете да регистрирате само протоколи, които са били добавени към `info.plist` на вашето приложение. Тези стойности не могат да бъдат променени по време на изпълнение на приложението. Можете обаче да промените файла с обикновен текстов редактор или скрипт по време на изграждане на рпиложението. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) за подробности.
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+API използва системния регистър на Windows и LSSetDefaultHandlerForURLScheme вътрешно.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -484,9 +484,9 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 * `path` String (по избор) *Windows* - По подразбиране е `process.execPath`
 * `args` String [] (по избор) *Windows* - По подразбиране е празен масив
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Този метод проверява дали текущия изпълнимия файл като манипулатор по подразбиране за протокола (известен също нато URI схема). Ако е така, той ще премахне приложението като манипулатор по подразбиране.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -494,25 +494,25 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (по избор) *Windows* - По подразбиране е `process.execPath`
 * `args` String [] (по избор) *Windows* - По подразбиране е празен масив
 
-Returns `Boolean`
+Връща `Boolean`
 
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+Този метод проверява дали текущия изпълнимия файл е манипулатор по подразбиране за протокола (известен също нато URI схема). Ако е така, методът ще върне true, в противен случай false.
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+**Забележка:** На macOS можете да използвате този метод, за да проверите дали приложението е регистрирана като манипулатор по подразбиране за протоколa. Можете също така да проверите това чрез проверка на `~/Library/Preferences/com.apple.LaunchServices.plist` на macOS машина. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) за подробности.
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+API използва системния регистър на Windows и LSCopyDefaultHandlerForURLScheme вътрешно.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
 * `tasks` [Task[]](structures/task.md) - Масив от `Task` обекти
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+Добавя `tasks` към категорията [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) на преход/JumpList на Windows.
 
-`tasks` is an array of [`Task`](structures/task.md) objects.
+`tasks` е масив от [`Task`](structures/task.md) обекти.
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+**Забележка:** Ако искате да персонализирате още повече скок списък (Jump List) използвайте `app.setJumpList(categories)`.
 
 ### `app.getJumpListSettings()` *Windows*
 
@@ -525,7 +525,7 @@ Returns `Boolean` - Whether the call succeeded.
 
 * `categories` [JumpListCategory []](structures/jump-list-category.md) или `null` - Масив от `JumpListCategory` обекти.
 
-Sets or removes a custom Jump List for the application, and returns one of the following strings:
+Задава или премахва потребителски списък за прескачане на приложението, като връща един от следните низове:
 
 * `ok` - Нищо не се е объркало.
 * `error` - Възникнаха една или повече грешки, разрешете регистрирането по време на работа, за да разберете вероятната причина.
@@ -533,13 +533,13 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 * `fileTypeRegistrationError` - Направен е опит за да добавите на връзка към файл към списъка за прескачане за файл от тип, който не е регистриран за обработване от приложението.
 * `customCategoryAccessDeniedError` - Потребителски категории не могат да бъдат добавени към списъка за прескачане поради личните или груповите настройки за политики.
 
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
+Ако `categories` е `null` предварително зададени потребителски списък за прескачане (ако има такъв) ще се замени със стандартен списък за прескачане за приложението (управлявано от Windows).
 
 **Забележка:** Ако обекта `JumpListCategory` няма нито `type`, нито `name` свойство, тогава неговия `type` се приема за `tasks`. Ако свойството на `name` е зададено, но `type` е пропуснато, тогава `type` се приема да бъде `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Забележка:** Потребителите могат да премахнете елементи от потребителски категории, и Windows няма да позволи на вече премахнат елемент, да бъде добавен обратно в потребителските категория до **след** следващото успешно извикване на `app.setJumpList(categories)`. Всеки опит да повторно добавяне на премахнат елемент към потребителска категория по-рано от това ще доведе до пропускане на цялата потребителска категория от списъка за прескачане. Списъкът на отстранени елементи може да бъде получен с помощта на `app.getJumpListSettings()`.
 
-Here's a very simple example of creating a custom Jump List:
+Ето един много прост пример за създаване на потребителски списък за прескачане:
 
 ```javascript
 const {app} = require('electron')
@@ -605,19 +605,19 @@ app.setJumpList([
   * `argv` String [] - Масив от аргументи на командния ред на втората инстанция
   * `workingDirectory` String - Работната директория на втората инстанция
 
-Returns `Boolean`.
+Връща `Boolean`.
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+Този метод прави вашето приложение - приложение в един екземпляр - вместо да позволява множество копия на вашето приложение да вървят едновременно, това ще гарантира, че се изпълнява само един екземпляр на вашето приложение, като други екземпляри ще сигнализират на този екземпляр и след това ще излязат.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`callback` ще бъде призован от първата инстанция с `callback(argv, workingDirectory)`, когато втори екземпляр е бил изпълнен. `argv` е масив от аргументи на командния ред на втората инстанция, а `workingDirectory` е неговата текущата работна директория. Обикновено приложенията отговарят на това чрез фокусирането на своя първичен прозорец, който не е минимизиран.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+`callback` е гарантирано, че ще бъде изпълнен след като събитие `ready` на `app` бъде излъчено.
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+Този метод връща `false`, ако вашия процес е основният екземпляр на приложението и вашето приложението трябва да продължи зареждането. Както и връща `true` ако вашия процес е изпратил своите параметри на друг екземпляр, и вие трябва веднага да изключите текущата инстанция.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+На macOS системата автоматично налага един екземпляр, когато потребителите се опитват да отворят второ копие на приложението ви в Finder събитията `open-file` и `open-url` ще бъдат излъчени. Обаче когато потребителите стартират приложението ви в командния ред, еднократният механизъм на системата ще бъде избегнат, тогава ще трябва да използвате този метод, за да гарантирате единичен екземпляр.
 
-An example of activating the window of primary instance when a second instance starts:
+Пример за активиране на прозореца на основния екземпляр, когато втори екземпляр бива стартиран:
 
 ```javascript
 const {app} = require('electron')
@@ -642,7 +642,7 @@ app.on('ready', () => {
 
 ### `app.releaseSingleInstance()`
 
-Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
+Освобождава всички ключалки, създадени от `makeSingleInstance`. Това ще позволи няколко копия на приложението, работещи едновременно.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -650,30 +650,30 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 * `userInfo` Object - Състояние специфично за приложението, което да бъде използвано от друго приложение.
 * `webpageURL` String (по избор) - Уеб страницата, която да се зареди в браузъра, ако не е инсталирано подходящо приложение на устройство за възобновяване. Схемата трябва да бъде `http` или `https`.
 
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Създава `NSUserActivity` и го задава като текущата дейност. Дейността е подходяща за [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) към друго устройство след това.
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Връща `String` - Видът на текущата изпълняваща се дейност.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
 * `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+Прави не валидна текущата [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активност на потребителя.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Състояние специфично за приложението, което да бъде използвано от друго приложение.
 
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+Текущата дейност се актуализира, ако нейния тип съвпада с `type`, слива записи от `userInfo` в нейния текущ речник `userInfo`.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Променя [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) на `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
@@ -683,19 +683,19 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `callback` Function 
   * `result` Integer - Резултата на импортирането.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` е извикана с `result` от импортиращата операция, стойност от `` показва успех, докато всяка друга стойност показва провал следващ chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Забранява хардуерно ускорение за текущото приложение.
 
-This method can only be called before app is ready.
+Този метод може да бъде извикван само преди приложението да е готово.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+По подразбиране Chromium забранява 3D API (например WebGL) до рестартиране на база на домейн, ако твърде често GPU процеса прекъсва поради грешка. Тази функция забранява това поведение.
 
-This method can only be called before app is ready.
+Този метод може да бъде извикван само преди приложението да е готово.
 
 ### `app.getAppMetrics()`
 
@@ -703,27 +703,27 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 ### `app.getGPUFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Връща [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Състоянието на функцията графика от `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Записва брояча на текущото приложение. Записване на стойност `` ще се погрижи за значката.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+На macOS бива показано в иконата на дока. На Linux бива показано сам под Unity launcher,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Забележка:** Unity launcher изисква съществуването на файл `.desktop` да работи, за повече информация моля прочетете [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Връща `Integer` - Текущата стойност, която се показва като брояч в значката.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Връща `Boolean` - Показва дали текущата среда на работния плот е Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
@@ -731,7 +731,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
   * `path` String (по избор) *Windows* - Изпълнимият път, който ще бъде ползван за сравнение. По подразбиране е `process.execPath`.
   * `args` String[] (по избор) *Windows* - Листът с аргументи от командния ред, с който ще се сравнява. По подразбиране е празен масив.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Ако сте предоставили опциите `path` и `args` на `app.setLoginItemSettings` тогава трябва да изпратите същите аргументи и тук за `openAtLogin` да се определи правилно.
 
 Връща `Object`:
 
@@ -749,9 +749,9 @@ If you provided `path` and `args` options to `app.setLoginItemSettings` then you
   * `path` String (по избор) *Windows* - Изпълнимият път, който ще бъде стартиран при влизане. По подразбиране е `process.execPath`.
   * `args` String[] (по избор) *Windows* - Аргументите от командния ред, които ще бъдат изпратени към изпълнимия файл. По подразбиране е празен масив. Имайте в предвид да поставите пътя в кавички.
 
-Set the app's login item settings.
+Вижте настройките на приложението за елементи при влизане.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Например:
+За да работите с електрон в `autoUpdater` на Windows, който използва [Squirrel](https://github.com/Squirrel/Squirrel.Windows), вие ще трябва да зададете път до Update.exe, и да предадете аргументите, които ще определят името на вашето приложение. Например:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -770,15 +770,15 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Връща `Boolean` - `true` ако разширената достъпност при Chrome е включена, `false` в противен случай. Този API ще върне `true`, ако използването на помощни технологии, като екранни четци, е била открита. Вижте https://www.chromium.org/developers/design-documents/accessibility за повече подробности.
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
 * `enabled` Boolean - Включено или изключено [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) рендиране
 
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+Ръчно позволява на достъпна поддръжка при Chrome, което позволява да се изложи достъпност при превключване на потребители в настройките на приложението. https://www.chromium.org/developers/design-documents/accessibility за повече подробности. Изключено по подразбиране.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Забележка:** Рендирането на accessibility tree може осезаемо да повлияе на работата на вашето приложение. Не трябва да се активира по подразбиране.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -789,7 +789,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
   * `credits` String (по избор) - Информация за авторите.
   * `version` String (по избор) - Номерът на изграждане на приложението.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Вижте панелът с опции about. Това ще презапише стойностите, дефинирани в `.plist` файла на приложението. Вижте [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) за повече детайли.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -811,23 +811,23 @@ Start accessing a security scoped resource. With this method electron applicatio
 * `switch` String - Превключвате от командния ред
 * `value` String (по избор) - Стойност за дадения превключвател
 
-Append a switch (with optional `value`) to Chromium's command line.
+Добавете превключвател (с `value` по избор) към командния ред на Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Забележка:** Това няма да повлияе на `process.argv`, и е основно използвано от разработчици да контролират ниското ниво на държане на Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
 * `value` String - Аргументът, който ще бъде добавен в командния ред
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Добави аргумент към командния ред на Chromium. Аргументът ще бъде коректно обграден с кавички.
 
-**Note:** This will not affect `process.argv`.
+**Забележка:** Това няма да повлияе на `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Включва смесен тестови мод на приложението.
 
-This method can only be called before app is ready.
+Този метод може да бъде извикван само преди приложението да е готово.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
@@ -837,62 +837,62 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
 
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+По подразбиране, няма да бъде представен диалог за потвърждение, ако желаете потребителя да потвърди операцията, ще трябва да го направите, използвайки [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**Забележка:**Този метод хвърля грешка ако нещо различно от потребителя попречи на местенето. На пример, ако потребителя отхвърли диалога за оторизиране - този метод ще върне false. Ако ме можем да изпълним копирането, тогава този метод ще хвърли грешка. Съобщението в грешката би трябвало да е информативно и да ви каже точно какво се е случило
 
 ### `app.dock.bounce([type])` *macOS*
 
 * `type` String (по избор) - Може да бъде `critical` или `informational`. По подразбиране е `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Когато е изпратено `critical`, иконката на дока ще подскоча докато или приложението не стане активно или заявката не бъде спряна.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Когато е изпратено `informational`, иконката на дока ще подскочи една секунда. Обаче, заявката остава активна докато или приложението не стане активно или заявката не бъде спряна.
 
-Returns `Integer` an ID representing the request.
+Връща `Integer` идентификационен номер, който представлява приложението.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Спира подскачането на `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Подскача Downloads ако е включен filePath в папката за сваляне.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Поставя низ, който да бъде показан в областта на дока.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Връща `String` - Низът от дока.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Скрива иконката на дока.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Показва иконката на дока.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Връща `Boolean` - Показва дали иконката на дока е видима. Извикването на `app.dock.show()` е асинхронно, за това този метод може да не върне true веднага след извикване.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+[dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) на приложението.
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+Слага `image` асоцииран с тази иконка на дока.
