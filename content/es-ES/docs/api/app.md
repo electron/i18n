@@ -47,6 +47,8 @@ Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamando a `e
 
 **Nota:** Si el cierre de la aplicación fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitido *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Evento: 'will-quit'
 
 Devuelve:
@@ -57,6 +59,8 @@ Emitido cuando todas las ventanas han sido cerradas y la aplicación se cerrará
 
 Consulte la descripción del evento `window-all-closed` por las diferencias con los eventos `will-quit` y `window-all-closed`.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Evento: 'quit'
 
 Devuelve:
@@ -65,6 +69,8 @@ Devuelve:
 * `exitCode` Integer
 
 Emitido cuando la aplicación se está cerrando.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Evento: 'open-file' *macOS*
 
@@ -116,7 +122,7 @@ La actividad de un usuario puede ser continuada solo en una aplicación que teng
 Devuelve:
 
 * `event` Event
-* `type` String - Una cadena que identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
 
@@ -165,7 +171,7 @@ Devuelve:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido cuando un [browserWindow](browser-window.md) pierde el foco.
+Emitido cuando el [browserWindow](browser-window.md) está borroso.
 
 ### Event: 'browser-window-focus'
 
@@ -174,7 +180,7 @@ Devuelve:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitido cuando un [browserWindow](browser-window.md) obtiene el foco.
+Emitido cuando se enfoca un [browserWindow](browser-window.md).
 
 ### Evento: 'browser-window-created'
 
@@ -192,7 +198,7 @@ Devuelve:
 * `event` Event
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Emitido cuando un nuevo [webContents](web-contents.md) es creado.
+Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
 
 ### Evento: 'certificate-error'
 
@@ -206,7 +212,7 @@ Devuelve:
 * `callback` Function 
   * `isTrusted` Boolean - Si se considera que el certificado es de confianza
 
-Emitido cuando falla la verificación de `certificate` por `url`, para confiar en el certificado usted debe prevenir el comportamiento por defecto con `event.preventDefault()` y llamar a `callback(true)`.
+Emitido cuando falla la verificación de `certificate` por `url`, al confiar en el certificado usted debe prevenir el comportamiento con `event.preventDefault()` y llamar `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -235,7 +241,7 @@ Devuelve:
 
 Emitido cuando el certificado de un cliente es requerido.
 
-La `url` corresponde a la entrada de navegación que requiere el certificado de cliente y `callback` puede ser llamada con una entrada filtrada de la lista. Usando `event.preventDefault()` previene que la aplicación use el primer certificado almacenado.
+La `url` corresponde a la entrada de navegación requerida al certificado del cliente y `callback` puede ser llamado con una entrada filtrada de la lista. Usando `event.preventDefault()` previene que la aplicación use el primer certificado almacenado.
 
 ```javascript
 const {app} = require('electron')
@@ -286,7 +292,7 @@ Devuelve:
 * `event` Event
 * `killed` Boolean
 
-Se emite cuando se produce una excepción en el proceso de gpu o es finalizado de forma inesperada.
+Es emitido cuando el proceso de la gpu se crashea o es terminado.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
@@ -295,19 +301,19 @@ Devuelve:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` cuando el soporte de accesibilidad de Chrome está activado, de lo contrario `false`.
 
-Es emitido cuando se modifica el soporte de accesibilidad de Chrome. Este evento se dispara cuando las tecnologías de asistencia, como un lector de pantalla, es activado o desactivado. Vea https://www.chromium.org/developers/design-documents/accessibility para mas información.
+Es emitido cuando el soporte de accesibilidad de Chrome es modificado. Este evento se dispara cuando las tecnologías de asistencia, como un lector de pantalla, sin activados o desactivados. Vea https://www.chromium.org/developers/design-documents/accessibility para mas información.
 
 ## Métodos
 
 El objeto `app` tiene los siguientes métodos:
 
-**Nota:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
+**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
-Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será emitido y por defecto la aplicación se cerrará.
+Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será producido y por defecto la aplicación se cerrará.
 
-Este método asegura que todos los controladores para los eventos `beforeunload` y `unload` se ejecutan correctamente. Es posible que una ventana cancele la salida devolviendo `falso` en el controlador de eventos `beforeunload`.
+Este método garantiza que todos los eventos de `beforeunload` y `unload` serán correctamente ejecutados. Es posible que una ventana cancele la salida regresando `falso` en el manipulador de eventos `antes de cargar`.
 
 ### `app.exit([exitCode])`
 
@@ -315,7 +321,7 @@ Este método asegura que todos los controladores para los eventos `beforeunload`
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
-Tods las ventanas se cerrarán inmediatamente sin preguntar al usuario y los eventos `before-quit` y `will-quit` no se emitirán.
+Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los eventos `before-quit` y `will-quit` no se correrán.
 
 ### `app.relaunch([options])`
 
@@ -323,15 +329,15 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuario y los eve
   * `args` String[] (optional)
   * `execPath` String (opcional)
 
-Reinicia la aplicación cuando la instancia actual se cierra.
+Reinicia la aplicación cuando la instancia se cierra.
 
-Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos que la instancia actual. Cuando se especifican `args`, entonces `args` se pasarán como argumentos de línea de comandos. Si se especifica `execPath`, entonces `execPath` se ejecutará como reinicio de la aplicación en vez de la aplicación actual.
+Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
 
-Note que este método no finaliza la aplicación cuando se ejecuta, debe llamar a `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
+Note que este método no cierta la aplicación cuando esta es ejecutada, tiene que llamar `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
 
-Cuando `app.relaunch` se llama múltiples veces, se iniciarán múltiples instancias después de que la instancia actual finalice.
+Cuando `app.relaunch` es llamada múltiples veces, múltiples instancias serán iniciadas después de que la actual instancia se cierre.
 
-Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comandos de la nueva instancia:
+Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comando de la nueva instancia:
 
 ```javascript
 const {app} = require('electron')
@@ -342,29 +348,29 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Devuelve `Boolean` - `true` Si Electron ha terminado de inicializarse, de lo contrario `false`.
+Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo contrario `false`.
 
 ### `app.focus()`
 
-En Linux, se establece el foco en la primera ventana visible. En macOS, convierte la aplicación en la aplicación activa. En Windows, el foco se establece en la primera ventana de la aplicación.
+En Linux, el foco se tiene en la primera ventana visible. En macOS, hace que la aplicación se active. En Windows, el foco se tiene en la primera ventana de la aplicación.
 
 ### `app.hide()` *macOS*
 
-Oculta todas la ventanas de la aplicación sin minimizarlas.
+Oculta todas la ventanas de la aplicación sin minimizar estas.
 
 ### `app.show()` *macOS*
 
-Muestra las ventanas de la aplicación después de que fueran ocultadas. No establece el foco en ellas automáticamente.
+Muestra las ventanas de la aplicación después e que fueron ocultas. No enfoca automáticamente estas.
 
 ### `app.getAppPath()`
 
-Devuelve `String` - El directorio actual de la aplicación.
+Devuelve `String` - al directorio de la aplicación actual.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Devuelve `String` - Una ruta a un directorio especial o a un archivo asociado con un `name`. Cuando se produce un `Error` se dispara una excepción.
+Devuelve `cadena` - Una ruta a un directorio especial o a un archivo asociado con un `nombre`. Cuando hay una falla se lanza un `Error`.
 
 Usted puede pedir las siguientes direcciones por nombre:
 
@@ -398,35 +404,35 @@ Usted puede pedir las siguientes direcciones por nombre:
   * `error` Error
   * `ícono` [NativeImage](native-image.md)
 
-Obtiene el icono asociado a la ruta.
+Busca un ícono asociado a la ruta.
 
-En *Windows*, Hay dos tipos de iconos:
+En *Windows*, Hay dos tipos de íconos:
 
 * Iconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
 * Iconos dentro del propio archivo, como `.exe`, `.dll`, `.ico`.
 
-En *Linux* y *macOS*, los iconos dependen de la aplicación asociada al tipo mime de archivo.
+En *Linux* y *macOS*, los íconos dependen de la aplicación asociada al tipo de archivo.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Reemplaza el `path` a un directorio especial o un archivo asociado con `name`. Si la ruta especifica un directorio que no existe, el directorio se creará por este método. En caso de fallo se emite un `Error`.
+Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. Si el camino especificado a un directorio no existe, el directorio será creado por el siguiente método. En caso de fallar se lanza un `Error`.
 
-Solo puede sobrescribir rutas de un `name` definido en `app.getPath`.
+Solo puede sobre escribir rutas de de un `nombre` definido en `app.getPath`.
 
-Por defecto, las cookies y el caché de una página web serán almacenados en el directorio `userData`. Si quiere cambiar su localización, tiene que sobrescribir la ruta de `userData` ante de que el evento `ready` del módulo `app` se emita.
+Por defecto, las cookies y el caché de una página web serán almacenados en el directorio `userData`. Si quiere cambiar su localización, tiene que reescribir la ruta de `Dato de Usuario` ante que el evento `listo` del módulo de la `app` sea emitido.
 
 ### `app.getVersion()`
 
-Devuelve `String` - La versión de la aplicación cargada. Si no se encuentra la versión en el fichero `package.json` de la aplicación, se devuelve la versión del paquete o ejecutable.
+Regresa `Cadena` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
 
 ### `app.getName()`
 
-Devuelve `String` - El nombre actual de la aplicación, que se corresponde con el nombre especificado en el fichero `package.json` de la aplicación.
+Regresa `Cadena` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
 
-Usualmente el campo `name` del fichero `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones del módulo npm. Normalmente debe especificar un `productName` también, el cual es el nombre de su aplicación en mayúsculas, y que será preferido por Electron sobre `name`.
+Usualmente el campo `nombre` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones del módulo npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
 
 ### `app.setName(name)`
 
@@ -436,7 +442,9 @@ Reescribe el nombre de la aplicación actual.
 
 ### `app.getLocale()`
 
-Regresa `Cadena` - La localización actual de la aplicación. Los valores posibles son documentados [aquí](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
@@ -508,7 +516,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `remover elementos` [JumpListItem[]](structures/jump-list-item.md) - Arreglo de los objetos `JumpListItem` a elementos que el usuario ha removido explícitamente de la categoría personalizada en la Jump list. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
@@ -680,7 +688,7 @@ Importa el certificado en formato pkcs12 dentro del certificado de la plataforma
 
 Desactiva la aceleración por hardware para esta aplicación.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
@@ -724,7 +732,7 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 
 Si tú has dado las opciones `path` y `args` a `app.setLoginItemSettings` entonces tú necesitas pasar los mismos argumentos aquí para `openAtLogin` para que se establezca correctamente.
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
 * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
