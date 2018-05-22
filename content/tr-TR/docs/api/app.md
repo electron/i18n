@@ -47,15 +47,19 @@ Uygulama pencerelerini kapatmaya başlamadan önce ortaya çıkar. `event.preven
 
 **Not:**Uygulama bırakma işlemi`autoUpdater.quitAndInstall()` tarafından başlatılmışsa, tüm pencerelerde `kapanış` olayını yayan</em> sonra* yayınlanır ve kapanır.</p> 
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Etkinlik: 'çıkış-yapılacak'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 
 Tüm pencereler kapatıldığında ve uygulamadan çıkıldığında ortaya çıkar. `event.preventDefault()` öğesini çağırmak, uygulamayı sonlandıran varsayılan davranışı engelleyecektir.
 
 Arasındaki farklar için `tüm-pencereler-kapalı` olayının açıklamasına bakın `will-quit` ve `tüm-pencereler-kapalı` olayları.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Etkinlik: 'çıkış'
 
@@ -65,6 +69,8 @@ Dönüşler:
 * `çıkışKodu` Tamsayı
 
 Uygulama kesildiğinde ortaya çıkar.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Etkinlik: 'open-file' *macOS*
 
@@ -142,7 +148,7 @@ Bu cihazdan bir etkinlik başarıyla yürütüldüğünde [Handoff](https://deve
 
 ### Etkinlik: 'activate' *macOS*
 
-Dönütler:
+Dönüşler:
 
 * `event` Olay
 * xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
@@ -152,11 +158,11 @@ Dönütler:
 
 ### Etkinlik: 'new-window-for-tab' *macOS*
 
-Dönütler:
+Dönüşler:
 
 * `event` Event
 
-Yerel kullanıcı macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin `tabbingIdentifier` olması durumunda görünür
+Kullanıcı yerel macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin bir `tabbingIdentifier`'ı varsa görünür olur
 
 ### Olay: 'browser-window-blur'
 
@@ -226,7 +232,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `url` URL
 * `certificateList` [Sertifika[]](structures/certificate.md)
@@ -250,7 +256,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `istek` Nesne 
   * `method` Dizi
@@ -258,7 +264,7 @@ Dönüşler:
   * `referrer` URL
 * `authInfo` Nesne 
   * `isProxy` Boolean
-  * `scheme` Dizi
+  * `scheme` String
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
@@ -292,7 +298,7 @@ Gpu işlemi çöktüğünde yada yok olduğunda yayılmaktadır.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `accessibilitySupportEnabled` Boolean - `true` Chrome'un ulaşılabilirlik desteği etkinken, o zaman `false`.
 
 Chrome'un erişilebilirlik takviyesi değiştiğinde ortaya çıkar. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. Daha detaylı bilgi için https://www.chromium.org/developers/design-documents/accessibility ziyaret edin.
@@ -437,7 +443,9 @@ Mevcut uygulamanın ismini geçersiz kılar.
 
 ### `app.getLocale()`
 
-Geçerli uygulama yerel ayarı - `String` döndürür. Olası dönüş değerleri belgelenmiştir [ Burada ](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 ** Not:** Paketli uygulamanızı dağıtırken, aynı zamanda ` yerel ayarlar` klasörü nakledilir.
 
@@ -458,10 +466,10 @@ Yakın zamandaki dokümentasyon listesini temizler.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
-* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
+* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
 * `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
-Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
 Bu yöntem, geçerli yürütülebilir dosyayı bir protokol için varsayılan işleyici olarak ayarlar (aka URI düzeni). Uygulamanızı daha da derinleştirerek işletim sistemine entegre etmenizi sağlar. Kayıt olduktan sonra, `your-protocol://` adresine sahip tüm bağlantılar, ile açılır. Geçerli yürütülebilir. Protokol de dahil olmak üzere tüm bağlantı, uygulamanız bir parametre olarak geçilecek.
 
@@ -474,17 +482,17 @@ API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kull
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
-* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
+* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
 * `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
 
-Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
 Bu yöntem, geçerli yürütülebilir bir iletişim kuralı (aka URI şeması) için varsayılan işleyici olarak çalışıp çalışmadığını kontrol eder. Eğer öyleyse, varsayılan işleyici olarak uygulamayı kaldırır.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
-* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
+* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
 * `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
 `Boole Değeri` döndürür

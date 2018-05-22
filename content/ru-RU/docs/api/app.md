@@ -47,6 +47,8 @@ app.on('window-all-closed', () => {
 
 **Примечание:** Если выход приложения был инициирован `autoUpdater.quitAndInstall()` затем `before-quit` возникает *после* возникновения события `close` на всех окнах и закрывает их.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Событие: 'will-quit'
 
 Возвращает:
@@ -57,6 +59,8 @@ app.on('window-all-closed', () => {
 
 Смотрите описание события `window-all-closed` для различий между событием `will-quit` и `window-all-closed`.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Событие: 'quit'
 
 Возвращает:
@@ -65,6 +69,8 @@ app.on('window-all-closed', () => {
 * `exitCode` Integer
 
 Происходит при выходе из приложения.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Событие: 'open-file' *macOS*
 
@@ -88,7 +94,7 @@ app.on('window-all-closed', () => {
 
 Происходит, когда пользователь хочет открыть URL-адрес из приложения. Файл Вашего приложения `Info.plist` должнен определять схему URL в ключе `CFBundleURLTypes` и установить `NSPrincipalClass` в `AtomApplication`.
 
-Вы должны вызвать `event.preventDefault()`, если Вы хотите обработать это событие.
+Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
 ### Событие: 'activate' *macOS*
 
@@ -156,7 +162,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Происходит, когда пользователь нажимает нативную кнопку новая вкладка на macOS. Кнопка новая вкладка доступна только в том случае, если текущий `BrowserWindow` имеет `tabbingIdentifier`
+Возникает, когда пользователь нажимает нативную новую кнопку вкладки macOS. Новая кнопка вкладки доступна только в том случае, если текущий `BrowserWindow` имеет `tabbingIdentifier`
 
 ### Событие: 'browser-window-blur'
 
@@ -165,7 +171,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Происходит, когда [browserWindow](browser-window.md) теряет фокус.
+Возникает, когда [browserWindow](browser-window.md) получает размытие.
 
 ### Событие: 'browser-window-focus'
 
@@ -174,7 +180,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Происходит, когда [browserWindow](browser-window.md) сфокусировано.
+Возникает, когда [browserWindow](browser-window.md) получает фокус.
 
 ### Событие: 'browser-window-created'
 
@@ -183,7 +189,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Происходит, когда создается новый [browserWindow](browser-window.md).
+Возникает, когда создается новый [browserWindow](browser-window.md).
 
 ### Событие: 'web-contents-created'
 
@@ -192,7 +198,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Происходит, когда создан новый [webContents](web-contents.md).
+Возникает при создании нового [webContents](web-contents.md).
 
 ### Событие: 'certificate-error'
 
@@ -206,7 +212,7 @@ app.on('window-all-closed', () => {
 * `callback` Function 
   * `isTrusted` Boolean - учитывать ли сертификат как надёжный
 
-Происходит, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
+Возникает, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -233,9 +239,9 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (опиционально)
 
-Происходит при запросе сертификата клиента.
+Возникает при запросе сертификата клиента.
 
-`url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` может быть вызван с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает от использования приложением первого сертификата из хранилища.
+`url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` можно вызвать с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает приложению использование первого сертификата из хранилища.
 
 ```javascript
 const {app} = require('electron')
@@ -266,9 +272,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Происходит, когда `webContents` хочет сделать базовую аутентификацию.
+Возникает `webContents`, когда делается базовый auth.
 
-Поведением по умолчанию является отмена всех аутентификаций, чтобы переопределить это Вы должны предотвратить поведение по умолчанию при помощи `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
+Поведением по умолчанию является отмена всех идентификаций, чтобы переопределить это вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
 
 ```javascript
 const {app} = require('electron')
@@ -286,7 +292,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Происходит, когда процесс gpu аварийно завершает работу или был завершен.
+Возникает когда процесс gpu аварийно завершает работу или убит.
 
 ### Событие: 'accessibility-support-changed' *macOS* *Windows*
 
@@ -295,7 +301,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` когда включена поддержка специальных возможностей от Chrome, `false` в противном случае.
 
-Происходит при изменении поддержки специальных возможностей от Chrome. Это событие срабатывает, когда вспомогательные технологии, такие как чтения с экрана, включены или отключены. См. https://www.chromium.org/developers/design-documents/accessibility для подробностей.
+Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 ## Методы
 
@@ -305,7 +311,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### `app.quit()`
 
-Попробует закрыть все окна. Сначала возникнет событие `before-quit`. Если все окна успешно закрыты, событие `will-quit` возникнет и по умолчанию приложение будет завершено.
+Попробуйте закрыть все окна. Сначала возникнет событие `before-quit`. Если все окна успешно закрыты, событие `will-quit` возникнет и по умолчанию приложение будет завершено.
 
 Этот метод гарантирует, что все обработчики событий `beforeunload` и ` unload` выполнятся корректно. Вполне возможно, что окно отменит выход, возвращая `false` в обработчике событий `beforeunload`.
 
@@ -323,7 +329,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
   * `args` String[] (опционально)
   * `execPath` String (опиционально)
 
-Приложение возобновится при выходе из текущего экземпляра.
+Перезапуск приложения когда существует текущий экземпляр.
 
 По умолчанию новый экземпляр будет использовать тот же рабочий каталог и аргументы командной строки с текущим экземпляром. Когда `args` указан, `args` передаются как аргументы командной строки. Когда задано значение `execPath`, `execPath` будет выполняться для перезапуска вместо текущего приложения.
 
@@ -331,7 +337,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Когда `app.relaunch` вызывается несколько раз, несколько экземпляров будет запущено после выхода из текущего экземпляра.
 
-Пример немедленного перезапуска текущего экземпляра и добавление нового аргумента командной строки для нового экземпляра:
+Пример перезапуска немедленно текущего экземпляра и добавив новый аргумент командной строки в новый экземпляр:
 
 ```javascript
 const {app} = require('electron')
@@ -358,7 +364,7 @@ app.exit(0)
 
 ### `app.getAppPath()`
 
-Возвращает `String` - текущий каталог приложения.
+Возвращает `String` - текущего каталога приложения.
 
 ### `app.getPath(name)`
 
@@ -398,9 +404,9 @@ app.exit(0)
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Получает путь значка.
+Извлекает путь значка.
 
-На *Windows*, есть 2 вида значков:
+На *Windows*, там 2 вида значков:
 
 * Значки, связанные с определенными расширениями, как `.mp3`, `.png`, и т.д.
 * Значки внутри файла, как `.exe`, `.dll`, `.ico`.
@@ -436,7 +442,9 @@ app.exit(0)
 
 ### `app.getLocale()`
 
-Возвращает `String` - текущего языка приложения. Описаны возможные возвращаемые значения [здесь](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Примечание:** При распространении упакованного приложения, нужно также добавить папку `locales`.
 

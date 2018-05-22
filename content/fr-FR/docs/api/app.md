@@ -47,6 +47,8 @@ Renvoie :
 
 **Remarque :** Si l'interruption de l'application a été initié par `autoUpdater.quitAndInstall()`, alors l'événement `before-quit` est émis *après* avoir émis l'événement `close` sur toutes les fenêtres et leur fermeture.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Événement : 'will-quit'
 
 Retourne :
@@ -57,6 +59,8 @@ Retourne :
 
 Consultez la description de l’événement `window-all-closed` pour voir les différences entre les événements `will-quit` et `window-all-closed`.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Événement : 'quit'
 
 Retourne :
@@ -65,6 +69,8 @@ Retourne :
 * `exitCode` Integer
 
 Émis lorsque l'application se quitte.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Événement : 'open-file' *macOS*
 
@@ -226,7 +232,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
@@ -283,7 +289,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `killed` Boolean
 
 Émis lorsque le processus gpu crash ou est interrompu.
@@ -436,11 +442,13 @@ Remplace le nom de l'application actuelle.
 
 ### `app.getLocale()`
 
-Retourne `String` - La localisation actuelle de l'application. Les valeurs possibles sont documentés [ici](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Remarque :** À la distribution de votre application empaquetée, vous devrez également inclure le dossier `locales`.
 
-**Remarque :** Sous Windows, vous ne pouvez appeler cette fonction qu'après que l'événement `ready` soit émit.
+**Remarque :** Sous Windows, vous devrez l’appeler après que l'événement `prêt` soit émit.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -460,7 +468,7 @@ Efface la liste des documents récents.
 * `path` String (facultatif) *Windows* - `process.execPath` par défaut
 * `args` String[] (facultatif) *Windows* - Un tableau vide par défaut
 
-Retourne `Boolean` - Si l'appel a réussi.
+Returns `Boolean` - Si l'appel a réussi.
 
 Cette méthode définit l'exécutable courant comme gestionnaire par défaut pour un protocole. (par exemple le modèle URI). Il vous permet d'intégrer votre application plus en profondeur dans le système d'exploitation. Une fois enregistré, tous les liens avec `votre-protocole://` seront ouverts avec l'exécutable courant. L'ensemble du lien, y compris le protocole, sera transmis en paramètre à votre application.
 
@@ -476,7 +484,7 @@ L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerFor
 * `path` String (facultatif) *Windows* - `process.execPath` par défaut
 * `args` String[] (facultatif) *Windows* - Un tableau vide par défaut
 
-Retourne `Boolean` - Si l'appel a réussi.
+Returns `Boolean` - Si l'appel a réussi.
 
 Cette méthode vérifie si l'application actuel est l'application par défaut pour un protocole (par exemple le modèle URI). Si c'est le cas, il retirera l’application comme application par défaut.
 

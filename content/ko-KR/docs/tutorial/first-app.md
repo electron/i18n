@@ -31,7 +31,7 @@ npm은 기본적인 `package.json`파일을 생성하여 여러분에게 정보�
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). 이것이 간단한 Node 애플리케이션이었다면, 현재 패키지를 실행하는 `node` 명령어를 `start` 스크립트를 통해 추가할 수 있습니다.
+**주의**: package.json의 `main` 값이 없다면, Electron은 `index.js`를 로드할것입니다. (Node.js가 그러는것처럼요!) 이것이 간단한 Node 애플리케이션이었다면, 현재 패키지를 실행하는 `node` 명령어를 `start` 스크립트를 통해 추가할 수 있습니다.
 
 ```json
 {
@@ -83,10 +83,10 @@ const path = require('path')
 const url = require('url')
 
 function createWindow () {
-  // Create the browser window.
+  // 브라우저 창을 생성합니다
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // index.html을 불러옵니다
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
@@ -179,11 +179,11 @@ Finally the `index.html` is the web page you want to show:
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
-## Trying this Example
+## 예제
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**주의**: 이 코드를 실행하려면 [Git](https://git-scm.com)이 필요합니다.
 
 ```sh
 # Clone the repository

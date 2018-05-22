@@ -48,9 +48,11 @@ Rückgabewert:
 Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.</p> 
   **Wichtig**: Wenn das Beenden der App durch einen Aufruf von `autoUpdater.quitAndInstall()` initiiert wurde, wird das `before-quit` Event *nach* nach der Auslösung aller `close` Events für alle Fenster ausgelöst und diese werden geschlossen.
   
+  **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+  
   ### Ereignis: 'before-quit'
   
-  Kehrt zurück:
+  Rückgabewert:
   
   * ` Ereignis </ 0>  Ereignis</li>
 </ul>
@@ -58,6 +60,8 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
 <p>Wird ausgelöst bevor die App anfängt, ihre Fenster zu schließen.
 Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.</p> 
     Schau dir die Beschreibung/Dokumentation des `window-all-closed` Events an um die Unterschiede zwischen dem `will-quit` und dem `window-all-closed` Event zu verstehen.
+    
+    **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
     
     ### Ereignis: 'quit'
     
@@ -67,6 +71,8 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
 <li><code>exitCode` Integer
     
     Wird ausgelöst wenn die App beendet wird.
+    
+    **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
     
     ### Ereignis: 'open-file' *macOS*
     
@@ -353,7 +359,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.hide()` *macOS*
         
-        Blendet alle Anwendungsfenster aus ohne sie zu minimieren.
+        Hides all application windows without minimizing them.
         
         ### `app.show()` *macOS*
         
@@ -434,11 +440,13 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         * `name` Zeichenfolge
         
-        Überschreibt den Namen der aktuellen Anwendung.
+        Overrides the current application's name.
         
         ### `app.getLocale()`
         
         Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+        
+        To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
         
         **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
         
@@ -720,7 +728,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.getLoginItemSettings([options])` *macOS* *Windows*
         
-        * `options` Objekt (optional) 
+        * `optionen` Objekt (optional) 
           * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
           * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
         
@@ -774,7 +782,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setAboutPanelOptions(options)` *macOS*
         
-        * `options` Object 
+        * `optionen` Object 
           * `applicationName` String (optional) - The app's name.
           * `applicationVersion` String (optional) - The app's version.
           * `copyright` String (optional) - Copyright information.

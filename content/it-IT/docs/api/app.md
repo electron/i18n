@@ -47,6 +47,8 @@ Emesso prima che l'applicazione inizi a chiudere le sue finestre. Chiamare `even
 
 **Note:** Se l'uscita dall'applicazione è avviata da `autoUpdater.quitAndInstall()` allora `before-quit` è emesso *dopo* aver emesso l'evento `close` su tutte le finestre e chiudendole.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Evento: 'will-quit'
 
 Restituisce:
@@ -57,6 +59,8 @@ Emesso quando tutte le finestre sono state chiuse e l'applicazione uscirà. Chia
 
 Vedi la descrizione dell'evento `window-all-closed` per le differenze tra gli eventi `will-quit` e `window-all-closed`.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Evento: 'quit'
 
 Restituisce:
@@ -65,6 +69,8 @@ Restituisce:
 * `codiceUscita` Integer
 
 Emesso quando l'applicazione è in uscita.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Evento: 'open-file' *macOS*
 
@@ -118,7 +124,7 @@ Restituisce:
 * `event` Event
 * `type` Stringa - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), prima che un'attività da un dispositivo differente richieda di essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), prima che un'attività da un dispositivo differente richieda di essere ripristinata. Se vuoi gestire questo evento dovresti chiamare `event.preventDefault()`.
 
 ### Evento: 'continue-activity-error' *macOS*
 
@@ -156,7 +162,7 @@ Restituisce:
 
 * `event` Event
 
-Emesso quando l'utente clicca il pulsante macOS nativo nuova scheda. Il pulsante nuova scheda è visibile solo se l'attuale `BrowserWindow` ha un `tabbingIdentifier`
+Emesso quando l'utente clicca il pulsante macOS nativo nuova scheda. Il pulsante nuova scheda è visibile solo se l'attuale `FinestraBrowser` ha un `Identificatoreschede`
 
 ### Evento: 'browser-window-blur'
 
@@ -165,7 +171,7 @@ Restituisce:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emesso quando una [browserWindow](browser-window.md) è sfocata.
+Emesso quando una [Finestrabrowser](browser-window.md) è sfocata.
 
 ### Evento: 'browser-window-focus'
 
@@ -174,7 +180,7 @@ Restituisce:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emesso quando una [browserWindow](browser-window.md) è focalizzata.
+Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
 
 ### Evento: 'browser-window-created'
 
@@ -183,7 +189,7 @@ Restituisce:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emesso quando una [browserWindow](browser-window.md) è creata.
+Emesso quando una [Finestrabrowser](browser-window.md) è creata.
 
 ### Evento: 'web-contents-created'
 
@@ -192,7 +198,7 @@ Restituisce:
 * `event` Event
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
 
-Emesso quando un nuovo [webContents](web-contents.md) è creato.
+Emesso quando un nuovo [ContenutoWeb](web-contents.md) è creato.
 
 ### Evento: 'certificate-error'
 
@@ -206,7 +212,7 @@ Restituisce:
 * `callback` Function 
   * `isTrusted` Boolean - Se considerare il certificato come verificato
 
-Emesso quando fallisce la verifica del`certificate` per`url`, per verificare il certificato puoi prevenire il comportamento predefinito con `evento.preventDefault()` e chiamare `callback(true)`.
+Emesso quando fallisce la verifica del`certificato` per`url`, per verificare il certificato puoi prevenire il comportamento predefinito con `evento.previeniDefault()` e chiamare `callback(vero)`.
 
 ```javascript
 const {app} = richiedi('electron')
@@ -236,7 +242,7 @@ Restituisce:
 
 Emesso quando un certificato client è richiesto.
 
-L'`url` corrisponde alla voce di navigazione richiedente il certificato client e `callback` può essere chiamato con una voce filtrata dalla lista. Usando `evento.preventDefault()` si previene che l'app usi il primo certificato dal magazzino.
+L'`url` corrisponde alla voce di navigazione richiedente il certificato client e `callback` può essere chiamato con una voce filtrata dalla lista. Usando `evento.previeniDefault()` si previene che l'app usi il primo certificato dal magazzino.
 
 ```javascript
 const {app} = require('electron')
@@ -267,9 +273,9 @@ Restituisce:
   * `username` String
   * `password` String
 
-Emesso quando i `webContents` vogliono fare un'autenticazione base.
+Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
 
-Il comportamento predefinito è di cancellare tutte le autenticazioni, per evitare ciò puoi prevenire il comportamento predefinito con `event.preventDefault()` e chiamare `callback(username, password)` con le credenziali.
+Il comportamento predefinito è di cancellare tutte le autenticazioni, per evitare ciò puoi prevenire il comportamento predefinito con `evento.previeniDefault` e chiamare `callback(nomeutente, password)` con le credenziali.
 
 ```javascript
 const {app} = require('electron')
@@ -296,7 +302,7 @@ Restituisce:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` quando il supporto all'accessibilità a Chrome è abilitato, `false` altrimenti.
 
-Emesso quando cambia il supporto accessibilità di Chrome. Questo evento avviene quando le tecnologie d'assistenza, come lettore schermo, sono abilitate o disabilitate. Vedi https://www.chromium.org/developers/design-documents/accessibility per ulteriori dettagli.
+Emesso quando cambia il supporto accessibilità di Chrome. Questo evento avviene quando le tecnologie d'assistenza, come lettore schermo, sono abilitate o disabilitate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
 ## Metodi
 
@@ -306,9 +312,9 @@ L'oggetto `app` ha i seguenti metodi:
 
 ### `app.quit()`
 
-Prova a chiudere tutte le finestre. L'evento `before-quit` sarà emesso prima. Se tutte le finestre sono chiuse con successo, l'evento `will-quit` sarà emesso e di default l'app sarà terminata.
+Prova a chiudere tutte le finestre. L'evento `esci-prima` sarà emesso prima. Se tutte le finestre sono chiuse con successo, l'evento `uscirà` sarà emesso e di default l'app sarà terminata.
 
-Questo metodo garantisce che tutti i `beforeunload` e `unload` eventi gestionali siano correttamente eseguiti. È possibile che una finestra annulli l'uscita tornando `false` nell'evento gestionale `beforeunload`.
+Questo metodo garantisce che tutti i `precaricati` e `caricati` eventi gestionali siano correttamente eseguiti. È possibile che una finestra annulli l'uscita tornando `false` nell'evento gestionale `precaricato`.
 
 ### `app.exit([exitCode])`
 
@@ -316,7 +322,7 @@ Questo metodo garantisce che tutti i `beforeunload` e `unload` eventi gestionali
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
-Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli eventi `before-quit` e `will-quit` non saranno emessi.
+Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli eventi `prima-esci` e `uscirà` non saranno emessi.
 
 ### `app.relaunch([options])`
 
@@ -326,11 +332,11 @@ Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli
 
 Rilancia l'app quando esiste la corrente istanza.
 
-Di default la nuova istanza userà la stessa directory di lavoro e argomenti della linea di comando con la corrente istanza. Quando l'`args` è specificato, l'`args` sarà invece passato come argomento di linea di comando. Quando `execPath` è specificato, `execPath` sarà eseguito per rilanciare, invece, l'app corrente.
+Di default la nuova istanza userà la stessa directory di lavoro e argomenti della linea di comando con la corrente istanza. Quando l'`arg` è specificato, l'`arg` sarà invece passato come argomento di linea di comando. Quando `eseguiPercorso` è specificato, `eseguiPercorso` sarà eseguito per rilanciare, invece, l'app corrente.
 
-Nota che questo metodo non termina l'app quando eseguito, devi chiamare `app.quit` o `app.exit` dopo aver chiamato `app.relaunch` per riavviare l'app.
+Nota che questo metodo non termina l'app quando eseguito, devi chiamare `app.esci` o `app.uscita` dopo aver chiamato `app.rilancia` per riavviare l'app.
 
-Quando `app.relaunch` è chiamato ripetutamente, le istanze multiple sarannò avviate dopo l'istanza corrente sia uscita.
+Quando `app.rilancia` è chiamato ripetutamente, le istanze multiple sarannò avviate dopo l'istanza corrente sia uscita.
 
 Un esempio di riavvio dell'istanza corrente immediato e aggiungendo un nuovo argomento della linea di comando alla nuova istanza:
 
@@ -344,7 +350,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Restituisce `Boolean` - `true` se Electron ha finito l'inizializzazione, `false` viceversa.
+Restituisce `Booleano` - `true` se Electron ha finito l'inizializzazione, `falso` viceversa.
 
 ### `app.focus()`
 
@@ -360,13 +366,13 @@ Mostra le finestre dell'applicazione dopo che sono state nascoste. Non le focali
 
 ### `app.getAppPath()`
 
-Restituisce `String` - La directory dell'app corrente.
+Restituisce `Stringa` - La directory dell'app corrente.
 
 ### `app.getPath(name)`
 
 * `name` Stringa
 
-Restituisce `String` - Un percorso ad una directory speciale o ai file associati con `name`. In caso di fallimento avviene lanciato un `Error`.
+Restituisce `Stringa` - Un percorso ad una directory speciale o ai file associati con `nome`. In caso di fallimento avviene un `Errore`.
 
 Puoi richiedere i seguenti percorsi dal nome:
 
@@ -397,7 +403,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     * `normal` - 32x32
     * `large` - 48x48 su *Linux*, 32x32 su *Windows*, non supportato su *macOS*.
 * `callback` Function 
-  * `error` Error
+  * `errore` Errore
   * `icon` [NativeImage](native-image.md)
 
 Recupera un'icona associata al percorso.
@@ -414,21 +420,21 @@ Su *Linux* e *macOS* le icone dipendono dall'app associata con il tipo di file m
 * `name` Stringa
 * `path` String
 
-Sostituisce il `path` ad una directory speciale o ad un file associato con `name`. Se il percorso specifica una directory che non esiste, la directory sarà creata da questo metodo. In caso di fallimento viene generato un `Error`.
+Sostituisce il `percorso` ad una directory speciale o ad un file associato con `nome`. Se il percorso specifica una directory che non esiste, la directory sarà creata da questo metodo. In caso di fallimento viene generato un `Errore`.
 
-Si possono sostituire solo i percorsi di un `name` definiti in `app.getPath`.
+Si possono sostituire solo i percorsi di un `nome` definiti in `app.ottieniPercorso`.
 
-Di default, i cookie e la cache delle pagine web saranno immagazzinate sotto la directory `userData`. Se vuoi cambiare questa posizione devi sostituire al percorso `userData` prima che l'evento `ready` del modulo `app` venga emesso.
+Di default, i cookie e la cache delle pagine web saranno immagazzinate sotto la directory `Datiutente`. Se vuoi cambiare questa posizione devi sostituire al percorso `Datiutente` prima che l'evento `pronto` del modulo `app` venga emesso.
 
 ### `app.getVersion()`
 
-Restituisce `String` - La versione dell'app caricata. Se non viene trovata nessuna versione nel file dell'app `package.json`, la versione dell'attuale pacchetto o eseguibile è restituita.
+Restituisce `Stringa` - La versione dell'app caricata. Se non viene trovata nessuna versione nel file dell'app `pacchetto-json`, la versione dell'attuale pacchetto o eseguibile è restituita.
 
 ### `app.getName()`
 
-Restituisce `String`. Il nome attuale dell'app, che è il nome nel file dell'app `package.json`.
+Restituisce `Stringa`. Il nome attuale dell'app, che è il nome nel file dell'app `package.json`.
 
-Spesso il campo `name` del `package.json` è un breve nome in minuscolo, seconda la specifica dei moduli npm. Di solito si dovrebbe anche specificare un campo `productName`, che è il nome in maiuscolo della tua applicazione, e che sarà preferito al `name` da Electron.
+Spesso il campo `nome` del `package.json` è un breve nome in minuscolo, in bae alla specifica dei moduli npm-. Di solito si dovrebbe anche specificare un campo `NomeProdotto`, che è il nome in maiuscolo della tua applicazione, e che sarà preferito al `nome` da Electron.
 
 ### `app.setName(name)`
 
@@ -438,17 +444,19 @@ Sostituisce l'attuale nome dell'app.
 
 ### `app.getLocale()`
 
-Restituisce `String` - L'attuale locale dell'app. Possibili valori restituiti sono documentati [qui](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Note:** Quando distribuisci il tuo pacchetto app, devi anche navigare nelle cartelle `locali`.
 
-**Note:** Su Windows devi chiamarlo dopo che l'evento `ready` è emesso.
+**Note:** Su Windows devi chiamarlo dopo che l'evento `pronto` è emesso.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
 * `path` String
 
-Aggiungi `path` alla lista documenti recenti.
+Aggiungi `percorso` alla lista documenti recenti.
 
 Questa lista è gestita dall'OS. Su Windows puoi visitare la lista dalla taskbar e su macOS la puoi visitare dal menu dock.
 
@@ -464,9 +472,9 @@ Pulisce la lista documenti recenti.
 
 Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
-Questo metodo imposta l'attuale eseguibile come handler di default per un protocollo (a. k. a. schema URI). Ti permette di integrare la tua app in profondità nel sistema operativo. Una volta registrati, tutti i link con `your-protocol://` saranno aperti con l'attuale eseguibile. L'intero link, incluso il protocollo, sarà passato all'app come parametro.
+Questo metodo imposta l'attuale eseguibile come gestionale di default per un protocollo (a. k. a. schema URI). Ti permette di integrare la tua app in profondità nel sistema operativo. Una volta registrati, tutti i link con `your-protocol://` saranno aperti con l'attuale eseguibile. L'intero link, incluso il protocollo, sarà passato all'app come parametro.
 
-Su Windows puoi fornire parametri di percorso opzionali, il percorso al tuo eseguibile e gli argomenti, un array di argomenti da passare al tuo eseguibile quando si lancia.
+Su Windows puoi fornire parametri di percorso opzionali, il percorso al tuo eseguibile e gli argomenti, un insieme di argomenti da passare al tuo eseguibile quando si lancia.
 
 **Nota:** Su macOS, puoi solo registrare protocolli aggiunti alla tua app `info.plist`, che non può essere modificato in esecuzione. Puoi comunque cambiare il file con un semplice editore di testo o script durante il momento di costruzione. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) per i dettagli.
 
@@ -488,11 +496,11 @@ Questo metodo controlla se l'eseguibile attuale è come un gestionale di default
 * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
 * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
 
-Restituisci `Boolean`
+Restituisci `Booleano`
 
 Questo metodo controlla se l'eseguibile attuale è come un gestionale per un protocollo (o schema URI). Se sì, restituirà true. Altrimenti, restituirà false.
 
-**Nota:** Su macOS puoi usare questo metodo per controllare se l'app è stata registrata come gestionale di protocolli di default per un protocollo. Puoi anche verificarlo controllando `~/Library/Preferences/com.apple.LaunchServices.plist` su computer macOS. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) per i dettagli.
+**Nota:** Su macOS puoi usare questo metodo per controllare se l'app è stata registrata come gestionale di protocolli di default per un protocollo. Puoi anche verificarlo controllando `~/Libreria/Preferenze/com.apple.LanciaServizi.plist` su computer macOS. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) per i dettagli.
 
 L'API usa il Registro Windows e LSCopiaGestionaleDefaultPerSchemaURL internamente.
 
@@ -502,15 +510,15 @@ L'API usa il Registro Windows e LSCopiaGestionaleDefaultPerSchemaURL internament
 
 Aggiungi `task` alla categoria [Task](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) della JumpList su Windows.
 
-`tasks` è un array di oggetti [`Task`](structures/task.md).
+`task` è un insieme di oggetti [`Task`](structures/task.md).
 
 Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
-**Nota:** Se ti piacerebbe modificare la Jump List ecco altri usi, invece, `app.setJumpList(categorie)`.
+**Nota:** Se ti piacerebbe modificare la Jump List ecco altri usi, invece, `app.impostaJumpList(categorie)`.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Restituisci `Object`:
+Restituisci `Oggetto`:
 
 * `minItems` Integer - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Insieme degli oggetti `JumpListItem` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **next** chiamata a `app.setJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
@@ -527,7 +535,7 @@ Imposta o rimuovi una JumpList personalizzata per l'app, e restituisci una delle
 * `fileTypeRegistrationError` - È stato fatto un tentativo di aggiungere un link file alla Jump List per un tipo di file non gestibile dall'app.
 * `customCategoryAccessDeniedError` - Le categorie personalizzate non possono essere aggiunte alla Jump List per motivi di privacy dell'utente o per le impostazioni di privacy di gruppo.
 
-Se le `categories` sono `null` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
+Se le `categorie` sono `nulle` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
 
 **Note:** Se un oggetto `JumpListCategory` non ha nè `type` nè `name` impostati, il suo `type` diventa `tasks`. Se la proprietà `name` è impostata ma la proprietà `type` é omessa, il `type` sarà considerato `custom`.
 
@@ -599,17 +607,17 @@ app.setJumpList([
   * `argv` String[] - Un insieme della linea di comando d'argomento della seconda istanza
   * `workingDirectory` Stringa - La directory funzionante della seconda istanza
 
-Restituisce `Boolean`.
+Restituisce `Booleano`.
 
 Questo metodo rende la tua app una app a Singola Istanza - invece di permettere multiple istanze della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
 
-`callback` sarà chiamato dalla prima istanza con `callback(argv, workingDirectory)` quando una seconda istanza è stata eseguita. `argv` è un insieme delle linee di comando degli argomenti della seconda istanza e la `workingDirectory` è la sua attuale Directory in uso. Di solito le app rispondono a questo focalizzando la loro finestra primaria e non minimizzata.
+`callback` sarà chiamato dalla prima istanza con `callback(argv, Directoryfunzionante` quando una seconda istanza è stata eseguita. `argv` è un insieme delle linee di comando degli argomenti della seconda istanza e la `Directoryfunzionante` è la sua attuale Directory funzionante. Di solito le app rispondono a questo focalizzando la loro finestra primaria e non minimizzata.
 
-Il `callback` è garantito essere eseguito dopo che l'evento `ready` dell'`app` è stato emesso.
+Il `callback` è garantito essere eseguito dopo che l'evento `pronto` dell'app è stato emesso.
 
 Questo metodo restituisce `false` se il tuo processo è l'istanza primaria dell'applicazione e la tua app potrebbe continuare a caricare. E restituisce `true` se il tuo processo ha inviato i suoi parametri ad un'altra istanza e dovresti immediatamente uscire.
 
-Su macOS il sistema fa rispettare l'istanza singola automaticamente quando l'utente prova ad aprirne un'altra della vostra app su Finder e per questo sono emessi gli eventi `open-file` ed `open-url`. Comunque quando un utente avvia la tua app nella linea di comando il meccanismo della singola istanza del sistema sarà bypassato e devi usare questo metodo per assicurare la singola istanza.
+Su macOS il sistema fa rispettare l'istanza singola automaticamente quando l'utente prova ad aprirne un'altra della vostra app su Finder e per questo sono emessi gli eventi `apri-file` ed `apri-url`. Comunque quando un utente avvia la tua app nella linea di comando il meccanismo della singola istanza del sistema sarà bypassato e devi usare questo metodo per assicurare la singola istanza.
 
 Un esempio dell'attivazione drll'istanza primaria quando se ne avvia una seconda:
 
@@ -636,19 +644,19 @@ app.on('ready', () => {
 
 ### `app.releaseSingleInstance()`
 
-Rilascia tutti i blocchi creati da `makeSingleInstance`. Permetterà alle istanze multiple dell'app di essere eseguite di nuovo al contempo.
+Rilascia tutti i blocchi creati da `faIstanzaSingola`. Permetterà alle istanze multiple dell'app di essere eseguite di nuovo al contempo.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Oggetto - Stato app specifico al magazzino per usare da altro dispositivo.
 * `webpageURL` String (opzionale) - La pagina web da caricare nel browser se non sono installate app adatte nel dispositivo ripristinante. Lo schema deve essere `http` o `https`.
 
-Crea un'`NSUserActivity` e la imposta come attività corrente. L'attività è eleggibile per [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ad un altro dispositivo poi.
+Crea un'`NSAttivitàUtente` e la imposta come attività corrente. L'attività è eleggibile per [Passarlo](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ad un altro dispositivo poi.
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Restituisce `String` - Il tipo di attività al momento in esecuzione.
+Restituisce `Stringa` - Il tipo di attività al momento in esecuzione.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
@@ -658,7 +666,7 @@ Invalida l'attività [Handoff](https://developer.apple.com/library/ios/documenta
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
-* `type` String - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `tipo` Stringa - Unicamente identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Stato app specifico al magazzino per usare da altro dispositivo.
 
 Aggiorna l'attività corrente se il suo tipo corrisponde al `type`, fondendo le voci da `userInfo` nel suo dizionario corrente `userInfo`.
@@ -677,7 +685,7 @@ Cambia il [Modello Id Applicazione Utente](https://msdn.microsoft.com/en-us/libr
 * `callback` Function 
   * `result` Integer - Risultato dell'importo.
 
-Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` è chiamato con il `result` dell'operazione di importazione, un valore di `` indica successo, mentre un altro valore indica un fallimento in base al chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` è chiamato con il `risultato` dell'operazione di importazione, un valore di `` indica successo, mentre un altro valore indica un fallimento in base al chromium [net_errore_lista](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
