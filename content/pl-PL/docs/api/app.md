@@ -47,6 +47,8 @@ Emitowane przed tym jak aplikacja zacznie zamykać okna. Wywołanie `event.preve
 
 **Uwaga:** Jeśli zamykanie zostało zainicjowane przez `autoUpdater.quitAndInstall()`, wtedy `before-quit` jest emitowany *po* emitowaniu `close` na wszystkich oknach oraz ich zamknięcia.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Zdarzenie: 'will-quit'
 
 Zwraca:
@@ -57,6 +59,8 @@ Emitowane gdy wszystkie okna zostają zamknięte oraz gdy aplikacja się zamyka.
 
 Zobacz opisy `window-all-closed` zdarzeń oraz rózice między zdarzeniami `will-quit` i `window-all-closed`.
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### Zdarzenie: 'quit'
 
 Zwraca:
@@ -65,6 +69,8 @@ Zwraca:
 * `exitCode` Integer
 
 Emitowane kiedy aplikacja jest wyłączana.
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### Zdarzenie 'open-file' *macOs*
 
@@ -437,6 +443,8 @@ Zastępuje aktualną nazwę aplikacji.
 ### `app.getLocale()`
 
 Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
