@@ -47,6 +47,8 @@ Electronが初期化処理を完了したときに発生します。 macOSでは
 
 **注:** アプリケーションの終了が `autoUpdater.quitAndInstall()` によって開始された場合、全てのウインドウで `close` イベントを発生させ、それらが閉じた*後* に `before-quit` が発生します。
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### イベント: 'will-quit'
 
 戻り値:
@@ -57,6 +59,8 @@ Electronが初期化処理を完了したときに発生します。 macOSでは
 
 `will-quit` と `window-all-closed` イベントの差異を確認するためには、`window-all-closed` イベントの説明もお読みください。
 
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+
 ### イベント: 'quit'
 
 戻り値:
@@ -65,6 +69,8 @@ Electronが初期化処理を完了したときに発生します。 macOSでは
 * `exitCode` Integer
 
 アプリケーションが終了するときに発生します。
+
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
 ### イベント: 'open-file' *macOS*
 
@@ -436,11 +442,13 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.getLocale()`
 
-戻り値 `String` - 現在のアプリケーションのロケール。返却される可能性のある値は [ここ](locales.md) に記されています。
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **注:** アプリをパッケージ化して配布する場合、`locales` フォルダを同梱する必要があります。
 
-**注:** Windows の場合、`ready` イベントが発生した後で呼び出すようにしてください。
+**Note:**Windows の `準備ができて` のイベントが出力される後を呼び出すことがあります。
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
