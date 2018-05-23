@@ -1,12 +1,12 @@
-# In-App Purchase (macOS)
+# 应用内购买 (macOS)
 
-## Preparing
+## 准备中
 
-### Paid Applications Agreement
+### 付费应用协议
 
-If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
+如果你还没有，你需要在 iTunes Connect 签署付费应用协议, 并设置您的银行和税务信息。
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+[iTunes Connect 开发人员帮助: 协议、税务和银行概述](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Create Your In-App Purchases
 
