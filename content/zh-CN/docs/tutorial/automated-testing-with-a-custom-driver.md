@@ -36,18 +36,18 @@ process.send({my: 'message'})
 
 现在，我们可以使用`appProcess` 对象从测试套件到Electron应用进行通讯。
 
-For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+为了方便起见，你可能需要封装`appProcess`到一个驱动对象，以便提供更多高级函数。 下面是一个如何这样做的示例：
 
 ```js
 class TestDriver {
   constructor ({path, args, env}) {
     this.rpcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
+    // 启动子进程
+    env.APP_TEST_DRIVER = 1 // 让应用知道该侦听消息
     this.process = childProcess.spawn(path, args, {stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env})
 
-    // handle rpc responses
+    // 处理 rpc 响应
     this.process.on('message', (message) => {
       // pop the handler
       var rpcCall = this.rpcCalls[message.msgId]
