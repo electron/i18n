@@ -2,39 +2,39 @@
 
 为Electron应用编写自动测试, 你需要一种 "驱动" 应用程序的方法。 [ Spectron ](https://electronjs.org/spectron) 是一种常用的解决方案, 它允许您通过 [ WebDriver ](http://webdriver.io/) 模拟用户行为。 当然，也可以使用node的内建IPC STDIO来编写自己的自定义驱动。 自定义驱动的优势在于，它往往比Spectron需要更少的开销，并允许你向测试套件公开自定义方法。
 
-要创建自定义驱动, 我们将使用 nodejs 的 [ child_process ](https://nodejs.org/api/child_process.html) API。 The test suite will spawn the Electron process, then establish a simple messaging protocol:
+要创建自定义驱动, 我们将使用 nodejs 的 [ child_process ](https://nodejs.org/api/child_process.html) API。 测试套件将生成 Electron 子进程，然后建立一个简单的消息传递协议。
 
 ```js
 var childProcess = require('child_process')
 var electronPath = require('electron')
 
-// spawn the process
+// 生成进程
 var env = { /* ... */ }
 var stdio = ['inherit', 'inherit', 'inherit', 'ipc']
 var appProcess = childProcess.spawn(electronPath, ['./app'], {stdio, env})
 
-// listen for IPC messages from the app
+// 从应用侦听IPC消息
 appProcess.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the app
+// 向应用发送IPC消息
 appProcess.send({my: 'message'})
 ```
 
-From within the Electron app, you can listen for messages and send replies using the nodejs [process](https://nodejs.org/api/process.html) API:
+从Electron应用中，你可以侦听消息并使用 nodejs [ 进程 ](https://nodejs.org/api/process.html) API 发送答复:
 
 ```js
-// listen for IPC messages from the test suite
+// 从测试套件进程侦听IPC消息
 process.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the test suite
+// 向测试套件进程发送IPC消息
 process.send({my: 'message'})
 ```
 
-We can now communicate from the test suite to the Electron app using the `appProcess` object.
+现在，我们可以使用`appProcess` 对象从测试套件到Electron应用进行通讯。
 
 For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
 
