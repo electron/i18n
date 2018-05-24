@@ -52,8 +52,8 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
   * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extension DevTools](tutorial/devtools-extension.md)
   * [Test automatisé avec un driver personalisé](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
+* Livraison 
+  * [Signature de code](tutorial/code-signing.md)
 * [Distribution](tutorial/application-distribution.md) 
   * [Support](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
