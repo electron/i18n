@@ -7,13 +7,13 @@ Suivez les indications ci-dessous pour compiler Electron sur Linux.
 * Au moins 25GB d'espace disque et 8 Go de RAM.
 * Python 2.7.x. Certaines distributions comme CentOS 6.x utilisent encore Python 2.6.x, vous devrez peut-être vérifier votre version de Python avec `python -V`.
     
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    Veuillez vérifier que votre système et votre version de Python supporte au moins le TLS 1.2 ou une version supérieure. Pour un test rapide, exécutez le script suivant:
     
     ```sh
     $ python ./script/check-tls.py
     ```
     
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Vous pouvez également visiter https://www.python.org/downloads/ pour plus de détails.
 
 * Node.js. Il y a différentes façons d’installer Node. Vous pouvez télécharger le code source depuis [nodejs.org](https://nodejs.org) et le compiler vous-même. Cela permet l’installation de Node sur votre propre répertoire comme un utilisateur standard. Ou essayez les dépôts tels que [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
