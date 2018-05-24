@@ -8,13 +8,13 @@
 
 The `inAppPurchase` module emits the following events:
 
-### Event: 'transactions-updated'
+### Ивент: 'transactions-updated'
 
 Emitted when one or more transactions have been updated.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `transactions` ([Transaction[]](structures/transaction.md) - Array of transactions.
 
 ## Методы
