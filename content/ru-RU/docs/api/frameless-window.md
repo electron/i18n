@@ -1,10 +1,10 @@
 # Безрамочное Windows
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> Откройте окно без панелей инструментов, границ или другого графического «chrome».
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+Безрамное окно - окно, в котором нет [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome) частей окна, например панели инструментов, которые не являются частью веб-страницы. Эти варианты в классе [`BrowserWindow`](browser-window.md).
 
-## Create a frameless window
+## Создание безрамного окна
 
 To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
 
