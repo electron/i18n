@@ -26,7 +26,7 @@ Une Image disque Apple est un format de package utilisé par macOS. Les fichiers
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Langage de description d'interface. Permet d'écrire des signatures de fonction et des types de données dans un format qui peut être utilisé pour générer des interfaces en Java, C++, JavaScript, etc.
 
 ### IPC
 
