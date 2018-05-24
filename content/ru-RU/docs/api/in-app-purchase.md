@@ -1,8 +1,8 @@
 # inAppPurchase
 
-> In-app purchases on Mac App Store.
+> Покупки внутри приложения в Mac App Store.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 ## События
 
