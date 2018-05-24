@@ -56,7 +56,7 @@ Acronyme pour Mac App Store d'Apple. Pour plus d'informations sur la soumission 
 
 An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Voir https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### modules natifs
 
