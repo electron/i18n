@@ -13,7 +13,7 @@
 * [開發環境設定](tutorial/development-environment.md) 
   * [macOS 設定](tutorial/development-environment.md#setting-up-macos)
   * [Windows 設定](tutorial/development-environment.md#setting-up-windows)
-  * [Linux 設定](tutorial/development-environment.md#setting-up-linux)
+  * [Linux設定](tutorial/development-environment.md#setting-up-linux)
   * [選擇編輯器](tutorial/development-environment.md#a-good-editor)
 * [建立你的第一個應用程式](tutorial/first-app.md) 
   * [安裝 Electron](tutorial/first-app.md#installing-electron)
