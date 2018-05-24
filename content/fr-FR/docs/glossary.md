@@ -54,7 +54,7 @@ Acronyme pour Mac App Store d'Apple. Pour plus d'informations sur la soumission 
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Un système IPC pour la communication intra - ou inter-processus, et c’est important car Chrome a tendance à diviser ses tâches dans des processus distincts ou non, en fonction des contraintes de mémoire etc.
 
 Voir https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
