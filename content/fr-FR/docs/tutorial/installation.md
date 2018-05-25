@@ -42,7 +42,7 @@ Si vous êtes dans l'incapacité d'accéder à github ou si vous avez besoin de 
 
 #### Miroir
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. L’url utilisée par `electron-download` se compose de la manière suivante :
+Vous pouvez utiliser des variables d’environnement pour substituer l’URL de base, le chemin d’accès où chercher les binaires d'Electron, et le nom du fichier binaire. L’url utilisée par `electron-download` se compose de la manière suivante :
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -62,11 +62,11 @@ Egalement vous pouvez, surcharger le cache local. `electron-download` mettra en 
 * MacOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+Sur les environnements qui utilisent des versions plus anciennes d’électron, vous pourriez trouver le cache aussi dans `~/.electron`.
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+Vous pouvez également substituer l’emplacement du cache local en fournissant une variable d’environnement `ELECTRON_CACHE`.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+Le cache contient l’archive zip de la version officielle, ainsi qu'un checksum stocké dans un fichier texte. Un cache typique ressemble à :
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
