@@ -8,16 +8,16 @@ Si vous avez besoin d’aide pour la programmation, de réponses à vos question
 
 * [`electron`](https://discuss.atom.io/c/electron) sur le forum de Atom
 * `#atom-shell` sur le channel Freenode
-* [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
-* [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-* [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* [`Electron`](https://atom-slack.herokuapp.com) sur le channel Slack d'Atom
+* [`electron-ru`](https://telegram.me/electron_ru) *(Russe)*
+* [`electron-br`](https://electron-br.slack.com) *(Brézilien Portugais)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Coréen)*
+* [`electron-jp`](https://electron-jp.slack.com) *(Japonais)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turque)*
+* [`electron-id`](https://electron-id.slack.com) *(Indonésien)*
+* [`electron-pl`](https://electronpl.github.io) *(Polonais)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+Si vous souhaitez contribuer sur Electron, lisez le [document de contribution](../../CONTRIBUTING.md).
 
 If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
 
