@@ -5,9 +5,9 @@
 
 ## 平台 / 操作 支持
 
-| 操作类型 | 平台支持  | `text` 参数    | `text` 参数默认值                                                                                | 局限性                                                                                                                                                  |
-| ---- | ----- | ------------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `按钮` | macOS | button 显示的内容 | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | 只使用第一个。 如果提供了多个, 则第一个之外的那些将被列为附加操作 (当鼠标停留在按钮上时显示)。 Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| 操作类型     | 平台支持  | `text` 参数    | `text` 参数默认值                                                                                | 局限性                                                                                                                                                  |
+| -------- | ----- | ------------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button` | macOS | button 显示的内容 | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | 只使用第一个。 如果提供了多个, 则第一个之外的那些将被列为附加操作 (当鼠标停留在按钮上时显示)。 Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### MacOS系统上的按钮支持
 
