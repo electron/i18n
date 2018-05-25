@@ -2,7 +2,7 @@
 
 Il y a plusieurs méthodes pour mettre à jour une application Electron. La plus simple, et celle qui est officiellement supportée, tire parti de l'intégration du framework [Squirrel](https://github.com/Squirrel) et du module [autoUpdater](../api/auto-updater.md) d'Electron.
 
-## Using `update.electronjs.org`
+## Utilisation de `update.electronjs.org`
 
 GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
 
@@ -13,7 +13,7 @@ GitHub's Electron team maintains [update.electronjs.org](https://github.com/elec
 
 The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
 
-Install the module:
+Installer le module:
 
 ```sh
 npm install update-electron-app
@@ -29,7 +29,7 @@ By default, this module will check for updates at app startup, then every ten mi
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
 
-## Using `electron-builder`
+## Utilisation de `electron-builder`
 
 Si votre application est empaquetée avec [`electron-builder`](https://github.com/electron-userland/electron-builder), vous pouvez utiliser le module [electron-updater](https://www.electron.build/auto-update) qui ne nécessite pas de serveur et permet les mises à jour depuis S3, GitHub ou tout autre hôte de fichiers statiques. Ceci évite le mécanisme de mise à jour intégré d'Electron, ce qui signifie que le reste de cette documentation ne s'appliquera pas à la mise à jour de `electron-builder`.
 
