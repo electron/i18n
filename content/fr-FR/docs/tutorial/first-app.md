@@ -79,19 +79,13 @@ Le module `electron` expose des fonctionnalités dans des espaces de noms. A tit
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
 function createWindow () {
   // Cree la fenetre du navigateur.
   win = new BrowserWindow({width: 800, height: 600})
 
   // et charge le index.html de l'application.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
@@ -101,11 +95,9 @@ Le fichier `main.js` devrait créer les fenêtres et gérer tous les événement
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
-// Gardez l'objet window dans une constante global, sinon la fenêtre sera fermée
-// automatiquement quand l'objet JavaScript sera collecté par le ramasse-miettes.
+// Gardez une reference globale de l'objet window, si vous ne le faites pas, la fenetre sera
+// fermee automatiquement quand l'objet JavaScript sera garbage collected.
 let win
 
 function createWindow () {
@@ -113,13 +105,9 @@ function createWindow () {
   win = new BrowserWindow({width: 800, height: 600})
 
   // et charge le index.html de l'application.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 
-  // Ouvre le DevTools.
+  // Ouvre les DevTools.
   win.webContents.openDevTools()
 
   // Émit lorsque la fenêtre est fermée.
