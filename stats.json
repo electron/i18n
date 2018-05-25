@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "9467",
-    "translated": "7121",
+    "translated": "7196",
     "approved": "44",
     "words": "86935",
-    "words_translated": "53947",
+    "words_translated": "54800",
     "words_approved": "166",
-    "translated_progress": 62,
+    "translated_progress": 63,
     "approved_progress": 0,
-    "qa_issues": "2092"
+    "qa_issues": "2122"
   },
   {
     "name": "German",
@@ -237,14 +237,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9467",
-    "translated": "4482",
-    "approved": "790",
+    "translated": "4495",
+    "approved": "795",
     "words": "86935",
-    "words_translated": "29169",
-    "words_approved": "5634",
+    "words_translated": "29221",
+    "words_approved": "5685",
     "translated_progress": 33,
     "approved_progress": 6,
-    "qa_issues": "1293"
+    "qa_issues": "1298"
   },
   {
     "name": "Spanish",
@@ -315,13 +315,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "9467",
-    "translated": "1886",
+    "translated": "1887",
     "approved": "53",
     "words": "86935",
-    "words_translated": "9134",
+    "words_translated": "9136",
     "words_approved": "183",
     "translated_progress": 10,
     "approved_progress": 0,
-    "qa_issues": "518"
+    "qa_issues": "519"
   }
 ]
