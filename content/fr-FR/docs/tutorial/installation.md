@@ -42,7 +42,7 @@ Si vous êtes dans l'incapacité d'accéder à github ou si vous avez besoin de 
 
 #### Miroir
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. L’url utilisée par `electron-download` se compose de la manière suivante :
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -56,7 +56,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-Egalement vous pouvez, surcharger le cache local. `electron-download` mettra en cache le téléchargement des binaires dans un répertoire local afin d'économiser de la bande passante. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Egalement vous pouvez, surcharger le cache local. `electron-download` mettra en cache le téléchargement des binaires dans un répertoire local afin d'économiser de la bande passante. Vous pouvez utiliser ce répertoire de cache pour fournir des binaires personnalisés d'Electron ou pour éviter d'utiliser le réseau.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
