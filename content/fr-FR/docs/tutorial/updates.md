@@ -4,14 +4,14 @@ Il y a plusieurs méthodes pour mettre à jour une application Electron. La plus
 
 ## Utilisation de `update.electronjs.org`
 
-GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+L'équipe GitHub d'Electron maintiens [update.electronjs.org](https://github.com/electron/update.electronjs.org), un service web gratuit et open-source que les applications Electron peuvent utiliser pour se mettre à jour. Ce service est conçu pour les applications Electron répondant aux critères suivant:
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- L'application tourne sous macOs ou Windows
+- L'application a un répertoire GitHub public
+- Les livrables sont publiés en tant que release sous Github
+- Les livrables sont signés
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+La façon la plus simple d'utiliser ce service est d'installer [update-electron-app](https://github.com/electron/update-electron-app), un module Node.js pré-configuré pour être utilisé avec update.electronjs.org.
 
 Installer le module:
 
@@ -19,15 +19,15 @@ Installer le module:
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Déclenchez la mise à jour à partir du processus principal de votre application :
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Par défaut, ce module va vérifier les mises à jour au démarrage de l’application, puis toutes les dix minutes. Lorsqu’une mise à jour est trouvée, elle sera automatiquement téléchargée en arrière-plan. Une fois le téléchargement terminé, une boîte de dialogue s’affiche permettant à l’utilisateur de redémarrer l’application.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+Si vous avez besoin personnaliser votre configuration, vous pouvez [passer des options à `update-electron-app`](https://github.com/electron/update-electron-app) ou [utiliser le service de mise à jour directement](https://github.com/electron/update.electronjs.org).
 
 ## Utilisation de `electron-builder`
 
