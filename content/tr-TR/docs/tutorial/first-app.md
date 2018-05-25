@@ -79,19 +79,13 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
 function createWindow () {
-  // Tarayı penceresini oluştur.
+  // Create the browser window.
   win = new BrowserWindow({width: 800, height: 600})
 
   // ve uygulamanın index.html'sini yükle.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
@@ -101,11 +95,9 @@ app.on('ready', createWindow)
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
- //Pencere nesnesinin genel bir referansını tutun, aksi takdirde pencere
- //JavaScript nesnesi çöp topladığında otomatik olarak kapatılacaktır.
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
 let win
 
 function createWindow () {
@@ -113,13 +105,9 @@ function createWindow () {
   win = new BrowserWindow({width: 800, height: 600})
 
   // ve uygulamanın index.html'sini yükle.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 
-  // DevToos'u aç.
+  // Open the DevTools.
   win.webContents.openDevTools()
 
   // Pencere kapatıldığında ortaya çıkar.
