@@ -79,19 +79,13 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({width: 800, height: 600})
 
   // और एप्प का इंडेक्स.एचटीएमएल लोड कीजिये |
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
@@ -101,11 +95,9 @@ The `main.js` should create windows and handle all the system events your applic
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
-// विंडो ऑब्जेक्ट का एक वैश्विक रेफरेंस रखिये, अगर आप नहीं रखेंगे, तो विंडोज
-// स्वतः ही बंद हो जायेगी जब जावास्क्रिप्ट ऑब्जेक्ट गार्बेज में एकत्र होगा |
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
 let win
 
 function createWindow () {
@@ -113,13 +105,9 @@ function createWindow () {
   win = new BrowserWindow({width: 800, height: 600})
 
   // और एप्प का इंडेक्स.एचटीएमएल लोड कीजिये |
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 
-  // डेवटूल्स खोलें |
+  // Open the DevTools.
   win.webContents.openDevTools()
 
   // विंडो के बंद होने के बाद निकलता है |
