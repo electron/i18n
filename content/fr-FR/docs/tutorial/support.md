@@ -4,10 +4,10 @@
 
 Si vous avez un problème de sécurité, veuillez consulter le [document sur la sécurité](../../SECURITY.md).
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+Si vous avez besoin d’aide pour la programmation, de réponses à vos questions, ou pour rejoindre une discussion avec d’autres développeurs qui utilisent Electron, vous pouvez interagir avec la Communauté à ces adresses :
 
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` channel on Freenode
+* [`electron`](https://discuss.atom.io/c/electron) sur le forum de Atom
+* `#atom-shell` sur le channel Freenode
 * [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
 * [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
 * [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
@@ -23,7 +23,7 @@ If you've found a bug in a [supported version](#supported-versions) of Electron,
 
 [awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
 
-## Supported Versions
+## Versions supportées
 
 The latest three release branches are supported by the Electron team. For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
 
@@ -45,7 +45,7 @@ Seul le binaire 64bits sont fournis pour macOS, et la version macOS minimale pri
 
 Windows 7 et versions ultérieures sont pris en charge, les systèmes d’exploitation plus anciens ne sont pas pris en charge (et ne fonctionnent pas).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Exécuter des applications Electron sous Windows pour des appareils avec une architecture ARM, est possible en utilisant le binaire ia32.
+Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. Exécuter des applications Electron sous Windows pour des appareils avec une architecture ARM, est possible en utilisant le binaire ia32.
 
 ### Linux
 
