@@ -35,7 +35,7 @@ Si votre application est empaquetée avec [`electron-builder`](https://github.co
 
 ## Déploiement d’un serveur de mise à jour
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Si vous développez une application Electron privée, ou si vous ne publiez pas de livrables en tant que release sous GitHub, il peut être nécessaire de mettre en place votre propre serveur de mise à jour.
 
 Selon vos besoins, vous pouvez choisir parmi l'un d'entre eux :
 
