@@ -1,8 +1,8 @@
-# Electron Support
+# Support Electron
 
-## Finding Support
+## Trouver de l'aide
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+Si vous avez un problème de sécurité, veuillez consulter le [document sur la sécurité](../../SECURITY.md).
 
 If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
 
@@ -45,7 +45,7 @@ Seul le binaire 64bits sont fournis pour macOS, et la version macOS minimale pri
 
 Windows 7 et versions ultérieures sont pris en charge, les systèmes d’exploitation plus anciens ne sont pas pris en charge (et ne fonctionnent pas).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
+Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Exécuter des applications Electron sous Windows pour des appareils avec une architecture ARM, est possible en utilisant le binaire ia32.
 
 ### Linux
 
@@ -55,6 +55,6 @@ Les binaires pré-compilés `ia32` (`i686`) et `x64` (`amd64`) d’Electron sont
 
 Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 12.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 et supérieur
 * Fedora 21
 * Debian 8
