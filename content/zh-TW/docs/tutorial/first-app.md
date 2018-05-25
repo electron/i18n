@@ -79,19 +79,13 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({width: 800, height: 600})
 
   // 並載入應用程式的 index.html。
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
@@ -101,11 +95,9 @@ The `main.js` should create windows and handle all the system events your applic
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
-// 將這個 window 物件記在全域變數裡。
-// 如果沒這麼做，這個視窗在 JavaScript 物件被垃圾回收時（GC）後就會被自動關閉。
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
 let win
 
 function createWindow () {
@@ -113,13 +105,9 @@ function createWindow () {
   win = new BrowserWindow({width: 800, height: 600})
 
   // 並載入應用程式的 index.html。
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 
-  // 打開 DevTools。
+  // Open the DevTools.
   win.webContents.openDevTools()
 
   // 視窗關閉時會觸發。
