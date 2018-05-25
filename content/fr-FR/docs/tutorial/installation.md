@@ -6,7 +6,7 @@ Pour installer les binaires précompilés d'Electron, utilisez [`npm`](https://d
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
+Voir la [documentation du versionnage](./electron-versioning.md) pour plus d'informations sur la façon de gérer différentes versions d'Electron dans vos applications.
 
 ## Installation global
 
@@ -24,7 +24,7 @@ Si vous souhaitez modifier l'architecture qui est téléchargée (par exemple, `
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+En plus de modifier l'architecture, vous pouvez également spécifier la platforme (par exemple, `win32`, `linux`, etc.) en utilisant le paramètre `--platform` :
 
 ```shell
 npm install --platform=win32 electron
@@ -38,9 +38,9 @@ Si vous avez besoin d’utiliser un proxy HTTP, vous pouvez définir [ces variab
 
 During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Si vous êtes dans l'incapacité d'accéder à github ou si vous avez besoin de fournir un binaire personnalisé, vous pouvez aussi le faire en mettant à disposition un miroir ou un répertoire de cache existant.
 
-#### Mirror
+#### Miroir
 
 You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
 
@@ -48,7 +48,7 @@ You can use environment variables to override the base URL, the path at which to
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+Par exemple, pour utiliser le miroir en Chine:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -91,16 +91,16 @@ Vous pouvez également essayer de télécharger Electron directement depuis [ele
 
 Si l'installation échoue avec une erreur `EACCESS`, vous devez peut-être [réparer les droits npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Si l'erreur ci-dessus persiste, le paramètre [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) devrait être définit à true :
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+Sur des réseaux plus lents, il est plus souhaitable d'utiliser le paramètre `--verbose` pour afficher la progression du téléchargement :
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+Si vous devez forcer le re-téléchargement de l'asset et du fichier SHASUM, mettez la variable d'environnement `force_no_cache` à `true`.
