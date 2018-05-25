@@ -79,19 +79,13 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
 function createWindow () {
   // Create the browser window.
   win = bagong BrowserWindow({width: 800, height: 600})
 
   // i-load ang index.html sa app.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
@@ -101,10 +95,9 @@ The `main.js` should create windows and handle all the system events your applic
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
-//Panatilihin ang global reference sa window object, kung hindi, ang window ay maaring isarado ng awtomatiko kapag ang JavaScript object ay nakakolekta ng basura.
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
 hayaang manalo
 
 function gumawa ngWindow () {
@@ -112,13 +105,9 @@ function gumawa ngWindow () {
   win = bagong BrowserWindow({width: 800, height: 600})
 
   // i-load ang index.html sa app.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 
-  // Buksan ang DevTools.
+  // Open the DevTools.
   win.webContents.openDevTools()
 
   //Emitted kapag sarado na ang window.
