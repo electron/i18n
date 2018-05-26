@@ -14,15 +14,15 @@ Electron 개발은 유연합니다 - Electron 응용 프로그램을 개발, 빌
 
 "모던 Electron 응용 프로그램을 구축하기위한 완벽한 도구". Electron Forge는 Electron 개발을 위한 기존의 (잘 관리 된) 빌드 툴을 일관된 패키지로 통합하여 누구나 바로 Electron 개발에 뛰어들 수 있습니다.
 
-Forge comes with [ready-to-use templates](https://electronforge.io/templates) for popular frameworks like React, Vue, or Angular. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge에는 React, Vue 또는 Angular와 같은 보편적 인 프레임 워크 용 [ready-to-use templates](https://electronforge.io/templates)이 있습니다. ([`electron-packager`](https://github.com/electron-userland/electron-packager)와 같은) 더 큰 Electron 커뮤니티에서 사용되는 것과 동일한 핵심 모듈을 사용합니다. - (Slack과 같은) Electron maintainers가 변경 한 사항은 Forge의 사용자에게도 도움이됩니다.
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+[Electronforge.io](https://electronforge.io/)에 더 많은 정보 및 문서를 찾을 수 있습니다.
 
 ## electron-builder
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+"일렉트론 배포 전자 제품 패키지 및 빌드를위한 완벽한 솔루션"은 통합 된 경험에 포커싱하고 있습니다. [`electron-builder`](https://github.com/electron-userland/electron-builder)는 단순성에 중점을 둔 하나의 의존성을 추가하고 내부적으로 모든 추가 요구 사항을 관리합니다.
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`electron-builder`는 Electron maintainers에서 사용하는 기능 및 모듈 (자동 업데이트 프로그램같은) 을 맞춤 프로그램으로 대체합니다. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
 
 You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
 
