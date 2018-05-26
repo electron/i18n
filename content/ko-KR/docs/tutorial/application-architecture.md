@@ -71,7 +71,7 @@ console.log(root)
 
 이미 추측 할 수 있듯이, 원격 콘텐츠를로드하려고 시도한 경우 이것은 보안에 중요한 영향을 미칩니다. 원격 콘텐츠 로드에 대한 더 많은 정보와 지침을 [security documentation](./security.md)에서 찾을 수 있습니다.
 
-2) 응용 프로그램에서 Node.js 모듈을 사용할 수 있습니다. 당신의 사용하고자 하는 npm 모듈을 선택하십시오. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) 응용 프로그램에서 Node.js 모듈을 사용할 수 있습니다. 당신의 사용하고자 하는 npm 모듈을 선택하십시오. npm은 현재 가장 큰 오픈소스 저장소를 제공한다. - 서버 프로그램에서 사용되는 잘 관리되고, 테스트된 코드들을 사용할 수 있는것은 Electron의 주요 기능 중 하나이다.
 
 As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
 
@@ -79,7 +79,7 @@ As an example, to use the official AWS SDK in your application, you'd first inst
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+그런 다음, Electron 응용 프로그램에서, Node.js 응용 프로그램을 빌드하는것 처럼 모듈을 require 하고 사용합니다.
 
 ```javascript
 // A ready-to-use S3 Client
