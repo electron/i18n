@@ -70,7 +70,7 @@ Solo su Windows `rilascioNome` è disponibile.
 
 L'oggetto `autoAggiornatore` ha i seguenti metodi:
 
-### `autoUpdater.setFeedURL(options)`
+### `autoUpdater.setFeedURL(opzioni)`
 
 * `opzioni` Oggetto 
   * `url` Stringa
