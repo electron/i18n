@@ -30,9 +30,9 @@ Electron은 메인 프로세스와 렌더러 프로세스에서 데스크톱 응
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for each individual API will state which process it can be used from.
+모든 Electron API들은 프로세스 타입에 따라 사용됩니다. 대부분의 API 는 메인 프로세스에서만 사용할 수 있고, 일부는 렌더러프로세스에서만, 또 일부는 양쪽 모두에서 사용할 수 있다. 각 개별 API에 대한 문서는 해당 프로세스에서 사용할 수 있는지 명시합니다.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+예를 들면, Electron 에서 Window는 `BrowserWindow` 클래스를 사용하여 만들어집니다. 그것은 메인 프로세스 에서만 사용할 수 있습니다.
 
 ```javascript
 // This will work in the main process, but be `undefined` in a
