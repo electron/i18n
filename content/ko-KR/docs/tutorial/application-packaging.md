@@ -2,7 +2,7 @@
 
 Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.com/joyent/node/issues/6960)를 완화하고 `require` 속도를 약간 빠르게 하며 애플리케이션의 리소스와 소스 코드를 좋지 않은 사용자로부터 보호하기 위해 애플리케이션을 [asar](https://github.com/electron/asar) 아카이브로 패키징 할 수 있습니다.
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+[`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder) 에서 지원하기 때문에, 대부분의 사용자들은 무료로 이 기능을 사용할 수 있습니다. 이 도구들을 사용하지 않는다면, 계속 읽어보십시오.
 
 ## Generating `asar` Archives
 
@@ -139,12 +139,12 @@ Node API에는 `child_process.exec`, `child_process.spawn` 그리고 `child_proc
 
 ## Adding Unpacked Files to `asar` Archives
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+위에서 언급했듯이, 일부 Node API는 호출시 파일을 파일 시스템에 압축을 풉니 다. 성능 문제 외에도 다양한 바이러스 백신 검색 프로그램이이 동작에 의해 트리거 될 수 있습니다.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+이 문제를 해결하기 위해 ` -unpack ` 옵션을 사용하여 여러 파일을 압축 해제 된 상태로 둘 수 있습니다. 다음 예제에서 기본 Node.js 모듈의 공유 라이브러리는 압축되지 않습니다.
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+명령을 실행하면 ` app.asar.unpacked ` 폴더가 ` app.asar ` 파일과 함께 만들어 졌음을 알 수 있습니다. 이 폴더에는 압축을 푼 파일이 들어 있고, ` app.asar ` 아카이브와 함께 제공해야합니다.
