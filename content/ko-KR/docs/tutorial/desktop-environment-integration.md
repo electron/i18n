@@ -4,21 +4,21 @@
 
 이 가이드는 Electron API를 사용하여 데스크톱 환경에 여러분의 응용 프로그램을 통합하는 방법에 대해 설명합니다.
 
-## 알림
+## 알림(Notifications)
 
 See the [Notifications documentation](notifications.md).
 
-## 최근 문서
+## 최근 문서들(Recent Documents)
 
 See [Recent Documents documentation](recent-documents.md).
 
-## Progress Bar
+## 진행 바(Progress Bar)
 
 See the [Progress Bar documentation](progress-bar.md).
 
-## Unity Launcher
+## Unity Launcher(Ubuntu)
 
-See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). (Windows의 TaskBar와 같은 기능)
 
 ## Represented File for macOS Window
 
