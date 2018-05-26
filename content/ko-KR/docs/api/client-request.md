@@ -40,7 +40,7 @@ const request = net.request({
 
 반환:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - HTTP 응답 메시지를 나타내는 객체입니다.
 
 #### 이벤트: 'login'
 
