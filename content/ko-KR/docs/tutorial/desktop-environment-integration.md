@@ -24,6 +24,6 @@ See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLa
 
 See the [Represented File documentation](represented-file.md).
 
-## 파일을 윈도우 밖으로 드래그할 수 있도록 만들기
+## 창 밖으로 파일 드래깅
 
 See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
