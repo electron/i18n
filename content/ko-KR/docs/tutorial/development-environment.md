@@ -1,6 +1,6 @@
-# Developer Environment
+# 개발자 환경
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+일렉트론 개발은 본질적으로 node.js 개발과 같습니다. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
 
 ## macOS 설정
 
