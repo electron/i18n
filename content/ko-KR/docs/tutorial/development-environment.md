@@ -28,9 +28,9 @@ npm -v
 
 우선, node.js의 최신 버전을 설치합니다. 최신 `LTS` 버전 혹은 현재 버전(`Current` version) 을 설치하는 것을 권장합니다. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. 다운로드가 완료되면, 설치 프로그램을 실행하고 설치 마법사가 설치 과정을 안내하도록합니다.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+설치를 구성 할 수있는 화면에서 node.js 런타임(`Node.js runtime`), npm 패키지 관리자(`npm package manager`) 및 PATH(`Add to PATH`) option들의 추가여부를 확인하세요.
 
-일단 설치되면, 모든 것이 예상대로 작동하는지 확인하십시오. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+일단 설치되면, 모든 것이 예상대로 작동하는지 확인하십시오. 시작메뉴를 열고 PowerShell(`PowerShell`) 이라고 타이핑하여 Windows PowerShell을 찾습니다. `PowerShell`또는 원하는 다른 command line client를 열고 `node`와 `npm` 모두 사용할 수 있습니다.
 
 ```powershell
 # This command should print the version of Node.js
