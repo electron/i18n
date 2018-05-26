@@ -22,14 +22,14 @@ Forge에는 React, Vue 또는 Angular와 같은 보편적 인 프레임 워크 �
 
 "일렉트론 배포 전자 제품 패키지 및 빌드를위한 완벽한 솔루션"은 통합 된 경험에 포커싱하고 있습니다. [`electron-builder`](https://github.com/electron-userland/electron-builder)는 단순성에 중점을 둔 하나의 의존성을 추가하고 내부적으로 모든 추가 요구 사항을 관리합니다.
 
-`electron-builder`는 Electron maintainers에서 사용하는 기능 및 모듈 (자동 업데이트 프로그램같은) 을 맞춤 프로그램으로 대체합니다. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`electron-builder`는 Electron maintainers에서 사용하는 기능 및 모듈 (자동 업데이트 프로그램같은) 을 맞춤 프로그램으로 대체합니다. 그들은 일반적으로 더 밀접하게 통합되어 있지만 Atom, Visual Studio Code 또는 Slack과 같은 인기있는 Electron 응용 프로그램과 공통점이 적습니다.
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+[the repository](https://github.com/electron-userland/electron-builder)에서 더 많은 정보 및 문서를 찾을 수 있습니다.
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+도구는 필요 없지만 견고한 보일러플레이트만 빌드를 위해 원한다면, CT Lin의 [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate)를 살펴볼 가치가 있습니다. 커뮤니티에서 꽤 인기가 있고 내부적으로 `electron-builder`를 사용합니다.
 
 ## 다른 도구와 상용구 코드
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) 에 더 많은 툴과 보일러플레이트를 포함하고 있습니다. 어려움이 많아지면 도구를 추가하는 것도 유효한 접근 방법이라는 것을 잊지 마십시오.
