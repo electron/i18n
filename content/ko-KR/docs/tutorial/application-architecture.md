@@ -42,7 +42,7 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-프로세스 간의 통신 가능하기 때문에, 렌더러 프로세스는 작업을 수행하기위해 메인 프로세스를 호출할 수 있습니다. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+프로세스 간의 통신 가능하기 때문에, 렌더러 프로세스는 작업을 수행하기위해 메인 프로세스를 호출할 수 있습니다. Electron 은보통 메인 프로세스에서만 사용가능한 `remote` 라는 모듈을 함께 제공합니다. 렌더러 프로세스에서 `BrowserWindow`를 만들기 위해 remote 모듈을 중간자(middle-man) 로 사용:
 
 ```javascript
 // This will work in a renderer process, but be `undefined` in the
