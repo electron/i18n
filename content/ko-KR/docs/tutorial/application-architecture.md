@@ -30,7 +30,7 @@ Electron은 메인 프로세스와 렌더러 프로세스에서 데스크톱 응
 const electron = require('electron')
 ```
 
-모든 Electron API들은 프로세스 타입에 따라 사용됩니다. 대부분의 API 는 메인 프로세스에서만 사용할 수 있고, 일부는 렌더러프로세스에서만, 또 일부는 양쪽 모두에서 사용할 수 있다. 각 개별 API에 대한 문서는 해당 프로세스에서 사용할 수 있는지 명시합니다.
+모든 Electron API들은 프로세스 타입에 따라 사용됩니다. 대부분의 API 는 메인 프로세스에서만 사용할 수 있고, 일부는 렌더러프로세스에서만, 또 일부는 양쪽 모두에서 사용할 수 있습니다. 각 개별 API에 대한 문서는 해당 프로세스에서 사용할 수 있는지 명시합니다.
 
 예를 들면, Electron 에서 Window는 `BrowserWindow` 클래스를 사용하여 만들어집니다. 그것은 메인 프로세스 에서만 사용할 수 있습니다.
 
@@ -42,7 +42,7 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+프로세스 간의 통신 가능하기 때문에, 렌더러 프로세스는 작업을 수행하기위해 메인 프로세스를 호출할 수 있습니다. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
 
 ```javascript
 // This will work in a renderer process, but be `undefined` in the
