@@ -36,7 +36,7 @@ process.send({my: 'message'})
 
 ` appProcess ` 객체를 사용하여 테스트 suite 에서 Electron 앱으로 통신 할 수 있습니다.
 
-For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+편의를 위해, 더 높은 수준의 기능을 제공하는 드라이버 객체에서 ` appProcess `를 래핑하려고 할 수 있습니다. 그것을 하는 예는 아래와 같다:
 
 ```js
 class TestDriver {
@@ -81,7 +81,7 @@ class TestDriver {
 }
 ```
 
-In the app, you'd need to write a simple handler for the RPC calls:
+이 응용 프로그램에서는 RPC 호출을위한 간단한 처리기를 작성해야합니다.
 
 ```js
 if (process.env.APP_TEST_DRIVER) {
@@ -113,7 +113,7 @@ const METHODS = {
 }
 ```
 
-Then, in your test suite, you can use your test-driver as follows:
+그런 다음 테스트 suite 에서 다음과 같이 테스트 드라이버를 사용할 수 있습니다.
 
 ```js
 var test = require('ava')
