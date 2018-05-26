@@ -70,7 +70,7 @@ app.on('window-all-closed', () => {
 
 Происходит при выходе из приложения.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Примечание:** На Windows, это событие не возникает, если приложение закрывается из-за выключения/перезагрузки системы или выхода из системы пользователя.
 
 ### Событие: 'open-file' *macOS*
 
