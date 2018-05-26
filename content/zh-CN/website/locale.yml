@@ -28,7 +28,7 @@ languages:
   current: 当前所选
 community:
   title: Electron 社区
-  description: Resources for connecting with people working on Electron.
+  description: 与Electron工作人员联系的资源
   channels:
     get_started: "通过阅读<a href='/docs/tutorial/first-app'>快速入门指南</a>来开始构建一个应用。"
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
@@ -42,8 +42,8 @@ community:
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
     other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: 语言社区
+    description: "Electron社区遍布全球, 英语不是每个人的第一语言。查看 <a href='/languages'>您的语言的文档</a>，或加入下面的语言社区之一："
   tools: 工具
   boilerplates: 模板
   components: 组件
