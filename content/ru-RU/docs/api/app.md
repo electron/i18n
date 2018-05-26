@@ -47,7 +47,7 @@ app.on('window-all-closed', () => {
 
 **Примечание:** Если выход приложения был инициирован `autoUpdater.quitAndInstall()` затем `before-quit` возникает *после* возникновения события `close` на всех окнах и закрывает их.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Примечание:** На Windows, это событие не возникает, если приложение закрывается из-за выключения/перезагрузки системы или выхода из системы пользователя.
 
 ### Событие: 'will-quit'
 
@@ -59,7 +59,7 @@ app.on('window-all-closed', () => {
 
 Смотрите описание события `window-all-closed` для различий между событием `will-quit` и `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Примечание:** На Windows, это событие не возникает, если приложение закрывается из-за выключения/перезагрузки системы или выхода из системы пользователя.
 
 ### Событие: 'quit'
 
