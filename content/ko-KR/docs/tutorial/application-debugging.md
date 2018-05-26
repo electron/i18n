@@ -17,6 +17,6 @@ Google는 [excellent documentation for their developer tools](https://developer.
 
 ## 메인 프로세스
 
-개발자 도구를 열 수 없기 때문에, 주요 프로세스를 디버깅 하는 것은 조금 까다롭습니다. The Chromium Developer Tools can [be used to debug Electron's main process](https://nodejs.org/en/docs/inspector/) thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+개발자 도구를 열 수 없기 때문에, 주요 프로세스를 디버깅 하는 것은 조금 까다롭습니다. Chromium 개발자 도구는 Google / Chrome과 Node.js 간의 긴밀한 협력 덕분에 Electron의 메인 프로세스를 디버그하는 데 사용할 수 있지만, 콘솔에서 require</ 1> 와 같은 나오지 않아야하는 이상한 점이 발생할 수 있습니다.</p>
 
-자세한 정보는 [Debugging the Main Process documentation](./debugging-main-process.md)를 확인하십시요.
+<p>자세한 정보는 <a href="./debugging-main-process.md">Debugging the Main Process documentation</a>를 확인하십시요.</p>
