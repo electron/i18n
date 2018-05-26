@@ -1,6 +1,6 @@
 # Code Signing
 
-Code signing is a security technology that you use to certify that an app was created by you.
+코드 서명은 당신에 의해 만들어진 app을 인증하는데 사용하는 보안 기술입니다.
 
 On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
