@@ -442,7 +442,7 @@ app.exit(0)
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Возвращает `String` - текущего языка приложения. Описаны возможные возвращаемые значения [здесь](locales.md).
 
 To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
@@ -745,7 +745,7 @@ app.on('ready', () => {
 
 * `settings` Object 
   * `openAtLogin` Boolean (опиционально) - `true` открыть приложение при входе в систему, `false` удалять приложение в качестве элемента входа. По умолчанию `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр из системных настроек, так `.wasOpenedAsHidden app.getLoginItemStatus ()` должен быть проверен при открытии приложения и знать текущее значение. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (опиционально) *macOS* - `true` открыть приложение как скрытое. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр из системных настроек, так `.wasOpenedAsHidden app.getLoginItemStatus ()` должен быть проверен при открытии приложения и знать текущее значение. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (опиционально) *Windows* - исполняемый файл запускается при входе в систему. По умолчанию `process.execPath`.
   * `args` String[] (опиционально) *Windows* - аргументы командной строки для передачи исполняемого файла. По умолчанию пустой массив. Позаботесь обернуть путь кавычками.
 
