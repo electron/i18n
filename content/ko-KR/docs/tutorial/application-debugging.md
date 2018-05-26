@@ -1,10 +1,10 @@
-# Application Debugging
+# 응용 프로그램 디버깅
 
-Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
+Electron 응용 프로그램이 원하는 방식으로 작동하지 않을 때마다, 디버깅 도구들은 코딩 오류, 성능 병목 현상 또는 최적화 지점을 찾는것을 도와줄 것이다.
 
-## Renderer Process
+## 렌더러 프로세스
 
-The most comprehensive tool to debug individual renderer processes is the Chromium Developer Toolset. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
+개별 렌더러 프로세스를 디버깅 하는 가장 포괄적인 도구는 크롬 개발자 도구 집합입니다. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
 
 ```javascript
 const { BrowserWindow } = require('electron')
