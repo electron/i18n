@@ -20,11 +20,11 @@ Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고 있기 
 
 > #### Aside : 프로세스 간 통신
 > 
-> Electron에는 메인 프로세스와 렌더러 프로세스 사이에 통신할 수 있는 몇 가지 방법이 있습니다. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> Electron에는 메인 프로세스와 렌더러 프로세스 사이에 통신할 수 있는 몇 가지 방법이 있습니다. 예로, 메시지를 보내는 [`ipcRenderer`](../api/ipc-renderer.md) 와 [`ipcMain`](../api/ipc-main.md) 모듈과, RPC 스타일 통신인 [remote](../api/remote.md)모듈이 있습니다. FAQ에 [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages)를 참고하세요.
 
 ## Electron API 사용하기
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+Electron은 메인 프로세스와 렌더러 프로세스에서 데스크톱 응용 프로그램의 개발을 지원하는 Api들을 제공 합니다. 두 프로세스 모두에서 아래와 같이 모듈을 포함함으로 Electron의 Api를 액세스 함 :
 
 ```javascript
 const electron = require('electron')
