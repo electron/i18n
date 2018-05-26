@@ -26,7 +26,7 @@ Une Image disque Apple est un format de package utilisé par macOS. Les fichiers
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Langage de description d'interface. Permet d'écrire des signatures de fonction et des types de données dans un format qui peut être utilisé pour générer des interfaces en Java, C++, JavaScript, etc.
 
 ### IPC
 
@@ -54,9 +54,9 @@ Acronyme pour Mac App Store d'Apple. Pour plus d'informations sur la soumission 
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Un système IPC pour la communication intra - ou inter-processus, et c’est important car Chrome a tendance à diviser ses tâches dans des processus distincts ou non, en fonction des contraintes de mémoire etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Voir https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### modules natifs
 

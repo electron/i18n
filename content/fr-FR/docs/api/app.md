@@ -47,7 +47,7 @@ Renvoie :
 
 **Remarque :** Si l'interruption de l'application a été initié par `autoUpdater.quitAndInstall()`, alors l'événement `before-quit` est émis *après* avoir émis l'événement `close` sur toutes les fenêtres et leur fermeture.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Note:** Sous Windows, cet événement ne sera pas émit si l'application est fermée à cause d'un extinction du système/re-démarrage ou une déconnexion de l'utilisateur.
 
 ### Événement : 'will-quit'
 
@@ -59,7 +59,7 @@ Retourne :
 
 Consultez la description de l’événement `window-all-closed` pour voir les différences entre les événements `will-quit` et `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Note:** Sous Windows, cet événement ne sera pas émit si l'application est fermée à cause d'un extinction du système/re-démarrage ou une déconnexion de l'utilisateur.
 
 ### Événement : 'quit'
 
@@ -70,7 +70,7 @@ Retourne :
 
 Émis lorsque l'application se quitte.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Note:** Sous Windows, cet événement ne sera pas émit si l'application est fermée à cause d'un extinction du système/re-démarrage ou une déconnexion de l'utilisateur.
 
 ### Événement : 'open-file' *macOS*
 
@@ -319,14 +319,14 @@ Cette méthode garantit que tous les écouteurs d’événements de `beforeunloa
 
 * `exitCode` Integer (facultatif)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Termine immédiatement avec `exitCode`. `exitCode` par défaut vaut 0.
 
 Toutes les fenêtres se ferment immédiatement sans prévenir l’utilisateur et les événements `before-quit` et `will-quit` ne seront pas émis.
 
 ### `app.relaunch([options])`
 
 * `options` Object (facultatif) 
-  * `args` String[] (optional)
+  * `args` String[] - (facultatif)
   * `execPath` String (facultatif)
 
 Relance l’application lorsque l’instance en cours se termine.
@@ -390,7 +390,7 @@ Vous pouvez demander les chemins suivants sous le nom :
 * `pictures` Dossier des images de l’utilisateur.
 * `videos` Dossier des vidéos de l’utilisateur.
 * `logs` Répertoire du dossier de log de votre application.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Chemin d’accès complet à la version du système du plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -442,7 +442,7 @@ Remplace le nom de l'application actuelle.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Retourne `String` - La localisation actuelle de l'application. Les valeurs possibles retournées sont documentées [ici](locales.md).
 
 To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
@@ -609,7 +609,7 @@ Retourne `Boolean`.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` est un tableau d’arguments de ligne de commande de la deuxième instance, et `workingDirectory` est son répertoire de travail courant. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
 
 The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
@@ -650,7 +650,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 * `userInfo` Object - État spécifique de l'application à stocker pour une utilisation par un autre périphérique.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Créée un `NSUserActivity` et le défini en tant qu'activité courante. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
 
 ### `app.getCurrentActivityType()` *macOS*
 
@@ -843,11 +843,11 @@ No confirmation dialog will be presented by default, if you wish to allow the us
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (facultatif) - Peut être `critical` ou `informational`. Par défaut : `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Lorsque la `critical` est passé, l’icône du dock rebondira jusqu'à ce que l’application redevienne active ou que la requête est annulée.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Lorsque `informationnal` est passé, l’icône du dock rebondira pendant une seconde. Toutefois, la requête reste active jusqu'à ce que l’application redevienne active ou que la demande est annulée.
 
 Retourne `Integer` un ID représentant la requête.
 

@@ -2,40 +2,40 @@
 
 Il y a plusieurs méthodes pour mettre à jour une application Electron. La plus simple, et celle qui est officiellement supportée, tire parti de l'intégration du framework [Squirrel](https://github.com/Squirrel) et du module [autoUpdater](../api/auto-updater.md) d'Electron.
 
-## Using `update.electronjs.org`
+## Utilisation de `update.electronjs.org`
 
-GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+L'équipe GitHub d'Electron maintiens [update.electronjs.org](https://github.com/electron/update.electronjs.org), un service web gratuit et open-source que les applications Electron peuvent utiliser pour se mettre à jour. Ce service est conçu pour les applications Electron répondant aux critères suivant:
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- L'application tourne sous macOs ou Windows
+- L'application a un répertoire GitHub public
+- Les livrables sont publiés en tant que release sous Github
+- Les livrables sont signés
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+La façon la plus simple d'utiliser ce service est d'installer [update-electron-app](https://github.com/electron/update-electron-app), un module Node.js pré-configuré pour être utilisé avec update.electronjs.org.
 
-Install the module:
+Installer le module:
 
 ```sh
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Déclenchez la mise à jour à partir du processus principal de votre application :
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Par défaut, ce module va vérifier les mises à jour au démarrage de l’application, puis toutes les dix minutes. Lorsqu’une mise à jour est trouvée, elle sera automatiquement téléchargée en arrière-plan. Une fois le téléchargement terminé, une boîte de dialogue s’affiche permettant à l’utilisateur de redémarrer l’application.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+Si vous avez besoin personnaliser votre configuration, vous pouvez [passer des options à `update-electron-app`](https://github.com/electron/update-electron-app) ou [utiliser le service de mise à jour directement](https://github.com/electron/update.electronjs.org).
 
-## Using `electron-builder`
+## Utilisation de `electron-builder`
 
 Si votre application est empaquetée avec [`electron-builder`](https://github.com/electron-userland/electron-builder), vous pouvez utiliser le module [electron-updater](https://www.electron.build/auto-update) qui ne nécessite pas de serveur et permet les mises à jour depuis S3, GitHub ou tout autre hôte de fichiers statiques. Ceci évite le mécanisme de mise à jour intégré d'Electron, ce qui signifie que le reste de cette documentation ne s'appliquera pas à la mise à jour de `electron-builder`.
 
 ## Déploiement d’un serveur de mise à jour
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Si vous développez une application Electron privée, ou si vous ne publiez pas de livrables en tant que release sous GitHub, il peut être nécessaire de mettre en place votre propre serveur de mise à jour.
 
 Selon vos besoins, vous pouvez choisir parmi l'un d'entre eux :
 

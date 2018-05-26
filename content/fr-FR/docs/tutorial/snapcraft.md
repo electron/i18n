@@ -82,7 +82,7 @@ Pour plus d’informations sur les options de configuration disponibles, consult
 ```yaml
 name: myApp
 version: '2.0.0'
-summary: A little description for the app.
+summary: Une breve description de mon apli.
 description: |
  You know what? This app is amazing! It does all the things
  for you. Some say it keeps you young, maybe even happy.
@@ -118,13 +118,13 @@ apps:
   myApp:
     command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
     desktop: usr/share/applications/myApp.desktop
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    # Corrigez le chemin TMPDIR pour le framework Chromium/Electron afin de s'assurer que
+    # libappindicator a les droits de lectures.
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+Comme vous pouvez le voir, le `snapcraft.yaml` ordonne au système d'exécuter un fichier appelé `electron-launch`. Dans cet exemple, il passe l'information au binaire de l'application:
 
 ```sh
 #!/bin/sh

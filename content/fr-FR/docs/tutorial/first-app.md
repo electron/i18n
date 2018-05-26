@@ -31,7 +31,7 @@ npm vous guidera dans la création d'un fichier `package.json` basique. Le scrip
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). En fait si c'était une simple application Node, vous ajouteriez un script `start` qui demanderait à `node` d'exécuter le package courant:
+**Note**: Si le champ `main` n'est pas présent dans le fichier `package.json`, Electron tentera de charger un fichier `index.js` (comme le fait Node.js lui-même). En fait si c'était une simple application Node, vous ajouteriez un script `start` qui demanderait à `node` d'exécuter le package courant:
 
 ```json
 {
@@ -69,29 +69,23 @@ D'autres moyens d'installer Electron existent. Veuillez consulter le [guide d'in
 
 ## Le développement avec Electron en résumé
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. Toutes les API et fonctionnalités que l'on trouve dans Electron sont accessibles par le module `electron`, qui peut être requis comme tout autre module Node.js :
+Les applications Electron sont développées en JavaScript en utilisant les mêmes principes et méthodes que celles que l'on trouve dans le développement avec Node.js. Toutes les API et fonctionnalités que l'on trouve dans Electron sont accessibles par le module `electron`, qui peut être requis comme tout autre module Node.js :
 
 ```javascript
 const electron = require('electron')
 ```
 
-Le module `electron` expose des fonctionnalités dans des espaces de noms. A titre d'exemple, le cycle de vie de l'application est géré par `electron.app`, des fenêtres peuvent être créées en utilisant la classe `electron.BrowserWindow`. A simple `main.js` file might wait for the application to be ready and open a window:
+Le module `electron` expose des fonctionnalités dans des espaces de noms. A titre d'exemple, le cycle de vie de l'application est géré par `electron.app`, des fenêtres peuvent être créées en utilisant la classe `electron.BrowserWindow`. Un simple fichier`main.js` peut attendre que l'application soit prête et ouvrir une fenêtre :
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
 function createWindow () {
-  // Create the browser window.
+  // Cree la fenetre du navigateur.
   win = new BrowserWindow({width: 800, height: 600})
 
   // et charge le index.html de l'application.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
@@ -101,11 +95,9 @@ Le fichier `main.js` devrait créer les fenêtres et gérer tous les événement
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
-// Gardez l'objet window dans une constante global, sinon la fenêtre sera fermée
-// automatiquement quand l'objet JavaScript sera collecté par le ramasse-miettes.
+// Gardez une reference globale de l'objet window, si vous ne le faites pas, la fenetre sera
+// fermee automatiquement quand l'objet JavaScript sera garbage collected.
 let win
 
 function createWindow () {
@@ -113,13 +105,9 @@ function createWindow () {
   win = new BrowserWindow({width: 800, height: 600})
 
   // et charge le index.html de l'application.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 
-  // Ouvre le DevTools.
+  // Ouvre les DevTools.
   win.webContents.openDevTools()
 
   // Émit lorsque la fenêtre est fermée.

@@ -2,11 +2,11 @@ tagline: สร้างแอปที่ใช้งานข้ามแพ�
 nav:
   apps: แอป
   blog: บล็อก
-  code_of_conduct: Code of Conduct
+  code_of_conduct: จรรยาบรรณ
   community: ชุมชน
   contact: ติดต่อ
   docs: เอกสาร
-  donors: Donors
+  donors: ผู้บริจาค
   languages: ภาษา
   releases: การเผยแพร่
   search: ค้นหา
@@ -19,22 +19,22 @@ docs:
   advanced: ขั้นสูง
   footer:
     propose_change: ปรับปรุงเอกสารนี้
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    version_history: ประวัติรุ่น
+    translate: แปลเอกสารนี้
+    view_all_docs: เอกสารทั้งหมดในหน้าเดียว
 languages:
   choose_language: เลือกภาษาของเว็บไซต์
   translation_progress: ความคืบหน้าการแปลภาษา
   current: ที่เลือกใช้ภาษาอยู่ตอนนี้
 community:
   title: ชุมชนอิเล็กตรอน
-  description: Resources for connecting with people working on Electron.
+  description: ทรัพยากรสำหรับการเชื่อมต่อกับคนที่ทำงานกับอิเล็กตรอน
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>เริ่มต้น</b></a> สร้างแอปด้วยการอ่าน <a href='/docs/tutorial/first-app'>แนวทางการใช้งานคราวๆ</a>"
+    updates: "<a href='https://twitter.com/electronjs'><b>ทันข่าวอยู่เสมอ</b></a> ด้วยการกดติดตาม <a href='https://twitter.com/electronjs'>@electronjs</a> บน Twitter และสมัครสมาชิก to the <a href='/blog'>บล็อก</a>"
+    localized_docs: "<a href='/languages'><b>อ่านเอกสารในภาษาของคุณ</b></a> ด้วยการเข้าชม <a href='/languages'>หน้าภาษาอื่นๆ</a>"
+    help: "<a href='http://atom-slack.herokuapp.com'><b>ขอความช่วยเหลือและการตอบกลับ</b></a> ด้วยการเข้าร่วม <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, สร้างกระทู้บน <a href='https://discuss.atom.io/c/electron'>ถาม-ตอบ</a> หรือเข้าไปดูที่ <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>"
+    packages: "<a href='/search/npmPackages'><b>ค้นหา npm package ดีๆ</b></a> ที่<a href='/search/npmPackages'>หน้าค้นหาแพคเกจ</a>"
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -152,7 +152,7 @@ pages:
     title: Spectron
     description: Spectron เป็นโอเพนซอร์ซเฟรมเวิร์ก ที่ใช้งานในการเขียนทดสอบแอป อิเล็กตรอนของคุณ สร้างขึ้นโดยบน ChromeDriver และ WebDriverIO
   '/donors':
-    title: Donors
+    title: ผู้บริจาค
 _404:
   page_not_found: ไม่พบหน้าที่ต้องการ
 search:

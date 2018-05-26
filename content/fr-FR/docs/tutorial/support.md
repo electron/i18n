@@ -1,29 +1,29 @@
-# Electron Support
+# Support Electron
 
-## Finding Support
+## Trouver de l'aide
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+Si vous avez un problème de sécurité, veuillez consulter le [document sur la sécurité](../../SECURITY.md).
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+Si vous avez besoin d’aide pour la programmation, de réponses à vos questions, ou pour rejoindre une discussion avec d’autres développeurs qui utilisent Electron, vous pouvez interagir avec la Communauté à ces adresses :
 
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` channel on Freenode
-* [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
-* [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-* [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* [`electron`](https://discuss.atom.io/c/electron) sur le forum de Atom
+* `#atom-shell` sur le channel Freenode
+* [`Electron`](https://atom-slack.herokuapp.com) sur le channel Slack d'Atom
+* [`electron-ru`](https://telegram.me/electron_ru) *(Russe)*
+* [`electron-br`](https://electron-br.slack.com) *(Brézilien Portugais)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Coréen)*
+* [`electron-jp`](https://electron-jp.slack.com) *(Japonais)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turque)*
+* [`electron-id`](https://electron-id.slack.com) *(Indonésien)*
+* [`electron-pl`](https://electronpl.github.io) *(Polonais)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+Si vous souhaitez contribuer sur Electron, lisez le [document de contribution](../../CONTRIBUTING.md).
 
 If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
 
 [awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
 
-## Supported Versions
+## Versions supportées
 
 The latest three release branches are supported by the Electron team. For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
 
@@ -45,7 +45,7 @@ Seul le binaire 64bits sont fournis pour macOS, et la version macOS minimale pri
 
 Windows 7 et versions ultérieures sont pris en charge, les systèmes d’exploitation plus anciens ne sont pas pris en charge (et ne fonctionnent pas).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
+Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. Exécuter des applications Electron sous Windows pour des appareils avec une architecture ARM, est possible en utilisant le binaire ia32.
 
 ### Linux
 
@@ -55,6 +55,6 @@ Les binaires pré-compilés `ia32` (`i686`) et `x64` (`amd64`) d’Electron sont
 
 Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 12.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 et supérieur
 * Fedora 21
 * Debian 8

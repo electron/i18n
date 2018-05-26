@@ -127,7 +127,7 @@ Essayez de réinstaller Node.js 32bit.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+La création du répertoire suivant [devrait corriger le problème](https://stackoverflow.com/a/25095327/102704) :
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm

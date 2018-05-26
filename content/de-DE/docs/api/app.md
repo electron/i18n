@@ -359,7 +359,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.hide()` *macOS*
         
-        Hides all application windows without minimizing them.
+        Blendet alle Anwendungsfenster aus ohne sie zu minimieren.
         
         ### `app.show()` *macOS*
         
@@ -440,7 +440,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         * `name` Zeichenfolge
         
-        Overrides the current application's name.
+        Überschreibt den Namen der aktuellen Anwendung.
         
         ### `app.getLocale()`
         

@@ -79,19 +79,13 @@ const electron = require('electron')
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
 function createWindow () {
-  // 创建一个窗口.
+  // Create the browser window.
   win = new BrowserWindow({width: 800, height: 600})
 
   // 然后加载应用的 index.html。
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
@@ -101,11 +95,9 @@ app.on('ready', createWindow)
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
-// 保持一个对于 window 对象的全局引用，如果你不这样做，
-// 当 JavaScript 对象被垃圾回收， window 会被自动地关闭
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
 let win
 
 function createWindow () {
@@ -113,13 +105,9 @@ function createWindow () {
   win = new BrowserWindow({width: 800, height: 600})
 
   // 然后加载应用的 index.html。
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 
-  // 打开开发者工具。
+  // Open the DevTools.
   win.webContents.openDevTools()
 
   // 当 window 被关闭，这个事件会被触发。

@@ -1,4 +1,4 @@
 # Объект CrashReport
 
-* `date` Дата
+* `date` Date
 * `id` String

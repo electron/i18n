@@ -123,7 +123,7 @@ Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer di
 
 * `ELECTRON_GITHUB_TOKEN` - un jeton qui peut créer des releases sur GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - l’endroit où vous allez envoyer les en-têtes node.js comme symboles
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
+* `ELECTRON_RELEASE` - Définit à `true` et l’upload s’exécutera, sinon `surf-build` va juste faire des contrôles de type CI, adaptés à être exécuté lors de chaque pull request.
 * `CI` - définir à `true` sinon il ne fonctionnera pas
 * `GITHUB_TOKEN` - mettre la même chose que `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - définir `C:\Temp` sur Windows pour empêcher les problèmes de chemin d’accès trop long

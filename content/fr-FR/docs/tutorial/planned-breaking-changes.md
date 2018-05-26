@@ -1,4 +1,4 @@
-# Planned Breaking API Changes (3.0)
+# Changements majeurs prévus de l'API (3.0)
 
 La liste suivante inclut les APIs qui seront supprimés dans Electron 3.0.
 
@@ -16,23 +16,23 @@ app.getAppMetrics()
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Déprécié
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Remplacé par
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Déprécié
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // faire quelquechose
   }
 })
-// Replace with
+// Remplacé par
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // faire quelquechose>
   }
 })
 ```
@@ -160,7 +160,7 @@ Remplacé par : https://atom.io/download/electron
 
 La chaîne de caractère `FIXME` est utilisée dans les commentaires de code pour désigner les choses qu’il convient de fixer pour la version 3.0. Voir https://github.com/electron/electron/search?q=fixme
 
-# Planned Breaking API Changes (4.0)
+# Changements majeurs prévus de l'API (4.0)
 
 La liste suivante inclut les APIs qui seront supprimés dans Electron 4.0.
 
@@ -169,11 +169,11 @@ Il n'y a pas de planning pour la sortie de cette version, mais des avertissement
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Déprécié
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// Remplacé par
 app.requestSingleInstanceLock()
 app.on('second-instance', function (argv, cwd) {
 
@@ -183,8 +183,8 @@ app.on('second-instance', function (argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Déprécié
 app.releaseSingleInstance()
-// Replace with
+// Remplacé par
 app.releaseSingleInstanceLock()
 ```

@@ -79,19 +79,13 @@ const electron = require('electron')
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
 function createWindow () {
-  // ブラウザウインドウの作成
+  // ブラウザウインドウを作成
   win = new BrowserWindow({width: 800, height: 600})
 
   // アプリの index.html を読み込む
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
@@ -101,12 +95,9 @@ app.on('ready', createWindow)
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
 
-// window オブジェクトはグローバル参照しなければなりません。
-// これがない場合、JavaScriptのオブジェクトがガベージコレクトされた時に、
-// ウィンドウが自動的に閉じてしまうでしょう。
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
 let win
 
 function createWindow () {
@@ -114,13 +105,9 @@ function createWindow () {
   win = new BrowserWindow({width: 800, height: 600})
 
   // アプリの index.html を読み込む
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  win.loadFile('index.html')
 
-  // DevToolsを開く
+  // Open the DevTools.
   win.webContents.openDevTools()
 
   // ウィンドウが閉じられた時に発火
