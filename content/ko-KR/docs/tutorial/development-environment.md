@@ -1,10 +1,10 @@
 # 개발자 환경
 
-일렉트론 개발은 본질적으로 node.js 개발과 같습니다. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+일렉트론 개발은 본질적으로 node.js 개발과 같습니다. 일렉트론(electron)을 사용해 데스크톱 응용 프로그램을 구축 할 수 있는 환경으로 전환하기 위해서, 여러분은 단지 node.js, npm, code editor(vs code와 같은 Ide)의 선택, 운영체제의 command 명령에 대한 기본적인 이해가 필요할 뿐입니다.
 
 ## macOS 설정
 
-> Electron supports Mac OS X 10.9 (and all versions named macOS) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron은 Mac OS X 10.9 (및 macOS의 모든 버전) 그리고 10.9 이상의 버전을 지원합니다. Apple은 호스트 컴퓨터가 이미 Apple 컴퓨터가 아니면 가상 머신에서 macOS의 동작을 허용하지 않으므로, Mac을 필요로하는 경우, Mac([MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)와 같은) 에 액세스 권한을 부여하는 클라우드 서비스를 사용해보십시오.
 
 First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
