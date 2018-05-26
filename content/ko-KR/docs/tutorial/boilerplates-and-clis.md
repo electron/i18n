@@ -6,13 +6,13 @@ Electron 개발은 유연합니다 - Electron 응용 프로그램을 개발, 빌
 
 ## 상용구 코드 vs CLI
 
-상용구는 응용 프로그램을 만드는데 시작 지점입니다 - 말하자면 캔버스입니다. They usually come in the form of a repository you can clone and customize to your heart's content.
+상용구는 응용 프로그램을 만드는데 시작 지점입니다 - 말하자면 캔버스입니다. 그것은 일반적으로 당신의 생각하는 내용을 복제하고 커스터마이징 할 수있는 저장소 형태로 제공됩니다.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+반면에 명령 줄 도구는 개발 및 릴리스 과정에서 계속 지원합니다. 그들은 더 많은 도움과 지지가되지만 코드를 구조화하고 빌드하는 방법에 대한 지침을 강요합니다. * 특히 초보자에게는 명령 줄 도구를 사용하는 것이 도움이 될 수 있습니다 *.
 
 ## electron-forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+"모던 Electron 응용 프로그램을 구축하기위한 완벽한 도구". Electron Forge는 Electron 개발을 위한 기존의 (잘 관리 된) 빌드 툴을 일관된 패키지로 통합하여 누구나 바로 Electron 개발에 뛰어들 수 있습니다.
 
 Forge comes with [ready-to-use templates](https://electronforge.io/templates) for popular frameworks like React, Vue, or Angular. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
 
