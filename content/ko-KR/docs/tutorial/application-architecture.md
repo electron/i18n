@@ -69,9 +69,9 @@ const root = fs.readdirSync('/')
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+이미 추측 할 수 있듯이, 원격 콘텐츠를로드하려고 시도한 경우 이것은 보안에 중요한 영향을 미칩니다. 원격 콘텐츠 로드에 대한 더 많은 정보와 지침을 [security documentation](./security.md)에서 찾을 수 있습니다.
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) 응용 프로그램에서 Node.js 모듈을 사용할 수 있습니다. 당신의 사용하고자 하는 npm 모듈을 선택하십시오. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
 
 As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
 
