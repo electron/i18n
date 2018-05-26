@@ -2,11 +2,11 @@
 
 Electron 개발은 유연합니다 - Electron 응용 프로그램을 개발, 빌드, 패키지화 또는 릴리스 하는 유일한 방법을 고집하지 않습니다. 빌드 및 런타임 모두에 대한 Electron의 추가 기능은 일반적으로 개별 패키지의 [ npm ](https://www.npmjs.com/search?q=electron)에서 찾을 수 있고, 개발자가 앱을 빌드하고 필요한 파이프 라인을 빌드 할 수 있습니다.
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+이 확장성과 모듈화 수준은 Electron으로 작업하는 크고 작은 팀의 모든 개발자가 개발 라이프 사이클 중 언제든지 수행 할 수있는 것과 수행 할 수없는 것에 제한을받지 않음을 보장한다. 그러나 많은 개발자들에게 community-driven 한 상용구 또는 명령 줄 도구 중 하나를 사용하면 응용 프로그램을 컴파일, 패키지화 및 릴리스하는 것이 훨씬 쉬워 질 수 있습니다.
 
 ## 상용구 코드 vs CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+상용구는 응용 프로그램을 만드는데 시작 지점입니다 - 말하자면 캔버스입니다. They usually come in the form of a repository you can clone and customize to your heart's content.
 
 A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
 
