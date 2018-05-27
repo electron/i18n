@@ -73,7 +73,7 @@ console.log(root)
 
 2) 응용 프로그램에서 Node.js 모듈을 사용할 수 있습니다. 당신의 사용하고자 하는 npm 모듈을 선택하십시오. npm은 현재 가장 큰 오픈소스 저장소를 제공한다. - 서버 프로그램에서 사용되는 잘 관리되고, 테스트된 코드들을 사용할 수 있는것은 Electron의 주요 기능 중 하나이다.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+예를 들어, 응용 프로그램에서 공식 AWS SDK를 사용하려면, 먼저 종속성을 설치합니다:
 
 ```sh
 npm install --save aws-sdk
