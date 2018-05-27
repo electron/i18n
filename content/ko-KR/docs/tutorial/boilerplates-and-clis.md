@@ -1,35 +1,35 @@
 # 상용구 코드와 CLI
 
-Electron development is un-opinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+Electron 개발은 유연합니다 - Electron 응용 프로그램을 개발, 빌드, 패키지화 또는 릴리스 하는 유일한 방법을 고집하지 않습니다. 빌드 및 런타임 모두에 대한 Electron의 추가 기능은 일반적으로 개별 패키지의 [ npm ](https://www.npmjs.com/search?q=electron)에서 찾을 수 있고, 개발자가 앱을 빌드하고 필요한 파이프 라인을 빌드 할 수 있습니다.
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+이 확장성과 모듈화 수준은 Electron으로 작업하는 크고 작은 팀의 모든 개발자가 개발 라이프 사이클 중 언제든지 수행 할 수있는 것과 수행 할 수없는 것에 제한을받지 않음을 보장한다. 그러나 많은 개발자들에게 community-driven 한 상용구 또는 명령 줄 도구 중 하나를 사용하면 응용 프로그램을 컴파일, 패키지화 및 릴리스하는 것이 훨씬 쉬워 질 수 있습니다.
 
 ## 상용구 코드 vs CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+상용구는 응용 프로그램을 만드는데 시작 지점입니다 - 말하자면 캔버스입니다. 그것은 일반적으로 당신의 생각하는 내용을 복제하고 커스터마이징 할 수있는 저장소 형태로 제공됩니다.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+반면에 명령 줄 도구는 개발 및 릴리스 과정에서 계속 지원합니다. 그들은 더 많은 도움과 지지가되지만 코드를 구조화하고 빌드하는 방법에 대한 지침을 강요합니다. * 특히 초보자에게는 명령 줄 도구를 사용하는 것이 도움이 될 수 있습니다 *.
 
 ## electron-forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+"모던 Electron 응용 프로그램을 구축하기위한 완벽한 도구". Electron Forge는 Electron 개발을 위한 기존의 (잘 관리 된) 빌드 툴을 일관된 패키지로 통합하여 누구나 바로 Electron 개발에 뛰어들 수 있습니다.
 
-Forge comes with [ready-to-use templates](https://electronforge.io/templates) for popular frameworks like React, Vue, or Angular. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge에는 React, Vue 또는 Angular와 같은 보편적 인 프레임 워크 용 [ready-to-use templates](https://electronforge.io/templates)이 있습니다. ([`electron-packager`](https://github.com/electron-userland/electron-packager)와 같은) 더 큰 Electron 커뮤니티에서 사용되는 것과 동일한 핵심 모듈을 사용합니다. - (Slack과 같은) Electron maintainers가 변경 한 사항은 Forge의 사용자에게도 도움이됩니다.
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+[Electronforge.io](https://electronforge.io/)에 더 많은 정보 및 문서를 찾을 수 있습니다.
 
 ## electron-builder
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+"일렉트론 배포 전자 제품 패키지 및 빌드를위한 완벽한 솔루션"은 통합 된 경험에 포커싱하고 있습니다. [`electron-builder`](https://github.com/electron-userland/electron-builder)는 단순성에 중점을 둔 하나의 의존성을 추가하고 내부적으로 모든 추가 요구 사항을 관리합니다.
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`electron-builder`는 Electron maintainers에서 사용하는 기능 및 모듈 (자동 업데이트 프로그램같은) 을 맞춤 프로그램으로 대체합니다. 그들은 일반적으로 더 밀접하게 통합되어 있지만 Atom, Visual Studio Code 또는 Slack과 같은 인기있는 Electron 응용 프로그램과 공통점이 적습니다.
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+[the repository](https://github.com/electron-userland/electron-builder)에서 더 많은 정보 및 문서를 찾을 수 있습니다.
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+도구는 필요 없지만 견고한 보일러플레이트만 빌드를 위해 원한다면, CT Lin의 [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate)를 살펴볼 가치가 있습니다. 커뮤니티에서 꽤 인기가 있고 내부적으로 `electron-builder`를 사용합니다.
 
 ## 다른 도구와 상용구 코드
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) 에 더 많은 툴과 보일러플레이트를 포함하고 있습니다. 어려움이 많아지면 도구를 추가하는 것도 유효한 접근 방법이라는 것을 잊지 마십시오.

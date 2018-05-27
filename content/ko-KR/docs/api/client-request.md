@@ -4,12 +4,12 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-`ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest`는 [쓰기 가능한 스트림](https://nodejs.org/api/stream.html#stream_writable_streams) 인터페이스를 구현하므로, 하나의 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)입니다.
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+* `options` (Object | String) - 만약 `options` 이 String이라면, 요청 URL로 해석됩니다. 만약 객체라면, 다음 속성들을 작성해 HTTP 요청을 완전히 지정해야 합니다. 
+  * `method` String (선택적) - HTTP 요청 method입니다. 기본값으로 GET method를 사용합니다.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
@@ -40,7 +40,7 @@ const request = net.request({
 
 반환:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - HTTP 응답 메시지를 나타내는 객체입니다.
 
 #### 이벤트: 'login'
 
@@ -91,7 +91,7 @@ Emitted just after the last chunk of the `request`'s data has been written into 
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Event: 'error'
+#### 이벤트: 'error'
 
 Returns:
 
@@ -99,11 +99,11 @@ Returns:
 
 Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
-#### Event: 'close'
+#### 이벤트: 'close'
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Event: 'redirect'
+#### 이벤트: 'redirect'
 
 반환:
 
@@ -126,8 +126,8 @@ Using chunked encoding is strongly recommended if you need to send a large reque
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `name` String - 추가적인 HTTP 헤더 이름
+* `value` Object - 추가적인 HTTP 헤더 값
 
 Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
 

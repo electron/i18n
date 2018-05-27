@@ -18,21 +18,21 @@ Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고 있기 
 
 웹 페이지에서 네이티브 GUI 관련 API를 호출하는 허용되지 않습니다. 왜냐하면 이것은 매우 위험한 일이고, 리소스 릭을 발생시키기 쉽기 때문입니다. 웹페이지에서 GUI작업을 수행하려면, 웹 페이지의 렌더러 프로세스가 메인 프로세스에게 이러한 작업을 수행하도록 요청해야 합니다.
 
-> #### Aside: Communication Between Processes
+> #### Aside : 프로세스 간 통신
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> Electron에는 메인 프로세스와 렌더러 프로세스 사이에 통신할 수 있는 몇 가지 방법이 있습니다. 예로, 메시지를 보내는 [`ipcRenderer`](../api/ipc-renderer.md) 와 [`ipcMain`](../api/ipc-main.md) 모듈과, RPC 스타일 통신인 [remote](../api/remote.md)모듈이 있습니다. FAQ에 [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages)를 참고하세요.
 
 ## Electron API 사용하기
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+Electron은 메인 프로세스와 렌더러 프로세스에서 데스크톱 응용 프로그램의 개발을 지원하는 Api들을 제공 합니다. 두 프로세스 모두에서 아래와 같이 모듈을 포함함으로 Electron의 Api를 액세스 함 :
 
 ```javascript
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for each individual API will state which process it can be used from.
+모든 Electron API들은 프로세스 타입에 따라 사용됩니다. 대부분의 API 는 메인 프로세스에서만 사용할 수 있고, 일부는 렌더러프로세스에서만, 또 일부는 양쪽 모두에서 사용할 수 있습니다. 각 개별 API에 대한 문서는 해당 프로세스에서 사용할 수 있는지 명시합니다.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+예를 들면, Electron 에서 Window는 `BrowserWindow` 클래스를 사용하여 만들어집니다. 그것은 메인 프로세스 에서만 사용할 수 있습니다.
 
 ```javascript
 // This will work in the main process, but be `undefined` in a
@@ -42,7 +42,7 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+프로세스 간의 통신 가능하기 때문에, 렌더러 프로세스는 작업을 수행하기위해 메인 프로세스를 호출할 수 있습니다. Electron 은보통 메인 프로세스에서만 사용가능한 API들을 노출시키는 `remote` 라는 모듈을 함께 제공합니다. 렌더러 프로세스에서 `BrowserWindow`를 만들기 위해 remote 모듈을 중간자(middle-man) 로 사용:
 
 ```javascript
 // This will work in a renderer process, but be `undefined` in the
@@ -55,9 +55,9 @@ const win = new BrowserWindow()
 
 ## Node.js API 사용하기
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron은 메인과 렌더러 프로세스 모두에서 Node.js에 대한 전체 액세스를 제공합니다. 이것은 두가지 중요한 의미를 가집니다.
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Node.js에서 사용할 수 있는 모든 Api 들은 Electron에서 사용할 수 있습니다. Electron 응용 프로그램에서 호출 하는 다음 코드는 작동:
 
 ```javascript
 const fs = require('fs')
@@ -69,23 +69,23 @@ const root = fs.readdirSync('/')
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+이미 추측 할 수 있듯이, 원격 콘텐츠를로드하려고 시도한 경우 이것은 보안에 중요한 영향을 미칩니다. 원격 콘텐츠 로드에 대한 더 많은 정보와 지침을 [security documentation](./security.md)에서 찾을 수 있습니다.
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) 응용 프로그램에서 Node.js 모듈을 사용할 수 있습니다. 당신의 사용하고자 하는 npm 모듈을 선택하십시오. npm은 현재 가장 큰 오픈소스 저장소를 제공한다. - 서버 프로그램에서 사용되는 잘 관리되고, 테스트된 코드들을 사용할 수 있는것은 Electron의 주요 기능 중 하나이다.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+예를 들어, 응용 프로그램에서 공식 AWS SDK를 사용하려면, 먼저 종속성을 설치합니다:
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+그런 다음, Electron 응용 프로그램에서, Node.js 응용 프로그램을 빌드하는것 처럼 모듈을 require 하고 사용합니다.
 
 ```javascript
 // A ready-to-use S3 Client
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+1 개의 중요 한 경고는: 네이티브 Node.js 모듈 (즉, 사용 하기 전에 네이티브 코드의 컴파일 해야 하는 모듈)은 Electron에서 사용하기위해 컴파일해야합니다. 
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+Node.js 모듈의 대부분은 네이티브가 *아닙니다*. ~650.000 모듈중 400모듈만 네이티브입니다. 그러나, 네이티브 모듈을 사용해야하면, [this guide on how to recompile them for Electron](./using-native-node-modules.md)를 참조 하십시오.

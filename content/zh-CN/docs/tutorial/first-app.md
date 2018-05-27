@@ -31,7 +31,7 @@ npm 会帮助你创建一个基本的 `package.json` 文件。 其中的 `main` 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). 如果你实际开发的是一个简单的 Node 应用，那么你需要添加一个 `start` 脚本来指引 `node` 去执行当前的 package：
+**注意**：如果 `main` 字段没有在 `package.json` 中出现，那么 Electron 将会尝试加载 `index.js` 文件（就像 Node.js 自身那样）。 如果你实际开发的是一个简单的 Node 应用，那么你需要添加一个 `start` 脚本来指引 `node` 去执行当前的 package：
 
 ```json
 {
@@ -75,13 +75,13 @@ Electron apps are developed in JavaScript using the same principles and methods 
 const electron = require('electron')
 ```
 
-`electron` 模块所提供的功能都是通过命名空间暴露出来的。 比如说： `electron.app`负责管理Electron 应用程序的生命周期， `electron.BrowserWindow`类负责创建窗口。 A simple `main.js` file might wait for the application to be ready and open a window:
+`electron` 模块所提供的功能都是通过命名空间暴露出来的。 比如说： `electron.app`负责管理Electron 应用程序的生命周期， `electron.BrowserWindow`类负责创建窗口。 下面是一个简单的`main.js`文件，它将在应用程序准备就绪后打开一个窗口：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-function createWindow () {
-  // Create the browser window.
+function createWindow () {   
+  // 创建浏览器窗口
   win = new BrowserWindow({width: 800, height: 600})
 
   // 然后加载应用的 index.html。
@@ -107,7 +107,7 @@ function createWindow () {
   // 然后加载应用的 index.html。
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // 打开开发者工具
   win.webContents.openDevTools()
 
   // 当 window 被关闭，这个事件会被触发。
