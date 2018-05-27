@@ -75,13 +75,13 @@ Electron apps are developed in JavaScript using the same principles and methods 
 const electron = require('electron')
 ```
 
-`electron` 模块所提供的功能都是通过命名空间暴露出来的。 比如说： `electron.app`负责管理Electron 应用程序的生命周期， `electron.BrowserWindow`类负责创建窗口。 A simple `main.js` file might wait for the application to be ready and open a window:
+`electron` 模块所提供的功能都是通过命名空间暴露出来的。 比如说： `electron.app`负责管理Electron 应用程序的生命周期， `electron.BrowserWindow`类负责创建窗口。 下面是一个简单的`main.js`文件，它将在应用程序准备就绪后打开一个窗口：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-function createWindow () {
-  // Create the browser window.
+function createWindow () {   
+  // 创建浏览器窗口
   win = new BrowserWindow({width: 800, height: 600})
 
   // 然后加载应用的 index.html。
@@ -107,7 +107,7 @@ function createWindow () {
   // 然后加载应用的 index.html。
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // 打开开发者工具
   win.webContents.openDevTools()
 
   // 当 window 被关闭，这个事件会被触发。
