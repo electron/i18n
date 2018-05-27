@@ -1,6 +1,6 @@
 # inAppPurchase
 
-> In-app purchases on Mac App Store.
+> Mac App Store中的应用内购买
 
 进程：[主进程](../glossary.md#main-process)
 
