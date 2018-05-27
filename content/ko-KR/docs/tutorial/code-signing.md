@@ -26,19 +26,19 @@ MacO에서 빌드를 서명 하기 전에 다음을 수행 해야 합니다.
 
 - [`electron-osx-sign`] 은 macOS 패키지에 서명하기위한 독립형 도구입니다.
 - [`electron-packager`] bundles `electron-osx-sign`. `electron-packager`를 사용하는 경우 `--osx-sign=true` 플래그를 전달하여 빌드에 서명하십시오. 
-    - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
-- [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
+    - [<0 electron-forge</code>] 는 `electron-packager`를 내부적으로 사용하기 때문에, 위조 설정에서 `osxSign` 옵션을 설정할 수 있습니다.
+- [`electron-builder`] 에는 코드 서명 기능이 내장되어 있습니다. [electron.build/code-signing](https://www.electron.build/code-signing) 을 확인하세요.
 
-For more info, see the [Mac App Store Submission Guide](mac-app-store-submission-guide.md).
+자세한 정보는 [Mac App Store Submission Guide](mac-app-store-submission-guide.md)을 참조하세요.
 
 # Signing Windows builds
 
-Before signing Windows builds, you must do the following:
+Windows 에서 빌드를 서명 하기 전에 다음을 수행 해야 합니다.
 
-1. Get a Windows Authenticode code signing certificate
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+1. Windows Authenticode 코드 서명 인증서 얻기
+2. Visual Studio 2015/2017 설치 (서명 유틸리티를 얻으려면)
 
-You can get a code signing certificate from a lot of resellers, popular ones include:
+많은 리셀러로부터 코드 서명 인증서를 얻을 수 있으며 인기있는 인증서는 다음과 같습니다.
 
 - [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 - [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
@@ -47,9 +47,9 @@ You can get a code signing certificate from a lot of resellers, popular ones inc
 
 패키지 된 응용 프로그램 서명을 위한 도구가 몇개 있습니다:
 
-- [`electron-winstaller`] will generate an installer for windows and sign it for you
-- [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`electron-builder`] can sign some of its windows targets
+- [`electron-winstaller`] 는 윈도우 용 설치 프로그램을 생성하고 서명합니다.
+- [`electron-forge`]는 Squirrel.Windows 또는 MSI 타켓을 통해 생성 한 설치 관리자에 서명 할 수 있습니다.
+- [`electron-builder`] 는 Windows 타겟 중 일부에 서명 할 수 있습니다.
 
 ## Windows 스토어
 
