@@ -10,7 +10,7 @@
 
 ### विंडोज & मैकओएस
 
-क्रोम ब्राउज़र में `chrome://components/` खोलें, `WidevineCdm` ढूँढेंऔर यह सुनिश्चित करें कि वह अपडेटेड है, और फ़िर आप सभी प्लगइन बाइनरिज़ को `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` डायरेक्टरी से ढूँढ सकते हैं |
+Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `Program Files(x86)/Google/Chrome/Application/VERSION/WidevineCDM/_platform_specific/PLATFORM_ARCH/` directory.
 
 `APP_DATA` सिस्टम का वह स्थान है जहाँ पर एप्प डाटा स्टोर किया जाता है, विंडोज पर यह `%LOCALAPPDATA%` है और मैकओएस पर `~/Library/Application Support` | `VERSION` वाइडवाइन सीडीएम प्लगइन का संस्करण स्ट्रिंग है, जैसे `1.4.8.866` | `PLATFORM` `mac` या `win` है | `ARCH` `x86` या `x64` है |
 
