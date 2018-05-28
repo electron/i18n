@@ -1,4 +1,4 @@
-# Gamit ang Widevine CMD Plugin
+# Paggamit ng ekstensyong Widevine CDM
 
 Sa Elektron maaari mong gamitin ang Widevine CDM plugin na naipadala sa Chrome browser.
 
@@ -10,7 +10,7 @@ Ang elektron ay hindi nagpapadala sa Widevine CDM plugin para sa mga dahilan ng 
 
 ### Windows & macOS
 
-Buksan ang `chrome: //components/` sa browser ng Chrome, hanapin ang `WidevineCdm` at gawing sigurado na napapanahon, pagkatapos ay maaari mong mahanap ang lahat ng mga binaries ng plugin mula sa `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` direktoryo.
+Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `Program Files(x86)/Google/Chrome/Application/VERSION/WidevineCDM/_platform_specific/PLATFORM_ARCH/` directory.
 
 `APP_DATA` ay ang lokasyon ng system para sa pagtatago ng data ng app, sa Windows ito ay `%LOCALAPPDATA%`, sa macOS ito ay `~/Library/Application Support`. `BERSYON` ay Bersyon string ng Widevine CDM plugin, tulad ng `1.4.8.866`. `PLATFORM` ay `mac` o `manalo`. `ARKO` ay `x86` o `x64`.
 
