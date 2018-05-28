@@ -14,7 +14,7 @@ Siga las pautas a continuación para construir Electron en macOS.
 Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
-$ python ./script/check-tls.py
+ python ./script/check-tls.py
 ```
 
 If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
@@ -62,7 +62,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+Si el editor que usas soporta [JSON compilación la base de datos](http://clang.llvm.org/docs/JSONCompilationDatabase.html) basado en servidor de idioma, puedes generar:
 
 ```sh
 $ ./script/build.py --compdb
