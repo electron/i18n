@@ -87,8 +87,8 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
   * [Usando archivos asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitaciones](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Añadiendo archivos desempaquetados a ficheros asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [En detalle: Uso del Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [En detalle: Uso del Plugin MDL Widevine](tutorial/using-widevine-cdm-plugin.md)
 * [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
 
 * * *
@@ -117,7 +117,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
-* [inAppPurchase](api/in-app-purchase.md)
+* [Compras integradas](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -147,4 +147,4 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
 ## Desarrollo
 
-See <development/README.md>
+Ver <development/README.md>
