@@ -38,7 +38,7 @@ Ito ay nagbibigay-daan sa iyo upang matukoy sa tamang oras at panahon o hindi Wi
 
 ## macOS
 
-Ang mga abiso ay tuwid-patuloy sa macOS, ngunit dapat mong malaman [Mga alituntunin ng Apple's Human Interface tungkol sa mga notipikasyon](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Tandaan na ang mga notipikasyon ay limitado sa 256 bytes na laki at itoy mapuputol kung lalampas ka na sa limitasyon.
 
