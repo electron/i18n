@@ -38,7 +38,7 @@ Esto le permite determinar de antemano si Windows enviará o no la notificación
 
 ## macOS
 
-Las notificaciones son directas en macOS, pero debe tener en cuenta las [Directrices de la Interfaz Humana de Apple con respecto a las Notificaciones](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Tenga en cuenta que las notificaciones están limitadas a 256 bytes de tamaño y se truncarán si supera ese límite.
 
