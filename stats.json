@@ -238,26 +238,26 @@
     "code": "ru",
     "phrases": "9467",
     "translated": "4501",
-    "approved": "798",
+    "approved": "799",
     "words": "86906",
     "words_translated": "29320",
-    "words_approved": "5690",
+    "words_approved": "5717",
     "translated_progress": 33,
     "approved_progress": 6,
-    "qa_issues": "1300"
+    "qa_issues": "1299"
   },
   {
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9467",
-    "translated": "8288",
+    "translated": "8296",
     "approved": "310",
     "words": "86906",
-    "words_translated": "72934",
+    "words_translated": "73067",
     "words_approved": "2679",
-    "translated_progress": 83,
+    "translated_progress": 84,
     "approved_progress": 3,
-    "qa_issues": "3162"
+    "qa_issues": "3167"
   },
   {
     "name": "Tagalog",
