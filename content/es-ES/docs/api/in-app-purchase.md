@@ -1,4 +1,4 @@
-# inAppPurchase
+# Compras integradas
 
 > In-app purchases on Mac App Store.
 
