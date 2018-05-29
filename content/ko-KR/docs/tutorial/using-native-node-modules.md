@@ -30,9 +30,9 @@ HOME=~/.electron-gyp npm install
 
 ### 모듈 설치하고 일랙트론용으로 재빌드하기
 
-또한 다른 노드프로잭트들과 비슷하게 인스톨한 모듈을 선택한 다음. [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) 을 가지고 그 모듈을 재빌드 한다. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+또한 다른 노드프로잭트들과 비슷하게 인스톨한 모듈을 선택한 다음. [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) 을 가지고 그 모듈을 재빌드 한다. 이 모듈은 일랙트론의 버전을 얻어올수 있고 헤더를 다운로드 하는 단계들을 조율하여 당신의 앱을 위한 네이티브모듈을 빌드한다.
 
-An example of installing `electron-rebuild` and then rebuild modules with it:
+`electron-rebuild` 인스톨한다음 그것을 가지고 모듈 재빌드 하기 예
 
 ```sh
 npm install --save-dev electron-rebuild
