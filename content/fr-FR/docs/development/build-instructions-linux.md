@@ -10,7 +10,7 @@ Suivez les indications ci-dessous pour compiler Electron sur Linux.
     Veuillez vérifier que votre système et votre version de Python supporte au moins le TLS 1.2 ou une version supérieure. Pour un test rapide, exécutez le script suivant:
     
     ```sh
-    $ python ./script/check-tls.py
+    $ python ./script/tls.py
     ```
     
     Si le script renvoie que votre configuration utilise un protocole de sécurité obsolète, utilisez le Gestionnaire de paquets de votre système afin de mettre à jour vers la dernière version dans la branche 2.7.x de Python. Vous pouvez également visiter https://www.python.org/downloads/ pour plus de détails.
