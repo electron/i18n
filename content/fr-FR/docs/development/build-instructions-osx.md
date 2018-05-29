@@ -14,7 +14,7 @@ Suivez les indications ci-dessous pour compiler Electron sur macOS.
 Veuillez vous assurer que votre système et votre version de Python supporte au moins le TLS 1.2. Cela dépend à la fois de votre version de macOS et Python. Pour un test rapide, lancez:
 
 ```sh
-$ python ./script/check-tls.py
+$ python ./script/tls.py
 ```
 
 Si le script vous retourne que votre configuration utilise un protocole de sécurité obsolète, vous pouvez soit mettre à jour macOS vers High Sierra ou installer une nouvelle version de Python 2.7.x. Pour mettre à jour Python, utilisez [Homebrew](https://brew.sh/):
