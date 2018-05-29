@@ -17,7 +17,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Elegir un editor](tutorial/development-environment.md#a-good-editor)
 * [Crear su primera aplicación](tutorial/first-app.md) 
   * [Instalar Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Desarrollo de Electron en pocas palabras](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Ejecutar su aplicación](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
