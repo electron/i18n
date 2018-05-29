@@ -10,7 +10,7 @@ Siga las indicaciones a continuación para construir Electron en Linux.
     Por favor, verifica que tu sistema y la versión de Python soportan al menos TLS 1.2. Para una prueba rápida, haz correr el siguiente script:
     
     ```sh
-     python ./script/check-tls.py
+     python ./script/tls.py
     ```
     
     Si el script devuelve que tu configuración utiliza un protocolo de seguridad obsoletos, utilizar gestor de paquetes del sistema para actualizar Python con la última versión de la rama 2.7. Como alternativa, visita https://www.python.org/downloads/ para obtener instrucciones detalladas.
