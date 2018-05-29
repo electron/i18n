@@ -37,10 +37,10 @@
     "npm-run-all": "^4.1.2",
     "require-yaml": "^0.0.1",
     "rimraf": "^2.6.2",
-    "semantic-release": "^15.1.7",
+    "semantic-release": "^15.5.0",
     "simple-statistics": "^6.0.1",
     "standard": "^11.0.1",
-    "travis-deploy-once": "^4.4.1",
+    "travis-deploy-once": "^5.0.0",
     "walk-sync": "^0.3.2"
   },
   "scripts": {
