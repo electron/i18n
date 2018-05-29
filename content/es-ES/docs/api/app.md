@@ -47,7 +47,7 @@ Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamando a `e
 
 **Nota:** Si el cierre de la aplicación fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitido *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** En Windows, este evento no será emitido si la aplicación se cierra debido a un apagado/reinicio del sistema o el cierre de sesión de de un usuario.
 
 ### Evento: 'will-quit'
 
@@ -59,7 +59,7 @@ Emitido cuando todas las ventanas han sido cerradas y la aplicación se cerrará
 
 Consulte la descripción del evento `window-all-closed` por las diferencias con los eventos `will-quit` y `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** En Windows, este evento no será emitido si la aplicación se cierra debido a un apagado/reinicio del sistema o el cierre de sesión de de un usuario.
 
 ### Evento: 'quit'
 
@@ -70,7 +70,7 @@ Devuelve:
 
 Emitido cuando la aplicación se está cerrando.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** En Windows, este evento no será emitido si la aplicación se cierra debido a un apagado/reinicio del sistema o el cierre de sesión de de un usuario.
 
 ### Evento: 'open-file' *macOS*
 
@@ -319,14 +319,14 @@ Este método garantiza que todos los eventos de `beforeunload` y `unload` serán
 
 * `exitCode` Integer (opcional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Sale inmediatamente con `exitCode`. `exitCode` por defecto es 0.
 
 Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los eventos `before-quit` y `will-quit` no se correrán.
 
 ### `app.relaunch([options])`
 
 * `opciones` Objecto (opcional) 
-  * `args` String[] (optional)
+  * `args` String[] - (opcional)
   * `execPath` String (opcional)
 
 Reinicia la aplicación cuando la instancia se cierra.
@@ -390,7 +390,7 @@ Usted puede pedir las siguientes direcciones por nombre:
 * `pictures` Directorio para las imágenes del usuario.
 * `videos` Directorio para los vídeos del usuario.
 * `logs` Directorio para los archivos de registro de la aplicación.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Ruta completa a la versión del sistema del plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -430,7 +430,7 @@ Regresa `Cadena` - La versión de la aplicación cargada. Si ninguna versión es
 
 ### `app.getName()`
 
-Regresa `Cadena` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
+Regresa `String` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
 
 Usualmente el campo `nombre` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones del módulo npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
 
@@ -442,9 +442,9 @@ Reescribe el nombre de la aplicación actual.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Regresa `Cadena` - La localización actual de la aplicación. Los valores posibles son documentados [aquí](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Para establecer la localización, necesitas usar un cambio de línea de comandos al inicio de la aplicación, el cual se puede encontrar [aquí](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
