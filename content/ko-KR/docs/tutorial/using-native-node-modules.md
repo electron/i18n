@@ -2,13 +2,13 @@
 
 일랙트론은 노드의 네이티브모듈을 지원하지만, 당신의 시스템에 설치된 노드바이너리와는 다른 v8 버전을 사용할 가능성이 매우 높다. 그래서 네이티브모듈을 빌드할때는 반드시 수동으로 일랙트론의 헤더위치를 수동으로 지정해야한다.(일랙트론 용으로 다시 빌드해야한다)
 
-## How to install native modules
+## 네이티브 모듈들을 설치하는 방법
 
-Three ways to install native modules:
+네이티브 모듈을 설치하는 방법은 3가지가 있다.
 
-### Using `npm`
+### Npm 사용하기
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+몇가지 환경변수를 세팅하는것으로 npm을 이용해서 모듈들을 바로 설치할 수 있다.
 
 An example of installing all dependencies for Electron:
 
@@ -30,7 +30,7 @@ HOME=~/.electron-gyp npm install
 
 ### 모듈 설치하고 일랙트론용으로 재빌드하기
 
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+또한 다른 노드프로잭트들과 비슷하게 인스톨한 모듈을 선택한 다음. [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) 을 가지고 그 모듈을 재빌드 한다. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
 
 An example of installing `electron-rebuild` and then rebuild modules with it:
 
