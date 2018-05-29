@@ -1,4 +1,4 @@
-# Certificate 物件
+# 憑證物件
 
 * `data` String - PEM 編碼後的資料
 * `issuer` [CertificatePrincipal](certificate-principal.md) - 簽發者主體

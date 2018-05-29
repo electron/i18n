@@ -10,7 +10,7 @@ Elektron tidak disertakan dengan plugin Widevine CDM karena alasan lisensi, untu
 
 ### Windows & macOS
 
-Buka `chrome://components/` di browser Chrome, temukan `WidevineCdm` dan buat yakin itu up to date, maka Anda dapat menemukan semua plugin binari dari `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` direktori.
+Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `Program Files(x86)/Google/Chrome/Application/VERSION/WidevineCDM/_platform_specific/PLATFORM_ARCH/` directory.
 
 `APP_DATA` adalah lokasi sistem untuk menyimpan data aplikasi, pada Windows itu `%LOCALAPPDATA%`, di macos itu `~/Library/Application Support`. `VERSION` adalah Versi versi plugin plugin Widevine, seperti `1.4.8.866`. `PLATFORM` adalah `mac` atau `menang`. `ARCH`adalah`x86`atau`x64`.
 

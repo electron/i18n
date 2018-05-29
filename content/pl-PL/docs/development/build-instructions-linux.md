@@ -10,7 +10,7 @@ Postępuj zgodnie z wytycznymi poniżej do zbudowania Electrona dla Linuxa.
     Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
     
     ```sh
-    $ python ./script/check-tls.py
+    $ python ./script/tls.py
     ```
     
     If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.

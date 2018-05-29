@@ -74,8 +74,8 @@ L'objet `autoUpdater` dispose des méthodes suivantes :
 
 * `options` Objet 
   * `url` String
-  * `headers` Object (optional) *macOS* - HTTP request headers.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Objet (facultatif) *macOS* - en-têtes de requête HTTP.
+  * `serverType` String (facultatif) *macOS* - Soit `json` ou `default`, voir le README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) pour plus d’informations.
 
 Définit l'`url` et initialise l'auto updater.
 
@@ -91,6 +91,6 @@ Demande au serveur s’il y a une mise à jour. Vous devez appeler `setFeedURL` 
 
 Redémarre l'application et installe la mise à jour après qu'elle soit téléchargée. Cette méthode doit être appelé seulement après que `update-downloaded` soit émis.
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+Derrière l'appel de `autoUpdater.quitAndInstall()` fermera toutes les applications windows en premier, appellera automatiquement `app.quit()` après que toutes les fenêtres aient été fermées.
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**Remarque :** Si l’application est fermée sans que cette API soit appelée après que l’événement `update-downloaded` ait été émis, l’application sera toujours remplacée par celle mise à jour lors de la prochaine exécution.

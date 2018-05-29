@@ -7,13 +7,13 @@ Siga las indicaciones a continuación para construir Electron en Linux.
 * Al menos 25GB de espacio de disco y 8GB de RAM.
 * Python 2.7.x. Algunas distribuciones como CentOS 6.x. aún usan Python 2.6.x, así que quizá necesitarás revisar tu versión de Python con `python -V`.
     
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    Por favor, verifica que tu sistema y la versión de Python soportan al menos TLS 1.2. Para una prueba rápida, haz correr el siguiente script:
     
     ```sh
-    $ python ./script/check-tls.py
+     python ./script/tls.py
     ```
     
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+    Si el script devuelve que tu configuración utiliza un protocolo de seguridad obsoletos, utilizar gestor de paquetes del sistema para actualizar Python con la última versión de la rama 2.7. Como alternativa, visita https://www.python.org/downloads/ para obtener instrucciones detalladas.
 
 * Node.js. Existen muchas maneras de instalar Node. Puedes descargar el código de fuente de [nodejs.org](https://nodejs.org) y compilarlo. Hacerlo permite instalar Node en el directorio de tu propia casa como un usuario estándar. O intenta repositorios como [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
@@ -65,7 +65,7 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+Si el editor que usas soporta [JSON compilación la base de datos](http://clang.llvm.org/docs/JSONCompilationDatabase.html) basado en servidor de idioma, puedes generar:
 
 ```sh
 $ ./script/build.py --compdb

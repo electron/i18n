@@ -10,7 +10,7 @@ Electrón no entrega con conectores Widevine CDM por razones de licencia, para o
 
 ### Windows & macOS
 
-Abre `chrome://components/` en el navegador Chrome, encuentra `WidevineCdm` y asegurese de que está actualizada,, luego puede encontrar todos los conectores binarios del directorio `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/`.
+Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `Program Files(x86)/Google/Chrome/Application/VERSION/WidevineCDM/_platform_specific/PLATFORM_ARCH/` directory.
 
 `APP_DATA` es la ubicación en el sistema designada para almacenar los datos de las aplicaciones, en windows es `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` es la cadena de versión del plugin Widevine CDM, como `1.4.8.866`. `PLATFORM` es `mac` o `win`. `ARCH` es `x86` o `x64`.
 

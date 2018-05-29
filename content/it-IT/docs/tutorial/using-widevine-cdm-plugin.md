@@ -10,7 +10,7 @@ Electron non collabora con il plugin Widevine CDM per motivi di licenza, per ott
 
 ### Windows & macOS
 
-Apri nel browser di Chrome `chrome://components/`, trova `WidevineCdm` ed assicurati che corrispondano, puoi potrai trovare tutti i binari dei plugin dalla directory `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/`.
+Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `Program Files(x86)/Google/Chrome/Application/VERSION/WidevineCDM/_platform_specific/PLATFORM_ARCH/` directory.
 
 `APP_DATA` è la posizione di sistema per archiviare i dati app, su Windows è `%LOCALAPPDATA%`, su macOS è `~/Library/Application Support`. `VERSIONE` è la stringa della versione del plugin Widevine CDM, come `1.4.8.866`. `PIATTAFORMA` è `mac` o `win`. `ARCH` è `x86` o `64`.
 

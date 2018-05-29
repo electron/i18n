@@ -39,7 +39,7 @@ Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 * `url` String - 2081 caractères maximum sur windows, sinon la fonction retourne false.
 * `options` Object (facultatif) *macOS* 
   * `activate` Boolean - `true` pour mettre l'application ouverte au premier-plan. La valeur par défaut est `true`.
-* `callback` Function (facultatif) *macOS* - If specified will perform the open asynchronously. 
+* `callback` Function (facultatif) *macOS* - Si spécifié, l'ouverture sera fera de façon asynchrone. 
   * `error` Error
 
 Retourne `Boolean` - Si une application à pu ouvrir l'URL. Si le callback est spécifié, cela retournera toujours true.

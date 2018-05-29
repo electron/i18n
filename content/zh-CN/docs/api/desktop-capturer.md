@@ -70,7 +70,7 @@ const constraints = {
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `选项` 对象 
+* `options` 对象 
   * ` types `String[]-列出要捕获的桌面源类型的字符串数组, 可用类型为 ` screen ` 和 ` window `。
   * ` thumbnailSize `[ Size ](structures/size.md)(可选)-媒体源缩略图应缩放到的大小。默认值为 ` 150 ` x ` 150 `。
 * `callback` Function - 回调函数 
