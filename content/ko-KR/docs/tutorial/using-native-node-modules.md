@@ -10,7 +10,7 @@
 
 몇가지 환경변수를 세팅하는것으로 npm을 이용해서 모듈들을 바로 설치할 수 있다.
 
-An example of installing all dependencies for Electron:
+일랙트론에 대한 모든 종속성들을 설치하는 예
 
 ```sh
 # Electron's version.
@@ -24,7 +24,7 @@ export npm_config_disturl=https://atom.io/download/electron
 export npm_config_runtime=electron
 # Tell node-pre-gyp to build module from source code.
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+#모든 종속성설치하고 ~/.electron-gyp 에 캐쉬 저장하기
 HOME=~/.electron-gyp npm install
 ```
 
@@ -44,7 +44,7 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Manually building for Electron
+### 수동으로 빌드하기
 
 If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
 
