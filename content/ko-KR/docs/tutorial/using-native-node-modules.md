@@ -46,7 +46,7 @@ npm install --save-dev electron-rebuild
 
 ### 수동으로 빌드하기
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+만약 네이티브 모듈을 개발하는 개발자이고 일랙트론에서 동작 테스트를 원한다면, 수동으로 일랙트론용모듈을 리빌드 하기를 원할 것이다. `node-gyp` 를 써서 일랙트론용으로 바로 빌드 할 수 있다.
 
 ```sh
 cd /path-to-module/
