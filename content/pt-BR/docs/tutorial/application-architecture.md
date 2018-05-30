@@ -2,9 +2,9 @@
 
 Antes de nós podemos mergulhar nas APIs do Electron, precisamos discutir os dois tipos de processo disponíveis em Electron. Eles são fundamentalmente diferentes e importantes para entender.
 
-## Processos Principais e Renderizados
+## Processos Principal e de Renderização
 
-Em Electron, o processo que executa o script `main` do `package.json` é chamado de **processo principal**. O script que executa no processo principal pode apresentar uma interface gráfica através da criação de páginas web. Um Electron app sempre tem um processo principal, mas nunca mais de um.
+No Electron, o processo que executa o script `main` do `package.json` é chamado de **processo principal**. O script que executa no processo principal pode apresentar uma interface gráfica através da criação de páginas web. Um aplicativo Electron sempre tem um processo principal, mas nunca mais de um.
 
 Uma vez que o Electron utiliza o Chromium para a apresentação de páginas web, a arquitetura de multiprocessamento do Chromium também é utilizada. Cada página web no Electron executa seu próprio processo, que é chamado de **processo de renderização**.
 
