@@ -41,7 +41,7 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
 8. [Huwag i-set ang `allowRunningInsecureContent` sa `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [Huwag paganahin ang mga experimental na katangian](#9-do-not-enable-experimental-features)
-10. [Huwag gamitin ang `blinkFeatures`](#10-do-not-use-blinkfeatures)
+10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
 11. [WebViews: Huwag gamitin ang `allowpopups`](#11-do-not-use-allowpopups)
 12. [WebViews: I-verify ang mga opsyun at mga param sa lahat ng `<webview>`mga tag](#12-verify-webview-options-before-creation)
 
@@ -334,11 +334,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `blinkFeatures`
+## 10) Do Not Use `enableBlinkFeatures`
 
 *Ang rekomendasyon ay default ng Electron*
 
-Ang blink ay ang pangalan ng rendering engine sa likod ng Chromium. Tulad ng `experimentalFeatures`, ang `blinkFeatures` ay nagbibigay-daan sa mga developer ng paganahin ang mga tampok na hindi pinagana sa pamamagitan ng default.
+Ang blink ay ang pangalan ng rendering engine sa likod ng Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
 ### Bakit?
 
@@ -347,10 +347,10 @@ Sa pangkalahatan, malamang na may mga dahilan kung ang isang tampok ay hindi pin
 ### Paano?
 
 ```js
-// Masama
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    blinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: ['ExecCommandInJavaScript']
   }
 })
 ```
