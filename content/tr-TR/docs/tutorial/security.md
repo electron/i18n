@@ -41,7 +41,7 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 7. [Geçersiz kıl ve devredışı bırak `eval`](#7-override-and-disable-eval), dizelerin kod olarak yürütülmesine izin verir.
 8. [`allowRunningInsecureContent` i `true` a ayarlamayın](#8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [Deneysel özellikleri aktifleştirmeyin](#9-do-not-enable-experimental-features)
-10. [`blinkFeatures` kullanmayın](#10-do-not-use-blinkfeatures)
+10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
 11. [WebViews:`allowpopups` kullanmayın](#11-do-not-use-allowpopups)
 12. [WebViews: Ayarlar ve parametreleri bütün `<webview>` etiketlerde doğrulayın](#12-verify-webview-options-before-creation)
 
@@ -336,11 +336,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow ({})
 ```
 
-## 10) Do Not Use `blinkFeatures`
+## 10) Do Not Use `enableBlinkFeatures`
 
 *Tavsiye edilen ayar Electron'da varsayılandır*
 
-Blink Chromium'un işleyici motorunun isminden gelir. `experimentalFeatures` da olduğu gibi `blinkFeatures` özelliği de geliştiricilere varsayılan olarak kapalı olan bazı özellikleri açar.
+Blink Chromium'un işleyici motorunun isminden gelir. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
 ### Neden?
 
@@ -352,7 +352,7 @@ Genel olarak, bir özellik varsayılan olarak açık değilse ardıında bazı s
 // Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    blinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: ['ExecCommandInJavaScript']
   }
 })
 ```
