@@ -41,7 +41,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
 8. [Do not set `allowRunningInsecureContent` to `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [Do not enable experimental features](#9-do-not-enable-experimental-features)
-10. [`blinkFeatures`를 사용하지 마세요.](#10-do-not-use-blinkfeatures)
+10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
 11. [WebViews: `allowpopups`를 사용하지 마세요.](#11-do-not-use-allowpopups)
 12. [WebViews: 옵션과 모든 `<webview>` 태그의 매개 변수 확인](#12-verify-webview-options-before-creation)
 
@@ -338,11 +338,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) `blinkFeatures`를 사용하지 마세요.
+## 10) Do Not Use `enableBlinkFeatures`
 
 *추천 값은 Electron의 기본값입니다.*
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
 ### 왜냐구요?
 
@@ -354,7 +354,7 @@ Generally speaking, there are likely good reasons if a feature was not enabled b
 // Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    blinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: ['ExecCommandInJavaScript']
   }
 })
 ```
