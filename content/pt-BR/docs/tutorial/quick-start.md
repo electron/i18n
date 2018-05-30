@@ -5,6 +5,6 @@ Electron permite criar aplicações desktop com JavaScript puro, fornecendo em t
 A antiga página "Início Rápido" que costumava ficar aqui foi dividida em dois documentos:
 
 * Para ver como é feito um app simples no Electron, confira [Escrevendo Seu Primeiro Aplicativo com Electron](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* Para ver como é a arquitetura de processos, confira [Processos Principal e de Renderização](./application-architecture.md#main-and-renderer-processes).
 
-To learn more about Electron, check out the [official guides](../).
+Para aprender mais sobre o Electron, confira os [guias oficiais](../).
