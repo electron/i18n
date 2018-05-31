@@ -69,7 +69,7 @@ npm install --save-dev electron
 
 ## 간단히 설명한 Electron 개발
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. Electron에 있는 모든 API들과 기능들은 `electron` 모듈을 이용해 접근 할 수 있으며, 이것은 다른 Node.js 모듈처럼 사용이 가능 합니다:
 
 ```javascript
 const electron = require('electron')
