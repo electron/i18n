@@ -4,13 +4,13 @@ Tornar acessíveis os aplicativos é algo importante, e nós estamos felizes em 
 
 * * *
 
-Questões de acessibilidade em Electron aplicativos são semelhantes de sites pois, ambos fazer uso do HTML. No entanto com electron apps, não pode ser usado os recursos online para auditorias de acessibilidade por causa que seu aplicativo não tem uma URL para apontar o auditor.
+As questões de acessibilidade em aplicativos Electron são semelhantes às de sites na Web, já que ambos fazem uso do HTML. No entanto, com apps Electron, você não pode usar ferramentas online para auditorias de acessibilidade, pois seu aplicativo não tem uma URL para o auditor poder acessá-lo.
 
-Esses novos recursos trazem ferramentas de auditoria para seu Electron app. Você pode escolher adicionar auditor ao seus testes com Spectron ou usá-las na DevTools com Devtron. Leia sobre isso no resumo das ferramentas.
+Esses novos recursos trazem ferramentas de auditoria para seu app Electron. Você pode escolher adicionar análises aos seus testes com o Spectron ou usá-las dentro da DevTools com o Devtron. Continue lendo para ver um resumo das ferramentas.
 
 ## Spectron
 
-Em testes na Spectron framework, você pode agora auditar cada janela e `<webview>` tag em seu aplicativo. Por exemplo:
+No framework de testes Spectron, você agora pode auditar cada janela e tag `<webview>` em seu aplicativo. Por exemplo:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,11 +20,11 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-Você pode ler mais sobre esse recurso na [docummentação do Spectron](https://github.com/electron/spectron#accessibility-testing).
+Você pode ler mais sobre esse recurso na [documentação do Spectron](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 
-Em Devtron, há uma nova guia de acessibilidade que permitirá que você fazer auditoria em uma página de seu aplicativo, classificar e filtrar os resultados.
+O Devtron fornece uma nova guia de acessibilidade, onde você pode auditar uma página de seu aplicativo, classificar e filtrar os resultados.
 
 ![captura de tela do devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
