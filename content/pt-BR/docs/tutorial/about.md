@@ -22,19 +22,19 @@ A versão do Chromium do Electron normalmente é atualizada uma ou duas semanas 
 
 Quando uma nova versão do Node.js é lançada, o Electron espera normalmente cerca de um mês antes de atualizá-lo, de modo a garantir uma versão mais estável.
 
-No Electron, Node.js e Chromium compartilham uma única instância V8 — normalmente a versão que o Chromium está usando. Na maioria das vezes isso já *funciona a contento* mas algumas vezes significa que corrigir o Node.js.
+No Electron, o Node.js e o Chromium compartilham uma única instância V8 — normalmente na versão que o Chromium está usando. Na maioria das vezes isso *funciona já de cara*, mas em outras se faz necessário aplicar ajustes no Node.js.
 
 ### Controle de Versão
 
-A partir da versão 2.0, Electron [segue `semver`](https://semver.org). Para a maioria das aplicações, e usando qualquer versão recente do npm, executar `$ npm install electron` fará a coisa certa.
+A partir da versão 2.0, o Electron [segue o padrão `semver`](https://semver.org). Para a maioria das aplicações, e usando qualquer versão recente do npm, basta executar `$ npm install electron` e tudo vai vir certinho.
 
 O processo de atualização de versão é detalhado explicitamente em nosso [Documento de Versionamento](electron-versioning.md).
 
 ### LTS
 
-Não existe atualmente suporte a versões antigas do Electron para longo prazo (LTS). Se a sua versão atual do Electron funciona para você, você pode permanecer com ele o tempo que desejar. Se você quer usar as novas funcionalidades quando elas são lançadas, você deve atualizar para a nova versão.
+Não existe atualmente suporte a versões antigas do Electron para longo prazo (LTS). Se a sua versão atual do Electron funciona para você, você pode continuar usando ela pelo tempo que desejar. Se você quiser usar as novas funcionalidades assim que elas forem lançadas, considere atualizar para uma versão mais recente.
 
-Uma atualização principal vem o número de versão `1.0.0`. Se você ainda não está usando esta versão, deveria [ler mais sobre as mudança na versão` v. 1.0.0`](https://electronjs.org/blog/electron-1-0).
+Uma atualização massiva foi liberada na versão `v1.0.0`. Se você ainda não está usando esta versão, recomendamos que você [leia mais sobre as mudanças na versão` v. 1.0.0`](https://electronjs.org/blog/electron-1-0).
 
 ## Filosofia Básica
 
