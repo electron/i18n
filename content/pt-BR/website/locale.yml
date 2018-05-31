@@ -77,7 +77,7 @@ get_started:
   description: Para começar com o Electron, confira os recursos abaixo. Saiba como envolver o seu aplicativo web com o Electron, acessar todas as APIs e gerar instaladores.
 explore:
   title: Explore as APIs do Electron
-  description: "O <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> demonstra de forma interativa as características mais importantes da API do Electron. Veja o que é possível com Electron em exemplos de código e dicas úteis para a construção de seu aplicativo."
+  description: "O <a href='https://github.com/electron/electron-api-demos'>app de demos da API Electron</a> demonstra de forma interativa os recursos mais importantes da API do Electron. Veja o que é possível fazer com o Electron em exemplos de código e dicas úteis para a construção de seu aplicativo."
 download_from_github: Baixar no GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a> no GitHub
 quick_start:
@@ -120,7 +120,7 @@ pages:
     title: Documentação
     description: Documentação de referência da API e guias da versão mais recente do Electron
   '/docs/all':
-    title: Todas as documentações do Electron!
+    title: Toda a documentação do Electron!
     description: Todos os guias e a documentação da API do Electron numa só página com pesquisa.
   '/docs/api':
     title: API
@@ -147,7 +147,7 @@ pages:
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron é uma ferramenta de código aberto, feita para ajudá-lo a inspecionar, monitorar e depurar seu aplicativo. Construído em cima do incrível Chrome Developer Tools.
+    description: Devtron é uma ferramenta de código aberto feita para ajudá-lo a inspecionar, monitorar e depurar seu aplicativo. Construído com base no incrível Chrome Developer Tools.
   '/spectron':
     title: Spectron
     description: Spectron é uma framework de código aberto para facilmente escrever testes de integração para seu aplicativo. Construído em cima do ChromeDriver e WebDriverIO.
