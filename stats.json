@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "9469",
-    "translated": "2545",
+    "translated": "2549",
     "approved": "37",
     "words": "87053",
-    "words_translated": "14860",
+    "words_translated": "14914",
     "words_approved": "68",
     "translated_progress": 17,
     "approved_progress": 0,
-    "qa_issues": "941"
+    "qa_issues": "942"
   },
   {
     "name": "Hebrew",
