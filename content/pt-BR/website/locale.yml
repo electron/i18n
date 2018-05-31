@@ -30,9 +30,9 @@ community:
   title: Comunidade do Electron
   description: Recursos para se conectar com pessoas que trabalham no Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Vamos começar</b></a> construir um app, lendo o <a href='/docs/tutorial/first-app'>guia de início rápido</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Mantenha-se atualizado</b></a>, seguindo <a href='https://twitter.com/electronjs'>@electronjs</a> no Twitter e assinado o <a href='/blog'><a href='/blog'>feed do blog</a>."
-    localized_docs: "<a href='/languages'><b>Leia documentos em sua linguagem nativa</b></a> visitando a <a href='/languages'>página de idiomas</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Comece agora</b></a> a construir um app conferindo o <a href='/docs/tutorial/first-app'>guia de início rápido</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Mantenha-se atualizado</b></a> seguindo o <a href='https://twitter.com/electronjs'>@electronjs</a> no Twitter e assinando o <a href='/blog'>feed do nosso blog</a>."
+    localized_docs: "<a href='/languages'><b>Leia a documentação em seu idioma nativo</b></a> visitando a <a href='/languages'>página de idiomas</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Obtenha ajuda e feedback</b></a> juntando-se a <a href='http://atom-slack.herokuapp.com'>Slack atomio</a>, postando no <a href='https://discuss.atom.io/c/electron'>Discuss</a>, ou visitando <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Encontre pacotes úteis do npm</b></a> na <a href='/search/npmPackages'>página de busca de pacotes</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Relatórios de bugs</b></a> devem ser feitos em questões no nosso repositório <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
@@ -156,7 +156,7 @@ pages:
 _404:
   page_not_found: Página não encontrada.
 search:
-  description_all: Encontre recursos para o Electron na <a href="/search/docs">documentação</a>, <a href="/search/npmPackages">pacotes npm</a> e <a href="/search/repos">GitHub repos</a>.
+  description_all: Encontre recursos para o Electron na <a href="/search/docs">documentação</a>, nos <a href="/search/npmPackages">pacotes npm</a> e nos <a href="/search/repos">repositórios do GitHub</a>.
   description_docs: Encontre recursos para o Electron na documentação.
   description_npm: Encontre recursos para o Electron em pacotes no npm.
   description_repos: Encontre recursos para o Electron em repositórios no GitHub.
