@@ -26,7 +26,7 @@ Então, execute o `Electron.app` (ou `electron` no Linux, `electron.exe` no Wind
 
 Além de poder distribuir seu app copiando todo o seu código fonte, você também pode empacotar seu aplicativo em um arquivo [asar](https://github.com/electron/asar) para impedir que usuários possam ver o código fonte.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Para usar um arquivo `asar` para substituir a pasta `app`, você precisa renomear o arquivo para `app.asar` e colocá-lo dentro da pasta de recursos do Electron como mostrado abaixo, e o Electron irá então ler o arquivo e executar seu app.
 
 No macOS:
 
@@ -42,9 +42,9 @@ electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Você pode encontrar mais detalhes em [Empacotamento de Aplicativos](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Colocando sua marca nos binários
 
 After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
 
