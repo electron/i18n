@@ -1,6 +1,6 @@
-# Application Debugging
+# Depuração de Aplicativos
 
-Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
+Sempre que seu aplicativo Electron não estiver se comportando do jeito que você queria, você pode usar uma gama de ferramentas te dão uma força para descobrir erros no seu código, gargalos de desempenho e oportunidades de otimização.
 
 ## Processo de Renderização
 
