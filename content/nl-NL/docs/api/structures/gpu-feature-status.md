@@ -14,16 +14,16 @@
 * `webgl` String - WebGL
 * `webgl2` String - WebGL2
 
-Possible values:
+Mogelijke waarden:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
-* `disabled_off` - Disabled (red)
-* `disabled_off_ok` - Disabled (yellow)
-* `unavailable_software` - Software only, hardware acceleration unavailable (yellow)
-* `unavailable_off` - Unavailable (red)
-* `unavailable_off_ok` - Unavailable (yellow)
-* `enabled_readback` - Hardware accelerated but at reduced performance (yellow)
-* `enabled_force` - Hardware accelerated on all pages (green)
-* `enabled` - Hardware accelerated (green)
-* `enabled_on` - Enabled (green)
-* `enabled_force_on` - Force enabled (green)
+* `disabled_software` - Enkel software. Hardware acceleratie uitgeschakeld (geel)
+* `disabled_off` - Uitgeschakeld (rood)
+* `disabled_off_ok` - Uitgeschakeld (geel)
+* `unavailable_software` - Enkel software. Hardware acceleratie onbeschikbaar (geel)
+* `unavailable_off` - Onbeschikbaar (rood)
+* `unavailable_off_ok` - Onbeschikbaar (geel)
+* `enabled_readback` - Hardware geaccelereerd, maar lagere performantie (geel)
+* `enabled_force` - Hardware acceleratie op alle pagina's (groen)
+* `enabled` - Hardware geaccelereerd (groen)
+* `enabled_on` - Ingeschakeld (groen)
+* `enabled_force_on` - Geforceerd ingeschakeld (groen)
