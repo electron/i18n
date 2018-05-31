@@ -24,7 +24,7 @@ Em páginas web, chamar APIs nativas relacionadas à interface gráfica de usuá
 
 ## Usando APIs do Electron
 
-O Electron oferece uma série de APIs que auxiliam no desenvolvimento de um aplicativo desktop em ambos os processos principal e o de renderização. Em ambos os processos, você pode acessar as APIs do Electron importando o módulo:
+O Electron oferece uma série de APIs que auxiliam no desenvolvimento de um aplicativo desktop em ambos os processos principal e de renderização. Em ambos os processos, você pode acessar as APIs do Electron importando o módulo:
 
 ```javascript
 const electron = require('electron')
@@ -42,11 +42,12 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Como a comunicação entre os processos é possível, um processo de renderização pode pedir para o processo principal realizar tarefas. O Electron vem com um módulo chamado `remote`, que expõe APIs que normalmente estariam disponíveis apenas para o processo principal. Para poder criar uma `BrowserWindow` a partir de um processo de renderização, usaríamos o remote como intermediário:
+Como a comunicação entre os processos é possível, um processo de renderização pode usar o processo principal realizar tarefas. O Electron vem com um módulo chamado `remote`, que expõe APIs que normalmente estariam disponíveis apenas no processo principal. Para poder criar uma `BrowserWindow` a partir de um processo de renderização, usaríamos o remote como intermediário:
 
 ```javascript
-// Isso vai funcionar em um processo de renderização, mas vai
-// resultar em `undefined` no processo principal:
+// Isso vai funcionar em um processo de renderização, mas no
+// processo principal, a constante seria inicializada como
+// `undefined`:
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
@@ -64,14 +65,14 @@ const fs = require('fs')
 
 const root = fs.readdirSync('/')
 
-// Isso imprimirá todos os arquivos no diretório raiz
-// do disco, seja ele '/' ou 'C:\'.
+// Isso imprimirá todos os arquivos presentes no 
+// diretório raiz do disco, seja ele '/' ou 'C:\'.
 console.log(root)
 ```
 
 Como você já pode ter adivinhado, isso tem implicações importantes de segurança se você tentar carregar conteúdo remoto. Você pode encontrar mais informações e orientações sobre carregamento de conteúdo remoto em nossa [documentação de segurança](./security.md).
 
-2) Você pode usar módulos do Node.js em seu aplicativo. Escolha seu módulo favorito do npm. O npm oferece atualmente o maior repositório de código aberto do mundo - a capacidade de usar código bem estabelecido e testado que anteriormente era reservado para aplicações em servidores é uma das características principais do Electron.
+2) Você pode usar módulos do Node.js em seu aplicativo. Escolha seu módulo favorito do npm. O npm oferece atualmente o maior repositório de código aberto do mundo. A capacidade de usar código bem estabelecido e testado que anteriormente era reservado para aplicações em servidores é uma das características principais do Electron.
 
 Por exemplo, para usar o SDK oficial da AWS em seu aplicativo, primeiro você o instalaria como uma dependência:
 
