@@ -1,7 +1,7 @@
-# Object weergeven
+# Display Object
 
-* `id-` nummer - unieke identificatie die is gekoppeld aan de weergave.
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
+* `id-` Number - Unieke identificatie die is gekoppeld aan het object.
+* `rotation` Number - Opties zijn 0, 90, 180, 270. Stelt de schermrotatie voor in graden (kloksgewijs).
 * `scaleFactor` Number - Output device's pixel scale factor.
 * `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
