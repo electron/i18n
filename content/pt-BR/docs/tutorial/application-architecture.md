@@ -86,6 +86,6 @@ Aí, em seu app Electron, você poderia importar e usar o módulo como se estive
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+Existe uma ressalva importante: módulos nativos do Node.js (ou seja, módulos que precisam ser compilados em código nativo antes de serem usados) precisam ser compilados para serem usados no Electron.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+A grande maioria dos módulos do Node.js *não* é nativa. Apenas 400 dos cerca de 650.000 módulos são nativos. No entanto, se você precisar de módulos nativos, consulte [este guia sobre como recompilá-los para o Electron](./using-native-node-modules.md).
