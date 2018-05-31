@@ -77,7 +77,7 @@ console.log(root)
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+然后在你的Electron应用中，通过require引入并使用该模块，就像构建Node.js应用程序那样：
 
 ```javascript
 // 准备好被使用的S3 client模块
@@ -86,4 +86,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 有一个非常重要的提示: 原生Node.js模块 (即指，需要编译源码过后才能被使用的模块) 需要在编译后才能和Electron一起使用。
 
-绝大多数的Node.js模块都*不*是原生的， 只有大概400~650个模块是原生的。 However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+绝大多数的Node.js模块都*不*是原生的， 只有大概400~650个模块是原生的。 当然了，如果你的确需要原生模块，可以在这里查询[如何重新为Electron编译原生模块](./using-native-node-modules.md)(很简单)。
