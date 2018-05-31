@@ -61,10 +61,10 @@ web_technologies:
   description: O Electron usa o Chromium e o Node.js, assim você pode construir sua aplicação com HTML, CSS e JavaScript.
 open_source:
   title: Código Aberto
-  description: Electron é um projeto de código aberto mantido pelo o GitHub e com uma comunidade ativa de colaboradores.
+  description: Electron é um projeto de código aberto mantido pelo GitHub e por uma comunidade ativa de colaboradores.
 cross_platform:
   title: Multiplataforma
-  description: Compatível com Mac, Windows, e Linux, Aplicativos Electron são construídos e executados nas três plataformas.
+  description: Compatíveis com Mac, Windows, e Linux, aplicativos Electron são construídos e executados nas três plataformas.
 benefits:
   hard_parts_made_easy: As partes difíceis são feitas facilmente
   automatic_updates: Atualizações automáticas
@@ -89,7 +89,7 @@ quick_start:
   dive_deeper: Ou você pode ir mais fundo e ler a <a href='/docs'>documentação</a>.
 need_help:
   title: Precisa de Ajuda?
-  description: Faça perguntas no fórum <a href='https://discuss.atom.io/c/electron'>Discuss</a> ou no nosso canal do <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:info@electronjs.org">nfo@electronjs.org</a>.
+  description: Faça perguntas no fórum <a href='https://discuss.atom.io/c/electron'>Discuss</a> ou no nosso canal do <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? Mande um e-mail para <a href="mailto:info@electronjs.org">nfo@electronjs.org</a>.
 headings:
   languages: Idiomas
 taglines:
