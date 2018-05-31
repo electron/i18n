@@ -4,9 +4,9 @@ Antes de nos aprofundarmos nas APIs do Electron, precisamos discutir os dois tip
 
 ## Processos Principal e de Renderização
 
-No Electron, o processo que executa o script `main` do `package.json` é chamado de **processo principal**. O script que executa no processo principal pode apresentar uma interface gráfica através da criação de páginas web. Um aplicativo Electron sempre tem um processo principal, mas nunca mais de um.
+No Electron, o processo que executa o script `main` do `package.json` é chamado de **processo principal**. O script que roda no processo principal pode apresentar uma interface gráfica através da criação de páginas web. Um aplicativo Electron sempre tem um processo principal, mas nunca mais de um.
 
-Uma vez que o Electron utiliza o Chromium para a apresentação de páginas web, a arquitetura de multiprocessamento do Chromium também é utilizada. Cada página web no Electron executa seu próprio processo, que é chamado de **processo de renderização**.
+Como o Electron usa o Chromium para a apresentação de páginas web, a arquitetura de multiprocessos do Chromium também é utilizada. Cada página web no Electron é executada em seu próprio processo, que é chamado de **processo de renderização**.
 
 Em navegadores normais, as páginas web geralmente executam em um ambiente de área restrita e não têm a permissão de acessar recursos nativos. Usuários do Electron, por outro lado, têm o poder de usar as APIs do Node.js em páginas web, permitindo interações de baixo nível com o sistema operacional.
 
@@ -14,23 +14,23 @@ Em navegadores normais, as páginas web geralmente executam em um ambiente de á
 
 O processo principal cria páginas web pela criação de instâncias de `BrowserWindow`. Cada instância de `BrowserWindow` executa a página web em seu próprio processo de renderização. Quando uma instância de `BrowserWindow` é destruída, o processo de renderização correspondente também é finalizado.
 
-O principal processo gerencia todas as web páginas e seus correspondentes processos de renderização. Cada processo de renderização é isolado e só se preocupa com a web página que nele executa.
+O processo principal gerencia todas as páginas web e seus processos de renderização correspondentes. Cada processo de renderização é isolado e só se preocupa com a página web que está rodando nele.
 
 Em páginas web, chamar APIs nativas relacionadas à interface gráfica de usuário não é permitido, uma vez que o gerenciamento de recursos nativos em páginas web é muito perigoso e facilita a ocorrência de vazamento de recursos. Se você quiser executar operações de interface gráfica em uma página web, o processo de renderização da página deve estabelecer uma comunicação com o processo principal para requisitar que ele efetue essas operações.
 
 > #### Aparte: Comunicação Entre Processos
 > 
-> No Electron, nós temos diversas maneiras de estabelecer uma comunicação entre o processo principal e os processos de renderização. Como os módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md) para o envio de mensagens, e o módulo [remote](../api/remote.md) para comunicação no estilo RPC. Também existe um tópico de perguntas frequentes sobre [como compartilhar dados entre páginas web](../faq.md#how-to-share-data-between-web-pages).
+> No Electron, nós temos diversas maneiras de estabelecer uma comunicação entre o processo principal e os processos de renderização. Exemplos são os módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md) para o envio de mensagens, e o módulo [remote](../api/remote.md) para comunicação no estilo RPC. Também existe um tópico de perguntas frequentes sobre [como compartilhar dados entre páginas web](../faq.md#how-to-share-data-between-web-pages).
 
-## Usando Electron APIs
+## Usando APIs do Electron
 
-Electron oferece uma série de APIs que suportam o desenvolvimento de uma aplicação desktop em ambos, o processos principal e o processo de renderização. Em ambos os processos, você pode acessa Electron APIs exigindo seu módulo:
+O Electron oferece uma série de APIs que auxiliam no desenvolvimento de um aplicativo desktop em ambos os processos principal e o de renderização. Em ambos os processos, você pode acessar as APIs do Electron importando o módulo:
 
 ```javascript
 const electron = require('electron')
 ```
 
-Todas as Electron APIs são atribuídas em um tipo de processo. Muitos deles só podem ser usados a partir do processo principal, algumas a partir do processo de renderização e outros em ambos. The documentation for each individual API will state which process it can be used from.
+Todas as APIs do Electron são atribuídas a um tipo de processo. Muitas delas só podem ser acessadas a partir do processo principal, algumas a partir do processo de renderização e outras em ambos. A documentação de cada uma dessas APIs informará em qual tipo de processo ela pode ser usada.
 
 Uma janela no Electron, por exemplo, é criada usando a classe `BrowserWindow`. Disponível apenas no processo principal.
 
