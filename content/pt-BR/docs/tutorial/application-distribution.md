@@ -97,11 +97,11 @@ Além de empacotar seu aplicativo manualmente, você também pode escolher usar 
 
 ## Personalizar a marca recompilando o Electron direto da fonte
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Também é possível personalizar a marca dos aplicativos alterando o nome do produto e compilando ele direto do código fonte. Para isso, você precisa modificar o arquivo `atom.gyp` executar uma recompilação limpa.
 
-### Creating a Custom Electron Fork
+### Criando um fork personalizado do Electron
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Criar um fork personalizado do Electron, na maioria dos casos, não é algo que você precise fazer para criar seu aplicativo, mesmo em aplicativos a "nível de produção". Usando uma ferramenta como o `electron-packager` ou o `electron-forge`, você será capaz de personalizar a marca do produto final sem ter que realizar esses passos.
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
