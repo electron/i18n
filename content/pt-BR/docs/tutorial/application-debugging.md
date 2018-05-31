@@ -4,7 +4,7 @@ Sempre que seu aplicativo Electron não estiver se comportando do jeito que voc�
 
 ## Processo de Renderização
 
-The most comprehensive tool to debug individual renderer processes is the Chromium Developer Toolset. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
+A ferramenta mais recomendada para depurar processos de renderização individuais é o Chromium DevTools. Ele está disponível em todos os processos de renderização, incluindo instâncias de `BrowserWindow`, `BrowserView` e `WebView`. Você pode abrí-lo a partir do seu código chamando a API `openDevTools()` no `webContents` da instância:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,7 +13,7 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google offers [excellent documentation for their developer tools](https://developer.chrome.com/devtools). We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
+O Google oferece [uma excelente documentação de suas ferramentas de desenvolvimento](https://developers. google. com/web/tools/chrome-devtools/). We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
 
 ## Processo Principal
 
