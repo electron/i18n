@@ -17,6 +17,6 @@ O Google oferece [uma excelente documentação de suas ferramentas de desenvolvi
 
 ## Processo Principal
 
-Depurar o processo principal é um pouquinho mais complicado, já que não dá de abrir ferramentas de desenvolvimento pra ele. The Chromium Developer Tools can [be used to debug Electron's main process](https://nodejs.org/en/docs/inspector/) thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+Depurar o processo principal é um pouquinho mais complicado, já que não dá de abrir ferramentas de desenvolvimento pra ele. O Chromium DevTools pode [ser usado para depurar o processo principal do Electron](https://nodejs.org/en/docs/inspector/) graças a uma colaboração mais próxima entre o Google / Chrome e o Node.js, mas você poderá encontrar algumas desvantagens, como a indisponibilidade do método `require` no console.
 
-For more information, see the [Debugging the Main Process documentation](./debugging-main-process.md).
+Para mais informações, consulte o documento [Depurando o Processo Principal](./debugging-main-process.md).
