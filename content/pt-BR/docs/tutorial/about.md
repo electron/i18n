@@ -4,23 +4,23 @@
 
 Electron começou em 2013, como um framewok que seria utilizado para construir o [Atom](https://atom.io), o editor de texto hackeável do GitHub. Os dois foram disponibilizados na primavera de 2014, com seu código fonte aberto.
 
-Desde então ele se tornou uma ferramenta popular usada por desenvolvedores de código aberto, startups e empresas estabelecidas. [ Veja quem está utilizando Electron](https://electronjs.org/apps).
+Desde então, ele se tornou uma ferramenta popular usada por desenvolvedores de código aberto, startups e empresas estabelecidas no mercado. [Veja quem está mandando ver com o Electron](https://electronjs.org/apps).
 
-Continue lendo para aprender mais sobre os contribuidores e lançamentos do Electron ou comece a criar com Electron no [Guia Rápido](quick-start.md).
+Para aprender mais sobre os contribuidores e lançamentos do Electron ou para começar a criar apps com o Electron, confira nosso [guia rápido](quick-start.md).
 
 ## Equipe Principal e Contribuidores
 
-Electron é mantido por uma equipe do GitHub, bem como um grupo de [contribuidores ativos](https://github.com/electron/electron/graphs/contributors) da comunidade. Alguns dos contribuidores são indivíduos e alguns trabalham em grandes empresas que estão utilizando Electron. Estamos felizes em adicionar contribuidores frequentes ao projeto como mantedores. Leia mais sobre como [contribuir para o Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+O Electron é mantido por uma equipe no GitHub, juntamente com um grupo de [contribuidores ativos](https://github.com/electron/electron/graphs/contributors) da comunidade. Alguns dos contribuidores são individuais e outros trabalham em grandes empresas que estão usando o Electron. Ficamos contentes em adicionar contribuidores frequentes ao projeto como mantenedores. Leia mais sobre como [contribuir para o Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Versões
 
-Frequentemente são liberadas novas [versões do Electron](https://github.com/electron/electron/releases). Nós liberamos quando existem importantes correções de bugs, novas APIs ou são versões de atualização do Chromium ou Node.js.
+Frequentemente são liberadas novas [versões do Electron](https://github.com/electron/electron/releases). Nós as liberamos sempre que existirem importantes correções de bugs, novas APIs ou atualizações do Chromium ou do Node.js.
 
 ### Atualizando as Dependências
 
-A versão do Chromium do Electron é atualizada normalmente uma ou duas semanas depois que uma nova versão estável do Chromium é liberada, dependendo do esforço envolvido na atualização.
+A versão do Chromium do Electron normalmente é atualizada uma ou duas semanas depois que uma nova versão estável do Chromium é liberada, dependendo do esforço envolvido na atualização.
 
-Quando uma nova versão do Node.js é lançada, Electron espera normalmente ceerca de um mês antes de atualizar de modo a trazer uma versão mais estável.
+Quando uma nova versão do Node.js é lançada, o Electron espera normalmente cerca de um mês antes de atualizá-lo, de modo a garantir uma versão mais estável.
 
 No Electron, Node.js e Chromium compartilham uma única instância V8 — normalmente a versão que o Chromium está usando. Na maioria das vezes isso já *funciona a contento* mas algumas vezes significa que corrigir o Node.js.
 
