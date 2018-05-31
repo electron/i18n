@@ -59,13 +59,13 @@ npm은 기본적인 `package.json`파일을 생성하여 여러분에게 정보�
 
 ## Electron 설치하기
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+이 시점에선, 여러분은 `electron`을 설치해야 합니다. 가장 추천하는 방법은 electron을 당신의 앱의 개발 의존성으로 설치하는 것 입니다. 이것으로 여러 앱에서 여러 Electron 버전을 사용할 수 있죠. 그렇게 하기 위해선, 밑에 있는 명령어를 당신의 앱의 폴더(디렉토리)에서 실행 하세요:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+이 이외에도 여러 설치 방법이 있습니다. [설치 가이드](installation.md)를 방문하여 프록시, 미러, 커스텀 캐쉬 등을 알아보십시오.
 
 ## 간단히 설명한 Electron 개발
 
