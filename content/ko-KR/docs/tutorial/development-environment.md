@@ -64,4 +64,4 @@ npm -v
 
 저희는 Electron으로 만들어진 두 개의 유명한 무료 편집기를 추천 드립니다: GitHub의 [Atom](https://atom.io/) 그리고 Microsoft의 [Visual Studio Code](https://code.visualstudio.com/). 두 편집기 모두 JavaScript를 완벽하게 지원 합니다.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+만약 여러분들이 강한 선호를 받고있는 많은 개발자들 중 하나라면, 요즘 유행하는 모든 코드 편집기 또는 IDE들은 JavaScript를 지원 한다는 것을 명심하세요.
