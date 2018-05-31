@@ -30,7 +30,7 @@ Electron在主进程和渲染进程中提供了大量API去帮助开发桌面应
 const electron = require('electron')
 ```
 
-所有Electron的API都被指派给一种进程类型。 许多API只能被用于主进程中，有些API又只能被用于渲染进程，又有一些主进程和渲染进程中都可以使用。 The documentation for each individual API will state which process it can be used from.
+所有Electron的API都被指派给一种进程类型。 许多API只能被用于主进程中，有些API又只能被用于渲染进程，又有一些主进程和渲染进程中都可以使用。 每一个API的文档都将说明可以在哪种进程中使用该API。
 
 Electron中的窗口是使用`BrowserWindow`类型创建的一个实例， 它只能在主进程中使用。
 
