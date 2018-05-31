@@ -45,8 +45,8 @@ const win = new BrowserWindow()
 Como a comunicação entre os processos é possível, um processo de renderização pode pedir para o processo principal realizar tarefas. O Electron vem com um módulo chamado `remote`, que expõe APIs que normalmente estariam disponíveis apenas para o processo principal. Para poder criar uma `BrowserWindow` a partir de um processo de renderização, usaríamos o remote como intermediário:
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// Isso vai funcionar em um processo de renderização, mas vai
+// resultar em `undefined` no processo principal:
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
@@ -55,23 +55,23 @@ const win = new BrowserWindow()
 
 ## Usando Node.js APIs
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+O Electron permite acesso completo ao Node.js tanto no processo principal como no de renderização. Isso tem duas implicações importantes:
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Todas as APIs disponíveis no Node.js estão disponíveis no Electron. Rodar o seguinte código a partir de um aplicativo Electron vai funcionar:
 
 ```javascript
 const fs = require('fs')
 
 const root = fs.readdirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// Isso imprimirá todos os arquivos no diretório raiz
+// do disco, seja ele '/' ou 'C:\'.
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+Como você já pode ter adivinhado, isso tem implicações importantes de segurança se você tentar carregar conteúdo remoto. Você pode encontrar mais informações e orientações sobre carregamento de conteúdo remoto em nossa [documentação de segurança](./security.md).
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) Você pode usar módulos do Node.js em seu aplicativo. Escolha seu módulo favorito do npm. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
 
 As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
 
