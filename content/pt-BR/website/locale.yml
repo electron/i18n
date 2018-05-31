@@ -39,11 +39,11 @@ community:
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Solicite novos recursos</b></a> abrindo issues em nosso repositório <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Relate violações do Código de Conduta</b></a> enviando um e-mail para <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Comunique problemas de segurança</b></a> enviando um e-mail para <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Doações</b></a> na nossa página do <a href='/donors'>OpenCollective</a>."
+    donations: "<a href='donors'><b>Faça doações</b></a> na nossa <a href='/donors'>página do OpenCollective</a>."
     other: "Para todas as outras perguntas, envie um email para <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Comunidades Linguísticas
-    description: "A comunidade do Electron abrange o globo, e o Inglês não é a primeira linguagem para todas. Veja a <a href='/languages'>documentação em sua linguagem</a>, ou Junte-se a uma das comunidades linguísticas abaixo:"
+    description: "A comunidade do Electron abrange o globo, e o inglês não é o idioma nativo de todo mundo. Veja a <a href='/languages'>documentação em seu idioma</a> ou junte-se a uma das comunidades linguísticas abaixo:"
   tools: Ferramentas
   boilerplates: Boilerplates
   components: Componentes
@@ -58,7 +58,7 @@ electron_is_easy:
   video_link: Assista o vídeo
 web_technologies:
   title: Tecnologias Web
-  description: Electron usa Chromium e Node.js, assim você pode construir sua aplicação com HTML, CSS e JavaScript.
+  description: O Electron usa o Chromium e o Node.js, assim você pode construir sua aplicação com HTML, CSS e JavaScript.
 open_source:
   title: Código Aberto
   description: Electron é um projeto de código aberto mantido pelo o GitHub e com uma comunidade ativa de colaboradores.
@@ -74,7 +74,7 @@ benefits:
   windows_installers: Instaladores do Windows
 get_started:
   title: Começar
-  description: Para começar com o Electron, confira os recursos abaixo. Saiba como envolver o seu aplicativo web com Electron, acessar todas as APIs e gerar instaladores.
+  description: Para começar com o Electron, confira os recursos abaixo. Saiba como envolver o seu aplicativo web com o Electron, acessar todas as APIs e gerar instaladores.
 explore:
   title: Explore as APIs do Electron
   description: "O <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> demonstra de forma interativa as características mais importantes da API do Electron. Veja o que é possível com Electron em exemplos de código e dicas úteis para a construção de seu aplicativo."
@@ -98,9 +98,9 @@ help_translate: "Ajude a traduzir"
 footer:
   see_the_faq: Veja as perguntas frequentes
 apps:
-  title: Aplicativos construídos com Electron
-  description: Com Electron, criar uma aplicação desktop para sua empresa ou ideia é fácil. Inicialmente foi desenvolvido para GitHubs o <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron já foi usado para criar aplicativos por empresas como Microsoft, Facebook, Slack e Docker.
-  view_more: Ver mais aplicativos
+  title: Aplicativos feitos com Electron
+  description: Com o Electron, criar um aplicativo desktop para sua empresa ou ideia é fácil. Inicialmente desenvolvido para o <a href='https://atom.io' target='_blank'>editor Atom</a> do GitHub, o Electron já foi usado por empresas como Microsoft, Facebook, Slack e Docker para criar aplicativos incríveis.
+  view_more: Veja mais aplicativos
   submit_your_own: envie o seu
   something_missing: Faltando alguma coisa?
   edit_this_app: Editar esse aplicativo.
@@ -112,10 +112,10 @@ or: ou
 pages:
   '/':
     title: Electron | Construa aplicativos multiplataformas com JavaScript, HTML e CSS.
-    description: 'Construa aplicativos desktop multiplataforma com JavaScript, HTML e CSS.'
+    description: 'Crie aplicativos desktop multiplataforma com JavaScript, HTML e CSS.'
   '/apps':
-    title: Electron Apps
-    description: Aplicativos construídos com Electron
+    title: Apps Electron
+    description: Aplicativos feitos com Electron
   '/docs':
     title: Documentação
     description: Documentação de referência da API e guias da versão mais recente do Electron
