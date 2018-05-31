@@ -44,13 +44,13 @@ electron/resources/
 
 Você pode encontrar mais detalhes em [Empacotamento de Aplicativos](application-packaging.md).
 
-## Colocando sua marca nos binários
+## Colocando sua marca nos binários baixados
 
 Após deixar seu app Electron pronto para usar, você pode querer personalizar os executáveis do Electron antes de distribuí-los aos usuários.
 
 ### Windows
 
-Você pode renomear o `electron.exe` para qualquer nome que você quiser, e editar seu ícone e outras informações com ferramentas como o [rcedit](https://github.com/atom/rcedit).
+Você pode renomear o `electron.exe` para qualquer nome que você quiser, além de editar seu ícone e outras informações com ferramentas como o [rcedit](https://github.com/atom/rcedit).
 
 ### macOS
 
@@ -59,9 +59,9 @@ Você pode renomear o `Electron.app` para qualquer nome que você quiser, porém
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+Você também pode renomear o app auxiliar para evitar de mostrar `Electron Helper` no Monitor de Atividade, mas não esqueça de renomear o arquivo executável do app auxiliar.
 
-The structure of a renamed app would be like:
+Veja como ficaria a estrutura de um aplicativo renomeado:
 
 ```text
 MyApp.app/Contents
@@ -85,17 +85,17 @@ MyApp.app/Contents
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Você pode renomear o executável `electron` para qualquer nome que você quiser.
 
-## Packaging Tools
+## Ferramentas de empacotamento
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Além de empacotar seu aplicativo manualmente, você também pode escolher usar ferramentas de terceiros para empacotar o app para você:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Personalizar a marca recompilando o Electron direto da fonte
 
 It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
 
