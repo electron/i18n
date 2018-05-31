@@ -1,6 +1,6 @@
-# Arquitetura do Aplicativo em Electron
+# Arquitetura de Aplicativos Electron
 
-Antes de nós podemos mergulhar nas APIs do Electron, precisamos discutir os dois tipos de processo disponíveis em Electron. Eles são fundamentalmente diferentes e importantes para entender.
+Antes de nos aprofundarmos nas APIs do Electron, precisamos discutir os dois tipos de processo disponíveis no Electron. Eles têm conceitos diferentes e importantes para se entender.
 
 ## Processos Principal e de Renderização
 
