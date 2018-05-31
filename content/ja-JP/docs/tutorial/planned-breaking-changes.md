@@ -1,171 +1,19 @@
-# Planned Breaking API Changes (3.0)
+# Planned Breaking API Changes (4.0)
 
-次のリストには Electron 3.0 で削除される API が記載含まれています。
+次のリストには Electron 4.0 で削除される API が記載含まれています。
 
 このリリースのためのタイムテーブルはありませんが、最新の [メジャー バージョン](electron-versioning.md#semver) での廃止警告が追加されます。
-
-## `app`
-
-```js
-// Deprecated
-app.getAppMemoryInfo()
-// Replace with
-app.getAppMetrics()
-```
-
-## `BrowserWindow`
-
-```js
-// Deprecated
-let optionsA = {webPreferences: {blinkFeatures: ''}}
-let windowA = new BrowserWindow(optionsA)
-// Replace with
-let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
-let windowB = new BrowserWindow(optionsB)
-
-// Deprecated
-window.on('app-command', (e, cmd) => {
-  if (cmd === 'media-play_pause') {
-    // do something
-  }
-})
-// Replace with
-window.on('app-command', (e, cmd) => {
-  if (cmd === 'media-play-pause') {
-    // do something
-  }
-})
-```
-
-## `clipboard
-`
-
-```js
-// Deprecated
-clipboard.readRtf()
-// Replace with
-clipboard.readRTF()
-
-// Deprecated
-clipboard.writeRtf()
-// Replace with
-clipboard.writeRTF()
-
-// Deprecated
-clipboard.readHtml()
-// Replace with
-clipboard.readHTML()
-
-// Deprecated
-clipboard.writeHtml()
-// Replace with
-clipboard.writeHTML()
-```
-
-## `crashReporter`
-
-```js
-// Deprecated
-crashReporter.start({
-  companyName: 'Crashly',
-  submitURL: 'https://crash.server.com',
-  autoSubmit: true
-})
-// Replace with
-crashReporter.start({
-  companyName: 'Crashly',
-  submitURL: 'https://crash.server.com',
-  uploadToServer: true
-})
-```
-
-## `nativeImage`
-
-```js
-// Deprecated
-nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
-nativeImage.createFromBuffer(buffer, {
-  scaleFactor: 1.0
-})
-```
-
-## `screen`
-
-```js
-// Deprecated
-screen.getMenuBarHeight()
-// Replace with
-screen.getPrimaryDisplay().workArea
-```
-
-## `session`
-
-```js
-// Deprecated
-ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
-  callback(true)
-})
-// Replace with
-ses.setCertificateVerifyProc(function (request, callback) {
-  callback(0)
-})
-```
-
-## `Tray`
-
-```js
-// Deprecated
-tray.setHighlightMode(true)
-// Replace with
-tray.setHighlightMode('on')
-
-// Deprecated
-tray.setHighlightMode(false)
-// Replace with
-tray.setHighlightMode('off')
-```
-
-## `webContents`
-
-```js
-// Deprecated
-webContents.openDevTools({detach: true})
-// Replace with
-webContents.openDevTools({mode: 'detach'})
-```
 
 ## `webFrame`
 
 ```js
-// Deprecated
-webFrame.registerURLSchemeAsSecure('app')
-// Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
-
 // Deprecated
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
 // Replace with
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
-## Node Headers URL
-
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
-
-Deprecated: https://atom.io/download/atom-shell
-
-Replace with: https://atom.io/download/electron
-
-## `FIXME` comments
-
-The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
-
-# Planned Breaking API Changes (4.0)
-
-次のリストには Electron 4.0 で削除される API が記載含まれています。
-
-このリリースのためのタイムテーブルはありませんが、最新の [メジャー バージョン](electron-versioning.md#semver) での廃止警告が追加されます。
+*Nota Bene:* Before we can remove this we need to update all of the relevant specs to `protocol.registerStandardSchemes(['app'], {secure: true})`.
 
 ## `app.makeSingleInstance`
 
@@ -189,3 +37,7 @@ app.releaseSingleInstance()
 // Replace with
 app.releaseSingleInstanceLock()
 ```
+
+## `FIXME` comments
+
+The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme

@@ -38,7 +38,7 @@ While notifications including buttons work with `electron-windows-notifications`
 
 ## macOS
 
-MacOS上的通知是最直接的，但你应该注意[苹果关于通知的人机接口指南](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 请注意，通知的大小限制为256个字节，如果超过该限制，则会被截断。
 

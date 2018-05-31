@@ -45,7 +45,7 @@ tingkatkan keamanan aplikasi Anda.</p>
 - [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
 - [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#8-do-not-set-allowrunninginsecurecontent-to-true)
 - [Tidak mengaktifkan fitur eksperimental](#9-do-not-enable-experimental-features)
-- [Jangan gunakan <kode>berkedipFitur</kode>](#10-do-not-use-blinkfeatures)
+- [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
 - [Tampilan Web: Jangan gunakan `allowpopups`](#11-do-not-use-allowpopups)
 - [WebViews: Memverifikasi pilihan dan params semua tag `<webview>`](#12-verify-webview-options-before-creation)</ol> 
 
@@ -325,11 +325,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Jangan Gunakan ` blinkFeatures </ code></h2>
+## 10) Do Not Use `enableBlinkFeatures`
 
-<p><em>Recommendation is Electron's default</em></p>
+*Recommendation is Electron's default*
 
-<p>Blink is the name of the rendering engine behind Chromium. Sebagai properti <code>blinkFeatures` dengan `experimentalFeatures`, memungkinkan pengembang untuk mengaktifkan fitur yang telah dinonaktifkan secara default.</p> 
+Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
 ### Mengapa?
 
@@ -341,7 +341,7 @@ Secara umum, ada kemungkinan alasan yang baik jika fitur ini tidak diaktifkan se
 // Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    blinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: ['ExecCommandInJavaScript']
   }
 })
 ```

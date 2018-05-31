@@ -41,7 +41,7 @@ Non è indistruttibile, ma almeno, dovresti seguite i passi per aumentare la sic
 7. [Oltrepassa e disabilita `eval`](#7-override-and-disable-eval), che consente l'esecuzione delle stringhe come codice.
 8. [Non impostare `consentiEsecuzioneContenutoInsicuro` in `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [Non abilitare funzioni sperimentali](#9-do-not-enable-experimental-features)
-10. [Non usare `Funzionilampeggianti`](#10-do-not-use-blinkfeatures)
+10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
 11. [VistaWeb: Non usare `consentipopup`](#11-do-not-use-allowpopups)
 12. [VistaWeb: Verifica le opzioni ed i parametri per tutti i `<webview>`tag</0>](#12-verify-webview-options-before-creation)
 
@@ -338,11 +338,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `blinkFeatures`
+## 10) Do Not Use `enableBlinkFeatures`
 
 *Recommendation is Electron's default*
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
 ### Perchè?
 
@@ -354,7 +354,7 @@ Generally speaking, there are likely good reasons if a feature was not enabled b
 // Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    blinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: ['ExecCommandInJavaScript']
   }
 })
 ```

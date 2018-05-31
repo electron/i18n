@@ -47,7 +47,7 @@ Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamando a `e
 
 **Nota:** Si el cierre de la aplicación fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitido *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
 
-**Nota:** En Windows, este evento no será emitido si la aplicación se cierra debido a un apagado/reinicio del sistema o el cierre de sesión de de un usuario.
+**Nota:** En Windows, este evento no será emitido si la aplicación se cierra debido a un apagado/reinicio del sistema o el cierre de sesión de un usuario.
 
 ### Evento: 'will-quit'
 
@@ -59,7 +59,7 @@ Emitido cuando todas las ventanas han sido cerradas y la aplicación se cerrará
 
 Consulte la descripción del evento `window-all-closed` por las diferencias con los eventos `will-quit` y `window-all-closed`.
 
-**Nota:** En Windows, este evento no será emitido si la aplicación se cierra debido a un apagado/reinicio del sistema o el cierre de sesión de de un usuario.
+**Nota:** En Windows, este evento no será emitido si la aplicación se cierra debido a un apagado/reinicio del sistema o el cierre de sesión de un usuario.
 
 ### Evento: 'quit'
 
@@ -70,7 +70,7 @@ Devuelve:
 
 Emitido cuando la aplicación se está cerrando.
 
-**Nota:** En Windows, este evento no será emitido si la aplicación se cierra debido a un apagado/reinicio del sistema o el cierre de sesión de de un usuario.
+**Nota:** En Windows, este evento no será emitido si la aplicación se cierra debido a un apagado/reinicio del sistema o el cierre de sesión de un usuario.
 
 ### Evento: 'open-file' *macOS*
 
@@ -442,7 +442,7 @@ Reescribe el nombre de la aplicación actual.
 
 ### `app.getLocale()`
 
-Regresa `Cadena` - La localización actual de la aplicación. Los valores posibles son documentados [aquí](locales.md).
+Devuelve `String` - Código de la localización actual de la aplicación. Los valores posibles están documentados [aquí](locales.md).
 
 Para establecer la localización, necesitas usar un cambio de línea de comandos al inicio de la aplicación, el cual se puede encontrar [aquí](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 

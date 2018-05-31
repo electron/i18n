@@ -41,7 +41,7 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 7. 文字列をコードとして実行できる [`eval` を書き換えて無効にする](#7-override-and-disable-eval)。
 8. [`allowRunningInsecureContent` を `true` にしない](#8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [実験的な機能を有効にしない](#9-do-not-enable-experimental-features)
-10. [`blinkFeatures` を使用しない](#10-do-not-use-blinkfeatures)
+10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
 11. [WebViews: `allowpopups` を使用しない](#11-do-not-use-allowpopups)
 12. [WebViews: すべての `<webview>` タグのオプションとパラメータを確認する。](#12-verify-webview-options-before-creation)
 
@@ -339,11 +339,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) `blinkFeatures` を使用しない
+## 10) Do Not Use `enableBlinkFeatures`
 
 *Electron のデフォルトを推奨しています*
 
-Blink は、Chromium のバックグラウンドにあるレンダリングエンジンの名前です。 `experimentalFeatures` と同様に、`blinkFeatures` プロパティを使用すると、デフォルトで無効になっている機能を有効にすることができます。
+Blink は、Chromium のバックグラウンドにあるレンダリングエンジンの名前です。 As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
 ### なぜ？
 
@@ -352,10 +352,10 @@ Blink は、Chromium のバックグラウンドにあるレンダリングエ�
 ### どうすればいいの？
 
 ```js
-// NG
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    blinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: ['ExecCommandInJavaScript']
   }
 })
 ```

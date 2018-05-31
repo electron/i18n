@@ -22,7 +22,7 @@ Un problema de seguridad existe sin importar si recibes un código de un lugar r
 
 > :warning: Debajo de ninguna circunstancia deberías cargar y ejecutar el código remoto con la integración Node.js activada. En vez de eso, usa solo archivos locales (empaquetado juntos con tu aplicación) para ejecutar el código Node.js. Para mostrar contenido remoto, usa el tag [`webview`](../api/web-view.md) y asegúrate de desactivar el `nodeIntegration`.
 
-## Electron Security Warnings
+## Advertencias de seguridad de Electron
 
 From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
@@ -41,7 +41,7 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
 8. [No establezca `allowRunningInsecureContent` a `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [No active ajustes experimentales](#9-do-not-enable-experimental-features)
-10. [No use `blinkFeatures`](#10-do-not-use-blinkfeatures)
+10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
 11. [Visor web: no use `allowpopups`](#11-do-not-use-allowpopups)
 12. [WebViews: Verifique las opciones y parámetros de todos los `<webview>` tags](#12-verify-webview-options-before-creation)
 
@@ -338,11 +338,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `blinkFeatures`
+## 10) Do Not Use `enableBlinkFeatures`
 
 *La recomendación por defecto es Electrón*
 
-Blink es el nombre del motor de renderizado detrás de Chromium. Como con `experimentalFeatures`, la propiedad `blinkFeatures` le permite a los desarrolladores habilitar funciones que han sido deshabilitadas por defecto.
+Blink es el nombre del motor de renderizado detrás de Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
 ### ¿Por què?
 
@@ -354,7 +354,7 @@ En general, probablemente hay buenas razones si una función no fue habilitada p
 // Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    blinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: ['ExecCommandInJavaScript']
   }
 })
 ```
