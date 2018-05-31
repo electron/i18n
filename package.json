@@ -25,7 +25,7 @@
     "globals": "^11.3.0",
     "got": "^8.3.0",
     "href-type": "^1.0.1",
-    "hubdown": "^2.0.2",
+    "hubdown": "^2.1.0",
     "husky": "^0.14.3",
     "js-yaml": "^3.8.4",
     "locale-code": "^2.0.1",
