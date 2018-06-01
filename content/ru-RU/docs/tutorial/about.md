@@ -10,7 +10,7 @@ Electron был написан в 2013 году как фреймворк для
 
 ## Основная команда и авторы
 
-Electron поддерживается командой GitHub, а также группой [активных участников](https://github.com/electron/electron/graphs/contributors) сообщества. Некоторые из авторов самозанятые люди, а некоторые работают в крупных компаниях, которые развиваются на Electron. Мы рады добавить в проект постоянных участников проекта в качестве сопровождающих. Подробнее о [развитии Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron поддерживается командой GitHub, а также группой [активных участников](https://github.com/electron/electron/graphs/contributors) сообщества. Некоторые авторы работают на себя, другие работают в крупных компаниях, развивающихся вместе с Electron. Мы рады добавить в проект постоянных участников проекта в качестве сопровождающих. Подробнее о [развитии Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Релизы
 
