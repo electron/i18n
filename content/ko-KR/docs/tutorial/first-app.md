@@ -165,7 +165,7 @@ app.on('activate', () => {
 
 ## 앱 실행하기
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+최초로 생성되어 초기화된 `main.js`, `index.html`, 그리고 `package.json` 파일들을 갖고 있다면, 여러분의 애플리케이션 디렉토리에서 `npm start` 명령어를 이용하여 app을 실행해 볼 수 있습니다. 
 
 ## 예제
 
