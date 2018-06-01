@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "9469",
-    "translated": "7609",
+    "translated": "7612",
     "approved": "33",
     "words": "87053",
-    "words_translated": "66899",
+    "words_translated": "66950",
     "words_approved": "178",
     "translated_progress": 76,
     "approved_progress": 0,
-    "qa_issues": "195"
+    "qa_issues": "196"
   },
   {
     "name": "Chinese Traditional",
@@ -68,14 +68,14 @@
     "name": "Dutch",
     "code": "nl",
     "phrases": "9469",
-    "translated": "442",
+    "translated": "487",
     "approved": "4",
     "words": "87053",
-    "words_translated": "2146",
+    "words_translated": "2380",
     "words_approved": "61",
     "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": "139"
+    "qa_issues": "157"
   },
   {
     "name": "Filipino",
@@ -172,10 +172,10 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9469",
-    "translated": "7907",
+    "translated": "7909",
     "approved": "340",
     "words": "87053",
-    "words_translated": "66612",
+    "words_translated": "66653",
     "words_approved": "1765",
     "translated_progress": 76,
     "approved_progress": 2,
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "9469",
-    "translated": "3555",
+    "translated": "3574",
     "approved": "300",
     "words": "87053",
-    "words_translated": "27280",
+    "words_translated": "27568",
     "words_approved": "2812",
     "translated_progress": 31,
     "approved_progress": 3,
-    "qa_issues": "1481"
+    "qa_issues": "1491"
   },
   {
     "name": "Persian",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9469",
-    "translated": "3962",
-    "approved": "236",
+    "translated": "4038",
+    "approved": "294",
     "words": "87053",
-    "words_translated": "27852",
-    "words_approved": "1455",
-    "translated_progress": 31,
-    "approved_progress": 1,
-    "qa_issues": "1199"
+    "words_translated": "28969",
+    "words_approved": "2088",
+    "translated_progress": 33,
+    "approved_progress": 2,
+    "qa_issues": "1216"
   },
   {
     "name": "Russian",
