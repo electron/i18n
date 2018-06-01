@@ -1,12 +1,12 @@
 # Acessibilidade
 
-Tornar acessíveis os aplicativos é algo importante, e nós estamos felizes em apresentar novas funcionalidades no [Devtron](https://electronjs.org/devtron) e no[Spectron](https://electronjs.org/spectron) que oferece aos desenvolvedores a oportunidade de melhorar seus aplicativos para todos.
+Tornar acessíveis os aplicativos é algo importante, e nós estamos felizes em apresentar novas funcionalidades no [Devtron](https://electronjs.org/devtron) e no[Spectron](https://electronjs.org/spectron) que oferecem aos desenvolvedores a oportunidade de melhorar seus aplicativos para todos.
 
 * * *
 
 As questões de acessibilidade em aplicativos Electron são semelhantes às de sites na Web, já que ambos fazem uso do HTML. No entanto, com apps Electron, você não pode usar ferramentas online para auditorias de acessibilidade, pois seu aplicativo não tem uma URL para o auditor poder acessá-lo.
 
-Esses novos recursos trazem ferramentas de auditoria para seu app Electron. Você pode escolher adicionar análises aos seus testes com o Spectron ou usá-las dentro da DevTools com o Devtron. Continue lendo para ver um resumo das ferramentas.
+Esses novos recursos trazem ferramentas de auditoria para seu app Electron. Você pode escolher adicionar análises aos seus testes com o Spectron ou usá-las dentro da DevTools com o Devtron. Confira a seguir um resumo das ferramentas.
 
 ## Spectron
 
