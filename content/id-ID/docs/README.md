@@ -1,6 +1,6 @@
 # Panduan Resmi
 
-Pastikan Anda menggunakan dokumen yang sesuai dengan versi Electron Anda. Nomor versi harus menjadi bagian dari URL halaman. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . Untuk melihat yang lebih tua versi dokumentasi, Anda bisa [telusuri menurut tag](https://github.com/electron/electron/tree/v1.4.0) di GitHub dengan membuka drop-down "Switch branches/tags" dan memilih tag yang cocok dengan versimu.
+Pastikan Anda menggunakan dokumen yang sesuai dengan versi Electron Anda. Nomor versi harus menjadi bagian dari URL halaman. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . Untuk melihat yang lebih tua versi dokumentasi, Anda bisa [telusuri menurut tag](https://github.com/electron/electron/tree/v1.4.0) di GitHub dengan membuka drop-down "Switch branches/tags" dan memilih tag yang cocok dengan versimu.</p> 
 
 ## Pertanyaan Umum
 
