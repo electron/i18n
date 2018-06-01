@@ -169,7 +169,7 @@ app.on('activate', () => {
 
 ## 예제
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 레파지토리에서 소스를 clone 하여 소스안의 튜토리얼 코드를 실행합니다.
 
 **주의**: 이 코드를 실행하려면 [Git](https://git-scm.com)이 필요합니다.
 
@@ -184,4 +184,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+빠른 개발 process를 위한 boilerplates 와 툴의 목록은 Boilerplates and CLIs의 문서를 참고하세요.
