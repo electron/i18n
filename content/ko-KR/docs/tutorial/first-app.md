@@ -75,7 +75,7 @@ npm install --save-dev electron
 const electron = require('electron')
 ```
 
-`electron` 모듈은 네임 스페이스의 기능을 노출합니다. 에를 들어, 애플리케이션의 수명주기는 `electron.app`를 통해 관리되며, `electron.BrowserWindow` 클래스를 통해 창들이 생성합니다. 간단하게 `main.js` 파일은 응용 프로그램이 준비되고 창을 열 때까지 기다릴 것입니다.
+`electron` 모듈은 네임 스페이스의 기능을 노출합니다. 에를 들어, 애플리케이션의 수명주기는 `electron.app`를 통해 관리되며, `electron.BrowserWindow` 클래스를 통해 창들이 생성합니다. 심플한 `main.js` 파일은 응용 프로그램이 준비되고 창을 열 때까지 기다릴 것입니다.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -91,7 +91,7 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+`main.js`는 창들을 생성하고 너의 애플리케이션이 발생시키는 모든 시스템 이벤트를 처리합니다. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
