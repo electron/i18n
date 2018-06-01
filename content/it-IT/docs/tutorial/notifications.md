@@ -38,7 +38,7 @@ Ciò ti permette di determinare se Windows eliminerà in silenzio le notifiche o
 
 ## macOS
 
-Le notifiche sono dirette su macOS, ma dovresti considerare le [Linee Guida Interfaccia Apple Riguardanti Notifiche](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Nota che le notifiche sono limitate di taglia a 256 byte e saranno troncate se eccederai questo limite.
 

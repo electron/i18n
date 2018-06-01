@@ -38,7 +38,7 @@ Isso permite que você determine antes do tempo se é ou não permitido. Caso n�
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Note que as notificações tem um limite de 256 bytes de tamanho e serão truncadas se você exceder esse limite.
 

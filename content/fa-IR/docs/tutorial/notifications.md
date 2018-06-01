@@ -38,7 +38,7 @@ While notifications including buttons work with `electron-windows-notifications`
 
 ## مک‌اواس
 
-اعلان ها در مک‌اواس مستقیم اجرا می شود، با این حال مشا باید از [دستورالعمل رابط کاربری اپل در مورد اعلان ها](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) مطلع شوید.
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 توجه کنید که اندازه اعلان ها محدود به 256 بایت می باشد و اگر از این محدوده عبور کنید، خودکار متن شما کم می شود.
 

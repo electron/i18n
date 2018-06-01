@@ -38,7 +38,7 @@ Bu, Windows'un bildirimi sessizce atıp atmayacağını önceden belirlemenizi s
 
 ## macOS
 
-Bildirimler MacOS'ta açıktır; ancak [ Apple'ın İnsan Arayüzü yönerge bildirimlerinin](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) farkında olmalısınız.
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Not, bu bildirimler 256 byte ile sınırlıdır ve bu sınırı aşarsa kesilecektir.
 

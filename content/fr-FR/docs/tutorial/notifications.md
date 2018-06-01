@@ -38,7 +38,7 @@ Cela permet de déterminer en avance ou non si Windows retire silencieusement la
 
 ## macOS
 
-Les notifications sont directe sur macOS, mais vous devez être conscient des [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Notez que les notifications sont limitées à 256 octets de taille et risque d’être tronquées si vous dépassez cette limite.
 
