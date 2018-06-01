@@ -1,6 +1,6 @@
 # MacOS Dock
 
-Electron にはmacOSドック中のアプリアイコンを設定するための API があります。 A macOS-only API exists to create a [a custom dock menu](#custom-dock-menu-mac-os), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron にはmacOSドック中のアプリアイコンを設定するための API があります。 MacOS-でのみ API作成[カスタムDockメニュー](#custom-dock-menu-mac-os)、Electronはアプリを使用中ドックアイコンをクロスプラットフォームで機能を実装するには[最近使用したドキュメント](./recent-documents.md)と[アプリケーションの進行状況](./progress-bar.md)。
 
 The custom dock is commonly used to add shortcuts to tasks the user wouldn't want to open the whole app window for.
 
