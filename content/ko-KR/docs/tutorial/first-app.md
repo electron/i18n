@@ -91,7 +91,7 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-`main.js`는 창들을 생성하고 너의 애플리케이션이 발생시키는 모든 시스템 이벤트를 처리합니다. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+`main.js`는 창들을 생성하고 너의 애플리케이션이 발생시키는 모든 시스템 이벤트를 처리합니다. 위의 예제보다 더 완벽한 버전의 예제에서는 개발자 도구를 열거나, 창이 닫힐때의 처리, 혹은 macOS상에서 사용자가 dock의 app의 아이콘을 클릭했을때 창을 다시 만드는 등의 처리를 보여줍니다.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -145,7 +145,7 @@ app.on('activate', () => {
 // code. You can also put them in separate files and require them here.
 ```
 
-Finally the `index.html` is the web page you want to show:
+마지막으로 `index.html`이 표시하려는 웹 페이지입니다.
 
 ```html
 <!DOCTYPE html>
