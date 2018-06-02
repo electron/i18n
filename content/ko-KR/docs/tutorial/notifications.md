@@ -2,7 +2,7 @@
 
 세 가지 운영 체제 모두 응용 프로그램에서 사용자에게 notifications을 보내는 수단을 제공합니다. Electron은 개발자가 [HTML5 Notification API](https://notifications.spec.whatwg.org/)를 사용하여 알림을 보내고, 현재 실행중인 운영 체제의 native notification API를 사용하여 편리하게 표시 할 수 있습니다.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**Note:** HTML5 API 이므로 오직 렌더러 프로세스에서만 사용이 가능합니다. 만약 main process에 Notifications을 표시하려면 [Notification](../api/notification.md) 모듈을 확인하십시오.
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -14,12 +14,12 @@ myNotification.onclick = () => {
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+운영 체제 전반에서 코드 및 사용자 경험이 비슷하지만, 미묘한 차이가 있습니다.
 
 ## Windows
 
-* On Windows 10, notifications "just work".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
+* Windows 10에서 notifications은 "작동 합니다".
+* Windows 8.1 및 Windows 8에서는 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)와 앱의 바로 가기가 시작 화면에 설치되어 있어야 합니다. 참고, 그러나, 시작 화면에 고정 시킬 필요는 없습니다.
 * On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
 
 Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
