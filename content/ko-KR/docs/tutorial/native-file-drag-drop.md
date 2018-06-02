@@ -1,8 +1,8 @@
 # Native File Drag & Drop
 
-파일을 조작하는 특정 종류의 애플리케이션은 운영 체제의 native file drag & drop 기능을 지원하기를 몹시 원할것입니다. 웹 컨텐츠에 파일을 드래그하는 것은 일반적이며 많은 웹 사이트에서 지원됩니다. Electron additionally supports dragging files and content out from web content into the operating system's world.
+파일을 조작하는 특정 종류의 애플리케이션은 운영 체제의 native file drag & drop 기능을 지원하기를 몹시 원할것입니다. 웹 컨텐츠에 파일을 드래그하는 것은 일반적이며 많은 웹 사이트에서 지원됩니다. Electron은 웹 콘텐츠에서 운영 체제의 세계로 파일 및 콘텐츠를 드래그하는 기능을 추가적으로 지원합니다.
 
-To implement this feature in your app, you need to call `webContents.startDrag(item)` API in response to the `ondragstart` event.
+앱에서이 기능을 구현하려면 `ondragstart` 이벤트에 대한 응답으로 `webContents.startDrag(item)` API를 호출해야합니다.
 
 In your renderer process, handle the `ondragstart` event and forward the information to your main process.
 
