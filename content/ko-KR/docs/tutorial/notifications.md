@@ -54,4 +54,4 @@ Notification을 보낼 수 있는지 여부를 확인하려면, userland module 
 
 ## Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Notifications은 libnotify</0를 사용하여 전송되며, Cinnamon, Enlightenment, Unity, GNOME, KDE를 포함한 <a href="https://developer.gnome.org/notification-spec/">Desktop Notifications Specification</a>을 따르는 어떠한 데스크톱 환경에도 notifications을 표시 할 수 있습니다..</p>
