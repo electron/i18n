@@ -6,19 +6,19 @@ V0.34.0 이후, Electron는 패키지 앱을 Mac App Store(MAS) 에 제출할 �
 
 ## 앱 제출 방법
 
-다음 단계는 Mac App Store에 앱을 제출하는 간단한 방법을 소개합니다. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+다음 단계는 Mac App Store에 앱을 제출하는 간단한 방법을 소개합니다. 하지만, 이 단계들로 인해 여러분의 앱이 Apple에 의해 승인되는 것은 아닙니다. 당신 여전히 Mac App Store 요구 사항을 충족하는 방법에 대한 Apple의 [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) 가이드를 읽어야 합니다.
 
-### Get Certificate
+### 인증서 받기
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+Mac App Store에 앱을 제출하려면, 먼저 Apple로 부터 인증서를 받아야합니다. 웹에서 [기존 가이드](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps)를 따라할 수 있습니다.
 
-### Get Team ID
+### 팀 아이디 받기
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+앱에 서명하기 전에, 계정의 팀 ID를 알아야합니다. 팀 ID를 찾기위해서,[Apple Developer Center](https://developer.apple.com/account/)에 로그인하고, sidebar의 멤버십을 클릭하십시오. 여러분의 팀 ID는 팀 이름 아래 회원 정보 섹션에 표시됩니다.
 
-### Sign Your App
+### 앱 인증
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+사전 준비 작업을 마친 후, [Application Distribution](application-distribution.md)를 따라 애플리케이션을 패키지화하고, 애플리케이션에 서명 할 수 있습니다.
 
 First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
 
