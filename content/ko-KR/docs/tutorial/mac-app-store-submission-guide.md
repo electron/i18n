@@ -130,9 +130,9 @@ MacOS에서 앱 샌드 박싱을 처음 사용한다면, Apple의 앱 샌드박�
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+또한 주목해야할 점은 네이티브 모듈이 intermediate files을 생성 할 수도 있기 때문에, 생성된 파일들은 포함되지 않아야합니다 (그것들 역시 서명이 필요하기 때문). 8.1.x 이전 버전에서 [electron-packager](https://github.com/electron-userland/electron-packager)를 사용하는 경우 빌드 단계에`--ignore=.+\.o$`를 추가하여이 파일들을 ignore 설정 합니다. 버전 8.1.0 이상에서는 기본적으로 해당 파일을 무시합니다.
 
-### Upload Your App
+### 업로드 앱
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
 
