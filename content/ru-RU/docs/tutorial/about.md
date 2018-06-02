@@ -10,11 +10,11 @@ Electron был написан в 2013 году как фреймворк для
 
 ## Основная команда и авторы
 
-Electron поддерживается командой GitHub, а также группой [активных участников](https://github.com/electron/electron/graphs/contributors) сообщества. Некоторые авторы работают на себя, другие работают в крупных компаниях, развивающихся вместе с Electron. Мы рады добавить в проект постоянных участников проекта в качестве сопровождающих. Подробнее о [развитии Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron поддерживается командой GitHub, а также группой [активных участников](https://github.com/electron/electron/graphs/contributors) сообщества. Некоторые авторы работают на себя, другие работают в крупных компаниях, развивающихся вместе с Electron. Мы рады добавить постоянных участников проекта в качестве сопровождающих. Подробнее о [развитии Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Релизы
 
-[Electron релизы](https://github.com/electron/electron/releases) частые. Мы их выпускаем, когда есть значительные исправления ошибок, новое API или обновлённая версия Chromium или Node.js.
+[Релизы Electron](https://github.com/electron/electron/releases) выходят часто. Мы их выпускаем, когда есть важные исправления ошибок, новый API или обновлённая версия Chromium или Node.js.
 
 ### Обновление зависимостей
 
