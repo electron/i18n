@@ -1,4 +1,4 @@
-# Code Signing
+# 代码签名
 
 Code signing is a security technology that you use to certify that an app was created by you.
 
@@ -14,7 +14,7 @@ While it is possible to distribute unsigned apps, it is not recommended. For exa
 
 If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
 
-# Signing macOS builds
+# 签署 macOS 应用程序
 
 Before signing macOS builds, you must do the following:
 
@@ -31,7 +31,7 @@ There are a number of tools for signing your packaged app:
 
 For more info, see the [Mac App Store Submission Guide](mac-app-store-submission-guide.md).
 
-# Signing Windows builds
+# 签署windows应用程序
 
 Before signing Windows builds, you must do the following:
 
@@ -45,7 +45,7 @@ You can get a code signing certificate from a lot of resellers, popular ones inc
 - [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 - Amongst others, please shop around to find one that suits your needs, Google is your friend :)
 
-There are a number of tools for signing your packaged app:
+你可以运用许多方式来签署你的应用：
 
 - [`electron-winstaller`] will generate an installer for windows and sign it for you
 - [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
@@ -53,4 +53,4 @@ There are a number of tools for signing your packaged app:
 
 ## Windows Store
 
-See the [Windows Store Guide](windows-store-guide.md).
+参考 [Windows Store Guide](windows-store-guide.md).
