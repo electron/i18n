@@ -325,11 +325,11 @@ Emitted when the window is being moved to a new position.
 
 #### Событие: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Вызывается, когда окно переходит в полноэкранный режим.
 
 #### Событие: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Вызывается, когда окно выходит из полноэкранного режима.
 
 #### Событие: 'enter-html-full-screen'
 
@@ -339,7 +339,7 @@ Emitted when the window enters a full-screen state triggered by HTML API.
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'app-command' *Windows*
+#### Событие: 'app-command' *Windows*
 
 Возвращает:
 
@@ -623,48 +623,48 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (необязательно) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Возвращает [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (необязательно) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Возвращает [`Rectangle`](structures/rectangle.md)
 
 #### `win.setEnabled(enable)`
 
 * `enable` Boolean
 
-Disable or enable the window.
+Включает или выключает окно.
 
 #### `win.setSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (необязательно) *macOS*
 
 Resizes the window to `width` and `height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Возвращает `Integer[]` - Содержит высоту и ширину окна.
 
 #### `win.setContentSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (необязательно) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -698,11 +698,11 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Устанавливает, может ли пользователь вручную изменять размер окна.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Возвращает `Boolean` - Когда окно может быть изменено пользователем вручную.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
@@ -714,7 +714,7 @@ Sets whether the window can be moved by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be moved by user.
 
-On Linux always returns `true`.
+На Linux всегда возвращает `true`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -726,7 +726,7 @@ Sets whether the window can be manually minimized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually minimized by user
 
-On Linux always returns `true`.
+На Linux всегда возвращает `true`.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -738,7 +738,7 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
-On Linux always returns `true`.
+На Linux всегда возвращает `true`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -760,12 +760,12 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
-On Linux always returns `true`.
+На Linux всегда возвращает `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
+* `level` String (необязательно) *macOS* - Значения включают `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Устарело). По-умолчанию `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
 * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
@@ -782,7 +782,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (необязательно) *macOS*
 
 Moves window to `x` and `y`.
 
