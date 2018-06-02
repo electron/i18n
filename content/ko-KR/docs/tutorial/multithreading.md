@@ -2,9 +2,9 @@
 
 [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers)를 사용하면 OS-레벨 스레드에서 JavaScript를 실행할 수 있습니다.
 
-## Multi-threaded Node.js
+## 다중 쓰레드 Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Electron 's Web Workers에서 Node.js 기능을 사용하여 위해서, `webPreferences`의 `nodeIntegrationInWorker`옵션을 true로 설정해야합니다.
 
 ```javascript
 let win = new BrowserWindow({
