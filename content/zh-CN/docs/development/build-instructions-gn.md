@@ -33,14 +33,14 @@ $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 $ gn gen out/Default --args='root_extra_deps=["//electron"] is_electron_build=true is_component_build=true use_jumbo_build=true v8_promise_internal_field_count=1 v8_typed_array_max_size_in_heap=0'
 ```
 
-以上代码，会生成构建所需的所有必需文件（ninja files）。 You shouldn't have to run `gn gen` again—if you want to change the build arguments you can run `gn
-args out/Default` to bring up an editor.
+以上代码，会生成构建所需的所有必需文件（ninja files）。 如果你想改变构建参数，可以通过运行`gn
+args out/Default`来将参数带入编辑器，而无需再次运行`gn run`命令。
 
-To build, run `ninja` with the `electron:electron_app` target:
+想要构建`electron:electron_app`项目，可以按照下面的方式运行`ninja`命令：
 
 ```sh
 $ ninja -C out/Default electron:electron_app
-# This will also take a while and probably heat up your lap.
+# 这个过程也比较费时，而且运行成本可能比较高
 ```
 
 This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
