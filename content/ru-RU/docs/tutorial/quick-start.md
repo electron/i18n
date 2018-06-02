@@ -5,6 +5,6 @@ Electron позволяет создавать настольные прилож
 Старый документ "Быстрый старт" который раньше использовался здесь, был поделен на два документа:
 
 * Чтобы узнать, как сделать простое приложение при помощи Electron, смотри: [Пишем свое первое приложение на Electron](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* Чтобы проверить архитектуру процесса, смотри [Основные и Визуализирующие процессы](./application-architecture.md#main-and-renderer-processes).
 
 Чтобы узнать больше об Electron, смотрите [официальное руководство](../).
