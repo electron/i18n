@@ -1,4 +1,4 @@
-# Planned Breaking API Changes (4.0)
+# 중단될 예정 API (4.0)
 
 다음 목록에는 Electron 4.0에서 제거될 API가 포함되어 있습니다.
 
@@ -40,4 +40,4 @@ app.releaseSingleInstanceLock()
 
 ## `FIXME` comments
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
+3.0릴리스에 대해 수정해야 하는 사항을 나타내는 코드 설명에는 `FIXME` 문자열이 사용됩니다. https://github.com/electron/electron/search?q=fixme 를 참고하세요.
