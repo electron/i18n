@@ -18,11 +18,11 @@ let win = new BrowserWindow({
 
 ## 이용 가능한 API들
 
-Node.js의 모든 내장 모듈은 Web Workers에서 지원되며, `asar`아카이브는 여전히 Node.js API로 읽을 수 있습니다. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Node.js의 모든 내장 모듈은 Web Workers에서 지원되며, `asar`아카이브는 여전히 Node.js API로 읽을 수 있습니다. 하지만 Electron의 내장 모듈은 다중 스레드 환경에서 사용할 수 없습니다.
 
 ## Native Node.js modules
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+어떠한 native Node.js 모듈을 Web Workers에게 직접로드 할 수 있지만, 권장하지는 않습니다. 기존의 대부분의 네이티브 모듈은 단일 스레드 환경을 전제로 작성되었으며, Web Workers에서 사용하면 충돌 및 메모리 손상이 발생할 수 있습니다.
 
 Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
 
