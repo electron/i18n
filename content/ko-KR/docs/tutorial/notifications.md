@@ -22,11 +22,11 @@ myNotification.onclick = () => {
 * Windows 8.1 및 Windows 8에서는 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)와 앱의 바로 가기가 시작 화면에 설치되어 있어야 합니다. 참고, 그러나, 시작 화면에 고정 시킬 필요는 없습니다.
 * Windows 7에서, notifications은 새로운 시스템에서 native notification과 시각적으로 유사하게 커스텀으로 구현함으로써 동작합니다.
 
-게다가, Windows 8에서 notification 본문의 최대 길이는 250 자이며, Windows 팀에서는 notifications을 200 자로 유지하도록 권장합니다. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+게다가, Windows 8에서 notification 본문의 최대 길이는 250 자이며, Windows 팀에서는 notifications을 200 자로 유지하도록 권장합니다. Windows 팀에서 합리적인 개발자가 되기를 요청한다고 말하면서, Windows 10에서 문자수 제한을 제거했습니다. 거대한 양의 텍스트를 API (수천 자) 로 보내려고 시도하면 불안정 할 수 있습니다.
 
 ### Advanced Notifications
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+최신 버전의 Windows에서는 사용자 지정 서식 파일, 이미지 및 기타 유연한 요소을 사용한 advanced notifications을 허용합니다. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
 While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
