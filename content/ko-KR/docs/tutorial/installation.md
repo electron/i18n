@@ -42,7 +42,7 @@ GitHub에 액세스 할 수 없거나 사용자 정의 빌드를 제공해야하
 
 #### Mirror
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. `electron-download`에 의해 사용되는 url은 다음과 같이 구성됩니다.
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
