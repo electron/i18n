@@ -153,7 +153,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 * 특정 접근성 기능이 작동하지 않을 수 있습니다.
 * 어플리케이션들이 DNS 변경 사항을 인식하지 못할 수 있습니다.
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+또한, 앱 샌드 박스를 사용하는 동안, 앱은 엄격하게 제한되어 리소스에 접근하게 됩니다. 자세한 내용은 [App Sandboxing](https://developer.apple.com/app-sandboxing/)을 읽어 보십시오.
 
 ### Additional Entitlements
 
