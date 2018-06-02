@@ -1,14 +1,14 @@
 # In-App Purchase (macOS)
 
-## Preparing
+## 사전준비
 
-### Paid Applications Agreement
+### 유료 애플리케이션 계약
 
-If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
+아직 유료 애플리케이션 계약에 서명하지 않았다면, 서명이 필요합니다. 그리고 iTunes Connect에서 여러분의 은행 및 세금 정보를 설정해야합니다.
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+[iTunes Connect Developer Help: 계약, 세금, 그리고 은행에 대한 개요](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
-### Create Your In-App Purchases
+### In-App Purchases 생성
 
 Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
 
