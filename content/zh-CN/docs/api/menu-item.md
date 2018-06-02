@@ -52,31 +52,31 @@
 * `toggledevtools` - 在当前窗口中隐藏/显示开发者工具。
 * `togglefullscreen`- 将当前窗口切换全屏模式。
 * `resetzoom` - 将主页的缩放级别重置为初始大小.
-* `zoomIn` - Zoom in the focused page by 10%.
-* `zoomOut` - Zoom out the focused page by 10%.
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
+* `zoomin` - 主页面放大 10%.
+* `zoomout` -主页面缩小 10%.
+* `editMenu`-默认的 "编辑" 菜单 (包括撤消、复制等)
+* ` windowMenu `-默认 "窗口" 菜单 (包括最小化、关闭等)
 
-The following additional roles are available on *macOS*:
+以下为macOS 中提供的角色:
 
 * ` about `-映射到 ` orderFrontStandardAboutPanel ` 操作.
-* ` hide `-映射到 ` 隐藏 ` 操作.
-* `hideOthers` - Map to the `hideOtherApplications` action.
+* ` hide `-映射到 ` hide ` 操作.
+* ` hideOthers `-映射到 ` hideOtherApplications ` 操作.
 * ` unhide `-映射到 ` unhideAllApplications ` 操作.
-* `startSpeaking` - Map to the `startSpeaking` action.
-* `stopSpeaking` - Map to the `stopSpeaking` action.
+* ` startSpeaking `-映射到 ` startSpeaking ` 操作.
+* ` stopSpeaking `-映射到 ` stopSpeaking ` 操作.
 * ` front `-映射到 ` arrangeInFront ` 操作.
 * ` zoom `-映射到 ` performZoom ` 操作.
-* `toggleTabBar` - Map to the `toggleTabBar` action.
-* `selectNextTab` - Map to the `selectNextTab` action.
-* `selectPreviousTab` - Map to the `selectPreviousTab` action.
-* `mergeAllWindows` - Map to the `mergeAllWindows` action.
-* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - 子菜单是"窗口" 菜单.
-* ` help `-子菜单是 "帮助" 菜单.
-* ` services `-子菜单是 "帮助" 菜单.
-* `recentDocuments` - The submenu is an "Open Recent" menu.
-* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* ` toggleTabBar `-映射到 ` toggleTabBar ` 操作.
+* ` selectNextTab ` - 映射到 ` selectNextTab ` 操作.
+* ` selectPreviousTab ` - 映射到 ` selectPreviousTab ` 操作.
+* ` mergeAllWindows ` - 映射到 ` mergeAllWindows ` 操作.
+* ` moveTabToNewWindow ` - 映射到 ` moveTabToNewWindow ` 操作.
+* `window` - 这个子菜单是"Window" 菜单.
+* ` help `-这个子菜单是 "Help" 菜单.
+* ` services `-这个子菜单是 "Services" 菜单.
+* ` recentDocuments `-这个子菜单是 "Open Recent" 菜单.
+* `clearRecentDocuments` -映射到 `clearRecentDocuments` 操作.
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
