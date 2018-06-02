@@ -47,29 +47,29 @@ $ ninja -C out/Default electron:electron_app
 
 你可以使用[sccache](https://github.com/mozilla/sccache)命令来提高后面的构建过程。 你可以通过运行`gn args out/Default`命令，把这个GN参数`cc_wrapper="sccache"`带入编辑器。
 
-The built executable will be under `./out/Default`:
+构建需要在`./out/Default`文件下执行：
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron
-# or, on Linux
+# Linux机下
 $ ./out/Default/electron
 ```
 
 ## 测试
 
-To run the tests, you'll first need to build the test modules against the same version of node.js that was built as part of the build process.
+在运行测试之前，你首先需要新建与node.js版本相同的测试模块，不过这些模块在构建过程中已经生成。因此，你可以通过执行以下命令来实现。
 
 ```sh
 $ (cd electron/spec && npm i --nodedir=../../third_party/electron_node)
 ```
 
-Then, run Electron with `electron/spec` as the argument:
+接着，通过`electron/spec`命令来运行Electron：
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec
 ```
 
-If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
+可以通过增加其它标记来调试程序，例如：
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec \
