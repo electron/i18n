@@ -70,11 +70,11 @@
 
 `autoUpdater` 对象具有以下方法:
 
-### `autoUpdater.setFeedURL(options)`
+### `autoUpdater.setFeedURL(选项)`
 
 * `选项` Object 
   * `url` String
-  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `headers` Object (可选) *macOS* - HTTP 请求头。
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 设置检查更新的 `url`，并且初始化自动更新。
