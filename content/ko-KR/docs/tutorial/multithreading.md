@@ -1,6 +1,6 @@
-# Multithreading
+# 멀티 쓰레딩
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+[Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers)를 사용하면 OS-레벨 스레드에서 JavaScript를 실행할 수 있습니다.
 
 ## Multi-threaded Node.js
 
