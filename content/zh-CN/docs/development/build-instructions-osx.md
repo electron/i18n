@@ -29,7 +29,7 @@ $ brew install python@2 && brew link python@2 --force
 
 ## macOS SDK
 
-If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+如果你已经在开发Electron项目，而且没有重新分发Electron构建文件的计划，那你可以忽略下面内容。
 
 要使某些功能 (例如缩小缩放) 正常工作，你必须定位到 MacOS 10.10 SDK。
 
