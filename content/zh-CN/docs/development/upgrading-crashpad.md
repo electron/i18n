@@ -8,7 +8,7 @@
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
     - 用版本校验和检出分支 
         - `git checkout <revision checksum>`
-    - 将electron's的crashpad分支作为一个远程
+    - 将electron的奔溃报告分支作为远程
     - `git remote add electron https://github.com/electron/crashpad`
     - 为更新检出一个新的分支
     - `git checkout -b electron-crashpad-vA.B.C.D`
@@ -26,7 +26,7 @@
     - 首先确保它能构建成功，然后依次执行add, commit, 和 push，将补丁添加到electron 的 crashpad 分支
     - `git push electron electron-crashpad-vA.B.C.D`
 
-4. 更新Electron，构建新的crashpad：
+4. 更新Electron，创建新的crashpad分支：
     
     - `cd vendor/crashpad`
     - `git fetch`
