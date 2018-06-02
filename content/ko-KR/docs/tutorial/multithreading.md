@@ -14,9 +14,9 @@ let win = new BrowserWindow({
 })
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+`nodeIntegrationInWorker`는 `nodeIntegration`과 독립적으로 사용할 수 있지만, `sandbox`를 `true`로 설정하면 절대로 안됩니다.
 
-## Available APIs
+## 이용 가능한 API들
 
 All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
 
