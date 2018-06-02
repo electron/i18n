@@ -1,15 +1,15 @@
 ## Class: TouchBarPopover
 
-> Create a popover in the touch bar for native macOS applications
+> 为macOS原生应用在触摸栏中创建一个弹出控件
 
 线程：[主线程](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarPopover(options)` *Experimental*
+### `new TouchBarSlider(options)` *实验功能*
 
 * `options` Object 
-  * `label` String (optional) - Popover button text.
-  * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
-  * `items` [TouchBar](touch-bar.md) (optional) - Items to display in the popover.
+  * ` label `String (可选) 弹出按钮文本。
+  * `icon` ([NativeImage](native-image.md) | String) (可选) - 弹出按钮图标。
+  * `items` [TouchBar](touch-bar.md) (可选) -弹出中展示的元素。
   * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Default is `true`.
 
 ### 实例属性
