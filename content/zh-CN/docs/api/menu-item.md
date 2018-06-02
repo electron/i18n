@@ -22,7 +22,7 @@
   * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. 如果设置了 ` submenu `, 则 ` type: 'submenu' `配置可以省略。 If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. 如果设置了 ` submenu `, 则 ` type: 'submenu' `配置可以省略。 如果该值不是 [ Menu ](menu.md) `, 则它将自动使用 ` Menu. buildFromTemplate将其转换为Menu。
   * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
   * ` position `String (可选)-此字段允许对给定菜单中的特定位置进行 fine-grained（细粒度） 定义。
 
@@ -46,12 +46,12 @@
 * `delete`
 * `minimize` - Minimize current window.
 * `close` - 关闭当前窗口.
-* `quit`- Quit the application.
-* `reload` - Reload the current window.
-* `forceReload` - Reload the current window ignoring the cache.
-* `toggleDevTools` - Toggle developer tools in the current window.
-* `toggleFullScreen`- Toggle full screen mode on the current window.
-* `resetZoom` - Reset the focused page's zoom level to the original size.
+* `quit`- 退出应用。
+* `reload` - 重新加载当前窗口。
+* `forcereload` - 忽略缓存，重新加载当前窗口。
+* `toggledevtools` - 在当前窗口中隐藏/显示开发者工具。
+* `togglefullscreen`- 将当前窗口切换全屏模式。
+* `resetzoom` - 将主页的缩放级别重置为初始大小.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
 * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
