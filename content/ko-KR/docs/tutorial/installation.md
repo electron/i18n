@@ -56,7 +56,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-또는, 로컬 캐시를 대체할 수 있습니다. `electron-download`는 다운로드 된 바이너리를 로컬 디렉토리에 캐시하여 네트워크에 스트레스를주지 않습니다. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+또는, 로컬 캐시를 대체할 수 있습니다. `electron-download`는 다운로드 된 바이너리를 로컬 디렉토리에 캐시하여 네트워크에 스트레스를주지 않습니다. 캐시 폴더를 사용하여 electron의 커스텀 빌드를 제공하거나 일체의 네트워크 접속을 피할 수 있습니다.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
