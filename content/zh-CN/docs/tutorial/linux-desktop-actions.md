@@ -6,7 +6,7 @@
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-一般情况下，在快捷键menu中为每一个条目添加`Name` 和`Exec`属性就可以将其设置为快捷键。 Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+一般情况下，在快捷键menu中为每一个条目添加`Name` 和`Exec`属性就可以将其设置为快捷键。 用户点击快捷见时，Unity启动器就会执行`Exec` 属性。 其形式如下：
 
 ```text
 Actions=PlayPause;Next;Previous
@@ -27,4 +27,4 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+Unity启动器通常通过参数的形式来操作应用。 你在应用的全局变量`process.argv`中发现这一规律。
