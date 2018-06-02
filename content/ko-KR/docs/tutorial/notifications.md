@@ -20,9 +20,9 @@ myNotification.onclick = () => {
 
 * Windows 10에서 notifications은 "작동 합니다".
 * Windows 8.1 및 Windows 8에서는 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)와 앱의 바로 가기가 시작 화면에 설치되어 있어야 합니다. 참고, 그러나, 시작 화면에 고정 시킬 필요는 없습니다.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* Windows 7에서, notifications은 새로운 시스템에서 native notification과 시각적으로 유사하게 커스텀으로 구현함으로써 동작합니다.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+게다가, Windows 8에서 notification 본문의 최대 길이는 250 자이며, Windows 팀에서는 notifications을 200 자로 유지하도록 권장합니다. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
 ### Advanced Notifications
 
