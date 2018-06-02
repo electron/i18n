@@ -6,9 +6,9 @@
 
 ### ` new TouchBarColorPicker(可选)` *实验功能*
 
-* `选项` 对象 
+* `options` Object 
   * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
-  * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
+  * ` backgroundColor `String (可选) - 拾色器选中的颜色十六进位色值，例如 ` #ABCDEF `。
   * `change` Function (optional) - Function to call when a color is selected. 
     * `color` String - The color that the user selected from the picker.
 
