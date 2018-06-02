@@ -47,7 +47,7 @@ win.once('ready-to-show', () => {
 
 ### Настройка `backgroundColor`
 
-Для больших приложений `ready-to-show` событие может вызываться слишком поздно, что может сделать приложение слишком медленным. В этом случае рекомендуется показать окно немедленно, и использовать `backgroundColor`, закрывающий фон Вашего приложения:
+Для больших приложений `ready-to-show` событие может вызываться слишком поздно, что может замедлить приложение. В этом случае рекомендуется показать окно немедленно, и использовать `backgroundColor`, рядом с фоном Вашего приложения:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -162,7 +162,7 @@ Process: [Main](../glossary.md#main-process)
     * `hidden` - В результате скрытый заголовок и содержимое во все окно, но заголовок по-прежнему имеет стандартное окно контроля ("светофоры") сверху слева.
     * `hiddenInset` - В результате скрытый заголовок с альтернативным видом, где кнопки контролирования немного больше вставки от края окна.
     * `customButtonsOnHover` Boolean (необязательно) - Отобразить настраиваемые кнопки закрыть, свернуть и во весь экран на бескаркасных окнах в macOS. Эти кнопки не будут отображаться за исключением соприкосновения над левым верхним углом окна. Эти пользовательские кнопки предотвращают проблемы с событиями мыши, которые происходят с кнопками стандартной панели инструментов. **Заметка:** Этот параметр в настоящее время экспериментален.
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
+  * `fullscreenWindowTitle` Boolean (необязательно) - Показывает название в строке заголовка в полноэкранном режиме на macOS для всех вариантов `titleBarStyle`. По-умолчанию `false`.
   * `thickFrame` Boolenan (необязательно) - Использовать стиль `WS_THICKFRAME` на окнах с отсутствием рамок на Windows, добавляющий стандартные рамки окна. Установив значение `false` тень окна и анимация окна будут удалены. По умолчанию - `true`.
   * `vibrancy` String (опционально) - добавить тип эффекта вибрации к окну, только на macOS. Может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, или `ultra-dark`. Обратите внимание, что использование `frame: false` в комбинации с меняющимся значением, требует так же указывать `titleBarStyle`.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. По умолчанию - `false`.
