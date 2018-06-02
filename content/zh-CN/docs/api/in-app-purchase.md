@@ -34,4 +34,4 @@
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+返回 `String`, 指收据路径.
