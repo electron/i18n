@@ -155,13 +155,13 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 또한, 앱 샌드 박스를 사용하는 동안, 앱은 엄격하게 제한되어 리소스에 접근하게 됩니다. 자세한 내용은 [App Sandboxing](https://developer.apple.com/app-sandboxing/)을 읽어 보십시오.
 
-### Additional Entitlements
+### Entitlements 추가
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+앱에서 사용하는 Electron API에 따라, app의 Mac App Store 빌드에서 이러한 API를 사용할 수 있으려면 `parent.plist` 파일에 추가적으로 권한을 추가해야 할 수도 있습니다.
 
-#### Network Access
+#### 네트워크 접근
 
-Enable outgoing network connections to allow your app to connect to a server:
+앱의 서버 연결을 허용하기 위해 outgoing(outbound) 네트워크 연결을 enable 시킵니다.
 
 ```xml
 <key>com.apple.security.network.client</key>
