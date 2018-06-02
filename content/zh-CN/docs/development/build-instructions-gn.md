@@ -6,7 +6,7 @@ Follow the guidelines below for building Electron with the experimental GN build
 
 ## 基本要求
 
-See the [macOS](build-instructions-osx.md#prerequisites) or [Linux](build-instructions-linux.md#prerequisites) build instructions for the requirements for your platform. In addition, you'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+系统需求，请参考[macOS](build-instructions-osx.md#prerequisites)或[Linux](build-instructions-linux.md#prerequisites)构建指南。 此外，你还需要安装[`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)，这是一个用于获取Chromium，及其相关依赖的工具包。
 
 ## 获取代码
 
@@ -22,7 +22,7 @@ solutions = [
 ]
 GCLIENT
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# 此处需要等待一盏茶的功夫。
 ```
 
 ## 构建
@@ -33,7 +33,7 @@ $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 $ gn gen out/Default --args='root_extra_deps=["//electron"] is_electron_build=true is_component_build=true use_jumbo_build=true v8_promise_internal_field_count=1 v8_typed_array_max_size_in_heap=0'
 ```
 
-This will generate all the ninja files needed for the build. You shouldn't have to run `gn gen` again—if you want to change the build arguments you can run `gn
+以上代码，会生成构建所需的所有必需文件（ninja files）。 You shouldn't have to run `gn gen` again—if you want to change the build arguments you can run `gn
 args out/Default` to bring up an editor.
 
 To build, run `ninja` with the `electron:electron_app` target:
