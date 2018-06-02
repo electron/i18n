@@ -75,7 +75,7 @@ Process: [Main](../glossary.md#main-process)
 * `options` Object 
   * `url` String
   * `headers` Object (опционально) *macOS* - заголовки запросов HTTP.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `serverType` String (опционально) *macOS* - Любой `json` или `default`, смотри [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README для подробностей.
 
 Задает `url` и инициализирует автоматическое обновление.
 
@@ -93,4 +93,4 @@ Process: [Main](../glossary.md#main-process)
 
 Внутри, вызов `autoUpdater.quitAndInstall()` сначала закроет все окна приложения, и автоматически вызовет `app.quit()`, после того, как все окна будут закрыты.
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**Примечание:** Если приложение завершилось без вызова этого API после того, как событие `update-downloaded` произошло, приложение по-прежнему будет заменено обновленным при следующем запуске.
