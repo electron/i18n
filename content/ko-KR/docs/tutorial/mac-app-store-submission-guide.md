@@ -20,7 +20,7 @@ Mac App Store에 앱을 제출하려면, 먼저 Apple로 부터 인증서를 받
 
 사전 준비 작업을 마친 후, [Application Distribution](application-distribution.md)를 따라 애플리케이션을 패키지화하고, 애플리케이션에 서명 할 수 있습니다.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+우선, 앱의 `Info.plist`에 `ElectronTeamID`키를 추가하고 Team ID값을 입력합니다.
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+그런 다음 세 가지 인 타이틀먼트 파일들(child.plist, parent.plist, loginhelper.plist) 을 준비해야합니다.
 
 `child.plist`:
 
@@ -77,9 +77,9 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+`TEAM_ID`를 Apple에 등록된 팀 ID로 대체하고, `your.bundle.id`를 앱의 번들 ID로 바꿔야합니다.
 
-And then sign your app with the following script:
+그리고, 다음 스크립트로 앱에 서명하십시오.
 
 ```sh
 #!/bin/bash
