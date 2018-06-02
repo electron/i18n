@@ -34,23 +34,23 @@ myNotification.onclick = () => {
 
 Notification을 보낼 수 있는지 여부를 확인하려면, userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state)를 사용하십시오.
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+이렇게 하면 Windows가 알아서 notification을 던질지 말지를 미리 결정할 수 있습니다.
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+MacOS에서는 Notifications이 간단하지만, Apple의 휴먼 인터페이스 가이드 라인([Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/)) 을 숙지해야합니다.
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Notifications은 크기가 256 바이트로 제한되고 제한을 초과하면 잘립니다.
 
 ### Advanced Notifications
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+최신 버전의 macOS는 사용자가 notification에 신속하게 응답 할 수 있도록, 입력 필드가있는 notifications을 허용합니다. 입력 필드와 함께 notifications을 보내려면, userland 모듈 [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier)를 사용하십시오.
 
 ### Do not disturb / Session State
 
 Notification을 보낼 수 있는지 여부를 확인하려면, userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state)를 사용하십시오.
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+이렇게 하면 notification을 표시 여부를 미리 정할 수 있습니다.
 
 ## Linux
 
