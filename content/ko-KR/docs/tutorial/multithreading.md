@@ -18,7 +18,7 @@ let win = new BrowserWindow({
 
 ## 이용 가능한 API들
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Node.js의 모든 내장 모듈은 Web Workers에서 지원되며, `asar`아카이브는 여전히 Node.js API로 읽을 수 있습니다. However none of Electron's built-in modules can be used in a multi-threaded environment.
 
 ## Native Node.js modules
 
