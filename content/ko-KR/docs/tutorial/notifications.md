@@ -28,11 +28,11 @@ myNotification.onclick = () => {
 
 최신 버전의 Windows에서는 사용자 지정 서식 파일, 이미지 및 기타 유연한 요소을 사용한 advanced notifications을 허용합니다. 이러한 notifications을 보내려면 (main process 또는 renderer process 에서), 사용자 공간(userland or userspace) 모듈 [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications)을 사용하거나, native Node 추가 기능을 사용하여 `ToastNotification` 및 `TileNotification` 개체를 보냅니다.
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+`electron-windows-notifications`을 사용해 버튼을 포함한 notifications이 동작하는 회신을 처리하려면 [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications)을 사용해야 합니다, 이는 필수 COM 구성 요소를 등록하고 입력 된 사용자 데이터를 사용하여 Electron 앱을 호출하는 데 도움이됩니다.
 
 ### Quiet Hours / Presentation Mode
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Notification을 보낼 수 있는지 여부를 확인하려면, userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state)를 사용하십시오.
 
 This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
 
@@ -48,7 +48,7 @@ Later versions of macOS allow for notifications with an input field, allowing th
 
 ### Do not disturb / Session State
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Notification을 보낼 수 있는지 여부를 확인하려면, userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state)를 사용하십시오.
 
 This will allow you to detect ahead of time whether or not the notification will be displayed.
 
