@@ -1,14 +1,14 @@
 # 代码签名
 
-Code signing is a security technology that you use to certify that an app was created by you.
+代码签名是一种用来保证你对应用的创造性的一种安全技术。
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+在macOS系统中，系统可以区分开应用的变更是偶然产生的，还是被恶意代码生成的。
 
 On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application. Trust level builds over time so it's better to start code signing as early as possible.
 
 While it is possible to distribute unsigned apps, it is not recommended. For example, here's what macOS users see when attempting to start an unsigned app:
 
-![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
+![在macOS系统中，会对未签名的应用提出警告](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
 
 > App can't be opened because it is from an unidentified developer
 
@@ -33,12 +33,12 @@ For more info, see the [Mac App Store Submission Guide](mac-app-store-submission
 
 # 签署windows应用程序
 
-Before signing Windows builds, you must do the following:
+在签署Windows应用程序前，你需要完成以下事项：
 
-1. Get a Windows Authenticode code signing certificate
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+1. 获取Windows Authenticode的代码签名证书
+2. 安装Visual Studio 2015/2017(来获取签名功能)
 
-You can get a code signing certificate from a lot of resellers, popular ones include:
+你可以通过许多分销商来获取代码签名证书，比较常见的有：
 
 - [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 - [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
