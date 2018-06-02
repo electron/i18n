@@ -42,13 +42,13 @@ GitHub에 액세스 할 수 없거나 사용자 정의 빌드를 제공해야하
 
 #### Mirror
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. `electron-download`에 의해 사용되는 url은 다음과 같이 구성됩니다.
+환경 변수를 사용하여 기본 URL, Electron binaries가 위치한 경로, 그 binary의 filename을 대체할 수 있습니다. `electron-download`에 의해 사용되는 url은 다음과 같이 구성됩니다.
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+예를 들어, 중국 mirror는 다음과 같습니다.
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -56,7 +56,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+또는, 로컬 캐시를 대체할 수 있습니다. `electron-download`는 다운로드 된 바이너리를 로컬 디렉토리에 캐시하여 네트워크에 스트레스를주지 않습니다. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
