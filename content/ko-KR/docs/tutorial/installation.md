@@ -66,7 +66,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 `ELECTRON_CACHE` 환경 변수를 제공하여 로컬 캐시 위치를 재정의 할 수도 있습니다.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+캐시에는 버전의 공식 zip 파일 뿐만아니라 텍스트 파일로 저장된 체크섬 파일도 포함하고 있습니다. 일반적인 캐시는 다음과 같습니다.
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -83,11 +83,11 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 ## 문제 해결
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+`npm install electron`을 실행하면 일부 사용자는 설치 오류가 발생할 수 있습니다.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or wait a bit and try installing again.
+거의 모든 경우, 이러한 오류들은 네트워크 문제의 결과이고 `electron` npm package의 문제가 아닙니다. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` 및 `ETIMEDOUT`과 같은 오류는 모두 네트워크 문제를 나타냅니다. 가장 좋은 해결책은 네트워크를 전환하거나, 잠시 기다렸다가 다시 설치하는 것입니다.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+`npm`을 통한 설치가 실패 할 경우[electron/electron/releases](https://github.com/electron/electron/releases)에서 Electron을 직접 다운로드 할 수도 있습니다.
 
 If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
