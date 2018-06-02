@@ -10,13 +10,13 @@ npm install electron --save-dev
 
 ## 전역(Global) 설치
 
-You can also install the `electron` command globally in your `$PATH`:
+또한 여러분의 `$PATH`:에 전역 명령어로 설치 할 수도 있습니다.
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## 사용자 정의
 
 If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
 
