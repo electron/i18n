@@ -4,9 +4,9 @@
 
 **Audacious(오디오 플레이어) 의 Launcher shortcuts:**
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![audacious(linux의 오디오 플레이어)](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-일반적으로, 단축키 메뉴의 각 항목에 대해 `Name` 및 `Exec`속성을 제공하여 바로 가기를 추가합니다. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+일반적으로, 단축키 메뉴의 각 항목에 대해 `Name` 및 `Exec`속성을 제공하여 바로 가기를 추가합니다. Unity는 사용자의 클릭에 의해 `Exec`필드를 실행합니다. 양식은 아래와 같습니다.
 
 ```text
 Actions=PlayPause;Next;Previous
@@ -27,4 +27,4 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+여러분의 애플리케이션이 무엇을 할지를 알려주는 Unity의 선호 된 방법은 매개 변수를 사용하는 것입니다. 앱의 전역 변수 `process.argv`에서 찾을 수 있습니다.
