@@ -62,9 +62,9 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 * MacOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+이전 버전의 electron을 사용하는 환경에서는, `~/.electron`에서 캐시를 찾을 수 있습니다.
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+`ELECTRON_CACHE` 환경 변수를 제공하여 로컬 캐시 위치를 재정의 할 수도 있습니다.
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
