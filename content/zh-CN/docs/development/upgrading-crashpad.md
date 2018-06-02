@@ -3,22 +3,22 @@
 1. 获取crashpad的版本信息
     
     - `libcc/src/third_party/crashpad/README.chromium`将会有一个带有 校验和（checksum）的`Revision:`信息
-    - 切换到相应的分支
+    - 检出到相应的分支
     - 获取Google的crashpad (https://chromium.googlesource.com/crashpad/crashpad)，
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - 用版本校验和切换分支 
+    - 用版本校验和检出分支 
         - `git checkout <revision checksum>`
-    - Add electron's crashpad fork as a remote
+    - 将electron's的crashpad分支作为一个远程
     - `git remote add electron https://github.com/electron/crashpad`
-    - Check out a new branch for the update
+    - 为更新检出一个新的分支
     - `git checkout -b electron-crashpad-vA.B.C.D`
-    - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
+    - `A.B.C.D`是 Chromium 的版本，可以在 `libcc/VERSION`中查看，版本信息将应类似于 `62.0.3202.94`
 
-2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
+2. 用`git log --oneline`为Electron的补丁生成一个分支列表。
     
-    - Or view https://github.com/electron/crashpad/commits/previous-branch-name
+    - 可参考https://github.com/electron/crashpad/commits/previous-branch-name
 
-3. For each patch:
+3. 每一个补丁：
     
     - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
     - `git cherry-pick <checksum>`
