@@ -1,6 +1,6 @@
 # 오프 스크린 렌더링
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+오프 스크린 렌더링을 사용하면 브라우저 창의 내용을 비트 맵으로 가져올 수 있으며, 3D scene 의 텍스처와 같이 어디에서나 렌더링 할 수 있습니다. Electron의 오프 스크린 렌더링은 [Chromium 임베디드 프레임워크](https://bitbucket.org/chromiumembedded/cef) 프로젝트와 비슷한 방식을 사용합니다.
 
 Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
 
