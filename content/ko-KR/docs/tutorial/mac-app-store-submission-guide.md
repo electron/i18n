@@ -118,13 +118,13 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+MacOS에서 앱 샌드 박싱을 처음 사용한다면, Apple의 앱 샌드박스 활성화([Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html))를 읽어야만 합니다. 앱에서 필요로하는 권한에 대한 키를 인 타이틀먼트 파일(보통 plist 형태를 취함)에 추가하십시오.
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+수동으로 앱에 서명하는 것 외에도 [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) 모듈을 사용하여 작업을 수행 할 수도 있습니다.
 
-#### Sign Native Modules
+#### 네이티브 모듈 서명
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+앱에서 사용되는 native 모듈도 서명이 필요합니다. 만약 electron-osx-sign을 사용하는 경우 argument list에 빌드 된 바이너리의 경로를 포함시켜야합니다.
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
