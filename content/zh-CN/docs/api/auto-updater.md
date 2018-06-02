@@ -93,4 +93,4 @@
 
 在此机制下，调用 `autoUpdater.quitAndInstall()` 将首先关闭所有应用程序窗口，并且在所有窗口都关闭之后自动调用 `app.quit()`
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**注意:** 如果在`update-downloaded` 事件触发后没有调用这个API 的情况下，应用程序已经退出，该程序在下次运行的时候还是会被替换更新。
