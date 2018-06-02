@@ -47,7 +47,7 @@ app.on('window-all-closed', () => {
 
 ** 注意: **如果应用程序退出是因调用了` autoUpdater. quitAndInstall () `, 所有窗口都会发出` close ` Event *然后* ` before-quit ` Event 并关闭所有窗口。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
 ### 事件: 'will-quit'
 
@@ -59,7 +59,7 @@ app.on('window-all-closed', () => {
 
 关于 ` window-all-closed` 和 ` will-quit ` 事件之间的差异, 请参见 `window-all-closed ` 事件的说明。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
 ### 事件: 'quit'
 
@@ -70,7 +70,7 @@ app.on('window-all-closed', () => {
 
 在应用程序退出时发出。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
 ### 事件: 'open-file' *macOS*
 
@@ -319,7 +319,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 * `exitCode` Integer (可选)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+立即退出程序并返回 `exitCode`。`exitCode` 的默认值是 0。
 
 所有窗口都将立即被关闭（不会弹出询问提示），而且 `before-quit` 和 `will-quit` 事件也不会被触发
 
@@ -442,7 +442,7 @@ app.exit(0)
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+返回 `string`——当前应用程序的语言环境。可能的返回值被记录在[这里](locales.md)。
 
 To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
