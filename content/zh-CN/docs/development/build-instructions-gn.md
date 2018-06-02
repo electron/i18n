@@ -1,8 +1,8 @@
-# Build Instructions (experimental GN build)
+# 构建指南（实验中的GN构建方式）
 
-Follow the guidelines below for building Electron with the experimental GN build.
+可以参考以下方法来运用实验中的GN方式来构建Electron程序。
 
-> **NOTE**: The GN build system is in *experimental* status, and currently only works on macOS and Linux, in debug mode, as a component build.
+> **提示**：GN构建系统处于*实验*阶段，目前仅可在macOS系统和Linux系统中进行组件构建的调试
 
 ## 基本要求
 
