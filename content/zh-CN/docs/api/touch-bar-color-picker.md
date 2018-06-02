@@ -7,10 +7,10 @@
 ### ` new TouchBarColorPicker(可选)` *实验功能*
 
 * `options` Object 
-  * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
+  * `availableColors` String[] (可选) - 由可选的十六进位色值组成的字符串数组.
   * ` backgroundColor `String (可选) - 拾色器选中的颜色十六进位色值，例如 ` #ABCDEF `。
-  * `change` Function (optional) - Function to call when a color is selected. 
-    * `color` String - The color that the user selected from the picker.
+  * `change` Function (可选) - 当选中某一个颜色时触发这个函数. 
+    * `color` String - 用户从拾色器中选取的颜色.
 
 ### 实例属性
 
@@ -18,8 +18,8 @@
 
 #### `touchBarColorPicker.availableColors`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+`String[]`类型，指可以在拾色器中选择的颜色。改变这个数组的值会即时更新触摸条中的拾色器。
 
 #### `touchBarColorPicker.selectedColor`
 
-A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
+`String`类型，指拾色器当前选中的十六进位颜色色值。改变这个值会即时更新触摸条中的拾色器。
