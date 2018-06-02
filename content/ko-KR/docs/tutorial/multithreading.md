@@ -24,9 +24,9 @@ Node.js의 모든 내장 모듈은 Web Workers에서 지원되며, `asar`아카�
 
 어떠한 native Node.js 모듈을 Web Workers에게 직접로드 할 수 있지만, 권장하지는 않습니다. 기존의 대부분의 네이티브 모듈은 단일 스레드 환경을 전제로 작성되었으며, Web Workers에서 사용하면 충돌 및 메모리 손상이 발생할 수 있습니다.
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+주의할 점은 native Node.js 모듈이 스레드로부터 안전하더라도 `process.dlopen` 함수는 스레드로부터 안전하지 않으므로 Web Worker에서로드하는 것이 여전히 안전하지 않습니다.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+현재로써는 네이티브 모듈을 안전하게로드하는 유일한 방법은, Web Workers가 시작된 후에는 앱이 네이티브 모듈을 로드하지 않도록하는 것입니다.
 
 ```javascript
 process.dlopen = () => {
