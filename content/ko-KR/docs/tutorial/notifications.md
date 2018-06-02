@@ -26,7 +26,7 @@ myNotification.onclick = () => {
 
 ### Advanced Notifications
 
-최신 버전의 Windows에서는 사용자 지정 서식 파일, 이미지 및 기타 유연한 요소을 사용한 advanced notifications을 허용합니다. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+최신 버전의 Windows에서는 사용자 지정 서식 파일, 이미지 및 기타 유연한 요소을 사용한 advanced notifications을 허용합니다. 이러한 notifications을 보내려면 (main process 또는 renderer process 에서), 사용자 공간(userland or userspace) 모듈 [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications)을 사용하거나, native Node 추가 기능을 사용하여 `ToastNotification` 및 `TileNotification` 개체를 보냅니다.
 
 While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
