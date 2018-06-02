@@ -6,11 +6,11 @@
 
 ## 事件
 
-The `inAppPurchase` module emits the following events:
+`inAppPurchase` 模块触发以下事件:
 
 ### Event: 'transactions-updated'
 
-Emitted when one or more transactions have been updated.
+一个或多个 transactions 更新时会触发这一事件。
 
 返回:
 
