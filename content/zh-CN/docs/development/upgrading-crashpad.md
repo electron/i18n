@@ -1,12 +1,12 @@
 # Upgrading Crashpad
 
-1. Get the version of crashpad that we're going to use.
+1. 获取crashpad的版本信息
     
-    - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
-    - We need to check out the corresponding branch.
-    - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
+    - `libcc/src/third_party/crashpad/README.chromium`将会有一个带有 校验和（checksum）的`Revision:`信息
+    - 切换到相应的分支
+    - 获取Google的crashpad (https://chromium.googlesource.com/crashpad/crashpad)，
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - Check out the branch with the revision checksum: 
+    - 用版本校验和切换分支 
         - `git checkout <revision checksum>`
     - Add electron's crashpad fork as a remote
     - `git remote add electron https://github.com/electron/crashpad`
