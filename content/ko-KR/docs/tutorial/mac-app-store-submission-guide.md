@@ -134,24 +134,24 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 ### 업로드 앱
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+앱에 서명 한 후, iTunes Connect에서 처리를 위해 Application Loader를 사용하여 업로드 할할 수 있으며, 업로드 전에 생성 기록[created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)을 확인하십시오.
 
-### Submit Your App for Review
+### Review를 위한 앱 제출
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+이 단계가 완료되면 [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html)할 수 있습니다.
 
-## Limitations of MAS Build
+## MAS 빌드의 제약
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+앱 샌드 박싱을위한 모든 요구 사항을 충족시키기 위해, 다음 모듈 MAS 빌드에서 사용 중지되었습니다.
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+다음과 같은 동작이 변경되었습니다.
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* 일부 컴퓨터에서는 비디오 캡처가 작동하지 않을 수 있습니다.
+* 특정 접근성 기능이 작동하지 않을 수 있습니다.
+* 어플리케이션들이 DNS 변경 사항을 인식하지 못할 수 있습니다.
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
 
