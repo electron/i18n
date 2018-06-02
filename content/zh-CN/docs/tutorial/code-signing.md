@@ -16,20 +16,20 @@ If you are building an Electron app that you intend to package and distribute, i
 
 # 签署 macOS 应用程序
 
-Before signing macOS builds, you must do the following:
+在签署macOS应用程序前，你需要完成以下事项：
 
-1. Enroll in the <Apple Developer Program> (requires an annual fee)
-2. Download and install Xcode
-3. Generate, download, and install [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+1. 加入 <Apple Developer Program>(需要缴纳年费)
+2. 下载并安装Xcode
+3. 生成，下载，然后安装[签名证书（signing certificates）](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
-There are a number of tools for signing your packaged app:
+你可以运用许多方式来签署你的应用：
 
 - [`electron-osx-sign`] is a standalone tool for signing macOS packages.
 - [`electron-packager`] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build. 
     - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
 - [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
 
-For more info, see the [Mac App Store Submission Guide](mac-app-store-submission-guide.md).
+更多信息，参考[Mac App Store Submission Guide](mac-app-store-submission-guide.md).
 
 # 签署windows应用程序
 
