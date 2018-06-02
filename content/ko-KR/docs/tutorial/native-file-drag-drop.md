@@ -4,7 +4,7 @@
 
 앱에서이 기능을 구현하려면 `ondragstart` 이벤트에 대한 응답으로 `webContents.startDrag(item)` API를 호출해야합니다.
 
-In your renderer process, handle the `ondragstart` event and forward the information to your main process.
+Renderer process에서 `ondragstart`이벤트를 처리하고 정보를 main process로 전달하십시오.
 
 ```html
 <a href="#" id="drag">item</a>
@@ -16,7 +16,7 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 </script>
 ```
 
-Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
+그런 다음, main process에서 drag 되고 있는 파일의 경로와 아이콘으로 이벤트를 추가하십시오.
 
 ```javascript
 const { ipcMain } = require('electron')
