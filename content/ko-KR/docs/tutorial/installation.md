@@ -24,19 +24,19 @@ npm install electron -g
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+아키텍쳐를 변경하는것 외에도, `--platform` 플래그를 사용하여 플랫폼을 지정할 수 있습니다. (e.g., `win32`, `linux`, etc.)
 
 ```shell
 npm install --platform=win32 electron
 ```
 
-## Proxies
+## 프록시
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+HTTP 프록시 사용이 필요하다면 이곳을 확인하세요. [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
 ## 커스텀 미러와 캐시
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+설치하는 동안, `electron` 모듈은 여러분의 플랫폼에 맞는 사전 빋드된 바이너리를 다운로드하기 위해 [`electron-download`](https://github.com/electron-userland/electron-download)을 호출할 것 입니다. GitHub의 릴리스 다운로드 페이지에 접속하세요 (`https://github.com/electron/electron/releases/tag/v$VERSION`, 여기서 `$VERSION`은 Electron의 정확한 버전입니다 ).
 
 If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
 
