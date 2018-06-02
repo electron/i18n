@@ -89,18 +89,18 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 `npm`을 통한 설치가 실패 할 경우[electron/electron/releases](https://github.com/electron/electron/releases)에서 Electron을 직접 다운로드 할 수도 있습니다.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+`EACCESS` 오류로 설치가 실패한 경우 [여러분의 npm 권한을 수정하십시오](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+위의 오류가 계속되면 [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) 플래그를 true로 설정해야 할 수 있습니니다.
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+속도가 느린 네트워크에서는 다운로드 진행 상황을 보여주기 위해 `--verbose` 플래그를 사용하는 것이 좋습니다.
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+Asset 및 체크섬 파일을 강제로 다시 다운로드해야 하는 경우 `force_no_cache`환경 변수를 `true`로 설정하십시오.
