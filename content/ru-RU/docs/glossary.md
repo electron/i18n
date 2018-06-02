@@ -60,7 +60,7 @@ An IPC system for communicating intra- or inter-process, and that's important be
 
 ### собственные модули
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Они используются главным образом для предоставления интерфейса между скриптов JavaScript, выполняющийся в Node.js и C/C++ библиотеках.
+Собственные модули (также называемые [дополнениями](https://nodejs.org/api/addons.html) в Node.js) это модули написанные на C или C++, которые могут быть загружены в Node.js или Electron используя функцию require(), и используются так, как если бы они были обычным модулем Node.js. Они используются главным образом для предоставления интерфейса между скриптов JavaScript, выполняющийся в Node.js и C/C++ библиотеках.
 
 Собственные модули Node поддерживаются в Electron, но учитывая, что Electron предпочитает использовать разные версии V8 для Node, установленного на Вашем компьютере, вы должны вручную указать расположение заголовков Electron'а, когда собираете собственные модули.
 
