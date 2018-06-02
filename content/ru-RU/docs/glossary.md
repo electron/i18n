@@ -26,7 +26,7 @@ Input Method Editor. Эта программа позволяет пользов
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Язык описания интерфейса. Записывайте сигнатуры функций и типы данных в формате, который может использоваться для создания интерфейсов в Java, C ++, JavaScript и т. д.
 
 ### IPC
 
@@ -56,7 +56,7 @@ IPC стенды для взаимодействия между процесса
 
 An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Смотри https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### собственные модули
 
