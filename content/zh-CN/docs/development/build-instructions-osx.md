@@ -11,19 +11,19 @@
 
 ## Python
 
-Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
+请确保你的运行系统和Python均支持TLS 1.2 及其以上版本。可以运行以下命令来快速检测python版本：
 
 ```sh
 $ python ./script/tls.py
 ```
 
-If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+如果以上命令的回调显示你正在使用过期的安全协议，你可以把macOS系统更新至High Sierra版，或者安装2.7.x版的Python。你可以使用[Homebrew](https://brew.sh/)来更新Python版本：
 
 ```sh
 $ brew install python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+如果你已经在使用Homebrew来管理Python，那你可以通过安装以下Python模块来实现版本支持：
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
