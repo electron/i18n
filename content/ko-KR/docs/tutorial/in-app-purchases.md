@@ -25,7 +25,7 @@ electron을 사용한 개발에서 In-App Purchase를 테스트하기 위해서�
 
 ## 예제 코드
 
-Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+이것은 Electron에서 인앱 구매를 사용하는 방법을 보여주는 예제입니다. 제품 id들을 iTunes Connect에서 생성한 제품 식별자(`com.example.app.product1``의 식별자는 <0>product1`)로 대체해야합니다. Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
 
 ```javascript
 const { inAppPurchase } = require('electron').remote
