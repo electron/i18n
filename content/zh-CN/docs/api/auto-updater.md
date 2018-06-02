@@ -75,7 +75,7 @@
 * `选项` Object 
   * `url` String
   * `headers` Object (可选) *macOS* - HTTP 请求头。
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `serverType` String (可选) *macOS* - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。
 
 设置检查更新的 `url`，并且初始化自动更新。
 
