@@ -645,7 +645,7 @@ win.loadURL('https://github.com')
 
 * `enable` Boolean
 
-Disable or enable the window.
+禁用或者启用窗口。
 
 #### `win.setSize(width, height[, animate])`
 
