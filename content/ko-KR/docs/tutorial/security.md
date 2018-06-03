@@ -393,13 +393,13 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 왜냐구요?
     
-    Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+    WebViews가 DOM에 종속되어 있기 때문에, 비록 Node.js 통합이 비활성화 된 경우에도 웹 사이트에서 실행되는 스크립트로 만들 수 있습니다.
     
-    Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](../api/web-view.md) tags.
+    Electron는 개발자가 렌더러 프로세스를 제어하는 다양한 보안 기능을 비활성화 할 수 있도록 합니다. 대부분의 경우, 개발자는 이러한 기능을 비활성화 할 필요가 없으므로 - 새롭게 만든 [`<WebView>`](../api/web-view.md) 태그에 대해 별도의 구성을 허용해서는 안됩니다.
     
     ### 어떻게 하나요?
     
-    Before a [`<WebView>`](../api/web-view.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
+    Electron은 [`<WebView>`](../api/web-view.md) 태그가 붙기 전에 호스팅중인 `webContents`에서 `will-attach-webview`이벤트를 시작합니다. Use the event to prevent the creation of WebViews with possibly insecure options.
     
     ```js
     app.on('web-contents-created', (event, contents) => {
