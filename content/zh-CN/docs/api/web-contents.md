@@ -74,11 +74,11 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 
 #### Event: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+当tab中的旋转指针（spinner）开始旋转时，就会触发该事件。
 
 #### Event: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+当tab中的旋转指针（spinner）结束旋转时，就会触发该事件。
 
 #### Event: 'did-get-response-details'
 
