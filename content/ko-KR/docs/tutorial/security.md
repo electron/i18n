@@ -20,7 +20,7 @@ Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 �
 
 원격 대상에서 코드를 수신하여 로컬에서 실행할때는 항상 보안 문제가 존재합니다. 예를 들어, 원격 웹사이트가 [`BrowserWindow`](../api/browser-window.md)내부에 표시되는 경우를 고려합니다. 만약 공격자가 어떻게 든 콘텐츠를 변경하면(소스를 직접 공격하거나 앱과 실제 목적지 사이에 앉든), 사용자의 컴퓨터에서 native code를 실행할 수 있습니다.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
+> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. 원격 컨텐츠를 표시하시위해, [`webview`](../api/web-view.md) 태그를 사용하고 `nodeIntegration`을 비활성화 하십시오.
 
 ## Electron 보안 경고
 
@@ -33,10 +33,10 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 이것은 완벽한 보호책이 아니지만, 최소한 이 단계들을 따라서 여러분의 애플리케이션 보안을 향상해야 합니다.
 
 1. [안전한 콘텐츠만 로드하세요.](#1-only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#2-disable-nodejs-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
-4. [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#4-handle-session-permission-requests-from-remote-content)
-5. [Do not disable `webSecurity`](#5-do-not-disable-websecurity)
+2. [원격 콘텐츠를 표시하는 모든 렌더러에서 Node.js 통합을 비활성화 합니다.](#2-disable-nodejs-integration-for-remote-content)
+3. [원격 콘텐츠를 표시하는 모든 렌더러에서 컨텍스트 격리(context isolation) 를 활성화합니다.](#3-enable-context-isolation-for-remote-content)
+4. [원격 콘텐츠를 로드하는 모든 세션에서 `ses.setPermissionRequestHandler()`를 사용합니다.](#4-handle-session-permission-requests-from-remote-content)
+5. [`webSecurity` 비활성화 하지 마세요.](#5-do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
 7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
 8. [Do not set `allowRunningInsecureContent` to `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
