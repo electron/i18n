@@ -516,7 +516,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
-Emitted when a `<webview>` has been attached to this web contents.
+当`<webview>`被挂载到页面内容中时，触发该事件。
 
 #### Event: 'console-message'
 
@@ -563,7 +563,7 @@ Loads the given file in the window, `filePath` should be a path to an HTML file 
 |   - index.html
 ```
 
-Would require code like this
+需要运行以下代码：
 
 ```js
 win.loadFile('src/index.html')
@@ -644,15 +644,15 @@ Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-Clears the navigation history.
+清除浏览器导航历史记录
 
 #### `contents.goBack()`
 
-Makes the browser go back a web page.
+使浏览器回退到上一个页面。
 
 #### `contents.goForward()`
 
-Makes the browser go forward a web page.
+使浏览器前进到下一个页面。
 
 #### `contents.goToIndex(index)`
 
@@ -718,7 +718,7 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+使当前页面音频静音
 
 #### `contents.isAudioMuted()`
 
@@ -766,19 +766,19 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 #### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+在页面中执行`undo`编辑命令。
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+在页面中执行` redo `编辑命令。
 
 #### `contents.cut()`
 
-Executes the editing command `cut` in web page.
+在页面中执行` cut `编辑命令。
 
 #### `contents.copy()`
 
-Executes the editing command `copy` in web page.
+在页面中执行` copy `编辑命令。
 
 #### `contents.copyImageAt(x, y)`
 
@@ -789,35 +789,35 @@ Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+在页面中执行` paste `编辑命令。
 
 #### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+在页面中执行` pasteAndMatchStyle `编辑命令。
 
 #### `contents.delete()`
 
-Executes the editing command `delete` in web page.
+在页面中执行` delete `编辑命令。
 
 #### `contents.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+在页面中执行` selectAll `编辑命令。
 
 #### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
+在页面中执行` unselect `编辑命令。
 
 #### `contents.replace(text)`
 
 * `text` String
 
-Executes the editing command `replace` in web page.
+在页面中执行` replace `编辑命令。
 
 #### `contents.replaceMisspelling(text)`
 
 * `text` String
 
-Executes the editing command `replaceMisspelling` in web page.
+在页面中执行` replaceMisspelling `编辑命令。
 
 #### `contents.insertText(text)`
 
@@ -882,9 +882,9 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+获取系统打印机列表
 
-Returns [`PrinterInfo[]`](structures/printer-info.md).
+返回 [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
@@ -1041,19 +1041,19 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+关闭开发者工具。
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+返回`Boolean` - 开发者工具是否处于开启状态。
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+返回`Boolean` - 开发者工具是否处于当前执行状态。
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+切换开发工具
 
 #### `contents.inspectElement(x, y)`
 
