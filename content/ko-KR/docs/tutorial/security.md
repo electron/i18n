@@ -175,13 +175,13 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ## 4) 원격 콘텐츠에서 세션 권한 요청 처리
     
-    You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
+    Chrome을 사용하는 동안 권한 요청의 경험이 있을것입니다: 웹 사이트에서 사용자가 수동으로 승인해야하는 기능(notifications과 같이) 을 사용하려고 시도 할 때마다 팝업이 표시됩니다.
     
-    The API is based on the [Chromium permissions API](https://developer.chrome.com/extensions/permissions) and implements the same types of permissions.
+    API는 [Chromium permissions API](https://developer.chrome.com/extensions/permissions)를 기반으로하며 동일한 유형의 권한을 구현합니다.
     
     ### 왜냐구요?
     
-    By default, Electron will automatically approve all permission requests unless the developer has manually configured a custom handler. While a solid default, security-conscious developers might want to assume the very opposite.
+    기본적으로, Electron은 개발자가 custom handler를 수동으로 구성하지 않은한, 모든 사용 권한 요청을 자동으로 승인합니다. While a solid default, security-conscious developers might want to assume the very opposite.
     
     ### 어떻게 하나요?
     
