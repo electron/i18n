@@ -399,7 +399,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 어떻게 하나요?
     
-    Electron은 [`<WebView>`](../api/web-view.md) 태그가 붙기 전에 호스팅중인 `webContents`에서 `will-attach-webview`이벤트를 시작합니다. Use the event to prevent the creation of WebViews with possibly insecure options.
+    Electron은 [`<WebView>`](../api/web-view.md) 태그가 붙기 전에 호스팅중인 `webContents`에서 `will-attach-webview`이벤트를 시작합니다. 이 이벤트를 사용하여 안전하지 않은 옵션으로 WebView를 만들지 않도록하십시오.
     
     ```js
     app.on('web-contents-created', (event, contents) => {
@@ -419,4 +419,4 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     })
     ```
     
-    Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+    다시 말하지만, 이 목록은 위험을 최소화하고 제거하지는 않습니다. 만약 목표가 웹 사이트를 표시하는 것이라면 브라우저가 더 안전한 옵션이됩니다.
