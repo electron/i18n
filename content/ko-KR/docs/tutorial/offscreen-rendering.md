@@ -14,7 +14,7 @@ GPU 가속 렌더링은 GPU가 합성에 사용됨을 의미합니다. GPU에서
 
 ### Software output device
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+이 모드는 CPU에서 렌더링하기 위해 소프트웨어 출력 장치를 사용하므로 프레임 생성 속도가 훨씬 빠르기 때문에 GPU 가속 모드보다이 모드가 더 좋습니다.
 
 이 모드를 사용하려면 [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API를 호출하여 GPU 가속을 사용 중지해야합니다.
 
