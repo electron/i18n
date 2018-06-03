@@ -28,7 +28,7 @@ myNotification.onclick = () => {
 
 Windows 的更高版本允许高级通知，自定义模板，图像和其他灵活元素。 要发送这些通知(来自主进程或渲染器进程)，请使用用户区模块 [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) 来用原生节点附件发送 `ToastNotification` 和 `TileNotification` 对象。
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+虽然包含按钮的通知可以使用 `electron-windows-notifications`，但处理回复则需要使用[`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications)，这有助于注册所需的COM组件，并使用输入的用户数据调用Electron应用程序。
 
 ### 免打扰模式 / 演示模式
 
@@ -38,7 +38,7 @@ While notifications including buttons work with `electron-windows-notifications`
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+MacOS上的通知是最直接的，但你应该注意[苹果关于通知的人机接口指南（Apple's Human Interface guidelines regarding notifications）](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 请注意，通知的大小限制为256个字节，如果超过该限制，则会被截断。
 
