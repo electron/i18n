@@ -31,21 +31,21 @@ Release branch에서 지원주기가 끝나면, 이 시리즈는 NPM에서 더�
 
 이 단계는 최종 사용자에게 과도하게 관여하지 않으면서, 앱 개발자가 사용하는 branch가 지원되지 않을 때 이를 알 수 있도록 도와줍니다.
 
-만약 애플리케이션이 예외적인 상황으로 지원되지 않는 Electron에 버전에 머무를 필요가있는 경우, 개발자는 애플리케이션의 `package.json` `devDependencies`에서 최종 릴리스를 생략하여 지원 종료 경고(end-of-support warning)를 없앨 수 있습니다. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+만약 애플리케이션이 예외적인 상황으로 지원되지 않는 Electron에 버전에 머무를 필요가있는 경우, 개발자는 애플리케이션의 `package.json` `devDependencies`에서 최종 릴리스를 생략하여 지원 종료 경고(end-of-support warning)를 없앨 수 있습니다. 예를 들어, 1-6-x 시리즈는 1.6.18의 지원 종료로 종료 되었으므로, 개발자는 `devDependency`를 `"electron": 1.6.0 - 1.6.17`로 설정하여 경고 없이 1-6-x 시리즈에 머물도록 선택할 수 있습니다.
 
 ## 지원되는 플랫폼
 
-Following platforms are supported by Electron:
+Electron이 지원하는 플랫폼은 다음과 같습니다:
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+MacOS에는 64 비트 바이너리만 제공되며, 최소 버전은 macOS 10.9입니다.
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+Windows 7 이상을 지원하며, 이전 버전의 Os는 지원하지 않습니다(그리고 동작하지 않음).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
+32비트 `ia32` (`x86`) 와 64비트 `x64` (`amd64`) 바이너리가 둘다 제공됩니다. Electron 애플리케이션을 ia32 바이너리를 사용해 ARM 기반 윈도우에서 실행하는 것이 가능합니다.
 
 ### Linux
 
