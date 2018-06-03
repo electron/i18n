@@ -181,7 +181,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 왜냐구요?
     
-    기본적으로, Electron은 개발자가 custom handler를 수동으로 구성하지 않은한, 모든 사용 권한 요청을 자동으로 승인합니다. While a solid default, security-conscious developers might want to assume the very opposite.
+    기본적으로, Electron은 개발자가 custom handler를 수동으로 구성하지 않은한, 모든 권한 요청을 자동으로 승인합니다. 기본적으로 견고하지만, 보안 의식이있는 개발자라면 견고하지 않다고 가정하고 싶을 것입니다.
     
     ### 어떻게 하나요?
     
