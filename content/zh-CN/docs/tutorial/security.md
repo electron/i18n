@@ -142,7 +142,7 @@ At the same time, preload scripts still have access to the `document` and `windo
 ### 怎么做？
 
 ```js
-// Main process
+// 主进程
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
@@ -152,9 +152,9 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Preload script
+// 预加载脚本
 
-// Set a variable in the page before it loads
+// 在页面加载前设置变量
 webFrame.executeJavaScript('window.foo = "foo";')
 
 // The loaded page will not be able to access this, it is only available
@@ -218,7 +218,7 @@ Disabling `webSecurity` will disable the same-origin policy and set `allowRunnin
 ### 怎么做？
 
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -227,15 +227,15 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Bad -->
+<!-- 不推荐 -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<!-- 推荐 -->
 <webview src="page.html"></webview>
 ```
 
@@ -254,10 +254,10 @@ Electron respects [the `Content-Security-Policy` HTTP header](https://developer.
 The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
 
 ```txt
-// Bad
+// 不推荐
 Content-Security-Policy: '*'
 
-// Good
+// 推荐
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
@@ -296,7 +296,7 @@ Loading content over `HTTPS` assures the authenticity and integrity of the loade
 ### 怎么做？
 
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -305,7 +305,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -333,7 +333,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -350,7 +350,7 @@ Generally speaking, there are likely good reasons if a feature was not enabled b
 ### 怎么做？
 
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: ['ExecCommandInJavaScript']
@@ -359,7 +359,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow()
 ```
 
@@ -376,10 +376,10 @@ If you do not need popups, you are better off not allowing the creation of new [
 ### 怎么做？
 
 ```html
-<!-- Bad -->
+<!-- 不推荐 -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- 推荐 -->
 <webview src="page.html"></webview>
 ```
 
