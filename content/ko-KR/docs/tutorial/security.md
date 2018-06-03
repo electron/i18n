@@ -54,7 +54,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     `HTTPS`는 세 가지 이점이 있습니다:
     
-    1) 원격 서버를 인증하여, 앱이 위장서버가 아닌 올바른 호스트에 안전하게 연결 되도록합니다. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
+    1) 원격 서버를 인증하여, 앱이 위장서버가 아닌 올바른 호스트에 안전하게 연결 되도록합니다. 2) 애플리케이션과 호스트간에 전송되는 동안 데이터가 수정되지 않았다고 단언하여, 데이터 무결성을 보장합니다. 3) 사용자와 대상 호스트 사이의 트래픽을 암호화하여, 앱과 호스트간에 전송되는 정보를 도청하기 더 어렵게 만듭니다.
     
     ### 어떻게 하나요?
     
@@ -78,7 +78,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ## 2) 원격 콘텐츠에 대한 Node.js 통합 비활성화
     
-    It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+    원격 콘텐츠를 로드하는 어떤 렌더러([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`WebView`](../api/web-view.md))에서라도 Node.js 통합을 비활성화하는 것이 가장 중요합니다. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
     
     After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
     
