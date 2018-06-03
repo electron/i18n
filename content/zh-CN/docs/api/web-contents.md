@@ -278,15 +278,15 @@ win.webContents.on('before-input-event', (event, input) => {
 
 #### Event: 'devtools-opened'
 
-Emitted when DevTools is opened.
+当开发者工具被打开时，触发该事件。
 
 #### Event: 'devtools-closed'
 
-Emitted when DevTools is closed.
+当开发者工具被关闭时，触发该事件。
 
 #### Event: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+当开发者工具被选中/打开时，触发该事件。
 
 #### 事件: 'certificate-error'
 
@@ -297,11 +297,11 @@ Emitted when DevTools is focused / opened.
 * `error` String - 错误码.
 * `certificate` [证书](structures/certificate.md)
 * `callback` Function - 回调函数 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
+  * `isTrusted` Boolean - 用于显示证书是否可信。
 
-Emitted when failed to verify the `certificate` for `url`.
+`证书`的`链接`验证失败时，触发该事件。
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+使用方式与[`app`的`certificate-error`](app.md#event-certificate-error)的事件相同。
 
 #### 事件: 'select-client-certificate'
 
@@ -315,7 +315,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 当一个客户证书被请求的时候发出。
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+使用方式与[`app`的`select-client-certificate`](app.md#event-select-client-certificate)的事件相同。
 
 #### 事件: "login"
 
@@ -338,7 +338,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+使用方式与[`app`的`login`](app.md#event-login)的事件相同。
 
 #### Event: 'found-in-page'
 
@@ -356,7 +356,7 @@ Emitted when a result is available for [`webContents.findInPage`] request.
 
 #### Event: 'media-started-playing'
 
-Emitted when media starts playing.
+多媒体开始播放时，触发该事件。
 
 #### Event: 'media-paused'
 
@@ -493,7 +493,7 @@ win.loadURL('http://github.com')
 
 #### Event: 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
+当在开发者工具中命令webContents重新加载时，触发该事件。
 
 #### Event: 'will-attach-webview'
 
