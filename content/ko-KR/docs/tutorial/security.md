@@ -269,9 +269,9 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 왜냐구요?
     
-    `eval()`은 문자열로 되어 있는 자바스크립트를 실행하는 것 딱 한 가지에 목표를 두고 있습니다. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
+    `eval()` 함수는 문자열로 되어 있는 자바스크립트를 실행하는 것 딱 한 가지에 목표를 두고 있습니다. Eval() 함수는 사전에 알려지지 않은 코드를 평가할 필요가 있을때 필수적인 방법입니다. 다른 코드 생성기와 마찬가지로 본격적인 유스 케이스들이 존재하지만, eval () 은 단단한 구조로 만들기 어렵습니다.
     
-    Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
+    일반적으로 말하자면, `eval()`을 완벽하게 비활성화하는 것이 방탄(Not bts) 처리하는 것보다 쉽습니다. 따라서 필요하지 않은 경우 사용하지 않는 것이 좋습니다.
     
     ### 어떻게 하나요?
     
