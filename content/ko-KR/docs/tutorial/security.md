@@ -137,7 +137,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     컨텍스트 격리를 사용하면 렌더러에서 실행중인 각 스크립트가 Electron API 또는 preload script의 스크립트들과 충돌없이 JavaScript 환경을 변경할 수 있습니다.
     
-    While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts.
+    실험적인 Electron 기능인, 컨텍스트 격리는 추가적인 보안 계층을 추가합니다. Electron API 및 preload scripts를 위한 새로운 JavaScript 세계을 만듭니다.
     
     At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
     
