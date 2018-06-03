@@ -1,4 +1,4 @@
-# Transaction Object
+# Transaction 对象
 
 * `transactionIdentifier` String
 * `transactionDate` String
