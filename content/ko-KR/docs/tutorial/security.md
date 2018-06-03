@@ -289,7 +289,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     기본적으로, Electron는 `HTTPS`를 통해 로드된 웹사이트를 허용하지 않습니다, 또한 불안전한 출처(`HTTP`) 의 스크립트, CSS 또는 플러그인을 로드하고 실행할 수 없도록합니다. `allowRunningInsecureContent` 속성을 `true`로 설정하면 해당 보호가 비활성화 됩니다.
     
-    Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
+    "mixed content"라고도 알려져 있듯이, `HTTPS`를 통해 웹사이트의 초기 HTML을 로드하고, `HTTP`를 통해 후속 리소스를 로드하려고 시도하려고 합니다.
     
     ### 왜냐구요?
     
