@@ -109,24 +109,24 @@ Emitted when details regarding a requested resource are available. `status` indi
 * `referrer` String
 * `headers` Object
 
-Emitted when a redirect is received while requesting a resource.
+当接收到重定向请求时，触发该事件。
 
-#### Event: 'dom-ready'
+#### 事件: 'dom-ready'
 
 返回:
 
 * `event` Event
 
-Emitted when the document in the given frame is loaded.
+一个框架中的文本加载完成后触发该事件。
 
 #### Event: 'page-favicon-updated'
 
 返回:
 
 * `event` Event
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - 由连接组成的数组。
 
-Emitted when page receives favicon urls.
+当页面获取到favicon的连接时，触发该事件。
 
 #### Event: 'new-window'
 
@@ -135,8 +135,8 @@ Emitted when page receives favicon urls.
 * `event` Event
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.
+* `options` Object - 用于创建新的 [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
 
 当页面请求打开地址为 ` url ` 的新窗口时触发。可以通过 ` window.open ` 或外部链接 (如 `<a target='_blank'>`) 触发。
@@ -168,7 +168,7 @@ This event will not emit when the navigation is started programmatically with AP
 
 It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Calling `event.preventDefault()` will prevent the navigation.
+调用`event.preventDefault()`将阻止导航。
 
 #### Event: 'did-navigate'
 
