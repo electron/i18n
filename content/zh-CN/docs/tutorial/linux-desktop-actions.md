@@ -14,17 +14,16 @@ Actions=PlayPause;Next;Previous
 [Desktop Action PlayPause]
 Name=Play-Pause
 Exec=audacious -t
-OnlyShowIn=Unity;
+
 
 [Desktop Action Next]
 Name=Next
 Exec=audacious -f
-OnlyShowIn=Unity;
+
 
 [Desktop Action Previous]
 Name=Previous
 Exec=audacious -r
-OnlyShowIn=Unity;
 ```
 
 Unity启动器通常通过参数的形式来操作应用。 你在应用的全局变量`process.argv`中发现这一规律。
