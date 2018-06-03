@@ -387,9 +387,9 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ## 12) 생성 전 WebView 옵션 확인
     
-    A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+    Node.js 통합이 활성화되지 않은 렌더러 프로세스에서 생성된 WebView는 통합 자체를 활성화 할 수 없습니다. 하지만, WebView는 항상 자체 `webPreferences`를 사용하여 독립적인 렌더러 프로세스를 생성합니다.
     
-    It is a good idea to control the creation of new [`WebViews`](../api/web-view.md) from the main process and to verify that their webPreferences do not disable security features.
+    메인 프로세스에서 새로운 [`WebViews`](../api/web-view.md)를 생성하는 것이 좋습니다, 그리고 WebPreferences가 보안 기능을 비활성화하지 않는지 확인하는 것이 좋습니다.
     
     ### 왜냐구요?
     
