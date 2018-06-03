@@ -4,7 +4,7 @@ Chromium을 기반으로하는, Electron은 디스플레이 드라이버 작동�
 
 ## 가상 디스플레이 서버 구성
 
-우선, [Xvfb](https://en.wikipedia.org/wiki/Xvfb)를 설치합니다. It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
+우선, [Xvfb](https://en.wikipedia.org/wiki/Xvfb)를 설치합니다. X11 디스플레이 서버 프로토콜을 구현된 가상 프레임 버퍼이며 - 우리가 정확하게 필요로 하는 기능인 화면 출력을 표시하지 않고 메모리에서 모든 그래픽 작업을 수행합니다.
 
 Then, create a virtual xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. On Windows or macOS, it will do nothing.
 
