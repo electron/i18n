@@ -815,7 +815,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+当鼠标滑到，或者键盘切换到a连接时，触发该事件。
 
 ### Event: 'devtools-opened'
 
