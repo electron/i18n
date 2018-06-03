@@ -36,8 +36,8 @@ Jenkins의 경우 [Xvfb 플러그인을 사용할 수 있습니다](https://wiki
 
 ### Circle CI
 
-Circle CI is awesome and has xvfb and `$DISPLAY` [already setup, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Circle CI는 대단하며 xvfb 및 `$DISPLAY`가 [이미 설정되어 있으므로, 더 이상 구성 할 필요가 없습니다](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+AppVeyor는 Windows에서 실행되며, Selenium, Chromium, Electron 및 유사 도구를 즉시 지원합니다 - 구성이 필요하지 않습니다.
