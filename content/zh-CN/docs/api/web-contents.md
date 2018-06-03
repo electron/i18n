@@ -243,22 +243,22 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'destroyed'
 
-Emitted when `webContents` is destroyed.
+当`webContents`被销毁时，触发该事件。
 
 #### Event: 'before-input-event'
 
 返回:
 
 * `event` Event
-* `input` Object - Input properties. 
-  * `type` String - Either `keyUp` or `keyDown`.
-  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+* `input` Object - Input属性. 
+  * `type` String - 可以是 `keyUp` ，或者 `keyDown`.
+  * `key` String - 等同于 [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` code ` String - 等同于 [KeyboardEvent. code ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` isAutoRepeat ` String - 等同于 [KeyboardEvent. repeat ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` shift ` String - 等同于 [KeyboardEvent.shiftKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` control ` String - 等同于 [KeyboardEvent. controlKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` alt ` String - 等同于 [KeyboardEvent. altKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` meta ` String - 等同于 [KeyboardEvent. metaKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
@@ -382,7 +382,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 * `event` Event
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+当鼠标滑到，或者键盘切换到a连接时，触发该事件。
 
 #### Event: 'cursor-changed'
 
@@ -577,7 +577,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Returns `String` - 当前页面的URL.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -590,11 +590,11 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+返回 `String` - 当前页面的标题.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+返回 `Boolean` -判断页面是否被销毁
 
 #### `contents.focus()`
 
@@ -602,7 +602,7 @@ Focuses the web page.
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+返回 `Boolean` - 判断页面是否聚焦
 
 #### `contents.isLoading()`
 
