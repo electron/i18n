@@ -26,7 +26,7 @@
 
 从Electron 2.0版本开始，开发者将会在开发者控制台看到打印的警告和建议。 They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+你可以通过在`process.env` 或 `window`对象上配置`ELECTRON_ENABLE_SECURITY_WARNINGS` 或`ELECTRON_DISABLE_SECURITY_WARNINGS`来强制开启或关闭这些警告。
 
 ## 清单：安全建议
 
@@ -87,7 +87,7 @@ A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump ou
 ### 怎么做？
 
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
 ```
@@ -105,10 +105,10 @@ mainWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- 不推荐 -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<!-- 推荐 -->
 <webview src="page.html"></webview>
 ```
 
