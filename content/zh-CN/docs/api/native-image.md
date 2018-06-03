@@ -233,7 +233,7 @@ Returns [`Size`](structures/size.md)
 
 #### `image.resize(options)`
 
-* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
+* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (可选) - 默认值为图片高度. * `quality` String (optional) 所要设置的图片质量。 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
 
 返回 ` NativeImage `-裁剪的图像。
 
