@@ -26,8 +26,8 @@
 
 - [`electron-osx-sign`]，一个独立的macOS签名工具。
 - [`electron-packager`] 打包 `electron-osx-sign`. 如果你正在使用 `electron-packager`，那么在签署包文件时请传`--osx-sign=true`参数。 
-    - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
-- [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
+    - [`electron-forge`]，它在内部使用`electron-packager`，你可以在forge配置中设置 `osxSign`配置项。
+- [`electron-builder`] 内置代码签名功能。 可参考[electron.build/code-signing](https://www.electron.build/code-signing)
 
 更多信息，参考[Mac App Store Submission Guide](mac-app-store-submission-guide.md).
 
@@ -48,8 +48,8 @@
 你可以运用许多方式来签署你的应用：
 
 - [`electron-winstaller`]，将会生成一个带有签名的windows安装包。
-- [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`electron-builder`] 能签署一些windows文件。
+- [`electron-forge`] 可以签署Squirrel.Windows 或MSI 类型的安装包
+- [`electron-builder`] 能签署一些windows安装包。
 
 ## Windows 应用商店
 
