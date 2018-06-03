@@ -1,12 +1,12 @@
 # 升级 Chromium
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+本文概述了在Electron中升级Chromium所需的步骤。
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- 将libcc升级到新的Chromium版本
+- 使Electron兼容新的libcc
+- 如有必要，请更新Electron的相关依赖（如奔溃报告，NodeJS等）
+- 穿件libcc和Electron的内部编译本
+- 如有需要，请更新Electron文档
 
 ## Upgrade `libcc` to a new Chromium version
 
