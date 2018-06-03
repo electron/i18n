@@ -2,9 +2,9 @@
 
 ## Finding Support
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+보안 문제가 있다면, [security document](../../SECURITY.md)를 참조하세요.
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+프로그래밍 도움말, 질문에 대한 답변 또는 Electron을 사용하는 다른 개발자와 토론에 참여하려는 경우, 다음 위치에서 커뮤니티와 상호 작용할 수 있습니다.
 
 * [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 * `#atom-shell` channel on Freenode
@@ -17,15 +17,15 @@ If you're looking for programming help, for answers to questions, or to join in 
 * [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
 * [`electron-pl`](https://electronpl.github.io) *(Poland)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+Electron에 공헌하고 싶다면, [contributing document](../../CONTRIBUTING.md)를 보십시오.
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+[supported version](#supported-versions) Electron에서 버그를 발견 한다면, [issue tracker](../development/issues.md)에 보고해 주세요.
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+[awesome-electron](https://github.com/sindresorhus/awesome-electron)은 커뮤니티에서 관리되는 유용한 예제 앱, 도구 및 리소스 목록입니다.
 
-## Supported Versions
+## 지원되는 버전
 
-The latest three release branches are supported by the Electron team. For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
+The latest three release branches are supported by the Electron team. 예를 들어, 최신 릴리스가 2.0.x 인 경우 2-0-x 시리즈가 지원되며, 두 개의 이전 릴리스 시리즈 1-7-x 및 1-8-x도 지원됩니다.
 
 When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
 
