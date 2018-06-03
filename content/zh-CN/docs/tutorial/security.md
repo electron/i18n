@@ -39,15 +39,15 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 5. [不要禁用 ` webSecurity `](#5-do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
 7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
-8. [Do not set `allowRunningInsecureContent` to `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [Do not enable experimental features](#9-do-not-enable-experimental-features)
-10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
+8. [不要设置 ` allowRunningInsecureContent ` 为 true.](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [不要开启实验性功能](#9-do-not-enable-experimental-features)
+10. [不要使用`enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
 11. [WebViews: 不要使用 `allowpopups`](#11-do-not-use-allowpopups)
 12. [WebViews: 验证所有 `<webview>` 标记的选项和参数](#12-verify-webview-options-before-creation)
 
 ## 1) 仅加载安全内容
 
-应使用像 ` HTTPS ` 这样的安全协议加载应用程序中不包含的任何资源。 换言之， 不要使用不安全的协议 （如 ` HTTP `）。 Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+应使用像 ` HTTPS ` 这样的安全协议加载应用程序中不包含的任何资源。 换言之， 不要使用不安全的协议 （如 ` HTTP `）。 同理，我们建议使用`WSS`，避免使用`WS`，建议使用`FTPS` ，避免使用`FTP`，等等诸如此类的协议。
 
 ### 为什么？
 
