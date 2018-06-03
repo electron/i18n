@@ -29,9 +29,9 @@ Electron에 공헌하고 싶다면, [contributing document](../../CONTRIBUTING.m
 
 Release branch에서 지원주기가 끝나면, 이 시리즈는 NPM에서 더이상 사용되지 않게 설정되며, 최종 지원 배포가 만들어질 것 입니다. 이 릴리스에서는 지원되지 않는 버전의 Electron이 사용 중임을 알리는 경고가 추가됩니다.
 
-These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
+이 단계는 최종 사용자에게 과도하게 관여하지 않으면서, 앱 개발자가 사용하는 branch가 지원되지 않을 때 이를 알 수 있도록 도와줍니다.
 
-If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+만약 애플리케이션이 예외적인 상황으로 지원되지 않는 Electron에 버전에 머무를 필요가있는 경우, 개발자는 애플리케이션의 `package.json` `devDependencies`에서 최종 릴리스를 생략하여 지원 종료 경고(end-of-support warning)를 없앨 수 있습니다. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
 
 ## 지원되는 플랫폼
 
