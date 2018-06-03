@@ -31,7 +31,7 @@ npm install --save-dev electron@latest
 1. 严格使用 semver
 2. 引入符合 semver 的 `-beta` 标签
 3. 引入[常规提交消息](https://conventionalcommits.org/)
-4. Well-defined stabilization branches
+4. 明确定义的稳定分支
 5. `master`分支没有版本信息，只有稳定分支会包含版本信息。
 
 我们将详细介绍 git 分支是如何工作的，npm 标记是如何工作的，开发人员应该看到什么，以及如何能够支持更改。
@@ -42,11 +42,11 @@ npm install --save-dev electron@latest
 
 下面是一个表格，明确地将变化的类型映射到它们对应的 semver 类别 (例如Major，Minor，Patch)。
 
-| Major 版本增量          | Minor 版本增量           | Patch 版本增量                    |
-| ------------------- | -------------------- | ----------------------------- |
-| Electron 突破性 API 变更 | Electron 无突破性 API 变更 | Electron bug 修复               |
-| Node.js 重大版本更新      | Node.js 次要版本更新       | Node.js patch version updates |
-| Chromium 版本更新       |                      | 修复相关的 chromium 补丁             |
+| Major 版本增量          | Minor 版本增量           | Patch 版本增量         |
+| ------------------- | -------------------- | ------------------ |
+| Electron 突破性 API 变更 | Electron 无突破性 API 变更 | Electron bug 修复    |
+| Node.js 重大版本更新      | Node.js 次要版本更新       | Node.js patch 版本更新 |
+| Chromium 版本更新       |                      | 修复相关的 chromium 补丁  |
 
 请注意，大多数 chromium 更新将被视为突破性更新。 可以被回溯的修复可能会被修补为修补程序。
 
@@ -80,7 +80,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 3. 如果特定的beta版本*通常被认为*是稳定的，那么它将作为稳定版本被重新发布，只改变版本信息。 例如`2.0.0`。
 4. 如果将来的错误修复或安全补丁需要在发布稳定后进行，则会应用这些修补程序并相应地增加* patch *程序版本 例如`2.0.1`.
 
-For each major and minor bump, you should expect to see something like the following:
+对于每个主要和次要的颠覆，你都应该像以下示例一样进行操作：
 
 ```text
 2.0.0-beta.1
@@ -115,7 +115,7 @@ For each major and minor bump, you should expect to see something like the follo
 
 功能标志是 Chromium 的一种常见的做法, 在网络开发生态系统中得到了很好的确立。 在 Electron 环境中, 功能标志或 ** 软分支 ** 必须具有以下属性:
 
-- it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+- 是在运行时或生成时启用/禁用的。我们不支持请求作用域功能标志的概念
 - 它完全细分新的和旧的代码路径; 重构旧代码以允许新功能 * 违反 * 功能标志内容
 - 在合并软分支后, 功能标志最终将被删除
 
