@@ -80,11 +80,11 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     원격 콘텐츠를 로드하는 어떤 렌더러([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`WebView`](../api/web-view.md))에서라도 Node.js 통합을 비활성화하는 것이 가장 중요합니다. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
     
-    그 후, 특별한 호스트를 위해 추가적인 권한을 부여할 수 있습니다. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+    그 후, 특별한 호스트를 위해 추가적인 권한을 부여할 수 있습니다. 예를 들면, 만약 `https://my-website.com/ '을 가르키는 BrowserWindow를 여는 경우, 해당 웹 사이트에 필요한 정확한 권한을 줄 수 있지만, 그 이상은 필요 없습니다.
     
     ### 왜냐구요?
     
-    A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+    공격자가 렌더러 프로세스를 밖으로 점프가 가능하고 사용자 컴퓨터에서 코드 실행이 가능하다면, cross-site-scripting(XSS) 공격은 더 위험합니다 Cross-site-scripting 공격은 매우 일반적입니다 - 문제가 발생하는 동안, 대개 해당 웹 사이트에서 실행되는 웹 사이트를 난장판으로 만듭니다. Node.js 통합을 비활성화하면 XSS가 소위 "원격 코드 실행(Remote Code Execution)"(RCE) 공격으로 확대되는 것을 방지 할 수 있습니다.
     
     ### 어떻게 하나요?
     
