@@ -12,7 +12,7 @@
 
 > 应用无法打开，因为它来自身份不明的开发者
 
-如果你正在开发一款Electron应用，并打算将其打包发布，那你就应该为其添加代码签名。 The Mac and Windows app stores do not allow unsigned apps.
+如果你正在开发一款Electron应用，并打算将其打包发布，那你就应该为其添加代码签名。 Mac 和 Windows的应用商店中不允许出现未签名的应用程序。
 
 # 签署 macOS 应用程序
 
@@ -24,8 +24,8 @@
 
 你可以运用许多方式来签署你的应用：
 
-- [`electron-osx-sign`] is a standalone tool for signing macOS packages.
-- [`electron-packager`] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build. 
+- [`electron-osx-sign`]，一个独立的macOS签名工具。
+- [`electron-packager`] 打包 `electron-osx-sign`. 如果你正在使用 `electron-packager`，那么在签署包文件时请传`--osx-sign=true`参数。 
     - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
 - [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
 
@@ -47,10 +47,10 @@
 
 你可以运用许多方式来签署你的应用：
 
-- [`electron-winstaller`] will generate an installer for windows and sign it for you
+- [`electron-winstaller`]，将会生成一个带有签名的windows安装包。
 - [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`electron-builder`] can sign some of its windows targets
+- [`electron-builder`] 能签署一些windows文件。
 
-## Windows Store
+## Windows 应用商店
 
 参考 [Windows Store Guide](windows-store-guide.md).
