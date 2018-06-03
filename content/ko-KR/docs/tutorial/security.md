@@ -78,9 +78,9 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ## 2) 원격 콘텐츠에 대한 Node.js 통합 비활성화
     
-    원격 콘텐츠를 로드하는 어떤 렌더러([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`WebView`](../api/web-view.md))에서라도 Node.js 통합을 비활성화하는 것이 가장 중요합니다. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+    원격 콘텐츠를 로드하는 어떤 렌더러([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`WebView`](../api/web-view.md))에서라도 Node.js 통합을 비활성화하는 것이 가장 중요합니다. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
     
-    After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+    그 후, 특별한 호스트를 위해 추가적인 권한을 부여할 수 있습니다. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
     
     ### 왜냐구요?
     
