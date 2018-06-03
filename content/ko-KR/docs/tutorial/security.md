@@ -139,7 +139,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     실험적인 Electron 기능인, 컨텍스트 격리는 추가적인 보안 계층을 추가합니다. Electron API 및 preload scripts를 위한 새로운 JavaScript 세계을 만듭니다.
     
-    At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
+    동시에, preload scripts는 `document` 및 `window` 개체에 접근할 수 있습니다. 다시 말해서, 매우 작은 투자에 비해 적절한 결과를 얻고 있다고 볼 수 있습니다.
     
     ### 어떻게 하나요?
     
@@ -173,7 +173,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     })
     ```
     
-    ## 4) Handle Session Permission Requests From Remote Content
+    ## 4) 원격 콘텐츠에서 세션 권한 요청 처리
     
     You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
     
