@@ -1,10 +1,10 @@
-# Testing on Headless CI Systems (Travis CI, Jenkins)
+# Testing on Headless CI Systems (Travis CI, Jenkins) - UI 없이 테스트 하기
 
-Being based on Chromium, Electron requires a display driver to function. If Chromium can't find a display driver, Electron will fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
+Chromium을 기반으로하는, Electron은 디스플레이 드라이버 작동을 요구합니다. 만약 Chromium이 디스플레이 드라이버를 찾을 수없는 경우, Electron을 실행하는 데 실패합니다 - 따라서 실행하는 방법에 관계없이 테스트를 실행하지 않습니다. Travis, Circle, Jenkins 또는 유사한 시스템에서 Electron기반 앱을 테스트하려면 약간의 구성이 필요합니다. 실제로, 우리는 가상 디스플레이 드라이버의 사용이 필요합니다.
 
-## Configuring the Virtual Display Server
+## 가상 디스플레이 서버 구성
 
-First, install [Xvfb](https://en.wikipedia.org/wiki/Xvfb). It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
+우선, [Xvfb](https://en.wikipedia.org/wiki/Xvfb)를 설치합니다. It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
 
 Then, create a virtual xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. On Windows or macOS, it will do nothing.
 
