@@ -10,7 +10,7 @@ These new features bring those auditing tools to your Electron app. You can choo
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+在测试框架Spectron中，你可以审查应用程序中的每个window和`<webview>`标签。例如：
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,17 +24,17 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+在 Devtron 中, 有一个新的辅助功能选项卡, 允许您对应用程序中的某一个页面进行审核, 并对审核结果进行排序和筛选。
 
 ![devtron 截图](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+这两种工具都使用了Google 为 Chrome 所构建的 [ 辅助功能开发工具 ](https://github.com/GoogleChrome/accessibility-developer-tools) 库。 您可以在 [ repository's wiki ](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) 上了解到更加详细的辅助功能审核规则。
 
 If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
 ## 启用辅助功能
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+由于性能原因, Electron应用程序在默认情况下禁用了辅助功能, 不过你可以通过多种方法启用它们。
 
 ### 应用程序内部
 
