@@ -36,8 +36,8 @@ session.defaultSession.cookies.set(cookie, (error) => {
 #### Event: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
-* `cause` String - coodie 值变动的原因，该变量可能的值为： 
+* `cookie` [Cookie](structures/cookie.md) - 变更后的 cookie 值。
+* `cause` String - cookie 值变动的原因，该变量可能的值为： 
   * ` explicit ` - cookie 是由消费者的操作直接更改的。
   * ` overwrite ` - 一个覆盖原值的插入操作导致的 cookie 被自动删除。
   * ` expired ` - cookie 在过期时自动删除。
