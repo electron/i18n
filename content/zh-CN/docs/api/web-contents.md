@@ -189,9 +189,9 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 * `url` String
 * `isMainFrame` Boolean
 
-Emitted when an in-page navigation happened.
+当发生页内导航时，触发该事件。
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+当发生业内导航时，虽然页面地址发生变化，但它并没有导航到其它页面。 Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
 #### Event: 'will-prevent-unload'
 
