@@ -4,7 +4,7 @@
 
 在macOS系统中，系统可以区分开应用的变更是偶然产生的，还是被恶意代码生成的。
 
-On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application. Trust level builds over time so it's better to start code signing as early as possible.
+在Windows系统中，如果程序没有代码签名证书，或者代码签名授信级别较低时，系统同样会将其列为可信程序，只是当用户运行该应用时，系统会显示安全提示。 Trust level builds over time so it's better to start code signing as early as possible.
 
 While it is possible to distribute unsigned apps, it is not recommended. For example, here's what macOS users see when attempting to start an unsigned app:
 
