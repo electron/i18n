@@ -18,7 +18,7 @@ Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 �
 
 ## 위의 경고를 무시하면
 
-원격 대상에서 코드를 수신하여 로컬에서 실행할때는 항상 보안 문제가 존재합니다. As an example, consider a remote website being displayed inside a [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+원격 대상에서 코드를 수신하여 로컬에서 실행할때는 항상 보안 문제가 존재합니다. 예를 들어, 원격 웹사이트가 [`BrowserWindow`](../api/browser-window.md)내부에 표시되는 경우를 고려합니다. 만약 공격자가 어떻게 든 콘텐츠를 변경하면(소스를 직접 공격하거나 앱과 실제 목적지 사이에 앉든), 사용자의 컴퓨터에서 native code를 실행할 수 있습니다.
 
 > :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`webview`](../api/web-view.md) tag and make sure to disable the `nodeIntegration`.
 
