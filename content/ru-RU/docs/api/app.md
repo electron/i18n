@@ -85,7 +85,7 @@ app.on('window-all-closed', () => {
 
 В Windows Вам необходимо распарсить `process.argv` (в главном процессе), чтобы получить путь к файлу.
 
-### Событие: 'open-file' *macOS*
+### Событие: 'open-url' *macOS*
 
 Возвращает:
 
