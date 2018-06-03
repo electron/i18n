@@ -1,6 +1,6 @@
-# Recent Documents (Windows & macOS)
+# 最近文档 (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows 和 macOS 分别通过打开跳转列表（JumpList）和dock菜单使应用程序能够快速的访问最近打开的文档列表。
 
 **跳转列表**
 
@@ -8,7 +8,7 @@ Windows and macOS provide access to a list of recent documents opened by the app
 
 **应用 dock 菜单**
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![macOS Dock 菜单](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
 若要增加一个文件到最近文件列表，你可以使用[app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
 
