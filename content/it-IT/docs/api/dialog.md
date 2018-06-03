@@ -36,8 +36,8 @@ Il modulo `"dialog"` espone i seguenti metodi:
     * `multiSelections` - Allow multiple paths to be selected.
     * `showHiddenFiles` - Mostra i file nascosti.
     * `createDirectory` *macOS* - Permette la creazione di nuove cartelle all'interno della finestra.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * 0>promptToCreate</code> *Windows* - Effettua la creazione del file se il percorso inserito nel dialog non esiste. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
+    * `noResolveAliases` *macOS* - Disabilita la risoluzione automatica dei collegamenti (symlink). I collegamenti selezionati non ritorneranno il proprio percorso, bensì il percorso a cui puntano.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
   * `message` String (optional) *macOS* - Message to display above input boxes.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
