@@ -4,15 +4,15 @@
 
 在macOS系统中，系统可以区分开应用的变更是偶然产生的，还是被恶意代码生成的。
 
-在Windows系统中，如果程序没有代码签名证书，或者代码签名授信级别较低时，系统同样会将其列为可信程序，只是当用户运行该应用时，系统会显示安全提示。 Trust level builds over time so it's better to start code signing as early as possible.
+在Windows系统中，如果程序没有代码签名证书，或者代码签名授信级别较低时，系统同样会将其列为可信程序，只是当用户运行该应用时，系统会显示安全提示。 确立授信级别的过程比较费时，因此最好提早开始着手代码签名的工作。
 
-While it is possible to distribute unsigned apps, it is not recommended. For example, here's what macOS users see when attempting to start an unsigned app:
+即使开发者可以发布一个未签名的应用程序，但是我们并不建议这样做。 下面就是macOS系统用户，在运行没有签名的应用程序时遇到的情形：
 
 ![在macOS系统中，会对未签名的应用提出警告](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
 
-> App can't be opened because it is from an unidentified developer
+> 应用无法打开，因为它来自身份不明的开发者
 
-If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
+如果你正在开发一款Electron应用，并打算将其打包发布，那你就应该为其添加代码签名。 The Mac and Windows app stores do not allow unsigned apps.
 
 # 签署 macOS 应用程序
 
