@@ -49,7 +49,7 @@ Windows 7 이상을 지원하며, 이전 버전의 Os는 지원하지 않습니�
 
 ### Linux
 
-The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+Prebuilt `ia32` (`i686`) 과 `x64` (`amd64`) Electron 바이너리는 Ubuntu 12.04에서 빌드 되었으며, `armv7l`바이너리는 hard-float ABI가 있는 ARM v7 및 Debian Wheezy의 NEON 용으로 제작되었습니다.
 
 [Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/tutorial/planned-breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
 
