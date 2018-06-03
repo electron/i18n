@@ -116,7 +116,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     Node.js 통합을 비활성화해도, Node.js 모듈 또는 기능을 사용하는 웹 사이트에 API를 계속 노출 할 수 있습니다. 사전 로드 스크립트는 계속해서 `require` 및 다른 Node.js 기능에 액세스 할 수 있으며, 개발자는 원격에서 로드된 콘텐츠에 사용자 API의 노출을 허용할 수 있습니다.
     
-    In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
+    다음 예제의 preload 스크립트에서, 나중에로드 된 웹 사이트는 `window.readConfig()` 메소드에 액세스 할 수 있지만, Node.js 기능은 사용할 수 없습니다.
     
     ```js
     const { readFileSync } = require('fs')
@@ -129,7 +129,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ## 3) 원격 콘텐츠에 대한 콘텍스트 격리 활성화
     
-    Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
+    컨텍스트 격리는 개발자가 전용 JavaScript 컨텍스트에서 사전로드 스크립트 및 Electron API에서 코드를 실행할 수있게 해주는 Electron 기능입니다. 실제로, `Array.prototype.push` 또는 `JSON.parse`와 같은 전역 객체는 렌더러 프로세스에서 실행되는 스크립트로 수정할 수 없습니다.
     
     Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
     
