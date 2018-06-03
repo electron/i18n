@@ -1,4 +1,4 @@
-# Electron Support
+# Electron技术支持
 
 ## Finding Support
 
@@ -45,7 +45,7 @@ If an application has exceptional circumstances and needs to stay on an unsuppor
 
 仅支持 Windows 7 或更高版本, 旧版操作系统已不再支持(并且无法运行).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
+为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
 
 ### Linux
 
@@ -55,6 +55,6 @@ Electron 的 `ia32` (`i686`) 和 `x64` (`amd64`) 预编译版本均是在Ubuntu 
 
 预编译版本是否能够正常运行，取决于其中是否包含了编译平台的链接库。所以只有 Ubuntu 12.04 是可以保证能正常运行的，并且以下平台也被证实可以正常运行 Electron 的预编译版本：
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 或更高版本
 * Fedora 21
 * Debian 8
