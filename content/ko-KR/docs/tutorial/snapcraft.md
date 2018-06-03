@@ -1,6 +1,6 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# Snapcraft Guide (우분투 소프트웨어 센터 및 기타)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+이 가이드는 Ubuntu Software Center를 포함한, 모든 Snapcraft 환경에서 Electron 애플리케이션을 패키징하는 방법에 대한 정보를 제공합니다.
 
 ## 배경 및 요구 사항
 
