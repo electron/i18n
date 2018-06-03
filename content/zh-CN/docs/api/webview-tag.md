@@ -791,7 +791,7 @@ Fired when the WebContents is destroyed.
 
 ### Event: 'media-started-playing'
 
-Emitted when media starts playing.
+多媒体开始播放时，触发该事件。
 
 ### Event: 'media-paused'
 
@@ -819,12 +819,12 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 ### Event: 'devtools-opened'
 
-Emitted when DevTools is opened.
+当开发者工具被打开时，触发该事件。
 
 ### Event: 'devtools-closed'
 
-Emitted when DevTools is closed.
+当开发者工具被关闭时，触发该事件。
 
 ### Event: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+当开发者工具被选中/打开时，触发该事件。
