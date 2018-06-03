@@ -347,7 +347,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 왜냐구요?
     
-    일반적으로 말하자면, 어떤 기능이 비활성화 되어 있다면, 거기에는 그럴만한 이유가 있다는 것입니다. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+    일반적으로 말하자면, 어떤 기능이 비활성화 되어 있다면, 거기에는 그럴만한 이유가 있다는 것입니다. 특정 기능을 사용하기 위한 본격적인 use cases가 존재합니다. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
     
     ### 어떻게 하나요?
     
