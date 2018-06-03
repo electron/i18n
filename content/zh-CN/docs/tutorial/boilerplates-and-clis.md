@@ -6,13 +6,13 @@ Electron 应用的开发从来都不是死板的, 应用的开发、构建、打
 
 ## 模板与命令行界面
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. 通常来说，你可以从一个代码仓库克隆一个模板，然后修改成你心仪的样子。
+一个模板就像是一张空白的画布，你可以以它为基础来搭建你的应用。 通常来说，你可以从一个代码仓库克隆一个模板，然后修改成你心仪的样子。
 
 命令行工具则是在整个开发和分发过程中从另一方面给你提供帮助。 他们更有用，但同时也对代码结构和构建项目有着硬性的要求。 *特别是对于初学者来说，命令行工具十分有用。*
 
 ## electron-forge
 
-Electron Forge 是一个用来构建现代化Electron应用的完善的工具。 Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+Electron Forge 是一个用来构建现代化Electron应用的完善的工具。 Electron Forge将多个现有的（ 且有稳定维护的 ）Electron构建工具整合为一个简单易用的工具包，所有人都可以用它来快速地搭建Electron开发环境。
 
 Forge 将一些流行框架整合为[“开箱即用”](https://electronforge.io/templates)的模板，比如：React、Vue、Angular等。 Forge 的一些核心模块来自于上层的Electron社区（比如[`electron-packager`](https://github.com/electron-userland/electron-packager)），因而Electron主要维护人员（比如说Slack）提交的Electron更新也会使Forge的用户受益。
 
