@@ -347,7 +347,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 왜냐구요?
     
-    일반적으로 말하자면, 어떤 기능이 비활성화 되어 있다면, 거기에는 그럴만한 이유가 있다는 것입니다. 특정 기능을 사용하기 위한 본격적인 use cases가 존재합니다. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+    일반적으로 말하자면, 어떤 기능이 비활성화 되어 있다면, 거기에는 그럴만한 이유가 있다는 것입니다. 특정 기능을 사용하기 위한 본격적인 use cases가 존재합니다. 개발자로서, 왜 기능을 활성화 해야하는지, 어떤 파급효과를 줄지, 애플리케이션의 보안에 어느정도의 영향을 미치는지의 정확한 이유를 알아야 합니다. 어떠한 상황에서도 추측을 통해 기능들을 활성화 하지 마십시오.
     
     ### 어떻게 하나요?
     
@@ -369,7 +369,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     *추천 값은 Electron의 기본값입니다.*
     
-    If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
+    [`WebViews`](../api/web-view.md)를 사용하는 경우, 새 창을 열려면 `<webview>`태그에 로드된 페이지와 스크립트가 필요할 수 있습니다. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
     
     ### 왜냐구요?
     
