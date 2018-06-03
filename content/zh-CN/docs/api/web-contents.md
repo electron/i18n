@@ -606,7 +606,7 @@ Focuses the web page.
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+返回 `Boolean` - 判断页面是否正在加载资源
 
 #### `contents.isLoadingMainFrame()`
 
@@ -622,7 +622,7 @@ Stops any pending navigation.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+刷新当前页面
 
 #### `contents.reloadIgnoringCache()`
 
@@ -678,13 +678,13 @@ Overrides the user agent for this web page.
 
 #### `contents.getUserAgent()`
 
-Returns `String` - The user agent for this web page.
+返回 `String` - 当前页面的user agent.
 
 #### `contents.insertCSS(css)`
 
 * `css` String
 
-Injects CSS into the current web page.
+为当前页面注入样式
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
@@ -722,7 +722,7 @@ Ignore application menu shortcuts while this web contents is focused.
 
 #### `contents.isAudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+返回 `Boolean` -判断页面是否被静音
 
 #### `contents.setZoomFactor(factor)`
 
@@ -1060,7 +1060,7 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+开始检查位于(`x`, `y`) 的元素。
 
 #### `contents.inspectServiceWorker()`
 
@@ -1116,11 +1116,11 @@ app.on('ready', () => {
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-Enable device emulation with the given parameters.
+允许设备模拟给定参数。
 
 #### `contents.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+禁止`webContents.enableDeviceEmulation`允许的模拟设备
 
 #### `contents.sendInputEvent(event)`
 
@@ -1145,7 +1145,7 @@ For mouse events, the `event` object also have following properties:
 * `movementY` Integer
 * `clickCount` Integer
 
-For the `mouseWheel` event, the `event` object also have following properties:
+`mouseWheel`事件的`event`对象还有下列属性：
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -1158,7 +1158,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
+* ` onlyDirty ` Boolean (可选) - 默认值为 ` false `.
 * `callback` Function - 回调函数 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1274,7 +1274,7 @@ Returns `Integer` - The `pid` of the associated renderer process.
 
 #### `contents.id`
 
-A `Integer` representing the unique ID of this WebContents.
+`Integer`类型，代表WebContents的唯一标识（unique ID）。
 
 #### `contents.session`
 
@@ -1292,4 +1292,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+WebContents的 [Debugger](debugger.md)实例。
