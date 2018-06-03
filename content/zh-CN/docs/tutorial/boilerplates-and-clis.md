@@ -28,7 +28,7 @@ Electron Builder 是一个完备的Electron应用打包和分发解决方案，�
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. 它在社区中很受欢迎，并在内部使用了 `electron-builder`。
+如果你不希望任何工具，而想要简单地从一个模板开始构建，CT Lin的 [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) 可能值得一看。 它在社区中很受欢迎，并在内部使用了 `electron-builder`。
 
 ## 其它工具和模板
 
