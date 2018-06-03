@@ -805,7 +805,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
+开始访问安全范围内的资源。 With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
