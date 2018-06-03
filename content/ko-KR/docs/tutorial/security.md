@@ -263,7 +263,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     Content-Security-Policy: script-src 'self' https://apis.mydomain.com
     ```
     
-    ## 7) `eval`을 재정의하고 비활성화하세요.
+    ## 7) `eval`의 재정의 및 비활성화
     
     `eval()`은 문자열로 되어있는 JavaScript를 실행하도록 허용하는 핵심 JavaScript 매서드입니다. 이것을 비활성화하면 앱이 알려지지 않은 JavaScript 스크립트를 실행하지 못하도록 기능을 비활성화합니다.
     
@@ -287,7 +287,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     *추천 값은 Electron의 기본값입니다.*
     
-    By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
+    기본적으로, Electron는 `HTTPS`를 통해 로드된 웹사이트를 허용하지 않습니다, 또한 불안전한 출처(`HTTP`) 의 스크립트, CSS 또는 플러그인을 로드하고 실행할 수 없도록합니다. `allowRunningInsecureContent` 속성을 `true`로 설정하면 해당 보호가 비활성화 됩니다.
     
     Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
     
