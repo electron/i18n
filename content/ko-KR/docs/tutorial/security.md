@@ -209,13 +209,13 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     *추천 값은 Electron의 기본값입니다.*
     
-    You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) disables crucial security features.
+    이미 짐작 하듯이, 렌더러 프로세스에서([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`WebView`](../api/web-view.md)) `webSecurity` 속성을 비활성화하면, 중요한 보안 기능이 비활성화 됩니다.
     
-    Do not disable `webSecurity` in production applications.
+    애플리케이션 제품에서 `webSecurity`을 비활성화 하지 마세요.
     
     ### 왜냐구요?
     
-    Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
+    `webSecurity`를 비활성화하면 same-origin policy가 비활성화되고 `allowRunningInsecureContent` 속성이 `true`로 설정됩니다. 다시 말해서, 다른 도메인의 안전하지 않은 코드를 실행할 수 있습니다.
     
     ### 어떻게 하나요?
     
@@ -243,7 +243,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ## 6) 콘텐츠 보안 정책을 정의하세요.
     
-    콘텐츠 보안 정책(CSP)은 교차-사이트-스크립트 공격과 데이터 삽입 공격에 대응하는 추가적인 보호 계층입니다. Electron 안에서 로드하는 어떤 웹사이트든지 활성화하는 것을 권장합니다.
+    콘텐츠 보안 정책(CSP) 은 교차-사이트-스크립트(cross-site-scripting) 공격과 데이터 삽입 공격에 대응하는 추가적인 보호 계층입니다. Electron 안에서 로드하는 어떤 웹사이트든지 활성화하는 것을 권장합니다.
     
     ### 왜냐구요?
     
