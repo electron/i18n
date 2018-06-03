@@ -4,7 +4,7 @@
 
 Electron으로 작업할때, Electron이 웹 브라우저가 아니라는 점을 이해하는 것이 중요합니다. 익숙한 웹 기술로 풍부한 기능의 데스크톱 응용 프로그램을 만들 수 있는것 뿐만 아니라, 여러분의 코드는 훨씬더 큰힘을 발휘합니다. 자바스크립트는 파일시스템, 유저 shell, 등 에 접근이 가능합니다. 이를 통해 고급 스러운 native 애플리케이션을 만들 수 있지만, 코드에 부여 된 추가 권한으로 인해 고유한 보안 위험이 커집니다.
 
-With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
+이를 염두에두고, 신뢰할 수 없는 출처의 임의의 콘텐츠를 표시하면 Electron이 처리할 수 없는 심각한 보안 위험을 야기합니다. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious. 사실, 가장 인기있는 Electron 앱들 (Atom, Slack, Visual Studio Code 등) 은 주로 로컬 콘텐츠(또는 노드 통합이 없는 신뢰할 수 있는 안전한 원격 콘텐츠) 를 표시합니다. - 만약 애플리케이션에서 온라인 소스의 코드를 실행하는 경우, 코드가 악의적이지 않은지 확인하는 것은 사용자의 책임입니다.
 
 ## 보안 문제 제보
 
