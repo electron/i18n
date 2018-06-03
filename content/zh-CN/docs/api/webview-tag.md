@@ -724,7 +724,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 当发生页内导航时，触发该事件。
 
-当发生业内导航时，虽然页面地址发生变化，但它并没有导航到其它页面。 Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+当发生页内导航时，虽然页面地址发生变化，但它并没有导航到其它页面。 例如，点击锚点链接，或者DOM的 `hashchange`事件被触发时，都会触发该事件。
 
 ### 事件： 'close'
 
