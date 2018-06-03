@@ -715,7 +715,7 @@ app.on('ready', () => {
 
 在macOS系统中, 它展示在dock图标上。在Linux系统中, 它只适用于Unity启动器.
 
-** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux)。
+** 注意: **Unity 启动器依赖于 `.desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux)。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
