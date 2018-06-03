@@ -293,7 +293,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 왜냐구요?
     
-    Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+    `HTTPS`를 통해 컨텐츠를 로드하면 트래픽 자체를 암호화하면서 로드된 리소스의 출처과 무결성을 보장합니다. 좀더 자세한 정보는 [only displaying secure content](#1-only-load-secure-content) 섹션을 참조하세요.
     
     ### 어떻게 하나요?
     
@@ -339,15 +339,15 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     const mainWindow = new BrowserWindow({})
     ```
     
-    ## 10) Do Not Use `enableBlinkFeatures`
+    ## 10) `enableBlinkFeatures`을 사용하지 마세요
     
     *추천 값은 Electron의 기본값입니다.*
     
-    Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
+    Blink는 Chromium의 렌더링 엔진 이름입니다. `experimentalFeatures`와 마찬가지로, `enableBlinkFeatures` 속성을 사용하면, 개발자가 기본적으로 비활성화된 기능을 활성화 할 수 있도록 허용됩니다.
     
     ### 왜냐구요?
     
-    Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+    일반적으로 말하자면, 어떤 기능이 비활성화 되어 있다면, 거기에는 그럴만한 이유가 있다는 것입니다. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
     
     ### 어떻게 하나요?
     
