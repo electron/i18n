@@ -672,7 +672,7 @@ console.log(requestId)
 
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.
 * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
 Fired when the guest page attempts to open a new browser window.
