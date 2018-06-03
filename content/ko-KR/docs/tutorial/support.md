@@ -25,9 +25,9 @@ Electron에 공헌하고 싶다면, [contributing document](../../CONTRIBUTING.m
 
 ## 지원되는 버전
 
-The latest three release branches are supported by the Electron team. 예를 들어, 최신 릴리스가 2.0.x 인 경우 2-0-x 시리즈가 지원되며, 두 개의 이전 릴리스 시리즈 1-7-x 및 1-8-x도 지원됩니다.
+최신 3 개의 release branches은 Electron 팀에서 지원합니다. 예를 들어, 최신 릴리스가 2.0.x 인 경우 2-0-x 시리즈가 지원되며, 두 개의 이전 릴리스 시리즈 1-7-x 및 1-8-x도 지원됩니다.
 
-When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
+Release branch에서 지원주기가 끝나면, 이 시리즈는 NPM에서 더이상 사용되지 않게 설정되며, 최종 지원 배포가 만들어질 것 입니다. 이 릴리스에서는 지원되지 않는 버전의 Electron이 사용 중임을 알리는 경고가 추가됩니다.
 
 These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
 
