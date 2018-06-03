@@ -369,11 +369,11 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     *추천 값은 Electron의 기본값입니다.*
     
-    [`WebViews`](../api/web-view.md)를 사용하는 경우, 새 창을 열려면 `<webview>`태그에 로드된 페이지와 스크립트가 필요할 수 있습니다. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
+    [`WebViews`](../api/web-view.md)를 사용하는 경우, 새 창을 열려면 `<webview>`태그에 로드된 페이지와 스크립트가 필요할 수 있습니다. `allowpopups` 속성을 사용하면 `window.open()`메서드를 사용하여 새 [`BrowserWindows`](../api/browser-window.md)를 생성할 수 있습니다. 그렇지 않으면 `WebViews`는 새 창을 만들 수 없습니다.
     
     ### 왜냐구요?
     
-    If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](../api/browser-window.md) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+    팝업이 필요하지 않은 경우, 기본적으로 새로운 [`BrowserWindows`](../api/browser-window.md)를 생성하지 않는 편이 더 좋습니다. 이것은 최소한으로 요구되는 접근 원칙을 따릅니다: 웹 사이트가 새로운 기능을 필요로하지 않는다면 새로운 팝업을 만들지 않게하십시오.
     
     ### 어떻게 하나요?
     
@@ -385,7 +385,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     <webview src="page.html"></webview>
     ```
     
-    ## 12) Verify WebView Options Before Creation
+    ## 12) 생성 전 WebView 옵션 확인
     
     A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
     
