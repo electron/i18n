@@ -43,7 +43,7 @@
 - [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 - [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 - [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-- Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+- 可以根据自身需求，选择其它的签名分销商。
 
 你可以运用许多方式来签署你的应用：
 
