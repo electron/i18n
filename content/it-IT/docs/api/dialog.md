@@ -1,10 +1,10 @@
 # dialogo
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Visualizza finestre di dialogo per l'apertura e il salvataggio di file, avvisi ecc.
 
 Processo: [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+Un esempio è l'apertura di una finestra per la selezione multipla di file e/o cartelle:
 
 ```javascript
 const {dialog} = require('electron')
