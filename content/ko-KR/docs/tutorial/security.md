@@ -114,7 +114,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     <webview src="page.html"></webview>
     ```
     
-    Node.js 통합을 비활성화해도, Node.js 모듈 또는 기능을 사용하는 웹 사이트에 API를 계속 노출 할 수 있습니다. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+    Node.js 통합을 비활성화해도, Node.js 모듈 또는 기능을 사용하는 웹 사이트에 API를 계속 노출 할 수 있습니다. 사전 로드 스크립트는 계속해서 `require` 및 다른 Node.js 기능에 액세스 할 수 있으며, 개발자는 원격에서 로드된 콘텐츠에 사용자 API의 노출을 허용할 수 있습니다.
     
     In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
     
