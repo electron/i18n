@@ -7,7 +7,7 @@
 ### `new TouchBarSlider(options)` *实验功能*
 
 * `选项` 对象 
-  * `label` String (optional) - Label text.
+  * `label` String (可选) - 标签文本.
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.
   * `maxValue` Integer (optional) - Maximum value.
@@ -20,7 +20,7 @@ The following properties are available on instances of `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+`String`类型，用于为滑块添加展示文本。改变它的值会即时刷新触摸条中的滑块。
 
 #### `touchBarSlider.value`
 
