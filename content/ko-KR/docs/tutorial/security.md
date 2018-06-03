@@ -12,7 +12,7 @@ Electron의 보안 취약점을 공개하는 방법은 [SECURITY.md](https://git
 
 ## Chromium 보안 문제와 업그레이드
 
-Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 위해 노력하지만, 개발자는 업그레이드가 수십 또는 수백 개의 파일을 수작업으로 편집하는 작업이 포함되는 중요한 사업임을 인지해야합니다. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
+Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 위해 노력하지만, 개발자는 업그레이드가 수십 또는 수백 개의 파일을 수작업으로 편집하는 작업이 포함되는 중요한 사업임을 인지해야합니다. 현재 사용할 수있는 자원과 기여를 감안할 때, Electron은 종종 Chromium의 가장 최신 버전을 사용하지 않고, 며칠 또는 몇 주가 뒤에 지연된 버전을 사용합니다.
 
 We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. 이 노력을 지지하는 Pull 요청과 기여는 언제나 환영합니다.
 
