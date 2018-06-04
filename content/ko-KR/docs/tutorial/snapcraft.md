@@ -69,15 +69,15 @@ snap(options)
 
 ## 기존 데비안 패키지 사용하기
 
-Snapcraft는 기존 `.deb` 파일을 가져 와서`.snap` 파일로 변환 할 수 있습니다. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+Snapcraft는 기존 `.deb` 파일을 가져 와서`.snap` 파일로 변환 할 수 있습니다. 스냅 생성은 소스, 종속성, 설명 및 기타 핵심 구성 요소를 설명하는 `snapcraft.yaml` 파일을 사용하여 구성됩니다.
 
-### Step 1: Create a Debian Package
+### Step 1: 데비안 패키지 생성
 
-If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+만약 `.deb` 패키지가 아직 없는 경우, `electron-installer-snap`을 사용하는것이 스냅 패키지를 만드는 쉬운 길이 될 수 있습니다. 그러나, [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) 또는 [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian)을 포함한 데비안 패키지를 만드는 여러 솔루션이 존재합니다
 
-### Step 2: Create a snapcraft.yaml
+### Step 2: snapcraft.yaml 생성
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+사용 가능한 구성 옵션에 대한 자세한 내용은, [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax) 참조하십시오. 아래 예제를 보십시오:
 
 ```yaml
 name: myApp
