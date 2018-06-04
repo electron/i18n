@@ -132,13 +132,13 @@ apps:
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+`엄격한` 제한으로 `snap`을 작성하는 경우, `desktop-launch` 명령을 사용할 수 있습니다:
 
 ```yaml
 apps:
   myApp:
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    # Chromium Framework / Electron의 안전을 위한 TMPDIR 경로 수정
+    # libappindicator에는 읽기 가능한 리소스들이 있습니다.
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
