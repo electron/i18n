@@ -20,17 +20,17 @@ Homebrew를 사용하여 macOS 상에서 `snapcraft`의 설치는 *가능*하지
 
 ## `electron-installer-snap` 사용
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+이 모듈은 [`electron-winstaller`](https://github.com/electron/windows-installer) 및 이와 유사한 모듈과 같이 동작하며 스냅 패키지를 만드는 것으로 제한됩니다. 다음과 같이 설치할 수 있습니다:
 
 ```sh
 npm install --save-dev electron-installer-snap
 ```
 
-### Step 1: Package Your Electron Application
+### Step 1: Electron 애플리케이션 패키지.
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+패키지 애플리케이션은 [electron-packager](https://github.com/electron-userland/electron-packager) (혹은 유사한 도구) 를 사용합니다. 실제로 필요하지 않은 모듈은 애플리케이션의 크기를 증가시킬 것이므로, 최종 애플리케이션에서 필요없는 `node_modules`을 제거하십시오.
 
-The output should look roughly like this:
+결과물은 대략 아래와 같이 보일것 입니다:
 
 ```text
 .
@@ -50,7 +50,7 @@ The output should look roughly like this:
         └── version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### Step 2: `electron-installer-snap` 실행
 
 From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
 
