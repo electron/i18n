@@ -8,17 +8,17 @@ Canonical은 보다 광범위한 Linux 커뮤니티와 함께 [`snapcraft`](http
 
 `.snap</0 파일을 생성하는 3가지 방법을 소개합니다.</p>
 
-<p>1) <code>snap`과 함께 사용되는 [`electron-forge`](https://github.com/electron-userland/electron-forge) 또는 [`electron-builder`](https://github.com/electron-userland/electron-builder) 두가지 툴 모두 즉시 지원합니다. 이것이 가장 쉬운 방법입니다. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) 이미 생성된 `.deb` 패키지를 사용합니다.
+<p>1) <code>snap`과 함께 사용되는 [`electron-forge`](https://github.com/electron-userland/electron-forge) 또는 [`electron-builder`](https://github.com/electron-userland/electron-builder) 두가지 툴 모두 즉시 지원합니다. 이것이 가장 쉬운 방법입니다. 2) `electron-packager`의 결과물을 가지고, `electron-installer-snap`을 사용합니다. 3) 이미 생성된 `.deb` 패키지를 사용합니다.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+모든 경우에, `snapcraft`도구를 설치되어 있어야 합니다. Ubuntu 16.04 (또는 현재 LTS 버전) 를 사용하는 것을 권장합니다.
 
 ```sh
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+Homebrew를 사용하여 macOS 상에서 `snapcraft`의 설치는 *가능*하지만, `snap`패키지를 빌드할 수는 없으며 저장소의 패키지 관리에 중점을 둡니다.
 
-## Using `electron-installer-snap`
+## `electron-installer-snap` 사용
 
 The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
 
