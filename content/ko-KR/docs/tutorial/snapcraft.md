@@ -52,13 +52,13 @@ npm install --save-dev electron-installer-snap
 
 ### Step 2: `electron-installer-snap` 실행
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+`snapcraft`의 경로가 `PATH`에 설정되 있는 터미널을 열고, 첫번째 단계에서 생성된 Electron 애플리케이션 패키지의 경로에서 유일한 필요 옵션`--src`을 사용해 `electron-installer-snap`을 실행합니다.
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+만약 기존 빌드 파이프 라인이 있는 경우 라면, 프로그래밍 방식으로 `electron-installer-snap`을 사용할 수 있습니다. 더 자세한 정보를 보고싶다면, [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax)을 참고하세요.
 
 ```js
 const snap = require('electron-installer-snap')
@@ -67,9 +67,9 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## 기존 데비안 패키지 사용하기
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+Snapcraft는 기존 `.deb` 파일을 가져 와서`.snap` 파일로 변환 할 수 있습니다. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
 
 ### Step 1: Create a Debian Package
 
