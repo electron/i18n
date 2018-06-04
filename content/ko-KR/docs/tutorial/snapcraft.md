@@ -4,7 +4,7 @@
 
 ## 배경 및 요구 사항
 
-Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+Canonical은 보다 광범위한 Linux 커뮤니티와 함께 [`snapcraft`](https://snapcraft.io/) 프로젝트의 다양한 일반적인 소프트웨어 설치 문제의 해결을 목적으로 하고 있습니다. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
 
 There are three ways to create a `.snap` file:
 
