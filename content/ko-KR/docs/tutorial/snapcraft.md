@@ -124,7 +124,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+보시는 바와 같이, `snapcraft.yaml`은 시스템에 `electron-launch`라 불리는 파일을 시작하라고 지시합니다. 이 예제는, 앱의 바이너리에 정보를 전달하는 것을 보여줍니다.
 
 ```sh
 #!/bin/sh
