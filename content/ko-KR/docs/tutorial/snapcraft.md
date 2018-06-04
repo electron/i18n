@@ -8,7 +8,7 @@ Canonical은 보다 광범위한 Linux 커뮤니티와 함께 [`snapcraft`](http
 
 `.snap</0 파일을 생성하는 3가지 방법을 소개합니다.</p>
 
-<p>1) Using <a href="https://github.com/electron-userland/electron-forge"><code>electron-forge`</a> or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+<p>1) <code>snap`과 함께 사용되는 [`electron-forge`](https://github.com/electron-userland/electron-forge) 또는 [`electron-builder`](https://github.com/electron-userland/electron-builder) 두가지 툴 모두 즉시 지원합니다. 이것이 가장 쉬운 방법입니다. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) 이미 생성된 `.deb` 패키지를 사용합니다.
 
 In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
