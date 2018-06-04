@@ -4,11 +4,11 @@
 
 ## 배경 및 요구 사항
 
-Canonical은 보다 광범위한 Linux 커뮤니티와 함께 [`snapcraft`](https://snapcraft.io/) 프로젝트의 다양한 일반적인 소프트웨어 설치 문제의 해결을 목적으로 하고 있습니다. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+Canonical은 보다 광범위한 Linux 커뮤니티와 함께 [`snapcraft`](https://snapcraft.io/) 프로젝트의 다양한 일반적인 소프트웨어 설치 문제의 해결을 목적으로 하고 있습니다. 스냅은 필요한 종속성, 자동 업데이트를 포함하는 컨테이너화된 소프트웨어 패키지이며, 시스템 수정 없이 모든 주요 Linux 배포판에서 작동합니다.
 
-There are three ways to create a `.snap` file:
+`.snap</0 파일을 생성하는 3가지 방법을 소개합니다.</p>
 
-1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+<p>1) Using <a href="https://github.com/electron-userland/electron-forge"><code>electron-forge`</a> or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
 
 In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
