@@ -1,4 +1,4 @@
-## Class: TouchBarColorPicker
+## 类: TouchBarColorPicker
 
 > 在macOS 应用程序中，为触控栏创建拾色器
 
