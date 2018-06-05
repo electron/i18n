@@ -1,32 +1,32 @@
 # راهنمای رسمی
 
-لطفا مطمئن شوید که شما با استفاده از اسناد نسخه الکترون را مطابقت میدهید . شماره نسخه باید بخشی از URL صفحه باشد. اگر اینطور نمی باشد، شما احتمالا از مستندات گروه توسعه که حاوی تغییرات API است و سازگار با نسخه ای الکترونی شما نیست استفاده میکنید. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+لطفا مطمئن شوید که شما با استفاده از اسناد نسخه الکترون را مطابقت میدهید . شماره نسخه باید بخشی از URL صفحه باشد. اگر اینطور نمی باشد، شما احتمالا از مستندات گروه توسعه که حاوی تغییرات API است و سازگار با نسخه ای الکترونی شما نیست استفاده میکنید. برای دیدن قدیمی تر نسخه های اسناد، شما می توانید [ مرور بر اساس برچسب ](https://github.com/electron/electron/tree/v1.4.0) در GitHub با باز کردن 'منوی شاخه ها / برچسب ها' کشویی و انتخاب برچسبی که مطابق نسخه شما است.
 
 ## سوالات متداول
 
-There are questions that are asked quite often. Check this out before creating an issue:
+سوالاتی وجود دارد که از اغلب آنها خواسته می شود. قبل از ایجاد یک مسئله آن را بررسی کنید:
 
 * [سوالات متداول الکترون](faq.md)
 
-## Guides and Tutorials
+## راهنماها و آموزشها
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
+* [راه اندازی محیط توسعه](tutorial/development-environment.md) 
+  * [راه اندازی macOS](tutorial/development-environment.md#setting-up-macos)
+  * [راه اندازی ویندوز](tutorial/development-environment.md#setting-up-windows)
+  * [راه اندازی لینوکس](tutorial/development-environment.md#setting-up-linux)
+  * [انتخاب یک ویرایشگر](tutorial/development-environment.md#a-good-editor)
+* [ایجاد اولین برنامه شما](tutorial/first-app.md) 
+  * [نصب الکترون Electron](tutorial/first-app.md#installing-electron)
+  * [توسعه الکترون به طور کلی](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [app در حال اجرای خود را](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
-  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+* [Boilerplates و همچنین CLIs ](tutorial/boilerplates-and-clis.md) 
+  * [Boilerplate در مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Application Architecture](tutorial/application-architecture.md) 
-  * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [سایر ابزارها و Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+* [معماری برنامه](tutorial/application-architecture.md) 
+  * [فرآیندهای اصلی و رندرینگ](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
   * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
