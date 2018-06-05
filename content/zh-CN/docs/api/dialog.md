@@ -20,7 +20,7 @@ console.log(dialog)
 
 ## 方法
 
-` dialog ` 对象具有以下方法:
+` dialog ` 模块具有以下方法:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
