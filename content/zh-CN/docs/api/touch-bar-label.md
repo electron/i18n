@@ -1,6 +1,6 @@
 ## 类: TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> 在原生macOS应用程序的触摸栏中创建一个标签
 
 线程：[主线程](../tutorial/quick-start.md#main-process)
 
