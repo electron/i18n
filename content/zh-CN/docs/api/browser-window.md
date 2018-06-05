@@ -941,7 +941,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+类似于`webContents.loadFile`，`filePath`是一个HTML页相对的应用根目录的相对路径。更多信息，可参阅`webContents`文档。
 
 #### `win.reload()`
 
