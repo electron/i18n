@@ -68,7 +68,7 @@ cross_platform:
 benefits:
   hard_parts_made_easy: As partes difíceis são feitas facilmente
   automatic_updates: Atualizações automáticas
-  native_menus_and_notifications: Menus nativos & notificações
+  native_menus_and_notifications: Notificações & menus nativos
   crash_reporting: Relatório de falhas
   debugging_and_profiling: Depuração & criação de perfil
   windows_installers: Instaladores do Windows
