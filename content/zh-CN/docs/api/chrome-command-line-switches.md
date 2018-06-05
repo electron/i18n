@@ -28,7 +28,7 @@ app.on('ready', () => {
 
 ## --lang
 
-Set a custom locale.
+设置系统语言环境
 
 ## --inspect=`port` and --inspect-brk=`port`
 
