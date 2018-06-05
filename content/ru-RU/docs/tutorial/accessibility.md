@@ -38,7 +38,7 @@ Electron приложения держат доступность отключе
 
 ### Внутри приложения
 
-С помощью [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), вы можете открыть переключатель доступности для пользователей в настройках приложения. Вспомогательные утилиты пользователя системы имеют приоритет перед этим параметром и будут переопределять его.
+С помощью [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), вы можете открыть переключатель доступности для пользователей в настройках приложения. Вспомогательные утилиты системы пользователя имеют приоритет перед этим параметром и будут переопределять его.
 
 ### Assistive Technology
 
