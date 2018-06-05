@@ -13,7 +13,7 @@ O time do GitHub do Electron mantém o [update.electronjs.org](https://github.co
 
 A forma mais fácil de usar este serviço é instalando o [update-electron-app](https://github.com/electron/update-electron-app), um módulo Node.js pre-configurado para ser usado com update.electronjs.org.
 
-Install the module:
+Instalando o módulo:
 
 ```sh
 npm install update-electron-app
