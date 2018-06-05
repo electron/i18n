@@ -224,7 +224,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
-#### Событие: «обновление заголовка страницы»
+#### Событие: 'page-title-updated'
 
 Возвращает:
 
