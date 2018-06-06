@@ -1,11 +1,11 @@
-# Build Instructions (Windows)
+# تعليمات البناء (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+إتبع الإرشادات أدناه لبناء تطبيقات إلكترون على نظام التشغيل Windows.
 
-## Prerequisites
+## المتطلبات الأساسية
 
-* Windows 7 / Server 2008 R2 or higher
-* Visual Studio 2017 - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
+* نظام Windows 7 أو Windows Server 2008 أو أعلى
+* Visual Studio 2017 - [حمل VS 2017 Community Edition مجاناً](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
