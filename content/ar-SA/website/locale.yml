@@ -1,10 +1,10 @@
-tagline: اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS
+tagline: ابني تطبيقات سطح المكتب متعدد المنصات باستخدام JavaScript ،HTML، و CSS
 nav:
   apps: التطبيقات
   blog: المدونة
   code_of_conduct: قواعد السلوك
   community: المجتمع
-  contact: تواصل معنا
+  contact: تواصل
   docs: التوثيقات
   donors: الجهات المانحة
   languages: اللغات
@@ -12,14 +12,14 @@ nav:
   search: بحث
   userland: مساحة المستخدم
 docs:
-  title: توثيقات الكترون
+  title: توثيق الكترون
   description: مشاهدة <a href="/docs/all"> كافة المستندات في صفحة واحدة</a> أو التحقق من <a href="/docs/faq"> الأسئلة الأكثر تكرارًا</a>.
   guides: الأدلة
   api_reference: مرجع API
   advanced: خيارات متقدمة
   footer:
     propose_change: تحسين هذه الوثيقة
-    version_history: تاريخ الإصدارات
+    version_history: تاريخ الإصدار
     translate: ترجم هذه الوثيقة
     view_all_docs: جميع الوثائق في صفحة واحدة
 languages:
@@ -28,7 +28,7 @@ languages:
   current: الاختيار الحالي
 community:
   title: مجتمع Electron
-  description: Resources for connecting with people working on Electron.
+  description: موارد للتوصل مع العاملين في إلكترون.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>لنبدأ</b></a> في تطوير تطبيق عبر قراءة <a href='/docs/tutorial/first-app'>دليل البدء السريع</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
@@ -40,9 +40,9 @@ community:
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    other: "لجميع الإستفسارات الأخرى ، بريد إلكتروني <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
+    title: مجتمعات اللغات
     description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
   tools: الأدوات
   boilerplates: القوالب
