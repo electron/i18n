@@ -1,9 +1,9 @@
-# Display Object
+# كائن Display
 
-* `id` Number - Unique identifier associated with the display.
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
-* `scaleFactor` Number - Output device's pixel scale factor.
-* `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
+* `id` رقم - معرف فريد مرتبط بـ display.
+* `rotation` رقم - يمكن أن يكون 0, 90, 180, 270, يمثل درجات دوران الشاشة في إتجاه عقارب الساعة.
+* `scaleFactor` رقم - عامل قياس البكسل الخاص بأجهزة الإخراج.
+* `touchSupport` سلسلة نصية - يمكن أن تكون `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)
