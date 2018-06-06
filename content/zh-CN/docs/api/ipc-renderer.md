@@ -46,32 +46,70 @@
 
 通过 `channel` 发送异步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
+主进程可以使用 `ipcMain` 监听channel<a> 来接收这些消息。</p> 
 
-### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
+<h3>
+  <code>ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])</code>
+</h3>
 
-* `channel` String
-* `...args` any[]
+<ul>
+  <li>
+    <code>channel</code> String
+  </li>
+  <li>
+    <code>...args</code> any[]
+  </li>
+</ul>
 
-返回 `any` - 由 [`ipcMain`](ipc-main.md) 处理程序发送过来的值。
+<p>
+  返回 <code>any</code> - 由 <a href="ipc-main.md"><code>ipcMain</code></a> 处理程序发送过来的值。
+</p>
 
-通过 `channel` 发送同步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
+<p>
+  通过 <code>channel</code> 发送同步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
+</p>
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
+<p>
+  主进程可以使用 <code>ipcMain</code> 监听 <a href="ipc-main.md">channel</a>来接收这些消息，并通过 <code>event.returnValue </code>设置回复消息。
+</p>
 
-**注意:** 发送同步消息将会阻塞整个渲染进程，你应该避免使用这种方式 - 除非你知道你在做什么。
+<p>
+  <strong>注意:</strong> 发送同步消息将会阻塞整个渲染进程，你应该避免使用这种方式 - 除非你知道你在做什么。
+</p>
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+<h3>
+  <code>ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])</code>
+</h3>
 
-* `windowId` Number
-* `channel` String
-* `...args` any[]
+<ul>
+  <li>
+    <code>windowId</code> Number
+  </li>
+  <li>
+    <code>channel</code> String
+  </li>
+  <li>
+    <code>...args</code> any[]
+  </li>
+</ul>
 
-通过 `channel` 发送消息到带有 `windowid` 的窗口.
+<p>
+  通过 <code>channel</code> 发送消息到带有 <code>windowid</code> 的窗口.
+</p>
 
-### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
+<h3>
+  <code>ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])</code>
+</h3>
 
-* `channel` String
-* `...args` any[]
+<ul>
+  <li>
+    <code>channel</code> String
+  </li>
+  <li>
+    <code>...args</code> any[]
+  </li>
+</ul>
 
-就像 `ipcRenderer.send`，不同的是消息会被发送到 host 页面上的 `<webview>` 元素，而不是主进程。
+<p>
+  就像 <code>ipcRenderer.send</code>，不同的是消息会被发送到 host 页面上的 <code>&lt;webview&gt;</code> 元素，而不是主进程。
+</p>
