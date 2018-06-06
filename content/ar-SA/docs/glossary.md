@@ -62,10 +62,7 @@
 
 <h3>الوحدات المحلية</h3>
 
-<p>Native modules (also called <a href="https://nodejs.org/api/addons.html">addons</a> in
-Node.js) are modules written in C or C++ that can be loaded into Node.js or
-Electron using the require() function, and used as if they were an
-ordinary Node.js module. أنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت يعمل في مكتبات Node.js و C/c + +.</p>
+<p>الوحدات المحلية (يطلق عليها أيضاً <a href="https://nodejs.org/api/addons.html">إضافات</a> في Node.js) هي وحدات مكتوبة بلغة C أو C++ والتي يمكن تحمليها في Node.js أو Electron بإستخدام الدالة require()، وتستخدم كأنها وحدة Node.js عادية. إنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت التي تعمل في مكتبات Node.js و C/c + +.</p>
 
 <p>Native Node modules are supported by Electron, but since Electron is very
 likely to use a different V8 version from the Node binary installed in your
