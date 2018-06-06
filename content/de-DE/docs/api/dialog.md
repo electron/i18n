@@ -4,7 +4,7 @@
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+Ein Bespiel wie man ein Dialog öffnen kann mit dem man mehrere Dateien und Ordner auswählen kann:
 
 ```javascript
 const {dialog} = require('electron')
