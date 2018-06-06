@@ -26,7 +26,7 @@
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+لغة وصف الواجهة. كتابة تعريف الـ function وأنواع بيانات بتنسيق يمكن استخدامه لإنشاء واجهات في Java و C ++ و JavaScript وغيرها.
 
 ### IPC
 
@@ -58,9 +58,9 @@ Interface description language. Write function signatures and data types in a fo
 
 <p>An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.</p>
 
-<p>See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md</p>
+<p>أنظر https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md</p>
 
-<h3>native modules</h3>
+<h3>الوحدات المحلية</h3>
 
 <p>Native modules (also called <a href="https://nodejs.org/api/addons.html">addons</a> in
 Node.js) are modules written in C or C++ that can be loaded into Node.js or
