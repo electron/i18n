@@ -67,7 +67,7 @@ shell.openExternal('https://github.com')
   * `replace` - 覆盖现有快捷方式, 如果快捷方式不存在将会失败。
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+返回 `Boolean` - 快捷方式是否被成功创建。
 
 在`shortcutPath`位置创建或更新一个快捷连接
 
