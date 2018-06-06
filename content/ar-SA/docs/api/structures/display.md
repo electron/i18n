@@ -9,4 +9,4 @@
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+كائن `Display` يمثل المعرض المادي المتصل بالنظام. الـ `Display` الزائفة قد توجد في نظام لا يحتوي على وحدة عرض، أو الـ `Display` يمكن أن تتوافق مع شاشة العرض الإفتراضية.
