@@ -64,12 +64,9 @@
 
 <p>الوحدات المحلية (يطلق عليها أيضاً <a href="https://nodejs.org/api/addons.html">إضافات</a> في Node.js) هي وحدات مكتوبة بلغة C أو C++ والتي يمكن تحمليها في Node.js أو Electron بإستخدام الدالة require()، وتستخدم كأنها وحدة Node.js عادية. إنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت التي تعمل في مكتبات Node.js و C/c + +.</p>
 
-<p>Native Node modules are supported by Electron, but since Electron is very
-likely to use a different V8 version from the Node binary installed in your
-system, you have to manually specify the location of Electron’s headers when
-building native modules.</p>
+<p>وحدات Node المحلية مدعمة من قبل Electron، ولكن بما أن Electron من المرجح جداً أن يستخدم إصدارات V8 تختلف عن ملفات Node المثبتة في نظامك، يجب عليك تحديد مسار الـ Electron’s headers يدوياً عند بناء وحدات محلية.</p>
 
-<p>See also <a href="tutorial/using-native-node-modules.md">Using Native Node Modules</a>.</p>
+<p>أنظر أيضاً <a href="tutorial/using-native-node-modules.md">Using Native Node Modules</a>.</p>
 
 <h3>NSIS</h3>
 
