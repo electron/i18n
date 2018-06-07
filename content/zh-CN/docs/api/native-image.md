@@ -209,7 +209,7 @@ console.log(image)
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+返回 ` Boolean `-图像是否为空。
 
 #### `image.getSize()`
 
