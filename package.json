@@ -18,7 +18,7 @@
     "clean-deep": "^3.0.2",
     "crowdin-glossary": "^1.2.0",
     "del": "^3.0.0",
-    "dotenv-safe": "^5.0.1",
+    "dotenv-safe": "^6.0.0",
     "electron-docs": "^3.0.2",
     "get-crowdin-file-ids": "^1.1.1",
     "github-slugger": "^1.2.0",
