@@ -54,13 +54,13 @@ Akronim untuk App Store Apple Mac. Untuk detail tentang mengirimkan aplikasi And
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Sistem IPC untuk berkomunikasi intra- atau antar-proses, ini penting karena Chrome gemar membagi tugas ke proses yang berbeda atau tidak, tergantung pada tekanan memori, dll.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Lihat https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### modul asli
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Mereka digunakan terutama untuk menyediakan antarmuka antara JavaScript yang berjalan di perpustakaan Node.js dan C/c++.
+Modul asli (juga disebut [addons](https://nodejs.org/api/addons.html) di Node.js) adalah modul yang ditulis dalam C atau C++ yang dapat dimuat ke Node.js atau Elektron menggunakan fungsi require(), dan digunakan seolah-olah mereka adalah sebuah modul Node.js biasa. Mereka digunakan terutama untuk menyediakan antarmuka antara JavaScript yang berjalan di perpustakaan Node.js dan C/c++.
 
 Modul Node Asli didukung oleh Elektron , namun karena Elektron sangat mungkin menggunakan versi V8 yang berbeda dari biner Node yang terpasang di sistem Anda, Anda harus secara manual menentukan lokasi header Elektron saat membuat modul asli.
 
