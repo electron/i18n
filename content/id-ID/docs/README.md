@@ -32,7 +32,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Menggunakan Modul Node.js Asli](tutorial/using-native-node-modules.md)
   * [Komunikasi antar-Proses](tutorial/application-architecture.md#)
 * Menambahkan Fitur ke Aplikasi Anda 
-  * [pemberitahuan](tutorial/notifications.md)
+  * [Pemberitahuan](tutorial/notifications.md)
   * [Dokumen Terkini](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
   * [Progres Aplikasi](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
@@ -40,7 +40,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Cara pintas keyboard](tutorial/keyboard-shortcuts.md)
   * [Deteksi Luring/Daring](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [File yang direpresentasikan untuk BrowserWindows macOS](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
 * [Aksesibilitas](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
