@@ -1,6 +1,6 @@
 # Panduan Resmi
 
-Pastikan Anda menggunakan dokumen yang sesuai dengan versi Electron Anda. Nomor versi harus menjadi bagian dari URL halaman. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . Untuk melihat yang lebih tua versi dokumentasi, Anda bisa [telusuri menurut tag](https://github.com/electron/electron/tree/v1.4.0) di GitHub dengan membuka drop-down "Switch branches/tags" dan memilih tag yang cocok dengan versimu.
+Pastikan Anda menggunakan dokumen yang sesuai dengan versi Electron Anda. Nomor versi harus menjadi bagian dari URL halaman. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . Untuk melihat yang lebih tua versi dokumentasi, Anda bisa [telusuri menurut tag](https://github.com/electron/electron/tree/v1.4.0) di GitHub dengan membuka drop-down "Switch branches/tags" dan memilih tag yang cocok dengan versimu.</p> 
 
 ## Pertanyaan Umum
 
@@ -25,15 +25,15 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Alat dan Boilerplate lainnya](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Application Architecture](tutorial/application-architecture.md) 
+* [Arsitektur Aplikasi](tutorial/application-architecture.md) 
   * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
-  * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
-  * [Inter-Process Communication](tutorial/application-architecture.md#)
-* Adding Features to Your App 
+  * [Menggunakan API Electron](tutorial/application-architecture.md#using-electron-apis)
+  * [Menggunakan API Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Menggunakan Modul Node.js Asli](tutorial/using-native-node-modules.md)
+  * [Komunikasi antar-Proses](tutorial/application-architecture.md#)
+* Menambahkan Fitur ke Aplikasi Anda 
   * [pemberitahuan](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Dokumen Terkini](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
   * [Application Progress](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
   * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
