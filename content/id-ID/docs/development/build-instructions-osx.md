@@ -7,17 +7,17 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 - macOS > = 10.11.6
 - [@googlechrome](https://developer.apple.com/technologies/tools/) pada Twitter
 - [node.js](https://nodejs.org) untuk Linux)
-- Python 2.7 with support for TLS 1.2
+- Python 2.7 dengan dukungan untuk TLS 1.2
 
 ## Python
 
-Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
+Harap pastikan juga bahwa sistem dan versi Python Anda mendukung setidaknya TLS 1.2. Ini tergantung pada versi macOS dan Python Anda. Untuk tes cepat, jalankan:
 
 ```sh
 $ python ./script/tls.py
 ```
 
-If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+Jika skrip mengembalikan bahwa konfigurasi Anda menggunakan protokol keamanan yang sudah ketinggalan zaman, Anda dapat memperbarui macOS ke High Sierra atau memasang versi terbaru dari Python 2.7.x. Untuk meningkatkan Python, gunakan [Homebrew](https://brew.sh/):
 
 ```sh
 $ brew install python@2 && brew link python@2 --force
