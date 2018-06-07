@@ -252,8 +252,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `permission` String - 枚举 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function - 回调函数 
     * `permissionGranted` Boolean - 允许或拒绝该权限.
-  * `details` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String - The url of the `openExternal` request.
+  * `details` Object - 一些属性只有在某些授权状态下可用。 
+    * `externalURL` String - `openExternal`请求的地址。
 
 设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。 若要清除处理程序, 请调用 ` setPermissionRequestHandler (null) `。
 
@@ -276,7 +276,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
+* `domains` String - 一个逗号分隔的服务器列表, 用于收集已经启用身份验证的服务器。
 
 动态设置是否始终为 HTTP NTLM 发送凭据或协商身份验证。
 
@@ -333,13 +333,13 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - 数组，该数组由所有需要进行预加载的脚本的绝对路径组成。
 
 Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+返回 `String[]` 返回一个数组，这个数组由已经注册过的预加载脚本的路径组成。
 
 ### 实例属性
 
