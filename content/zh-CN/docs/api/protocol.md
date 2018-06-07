@@ -199,7 +199,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     headers: {
       'content-type': 'text/html'
     },
-    data: createStream('&lt;h5&gt;<h5>Response</h5>&lt;/h5&gt;')
+    data: createStream('<h5>Response</h5>')
   })
 }, (error) => {
   if (error) console.error('Failed to register protocol')
