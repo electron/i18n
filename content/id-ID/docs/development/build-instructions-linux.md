@@ -7,7 +7,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 * Sedikitnya ruang disk 25GB dan RAM 8GB.
 * Python 2.7.x. Beberapa distribusi seperti CentOS 6.x masih menggunakan Python 2.6.x jadi Anda mungkin perlu memeriksa versi Python Anda dengan ` python -V `.
     
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    Harap pastikan juga bahwa sistem dan versi Python Anda mendukung setidaknya TLS 1.2. Untuk tes cepat, jalankan skrip berikut:
     
     ```sh
     $ python ./script/tls.py
