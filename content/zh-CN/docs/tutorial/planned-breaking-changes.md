@@ -1,4 +1,4 @@
-# Planned Breaking API Changes (4.0)
+# 计划重写的 API (4.0)
 
 以下列表包括将在Electron 4.0中删除的API
 
@@ -7,9 +7,9 @@ There is no timetable for when this release will occur but deprecation warnings 
 ## `webFrame`
 
 ```js
-// Deprecated
+// 废弃
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// 替换为
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
@@ -18,11 +18,11 @@ protocol.registerStandardSchemes(['app'], {secure: true})
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// 废弃
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// 替换为
 app.requestSingleInstanceLock()
 app.on('second-instance', function (argv, cwd) {
 
@@ -32,12 +32,12 @@ app.on('second-instance', function (argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// 废弃
 app.releaseSingleInstance()
-// Replace with
+// 替换为
 app.releaseSingleInstanceLock()
 ```
 
 ## `FIXME` 注释
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
+代码注释中`FIXME` 的标记 ，表示 3.0 版本 应该解决的问题. 参考 https://github.com/electron/electron/search?q=fixme
