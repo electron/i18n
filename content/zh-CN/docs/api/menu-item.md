@@ -44,7 +44,7 @@
 * `pasteAndMatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - Minimize current window.
+* ` minimize ` - 最小化当前窗口。
 * `close` - 关闭当前窗口.
 * `quit`- 退出应用。
 * `reload` - 重新加载当前窗口。
