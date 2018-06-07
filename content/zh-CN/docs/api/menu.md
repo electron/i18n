@@ -125,7 +125,7 @@ menu类有以下静态方法：
 </h3>
 
 <p>
-  Objects created with <code>new Menu</code> emit the following events:
+  用 <code>new Menu</code> 创建的对象触发以下事件：
 </p>
 
 <p>
@@ -147,11 +147,11 @@ menu类有以下静态方法：
 </ul>
 
 <p>
-  Emitted when <code>menu.popup()</code> is called.
+  调用<code>menu.popup()</code>事件时触发该事件。
 </p>
 
 <h4>
-  Event: 'menu-will-close'
+  事件: 'menu-will-close'
 </h4>
 
 <p>
@@ -165,7 +165,7 @@ menu类有以下静态方法：
 </ul>
 
 <p>
-  Emitted when a popup is closed either manually or with <code>menu.closePopup()</code>.
+  手动关闭弹出，或使用 <code>menu.closePopup()</code>方法关闭弹出时，触发该事件。
 </p>
 
 <h3>
@@ -193,7 +193,7 @@ menu类有以下静态方法：
 </h3>
 
 <p>
-  Objects created with <code>new Menu</code> or returned by <code>Menu.buildFromTemplate</code> emit the following events:
+  使用 <code>new Menu</code>方法创建的对象，或者<code>Menu.buildFromTemplate</code>返回的对象都会触发以下事件：
 </p>
 
 <h2>
@@ -205,7 +205,7 @@ menu类有以下静态方法：
 </p>
 
 <h3>
-  Main process
+  主进程
 </h3>
 
 <p>
