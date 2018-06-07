@@ -8,7 +8,7 @@ Panduan ini menjelaskan cara untuk mengintegrasikan aplikasi Anda ke orang-orang
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## Dokumen Terkini
 
 See [Recent Documents documentation](recent-documents.md).
 
