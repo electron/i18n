@@ -151,7 +151,7 @@ console.log(image)
 
 * `hsl_shift[0]` (色调): 图像的绝对色调值，-0 和1 映射到 0和360，在色环上 (红色)。
 * `hsl_shift[1]` (饱和度): 图像的饱和度变化, 可以为下列值: 0 = 移除所有颜色. 0.5 = 保持不变. 1 = 图像完全饱和.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
+* `hsl_shift[2]` (亮度): 图像的亮度变化, 可以为下列值: 0 = 移除所有亮度 (所有像素点设置为黑色). 0.5 = 保持不变。 1 = 全亮 (所有像素点设置为白色)。
 
 这意味着 `[-1, 0, 1]` 将使图像完全变白，`[-1, 1, 0]`将使图像完全变黑.
 
