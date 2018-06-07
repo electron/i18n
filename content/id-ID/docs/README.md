@@ -83,12 +83,12 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
   * [Cabang Stabilisasi](tutorial/electron-versioning.md#stabilization-branches)
   * [Rilis Beta dan Perbaikan Bug](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [Secara Detail: Mengemas Kode Sumber Aplikasi dengan asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+  * [Menghasilkan Arsip asar](tutorial/application-packaging.md#generating-asar-archives)
+  * [Menggunakan Arsip asar](tutorial/application-packaging.md#using-asar-archives)
   * [Keterbatasan](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+  * [Menambahkan File yang Belum Dikemas ke Arsip asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Secara Detail: Menggunakan Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Secara Detail: Menggunakan Plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Rendering di luar layar](tutorial/offscreen-rendering.md)
 
 * * *
