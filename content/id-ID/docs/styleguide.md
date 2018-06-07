@@ -169,7 +169,7 @@ Berikut metode ini informasi lebih rinci tentang masing-masing argumen. Jenis ar
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Atau jenis kustom seperti Electron [`webcontent`](api/web-contents.md)
 
-Jika argumen atau metode unik untuk platform tertentu, platform tersebut dilambangkan menggunakan daftar dicetak miring ruang-delimited berikut datatype. Values can be `macOS`, `Windows` or `Linux`.
+Jika argumen atau metode unik untuk platform tertentu, platform tersebut dilambangkan menggunakan daftar dicetak miring ruang-delimited berikut datatype. Nilai bisa saja `MacOS`, `Windows`, atau `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
