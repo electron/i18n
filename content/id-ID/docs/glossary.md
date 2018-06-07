@@ -26,7 +26,7 @@ Editor Metode Masukan. Sebuah program yang memungkinkan pengguna memasukkan kara
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Bahasa deskripsi antarmuka (IDL). Menulis function signatures dan tipe data dalam format yang dapat digunakan untuk menghasilkan antarmuka di java, C++, JavaScript, dll.
 
 ### IPC
 
