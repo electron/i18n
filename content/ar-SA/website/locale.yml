@@ -34,12 +34,12 @@ community:
     updates: "<a href='https://twitter.com/electronjs'><b>إبقى على إطلاع</b></a> من خلال متابعتنا <a href='https://twitter.com/electronjs'>@electronjs</a> في تويتر والإشتراك في <a href='/blog'>المدونة</a>."
     localized_docs: "<a href='/languages'><b>إطلع على التوثيقات بلغتك الأم</b></a> من خلال زيارة <a href='/languages'>صفحة اللغات</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
-    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    packages: "<a href='/search/npmPackages'><b>أحصل على حزم مفيدة</b></a> من خلال <a href='/search/npmPackages'>package search page</a>."
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>بلغ عن الأخطاء البرمجية</b></a> من خلال فتح تذكرة في <a href='https://github.com/electron/electron/issues'>electron/electron</a> مستودع."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>أطلب تحسينات </b></a> من خلال فتح مذكرة في <a href='https://github.com/electron/electron/issues'>electron/electron</a> مستودع."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>بلغ عن الثغرات الأمنية</b></a> بإرسال رسالة بريد إلكتروني إلى <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>تبرع </b></a> في حسابنا على <a href='/donors'>OpenCollective page</a>."
     other: "لجميع الإستفسارات الأخرى ، بريد إلكتروني <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: مجتمعات اللغات
