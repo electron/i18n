@@ -60,8 +60,8 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 네이티브 모듈을 설치하고 작동하지 않는 것으로 판명 된 경우 다음 사항을 확인해야합니다.
 
 * 모듈의 아키텍처는 Electron의 아키텍처 (ia32 또는 x64)와 일치해야합니다.
-* After you upgrade Electron, you usually need to rebuild the modules.
-* When in doubt, run `electron-rebuild` first.
+* Electron를 업그레이드 한 후에는 일반적으로 모듈을 다시 빌드해야합니다.
+* 의심스러운 경우 `electron-rebuild`를 먼저 실행하십시오.
 
 ## Modules that rely on `prebuild`
 
