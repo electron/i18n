@@ -75,4 +75,4 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 보통 이러한 모듈은 Electron에서 잘 작동하지만, Electron이 Node보다 V8의 새로운 버전을 사용하고 ABI 변경이있는 경우가 문제가 발생할 수 있습니다. 따라서 일반적으로 소스 코드에서 항상 네이티브 모듈을 빌드하는 것이 좋습니다.
 
-If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+모듈을 설치 방법인 `npm`을 따르고 있다면, 이것은 기본적으로 수행됩니다. 그렇지 않으면 `--build-from-source`를 `npm`에 전달하거나 또는 `npm_config_build_from_source` 환경 변수를 설정하십시오.
