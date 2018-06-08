@@ -1,14 +1,14 @@
 # Pepper Flash 플러그인 사용하기
 
-Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
+Electron는 Pepper Flash 플러그인을 지원합니다. Electron에서 Pepper Flash 플러그인을 사용하려면 수동으로 Pepper Flash 플러그인의 위치를 지정한 다음 응용 프로그램에서 활성화해야합니다.
 
-## Prepare a Copy of Flash Plugin
+## Flash 플러그인 복사본 준비
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+MacOS 및 Linux에서 Pepper Flash 플러그인의 세부 정보는 Chrome 브라우저에서 `chrome://plugins`을 탐색하여 찾을 수 있습니다. 그것의 위치와 버전은 Electron's Pepper Flash 지원에 필요합니다. 다른 위치로 복사 할 수도 있습니다.
 
 ## Add Electron Switch
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Electron 명령 행에 `--ppapi-flash-path` 및 `--ppapi-flash-version`을 직접 추가하거나 app ready 이벤트 전에 `app.commandLine.appendSwitch` 메소드를 사용할 수 있습니다. 또한 `BrowserWindow`의 `플러그인` 옵션을 설정하십시오.
 
 예시:
 
@@ -47,7 +47,7 @@ app.on('ready', () => {
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+플러그인을 직접 포함하는 대신 시스템 전체의 Pepper Flash 플러그인을 로드 할 수도 있습니다. 경로는 `app.getPath('pepperFlashSystemPlugin')`을 호출하여 받을 수 있습니다.
 
 ## Enable Flash Plugin in a `<webview>` Tag
 
