@@ -63,9 +63,9 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 * Electron를 업그레이드 한 후에는 일반적으로 모듈을 다시 빌드해야합니다.
 * 의심스러운 경우 `electron-rebuild`를 먼저 실행하십시오.
 
-## Modules that rely on `prebuild`
+## `prebuild`에 의존하는 모듈
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild)는 여러 버전의 노드와 일렉트론에 대한 사전 빌드 된 바이너리로 네이티브 노드 모듈을 게시하는 방법을 제공합니다.
 
 If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
