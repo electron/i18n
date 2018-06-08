@@ -2,9 +2,9 @@
 
 ## Finding Support
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+보안 문제가 있다면, [security document](../../SECURITY.md)를 참조하세요.
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+프로그래밍 도움말, 질문에 대한 답변 또는 Electron을 사용하는 다른 개발자와 토론에 참여하려는 경우, 다음 위치에서 커뮤니티와 상호 작용할 수 있습니다.
 
 * [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 * `#atom-shell` channel on Freenode
@@ -17,43 +17,43 @@ If you're looking for programming help, for answers to questions, or to join in 
 * [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
 * [`electron-pl`](https://electronpl.github.io) *(Poland)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+Electron에 공헌하고 싶다면, [contributing document](../../CONTRIBUTING.md)를 보십시오.
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+[supported version](#supported-versions) Electron에서 버그를 발견 한다면, [issue tracker](../development/issues.md)에 보고해 주세요.
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+[awesome-electron](https://github.com/sindresorhus/awesome-electron)은 커뮤니티에서 관리되는 유용한 예제 앱, 도구 및 리소스 목록입니다.
 
-## Supported Versions
+## 지원되는 버전
 
-The latest three release branches are supported by the Electron team. For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
+최신 3 개의 release branches은 Electron 팀에서 지원합니다. 예를 들어, 최신 릴리스가 2.0.x 인 경우 2-0-x 시리즈가 지원되며, 두 개의 이전 릴리스 시리즈 1-7-x 및 1-8-x도 지원됩니다.
 
-When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
+Release branch에서 지원주기가 끝나면, 이 시리즈는 NPM에서 더이상 사용되지 않게 설정되며, 최종 지원 배포가 만들어질 것 입니다. 이 릴리스에서는 지원되지 않는 버전의 Electron이 사용 중임을 알리는 경고가 추가됩니다.
 
-These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
+이 단계는 최종 사용자에게 과도하게 관여하지 않으면서, 앱 개발자가 사용하는 branch가 지원되지 않을 때 이를 알 수 있도록 도와줍니다.
 
-If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+만약 애플리케이션이 예외적인 상황으로 지원되지 않는 Electron에 버전에 머무를 필요가있는 경우, 개발자는 애플리케이션의 `package.json` `devDependencies`에서 최종 릴리스를 생략하여 지원 종료 경고(end-of-support warning)를 없앨 수 있습니다. 예를 들어, 1-6-x 시리즈는 1.6.18의 지원 종료로 종료 되었으므로, 개발자는 `devDependency`를 `"electron": 1.6.0 - 1.6.17`로 설정하여 경고 없이 1-6-x 시리즈에 머물도록 선택할 수 있습니다.
 
 ## 지원되는 플랫폼
 
-Following platforms are supported by Electron:
+Electron이 지원하는 플랫폼은 다음과 같습니다:
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+MacOS에는 64 비트 바이너리만 제공되며, 최소 버전은 macOS 10.9입니다.
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+Windows 7 이상을 지원하며, 이전 버전의 Os는 지원하지 않습니다(그리고 동작하지 않음).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
+32비트 `ia32` (`x86`) 와 64비트 `x64` (`amd64`) 바이너리가 둘다 제공됩니다. Electron 애플리케이션을 ia32 바이너리를 사용해 ARM 기반 윈도우에서 실행하는 것이 가능합니다.
 
 ### Linux
 
-The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+Prebuilt `ia32` (`i686`) 과 `x64` (`amd64`) Electron 바이너리는 Ubuntu 12.04에서 빌드 되었으며, `armv7l`바이너리는 hard-float ABI가 있는 ARM v7 및 Debian Wheezy의 NEON 용으로 제작되었습니다.
 
-[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/tutorial/planned-breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+Electron 2.0이 출시 될 때까지, Electron은 간단한 `arm` 접미사를 붙여 `armv7l` 바이너리를 계속 출시 할 예정입니다. 두 바이너리는 동일합니다.
 
-Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
+사전 빌드 된 바이너리가 배포판에서 실행될 수 있는지 여부는 배포판에 Electron이 빌드중인 플랫폼에서 링크된 라이브러리가 포함되어 있는지 여부에 따라 달라지므로, Ubuntu 12.04에서 작동하도록 보장될 뿐만 아니라, 다음 플랫폼 또한 Electron의 사전 작성된 바이너리를 실행할 수 있음을 검증했습니다:
 
 * Ubuntu 12.04 and newer
 * Fedora 21
