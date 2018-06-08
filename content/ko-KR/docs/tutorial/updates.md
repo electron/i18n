@@ -31,7 +31,7 @@ require('update-electron-app')()
 
 ## Using `electron-builder`
 
-If your app is packaged with [`electron-builder`](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
+앱이 [`electron-builder`](https://github.com/electron-userland/electron-builder) 와 함께 패키지되어있는 경우, 서버가 필요없고, S3, GitHub 또는 기타 정적 파일 호스트로 업데이트 할 수있는 [electron-updater](https://www.electron.build/auto-update) 모듈을 사용할 수 있습니다 This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
 
 ## 서버에 업데이트 배포
 
