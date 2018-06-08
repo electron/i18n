@@ -98,14 +98,14 @@ console.log(systemPreferences.isDarkMode())
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - a dictionary of (`key: value`) user defaults 
+* `defaults` Object - 用户默认选项集 (`key: value`) 
 
-Add the specified defaults to your application's `NSUserDefaults`.
+在应用的`NSUserDefaults`配置项中添加其它默认设置。
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `type` String - 可以为 `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` 或 `dictionary`.
 
 返回 `any` - `NSUserDefaults` 中 `key` 的值.
 

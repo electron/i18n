@@ -53,85 +53,166 @@ menu类有以下静态方法：
 #### `menu.popup(options)`
 
 * `选项` Object 
-  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+  * `window` [BrowserWindow](browser-window.md) (可选) - 默认为选中窗口.
   * ` x ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` y `, 则必须声明。
   * ` y ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` x `, 则必须声明。
   * ` positioningItem `数字 (可选) * macOS *-要在指定坐标下的鼠标光标下定位的菜单项的索引。默认值为-1。
-  * `callback` Function (optional) - Called when menu is closed.
+  * `callback` Function (optional) - 会在菜单关闭后被调用.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+将此菜单作为 browserWindow <a> 中的上下文菜单弹出。</p> 
 
-#### `menu.closePopup([browserWindow])`
+<h4>
+  <code>menu.closePopup([browserWindow])</code>
+</h4>
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+<ul>
+  <li>
+    <code>browserWindow</code> <a href="browser-window.md">BrowserWindow</a> (可选) - 默认为选中窗口.
+  </li>
+</ul>
 
-关闭 ` browserWindow ` 中的上下文菜单。
+<p>
+  关闭 <code> browserWindow </code> 中的上下文菜单。
+</p>
 
-#### `menu.append(menuItem)`
+<h4>
+  <code>menu.append(menuItem)</code>
+</h4>
 
-* `menuItem` [MenuItem](menu-item.md)
+<ul>
+  <li>
+    <code>menuItem</code> <a href="menu-item.md">菜单项</a>
+  </li>
+</ul>
 
-将 ` menuItem ` 追加到菜单。
+<p>
+  将 <code> menuItem </code> 追加到菜单。
+</p>
 
-#### `menu.getMenuItemById(id)`
+<h4>
+  <code>menu.getMenuItemById(id)</code>
+</h4>
 
-* `id` String
+<ul>
+  <li>
+    <code>id</code> String
+  </li>
+</ul>
 
-返回具有指定`id`项的`MenuItem`
+<p>
+  返回具有指定<code>id</code>项的<code>MenuItem</code>
+</p>
 
-#### `menu.insert(pos, menuItem)`
+<h4>
+  <code>menu.insert(pos, menuItem)</code>
+</h4>
 
-* `pos` Integer
-* `menuItem` [MenuItem](menu-item.md)
+<ul>
+  <li>
+    <code>pos</code> Integer
+  </li>
+  <li>
+    <code>menuItem</code> <a href="menu-item.md">菜单项</a>
+  </li>
+</ul>
 
-将 ` menuItem ` 插入菜单的 ` pos ` 位置。
+<p>
+  将 <code> menuItem </code> 插入菜单的 <code> pos </code> 位置。
+</p>
 
-### 实例事件
+<h3>
+  实例事件
+</h3>
 
-Objects created with `new Menu` emit the following events:
+<p>
+  用 <code>new Menu</code> 创建的对象触发以下事件：
+</p>
 
-** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
+<p>
+  <strong> 注意: </strong>某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
+</p>
 
-#### Event: 'menu-will-show'
+<h4>
+  事件: 'menu-will-show'
+</h4>
 
-返回:
+<p>
+  返回:
+</p>
 
-* `event` Event
+<ul>
+  <li>
+    <code>event</code> Event
+  </li>
+</ul>
 
-Emitted when `menu.popup()` is called.
+<p>
+  调用<code>menu.popup()</code>事件时触发该事件。
+</p>
 
-#### Event: 'menu-will-close'
+<h4>
+  事件: 'menu-will-close'
+</h4>
 
-返回:
+<p>
+  返回:
+</p>
 
-* `event` Event
+<ul>
+  <li>
+    <code>event</code> Event
+  </li>
+</ul>
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+<p>
+  手动关闭弹出，或使用 <code>menu.closePopup()</code>方法关闭弹出时，触发该事件。
+</p>
 
-### 实例属性
+<h3>
+  实例属性
+</h3>
 
-` menu ` 对象还具有以下属性:
+<p>
+  <code> menu </code> 对象还具有以下属性:
+</p>
 
-#### `menu.items`
+<h4>
+  <code>menu.items</code>
+</h4>
 
-包含菜单项的 ` MenuItem [] ` 数组。
+<p>
+  包含菜单项的 <code> MenuItem [] </code> 数组。
+</p>
 
-每个 ` 菜单 ` 由多个 [` MenuItem `](menu-item.md) 组成, 每个 ` MenuItem `可以有子菜单。
+<p>
+  每个 <code> 菜单 </code> 由多个 <a href="menu-item.md"><code> MenuItem </code></a> 组成, 每个 <code> MenuItem </code>可以有子菜单。
+</p>
 
-### 实例事件
+<h3>
+  实例事件
+</h3>
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+<p>
+  使用 <code>new Menu</code>方法创建的对象，或者<code>Menu.buildFromTemplate</code>返回的对象都会触发以下事件：
+</p>
 
-## 示例
+<h2>
+  示例
+</h2>
 
-` Menu ` 仅在主进程（ main process）中可用, 但您也可以在渲染进程（render process）中通过 [` remote `](remote.md) 模块使用它。
+<p>
+  <code> Menu </code> 仅在主进程（ main process）中可用, 但您也可以在渲染进程（render process）中通过 <a href="remote.md"><code> remote </code></a> 模块使用它。
+</p>
 
-### Main process
+<h3>
+  主进程
+</h3>
 
-在主进程中创建程序菜单的简单API模版示例:
+<p>
+  在主进程中创建程序菜单的简单API模版示例:
+</p>
 
-```javascript
-const {app, Menu} = require('electron')
+<pre><code class="javascript">const {app, Menu} = require('electron')
 
 const template = [
   {
@@ -220,15 +301,18 @@ if (process.platform === 'darwin') {
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
-```
+</code></pre>
 
-### 渲染进程
+<h3>
+  渲染进程
+</h3>
 
-下面是通过 [` remote `](remote.md) 模块在网页（render process）中动态创建右击菜单的示例:
+<p>
+  下面是通过 <a href="remote.md"><code> remote </code></a> 模块在网页（render process）中动态创建右击菜单的示例:
+</p>
 
-```html
-<!-- index.html -->
-<script>
+<pre><code class="html">&lt;!-- index.html --&gt;
+&lt;script&gt;
 const {remote} = require('electron')
 const {Menu, MenuItem} = remote
 
@@ -237,77 +321,126 @@ menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clic
 menu.append(new MenuItem({type: 'separator'}))
 menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
-window.addEventListener('contextmenu', (e) => {
+window.addEventListener('contextmenu', (e) =&gt; {
   e.preventDefault()
   menu.popup({window: remote.getCurrentWindow()})
 }, false)
-</script>
-```
+&lt;/script&gt;
+</code></pre>
 
-## MacOS中应用菜单注意事项
+<h2>
+  MacOS中应用菜单注意事项
+</h2>
 
-MacOS中的应用程序有着和windows，linux完全不同风格的菜单样式。这里有一些说明，可以让你的程序菜单看起来更贴合原生系统。
+<p>
+  MacOS中的应用程序有着和windows，linux完全不同风格的菜单样式。这里有一些说明，可以让你的程序菜单看起来更贴合原生系统。
+</p>
 
-### 标准菜单
+<h3>
+  标准菜单
+</h3>
 
-在MacOS有一些系统自定的标准菜单，像`Services`和`Windows`。 让你的菜单更像MacOS标准菜单，只需设置菜单`role`值为如下示之一，Electron便会自动认出并设置成标准菜单，：
+<p>
+  在MacOS有一些系统自定的标准菜单，像<code>Services</code>和<code>Windows</code>。 让你的菜单更像MacOS标准菜单，只需设置菜单<code>role</code>值为如下示之一，Electron便会自动认出并设置成标准菜单，：
+</p>
 
-* `window`
-* `help`
-* `services`
+<ul>
+  <li>
+    <code>window</code>
+  </li>
+  <li>
+    <code>help</code>
+  </li>
+  <li>
+    <code>services</code>
+  </li>
+</ul>
 
-### 标准菜单项操作
+<h3>
+  标准菜单项操作
+</h3>
 
-macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide xxx ` 和 ` Hide Others `。 若要将菜单项的操作设置为标准操作, 应设置菜单项的 `  role` 属性。
+<p>
+  macOS 已经为某些菜单项提供了标准操作, 如 <code> about xxx </code>、<code> Hide xxx </code> 和 <code> Hide Others </code>。 若要将菜单项的操作设置为标准操作, 应设置菜单项的 <code>  role</code> 属性。
+</p>
 
-### 主菜单的名称
+<h3>
+  主菜单的名称
+</h3>
 
-在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 ` Info. plist ` 文件。 有关详细信息, 请参阅 [ About Information Property List Files ](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)。
+<p>
+  在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 <code> Info. plist </code> 文件。 有关详细信息, 请参阅 <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html"> About Information Property List Files </a>。
+</p>
 
-## 设置特定浏览器窗口的菜单 (* Linux * * Windows *)
+<h2>
+  设置特定浏览器窗口的菜单 (<em> Linux </em> <em> Windows </em>)
+</h2>
 
-浏览器窗口的 [ ` setMenu ` 方法 ](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) 可以设置特定浏览器窗口的菜单。
+<p>
+  浏览器窗口的 <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"> <code> setMenu </code> 方法 </a> 可以设置特定浏览器窗口的菜单。
+</p>
 
-## 菜单项位置
+<h2>
+  菜单项位置
+</h2>
 
-您在使用`Menu.buildFromTemplate  `生成菜单时，可以用` position ` 和 ` id ` 来控制定位菜单项的位置。
+<p>
+  您在使用<code>Menu.buildFromTemplate  </code>生成菜单时，可以用<code> position </code> 和 <code> id </code> 来控制定位菜单项的位置。
+</p>
 
-`MenuItem`中的`[placement]=[id]`属性，其中` placement`值可以是` before`、`after`、和 `endof`之一，`id`值则是现有菜单项的唯一ID
+<p>
+  <code>MenuItem</code>中的<code>[placement]=[id]</code>属性，其中<code> placement</code>值可以是<code> before</code>、<code>after</code>、和 <code>endof</code>之一，<code>id</code>值则是现有菜单项的唯一ID
+</p>
 
-* ` before `-在匹配的菜单项id 之前插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
-* ` after `-在匹配菜单项id 之后插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
-* ` endof `-在匹配的菜单项id 的逻辑组的末尾插入此项 (由分隔符项创建组)。 如果匹配的项不存在, 则使用给定 id 创建新的分隔符组, 并在该分隔符之后插入此项。
+<ul>
+  <li>
+    <code> before </code>-在匹配的菜单项id 之前插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
+  </li>
+  <li>
+    <code> after </code>-在匹配菜单项id 之后插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
+  </li>
+  <li>
+    <code> endof </code>-在匹配的菜单项id 的逻辑组的末尾插入此项 (由分隔符项创建组)。 如果匹配的项不存在, 则使用给定 id 创建新的分隔符组, 并在该分隔符之后插入此项。
+  </li>
+</ul>
 
-当在菜单项中有一项有位置信息, 其后面所有未定位的项将紧跟其后, 直到后面出现新的菜单项有的位置。 因此, 如果要在同一位置放置一组菜单项, 则只需指定第一项的位置信息。
+<p>
+  当在菜单项中有一项有位置信息, 其后面所有未定位的项将紧跟其后, 直到后面出现新的菜单项有的位置。 因此, 如果要在同一位置放置一组菜单项, 则只需指定第一项的位置信息。
+</p>
 
-### 示例
+<h3>
+  示例
+</h3>
 
-模板：
+<p>
+  模板：
+</p>
 
-```javascript
-[
+<pre><code class="javascript">[
   {label: '4', id: '4'},
   {label: '5', id: '5'},
   {label: '1', id: '1', position: 'before=4'},
   {label: '2', id: '2'},
   {label: '3', id: '3'}
 ]
-```
+</code></pre>
 
-菜单:
+<p>
+  菜单:
+</p>
 
-```sh
-<br />- 1
+<pre><code class="sh">&lt;br />- 1
 - 2
 - 3
 - 4
 - 5
-```
+</code></pre>
 
-模板：
+<p>
+  模板：
+</p>
 
-```javascript
-[
+<pre><code class="javascript">[
   {label: 'a', position: 'endof=letters'},
   {label: '1', position: 'endof=numbers'},
   {label: 'b', position: 'endof=letters'},
@@ -315,12 +448,13 @@ macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide 
   {label: 'c', position: 'endof=letters'},
   {label: '3', position: 'endof=numbers'}
 ]
-```
+</code></pre>
 
-菜单:
+<p>
+  菜单:
+</p>
 
-```sh
-<br />- ---
+<pre><code class="sh">&lt;br />- ---
 - a
 - b
 - c
@@ -328,4 +462,4 @@ macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide 
 - 1
 - 2
 - 3
-```
+</code></pre>

@@ -53,15 +53,15 @@ cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+`HOME=~/.electron-gyp`은 development headers 를 찾을 위치를 변경합니다. `--target=1.2.3`은 Electron 버전입니다. `--dist-url=...`은 headers 를 다운로드 할 위치를 지정합니다. `--arch=x64`는 모듈이 64 비트 시스템 용으로 제작되었다는것을 의미합니다.
 
 ## 문제 해결
 
-If you installed a native module and found it was not working, you need to check following things:
+네이티브 모듈을 설치하고 작동하지 않는 것으로 판명 된 경우 다음 사항을 확인해야합니다.
 
-* The architecture of the module has to match Electron's architecture (ia32 or x64).
-* After you upgrade Electron, you usually need to rebuild the modules.
-* When in doubt, run `electron-rebuild` first.
+* 모듈의 아키텍처는 Electron의 아키텍처 (ia32 또는 x64)와 일치해야합니다.
+* Electron를 업그레이드 한 후에는 일반적으로 모듈을 다시 빌드해야합니다.
+* 의심스러운 경우 `electron-rebuild`를 먼저 실행하십시오.
 
 ## Modules that rely on `prebuild`
 

@@ -1,6 +1,6 @@
 # Panduan Resmi
 
-Pastikan Anda menggunakan dokumen yang sesuai dengan versi Electron Anda. Nomor versi harus menjadi bagian dari URL halaman. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . Untuk melihat yang lebih tua versi dokumentasi, Anda bisa [telusuri menurut tag](https://github.com/electron/electron/tree/v1.4.0) di GitHub dengan membuka drop-down "Switch branches/tags" dan memilih tag yang cocok dengan versimu.
+Pastikan Anda menggunakan dokumen yang sesuai dengan versi Electron Anda. Nomor versi harus menjadi bagian dari URL halaman. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . Untuk melihat yang lebih tua versi dokumentasi, Anda bisa [telusuri menurut tag](https://github.com/electron/electron/tree/v1.4.0) di GitHub dengan membuka drop-down "Switch branches/tags" dan memilih tag yang cocok dengan versimu.</p> 
 
 ## Pertanyaan Umum
 
@@ -25,37 +25,37 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Alat dan Boilerplate lainnya](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Application Architecture](tutorial/application-architecture.md) 
+* [Arsitektur Aplikasi](tutorial/application-architecture.md) 
   * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
-  * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
-  * [Inter-Process Communication](tutorial/application-architecture.md#)
-* Adding Features to Your App 
-  * [pemberitahuan](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
-  * [Application Progress](tutorial/progress-bar.md)
+  * [Menggunakan API Electron](tutorial/application-architecture.md#using-electron-apis)
+  * [Menggunakan API Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Menggunakan Modul Node.js Asli](tutorial/using-native-node-modules.md)
+  * [Komunikasi antar-Proses](tutorial/application-architecture.md#)
+* Menambahkan Fitur ke Aplikasi Anda 
+  * [Pemberitahuan](tutorial/notifications.md)
+  * [Dokumen Terkini](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Progres Aplikasi](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
-  * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
+  * [Windows Taskbar Kustom](tutorial/windows-taskbar.md)
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Cara pintas keyboard](tutorial/keyboard-shortcuts.md)
-  * [Offline/Online Detection](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Deteksi Luring/Daring](tutorial/online-offline-events.md)
+  * [File yang direpresentasikan untuk BrowserWindows macOS](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
 * [Aksesibilitas](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Mengaktifkan Aksesibilitas](tutorial/accessibility.md#enabling-accessibility)
-* [Testing and Debugging](tutorial/application-debugging.md) 
+* [Pengujian dan Debugging](tutorial/application-debugging.md) 
   * [Debugging Proses Utama](tutorial/debugging-main-process.md)
   * [Menggunakan Selenium dan WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pengujian pada Sistem CI tanpa kepala (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensi DevTools](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
-* [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [Pengujian Otomatis dengan Driver Khusus](tutorial/automated-testing-with-a-custom-driver.md)
+* Pengemasan 
+  * [Penandatanganan Kode](tutorial/code-signing.md)
+* [Distribusi](tutorial/application-distribution.md) 
+  * [Dukungan](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -63,32 +63,32 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Melaporkan Issue Baru](tutorial/security.md#reporting-security-issues)
   * [Masalah keamanan Kromium dan upgrade](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Peringatan Keamanan Elektronika](tutorial/security.md#electron-security-warnings)
-  * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+  * [Daftar Periksa Keamanan](tutorial/security.md#checklist-security-recommendations)
+* [Pembaruan](tutorial/updates.md) 
+  * [Menerapkan Server Pembaruan](tutorial/updates.md#deploying-an-update-server)
+  * [Menerapkan pembaruan di aplikasi Anda](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Menerapkan Pembaruan](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## Tutorial Rinci
 
-These individual tutorials expand on topics discussed in the guide above.
+Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
+* [Secara Detail: Memasang Electron](tutorial/installation.md) 
   * [Instalasi Global versus Lokal](tutorial/installation.md#global-versus-local-installation)
   * [Proxy](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Penyelesaian masalah](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [Secara Detail: Skema Versi Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Cabang Stabilisasi](tutorial/electron-versioning.md#stabilization-branches)
   * [Rilis Beta dan Perbaikan Bug](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+* [Secara Detail: Mengemas Kode Sumber Aplikasi dengan asar](tutorial/application-packaging.md) 
+  * [Menghasilkan Arsip asar](tutorial/application-packaging.md#generating-asar-archives)
+  * [Menggunakan Arsip asar](tutorial/application-packaging.md#using-asar-archives)
   * [Keterbatasan](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+  * [Menambahkan File yang Belum Dikemas ke Arsip asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Secara Detail: Menggunakan Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Secara Detail: Menggunakan Plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Rendering di luar layar](tutorial/offscreen-rendering.md)
 
 * * *

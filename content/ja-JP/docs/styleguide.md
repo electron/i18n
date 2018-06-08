@@ -211,4 +211,4 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 
 ## ドキュメントの翻訳
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+[electron/i18n](https://github.com/electron/i18n#readme) を参照してください

@@ -7,13 +7,13 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 * Sedikitnya ruang disk 25GB dan RAM 8GB.
 * Python 2.7.x. Beberapa distribusi seperti CentOS 6.x masih menggunakan Python 2.6.x jadi Anda mungkin perlu memeriksa versi Python Anda dengan ` python -V `.
     
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    Harap pastikan juga bahwa sistem dan versi Python Anda mendukung setidaknya TLS 1.2. Untuk tes cepat, jalankan skrip berikut:
     
     ```sh
     $ python ./script/tls.py
     ```
     
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+    Jika skrip mengembalikan bahwa konfigurasi Anda menggunakan protokol keamanan yang ketinggalan jaman, gunakan manajer paket di sistem Anda untuk memperbarui Python ke versi yang terbaru di cabang 2.7.x. Atau, kunjungi https://www.python.org/downloads/ untuk instruksi yang lebih detail.
 
 * Node.js. Ada berbagai cara untuk menginstal Node. Anda dapat mendownload kode sumber dari [nodejs.org](https://nodejs.org) dan mengkompilasinya. Melakukan hal tersebut memungkinkan pemasangan Node di direktori home Anda sendiri sebagai pengguna standar. Atau coba repositori seperti [ NodeSource ](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 

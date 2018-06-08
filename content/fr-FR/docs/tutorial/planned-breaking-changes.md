@@ -7,13 +7,13 @@ Il n'y a pas de planning pour la sortie de cette version, mais des avertissement
 ## `webFrame`
 
 ```js
-// Deprecated
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
+// Déprécié
+webCrame.registerURLSchemeAsPrivileged('app', {secure: true})
+// Remplacé par
+webCwithprotocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
-*Nota Bene:* Before we can remove this we need to update all of the relevant specs to `protocol.registerStandardSchemes(['app'], {secure: true})`.
+*Nota Bene:* Avant que l'on puisse l'enlever nous devons mettre à jour toutes les spécifications sur `protocol.registerStandardSchemes(['app'], {secure: true})`.
 
 ## `app.makeSingleInstance`
 

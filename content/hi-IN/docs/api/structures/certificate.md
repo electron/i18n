@@ -1,6 +1,6 @@
-# प्रमाणपत्र ऑब्जेक्ट
+# Certificate Object
 
-* ` डाटा ` स्ट्रिंग-PEM एंकोडेड डेटा
+* `डाटा` String - PEM एंकोडेड डेटा
 * ` विषय ` [ CertificatePrincipal ](certificate-principal.md) - विषय मुख्याध्यापक
 * ` issuerName ` स्ट्रिंग-जारीकर्ता का आम नाम
 * ` issuerCert ` प्रमाणपत्र - जारीकर्ता का प्रमाणपत्र (यदि स्व-हस्ताक्षरित नहीं है)
