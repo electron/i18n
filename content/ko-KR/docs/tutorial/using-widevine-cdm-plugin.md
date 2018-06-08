@@ -6,19 +6,19 @@ Electron에서는 Chrome 브라우저와 함께 제공되는 Widevine CDM 플러
 
 Electron 에는 라이선스 이유로 Widevine CDM 플러그인이 포함되어 있지 않습니다. 공식 Chrome 브라우저를 먼저 설치해야합니다. 공식 Chrome 버전과 사용하는 전자 빌드의 Chrome 버전이 일치해야합니다.
 
-**Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
+**Note:** Chrome 브라우저의 주요 버전은 Electron에서 사용하는 Chrome 버전과 동일해야합니다. 그렇지 않으면 `navigator.plugins`에로드 된 것으로 표시 되더라도 플러그인이 작동하지 않습니다.
 
 ### Windows & macOS
 
-Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `Program Files(x86)/Google/Chrome/Application/VERSION/WidevineCDM/_platform_specific/PLATFORM_ARCH/` directory.
+Chrome 브라우저에서 `chrome://components/`를 열고 `WidevineCdm`을 찾아서 최신 버전인지 확인한 다음 모든 플러그인 바이너리를 `Program Files(x86)/Google/Chrome/Application/VERSION/WidevineCDM/_platform_specific/PLATFORM_ARCH/` 디렉토리에서 찾을 수 있습니다.
 
-`APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
+`APP_DATA`는 응용 프로그램 데이터를 저장하기위한 시스템의 위치이며, Windows에서는 `%LOCALAPPDATA%`이며 macOS에서는 `~/Library/Application Support `입니다. `VERSION`은 `1.4.8.866`과 같이 Widevine CDM 플러그인의 버전 문자열입니다. `PLATFORM` 은 `mac` 또는 `win`입니다. `ARCH` 는 `x86` 또는 `x64`입니다.
 
-On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
+Windows에서 필요한 바이너리는 `widevinecdm.dll` 및 `widevinecdmadapter.dll`이며, macOS에서는`libwidevinecdm.dylib` 및 `widevinecdmadapter.plugin`입니다. 원하는 위치로 복사 할 수 있지만 함께 복사해야합니다.
 
 ### Linux
 
-On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
+Linux에서 플러그인 바이너리는 Chrome 브라우저와 함께 제공되며 `/opt/google/chrome`에서 찾을 수 있습니다. 파일 이름은 `libwidevinecdm.so` 및 `libwidevinecdmadapter.so`입니다.
 
 ## Using the plugin
 
