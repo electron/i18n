@@ -22,11 +22,11 @@ Linux에서 플러그인 바이너리는 Chrome 브라우저와 함께 제공되
 
 ## Using the plugin
 
-After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
+플러그인 파일을 얻은 후에는 `--widevine-cdm-path` 명령 행 스위치를 사용하여 `widevinecdmadapter` 경로를 Electron에 전달하고 `--widevine-cdm-version` 스위치를 사용하여 플러그인 버전을 전달하십시오.
 
-**Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
+**Note:** `widevinecdmadapter` 바이너리 만이 Electron로 전달되지만, `widevinecdm` 바이너리는 같이 두어야합니다.
 
-The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
+`app` 모듈의 `ready` 이벤트가 발생하기 전에 명령 줄 스위치를 전달해야하며 이 플러그인을 사용하는 페이지에 플러그인을 활성화 해야합니다.
 
 Example code:
 
@@ -55,8 +55,8 @@ app.on('ready', () => {
 
 ## Verifying the plugin
 
-To verify whether the plugin works, you can use following ways:
+플러그인 작동 여부를 확인하려면 다음 방법을 사용할 수 있습니다.
 
-* Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* Devtools를 열고 `navigator.plugins`에 Widevine CDM 플러그인이 있는지 확인하십시오.
+* Https://shaka-player-demo.appspot.com/을 열고 `Widevine`을 사용하는 매니페스트를 로드하십시오.
+* http://www.dash-player.com/demo/drm-test-area/를 열어, 페이지에서 bitdash uses Widevine in your browser라고 적혀있는지 확인하고 비디오를 재생합니다.
