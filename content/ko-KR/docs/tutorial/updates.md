@@ -35,11 +35,11 @@ require('update-electron-app')()
 
 ## 서버에 업데이트 배포
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+비공개 Electron 어플리케이션을 개발 중이거나 GitHub 릴리즈에 릴리즈를 게시하지 않는 경우 자체 업데이트 서버를 운영하는것이 필요합니다.
 
-Depending on your needs, you can choose from one of these:
+필요에 따라 다음 중 하나를 선택할 수 있습니다:
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
+- [Hazel](https://github.com/zeit/hazel) - [지금 ](https://zeit.co/now) 무료로 배포 할 수있는 비공개 또는 오픈 소스 앱을 위한 서버를 업데이트하십시오. 그것은 [GitHub Releases](https://help.github.com/articles/creating-releases/)에서 가져오고 GitHub의 CDN 의 힘을 이용합니다.
 - [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
 - [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
