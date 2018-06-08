@@ -40,21 +40,21 @@ require('update-electron-app')()
 필요에 따라 다음 중 하나를 선택할 수 있습니다:
 
 - [Hazel](https://github.com/zeit/hazel) - [지금 ](https://zeit.co/now) 무료로 배포 할 수있는 비공개 또는 오픈 소스 앱을 위한 서버를 업데이트하십시오. 그것은 [GitHub Releases](https://help.github.com/articles/creating-releases/)에서 가져오고 GitHub의 CDN 의 힘을 이용합니다.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Nuts](https://github.com/GitbookIO/nuts) - [ GitHub Releases](https://help.github.com/articles/creating-releases/)를 사용하지만 디스크에 앱 업데이트를 캐시하고 개인 저장소를 지원합니다.
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) - 릴리스 처리를 위한 대시 보드를 제공하며 GitHub에 릴리스가 필요하지 않습니다.
+- [Nucleus](https://github.com/atlassian/nucleus) - Atlassian에서 관리하는 Electron 응용 프로그램을 위한 완벽한 업데이트 서버입니다. 여러 응용 프로그램 및 채널을 지원합니다. 정적 파일 저장소를 사용하여 서버 비용을 줄입니다.
 
 ## 앱에 업데이트 구현하기
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+업데이트 서버를 배포했으면 코드에 필요한 모듈을 가져옵니다. 다음 코드는 서버 소프트웨어마다 다를 수 있지만 [Hazel](https://github.com/zeit/hazel)을 사용할 때처럼 작동합니다.
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**중요 : ** 아래 코드는 패키지 된 앱에서만 실행해야합니다. (개발중이 아니라) [electron-is-dev](https://github.com/sindresorhus/electron-is-dev)를 사용하여 환경을 확인할 수 있습니다.
 
 ```javascript
 onst { app, autoUpdater, dialog } = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+다음으로 업데이트 서버의 URL을 구성하고 [autoUpdater](../api/auto-updater.md)에 알려주십시오.
 
 ```javascript
 const server = 'https://your-deployment-url.com'
@@ -63,7 +63,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+마지막 단계로서 업데이트를 확인하십시오. 아래의 예는 매분 확인합니다 :
 
 ```javascript
 setInterval(() => {
@@ -71,11 +71,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+응용 프로그램이 [패키지 되면](../tutorial/application-distribution.md) 게시하는 새로운 [GitHub Release](https://help.github.com/articles/creating-releases/) 마다 업데이트를 받게됩니다.
 
 ## 업데이트 적용
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. autoUpdater API [이벤트](../api/auto-updater.md#events)를 사용하여 이룰수 있습니다.
+이제 응용 프로그램의 기본 업데이트 메커니즘을 구성 했으므로 업데이트가있을 때 사용자에게 알림이 전송되도록해야합니다. autoUpdater API [이벤트](../api/auto-updater.md#events)를 사용하여 이룰수 있습니다.
 
 ```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
