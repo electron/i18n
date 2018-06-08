@@ -1,10 +1,10 @@
-tagline: اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS
+tagline: ابني تطبيقات سطح المكتب متعدد المنصات باستخدام JavaScript ،HTML، و CSS
 nav:
   apps: التطبيقات
   blog: المدونة
   code_of_conduct: قواعد السلوك
   community: المجتمع
-  contact: تواصل معنا
+  contact: تواصل
   docs: التوثيقات
   donors: الجهات المانحة
   languages: اللغات
@@ -12,14 +12,14 @@ nav:
   search: بحث
   userland: مساحة المستخدم
 docs:
-  title: توثيقات الكترون
+  title: توثيق الكترون
   description: مشاهدة <a href="/docs/all"> كافة المستندات في صفحة واحدة</a> أو التحقق من <a href="/docs/faq"> الأسئلة الأكثر تكرارًا</a>.
   guides: الأدلة
   api_reference: مرجع API
   advanced: خيارات متقدمة
   footer:
     propose_change: تحسين هذه الوثيقة
-    version_history: تاريخ الإصدارات
+    version_history: تاريخ الإصدار
     translate: ترجم هذه الوثيقة
     view_all_docs: جميع الوثائق في صفحة واحدة
 languages:
@@ -28,11 +28,11 @@ languages:
   current: الاختيار الحالي
 community:
   title: مجتمع Electron
-  description: Resources for connecting with people working on Electron.
+  description: موارد للتوصل مع العاملين في إلكترون.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>لنبدأ</b></a> في تطوير تطبيق عبر قراءة <a href='/docs/tutorial/first-app'>دليل البدء السريع</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>إبقى على إطلاع</b></a> من خلال متابعتنا <a href='https://twitter.com/electronjs'>@electronjs</a> في تويتر والإشتراك في <a href='/blog'>المدونة</a>."
+    localized_docs: "<a href='/languages'><b>إطلع على التوثيقات بلغتك الأم</b></a> من خلال زيارة <a href='/languages'>صفحة اللغات</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
@@ -40,10 +40,10 @@ community:
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    other: "لجميع الإستفسارات الأخرى ، بريد إلكتروني <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: مجتمعات اللغات
+    description: "يمتد مجتمع الإلكترون عبر العالم ، واللغة الإنجليزية ليست اللغة الأم للجميع. إبحث عن <a href='/languages'>التوثيقات بلغتك</a>، أو إنضم إلى إحدى متجتمعات اللغات أدناه:"
   tools: الأدوات
   boilerplates: القوالب
   components: المكونات
@@ -147,7 +147,7 @@ pages:
     title: مساحة المستخدم
   '/devtron':
     title: Devtron
-    description: ديفترون أداة مفتوحة مصدر لمساعدتك على فحص ومراقبة وتصحيح تطبيق إلكترون الخاص بك هذه اﻷداة مبنية على "أدوات المطور كروم" المذهلة.
+    description: "Devtron أداة مفتوحة المصدر لمساعدتك في فحص ومراقبة وتصحيح تطبيق إلكترون الخاص بك.\n هذه اﻷداة مبنية على \"أدوات المطور كروم\" المذهلة."
   '/spectron':
     title: Spectron
     description: سبيكترون إطار مفتوح المصدر يسهل كتابة اختبارات التكامل الخاصة بتطبيق إلكترون، وهو مبني بالاتماد على ChromeDriver و WebDriverIO.
@@ -156,7 +156,7 @@ pages:
 _404:
   page_not_found: الصفحة غير موجودة.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_all: أعثر على موارد للإلكترون من خلال <a href="/search/docs">التوثيقات</a>, <a href="/search/npmPackages">npm حزم</a>, و<a href="/search/repos">GitHub مستودع</a>.
+  description_docs: أحصل على موارد إلكترون من خلال التوثيقات.
+  description_npm: أحصل على موارد إلكترون من خلال حزم npm.
+  description_repos: أحصل على موارد إلكترون من خلال مستودع GitHub.
