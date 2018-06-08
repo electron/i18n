@@ -27,7 +27,7 @@ require('update-electron-app')()
 
 기본적으로이 모듈은 앱 시작시와 10분마다 업데이트를 확인합니다. 업데이트가 발견되면 자동으로 백그라운드에서 다운로드됩니다. 다운로드가 완료되면 대화 상자가 표시되어 사용자가 앱을 다시 시작할 수 있습니다.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+커스트마이징이 필요한 경우[`update-electron-app`에 옵션을 전달](https://github.com/electron/update-electron-app)하거나 [업데이트 서비스를 직접 사용 ](https://github.com/electron/update.electronjs.org) 할 수 있습니다.
 
 ## Using `electron-builder`
 
