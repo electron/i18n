@@ -6,33 +6,25 @@
 
 ## 배경 및 요구 사항
 
-Windows 10 "Anniversary Update"는 가상화 된 파일 시스템 및 레지스트리와 함께 실행하여 win32 ` .exe </ 0> 바이너리를 실행할 수 있습니다. Both are
-created during compilation by running app and installer inside a Windows
-Container, allowing Windows to identify exactly which modifications to the
-operating system are done during installation. Pairing the executable with a
-virtual filesystem and a virtual registry allows Windows to enable one-click
-installation and uninstallation.</p>
+Windows 10 "Anniversary Update"는 가상화 된 파일 시스템 및 레지스트리와 함께 실행하여 win32 ` .exe </ 0> 바이너리를 실행할 수 있습니다. 둘 다 Windows 컨테이너에 app과 installer에 의해 컴파일하는 동안 만들어 지므로 Windows가 설치 중에 운영 체제 변경 사항을 정확히 식별 할 수 있습니다. 실행 파일을 가상 파일 시스템 및 가상 레지스트리와 페어링하면 Windows에서 한 번 클릭으로 설치 및 제거 할 수 있습니다.</p>
 
-<p>In addition, the exe is launched inside the appx model - meaning that it can use
-many of the APIs available to the Universal Windows Platform. To gain even more
-capabilities, an Electron app can pair up with an invisible UWP background task
-launched together with the <code>exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+<p>또한 exe는 appx 모델 내에서 실행됩니다. 즉, Universal Windows Platform에서 사용할 수있는 많은 API를 사용할 수 있습니다.  더 많은 기능을 사용하기 위해, Electron 애플리케이션은 백그라운드로 실행된 UWP 앱과 페어링 하여  <code>exe`와 같이 실행할 수 있습니다 - 이렇게 헬퍼와 비슷하게 실행되고 작업을 실행하기 위해 백그라운드에서 작동하며, 푸시 알림을 받거나, 다른 UWP 애플리케이션과 통신하는 역할을 합니다.
 
-To compile any existing Electron app, ensure that you have the following requirements:
+현재 존재하는 Electron 애플리케이션을 컴파일 하려면, 다음 요구 사항을 충족해야 합니다:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Windows 10 Anniversary Update (2016년 8월 2일 발매)
+* Windows 10 SDK, [여기서 다운로드](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* Node 4 이상(확인, `node -v`실행)
 
-Then, go and install the `electron-windows-store` CLI:
+그리고 CLI에서 `electron-windows-store`를 설치합니다:
 
 ```sh
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## 1 단계 : Electron 응용 프로그램 패키지
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+[electron-packager](https://github.com/electron-userland/electron-packager) (또는 이와 유사한 도구)를 사용하여 응용 프로그램을 패키지화합니다. Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 The output should look roughly like this:
 
