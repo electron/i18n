@@ -47,7 +47,7 @@ win.once('ready-to-show', () => {
 
 ### Настройка `backgroundColor`
 
-Для больших приложений `ready-to-show` событие может вызываться слишком поздно, что может сделать приложение слишком медленным. В этом случае рекомендуется показать окно немедленно, и использовать `backgroundColor`, закрывающий фон Вашего приложения:
+Для больших приложений `ready-to-show` событие может вызываться слишком поздно, что может замедлить приложение. В этом случае рекомендуется показать окно немедленно, и использовать `backgroundColor`, рядом с фоном Вашего приложения:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -125,8 +125,8 @@ Process: [Main](../glossary.md#main-process)
   * `y` Integer (необязательно) (**обязательно** если используется x) - Отступ окна сверху от экрана. Значение по умолчанию центрирует окно.
   * `useContentSize` Boolean (необязательно) - `width` и `height` могут использоваться как размеры веб-страницы, это значит, что актуальный размер окна будет включать размер фрейма и будет немного крупнее. По умолчанию - `false`.
   * `center` Boolean (необязательно) - Показывает окно в центре экрана.
-  * `minWidth` Integer (необязательно) - Минимальная ширина окна. По умолчанию - ``.
-  * `minHeight` Integer (необязательно) - Минимальная высота окна. По умолчанию - ``.
+  * `minWidth` Integer (необязательно) - Минимальная ширина окна. По умолчанию - `0`.
+  * `minHeight` Integer (необязательно) - Минимальная высота окна. По умолчанию - `0`.
   * `maxWidth` Integer (необязательно) - Максимальная ширина окна. По умолчанию - без ограничений.
   * `maxHeight` Integer (необязательно) - Максимальная высота окна. По умолчанию - без ограничений.
   * `resizable` Boolean (необязательно) - Будет ли окно изменять размеры. По умолчанию - `true`.
@@ -162,12 +162,12 @@ Process: [Main](../glossary.md#main-process)
     * `hidden` - В результате скрытый заголовок и содержимое во все окно, но заголовок по-прежнему имеет стандартное окно контроля ("светофоры") сверху слева.
     * `hiddenInset` - В результате скрытый заголовок с альтернативным видом, где кнопки контролирования немного больше вставки от края окна.
     * `customButtonsOnHover` Boolean (необязательно) - Отобразить настраиваемые кнопки закрыть, свернуть и во весь экран на бескаркасных окнах в macOS. Эти кнопки не будут отображаться за исключением соприкосновения над левым верхним углом окна. Эти пользовательские кнопки предотвращают проблемы с событиями мыши, которые происходят с кнопками стандартной панели инструментов. **Заметка:** Этот параметр в настоящее время экспериментален.
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
+  * `fullscreenWindowTitle` Boolean (необязательно) - Показывает название в строке заголовка в полноэкранном режиме на macOS для всех вариантов `titleBarStyle`. По-умолчанию `false`.
   * `thickFrame` Boolenan (необязательно) - Использовать стиль `WS_THICKFRAME` на окнах с отсутствием рамок на Windows, добавляющий стандартные рамки окна. Установив значение `false` тень окна и анимация окна будут удалены. По умолчанию - `true`.
   * `vibrancy` String (опционально) - добавить тип эффекта вибрации к окну, только на macOS. Может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, или `ultra-dark`. Обратите внимание, что использование `frame: false` в комбинации с меняющимся значением, требует так же указывать `titleBarStyle`.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. По умолчанию - `false`.
+  * `zoomToPageWidth` Boolean (необязательно) - Управляет поведением на macOS when option-clicking the green stoplight button на панели инструментов или при нажатии на Окно > Увеличивает пункт меню. Если `true`, окно будет увеличиваться до предпочтительной ширины веб-страницы при увеличении, `false` приведет к увеличению масштаба до ширины экрана. Это также повлияет на поведение при вызове `maximize()` напрямую. По умолчанию - `false`.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
-  * `webPreferences` Object (optional) - Settings of web page's features. 
+  * `webPreferences` Object (необязательно) - Настройки веб-страниц. 
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. По умолчанию - `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
     * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. По умолчанию - `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
@@ -199,7 +199,7 @@ Process: [Main](../glossary.md#main-process)
       * `fantasy` String (optional) - Defaults to `Impact`.
     * `defaultFontSize` Integer (optional) - Defaults to `16`.
     * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to ``.
+    * `minimumFontSize` Integer (optional) - Defaults to `0`.
     * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
@@ -224,7 +224,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
-#### Событие: «обновление заголовка страницы»
+#### Событие: 'page-title-updated'
 
 Возвращает:
 
@@ -259,11 +259,11 @@ window.onbeforeunload = (e) => {
 
 #### Событие: 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Вызывается, когда окно закрыто. После того, как вы получили это событие, вы должны удалить ссылку на окно и больше не использовать его.
 
 #### Событие: 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Вызывается, когда оконный сеанс заканчивается из-за выключения или перезагрузки компьютера или отключения сеанса.
 
 #### Событие: 'unresponsive'
 
@@ -271,7 +271,7 @@ Emitted when window session is going to end due to force shutdown or machine res
 
 #### Событие: 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+Вызывается, когда неотвечавшая страница снова реагирует.
 
 #### Событие: 'blur'
 
@@ -283,11 +283,11 @@ Emitted when the unresponsive web page becomes responsive again.
 
 #### Событие: 'show'
 
-Emitted when the window is shown.
+Вызывается, когда отображается окно.
 
 #### Событие: 'hide'
 
-Emitted when the window is hidden.
+Вызывается, когда окно спрятано.
 
 #### Событие: 'ready-to-show'
 
@@ -295,7 +295,7 @@ Emitted when the web page has been rendered (while not being shown) and window c
 
 #### Событие: 'maximize'
 
-Emitted when window is maximized.
+Вызывается, когда окно увеличивается до предела.
 
 #### Событие: 'unmaximize'
 
@@ -311,25 +311,25 @@ Emitted when the window is restored from a minimized state.
 
 #### Событие: 'resize'
 
-Emitted when the window is being resized.
+Вызывается, когда у окна меняется размер.
 
 #### Событие: 'move'
 
 Emitted when the window is being moved to a new position.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Note**: На macOS это событие лишь псевдоним для `moved`.
 
 #### Событие: 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+Вызывается единожды, когда окно перемещается в новое положение.
 
 #### Событие: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Вызывается, когда окно переходит в полноэкранный режим.
 
 #### Событие: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Вызывается, когда окно выходит из полноэкранного режима.
 
 #### Событие: 'enter-html-full-screen'
 
@@ -339,7 +339,7 @@ Emitted when the window enters a full-screen state triggered by HTML API.
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'app-command' *Windows*
+#### Событие: 'app-command' *Windows*
 
 Возвращает:
 
@@ -623,48 +623,48 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (необязательно) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Возвращает [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (необязательно) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Возвращает [`Rectangle`](structures/rectangle.md)
 
 #### `win.setEnabled(enable)`
 
 * `enable` Boolean
 
-Disable or enable the window.
+Включает или выключает окно.
 
 #### `win.setSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (необязательно) *macOS*
 
 Resizes the window to `width` and `height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Возвращает `Integer[]` - Содержит высоту и ширину окна.
 
 #### `win.setContentSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (необязательно) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -698,11 +698,11 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Устанавливает, может ли пользователь вручную изменять размер окна.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Возвращает `Boolean` - Когда окно может быть изменено пользователем вручную.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
@@ -714,7 +714,7 @@ Sets whether the window can be moved by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be moved by user.
 
-On Linux always returns `true`.
+На Linux всегда возвращает `true`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -726,7 +726,7 @@ Sets whether the window can be manually minimized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually minimized by user
 
-On Linux always returns `true`.
+На Linux всегда возвращает `true`.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -738,7 +738,7 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
-On Linux always returns `true`.
+На Linux всегда возвращает `true`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -760,13 +760,13 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
-On Linux always returns `true`.
+На Linux всегда возвращает `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `level` String (необязательно) *macOS* - Значения включают `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Устарело). По-умолчанию `floating`. Смотри [Документацию macOS](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) для подробностей.
+* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
@@ -782,7 +782,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (необязательно) *macOS*
 
 Moves window to `x` and `y`.
 
@@ -1041,7 +1041,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 * `options` Object 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
+  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
   * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
