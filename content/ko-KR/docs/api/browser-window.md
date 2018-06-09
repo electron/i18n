@@ -29,9 +29,9 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## 윈도우 창을 멋있게 보여주기
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+윈도우 창에 직접 페이지를 로딩 할때, 사용자는 페이지가 조금씩 로드되는 것을 볼 수 있다. 이러한 점은 네이티브 앱에서 보여주기에는 좋지 않은 방식이다. 윈도우창에 Visual Flash 없이 보여주는 방법은 각기 다른 상황에 따른 두가지 방법이 있다.
 
-### Using `ready-to-show` event
+### `ready-to-show` 이벤트를 사용하기
 
 While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
 
