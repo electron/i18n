@@ -63,16 +63,16 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 * Electron를 업그레이드 한 후에는 일반적으로 모듈을 다시 빌드해야합니다.
 * 의심스러운 경우 `electron-rebuild`를 먼저 실행하십시오.
 
-## Modules that rely on `prebuild`
+## `prebuild`에 의존하는 모듈
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild)는 여러 버전의 노드와 일렉트론에 대한 사전 빌드 된 바이너리로 네이티브 노드 모듈을 게시하는 방법을 제공합니다.
 
-If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+모듈이 Electron에서 사용을 위한 바이너리를 제공한다면 미리 만들어진 바이너리를 최대한 활용하기 위해 `-- build-from-source`와 `npm_config_build_from_source` 환경 변수를 생략해야합니다.
 
-## Modules that rely on `node-pre-gyp`
+## `node-pre-gyp`에 의존하는 모듈
 
-The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
+[`node-pre-gyp`도구](https://github.com/mapbox/node-pre-gyp)는 미리 만들어진 바이너리로 네이티브 노드 모듈을 배포하는 방법을 제공하며 많은 인기 모듈이 이것을 사용하고 있습니다.
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node, and there are ABI changes, bad things may happen. So in general it is recommended to always build native modules from source code.
+보통 이러한 모듈은 Electron에서 잘 작동하지만, Electron이 Node보다 V8의 새로운 버전을 사용하고 ABI 변경이있는 경우가 문제가 발생할 수 있습니다. 따라서 일반적으로 소스 코드에서 항상 네이티브 모듈을 빌드하는 것이 좋습니다.
 
-If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+모듈을 설치 방법인 `npm`을 따르고 있다면, 이것은 기본적으로 수행됩니다. 그렇지 않으면 `--build-from-source`를 `npm`에 전달하거나 또는 `npm_config_build_from_source` 환경 변수를 설정하십시오.

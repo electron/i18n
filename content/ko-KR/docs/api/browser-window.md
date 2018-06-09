@@ -27,11 +27,11 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 크롬을 사용하지 않고 창을 만들거나 임의의 모양으로 투명한 창을 만들려면 [Frameless Window API](frameless-window.md)를 사용할 수 있습니다.
 
-## Showing window gracefully
+## 윈도우 창을 멋있게 보여주기
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+윈도우 창에 직접 페이지를 로딩 할때, 사용자는 페이지가 조금씩 로드되는 것을 볼 수 있다. 이러한 점은 네이티브 앱에서 보여주기에는 좋지 않은 방식이다. 윈도우창에 Visual Flash 없이 보여주는 방법은 각기 다른 상황에 따른 두가지 방법이 있다.
 
-### Using `ready-to-show` event
+### `ready-to-show` 이벤트를 사용하기
 
 While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
 
@@ -126,8 +126,8 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is ``.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is ``.
+  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
+  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
   * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
   * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
@@ -200,7 +200,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
       * `fantasy` String (optional) - Defaults to `Impact`.
     * `defaultFontSize` Integer (optional) - Defaults to `16`.
     * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to ``.
+    * `minimumFontSize` Integer (optional) - Defaults to `0`.
     * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
@@ -767,7 +767,7 @@ On Linux always returns `true`.
 
 * `flag` Boolean
 * `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
@@ -1042,7 +1042,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 * `options` Object 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
+  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
   * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
