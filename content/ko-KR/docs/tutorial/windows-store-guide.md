@@ -85,12 +85,12 @@ Electron 앱을 푸시 알림, Cortana 통합 또는 라이브 타일과 같은 
 
 ## Optional : 컨테이너 가상화를 사용하여 변환
 
-AppX 패키지를 생성하기 위해 `electron-windows-store` CLI는 대부분의 Electron 응용 프로그램에서 작동 할 템플릿을 사용합니다. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+AppX 패키지를 생성하기 위해 `electron-windows-store` CLI는 대부분의 Electron 응용 프로그램에서 작동 할 템플릿을 사용합니다. 그러나 사용자 정의 설치 프로그램을 사용하거나 생성 된 패키지에 문제가 발생하는 경우 Windows 컨테이너가 포함 된 컴파일을 사용하여 패키지를 만들 수 있습니다.이 모드에서는 CLI가 빈 Windows에 응용 프로그램을 설치하고 실행합니다 컨테이너를 사용하여 응용 프로그램이 운영 체제에서 수행중인 수정 작업을 정확하게 확인할 수 있습니다.
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+CLI를 처음 실행하기 전에 "Windows Desktop App Converter"를 설치해야합니다. 이 작업은 몇 분이 걸리지 만 걱정하지 마십시오. 한 번만 수행하면됩니다. Desktop App Converter 는 [여기](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter)에서 다운로드 합니다. `DesktopAppConverter.zip` 와 `BaseImage-14316.wim` 두 파일을 모두 받아야 합니다.
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+1. `DesktopAppConverter.zip`의 압축을 풉니다. 관리자 권한으로 실행 된 PowerShell에서 `Set-ExecutionPolicy bypass`를 호출하여 시스템 실행 정책에 따라 실행하려는 모든 작업을 실행할 수 있는지 확인하십시오.
+2. 그리고, `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`를 실행하여 Windows 베이스 이미지 (`BaseImage-14316.wim`)를 Desktop App Converter로 전달하고 설치를 진행합니다.
+3. 만약 위 명령이 재시작을 요구하면, 기기를 재시작하고 위 명령을 다시 실행시키세요.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+설치가 성공하면 Electron 앱을 컴파일 할 수 있습니다.
