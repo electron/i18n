@@ -24,9 +24,9 @@ npm install -g electron-windows-store
 
 ## 1 단계 : Electron 응용 프로그램 패키지
 
-[electron-packager](https://github.com/electron-userland/electron-packager) (또는 이와 유사한 도구)를 사용하여 응용 프로그램을 패키지화합니다. Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+[electron-packager](https://github.com/electron-userland/electron-packager) (또는 이와 유사한 도구)를 사용하여 응용 프로그램을 패키지화합니다. 실제로 필요하지 않은 모듈은 응용 프로그램의 크기를 증가시킬 것이므로 마지막 응용 프로그램에서 필요하지 않은 `node_modules`을 제거하십시오.
 
-The output should look roughly like this:
+출력된 파일은 대략 다음과 같이 보입니다.
 
 ```text
 ├── Ghost.exe
@@ -52,9 +52,9 @@ The output should look roughly like this:
 └── ui_resources_200_percent.pak
 ```
 
-## Step 2: Running electron-windows-store
+## 2 단계 : electron-windows-store 실행
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+관리자 권한으로 실행 된 PowerShell에서 입력 및 출력 디렉토리, 응용 프로그램의 이름 및 버전을 전달하고 `node_modules` 을 평탄화시키는 매개 변수를 전달하여 `electron-windows-store`를 실행합니다.
 
 ```powershell
 electron-windows-store `
@@ -65,9 +65,9 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+명령이 실행되면, 도구는 다음과 같이 작동합니다: Electron 애플리케이션을 입력으로 받고, `node_modules`를 평탄화합니다. 그런 다음 애플리케이션을 `app.zip `으로 압축합니다. 설치 프로그램과 Windows 컨테이너를 사용하여이 도구는 "확장 된"AppX 패키지를 만듭니다. - Windows 응용 프로그램 매니페스트 (`AppXManifest.xml`)는 물론 가상 폴더 시스템과 가상 레지스트리도 출력 폴더 내에 포함됩니다.
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+확장 된 AppX 파일이 생성되면이 도구는 Windows App Packager (`MakeAppx.exe`)를 사용하여 디스크의 해당 파일에서 단일 파일 AppX 패키지를 만듭니다. 마지막으로이 도구를 사용하여 컴퓨터에 신뢰할 수있는 인증서를 만들어 새 AppX 패키지에 서명 할 수 있습니다. 서명 된 AppX 패키지를 사용하면 CLI가 시스템에 패키지를 자동으로 설치할 수도 있습니다.
 
 ## Step 3: Using the AppX Package
 
