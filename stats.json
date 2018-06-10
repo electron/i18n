@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "9469",
-    "translated": "650",
+    "translated": "657",
     "approved": "0",
     "words": "87053",
-    "words_translated": "3752",
+    "words_translated": "3890",
     "words_approved": "0",
     "translated_progress": 4,
     "approved_progress": 0,
-    "qa_issues": "252"
+    "qa_issues": "255"
   },
   {
     "name": "Bulgarian",
@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "9469",
-    "translated": "2555",
+    "translated": "2561",
     "approved": "37",
     "words": "87053",
-    "words_translated": "14998",
+    "words_translated": "15097",
     "words_approved": "68",
     "translated_progress": 17,
     "approved_progress": 0,
-    "qa_issues": "943"
+    "qa_issues": "947"
   },
   {
     "name": "Hebrew",
@@ -133,14 +133,14 @@
     "name": "Hindi",
     "code": "hi",
     "phrases": "9469",
-    "translated": "1413",
+    "translated": "1415",
     "approved": "6",
     "words": "87053",
-    "words_translated": "14584",
+    "words_translated": "14627",
     "words_approved": "28",
     "translated_progress": 16,
     "approved_progress": 0,
-    "qa_issues": "1311"
+    "qa_issues": "1312"
   },
   {
     "name": "Indonesian",
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "9469",
-    "translated": "3928",
+    "translated": "4088",
     "approved": "300",
     "words": "87053",
-    "words_translated": "33401",
+    "words_translated": "35908",
     "words_approved": "2812",
-    "translated_progress": 38,
+    "translated_progress": 41,
     "approved_progress": 3,
-    "qa_issues": "1749"
+    "qa_issues": "1868"
   },
   {
     "name": "Persian",
@@ -237,14 +237,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9469",
-    "translated": "4617",
+    "translated": "4625",
     "approved": "857",
     "words": "87053",
-    "words_translated": "30234",
+    "words_translated": "30320",
     "words_approved": "6284",
     "translated_progress": 34,
     "approved_progress": 7,
-    "qa_issues": "1298"
+    "qa_issues": "1303"
   },
   {
     "name": "Spanish",
