@@ -2,11 +2,11 @@
 
 From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver는 많은 브라우저에서 웹 응용 프로그램을 자동으로 테스트 할 수있는 오픈 소스 도구입니다. 웹 페이지, 사용자 입력, JavaScript 실행 등을 탐색 할 수있는 기능을 제공합니다. ChromeDriver는 Chromium 용 WebDriver의 와이어 프로토콜을 구현하는 독립 실행 형 서버입니다. Chromium 및 WebDriver 팀 구성원이 개발 중입니다.
 
-## Setting up Spectron
+## Spectron 설정
 
-[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron)은 공식적으로 지원되는 Electron의 ChromeDriver 테스트 프레임 워크입니다. [WebdriverIO](http://webdriver.io/) 위에 구축되어 ChromeDriver 테스트 및 번들에서 Electron API에 액세스 할 수있는 도우미가 있습니다.
 
 ```sh
 $ npm install --save-dev spectron
@@ -42,7 +42,7 @@ app.start().then(function () {
 })
 ```
 
-## Setting up with WebDriverJs
+## WebDriverJs로 설정하기
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
 
