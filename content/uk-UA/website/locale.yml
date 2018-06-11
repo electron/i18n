@@ -30,7 +30,7 @@ community:
   title: Спільнота Electron
   description: Ресурси для обєднання з волонтерами Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Перед початком</b></a> створення аплікації прочитайте <a href='/docs/tutorial/first-app'>короткий посібник</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
     localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
@@ -89,7 +89,7 @@ quick_start:
   dive_deeper: Або пірніть глибше та прочитайте <a href='/docs'>документацію</a>.
 need_help:
   title: Потрібна допомога?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Запитуйте в форумі <a href='https://discuss.atom.io/c/electron'>Обговорення</a> чи нашому <a href='http://atom-slack.herokuapp.com/'>Slack</a> каналі. Підпишіться на <a href="https://twitter.com/electronjs">@electronjs</a> в Twitter для важливих оголошень. Потрібно звернутися приватно? Напишіть на <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Мови
 taglines:
