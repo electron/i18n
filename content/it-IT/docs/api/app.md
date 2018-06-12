@@ -327,7 +327,7 @@ Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli
 ### `app.relaunch([options])`
 
 * `options` Object (opzionale) 
-  * `args` String[] (optional)
+  * `args` String[] (opzionale)
   * `execPath` String (opzionale)
 
 Rilancia l'app quando esiste la corrente istanza.
@@ -392,7 +392,7 @@ Puoi richiedere i seguenti percorsi dal nome:
 * `pictures` La directory per le immagini dell'utente.
 * `videos` La directory per i video dell'utente.
 * `logs` La directory per la cartella registro della tua app.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Percorso completo alla versione di sistema del plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
