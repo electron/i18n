@@ -2,7 +2,7 @@
 
 * `dados` String - Dados codificados em PEM
 * `emissor` [CertificatePrincipal](certificate-principal.md) - Emissor principal
-* `issuerName` String - Nome comum do emissor
+* `emissorNome` String - Nome comum do emissor
 * `issuerCert` Certificate - Emissor do certificado (se não for auto-assinado)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Assunto principal
 * `subjectName` String - Nome comum do emissor
