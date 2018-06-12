@@ -1,6 +1,6 @@
 # Objeto Certificado
 
-* `data` String - Dados com a codificação PEM
+* `dados` String - Dados codificados em PEM
 * `issuer` [CertificatePrincipal](certificate-principal.md) - Entidade principal
 * `issuerName` String - Nome comum do emissor
 * `issuerCert` Certificate - Emissor do certificado (se não for auto-assinado)
