@@ -47,7 +47,7 @@ Emesso prima che l'applicazione inizi a chiudere le sue finestre. Chiamare `even
 
 **Note:** Se l'uscita dall'applicazione è avviata da `autoUpdater.quitAndInstall()` allora `before-quit` è emesso *dopo* aver emesso l'evento `close` su tutte le finestre e chiudendole.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** In Windows, questo evento non verrà emesso se l'applicazione viene chiusa a causa di a un arresto/riavvio del sistema oppure del logout da parte dell'utente.
 
 ### Evento: 'will-quit'
 
@@ -59,7 +59,7 @@ Emesso quando tutte le finestre sono state chiuse e l'applicazione uscirà. Chia
 
 Vedi la descrizione dell'evento `window-all-closed` per le differenze tra gli eventi `will-quit` e `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** In Windows, questo evento non verrà emesso se l'applicazione viene chiusa a causa di a un arresto/riavvio del sistema oppure del logout da parte dell'utente.
 
 ### Evento: 'quit'
 
@@ -70,7 +70,7 @@ Restituisce:
 
 Emesso quando l'applicazione è in uscita.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** In Windows, questo evento non verrà emesso se l'applicazione viene chiusa a causa di a un arresto/riavvio del sistema oppure del logout da parte dell'utente.
 
 ### Evento: 'open-file' *macOS*
 
@@ -685,7 +685,7 @@ Cambia il [Modello Id Applicazione Utente](https://msdn.microsoft.com/en-us/libr
 * `callback` Function 
   * `result` Integer - Risultato dell'importo.
 
-Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` è chiamato con il `risultato` dell'operazione di importazione, un valore di `` indica successo, mentre un altro valore indica un fallimento in base al chromium [net_errore_lista](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` è chiamato con il `risultato` dell'operazione di importazione, un valore di `0` indica successo, mentre un altro valore indica un fallimento in base al chromium [net_errore_lista](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -713,7 +713,7 @@ Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato
 
 Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
-Imposta il contatore badge per l'app attuale. Impostare il conto a `` nasconderà il badge.
+Imposta il contatore badge per l'app attuale. Impostare il conto a `0` nasconderà il badge.
 
 Su macOS esso è mostrato sull'icona del dock. Su Linux lavora sol9 con il Launcher Unity,
 
