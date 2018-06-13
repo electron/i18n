@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "9469",
-    "translated": "7246",
+    "translated": "7247",
     "approved": "44",
     "words": "87053",
-    "words_translated": "55657",
+    "words_translated": "55684",
     "words_approved": "166",
     "translated_progress": 63,
     "approved_progress": 0,
-    "qa_issues": "2154"
+    "qa_issues": "2155"
   },
   {
     "name": "German",
@@ -159,14 +159,14 @@
     "name": "Italian",
     "code": "it",
     "phrases": "9469",
-    "translated": "3575",
+    "translated": "3580",
     "approved": "3",
     "words": "87053",
-    "words_translated": "27447",
+    "words_translated": "27540",
     "words_approved": "43",
     "translated_progress": 31,
     "approved_progress": 0,
-    "qa_issues": "1311"
+    "qa_issues": "1313"
   },
   {
     "name": "Japanese",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "9469",
-    "translated": "3113",
+    "translated": "3119",
     "approved": "49",
     "words": "87053",
-    "words_translated": "17152",
+    "words_translated": "17211",
     "words_approved": "83",
     "translated_progress": 19,
     "approved_progress": 0,
-    "qa_issues": "889"
+    "qa_issues": "893"
   },
   {
     "name": "Portuguese, Brazilian",
@@ -250,14 +250,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9469",
-    "translated": "8278",
+    "translated": "8281",
     "approved": "310",
     "words": "87053",
-    "words_translated": "72904",
+    "words_translated": "72936",
     "words_approved": "2679",
     "translated_progress": 83,
     "approved_progress": 3,
-    "qa_issues": "3153"
+    "qa_issues": "3156"
   },
   {
     "name": "Tagalog",
@@ -302,14 +302,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "9469",
-    "translated": "3110",
+    "translated": "3116",
     "approved": "166",
     "words": "87053",
-    "words_translated": "20295",
+    "words_translated": "20401",
     "words_approved": "733",
     "translated_progress": 23,
     "approved_progress": 0,
-    "qa_issues": "1234"
+    "qa_issues": "1236"
   },
   {
     "name": "Vietnamese",
