@@ -4,7 +4,7 @@ With Windows 10, the good old win32 executable got a new sibling: The Universal 
 
 Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
 
-## Background and Requirements
+## Предыстория и требования
 
 Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
 
