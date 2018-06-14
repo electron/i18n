@@ -1,10 +1,10 @@
-## Class: MenuItem
+## Клас: MenuItem
 
-> Add items to native application menus and context menus.
+> Додає пункти до нативних меню додатка і контекстних меню.
 
 Процес: [Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+Дивіться [`Menu`](menu.md) для прикладів.
 
 ### `new MenuItem(options)`
 
@@ -26,7 +26,7 @@ See [`Menu`](menu.md) for examples.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
-### Roles
+### Ролі
 
 Roles allow menu items to have predefined behaviors.
 
@@ -39,15 +39,15 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `копіювати`
+* `copy`
 * `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit`- Quit the application.
-* `reload` - Reload the current window.
+* `minimize` - Згорнути поточне вікно.
+* `close` - Закрити поточне вікно.
+* `quit`- Вийти з додатку.
+* `reload` - Перезавантажити поточне вікно.
 * `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `toggleFullScreen`- Toggle full screen mode on the current window.
