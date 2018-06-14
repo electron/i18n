@@ -26,7 +26,7 @@ Puede leer más acerca de esta herramienta en la [documentación de Spectron](ht
 
 En Devtron, hay una nueva pestaña de accesibilidad la cual te permitirá auditar una página en su aplicación, ordenar y filtrar los resultados.
 
-![capturas de devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![Capturas de devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
 Ambas herramientas están utilizando la biblioteca [Herramientas de desarrollo de accesibilidad](https://github.com/GoogleChrome/accessibility-developer-tools) creada por Google para Chrome. Usted puede aprender más acerca de las reglas de auditoría de accesibilidad que esta biblioteca usa en la [wiki del repositorio](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
@@ -44,7 +44,7 @@ Usando [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetacces
 
 La aplicación de Electron activará automáticamente la accesibilidad cuando detecta tecnología de asistencia (Windows) o VoiceOver (macOS). Consulte [Documentacion de accesibilidad](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) de Chrome para más detalles.
 
-En macOS, la tecnología de asistencia de terceros puede cambiar la accesibilidad dentro de las aplicaciones Electron configurando el atributo `AXManualAccessibility` mediante programación:
+En macOS, la tecnología de asistencia de terceros puede cambiar la accesibilidad dentro de las aplicaciones de Electron, configurando el atributo `AXManualAccessibility` de forma programada:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
