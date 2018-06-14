@@ -58,38 +58,38 @@ Electron використовує Chromium бібліотеку `l10n_util` дл
 | hi       | Хінді                         |
 | hr       | Хорватська                    |
 | hu       | Угорська                      |
-| hy       | Armenian                      |
-| ia       | Interlingua                   |
-| id       | Indonesian                    |
-| is       | Icelandic                     |
-| it       | Italian                       |
-| it-CH    | Italian (Switzerland)         |
-| it-IT    | Italian (Italy)               |
-| ja       | Japanese                      |
-| jw       | Javanese                      |
-| ka       | Georgian                      |
-| kk       | Kazakh                        |
-| km       | Cambodian                     |
-| kn       | Kannada                       |
-| ko       | Korean                        |
-| ku       | Kurdish                       |
-| ky       | Kyrgyz                        |
-| la       | Latin                         |
-| ln       | Lingala                       |
-| lo       | Laothian                      |
-| lt       | Lithuanian                    |
-| lv       | Latvian                       |
-| mk       | Macedonian                    |
-| ml       | Malayalam                     |
-| mn       | Mongolian                     |
-| mo       | Moldavian                     |
-| mr       | Marathi                       |
-| ms       | Malay                         |
-| mt       | Maltese                       |
-| nb       | Norwegian (Bokmal)            |
-| ne       | Nepali                        |
-| nl       | Dutch                         |
-| nn       | Norwegian (Nynorsk)           |
+| hy       | Вірменська                    |
+| ia       | Інтерлінгва                   |
+| id       | Індонезійська                 |
+| is       | Ісландська                    |
+| it       | Італійська                    |
+| it-CH    | Італійська (Швейцарія)        |
+| it-IT    | Італійська (Італія)           |
+| ja       | Японська                      |
+| jw       | Яванська                      |
+| ka       | Грузинська                    |
+| kk       | Казахська                     |
+| km       | Камбоджійська                 |
+| kn       | Каннада                       |
+| ko       | Корейська                     |
+| ku       | Курдська                      |
+| ky       | Киргизька                     |
+| la       | Латинська                     |
+| ln       | Лінґала                       |
+| lo       | Лаоська                       |
+| lt       | Литовська                     |
+| lv       | Латвійська                    |
+| mk       | Македонська                   |
+| ml       | Малайялам                     |
+| mn       | Монгольська                   |
+| mo       | Молдавська                    |
+| mr       | Маратхі                       |
+| ms       | Малайська                     |
+| mt       | Мальтійська                   |
+| nb       | Норвезька (Букмол)            |
+| ne       | Непальська                    |
+| nl       | Голландська                   |
+| nn       | Норвезька (Нюнорськ)          |
 | no       | Norwegian                     |
 | oc       | Occitan                       |
 | om       | Oromo                         |
@@ -133,9 +133,9 @@ Electron використовує Chromium бібліотеку `l10n_util` дл
 | uz       | Узбецька                      |
 | vi       | В’єтнамська                   |
 | xh       | Кхоса                         |
-| yi       | Yiddish                       |
-| yo       | Yoruba                        |
-| zh       | Chinese                       |
-| zh-CN    | Chinese (Simplified)          |
-| zh-TW    | Chinese (Traditional)         |
-| zu       | Zulu                          |
+| yi       | Ідиш                          |
+| yo       | Йоруба                        |
+| zh       | Китайська                     |
+| zh-CN    | Китайська (спрощене письмо)   |
+| zh-TW    | Китайська (традиційна)        |
+| zu       | Зулуська                      |
