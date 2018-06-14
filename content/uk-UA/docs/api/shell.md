@@ -56,7 +56,7 @@ Move the given file to trash and returns a boolean status for the operation.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Відтворює звуковий сигнал.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
