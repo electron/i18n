@@ -250,14 +250,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9469",
-    "translated": "8281",
+    "translated": "8301",
     "approved": "310",
     "words": "87053",
-    "words_translated": "72936",
+    "words_translated": "73105",
     "words_approved": "2679",
     "translated_progress": 83,
     "approved_progress": 3,
-    "qa_issues": "3156"
+    "qa_issues": "3163"
   },
   {
     "name": "Tagalog",
@@ -302,14 +302,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "9469",
-    "translated": "3196",
+    "translated": "3662",
     "approved": "166",
     "words": "87053",
-    "words_translated": "21086",
+    "words_translated": "22288",
     "words_approved": "733",
-    "translated_progress": 24,
+    "translated_progress": 25,
     "approved_progress": 0,
-    "qa_issues": "1268"
+    "qa_issues": "1427"
   },
   {
     "name": "Vietnamese",
