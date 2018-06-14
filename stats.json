@@ -302,14 +302,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "9469",
-    "translated": "3116",
+    "translated": "3196",
     "approved": "166",
     "words": "87053",
-    "words_translated": "20401",
+    "words_translated": "21086",
     "words_approved": "733",
-    "translated_progress": 23,
+    "translated_progress": 24,
     "approved_progress": 0,
-    "qa_issues": "1236"
+    "qa_issues": "1268"
   },
   {
     "name": "Vietnamese",
