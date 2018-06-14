@@ -16,7 +16,7 @@ app.on('ready', () => {
 
 ## --ignore-connections-limit=`домени`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Ігнорувати ліміт підключень для списку `доменів`, розділених `,`.
 
 ## --disable-http-cache
 
@@ -34,9 +34,9 @@ Ignore the connections limit for `domains` list separated by `,`.
 
 Зв'язані з відладкою прапорці, дивіться [Відлагодження основного процесу](../tutorial/debugging-main-process.md) для деталей.
 
-## --remote-debugging-port=`port`
+## --remote-debugging-port=`порт`
 
-Enables remote debugging over HTTP on the specified `port`.
+Дозволяє віддалено відлагоджувати через HTTP для вказаного `порту`.
 
 ## --disk-cache-size=`size`
 
