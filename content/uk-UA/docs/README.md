@@ -46,7 +46,7 @@
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Увімкнення Спеціальних Можливостей](tutorial/accessibility.md#enabling-accessibility)
-* [Тестування та відлагоджування](tutorial/application-debugging.md) 
+* [Тестування та відлагодження](tutorial/application-debugging.md) 
   * [Відлагодження Головного Процесу](tutorial/debugging-main-process.md)
   * [Використання Selenium і WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестування на віддалених CI системах (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
