@@ -13,11 +13,11 @@ let win = new BrowserWindow()
 try {
   win.webContents.debugger.attach('1.1')
 } catch (err) {
-  console.log('Debugger attach failed : ', err)
+  console.log('Не вдалося підключити налагоджувач : ', err)
 }
 
 win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
+  console.log('Налагоджувач відключено через : ', reason)
 })
 
 win.webContents.debugger.on('message', (event, method, params) => {
@@ -59,17 +59,17 @@ Send given command to the debugging target.
 
 ### Події екземпляру
 
-#### Event: 'detach'
+#### Подія: 'detach'
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### Подія: 'message'
 
 * `event` Event
-* `method` String - Method name.
+* `method` String - назва методу.
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever debugging target issues instrumentation event.
