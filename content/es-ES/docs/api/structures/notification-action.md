@@ -5,15 +5,15 @@
 
 ## Soporte de Plataforma / Acción
 
-| Tipo de Acción | Soporte de Plataforma | Uso de `texto`                   | `texto` Predeterminado                                                                      | Limitaciones                                                                                                                                                                                                                                                              |
-| -------------- | --------------------- | -------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`       | macOS                 | Usado como la etiqueta del botón | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Only the first one is used. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Tipo de Acción | Soporte de Plataforma | Uso de `texto`                   | `texto` Predeterminado                                                                                                      | Limitaciones                                                                                                                                                                                                                                                                                                                |
+| -------------- | --------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`       | macOS                 | Usado como la etiqueta del botón | "Show" (o un texto localizado por defecto en el sistema, si es el primero de dicho `button`, de lo contrario retorna vacío) | Solo el primer elemento es usado. Si se proporcionan múltiples, aquellos más allá del primero se enumerarán como acciones adicionales (que se muestran cuando el mouse está activo sobre el botón de acción). Cualquier acción de este tipo también es incompatible con `hasReply` y será ignorada si `hasReply` es `true`. |
 
 ### Soporte de botón en macOS
 
-Para que botones de notificación extra funcionen en macOS, tu aplicación debe cumplir con las siguientes condiciones.
+Para que los botones de notificación extra funcionen en macOS, tu aplicación debe cumplir con las siguientes condiciones.
 
 * La aplicación está certificada
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
+* La aplicación tiene su propiedad `NSUserNotificationAlertStyle` configurada en `alert` en el `Info.plist`.
 
 Si alguno de estos requisitos no se cumple el botón simplemente no aparecerá.
