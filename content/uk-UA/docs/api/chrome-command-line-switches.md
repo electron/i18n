@@ -1,8 +1,8 @@
 # Підтримувані Параметри Командного Рядка Chrome
 
-> Command line switches supported by Electron.
+> Параметри командного рядка, підтримувані Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+Ви можете використовувати [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) для додавання параметрів командного рядка в основний скрипт Вашого додатку, перед появою події [ready](app.md#event-ready) в модулі [app](app.md):
 
 ```javascript
 const {app} = require('electron')
@@ -30,9 +30,9 @@ Ignore the connections limit for `domains` list separated by `,`.
 
 Встановити користувацьку мову.
 
-## --inspect=`port` and --inspect-brk=`port`
+## --inspect=`порт` і --inspect-brk=`порт`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Зв'язані з відладкою прапорці, дивіться [Відлагодження основного процесу](../tutorial/debugging-main-process.md) для деталей.
 
 ## --remote-debugging-port=`port`
 
