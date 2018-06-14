@@ -307,7 +307,7 @@ Es emitido cuando el soporte de accesibilidad de Chrome es modificado. Este even
 
 El objeto `app` tiene los siguientes métodos:
 
-**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
+**Note:** Algunos métodos solo están disponibles en sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
@@ -735,16 +735,16 @@ Si tú has dado las opciones `path` y `args` a `app.setLoginItemSettings` entonc
 Devuelve `Objeto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
-* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
 * `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `ajustes` Object 
   * `openAtLogin` Boolean (opcional) - `true` para abrir la aplicación al iniciar, `false` para eliminar la aplicación como un objeto de inicio. Por defecto a `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Por defecto a `false`. El usuario puede editar este ajuste desde Preferencias del Sistema, así que `app.getLoginItemStatus().wasOpenedAsHidden` debería ser revisado cuando la aplicación sea abierta para saber el valor actual. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Por defecto a `false`. El usuario puede editar este ajuste desde Preferencias del Sistema, así que `app.getLoginItemStatus().wasOpenedAsHidden` debería ser revisado cuando la aplicación sea abierta para saber el valor actual. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opcional) *Windows* - El ejecutable para iniciar al iniciar. Por defecto a `process.execPath`.
   * `args` String[] (opcional) *Windows* - Los argumentos de líneas de comando para pasar al ejecutable. Por defecto a un arreglo vacío. Ten cuidado de envolver los caminos en las citas.
 
