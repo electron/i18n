@@ -37,8 +37,8 @@ community:
     packages: "<a href='/search/npmPackages'><b>Знайдіть корисні npm пакети</b></a> на <a href='/search/npmPackages'>сторінці пошуку пакетів</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Повідомляйте про помилки</b></a> відкриваючи питання в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозиторії."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Пропонуйте функції</b></a> відкриваючи питання в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозиторії."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Повідомити порушення Кодексу поведінки</b></a> по електронній пошті <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Перевідкрити питання безпеки</b></a> по електронній пошті <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Пожертвуйте</b></a> на <a href='/donors'>сторінці OpenCollective</a>."
     other: "Для всіх інших питань, e-mail <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
