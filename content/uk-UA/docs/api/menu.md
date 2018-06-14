@@ -1,4 +1,4 @@
-## Class: Menu
+## Клас: Menu
 
 > Create native application menus and context menus.
 
@@ -6,7 +6,7 @@
 
 ### `new Menu()`
 
-Creates a new menu.
+Створює нове меню.
 
 ### Статичні Методи
 
@@ -244,11 +244,11 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## Зауваження по меню macOS додатку
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Standard Menus
+### Стандартні меню
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
@@ -260,7 +260,7 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 
 macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### Main Menu's Name
+### Назва головного меню
 
 On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
@@ -268,7 +268,7 @@ On macOS the label of the application menu's first item is always your app's nam
 
 The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
-## Menu Item Position
+## Позиція пункту меню
 
 You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Приклади
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -294,7 +294,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
 ```sh
 <br />- 1
@@ -304,26 +304,26 @@ Menu:
 - 5
 ```
 
-Template:
+Шаблон:
 
 ```javascript
 [
-  {label: 'a', position: 'endof=letters'},
+  {label: 'а', position: 'endof=letters'},
   {label: '1', position: 'endof=numbers'},
-  {label: 'b', position: 'endof=letters'},
+  {label: 'б', position: 'endof=letters'},
   {label: '2', position: 'endof=numbers'},
-  {label: 'c', position: 'endof=letters'},
+  {label: 'в', position: 'endof=letters'},
   {label: '3', position: 'endof=numbers'}
 ]
 ```
 
-Menu:
+Меню:
 
 ```sh
 <br />- ---
-- a
-- b
-- c
+- а
+- б
+- в
 - ---
 - 1
 - 2
