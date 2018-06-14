@@ -6,7 +6,7 @@
 
 ## Події (Events)
 
-The `inAppPurchase` module emits the following events:
+Модуль `inAppPurchase` генерує наступні події:
 
 ### Подія: 'transactions-updated'
 
