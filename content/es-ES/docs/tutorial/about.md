@@ -48,11 +48,11 @@ Las nuevas características añadidas a Electron principalmente deben ser API na
 
 A continuación hay hitos en la historia de Electron.
 
-| :calendario:       | :tada:                                                                                                         |
-| ------------------ | -------------------------------------------------------------------------------------------------------------- |
-| **Abril de 2013**  | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **Mayo de 2014**   | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                    |
-| **Abril de 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                             |
-| **Mayo de 2016**   | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
-| **Mayo de 2016**   | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                              |
-| **Agosto de 2016** | Apoyo de la tienda de [Windows por apps](windows-store-guide.md) de Electron.                                  |
+| :calendario:       | :tada:                                                                                                          |
+| ------------------ | --------------------------------------------------------------------------------------------------------------- |
+| **Abril de 2013**  | [Atom Shell es iniciado](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
+| **Mayo de 2014**   | [Atom Shell pasa a ser de código libre](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).          |
+| **Abril de 2015**  | [Atom Shell es renombrado a Electron](https://github.com/electron/electron/pull/1389).                          |
+| **Mayo de 2016**   | [Electrón libera la versión `1.0.0`](https://electronjs.org/blog/electron-1-0).                                 |
+| **Mayo de 2016**   | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                               |
+| **Agosto de 2016** | Soporte de la tienda de [Windows](windows-store-guide.md) para las aplicaciones hechas con Electron.            |
