@@ -6,11 +6,11 @@ Electron comenzó en 2013 como el marco de trabajo en el que se construiría [At
 
 Desde entonces se ha convertido en una herramienta popular utilizada por desarrolladores de código abierto, nuevas empresas y compañías establecidas. [Vea quién está desarrollando con Electron](https://electronjs.org/apps).
 
-Siga leyendo para obtener más información sobre los contribuyentes y las versiones de Electron o para comenzar a desarrollar con Electron en la [Guía de inicio rápido](quick-start.md).
+Sigue leyendo para obtener más información sobre los contribuyentes y las versiones de Electron, o comienza a desarrollar con Electron con la [Guía de inicio rápido](quick-start.md).
 
 ## Equipo central y contribuyentes
 
-Electron es mantenido por un equipo en GitHub, así como por un grupo de [colaboradores activos](https://github.com/electron/electron/graphs/contributors) de la comunidad. Algunos de los contribuyentes trabajan de manera individual y otros trabajan en empresas más grandes, las cuales se están desarrollando con Electron. Nos complace agregar colaboradores frecuentes al proyecto como desarrolladores. Obtenga más información sobre [contribuyendo a Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron es mantenido por un equipo en GitHub, así como por un grupo de [colaboradores activos](https://github.com/electron/electron/graphs/contributors) de la comunidad. Algunos de los contribuyentes trabajan de manera individual y otros trabajan en empresas más grandes, las cuales se están desarrollando con Electron. Nos complace agregar colaboradores frecuentes al proyecto como desarrolladores. Obtenga más información sobre [como contribuir a Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Lanzamientos
 
@@ -18,23 +18,23 @@ Electron realiza [liberaciones frecuentes.](https://github.com/electron/electron
 
 ### Actualización de dependencias
 
-La versión de Electrón de Chromium generalmente se actualiza dentro de una o dos semanas después de que se lanza una nueva versión estable de Chromium, dependiendo del esfuerzo involucrado en la actualización.
+La versión de Electrón de Chromium generalmente se actualiza luego de una o dos semanas después de que se lanza una nueva versión estable de Chromium, dependiendo del esfuerzo involucrado en la actualización.
 
 Cuando se lanza una nueva versión de Node.js, Electron generalmente espera alrededor de un mes antes de la actualización para traer una versión más estable.
 
-En Electron, Node.js y Chromium comparten una sola instancia de V8—generalmente la versión que usa Chromium. La mayoría de las veces esto *simplemente funciona* pero a veces significa remendar Node.js.
+En Electron, Node.js y Chromium comparten una sola instancia de V8—generalmente la versión que usa Chromium. La mayoría de las veces esto *simplemente funciona* pero a veces significa parchear Node.js.
 
 ### Control de versiones
 
-A partir de la versión 2.0 Electron[sigue a`semver`](https://semver.org). Para la mayoría de las aplicaciones y usando cualquier versión reciente de npm, ejecutar `$ npm install electron` hará lo correcto.
+A partir de la versión 2.0 Electron [sigue a `semver`](https://semver.org). Para la mayoría de las aplicaciones y usando cualquier versión reciente de npm, ejecutar `$ npm install electron` ejecutará perfectamente.
 
 El proceso de actualización de la versión se detalla explícitamente en nuestro [documento de versiones](electron-versioning.md).
 
 ### LTS
 
-El soporte a largo plazo de versiones anteriores de Electron no existe actualmente. Si su versión actual de Electron trabaja para usted, usted puede permanecer en él por como le gustaría. Si desea utilizar nuevas funciones a medida que ingresan, debe actualizar a una versión más nueva.
+El soporte a largo plazo de versiones anteriores de Electron no existe actualmente. Si su versión actual de Electron trabaja correctamente para usted, usted puede permanecer en dicha versión tanto tiempo como guste. Si desea utilizar nuevas funciones a medida que se agregan, debe actualizar a una versión más nueva.
 
-Llegó una actualización importante con la versión `v1.0.0`. Si aún no está utilizando esta versión, debería [ leer más acerca de los `v1.0.0`cambios](https://electronjs.org/blog/electron-1-0).
+Llegó una actualización importante con la versión `v1.0.0`. Si aún no está utilizando esta versión, debería [ leer más acerca de los cambios de la versión `1.0.0`](https://electronjs.org/blog/electron-1-0).
 
 ## Filosofía inicial
 
