@@ -142,7 +142,7 @@ El capítulo de métodos debe estar de la siguiente forma:
 ```markdown
 ### `objectName.methodName(requiere[, opcional]))`
 
-* `requiere`Cuerda - Una descripción del parámetro.  
+* `requiere`Cadena de caracteres - Una descripción del parámetro. 
 *`opcional` Entero (opcional) - Otra descripción del parámetro. 
 
 ...
@@ -169,7 +169,7 @@ Debajo, el método es información detallada de cada uno de los argumentos. El t
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * O un tipo personalizado como [`WebContent`](api/web-contents.md) de Electron
 
-Si un argumento o un método es único para ciertas plataformas, esas plataformas son denotadas usando una lista con espacio delimitado y en cursiva siguiendo el tipo de data. Values can be `macOS`, `Windows` or `Linux`.
+Si un argumento o un método es único para ciertas plataformas, esas plataformas son denotadas usando una lista con espacio delimitado y en cursiva siguiendo el tipo de data. Los valores pueden ser `macOS`, `Windows`, o `Linux`.
 
 ```markdown
 * `animate` Booleano (opcional) _macOS_ _Windows_ - Anima la cosa.
@@ -211,4 +211,4 @@ El título puede ser `#` o `#`-niveles dependiendo de si es una propiedad de un 
 
 ## Traducciones de la documentación
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Ver [electron/electron-i18n](https://github.com/electron/i18n#readme)
