@@ -9,16 +9,16 @@
 ### `new MenuItem(options)`
 
 * `options` Об'єкт 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `click` Function (необов'язково) - Буде викликана з `click(menuItem, browserWindow, event)` коли пункт меню натиснутий. 
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
   * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String (optional)
-  * `sublabel` String (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
+  * `label` String (необов'язково)
+  * `sublabel` String (необов'язково)
+  * `accelerator` [Accelerator](accelerator.md) (необов'язково)
+  * `icon` ([NativeImage](native-image.md) | String) (необов'язково)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
