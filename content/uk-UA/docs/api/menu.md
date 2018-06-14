@@ -92,7 +92,7 @@ Objects created with `new Menu` emit the following events:
 
 **Примітка:** Деякі події доступні тільки на певних операційних системах і відповідно позначені як такі.
 
-#### Event: 'menu-will-show'
+#### Подія: 'menu-will-show'
 
 Повертає:
 
@@ -100,7 +100,7 @@ Objects created with `new Menu` emit the following events:
 
 Emitted when `menu.popup()` is called.
 
-#### Event: 'menu-will-close'
+#### Подія: 'menu-will-close'
 
 Повертає:
 
@@ -135,7 +135,7 @@ const {app, Menu} = require('electron')
 
 const template = [
   {
-    label: 'Edit',
+    label: 'Редагування',
     submenu: [
       {role: 'undo'},
       {role: 'redo'},
@@ -149,7 +149,7 @@ const template = [
     ]
   },
   {
-    label: 'View',
+    label: 'Вигляд',
     submenu: [
       {role: 'reload'},
       {role: 'forcereload'},
@@ -173,7 +173,7 @@ const template = [
     role: 'help',
     submenu: [
       {
-        label: 'Learn More',
+        label: 'Дізнатись більше',
         click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
@@ -196,11 +196,11 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Edit menu
+  // Меню "Редагування"
   template[1].submenu.push(
     {type: 'separator'},
     {
-      label: 'Speech',
+      label: 'Мовлення',
       submenu: [
         {role: 'startspeaking'},
         {role: 'stopspeaking'}
@@ -208,7 +208,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Window menu
+  // Меню "Вікно"
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -222,7 +222,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### Процес рендерингу
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
