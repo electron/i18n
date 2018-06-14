@@ -46,7 +46,7 @@ instalar npm --save-dev electron-rebuild
 
 ### Construcción manual para Electron
 
-Si usted es un desarrollador que está desarrollando un módulo nativo y desea probarlo contra Electron, es posible que desee reconstruir el módulo para Electron manualmente. Puedes usar `node-gyp` directamente para construir para Electron:
+Si usted es un desarrollador que está desarrollando un módulo nativo y desea probarlo con Electron, es posible que desee reconstruir el módulo para Electron manualmente. Puedes usar `node-gyp` directamente para construir para Electron:
 
 ```sh
 cd /path-to-module/
@@ -65,7 +65,7 @@ Si instaló un módulo nativo y descubrió que no estaba funcionando, debe verif
 
 ## Módulos que dependen de `prebuild`
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild) proporciona una forma de publicar fácilmente módulos de Node nativos con binarios precompilados para múltiples versiones de Node y Electron.
 
 Si los módulos proporcionan binarios para el uso en Electron, asegúrese de omitir `--build-from-source` y la variable de entorno `npm_config_build_from_source` para aprovechar al máximo los binarios precompilados.
 
