@@ -90,29 +90,29 @@ Electron використовує Chromium бібліотеку `l10n_util` дл
 | ne       | Непальська                    |
 | nl       | Голландська                   |
 | nn       | Норвезька (Нюнорськ)          |
-| no       | Norwegian                     |
-| oc       | Occitan                       |
-| om       | Oromo                         |
-| or       | Oriya                         |
-| pa       | Punjabi                       |
-| pl       | Polish                        |
-| ps       | Pashto                        |
-| pt       | Portuguese                    |
-| pt-BR    | Portuguese (Brazil)           |
-| pt-PT    | Portuguese (Portugal)         |
-| qu       | Quechua                       |
-| rm       | Romansh                       |
-| ro       | Romanian                      |
-| ru       | Russian                       |
-| sd       | Sindhi                        |
-| sh       | Serbo-Croatian                |
-| si       | Sinhalese                     |
-| sk       | Slovak                        |
-| sl       | Slovenian                     |
-| sn       | Shona                         |
-| so       | Somali                        |
-| sq       | Albanian                      |
-| sr       | Serbian                       |
+| no       | Норвезька                     |
+| oc       | Окситанська                   |
+| om       | Оромо                         |
+| or       | Орія                          |
+| pa       | Пенджабська                   |
+| pl       | Польська                      |
+| ps       | Пушту                         |
+| pt       | Португальська                 |
+| pt-BR    | Португальська (Бразилія)      |
+| pt-PT    | Португальська (Португалія)    |
+| qu       | Кечуа                         |
+| rm       | Ретороманська                 |
+| ro       | Румунська                     |
+| ru       | Російська                     |
+| sd       | Сіндгі                        |
+| sh       | Сербохорватська               |
+| si       | Сингальська                   |
+| sk       | Словацька                     |
+| sl       | Словенська                    |
+| sn       | Шона                          |
+| so       | Сомалійська                   |
+| sq       | Албанська                     |
+| sr       | Сербська                      |
 | st       | Sesotho                       |
 | su       | Sundanese                     |
 | sv       | Swedish                       |
