@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Процеси: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
@@ -75,7 +75,7 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Повертає [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 
