@@ -1,5 +1,5 @@
-# WebSource Object
+# Objeto WebSource
 
-* `codigo` String
-* `url` String (optional)
+* `code` Cadena de caracteres
+* `url` Cadena de caracteres (opcional)
 * `startLine` Integer (opcional) - El valor por defecto es 1.
