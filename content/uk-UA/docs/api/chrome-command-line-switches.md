@@ -38,11 +38,11 @@ app.on('ready', () => {
 
 Дозволяє віддалено відлагоджувати через HTTP для вказаного `порту`.
 
-## --disk-cache-size=`size`
+## --disk-cache-size=`розмір`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Встановлює максимальний розмір для кешу диску, в байтах.
 
-## --js-flags=`flags`
+## --js-flags=`прапорці`
 
 Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
@@ -52,11 +52,11 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
-## --proxy-server=`address:port`
+## --proxy-server=`адреса:порт`
 
 Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
 
-## --proxy-bypass-list=`hosts`
+## --proxy-bypass-list=`хости`
 
 Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
@@ -77,7 +77,7 @@ Uses the PAC script at the specified `url`.
 
 Не використовувати проксі-сервер і завжди робити прямі з'єднання. Замінює будь-які інші проксі-сервер прапорів, які передаються.
 
-## --host-rules=`rules`
+## --host-rules=`правила`
 
 A comma-separated list of `rules` that control how hostnames are mapped.
 
@@ -90,7 +90,7 @@ A comma-separated list of `rules` that control how hostnames are mapped.
 
 These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
-## --host-resolver-rules=`rules`
+## --host-resolver-rules=`правила`
 
 Like `--host-rules` but these `rules` only apply to the host resolver.
 
@@ -112,17 +112,17 @@ A comma-separated list of servers for which delegation of user credentials is re
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Ігнорувати помилки, пов'язані з сертифікатом.
 
-## --ppapi-flash-path=`path`
+## --ppapi-flash-path=`шлях`
 
 Sets the `path` of the pepper flash plugin.
 
-## --ppapi-flash-version=`version`
+## --ppapi-flash-version=`версія`
 
 Sets the `version` of the pepper flash plugin.
 
-## --log-net-log=`path`
+## --log-net-log=`шлях`
 
 Enables net log events to be saved and writes them to `path`.
 
