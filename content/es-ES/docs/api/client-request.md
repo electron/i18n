@@ -14,7 +14,7 @@ Process: [Main](../glossary.md#main-process)
   * `sesion` Objecto (opcional) - La instancia de [`Sesión`](session.md) en la cual está asociada la solicitud.
   * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. La opción `sesión` prevalece sobre `partición`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
   * `protocolo` Cadena (opcional) -El esquema de protocolo en la forma "esquema": Valores soportados actualmente son 'http:' o 'https:'. Por defecto es 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
+  * `host` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre del host:puerto".
   * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
   * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
   * `ruta` Cadena (opcional) - La parte de la ruta de la solicitud URL.
