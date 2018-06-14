@@ -30,7 +30,7 @@ community:
   title: Спільнота Electron
   description: Ресурси для об'єднання з волонтерами Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Перед початком</b></a> створення аплікації прочитайте <a href='/docs/tutorial/first-app'>короткий посібник</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Почати</b></a> створення додатку читаючи <a href='/docs/tutorial/first-app'>керівництво швидкого старту</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсі</b></a> читаючи <a href='https://twitter.com/electronjs'>@electronjs</a> в Твіттері і підписавшись на <a href='/blog'>блог</a>."
     localized_docs: "<a href='/languages'><b>Читайте документацію на рідній мові</b></a> відвідавши <a href='/languages'>мовну сторінку</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Отримайте допомогу та відгуки</b></a> приєднавшись до <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, розміщуючи на <a href='https://discuss.atom.io/c/electron'>Discuss</a>, або відвідавши <a href='https://stackoverflow.com/questions/tagged/electron'>atomio Slack</a>."
@@ -51,7 +51,7 @@ community:
   meetups: Зустрічі
   awesome_notice: 'Цей список сформований з репозиторію <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''а: Awesome Electron</a>. <br>Чогось не вистачає? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Зробіть пул реквест</a>.'
   meetup_notice: Щоб додати зустріч, відредагуйте <code>data/meetups.json</code> та <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> зробіть пул реквест</a>.
-releases: Релізи
+releases: Випуски
 electron_is_easy:
   title: Все простіше, ніж здається
   description: Якщо ви можете створити сайт, то ви можете створити і прикладну програму. Electron це фреймворк для створення застосунків з такими веб-технологіями як JavaScript, HTML та CSS. Він подбає про важкі частини, тому ви можете зосередитися на ядрі вашої програми.
