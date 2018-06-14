@@ -1,13 +1,13 @@
 ## Class: TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Створює кнопку на Touch Bar для нативних macOS додатків
 
 Процес: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarButton(options)` *Experimental*
+### `new TouchBarButton(options)` *Експериментальний*
 
 * `options` Об'єкт 
-  * `label` String (optional) - Button text.
+  * `label` String (необов'язково) - Текст кнопки.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (optional) - Button icon.
   * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
