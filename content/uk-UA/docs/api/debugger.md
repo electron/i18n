@@ -1,10 +1,10 @@
-## Class: Debugger
+## Клас: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Альтернативний транспорт для віддаленої налагодження протоколу Chrome.
 
 Процес: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Інструменти розробника Chrome мають [спеціальну прив'язку](https://developer.chrome.com/devtools/docs/debugger-protocol) доступну під час виконання JavaScript, що дозволяє взаємодіяти зі сторінками і інструментарієм.
 
 ```javascript
 const {BrowserWindow} = require('electron')
