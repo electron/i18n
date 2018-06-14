@@ -28,7 +28,7 @@ languages:
   current: поточний вибір
 community:
   title: Спільнота Electron
-  description: Ресурси для обєднання з волонтерами Electron.
+  description: Ресурси для об'єднання з волонтерами Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Перед початком</b></a> створення аплікації прочитайте <a href='/docs/tutorial/first-app'>короткий посібник</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсі</b></a> читаючи <a href='https://twitter.com/electronjs'>@electronjs</a> в Твіттері і підписавшись на <a href='/blog'>блог</a>."
@@ -36,10 +36,10 @@ community:
     help: "<a href='http://atom-slack.herokuapp.com'><b>Отримайте допомогу та відгуки</b></a> приєднавшись до <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, розміщуючи на <a href='https://discuss.atom.io/c/electron'>Discuss</a>, або відвідавши <a href='https://stackoverflow.com/questions/tagged/electron'>atomio Slack</a>."
     packages: "<a href='/search/npmPackages'><b>Знайдіть корисні npm пакети</b></a> на <a href='/search/npmPackages'>сторінці пошуку пакетів</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Повідомляйте про помилки</b></a> відкриваючи питання в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозиторії."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Пропонуйте функції</b></a> відкриваючи питання в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозиторії."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    donations: "<a href='donors'><b>Пожертвуйте</b></a> на <a href='/donors'>сторінці OpenCollective</a>."
     other: "Для всіх інших питань, e-mail <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Мовні спільноти
