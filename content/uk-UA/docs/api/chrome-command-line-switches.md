@@ -138,13 +138,13 @@ Prints Chromium's logging into console.
 
 This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
 
-## --v=`log_level`
+## --v=`рівень_журналювання`
 
 Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 This switch only works when `--enable-logging` is also passed.
 
-## --vmodule=`pattern`
+## --vmodule=`патерн`
 
 Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
