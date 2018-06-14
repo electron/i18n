@@ -10,25 +10,25 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // Your code here
+  // Ваш код
 })
 ```
 
-## --ignore-connections-limit=`domains`
+## --ignore-connections-limit=`домени`
 
 Ignore the connections limit for `domains` list separated by `,`.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Відключає дисковий кеш для HTTP-запитів.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Відключити протоколи HTTP/2 і SPDY/3.1.
 
 ## --lang
 
-Set a custom locale.
+Встановити користувацьку мову.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
