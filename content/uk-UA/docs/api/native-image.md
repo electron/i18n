@@ -25,27 +25,27 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Supported Formats
+## Підтримувані формати
 
 Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
 
-* Small icon 
- * 16x16 (100% DPI scale)
- * 20x20 (125% DPI scale)
- * 24x24 (150% DPI scale)
- * 32x32 (200% DPI scale)
-* Large icon 
- * 32x32 (100% DPI scale)
- * 40x40 (125% DPI scale)
- * 48x48 (150% DPI scale)
- * 64x64 (200% DPI scale)
+* Малі значки 
+ * 16x16 (100% DPI масштаб)
+ * 20x20 (125% DPI масштаб)
+ * 24x24 (150% DPI масштаб)
+ * 32x32 (200% DPI масштаб)
+* Великі значки 
+ * 32x32 (100% DPI масштаб)
+ * 40x40 (125% DPI масштаб)
+ * 48x48 (150% DPI масштаб)
+ * 64x64 (200% DPI масштаб)
 * 256x256
 
 Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
-## High Resolution Image
+## Зображення високої роздільної здатності
 
 On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
 
@@ -99,7 +99,7 @@ The `nativeImage` module has the following methods, all of which return an insta
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+Повертає `NativeImage`
 
 Creates an empty `NativeImage` instance.
 
@@ -107,7 +107,7 @@ Creates an empty `NativeImage` instance.
 
 * `path` String
 
-Returns `NativeImage`
+Повертає `NativeImage`
 
 Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
 
@@ -123,7 +123,7 @@ console.log(image)
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+Повертає `NativeImage`
 
 Creates a new `NativeImage` instance from `buffer`.
 
@@ -131,7 +131,7 @@ Creates a new `NativeImage` instance from `buffer`.
 
 * `dataURL` String
 
-Returns `NativeImage`
+Повертає `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
@@ -140,7 +140,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 * `imageName` String
 * `hslShift` Number[]
 
-Returns `NativeImage`
+Повертає `NativeImage`
 
 Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
 
@@ -152,7 +152,7 @@ The `hslShift` is applied to the image with the following rules
 
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
-## Class: NativeImage
+## Клас: NativeImage
 
 > Natively wrap images such as tray, dock, and application icons.
 
