@@ -154,7 +154,7 @@ Devuelve:
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object: contiene el estado específico de la aplicación almacenado por la actividad.
 
-Emitido cuando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va a ser reanudado en otro artefacto. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. De otra forma, la operación fallará y se llamará a `continue-activity-error`.
+Emitido cuando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va a ser reanudado en otro artefacto. Si necesita actualizar el estado que se transferirá, debe llamar a `event.preventDefault ()` inmediatamente, crear un nuevo diccionario `userInfo` y llamar a `app.updateCurrentActiviy()` de manera oportuna. De otra forma, la operación fallará y se llamará a `continue-activity-error`.
 
 ### Event: 'new-window-for-tab' *macOS*
 
@@ -370,7 +370,7 @@ Devuelve `String` - al directorio de la aplicación actual.
 
 * `name` String
 
-Devuelve `cadena` - Una ruta a un directorio especial o a un archivo asociado con un `nombre`. Cuando hay una falla se lanza un `Error`.
+Devuelve `String` - Una ruta a un directorio especial o a un archivo asociado con un `nombre`. Cuando hay una falla se lanza un `Error`.
 
 Usted puede pedir las siguientes direcciones por nombre:
 
@@ -426,7 +426,7 @@ Por defecto, las cookies y el caché de una página web serán almacenados en el
 
 ### `app.getVersion()`
 
-Regresa `Cadena` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
+Regresa `String` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
 
 ### `app.getName()`
 
@@ -464,8 +464,8 @@ Borra la lista de documentos recientes.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
-* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
+* `protocolo` String - El nombre de su protocolo, sin el `://`. Si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
+* `ruta` String (opcional) *Windows* - por defecto a `process.execPath`
 * `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
@@ -480,9 +480,9 @@ El API usa el registro de Windows y LSSetDefaultHandlerForURLScheme internamente
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
-* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
-* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
+* `protocolo` String - El nombre de su protocolo, sin el `://`.
+* `ruta` String (opcional) *Windows* - por defecto a `process.execPath`
+* `args` String[] (opcional) *Windows* - por defecto a un arreglo vacío
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
@@ -490,9 +490,9 @@ Este método verifica si el ejecutable actual como el manejador por defecto para
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
-* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
-* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
+* `protocolo` String - El nombre de su protocolo, sin el `://`.
+* `ruta` String (opcional) *Windows* - por defecto a `process.execPath`
+* `args` String[] (opcional) *Windows* - por defecto a un arreglo vacío
 
 Devuelve `Boolean`
 
@@ -601,8 +601,8 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Function 
-  * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
-  * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
+  * `argv` String[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
+  * `workingDirectory` String - El directorio de trabajo de segunda instancia
 
 Devuelta `Boolean`.
 
@@ -647,7 +647,7 @@ Suelta todos los bloqueos que fueron creados por `makeSingleInstance`. Esto perm
 
 * `type` Caden - Raramente identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Objeto - Específicos estados de aplicaciones de la tiendo para usar en otro dispositivo.
-* `webpageURL` Cadena (opcional) - La página web a cargar en un buscador, si no es adecuada para aplicaciones, es instalada en el dispositivo a resumir. El esquema debe ser `http` o`https`.
+* `webpageURL` String (opcional) - La página web a cargar en un buscador, si no es adecuada para aplicaciones, es instalada en el dispositivo a resumir. El esquema debe ser `http` o`https`.
 
 Crea un `NSUserActivity` y se establece como la actividad actual. La actividad es elegible para [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) a otro dispositivo luego.
 
@@ -677,12 +677,12 @@ Cambia el [Id Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en
 ### `app.importCertificate(options, callback)` *LINUX*
 
 * `opciones` Object 
-  * `cetificado` Cadena - camino para el archivo pkcs12.
-  * `contraseña` Cadena - Frase clave para el certificado.
+  * `cetificado` String - camino para el archivo pkcs12.
+  * `contraseña` String - Frase clave para el certificado.
 * `callback` Function 
   * `resultado` Entero - Resultado del importe.
 
-Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` es llamado con `result` para importar operaciones, un valor de `` indica que fue exitoso, mientras que otro valor indica un error acorde a chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` es llamado con `result` para importar operaciones, un valor de `0` indica que fue exitoso, mientras que otro valor indica un error acorde a chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -698,7 +698,7 @@ Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Devuelve [`ProcessMetric[]`](structures/process-metric.md): matriz de `ProcessMetric` objetos que corresponden a las estadísticas de uso de memoria y Cpu de todos los procesos asociados con la aplicación.
 
 ### `app.getGPUFeatureStatus()`
 
@@ -710,7 +710,7 @@ Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de l
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-Establece el distintivo en contra para la aplicación actual. Establecer la cuenta a `` esconderá el distintivo.
+Establece el distintivo en contra para la aplicación actual. Establecer la cuenta a `0` esconderá el distintivo.
 
 En macOS se mostrará en el icono del muelle. En Linux solo funciona para los ejecutadores de Unity
 
@@ -727,8 +727,8 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `opciones` Objecto (opcional) 
-  * `path` Cadena (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
-  * `args` Cadena[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
+  * `path` String (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
+  * `args` String[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
 
 Si tú has dado las opciones `path` y `args` a `app.setLoginItemSettings` entonces tú necesitas pasar los mismos argumentos aquí para `openAtLogin` para que se establezca correctamente.
 
@@ -738,7 +738,7 @@ Devuelve `Objeto`:
 * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
@@ -746,7 +746,7 @@ Devuelve `Objeto`:
   * `openAtLogin` Boolean (opcional) - `true` para abrir la aplicación al iniciar, `false` para eliminar la aplicación como un objeto de inicio. Por defecto a `false`.
   * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Por defecto a `false`. El usuario puede editar este ajuste desde Preferencias del Sistema, así que `app.getLoginItemStatus().wasOpenedAsHidden` debería ser revisado cuando la aplicación sea abierta para saber el valor actual. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opcional) *Windows* - El ejecutable para iniciar al iniciar. Por defecto a `process.execPath`.
-  * `args` Cadena[] (opcional) *Windows* - Los argumentos de líneas de comando para pasar al ejecutable. Por defecto a un arreglo vacío. Ten cuidado de envolver los caminos en las citas.
+  * `args` String[] (opcional) *Windows* - Los argumentos de líneas de comando para pasar al ejecutable. Por defecto a un arreglo vacío. Ten cuidado de envolver los caminos en las citas.
 
 Establece los objetos de inicio de ajuste de la aplicación.
 
@@ -782,11 +782,11 @@ Manualmente habilita el soporte de accesibilidad de Chrome, lo que permite expon
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `opciones` Object 
-  * `applicationName` Cadena (opcional) - El nombre de la aplicación.
-  * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
-  * `copyright` Cadena (opcional) - La información de Copyright.
-  * `credits` Cadena (opcional) - Información de crédito.
-  * `version` Cadena (opcional) - Este número de versión de construcción de la aplicación.
+  * `applicationName` String (opcional) - El nombre de la aplicación.
+  * `applicationVersion` String (opcional) - La versión de la aplicación.
+  * `copyright` String (opcional) - La información de Copyright.
+  * `credits` String (opcional) - Información de crédito.
+  * `version` String (opcional) - Este número de versión de construcción de la aplicación.
 
 Establece el panel de opciones. Esto anulará los valores definidos en el archivo `.plist` de la aplicación. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles.
 
@@ -807,8 +807,8 @@ Start accessing a security scoped resource. With this method electron applicatio
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` Cadena - Un cambio en la línea de comando
-* `value` Cadena (opcional) - Un valor para el cambio dado
+* `switch` String - Un cambio en la línea de comando
+* `value` String (opcional) - Un valor para el cambio dado
 
 Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 
@@ -816,7 +816,7 @@ Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `valor` Cadena - El argumento a adjuntar a la línea de comando
+* `valor` String - El argumento a adjuntar a la línea de comando
 
 Adjuntar un argumento a la línea de comando de Chromium. El argumento será citado correctamente.
 
@@ -834,15 +834,15 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+Devuelve `Boolean` - Si el cambio de carpeta fue exitoso. Tenga en cuenta que si el cambio de carpeta fue exitoso su aplicación dejará de funcionar y se relanzará.
 
-Por defecto no se presentará un díalogo de confirmación, si prefiere que el usuario confirme la operación debe hacerlo usando la API [`dialog`](dialog.md).
+Por defecto no se presentará un diálogo de confirmación, si prefiere que el usuario confirme la operación debe hacerlo usando la API [`dialog`](dialog.md).
 
 **Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. Por consiguiente, si el usuario cancela el diálogo de autorización, este método devuelve falso. Si se produce un fallo al realizar la copia, este método emite un error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` Cadena (opcional) - Puede ser `critical` o `informational`. El por defecto es `informational`
+* `type` String (opcional) - Puede ser `critical` o `informational`. El por defecto es `informational`
 
 Cuando `critical` es pasado, el ícono del punto rebotará hasta que la aplicación se vuelva activa o la petición sea cancelada.
 
@@ -870,7 +870,7 @@ Establece la cadena para ser mostrada en el área de insignia del punto.
 
 ### `app.dock.getBadge()` *macOS*
 
-Devuelve `Cadena` - La insignia cadena del punto.
+Devuelve `String` - La insignia cadena del punto.
 
 ### `app.dock.hide()` *macOS*
 
