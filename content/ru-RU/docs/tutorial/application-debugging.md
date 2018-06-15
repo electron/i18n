@@ -17,6 +17,6 @@ Google предлагает [отличную документацию для с
 
 ## Основной процесс
 
-Debugging the main process is a bit trickier, since you cannot open developer tools for them. The Chromium Developer Tools can [be used to debug Electron's main process](https://nodejs.org/en/docs/inspector/) thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+Отладка основного процесса немного сложнее, поскольку вы не можете открыть для них инструменты для разработчиков. Инструменты Chromium Developer Tools [могут использоваться для отладки основного процесса Electron](https://nodejs.org/en/docs/inspector/) благодаря более тесному сотрудничеству между Google / Chrome и Node.js, но вы можете столкнуться с такими странностями, которые вам не `нужны` в консоли.
 
-For more information, see the [Debugging the Main Process documentation](./debugging-main-process.md).
+Для получения дополнительной информации см. Документацию [Отладка основной процедуры](./debugging-main-process.md).
