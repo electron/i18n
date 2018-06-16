@@ -649,7 +649,7 @@ webview.addEventListener('console-message', (e) => {
 
 * `result` Object 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - 当前匹配位置.
+  * `activeMatchOrdinal` Integer - 当前匹配位置。
   * `matches` Integer - 符合匹配条件的元素个数。
   * `selectionArea` Object - Coordinates of first match region.
   * `finalUpdate` Boolean
