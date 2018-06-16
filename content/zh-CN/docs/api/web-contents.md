@@ -405,8 +405,8 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 * `event` Event
 * `params` Object 
-  * `x` Integer - x coordinate.
-  * `y` Integer - y coordinate.
+  * `x` Integer - x 坐标。
+  * `y` Integer - y 坐标。
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL of the top level page that the context menu was invoked on.
@@ -441,7 +441,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### 事件: 'select-bluetooth-device'
 
 返回:
 
