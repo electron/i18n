@@ -28,22 +28,22 @@ languages:
   current: текущий выбор
 community:
   title: Сообщество Electron
-  description: Resources for connecting with people working on Electron.
+  description: Средства для связи с людьми, работающими на Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
-    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Начнем</b></a> создание приложения с прочтения <a href='/docs/tutorial/first-app'>Инструкции по началу работы</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсе</b></a> отслеживая нас<a href='https://twitter.com/electronjs'>@electronjs</a> на Twitter и подпиской на<a href='/blog'>блог</a>."
+    localized_docs: "<a href='/languages'><b>Читайте документацию на родном языке</b></a> посетив <a href='/languages'>языковую страницу</a>."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>Помогите нам, оставив отзыв</b></a> присоединившись к <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, размещая на <a href='https://discuss.atom.io/c/electron'>Discuss</a>, или посетив <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    packages: "<a href='/search/npmPackages'><b>Находите полезные npm пакеты</b></a> на <a href='/search/npmPackages'>странице поиска пакетов</a>."
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>Сообщайте об ошибках,</b></a> открывая вопросы в<a href='https://github.com/electron/electron/issues'>electron/electron</a> репозитории."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    other: "По всем другим вопросам, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: Языковые сообщества
+    description: "Сообщество Electron охватывает весь земной шар, и английский язык не является первым. Ищите <a href='/languages'>документацию на Вашем языке</a>, или присоединяйтесь к одному из языковых сообществ ниже:"
   tools: Инструменты
   boilerplates: Шаблоны
   components: Компоненты
