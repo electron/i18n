@@ -1,4 +1,4 @@
-# Code Signing
+# Firma Codice
 
 Code signing is a security technology that you use to certify that an app was created by you.
 
@@ -51,6 +51,6 @@ There are a number of tools for signing your packaged app:
 - [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
 - [`electron-builder`] can sign some of its windows targets
 
-## Windows Store
+## Negozio Windows
 
 See the [Windows Store Guide](windows-store-guide.md).
