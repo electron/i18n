@@ -43,7 +43,7 @@ Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Al
 
 ## Verfügbare Tastencodes
 
-* `` bis `9`
+* `0` bis `9`
 * `A` bis `Z`
 * `F1` bis `F24`
 * Sonderzeichen wie `~`, `!`, `@`, `#`, `$`, etc.
