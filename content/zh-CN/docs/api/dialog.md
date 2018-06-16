@@ -35,8 +35,8 @@ console.log(dialog)
     * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
+    * `createDirectory` *macOS* -允许你通过对话框的形式创建新的目录。
+    * ` promptToCreate ` *Windows*-如果输入的文件路径在对话框中不存在, 则提示创建。 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
   * `message` String (可选) * macOS *-显示在输入框上方的消息。
