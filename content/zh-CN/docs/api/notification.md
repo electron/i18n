@@ -32,7 +32,7 @@ Returns ` Boolean `-当前系统是否支持桌面通知
   * ` title `String - 通知的标题, 将在通知窗口的顶部显示.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面.
-  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
+  * ` silent `Boolean (可选) 在显示通知时是否发出系统提示音。
   * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
   * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
   * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
