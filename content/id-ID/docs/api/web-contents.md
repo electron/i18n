@@ -1035,7 +1035,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
                   * `ponsel` - Jenis layar seluler.
                 * `screenSize` [Ukuran](structures/size.md) - Menetapkan ukuran layar yang ditiru (screenPosition == mobile).
                 * `viewPosition` [Point](structures/point.md) - Posisikan tampilan di layar (screenPosition == mobile) (default: `{x: 0, y: 0}`).
-                * `deviceScaleFactor` Integer - Tetapkan faktor skala perangkat (jika nol default ke faktor skala perangkat asli) (default: ``).
+                * `deviceScaleFactor` Integer - Tetapkan faktor skala perangkat (jika nol default ke faktor skala perangkat asli) (default: `0`).
                 * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
                 * `skala` Float - Skala tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: ` 1 `).
               
