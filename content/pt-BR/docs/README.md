@@ -26,16 +26,15 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Outras Ferramentas e Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Arquitetura do Aplicativo](tutorial/application-architecture.md) 
-  * [Processos Principais e Renderizados](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Processos Principal e de Renderização](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Usando Electro APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Usando Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
+  * [Usando Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Usando Módulos Nativos do Node.js](tutorial/using-native-node-modules.md)
-  * [Comunicação entre Processos](tutorial/application-architecture.md#)
 * Adicionando Recursos para Seu Aplicativo 
   * [Notificações](tutorial/notifications.md)
-  * [Documentos Recentes](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Documentos Recentes](tutorial/desktop-environment-integration.md#recent-documents)
   * [Progresso do Aplicativo](tutorial/progress-bar.md)
-  * [Menu Dock Personalizado](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Menu Dock Personalizado](tutorial/macos-dock.md)
   * [Barra de Tarefas do Windows Personalizado](tutorial/windows-taskbar.md)
   * [Ações Desktop Linux Personalizado](tutorial/linux-desktop-actions.md)
   * [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 
 * [Em Detalhes: Instalando Electron](tutorial/installation.md) 
-  * [Instalação Global versus Local](tutorial/installation.md#global-versus-local-installation)
   * [Proxies](tutorial/installation.md#proxies)
   * [Mirrors e Caches Customizados](tutorial/installation.md#custom-mirrors-and-caches)
   * [Solução de Problemas](tutorial/installation.md#troubleshooting)
