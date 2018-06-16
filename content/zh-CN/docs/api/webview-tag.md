@@ -607,7 +607,7 @@ Fired when document in the given frame is loaded.
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### 事件: 'page-favicon-updated'
 
 返回:
 
