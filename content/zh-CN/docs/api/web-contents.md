@@ -347,12 +347,12 @@ win.webContents.on('before-input-event', (event, input) => {
 * `event` Event
 * `result` Object 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
+  * `activeMatchOrdinal` Integer - 当前匹配位置.
+  * `matches` Integer - 符合匹配条件的元素个数。
   * `selectionArea` Object - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+如果调用[`webContents.findInPage`]有返回时，会触发这一事件。
 
 #### Event: 'media-started-playing'
 
