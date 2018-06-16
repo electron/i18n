@@ -64,7 +64,7 @@ Les méthodes suivants sont disponibles pour les instances de `Cookies` :
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - Un tableau d'objet de cookie.
 
-Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
+Envoie une demande pour obtenir tous les cookies correspondants à `filter`, `callback` sera appelé avec `callback(error, cookies)` à la fin.
 
 #### `cookies.set(details, callback)`
 
