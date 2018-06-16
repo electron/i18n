@@ -1,63 +1,62 @@
-# Official Guides
+# راهنمای رسمی
 
-لطفا مطمئن شوید که شما با استفاده از اسناد نسخه الکترون را مطابقت میدهید . شماره نسخه باید بخشی از URL صفحه باشد. اگر اینطور نمی باشد، شما احتمالا از مستندات گروه توسعه که حاوی تغییرات API است و سازگار با نسخه ای الکترونی شما نیست استفاده میکنید. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+لطفا مطمئن شوید که شما با استفاده از اسناد نسخه الکترون را مطابقت میدهید . شماره نسخه باید بخشی از URL صفحه باشد. اگر اینطور نمی باشد، شما احتمالا از مستندات گروه توسعه که حاوی تغییرات API است و سازگار با نسخه ای الکترونی شما نیست استفاده میکنید. برای دیدن قدیمی تر نسخه های اسناد، شما می توانید [ مرور بر اساس برچسب ](https://github.com/electron/electron/tree/v1.4.0) در GitHub با باز کردن 'منوی شاخه ها / برچسب ها' کشویی و انتخاب برچسبی که مطابق نسخه شما است.
 
 ## سوالات متداول
 
-There are questions that are asked quite often. Check this out before creating an issue:
+سوالاتی وجود دارد که از اغلب آنها خواسته می شود. قبل از ایجاد یک مسئله آن را بررسی کنید:
 
 * [سوالات متداول الکترون](faq.md)
 
-## Guides and Tutorials
+## راهنماها و آموزشها
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
+* [راه اندازی محیط توسعه](tutorial/development-environment.md) 
+  * [راه اندازی macOS](tutorial/development-environment.md#setting-up-macos)
+  * [راه اندازی ویندوز](tutorial/development-environment.md#setting-up-windows)
+  * [راه اندازی لینوکس](tutorial/development-environment.md#setting-up-linux)
+  * [انتخاب یک ویرایشگر](tutorial/development-environment.md#a-good-editor)
+* [ایجاد اولین برنامه شما](tutorial/first-app.md) 
+  * [نصب الکترون Electron](tutorial/first-app.md#installing-electron)
+  * [توسعه الکترون به طور کلی](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [app در حال اجرای خود را](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
-  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+* [Boilerplates و همچنین CLIs ](tutorial/boilerplates-and-clis.md) 
+  * [Boilerplate در مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Application Architecture](tutorial/application-architecture.md) 
-  * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
+  * [سایر ابزارها و Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+* [معماری برنامه](tutorial/application-architecture.md) 
+  * [فرآیندهای اصلی و رندرینگ](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [استفاده از API های الکترونی](tutorial/application-architecture.md#using-electron-apis)
+  * [استفاده از API های Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
-  * [Inter-Process Communication](tutorial/application-architecture.md#)
 * Adding Features to Your App 
   * [Notifications](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents)
   * [Application Progress](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
-  * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
-  * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
-  * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
-  * [Offline/Online Detection](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Custom Dock Menu](tutorial/macos-dock.md)
+  * [وظیفه سفارشی سازی ویندوز](tutorial/windows-taskbar.md)
+  * [عملیات سفارشی لینوکس دسکتاپ](tutorial/linux-desktop-actions.md)
+  * [میانبرهای صفحه کلید](tutorial/keyboard-shortcuts.md)
+  * [ تشخیص آفلاین / آنلاین](tutorial/online-offline-events.md)
+  * [نمایه فایل برای macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
-* [Accessibility](tutorial/accessibility.md) 
+* [دسترسی](tutorial/accessibility.md) 
   * [اسپکترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
-* [Testing and Debugging](tutorial/application-debugging.md) 
-  * [Debugging the Main Process](tutorial/debugging-main-process.md)
-  * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [DevTools Extension](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
+  * [فعال کردن قابلیت دسترسی](tutorial/accessibility.md#enabling-accessibility)
+* [تست و اشکال زدایی](tutorial/application-debugging.md) 
+  * [اشکال زدایی فرآیند اصلی ](tutorial/debugging-main-process.md)
+  * [استفاده از Selenium و WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [تست سیستم های CI (Travis، Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [افزونه DevTools](tutorial/devtools-extension.md)
+  * [تست خودکار با یک درایور سفارشی](tutorial/automated-testing-with-a-custom-driver.md)
+* پکها 
   * [Code Signing](tutorial/code-signing.md)
-* [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
-  * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
-  * [Windows Store](tutorial/windows-store-guide.md)
+* [توضیع](tutorial/application-distribution.md) 
+  * [پشتیبانی](tutorial/support.md)
+  * [فروشگاه Mac App Store](tutorial/mac-app-store-submission-guide.md)
+  * [فروشگاه ویندوز](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Security](tutorial/security.md) 
   * [Reporting Security Issues](tutorial/security.md#reporting-security-issues)
@@ -74,7 +73,6 @@ There are questions that are asked quite often. Check this out before creating a
 These individual tutorials expand on topics discussed in the guide above.
 
 * [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Troubleshooting](tutorial/installation.md#troubleshooting)
