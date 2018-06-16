@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## 步骤 1: 打包你的 Electron 应用程序
 
-打包应用程序使用 [electron-packager](https://github.com/electron-userland/electron-packager) (或类似工具). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+打包应用程序使用 [electron-packager](https://github.com/electron-userland/electron-packager) (或类似工具). 确保在最终的应用程序中删除不需要的 `node_modules`, 因为这些你不需要模块只会额外增加你的应用程序的大小.
 
 结构输出应该看起来大致像这样:
 
@@ -73,7 +73,7 @@ electron-windows-store `
 
 为了运行您的软件包，您的用户将需要将 Windows 10 安装“周年纪念更新” - 有关如何更新Windows的详细信息可以在[这里](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update)找到
 
-与传统的UWP应用程序不同，打包应用程序目前需要进行手动验证过程，您可以在[这里](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge)申请. In the meantime, all users will be able to install your package by double-clicking it, so a submission to the store might not be necessary if you're looking for an easier installation method. 在受管理的环境中(通常是企业), `Add-AppxPackage` [PowerShell Cmdlet 可用于以自动方式安装它](https://technet.microsoft.com/en-us/library/hh856048.aspx)。
+与传统的UWP应用程序不同，打包应用程序目前需要进行手动验证过程，您可以在[这里](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge)申请. 在此期间，所有用户都能够通过双击安装包来安装您的程序，所以如果您只是寻找一个更简单的安装方法，可能不需要提交到商店。 在受管理的环境中(通常是企业), `Add-AppxPackage` [PowerShell Cmdlet 可用于以自动方式安装它](https://technet.microsoft.com/en-us/library/hh856048.aspx)。
 
 另一个重要的限制是编译的 AppX 包仍然包含一个 win32 可执行文件，因此不会在 Xbox，HoloLens 或 Phones 中运行。
 
