@@ -30,13 +30,13 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 * `选项` 对象 
   * ` title `String - 通知的标题, 将在通知窗口的顶部显示.
-  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+  * ` subtitle `String (可选) 通知的副标题, 显示在标题下面。* macOS *
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面.
   * ` silent `Boolean (可选) 在显示通知时是否发出系统提示音。
-  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
-  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
-  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * ` icon`(String | [ NativeImage ](native-image.md)) (可选) 用于在该通知上显示的图标。
+  * ` hasReply `Boolean (可选) 是否在通知中添加一个答复选项。 * macOS *
+  * ` replyPlaceholder `String (可选) 答复输入框中的占位符。* macOS *
+  * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
