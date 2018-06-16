@@ -119,7 +119,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 一个框架中的文本加载完成后触发该事件。
 
-#### Event: 'page-favicon-updated'
+#### 事件: 'page-favicon-updated'
 
 返回:
 
