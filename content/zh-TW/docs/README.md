@@ -28,14 +28,13 @@
 * [應用程式架構](tutorial/application-architecture.md) 
   * [主處理序及畫面轉譯處理序](tutorial/application-architecture.md#main-and-renderer-processes)
   * [使用 Electron API](tutorial/application-architecture.md#using-electron-apis)
-  * [使用 Node.js API](tutorial/application-architecture.md#using-node.js-apis)
+  * [使用 Node.js API](tutorial/application-architecture.md#using-nodejs-apis)
   * [使用原生 Node.js 模組](tutorial/using-native-node-modules.md)
-  * [跨處理序通訊](tutorial/application-architecture.md#)
 * 新增功能進應用程式 
   * [通知](tutorial/notifications.md)
-  * [最近的文件](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [最近的文件](tutorial/desktop-environment-integration.md#recent-documents)
   * [應用程式進度](tutorial/progress-bar.md)
-  * [自訂 Dock 選單](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [自訂 Dock 選單](tutorial/macos-dock.md)
   * [自訂 Windows 工作列](tutorial/windows-taskbar.md)
   * [自訂 Linux 桌面動作](tutorial/linux-desktop-actions.md)
   * [鍵盤快速鍵](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@
 These individual tutorials expand on topics discussed in the guide above.
 
 * [深入: 安裝 Electron](tutorial/installation.md) 
-  * [全域與本地安裝](tutorial/installation.md#global-versus-local-installation)
   * [代理伺服器](tutorial/installation.md#proxies)
   * [自訂鏡像及快取](tutorial/installation.md#custom-mirrors-and-caches)
   * [疑難排解](tutorial/installation.md#troubleshooting)
