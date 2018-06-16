@@ -28,14 +28,13 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * [Arquitectura de la aplicación](tutorial/application-architecture.md) 
   * [Proceso Principal y Proceso Visualizador](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Uso de APIs de Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Uso de APIs de Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Uso de APIs de Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Uso de Módulos Nativos de Node.js](tutorial/using-native-node-modules.md)
-  * [Comunicación entre procesos](tutorial/application-architecture.md#)
 * Agregar características a su aplicación 
   * [Notificaciones](tutorial/notifications.md)
-  * [Documentos recientes](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Documentos recientes](tutorial/desktop-environment-integration.md#recent-documents)
   * [Progreso de la aplicación](tutorial/progress-bar.md)
-  * [Menú Dock personalizado](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Menú Dock personalizado](tutorial/macos-dock.md)
   * [Barra de tareas de Windows personalizado](tutorial/windows-taskbar.md)
   * [Acciones de escritorio Linux personalizado](tutorial/linux-desktop-actions.md)
   * [Atajos del teclado](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
 * [En detalle: Instalar Electron](tutorial/installation.md) 
-  * [Instalación global contra instalación local](tutorial/installation.md#global-versus-local-installation)
   * [Proxies](tutorial/installation.md#proxies)
   * [Espejos y cachés personalizados](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemas](tutorial/installation.md#troubleshooting)
