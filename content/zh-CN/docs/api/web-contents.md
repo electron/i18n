@@ -137,13 +137,13 @@ Emitted when details regarding a requested resource are available. `status` indi
 * `frameName` String
 * `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.
 * `options` Object - 用于创建新的 [`BrowserWindow`](browser-window.md).
-* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `additionalFeatures` String[] - 非标准功能(非标准功能是指这些功能不是由Chromium或Electron处理的功能)，这些功能默认指向`window.open()`.
 
 当页面请求打开地址为 ` url ` 的新窗口时触发。可以通过 ` window.open ` 或外部链接 (如 `<a target='_blank'>`) 触发。
 
 默认情况下, 将为 ` url ` 创建新的 ` BrowserWindow `。
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. 例如：
+`event.preventDefault()`事件会阻止Electron创建新的[`BrowserWindow`](browser-window.md)实例。 If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. 例如：
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
