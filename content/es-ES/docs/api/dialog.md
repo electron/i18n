@@ -24,8 +24,8 @@ El módulo `dialogo` tiene los siguientes métodos:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` Object 
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
+* `opciones` Object 
   * `título` cadena (opcional)
   * `defaultPath` Cadena (optional)
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
@@ -35,7 +35,7 @@ El módulo `dialogo` tiene los siguientes métodos:
     * `openDirectory` - Le permite a los directorios ser seleccionados.
     * `multiSelections` - Permite que varios caminos sean seleccionados.
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+    * `createDirectory`*macOS*- Permite crear nuevos directorios a partir del diálogo.
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -70,7 +70,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `opciones` Object 
   * `título` cadena (opcional)
   * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
@@ -94,7 +94,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `opciones` Object 
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
   * `buttons` Cadena[] (opcional) - Arreglo de textos por botones. En Windows, un arreglo vacío resultará en un botón con la etiqueta "OK".
@@ -131,7 +131,7 @@ Esta API puede ser llamada seguramente antes que el evento `ready` el módulo `a
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `opciones` Object 
   * `certificate` [Certificate](structures/certificate.md) - El certificado a confiar/importar.
   * `message` Cadena - El mensaje a mostrar al usuario.
