@@ -683,7 +683,7 @@ Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/lib
 * `callback` Function 
   * `result` Integer - Ang resulta ng pag-import.
 
-Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. Ang `callback` ay tinatawag na kasama ng `result` ng operasyon ng pag-import, ang halaga ng `` ay nagpapahiwatig ng tagumpay samantalang ang iba pang mga halaga ay nagpapahiwatig ng kabiguan ayon sa [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) ng chromium.
+Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. Ang `callback` ay tinatawag na kasama ng `result` ng operasyon ng pag-import, ang halaga ng `0` ay nagpapahiwatig ng tagumpay samantalang ang iba pang mga halaga ay nagpapahiwatig ng kabiguan ayon sa [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) ng chromium.
 
 ### `ang app.disableHardwareAcceleration()`
 
@@ -711,7 +711,7 @@ Nagbabalik ang [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Ang mga 
 
 Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
-Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge kapag ang itinatakdang bilang ay ``.
+Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge kapag ang itinatakdang bilang ay `0`.
 
 Sa macOS ipinapakita ito sa dock icon. Sa Linux ito ay gumagalaw lamang para sa tagapaglunsad ng Unity,
 
