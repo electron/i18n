@@ -18,9 +18,11 @@ myNotification.onclick = () => {
 
 ## Windows
 
-* 在 Windows 10 上, 通知 "仅能运行".
-* 在Windows 8.1 和 Windows 8上，带有[应用程序用户模型id（Application User Model ID）](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)的app快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
+* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu.
+* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
+
+Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][[set-app-user-model-id](../api/app.md#appsetappusermodelidid-windows)] yourself.
 
 此外，在Windows 8中，通知正文的最大长度为250个字符，Windows团队建议将通知保留为200个字符。 然而，Windows 10中已经删除了这个限制，但是Windows团队要求开发人员合理使用。 尝试将大量文本发送到API(数千个字符) 可能会导致不稳定。
 
@@ -28,7 +30,7 @@ myNotification.onclick = () => {
 
 Windows 的更高版本允许高级通知，自定义模板，图像和其他灵活元素。 要发送这些通知(来自主进程或渲染器进程)，请使用用户区模块 [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) 来用原生节点附件发送 `ToastNotification` 和 `TileNotification` 对象。
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+虽然包含按钮的通知可以使用 `electron-windows-notifications`，但处理回复则需要使用[`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications)，这有助于注册所需的COM组件，并使用输入的用户数据调用Electron应用程序。
 
 ### 免打扰模式 / 演示模式
 
@@ -38,7 +40,7 @@ While notifications including buttons work with `electron-windows-notifications`
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+MacOS上的通知是最直接的，但你应该注意[苹果关于通知的人机接口指南（Apple's Human Interface guidelines regarding notifications）](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 请注意，通知的大小限制为256个字节，如果超过该限制，则会被截断。
 
