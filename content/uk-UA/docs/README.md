@@ -28,14 +28,13 @@
 * [Архітектура Застосунків](tutorial/application-architecture.md) 
   * [Головний та Процес Рендерингу](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Використання API Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Використання API Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Використання API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Використання Нативних Модулів Node.js](tutorial/using-native-node-modules.md)
-  * [Міжпроцесна Комунікація](tutorial/application-architecture.md#)
 * Додавання Функцій до Вашого Застосунку 
   * [Сповіщення](tutorial/notifications.md)
-  * [Останні Документи](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Останні Документи](tutorial/desktop-environment-integration.md#recent-documents)
   * [Прогрес Перекладу](tutorial/progress-bar.md)
-  * [Налаштовуване Dock Меню](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Налаштовуване Dock Меню](tutorial/macos-dock.md)
   * [Налаштовувана Панель Завдань Windows](tutorial/windows-taskbar.md)
   * [Налаштовувані Linux Дії Робочого Столу](tutorial/linux-desktop-actions.md)
   * [Гарячі Клавіші](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@
 Ці окремі підручники розширюють теми, що обговорюються в Путівнику вище.
 
 * [Детальніше: Встановлення Electron](tutorial/installation.md) 
-  * [Глобальна vs Локальна Установка](tutorial/installation.md#global-versus-local-installation)
   * [Проксі](tutorial/installation.md#proxies)
   * [Користувацькі Дзеркала та Кеш](tutorial/installation.md#custom-mirrors-and-caches)
   * [Виправлення Неполадок](tutorial/installation.md#troubleshooting)
