@@ -143,7 +143,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 默认情况下, 将为 ` url ` 创建新的 ` BrowserWindow `。
 
-`event.preventDefault()`事件会阻止Electron创建新的[`BrowserWindow`](browser-window.md)实例。 If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. 例如：
+调用`event.preventDefault()`事件，可以阻止Electron自动创建新的[`BrowserWindow`](browser-window.md)实例。 调用`event.preventDefault()` 事件后，你还可以手动创建新的[`BrowserWindow`](browser-window.md)实例，不过接下来你必须用`event.newGuest`方法来引用[`BrowserWindow`](browser-window.md)实例，如果你不这样做，则可能会产生异常。 例如：
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
