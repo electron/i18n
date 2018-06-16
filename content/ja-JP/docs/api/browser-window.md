@@ -125,8 +125,8 @@ child.once('ready-to-show', () => {
   * `y` Integer (任意) (xが使われている場合は、**必須**) - ウインドウの画面上のオフセット。 省略値では、ウインドウが中央になるようになっています。
   * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は、`false` です。
   * `center` Boolean (任意) - ウインドウを画面中央に表示します。
-  * `minWidth` Integer (任意) - ウインドウの最小の幅。省略値は、`` です。
-  * `minHeight` Integer (任意) - ウィンドウの最小の高さ。省略値は、`` です。
+  * `minWidth` Integer (任意) - ウインドウの最小の幅。省略値は、`0` です。
+  * `minHeight` Integer (任意) - ウィンドウの最小の高さ。省略値は、`0` です。
   * `maxWidth` Integer (任意) - ウインドウの最大の幅。省略値は、無制限です。
   * `maxHeight` Integer (任意) - ウインドウの最大の高さ。省略値は、無制限です。
   * `resizable` Boolean (任意) - ウインドウがリサイズ可能かどうか。省略値は、 `true` です。
@@ -199,7 +199,7 @@ child.once('ready-to-show', () => {
       * `fantasy` String (任意) - 省略値は、`Impact` です。
     * `defaultFontSize` Integer (任意) - 省略値は、`16` です。
     * `defaultMonospaceFontSize` Integer (任意) - 省略値は、`13` です。
-    * `minimumFontSize` Integer (任意) - 省略値は、`` です。
+    * `minimumFontSize` Integer (任意) - 省略値は、`0` です。
     * `defaultEncoding` String (任意) - 省略値は、`ISO-8859-1` です。
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
@@ -766,7 +766,7 @@ Linuxでは常に `true` を返します。
 
 * `flag` Boolean
 * `level` String (任意) *macOS* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 省略値は、`floating` です。 詳細については、[macOSのドキュメント](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) を参照してください。
-* `relativeLevel` Integer (任意) *macOS* - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
+* `relativeLevel` Integer (任意) *macOS* - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`0` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
 ウインドウが常に他のウインドウの上に表示されるかどうかを設定します。これを設定した後でも、ウインドウはフォーカスを当てられないツールボックスウインドウではなく、まだ通常のウインドウのままです。
 
@@ -1041,7 +1041,7 @@ WindowsとLinuxでは常に `true` を返します。
 * `options` Object 
   * `appId` String (任意) - ウインドウの[アプリユーザーモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx)。 設定されないと、他のオプションは無効です。
   * `appIconPath` String (任意) - ウインドウの[再起動アイコン](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)。
-  * `appIconIndex` Integer (任意) - `appIconPath` のアイコンのインデックス。 `appIconPath` が設定されないと無視されます。省略値は、`` です。
+  * `appIconIndex` Integer (任意) - `appIconPath` のアイコンのインデックス。 `appIconPath` が設定されないと無視されます。省略値は、`0` です。
   * `relaunchCommand` String (任意) - ウインドウの[再起動コマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)。
   * `relaunchDisplayName` String (任意) - ウインドウの[再起動表示名](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)。
 
