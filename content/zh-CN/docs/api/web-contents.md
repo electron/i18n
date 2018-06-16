@@ -392,7 +392,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 * `type` String
 * `image` [NativeImage](native-image.md) (可选)
 * `scale` Float (optional) - scaling factor for the custom cursor.
-* `size` [Size](structures/size.md) (optional) - the size of the `image`.
+* `size` [Size](structures/size.md) (可选) - `image`大小。
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
 当鼠标指针改变的时候触发。 Type参数值包含：`default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` 或 `custom`.
@@ -739,7 +739,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - 缩放等级。
 
 更改缩放等级。 The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
