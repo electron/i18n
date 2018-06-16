@@ -683,7 +683,7 @@ app.on('ready', () => {
 * `callback` Function 
   * `result` Integer - Результат імпорту.
 
-Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` викликається з `result` операції імпорту, значення `` показує успіх, тоді як будь-яке інше значення показує невдачу відповідно до [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) chromium.
+Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` викликається з `result` операції імпорту, значення `0` показує успіх, тоді як будь-яке інше значення показує невдачу відповідно до [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) chromium.
 
 ### `app.disableHardwareAcceleration()`
 
@@ -711,7 +711,7 @@ app.on('ready', () => {
 
 Повертає `Boolean` - Чи виклик закінчився успішно.
 
-Встановлює бейдж лічильника для поточного застосунку. Встановлення count в `` приховає бейдж.
+Встановлює бейдж лічильника для поточного застосунку. Встановлення count в `0` приховає бейдж.
 
 На macOS показує на піктограмі в панелі задач. На Linux працює тільки для з Unity,
 
