@@ -37,8 +37,8 @@ Returns ` Boolean `-当前系统是否支持桌面通知
   * ` hasReply `Boolean (可选) 是否在通知中添加一个答复选项。 * macOS *
   * ` replyPlaceholder `String (可选) 答复输入框中的占位符。* macOS *
   * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (可选) *macOS* - 要添加到通知中的操作 请阅读 `NotificationAction`文档来了解可用的操作和限制。
+  * `closeButtonText` String (可选) *macOS* - 自定义的警告框关闭按钮文字。如果该字符串为空，那么将使用本地化的默认文本。
 
 ### 实例事件
 
