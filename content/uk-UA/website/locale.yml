@@ -28,7 +28,7 @@ languages:
   current: поточний вибір
 community:
   title: Спільнота Electron
-  description: Ресурси для об'єднання з волонтерами Electron.
+  description: Ресурси для зв'язку з волонтерами Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Почати</b></a> створення додатку читаючи <a href='/docs/tutorial/first-app'>керівництво швидкого старту</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсі</b></a> читаючи <a href='https://twitter.com/electronjs'>@electronjs</a> в Твіттері і підписавшись на <a href='/blog'>блог</a>."
