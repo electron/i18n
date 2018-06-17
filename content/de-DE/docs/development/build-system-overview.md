@@ -1,17 +1,17 @@
 # Build System Übersicht
 
-Electron verwendet [gyp](https://gyp.gsrc.io/) zur Projekt Generierung und [ninja](https://ninja-build.org/) zum bauen. Projektkonfigurationen können in den `.gyp` und`.gypi` Dateien gefunden werden.
+Electron verwendet [gyp](https://gyp.gsrc.io/) zur Projekt Generierung und [ninja](https://ninja-build.org/) zum bauen. Projektkonfigurationen können in Dateien mit `.gyp` und`.gypi` Endung gefunden werden.
 
-## Gyp Files
+## Gyp Dateien
 
-Following `gyp` files contain the main rules for building Electron:
+Folgende `gyp` Dateien beinhalten die Hauptanleitung zum bauen von Electron:
 
-* `electron.gyp` defines how Electron itself is built.
-* `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
-* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
-* `brightray/brightray.gypi` includes general build configurations about building.
+* `electron.gyp` definiert wie Electron gebaut wird.
+* `common.gypi` passt die Bauanleitungen für Node an um es zusammen mit Chromium bauen zu können.
+* `brightray/brightray.gyp` definiert wie `brightray` gebaut wird und beinhaltet die Standardkonfigurationen um gegen Chromium zu linken.
+* `brightray/brightray.gypi` beinhaltet generelle Anleitungen zum bauen.
 
-## Component Build
+## Bauen von Komponenten
 
 Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
 
