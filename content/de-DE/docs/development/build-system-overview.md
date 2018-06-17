@@ -1,6 +1,6 @@
 # Build System Übersicht
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
+Electron verwendet [gyp](https://gyp.gsrc.io/) zur Projekt Generierung und [ninja](https://ninja-build.org/) zum bauen. Projektkonfigurationen können in den `.gyp` und`.gypi` Dateien gefunden werden.
 
 ## Gyp Files
 
