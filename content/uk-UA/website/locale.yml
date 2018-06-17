@@ -89,7 +89,7 @@ quick_start:
   dive_deeper: Або пірніть глибше та прочитайте <a href='/docs'>документацію</a>.
 need_help:
   title: Потрібна допомога?
-  description: Запитуйте в форумі <a href='https://discuss.atom.io/c/electron'>Обговорення</a> чи нашому <a href='http://atom-slack.herokuapp.com/'>Slack</a> каналі. Підпишіться на <a href="https://twitter.com/electronjs">@electronjs</a> в Twitter для важливих оголошень. Потрібно звернутися приватно? Напишіть на <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Задавайте питання на форумі <a href='https://discuss.atom.io/c/electron'>Discuss</a> або нашому <a href='http://atom-slack.herokuapp.com/'>Slack</a> каналі. Слідкуйте за важливими оголошеннями <a href="https://twitter.com/electronjs">@electronjs</a> в Twitter. Потрібно звернутися приватно? Напишіть на <a href="mailto:info@electronjs.org">snfo@electronjs.org</a>.
 headings:
   languages: Мови
 taglines:
