@@ -1,4 +1,4 @@
-# Installation
+# Встановлення
 
 To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
 
@@ -8,7 +8,7 @@ npm install electron --save-dev
 
 See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
 
-## Global Installation
+## Глобальне встановлення
 
 You can also install the `electron` command globally in your `$PATH`:
 
@@ -16,7 +16,7 @@ You can also install the `electron` command globally in your `$PATH`:
 npm install electron -g
 ```
 
-## Customization
+## Кастомізація
 
 If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
 
@@ -40,7 +40,7 @@ During installation, the `electron` module will call out to [`electron-download`
 
 If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
 
-#### Mirror
+#### Дзеркало
 
 You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
 
@@ -54,11 +54,11 @@ For instance, to use the China mirror:
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
-#### Cache
+#### Кеш
 
 Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
+* Linux: `$XDG_CACHE_HOME` або `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
