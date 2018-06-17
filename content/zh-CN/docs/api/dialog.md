@@ -38,9 +38,9 @@ console.log(dialog)
     * `createDirectory` *macOS* -允许你通过对话框的形式创建新的目录。
     * ` promptToCreate ` *Windows*-如果输入的文件路径在对话框中不存在, 则提示创建。 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
     * ` noResolveAliases `* macOS *-禁用自动别名 (symlink) 路径解析。 选定的别名现在将返回别名路径而不是其目标路径。
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * ` treatPackageAsDirectory `* macOS *-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
   * `message` String (可选) * macOS *-显示在输入框上方的消息。
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+  * `securityScopedBookmarks` Boolean (可选) *masOS* *mas* - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 * `callback` Function (可选) 
   * ` filePaths ` String[] - 用户选择的文件路径的数组
   * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
@@ -79,7 +79,7 @@ console.log(dialog)
   * `message` String (可选) * macOS *-显示在对话框上的消息。
   * ` nameFieldLabel ` String (可选) * macOS * - 文件名输入框对应的自定义标签名。
   * ` showsTagField ` Boolean (可选) * macOS *-显示标记输入框, 默认为 ` true `。
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
+  * `securityScopedBookmarks` Boolean (可选) *masOS* *mas* - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
 * `callback` Function (可选) 
   * `filename` String
   * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
