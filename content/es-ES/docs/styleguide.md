@@ -49,7 +49,7 @@ Para referencias API, hay excepciones para esta regla.
 
 ## Escoger palabras
 
-* Utilice "podrá" sobre "podría" al describir resultados.
+* Utilice "podrá" en vez de "podría" al describir resultados.
 * Prefiere "en el ___ proceso" sobre "en".
 
 ## Referencias API
