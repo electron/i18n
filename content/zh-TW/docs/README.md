@@ -99,6 +99,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [處理序物件](api/process.md)
 * [支援的 Chrome 命令列參數](api/chrome-command-line-switches.md)
 * [環境變數](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### 自訂 DOM 元素：
 
