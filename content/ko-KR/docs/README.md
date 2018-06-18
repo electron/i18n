@@ -28,14 +28,13 @@
 * [애플리케이션 구조](tutorial/application-architecture.md) 
   * [메인 프로세스와 렌더러 프로세스](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron API 사용하기](tutorial/application-architecture.md#using-electron-apis)
-  * [Node.js API 사용하기](tutorial/application-architecture.md#using-node.js-apis)
+  * [Node.js API 사용하기](tutorial/application-architecture.md#using-nodejs-apis)
   * [기본 Node.js 모듈 사용하기](tutorial/using-native-node-modules.md)
-  * [프로세스 간 통신](tutorial/application-architecture.md#)
 * 여러분의 앱에 기능 추가하기 
-  * [알림](tutorial/notifications.md)
-  * [최근 문서](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [알림(Notifications)](tutorial/notifications.md)
+  * [최근 문서들(Recent Documents)](tutorial/desktop-environment-integration.md#recent-documents)
   * [애플리케이션 진행 상황](tutorial/progress-bar.md)
-  * [커스텀 Dock 메뉴](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [커스텀 Dock 메뉴](tutorial/macos-dock.md)
   * [커스텀 Windows 작업 표시줄](tutorial/windows-taskbar.md)
   * [커스텀 Linux 데스크톱 동작](tutorial/linux-desktop-actions.md)
   * [키보드 단축기](tutorial/keyboard-shortcuts.md)
@@ -74,8 +73,7 @@
 이 가이드는 위에서 설명된 주제의 확장입니다.
 
 * [자세히 설명된 Electron 설치](tutorial/installation.md) 
-  * [전역 설치 vs 로컬 설치](tutorial/installation.md#global-versus-local-installation)
-  * [Proxies](tutorial/installation.md#proxies)
+  * [프록시](tutorial/installation.md#proxies)
   * [커스텀 미러와 캐시](tutorial/installation.md#custom-mirrors-and-caches)
   * [문제 해결](tutorial/installation.md#troubleshooting)
 * [자세히 설명된 Electron의 버전 매김 스키마](tutorial/electron-versioning.md) 
@@ -101,6 +99,7 @@
 * [프로세스 개체](api/process.md)
 * [크롬 명령 줄 스위치 지원](api/chrome-command-line-switches.md)
 * [환경 변수](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### 사용자 지정 DOM 요소:
 
