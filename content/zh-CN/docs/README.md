@@ -28,20 +28,19 @@
 * [应用架构](tutorial/application-architecture.md) 
   * [主进程和渲染进程](tutorial/application-architecture.md#main-and-renderer-processes)
   * [使用 Electron 的 API](tutorial/application-architecture.md#using-electron-apis)
-  * [使用Node.js的API](tutorial/application-architecture.md#using-node.js-apis)
+  * [使用Node.js的API](tutorial/application-architecture.md#using-nodejs-apis)
   * [使用原生 Node.js 模块](tutorial/using-native-node-modules.md)
-  * [内部进程通信](tutorial/application-architecture.md#)
 * 为你的应用添加功能 
-  * [通知](tutorial/notifications.md)
-  * [最近的文件](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [通知（Notifications）](tutorial/notifications.md)
+  * [最近文档（Recent Documents）](tutorial/desktop-environment-integration.md#recent-documents)
   * [应用程序进程](tutorial/progress-bar.md)
-  * [自定义 Dock 菜单](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [自定义 Dock 菜单](tutorial/macos-dock.md)
   * [自定义 Windows 任务栏](tutorial/windows-taskbar.md)
   * [自定义 Linux 桌面动作](tutorial/linux-desktop-actions.md)
   * [键盘快捷键](tutorial/keyboard-shortcuts.md)
   * [离线/在线 侦测](tutorial/online-offline-events.md)
-  * [针对 macOS 浏览框展示文件](tutorial/represented-file.md)
-  * [原生文件拖 & 放](tutorial/native-file-drag-drop.md)
+  * [针对 macOS系统 BrowserWindows的展示文件](tutorial/represented-file.md)
+  * [原生文件拖放](tutorial/native-file-drag-drop.md)
 * [辅助功能](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -74,7 +73,6 @@
 这些独立教程扩展了上面指南中所讨论的主题。
 
 * [深入: 安装 Electron](tutorial/installation.md) 
-  * [全局与本地安装](tutorial/installation.md#global-versus-local-installation)
   * [代理](tutorial/installation.md#proxies)
   * [自定义镜像和缓存](tutorial/installation.md#custom-mirrors-and-caches)
   * [故障排查](tutorial/installation.md#troubleshooting)
@@ -101,6 +99,7 @@
 * [进程对象](api/process.md)
 * [支持的 Chrome 命令行开关](api/chrome-command-line-switches.md)
 * [环境变量](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### 自定义 DOM 元素:
 
