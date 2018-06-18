@@ -1,4 +1,4 @@
-# Official Guides
+# Офіційне керівництво
 
 Будь ласка, переконайтеся, що ви використовуєте документацію, що відповідає вашій версії Electron. Номер версії має бути частиною URL-адреси сторінки. Якщо це не так, можливо ви використовуєте документацію гілки робробки, що може містити API зміни не сумісні з вашою версією Electron. Щоб переглянути старіші версії документації, ви можете [перейти по тегу](https://github.com/electron/electron/tree/v1.4.0) на GitHub, відкривши випадаюче меню "Перемкнути гілку/тег" і вибравши тег, який відповідає вашій версії.
 
@@ -28,34 +28,33 @@
 * [Архітектура Застосунків](tutorial/application-architecture.md) 
   * [Головний та Процес Рендерингу](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Використання API Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Використання API Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Використання API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Використання Нативних Модулів Node.js](tutorial/using-native-node-modules.md)
-  * [Міжпроцесна Комунікація](tutorial/application-architecture.md#)
 * Додавання Функцій до Вашого Застосунку 
   * [Сповіщення](tutorial/notifications.md)
-  * [Останні Документи](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Останні Документи](tutorial/desktop-environment-integration.md#recent-documents)
   * [Прогрес Перекладу](tutorial/progress-bar.md)
-  * [Налаштовуване Dock Меню](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Налаштовуване Dock Меню](tutorial/macos-dock.md)
   * [Налаштовувана Панель Завдань Windows](tutorial/windows-taskbar.md)
   * [Налаштовувані Linux Дії Робочого Столу](tutorial/linux-desktop-actions.md)
   * [Гарячі Клавіші](tutorial/keyboard-shortcuts.md)
   * [Оффлайн/Онлайн Виявлення](tutorial/online-offline-events.md)
   * [Представлення Файлу для macOS BrowserWindows](tutorial/represented-file.md)
   * [Нативний Drag & Drop Файлу](tutorial/native-file-drag-drop.md)
-* [Accessibility](tutorial/accessibility.md) 
+* [Доступність](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Увімкнення Спеціальних Можливостей](tutorial/accessibility.md#enabling-accessibility)
-* [Testing and Debugging](tutorial/application-debugging.md) 
+* [Тестування та відлагодження](tutorial/application-debugging.md) 
   * [Відлагодження Головного Процесу](tutorial/debugging-main-process.md)
   * [Використання Selenium і WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестування на віддалених CI системах (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Розширення DevTools](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
-* [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [Автоматичне тестування за допомогою користувацького драйвера](tutorial/automated-testing-with-a-custom-driver.md)
+* Пакування 
+  * [Підпис коду](tutorial/code-signing.md)
+* [Розповсюдження](tutorial/application-distribution.md) 
+  * [Підтримка](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -64,7 +63,7 @@
   * [Проблеми з Безпекою Chromium та Вдосконалення](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Попередження про Безпеку Electron](tutorial/security.md#electron-security-warnings)
   * [Контрольний Список Безпеки](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
+* [Оновлення](tutorial/updates.md) 
   * [Розгортання на Сервері для Оновлень](tutorial/updates.md#deploying-an-update-server)
   * [Реалізація Оновлення в Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
   * [Застосування Оновлень](tutorial/updates.md#applying-updates)
@@ -74,7 +73,6 @@
 Ці окремі підручники розширюють теми, що обговорюються в Путівнику вище.
 
 * [Детальніше: Встановлення Electron](tutorial/installation.md) 
-  * [Глобальна vs Локальна Установка](tutorial/installation.md#global-versus-local-installation)
   * [Проксі](tutorial/installation.md#proxies)
   * [Користувацькі Дзеркала та Кеш](tutorial/installation.md#custom-mirrors-and-caches)
   * [Виправлення Неполадок](tutorial/installation.md#troubleshooting)
@@ -101,6 +99,7 @@
 * [Обробка Об'єктів](api/process.md)
 * [Підтримувані Параметри Командного Рядка Chrome](api/chrome-command-line-switches.md)
 * [Змінні Середовища](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### Користувацькі DOM Елементи:
 
@@ -147,4 +146,4 @@
 
 ## Розробка
 
-See <development/README.md>
+Дивіться <development/README.md>
