@@ -160,7 +160,7 @@ Sets the session used by the page. 如果 `partition` 以 `persist:`开头, 该�
 
 一个设置在 webview 上的 web 首选项的字符串列表，通过 `,` 号分割。 支持的首选项字符串的完整列表，请查看 [BrowserWindow](browser-window.md#new-browserwindowoptions)。
 
-该字符串的格式与 ` window.open ` 中的功能字符串( the features string )相同。 只有自己名字的将被赋予 `true` 布尔值。 可以通过 `=` 来赋予其他值。 `yes` 和 `1` 会被解析成 `true`，而 `no` 和 `` 解析为 `false`。
+该字符串的格式与 ` window.open ` 中的功能字符串( the features string )相同。 只有自己名字的将被赋予 `true` 布尔值。 可以通过 `=` 来赋予其他值。 `yes` 和 `1` 会被解析成 `true`，而 `no` 和 `0` 解析为 `false`。
 
 ### `blinkfeatures`
 
@@ -513,7 +513,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) fo
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - 缩放等级。
 
 更改缩放等级。 The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
@@ -607,7 +607,7 @@ Fired when document in the given frame is loaded.
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### 事件: 'page-favicon-updated'
 
 返回:
 
@@ -649,8 +649,8 @@ webview.addEventListener('console-message', (e) => {
 
 * `result` Object 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
+  * `activeMatchOrdinal` Integer - 当前匹配位置。
+  * `matches` Integer - 符合匹配条件的元素个数。
   * `selectionArea` Object - Coordinates of first match region.
   * `finalUpdate` Boolean
 
@@ -672,7 +672,7 @@ console.log(requestId)
 
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.
 * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
 Fired when the guest page attempts to open a new browser window.
@@ -722,9 +722,9 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+当发生页内导航时，触发该事件。
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+当发生页内导航时，虽然页面地址发生变化，但它并没有导航到其它页面。 例如，点击锚点链接，或者DOM的 `hashchange`事件被触发时，都会触发该事件。
 
 ### 事件： 'close'
 
@@ -791,7 +791,7 @@ Fired when the WebContents is destroyed.
 
 ### Event: 'media-started-playing'
 
-Emitted when media starts playing.
+多媒体开始播放时，触发该事件。
 
 ### Event: 'media-paused'
 
@@ -815,16 +815,16 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+当鼠标滑到，或者键盘切换到a连接时，触发该事件。
 
 ### Event: 'devtools-opened'
 
-Emitted when DevTools is opened.
+当开发者工具被打开时，触发该事件。
 
 ### Event: 'devtools-closed'
 
-Emitted when DevTools is closed.
+当开发者工具被关闭时，触发该事件。
 
 ### Event: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+当开发者工具被选中/打开时，触发该事件。
