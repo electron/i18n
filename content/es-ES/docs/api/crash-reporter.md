@@ -78,7 +78,7 @@ Devuelve todos los informes de fallos subidos. Cada informe contiene la fecha y 
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+Devuelve `Boolean` - Si los informes deben enviarse o no al servidor. Establecer a través del método `start` o `setUploadToServer`.
 
 **Nota:** Esta API sólo se puede llamar desde el proceso principal.
 
@@ -111,8 +111,8 @@ Muestra todos los parámetros que se enviarán al informador de fallos.
 
 El informador de fallos enviará la siguiente información al `submitURL` como un `multipart/form-data` `POST`:
 
-* `ver` Cadena- La versión de Electron.
-* `platform` Cadena - por ejemplo, "win32".
+* `ver` String - La versión de Electron.
+* `platform` String - por ejemplo, "win32".
 * `process_type` Cadena - por ejemplo, "renderizador".
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` Cadena - La versión en `package.json`.
