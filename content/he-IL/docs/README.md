@@ -28,14 +28,13 @@
 * [Application Architecture](tutorial/application-architecture.md) 
   * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Using Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
+  * [Using Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
-  * [Inter-Process Communication](tutorial/application-architecture.md#)
 * הוספת תכונות לאפליקציה שלך 
   * [התראות](tutorial/notifications.md)
-  * [מסמכים אחרונים](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [מסמכים אחרונים](tutorial/desktop-environment-integration.md#recent-documents)
   * [התקדמות התרגום](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Custom Dock Menu](tutorial/macos-dock.md)
   * [שורת משימות מותאמת אישית של Windows](tutorial/windows-taskbar.md)
   * [פעולות מותאמות אישית בסביבת לינוק לשולחן עבודה](tutorial/linux-desktop-actions.md)
   * [קיצורי מקלדת](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@
 These individual tutorials expand on topics discussed in the guide above.
 
 * [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Global versus Local Installation](tutorial/installation.md#global-versus-local-installation)
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Troubleshooting](tutorial/installation.md#troubleshooting)

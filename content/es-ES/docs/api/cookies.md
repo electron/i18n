@@ -53,7 +53,7 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
 
 #### `cookies.get(filter, callback)`
 
-* `filtrar` Objeto 
+* `filter` Objeto 
   * `url` Cadena (opcional) - Recupera las cookies que estás asociadas con el `url`. Dejarlo en blanco implica recuperar las cookies de todos los Urls.
   * `name` Cadena (opcional) - Filtra las cookies por nombre.
   * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`.
@@ -64,7 +64,7 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - un arreglo con objetos de cookies.
 
-Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
+Envía una solicitud para obtener todas las cookies que coinciden con `filter`, `callback` y será llamada con `callback(error, cookies)` cuando termine.
 
 #### `cookies.set(details, callback)`
 

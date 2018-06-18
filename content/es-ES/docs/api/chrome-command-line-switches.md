@@ -28,11 +28,11 @@ Desactiva los protocolos HTTP/2 y SPDY/3.
 
 ## --lang
 
-Set a custom locale.
+Establecer una configuración regional personalizada.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Parámetros de depuración, vea la guía [Debugging the Main Process](../tutorial/debugging-main-process.md) para mas detalles.
+Parámetros de depuración, vea la guía [Debugeando el proceso principal](../tutorial/debugging-main-process.md) para más detalles.
 
 ## --remote-debugging-port=`port`
 

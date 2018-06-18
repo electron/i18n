@@ -1,12 +1,12 @@
-## Class: Menu
+## Клас: Menu
 
-> Create native application menus and context menus.
+> Створює нативні меню додатка і контекстні меню.
 
 Процес: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+Створює нове меню.
 
 ### Статичні Методи
 
@@ -92,7 +92,7 @@ Objects created with `new Menu` emit the following events:
 
 **Примітка:** Деякі події доступні тільки на певних операційних системах і відповідно позначені як такі.
 
-#### Event: 'menu-will-show'
+#### Подія: 'menu-will-show'
 
 Повертає:
 
@@ -100,7 +100,7 @@ Objects created with `new Menu` emit the following events:
 
 Emitted when `menu.popup()` is called.
 
-#### Event: 'menu-will-close'
+#### Подія: 'menu-will-close'
 
 Повертає:
 
@@ -135,7 +135,7 @@ const {app, Menu} = require('electron')
 
 const template = [
   {
-    label: 'Edit',
+    label: 'Редагування',
     submenu: [
       {role: 'undo'},
       {role: 'redo'},
@@ -149,7 +149,7 @@ const template = [
     ]
   },
   {
-    label: 'View',
+    label: 'Вигляд',
     submenu: [
       {role: 'reload'},
       {role: 'forcereload'},
@@ -173,7 +173,7 @@ const template = [
     role: 'help',
     submenu: [
       {
-        label: 'Learn More',
+        label: 'Дізнатись більше',
         click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
@@ -196,11 +196,11 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Edit menu
+  // Меню "Редагування"
   template[1].submenu.push(
     {type: 'separator'},
     {
-      label: 'Speech',
+      label: 'Мовлення',
       submenu: [
         {role: 'startspeaking'},
         {role: 'stopspeaking'}
@@ -208,7 +208,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Window menu
+  // Меню "Вікно"
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -222,7 +222,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### Процес рендерингу
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -233,9 +233,9 @@ const {remote} = require('electron')
 const {Menu, MenuItem} = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clicked') }}))
+menu.append(new MenuItem({label: 'Пункт1', click() { console.log('пункт 1 натиснутий') }}))
 menu.append(new MenuItem({type: 'separator'}))
-menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
+menu.append(new MenuItem({label: 'Пункт2', type: 'checkbox', checked: true}))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
@@ -244,11 +244,11 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## Зауваження по меню macOS додатку
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Standard Menus
+### Стандартні меню
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
@@ -260,7 +260,7 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 
 macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### Main Menu's Name
+### Назва головного меню
 
 On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
@@ -268,7 +268,7 @@ On macOS the label of the application menu's first item is always your app's nam
 
 The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
-## Menu Item Position
+## Позиція пункту меню
 
 You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Приклади
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -294,7 +294,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
 ```sh
 <br />- 1
@@ -304,26 +304,26 @@ Menu:
 - 5
 ```
 
-Template:
+Шаблон:
 
 ```javascript
 [
-  {label: 'a', position: 'endof=letters'},
+  {label: 'а', position: 'endof=letters'},
   {label: '1', position: 'endof=numbers'},
-  {label: 'b', position: 'endof=letters'},
+  {label: 'б', position: 'endof=letters'},
   {label: '2', position: 'endof=numbers'},
-  {label: 'c', position: 'endof=letters'},
+  {label: 'в', position: 'endof=letters'},
   {label: '3', position: 'endof=numbers'}
 ]
 ```
 
-Menu:
+Меню:
 
 ```sh
 <br />- ---
-- a
-- b
-- c
+- а
+- б
+- в
 - ---
 - 1
 - 2

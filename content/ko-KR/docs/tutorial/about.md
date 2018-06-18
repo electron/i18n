@@ -40,7 +40,7 @@ Electron 2.0 버전부터 [`semver`](https://semver.org) 규칙에 따라 버전
 
 Electron을 작고(파일 크기) 지속 가능한 상태로(의존성 및 API의 확장) 유지하기 위해 Electron 프로젝트는 핵심 프로젝트의 범위를 제한합니다.
 
-For instance, Electron uses Chromium's rendering library rather than all of Chromium. 이런 특성 때문에 Chromium을 쉽게 업그레이드할 수 있습니다. 단, Electron에는 구글 크롬에서 볼 수 있는 브라우저와 관련된 몇몇 기능들이 존재하지 않습니다.
+예를 들어, Electron 은 Chromium 전체가 아닌 렌더링 라이브러리만 사용합니다. 이런 특성 때문에 Chromium을 쉽게 업그레이드할 수 있습니다. 단, Electron에는 구글 크롬에서 볼 수 있는 브라우저와 관련된 몇몇 기능들이 존재하지 않습니다.
 
 Electron에 추가되는 새로운 기능은 기본적으로 네이티브 API여야 합니다. 새로운 기능이 자체적으로 Node.js 모듈이 될 수 있으면, 네이티브 API가 될 수 있습니다. [커뮤니티에서 만든 Electron 도구를 ](https://electronjs.org/community)확인해보세요.
 

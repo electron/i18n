@@ -45,7 +45,7 @@ Es necesario llamar este método antes de utilizar cualquier otra API `crashRepo
 
 **Nota:** para recopilar los informes de fallos de los procesos secundarios en Windows, es necesario añadir este código extra. Esto iniciará el proceso que monitoreará y enviará los informes de fallos. Reemplazar `submitURL`, `productName` y `crashesDirectory` con los valores adecuados.
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**Nota:** Si necesita enviar parámetros adicionales o actualizados `extra` después de la primera llamada a `start` puede llamar a `addExtraParameter`, en macOS, o llamar a `start` otra vez con los parámetros nuevos o actualizados `extra`, en Linux y Windows.
 
 ```js
  const args = [
@@ -78,7 +78,7 @@ Devuelve todos los informes de fallos subidos. Cada informe contiene la fecha y 
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+Devuelve `Boolean` - Si los informes deben enviarse o no al servidor. Establecer a través del método `start` o `setUploadToServer`.
 
 **Nota:** Esta API sólo se puede llamar desde el proceso principal.
 
@@ -111,13 +111,13 @@ Muestra todos los parámetros que se enviarán al informador de fallos.
 
 El informador de fallos enviará la siguiente información al `submitURL` como un `multipart/form-data` `POST`:
 
-* `ver` Cadena- La versión de Electron.
-* `platform` Cadena - por ejemplo, "win32".
-* `process_type` Cadena - por ejemplo, "renderizador".
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
-* `_version` Cadena - La versión en `package.json`.
-* `_productName` Cadena - El nombre del producto en el objeto `crashReporter` `options`.
-* `prod` Cadena- El nombre del producto subyacente. En este caso, Electron.
-* `_companyName` Cadena - El nombre de la empresa en el objeto `crashReporter` `options`.
-* `upload_file_minidump` Archivo - El informe de fallos en el formato de `minidump`.
+* `ver` String - La versión de Electron.
+* `platform` String - por ejemplo, "win32".
+* `process_type` String - por ejemplo, "renderer".
+* `guid` String - por ejemplo, "5e1286fc-da97-479e-918b-6bfb0c3d1c72".
+* `_version` String - La versión en `package.json`.
+* `_productName` String - El nombre del producto en el objeto `crashReporter` `options`.
+* `prod` String - El nombre del producto subyacente. En este caso, Electron.
+* `_companyName` String - El nombre de la empresa en el objeto `crashReporter` `options`.
+* `upload_file_minidump` File - El informe de fallos en el formato de `minidump`.
 * Todas las propiedades de nivel uno del objeto `extra` en el objeto `crashReporter` `options`.

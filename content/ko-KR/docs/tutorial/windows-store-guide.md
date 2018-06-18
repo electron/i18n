@@ -6,27 +6,27 @@
 
 ## 배경 및 요구 사항
 
-Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+Windows 10 "Anniversary Update"는 가상화 된 파일 시스템 및 레지스트리와 함께 실행하여 win32 ` .exe </ 0> 바이너리를 실행할 수 있습니다. 둘 다 Windows 컨테이너에 app과 installer에 의해 컴파일하는 동안 만들어 지므로 Windows가 설치 중에 운영 체제 변경 사항을 정확히 식별 할 수 있습니다. 실행 파일을 가상 파일 시스템 및 가상 레지스트리와 페어링하면 Windows에서 한 번 클릭으로 설치 및 제거 할 수 있습니다.</p>
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+<p>또한 exe는 appx 모델 내에서 실행됩니다. 즉, Universal Windows Platform에서 사용할 수있는 많은 API를 사용할 수 있습니다.  더 많은 기능을 사용하기 위해, Electron 애플리케이션은 백그라운드로 실행된 UWP 앱과 페어링 하여  <code>exe`와 같이 실행할 수 있습니다 - 이렇게 헬퍼와 비슷하게 실행되고 작업을 실행하기 위해 백그라운드에서 작동하며, 푸시 알림을 받거나, 다른 UWP 애플리케이션과 통신하는 역할을 합니다.
 
-To compile any existing Electron app, ensure that you have the following requirements:
+현재 존재하는 Electron 애플리케이션을 컴파일 하려면, 다음 요구 사항을 충족해야 합니다:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Windows 10 Anniversary Update (2016년 8월 2일 발매)
+* Windows 10 SDK, [여기서 다운로드](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* Node 4 이상(확인, `node -v`실행)
 
-Then, go and install the `electron-windows-store` CLI:
+그리고 CLI에서 `electron-windows-store`를 설치합니다:
 
 ```sh
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## 1 단계 : Electron 응용 프로그램 패키지
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+[electron-packager](https://github.com/electron-userland/electron-packager) (또는 이와 유사한 도구)를 사용하여 응용 프로그램을 패키지화합니다. 실제로 필요하지 않은 모듈은 응용 프로그램의 크기를 증가시킬 것이므로 마지막 응용 프로그램에서 필요하지 않은 `node_modules`을 제거하십시오.
 
-The output should look roughly like this:
+출력된 파일은 대략 다음과 같이 보입니다.
 
 ```text
 ├── Ghost.exe
@@ -52,9 +52,9 @@ The output should look roughly like this:
 └── ui_resources_200_percent.pak
 ```
 
-## Step 2: Running electron-windows-store
+## 2 단계 : electron-windows-store 실행
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+관리자 권한으로 실행 된 PowerShell에서 입력 및 출력 디렉토리, 응용 프로그램의 이름 및 버전을 전달하고 `node_modules` 을 평탄화시키는 매개 변수를 전달하여 `electron-windows-store`를 실행합니다.
 
 ```powershell
 electron-windows-store `
@@ -65,32 +65,32 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+명령이 실행되면, 도구는 다음과 같이 작동합니다: Electron 애플리케이션을 입력으로 받고, `node_modules`를 평탄화합니다. 그런 다음 애플리케이션을 `app.zip `으로 압축합니다. 설치 프로그램과 Windows 컨테이너를 사용하여이 도구는 "확장 된"AppX 패키지를 만듭니다. - Windows 응용 프로그램 매니페스트 (`AppXManifest.xml`)는 물론 가상 폴더 시스템과 가상 레지스트리도 출력 폴더 내에 포함됩니다.
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+확장 된 AppX 파일이 생성되면이 도구는 Windows App Packager (`MakeAppx.exe`)를 사용하여 디스크의 해당 파일에서 단일 파일 AppX 패키지를 만듭니다. 마지막으로이 도구를 사용하여 컴퓨터에 신뢰할 수있는 인증서를 만들어 새 AppX 패키지에 서명 할 수 있습니다. 서명 된 AppX 패키지를 사용하면 CLI가 시스템에 패키지를 자동으로 설치할 수도 있습니다.
 
-## Step 3: Using the AppX Package
+## 3 단계 : AppX 패키지 사용
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+패키지를 실행하려면 소위 "Anniversary Update"와 함께 Windows 10이 필요합니다. - Windows 업데이트 방법은 [여기](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update)에서 확인할 수 있습니다.
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to install your package by double-clicking it, so a submission to the store might not be necessary if you're looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+기존의 UWP 앱과 달리 패키지 앱은 현재 [여기](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge)를 적용 할 수있는 수동 확인 절차를 거쳐야합니다. 그 동안 모든 사용자가 패키지를 더블클릭하여 설치할 수 있기 때문에 쉬운 설치 방법을 원할 경우 스토어에 제출하지 않아도됩니다. 관리되는 환경 (일반적으로 기업)에서는 `Add-AppxPackage` [PowerShell Cmdlet을 사용하여 자동화 된 방식으로 설치합니다. ](https://technet.microsoft.com/en-us/library/hh856048.aspx)
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+또 다른 중요한 한계는 컴파일 된 AppX 패키지에 여전히 win32 실행 파일이 포함되어 있으므로 Xbox, HoloLens 또는 Phones에서 실행되지 않습니다.
 
-## Optional: Add UWP Features using a BackgroundTask
+## Optional : BackgroundTask를 사용하여 UWP 기능 추가
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+Electron 앱을 푸시 알림, Cortana 통합 또는 라이브 타일과 같은 Windows 10 기능을 최대한 활용하는 보이지 않는 UWP 백그라운드 작업과 페어링 할 수 있습니다.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+백그라운드 작업을 사용하여 토스트 알림 및 라이브 타일을 보내는 Electron 앱을 확인하려면 [Microsoft 제공 샘플](https://github.com/felixrieseberg/electron-uwp-background)을 확인하십시오.
 
-## Optional: Convert using Container Virtualization
+## Optional : 컨테이너 가상화를 사용하여 변환
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+AppX 패키지를 생성하기 위해 `electron-windows-store` CLI는 대부분의 Electron 응용 프로그램에서 작동 할 템플릿을 사용합니다. 그러나 사용자 정의 설치 프로그램을 사용하거나 생성 된 패키지에 문제가 발생하는 경우 Windows 컨테이너가 포함 된 컴파일을 사용하여 패키지를 만들 수 있습니다.이 모드에서는 CLI가 빈 Windows에 응용 프로그램을 설치하고 실행합니다 컨테이너를 사용하여 응용 프로그램이 운영 체제에서 수행중인 수정 작업을 정확하게 확인할 수 있습니다.
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+CLI를 처음 실행하기 전에 "Windows Desktop App Converter"를 설치해야합니다. 이 작업은 몇 분이 걸리지 만 걱정하지 마십시오. 한 번만 수행하면됩니다. Desktop App Converter 는 [여기](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter)에서 다운로드 합니다. `DesktopAppConverter.zip` 와 `BaseImage-14316.wim` 두 파일을 모두 받아야 합니다.
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+1. `DesktopAppConverter.zip`의 압축을 풉니다. 관리자 권한으로 실행 된 PowerShell에서 `Set-ExecutionPolicy bypass`를 호출하여 시스템 실행 정책에 따라 실행하려는 모든 작업을 실행할 수 있는지 확인하십시오.
+2. 그리고, `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`를 실행하여 Windows 베이스 이미지 (`BaseImage-14316.wim`)를 Desktop App Converter로 전달하고 설치를 진행합니다.
+3. 만약 위 명령이 재시작을 요구하면, 기기를 재시작하고 위 명령을 다시 실행시키세요.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+설치가 성공하면 Electron 앱을 컴파일 할 수 있습니다.

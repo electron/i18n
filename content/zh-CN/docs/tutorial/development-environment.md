@@ -10,7 +10,7 @@
 
 下载完成后， 执行安装程序，根据引导完成安装即可。
 
-安装完成后，我们需要来确认Node.js是不是可以正常工作。 Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). 打开`Terminal`或其他你喜欢的命令行客户端后，通过以下命令来确认 `node` 和 `npm`已经安装成功：
+安装完成后，我们需要来确认Node.js是不是可以正常工作。 在`/Applications/Utilities`文件夹中找到macOS的`Terminal` 程序(或者直接使用Spotlight直接搜索关键词`Terminal`) 。 打开`Terminal`或其他你喜欢的命令行客户端后，通过以下命令来确认 `node` 和 `npm`已经安装成功：
 
 ```sh
 # 下面这行的命令会打印出Node.js的版本信息

@@ -26,16 +26,15 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Altri strumenti e Boilerplate](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Architettura Applicazione](tutorial/application-architecture.md) 
-  * [Processi di Rendering e Principali](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Principali Processi e di Rendering](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Usare API di Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Usare API Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Usare API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Usare Moduli Nativi Node.js](tutorial/using-native-node-modules.md)
-  * [Comunicazione Interprocessuale](tutorial/application-architecture.md#)
 * Aggiungere Funzioni Alla Tua App 
   * [Notifiche](tutorial/notifications.md)
-  * [Documenti Recenti](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Documenti Recenti](tutorial/desktop-environment-integration.md#recent-documents)
   * [Progresso Applicazione](tutorial/progress-bar.md)
-  * [Menu Personalizzati Dock](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Menu Personalizzati Dock](tutorial/macos-dock.md)
   * [Barra Mansioni Windows Personalizzata](tutorial/windows-taskbar.md)
   * [Azioni Desktop Linux Personalizzate](tutorial/linux-desktop-actions.md)
   * [Scorciatoie da tastiera](tutorial/keyboard-shortcuts.md)
@@ -65,8 +64,8 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [Avvisi Sicurezza Electron](tutorial/security.md#electron-security-warnings)
   * [Lista di Controllo Sicurezza](tutorial/security.md#checklist-security-recommendations)
 * [Aggiornamenti](tutorial/updates.md) 
-  * [Implementare un Server di Aggiornamento](tutorial/updates.md#deploying-an-update-server)
-  * [Implementando gli Aggiornamenti nella Tua App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Implementare un Server Aggiornamento](tutorial/updates.md#deploying-an-update-server)
+  * [Implementare Aggiornamenti nella Tua App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applicando Aggiornamenti](tutorial/updates.md#applying-updates)
 
 ## Tutorial dettagliati
@@ -74,7 +73,6 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 Questi tutorial individuali espandono su topic discussi nella guida sopra.
 
 * [In dettaglio: Installare Electron](tutorial/installation.md) 
-  * [Installazione Globale conto Locale](tutorial/installation.md#global-versus-local-installation)
   * [Proxy](tutorial/installation.md#proxies)
   * [Personalizza Specchi e Cache](tutorial/installation.md#custom-mirrors-and-caches)
   * [Risoluzione dei problemi](tutorial/installation.md#troubleshooting)

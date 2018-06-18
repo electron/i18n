@@ -6,7 +6,7 @@ Proceso: [principal](../tutorial/quick-start.md#main-process)
 
 ### `Nueva etiqueta en la barra táctil(opciones)` *Experimental*
 
-* `opciones` Object 
+* `options` Object 
   * `etiqueta` Cadena (opcional) - texto a mostrar.
   * `Color del texto` cadena (opcional) - color del texto en hex, ejemplo `#ABCDEF`.
 

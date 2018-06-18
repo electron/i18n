@@ -1,8 +1,8 @@
-# Planned Breaking API Changes (4.0)
+# 중단될 예정 API (4.0)
 
-The following list includes the APIs that will be removed in Electron 4.0.
+다음 목록에는 Electron 4.0에서 제거될 API가 포함되어 있습니다.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least [one major version](electron-versioning.md#semver) beforehand.
+이 릴리스가 발생할 시점에 대한 일정은 없지만 사용 중단 경고가 최소 [하나의 메이저 버전](electron-versioning.md#semver)에 사전에 추가될 것입니다.
 
 ## `webFrame`
 
@@ -13,7 +13,7 @@ webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
-*Nota Bene:* Before we can remove this we need to update all of the relevant specs to `protocol.registerStandardSchemes(['app'], {secure: true})`.
+*Nota Bene:* 이것을 제거하기 전에 모든 관련 사양을 `protocol.registerStandardSchemes(['app'], {secure: true})`에 업데이트해야 합니다.
 
 ## `app.makeSingleInstance`
 
@@ -40,4 +40,4 @@ app.releaseSingleInstanceLock()
 
 ## `FIXME` comments
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 3.0 release. See https://github.com/electron/electron/search?q=fixme
+3.0릴리스에 대해 수정해야 하는 사항을 나타내는 코드 설명에는 `FIXME` 문자열이 사용됩니다. https://github.com/electron/electron/search?q=fixme 를 참고하세요.

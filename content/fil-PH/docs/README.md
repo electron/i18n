@@ -28,14 +28,13 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Arkitektura ng aplikasyon](tutorial/application-architecture.md) 
   * [Pangunahin at Proseso ng Renderer](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Paggamit ng Electron APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Paggamit ng Node.js APIs](tutorial/application-architecture.md#using-node.js-apis)
+  * [Paggamit ng Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Paggamit ng katutubong Node.js Modules](tutorial/using-native-node-modules.md)
-  * [Inter-Process Komunikasyon](tutorial/application-architecture.md#)
 * Pagdagdag ng features sa iyong aplikasyon 
   * [Mga Paalala](tutorial/notifications.md)
-  * [Kasalukuyang dokumento](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Kasalukuyang dokumento](tutorial/desktop-environment-integration.md#recent-documents)
   * [Kaunlaran sa Aplikasyon](tutorial/progress-bar.md)
-  * [Pasadyang Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Pasadyang Dock Menu](tutorial/macos-dock.md)
   * [Pasadyang Windows Taskbar](tutorial/windows-taskbar.md)
   * [Pasadyang Linux Desktop na mga Aksyon](tutorial/linux-desktop-actions.md)
   * [Mga shortcut ng keyboard](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 
 * [Detalyadong pag install ng Electron](tutorial/installation.md) 
-  * [Global laban sa local na installation](tutorial/installation.md#global-versus-local-installation)
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Paghahanap ng ProblemaPaghahanap ng Problema](tutorial/installation.md#troubleshooting)

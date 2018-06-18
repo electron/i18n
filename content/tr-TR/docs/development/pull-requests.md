@@ -1,6 +1,5 @@
 # Değişiklik İsteği
 
-* [Bağımlılıklar](#dependencies)
 * [Yerel ortamını ayarla](#setting-up-your-local-environment) 
   * [1. Adım: Dahil Ol](#step-1-fork)
   * [Step 2: Build](#step-2-build)
@@ -80,7 +79,7 @@ Examples of commit messages with semantic prefixes:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux` 
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 

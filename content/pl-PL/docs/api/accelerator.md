@@ -43,7 +43,7 @@ Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux o
 
 ## Dostępne kody klucza
 
-* od `` do `9`
+* od `0` do `9`
 * od `A` do `Z`
 * od `F1` do `F24`
 * Znaki interpunkcyjne takie jak `~`, `!`, `@`, `nr`, `` $, itp.

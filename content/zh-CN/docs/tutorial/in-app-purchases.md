@@ -14,7 +14,7 @@
 
 [iTunes Connect开发人员帮助：创建应用程序内购买](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
 
-### Change the CFBundleIdentifier
+### 变更 CFBundleIdentifier
 
 To test In-App Purchase in development with Electron you'll have to change the `CFBundleIdentifier` in `node_modules/electron/dist/Electron.app/Contents/Info.plist`. You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
 

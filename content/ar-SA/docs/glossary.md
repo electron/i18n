@@ -26,7 +26,7 @@
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+لغة وصف الواجهة. كتابة تعريف الـ function وأنواع بيانات بتنسيق يمكن استخدامه لإنشاء واجهات في Java و C ++ و JavaScript وغيرها.
 
 ### IPC
 
@@ -58,21 +58,15 @@ Interface description language. Write function signatures and data types in a fo
 
 <p>An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.</p>
 
-<p>See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md</p>
+<p>أنظر https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md</p>
 
-<h3>native modules</h3>
+<h3>الوحدات المحلية</h3>
 
-<p>Native modules (also called <a href="https://nodejs.org/api/addons.html">addons</a> in
-Node.js) are modules written in C or C++ that can be loaded into Node.js or
-Electron using the require() function, and used as if they were an
-ordinary Node.js module. أنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت يعمل في مكتبات Node.js و C/c + +.</p>
+<p>الوحدات المحلية (يطلق عليها أيضاً <a href="https://nodejs.org/api/addons.html">إضافات</a> في Node.js) هي وحدات مكتوبة بلغة C أو C++ والتي يمكن تحمليها في Node.js أو Electron بإستخدام الدالة require()، وتستخدم كأنها وحدة Node.js عادية. إنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت التي تعمل في مكتبات Node.js و C/c + +.</p>
 
-<p>Native Node modules are supported by Electron, but since Electron is very
-likely to use a different V8 version from the Node binary installed in your
-system, you have to manually specify the location of Electron’s headers when
-building native modules.</p>
+<p>وحدات Node المحلية مدعمة من قبل Electron، ولكن بما أن Electron من المرجح جداً أن يستخدم إصدارات V8 تختلف عن ملفات Node المثبتة في نظامك، يجب عليك تحديد مسار الـ Electron’s headers يدوياً عند بناء وحدات محلية.</p>
 
-<p>See also <a href="tutorial/using-native-node-modules.md">Using Native Node Modules</a>.</p>
+<p>أنظر أيضاً <a href="tutorial/using-native-node-modules.md">Using Native Node Modules</a>.</p>
 
 <h3>NSIS</h3>
 

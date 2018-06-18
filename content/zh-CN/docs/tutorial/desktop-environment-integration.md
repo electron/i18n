@@ -4,26 +4,26 @@
 
 本章将会说明怎样使用 Electron APIs 把你的应用集成到桌面环境中。
 
-## 通知
+## 通知（Notifications）
 
-See the [Notifications documentation](notifications.md).
+参考 [通知文档](notifications.md).
 
-## 最近的文件
+## 最近文档（Recent Documents）
 
-See [Recent Documents documentation](recent-documents.md).
+参考 [Recent Documents 文档](recent-documents.md).
 
-## Progress Bar
+## 进度条（Progress Bar）
 
-See the [Progress Bar documentation](progress-bar.md).
+参考 [Progress Bar 文档](progress-bar.md).
 
-## Unity Launcher
+## 启动器（Unity Launcher）
 
-See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+参考 [Unity Launcher 文档](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-## Represented File for macOS Window
+## 针对 macOS系统 Window的展示文件
 
-See the [Represented File documentation](represented-file.md).
+参考[Represented File 文档](represented-file.md)
 
 ## 将文件拖出窗口
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+参考[本地文件拖放（Native File Drag & Drop） 文档](native-file-drag-drop.md)

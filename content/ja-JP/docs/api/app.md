@@ -683,7 +683,7 @@ app.on('ready', () => {
 * `callback` Function 
   * `result` Integer - インポート結果。
 
-プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`` という値は成功を意味しますが、その他の値はchromiumの [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
+プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`0` という値は成功を意味しますが、その他の値はchromiumの [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
 
 ### `app.disableHardwareAcceleration()`
 
@@ -711,7 +711,7 @@ app.on('ready', () => {
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
-現在のアプリのカウンターバッジを設定します。count を `` に設定すると、バッジを非表示にします。
+現在のアプリのカウンターバッジを設定します。count を `0` に設定すると、バッジを非表示にします。
 
 macOSでは、ドックアイコンに表示されます。Linuxでは、Unityランチャーでしか機能しません。
 

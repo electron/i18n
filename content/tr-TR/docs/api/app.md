@@ -687,7 +687,7 @@ app.on('ready', () => {
   * `geri aramak` Function 
     * `sonuç` Tamsayı - sonuç alma</ul> 
   
-  Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` içe aktarma işlemi `result` ile çağırılır. `` değeri çalıştığını gösterirken herhangi başka bir değer kroma göre başarısızlığı gösterir. [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+  Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` içe aktarma işlemi `result` ile çağırılır. `0` değeri çalıştığını gösterirken herhangi başka bir değer kroma göre başarısızlığı gösterir. [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
   
   ### `app.disableHardwareAcceleration()`
   
@@ -716,7 +716,7 @@ app.on('ready', () => {
   
   `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
   
-  Sayaç rozet sayısı `` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
+  Sayaç rozet sayısı `0` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
   
   MacOS'ta rıhtım simgesinin üzerinde gösterilir. Linux'ta sadece Birlik başlatıcısı için çalışır,
   

@@ -26,7 +26,7 @@ Input Method Editor. Це програма, яка дозволяє корист
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Мова описання інтерфейсу. Описуйте сигнатури функцій і типи даних у форматі, який може використовуватись для створення інтерфейсів в Java, C++, JavaScript, тощо.
 
 ### IPC
 

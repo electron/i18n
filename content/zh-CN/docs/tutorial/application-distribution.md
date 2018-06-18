@@ -121,7 +121,7 @@ MyApp.app/Contents
 
 * `ELECTRON_GITHUB_TOKEN` - 一个在 GitHub 创建版本的 token
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - 你将上传 Node.js 的 headers 以及 symbol 的位置
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
+* `ELECTRON_RELEASE` - 设置为 `true`，上传部分将运行，不设置 和 `surf-build` 只是做 CI-type 的检查，它只在每次发起拉取请求时运行。
 * `CI` - 设置为 `true` ，否则无效
 * `GITHUB_TOKEN` - 设置为与 `ELECTRON_GITHUB_TOKEN` 相同
 * `SURF_TEMP` - 在 Windows 下设置为 `C:\Temp` 来防止路径太长的问题

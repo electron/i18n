@@ -39,7 +39,7 @@ Abre el archivo determinado en el escritorio por defecto.
 * `url` String - 2081 caracteres como máximo en windows, o la función devuelve falso.
 * `opciones` Object (opcional) *macOS* 
   * `activate` Booleano - `true` para traer la aplicación abierta al primer plano. Por defecto es `true`.
-* `callback` Function (opcional) *macOS* - If specified will perform the open asynchronously. 
+* `callback` Function (opcional) *macOS* Si se especifica se abrirá de forma asincrónica. 
   * `error` Error
 
 Devuelve `Boolean` - Si una aplicación estaba disponible para abrir el URL. Si el callback se especifica, siempre devuelve true.

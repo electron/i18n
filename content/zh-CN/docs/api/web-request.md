@@ -158,7 +158,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `fromCache` Boolean
     * `responseHeaders` Object
 
-The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
+当服务器的初始重定向即将发生时，将以 `listener(details)`的方式调用`listener`。
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
@@ -177,7 +177,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when a request is completed.
+当请求完成时，将以 `listener(details)`的方式调用`listener`。
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
@@ -188,10 +188,10 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * ` webContentsId ` Integer (可选)
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - 错误描述.
 
-The `listener` will be called with `listener(details)` when an error occurs.
+当发生错误时，将以 `listener(details)`的方式调用`listener`。

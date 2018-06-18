@@ -1,6 +1,6 @@
 # Windows 任务栏
 
-Electron有API来配置Windows任务栏中的应用程序图标。 支持的有 [创建一个 `弹出列表`](#jumplist), [自定义缩略图和工具栏](#thumbnail-toolbars), [图标叠加](#icon-overlays-in-taskbar-windows), 和所谓的 ["闪烁框" 效果](#flash-frame), 而且 Electron 还使用应用程序的 dock 图标来实现跨平台功能 比如 [最近文档](./recent-documents.md) 和 [应用进程](./progress-bar.md).
+Electron有API来配置Windows任务栏中的应用程序图标。 支持的有 [创建一个 `弹出列表`](#jumplist), [自定义缩略图和工具栏](#thumbnail-toolbars), [图标叠加](#icon-overlays-in-taskbar), 和所谓的 ["闪烁框" 效果](#flash-frame), 而且 Electron 还使用应用程序的 dock 图标来实现跨平台功能 比如 [最近文档](./recent-documents.md) 和 [应用进程](./progress-bar.md).
 
 ## 弹出列表
 
@@ -32,7 +32,7 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, call `app.setUserTasks` with an empty array:
+调用 `app.setUserTasks` 并传入空数组就可以清除你的任务列表：
 
 ```javascript
 const { app } = require('electron')
@@ -47,7 +47,7 @@ app.setUserTasks([])
 
 在 MSDN，它的说明如下：
 
-> This toolbar is the familiar standard toolbar common control. 它最多拥有七个按钮。 每个按钮的 ID、图像、工具提示和状态都定义在结构中, 然后传递给任务栏。 应用程序可以根据其当前状态的要求, 显示、启用、禁用或隐藏缩略图工具栏中的按钮。
+> 此工具栏只是常见的标准工具栏控件。 它最多拥有七个按钮。 每个按钮的 ID、图像、工具提示和状态都定义在结构中, 然后传递给任务栏。 应用程序可以根据其当前状态的要求, 显示、启用、禁用或隐藏缩略图工具栏中的按钮。
 > 
 > 例如, Windows 媒体播放机可能提供标准的媒体传输控制, 如播放、暂停、静音和停止。
 
