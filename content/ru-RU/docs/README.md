@@ -28,14 +28,13 @@
 * [Архитектура приложения](tutorial/application-architecture.md) 
   * [Main и Renderer процессы](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Использование API Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Использование API Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Использование API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Использование нативных модулей Node.js](tutorial/using-native-node-modules.md)
-  * [Межпроцессное взаимодействие](tutorial/application-architecture.md#)
 * Добавление функционала в Ваше приложение 
   * [Уведомления](tutorial/notifications.md)
-  * [Недавние документы](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Недавние документы](tutorial/desktop-environment-integration.md#recent-documents)
   * [Прогресс приложения](tutorial/progress-bar.md)
-  * [Пользовательское меню macOS](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Пользовательское меню macOS](tutorial/macos-dock.md)
   * [Пользовательские задачи Windows](tutorial/windows-taskbar.md)
   * [Пользовательские действия на Linux](tutorial/linux-desktop-actions.md)
   * [Горячие клавиши](tutorial/keyboard-shortcuts.md)
@@ -51,9 +50,9 @@
   * [Использование Selenium и WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Расширение DevTools](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Автоматическое тестирование с помощью специального драйвера](tutorial/automated-testing-with-a-custom-driver.md)
 * Упаковка 
-  * [Подписывание кода](tutorial/code-signing.md)
+  * [Цифровая подпись](tutorial/code-signing.md)
 * [Распространение](tutorial/application-distribution.md) 
   * [Поддержка](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
@@ -74,9 +73,8 @@
 Эти индивидуальные руководства расширят темы, обсуждаемые выше.
 
 * [В деталях: Установка Electron](tutorial/installation.md) 
-  * [Глобальные против локальных установок](tutorial/installation.md#global-versus-local-installation)
-  * [Полномочия](tutorial/installation.md#proxies)
-  * [Пользовательские зеркала и кэши](tutorial/installation.md#custom-mirrors-and-caches)
+  * [Прокси](tutorial/installation.md#proxies)
+  * [Пользовательские зеркала и кеши](tutorial/installation.md#custom-mirrors-and-caches)
   * [Устранение проблем](tutorial/installation.md#troubleshooting)
 * [В деталях: Схема управления версиями Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
@@ -101,6 +99,7 @@
 * [Объект процесса](api/process.md)
 * [Поддерживаемые параметры командной строки Chrome](api/chrome-command-line-switches.md)
 * [Переменные окружения](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### Пользовательские DOM-элементы:
 
