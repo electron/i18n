@@ -10,7 +10,7 @@ Electron 没有为 Widevine CDM 插件配置许可 reasons，为了获得它，�
 
 ### Windows & macOS
 
-Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `Program Files(x86)/Google/Chrome/Application/VERSION/WidevineCDM/_platform_specific/PLATFORM_ARCH/` directory.
+在 Chrome 浏览器中打开 `chrome://components/`，找到 `WidevineCdm` 并且确定它更新到最新版本，然后你可以从 `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` 路径找到所有的插件二进制文件。
 
 `APP_DATA` 是系统存放数据的地方，在 Windows 上它是 `%LOCALAPPDATA%`，在 macOS 上它是 `~/Library/Application Support`. `VERSION` 是 Widevine CDM 插件的版本字符串，类似 `1.4.8.866`. `PLATFORM` 是 `mac` 或 `win`. `ARCH` 是 `x86` 或 `x64`。
 
