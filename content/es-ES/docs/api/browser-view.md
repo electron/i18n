@@ -2,7 +2,7 @@
 
 > Crear y controlar vistas.
 
-**Nota:** actualmente la API BrowserView es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
+**Nota:** actualmente la API BrowserView es experimental y puede cambiar o ser eliminada en versiones futuras de Electron.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -79,8 +79,8 @@ Devuelve `Boolean` - Si la vista ha sido destruida.
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Object 
-  * `width` Boolean - If `true`, la anchura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
-  * `height` Boolean - If `true`, la altura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
+  * `width` Boolean - Si es `true`, la anchura de la vista se expandirá y se encogerá con la ventana. Por defecto es `false`.
+  * `height` Boolean - Si es `true`, la altura de la vista se expandirá y se encogerá junto a la ventana. Por defecto es `false`.
 
 #### `view.setBounds(bounds)` *Experimental*
 
