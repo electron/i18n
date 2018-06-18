@@ -28,14 +28,13 @@
 * [アプリケーションアーキテクチャ](tutorial/application-architecture.md) 
   * [メインプロセスとレンダラープロセス](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron の API を使用する](tutorial/application-architecture.md#using-electron-apis)
-  * [Node.js API を使用する](tutorial/application-architecture.md#using-node.js-apis)
+  * [Node.js API を使用する](tutorial/application-architecture.md#using-nodejs-apis)
   * [ネイティブ Node.js モジュールを使用する](tutorial/using-native-node-modules.md)
-  * [プロセス間通信](tutorial/application-architecture.md#)
 * アプリに機能を追加する 
   * [通知](tutorial/notifications.md)
-  * [最近使用したドキュメント](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [最近使用したドキュメント](tutorial/desktop-environment-integration.md#recent-documents)
   * [アプリケーションの進行状況](tutorial/progress-bar.md)
-  * [カスタム Dock メニュー](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [カスタム Dock メニュー](tutorial/macos-dock.md)
   * [カスタム Windows タスクバー](tutorial/windows-taskbar.md)
   * [カスタム Linux デスクトップアクション](tutorial/linux-desktop-actions.md)
   * [キーボード ショート カット](tutorial/keyboard-shortcuts.md)
@@ -74,8 +73,7 @@
 これらの個別のチュートリアルでは、上のガイドで説明したトピックを拡張しています。
 
 * [詳解: Electron のインストール](tutorial/installation.md) 
-  * [グローバルインストールとローカルインストール](tutorial/installation.md#global-versus-local-installation)
-  * [プロキシ](tutorial/installation.md#proxies)
+  * [プロキシ環境下](tutorial/installation.md#proxies)
   * [ミラーとキャッシュのカスタマイズ](tutorial/installation.md#custom-mirrors-and-caches)
   * [トラブルシューティング](tutorial/installation.md#troubleshooting)
 * [詳解: Electron のバージョニングスキーム](tutorial/electron-versioning.md) 
@@ -101,6 +99,7 @@
 * [プロセスオブジェクト](api/process.md)
 * [サポートしているChromeコマンドラインスイッチ](api/chrome-command-line-switches.md)
 * [環境変数](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### カスタム DOM 要素
 
