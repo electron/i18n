@@ -45,7 +45,7 @@ crashReporter.start({
 
 ** 注意: **要从 Windows 中的子进程收集崩溃报告, 您也需要添加这样额外的代码。 这将启动一个进程来监视和发送崩溃报告。 用适当的值去替换 ` submitURL `、` productName ` 和 ` crashesDirectory `。
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+** 注意: **，如果您在第一次调用 ` start ` 后需要发送 附加的/更新的 ` extra ` 参数, 在 macOS 上，你可以调用 ` addExtraParameter `。而在 Linux 和 Windows 上，则使用 新的/更新的 ` extra ` 参数，再次调用 `start `即可。
 
 ```js
  const args = [
@@ -78,7 +78,7 @@ crashReporter.start({
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+返回 `Boolean` - 是否已将报告提交到服务器。通过`start` 方法或 `setUploadToServer`设置。
 
 **注意：** 这个API仅可从主进程调用。
 
