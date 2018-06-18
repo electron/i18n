@@ -28,14 +28,13 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 * [Anwendungsarchitektur](tutorial/application-architecture.md) 
   * [Main und Render Prozesse](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron's APIs benutzen](tutorial/application-architecture.md#using-electron-apis)
-  * [Node.js APIs benutzen](tutorial/application-architecture.md#using-node.js-apis)
+  * [Node.js APIs benutzen](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
-  * [Inter-Process Communication](tutorial/application-architecture.md#)
 * Features zu deiner App hinzufügen 
   * [Benachrichtigungen](tutorial/notifications.md)
-  * [Kürzliche Dokumente](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Kürzliche Dokumente](tutorial/desktop-environment-integration.md#recent-documents)
   * [Anwendungsprozess](tutorial/progress-bar.md)
-  * [Benutzerdefiniertes Dockmenu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Benutzerdefiniertes Dockmenu](tutorial/macos-dock.md)
   * [Benutzerdefinierte Windows Taskleiste](tutorial/windows-taskbar.md)
   * [Benutzerdefinierte Linux Desktop Aktionen](tutorial/linux-desktop-actions.md)
   * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendrüber.
 
 * [Im Detail: Electron installieren](tutorial/installation.md) 
-  * [Globale vs. lokale Installation](tutorial/installation.md#global-versus-local-installation)
   * [Proxys](tutorial/installation.md#proxies)
   * [Benutzerdefinierte Mirrors und Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemlösungen](tutorial/installation.md#troubleshooting)
@@ -101,6 +99,7 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
 * [Prozess-Objekt](api/process.md)
 * [Unterstützte Chrome-Befehlszeilenoptionen](api/chrome-command-line-switches.md)
 * [Umgebungsvariablen](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### Benutzerdefinierte DOM-Elemente:
 
