@@ -113,11 +113,11 @@ El informador de fallos enviará la siguiente información al `submitURL` como u
 
 * `ver` String - La versión de Electron.
 * `platform` String - por ejemplo, "win32".
-* `process_type` Cadena - por ejemplo, "renderizador".
+* `process_type` String - por ejemplo, "renderer".
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
-* `_version` Cadena - La versión en `package.json`.
-* `_productName` Cadena - El nombre del producto en el objeto `crashReporter` `options`.
-* `prod` Cadena- El nombre del producto subyacente. En este caso, Electron.
-* `_companyName` Cadena - El nombre de la empresa en el objeto `crashReporter` `options`.
-* `upload_file_minidump` Archivo - El informe de fallos en el formato de `minidump`.
+* `_version` String - La versión en `package.json`.
+* `_productName` String - El nombre del producto en el objeto `crashReporter` `options`.
+* `prod` String - El nombre del producto subyacente. En este caso, Electron.
+* `_companyName` String - El nombre de la empresa en el objeto `crashReporter` `options`.
+* `upload_file_minidump` File - El informe de fallos en el formato de `minidump`.
 * Todas las propiedades de nivel uno del objeto `extra` en el objeto `crashReporter` `options`.
