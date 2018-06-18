@@ -28,14 +28,13 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Architektura aplikacji](tutorial/application-architecture.md) 
   * [Proces główny i renderer](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Używanie z API Electrona](tutorial/application-architecture.md#using-electron-apis)
-  * [Używanie z API Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Używanie z API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Używanie Natywnych Modułów Node.js](tutorial/using-native-node-modules.md)
-  * [Komunikacja między procesami](tutorial/application-architecture.md#)
 * Dodawanie funkcji do aplikacji 
   * [Powiadomienia](tutorial/notifications.md)
-  * [Ostatnie dokumenty](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Ostatnie dokumenty](tutorial/desktop-environment-integration.md#recent-documents)
   * [Postęp aplikacji](tutorial/progress-bar.md)
-  * [Niestandardowe Menu Docka](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Niestandardowe Menu Docka](tutorial/macos-dock.md)
   * [Niestandardowy Pasek Zadań systemu Windows](tutorial/windows-taskbar.md)
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Skróty Klawiszowe](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
 * [Szczegółowo: Instalowanie Electrona](tutorial/installation.md) 
-  * [Globalna a Lokalna instalacja](tutorial/installation.md#global-versus-local-installation)
   * [Proxy](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Rozwiązywanie problemów](tutorial/installation.md#troubleshooting)
@@ -101,6 +99,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [Obiekt Process](api/process.md)
 * [Wspierane Zmienne Konsoli Chrome](api/chrome-command-line-switches.md)
 * [Zmienne Środowiskowe](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### Własne Elementy DOM:
 
