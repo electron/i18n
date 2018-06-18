@@ -28,14 +28,13 @@
 * [Архитектура на приложението](tutorial/application-architecture.md) 
   * [Основен и Рендериращ процес](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Използване на API на Електрон](tutorial/application-architecture.md#using-electron-apis)
-  * [Използване на Node.js API](tutorial/application-architecture.md#using-node.js-apis)
+  * [Използване на Node.js API](tutorial/application-architecture.md#using-nodejs-apis)
   * [Използване на родни Node.js модули](tutorial/using-native-node-modules.md)
-  * [Комуникация между процесите](tutorial/application-architecture.md#)
 * Добавяне на функции към вашето приложение 
   * [Известия](tutorial/notifications.md)
-  * [Последни документи](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Последни документи](tutorial/desktop-environment-integration.md#recent-documents)
   * [Прогрес на приложението](tutorial/progress-bar.md)
-  * [Потребителско док меню](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Потребителско док меню](tutorial/macos-dock.md)
   * [Потребителска Windows лентата на задачите](tutorial/windows-taskbar.md)
   * [Потребителски настолни действия при Linux](tutorial/linux-desktop-actions.md)
   * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@
 Тези индивидуални уроци добавят към темите, обсъдени в ръководството по-горе.
 
 * [Инсталиране на Електрон в детайли](tutorial/installation.md) 
-  * [Глобална срещу локална инсталация](tutorial/installation.md#global-versus-local-installation)
   * [Proxies](tutorial/installation.md#proxies)
   * [Потребителски mirrors и кеширане](tutorial/installation.md#custom-mirrors-and-caches)
   * [Отстраняване на неизправности](tutorial/installation.md#troubleshooting)
@@ -101,6 +99,7 @@
 * [Обект Process](api/process.md)
 * [Поддържани превключващи команди на Chrome](api/chrome-command-line-switches.md)
 * [Променливи на средата](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### Персонални DOM елементи:
 
