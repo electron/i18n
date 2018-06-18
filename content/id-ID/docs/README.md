@@ -28,14 +28,13 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 * [Arsitektur Aplikasi](tutorial/application-architecture.md) 
   * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Menggunakan API Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Menggunakan API Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Menggunakan API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Menggunakan Modul Node.js Asli](tutorial/using-native-node-modules.md)
-  * [Komunikasi antar-Proses](tutorial/application-architecture.md#)
 * Menambahkan Fitur ke Aplikasi Anda 
   * [Pemberitahuan](tutorial/notifications.md)
-  * [Dokumen Terkini](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Dokumen Terkini](tutorial/desktop-environment-integration.md#recent-documents)
   * [Progres Aplikasi](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Custom Dock Menu](tutorial/macos-dock.md)
   * [Windows Taskbar Kustom](tutorial/windows-taskbar.md)
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Cara pintas keyboard](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 
 * [Secara Detail: Memasang Electron](tutorial/installation.md) 
-  * [Instalasi Global versus Lokal](tutorial/installation.md#global-versus-local-installation)
   * [Proxy](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Penyelesaian masalah](tutorial/installation.md#troubleshooting)
@@ -101,6 +99,7 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [Proses objek](api/process.md)
 * [Saklar Baris Perintah Chrome yang Didukung](api/chrome-command-line-switches.md)
 * [Variabel Lingkungan](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### Elemen DOM Khusus:
 
