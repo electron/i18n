@@ -18,9 +18,11 @@ Bagama 't magkatulad ang code at gumagamit ng mga karanasan sa iba 't ibang mga 
 
 ## Windows
 
-* Sa Windows 10, ang mga abiso ay "gumagana lamang".
-* Sa Windows 8.1 at Windows 8, Ang sikretong daan papunta sa iyong app, ay [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), dapat installed sa start screen. Paalala, Bagamat, ito ay hindi kailangan naka pin para magsimula ang screen.
+* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu.
+* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Paalala, Bagamat, ito ay hindi kailangan naka pin para magsimula ang screen.
 * Sa Windows 7, ang notipikasyon trabaho sa via pasadya at implementadong biswal ay kahawig noong luma sa panibagong sistema.
+
+Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][[set-app-user-model-id](../api/app.md#appsetappusermodelidid-windows)] yourself.
 
 At saka, Windows 8, ang maximum na haba para sa notipikasyon ng katawan ay 250 characters, sa koponan ng Windows na nagrerekomenda na ang mga notipikasyon ay dapat manatilisa 200 mga characters. Na sinabi, na ang limitasyon ay inalis sa Windows 10, dahil ang koponan ng Windows na nagtatanong sa mga developer na maging makatwiran. Pagsubok na magpadala ng napakalaking halaga ng teksto sa API (libu-libong mga characters) ay maaaring magresulta sa kawalang-tatag.
 
