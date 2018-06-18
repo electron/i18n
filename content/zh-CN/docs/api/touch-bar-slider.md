@@ -7,29 +7,29 @@
 ### `new TouchBarSlider(options)` *实验功能*
 
 * `选项` 对象 
-  * `label` String (optional) - Label text.
-  * `value` Integer (optional) - Selected value.
-  * `minValue` Integer (optional) - Minimum value.
-  * `maxValue` Integer (optional) - Maximum value.
-  * `change` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider.
+  * `label` String (可选) - 标签文本.
+  * `value` Integer (可选) - 选中值.
+  * ` minValue ` Integer (可选) - 最小值.
+  * ` maxValue ` Integer (可选) - 最大值.
+  * `change` Function (optional) - 当滑块改变时调起该函数. 
+    * `newValue` Number - 用户选中的值.
 
 ### 实例属性
 
-The following properties are available on instances of `TouchBarSlider`:
+以下为 ` TouchBarSlider ` 实例的可用属性:
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+`String`类型，用于为滑块添加展示文本。改变它的值会即时刷新触摸条中的滑块。
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+`Number`类型，滑块的当前值。改变它的值会即时刷新触摸条中的滑块。
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+`Number`类型，当前滑块的最小值。改变它的值会即时刷新触摸条中的滑块。
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+`Number`类型，当前滑块的最大值。改变它的值会即时刷新触摸条中的滑块。
