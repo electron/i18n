@@ -26,7 +26,7 @@
 
 从Electron 2.0版本开始，开发者将会在开发者控制台看到打印的警告和建议。 They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+你可以通过在`process.env` 或 `window`对象上配置`ELECTRON_ENABLE_SECURITY_WARNINGS` 或`ELECTRON_DISABLE_SECURITY_WARNINGS`来强制开启或关闭这些警告。
 
 ## 清单：安全建议
 
@@ -39,15 +39,15 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 5. [不要禁用 ` webSecurity `](#5-do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
 7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
-8. [Do not set `allowRunningInsecureContent` to `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [Do not enable experimental features](#9-do-not-enable-experimental-features)
-10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
+8. [不要设置 ` allowRunningInsecureContent ` 为 true.](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [不要开启实验性功能](#9-do-not-enable-experimental-features)
+10. [不要使用`enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
 11. [WebViews: 不要使用 `allowpopups`](#11-do-not-use-allowpopups)
 12. [WebViews: 验证所有 `<webview>` 标记的选项和参数](#12-verify-webview-options-before-creation)
 
 ## 1) 仅加载安全内容
 
-应使用像 ` HTTPS ` 这样的安全协议加载应用程序中不包含的任何资源。 换言之， 不要使用不安全的协议 （如 ` HTTP `）。 Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+应使用像 ` HTTPS ` 这样的安全协议加载应用程序中不包含的任何资源。 换言之， 不要使用不安全的协议 （如 ` HTTP `）。 同理，我们建议使用`WSS`，避免使用`WS`，建议使用`FTPS` ，避免使用`FTP`，等等诸如此类的协议。
 
 ### 为什么？
 
@@ -87,7 +87,7 @@ A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump ou
 ### 怎么做？
 
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
 ```
@@ -105,10 +105,10 @@ mainWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- 不推荐 -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<!-- 推荐 -->
 <webview src="page.html"></webview>
 ```
 
@@ -142,7 +142,7 @@ At the same time, preload scripts still have access to the `document` and `windo
 ### 怎么做？
 
 ```js
-// Main process
+// 主进程
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
@@ -152,9 +152,9 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Preload script
+// 预加载脚本
 
-// Set a variable in the page before it loads
+// 在页面加载前设置变量
 webFrame.executeJavaScript('window.foo = "foo";')
 
 // The loaded page will not be able to access this, it is only available
@@ -218,7 +218,7 @@ Disabling `webSecurity` will disable the same-origin policy and set `allowRunnin
 ### 怎么做？
 
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -227,15 +227,15 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Bad -->
+<!-- 不推荐 -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<!-- 推荐 -->
 <webview src="page.html"></webview>
 ```
 
@@ -254,10 +254,10 @@ Electron respects [the `Content-Security-Policy` HTTP header](https://developer.
 The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
 
 ```txt
-// Bad
+// 不推荐
 Content-Security-Policy: '*'
 
-// Good
+// 推荐
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
@@ -296,7 +296,7 @@ Loading content over `HTTPS` assures the authenticity and integrity of the loade
 ### 怎么做？
 
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -305,7 +305,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -333,7 +333,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -350,7 +350,7 @@ Generally speaking, there are likely good reasons if a feature was not enabled b
 ### 怎么做？
 
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: ['ExecCommandInJavaScript']
@@ -359,7 +359,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 推荐
 const mainWindow = new BrowserWindow()
 ```
 
@@ -376,10 +376,10 @@ If you do not need popups, you are better off not allowing the creation of new [
 ### 怎么做？
 
 ```html
-<!-- Bad -->
+<!-- 不推荐 -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- 推荐 -->
 <webview src="page.html"></webview>
 ```
 
