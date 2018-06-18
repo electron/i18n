@@ -51,7 +51,7 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Runni
 
 The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
 
-[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/tutorial/planned-breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
 
 預先建置的二進位檔能否在特定發行版本上執行，取決於該發行版本是否包括 Electron 建置平台時連結連結的程式庫，因此只能保證在 Ubuntu 12.04 上能正常運作。但下列平臺中也都經過驗證，能執行 Electron 預先建置二進位檔:
 
