@@ -28,14 +28,13 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Architecture d'une application](tutorial/application-architecture.md) 
   * [Processus Principal et de Rendu](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Utilisation des APIs Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Utilisation des APIs de Node.js](tutorial/application-architecture.md#using-node.js-apis)
+  * [Utilisation des APIs de Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Utilisation des Modules Natifs de Node.js](tutorial/using-native-node-modules.md)
-  * [La communication inter-processus](tutorial/application-architecture.md#)
 * Ajouter des fonctionnalités à votre App 
   * [Notifications](tutorial/notifications.md)
-  * [Documents récents](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [Documents récents](tutorial/desktop-environment-integration.md#recent-documents)
   * [Progression de l'Application](tutorial/progress-bar.md)
-  * [Menu Dock personnalisé](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [Menu Dock personnalisé](tutorial/macos-dock.md)
   * [Barre des tâches Windows personnalisée](tutorial/windows-taskbar.md)
   * [Actions de bureau Linux personnalisées](tutorial/linux-desktop-actions.md)
   * [Raccourcis clavier](tutorial/keyboard-shortcuts.md)
@@ -74,7 +73,6 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 Ces tutoriels individuels développent les sujets abordés dans le guide ci-dessus.
 
 * [En détail : Installer Electron](tutorial/installation.md) 
-  * [Global versus Installation Local](tutorial/installation.md#global-versus-local-installation)
   * [Les proxys](tutorial/installation.md#proxies)
   * [Mirroirs et Caches personnalisés](tutorial/installation.md#custom-mirrors-and-caches)
   * [Résolution de problème](tutorial/installation.md#troubleshooting)
@@ -101,6 +99,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [Process Object](api/process.md)
 * [Commandes Chromes Supportées](api/chrome-command-line-switches.md)
 * [Variables d'environnement](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### Éléments DOM Personnalisé :
 
