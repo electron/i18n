@@ -72,10 +72,10 @@ El objeto `autoUpdater` tiene los siguientes métodos:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Objeto 
+* `options` Object 
   * `url` String
-  * `headers` Object (optional) *macOS* - HTTP request headers.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Object (opcional) *macOS* - Cabeceras de petición HTTP.
+  * `serverType` String (opcional) *macOS* - Puede ser `json` or `default`, ver el README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) para más información.
 
 Configura la `url` e inicializa la actualización automática.
 
