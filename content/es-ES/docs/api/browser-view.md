@@ -6,7 +6,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Es como una ventana hija, excepto que esta relativamente posicionada respecto a su ventana propietaria. Se puede considerar como una alternativa al tag `webview`.
+Se puede utilizar un `BrowserView` para incrustar contenido web adicional dentro de un [`BrowserWindow`](browser-window.md). Es como una ventana hija, excepto que su posición es relativa a la de su ventana propietaria. Se puede considerar como una alternativa al tag `webview`.
 
 ## Ejemplo
 
@@ -31,24 +31,24 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `opciones` Object (opcional) 
-  * Objeto `webPreferences` (opcional) - vea [BrowserWindow](browser-window.md).
+* `options` Object (opcional) 
+  * `webPreferences` Object (opcional) - Vea [BrowserWindow](browser-window.md).
 
 ### Métodos estáticos
 
 #### `BrowserView.getAllViews()`
 
-Devuelve `BrowserView[]` - Un array con tolas las BrowserViews abiertas.
+Devuelve `BrowserView[]` - Un array con todas las BrowserViews abiertas.
 
 #### `BrowserView.fromWebContents(webContents)`
 
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `webContents` [WebContents](web-contents.md)
 
 Devuelve `BrowserView | null` - La BrowserView propietaria del `webContents` indicado o `null` si la BrowserView no es la propietaria del contenido.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Íntegro
+* `id` Integer
 
 Devuelve `BrowserView` - La vista con el `id` especificado.
 
@@ -78,7 +78,7 @@ Devuelve `Boolean` - Si la vista ha sido destruida.
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `opciones` Object 
+* `options` Object 
   * `width` Boolean - If `true`, la anchura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
   * `height` Boolean - If `true`, la altura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
 
