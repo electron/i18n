@@ -53,7 +53,7 @@ From MSDN, it's illustrated:
 
 **Thumbnail toolbar of Windows Media Player:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![プレイヤー](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
 
