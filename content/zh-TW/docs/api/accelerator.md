@@ -43,7 +43,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 ## 能用的按鍵碼
 
-* `` 到 `9`
+* `0` 到 `9`
 * `A` 到 `Z`
 * `F1` 到 `F24`
 * `~`, `!`, `@`, `#`, `$` 等半型標點符號。
