@@ -42,7 +42,7 @@ Para mantener Electron pequeño (tamaño del fichero) y sostenible (la propagaci
 
 For instance, Electron uses Chromium's rendering library rather than all of Chromium. Esto facilita actualizar Chromium pero también significa encontrar algunas características del navegador Google Chrome no existentes en Electron.
 
-Las nuevas características añadidas a Electron principalmente deben ser API nativas. Si una característica puede ser su propio módulo Node.js, probablemente debería serlo. Vea las [herramientas construidas en Electron por la comunidad](https://electronjs.org/community).
+Las nuevas características añadidas a Electron deberían ser principalmente API nativas. Si una característica puede ser su propio módulo Node.js, probablemente debería serlo. Vea las [herramientas construidas en Electron por la comunidad](https://electronjs.org/community).
 
 ## Histórico
 
