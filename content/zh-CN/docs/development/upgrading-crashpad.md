@@ -1,41 +1,41 @@
-# Upgrading Crashpad
+# 更新奔溃报告（Crashpad）
 
-1. Get the version of crashpad that we're going to use.
+1. 获取crashpad的版本信息
     
-    - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
-    - We need to check out the corresponding branch.
-    - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
+    - `libcc/src/third_party/crashpad/README.chromium`将会有一个带有 校验和（checksum）的`Revision:`信息
+    - 检出到相应的分支
+    - 获取Google的奔溃报告 (https://chromium.googlesource.com/crashpad/crashpad)，
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - Check out the branch with the revision checksum: 
+    - 用版本校验和检出分支 
         - `git checkout <revision checksum>`
-    - Add electron's crashpad fork as a remote
+    - 将electron的奔溃报告分支作为远程
     - `git remote add electron https://github.com/electron/crashpad`
-    - Check out a new branch for the update
+    - 为更新检出一个新的分支
     - `git checkout -b electron-crashpad-vA.B.C.D`
-    - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
+    - `A.B.C.D`是 Chromium 的版本，可以在 `libcc/VERSION`中查看，版本信息将应类似于 `62.0.3202.94`
 
-2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
+2. 用`git log --oneline`为Electron的补丁生成一个分支列表。
     
-    - Or view https://github.com/electron/crashpad/commits/previous-branch-name
+    - 可参考https://github.com/electron/crashpad/commits/previous-branch-name
 
-3. For each patch:
+3. 每一个补丁：
     
-    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
+    - 在`electron-crashpad-vA.B.C.D`中, 单向拣取补丁的校验和
     - `git cherry-pick <checksum>`
-    - Resolve any conflicts
-    - Make sure it builds then add, commit, and push work to electron's crashpad fork
+    - 消除冲突
+    - 首先确保它能构建成功，然后依次执行add, commit, 和 push，将补丁添加到electron 的 crashpad 分支
     - `git push electron electron-crashpad-vA.B.C.D`
 
-4. Update Electron to build the new crashpad:
+4. 更新Electron，创建新的crashpad分支：
     
     - `cd vendor/crashpad`
     - `git fetch`
     - `git checkout electron-crashpad-v62.0.3202.94`
-5. Regenerate Ninja files against both targets 
-    - From Electron root's root, run `script/update.py`
+5. 为两个版本的Electron重新生成相应的Ninja文件 
+    - 在Electron根目录的上一级目录中，运行 `script/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
-    - Both should build with no errors
-6. Push changes to submodule reference 
-    - (From electron root) `git add vendor/crashpad`
+    - 确保两个构建过程没有抛出异常，
+6. 将变更内容Push到子模块的引用部分。 
+    - (在 electron 的根目录下) `git add vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`
