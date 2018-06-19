@@ -1,6 +1,6 @@
-# GPUFeatureStatus Objekt
+# GPUFeatureStatus Object
 
-* `2d_canvas` String - Stage
+* `2d_canvas` String - Canvas
 * `flash_3d` String - Flash
 * `flash_stage3d` String - Flash Stage3D
 * `flash_stage3d_baseline` String - Flash Stage3D Baseline-Profile
