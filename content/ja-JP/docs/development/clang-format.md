@@ -12,15 +12,15 @@ Electron C++ コードスタイルに従ってファイルを自動的にフォ�
 
 1. Electron レポジトリ内でコードを変更します。
 2. `git add your_changed_file.cc` を実行します。
-3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
-4. Run `git add your_changed_file.cc`, and commit your change.
-5. Now the branch is ready to be opened as a pull request.
+3. `git-clang-format` を実行すると、`clang-format` によって生成された修正が `変更したファイル名.cc` 内に見えるはずです。
+4. `git add your_changed_file.cc` を実行して、変更をコミットします。
+5. これでこのブランチはプルリクエストを開く準備ができました。
 
-If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
+もし最新の git コミット (HEAD) 上のあなたが変更したコードをフォーマットしたい場合は、`git-clang-format HEAD~1` を実行できます。より詳しくは `git-clang-format -h` を参照してください。
 
-## Editor Integration
+## エディタ統合
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+あなたの好きなエディタに直接 `clang-format` を統合することもできます。エディタ統合の設定に関する詳細は、以下のページを参照してください。
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
