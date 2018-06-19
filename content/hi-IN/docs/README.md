@@ -121,6 +121,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [मेन्यु](api/menu.md)
 * [मेन्युआइटम](api/menu-item.md)
 * [नेट](api/net.md)
+* [netLog](api/netLog.md)
 * [पॉवर मॉनिटर](api/power-monitor.md)
 * [पॉवर सेवब्लॉकर](api/power-save-blocker.md)
 * [प्रोटोकॉल](api/protocol.md)
