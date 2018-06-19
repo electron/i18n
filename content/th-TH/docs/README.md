@@ -121,6 +121,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [เมนู](api/menu.md)
 * [รายการบนเมนู](api/menu-item.md)
 * [เน็ต](api/net.md)
+* [netLog](api/netLog.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [โพรโทคอล](api/protocol.md)
