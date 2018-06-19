@@ -1,4 +1,4 @@
-# FileFilter Objekt
+# FileFilter Object
 
-* `name` Zeichenfolge
-* `GeräteName` Zeichenfolge[]
+* `name` String
+* `extensions` String[]
