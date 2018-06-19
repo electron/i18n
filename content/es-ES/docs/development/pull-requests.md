@@ -1,6 +1,5 @@
 # Pull Requests
 
-* [Dependencias](#dependencies)
 * [Configurando tu entorno local](#setting-up-your-local-environment) 
   * [Paso 1: Fork](#step-1-fork)
   * [Paso 2: Compilado](#step-2-build)
@@ -12,7 +11,7 @@
   * [Paso 6: Reorganizar](#step-6-rebase)
   * [Paso 7: Prueba](#step-7-test)
   * [Paso 8: Push](#step-8-push)
-  * [Paso 9: Abriendo el Pull Request](#step-9-opening-the-pull-request)
+  * [Paso 9: Abriendo la Solicitud de Retiro](#step-9-opening-the-pull-request)
   * [Paso 10: Analizar y actualizar](#step-10-discuss-and-update) 
     * [Aprobación y Solicitud de Cambios de Workflow](#approval-and-request-changes-workflow)
   * [Paso 11: Ejecutado](#step-11-landing)
@@ -80,7 +79,7 @@ Examples of commit messages with semantic prefixes:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux` 
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 
