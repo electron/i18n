@@ -121,6 +121,7 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
 * [Menü](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
+* [netLog](api/netLog.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
