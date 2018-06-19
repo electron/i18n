@@ -57,7 +57,7 @@ app.on('window-all-closed', () => {
 
 Происходит когда все окна были закрыты и приложение прекратит работу. Вызов `event.preventDefault()` предотвратит поведение по умолчанию, которое завершает приложение.
 
-Смотрите описание события `window-all-closed` для различий между событием `will-quit` и `window-all-closed`.
+Смотрите описание события `window-all-closed` для различий между событиями `will-quit` и `window-all-closed`.
 
 **Примечание:** В Windows, это событие не возникает, если приложение закрывается из-за выключения/перезагрузки системы или выхода из системы пользователя.
 
@@ -85,7 +85,7 @@ app.on('window-all-closed', () => {
 
 В Windows Вам необходимо распарсить `process.argv` (в главном процессе), чтобы получить путь к файлу.
 
-### Событие: 'open-file' *macOS*
+### Событие: 'open-url' *macOS*
 
 Возвращает:
 
@@ -683,7 +683,7 @@ app.on('ready', () => {
 * `callback` Function 
   * `result` Integer - результат импорта.
 
-Импорт сертификата в формате pkcs12 из платформы хранилища сертификатов. `callback` вызывает `result` импорт операции, значение `` указывает на успех в то время как любое другое значение указывает на ошибку в соответствии с Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Импорт сертификата в формате pkcs12 из платформы хранилища сертификатов. `callback` вызывает `result` импорт операции, значение `0` указывает на успех в то время как любое другое значение указывает на ошибку в соответствии с Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -711,7 +711,7 @@ app.on('ready', () => {
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-Задает счетчик-значок для текущего приложения. При значении счетчика `` будет скрыть значок.
+Задает счетчик-значок для текущего приложения. При значении счетчика `0` будет скрыть значок.
 
 В macOS показывает на значке в dock. На Linux это работает только для Unity.
 
@@ -798,7 +798,7 @@ app.setLoginItemSettings({
 Возвращает `Function`. Эта функция **должна** быть вызвана после того как вы have finished accessing the security scoped file. Если Вы забыли, запретить доступ к закладке, [возможно утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
 
 ```js
-// Start accessing the file.
+// Начало доступа к файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
 // You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
