@@ -99,7 +99,7 @@
 * [プロセスオブジェクト](api/process.md)
 * [サポートしているChromeコマンドラインスイッチ](api/chrome-command-line-switches.md)
 * [環境変数](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [API の破壊的変更](api/breaking-changes.md)
 
 ### カスタム DOM 要素
 
