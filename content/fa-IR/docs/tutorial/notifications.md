@@ -18,9 +18,11 @@ myNotification. => {
 
 ## ویندوز
 
-* در ویندوز ۱۰، اعلان ها (بدون دخالت) کار میکنند.
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. توجه داشته باشید، با این حال، برنامه شما نیاز نیست به صفحه شروع حتما دوخته شده باشد.
+* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu.
+* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. توجه داشته باشید، با این حال، برنامه شما نیاز نیست به صفحه شروع حتما دوخته شده باشد.
 * در ویندوز ۷، اعلان ها با یک شبیه سازی سفارشی مانند سیستم عامل های جدید کار می کند.
+
+Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][[set-app-user-model-id](../api/app.md#appsetappusermodelidid-windows)] yourself.
 
 در ویندوز ۸, حداکثر طول متن اعلان ها ۲۵۰ کاراکتر میباشد، با این حال تیم ویندوز توصیه می کند که طول متن شما بیش از ۲۰۰ کاراکتر نباشد. آنها گفته اند که این محدودیت به درخواست توسعه دهندگاند در ویندوز ۱۰ حذف گردیده است. به هر حال ارسال متن های عظیم (هزاران کاراکتر) توسط API میتواند باعث بی ثباتی در آن شود.
 
