@@ -39,7 +39,7 @@ Platform berikut didukung oleh Electron :
 
 ### macOS
 
-Hanya binari 64bit yang disediakan untuk macOS , dan versi maco minimum yang didukung adalah macos 10.9.
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is OS X Yosemite (version 10.10).
 
 ### Windows
 
@@ -51,7 +51,8 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Runni
 
 Berkas-berkas Elektron dibangun pada kode prebuilt  ia32 </ code> (<code> i686 </ code>) dan <code> x64 </ code> Ubuntu 12.04, biner <code> armv7l </ code> dibangun melawan ARM v7 dengan ABI hard-float dan NEON untuk Debian Wheezy.</p>
 
-<p><a href="https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets"> Sampai rilis Electron 2.0 </a> , Elektron juga akan lanjutkan untuk melepaskan <code> armv7l </ code> biner dengan akhiran <code> lengan </ code> yang baru. Kedua binari adalah identik.</p>
+<p><a href="https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets"> Sampai rilis Electron 2.0 </a> , Elektron juga akan lanjutkan untuk melepaskan <code> armv7l </ code> biner dengan akhiran <code> lengan </ code> yang baru. Both binaries
+are identical.</p>
 
 <p>Apakah biner prebuilt dapat berjalan pada distribusi bergantung pada apakah distribusi mencakup perpustakaan yang terhubung dengan Elektron pada platform bangunan, jadi hanya Ubuntu 12.04 yang dijamin berhasil, namun mengikuti platform juga diverifikasi untuk dapat menjalankan binari prebuilt dari Elektron :</p>
 
