@@ -39,7 +39,7 @@ If an application has exceptional circumstances and needs to stay on an unsuppor
 
 ### macOS
 
-只提供 64 位元的 macOS 二進位檔案，支援的最低 macOS 版本為 10.9。
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is OS X Yosemite (version 10.10).
 
 ### Windows
 
