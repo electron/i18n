@@ -1,6 +1,5 @@
 # Пул Реквести
 
-* [Dependencies](#dependencies)
 * [Setting up your local environment](#setting-up-your-local-environment) 
   * [Step 1: Fork](#step-1-fork)
   * [Step 2: Build](#step-2-build)
@@ -80,7 +79,7 @@ Examples of commit messages with semantic prefixes:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux` 
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 
