@@ -39,7 +39,7 @@ Seguintes plataformas são suportadas pelo Electron:
 
 ### macOS
 
-Somente binários 64bits são fornecidos para o macOS, e a versão mínima suportada do macOS é a 10.9.
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is OS X Yosemite (version 10.10).
 
 ### Windows
 
