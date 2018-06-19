@@ -2,11 +2,11 @@
 
 From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver는 많은 브라우저에서 웹 응용 프로그램을 자동으로 테스트 할 수있는 오픈 소스 도구입니다. 웹 페이지, 사용자 입력, JavaScript 실행 등을 탐색 할 수있는 기능을 제공합니다. ChromeDriver는 Chromium 용 WebDriver의 와이어 프로토콜을 구현하는 독립 실행 형 서버입니다. Chromium 및 WebDriver 팀 구성원이 개발 중입니다.
 
-## Setting up Spectron
+## Spectron 설정
 
-[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron)은 공식적으로 지원되는 Electron의 ChromeDriver 테스트 프레임 워크입니다. [WebdriverIO](http://webdriver.io/) 위에 구축되어 ChromeDriver 테스트 및 번들에서 Electron API에 액세스 할 수있는 도우미가 있습니다.
 
 ```sh
 $ npm install --save-dev spectron
@@ -42,13 +42,13 @@ app.start().then(function () {
 })
 ```
 
-## Setting up with WebDriverJs
+## WebDriverJs로 설정하기
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs)는 웹 드라이버 테스트를위한 Node 패키지를 제공하며 다음 예제처럼 사용합니다.
 
-### 1. Start ChromeDriver
+### 1. 크롬 드라이버 시작
 
-First you need to download the `chromedriver` binary, and run it:
+먼저, `chromedriver`바이너리를 다운로드 받고 실행합니다:
 
 ```sh
 $ npm install electron-chromedriver
@@ -57,17 +57,17 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+포트 `9515`는 나중에 사용하므로 기억해 놓습니다.
 
-### 2. Install WebDriverJS
+### 2. WebDriverJS 설치
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. 크롬 드라이버에 연결
 
-The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+`selenium-webdriver` 를 Electron과 같이 사용하는 방법은 기본적으로 upstream과 같습니다. 한가지 다른점이 있다면 수동으로 크롬 드라이버 연결에 대해 설정하고 Electron 실행파일의 위치를 전달합니다:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
@@ -96,13 +96,13 @@ driver.wait(() => {
 driver.quit()
 ```
 
-## Setting up with WebdriverIO
+## WebdriverIO 설정하기
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/)는 웹 드라이버와 함께 테스트를 위해 제공되는 node 패키지입니다.
 
-### 1. Start ChromeDriver
+### 1. 크롬 드라이버 시작
 
-First you need to download the `chromedriver` binary, and run it:
+먼저, `chromedriver`바이너리를 다운로드 받고 실행합니다:
 
 ```sh
 $ npm install electron-chromedriver
@@ -111,15 +111,15 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+포트 `9515`는 나중에 사용하므로 기억해 놓습니다.
 
-### 2. Install WebdriverIO
+### 2. WebDriverIO 설치
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. 크롬 드라이버에 연결
 
 ```javascript
 const webdriverio = require('webdriverio')
@@ -148,8 +148,8 @@ client
   .end()
 ```
 
-## Workflow
+## 워크플로우
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+따로 Electron을 다시 빌드하지 않는 경우 간단히 애플리케이션을 Electron의 리소스 디렉터리에 [배치](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md)하여 바로 테스트 할 수 있습니다.
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+또한, Electron 바이너리의 명령줄 인수에 애플리케이션 폴더를 지정하는 방법으로 실행할 수도 있습니다. 이 방법을 사용하면 애플리케이션 폴더를 Electron의 resource 디렉터리로 복사하는 불필요한 과정을 생략할 수 있습니다.
