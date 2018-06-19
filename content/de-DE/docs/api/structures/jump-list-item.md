@@ -1,4 +1,4 @@
-# JumpListItem Objekt
+# JumpListItem Object
 
 * `type` String (optional) - Eine der folgenden Möglichkeiten: 
   * `task` - Task startet eine App mit speziellen Werten.
