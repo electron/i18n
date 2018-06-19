@@ -39,7 +39,7 @@ Electron tarafından desteklenen platformlar:
 
 ### macOS
 
-MacOS için sadece 64bit ve en az macOS 10.9 sürümü desteklenmektedir.
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is OS X Yosemite (version 10.10).
 
 ### Windows
 
@@ -51,7 +51,7 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Runni
 
 Electron'un önceden hazırlanmış `ia32` (`i686`) ve `x64` (`amd64`) ikilileri Ubuntu 12.04 üzerine kurulmuştur, `armv7l` ikili ARM v7'e karşı hard-float ABI ve NEON Debian Wheezy için yapılmıştır.
 
-[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron, basit bir `arm` sonekiyle birlikte `armv7l` ikili sürümünü de serbest bırakmaya devam edecek. Her iki ikili de özdeştir.
+[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron, basit bir `arm` sonekiyle birlikte `armv7l` ikili sürümünü de serbest bırakmaya devam edecek. Both binaries are identical.
 
 Önceden derlenmiş sürümün normal olarak çalışıp çalışamayacağı, derleme platformunun bağlantı kitaplığının eklenip eklenmediğine bağlıdır. Dolayısıyla yalnızca Ubuntu 12.04'ün çalışması garanti edilir ve aşağıdaki platformların Electron'un önceden derlenmiş sürümleriyle çalıştığı kanıtlanmıştır:
 
