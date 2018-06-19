@@ -4,14 +4,14 @@
 
 プルリクエストを開く前に、変更された C++ コードをフォーマットすることを強くお勧めします。これにより、あなたとレビュアーの時間が節約されます。
 
-You can install `clang-format` and `git-clang-format` via `npm install -g clang-format`.
+`npm install -g clang-format` を介して `clang-format` と `git-clang-format` をインストールできます。
 
-To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
+Electron C++ コードスタイルに従ってファイルを自動的にフォーマットするには、 `clang-format -i electron/への/パス/ファイル.cc` を実行します。これは macOS/Linux/Windows で動作します。
 
-The workflow to format your changed code:
+以下は変更したコードをフォーマットするワークフローです。
 
-1. Make codes changes in Electron repository.
-2. Run `git add your_changed_file.cc`.
+1. Electron レポジトリ内でコードを変更します。
+2. `git add your_changed_file.cc` を実行します。
 3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
 4. Run `git add your_changed_file.cc`, and commit your change.
 5. Now the branch is ready to be opened as a pull request.
