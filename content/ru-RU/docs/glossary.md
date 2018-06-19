@@ -26,7 +26,7 @@ Input Method Editor. Эта программа позволяет пользов
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Язык описания интерфейса. Записывайте сигнатуры функций и типы данных в формате, который может использоваться для создания интерфейсов в Java, C ++, JavaScript и т. д.
 
 ### IPC
 
@@ -56,11 +56,11 @@ IPC стенды для взаимодействия между процесса
 
 An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Смотри https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### собственные модули
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Они используются главным образом для предоставления интерфейса между скриптов JavaScript, выполняющийся в Node.js и C/C++ библиотеках.
+Собственные модули (также называемые [дополнениями](https://nodejs.org/api/addons.html) в Node.js) это модули написанные на C или C++, которые могут быть загружены в Node.js или Electron используя функцию require(), и используются так, как если бы они были обычным модулем Node.js. Они используются главным образом для предоставления интерфейса между скриптов JavaScript, выполняющийся в Node.js и C/C++ библиотеках.
 
 Собственные модули Node поддерживаются в Electron, но учитывая, что Electron предпочитает использовать разные версии V8 для Node, установленного на Вашем компьютере, вы должны вручную указать расположение заголовков Electron'а, когда собираете собственные модули.
 
