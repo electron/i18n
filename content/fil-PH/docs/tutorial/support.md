@@ -39,7 +39,7 @@ Ang mga sumusunod na plataporma ay suportado ng Elektron:
 
 ### macOS
 
-64bit binary lamang ang binigay para sa macOS, at ang minimum na bersyon ng macOS ay sinusuportahan ng macOS 10.9.
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is OS X Yosemite (version 10.10).
 
 ### Windows
 
