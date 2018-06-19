@@ -121,6 +121,7 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [Menu](api/menu.md)
 * [ItemMenu](api/menu-item.md)
 * [bersih](api/net.md)
+* [netLog](api/netLog.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protokol](api/protocol.md)
