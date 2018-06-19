@@ -18,7 +18,7 @@
 
 В веб-страницах вызов нативного GUI связывать интерфейсы API не допускается, поскольку управление нативными GUI ресурсами на веб-страницах очень опасно, и это легко допустить утечку ресурсов. Если вы хотите выполнить GUI операции на веб-странице, процесс визуализации веб-страницы должен общаться с основным процессом для запроса выполнения этих операций основного процесса.
 
-> #### Aside: Communication Between Processes
+> #### Примечание: взаимодействие между процессами
 > 
 > В Electron иммется несколько способов взамимодействия между основным процессом и процессами визуализации. Например, модули для отправки сообщений: [`ipcRenderer`](../api/ipc-renderer.md), [`ipcMain`](../api/ipc-main.md) и модуль для вызова удаленных процедур(RPC) - [remote](../api/remote.md). Так же доступен FAQ о [том, как обмениваться данными между веб-страницами](../faq.md#how-to-share-data-between-web-pages).
 
@@ -71,7 +71,7 @@ console.log(root)
 
 As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
 
-2) Вы можетет использовать Node.js модули в вашем приложении. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) Вы можете использовать Node.js модули в вашем приложении. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
 
 Например чтобы использовать официальный AWS SDK в вашем приложении, следует сначала установить его как зависимость:
 
