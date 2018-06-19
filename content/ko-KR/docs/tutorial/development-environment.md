@@ -4,7 +4,7 @@
 
 ## macOS 설정
 
-> Electron은 Mac OS X 10.9 (및 macOS로 이름이 바꾸어진 후의 모든 버전) 그리고 10.9 이상의 버전을 지원합니다. Apple은 호스트 컴퓨터가 Apple 컴퓨터가 아니면, 가상 머신에서 macOS의 동작을 허용하지 않으므로, Mac을 필요로하는 경우, Mac([MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)와 같은) 에 액세스 권한을 부여하는 클라우드 서비스를 사용해보십시오.
+> Electron supports OS X Yosemite (version 10.10) and up. Apple은 호스트 컴퓨터가 Apple 컴퓨터가 아니면, 가상 머신에서 macOS의 동작을 허용하지 않으므로, Mac을 필요로하는 경우, Mac([MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)와 같은) 에 액세스 권한을 부여하는 클라우드 서비스를 사용해보십시오.
 
 우선, node.js의 최신 버전을 설치합니다. 최신 `LTS` 버전 혹은 현재 버전(`Current` version) 을 설치하는 것을 권장합니다. [Node.js 다운로드 페이지](https://nodejs.org/en/download/)를 방문하여, `macOS 인스톨러를` 선택합니다. Homebrew로 설치 할 수도 있지만, 권장하지는 않습니다. 많은 도구는 Homebrew가 Node.js를 설치하는 방식과 호환되지 않습니다.
 
