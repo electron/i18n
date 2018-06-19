@@ -1,9 +1,9 @@
 # Zertifikatsobjekt
 
-* `Daten` String - PEM verschlüsselte Daten
-* `Herausgeber` [Hauptzertifikat](certificate-principal.md) - Hauptherausgeber
-* `herausgeberName` String - Allgemeiner Name des Herausgebers
-* `herausgeberZertifikat` Zertifikat - Herausgeber Zertifikat (falls nicht selbstsigniert)
+* `data` String - PEM verschlüsselte Daten
+* `issuer` [CertificatePrincipal](certificate-principal.md) - Hauptherausgeber
+* `issuerName` String - Allgemeiner Name des Herausgebers
+* `issuerCert` Certificate- Herausgeber Zertifikat (falls nicht selbstsigniert)
 * `Betreff` [Hauptzertifikat](certificate-principal.md) - Hauptbetreff
 * `betreffName` String - Allgemeiner Name des Betreffs
 * `Seriennummer` String - Hex-Wert repräsentiert String
