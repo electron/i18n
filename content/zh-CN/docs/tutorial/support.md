@@ -39,7 +39,7 @@ If an application has exceptional circumstances and needs to stay on an unsuppor
 
 ### macOS
 
-对于 macOS 仅提供64位版本，并且只支持 macOS 10.9 或更高版本。
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is OS X Yosemite (version 10.10).
 
 ### Windows
 
@@ -51,7 +51,7 @@ If an application has exceptional circumstances and needs to stay on an unsuppor
 
 Electron 的 `ia32` (`i686`) 和 `x64` (`amd64`) 预编译版本均是在Ubuntu 12.04 下编译的，`arm` 版的二进制文件是在 ARM v7（硬浮点 ABI 与 Debian Wheezy 版本的 NEON）下完成的。
 
-[在Electron 2.0的发布之前](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets)，Electron 也会 继续用简单的` arm `后缀释放` armv7l `二进制文件。 两个二进制文件 是相同的。
+[在Electron 2.0的发布之前](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets)，Electron 也会 继续用简单的` arm `后缀释放` armv7l `二进制文件。 Both binaries are identical.
 
 预编译版本是否能够正常运行，取决于其中是否包含了编译平台的链接库。所以只有 Ubuntu 12.04 是可以保证能正常运行的，并且以下平台也被证实可以正常运行 Electron 的预编译版本：
 
