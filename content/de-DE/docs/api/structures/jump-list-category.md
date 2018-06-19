@@ -1,4 +1,4 @@
-# JumpListCategory Objekt
+# JumpListCategory Object
 
 * `type` String (optional) - Eine der folgenden Möglichkeiten: 
   * `tasks` - Aufgaben in dieser Kategorie werden in die Kategorie `Tasks` eingeordnet. Es kann nur eine solche Kategorie geben, und sie wird am ende der Liste dargestellt.
