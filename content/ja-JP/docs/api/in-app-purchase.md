@@ -30,7 +30,7 @@
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+戻り値 `Boolean` - ユーザが支払いできるかどうか。
 
 ### `inAppPurchase.getReceiptURL()`
 
