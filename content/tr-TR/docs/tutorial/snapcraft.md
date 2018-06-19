@@ -46,7 +46,7 @@ Package the application using [electron-packager](https://github.com/electron-us
         ├── locales
         ├── natives_blob.bin
         ├── resources
-        ├── snapshot_blob.bin
+        ├── v8_context_snapshot.bin
         └── version
 ```
 
