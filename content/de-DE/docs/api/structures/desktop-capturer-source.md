@@ -1,4 +1,4 @@
-# DesktopCapturerSource-Objekt
+# DesktopCapturerSource Object
 
 * `id` String - Die Kennung eines Fensters oder Bildschirms, die als `chromeMediaSourceId` Einschränkung genutzt werden kann, wenn [`navigator.webkitGetUserMedia`] aufgerufen wird. Die Kennung liegt in der Form `window:XX` oder `screen:XX` vor, wobei `XX` eine zufällig generierte Nummer ist.
 * `name` String - Eine Bildschirm-Quelle hat entweder den Namen `Entire Screen` oder `Screen <index>`, während der Name einer Fenster-Quelle durch den Namen des Fensters bestimmt wird.
