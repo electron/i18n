@@ -1,4 +1,4 @@
-# Cookie-Objekt
+# Cookie Object
 
 * `name` String - Der Name des Cookies.
 * `value` String - Der Wert des Cookies.
@@ -7,5 +7,5 @@
 * `path` String (optional) - Der Pfad des Cookie.
 * `secure` Boolean (optional) - true, wenn der Cookie als sicher markiert ist.
 * `httpOnly` Boolean (optional) - true, wenn der Cookie als HTTP only markiert ist.
-* `session` Boolean (optional) - Ist der Cookie ein Session Cookie oder ein permanenter Cookie mit einem Ablaufdatum?
-* `expirationDate` Double (optional) - Das Ablaufdatum des Cookie als Nummer der Sekunden seit Beginn der UNIX-Zeit. Bei Session-Cookies nicht angegeben.
+* `session` Boolean (optional) - true, wenn der Cookie ein Session Cookie ist. false, wenn der Cookie ein permanenter Cookie mit einem Ablaufdatum ist.
+* `expirationDate` Double (optional) - Das Ablaufdatum des Cookies in Sekunden seit Beginn der UNIX-Zeit. Bei Session-Cookies nicht angegeben.
