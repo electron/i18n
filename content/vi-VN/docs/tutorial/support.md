@@ -39,7 +39,7 @@ Các nền tảng được hỗ trợ bởi Electron:
 
 ### macOS
 
-Chỉ có duy nhất phiên bản 64bit được hỗ trợ cho macOS, và phiên bản tối thiểu của macOS là từ 10.9.
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is OS X Yosemite (version 10.10).
 
 ### Windows
 
