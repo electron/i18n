@@ -18,9 +18,11 @@ myNotification.onclick = () => {
 
 ## Windows
 
-* Windows 10'da, bildirimler "sadece çalışır".
-* Windows 8.1 ve Windows 8'de, uygulamanızın bir kısayolu [ Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) ile, başlangıç ​​ekranına yüklenmelidir. Not, ancak başlangıç ekranına tutturulmasına gerek yoktur.
+* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu.
+* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Not, ancak başlangıç ekranına tutturulmasına gerek yoktur.
 * Windows 7 üzerinde iş tebliğ yolu ile bireysel olarak uygulanan ve gözle görünür biçimde benzerlik gosteren yerli ve yenilikçi sistemlerdir.
+
+Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][[set-app-user-model-id](../api/app.md#appsetappusermodelidid-windows)] yourself.
 
 Ayrıca, Windows 8'de bildirim gövdesi için maksimum uzunluk 250 karakterken, Windows ekibi, bildirimlerin 200 karakterde tutulması gerektiğini önermektedir. Yani, Windows ekibi geliştiriciler için makul olmak isteyerek bu limiti Windows 10 ile birlikte kaldırıldığını söyledi. API'ya dev miktarlarda metin göndermek (binlerce karakter) dengesizlik yaratabilir.
 
