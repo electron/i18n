@@ -7,9 +7,9 @@
 ### `new TouchBarScrubber(options)` *实验功能*
 
 * `选项` 对象 
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
-  * `select` Function - Called when the user taps an item that was not the last tapped item. 
-    * `selectedIndex` Integer - The index of the item the user selected.
+  * `items` [ScrubberItem[]](structures/scrubber-item.md) 一个数组，表示 scrubber 里的项目。
+  * `select` 函数 - 当用户点了一个项目，但是不是上一次点击的项目时调用。 
+    * `selectedIndex` Integer - 用户选中项排序。
   * `highlight` Function - 当用户点击某一项时调用. 
     * highlightedIndex Integer - 用户选中项排序.
   * ` selectedStyle ` String - 选中项样式. 默认为 `null`.
