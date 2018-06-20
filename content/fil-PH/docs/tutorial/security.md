@@ -242,13 +242,9 @@ Ang NIlalaman ng Patakarang Pangsegurado (CSP) ay isang karagdagang layer ng pro
 
 ### Bakit?
 
-an CSP ay nagpapahintulot sa server serving na nilalaman upang paghigpitan at kontrolin ang mga mapagkukunan na maaaring ma-load sa Electron sa binigay na web page. Ang `https://your-page.com` ay dapat pahintulutan na mag-load ng mga manuskrito galing sa ga pinagmulan na inyong itinukoy habang ang mga manuskritong galing sa `https://evil.attacker.com` ay hindi dapat pahintulutang patakbuhin. Ang pagtukoy ng isang CSP ay madaling paraan para mapabuti ang seguridad ng iyong mga aplikasyon.
+an CSP ay nagpapahintulot sa server serving na nilalaman upang paghigpitan at kontrolin ang mga mapagkukunan na maaaring ma-load sa Electron sa binigay na web page. Ang `https://your-page.com` ay dapat pahintulutan na mag-load ng mga manuskrito galing sa ga pinagmulan na inyong itinukoy habang ang mga manuskritong galing sa `https://evil.attacker.com` ay hindi dapat pahintulutang patakbuhin. Defining a CSP is an easy way to improve your application's security.
 
-### Paano?
-
-Nirerespeto ng Electron ang [the`Nilalaman-Seguridad-Patakaran` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) at ang kaukulang `<meta></1> tag.</p>
-
-<p>Ang sumusunod na CSP ay nagpapahintulot sa Electron na mag-execute ng mga manuskrito galing sa kasalukuyang website at galing sa 0>apis.mydomain.com`.
+Ang sumusunod na CSP ay nagpapahintulot sa Electron na mag-execute ng mga manuskrito galing sa kasalukuyang website at galing sa 0>apis.mydomain.com</code>.
 
 ```txt
 // Hindi kaaya-aya
@@ -257,6 +253,28 @@ Nilalaman-Seguridad-Patakaran: '*'
 // Kaaya-aya
 Nilalaman-Seguridad-Patakaran: script-src 'self' https://apis.mydomain.com
 ```
+
+### CSP HTTP Header
+
+Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+
+```javascript
+const {session} = require('electron')
+
+session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+  callback({responseHeaders: `default-src 'none'`})
+})
+```
+
+### CSP Meta Tag
+
+CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'">
+```
+
+#### `webRequest.onHeadersReceived([filter, ]listener)`
 
 ## 7) Override and Disable `eval`
 
@@ -364,7 +382,7 @@ const mainWindow = new BrowserWindow()
 
 *Ang rekomendasyon ay default ng Electron*
 
-Kung gumagamit ka ng [`WebViews`](../api/web-view.md), maaaring kailanganin mo ang mga pahina at script load sa iyong `<webview>` tag upang magbukas ng mga bagong window. Ang `allowpopups` na katangian ay nagbibigay-daan sa kanila upang lumikha ng bagong [`BrowserWindows`](../api/browser-window.md) gamit ang `window.open()` na paraan. `WebViews` ay hindi pinapayagan na lumikha ng bago bintana.
+If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` ay hindi pinapayagan na lumikha ng bago bintana.
 
 ### Bakit?
 
