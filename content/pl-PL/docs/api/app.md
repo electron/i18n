@@ -386,27 +386,27 @@ Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 * `desktop` Katalog pulpitu bieżącego użytkownika.
 * `documents` Katalog dla "Moje dokumenty" użytkownika.
 * `downloads` Katalog "Pobrane" użytkownika.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `logs` Directory for your app's log folder.
+* `music` Katalog z muzyką użytkownika.
+* `pictures` Katalog ze zdjęciami użytkownika.
+* `videos` Katalog z filmami użytkownika.
+* `logs` Katalog folderu dziennika aplikacji.
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
 * `options` Obiekt (opcjonalne) 
-  * `rozmiar` Ciąg tekstu 
+  * `size` Ciąg tekstu 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, brak wsparcia dla *macOS*.
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+W *Windows* są 2 rodzaje ikon:
 
 * Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
 * Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
