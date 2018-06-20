@@ -4,7 +4,7 @@
 
 ## 配置 macOS
 
-> Electron supports OS X Yosemite (version 10.10) and up. 目前Apple不允许在非Apple电脑上运行macOS虚拟机，所以，如果你需要一台Mac的话，可以考虑租用Mac云服务（比如[MacInCloud](https://www.macincloud.com/)或者 [xcloud](https://xcloud.me)）。
+> Electron 支持 Mac OS X 10.9及其以上版本和macOS所有版本。 目前Apple不允许在非Apple电脑上运行macOS虚拟机，所以，如果你需要一台Mac的话，可以考虑租用Mac云服务（比如[MacInCloud](https://www.macincloud.com/)或者 [xcloud](https://xcloud.me)）。
 
 首先，安装最新版本的Node.js 。 我们推荐您安装最新的 `长期支持版本` 或者 `当前发行版本` 。 访问[Node.js下载页面](https://nodejs.org/en/download/)选择 `macOS Installer` 。 当然，你也可以使用Homebrew安装Node.js，但我们不推荐你这么做，因为许多工具并不兼容Homebrew安装Node.js的方式。
 
