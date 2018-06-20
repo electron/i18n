@@ -247,11 +247,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 왜냐구요?
     
-    CSP는 서버가 콘텐츠를 제한적이고 웹페이지의 리소스를 제어하는 것을 허용하도록 합니다, 또한 Electron은 주어진 그 페이지를 로드 할 수 있습니다. `https://evil.attacker.com`에서는 실행되지 않아야 하고, `https://your-page.com`에서는 정의한 스크립트가 로드 되게 해야 합니다. CSP를 정의하는 것이 애플리케이션 보안을 향상하는 쉬운 방법입니다.
-    
-    ### 어떻게 하나요?
-    
-    Electron은 [`Content-Security-Policy` HTTP 헤더](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)와 `<meta>` 태그를 지킵니다.
+    CSP는 서버가 콘텐츠를 제한적이고 웹페이지의 리소스를 제어하는 것을 허용하도록 합니다, 또한 Electron은 주어진 그 페이지를 로드 할 수 있습니다. `https://evil.attacker.com`에서는 실행되지 않아야 하고, `https://your-page.com`에서는 정의한 스크립트가 로드 되게 해야 합니다. Defining a CSP is an easy way to improve your application's security.
     
     다음 CSP는 Electron이 현재 웹사이트와 `apis.mydomain.com`에서만 스크립트를 실행하게 허용합니다.
     
@@ -262,6 +258,28 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     // 좋은 예
     Content-Security-Policy: script-src 'self' https://apis.mydomain.com
     ```
+    
+    ### CSP HTTP Header
+    
+    Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+    
+    ```javascript
+    const {session} = require('electron')
+    
+    session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+      callback({responseHeaders: `default-src 'none'`})
+    })
+    ```
+    
+    ### CSP Meta Tag
+    
+    CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
+    
+    ```html
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
+    ```
+    
+    #### `webRequest.onHeadersReceived([filter, ]listener)`
     
     ## 7) `eval`의 재정의 및 비활성화
     
