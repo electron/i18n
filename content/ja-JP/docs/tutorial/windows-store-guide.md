@@ -2,9 +2,9 @@
 
 Windows 10では、古き良き Win32 実行形式は新たな兄弟をむかえました: Universal Windows Platform。 新しい `.appx` フォーマットは、Cortana や Push通知のような新しい強力な API を利用できるだけでなく、Windows ストアを通じて、シンプルなインストールとアップデートが可能になります。
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+Microsoft は [Electron アプリを `.appx` パッケージとしてコンパイル可能なツールを開発](https://github.com/catalystcode/electron-windows-store)したため、開発者は新しいアプリケーション モデルの一部を使用できます。 このガイドではその使用方法 - Electron AppX パッケージの機能と制限について解説する。
 
-## Background and Requirements
+## 背景と要求
 
 Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
 
