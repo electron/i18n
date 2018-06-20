@@ -189,7 +189,7 @@ Zwraca:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Emitowane, gdy tworzony jest nowy [browserWindow](browser-window.md).
 
 ### Zdarzenie: 'web-contents-created'
 
@@ -198,7 +198,7 @@ Zwraca:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when a new [webContents](web-contents.md) is created.
+Emitowane, gdy tworzony jest nowy [webContents](web-contents.md).
 
 ### Zdarzenie: 'certificate-error'
 
@@ -311,13 +311,13 @@ The `app` object has the following methods:
 
 ### `app.quit()`
 
-Spróbuj zamknąć wszystkie okna aplikacji. The `before-quit` event will be emitted first. Jeśli wszystkie okna są poprawnie zamknięte, zdarzenie `will-quit` zostanie wywołane i domyślna aplikacja zostanie zakończona.
+Spróbuj zamknąć wszystkie okna aplikacji. Zdarzenie `before-quit` zostanie wyemitowane jako pierwsze. Jeśli wszystkie okna są poprawnie zamknięte, zdarzenie `will-quit` zostanie wywołane i domyślna aplikacja zostanie zakończona.
 
 This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (opcjonalne)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -326,7 +326,7 @@ Wszystkie okna zostaną natychmiast zamknięte bez pytania się użytkownika ora
 ### `app.relaunch([options])`
 
 * `options` Obiekt (opcjonalne) 
-  * `args` String[] (optional)
+  * `args` String[] (opcjonalne)
   * `execPath` String (opcjonalne)
 
 Relaunches the app when current instance exits.
@@ -374,18 +374,18 @@ Returns `String` - A path to a special directory or file associated with `name`.
 
 Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 
-* `home` User's home directory.
+* `home` Katalog domowy użytkownika.
 * `appData` Per-user application data directory, which by default points to: 
   * `%APPDATA%` on Windows
   * `$XDG_CONFIG_HOME` lub `~/.config` na Linuxie
-  * `~/Library/Application Support` on macOS
+  * `~/Library/Application Support` na macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
+* `temp` Katalog tymczasowy.
+* `exe` Bieżący plik wykonywalny.
 * `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
+* `desktop` Katalog pulpitu bieżącego użytkownika.
+* `documents` Katalog dla "Moje dokumenty" użytkownika.
+* `downloads` Katalog "Pobrane" użytkownika.
 * `music` Directory for a user's music.
 * `pictures` Directory for a user's pictures.
 * `videos` Directory for a user's videos.
@@ -889,7 +889,7 @@ Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Ustawia [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) aplikacji.
 
 ### `app.dock.setIcon(image)` *macOS*
 
