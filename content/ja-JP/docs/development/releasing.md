@@ -124,7 +124,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 * Changed a Windows thing. #123
 ```
 
-### Major releases
+### Major リリース
 
 ```sh
 ## Upgrades
