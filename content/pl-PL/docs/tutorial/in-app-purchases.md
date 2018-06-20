@@ -6,13 +6,13 @@
 
 If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+[Pomoc dla programistów iTunes Connect: umowy, podatki i przegląd bankowy](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Utwórz zakupy w aplikacji
 
 Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
 
-[iTunes Connect Developer Help: Create an in-app purchase](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
+[Pomoc dla programistów iTunes Connect: Utwórz zakupy w aplikacji](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
 
 ### Change the CFBundleIdentifier
 
