@@ -1,14 +1,14 @@
-# In-App Purchase (macOS)
+# Zakupy w aplikacji (macOS)
 
-## Preparing
+## Przygotowanie
 
-### Paid Applications Agreement
+### Umowa dotycząca płatnych aplikacji
 
 If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
 
 [iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
-### Create Your In-App Purchases
+### Utwórz zakupy w aplikacji
 
 Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
 
@@ -23,7 +23,7 @@ To test In-App Purchase in development with Electron you'll have to change the `
 <string>com.example.app</string>
 ```
 
-## Code example
+## Przykład
 
 Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
 
