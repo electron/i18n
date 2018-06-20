@@ -245,12 +245,7 @@ const mainWindow = new BrowserWindow()
 
 ### Neden?
 
-CSP, sunum yapan sunucuya kaynakların kısıtlanmasına ve kontrol edilmesine izin verir. Verilen web sayfası için elektron yüklenebilir. `https://your-page.com` kaynak kodlu senaryoları tanımladığın kaynaklardan yüklemesine izin ver `https://evil.attacker.com` çalıştırılmasına izin verilmemelidir. CSP tanımlamak, uygulamalarınızın güvenliğini artırmanın kolay bir yolu.
-
-### Nasıl?
-
-` Content-Security-Policy </ 1> HTTP başlığına <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy"> elektronik saygı duyar </ 0>
-ve ilgili <code><meta>` etiketini içerir.
+CSP, sunum yapan sunucuya kaynakların kısıtlanmasına ve kontrol edilmesine izin verir. Verilen web sayfası için elektron yüklenebilir. `https://your-page.com` kaynak kodlu senaryoları tanımladığın kaynaklardan yüklemesine izin ver `https://evil.attacker.com` çalıştırılmasına izin verilmemelidir. Defining a CSP is an easy way to improve your application's security.
 
 Aşağıdaki CSP, Electron'un şu andaki komut dosyalarını web sitesinden ve ` apis.mydomain.com </ 0> adresinden.</p>
 
@@ -260,6 +255,28 @@ Content-Security-Policy: '*'
 // Doğru
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 `</pre> 
+
+### CSP HTTP Header
+
+Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+
+```javascript
+const {session} = require('electron')
+
+session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+  callback({responseHeaders: `default-src 'none'`})
+})
+```
+
+### CSP Meta Tag
+
+CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'">
+```
+
+#### `webRequest.onHeadersReceived([filter, ]listener)`
 
 ## 7) Override and Disable `eval`
 
@@ -366,10 +383,7 @@ const mainWindow = new BrowserWindow()
 
 *Tavsiye edilen ayar Electron'da varsayılandır*
 
-` WebViews </ 0> kullanıyorsanız, sayfalara ve komut dizelerine
-yeni pencereleri açmak için <code><webview>` gereklidir. ` allowpopups </ 0> özniteliği
-kullanarak yeni <a href="../api/browser-window.md"><code> BrowserWindows </ 1> oluşturmalarına olanak tanır
-<code> window.open () </ 0>  <code> WebViews </ 0> 'e, aksi takdirde yeni
+If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. ` WebViews </ 0> 'e, aksi takdirde yeni
 pencereler.</p>
 
 <h3>Neden?</h3>
