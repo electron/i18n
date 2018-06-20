@@ -875,11 +875,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Ukrywa ikonę w docku.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Pokazuje ikonę w docku.
 
 ### `app.dock.isVisible()` *macOS*
 
