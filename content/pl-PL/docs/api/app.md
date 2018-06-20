@@ -823,7 +823,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 **Note:** This will not affect `process.argv`.
 
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableMixedSandbox()` *Eksperymentalne* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
