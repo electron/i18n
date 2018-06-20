@@ -244,13 +244,9 @@ const mainWindow = new BrowserWindow()
 
 ### 為什麼?
 
-CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your applications security.
+CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
 
-### 怎麼做?
-
-Electron 會遵照 [`Content-Security-Policy` HTTP 標頭](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) 及相應的 `<meta>` 標籤規範。
-
-下面這組 CSP 允許 Electron 由目前的網站及 `apis.mydomain.com` 執行腳本。
+The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
 
 ```txt
 // 錯誤示範
@@ -259,6 +255,28 @@ Content-Security-Policy: '*'
 // 正確寫法
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
+
+### CSP HTTP Header
+
+Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+
+```javascript
+const {session} = require('electron')
+
+session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+  callback({responseHeaders: `default-src 'none'`})
+})
+```
+
+### CSP Meta Tag
+
+CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'">
+```
+
+#### `webRequest.onHeadersReceived([filter, ]listener)`
 
 ## 7) 覆寫並停用 `eval`
 
@@ -273,10 +291,10 @@ Generally speaking, it is easier to completely disable `eval()` than to make it 
 ### 怎麼做?
 
 ```js
-// ESLint 會對任何用到 eval() 的地方提出警告，就算用了
-// eslint-disable-next-line 也一樣
+// ESLint will warn about any use of eval(), even this one
+// eslint-disable-next-line
 window.eval = global.eval = function () {
-  throw new Error(`失禮了，本應用程式不支援 window.eval()。`)
+  throw new Error(`Sorry, this app does not support window.eval().`)
 }
 ```
 
@@ -295,7 +313,7 @@ Loading content over `HTTPS` assures the authenticity and integrity of the loade
 ### 怎麼做?
 
 ```js
-// 錯誤示範
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -323,7 +341,7 @@ Legitimate use cases exist, but unless you know what you are doing, you should n
 ### 怎麼做?
 
 ```js
-// 錯誤示範
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -375,10 +393,10 @@ If you do not need popups, you are better off not allowing the creation of new [
 ### 怎麼做?
 
 ```html
-<!-- 錯誤示範 -->
+<!-- Bad -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- 正確寫法 -->
+<!-- Good -->
 <webview src="page.html"></webview>
 ```
 
@@ -401,14 +419,14 @@ Before a [`<WebView>`](../api/web-view.md) tag is attached, Electron will fire t
 ```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // 拿掉用不著的預載腳本，或是確認它們的位置是安全正確的
+    // Strip away preload scripts if unused or verify their location is legitimate
     delete webPreferences.preload
     delete webPreferences.preloadURL
 
-    // 停用 Node.js 整合
+    // Disable Node.js integration
     webPreferences.nodeIntegration = false
 
-    // 驗證將要載入的 URL
+    // Verify URL being loaded
     if (!params.src.startsWith('https://yourapp.com/')) {
       event.preventDefault()
     }
@@ -416,4 +434,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目標只是要顯示網站，那麼瀏覽器會是比較安全的選項。
+Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
