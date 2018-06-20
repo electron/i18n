@@ -47,7 +47,7 @@ Emitowane przed tym jak aplikacja zacznie zamykać okna. Wywołanie `event.preve
 
 **Uwaga:** Jeśli zamykanie zostało zainicjowane przez `autoUpdater.quitAndInstall()`, wtedy `before-quit` jest emitowany *po* emitowaniu `close` na wszystkich oknach oraz ich zamknięcia.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Uwaga:** W systemie Windows to zdarzenie nie zostanie wyemitowane, jeśli aplikacja zostanie zamknięta z powodu wyłączenia / ponownego uruchomienia systemu lub wylogowania użytkownika.
 
 ### Zdarzenie: 'will-quit'
 
@@ -59,7 +59,7 @@ Emitowane gdy wszystkie okna zostają zamknięte oraz gdy aplikacja się zamyka.
 
 Zobacz opisy `window-all-closed` zdarzeń oraz rózice między zdarzeniami `will-quit` i `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Uwaga:** W systemie Windows to zdarzenie nie zostanie wyemitowane, jeśli aplikacja zostanie zamknięta z powodu wyłączenia / ponownego uruchomienia systemu lub wylogowania użytkownika.
 
 ### Zdarzenie: 'quit'
 
@@ -70,7 +70,7 @@ Zwraca:
 
 Emitowane kiedy aplikacja jest wyłączana.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Uwaga:** W systemie Windows to zdarzenie nie zostanie wyemitowane, jeśli aplikacja zostanie zamknięta z powodu wyłączenia / ponownego uruchomienia systemu lub wylogowania użytkownika.
 
 ### Zdarzenie 'open-file' *macOs*
 
@@ -134,29 +134,29 @@ Zwraca:
 * `type` String - Ciąg identyfikujący działania. Mapuje do [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `error` String - Łańcuch znaków z przetłumaczonym opisem błędu.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+Emitowane podczas [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), gdy aktywność z innego urządzenia nie zostanie wznowiona.
 
-### Event: 'activity-was-continued' *macOS*
-
-Zwraca:
-
-* `event` Event
-* `type` String - Ciąg identyfikujący działania. Mapuje do [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
-
-### Event: 'update-activity-state' *macOS*
+### Zdarzenie 'activity-was-continued' *macOS*
 
 Zwraca:
 
 * `event` Event
 * `type` String - Ciąg identyfikujący działania. Mapuje do [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` Object - Zawiera stan aplikacji specyficzny dla danego działania.
+
+Wyemitowane podczas [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) po tym, jak działanie z tego urządzenia zostało pomyślnie wznowione na innym.
+
+### Zdarzenie 'update-activity-state' *macOS*
+
+Zwraca:
+
+* `event` Event
+* `type` String - Ciąg identyfikujący działania. Mapuje do [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Zawiera stan aplikacji specyficzny dla danego działania.
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
 
-### Event: 'new-window-for-tab' *macOS*
+### Zdarzenie: 'new-window-for-tab' *macOS*
 
 Zwraca:
 
@@ -164,7 +164,7 @@ Zwraca:
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### Zdarzenie: 'browser-window-blur'
 
 Zwraca:
 
@@ -173,7 +173,7 @@ Zwraca:
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Event: 'browser-window-focus'
+### Zdarzenie: 'browser-window-focus'
 
 Zwraca:
 
@@ -182,7 +182,7 @@ Zwraca:
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
-### Event: 'browser-window-created'
+### Zdarzenie: 'browser-window-created'
 
 Zwraca:
 
@@ -191,7 +191,7 @@ Zwraca:
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
-### Event: 'web-contents-created'
+### Zdarzenie: 'web-contents-created'
 
 Zwraca:
 
@@ -200,7 +200,7 @@ Zwraca:
 
 Emitted when a new [webContents](web-contents.md) is created.
 
-### Event: 'certificate-error'
+### Zdarzenie: 'certificate-error'
 
 Zwraca:
 
@@ -228,7 +228,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Zdarzenie: 'select-client-certificate'
 
 Zwraca:
 
@@ -285,16 +285,16 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Zdarzenie: 'gpu-process-crashed'
 
 Zwraca:
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Emitowane, gdy proces gpu ulega awarii lub zostaje zakończony.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Zdarzenie: 'accessibility-support-changed' *macOS* *Windows*
 
 Zwraca:
 
