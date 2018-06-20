@@ -39,7 +39,7 @@ If an application has exceptional circumstances and needs to stay on an unsuppor
 
 ### मैकओएस
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is OS X Yosemite (version 10.10).
+मैकओएस के लिए केवल 64-बिट बाइनरिस प्रदान की गयी हैं, और न्यूनतम मैकओएस समर्थित संस्करण मैकओएस 10.9 है |
 
 ### विंडोज
 
