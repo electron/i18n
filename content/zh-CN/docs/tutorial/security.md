@@ -435,4 +435,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+强调一下，这份列表只是将风险降到最低，并不会完全屏蔽风险。 如果您的目的是展示一个网站，浏览器将是一个更安全的选择。
