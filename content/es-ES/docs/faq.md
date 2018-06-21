@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 Debido a la integración de Node.js de Electron, hay algunos símbolos extras insertados en la DOM como `module`, `exports`, `require`. Esto causa problemas para algunas librerías dado que ellas quieren insertar símbolos con los mismos nombres.
 
-Para solucionar esto, puede desactivar la integración del nodo en Electron:
+Para solucionar esto, puede desactivar la integración de Node en Electron:
 
 ```javascript
 // En el proceso principal.
@@ -112,10 +112,10 @@ Cuando se utiliza el módulo de Electron puede encontrar un error como este:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: No puede leer apropiadamente 'setZoomLevel' del indefinido
+Uncaught TypeError: No se puede leer apropiadamente 'setZoomLevel' de undefined
 ```
 
-Esto es porque tienes la module</a> de `electron` de npm instalada localmente o globalmente, que reemplaza el módulo incorporado del Electron.</p> 
+Esto es porque tienes el modulo </a>de `electron` de npm instalada localmente o globalmente, que reemplaza el módulo incorporado de Electron.</p> 
 
 Para verificar si usted está usando módulo constructor correcto, puede imprimir la ruta del módulo `electron`:
 
