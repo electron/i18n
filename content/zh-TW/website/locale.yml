@@ -39,7 +39,7 @@ community:
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    donations: "透過 <a href='/donors'>OpenCollective</a> <a href='donors'><b>贊助我們</b></a>。"
     other: "其他問題請寄信至 <a href='mailto:info@electronjs.org'>info@electronjs.org</a>。"
   language_communities:
     title: 語言社群
