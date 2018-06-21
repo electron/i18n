@@ -1,6 +1,6 @@
 # 공식 가이드
 
-Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페이지 URL은 버전 번호를 포함하고 있어야 합니다. URL에 버전 번호가 포함되지 않았다면, development 브랜치 문서를 사용하고 있는 것이며 여기에는 여러분의 Electron 버전과 호환되지 않는 API 변경 사항을 담고 있을지도 모릅니다. 문서의 이전 버전을 보려면, GitHub 에서 "Switch branches/tags" 드롭다운을 열고 버전과 일치하는 태그를 선택하여 [태그로 찾아](https://github.com/electron/electron/tree/v1.4.0) 볼 수 있습니다.
+Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페이지 URL은 버전 번호를 포함하고 있어야 합니다. URL에 버전 번호가 포함되지 않았다면, development 브랜치 문서를 사용하고 있는 것이며 여기에는 여러분의 Electron 버전과 호환되지 않는 API 변경 사항을 담고 있을지도 모릅니다. GitHub 에서 "Switch branches/tags" 드롭다운 메뉴의 [태그 찾기](https://github.com/electron/electron/tree/v1.4.0)를 활용해 여러분의 Electron 버전과 일치하는 태그를 선택하면 구 버전 문서들을 볼 수 있습니다.
 
 ## 자주 묻는 질문
 
