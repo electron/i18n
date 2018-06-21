@@ -16,11 +16,11 @@ docs:
   description: 모든 문서 <a href="/docs/all">한 페이지에서</a> 보기 및 <a href="/docs/faq"> FAQ</a> 문서를 확인하기
   guides: 안내서
   api_reference: API 참조
-  advanced: 고급
+  advanced: 상급(advanced) 주제
   footer:
     propose_change: 문서 개선 작업 참여
     version_history: 버전 역사
-    translate: 이 문서를 번역해주세요.
+    translate: 문서 번역 참여
     view_all_docs: 한 페이지에 모든 문서
 languages:
   choose_language: 이 웹사이트를 볼 언어를 선택하세요
