@@ -444,7 +444,7 @@ Remplace le nom de l'application actuelle.
 
 Retourne `String` - La localisation actuelle de l'application. Les valeurs possibles retournées sont documentées [ici](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Pour définir la localisation, utilisez un paramètre de ligne de commande au démarrage de l'application, que vous trouverez [ici](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Remarque :** À la distribution de votre application empaquetée, vous devrez également inclure le dossier `locales`.
 
