@@ -2,7 +2,7 @@
 
 This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
 
-## 背景と要求
+## 背景と必要条件
 
 Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
 
