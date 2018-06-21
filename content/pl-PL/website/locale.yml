@@ -30,20 +30,20 @@ community:
   title: Społeczność Electrona
   description: Materiały do ​​połączenia z osobami pracującymi na Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Zacznij</b></a> tworzyć aplikację, od przeczytania <a href='/docs/tutorial/first-app'>miniprzewodnika</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Bądź na bieżąco</b></a> śledząc <a href='https://twitter.com/electronjs'>@electronjs</a> na Twitterze i subskrybując <a href='/blog'>blog</a>."
     localized_docs: "<a href='/languages'><b>Czytaj dokumentację w Twoim języku ojczystym</b></a> odwiedzając <a href='/languages'>stronę wyboru języka</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Uzyskaj pomoc i opinię</b></a> dołączając do <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, publikując na <a href='https://discuss.atom.io/c/electron'>Discuss</a>, lub odwiedzając <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Znajdź przydatne pakiety npm</b></a> na <a href='/search/npmPackages'>stronie wyszukiwania pakietów</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Zgłaszaj błędy</b></a> otwierając problemy w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Zgłoś naruszenia Kodeksu Postępowania</b></a> pisząc pod adres <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Zgłoś naruszenia Kodeksu Postępowania</b></a> wysyłając e-mail na adres <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Ujawnij problemy związane z bezpieczeństwem</b></a>, wysyłając wiadomość e-mail na adres <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Przekaż darowiznę</b></a> na naszej <a href='/donors'>stronie OpenCollective</a>."
+    other: "W przypadku wszystkich innych pytań wyślij e-mail na adres <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: Społeczności językowe
+    description: "Społeczność Electron'a obejmuje cały świat i nie każdy zna język angielski. Znajdź <a href='/languages'> dokumentację w swoim języku </a> lub dołącz do jednej z poniższych społeczności językowych:"
   tools: Narzędzia
   boilerplates: Boilerplates
   components: Komponenty
