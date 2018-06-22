@@ -36,7 +36,7 @@ community:
     help: "<a href='http://atom-slack.herokuapp.com'><b>Помогите нам, оставив отзыв</b></a> присоединившись к <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, размещая на <a href='https://discuss.atom.io/c/electron'>Discuss</a>, или посетив <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Находите полезные npm пакеты</b></a> на <a href='/search/npmPackages'>странице поиска пакетов</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Сообщайте об ошибках,</b></a> открывая вопросы в<a href='https://github.com/electron/electron/issues'>electron/electron</a> репозитории."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Предлагайте идеи,</b></a> открывая вопросы в репозитории <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
