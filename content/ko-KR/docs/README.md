@@ -16,7 +16,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [Linux 설정](tutorial/development-environment.md#setting-up-linux)
   * [편집기 선정하기](tutorial/development-environment.md#a-good-editor)
 * [첫 번째 앱 만들기](tutorial/first-app.md) 
-  * [Electron 설치하기](tutorial/first-app.md#installing-electron)
+  * [Electron 설치](tutorial/first-app.md#installing-electron)
   * [간단히 설명한 Electron 개발](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [앱 실행하기](tutorial/first-app.md#running-your-app)
 * [상용구 코드와 CLI](tutorial/boilerplates-and-clis.md) 
