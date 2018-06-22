@@ -36,40 +36,40 @@ $ gn gen out/Default --args='root_extra_deps=["//electron"] is_electron_build=tr
 Esto generará todos los archivos ninja necesarios para la compilación. No deberías tener que ejecutar ` gn gen ` nuevamente; si deseas cambiar los argumentos de compilación, puedes ejecutar ` gn
 args out / Default ` para mostrar un editor.
 
-To build, run `ninja` with the `electron:electron_app` target:
+Para compilar, ejecute ` ninja ` con el enfoque` electron: electron_app `:
 
 ```sh
 $ ninja -C out/Default electron:electron_app
-# This will also take a while and probably heat up your lap.
+# Esto también llevará un tiempo y probablemente te calentará el regazo.
 ```
 
-This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
+Esto construirá todo lo que anteriormente era 'libcromiumcontent' (es decir, ` contenido / ` directorio de ` chromium` y sus dependencias, incl. WebKit y V8), así que llevará un tiempo.
 
-To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper="sccache"` by running `gn args out/Default` to bring up an editor.
+Para acelerar las compilaciones posteriores, puedes usar [ sccache ](https://github.com/mozilla/sccache). Agregue la GN arg ` cc_wrapper = "sccache" ` ejecutando ` gn args out / Default ` para mostrar un editor.
 
-The built executable will be under `./out/Default`:
+El ejecutable compilado estará en `./out/Default`:
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron
-# or, on Linux
+# o, en Linux
 $ ./out/Default/electron
 ```
 
 ## Verificación
 
-To run the tests, you'll first need to build the test modules against the same version of node.js that was built as part of the build process.
+Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en la misma versión de node.js en la que se creó el proceso de compilación.
 
 ```sh
 $ (cd electron/spec && npm i --nodedir=../../third_party/electron_node)
 ```
 
-Then, run Electron with `electron/spec` as the argument:
+Luego, ejecuta Electron con `electron/spec` como el argumento:
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec
 ```
 
-If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
+Si estás depurando algo, puede ser de gran ayuda pasarle algunas banderas adicionales a el binario de Electron:
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec \
