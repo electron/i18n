@@ -1,6 +1,6 @@
 # Guías oficiales
 
-Por favor, asegúrese de utilizar los documentos que correspondan con la versión de Electron que esta buscando. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver las antiguas versiones de la documentación, puede [navegar por las etiquetas](https://github.com/electron/electron/tree/v1.4.0) en GitHub abriendo el menú desplegable de "Switch branches/tags" y seleccionado la etiqueta que coincida con su versión.
+Por favor, asegúrese de utilizar los documentos que correspondan con la versión de Electron que esta buscando. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver la documentación de las versiones pasadas desde GitHub usted puede [navegar usando las etiquetas](https://github.com/electron/electron/tree/v1.4.0) al abrir el cuadro de selección "Switch branches/tags" y seleccionar la versión que coincida con la suya.
 
 ## Preguntas más frecuentes
 
@@ -99,7 +99,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [Objeto de proceso](api/process.md)
 * [Soporte para los interruptores de la linea de comando de Chrome](api/chrome-command-line-switches.md)
 * [Variables de entorno](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Rupturas de cambios de la API](api/breaking-changes.md)
 
 ### Elementos de DOM personalizados:
 
