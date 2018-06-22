@@ -1,4 +1,4 @@
-# Build Instructions (experimental GN build)
+# Instrucciones de Compilación (Compilación experimental GN)
 
 Follow the guidelines below for building Electron with the experimental GN build.
 
