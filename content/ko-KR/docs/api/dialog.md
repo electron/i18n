@@ -45,7 +45,7 @@ console.log(dialog)
   * `filePaths` String[] - An array of file paths chosen by the user
   * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+사용자가 선택한 파일 경로를 `String[]`의 배열 형태로 반환합니다. 만약 callback이 제공되어 있다면 `undefined`을 반환합니다.
 
 The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
