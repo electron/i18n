@@ -8,7 +8,7 @@ Microsoft は [Electron アプリを `.appx` パッケージとしてコンパ�
 
 Windows 10 "Anniversary Update" では、仮想ファイルシステムとレジストリと共に起動することで win32 `.exe` バイナリを実行できます。 どちらも、Windows Container内部でアプリとインストーラーを実行することで、インストール中のオペレーティングシステムに対する変更を正確に検出できます。 仮想ファイルシステムと仮想レジストリを実行ファイルのペアにすることで、Windowsがワンクリックでインストールとアンインストールが可能になる。
 
-さらにexeは内部的にはappxモデルとして起動される - つまりUniversal Windows Platformで利用可能なAPIの多くを使用できる。 To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+さらにexeは内部的にはappxモデルとして起動される - つまりUniversal Windows Platformで利用可能なAPIの多くを使用できる。 より多くの機能として、Electronアプリは `exe`と共に、バックグラウンドでタスクを実行する、プッシュ通知を受け取る、他のUWPアプリケーションと通信するなど、表示しないUWPバックグラウンドタスクを組合せることができます。
 
 To compile any existing Electron app, ensure that you have the following requirements:
 
