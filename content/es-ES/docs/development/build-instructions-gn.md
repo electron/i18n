@@ -1,12 +1,12 @@
 # Instrucciones de Compilación (Compilación experimental GN)
 
-Follow the guidelines below for building Electron with the experimental GN build.
+Siga las pautas a continuación para compilar Electron con el compilador GN experimental.
 
-> **NOTE**: The GN build system is in *experimental* status, and currently only works on macOS and Linux, in debug mode, as a component build.
+> **NOTA**: El sistema de compilación GN está en estado *experimental*, y actualmente solo funciona en macOS y Linux, en modo debug, tratándose como un compilador de componentes.
 
 ## Pre-requisitos
 
-See the [macOS](build-instructions-osx.md#prerequisites) or [Linux](build-instructions-linux.md#prerequisites) build instructions for the requirements for your platform. In addition, you'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+Ver las instrucciones de compilación de [ macOS ](build-instructions-osx.md#prerequisites) o [ Linux ](build-instructions-linux.md#prerequisites) según su plataforma. Además, necesitarás instalar [` depot_tools `](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), el conjunto de herramientas utilizado para enlazar Chromium y su dependencias.
 
 ## Obteniendo el código
 
@@ -22,7 +22,7 @@ solutions = [
 ]
 GCLIENT
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# Esto podría tomar un rato, ve por un café.
 ```
 
 ## Compilando
@@ -33,8 +33,8 @@ $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 $ gn gen out/Default --args='root_extra_deps=["//electron"] is_electron_build=true is_component_build=true use_jumbo_build=true v8_promise_internal_field_count=1 v8_typed_array_max_size_in_heap=0'
 ```
 
-This will generate all the ninja files needed for the build. You shouldn't have to run `gn gen` again—if you want to change the build arguments you can run `gn
-args out/Default` to bring up an editor.
+Esto generará todos los archivos ninja necesarios para la compilación. No deberías tener que ejecutar ` gn gen ` nuevamente; si deseas cambiar los argumentos de compilación, puedes ejecutar ` gn
+args out / Default ` para mostrar un editor.
 
 To build, run `ninja` with the `electron:electron_app` target:
 
