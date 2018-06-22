@@ -20,7 +20,7 @@ console.log(dialog)
 
 ## 메서드
 
-`다이얼로그 창` 모듈은 다음과 같은 메서드를 참조합니다:
+`dialog` 모듈은 다음과 같은 메서드를 참조합니다:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
