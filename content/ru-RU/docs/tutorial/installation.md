@@ -85,7 +85,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 При выполнении команды `npm install electron`, некоторые пользователи сталкиваются с проблемами установки.
 
-В большинстве случаев, эти ошибки являются проблемами сети и не связаны с npm пакетом `electron`; Такие ошибки как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, и`ETIMEDOUT` возникают в результате проблем с сетью. The best resolution is to try switching networks, or wait a bit and try installing again.
+В большинстве случаев, эти ошибки являются проблемами сети и не связаны с npm пакетом `electron`; Такие ошибки как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, и`ETIMEDOUT` возникают в результате проблем с сетью. Лучшее решение - попытаться переключить сети, или немного подождать, и попытаться установить снова.
 
 Также вы можете попытаться скачать Electron непосредственно из [electron/electron/releases](https://github.com/electron/electron/releases), если установка через `npm` терпит неудачу.
 

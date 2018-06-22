@@ -46,7 +46,7 @@ npm install --save-dev electron-installer-snap
         ├── locales
         ├── natives_blob.bin
         ├── resources
-        ├── snapshot_blob.bin
+        ├── v8_context_snapshot.bin
         └── version
 ```
 

@@ -1,4 +1,4 @@
-# Native File Drag & Drop
+# 原生文件拖放
 
 作为桌面程序，当然希望能够实现操作系统的 drag & drop 功能。 很多网站已经支持拖拽文件 Electron 当然也支持
 

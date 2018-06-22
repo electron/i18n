@@ -42,7 +42,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 返回:
 
 * `event` Event
-* `state` String - Can be `progressing` or `interrupted`.
+* `state` String - 可以是 `progressing` 或 `interrupted`.
 
 当下载正在执行但还没完成的时候发出。
 
@@ -56,7 +56,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 返回:
 
 * `event` Event
-* `state` String - Can be `completed`, `cancelled` or `interrupted`.
+* `state` String - 可以是 `completed`, `cancelled` 或 `interrupted`.
 
 当下载文件已经到本地时发出。这包括一个完整的下载，取消下载（`downloadItem.cancel()`）和中断不可恢复的下载。
 
@@ -136,7 +136,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+返回 `String` - 表示当前状态。可能是 `progressing`, `completed`, `cancelled` 或者 `interrupted`。
 
 **笔记：** 以下方法特别有助于在会话重新启动时恢复取消的项目。
 

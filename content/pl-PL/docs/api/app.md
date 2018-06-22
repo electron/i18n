@@ -47,7 +47,7 @@ Emitowane przed tym jak aplikacja zacznie zamykać okna. Wywołanie `event.preve
 
 **Uwaga:** Jeśli zamykanie zostało zainicjowane przez `autoUpdater.quitAndInstall()`, wtedy `before-quit` jest emitowany *po* emitowaniu `close` na wszystkich oknach oraz ich zamknięcia.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Uwaga:** W systemie Windows to zdarzenie nie zostanie wyemitowane, jeśli aplikacja zostanie zamknięta z powodu wyłączenia / ponownego uruchomienia systemu lub wylogowania użytkownika.
 
 ### Zdarzenie: 'will-quit'
 
@@ -59,7 +59,7 @@ Emitowane gdy wszystkie okna zostają zamknięte oraz gdy aplikacja się zamyka.
 
 Zobacz opisy `window-all-closed` zdarzeń oraz rózice między zdarzeniami `will-quit` i `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Uwaga:** W systemie Windows to zdarzenie nie zostanie wyemitowane, jeśli aplikacja zostanie zamknięta z powodu wyłączenia / ponownego uruchomienia systemu lub wylogowania użytkownika.
 
 ### Zdarzenie: 'quit'
 
@@ -70,7 +70,7 @@ Zwraca:
 
 Emitowane kiedy aplikacja jest wyłączana.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Uwaga:** W systemie Windows to zdarzenie nie zostanie wyemitowane, jeśli aplikacja zostanie zamknięta z powodu wyłączenia / ponownego uruchomienia systemu lub wylogowania użytkownika.
 
 ### Zdarzenie 'open-file' *macOs*
 
@@ -134,29 +134,29 @@ Zwraca:
 * `type` String - Ciąg identyfikujący działania. Mapuje do [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `error` String - Łańcuch znaków z przetłumaczonym opisem błędu.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+Emitowane podczas [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), gdy aktywność z innego urządzenia nie zostanie wznowiona.
 
-### Event: 'activity-was-continued' *macOS*
-
-Zwraca:
-
-* `event` Event
-* `type` String - Ciąg identyfikujący działania. Mapuje do [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
-
-### Event: 'update-activity-state' *macOS*
+### Zdarzenie 'activity-was-continued' *macOS*
 
 Zwraca:
 
 * `event` Event
 * `type` String - Ciąg identyfikujący działania. Mapuje do [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` Object - Zawiera stan aplikacji specyficzny dla danego działania.
+
+Wyemitowane podczas [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) po tym, jak działanie z tego urządzenia zostało pomyślnie wznowione na innym.
+
+### Zdarzenie 'update-activity-state' *macOS*
+
+Zwraca:
+
+* `event` Event
+* `type` String - Ciąg identyfikujący działania. Mapuje do [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Zawiera stan aplikacji specyficzny dla danego działania.
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
 
-### Event: 'new-window-for-tab' *macOS*
+### Zdarzenie: 'new-window-for-tab' *macOS*
 
 Zwraca:
 
@@ -164,7 +164,7 @@ Zwraca:
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### Zdarzenie: 'browser-window-blur'
 
 Zwraca:
 
@@ -173,7 +173,7 @@ Zwraca:
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Event: 'browser-window-focus'
+### Zdarzenie: 'browser-window-focus'
 
 Zwraca:
 
@@ -182,25 +182,25 @@ Zwraca:
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
-### Event: 'browser-window-created'
+### Zdarzenie: 'browser-window-created'
 
 Zwraca:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Emitowane, gdy tworzony jest nowy [browserWindow](browser-window.md).
 
-### Event: 'web-contents-created'
+### Zdarzenie: 'web-contents-created'
 
 Zwraca:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when a new [webContents](web-contents.md) is created.
+Emitowane, gdy tworzony jest nowy [webContents](web-contents.md).
 
-### Event: 'certificate-error'
+### Zdarzenie: 'certificate-error'
 
 Zwraca:
 
@@ -228,7 +228,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Zdarzenie: 'select-client-certificate'
 
 Zwraca:
 
@@ -285,16 +285,16 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Zdarzenie: 'gpu-process-crashed'
 
 Zwraca:
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Emitowane, gdy proces gpu ulega awarii lub zostaje zakończony.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Zdarzenie: 'accessibility-support-changed' *macOS* *Windows*
 
 Zwraca:
 
@@ -311,13 +311,13 @@ The `app` object has the following methods:
 
 ### `app.quit()`
 
-Spróbuj zamknąć wszystkie okna aplikacji. The `before-quit` event will be emitted first. Jeśli wszystkie okna są poprawnie zamknięte, zdarzenie `will-quit` zostanie wywołane i domyślna aplikacja zostanie zakończona.
+Spróbuj zamknąć wszystkie okna aplikacji. Zdarzenie `before-quit` zostanie wyemitowane jako pierwsze. Jeśli wszystkie okna są poprawnie zamknięte, zdarzenie `will-quit` zostanie wywołane i domyślna aplikacja zostanie zakończona.
 
 This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (opcjonalne)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -326,7 +326,7 @@ Wszystkie okna zostaną natychmiast zamknięte bez pytania się użytkownika ora
 ### `app.relaunch([options])`
 
 * `options` Obiekt (opcjonalne) 
-  * `args` String[] (optional)
+  * `args` String[] (opcjonalne)
   * `execPath` String (opcjonalne)
 
 Relaunches the app when current instance exits.
@@ -374,39 +374,39 @@ Returns `String` - A path to a special directory or file associated with `name`.
 
 Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 
-* `home` User's home directory.
+* `home` Katalog domowy użytkownika.
 * `appData` Per-user application data directory, which by default points to: 
   * `%APPDATA%` on Windows
   * `$XDG_CONFIG_HOME` lub `~/.config` na Linuxie
-  * `~/Library/Application Support` on macOS
+  * `~/Library/Application Support` na macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
+* `temp` Katalog tymczasowy.
+* `exe` Bieżący plik wykonywalny.
 * `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `logs` Directory for your app's log folder.
+* `desktop` Katalog pulpitu bieżącego użytkownika.
+* `documents` Katalog dla "Moje dokumenty" użytkownika.
+* `downloads` Katalog "Pobrane" użytkownika.
+* `music` Katalog z muzyką użytkownika.
+* `pictures` Katalog ze zdjęciami użytkownika.
+* `videos` Katalog z filmami użytkownika.
+* `logs` Katalog folderu dziennika aplikacji.
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
 * `options` Obiekt (opcjonalne) 
-  * `rozmiar` Ciąg tekstu 
+  * `size` Ciąg tekstu 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, brak wsparcia dla *macOS*.
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+W *Windows* są 2 rodzaje ikon:
 
 * Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
 * Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
@@ -683,7 +683,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `callback` Function 
   * `result` Integer - Result of import.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -711,7 +711,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 Returns `Boolean` - Whether the call succeeded.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Sets the counter badge for current app. Setting the count to `0` will hide the badge.
 
 On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
@@ -823,7 +823,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 **Note:** This will not affect `process.argv`.
 
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableMixedSandbox()` *Eksperymentalne* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
@@ -875,11 +875,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Ukrywa ikonę w docku.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Pokazuje ikonę w docku.
 
 ### `app.dock.isVisible()` *macOS*
 
@@ -889,7 +889,7 @@ Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Ustawia [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) aplikacji.
 
 ### `app.dock.setIcon(image)` *macOS*
 

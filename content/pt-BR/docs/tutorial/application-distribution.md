@@ -1,8 +1,8 @@
 # Distribuição de Aplicativos
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Para distribuir seu aplicativo com Electron, você precisa baixar os [binários pré-compilados](https://github.com/electron/electron/releases) do Electron. Depois disso, a pasta contendo seu aplicativo deve ser renomeada para `app` e colocada dentro do diretório de recursos (resources) do Electron como mostrado nos seguintes exemplos. Note que a localização dos binários pré-compilados do Electron está indicada com `electron/` nos exemplos abaixo.
 
-On macOS:
+No macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/app/
@@ -11,7 +11,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+No Windows e Linux:
 
 ```text
 electron/resources/app
@@ -20,48 +20,48 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+Então, execute o `Electron.app` (ou `electron` no Linux, `electron.exe` no Windows), e o Electron vai iniciar seu aplicativo. O diretório `electron` será então a distribuição a ser entregue aos usuários finais.
 
-## Packaging Your App into a File
+## Distribuindo seu app como apenas um arquivo
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Além de poder distribuir seu app copiando todo o seu código fonte, você também pode empacotar seu aplicativo em um arquivo [asar](https://github.com/electron/asar) para impedir que usuários possam ver o código fonte.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Para usar um arquivo `asar` para substituir a pasta `app`, você precisa renomear o arquivo para `app.asar` e colocá-lo dentro da pasta de recursos do Electron como mostrado abaixo, e o Electron irá então ler o arquivo e executar seu app.
 
-On macOS:
+No macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+No Windows e Linux:
 
 ```text
 electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Você pode encontrar mais detalhes em [Empacotamento de Aplicativos](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Colocando sua marca nos binários baixados
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Após deixar seu app Electron pronto para usar, você pode querer personalizar os executáveis do Electron antes de distribuí-los aos usuários.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+Você pode renomear o `electron.exe` para qualquer nome que você quiser, além de editar seu ícone e outras informações com ferramentas como o [rcedit](https://github.com/atom/rcedit).
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Você pode renomear o `Electron.app` para qualquer nome que você quiser, porém você também deve renomear os campos `CFBundleDisplayName`, `CFBundleIdentifier` e `CFBundleName` nos seguintes arquivos:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+Você também pode renomear o app auxiliar para evitar de mostrar `Electron Helper` no Monitor de Atividade, mas não esqueça de renomear o arquivo executável do app auxiliar.
 
-The structure of a renamed app would be like:
+Veja como ficaria a estrutura de um aplicativo renomeado:
 
 ```text
 MyApp.app/Contents
@@ -85,25 +85,25 @@ MyApp.app/Contents
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Você pode renomear o executável `electron` para qualquer nome que você quiser.
 
-## Packaging Tools
+## Ferramentas de empacotamento
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Além de empacotar seu aplicativo manualmente, você também pode escolher usar ferramentas de terceiros para empacotar o app para você:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Personalizar a marca recompilando o Electron direto da fonte
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Também é possível personalizar a marca dos aplicativos alterando o nome do produto e compilando ele direto do código fonte. Para isso, você precisa modificar o arquivo `atom.gyp` executar uma recompilação limpa.
 
-### Creating a Custom Electron Fork
+### Criando um fork personalizado do Electron
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Criar um fork personalizado do Electron, na maioria dos casos, não é algo que você precise fazer para criar seu aplicativo, mesmo em aplicativos a "nível de produção". Usando uma ferramenta como o `electron-packager` ou o `electron-forge`, você será capaz de personalizar a marca do produto final sem ter que realizar esses passos.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Você vai precisar criar um fork do Electron caso você tenha código C++ personalizado que você queira inserir diretamente no Electron e que não pode ser publicado/enviado ou foi rejeitado pela versão oficial. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
 #### Creating a Custom Release with surf-build
 

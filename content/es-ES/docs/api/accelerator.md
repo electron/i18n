@@ -43,7 +43,7 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 
 ## Códigos claves disponibles
 
-* `` a `9`
+* `0` a `9`
 * `A` a `Z`
 * `F1` a `F24`
 * Signos de puntuación como `~`, `!`, `@`, `#`, `` $, etcétera.

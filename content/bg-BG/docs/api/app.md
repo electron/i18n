@@ -683,7 +683,7 @@ app.on('ready', () => {
 * `callback` Function 
   * `result` Integer - Резултата на импортирането.
 
-Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` е извикана с `result` от импортиращата операция, стойност от `` показва успех, докато всяка друга стойност показва провал следващ chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` е извикана с `result` от импортиращата операция, стойност от `0` показва успех, докато всяка друга стойност показва провал следващ chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -711,7 +711,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-Записва брояча на текущото приложение. Записване на стойност `` ще се погрижи за значката.
+Записва брояча на текущото приложение. Записване на стойност `0` ще се погрижи за значката.
 
 На macOS бива показано в иконата на дока. На Linux бива показано сам под Unity launcher,
 

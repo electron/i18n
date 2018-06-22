@@ -1,14 +1,14 @@
-# Actualización del nodo
+# Actualización de Node
 
 ## Discusión
 
-One upgrade issue is building all of Electron with a single copy of V8 to ensure compatibility. Esto es importante debido a que tanto el nodo ascendente y el [libchromiumcontent](upgrading-chromium.md) usan sus propias versiones de V8.
+Un problema para la actualización es construir todo Electron solo con una copia de V8 para asegurar la compatibilidad. Esto es importante debido a que tanto el nodo ascendente y el [libchromiumcontent](upgrading-chromium.md) usan sus propias versiones de V8.
 
 Actualizar el Nodo es mucho más fácil que actualizar el contenido de Libchromium, por lo que se producen menos problemas si se actualiza primero el contenido de Libchromium, y luego se elige la versión del Nodo ascendente cuyo V8 está más cerca de él.
 
 Electron tiene su propio [Node fork](https://github.com/electron/node) con modificaciones para los detalles de construcción del V8 mencionados anteriormente y para exponer el API necesitado por Electron. Una vez que se elija la liberación del nodo ascendente, es colocado en una ramificación en la bifurcación del Nodo de Electron y cualquier parche del Nodo del Electron son colocados ahí.
 
-Otro factor es que el proyecto del Nodo arregla su versión V8. Como es mencionado anteriormente, Electron construye todo con una sola copia de V8, así que los parches V8 de Nodo deben ser presentados a esa copia.
+Otro factor es que el proyecto del Node arregla su versión V8. Como es mencionado anteriormente, Electron construye todo con una sola copia de V8, así que los parches V8 de Node deben ser presentados a esa copia.
 
 Una vez que todas las dependencias de Electron están construyendo y usando la misma copia V8, el siguiente paso es arreglar cualquier problema de código de Electron causado por la actualización del Nodo.
 

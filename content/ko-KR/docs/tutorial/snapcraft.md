@@ -26,11 +26,11 @@ Homebrew를 사용하여 macOS 상에서 `snapcraft`의 설치는 *가능*하지
 npm install --save-dev electron-installer-snap
 ```
 
-### Step 1: Electron 애플리케이션 패키지.
+### 1 단계 : Electron 응용 프로그램 패키지
 
 패키지 애플리케이션은 [electron-packager](https://github.com/electron-userland/electron-packager) (혹은 유사한 도구) 를 사용합니다. 실제로 필요하지 않은 모듈은 애플리케이션의 크기를 증가시킬 것이므로, 최종 애플리케이션에서 필요없는 `node_modules`을 제거하십시오.
 
-결과물은 대략 아래와 같이 보일것 입니다:
+출력된 파일은 대략 다음과 같이 보입니다.
 
 ```text
 .
@@ -46,7 +46,7 @@ npm install --save-dev electron-installer-snap
         ├── locales
         ├── natives_blob.bin
         ├── resources
-        ├── snapshot_blob.bin
+        ├── v8_context_snapshot.bin
         └── version
 ```
 

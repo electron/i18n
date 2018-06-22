@@ -223,7 +223,7 @@ Disables any network emulation already active for the `session`. Resets to the o
     * `errorCode` Integer - Error code.
   * `обратно повикване` Функция 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transparency verification.
+      * `0` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Indicates failure.
       * `-3` - Uses the verification result from chromium.
 

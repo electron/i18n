@@ -1,4 +1,4 @@
-# FileFilter Object
+# كائن FileFilter
 
-* اسم الجهاز
-* اسم الجهاز[]
+* `name` سلسلة نصية
+* `extensions` مصفوفة سلاسل نصية

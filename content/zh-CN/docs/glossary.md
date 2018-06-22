@@ -56,7 +56,7 @@ IPC 代表 Inter-Process Communication。Electron 使用 IPC 来在 [main](#main
 
 一种用于进程内部或进程间通信的 IPC 系统, 这很重要, 因为 Chrome会依据内存压力等来决定是否将其工作分拆给不同的进程。
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+可参考https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### native modules
 

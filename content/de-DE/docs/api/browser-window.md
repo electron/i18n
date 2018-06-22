@@ -125,8 +125,8 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `y` Integer (optional) (**obligatorisch** falls x gesetzt wurde) - Abstand des Fensters zum oberen Bildschirmrand. Das Fenster ist standardmäßig zentriert.
   * `useContentSize` Boolean (optional) - Die `width` und `height` Werte werden als Größe der angezeigten Webseite verwendet. D.h. die tatsächliche Größe des Fensters beinhaltet noch die Rahmengröße und ist deshalb etwas größer. Standard ist `false`.
   * `center` Boolean (optional) - Zeige das Fenster in der Mitte des Bildschirms.
-  * `minWidth` Integer (optional) - Minimale Fensterbreite. Standard ist ``.
-  * `minHeight` Integer (optional) - Minimale Fensterhöhe. Standard ist ``.
+  * `minWidth` Integer (optional) - Minimale Fensterbreite. Standard ist `0`.
+  * `minHeight` Integer (optional) - Minimale Fensterhöhe. Standard ist `0`.
   * `maxWidth` Integer (optional) - Maximale Fensterbreite. Standardmäßig gibt es kein Limit.
   * `maxHeight` Integer (optional) - Maximale Fensterhöhe. Standardmäßig gibt es kein Limit.
   * `resizable` Boolean (optional) - Gibt an ob die Fenstergröße geändert werden kann. Standard ist `true`.
@@ -199,7 +199,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
       * `fantasy` String (optional) - Defaults to `Impact`.
     * `defaultFontSize` Integer (optional) - Defaults to `16`.
     * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to ``.
+    * `minimumFontSize` Integer (optional) - Defaults to `0`.
     * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
@@ -222,7 +222,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 Objects created with `new BrowserWindow` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Hinweis:** Manche Methoden sind nur auf spezifischen Betriebssystemen verfügbar und sind dementsprechend gekennzeichnet.
 
 #### Event: 'page-title-updated'
 
@@ -767,7 +767,7 @@ Rückgabewert:
   
   * `flag` Boolean
   * `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-  * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+  * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
   
   Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
   
@@ -1041,7 +1041,7 @@ Rückgabewert:
   * `options` Object 
     * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
     * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-    * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
+    * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
     * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
     * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
   

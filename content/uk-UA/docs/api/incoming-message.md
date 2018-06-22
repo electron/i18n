@@ -1,4 +1,4 @@
-## Class: IncomingMessage
+## Клас: IncomingMessage
 
 > Handle responses to HTTP/HTTPS requests.
 
@@ -8,7 +8,7 @@
 
 ### Події екземпляру
 
-#### Event: 'data'
+#### Подія: 'data'
 
 Повертає:
 
@@ -16,11 +16,11 @@
 
 The `data` event is the usual method of transferring response data into applicative code.
 
-#### Event: 'end'
+#### Подія: 'end'
 
 Indicates that response body has ended.
 
-#### Event: 'aborted'
+#### Подія: 'aborted'
 
 Emitted when a request has been canceled during an ongoing HTTP transaction.
 

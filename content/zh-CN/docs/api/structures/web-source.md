@@ -1,5 +1,5 @@
 # WebSource Object
 
 * `code` String
-* `url` String (optional)
-* `startLine` Integer (optional) - Default is 1.
+* ` url ` String（可选）
+* ` startLine ` Integer (可选) - 默认值为 1.

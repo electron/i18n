@@ -125,8 +125,8 @@ Ito ay gumagawa ng panibagong `BrowserWindow` na may likas na mga ari-arian na i
   * `y` Integer (optional) (**required** Kung ang x ay nagamit) - Ioffset ang windows sa itaas ng screen Ang Default ay nasa sentro ng windows.
   * `useContentSize` Boolean (optional) - The `width` and `height`ay gagamtin bilang web ang sukat ng pahina, ibig sabihin ang aktwal na sukat ng windoz ay kasama ng sukat ng window frame na medyo malaki. Ang default ay `false`.
   * `center` Boolean (optional) - Makikita ang window sa sentro ng screen.
-  * `minWidth` Integer (optional) - Ang windows na mayroong maliit ng lapad Default ay ``.
-  * `minHeight` Integer (optional) - Ang minimum na height ng windows. Default ay ``.
+  * `minWidth` Integer (optional) - Ang windows na mayroong maliit ng lapad Default ay `0`.
+  * `minHeight` Integer (optional) - Ang minimum na height ng windows. Default ay `0`.
   * `maxWidth` Integer (optional) - Ang lapad ng windows Default ay hindi limitado.
   * `maxHeight` Integer (opsyonal) - Pinakamalakas na taas ng window. Ang default ay hindi limitado.
   * `resizable` Boolean (opsyonal) - Kung ang window ay pweding baguhin. Ang default ay `true`.
@@ -200,7 +200,7 @@ sa macOS. Ang default ay <code>false`.
       * Ang `fantasy` String (opsyonal) - Angmga default para sa `Impact`.
     * Ang `defaultFontSize` Integer (opsyonal) - Ang mga default para sa `16`.
     * Ang `defaultMonospaceFontSize` Integer (opsyonal) - Ang mga default para sa `13`.
-    * Ang `minimumFontSize` Integer (opsyonal) - Ang mga default para sa ``.
+    * Ang `minimumFontSize` Integer (opsyonal) - Ang mga default para sa `0`.
     * Ang `defaultEncoding` String (opsyonal) - Ang mga default para sa `ISO-8859-1`.
     * `backgroundThrottling` Boolean (opsyonal) - Kapag sinakal ang mga animation at timers kapag ang pahina ay maging background. Ito ay maaring makaapekto sa [Page Visibility API](#page-visibility). Ang default sa `tama`.
     * `offscreen` Boolean (opsyonall) - Kung papaganahin ang pag-render ng offscreen para sa browser ng window. Naka-default sa `false`. Tignan ang [pagtuturo sa pag rerender ng offscreen](../tutorial/offscreen-rendering.md) para sa mas maraming paliwanag.
@@ -768,7 +768,7 @@ Ang Linux ay palaging bumabalik `tama`.
 
 * `flag` Boolean
 * `level` String (opsyonal) *macOS* -Mga balyu na kasali `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). Ang pag-default ay `floating`. Tignan ang [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) para sa maraming mga detalye.
-* `relativeLevel` Integer (optional) *macOS* - Ang dami ng suson ay mataas sa set itong window ay may kaugnayan sa ibinibigay `level`. Ang kawalan ay ``. Tanda ng ansanas hinihikayat ang antas ng setting na mas mataas sa 1 na itataas `screen-saver`.
+* `relativeLevel` Integer (optional) *macOS* - Ang dami ng suson ay mataas sa set itong window ay may kaugnayan sa ibinibigay `level`. Ang kawalan ay `0`. Tanda ng ansanas hinihikayat ang antas ng setting na mas mataas sa 1 na itataas `screen-saver`.
 
 Nagtatakda kung dapat magpakita palagi ang window sa itaas ng iba pang mga bintana. Pagkatapos setting na ito, ang window ay pa rin ng normal na window, hindi isang window ng toolbox na ay hindi maaaring nakatuon sa.
 
@@ -1042,7 +1042,7 @@ Itakda ang toolTip na ipinapakita habang nag-hohover higit sa window ng thumbnai
 * `options` Bagay 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Ito ay dapat na itakda, kung hindi man ay ang ibang opsyon ay walang epekto.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Ang index ng icon sa `appIconPath`. Hindi pinansin kung `appIconPath` hindi naitakda. Default ay ``.
+  * `appIconIndex` Integer (optional) - Ang index ng icon sa `appIconPath`. Hindi pinansin kung `appIconPath` hindi naitakda. Default ay `0`.
   * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 

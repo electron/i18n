@@ -2,9 +2,9 @@
 
 Electron позволяет создавать настольные приложения на чистом JavaScript, предоставляя среду выполнения с богатым нативным интерфейсом API (операционной системы). Вы могли видеть это как вариант времени выполнения Node.js, ориентированного на настольные приложения вместо веб-серверов.
 
-The old "Quick Start" document that used to live here has been split up into two documents:
+Старый документ "Быстрый старт" который раньше использовался здесь, был поделен на два документа:
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* Чтобы узнать, как сделать простое приложение при помощи Electron, смотри: [Пишем свое первое приложение на Electron](./first-app.md)
+* Чтобы проверить архитектуру процесса, смотри [Основные и Визуализирующие процессы](./application-architecture.md#main-and-renderer-processes).
 
-To learn more about Electron, check out the [official guides](../).
+Чтобы узнать больше об Electron, смотрите [официальное руководство](../).

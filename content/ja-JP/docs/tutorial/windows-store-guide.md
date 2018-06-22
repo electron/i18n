@@ -1,14 +1,14 @@
 # Windowsストア ガイド
 
-With Windows 10, the good old win32 executable got a new sibling: The Universal Windows Platform. The new `.appx` format does not only enable a number of new powerful APIs like Cortana or Push Notifications, but through the Windows Store, also simplifies installation and updating.
+Windows 10では、古き良き Win32 実行形式は新たな兄弟をむかえました: Universal Windows Platform。 新しい `.appx` フォーマットは、Cortana や Push通知のような新しい強力な API を利用できるだけでなく、Windows ストアを通じて、シンプルなインストールとアップデートが可能になります。
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+Microsoft は [Electron アプリを `.appx` パッケージとしてコンパイル可能なツールを開発](https://github.com/catalystcode/electron-windows-store)したため、開発者は新しいアプリケーション モデルの一部を使用できます。 このガイドではその使用方法 - Electron AppX パッケージの機能と制限について解説します。
 
-## Background and Requirements
+## 背景と必要条件
 
-Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+Windows 10 "Anniversary Update" では、仮想ファイルシステムとレジストリと共に起動することで win32 `.exe` バイナリを実行できます。 どちらも、Windows Container内部でアプリとインストーラーを実行することで、インストール中のオペレーティングシステムに対する変更を正確に検出できます。 仮想ファイルシステムと仮想レジストリを実行ファイルのペアにすることで、Windowsがワンクリックでインストールとアンインストールが可能になる。
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+さらにexeは内部的にはappxモデルとして起動される - つまりUniversal Windows Platformで利用可能なAPIの多くを使用できる。 より多くの機能として、Electronアプリは `exe`と共に、バックグラウンドでタスクを実行する、プッシュ通知を受け取る、他のUWPアプリケーションと通信するなど、表示しないUWPバックグラウンドタスクを組合せることができます。
 
 To compile any existing Electron app, ensure that you have the following requirements:
 
@@ -47,7 +47,7 @@ The output should look roughly like this:
 ├── resources
 │   ├── app
 │   └── atom.asar
-├── snapshot_blob.bin
+├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
 ```

@@ -90,7 +90,7 @@ Inserts the `menuItem` to the `pos` position of the menu.
 
 Objects created with `new Menu` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Hinweis:** Manche Methoden sind nur auf spezifischen Betriebssystemen verfügbar und sind dementsprechend gekennzeichnet.
 
 #### Event: 'menu-will-show'
 

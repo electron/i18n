@@ -121,8 +121,8 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
   * `y` Integer (isteğe bağlı) (**required** eğer x kullanılmışsa) - Pencerenin ekrandan üst offseti. Varsayılan pencere ortasıdır.
   * `useContentSize` Boolean (isteğe bağlı) - `Genişlik` ve `yüksekliğin` web sayfasının boyutu olarak kullanılması gerçek pencerenin boyutunun, pencere çerçevesinin boyutunu ve biraz daha fazlasını içereceği anlamına gelmektedir. Varsayılanı `false`.
   * `center` Boolean (isteğe bağlı) - Pencereyi ekranın ortasında gösterin.
-  * `minWidth` Integer (isteğe bağlı) - Pencerenin minimum genişliği. Varsayılan ``'dır.
-  * `minHeight` Integer (isteğe bağlı) - Pencerenin minimum yüksekliği. Varsayılan ``'dır.
+  * `minWidth` Integer (isteğe bağlı) - Pencerenin minimum genişliği. Varsayılan `0`'dır.
+  * `minHeight` Integer (isteğe bağlı) - Pencerenin minimum yüksekliği. Varsayılan `0`'dır.
   * `maxWidth` Integer (isteğe bağlı) - Pencerenin maksimum genişliği. Varsayılan bir limit yoktur.
   * `maxHeight` Integer (isteğe bağlı) - Pencerenin maksimum yüksekliği. Varsayılan bir limit yoktur.
   * `resizable` Boolean (isteğe bağlı) - pencerenin yeniden boyutlandırılıp boyutlandırılamadığıdır. Varsayılan değer `true`'dur.
@@ -196,7 +196,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
       * `fantasy` Dize (isteğe bağlı) - Varsayılanı `impact` olarak belirler.
     * `defaultFontSize` Tamsayı (isteğe bağlı) - Varsayılanı `16` olarak belirler.
     * `defaultMonospaceFontSize` Tamsayı (isteğe bağlı) - Varsayılanı `13` olarak belirler.
-    * `minimumFontSize` Tamsayı (isteğe bağlı) - Varsayılanı `` olarak belirler.
+    * `minimumFontSize` Tamsayı (isteğe bağlı) - Varsayılanı `0` olarak belirler.
     * `defaultEncoding` Dize (isteğe bağlı) - Varsayılanı `ISO-8859-1` olarak belirler.
     * `backgroundThrottling` Bağlaç (isteğe bağlı) - Sayfa arka plandayken animasyonların ve zamanlayıcıların kısıtlanması. Bu da [Page Visibility API](#page-visibility) etkiler. Varsayılanı `true` olarak belirler.
     * `offScreen` Boolean (isteğe bağlı) - Tarayıcı için ekran dışı görüntülemeyi etkinleştirip destekleyip desteklemeyeceğini belirtir penceresi. Varsayılan değer `false`. Bak [için ekran dışı işleme öğretici](../tutorial/offscreen-rendering.md) daha fazla detay.
@@ -766,7 +766,7 @@ Linux'ta daima geri dönüyor `true`.
 * `flag` Boolean
 * `level` String opsiyonel) *macOS*- Değerleri içerir `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, ve ~~`dock`~~ (Artık kullanılmaz). Varsayılan değer `floating`. Daha fazla ayrıntı için macOS docs</0' e bakın.</li> 
   
-  * `relativeLevel` Tamsayı (isteğe bağlı)*macOS* - Bu pencerenin verilen `level` değerine göre katman sayısı daha yüksek. Varsayılan değer ``. Genellikle Apple 1 seviyesinin üstünde `screen-saver` ayarlanmasını istemez.</ul> 
+  * `relativeLevel` Tamsayı (isteğe bağlı)*macOS* - Bu pencerenin verilen `level` değerine göre katman sayısı daha yüksek. Varsayılan değer `0`. Genellikle Apple 1 seviyesinin üstünde `screen-saver` ayarlanmasını istemez.</ul> 
   
   Pencerenin her zaman diğer pencerelerin üstünde gösterilip gösterilmeyeceğini ayarlamaktadır. Bu ayarlamadan sonra, pencere hala odaklanılamayan bir araç kutusu penceresi değil normal bir pencere olacaktır.
   
@@ -1041,7 +1041,7 @@ Linux'ta daima geri dönüyor `true`.
   * `seçenekler` Nesne 
     * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Kurulmuş olması gerekir, yoksa diğer ayarların bir etkisi olmayacaktır.
     * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-    * `appIconIndex` Integer (isteğe bağlı) - Simge dizini `appIconPath`. `appIconPath` komutu ayarlanmadığında yokmuş gibi davranılır. Varsayılan değer ``.
+    * `appIconIndex` Integer (isteğe bağlı) - Simge dizini `appIconPath`. `appIconPath` komutu ayarlanmadığında yokmuş gibi davranılır. Varsayılan değer `0`.
     * `relaunchCommand` String (isteğe bağlı) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
     * `relaunchDisplayName` dizin (isteğe bağlı) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
   

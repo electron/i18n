@@ -1,10 +1,10 @@
-## Class: TouchBarColorPicker
+## Клас: TouchBarColorPicker
 
-> Create a color picker in the touch bar for native macOS applications
+> Створює палітру кольорів на Touch Bar для нативних macOS додатків
 
 Процес: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarColorPicker(options)` *Experimental*
+### `new TouchBarColorPicker(options)` *Експериментальний*
 
 * `options` Об'єкт 
   * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.

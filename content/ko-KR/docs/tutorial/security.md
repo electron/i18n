@@ -2,7 +2,7 @@
 
 웹 개발자로서, 우리는 일반적으로 브라우저의 강력한 보안망의 덕을 보고 있습니다 - 덕분에 우리가 작성한 코드와 관련된 위험은 비교적 적습니다. 우리의 웹 사이트는 샌드 박스에 제한된 권한을 부여 받았으며, 새로 발견 된 보안 위협에 신속하게 대응할 수있는 대규모 엔지니어 팀이 만든 브라우저를 사용하는 덕분에 우리의 유저를 신뢰합니다.
 
-Electron으로 작업할때, Electron이 웹 브라우저가 아니라는 점을 이해하는 것이 중요합니다. 익숙한 웹 기술로 풍부한 기능의 데스크톱 응용 프로그램을 만들 수 있는것 뿐만 아니라, 여러분의 코드는 훨씬더 큰힘을 발휘합니다. 자바스크립트는 파일시스템, 유저 shell, 등 에 접근이 가능합니다. 이를 통해 고급 스러운 native 애플리케이션을 만들 수 있지만, 코드에 부여 된 추가 권한으로 인해 고유한 보안 위험이 커집니다.
+Electron으로 작업할때, Electron이 웹 브라우저가 아니라는 점을 이해하는 것이 중요합니다. 익숙한 웹 기술로 풍부한 기능의 데스크톱 응용 프로그램을 만들 수 있는것 뿐만 아니라, 여러분의 코드는 더큰 권한을 갖습니다. 자바스크립트는 파일시스템, 유저 shell, 등 에 접근이 가능합니다. 이를 통해 고급 스러운 native 애플리케이션을 만들 수 있지만, 코드에 부여 된 추가 권한으로 인해 고유한 보안 위험이 커집니다.
 
 이를 염두에두고, 신뢰할 수 없는 출처의 임의의 콘텐츠를 표시하면 Electron이 처리할 수 없는 심각한 보안 위험을 야기합니다. 사실, 가장 인기있는 Electron 앱들 (Atom, Slack, Visual Studio Code 등) 은 주로 로컬 콘텐츠(또는 노드 통합이 없는 신뢰할 수 있는 안전한 원격 콘텐츠) 를 표시합니다. - 만약 애플리케이션에서 온라인 소스의 코드를 실행하는 경우, 코드가 악의적이지 않은지 확인하는 것은 사용자의 책임입니다.
 
@@ -247,11 +247,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 왜냐구요?
     
-    CSP는 서버가 콘텐츠를 제한적이고 웹페이지의 리소스를 제어하는 것을 허용하도록 합니다, 또한 Electron은 주어진 그 페이지를 로드 할 수 있습니다. `https://evil.attacker.com`에서는 실행되지 않아야 하고, `https://your-page.com`에서는 정의한 스크립트가 로드 되게 해야 합니다. CSP를 정의하는 것이 애플리케이션 보안을 향상하는 쉬운 방법입니다.
-    
-    ### 어떻게 하나요?
-    
-    Electron은 [`Content-Security-Policy` HTTP 헤더](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)와 `<meta>` 태그를 지킵니다.
+    CSP는 서버가 콘텐츠를 제한적이고 웹페이지의 리소스를 제어하는 것을 허용하도록 합니다, 또한 Electron은 주어진 그 페이지를 로드 할 수 있습니다. `https://evil.attacker.com`에서는 실행되지 않아야 하고, `https://your-page.com`에서는 정의한 스크립트가 로드 되게 해야 합니다. Defining a CSP is an easy way to improve your application's security.
     
     다음 CSP는 Electron이 현재 웹사이트와 `apis.mydomain.com`에서만 스크립트를 실행하게 허용합니다.
     
@@ -262,6 +258,28 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     // 좋은 예
     Content-Security-Policy: script-src 'self' https://apis.mydomain.com
     ```
+    
+    ### CSP HTTP Header
+    
+    Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+    
+    ```javascript
+    const {session} = require('electron')
+    
+    session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+      callback({responseHeaders: `default-src 'none'`})
+    })
+    ```
+    
+    ### CSP Meta Tag
+    
+    CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
+    
+    ```html
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
+    ```
+    
+    #### `webRequest.onHeadersReceived([filter, ]listener)`
     
     ## 7) `eval`의 재정의 및 비활성화
     

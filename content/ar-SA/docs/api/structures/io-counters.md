@@ -1,8 +1,8 @@
-# IOCounters Object
+# كائن IOCounters
 
-* `readOperationCount` Number - The number of I/O read operations.
-* `writeOperationCount` Number - The number of I/O write operations.
-* `otherOperationCount` Number - Then number of I/O other operations.
-* `readTransferCount` Number - The number of I/O read transfers.
-* `writeTransferCount` Number - The number of I/O write transfers.
-* `otherTransferCount` Number - Then number of I/O other transfers.
+* `readOperationCount` رقم - عدد عمليات القراءة في I/O.
+* `writeOperationCount` رقم - عدد عمليات الكتابة في I/O.
+* `otherOperationCount` رقم - عدد العمليات الأخرى في I/O.
+* `readTransferCount` رقم - عدد تحويلات القراءة في I/O.
+* `writeTransferCount` رقم - عدد تحويلات الكتابة في I/O.
+* `otherTransferCount` رقم - عدد التحويلات الأخرى في I/O.

@@ -24,8 +24,8 @@ El módulo `dialogo` tiene los siguientes métodos:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` Object 
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
+* `opciones` Object 
   * `título` cadena (opcional)
   * `defaultPath` Cadena (optional)
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
@@ -35,15 +35,15 @@ El módulo `dialogo` tiene los siguientes métodos:
     * `openDirectory` - Le permite a los directorios ser seleccionados.
     * `multiSelections` - Permite que varios caminos sean seleccionados.
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `createDirectory` *macOS*- Permite crear nuevos directorios a partir del diálogo.
+    * `promptToCreate` *Windows* - Aviso para la creación si la ruta de fichero insertado en el diálogo no existe. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
+    * `noResolveAliases`*macOS*-Desactiva la resolución rutas de alias automático (symlink). Los alias seleccionados devolverán las rutas de los alias en vez de su ruta objetivo.
+    * `treatPackageAsDirectory` *macOS* - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar encima de las cajas de entrada.
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+  * `securityScopedBookmarks` Boolean (opcional) *macOS* *MAS* - Crea [marcadores de seguridad](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) cuando se empacan para la Mac App Store.
 * `callback` Function (opcional) 
   * `filePaths` Cadena[] - Un arreglo del camino de archivos elegido por el usuario
-  * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+  * `bookmarks` String[] *macOS* *mas* - Un array conteniendo las ` rutas de archivo ` codificados en strings en base64 que contiene datos de marcadores de seguridad. `securityScopedBookmarks` debe estar activado para ser poblado.
 
 Devuelve `String[]`, un arreglo del camino de archivos elegido por el usuario, si la llamada de vuelta es proveída, devuelve `undefined`.
 
@@ -70,7 +70,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
 * `opciones` Object 
   * `título` cadena (opcional)
   * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
@@ -94,7 +94,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `opciones` Object 
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
   * `buttons` Cadena[] (opcional) - Arreglo de textos por botones. En Windows, un arreglo vacío resultará en un botón con la etiqueta "OK".
@@ -105,7 +105,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
   * `checkboxLabel` Cadena (opcional) - Si es proveído, la caja de mensaje será incluido en una caja de chequeo con la etiqueta dada. El estado de la caja puede ser inspeccionado solo cuando se usa `callback`.
   * `checkboxChecked` Boolean (opcional) - Inicial estado de chequeo de la caja. `false` por defecto.
   * `icon` [NativeImage](native-image.md) (opcional)
-  * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si los botones etiquetados no existen y está opción no está establecida, `` será usado como un valor de retorno o una respondida de llamada de vuelta. Esta opción es ignorada en Windows.
+  * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si los botones etiquetados no existen y está opción no está establecida, `0` será usado como un valor de retorno o una respondida de llamada de vuelta. Esta opción es ignorada en Windows.
   * `noLink` Boolean (opcional) - En Windows Electron se tratará de averiguar cuál de los `buttons` son botones comunes (como "Cancelar" o "Sí"), y muestra los otros como links de comandos en el diálogo. Esto puede hacer que el diálogo aparezca en el estilo de las aplicaciones modernas de Windows. Si no te gusta este comportamiento, puedes establecer `noLink` a `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normalizar el acceso al teclado a través de las plataformas. Por defecto es `false`. Permitir esto asume que `&` es usado en las etiquetas de los botones para el colocamiento de los atajos de acceso de las teclas del teclado y las etiquetas serán convertidas para que funcionen correctamente en cada plataforma, `&` personajes serán eliminados de macOS, convertidos a `_` en Linux, y dejado intacto en Windows. Por ejemplo, una etiqueta de botón de `Vie&w` será convertida a `Vie_w` en Linux y `View` en macOS y puede ser seleccionado vía `Alt-W` en Windows y Linux.
 * `callback` Function (opcional) 
@@ -131,7 +131,7 @@ Esta API puede ser llamada seguramente antes que el evento `ready` el módulo `a
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `opciones` Object 
   * `certificate` [Certificate](structures/certificate.md) - El certificado a confiar/importar.
   * `message` Cadena - El mensaje a mostrar al usuario.
@@ -146,6 +146,6 @@ En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
 
 ## Páginas
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
+En macOS, los diálogos son presentados como hojas ancladas a una ventana si se indica una referencia de [`BrowserWindow`](browser-window.md) en el parámetro `browserWindow`, o modales si no se indica ventana.
 
 Puedes llamar a `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` para cambiar el offset del cuadro de la ventana en donde las páginas fueron adjuntadas.

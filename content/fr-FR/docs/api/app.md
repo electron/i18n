@@ -444,7 +444,7 @@ Remplace le nom de l'application actuelle.
 
 Retourne `String` - La localisation actuelle de l'application. Les valeurs possibles retournées sont documentées [ici](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Pour définir la localisation, utilisez un paramètre de ligne de commande au démarrage de l'application, que vous trouverez [ici](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Remarque :** À la distribution de votre application empaquetée, vous devrez également inclure le dossier `locales`.
 
@@ -607,11 +607,11 @@ app.setJumpList([
 
 Retourne `Boolean`.
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+Cette méthode fait de votre application une Application à Instance Unique : au lieu d'autoriser plusieurs instances parallèles de votre application, cela permet de s'assurer qu'une seule est active, et les autres instances envoient un signal à celle-ci puis se terminent.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` est un tableau d’arguments de ligne de commande de la deuxième instance, et `workingDirectory` est son répertoire de travail courant. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
+`callback` sera appelé par la première instance avec `callback(argv, workingDirectory)` lorsqu'une deuxième instance a été exécutée. `argv` est un tableau d’arguments de ligne de commande de la deuxième instance, et `workingDirectory` est son répertoire de travail courant. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+L'exécution du `callback` est garantie après que l'évènement `ready` de l'`app` a été émis.
 
 This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
 

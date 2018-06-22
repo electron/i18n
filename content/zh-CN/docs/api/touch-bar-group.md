@@ -7,4 +7,4 @@
 ### `new TouchBarGroup(options)` *Experimental*
 
 * `options` Object 
-  * `items` [TouchBar](touch-bar.md) - Items to display as a group.
+  * `items` [TouchBar](touch-bar.md) - 以分组的方式显示元素.

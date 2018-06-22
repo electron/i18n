@@ -46,7 +46,7 @@ La sortie devrait ressembler à peu près à ceci :
         ├── locales
         ├── natives_blob.bin
         ├── resources
-        ├── snapshot_blob.bin
+        ├── v8_context_snapshot.bin
         └── version
 ```
 

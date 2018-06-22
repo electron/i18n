@@ -1,6 +1,6 @@
 ## 类: TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> 在原生macOS应用程序的触摸栏中创建一个标签
 
 线程：[主线程](../tutorial/quick-start.md#main-process)
 
@@ -8,16 +8,17 @@
 
 * `options` Object 
   * `label` String (可选) - 显示的文本.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+  * `textColor` String（可选） - 文本的十六进制颜色，例如#ABCDEF。
 
 ### 实例属性
 
-The following properties are available on instances of `TouchBarLabel`:
+以下属性可用于 `TouchBarLabel`:
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+表示标签当前文本的字符串。 更改此值会立即更新触摸栏中的标签。
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+代表标签当前文字颜色的 字符串</ 0> 十六进制代码。 更改此值立即更新
+标签在触摸栏中。</p>

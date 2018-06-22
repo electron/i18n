@@ -43,7 +43,7 @@ Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at 
 
 ## Ang mga key code na magagamit
 
-* Mula `` hanggang `9`
+* Mula `0` hanggang `9`
 * Mula `A` hanggang `Z`
 * Mula `F1` hanggang `F24`
 * Mga bantas tulad ng `~`, `!`, `@`, `#`, `$`, atbp.

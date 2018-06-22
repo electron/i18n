@@ -247,11 +247,7 @@ Content Security Policy (CSP) は、クロスサイトスクリプティング�
 
 ### なぜ？
 
-CSP を使用すると、コンテンツを提供するサーバーが、指定されたウェブページに Electron がロードできるリソースを、制限および制御できます。 `https://your-page.com` は、`https://evil.attacker.com` からのスクリプトは許可せず、定義したオリジンのスクリプトを読み込むことを許可して実行する必要があります。 CSP を定義することは、アプリケーションのセキュリティを向上させる簡単な方法です。
-
-### どうすればいいの？
-
-Electron は [`Content-Security-Policy` HTTP ヘッダー](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) とそれぞれの `<meta>` タグを尊重します。
+CSP を使用すると、コンテンツを提供するサーバーが、指定されたウェブページに Electron がロードできるリソースを、制限および制御できます。 `https://your-page.com` は、`https://evil.attacker.com` からのスクリプトは許可せず、定義したオリジンのスクリプトを読み込むことを許可して実行する必要があります。 Defining a CSP is an easy way to improve your application's security.
 
 以下の CSP は、Electron が現在のウェブサイトと `apis.mydomain.com` からスクリプトを実行できるようにします。
 
@@ -262,6 +258,28 @@ Content-Security-Policy: '*'
 // OK
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
+
+### CSP HTTP Header
+
+Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+
+```javascript
+const {session} = require('electron')
+
+session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+  callback({responseHeaders: `default-src 'none'`})
+})
+```
+
+### CSP Meta Tag
+
+CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'">
+```
+
+#### `webRequest.onHeadersReceived([filter, ]listener)`
 
 ## 7) `eval` を書き換えて無効にする
 
@@ -419,4 +437,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。ただ単にウェブサイトを表示するという目的であれば、Electron アプリケーションよりもブラウザを利用した方がよりセキュアでしょう。
+繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。ただ単にWebサイトを表示するという目的であれば、Electronアプリケーションよりもブラウザを利用した方がよりセキュアでしょう。

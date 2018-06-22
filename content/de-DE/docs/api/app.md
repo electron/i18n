@@ -684,7 +684,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         * `callback` Funktion 
           * `result` Integer - Result of import.
         
-        Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+        Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
         
         ### `app.disableHardwareAcceleration()`
         
@@ -712,7 +712,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Returns `Boolean` - Whether the call succeeded.
         
-        Sets the counter badge for current app. Setting the count to `` will hide the badge.
+        Sets the counter badge for current app. Setting the count to `0` will hide the badge.
         
         On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
         

@@ -233,11 +233,7 @@ Kebijakan kemanan konten (CSP) adalah lapisan perlindungan tambahan terhadap ser
 
 ### Mengapa?
 
-CSP memungkinkan server yang menyajikan konten untuk membatasi dan mengontrol sumber daya Electron dapat dimuat untuk halaman web yang diberikan. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your applications security.
-
-### Bagaimana?
-
-Electron respects [the `Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the respective `<meta>` tag.
+CSP memungkinkan server yang menyajikan konten untuk membatasi dan mengontrol sumber daya Electron dapat dimuat untuk halaman web yang diberikan. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
 
 CSP berikut akan memungkinkan Electron untuk mengeksekusi script dari situs web saat ini dan dari `apis.mydomain.com`.
 
@@ -248,6 +244,28 @@ Content-Security-Policy: '*'
 // Good
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
+
+### CSP HTTP Header
+
+Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+
+```javascript
+const {session} = require('electron')
+
+session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+  callback({responseHeaders: `default-src 'none'`})
+})
+```
+
+### CSP Meta Tag
+
+CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'">
+```
+
+#### `webRequest.onHeadersReceived([filter, ]listener)`
 
 ## 7) Ganti dan Nonaktifkan `eval`
 
@@ -271,7 +289,7 @@ window.eval = global.eval = function () {
 
 ## 8) Do Not Set `allowRunningInsecureContent` to `true`
 
-*Rekomendasi adalah elektron 's default*
+*Recommendation is Electron's default*
 
 By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -327,7 +345,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 10) Do Not Use `enableBlinkFeatures`
 
-*Recommendation is Electron's default*
+*Rekomendasi adalah elektron 's default*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -347,15 +365,14 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow()
+Baik const mainWindow = BrowserWindow() baru
 ```
 
 ## 11) Jangan Gunakan ` allowpopups </ code></h2>
 
 <p><em>Recommendation is Electron's default</em></p>
 
-<p>Jika Anda menggunakan <a href="../api/web-view.md"><code>WebView`</a>, Anda mungkin perlu halaman dan script dimuat dalam tag `<webview>` untuk membuka jendela baru. Atribut `allowpopups` memungkinkan mereka untuk menciptakan baru [`BrowserWindows`](../api/browser-window.md) menggunakan metode `window.open()`. `WebViews` sebaliknya tidak diperbolehkan untuk membuat jendela baru.</p> 
+<p>If you are using <a href="../api/web-view.md"><code>WebViews`</a>, you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` sebaliknya tidak diperbolehkan untuk membuat jendela baru.</p> 
 
 ### Mengapa?
 
@@ -364,7 +381,7 @@ Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan 
 ### Bagaimana?
 
 ```html
-<webview allowpopups src="page.html"></webview> <webview src="page.html"></webview>
+<!--buruk--> <webview allowpopups src="page.html"></webview> <!--baik--> <webview src="page.html"></webview>
 ```
 
 ## 12) Verifikasi Pilihan WebView Sebelum Penciptaan

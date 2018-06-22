@@ -2,7 +2,7 @@
 
 > Tạo ra tray, dock, và các biểu tượng của ứng dụng bằng cách sử dụng tập tin PNG hoặc JPG.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Tiến trình: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 

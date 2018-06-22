@@ -1,8 +1,8 @@
 # Підтримувані Параметри Командного Рядка Chrome
 
-> Command line switches supported by Electron.
+> Параметри командного рядка, підтримувані Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+Ви можете використовувати [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) для додавання параметрів командного рядка в основний скрипт Вашого додатку, перед появою події [ready](app.md#event-ready) в модулі [app](app.md):
 
 ```javascript
 const {app} = require('electron')
@@ -10,39 +10,39 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // Your code here
+  // Ваш код
 })
 ```
 
-## --ignore-connections-limit=`domains`
+## --ignore-connections-limit=`домени`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Ігнорувати ліміт підключень для списку `доменів`, розділених `,`.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Відключає дисковий кеш для HTTP-запитів.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Відключити протоколи HTTP/2 і SPDY/3.1.
 
 ## --lang
 
-Set a custom locale.
+Встановити користувацьку мову.
 
-## --inspect=`port` and --inspect-brk=`port`
+## --inspect=`порт` і --inspect-brk=`порт`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Зв'язані з відладкою прапорці, дивіться [Відлагодження основного процесу](../tutorial/debugging-main-process.md) для деталей.
 
-## --remote-debugging-port=`port`
+## --remote-debugging-port=`порт`
 
-Enables remote debugging over HTTP on the specified `port`.
+Дозволяє віддалено відлагоджувати через HTTP для вказаного `порту`.
 
-## --disk-cache-size=`size`
+## --disk-cache-size=`розмір`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Встановлює максимальний розмір для кешу диску, в байтах.
 
-## --js-flags=`flags`
+## --js-flags=`прапорці`
 
 Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
@@ -52,11 +52,11 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
-## --proxy-server=`address:port`
+## --proxy-server=`адреса:порт`
 
 Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
 
-## --proxy-bypass-list=`hosts`
+## --proxy-bypass-list=`хости`
 
 Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
@@ -77,7 +77,7 @@ Uses the PAC script at the specified `url`.
 
 Не використовувати проксі-сервер і завжди робити прямі з'єднання. Замінює будь-які інші проксі-сервер прапорів, які передаються.
 
-## --host-rules=`rules`
+## --host-rules=`правила`
 
 A comma-separated list of `rules` that control how hostnames are mapped.
 
@@ -90,7 +90,7 @@ A comma-separated list of `rules` that control how hostnames are mapped.
 
 These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
-## --host-resolver-rules=`rules`
+## --host-resolver-rules=`правила`
 
 Like `--host-rules` but these `rules` only apply to the host resolver.
 
@@ -112,17 +112,17 @@ A comma-separated list of servers for which delegation of user credentials is re
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Ігнорувати помилки, пов'язані з сертифікатом.
 
-## --ppapi-flash-path=`path`
+## --ppapi-flash-path=`шлях`
 
 Sets the `path` of the pepper flash plugin.
 
-## --ppapi-flash-version=`version`
+## --ppapi-flash-version=`версія`
 
 Sets the `version` of the pepper flash plugin.
 
-## --log-net-log=`path`
+## --log-net-log=`шлях`
 
 Enables net log events to be saved and writes them to `path`.
 
@@ -138,13 +138,13 @@ Prints Chromium's logging into console.
 
 This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
 
-## --v=`log_level`
+## --v=`рівень_журналювання`
 
 Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 This switch only works when `--enable-logging` is also passed.
 
-## --vmodule=`pattern`
+## --vmodule=`патерн`
 
 Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 

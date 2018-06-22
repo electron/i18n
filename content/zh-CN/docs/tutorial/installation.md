@@ -6,7 +6,7 @@
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
+查看[versioning doc](./electron-versioning.md)获取如何在你的应用中管理Electron的相关信息。
 
 ## 全局安装
 
@@ -36,7 +36,7 @@ npm install --platform=win32 electron
 
 ## 自定义镜像和缓存
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. 这将通过访问 GitHub 的发布下载页面来完成 (`https://github.com/electron/electron/releases/tag/v$VERSION`, 这里的 `$VERSION` 是 Electron 的确切版本).
+在安装过程中，`electron` 模块会通过 [`electron-download`](https://github.com/electron-userland/electron-download) 为您的平台下载 Electron 的预制二进制文件。 这将通过访问 GitHub 的发布下载页面来完成 (`https://github.com/electron/electron/releases/tag/v$VERSION`, 这里的 `$VERSION` 是 Electron 的确切版本).
 
 如果您无法访问GitHub，或者您需要提供自定义构建，则可以通过提供镜像或现有的缓存目录来实现。
 
@@ -85,7 +85,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 在运行 `npm install electron` 时，有些用户会偶尔遇到安装问题。
 
-在大多数情况下，这些错误都是由网络问题导致，而不是因为 `electron` npm 包的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 The best resolution is to try switching networks, or wait a bit and try installing again.
+在大多数情况下，这些错误都是由网络问题导致，而不是因为 `electron` npm 包的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 最佳的解决方法是尝试切换网络，或是稍后再尝试安装。
 
 如果通过 `npm` 安装失败，您可以尝试直接从 [electron/electron/releases](https://github.com/electron/electron/releases) 直接下载 Electron。
 
@@ -97,10 +97,10 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+在较慢的网络上, 最好使用 `--verbose ` 标志来显示下载进度:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+如果需要强制重新下载文件, 并且 SHASUM 文件将 ` force_no_cache ` 环境变量设置为 ` true `。

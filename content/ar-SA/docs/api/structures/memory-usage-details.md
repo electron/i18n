@@ -1,5 +1,5 @@
-# MemoryUsageDetails Object
+# كائن MemoryUsageDetails
 
-* `count` Number
-* `size` Number
-* `liveSize` Number
+* `count` رقم
+* `size` رقم
+* `liveSize` رقم

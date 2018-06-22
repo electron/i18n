@@ -28,18 +28,18 @@ languages:
   current: 目前選的
 community:
   title: Electron 社群
-  description: Resources for connecting with people working on Electron.
+  description: 與其他 Electron 開發人員交流互動的相關資源。
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    localized_docs: "拜訪 <a href='/languages'>語言頁</a>，<a href='/languages'><b>用你的母語閱讀文件</b></a>。"
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "在<a href='/search/npmPackages'>套件搜尋頁面</a>上<a href='/search/npmPackages'><b>探索實用的 npm 套件</b></a>。"
     bugs: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 以<a href='https://github.com/electron/electron/issues'><b>回報 bug</b></a>。"
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    security: "寄電子郵件到 <a href='mailto:security@electronjs.org'>security@electronjs.org</a> <a href='mailto:security@electronjs.org'><b>揭露資安問題</b></a>。"
+    donations: "透過 <a href='/donors'>OpenCollective</a> <a href='donors'><b>贊助我們</b></a>。"
     other: "其他問題請寄信至 <a href='mailto:info@electronjs.org'>info@electronjs.org</a>。"
   language_communities:
     title: 語言社群

@@ -186,7 +186,7 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
         * `fantasy` String (opsional) - Default ke `Impact`.
       * `defaultFontSize` Integer (opsional) - Default ke `16`.
       * `defaultMonospaceFontSize` Integer (opsional) - Default ke `13`.
-      * `minimumFontSize` Integer (opsional) - Default ke ``.
+      * `minimumFontSize` Integer (opsional) - Default ke `0`.
       * `defaultEncoding` String (opsional) - Default ke `ISO-8859-1`.
       * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. This also affects the [Page Visibility API](#page-visibility). Default ke ` true </ 0> .</li>
 <li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0>. Lihat
@@ -771,7 +771,7 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
                       
                       * `bendera` Boolean
                       * `tingkat` String (opsional) *macOS* - nilai mencakup `normal`, `mengambang`, `robek-off-menu`, `modal-panel`, `menu utama`, `status`, `pop-putus-menu`, `layar-saver`, dan ~ ~ `dermaga` ~ ~ (sudah ditinggalkan). Default adalah `mengambang`. Lihat [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) untuk rincian lebih lanjut.
-                      * `relativeLevel` Bulat (opsional) *macOS* - jumlah lapisan yang lebih tinggi untuk mengatur jendela ini relatif terhadap `tingkat`. Default adalah ``. Perhatikan bahwa Apple menghambat pengaturan tingkat lebih tinggi dari 1 di atas `layar-saver`.
+                      * `relativeLevel` Bulat (opsional) *macOS* - jumlah lapisan yang lebih tinggi untuk mengatur jendela ini relatif terhadap `tingkat`. Default adalah `0`. Perhatikan bahwa Apple menghambat pengaturan tingkat lebih tinggi dari 1 di atas `layar-saver`.
                       
                       Menetapkan apakah jendela harus selalu tampil di atas jendela lain. Setelah pengaturan ini, jendela masih merupakan jendela normal, bukan jendela toolbox yang tidak bisa difokuskan.
                       
@@ -1053,7 +1053,7 @@ win.loadURL(url)
                                   * `pilihan` Obyek 
                                     * `appId` String (opsional) - jendela [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Itu harus diatur, jika tidak pilihan lain tidak akan berpengaruh.
                                     * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-                                    * `appIconIndex` Bulat (opsional) - indeks ikon dalam `appIconPath`. Diabaikan ketika `appIconPath` tidak diatur. Default adalah ``.
+                                    * `appIconIndex` Bulat (opsional) - indeks ikon dalam `appIconPath`. Diabaikan ketika `appIconPath` tidak diatur. Default adalah `0`.
                                     * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
                                     * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
                                   

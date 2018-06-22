@@ -223,7 +223,7 @@ Deshabilita cualquier emulación de red activa durante la `sesión`. Reinicia a 
     * `errorCode` Integer - Código de error.
   * `callback` Function 
     * `verificationResult` Integer - Valor que puede ser uno de los códigos de error certificado de [aquí](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Además de los códigos de error certificado, los siguientes códigos especiales pueden ser usados. 
-      * `` - Indica éxito y deshabilita la verificación Certificate Transparency.
+      * `0` - Indica éxito y deshabilita la verificación Certificate Transparency.
       * `-2` - Indica falla.
       * `-3` - Usa el resultado de verificación de chromium.
 

@@ -1,6 +1,6 @@
 # Windows Taskbar
 
-O Electron possui APIs para a configuração do ícone do aplicativo na barra de tarefas do Windows. São suportadas as [criações de `JumpList`](#jumplist), [miniaturas personalizadas e barras de ferramentas](#thumbnail-toolbars), [sobreposições de ícones](#icon-overlays-in-taskbar-windows), e o chamado [efeito "Flash Frame"](#flash-frame), porém o Electron também usa o ícone da doca do aplicativo para implementar recursos multiplataforma, como [documentos recentes](./recent-documents.md) e [progresso da aplicação](./progress-bar.md).
+O Electron possui APIs para a configuração do ícone do aplicativo na barra de tarefas do Windows. São suportadas as [criações de `JumpList`](#jumplist), [miniaturas personalizadas e barras de ferramentas](#thumbnail-toolbars), [sobreposições de ícones](#icon-overlays-in-taskbar), e o chamado [efeito "Flash Frame"](#flash-frame), porém o Electron também usa o ícone da doca do aplicativo para implementar recursos multiplataforma, como [documentos recentes](./recent-documents.md) e [progresso da aplicação](./progress-bar.md).
 
 ## JumpList
 

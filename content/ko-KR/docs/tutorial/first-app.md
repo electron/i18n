@@ -69,13 +69,13 @@ npm install --save-dev electron
 
 ## 간단히 설명한 Electron 개발
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. Electron에 있는 모든 API들과 기능들은 `electron` 모듈을 이용해 접근 할 수 있으며, 이것은 다른 Node.js 모듈처럼 사용이 가능 합니다:
+일랙트론 앱들은 Node.js 개발과 동일한 원칙 및 방법을 사용해 Javascript로 개발되었습니다. Electron에 있는 모든 API들과 기능들은 `electron` 모듈을 이용해 접근 할 수 있으며, 이것은 다른 Node.js 모듈처럼 사용이 가능 합니다:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
+`electron` 모듈은 네임 스페이스의 기능을 노출합니다. 에를 들어, 애플리케이션의 수명주기는 `electron.app`를 통해 관리되며, `electron.BrowserWindow` 클래스를 통해 창들이 생성합니다. 심플한 `main.js` 파일은 응용 프로그램이 준비되고 창을 열 때까지 기다릴 것입니다.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -91,7 +91,7 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+`main.js`는 창들을 생성하고 너의 애플리케이션이 발생시키는 모든 시스템 이벤트를 처리합니다. 위의 예제보다 더 완벽한 버전의 예제에서는 개발자 도구를 열거나, 창이 닫힐때의 처리, 혹은 macOS상에서 사용자가 dock의 app의 아이콘을 클릭했을때 창을 다시 만드는 등의 처리를 보여줍니다.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -145,7 +145,7 @@ app.on('activate', () => {
 // code. You can also put them in separate files and require them here.
 ```
 
-Finally the `index.html` is the web page you want to show:
+마지막으로 `index.html`이 표시하려는 웹 페이지입니다.
 
 ```html
 <!DOCTYPE html>
@@ -165,11 +165,11 @@ Finally the `index.html` is the web page you want to show:
 
 ## 앱 실행하기
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+최초로 생성되어 초기화된 `main.js`, `index.html`, 그리고 `package.json` 파일들을 갖고 있다면, 여러분의 애플리케이션 디렉토리에서 `npm start` 명령어를 이용하여 app을 실행해 볼 수 있습니다. 
 
 ## 예제
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 레파지토리에서 소스를 clone 하여 소스안의 튜토리얼 코드를 실행합니다.
 
 **주의**: 이 코드를 실행하려면 [Git](https://git-scm.com)이 필요합니다.
 
@@ -184,4 +184,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+빠른 개발 process를 위한 boilerplates와 툴의 목록은 [Boilerplates and CLIs documentation](./boilerplates-and-clis.md)의 문서를 참고하세요.

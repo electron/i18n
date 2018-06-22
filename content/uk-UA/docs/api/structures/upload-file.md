@@ -2,6 +2,6 @@
 
 * `type` String - `file`.
 * `filePath` String - Шлях до файлу для завантаження.
-* `offset` Integer - За замовчуванням ``.
-* `length` Integer - Кількість байт прочитаних з `offset`. За замовчуванням ``.
+* `offset` Integer - За замовчуванням `0`.
+* `length` Integer - Кількість байт прочитаних з `offset`. За замовчуванням `0`.
 * `modificationTime` Double - Кількість секунд з часу останньої модифікації в епоху UNIX.

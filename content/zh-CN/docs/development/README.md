@@ -21,6 +21,6 @@
 * [在 macOS 中调试](debugging-instructions-macos.md)
 * [在调试器中设置 Symbol 服务器](setting-up-symbol-server.md)
 * [升级 Chromium](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
+* [更新奔溃报告（Crashpad）](upgrading-crashpad.md)
 * [升级 Node](upgrading-node.md)
 * [发布](releasing.md)

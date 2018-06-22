@@ -1,9 +1,9 @@
-# Developing Electron
+# Electron の開発
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+これらのガイドは、Electron プロジェクトそのものに取り組む人を対象にしています。 Electron アプリ開発のガイドについては、[/docs/README.md](../README.md#guides-and-tutorials) を参照してください。
 
 * [行動規範](../../CODE_OF_CONDUCT.md)
-* [Contributing to Electron](../../CONTRIBUTING.md)
+* [Electron にコントリビュートする](../../CONTRIBUTING.md)
 * [Issues](issues.md)
 * [プルリクエスト](pull-requests.md)
 * [ドキュメントガイド](coding-style.md#documentation)
@@ -19,8 +19,8 @@ These guides are intended for people working on the Electron project itself. For
 * [テスト](testing.md)
 * [Windows におけるデバッグ](debug-instructions-windows.md)
 * [macOS におけるデバッグ](debugging-instructions-macos.md)
-* [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
+* [デバッガでシンボルサーバを設定](setting-up-symbol-server.md)
 * [Chromiumをアップグレードする](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
+* [Crashpad のアップグレード](upgrading-crashpad.md)
 * [Nodeのアップグレード](upgrading-node.md)
 * [リリース](releasing.md)

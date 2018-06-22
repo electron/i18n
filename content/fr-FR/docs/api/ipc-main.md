@@ -20,12 +20,12 @@ Un exemple d'envoi et de gestion des messages entre le processus main et rendere
 // Dans le processus principal .
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg) // affiche "ping"
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg) // affiche "ping"
   event.returnValue = 'pong'
 })
 ```

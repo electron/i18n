@@ -1112,7 +1112,7 @@ app.on('ready', () => {
     * `mobile` - モバイル画面タイプ.
   * `screenSize` [Size](structures/size.md) - エミュレートされる画面サイズの設定 (screenPosition == mobile).
   * `viewPosition` [Point](structures/point.md) - スクリーン上のビューの位置 (screenPosition == mobile) (省略値: `{x: 0, y: 0}`).
-  * `deviceScaleFactor` Integer - デバイスの拡大率の設定 (ゼロなら元々のデバイスの拡大率) (省略値: ``).
+  * `deviceScaleFactor` Integer - デバイスの拡大率の設定 (ゼロなら元々のデバイスの拡大率) (省略値: `0`).
   * `screenSize` [Size](structures/size.md) - エミュレートされるビューのサイズの設定 (空は上書きしないことを意味する)
   * `scale` Float - 有効なスペース内のエミュレートするビューの拡大率。 (表示モードにフィットしない) (省略値: `1`).
 
@@ -1215,10 +1215,10 @@ win.webContents.on('did-finish-load', () => {
 ページのサイズを設定します。`<webview>` のゲストコンテンツでのみサポートされています。
 
 * `options` Object 
-  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
-  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `enableAutoSize` Boolean (任意) - webview コンテナを normal、min、max 属性で指定された範囲内で自動的にサイズ変更する場合は true にします。
+  * `normal` [Size](structures/size.md) (任意) - ページの通常サイズ。 これを [`disableguestresize`](webview-tag.md#disableguestresize) 属性と組み合わせて使用すると、webview ゲストコンテンツのサイズを手動で変更できます。
+  * `min` [Size](structures/size.md) (任意) - ページの最小サイズ。 これを [`disableguestresize`](webview-tag.md#disableguestresize) 属性と組み合わせて使用すると、webview ゲストコンテンツのサイズを手動で変更できます。
+  * `max` [Size](structures/size.md) (任意) - ページの最大サイズ。 これを [`disableguestresize`](webview-tag.md#disableguestresize) 属性と組み合わせて使用すると、webview ゲストコンテンツのサイズを手動で変更できます。
 
 #### `contents.isOffscreen()`
 

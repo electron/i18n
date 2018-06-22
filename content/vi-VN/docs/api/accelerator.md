@@ -43,7 +43,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 ## Available key codes
 
-* `` đến `9`
+* `0` đến `9`
 * `A` đến `Z`
 * `F1` đến `F24`
 * Các dấu câu như `~`, `!`, `@`, `#`, `$`, vâng vâng.

@@ -28,7 +28,7 @@
 
 ### 实例属性
 
-The following properties are available on instances of `TouchBarSegmentedControl`:
+以下为 ` TouchBarSegmentedControl ` 实例的可用属性:
 
 #### `touchBarSegmentedControl.segmentStyle`
 

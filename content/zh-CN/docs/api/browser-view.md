@@ -6,7 +6,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). 它就像一个子窗口，除了它的位置是相对于父窗口。 这意味着可以替代`webview`标签.
+`BrowserView` 被用来让 [`BrowserWindow`](browser-window.md) 嵌入更多的 web 内容。 它就像一个子窗口，除了它的位置是相对于父窗口。 这意味着可以替代`webview`标签.
 
 ## 示例
 

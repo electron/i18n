@@ -2,11 +2,11 @@
 
 离线渲染允许您在位图中获取浏览器窗口的内容，因此可以在任何地方渲染，例如在3D场景中的纹理。 Electron中的离屏渲染使用与 [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) 项目类似的方法。
 
-可以使用两种渲染模式，并且只有脏区通过 `'paint'` 事件才能更高效。 渲染可以停止、继续，并且可以设置帧速率。 指定的帧速率是上限值，当网页上没有发生任何事件时，不会生成任何帧。 The maximum frame rate is 60, because above that there is no benefit, only performance loss.
+可以使用两种渲染模式，并且只有脏区通过 `'paint'` 事件才能更高效。 渲染可以停止、继续，并且可以设置帧速率。 指定的帧速率是上限值，当网页上没有发生任何事件时，不会生成任何帧。 最大帧速率是60，因为再高没有好处，而且损失性能。
 
 **注意:** 屏幕窗口始终创建为 [Frameless Window](../api/frameless-window.md).
 
-## Rendering Modes
+## 渲染模式
 
 ### GPU加速
 

@@ -51,7 +51,7 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Runni
 
 The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
 
-[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/tutorial/planned-breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
 
 एक वितरण पर पूर्वनिर्मित बाइनरी चल सकती है या नहीं, यह इस बात पर निर्भर करता है कि क्या वितरण में वे लाइब्रेरिस हैं जिनसे इलेक्ट्रॉन निर्माण प्लेटफार्म पर जुड़ा है, इसलिए उबुन्तु 12.04 के काम करने की गारंटी है, पर निम्नलिखित प्लेटफार्म भी इलेक्ट्रॉन की पूर्वनिर्मित बाइनरिस चलाने में सक्षम है:
 

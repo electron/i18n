@@ -1,6 +1,6 @@
-# Process Object
+# Process كائن
 
-* `pid` Integer - Process id of the process.
-* `type` String - Process type (Browser or Tab or GPU etc).
-* `memory` [MemoryInfo](memory-info.md) - Memory information for the process.
-* `cpu` [CPUUsage](cpu-usage.md) - CPU usage of the process.
+* `pid` عدد صحيح - معرف العملية في المعالج.
+* `type` (سلسلة نصية) نوع العملية (Browser أو Tab أو GPU، ...الخ ).
+* `memory` [MemoryInfo](memory-info.md) معلومات الذاكرة لهذه العملية.
+* `cpu` [CPUUsage](cpu-usage.md) - استخدام CPU لهذه العملية.

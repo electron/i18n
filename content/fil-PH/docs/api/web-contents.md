@@ -1112,7 +1112,7 @@ app.on('handa', () = > {
     * `mobile` - Uri ng screen ng mobile.
   * `screenSize` [Sukat](structures/size.md) - Itakda ang emulated na laki ng screen (screenPosisyon == mobile).
   * `viewPosition` [Point](structures/point.md) - Iposisyon ang view sa screen (screenPosisyon == mobile) (default: `{x: 0, y: 0}`).
-  * `deviceScaleFactor` Integer - Itakda ang aparato ng scale factor (kung zero ang default orihinal na kadahilanan ng sukat ng aparato) (default: ``).
+  * `deviceScaleFactor` Integer - Itakda ang aparato ng scale factor (kung zero ang default orihinal na kadahilanan ng sukat ng aparato) (default: `0`).
   * `viewSize` [Sukat](structures/size.md) - Itakda ang emulated at tignan ang laki (walang laman ang ibig sabihin nito ay walang override)
   * `scale` Lumutang - Sukat ng emulated view sa loob ng magagamit na espasyo (hindi angkop upang tignan ang mode) (default: `1`).
 

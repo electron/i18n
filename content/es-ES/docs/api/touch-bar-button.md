@@ -6,7 +6,7 @@ Proceso: [principal](../tutorial/quick-start.md#main-process)
 
 ### `nuevo botón en la barra tactil(opciones)` *Experimental*
 
-* `opciones` Object 
+* `options` Object 
   * `Etiqueta` cadena (opcional) - Texto del fondo.
   * `Color del fondo` Cadena (opcional) - Color del fondo en formato hex, ejemplo: `#ABCDEF`.
   * `icono` [imagen nativa](native-image.md) (opcional) - ícono en el fondo.

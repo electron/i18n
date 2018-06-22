@@ -125,8 +125,8 @@ child.once('ready-to-show', () => {
   * `y` Integer (опціонально) (**обов'язково** якщо використовується x) - Зміщення вікна від верху екрану. За замовчуванням вікно центрується.
   * `useContentSize` Boolean (опціонально) - `width` та `height` будуть використовуватися як розміри веб-сторінки, що означає що фактичні розміри вікна будуть включати розміри рамки і будуть трошки більшими. За замовчуванням `false`.
   * `center` Boolean (опціонально) - Показати вікно в центрі екрану.
-  * `minWidth` Integer (опціонально) - Мінімальна ширина вікна. За замовчуванням ``.
-  * `minHeight` Integer (опціонально) - Мінімальна висота вікна. За замовчуванням ``.
+  * `minWidth` Integer (опціонально) - Мінімальна ширина вікна. За замовчуванням `0`.
+  * `minHeight` Integer (опціонально) - Мінімальна висота вікна. За замовчуванням `0`.
   * `maxWidth` Integer (опціонально) - Максимальна ширина вікна. За замовчуванням немає обмежень.
   * `maxHeight` Integer (опціонально) - Максимальна висота вікна. За замовчуванням немає обмежень.
   * `resizable` Boolean (опціонально) - Чи дозволяти змінювати розміри вікна. За замовчуванням `true`.
@@ -199,7 +199,7 @@ child.once('ready-to-show', () => {
       * `fantasy` String (опціонально) - За замовчуванням `Impact`.
     * `defaultFontSize` Integer (опціонально) - За замовчуванням `16`.
     * `defaultMonospaceFontSize` Integer (опціонально) - За замовчуванням `13`.
-    * `minimumFontSize` Integer (опціонально) - За замовчуванням ``.
+    * `minimumFontSize` Integer (опціонально) - За замовчуванням `0`.
     * `defaultEncoding` String (опціонально) - За замовчуванням `ISO-8859-1`.
     * `backgroundThrottling` Boolean (опціонально) - Чи забороняти анімацію і таймери, коли сторінка стає фоновою. Це також впливає на [Page Visibility API](#page-visibility). За замовчуванням `true`.
     * `offscreen` Boolean (опціонально) - Чи вмикати позаекранний рендеринг вікна браузера. За замовчуванням `false`. Дивіться [інструкцію позаекранного рендерингу](../tutorial/offscreen-rendering.md) для детальнішої інформації.
@@ -766,7 +766,7 @@ Disable or enable the window.
 
 * `flag` Boolean
 * `level` String (опціонально) *macOS* - Включає значення `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, та ~~`dock`~~ (Застаріло). За замовчуванням `floating`. Дивіться [документацію macOS ](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) для деталей.
-* `relativeLevel` Integer (опціонально) *macOS* - Кількість шарів, на яку потрібно підняти вікно в порівнянні з `level`. За замовчуванням ``. Зверніть увагу, що Apple не рекомендує налаштування шарів вище за 1 над `screen-saver`.
+* `relativeLevel` Integer (опціонально) *macOS* - Кількість шарів, на яку потрібно підняти вікно в порівнянні з `level`. За замовчуванням `0`. Зверніть увагу, що Apple не рекомендує налаштування шарів вище за 1 над `screen-saver`.
 
 Встановлює чи вікно повинно завжди бути поверх інших вікон. Після встановлення цього, вікно все ще звичайне вікно, не вікно-інструмент, на яке не можна встановити фокус.
 
@@ -1041,7 +1041,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 * `options` Object 
   * `appId` String (опціонально) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Має бути встановленим, інакше інші параметри не матимуть ефекту.
   * `appIconPath` String (опціонально) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (опціонально) - Індекс іконки в `appIconPath`. Ігнорується, якщо `appIconPath` не встановлено. За умовчанням ``.
+  * `appIconIndex` Integer (опціонально) - Індекс іконки в `appIconPath`. Ігнорується, якщо `appIconPath` не встановлено. За умовчанням `0`.
   * `relaunchCommand` String (опціонально) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (опціонально) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 

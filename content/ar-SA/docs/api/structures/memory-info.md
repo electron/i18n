@@ -1,9 +1,9 @@
-# MemoryInfo Object
+# كائن MemoryInfo
 
-* `pid` Integer - Process id of the process.
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM. On macOS its value will always be 0.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `pid` عدد صحيح - معرف العملية في المعالج.
+* `workingSetSize` عدد صحيح - مقدار الذاكرة المثبتة حالياً لـ ذاكرة الوصول العشوائي الفعلية.
+* `peakWorkingSetSize` عدد صحيح - الحد الأقصى لمقدار الذاكرة التي تم تثبيتها إلى RAM الفعلية. في نظام mac ستكون قيمتها دائماً 0.
+* `privateBytes` عدد صحيح - مقدار الذاكرة التي لا يتم مشاركتها مع العمليات الأخرى ، كـ JS heap أو محتوى HTML.
+* `sharedBytes` عدد صحيح - مقدار الذاكرة المشتركة بين العمليات ، عادة الذاكرة المستهلكة بواسطة شفرة Electron نفسها
 
-Note that all statistics are reported in Kilobytes.
+لاحظ أنه يتم إظهار جميع الإحصائيات بوحدة الكيلوبايت.

@@ -18,9 +18,11 @@ myNotification.onclick = () => {
 
 ## विंडोज
 
-* विंडोज 10 पर, नोटीफीकेशंस "बस काम" करती है ।
-* विंडोज 8.1 और विंडोज 8 पर, एक [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) के साथ आपके एप्प की एक शॉर्टकट, स्टार्ट स्क्रीन पर इनस्टॉल होनी चाहिये | हालाँकि, उसका स्टार्ट स्क्रीन पर पिनड होना ज़रूरी नहीं है |
+* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu.
+* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. हालाँकि, उसका स्टार्ट स्क्रीन पर पिनड होना ज़रूरी नहीं है |
 * विंडोज 7 पर, नोटीफीकेशंस एक कस्टम इम्प्लीमेंटेशन के द्वारा काम करती हैं जो कि नये सिस्टम्स पर मूल वाले की तरह दिखाई देता है |
+
+Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][[set-app-user-model-id](../api/app.md#appsetappusermodelidid-windows)] yourself.
 
 इसके अलावा, विंडोज 8 में नोटीफीकेशन की अधिकतम लम्बाई सीमा 250 अक्षरों की है, और विंडोज टीम की सलाह है कि इसे 200 अक्षरों तक ही सीमित रखा जाये | विंडोज 10 में यह सीमा हटा दी गयी है, पर विंडोज टीम ने डेवलपर्स को वाज़िब सीमा रखने की सलाह दी है | ऐपीआई को बहुत सारा टेक्स्ट (हजारों अक्षर) भेजने की कोशिश करने से अस्थिरता उत्पन्न हो सकती है |
 

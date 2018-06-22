@@ -10,7 +10,7 @@ Unity DE 也具有同样的特性，在运行器上显示进度条。
 
 ![任务栏进度栏](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-三个系统中都是用相同的API - `setProgressBar()` 方法是`BrowserWindows`的方法。 是用``到`1`之间的数字来表示你的进度 你正在运行一个长时间的任务, 当前进度为63%, 您可以使用 `setProgressBar(0.63)` 来调用它。
+三个系统中都是用相同的API - `setProgressBar()` 方法是`BrowserWindows`的方法。 是用`0`到`1`之间的数字来表示你的进度 你正在运行一个长时间的任务, 当前进度为63%, 您可以使用 `setProgressBar(0.63)` 来调用它。
 
 Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
 

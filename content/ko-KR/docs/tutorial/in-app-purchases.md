@@ -1,31 +1,31 @@
 # In-App Purchase (macOS)
 
-## Preparing
+## 사전준비
 
-### Paid Applications Agreement
+### 유료 애플리케이션 계약
 
-If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
+아직 유료 애플리케이션 계약에 서명하지 않았다면, 서명이 필요합니다. 그리고 iTunes Connect에서 여러분의 은행 및 세금 정보를 설정해야합니다.
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+[iTunes Connect Developer Help: 계약, 세금, 그리고 은행에 대한 개요](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
-### Create Your In-App Purchases
+### In-App Purchases 생성
 
-Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
+그런 다음, iTunes Connect에서 인앱 구매를 구성하고, 이름, 가격 및 인앱 구매의 특징 및 기능을 강조하는 설명을 포함시켜야합니다.
 
-[iTunes Connect Developer Help: Create an in-app purchase](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
+[iTunes Connect Developer Help: 인앱 구매 생성](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
 
-### Change the CFBundleIdentifier
+### CFBundleIdentifier 수정
 
-To test In-App Purchase in development with Electron you'll have to change the `CFBundleIdentifier` in `node_modules/electron/dist/Electron.app/Contents/Info.plist`. You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
+electron을 사용한 개발에서 In-App Purchase를 테스트하기 위해서는 `node_modules/electron/dist/Electron.app/Contents/Info.plist`의 `CFBundleIdentifier`을 변경해야 합니다. iTunes Connect에서 생성된 애플리케이션의 bundle identifier 값으로 `com.github.electron`의 기본값을 변경해야 합니다.
 
 ```xml
 <key>CFBundleIdentifier</key>
 <string>com.example.app</string>
 ```
 
-## Code example
+## 예제 코드
 
-Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+이것은 Electron에서 인앱 구매를 사용하는 방법을 보여주는 예제입니다. 제품 id들을 iTunes Connect에서 생성한 제품 식별자(`com.example.app.product1``의 식별자는 <0>product1`)로 대체해야합니다. 주의할점은 여러분의 앱에서 가능한 빠르게 `transactions-updated`이벤트를 Listen하고 있어야 한다는 것 입니다.
 
 ```javascript
 const { inAppPurchase } = require('electron').remote

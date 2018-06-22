@@ -37,7 +37,7 @@ $ ./script/update.py --xcode
 
 This will generate the electron.ninjs.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
 
-### Debugging and breakpoints
+### 调试与断点
 
 Launch electron app after build. You can now open the xcode workspace created above and attach to the electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
 

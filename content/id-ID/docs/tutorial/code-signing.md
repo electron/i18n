@@ -1,4 +1,4 @@
-# Code Signing
+# Penandatanganan Kode
 
 Code signing is a security technology that you use to certify that an app was created by you.
 
@@ -18,8 +18,8 @@ If you are building an Electron app that you intend to package and distribute, i
 
 Before signing macOS builds, you must do the following:
 
-1. Enroll in the <Apple Developer Program> (requires an annual fee)
-2. Download and install Xcode
+1. Enroll in the [Apple Developer Program](https://developer.apple.com/programs/) (requires an annual fee)
+2. Download and install [Xcode](https://developer.apple.com/xcode)
 3. Generate, download, and install [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
 There are a number of tools for signing your packaged app:

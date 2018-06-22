@@ -37,18 +37,18 @@ Outputnya harus terlihat kira-kira seperti ini:
 .
 └── dist
     └── app-linux-x64
-        ├── LISENSI
+        ├── LICENSE
         ├── LICENSES.chromium.html
         ├── content_shell.pak
-        ├── aplikasi
+        ├── app
         ├── icudtl.dat
         ├── libgcrypt.so.11
         ├── libnode.so
-        ├── lokal
+        ├── locales
         ├── natives_blob.bin
-        Sumber daya
-        ├── snapshot_blob.bin
-        Versi └──
+        ├── resources
+        ├── v8_context_snapshot.bin
+        └── version
 ```
 
 ### Langkah 2: Menjalankan ` electron-installer-snap </ code></h3>

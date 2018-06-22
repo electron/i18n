@@ -225,7 +225,7 @@ Electron usa los siguientes algoritmos criptográficos:
 * DH - [RFC 2631](https://tools.ietf.org/html/rfc2631)
 * DSA - [ANSI X9.30](https://webstore.ansi.org/RecordDetail.aspx?sku=ANSI+X9.30-1%3A1997)
 * EC - [SEC 1](http://www.secg.org/sec1-v2.pdf)
-* IDEA - "On the Design and Security of Block Ciphers" book by X. Lai
+* IDEA - "On the Design and Security of Block Ciphers" (En el diseño y la seguridad de las cifras cifradas) libro de X. Lai
 * MD2 - [RFC 1319](https://tools.ietf.org/html/rfc1319)
 * MD4 - [RFC 6150](https://tools.ietf.org/html/rfc6150)
 * MD5 - [RFC 1321](https://tools.ietf.org/html/rfc1321)

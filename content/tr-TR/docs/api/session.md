@@ -223,7 +223,7 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
     * `errorCode` Tamsayı - Hata kodu.
   * `geri aramak` Function 
     * `doğrulama Sonucu` Tamsayı: Değer sertifika hata kodlarından olabilir [buraya](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
-      * `` - Sonucu gösterir ve Sertifika Şeffaflığı doğrulamasını devre dışı bırakır.
+      * `0` - Sonucu gösterir ve Sertifika Şeffaflığı doğrulamasını devre dışı bırakır.
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
 

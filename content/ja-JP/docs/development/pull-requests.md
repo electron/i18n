@@ -1,6 +1,5 @@
 # プルリクエスト
 
-* [依存関係](#dependencies)
 * [ローカル環境のセットアップ](#setting-up-your-local-environment) 
   * [ステップ1: フォーク](#step-1-fork)
   * [ステップ2: ビルド](#step-2-build)
@@ -80,7 +79,7 @@ Examples of commit messages with semantic prefixes:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux` 
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 

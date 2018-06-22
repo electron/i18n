@@ -1,4 +1,4 @@
-# Display Objekt
+# Display Object
 
 * `id` Number - Einzigartige Identifaktionsnummer (ID) die auf das entsprechende Display verweist.
 * `rotation` Number - 0, 90, 180 oder 270 , repräsentiert die Display-Rotoerung in Alt-Grad (0-36).

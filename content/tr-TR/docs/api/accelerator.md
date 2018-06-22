@@ -38,7 +38,7 @@ Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hı
 
 ## Kullanılabilir anahtar kodları
 
-* ``'dan `9`'a
+* `0`'dan `9`'a
 * `A`'dan `Z`'ye
 * `F1`'den `F24`'e
 * `~`, `!`, `@`, `#`, `$`, vb. gibi noktalama işaretleri.

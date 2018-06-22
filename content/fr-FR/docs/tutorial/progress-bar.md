@@ -10,7 +10,7 @@ Le Unity DE possède également une fonctionnalité similaire qui vous permet de
 
 ![Barre de progression personnalisée](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-Les trois cas sont couverts par la même API - la méthode `setProgressBar()` disponible sur les instances de `BrowserWindows`. Appelez-la avec un numéro entre `` et `1` pour indiquer votre progression. Si vous avez une longue tâche qui est actuellement à 63% en finalisation, vous l'appelleriez avec `setProgressBar(0.63)`.
+Les trois cas sont couverts par la même API - la méthode `setProgressBar()` disponible sur les instances de `BrowserWindows`. Appelez-la avec un numéro entre `0` et `1` pour indiquer votre progression. Si vous avez une longue tâche qui est actuellement à 63% en finalisation, vous l'appelleriez avec `setProgressBar(0.63)`.
 
 D'une manière générale, régler le paramètre sur une valeur inférieure à zéro (comme `-1`) supprimera la barre de progression, alors qu'en réglant sur une valeur supérieure à un (comme `2`) cela basculera la barre de progression dans un mode intermédiaire.
 

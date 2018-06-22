@@ -1115,7 +1115,7 @@ Rückgabewert:
         * `mobile` - Mobile screen type.
       * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
       * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`).
-      * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``).
+      * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
       * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
       * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
     

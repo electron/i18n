@@ -7,7 +7,7 @@ Siga las pautas a continuación para construir Electron en macOS.
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](https://nodejs.org) (externo)
-- Python 2.7 with support for TLS 1.2
+- Python 2.7 con soporte para TLS 1.2
 
 ## Python
 
@@ -23,13 +23,13 @@ If the script returns that your configuration is using an outdated security prot
 $ brew install python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+Si está utilizando Python descargado por Homebrew, también debe instalar los siguientes módulos de Python:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
 ## macOS SDK
 
-If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Si simplemente estás desarrollando Electron y no planeas redistribuir tu compilación personalizada de Electron, puede omitir esta sección.
 
 Para que ciertas funciones (por ejemplo, pellizcar-zoom) funcionen correctamente, debe orientar el macOS 10.10 SDK.
 

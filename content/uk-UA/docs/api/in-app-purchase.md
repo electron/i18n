@@ -1,25 +1,25 @@
 # inAppPurchase
 
-> In-app purchases on Mac App Store.
+> Покупки через додаток у Mac App Store.
 
 Процес: [Main](../glossary.md#main-process)
 
 ## Події (Events)
 
-The `inAppPurchase` module emits the following events:
+Модуль `inAppPurchase` генерує наступні події:
 
-### Event: 'transactions-updated'
+### Подія: 'transactions-updated'
 
 Emitted when one or more transactions have been updated.
 
 Повертає:
 
 * `event` Event
-* `transactions` ([Transaction[]](structures/transaction.md) - Array of transactions.
+* `transactions` ([Transaction[]](structures/transaction.md) - масив транзакцій.
 
 ## Методи
 
-The `inAppPurchase` module has the following methods:
+Модуль `inAppPurchase` має такі методи:
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 

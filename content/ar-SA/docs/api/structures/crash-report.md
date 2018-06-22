@@ -1,4 +1,4 @@
-# CrashReport Object
+# كائن CrashReport
 
-* `date` Date
-* `id` String
+* `date` تاريخ
+* `id` سلسلة نصية

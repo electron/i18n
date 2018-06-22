@@ -13,7 +13,7 @@ GitHub's Electron team maintains [update.electronjs.org](https://github.com/elec
 
 The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
 
-Install the module:
+安装模块
 
 ```sh
 npm install update-electron-app

@@ -6,7 +6,7 @@ Proceso: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSpacer(options)` *Experimental*
 
-* `opciones` Objeto 
+* `options` Objeto 
   * `size` Cadena (opcional) - Tamaño del espaciador. Los valores posibles son: 
     * `small` - Espacio pequeño entre los elementos.
     * `large` - Espacio grande entre los elementos.

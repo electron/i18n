@@ -1,12 +1,12 @@
-# Upgrading Chromium
+# 升级 Chromium
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+本文概述了在Electron中升级Chromium所需的步骤。
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- 将libcc升级到新的Chromium版本
+- 使Electron兼容新的libcc
+- 如有必要，请更新Electron的相关依赖（如奔溃报告，NodeJS等）
+- 穿件libcc和Electron的内部编译本
+- 如有需要，请更新Electron文档
 
 ## Upgrade `libcc` to a new Chromium version
 
@@ -35,9 +35,9 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
     - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
 7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
 
-## Update Electron's code
+## 更新Electron代码
 
-1. Get the code: 
+1. 获取代码: 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
@@ -84,19 +84,19 @@ When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix
 
 Follow all the steps above to fix Electron code on all supported platforms.
 
-## Updating Crashpad
+## 更新奔溃报告（Crashpad）
 
 If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
 
-## Updating NodeJS
+## 更新NodeJS
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
 See [Upgrading Node](upgrading-node.md) for instructions on this.
 
-## Verify ffmpeg support
+## 验证 ffmpeg 支持
 
-Electron 发行版的 `ffmpeg`，默认包括专有的编解码器 没有这些编解码器的版本也被构建并分发到每个版本。 Each Chrome upgrade should verify that switching this version is still supported.
+Electron 发行版的 `ffmpeg`，默认包括专有的编解码器 没有这些编解码器的版本也被构建并分发到每个版本。 每个Chrome升级都应该验证是否仍然支持切换此版本。
 
 您可以通过加载以下页面来验证Electron对多个`ffmpeg`构建的支持。 它应该与使用Electron分发的默认`ffmpeg`库一起工作，而不使用没有专有编解码器的`ffmpeg`库。
 
@@ -128,7 +128,7 @@ Electron 发行版的 `ffmpeg`，默认包括专有的编解码器 没有这些�
 </html>
 ```
 
-## Useful links
+## 相关链接
 
 - [Chrome 发布日程](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)

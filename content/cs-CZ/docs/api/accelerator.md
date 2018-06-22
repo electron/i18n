@@ -43,7 +43,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 ## Available key codes
 
-* `` až `9`
+* `0` až `9`
 * `A` až `Z`
 * `F1` až `F24`
 * Interpunkční znaménka jako `~`, `!`, `@`, `#`, `$` atd.

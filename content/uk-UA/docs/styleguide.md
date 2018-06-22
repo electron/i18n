@@ -169,7 +169,7 @@ required[, optional]
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Чи нестандартний тип як Electron's [`WebContent`](api/web-contents.md)
 
-Якщо аргумент або метод є унікальним для певних платформ, тоді ці платформи позначаються списком які розділені пробілами та виділені курсивом після типу даних (datatype). Values can be `macOS`, `Windows` or `Linux`.
+Якщо аргумент або метод є унікальним для певних платформ, тоді ці платформи позначаються списком які розділені пробілами та виділені курсивом після типу даних (datatype). Значення може бути `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
@@ -212,4 +212,4 @@ required[, optional]
 
 ## Переклади документації
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Дивіться на [electron/electron-i18n](https://github.com/electron/i18n#readme)

@@ -1,10 +1,10 @@
 # 공식 가이드
 
-자신의 Electron 버전과 일치하는 문서를 사용했는지 확인하세요. 버전 번호는 페이지 URL 의 일부여야 합니다. 그렇지 않은 경우, Electron 버전과 호환되지 않는 API 변경 사항이 포함될 수 있는 개발 브랜치의 문서를 사용하고 있을 수 있습니다. 문서의 이전 버전을 보려면, GitHub 에서 "Switch branches/tags" 드롭다운을 열고 버전과 일치하는 태그를 선택하여 [태그로 찾아](https://github.com/electron/electron/tree/v1.4.0) 볼 수 있습니다.
+Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페이지 URL은 버전 번호를 포함하고 있어야 합니다. URL에 버전 번호가 포함되지 않았다면, development 브랜치 문서를 사용하고 있는 것이며 여기에는 여러분의 Electron 버전과 호환되지 않는 API 변경 사항을 담고 있을지도 모릅니다. GitHub 에서 "Switch branches/tags" 드롭다운 메뉴의 [태그 찾기](https://github.com/electron/electron/tree/v1.4.0)를 활용해 여러분의 Electron 버전과 일치하는 태그를 선택하면 구 버전 문서들을 볼 수 있습니다.
 
 ## 자주 묻는 질문
 
-꽤 자주 묻는 질문이 있습니다. 이슈를 생성하기 전에 다음을 확인하세요:
+자주 묻는 질문들이 있습니다. 이슈를 생성하기 전에 자주 묻는 질문을 확인하세요:
 
 * [Electron 자주 묻는 질문](faq.md)
 
@@ -28,14 +28,13 @@
 * [애플리케이션 구조](tutorial/application-architecture.md) 
   * [메인 프로세스와 렌더러 프로세스](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron API 사용하기](tutorial/application-architecture.md#using-electron-apis)
-  * [Node.js API 사용하기](tutorial/application-architecture.md#using-node.js-apis)
+  * [Node.js API 사용하기](tutorial/application-architecture.md#using-nodejs-apis)
   * [기본 Node.js 모듈 사용하기](tutorial/using-native-node-modules.md)
-  * [프로세스 간 통신](tutorial/application-architecture.md#)
 * 여러분의 앱에 기능 추가하기 
-  * [알림](tutorial/notifications.md)
-  * [최근 문서](tutorial/desktop-environment-integration.md#recent-documents-windows-mac-os)
+  * [알림(Notifications)](tutorial/notifications.md)
+  * [최근 문서들(Recent Documents)](tutorial/desktop-environment-integration.md#recent-documents)
   * [애플리케이션 진행 상황](tutorial/progress-bar.md)
-  * [커스텀 Dock 메뉴](tutorial/desktop-environment-integration.md#custom-dock-menu-mac-os)
+  * [커스텀 Dock 메뉴](tutorial/macos-dock.md)
   * [커스텀 Windows 작업 표시줄](tutorial/windows-taskbar.md)
   * [커스텀 Linux 데스크톱 동작](tutorial/linux-desktop-actions.md)
   * [키보드 단축기](tutorial/keyboard-shortcuts.md)
@@ -74,8 +73,7 @@
 이 가이드는 위에서 설명된 주제의 확장입니다.
 
 * [자세히 설명된 Electron 설치](tutorial/installation.md) 
-  * [전역 설치 vs 로컬 설치](tutorial/installation.md#global-versus-local-installation)
-  * [Proxies](tutorial/installation.md#proxies)
+  * [프록시](tutorial/installation.md#proxies)
   * [커스텀 미러와 캐시](tutorial/installation.md#custom-mirrors-and-caches)
   * [문제 해결](tutorial/installation.md#troubleshooting)
 * [자세히 설명된 Electron의 버전 매김 스키마](tutorial/electron-versioning.md) 
@@ -101,6 +99,7 @@
 * [프로세스 개체](api/process.md)
 * [크롬 명령 줄 스위치 지원](api/chrome-command-line-switches.md)
 * [환경 변수](api/environment-variables.md)
+* [Breaking API Changes](api/breaking-changes.md)
 
 ### 사용자 지정 DOM 요소:
 
@@ -122,6 +121,7 @@
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
+* [netLog](api/netLog.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

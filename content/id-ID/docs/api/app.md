@@ -679,7 +679,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
           * `callback` Fungsi 
             * `hasil` Integer - Hasil impor.
           
-          Impor sertifikat dalam format pkcs12 ke toko sertifikat platform. `callback` dipanggil dengan `hasil` dari operasi impor, nilai `` menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menurut kromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+          Impor sertifikat dalam format pkcs12 ke toko sertifikat platform. `callback` dipanggil dengan `hasil` dari operasi impor, nilai `0` menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menurut kromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
           
           ### `app.disableHardwareAcceleration()`
           
@@ -707,7 +707,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
           
           Mengembalikan `Boolean` - Apakah panggilan berhasil.
           
-          Menetapkan lencana penghitung untuk aplikasi saat ini. Menetapkan hitungan ke `` akan menyembunyikan lencana.
+          Menetapkan lencana penghitung untuk aplikasi saat ini. Menetapkan hitungan ke `0` akan menyembunyikan lencana.
           
           Di macOS itu terlihat di ikon dermaga. Di Linux hanya bekerja untuk Unity launcher,
           

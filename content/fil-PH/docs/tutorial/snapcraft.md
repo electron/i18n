@@ -46,7 +46,7 @@ Ang output ay dapat magmukhang halos katulad nito:
         ├── locales
         ├── natives_blob.bin
         ├── resources
-        ├── snapshot_blob.bin
+        ├── v8_context_snapshot.bin
         └── version
 ```
 

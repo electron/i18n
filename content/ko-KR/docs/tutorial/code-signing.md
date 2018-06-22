@@ -1,6 +1,6 @@
 # Code Signing
 
-코드 서명은 당신에 의해 만들어진 app을 인증하는데 사용하는 보안 기술입니다.
+Code signing is a security technology that you use to certify that an app was created by you.
 
 macOS 에서 시스템은 앱의 변경이 실수 또는 악성 코드에 의해 생긴 변경인지 아닌지 감지 할 수 있습니다.
 
@@ -12,14 +12,14 @@ Windows에서 시스템은 코드 서명 인증서에 신뢰 수준을 할당합
 
 > App can't be opened because it is from an unidentified developer
 
-패키지 및 배포 하려는 Electron 애플리케이션을 작성 하는 경우 코드 서명 해야 합니다. Mac과 Windows 앱스토어는 서명 되지 않은 애플리케이션을 허용 하지 않습니다.
+If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
 
 # Signing macOS builds
 
 MacO에서 빌드를 서명 하기 전에 다음을 수행 해야 합니다.
 
-1. (연회비 필요) [애플 개발자 프로그램](Apple Developer Program)에 등록
-2. 다운로드 하고 Xcode를 설치
+1. (연회비 필요) [애플 개발자 프로그램](https://developer.apple.com/programs/)에 등록
+2. Download and install [Xcode](https://developer.apple.com/xcode)
 3. [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates) 생성, 다운로드, 및 설치
 
 패키지 된 응용 프로그램 서명을 위한 도구가 몇개 있습니다:

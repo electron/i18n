@@ -59,13 +59,13 @@ Turning this Node application into an Electron application is quite simple - we 
 
 ## Instalowanie Electrona
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+Teraz musisz zainstalować sam `electron`. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Istnieją inne sposoby na instalację Electrona. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
 
 ## Rozwój Electrona w pigułce
 
@@ -81,10 +81,10 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 const {app, BrowserWindow} = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Tworzenie okna przeglądarki.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // i ładowanie index.html aplikacji.
   win.loadFile('index.html')
 }
 
@@ -104,7 +104,7 @@ function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // i ładowanie index.html aplikacji.
   win.loadFile('index.html')
 
   // Open the DevTools.

@@ -14,9 +14,11 @@ Sementara kode dan pengalaman pengguna di seluruh sistem operasi serupa, ada per
 
 ## Windows
 
-* Pada Windows 10, notifikasi "just work".
-* Pada Windows 8.1 dan Windows 8, jalan pintas ke aplikasi Anda, dengan [User ID Model Aplikasi](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), harus diinstal ke layar Start. Namun perlu dicatat bahwa itu tidak perlu disematkan ke layar Start.
+* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu.
+* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Namun perlu dicatat bahwa itu tidak perlu disematkan ke layar Start.
 * Pada Windows 7, notifikasi bekerja melalui penerapan khusus yang secara visual menyerupai yang asli pada sistem yang lebih baru.
+
+Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][[set-app-user-model-id](../api/app.md#appsetappusermodelidid-windows)] yourself.
 
 Selanjutnya, pada Windows 8, panjang maksimum untuk badan notifikasi adalah 250 karakter, dengan tim Windows merekomendasikan agar pemberitahuan harus disimpan hingga 200 karakter. Yang mengatakan, pembatasan itu telah dihapus di Windows 10, dengan tim Windows meminta pengembang untuk masuk akal. Mencoba mengirim sejumlah besar teks ke API (ribuan karakter) dapat menyebabkan ketidakstabilan.
 

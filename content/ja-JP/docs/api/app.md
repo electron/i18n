@@ -47,7 +47,7 @@ Electronが初期化処理を完了したときに発生します。 macOSでは
 
 **注:** アプリケーションの終了が `autoUpdater.quitAndInstall()` によって開始された場合、全てのウインドウで `close` イベントを発生させ、それらが閉じた*後* に `before-quit` が発生します。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注釈:** Windows では、このイベントはシステムのシャットダウン/再起動やユーザーのログアウトでアプリケーションが閉じられている場合には発生しません。
 
 ### イベント: 'will-quit'
 
@@ -59,7 +59,7 @@ Electronが初期化処理を完了したときに発生します。 macOSでは
 
 `will-quit` と `window-all-closed` イベントの差異を確認するためには、`window-all-closed` イベントの説明もお読みください。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注釈:** Windows では、このイベントはシステムのシャットダウン/再起動やユーザーのログアウトでアプリケーションが閉じられている場合には発生しません。
 
 ### イベント: 'quit'
 
@@ -70,7 +70,7 @@ Electronが初期化処理を完了したときに発生します。 macOSでは
 
 アプリケーションが終了するときに発生します。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注釈:** Windows では、このイベントはシステムのシャットダウン/再起動やユーザーのログアウトでアプリケーションが閉じられている場合には発生しません。
 
 ### イベント: 'open-file' *macOS*
 
@@ -442,9 +442,9 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+戻り値 `String` - 現在のアプリケーションのロケール。とりうる戻り値は [こちら](locales.md) に記されています。
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+ロケールを設定するには、アプリケーションの起動時にコマンドラインスイッチを使用する必要があります。これについては、[こちら](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md) を参照してください。
 
 **注:** アプリをパッケージ化して配布する場合、`locales` フォルダを同梱する必要があります。
 
@@ -683,7 +683,7 @@ app.on('ready', () => {
 * `callback` Function 
   * `result` Integer - インポート結果。
 
-プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`` という値は成功を意味しますが、その他の値はchromiumの [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
+プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`0` という値は成功を意味しますが、その他の値はchromiumの [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
 
 ### `app.disableHardwareAcceleration()`
 
@@ -711,7 +711,7 @@ app.on('ready', () => {
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
-現在のアプリのカウンターバッジを設定します。count を `` に設定すると、バッジを非表示にします。
+現在のアプリのカウンターバッジを設定します。count を `0` に設定すると、バッジを非表示にします。
 
 macOSでは、ドックアイコンに表示されます。Linuxでは、Unityランチャーでしか機能しません。
 

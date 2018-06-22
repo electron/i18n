@@ -124,7 +124,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 * Changed a Windows thing. #123
 ```
 
-### Major releases
+### Major リリース
 
 ```sh
 ## Upgrades
@@ -153,7 +153,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 - Some other change. #123
 ```
 
-### Beta releases
+### ベータリリース
 
 Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
 

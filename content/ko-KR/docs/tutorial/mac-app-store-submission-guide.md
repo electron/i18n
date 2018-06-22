@@ -1,26 +1,26 @@
 # 맥 앱스토어 제출 안내서
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+V0.34.0 이후, Electron는 패키지 앱을 Mac App Store(MAS) 에 제출할 수 있습니다. 이 가이드는 앱 제출 방법 및 MAS 빌드의 제약들에 관련 정보를 제공합니다.
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**참고:**: Mac App Store에 앱을 제출하려면 [Apple Developer Program](https://developer.apple.com/support/compare-memberships/)에 등록해야합니다.
 
-## How to Submit Your App
+## 앱 제출 방법
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+다음 단계는 Mac App Store에 앱을 제출하는 간단한 방법을 소개합니다. 하지만, 이 단계들로 인해 여러분의 앱이 Apple에 의해 승인되는 것은 아닙니다. 당신 여전히 Mac App Store 요구 사항을 충족하는 방법에 대한 Apple의 [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) 가이드를 읽어야 합니다.
 
-### Get Certificate
+### 인증서 받기
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+Mac App Store에 앱을 제출하려면, 먼저 Apple로 부터 인증서를 받아야합니다. 웹에서 [기존 가이드](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps)를 따라할 수 있습니다.
 
-### Get Team ID
+### 팀 아이디 받기
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+앱에 서명하기 전에, 계정의 팀 ID를 알아야합니다. 팀 ID를 찾기위해서,[Apple Developer Center](https://developer.apple.com/account/)에 로그인하고, sidebar의 멤버십을 클릭하십시오. 여러분의 팀 ID는 팀 이름 아래 회원 정보 섹션에 표시됩니다.
 
-### Sign Your App
+### 앱 인증
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+사전 준비 작업을 마친 후, [Application Distribution](application-distribution.md)를 따라 애플리케이션을 패키지화하고, 애플리케이션에 서명 할 수 있습니다.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+우선, 앱의 `Info.plist`에 `ElectronTeamID`키를 추가하고 Team ID값을 입력합니다.
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+그런 다음 세 가지 인 타이틀먼트 파일들(child.plist, parent.plist, loginhelper.plist) 을 준비해야합니다.
 
 `child.plist`:
 
@@ -77,9 +77,9 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+`TEAM_ID`를 Apple에 등록된 팀 ID로 대체하고, `your.bundle.id`를 앱의 번들 ID로 바꿔야합니다.
 
-And then sign your app with the following script:
+그리고, 다음 스크립트로 앱에 서명하십시오.
 
 ```sh
 #!/bin/bash
@@ -118,64 +118,64 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+MacOS에서 앱 샌드 박싱을 처음 사용한다면, Apple의 앱 샌드박스 활성화([Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html))를 읽어야만 합니다. 앱에서 필요로하는 권한에 대한 키를 인 타이틀먼트 파일(보통 plist 형태를 취함)에 추가하십시오.
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+수동으로 앱에 서명하는 것 외에도 [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) 모듈을 사용하여 작업을 수행 할 수도 있습니다.
 
-#### Sign Native Modules
+#### 네이티브 모듈 서명
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+앱에서 사용되는 native 모듈도 서명이 필요합니다. 만약 electron-osx-sign을 사용하는 경우 argument list에 빌드 된 바이너리의 경로를 포함시켜야합니다.
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+또한 주목해야할 점은 네이티브 모듈이 intermediate files을 생성 할 수도 있기 때문에, 생성된 파일들은 포함되지 않아야합니다 (그것들 역시 서명이 필요하기 때문). 8.1.x 이전 버전에서 [electron-packager](https://github.com/electron-userland/electron-packager)를 사용하는 경우 빌드 단계에`--ignore=.+\.o$`를 추가하여이 파일들을 ignore 설정 합니다. 버전 8.1.0 이상에서는 기본적으로 해당 파일을 무시합니다.
 
-### Upload Your App
+### 업로드 앱
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+앱에 서명 한 후, iTunes Connect에서 처리를 위해 Application Loader를 사용하여 업로드 할할 수 있으며, 업로드 전에 생성 기록[created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)을 확인하십시오.
 
-### Submit Your App for Review
+### Review를 위한 앱 제출
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+이 단계가 완료되면 [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html)할 수 있습니다.
 
-## Limitations of MAS Build
+## MAS 빌드의 제약
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+앱 샌드 박싱을위한 모든 요구 사항을 충족시키기 위해, 다음 모듈 MAS 빌드에서 사용 중지되었습니다.
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+다음과 같은 동작이 변경되었습니다.
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* 일부 컴퓨터에서는 비디오 캡처가 작동하지 않을 수 있습니다.
+* 특정 접근성 기능이 작동하지 않을 수 있습니다.
+* 어플리케이션들이 DNS 변경 사항을 인식하지 못할 수 있습니다.
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+또한, 앱 샌드 박스를 사용하는 동안, 앱은 엄격하게 제한되어 리소스에 접근하게 됩니다. 자세한 내용은 [App Sandboxing](https://developer.apple.com/app-sandboxing/)을 읽어 보십시오.
 
-### Additional Entitlements
+### Entitlements 추가
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+앱에서 사용하는 Electron API에 따라, app의 Mac App Store 빌드에서 이러한 API를 사용할 수 있으려면 `parent.plist` 파일에 추가적으로 권한을 추가해야 할 수도 있습니다.
 
-#### Network Access
+#### 네트워크 접근
 
-Enable outgoing network connections to allow your app to connect to a server:
+앱의 서버 연결을 허용하기 위해 outgoing(outbound) 네트워크 연결을 활성화합니다.
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+앱이 네트워크의 listening socket을 열도록 어용하기 위해 incoming(inbound) 네트워크 연결을 활성화 합니다.
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+자세한 내용은 [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9)를 참조하세요.
 
 #### dialog.showOpenDialog
 
@@ -184,7 +184,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+자세한 내용은 [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6)를 참조하세요.
 
 #### dialog.showSaveDialog
 
@@ -193,23 +193,23 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+자세한 내용은 [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6)를 참조하세요.
 
-## Known issues
+## 알려진 이슈들
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+앱이 Mac App Store에서 배포하도록 서명되면 실패합니다. 최신 업데이트 확인(  # 9005 </ 0>)</p> 
 
-#### Workaround
+#### 해결 방법
 
-`shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
+`shell.openExternal('file://' + filePath)`은 확장이 설치된 앱과 연결되어있는 한 기본 애플리케이션에서 파일을 열것입니다.
 
-## Cryptographic Algorithms Used by Electron
+## Electron에서 사용되는 암호화 알고리즘
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+거주중인 국가 및 지역에 따라, Mac App Store에서 앱에 사용 된 암호화 알고리즘의 문서를 요청하고, 심지어 미국 암호화 등록 (ERN) 승인 사본을 제출하도록 요청할 수도 있습니다.
 
-Electron uses following cryptographic algorithms:
+Electron이 사용하는 암호화 알고리즘은 다음과 같습니다.
 
 * AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](https://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](https://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
@@ -235,4 +235,4 @@ Electron uses following cryptographic algorithms:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+ERN 승인을 얻는 방법에 대해서는 다음을 참조하십시오: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).

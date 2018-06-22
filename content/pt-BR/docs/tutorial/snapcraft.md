@@ -46,7 +46,7 @@ A saída deve ser algo mais ou menos assim:
         ├── locales
         ├── natives_blob.bin
         ├── resources
-        ├── snapshot_blob.bin
+        ├── v8_context_snapshot.bin
         └── version
 ```
 

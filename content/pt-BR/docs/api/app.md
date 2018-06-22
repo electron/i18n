@@ -683,7 +683,7 @@ Muda o [Application User Model ID](https://msdn.microsoft.com/en-us/library/wind
 * `callback` Function 
   * `result` Integer - Resultado da importação.
 
-Importa o certificado em formato pkcs12 ao armazenamento de certificados da plataforma. `callback` é chamada com o `result` da operação de importação. O valor `` indica sucesso, enquanto que qualquer outro valor indica falha de acordo com a [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) do Chromium.
+Importa o certificado em formato pkcs12 ao armazenamento de certificados da plataforma. `callback` é chamada com o `result` da operação de importação. O valor `0` indica sucesso, enquanto que qualquer outro valor indica falha de acordo com a [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) do Chromium.
 
 ### `app.disableHardwareAcceleration()`
 
@@ -711,7 +711,7 @@ Retorna [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Os status de re
 
 Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
-Muda o selo contador do aplicativo atual. Definí-lo como `` irá ocultar o selo.
+Muda o selo contador do aplicativo atual. Definí-lo como `0` irá ocultar o selo.
 
 No macOS, ele é mostrado no ícone da dock. No Linux, ele só funciona no lançador Unity.
 

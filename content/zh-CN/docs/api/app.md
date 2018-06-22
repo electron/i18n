@@ -47,7 +47,7 @@ app.on('window-all-closed', () => {
 
 ** 注意: **如果应用程序退出是因调用了` autoUpdater. quitAndInstall () `, 所有窗口都会发出` close ` Event *然后* ` before-quit ` Event 并关闭所有窗口。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
 ### 事件: 'will-quit'
 
@@ -59,7 +59,7 @@ app.on('window-all-closed', () => {
 
 关于 ` window-all-closed` 和 ` will-quit ` 事件之间的差异, 请参见 `window-all-closed ` 事件的说明。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
 ### 事件: 'quit'
 
@@ -70,7 +70,7 @@ app.on('window-all-closed', () => {
 
 在应用程序退出时发出。
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
 ### 事件: 'open-file' *macOS*
 
@@ -154,7 +154,7 @@ app.on('window-all-closed', () => {
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
 * ` userInfo `Object-存储的应用程序特定状态。
 
-当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. 否则, 操作将失败, 并且将调用 ` 继续-活动-错误 `。
+当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 如果需要更新要传输的状态, 应立即调用 ` 事件. preventDefault () `, 构造新的 ` 用户信息 ` 字典, 并及时调用 ` 应用程序 updateCurrentActiviy () `。 否则, 操作将失败, 并且将调用 ` 继续-活动-错误 `。
 
 ### 事件: 'new-window-for-tab' *macOS*
 
@@ -319,14 +319,14 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 * `exitCode` Integer (可选)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+立即退出程序并返回 `exitCode`。`exitCode` 的默认值是 0。
 
 所有窗口都将立即被关闭（不会弹出询问提示），而且 `before-quit` 和 `will-quit` 事件也不会被触发
 
 ### `app.relaunch([options])`
 
 * `选项` Object (可选) 
-  * `args` String[] (optional)
+  * `args` String[] (可选)
   * `execPath` String (可选)
 
 从当前实例退出，重启应用。
@@ -390,7 +390,7 @@ app.exit(0)
 * `pictures` 用户图片目录的路径
 * `videos` 用户视频目录的路径
 * ` logs `应用程序的日志文件夹
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Pepper Flash 插件的系统版本的完成路径。
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -442,9 +442,9 @@ app.exit(0)
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+返回 `string`——当前应用程序的语言环境。可能的返回值被记录在[这里](locales.md)。
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在[这里](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md)找到。
 
 ** 注意: **分发打包的应用程序时, 你必须指定 ` locales ` 文件夹。
 
@@ -699,7 +699,7 @@ app.on('ready', () => {
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+返回 [`ProcessMetric[]`](structures/process-metric.md): 包含所有与应用相关的进程的内存和CPU的使用统计的 `ProcessMetric` 对象的数组。
 
 ### `app.getGPUFeatureStatus()`
 
@@ -715,7 +715,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 在macOS系统中, 它展示在dock图标上。在Linux系统中, 它只适用于Unity启动器.
 
-** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux)。
+** 注意: **Unity 启动器依赖于 `.desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux)。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -736,16 +736,16 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 返回 ` Object `:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
-* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. 这表示应用程序在启动时不应打开任何窗口。 This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. 这表示程序应该还原上次关闭时打开的窗口。 This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` 表示应用在登录时以隐藏的方式启动。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
+* `wasOpenedAtLogin` Boolean *macOS* - `true` 表示应用在自动登录后已经启动。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
+* ` wasOpenedAsHidden `Boolean *macOS* - 如果应用在登录时已经隐藏启动, 则为 ` true `。 这表示应用程序在启动时不应打开任何窗口。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
+* `restoreState` Boolean *macOS* - `true` 表示应用作为登录启动项并且需要恢复之前的会话状态。 这表示程序应该还原上次关闭时打开的窗口。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (可选) - `true`在登录时启动应用，`false` 移除应用作为登录启动项 。默认为 `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 ` app. getLoginItemStatus (). wasOpenedAsHidden ` 以了解当前值。 This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (可选) *macOS* - `true` 表示以隐藏的方式启动应用。 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 ` app. getLoginItemStatus (). wasOpenedAsHidden ` 以了解当前值。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
   * `path` String (可选) *Windows* - 在登录时启动的可执行文件。默认为 `process.execPath`.
   * `args` String[] (可选) *Windows* - 要传递给可执行文件的命令行参数。默认为空数组。注意用引号将路径换行。
 
@@ -790,22 +790,22 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
   * `credits` String (可选) - 信用信息.
   * `version` String (可选) - 应用程序版本号
 
-设置 "关于" 面板选项。 这将覆盖应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。
+设置 "关于" 面板选项。 这将覆盖应用程序的 `.plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
-* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+* `bookmarkData` String - base64 编码的安全作用域的书签数据(bookmark data) ，通过 `dialog.showOpenDialog` 或者 `dialog.showSaveDialog` 方法获取。
 
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+返回 `Function` - 该函数 **必须** 在你完成访问安全作用域文件后调用一次。 如果你忘记停止访问书签，[内核资源将会泄漏](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)，并且你的应用将失去完全到达沙盒之外的能力，直到应用重启。
 
 ```js
-// Start accessing the file.
+//开始读取文件
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
 // You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
-Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+开始访问安全范围内的资源。 通过这个方法，electron 应用被打包为可到达Mac App Store沙箱之外访问用户选择的文件。 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -832,11 +832,11 @@ Start accessing a security scoped resource. With this method electron applicatio
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+返回 ` Boolean `- 应用程序当前是否在系统应用程序文件夹运行。 可以搭配 ` app. moveToApplicationsFolder () `使用
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+返回 ` Boolean `-移动是否成功。 请注意, 当您的应用程序移动成功, 它将退出并重新启动。
 
 默认情况下这个操作将不会显示任何确认对话框, 如果您希望让用户来确认操作，你可能需要使用 [` dialog `](dialog.md) API
 

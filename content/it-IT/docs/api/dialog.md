@@ -1,17 +1,17 @@
 # dialogo
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Visualizza finestre di dialogo per l'apertura e il salvataggio di file, avvisi ecc.
 
 Processo: [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+Un esempio è l'apertura di una finestra per la selezione multipla di file e/o cartelle:
 
 ```javascript
 const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+La finestra viene aperta dal processo principale di Electron. Se si vuole accedere all'oggetto della finestra dal processo "rendere", ricorda di utilizzare "remote":
 
 ```javascript
 const {dialog} = require('electron').remote
@@ -20,24 +20,24 @@ console.log(dialog)
 
 ## Metodi
 
-The `dialog` module has the following methods:
+Il modulo `"dialog"` espone i seguenti metodi:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (opzionale)
 * `options` Oggetto 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `title` String (opzionale)
+  * `defaultPath` String (opzionale)
+  * `buttonLabel` String (opzionale) - Etichetta personalizzata per il pulsante di conferma, se lasciata vuota verrà utilizzata quella di default.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `proprietà` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
+  * `properties` String[] (opzionale) - Indica le caratteristiche che la finestra di dialogo renderà disponibili. A seguire i valori supportati: 
+    * `openFile` - Permette la selezione dei file.
+    * `openDirectory` - Permette la selezione delle cartelle.
     * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `showHiddenFiles` - Mostra i file nascosti.
+    * `createDirectory` *macOS* - Permette la creazione di nuove cartelle all'interno della finestra.
+    * 0>promptToCreate</code> *Windows* - Effettua la creazione del file se il percorso inserito nel dialog non esiste. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
+    * `noResolveAliases` *macOS* - Disabilita la risoluzione automatica dei collegamenti (symlink). I collegamenti selezionati non ritorneranno il proprio percorso, bensì il percorso a cui puntano.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
   * `message` String (optional) *macOS* - Message to display above input boxes.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
@@ -70,11 +70,11 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (opzionale)
 * `options` Oggetto 
-  * `title` String (optional)
+  * `title` String (opzionale)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (opzionale) - Etichetta personalizzata per il pulsante di conferma, se lasciata vuota verrà utilizzata quella di default.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
@@ -94,7 +94,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (opzionale)
 * `options` Oggetto 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -105,7 +105,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` [NativeImage](native-image.md) (optional)
-  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `` will be used as the return value or callback response. This option is ignored on Windows.
+  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response. This option is ignored on Windows.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Di default è `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
 * `callback` Function (optional) 
@@ -131,7 +131,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (opzionale)
 * `options` Oggetto 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.

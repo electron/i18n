@@ -208,7 +208,7 @@ Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi
     * `errorCode` Integer - Error code.
   * `callback` Fungsi 
     * `verificationResult` Bulat - nilai dapat menjadi salah satu kode kesalahan sertifikat dari [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Terlepas dari kode kesalahan sertifikat, kode khusus berikut dapat digunakan. 
-      * `` - Indicates success and disables Certificate Transparency verification.
+      * `0` - Indicates success and disables Certificate Transparency verification.
       * `-2` - menunjukkan kegagalan.
       * `-3` - menggunakan hasil verifikasi dari kromium.
 

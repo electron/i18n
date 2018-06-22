@@ -160,7 +160,7 @@ Habang itong katangian ay mayroon ang pahina ng panauhin ay maaring buksan ang m
 
 Isang listahan mg mga string na tumutukoy sa web preferencies na iiset sa webview, pinaghihiwaly ng `,`. Ang buong listahan ay supportado ng preference strings na makikita sa [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
-Ang string sumusunod sa kapareihang pormat bilang sa katangian ng string sa `window.open`. Ang pangalan ay ibinigay mismo ng `true` bollean balyo. Isang preference ay maaring mag takda ng ibang balyo kabilang ang `=`, kasunod ng balyo. Tumutukoy sa balyo na `yes` at `1` ay inerterprit sa `true`, habang `no` at `` ay binigyang-kahulugan ng `false`.
+Ang string sumusunod sa kapareihang pormat bilang sa katangian ng string sa `window.open`. Ang pangalan ay ibinigay mismo ng `true` bollean balyo. Isang preference ay maaring mag takda ng ibang balyo kabilang ang `=`, kasunod ng balyo. Tumutukoy sa balyo na `yes` at `1` ay inerterprit sa `true`, habang `no` at `0` ay binigyang-kahulugan ng `false`.
 
 ### `blinkfeatures`
 
