@@ -99,7 +99,7 @@
 * [进程对象](api/process.md)
 * [支持的 Chrome 命令行开关](api/chrome-command-line-switches.md)
 * [环境变量](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [重要的API变更](api/breaking-changes.md)
 
 ### 自定义 DOM 元素:
 
