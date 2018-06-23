@@ -69,9 +69,9 @@ const root = fs.readdirSync('/')
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+Как вы уже могли угадать, это имеет важные последствия для безопасности если вы пытаетесь загрузить удаленный контент. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
 
-2) Вы можете использовать Node.js модули в вашем приложении. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) Вы можете использовать Node.js модули в вашем приложении. Выберите свой любимый npm модуль. npm предлагает в настоящее время крупнейшее в мире хранилище open-source код - возможность использовать хорошо поддержанный и проверенный код, который раньше был зарезервированное для серверных приложений, является одной из ключевых особенностей Electron. Контекст | Контекст запроса.
 
 Например чтобы использовать официальный AWS SDK в вашем приложении, следует сначала установить его как зависимость:
 
@@ -86,6 +86,6 @@ npm install --save aws-sdk
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+Существует одна важная оговорка: Native Node.js модули (то есть модули, которые требуют компиляции собственного кода, прежде чем они могут быть использованы) должны быть скомпилированы для использования с Electron.
 
 The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
