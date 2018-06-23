@@ -32,7 +32,7 @@ Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file hos
 
 The `autoUpdater` object emits the following events:
 
-### Event: 'error'
+### Zdarzenie: 'error'
 
 Zwraca:
 
@@ -40,19 +40,19 @@ Zwraca:
 
 Emitted when there is an error while updating.
 
-### Event: 'checking-for-update'
+### Zdarzenie: 'checking-for-update'
 
 Emitted when checking if an update has started.
 
-### Event: 'update-available'
+### Zdarzenie: 'update-available'
 
 Emitted when there is an available update. The update is downloaded automatically.
 
-### Event: 'update-not-available'
+### Zdarzenie: 'update-not-available'
 
 Emitted when there is no available update.
 
-### Event: 'update-downloaded'
+### Zdarzenie: 'update-downloaded'
 
 Zwraca:
 
