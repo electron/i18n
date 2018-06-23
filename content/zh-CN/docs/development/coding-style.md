@@ -17,8 +17,8 @@
 * 避免与平台相关的代码： 
   * Use `path.join()` to concatenate filenames.
   * 请使用`os.tmpdir()`而不是`/tmp`来引用临时目录。
-* Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null` or `undefined`
+* Using a plain `返回` when returning explicitly at the end of a function. 
+  * 不是`return null`，`return undefined`，`null`或`undefined`
 
 ## C + + 和 Python
 
@@ -48,8 +48,8 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 Electron API 使用与 Node.js 相同的大小写方案：
 
-* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
+* 当模块本身是class时, 比如 `BrowserWindow`, 使用 `CamelCase`.
+* 当模块是一组 API 时, 比如 `globalShortcut`时，使用 `mixedCase`。
 * 当 API 是对象的属性时, 并且它复杂到足以成为一个单独的块, 比如 `win.webContents`, 使用 `mixedCase`.
 * 对于其他非模块API, 使用自然标题, 比如 `<webview> Tag` 或 `Process Object`.
 
