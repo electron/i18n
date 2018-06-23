@@ -1,4 +1,4 @@
-## Class: TouchBarSlider
+## Klasa: TouchBarSlider
 
 > Create a slider in the touch bar for native macOS applications
 
