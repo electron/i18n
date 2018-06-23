@@ -1,4 +1,4 @@
-## Class: TouchBarColorPicker
+## Klasa: TouchBarColorPicker
 
 > Create a color picker in the touch bar for native macOS applications
 
