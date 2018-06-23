@@ -320,7 +320,7 @@ Questo metodo garantisce che tutti i `precaricati` e `caricati` eventi gestional
 
 * `exitCode` Integer (opzionale)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Esci immediatamente con `exitCode`. L'`exitCode` predefinito è 0.
 
 Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli eventi `prima-esci` e `uscirà` non saranno emessi.
 
@@ -444,9 +444,9 @@ Sostituisce l'attuale nome dell'app.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Restituisce `Stringa` - L'app locale attuale. Possibili restituzioni dei valori sono documentate [qui](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Per impostare il locale, vorrai usare una linea di comando spostata alla startup dell'app, che si trova [qui](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Note:** Quando distribuisci il tuo pacchetto app, devi anche navigare nelle cartelle `locali`.
 
