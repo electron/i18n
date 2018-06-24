@@ -10,11 +10,11 @@ Windows 10 "Anniversary Update" では、仮想ファイルシステムとレジ
 
 さらにexeは内部的にはappxモデルとして起動される - つまりUniversal Windows Platformで利用可能なAPIの多くを使用できる。 より多くの機能として、Electronアプリは `exe`と共に、バックグラウンドでタスクを実行する、プッシュ通知を受け取る、他のUWPアプリケーションと通信するなど、表示しないUWPバックグラウンドタスクを組合せることができます。
 
-To compile any existing Electron app, ensure that you have the following requirements:
+既存のElectronアプリをコンパイルするには、以下の要件を満たしていることを確認してください:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Windows 10 with Anniversary Update (2016年8月2日にリリース)
+* Windows 10 SDK [ここからダウンロード](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* 少なくてもNode 4 (`node -v`を実行してチェックできます)
 
 Then, go and install the `electron-windows-store` CLI:
 
