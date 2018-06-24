@@ -1,33 +1,33 @@
-# Locales
+# Localizzazioni
 
-> Locale values returned by `app.getLocale()`.
+> Valori delle localizzazioni dati da `app.getLocale()`.
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+Electron usa la libreria `l10n_util` per trovare la localizzazione. I possibili valori sono elencati qua sotto:
 
-| Language Code | Language Name           |
+| Codice lingua | Nome lingua             |
 | ------------- | ----------------------- |
 | af            | Afrikaans               |
-| am            | Amharic                 |
-| ar            | Arabic                  |
-| az            | Azerbaijani             |
-| be            | Belarusian              |
-| bg            | Bulgarian               |
+| am            | Amarico                 |
+| ar            | Arabo                   |
+| az            | Azero                   |
+| be            | Bielorusso              |
+| bg            | Bulgaro                 |
 | bh            | Bihari                  |
-| bn            | Bengali                 |
-| br            | Breton                  |
-| bs            | Bosnian                 |
-| ca            | Catalan                 |
-| co            | Corsican                |
-| cs            | Czech                   |
-| cy            | Welsh                   |
-| da            | Danish                  |
-| de            | German                  |
-| de-AT         | German (Austria)        |
-| de-CH         | German (Switzerland)    |
-| de-DE         | German (Germany)        |
-| el            | Greek                   |
-| en            | English                 |
-| en-AU         | English (Australia)     |
+| bn            | Bengalese               |
+| br            | Bretone                 |
+| bs            | Bosniaco                |
+| ca            | Catalano                |
+| co            | Corso                   |
+| cs            | Ceco                    |
+| cy            | Gallese                 |
+| da            | Danese                  |
+| de            | Tedesco                 |
+| de-AT         | Tedesco (Austria)       |
+| de-CH         | Tedesco (Svizzera)      |
+| de-DE         | Tedesco (Germania)      |
+| el            | Greco                   |
+| en            | Inglese                 |
+| en-AU         | Inglese (Australia)     |
 | en-CA         | English (Canada)        |
 | en-GB         | English (UK)            |
 | en-NZ         | English (New Zealand)   |
@@ -130,8 +130,8 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ug            | Uighur                  |
 | uk            | Ukrainian               |
 | ur            | Urdu                    |
-| uz            | Uzbek                   |
-| vi            | Vietnamese              |
+| uz            | Usbeco                  |
+| vi            | Vietnamita              |
 | xh            | Xhosa                   |
 | yi            | Yiddish                 |
 | yo            | Yoruba                  |
