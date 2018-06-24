@@ -52,7 +52,7 @@ npm install -g electron-windows-store
 └── ui_resources_200_percent.pak
 ```
 
-## Step 2: Running electron-windows-store
+## ステップ2: electron-windows-storeを実行
 
 From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
 
