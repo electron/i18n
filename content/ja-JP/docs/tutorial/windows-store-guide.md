@@ -69,9 +69,9 @@ electron-windows-store `
 
 拡張されたAppXファイルが作成されると、ツールはディスク上のそれらのファイルから、単一ファイルのAppXパッケージを作成するためにWindows App Packager(`MakeAppx.exe`) を使用します。 最後にツールはAppXパッケージを署名するためにコンピューター上に信頼された証明書を作成します。 署名されたAppXパッケージを使うと、CLIはマシンにパッケージを自動的にインストールすることもできる。
 
-## Step 3: Using the AppX Package
+## ステップ3: AppXパッケージの使用
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+あなたのパッケージを実行するために、ユーザーは"Anniversary Update"と呼ばれるWindows 10が必要です。Windowsを更新する方法の詳細は[ここ](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update)をご参照ください。
 
 In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to install your package by double-clicking it, so a submission to the store might not be necessary if you're looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
