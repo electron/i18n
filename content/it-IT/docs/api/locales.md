@@ -97,15 +97,15 @@ Electron usa la libreria `l10n_util` per trovare la localizzazione. I possibili 
 | pa            | Punjabi                         |
 | pl            | Polacco                         |
 | ps            | Pashto                          |
-| pt            | Portuguese                      |
-| pt-BR         | Portuguese (Brazil)             |
-| pt-PT         | Portuguese (Portugal)           |
+| pt            | Portoghese                      |
+| pt-BR         | Portoghese (Brasile)            |
+| pt-PT         | Portoghese (Portogallo)         |
 | qu            | Quechua                         |
-| rm            | Romansh                         |
-| ro            | Romanian                        |
-| ru            | Russian                         |
+| rm            | Romancio                        |
+| ro            | Rumeno                          |
+| ru            | Russo                           |
 | sd            | Sindhi                          |
-| sh            | Serbo-Croatian                  |
+| sh            | Serbo-Croato                    |
 | si            | Singalese                       |
 | sk            | Slovacco                        |
 | sl            | Sloveno                         |
@@ -125,10 +125,10 @@ Electron usa la libreria `l10n_util` per trovare la localizzazione. I possibili 
 | tk            | Turkmeno                        |
 | to            | Tongano                         |
 | tr            | Turco                           |
-| tt            | Tatar                           |
+| tt            | Tataro                          |
 | tw            | Twi                             |
-| ug            | Uighur                          |
-| uk            | Ukrainian                       |
+| ug            | Uiguro                          |
+| uk            | Ucraino                         |
 | ur            | Urdu                            |
 | uz            | Usbeco                          |
 | vi            | Vietnamita                      |
@@ -136,6 +136,6 @@ Electron usa la libreria `l10n_util` per trovare la localizzazione. I possibili 
 | yi            | Yiddish                         |
 | yo            | Yoruba                          |
 | zh            | Chinese                         |
-| zh-CN         | Chinese (Simplified)            |
-| zh-TW         | Chinese (Traditional)           |
+| zh-CN         | Cinese (semplificato)           |
+| zh-TW         | Cinese (Tradizionale)           |
 | zu            | Zulu                            |
