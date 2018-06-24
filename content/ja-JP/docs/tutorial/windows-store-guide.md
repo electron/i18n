@@ -65,9 +65,9 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-一度ツールが実行されると: Electronアプリを入力として受け入れて、`node_modules`をフラット化します。 次にアプリケーションを`app.zip`としてアーカイブします。 Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+一度ツールが実行されると: Electronアプリを入力として受け入れて、`node_modules`をフラット化します。 次にアプリケーションを`app.zip`としてアーカイブします。 インストーラーとWindows Containerを使って、ツールは、出力フォルダーにWindows Application Manifest (`AppXManifest.xml`) 、仮想ファイルシステム、仮想レジストリーを含む「拡張された」AppXパッケージを作成します。
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+拡張されたAppXファイルが作成されると、ツールはディスク上のそれらのファイルから、単一ファイルのAppXパッケージを作成するためにWindows App Packager(`MakeAppx.exe`) を使用します。 Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
 
 ## Step 3: Using the AppX Package
 
