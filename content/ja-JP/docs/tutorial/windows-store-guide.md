@@ -81,9 +81,9 @@ electron-windows-store `
 
 プッシュ通知、Cortana統合、ライブタイルなど、Windows 10機能を完全に使った非表示UWPバックグラウンドタスクとElectronアプリを組み合わせることができます。
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Electronアプリがバックグラウンドタスクを使って、トースト通知の送信とライブタイルを利用する方法は、[マイクロソフトが提供するサンプルをチェック](https://github.com/felixrieseberg/electron-uwp-background)してください。
 
-## Optional: Convert using Container Virtualization
+## オプション: コンテナ仮想化を使った変換
 
 To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
 
