@@ -16,17 +16,17 @@ Windows 10 "Anniversary Update" では、仮想ファイルシステムとレジ
 * Windows 10 SDK [ここからダウンロード](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
 * 少なくてもNode 4 (`node -v`を実行してチェックできます)
 
-Then, go and install the `electron-windows-store` CLI:
+次に、`electron-windows-store` CLIに移動してインストールする:
 
 ```sh
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## ステップ1: Electronアプリケーションのパッケージ化
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+[electron-packager](https://github.com/electron-userland/electron-packager)(または似たようなツール) を使ってパッケージ化します。 アプリケーションサイズが大きくなるので、実際には必要ないモジュールを`node_modules`から確実に削除します。
 
-The output should look roughly like this:
+出力はおおよそ以下のようになります:
 
 ```text
 ├── Ghost.exe
@@ -39,14 +39,14 @@ The output should look roughly like this:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│ ├── am.pak
+│ ├── ar.pak
+│ ├── [...]
 ├── natives_blob.bin
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│ ├── app
+│ └── atom.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
