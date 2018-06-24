@@ -54,7 +54,7 @@ npm install -g electron-windows-store
 
 ## ステップ2: electron-windows-storeを実行
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+昇格したPowerShell(管理者として実行) で、入力と出力ディレクトリ、アプリ名とバージョン、`node_modules`をフラット化することの確認など、必要なパラメーターと共に`electron-windows-store`を実行する。
 
 ```powershell
 electron-windows-store `
