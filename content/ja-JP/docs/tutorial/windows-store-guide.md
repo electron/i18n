@@ -90,7 +90,7 @@ Electronアプリがバックグラウンドタスクを使って、トースト
 初めてCLIを実行する前に「Windows Desktop App Converter」をセットアップする必要があります。 これには数分かかりますが、一度だけなので心配する必要はありません。 [ここから](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter)Desktop App Conveterをダウンロードします。 あなたは2つのファイルを受け取ります: `DesktopAppConverter.zip`と`BaseImage-14316.wim`
 
 1. `DesktopAppConverter.zip`を展開します。 (管理者として実行) で昇格したPowerShellで`Set-ExecutionPolicy bypass`を呼び出して、システム実行ポリシーで全ての実行を可能にします。
-2. 次にDesktop App Converterのインストールを実行して、(`BaseImage-14316.wim`としてダウンロードされた) Windowsベースイメージの場所を渡して、`.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`を呼び出す。
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+2. 次にDesktop App Converterのインストールを実行して、(`BaseImage-14316.wim`としてダウンロードされた) Windowsベースイメージの場所を渡して、`.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`を呼び出します。
+3. 上記コマンドを実行して再起動が促されたら、マシンを再起動して、再起動に成功した後で上記コマンドをもう一度実行してください。
 
-Once installation succeeded, you can move on to compiling your Electron app.
+インストールが成功すると、Electronアプリのコンパイルに進むことができます。
