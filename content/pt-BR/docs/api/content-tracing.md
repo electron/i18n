@@ -40,7 +40,7 @@ The `contentTracing` module has the following methods:
 
 Get a set of category groups. The category groups can change as new code paths are reached.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Uma vez que todos os processos-filhos reconhecem a requisição do `getCategories`, o `callback` é invocado com um array de categorias de grupos.
 
 ### `contentTracing.startRecording(options, callback)`
 
