@@ -85,9 +85,9 @@ Electronアプリがバックグラウンドタスクを使って、トースト
 
 ## オプション: コンテナ仮想化を使った変換
 
-ほとんどのElectronアプリは、AppX パッケージを生成するために`electron-windows-store` CLIで動作するテンプレートを使っている。 However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+ほとんどのElectronアプリは、AppX パッケージを生成するために`electron-windows-store` CLIで動作するテンプレートを使っている。 しかし、もしもカスタムインストーラーを使った場合や、生成されたパッケージで問題が発生した場合には、Windows Containerでコンパイルを使ったパッケージ作成を試すことができ、このモデルでは、アプリケーションがオペレーティングシステムに対して具体的にどんな変更をしているのかを検出するため、CLIは空のWindows Containerにアプリケーションをインストールして実行します。
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+初めてCLIを実行する前に「Windows Desktop App Converter」をセットアップする必要があります。 これには数分かかりますが、一度だけなので心配する必要はありません。 [ここから](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter)Desktop App Conveterをダウンロードします。 You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
 1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
 2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
