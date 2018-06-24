@@ -79,7 +79,7 @@ electron-windows-store `
 
 ## オプション: BackgroundTaskを使ってUWP機能を追加
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+プッシュ通知、Cortana統合、ライブタイルなど、Windows 10機能を完全に使った非表示UWPバックグラウンドタスクとElectronアプリを組み合わせることができます。
 
 To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
 
