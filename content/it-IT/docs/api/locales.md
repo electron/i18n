@@ -39,17 +39,17 @@ Electron usa la libreria `l10n_util` per trovare la localizzazione. I possibili 
 | et            | Estone                          |
 | eu            | Basco                           |
 | fa            | Persiano                        |
-| fi            | Finnish                         |
-| fil           | Filipino                        |
+| fi            | Finlandese                      |
+| fil           | Filippino                       |
 | fo            | Faroese                         |
-| fr            | French                          |
-| fr-CA         | French (Canada)                 |
-| fr-CH         | French (Switzerland)            |
-| fr-FR         | French (France)                 |
-| fy            | Frisian                         |
-| ga            | Irish                           |
-| gd            | Scots Gaelic                    |
-| gl            | Galician                        |
+| fr            | Francese                        |
+| fr-CA         | Francese (Canada)               |
+| fr-CH         | Francese (Svizzera)             |
+| fr-FR         | Francese (Francia)              |
+| fy            | Frisone                         |
+| ga            | Irlandese                       |
+| gd            | Gaelico scozzese                |
+| gl            | Galiziano                       |
 | gn            | Guarani                         |
 | gu            | Gujarati                        |
 | ha            | Hausa                           |
@@ -57,45 +57,45 @@ Electron usa la libreria `l10n_util` per trovare la localizzazione. I possibili 
 | he            | Ebraico                         |
 | hi            | Hindi                           |
 | hr            | Croato                          |
-| hu            | Hungarian                       |
-| hy            | Armenian                        |
+| hu            | Ungherese                       |
+| hy            | Armeno                          |
 | ia            | Interlingua                     |
-| id            | Indonesian                      |
-| is            | Icelandic                       |
-| it            | Italian                         |
-| it-CH         | Italian (Switzerland)           |
-| it-IT         | Italian (Italy)                 |
-| ja            | Japanese                        |
-| jw            | Javanese                        |
-| ka            | Georgian                        |
-| kk            | Kazakh                          |
-| km            | Cambodian                       |
+| id            | Indonesiano                     |
+| is            | Islandese                       |
+| it            | Italiano                        |
+| it-CH         | Italiano (Svizzera)             |
+| it-IT         | Italiano (Italia)               |
+| ja            | Giapponese                      |
+| jw            | Giavanese                       |
+| ka            | Georgiano                       |
+| kk            | Kazako                          |
+| km            | Cambogiano                      |
 | kn            | Kannada                         |
-| ko            | Korean                          |
-| ku            | Kurdish                         |
-| ky            | Kyrgyz                          |
-| la            | Latin                           |
+| ko            | Coreano                         |
+| ku            | Curdo                           |
+| ky            | Kirghiso                        |
+| la            | Latino                          |
 | ln            | Lingala                         |
-| lo            | Laothian                        |
-| lt            | Lithuanian                      |
-| lv            | Latvian                         |
-| mk            | Macedonian                      |
+| lo            | Laotiano                        |
+| lt            | Lituano                         |
+| lv            | Lettone                         |
+| mk            | Macedone                        |
 | ml            | Malayalam                       |
-| mn            | Mongolian                       |
-| mo            | Moldavian                       |
+| mn            | Mongolo                         |
+| mo            | Moldavo                         |
 | mr            | Marathi                         |
-| ms            | Malay                           |
+| ms            | Malese                          |
 | mt            | Maltese                         |
-| nb            | Norwegian (Bokmal)              |
-| ne            | Nepali                          |
-| nl            | Dutch                           |
-| nn            | Norwegian (Nynorsk)             |
-| no            | Norwegian                       |
-| oc            | Occitan                         |
+| nb            | Norvegese (Bokmål)              |
+| ne            | Nepalese                        |
+| nl            | Olandese                        |
+| nn            | Norvegese (Nynorsk)             |
+| no            | Norvegese                       |
+| oc            | Occitano                        |
 | om            | Oromo                           |
 | o             | Oriya                           |
 | pa            | Punjabi                         |
-| pl            | Polish                          |
+| pl            | Polacco                         |
 | ps            | Pashto                          |
 | pt            | Portuguese                      |
 | pt-BR         | Portuguese (Brazil)             |
@@ -106,25 +106,25 @@ Electron usa la libreria `l10n_util` per trovare la localizzazione. I possibili 
 | ru            | Russian                         |
 | sd            | Sindhi                          |
 | sh            | Serbo-Croatian                  |
-| si            | Sinhalese                       |
-| sk            | Slovak                          |
-| sl            | Slovenian                       |
+| si            | Singalese                       |
+| sk            | Slovacco                        |
+| sl            | Sloveno                         |
 | sn            | Shona                           |
-| so            | Somali                          |
-| sq            | Albanian                        |
-| sr            | Serbian                         |
+| so            | Somalo                          |
+| sq            | Albanese                        |
+| sr            | Serbo                           |
 | st            | Sesotho                         |
-| su            | Sundanese                       |
-| sv            | Swedish                         |
+| su            | Sudanese                        |
+| sv            | Svedese                         |
 | sw            | Swahili                         |
 | ta            | Tamil                           |
 | te            | Telugu                          |
-| tg            | Tajik                           |
-| th            | Thai                            |
+| tg            | Tagico                          |
+| th            | Tailandese                      |
 | ti            | Tigrinya                        |
-| tk            | Turkmen                         |
-| to            | Tonga                           |
-| tr            | Turkish                         |
+| tk            | Turkmeno                        |
+| to            | Tongano                         |
+| tr            | Turco                           |
 | tt            | Tatar                           |
 | tw            | Twi                             |
 | ug            | Uighur                          |
