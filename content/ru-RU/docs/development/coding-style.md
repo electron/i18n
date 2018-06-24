@@ -26,13 +26,13 @@
 
 Версией Python, которую мы используем в настоящее время, является Python 2.7.
 
-Код C++ использует многожество абстракций и типов Chrome, поэтому рекомендуется ознакомиться с ними. Хорошее место чтобы начать это [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) из документации по Chromium. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+Код C++ использует многожество абстракций и типов Chrome, поэтому рекомендуется ознакомиться с ними. Хорошее место чтобы начать это [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) из документации по Chromium. Документ упоминает некоторые специальные типы, областные типы (которые автоматически освобождают используемую ими память при выходе из области), механизмы логгирования и т. д.
 
 ## Документация
 
 * Write [remark](https://github.com/remarkjs/remark) markdown style
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+Вы можете выполнить команду `npm run lint-docs` чтобы убедиться, что ваши изменения документации корректно отформатированы.
 
 ## JavaScript
 
@@ -41,7 +41,7 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 * Используйте новый синтаксис ES6/ES2015 там, где это уместно 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
   * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) для определения переменных
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
+  * [Стрелочные функции](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions) вместо `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
 
 ## Именование сущностей
