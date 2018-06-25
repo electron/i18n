@@ -8,7 +8,7 @@
 
 * `选项` 对象 
   * `segmentStyle` String (可选) - 分段的样式： 
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
+    * `automatic` - 默认的。分段控件的外观是通过窗口的类型和控件在窗口内呈现的位置自动确定的。
     * `rounded` - The control is displayed using the rounded style.
     * `textured-rounded` - The control is displayed using the textured rounded style.
     * `round-rect` - The control is displayed using the round rect style.
