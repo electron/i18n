@@ -52,7 +52,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [DevTools Erweiterung](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
 * Packaging 
-  * [Code Signing](tutorial/code-signing.md)
+  * [Code Signierung](tutorial/code-signing.md)
 * [Distribution](tutorial/application-distribution.md) 
   * [Support](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
@@ -76,17 +76,17 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
   * [Proxys](tutorial/installation.md#proxies)
   * [Benutzerdefinierte Mirrors und Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemlösungen](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [Im Detail: Electron's Versionierungsschema](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Stabillisations Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
+  * [Beta-Versionen und Fehlerbehebungen](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [Im Detail: Anwendungsquellcode packen mit asar](tutorial/application-packaging.md) 
   * [Asar Archive generieren](tutorial/application-packaging.md#generating-asar-archives)
   * [Verwenden von asar Archiven](tutorial/application-packaging.md#using-asar-archives)
   * [Einschränkungen](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Ungepacket Dateien zu Asar Archiven hinzufügen](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Im Detail: Benutzung des Pepper Flash Plugins](tutorial/using-pepper-flash-plugin.md)
+* [Im Detail: Benutzung des Widevine CDM Plugins](tutorial/using-widevine-cdm-plugin.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 
 * * *
@@ -147,4 +147,4 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
 
 ## Entwicklung
 
-See <development/README.md>
+Siehe <development/README.md>
