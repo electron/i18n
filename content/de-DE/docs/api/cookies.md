@@ -12,17 +12,17 @@ Ein Beispiel:
 const {session} = require('electron')
 
 // Query all cookies.
-session.defaultSession.cookies.get({}, (error, cookies) => {
+session.defaultSession.cookies.get({}, (error, cookies) => {   
   console.log(error, cookies)
 })
 
-// Query all cookies associated with a specific url.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
-  console.log(error, cookies)
+// Frage alle Cookies ab, die mit einer besonderen URL verbunden sind
+session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {   
+console.log(error, cookies) 
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+ // Setze einen Cookie mit der festgelegten Cookie-Data
+// Kann gleiche Cookies überschreiben, wenn sie vorhanden sind
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
