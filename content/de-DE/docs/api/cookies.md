@@ -1,12 +1,12 @@
 ## Class: Cookies
 
-> Query and modify a session's cookies.
+> Abfragen und modifizieren von sessions's cookies.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Auf Instanzen der `Cookies-Klasse` wird über die Cookie-Eigenschaft einer Sitzung zugegriffen.
 
-For example:
+Ein Beispiel:
 
 ```javascript
 const {session} = require('electron')
