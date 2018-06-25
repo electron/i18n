@@ -39,8 +39,8 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Benutzerdefinierte Linux Desktop Aktionen](tutorial/linux-desktop-actions.md)
   * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
   * [Offline/Online erkennung](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Repräsentative Datei für macOS BrowserWindows](tutorial/represented-file.md)
+  * [Natives Datei Drag & Drop](tutorial/native-file-drag-drop.md)
 * [Barrierefreiheit](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -50,7 +50,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Verwendung von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Erweiterung](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Automatisiertes Testen mit einem benutzerdefinierten Treiber](tutorial/automated-testing-with-a-custom-driver.md)
 * Pakete erstellen 
   * [Code Signierung](tutorial/code-signing.md)
 * [Distribution](tutorial/application-distribution.md) 
@@ -99,7 +99,7 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
 * [Prozess-Objekt](api/process.md)
 * [Unterstützte Chrome-Befehlszeilenoptionen](api/chrome-command-line-switches.md)
 * [Umgebungsvariablen](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Breaking API Veränderungen](api/breaking-changes.md)
 
 ### Benutzerdefinierte DOM-Elemente:
 
