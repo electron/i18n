@@ -48,7 +48,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### Metodi Istanza
 
-The `menu` object has the following instance methods:
+La classe `menu` ha is seguenti metodi statici:
 
 #### `menu.popup(options)`
 
