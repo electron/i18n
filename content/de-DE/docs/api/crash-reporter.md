@@ -1,28 +1,28 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> Bestätige Crash Reports zu einem Remote Server
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+Das folgende ist ein Beispiel über die atomatische Bestätigung eines Crash Reports zu einem Remote Server
 
 ```javascript
-const {crashReporter} = require('electron')
+const {crashReporter} = require('electron') 
 
-crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
-  submitURL: 'https://your-domain.com/url-to-submit',
-  uploadToServer: true
+crashReporter.start({   
+	productName: 'DeinName',   
+	companyName: 'DeineFirma',   
+	submitURL: 'https://deine-domain.de/url-to-submit',   
+	uploadToServer: true 
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Zum einrichten eines Servers, zum aktzeptieren und verarbeiten von Crash Reports, können sie folgenden Projekte verwenden:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+Crash Reports werden local im application-specific temp Verzeichniss Ordner gepeichert For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
 ## Methoden
 
