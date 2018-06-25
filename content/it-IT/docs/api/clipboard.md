@@ -123,14 +123,14 @@ Clears the clipboard content.
 
 * `tipo` Stringa (opzionale)
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+Restituisce `String[]` - Un array di formati supportati per la clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
-* `format` String
+* `format` Stringa
 * `tipo` Stringa (opzionale)
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+Restituisce `Boolean` - Vero se la clipboard supporta il formato specificato `format`, falso altrimenti.
 
 ```javascript
 const {clipboard} = require('electron')
@@ -139,23 +139,23 @@ console.log(clipboard.has('<p>selection</p>'))
 
 ### `clipboard.read(format)` *Sperimentale*
 
-* `format` String
+* `format` Stringa
 
 Returns `String` - Reads `format` type from the clipboard.
 
 ### `clipboard.readBuffer(format)` *Sperimentale*
 
-* `format` String
+* `format` Stringa
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+Restituisce `Buffer` - Legge il tipo di `format` dalla clipboard.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
-* `format` String
+* `format` Stringa
 * `buffer` Buffer
 * `tipo` Stringa (opzionale)
 
-Writes the `buffer` into the clipboard as `format`.
+Scrive il `buffer` nella clipboard come `format`.
 
 ### `clipboard.write(data[, tipo])`
 
@@ -172,4 +172,4 @@ const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
 
-Writes `data` to the clipboard.
+Scrive `data` sulla clipboard.
