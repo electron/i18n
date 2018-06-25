@@ -44,7 +44,7 @@ For instance, Electron uses Chromium's rendering library rather than all of Chro
 
 New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
 
-## History
+## التاريخ
 
 Below are milestones in Electron's history.
 
