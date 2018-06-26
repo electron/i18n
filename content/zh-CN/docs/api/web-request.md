@@ -1,4 +1,4 @@
-## Class: WebRequest
+## 类：WebRequest
 
 > 在一个请求生命周期的不同阶段，截取和修改其内容。
 
@@ -35,19 +35,19 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (可选)
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
     * `response` Object 
-      * `cancel` Boolean (optional)
+      * `cancel` Boolean (可选)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
 当请求即将发生时，调用`listener(details, callback)`。
@@ -59,7 +59,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
@@ -68,13 +68,13 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `id` Integer
   * `url` String
   * `method` String
-  * `webContentsId` Integer (optional)
+  * `webContentsId` Integer (可选)
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
 * `callback` Function - 回调函数 
   * `response` Object 
-    * `cancel` Boolean (optional)
+    * `cancel` Boolean (可选)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
 必须使用 `response` 对象调用` callback `。
@@ -82,13 +82,13 @@ The `listener` will be called with `listener(details, callback)` before sending 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (可选)
     * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
@@ -98,7 +98,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
@@ -107,7 +107,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `id` Integer
   * `url` String
   * `method` String
-  * `webContentsId` Integer (optional)
+  * `webContentsId` Integer (可选)
   * `resourceType` String
   * `timestamp` Double
   * `statusLine` String
@@ -124,13 +124,13 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (可选)
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
@@ -143,13 +143,13 @@ The `listener` will be called with `listener(details)` when first byte of the re
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (可选)
     * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
@@ -163,13 +163,13 @@ The `listener` will be called with `listener(details)` when first byte of the re
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (可选)
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
@@ -182,7 +182,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
