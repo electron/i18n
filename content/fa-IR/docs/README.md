@@ -59,23 +59,23 @@
   * [فروشگاه ویندوز](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Security](tutorial/security.md) 
-  * [Reporting Security Issues](tutorial/security.md#reporting-security-issues)
+  * [گزارش مشکلات امنیتی](tutorial/security.md#reporting-security-issues)
   * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
-  * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
+  * [هشدار امنیتی الکترون](tutorial/security.md#electron-security-warnings)
+  * [چک لیست امنیتی](tutorial/security.md#checklist-security-recommendations)
+* [به روزرسانی ها](tutorial/updates.md) 
+  * [استقرار یک سرور به روز رسانی](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+  * [اعمال بروزرسانی](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## آموزش های مفصل
 
 These individual tutorials expand on topics discussed in the guide above.
 
 * [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Proxies](tutorial/installation.md#proxies)
+  * [پروکسی ها](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
-  * [Troubleshooting](tutorial/installation.md#troubleshooting)
+  * [عیب یابی](tutorial/installation.md#troubleshooting)
 * [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
@@ -109,7 +109,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ### Modules for the Main Process:
 
-* [app](api/app.md)
+* [برنامه](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
@@ -124,9 +124,9 @@ These individual tutorials expand on topics discussed in the guide above.
 * [netLog](api/netLog.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
-* [session](api/session.md)
-* [systemPreferences](api/system-preferences.md)
+* [پروتکل](api/protocol.md)
+* [جلسه](api/session.md)
+* [تنظیمات سیستم](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -134,12 +134,12 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
+* [از راه دور](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### Modules for Both Processes:
 
-* [clipboard](api/clipboard.md)
+* [کلیپ بورد](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [screen](api/screen.md)
