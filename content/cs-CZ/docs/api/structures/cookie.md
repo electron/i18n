@@ -7,5 +7,5 @@
 * `path` String (volitelné) – cesta cookie.
 * `secure` Boolean (volitelné) – značí, jestli je cookie značena jako secure.
 * `httpOnly` Boolean (volitelné) – značí, jestli je cookie označena jako HTTP only.
-* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `session` Boolean (volitelné) – značí, jestli je cookie session cookie, anebo časově omezenou cookie s datem vypršení.
+* `expirationDate` Double (volitelné) – datum vypršení platnosti cookie uvedeno jako číslo v sekundách od počátku Unixového času. Nelze nastavit session cookie.
