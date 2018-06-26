@@ -48,7 +48,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `callback` Function - 回调函数 
     * `response` Object 
       * `cancel` Boolean (可选)
-      * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
+      * `redirectURL` String (可选) - 原始请求被阻止发送或完成，而不是重定向到给定的URL。
 
 当请求即将发生时，调用`listener(details, callback)`。
 
@@ -62,7 +62,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function
 
-一旦请求头可用，在发送 HTTP 请求之前，`listener` 将以 `listener(details, callback)` 的形式被调用。 This may occur after a TCP connection is made to the server, but before any http data is sent.
+一旦请求头可用，在发送 HTTP 请求之前，`listener` 将以 `listener(details, callback)` 的形式被调用。 这可能发生在对服务器进行 TCP 连接之后，但在发送任何HTTP数据之前。
 
 * `details` Object 
   * `id` Integer
@@ -75,7 +75,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 * `callback` Function - 回调函数 
   * `response` Object 
     * `cancel` Boolean (可选)
-    * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
+    * `requestHeaders` Object (可选) - 当提供时，将使用这些报头进行请求。
 
 必须使用 `response` 对象调用` callback `。
 
