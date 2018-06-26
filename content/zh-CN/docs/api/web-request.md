@@ -62,7 +62,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
+一旦请求头可用，在发送 HTTP 请求之前，`listener` 将以 `listener(details, callback)` 的形式被调用。 This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 * `details` Object 
   * `id` Integer
@@ -134,7 +134,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `fromCache` Boolean - 表明响应是取自硬盘缓存。
     * `statusCode` Integer
     * `statusLine` String
 
