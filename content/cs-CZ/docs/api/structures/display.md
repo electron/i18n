@@ -1,4 +1,4 @@
-# Display objekt
+# Objekt Display
 
 * `id` Number – unikátní identifikátor spojený s displayem.
 * `rotation` Number – možné hodnoty jsou 0, 90, 180, 270 a reprezentují stupňovou rotaci obrazovky ve směru ručiček.
