@@ -41,4 +41,4 @@ app.on('ready', () => {
 
 ### Event: 'shutdown' *Linux* *macOS*
 
-当系统即将重启或关机时出发 If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
+当系统即将重启或关机时出发 如果事件调用`e.preventDefault()`, Electron 将会尝试延迟系统关机，以便 app 完全退出。 If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
