@@ -154,7 +154,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `ip` String (可选) - 请求实际发送到的服务器 IP 地址。
     * `fromCache` Boolean
     * `responseHeaders` Object
 
