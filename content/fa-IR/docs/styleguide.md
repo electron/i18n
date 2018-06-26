@@ -56,7 +56,7 @@ For API references, there are exceptions to this rule.
 
 The following rules only apply to the documentation of APIs.
 
-### Page title
+### عنوان صفحه
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
