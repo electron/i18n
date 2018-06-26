@@ -30,11 +30,11 @@
   * [استفاده از API های الکترونی](tutorial/application-architecture.md#using-electron-apis)
   * [استفاده از API های Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
-* Adding Features to Your App 
-  * [Notifications](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents)
-  * [Application Progress](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/macos-dock.md)
+* اضافه کردن ویژگی ها به برنامه شما 
+  * [اطلاعیه](tutorial/notifications.md)
+  * [اسناد اخیر](tutorial/desktop-environment-integration.md#recent-documents)
+  * [پیشرفت برنامه](tutorial/progress-bar.md)
+  * [منوی داک سفارشی](tutorial/macos-dock.md)
   * [وظیفه سفارشی سازی ویندوز](tutorial/windows-taskbar.md)
   * [عملیات سفارشی لینوکس دسکتاپ](tutorial/linux-desktop-actions.md)
   * [میانبرهای صفحه کلید](tutorial/keyboard-shortcuts.md)
@@ -58,7 +58,7 @@
   * [فروشگاه Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [فروشگاه ویندوز](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Security](tutorial/security.md) 
+* [امنیت](tutorial/security.md) 
   * [گزارش مشکلات امنیتی](tutorial/security.md#reporting-security-issues)
   * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [هشدار امنیتی الکترون](tutorial/security.md#electron-security-warnings)
@@ -96,15 +96,15 @@ These individual tutorials expand on topics discussed in the guide above.
 ## API References
 
 * [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
+* [شیء فرآیند](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
 * [Breaking API Changes](api/breaking-changes.md)
 
-### Custom DOM Elements:
+### عناصر سفارشی:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
+* [`فایل` شیء](api/file-object.md)
+* [`<webview>` برچسب](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
 ### Modules for the Main Process:
@@ -118,7 +118,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
+* [فهرست](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/netLog.md)
@@ -142,7 +142,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [کلیپ بورد](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
+* [صفحه نمایش](api/screen.md)
 * [shell](api/shell.md)
 
 ## توسعه
