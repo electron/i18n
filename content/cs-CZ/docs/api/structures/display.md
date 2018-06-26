@@ -9,4 +9,4 @@
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-Objekt `Display` reprezentuje fyzický display spojený se systémem. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+Objekt `Display` reprezentuje fyzický display spojený se systémem. `Display` může být emulovaný na headless systémech, anebo může `Display` odpovídat vzdálenému virtuálnímu display.
