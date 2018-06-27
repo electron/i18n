@@ -4,12 +4,12 @@
 
 ## 使用 `update.electronjs.org`
 
-GitHub 的 Electron 团队维护 [update.electronjs.org](https://github.com/electron/update.electronjs.org)，一个免费开源的网络服务，可以让 Electron 应用使用自动更新。 The service is designed for Electron apps that meet the following criteria:
+GitHub 的 Electron 团队维护 [update.electronjs.org](https://github.com/electron/update.electronjs.org)，一个免费开源的网络服务，可以让 Electron 应用使用自动更新。 这个服务是设计给那些满足下面标准的 Electron 应用：
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- 应用运行在 macOS 或者 Windows
+- 应用有公开的 GitHub 仓库
+- 编译的版本发布在 GitHub Releases
+- 编译已代码签名
 
 The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
 
