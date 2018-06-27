@@ -82,7 +82,7 @@ console.log(dialog)
   * `securityScopedBookmarks` Boolean (可选) *masOS* *mas* - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
 * `callback` Function (可选) 
   * `filename` String
-  * `bookmark` String *macOS* *mas* - Base64 编码的字符串包含了安全作用域的书签数据来保存文件。 `securityScopedBookmarks` must be enabled for this to be present.
+  * `bookmark` String *macOS* *mas* - 包含了安全作用域的书签数据 Base64 编码的字符串来保存文件。 `securityScopedBookmarks` 必须启用才有效。
 
 返回 `String[]` 用户选择的文件路径数组，如果用户定义了callback ，则返回`undefined`。
 
