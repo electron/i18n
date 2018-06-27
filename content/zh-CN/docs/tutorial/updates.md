@@ -11,7 +11,7 @@ GitHub 的 Electron 团队维护 [update.electronjs.org](https://github.com/elec
 - 编译的版本发布在 GitHub Releases
 - 编译已代码签名
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+最简单的使用这个服务是安装 [update-electron-app](https://github.com/electron/update-electron-app)，一个预配置好的 Node.js 模块来使用 update.electronjs.org。
 
 安装模块
 
@@ -19,15 +19,15 @@ The easiest way to use this service is by installing [update-electron-app](https
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+从你的应用的 main process 文件调用这个更新：
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+默认情况下，这个模块会在启动的时候检查更新，然后每隔十分钟检查一次。 当发现了一个更新，它会自动在后台下载。 下载完成后，会显示 dialog 提示框允许用户重启应用。
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+如果你需要定制化你的配置，你可以[传参数给 `update-electron-app`](https://github.com/electron/update-electron-app) 或者 [直接的使用更新服务](https://github.com/electron/update.electronjs.org)
 
 ## 使用 `electron-builder`
 
