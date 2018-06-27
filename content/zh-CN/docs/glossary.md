@@ -38,9 +38,9 @@ IPC 代表 Inter-Process Communication。Electron 使用 IPC 来在 [main](#main
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### 主进程
 
-主进程，通常是值 `main.js` 文件，是每个 Electron 应用的入口文件。它控制着整个 App 的生命周期，从打开到关闭。 它也管理着原生元素比如菜单，菜单栏，Dock 栏，托盘等。 主进程负责创建 APP 的每个渲染进程。而且整个 Node API 都集成在里面。
+主进程，通常是指 `main.js` 文件，是每个 Electron 应用的入口文件。它控制着整个 App 的生命周期，从打开到关闭。 它也管理着原生元素比如菜单，菜单栏，Dock 栏，托盘等。 主进程负责创建 APP 的每个渲染进程。而且整个 Node API 都集成在里面。
 
 每个 app 的主进程文件都定义在 `package.json` 中的 `main` 属性当中，这也是为什么 `electron .` 能够知道应该使用哪个文件来启动。
 
