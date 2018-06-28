@@ -12,9 +12,9 @@ Unity DE 也具有同样的特性，在运行器上显示进度条。
 
 三个系统中都是用相同的API - `setProgressBar()` 方法是 `BrowserWindows` 的方法。 是用 `0` 到 `1` 之间的数字来表示你的进度。 你正在运行一个长时间的任务, 当前进度为63%, 您可以使用 `setProgressBar(0.63)` 来调用它。
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+一般来说，将参数设置为 0 以下的值（例如 `-1`）将会去掉进度条，而设置为 1 以上（例如 `2`）将会切换这个进度条为中间进度。
 
-See the [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress).
+参见 [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress)。
 
 ```javascript
 const { BrowserWindow } = require('electron')
