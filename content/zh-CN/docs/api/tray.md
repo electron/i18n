@@ -108,7 +108,7 @@ app.on('ready', () => {
 
 #### Event: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+当系统托盘气泡因为超时被关闭或者用户手动关闭时，触发该事件。
 
 #### Event: 'drop' *macOS*
 
