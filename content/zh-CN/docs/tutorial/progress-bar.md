@@ -1,6 +1,6 @@
 # 任务栏的进度条 (Windows, macOS, Unity)
 
-在 Windows中的任务栏按钮可以被用于显示一个进度条。 This enables a window to provide progress information to the user without the user having to switch to the window itself.
+在 Windows 中的任务栏按钮可以被用于显示一个进度条。 这可以让一个窗口提供进度信息给用户，而不必切自行切换到这个窗口。
 
 在 macOS，进度条将显示为 dock 图标的一部分。
 
