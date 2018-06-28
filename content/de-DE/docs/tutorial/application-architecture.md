@@ -30,13 +30,13 @@ Electron bietet eine Reihe von APIs an, die die Entwicklung einer Desktop-Anwend
 const electron = require('electron')
 ```
 
-Allen Electron-APIs ist ein Prozesstyp zugeordnet. Viele von ihnen können nur aus dem Hauptprozess verwendet werden, einige nur aus einem Renderer-Prozess, andere aus beiden. The documentation for each individual API will state which process it can be used from.
+Allen Electron-APIs ist ein Prozesstyp zugeordnet. Viele von ihnen können nur aus dem Hauptprozess verwendet werden, einige nur aus einem Renderer-Prozess, andere aus beiden. Die Dokumentation jeder einzelnen API gibt an, von welchem Prozess sie verwendet werden kann.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+Ein Fenster in Electron wird z. B. mit dem `BrowserWindow`-Klasse erzeugt. Sie ist nur im Hauptprozess verfügbar.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// Dies funktioniert im Hauptprozess, wird aber
+// in einem Renderer-Prozess `undefined` sein:
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
