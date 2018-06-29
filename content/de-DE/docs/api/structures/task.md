@@ -4,5 +4,5 @@
 * `arguments` String - Kommandozeilenargumente wenn `program` ausgeführt wird.
 * `title` String - Text welcher in einer JumpList angezeigt wird.
 * `description` String - Beschreibung dieser Aufgabe.
-* ` iconPath ` String-der absolute Pfad zu einem Symbol, das in einem JumpList, die eine beliebige Ressourcendatei sein kann, die ein Symbol enthält. Sie kann in der Regel angeben ` Prozess. execPath `, um das Symbol des Programms anzuzeigen.
-* ` iconIndex ` Number-der Icon-Index in der Icon-Datei. Wenn eine Icon-Datei aus zwei oder mehr Symbolen besteht, legen Sie diesen Wert fest, um das Symbol zu identifizieren. Wenn ein Icon-Datei besteht aus einem Symbol, dieser Wert ist 0.
+* `iconPath` String - Absolute Pfad zu einem Symbol, welches in einer JumpList angezeigt werden soll. Der Pfad kann zu einer beliebige Resourcendatei führen, solang diese ein Symbol enthält. Man kann normalerweise `process.execPath` angeben um das Symbol des Programms anzuzeigen.
+* `iconIndex` Number - Symbol-Index in der Symboldatei. Wenn eine Symboldatei aus zwei oder mehr Symbolen besteht, muss dieser Wert gesetzt werden um das Symbol zu identifizieren. Wenn ein Icon-Datei besteht aus einem Symbol, dieser Wert ist 0.
