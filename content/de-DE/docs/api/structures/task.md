@@ -1,7 +1,7 @@
 # Task Object
 
-* ` Programm ` String-Pfad des Programms auszuführen, normalerweise sollten Sie Geben Sie ` Process. execPath ` an, das das aktuelle Programm öffnet.
-* `-Argumente ` String-die Kommandozeilenargumente, wenn ` Programm ` ist ausgeführt.
+* `program` String - Pfad des auszuführenden Programms, normalerweise sollten Sie `process.execPath` nehmen, was das aktuelle Programm öffnet.
+* `arguments` String - Kommandozeilenargumente wenn `program` ausgeführt wird.
 * ` Titel ` String-die Zeichenfolge, die in einem jumplist angezeigt werden soll.
 * ` Beschreibung ` String-Beschreibung dieser Aufgabe.
 * ` iconPath ` String-der absolute Pfad zu einem Symbol, das in einem JumpList, die eine beliebige Ressourcendatei sein kann, die ein Symbol enthält. Sie kann in der Regel angeben ` Prozess. execPath `, um das Symbol des Programms anzuzeigen.
