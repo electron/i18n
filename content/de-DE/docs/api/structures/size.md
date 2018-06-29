@@ -1,4 +1,4 @@
-# File Objekt
+# Size Object
 
-* `höhe` Anzahl
-* ` Höhe ` Anzahl
+* `width` Number
+* `height` Number
