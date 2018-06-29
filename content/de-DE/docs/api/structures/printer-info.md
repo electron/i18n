@@ -1,8 +1,8 @@
-# PrinterInfo-Objekt
+# PrinterInfo Object
 
-* `name` Zeichenfolge
-* `description` Zeichenfolge
-* `status` Nummer
+* `name` String
+* `description` String
+* `status` Number
 * `isDefault` Ja/Nein
 
 ## Beispiel
@@ -39,7 +39,4 @@ Weiter unten ist ein Beispel von einigen Optionen die sich jedoch auf unterschie
     system_driverinfo: 'Z'
   }
 }
- 
-Text
-XPath: /pre/code
 ```
