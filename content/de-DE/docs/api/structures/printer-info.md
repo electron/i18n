@@ -3,11 +3,11 @@
 * `name` String
 * `description` String
 * `status` Number
-* `isDefault` Ja/Nein
+* `isDefault` Boolean
 
 ## Beispiel
 
-Weiter unten ist ein Beispel von einigen Optionen die sich jedoch auf unterschiedlichen Plattformen evtl. unterschiedlich verhalten.
+Unten ist ein Beispiel von einigen der zusätzlichen Optionen, welche eventuell gesetzt werden können, sich aber zwischen den Plattformen unterscheiden können.
 
 ```javascript
 {
