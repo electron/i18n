@@ -91,13 +91,15 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-Die `main.js` sollte Fenster erzeugen und alle Systemereignisse behandeln, auf die Ihre Anwendung reagieren könnte. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+Die `main.js` sollte Fenster erzeugen und alle Systemereignisse behandeln, auf die Ihre Anwendung reagieren könnte. Eine ausführlichere Version des obigen Beispiels kann Entwicklertools öffnen, das Fenster, das geschlossen wird, behandeln oder Fenster unter MacOS neu erstellen, wenn der Benutzer auf das Symbol der Anwendung im Dock klickt.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Behalten Sie eine globale Referenz auf das Fensterobjekt. 
+// Wenn Sie dies nicht tun, wird das Fenster automatisch geschlossen, 
+// sobald das Objekt dem JavaScript-Garbagekollektor übergeben wird.
+
 let win
 
 function createWindow () {
@@ -107,7 +109,7 @@ function createWindow () {
   // und Laden der index.html der App.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Öffnen der DevTools.
   win.webContents.openDevTools()
 
   // Ausgegeben, wenn das Fenster geschlossen wird.
@@ -166,7 +168,7 @@ Zu guter Letzt die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 
 ## Ihre App ausführen
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+Sobald Sie Ihre ersten `main.js`, `index.html` und `package.json` Dateien erstellt haben, können Sie Ihre Anwendung testen, indem Sie `npm start` aus dem Verzeichnis Ihrer Anwendung ausführen.
 
 ## Beispiel-Anwendung
 
