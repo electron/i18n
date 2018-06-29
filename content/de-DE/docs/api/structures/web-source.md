@@ -2,4 +2,4 @@
 
 * `code` Zeichenkette
 * `url` String (optional)
-* `startLine` Integer (optional) - Default is 1.
+* `startLine` Integer (optional) - Standard ist 1.
