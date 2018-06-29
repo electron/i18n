@@ -1,4 +1,4 @@
-# Task Objekt
+# Task Object
 
 * ` Programm ` String-Pfad des Programms auszuführen, normalerweise sollten Sie Geben Sie ` Process. execPath ` an, das das aktuelle Programm öffnet.
 * `-Argumente ` String-die Kommandozeilenargumente, wenn ` Programm ` ist ausgeführt.
