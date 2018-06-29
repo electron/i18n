@@ -1,6 +1,6 @@
-# Rectangle-Objekt
+# Rectangle Object
 
-* `X`-Nummer - die X-Koordinate des Ursprungs des Rechtecks (muss eine ganze Zahl sein)
-* `y`-Nummer - die y-Koordinate des Ursprungs des Rechtecks (muss eine ganze Zahl sein)
-* `Breite` Anzahl - die Breite des Rechtecks (muss eine ganze Zahl sein)
+* `X` Number - X-Koordinate des Ursprungs des Rechtecks (muss ein Integer sein)
+* `y` Number - Y-Koordinate des Ursprungs des Rechtecks (muss ein Integer sein)
+* `width` Number - Breite des Rechtecks (muss ein Integer sein)
 * `Höhe` Anzahl - die Höhe des Rechtecks (muss eine ganze Zahl sein)
