@@ -38,9 +38,9 @@ community:
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Bugs melden</b></a> durch öffnen eines Issues im <a href='https://github.com/electron/electron/issues'>electron/electron</a> Repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Anfragen von Features</b></a> durch Öffnen eines Issues im <a href='https://github.com/electron/electron/issues'>electron/electron</a> Repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Code of Conduct Verstöße melden</b></a> per Email an <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Melde Sicherheitsprobleme</b></a> per Mail an <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Melde Sicherheitsprobleme</b></a> per Email an <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Spende</b></a> auf unserer <a href='/donors'>OpenCollective Seite</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    other: "Für alle anderen Anfragen wenden Sie sich bitte per Email an <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Sprachcommunities
     description: "Die Electron Geimeinschaft ist auf der ganzen Welt verteilt und Englisch ist nicht jedermanns Muttersprache. Finde eine<a href='/languages'>Dokumentation in deiner Sprache</a>, oder betrete eine der folgenden Sprachgemeinschaften:"
@@ -77,7 +77,7 @@ get_started:
   description: Schauen Sie sich für den Einstieg mit Electron die unten aufgelisteten Ressourcen an. Lernen Sie, wie Sie Ihre Web-App in Electron einbetten, alle APIs ansprechen und letztlich Installer für Ihre Anwendung generieren.
 explore:
   title: Erkunden Sie die Electron-APIs
-  description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron-API-Demos-App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist, und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
+  description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron API Demos App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
 download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen</a> auf GitHub anzeigen
 quick_start:
