@@ -31,7 +31,7 @@ npm wird dich schrittweise durch die Erstellung einer `package.json` Datei führ
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**Bemerkung**: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron (so wie Node.js) versuchen eine `index.js`-Datei zu laden. Wenn es sich um eine einfache Node-Anwendung handelt, würden Sie ein `start`-Skript hinzufügen, das `node` anweist, das aktuelle Paket auszuführen:
 
 ```json
 {
@@ -44,7 +44,7 @@ npm wird dich schrittweise durch die Erstellung einer `package.json` Datei führ
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+Diese Node-Anwendung in eine Electron-Anwendung umzuwandeln ist ganz einfach - wir ersetzen lediglich die `node`-Laufzeit durch die `electron`-Laufzeit.
 
 ```json
 {
