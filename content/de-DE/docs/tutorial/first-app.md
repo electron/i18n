@@ -75,13 +75,13 @@ Electron Anwendungen werden in JavaScript entwickelt, es werden die gleichen Pri
 const electron = require('electron')
 ```
 
-Das Modul `electron` stellt Funktionen in Namensbereichen zur Verfügung. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
+Das Modul `electron` stellt Funktionen in Namensbereichen zur Verfügung. Beispielsweise wird der Lebenszyklus der Anwendung über `electron.app` verwaltet, Fenster können mit der Klasse `electron.BrowserWindow` erstellt werden. Eine einfache `main.js` Datei könnte warten, bis die Anwendung fertig ist und anschließend ein Fenster öffnen:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Erstelle das Browser-Fenster.
   win = new BrowserWindow({width: 800, height: 600})
 
   // und Laden der index.html der App.
@@ -91,7 +91,7 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+Die `main.js` sollte Fenster erzeugen und alle Systemereignisse behandeln, auf die Ihre Anwendung reagieren könnte. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
