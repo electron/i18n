@@ -109,7 +109,7 @@ Apesar de termos tentado fazer o pacotes `asar` na API Node se comportarem como 
 
 ### Pacotes são Somente Leitura
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Os pacotes não pode ser modificados, então todos as APIs Node que pode modificar arquivos não funcionam com pacotes `asar`.
 
 ### Working Directory Can Not Be Set to Directories in Archive
 
