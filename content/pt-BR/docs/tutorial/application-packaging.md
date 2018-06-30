@@ -2,31 +2,31 @@
 
 Para evitar [problemas](https://github.com/joyent/node/issues/6960) por causa de nomes longos de caminhos no Windows, melhorar a velocidade do `require` e ocultar seu código-fonte a partir de uma inspeção superficial, você pode optar por empacotar seu aplicativo em um arquivo [asar](https://github.com/electron/asar) com pequenas alterações no seu código-fonte.
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+Esse recurso é gratuito para a maioria dos usuários, já que ele é compatível com o uso do [`electron-packager`](https://github.com/electron-userland/electron-packager),[`electron-forge`](https://github.com/electron-userland/electron-forge) e [`electron-builder`](https://github.com/electron-userland/electron-builder). Se você não utiliza nenhuma dessas ferramentas, continue lendo.
 
-## Generating `asar` Archives
+## Gerando Arquivos `asar`
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+Um arquivo [asar](https://github.com/electron/asar) tem um formato simples, ele se assemelha ao tar, que concatena vários arquivos em um único arquivo. O Electron pode ler arquivos de forma independente, ou seja, sem descompactar o arquivo inteiro.
 
-Steps to package your app into an `asar` archive:
+Passos para empacotar seu app em um arquivos `asar`:
 
-### 1. Install the asar Utility
+### 1. Instale o asar
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Empacote com o `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## Usando arquivos `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+No Electron existem dois tipos de APIs: APIs Node vinda do Node.js e APIs Web vindas do Chromium. Ambas possuem suporte para leitura de aquivos `asar`.
 
-### Node API
+### API Node
 
 With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
 
