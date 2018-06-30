@@ -88,14 +88,14 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 ### Tratando um pacote `asar` como um Arquivo Normal
 
-Às vezes, é necessário fazer uma verificações de checksum no pacote `asar`, então nós precisamos ler o conteúdo de um pacote `asar` como um arquivo. Para isso pode ser usado o módulo built-in `original-fs` que fornece a API `fs` original sem depender do `asar`:
+Às vezes, é necessário fazer uma verificações de checksum no pacote `asar`, então nós precisamos ler o conteúdo de um pacote `asar` como um arquivo. Para isso, você pode usar o módulo built-in `original-fs` que fornece a API `fs` original sem dependência do `asar`:
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+Ou você pode setar o `process.noAsar` para `true` para desativar a dependência para o `asar` no módulo `fs`:
 
 ```javascript
 const fs = require('fs')
@@ -103,7 +103,7 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Limitações da API Node
 
 Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
 
