@@ -111,9 +111,9 @@ Apesar de termos tentado fazer o pacotes `asar` na API Node se comportarem como 
 
 Os pacotes não pode ser modificados, então todos as APIs Node que pode modificar arquivos não funcionam com pacotes `asar`.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### Diretórios de trabalho não pode ser setado como diretórios no pacote
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+Como os pacotes `asar` são tratados como diretórios, não há nenhum diretório real nos arquivos de sistema, então você nunca poderá definir um diretório de trabalho como diretório nos pacotes `asar`. Passing them as the `cwd` option of some APIs will also cause errors.
 
 ### Extra Unpacking on Some APIs
 
