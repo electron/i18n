@@ -62,7 +62,7 @@ Para usar um módulo existente no pacote:
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Você também pode mostrar uma página Web em um pacote `asar` com o `BrowserWindows`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -71,9 +71,9 @@ const win = new BrowserWindow()
 win.loadURL('file:///path/to/example.asar/static/index.html')
 ```
 
-### Web API
+### API Web
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Em uma página web, arquivos em um pacote pode ser requisitados com o protocolo `file:`. Como o API Node, pacotes `asar` são tratados como diretórios.
 
 Por exemplo, para obter um arquivo com `$.get`:
 
@@ -86,9 +86,9 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### Tratando um pacote `asar` como um Arquivo Normal
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+Às vezes, é necessário fazer uma verificações de checksum no pacote `asar`, então nós precisamos ler o conteúdo de um pacote `asar` como um arquivo. Para isso pode ser usado o módulo built-in `original-fs` que fornece a API `fs` original sem depender do `asar`:
 
 ```javascript
 const originalFs = require('original-fs')
