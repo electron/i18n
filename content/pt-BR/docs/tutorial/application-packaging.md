@@ -1,6 +1,6 @@
 # Empacotamento de Aplicativos
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Para evitar [problemas](https://github.com/joyent/node/issues/6960) por causa de nomes longos de caminhos no Windows, melhorar a velocidade do `require` e ocultar seu código-fonte a partir de uma inspeção superficial, você pode optar por empacotar seu aplicativo em um arquivo [asar](https://github.com/electron/asar) com pequenas alterações no seu código-fonte.
 
 Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
 
