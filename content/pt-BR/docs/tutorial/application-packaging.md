@@ -105,9 +105,9 @@ fs.readFileSync('/path/to/example.asar')
 
 ## Limitações da API Node
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+Apesar de termos tentado fazer o pacotes `asar` na API Node se comportarem como diretórios o máximo possível, existem ainda limitações devido a natureza de baixo nível da API Node.
 
-### Archives Are Read-only
+### Pacotes são Somente Leitura
 
 The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
 
