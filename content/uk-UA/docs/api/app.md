@@ -47,7 +47,7 @@ app.on('window-all-closed', () => {
 
 **Примітка:** Якщо вихід з застосунку був ініційований `autoUpdater.quitAndInstall()`, тоді `before-quit` відбувається *після* події `close` на всіх вікнах і закриває їх.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Примітка:** На Windows, ця подія не буде викликана якщо застосунок закритий через вимкнення/перезавантаження системи чи вилогінювання користувача.
 
 ### Подія: 'will-quit'
 
@@ -59,7 +59,7 @@ app.on('window-all-closed', () => {
 
 Дивіться опис події `window-all-closed` для різниці між рлжіями `will-quit` і `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Примітка:** На Windows, ця подія не буде викликана якщо застосунок закритий через вимкнення/перезавантаження системи чи вилогінювання користувача.
 
 ### Подія: 'quit'
 
@@ -70,7 +70,7 @@ app.on('window-all-closed', () => {
 
 Відбувається коли застосунок припиняє роботу.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Примітка:** На Windows, ця подія не буде викликана якщо застосунок закритий через вимкнення/перезавантаження системи чи вилогінювання користувача.
 
 ### Подія: 'open-file' *macOS*
 
@@ -442,7 +442,7 @@ app.exit(0)
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Повертає `String` - Поточна локаль застосунку. Можливі значення задокументовані [тут](locales.md).
 
 To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
@@ -736,7 +736,7 @@ app.on('ready', () => {
 Повертає `Object`:
 
 * `openAtLogin` Boolean - `true` якщо застосунок налаштовано на відкиття при вході в систему.
-* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` якщо застосунок буде відкритий як прихований при логіні. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Це показує, що застосунок не має відкривати ніяких вікон під час запуску. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `restoreState` Boolean *macOS* - `true` якщо було відкрито при вході в систему, як такий що має відновити стан з минулої сесії. Це показує, що застосунок має відновити ті вікна, які були відкриті минулого разу. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
