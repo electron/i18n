@@ -444,7 +444,7 @@ app.exit(0)
 
 Повертає `String` - Поточна локаль застосунку. Можливі значення задокументовані [тут](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Щоб встановити локаль, вам потрібно використати перемикач в командному рядку при старті застосунку, який можна знайти [тут](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Примітка:** При пощиренні пакету застосунку, ви повинні також надати папку `locales`.
 
@@ -736,16 +736,16 @@ app.on('ready', () => {
 Повертає `Object`:
 
 * `openAtLogin` Boolean - `true` якщо застосунок налаштовано на відкиття при вході в систему.
-* `openAsHidden` Boolean *macOS* - `true` якщо застосунок буде відкритий як прихований при логіні. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Це показує, що застосунок не має відкривати ніяких вікон під час запуску. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` якщо було відкрито при вході в систему, як такий що має відновити стан з минулої сесії. Це показує, що застосунок має відновити ті вікна, які були відкриті минулого разу. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` якщо застосунок буде відкритий як прихований при логіні. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` якщо застосунок був відкритий автоматично при логіні. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` якщо застосунок було відкрито приховано при вході в систему. Це показує, що застосунок не має відкривати ніяких вікон під час запуску. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` якщо було відкрито при вході в систему, як такий що має відновити стан з минулої сесії. Це показує, що застосунок має відновити ті вікна, які були відкриті минулого разу. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
   * `openAtLogin` Boolean (опціонально) - `true` щоб відкрити застосунок при вході в систему, `false` для видалення його з автозавантаження. За замовчуванням `false`.
-  * `openAsHidden` Boolean (опціонально) *macOS* - `true` щоб відкрити застосунок як прихований. За замовчуванням `false`. Користувач може редагувати це значення з Налаштувань Системи, тому `app.getLoginItemStatus().wasOpenedAsHidden` має перевірятися коли застосунок відкрито, щоб знати поточне значення. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (опціонально) *macOS* - `true` щоб відкрити застосунок як прихований. За замовчуванням `false`. Користувач може редагувати це значення з Налаштувань Системи, тому `app.getLoginItemStatus().wasOpenedAsHidden` має перевірятися коли застосунок відкрито, щоб знати поточне значення. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (опціонально) *Windows* - Виконуваний файл для запуску при вході в систему. За замовчуванням `process.execPath`.
   * `args` String[] (опціонально) *Windows* - Аргументи командного рядка, для запуску виконуваного файлу. За замовчуванням пустий масив. Оберніть шляхи в лапки.
 
