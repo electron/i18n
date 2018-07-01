@@ -6,11 +6,11 @@
 
 ## Generating `asar` Archives
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+أرشيف Asar هو عبارة عن تنسيق بسيط يمكنك من جمع ملفات في ملف واحد. في مقدور Electron قراءة الملفات التعسفية منه دون تفريغ الملف بأكمله.
 
 Steps to package your app into an `asar` archive:
 
-### 1. Install the asar Utility
+### 1. قم بتثبيت الأداة asar
 
 ```sh
 $ npm install -g asar
