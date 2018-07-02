@@ -1,5 +1,5 @@
 # Objeto WebSource
 
-* `código` String
+* `code` String
 * `url` String (opcional)
-* `inicioLinha` Inteiro (opcional) - Padrão é 1.
+* `startLine` Integer (opcional) - Padrão é 1.
