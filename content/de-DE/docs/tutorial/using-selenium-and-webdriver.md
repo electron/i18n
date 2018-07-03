@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// Ein einfacher Test zur Überprüfung der Sichtbarkeit eines Fensters mit einem Titel
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,27 +22,27 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // Check if the window is visible
+  // Abfrage, ob das Fenster sichtbar ist
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // Verify the window is visible
+  // Prüfen, ob das Fenster sichtbar ist.
   assert.equal(isVisible, true)
 }).then(function () {
-  // Get the window's title
+  // Titel des Fensters holen
   return app.client.getTitle()
 }).then(function (title) {
-  // Verify the window's title
+  // Überprüfen des Fenstertitels
   assert.equal(title, 'My App')
 }).catch(function (error) {
-  // Log any failures
+  // Fehler protokollieren
   console.error('Test failed', error.message)
 }).then(function () {
-  // Stop the application
+  // Anwendung stoppen 
   return app.stop()
 })
 ```
 
-## Setting up with WebDriverJs
+## Einrichten mit WebDriverJs
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
 
