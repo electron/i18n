@@ -44,11 +44,11 @@ app.start().then(function () {
 
 ## Einrichten mit WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) stellt ein Node-Paket, für Tests mit Web-Treiber, zur Verfügung, wir verwenden es als Beispiel.
 
-### 1. Start ChromeDriver
+### 1. ChromeDriver starten
 
-First you need to download the `chromedriver` binary, and run it:
+Zuerst müssen Sie das `chromedriver`-Binary herunterladen und ausführen:
 
 ```sh
 $ npm install electron-chromedriver
@@ -100,9 +100,9 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
-### 1. Start ChromeDriver
+### 1. ChromeDriver starten
 
-First you need to download the `chromedriver` binary, and run it:
+Zuerst müssen Sie das `chromedriver`-Binary herunterladen und ausführen:
 
 ```sh
 $ npm install electron-chromedriver
