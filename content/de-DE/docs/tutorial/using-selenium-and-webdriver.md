@@ -96,9 +96,9 @@ driver.wait(() => {
 driver.quit()
 ```
 
-## Setting up with WebdriverIO
+## Einrichten mit WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) stellt ein Node Paket zum Testen mit WebDriver zur Verfügung.
 
 ### 1. ChromeDriver starten
 
@@ -113,13 +113,13 @@ Only local connections are allowed.
 
 Merken Sie sich die Portnummer `9515`, die später verwendet wird.
 
-### 2. Install WebdriverIO
+### 2. WebdriverIO installieren
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Mit ChromeDriver verbinden
 
 ```javascript
 const webdriverio = require('webdriverio')
@@ -150,6 +150,6 @@ client
 
 ## Workflow
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Um Ihre Anwendung ohne Neuaufbau von Electron zu testen, [platzieren](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) Sie Ihre App-Quelle in das Ressourcenverzeichnis von Electron.
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Alternativ können Sie auch ein Argument übergeben, das mit Ihrer Electron-Binärdatei auf den Ordner Ihrer Anwendung zeigt. Dadurch entfällt das Kopieren und Einfügen Ihrer Anwendung in das Ressourcenverzeichnis von Electron.
