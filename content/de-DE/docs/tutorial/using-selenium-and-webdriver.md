@@ -2,11 +2,11 @@
 
 Aus [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver ist ein Open-Source-Tool zum automatisierten Testen von Webanwendungen in vielen Browsern. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver ist ein Open-Source-Tool zum automatisierten Testen von Webanwendungen in vielen Browsern. Es bietet Funktionen für die Navigation zu Webseiten, Benutzereingaben, JavaScript-Ausführung und mehr. ChromeDriver ist ein eigenständiger Server, der das Wire-Protokoll vom WebDriver für Chromium implementiert. Es wird von Mitgliedern des Chromium- und WebDriver-Teams entwickelt.
 
-## Setting up Spectron
+## Spectron einrichten
 
-[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron) ist das offiziell unterstützte ChromeDriver Test Framework für Electron. Es basiert auf [WebdriverIO](http://webdriver.io/) und hat Helfer, um auf die Electron APIs in Ihren Tests zuzugreifen und ChromeDriver zu bündeln.
 
 ```sh
 $ npm install --save-dev spectron
