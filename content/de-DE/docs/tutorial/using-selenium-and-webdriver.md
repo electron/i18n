@@ -67,7 +67,7 @@ $ npm install selenium-webdriver
 
 ### 3. Mit ChromeDriver verbinden
 
-The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+Die Verwendung von `selenium-webdriver` mit Electron ist die gleiche wie bei Upstream, nur dass Sie manuell angeben müssen, wie Sie den Chromtreiber anschließen und wo Sie die Binärdatei von Electron finden:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
