@@ -57,15 +57,15 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+Merken Sie sich die Portnummer `9515`, die später verwendet wird.
 
-### 2. Install WebDriverJS
+### 2. WebDriverJS installieren
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Mit ChromeDriver verbinden
 
 The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
 
@@ -111,7 +111,7 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+Merken Sie sich die Portnummer `9515`, die später verwendet wird.
 
 ### 2. Install WebdriverIO
 
