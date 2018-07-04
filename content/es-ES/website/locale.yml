@@ -28,7 +28,7 @@ languages:
   current: selección actual
 community:
   title: Comunidad Electron
-  description: Resources for connecting with people working on Electron.
+  description: Recursos para conectarse con personas que trabajan en Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Empieza a</b></a> crear una app leyendo el <a href='/docs/tutorial/first-app'>quick-start guide</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
