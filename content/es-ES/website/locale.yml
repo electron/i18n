@@ -120,11 +120,11 @@ pages:
     title: Documentación
     description: Guías y documentación de referencia de la API para la ultima versión de Electron
   '/docs/all':
-    title: '¡Todos la documentación de Electron!'
-    description: Toda las guías de Electron y la documentación de la API en una única pagina searchable.
+    title: '¡Toda la documentación de Electron!'
+    description: Todas las guías de Electron y la documentación de la API en una única página de fácil búsqueda.
   '/docs/api':
     title: API
-    description: Guías y documentación de referencia de la API para la ultima versión de Electron
+    description: Guías y documentación de referencia de la API para la última versión de Electron
   '/docs/development':
     title: Desarrollo
     description: Desarrollando con Electron
