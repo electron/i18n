@@ -36,14 +36,14 @@ community:
     help: "<a href='http://atom-slack.herokuapp.com'><b>Brinda ayuda y retroalimentación</b></a> uniendote al <a href='http://atom-slack.herokuapp.com'>Slack de atomio </a>, publicando en <a href='https://discuss.atom.io/c/electron'>Discusión</a>, o visitando <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Encuentra paquetes npm útiles</b></a> en la <a href='/search/npmPackages'>página de búsqueda de paquetes</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Reporta errores</b></a> abriendo un problema (issue) en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Reporta características</b></a> abriendo un asunto (issue) en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Reporta violaciones al Código de Conducta</b></a> enviando un correo electrónico a <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Revela problemas de seguridad</b></a> enviando un correo electrónico a <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Dona</b></a> en nuestra <a href='/donors'>página de donaciones</a>."
+    other: "Para cualquier otro tipo de consultas, envía un correo electrónico a <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: Comunidades de idiomas
+    description: "La comunidad Electron se extiende por todo el mundo, y el inglés no es el idioma principal de todos. Busque <a href='/languages'>la documentación en su idioma</a>, o únase a una de las siguientes comunidades de idiomas:"
   tools: Herramientas
   boilerplates: Boilerplates
   components: Componentes
