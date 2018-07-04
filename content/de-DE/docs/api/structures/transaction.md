@@ -3,9 +3,9 @@
 * `transactionIdentifier` String
 * `transactionDate` String
 * `originalTransactionIdentifier` String
-* `transactionState` String - The transaction sate (`"purchasing"`, `"purchased"`, `"failed"`, `"restored"`, or `"deferred"`)
+* `transactionState` String - Der Transaktions-Status (`"purchasing"`, `"purchased"`, `"failed"`, `"restored"`, oder `"deferred"`)
 * `errorCode` Integer
 * `errorMessage` String
-* `payment` Object 
+* `Bezahlung` Object 
   * `productIdentifier` String
   * `quantity` Integer
