@@ -40,7 +40,7 @@ Llegó una actualización importante con la versión `v1.0.0`. Si aún no está 
 
 Para mantener Electron pequeño (tamaño del fichero) y sostenible (la propagación de las dependencias y APIs) el proyecto limita el alcance del proyecto base.
 
-For instance, Electron uses Chromium's rendering library rather than all of Chromium. Esto facilita actualizar Chromium pero también significa encontrar algunas características del navegador Google Chrome no existentes en Electron.
+Por ejemplo, Electron usa la biblioteca de renderización Chromium en lugar de todo Chromium. Esto facilita actualizar Chromium pero también significa encontrar algunas características del navegador Google Chrome no existentes en Electron.
 
 Las nuevas características añadidas a Electron deberían ser principalmente API nativas. Si una característica puede ser su propio módulo Node.js, probablemente debería serlo. Vea las [herramientas construidas en Electron por la comunidad](https://electronjs.org/community).
 
@@ -54,5 +54,5 @@ A continuación hay hitos en la historia de Electron.
 | **Mayo de 2014**   | [Atom Shell pasa a ser de código libre](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).          |
 | **Abril de 2015**  | [Atom Shell es renombrado a Electron](https://github.com/electron/electron/pull/1389).                          |
 | **Mayo de 2016**   | [Electrón libera la versión `1.0.0`](https://electronjs.org/blog/electron-1-0).                                 |
-| **Mayo de 2016**   | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                               |
+| **Mayo de 2016**   | [Aplicaciones de Electron compatibles con la tienda de aplicaciones de Mac](mac-app-store-submission-guide.md). |
 | **Agosto de 2016** | Soporte de la tienda de [Windows](windows-store-guide.md) para las aplicaciones hechas con Electron.            |
