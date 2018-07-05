@@ -4,7 +4,7 @@
 
 - [chromiumdev](https://chromiumdev-slack.herokuapp.com) в Slack
 - [@ChromiumDev](https://twitter.com/ChromiumDev) в Twitter
-- [@googlechrome](https://twitter.com/googlechrome) в Twitter
+- [@googlechrome](https://twitter.com/googlechrome) on Twitter
 - [Блог](https://blog.chromium.org)
 - [Code Search](https://cs.chromium.org/)
 - [Source Code](https://cs.chromium.org/chromium/src/)
