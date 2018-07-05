@@ -1,4 +1,4 @@
-# Browserfenster
+# BrowserWindow
 
 > Erzeugung und Steuerung von Browser Fenstern.
 
