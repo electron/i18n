@@ -10,7 +10,7 @@ To load an extension in Electron, you need to download it in Chrome browser, loc
 
 Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
 
-1. Install it in Chrome browser.
+1. Установите его в браузере Chrome.
 2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
 3. Find out filesystem location used by Chrome for storing extensions: 
     * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
