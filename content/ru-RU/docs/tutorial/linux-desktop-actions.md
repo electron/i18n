@@ -1,12 +1,13 @@
 # Custom Linux Desktop Launcher Actions
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+Во многих средах Linux вы можете добавлять пользовательские записи в свою программу запуска путем изменения файла `.desktop </ 0>. For Canonical's Unity documentation,
+see <a href="https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher">Adding Shortcuts to a Launcher</a>. Более подробную информацию об обобщенной реализации, см <a href="https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html"> freedesktop.org Спецификация </ 0>.</p>
 
-**Launcher shortcuts of Audacious:**
+<p><strong>Launcher shortcuts of Audacious:</strong></p>
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+<p><img src="https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png" alt="audacious" /></p>
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+<p>Ярлыки добавляются путем предоставления свойств <code>Name` и `Exec` для каждой записи в меню ярлыков. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
 
 ```text
 Actions=PlayPause;Next;Previous
