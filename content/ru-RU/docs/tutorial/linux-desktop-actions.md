@@ -7,7 +7,7 @@ see <a href="https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Add
 
 <p><img src="https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png" alt="audacious" /></p>
 
-<p>Ярлыки добавляются путем предоставления свойств <code>Name` и `Exec` для каждой записи в меню ярлыков. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+<p>Ярлыки добавляются путем предоставления свойств <code>Name` и `Exec` для каждой записи в меню ярлыков. Unity will execute the `Exec` field once clicked by the user. Они выглядят следующим образом:
 
 ```text
 Actions=PlayPause;Next;Previous
@@ -28,4 +28,4 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+Unity's preferred way of telling your application what to do is to use parameters. Вы можете найти их в вашем приложении в глобальной переменной `process.argv`.
