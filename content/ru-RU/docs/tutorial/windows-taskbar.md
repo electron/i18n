@@ -14,9 +14,9 @@ Windows позволяет приложениям определять наст�
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+В отличие от меню в macOS, которое является реальным меню, пользовательские задачи в Windows работают как ярлыки приложений, так что когда пользователь нажимает на задачу, программа будет выполняться с указанными аргументами.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Чтобы установить пользовательские задачи для своего приложения, вы можете использовать [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
 
 ```javascript
 const { app } = require('electron')
@@ -32,7 +32,7 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, call `app.setUserTasks` with an empty array:
+Чтобы очистить список задач, вызовите ` app.setUserTasks ` с пустым массивом:
 
 ```javascript
 const { app } = require('electron')
