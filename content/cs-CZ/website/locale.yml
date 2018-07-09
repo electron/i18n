@@ -6,7 +6,7 @@ nav:
   community: Komunita
   contact: Kontakt
   docs: Dokumentace
-  donors: Donors
+  donors: Dárci
   languages: Jazyky
   releases: Vydání
   search: Hledat
@@ -24,13 +24,13 @@ docs:
     view_all_docs: Veškerá dokumentace na jedné stránce
 languages:
   choose_language: Zvolte jazykovou mutaci
-  translation_progress: Zpracování překladů
+  translation_progress: Stav překladů
   current: aktuální výběr
 community:
   title: Electron komunita
-  description: Resources for connecting with people working on Electron.
+  description: Zdroje pro spojení se s lidmi pracujících na Electronu.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Začněte</b></a> stavět aplikaci přečtením si <a href='/docs/tutorial/first-app'>rychlého průvodce začátečníka</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
     localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
@@ -152,7 +152,7 @@ pages:
     title: Spectron
     description: Spectron je open source framework pro snadné psaní integračních testů pro vaší Electron aplikaci. Spectron je postaven na ChromeDriver a WebDriverIO.
   '/donors':
-    title: Donors
+    title: Dárci
 _404:
   page_not_found: Stránka nenalezena.
 search:

@@ -26,7 +26,7 @@ app.on('ready', () => {
       sandbox: true
     }
   })
-  win.loadURL('http://google.com')
+  win.loadURL('http://google.it')
 })
 ```
 
@@ -68,7 +68,7 @@ app.on('ready', () => {
       preload: 'preload.js'
     }
   })
-  win.loadURL('http://google.com')
+  win.loadURL('http://google.it')
 })
 ```
 

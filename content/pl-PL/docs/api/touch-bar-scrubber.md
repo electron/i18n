@@ -1,4 +1,4 @@
-## Class: TouchBarScrubber
+## Klasa: TouchBarScrubber
 
 > Create a scrubber (a scrollable selector)
 

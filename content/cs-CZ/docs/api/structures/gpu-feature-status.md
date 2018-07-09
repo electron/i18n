@@ -1,4 +1,4 @@
-# GPUFeatureStatus Object
+# Objekt GPUFeatureStatus
 
 * `2d_canvas` String - Canvas
 * `flash_3d` String - Flash
@@ -14,7 +14,7 @@
 * `webgl` String - WebGL
 * `webgl2` String - WebGL2
 
-Possible values:
+Možné hodnoty:
 
 * `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - Disabled (red)

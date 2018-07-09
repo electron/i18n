@@ -1,12 +1,12 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> Colete dados rastreados do modulo de conteudo do Chromium para encontrar gargalos e lentidoes na aplicacao.
 
 Processo: [Main](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+Este modulo nao inclui uma interface-web, entao voce precisa abrir `chrome://tracing/` no browser e carregar o arquivo gerado para ver o resultado.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Nota:** Voce nao deve usar este modulo ate que o '`ready` event' do modulo da aplicacao esteja finalizado e emitido.
 
 ```javascript
 const {app, contentTracing} = require('electron')
@@ -40,7 +40,7 @@ The `contentTracing` module has the following methods:
 
 Get a set of category groups. The category groups can change as new code paths are reached.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Uma vez que todos os processos-filhos reconhecem a requisição do `getCategories`, o `callback` é invocado com um array de categorias de grupos.
 
 ### `contentTracing.startRecording(options, callback)`
 

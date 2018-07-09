@@ -54,7 +54,7 @@
 * Packaging 
   * [Code Signing](tutorial/code-signing.md)
 * [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [支援](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows 市集](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -63,7 +63,7 @@
   * [Chromium 安全性議題及升級](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron 安全性警告](tutorial/security.md#electron-security-warnings)
   * [安全性檢查清單](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
+* [更新](tutorial/updates.md) 
   * [佈署更新伺服器](tutorial/updates.md#deploying-an-update-server)
   * [在應用程式中實作更新功能](tutorial/updates.md#implementing-updates-in-your-app)
   * [套用更新](tutorial/updates.md#applying-updates)

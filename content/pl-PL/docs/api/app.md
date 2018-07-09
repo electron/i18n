@@ -72,7 +72,7 @@ Emitowane kiedy aplikacja jest wyłączana.
 
 **Uwaga:** W systemie Windows to zdarzenie nie zostanie wyemitowane, jeśli aplikacja zostanie zamknięta z powodu wyłączenia / ponownego uruchomienia systemu lub wylogowania użytkownika.
 
-### Zdarzenie 'open-file' *macOs*
+### Zdarzenie 'open-file' *macOS*
 
 Zwraca:
 
@@ -85,7 +85,7 @@ Powinieneś wywołać `event.preventDefault()` jeśli chcesz obsłużyć zdarzen
 
 Na systemie Windows trzeba przeanalizować `process.argv` (w procesie głównym), aby uzyskać ścieżkę pliku.
 
-### Zdarzenie 'open-url' *macOs*
+### Zdarzenie 'open-url' *macOS*
 
 Zwraca:
 
@@ -301,7 +301,7 @@ Zwraca:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
-Emitowany gdy zmieni się obsługa dostępu Chroma. Zdarzenie zostaje wywołane, gdy technologie wspomagające, takie jak czytniki ekranu, są włączone lub wyłączone. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Emitowany gdy zmieni się obsługa dostępu Chroma. Zdarzenie zostaje wywołane, gdy technologie wspomagające, takie jak czytniki ekranu, są włączone lub wyłączone. Zobacz https://www.chromium.org/developers/design-documents/accessibility, aby uzyskać więcej informacji.
 
 ## Metody
 
@@ -329,7 +329,7 @@ Wszystkie okna zostaną natychmiast zamknięte bez pytania się użytkownika ora
   * `args` String[] (opcjonalne)
   * `execPath` String (opcjonalne)
 
-Relaunches the app when current instance exits.
+Powoduje ponowne uruchomienie aplikacji po wyjściu bieżącej instancji.
 
 Domyślnie nowa instancja będzie wykorzystywać ten sam katalog oraz wiersz poleceń z argumentami bieżącej instancji. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
@@ -352,7 +352,7 @@ Returns `Boolean` - `true` if Electron has finished initializing, `false` otherw
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+W systemie Linux koncentruje się na pierwszym widocznym oknie. W systemie macOS czyni aplikację aktywną. W systemie Windows koncentruje się na pierwszym oknie aplikacji.
 
 ### `app.hide()` *macOS*
 
@@ -364,7 +364,7 @@ Pokazuje okna aplikacji po tym jak były ukryte. Nie ustawia ich automatycznie.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Zwraca `String` - Aktualny katalog aplikacji.
 
 ### `app.getPath(name)`
 
@@ -375,14 +375,14 @@ Returns `String` - A path to a special directory or file associated with `name`.
 Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 
 * `home` Katalog domowy użytkownika.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
+* `appData` Katalog danych aplikacji dla użytkownika, który domyślnie wskazuje na: 
+  * `%APPDATA%` na Windowsie
   * `$XDG_CONFIG_HOME` lub `~/.config` na Linuxie
   * `~/Library/Application Support` na macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
+* `userData` Katalog do przechowywania plików konfiguracyjnych aplikacji, domyślnie jest to katalog `appData` dołączony do nazwy aplikacji.
 * `temp` Katalog tymczasowy.
 * `exe` Bieżący plik wykonywalny.
-* `module` The `libchromiumcontent` library.
+* `module` Biblioteka `libchromiumcontent`.
 * `desktop` Katalog pulpitu bieżącego użytkownika.
 * `documents` Katalog dla "Moje dokumenty" użytkownika.
 * `downloads` Katalog "Pobrane" użytkownika.
@@ -390,7 +390,7 @@ Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 * `pictures` Katalog ze zdjęciami użytkownika.
 * `videos` Katalog z filmami użytkownika.
 * `logs` Katalog folderu dziennika aplikacji.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Pełna ścieżka do wersji systemu wtyczki Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -404,14 +404,14 @@ Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Pobiera ikonę powiązaną z ścieżką.
 
 W *Windows* są 2 rodzaje ikon:
 
 * Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
 * Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+W systemie *Linux* i *macOS* ikony zależą od aplikacji powiązanej z typem pliku MIME.
 
 ### `app.setPath(name, path)`
 

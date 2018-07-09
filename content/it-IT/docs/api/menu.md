@@ -6,21 +6,21 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+Crea un nuovo menu.
 
 ### Metodi Statici
 
-The `menu` class has the following static methods:
+La classe `menu` ha is seguenti metodi statici:
 
 #### `Menu.setApplicationMenu(menu)`
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Imposta `menu` come menu dell'applicazione in macOS. Su Windows e Linux, il `menu` verrà impostato come menu superiore in ogni finestra.
 
 Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Nota:** Questa API deve essere chiamata dopo l'evento `ready` dell'`app` module.
 
 #### `Menu.getApplicationMenu()`
 
@@ -48,7 +48,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### Metodi Istanza
 
-The `menu` object has the following instance methods:
+La classe `menu` ha is seguenti metodi statici:
 
 #### `menu.popup(options)`
 

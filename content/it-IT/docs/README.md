@@ -99,7 +99,7 @@ Questi tutorial individuali espandono su topic discussi nella guida sopra.
 * [Oggetto Process](api/process.md)
 * [Opzioni di Chrome supportate da riga di comando](api/chrome-command-line-switches.md)
 * [Variabili di ambiente](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Ultime modifiche API](api/breaking-changes.md)
 
 ### Elementi DOM personalizzati:
 

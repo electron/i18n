@@ -74,8 +74,8 @@
 
 * `options` Object 
   * `url` String
-  * `headers` Object (optional) *macOS* - HTTP request headers.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `headers` Object (опціонально) *macOS* - хедери HTTP запиту.
+  * `serverType` String (опціонально) *macOS* - `json` чи `default`, дивись [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README для детальнішої інформації.
 
 Встановлює `url` та ініціалізує автоновлення.
 
@@ -91,6 +91,6 @@
 
 Перезавантажує застосунок та встановлює оновлення після їх завантаження. Має викликатися тільки після події `update-downloaded`.
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+Під капотом виклик `autoUpdater.quitAndInstall()` спочатку закриє всі вікна застосунку та автоматично викличе `app.quit()` після закриття всіх вікон.
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**Примітка:** Якщо з застосунка вийшли без виклику цого API після виконання події `update-downloaded`, застосунок все рівно буде замінений на оновлений на наступному запуску.

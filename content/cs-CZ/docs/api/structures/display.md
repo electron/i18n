@@ -1,12 +1,12 @@
-# Display Object
+# Objekt Display
 
-* `id` Number - Unique identifier associated with the display.
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
-* `scaleFactor` Number - Output device's pixel scale factor.
-* `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
+* `id` Number – unikátní identifikátor spojený s displayem.
+* `rotation` Number – možné hodnoty jsou 0, 90, 180, 270 a reprezentují stupňovou rotaci obrazovky ve směru ručiček.
+* `scaleFactor` Number – pixelové měřítko výstupního zařízení.
+* `touchSupport` String – možné hodnoty jsou `available`, `unavailable` a `unknown`.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+Objekt `Display` reprezentuje fyzický display spojený se systémem. `Display` může být emulovaný na headless systémech, anebo může `Display` odpovídat vzdálenému virtuálnímu display.

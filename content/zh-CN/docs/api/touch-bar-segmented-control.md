@@ -1,22 +1,22 @@
 ## 类: TouchBarSegmentedControl
 
-> Create a segmented control (a button group) where one button has a selected state
+> 创建一个分段控件（按钮组），其中一个按钮具有选定状态
 
 进程：[主进程](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *实验功能*
 
 * `选项` 对象 
-  * `segmentStyle` String (optional) - Style of the segments: 
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
-    * `rounded` - The control is displayed using the rounded style.
-    * `textured-rounded` - The control is displayed using the textured rounded style.
-    * `round-rect` - The control is displayed using the round rect style.
+  * `segmentStyle` String (可选) - 分段的样式： 
+    * `automatic` - 默认的。分段控件的外观是通过窗口的类型和控件在窗口内呈现的位置自动确定的。
+    * `rounded` - 控件的呈现使用圆形风格。
+    * `textured-rounded` - 控件的呈现使用纹理圆形风格。
+    * `round-rect` - 控件的呈现使用圆角矩形样式。
     * `textured-square` - The control is displayed using the textured square style.
     * `capsule` - The control is displayed using the capsule style.
     * `small-square` - The control is displayed using the small square style.
     * `separated` - The segments in the control are displayed very close to each other but not touching.
-  * `mode` String (optional) - The selection mode of the control: 
+  * `mode` String (可选) - 控件的选择模式： 
     * `single` - 默认的。只能选一项。选择后会取消选择之前选择的项。
     * `multiple` - 可以选多个项。
     * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.

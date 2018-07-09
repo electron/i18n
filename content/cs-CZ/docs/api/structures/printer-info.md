@@ -1,13 +1,13 @@
-# PrinterInfo Object
+# Objekt PrinterInfo
 
 * `name` String
 * `description` String
 * `status` Number
 * `isDefault` Boolean
 
-## Příklad
+## Ukázka
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+Níže je ukázka dodatečných nastavení, které je možné nastavit. Každá platforma se může lišit v položkách nastavení.
 
 ```javascript
 {

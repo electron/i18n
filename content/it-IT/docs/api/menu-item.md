@@ -1,10 +1,10 @@
 ## Class: MenuItem
 
-> Add items to native application menus and context menus.
+> Aggiungi elementi a menu e menu contestuali di applicazioni native.
 
 Processo: [Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+Vedi [`Menu`](menu.md) per degli esempi.
 
 ### `new MenuItem(options)`
 

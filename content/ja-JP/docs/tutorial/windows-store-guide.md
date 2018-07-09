@@ -10,23 +10,23 @@ Windows 10 "Anniversary Update" では、仮想ファイルシステムとレジ
 
 さらにexeは内部的にはappxモデルとして起動される - つまりUniversal Windows Platformで利用可能なAPIの多くを使用できる。 より多くの機能として、Electronアプリは `exe`と共に、バックグラウンドでタスクを実行する、プッシュ通知を受け取る、他のUWPアプリケーションと通信するなど、表示しないUWPバックグラウンドタスクを組合せることができます。
 
-To compile any existing Electron app, ensure that you have the following requirements:
+既存のElectronアプリをコンパイルするには、以下の要件を満たしていることを確認してください:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Windows 10 with Anniversary Update (2016年8月2日にリリース)
+* Windows 10 SDK [ここからダウンロード](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* 少なくてもNode 4 (`node -v`を実行してチェックできます)
 
-Then, go and install the `electron-windows-store` CLI:
+次に、`electron-windows-store` CLIに移動してインストールする:
 
 ```sh
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## ステップ1: Electronアプリケーションのパッケージ化
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+[electron-packager](https://github.com/electron-userland/electron-packager)(または似たようなツール) を使ってパッケージ化します。 アプリケーションサイズが大きくなるので、実際には必要ないモジュールを`node_modules`から確実に削除します。
 
-The output should look roughly like this:
+出力はおおよそ以下のようになります:
 
 ```text
 ├── Ghost.exe
@@ -39,22 +39,22 @@ The output should look roughly like this:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│ ├── am.pak
+│ ├── ar.pak
+│ ├── [...]
 ├── natives_blob.bin
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│ ├── app
+│ └── atom.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
 ```
 
-## Step 2: Running electron-windows-store
+## ステップ2: electron-windows-storeを実行
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+昇格したPowerShell(管理者として実行) で、入力と出力ディレクトリ、アプリ名とバージョン、`node_modules`をフラット化することの確認など、必要なパラメーターと共に`electron-windows-store`を実行する。
 
 ```powershell
 electron-windows-store `
@@ -65,32 +65,32 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+一度ツールが実行されると: Electronアプリを入力として受け入れて、`node_modules`をフラット化します。 次にアプリケーションを`app.zip`としてアーカイブします。 インストーラーとWindows Containerを使って、ツールは、出力フォルダーにWindows Application Manifest (`AppXManifest.xml`) 、仮想ファイルシステム、仮想レジストリーを含む「拡張された」AppXパッケージを作成します。
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+拡張されたAppXファイルが作成されると、ツールはディスク上のそれらのファイルから、単一ファイルのAppXパッケージを作成するためにWindows App Packager(`MakeAppx.exe`) を使用します。 最後にツールはAppXパッケージを署名するためにコンピューター上に信頼された証明書を作成します。 署名されたAppXパッケージを使うと、CLIはマシンにパッケージを自動的にインストールすることもできる。
 
-## Step 3: Using the AppX Package
+## ステップ3: AppXパッケージの使用
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+あなたのパッケージを実行するために、ユーザーは"Anniversary Update"と呼ばれるWindows 10が必要です。Windowsを更新する方法の詳細は[ここ](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update)をご参照ください。
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to install your package by double-clicking it, so a submission to the store might not be necessary if you're looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+従来のUWPアプリと対照的に、パッケージ化されたアプリは、現在、[ここ](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge)で申請できる手動検証プロセスが必要です。 全てのユーザーはパッケージをダブルクリックすることでインストールできるため、もしより簡単なインストール方法を探しているのであれば、ストアへのサブミットは必要ではありません。 (通常はエンタープライズなど) 管理された環境 では、`Add-AppxPackage` [PowerShell Cmdletを使用して自動的にインストールできる](https://technet.microsoft.com/en-us/library/hh856048.aspx)。
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+もう一つの重要な制限は、コンパイルされたAppXパッケージはまだWin32実行形式であり、Xbox、HoloLens、Phoneでは実行できないことです。
 
-## Optional: Add UWP Features using a BackgroundTask
+## オプション: BackgroundTaskを使ってUWP機能を追加
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+プッシュ通知、Cortana統合、ライブタイルなど、Windows 10機能を完全に使った非表示UWPバックグラウンドタスクとElectronアプリを組み合わせることができます。
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Electronアプリがバックグラウンドタスクを使って、トースト通知の送信とライブタイルを利用する方法は、[マイクロソフトが提供するサンプルをチェック](https://github.com/felixrieseberg/electron-uwp-background)してください。
 
-## Optional: Convert using Container Virtualization
+## オプション: コンテナ仮想化を使った変換
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+ほとんどのElectronアプリは、AppX パッケージを生成するために`electron-windows-store` CLIで動作するテンプレートを使っている。 しかし、もしもカスタムインストーラーを使った場合や、生成されたパッケージで問題が発生した場合には、Windows Containerでコンパイルを使ったパッケージ作成を試すことができ、このモデルでは、アプリケーションがオペレーティングシステムに対して具体的にどんな変更をしているのかを検出するため、CLIは空のWindows Containerにアプリケーションをインストールして実行します。
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+初めてCLIを実行する前に「Windows Desktop App Converter」をセットアップする必要があります。 これには数分かかりますが、一度だけなので心配する必要はありません。 [ここから](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter)Desktop App Conveterをダウンロードします。 あなたは2つのファイルを受け取ります: `DesktopAppConverter.zip`と`BaseImage-14316.wim`
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+1. `DesktopAppConverter.zip`を展開します。 (管理者として実行) で昇格したPowerShellで`Set-ExecutionPolicy bypass`を呼び出して、システム実行ポリシーで全ての実行を可能にします。
+2. 次にDesktop App Converterのインストールを実行して、(`BaseImage-14316.wim`としてダウンロードされた) Windowsベースイメージの場所を渡して、`.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`を呼び出します。
+3. 上記コマンドを実行して再起動が促されたら、マシンを再起動して、再起動に成功した後で上記コマンドをもう一度実行してください。
 
-Once installation succeeded, you can move on to compiling your Electron app.
+インストールが成功すると、Electronアプリのコンパイルに進むことができます。

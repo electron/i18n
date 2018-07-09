@@ -60,7 +60,7 @@ If you want a quick fix, you can make the variables global by changing your code
 const {app, Tray} = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  tray.setTitle('ciao mondo')
 })
 ```
 
@@ -71,7 +71,7 @@ const {app, Tray} = require('electron')
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  tray.setTitle('ciao mondo')
 })
 ```
 

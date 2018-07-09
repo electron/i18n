@@ -2,16 +2,16 @@
 
 有多种方法可以更新Electron应用. 最简单并且获得官方支持的方法是利用内置的[Squirrel](https://github.com/Squirrel)框架和Electron的[autoUpdater](../api/auto-updater.md)模块。
 
-## Using `update.electronjs.org`
+## 使用 `update.electronjs.org`
 
-GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+GitHub 的 Electron 团队维护 [update.electronjs.org](https://github.com/electron/update.electronjs.org)，一个免费开源的网络服务，可以让 Electron 应用使用自动更新。 这个服务是设计给那些满足下面标准的 Electron 应用：
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- 应用运行在 macOS 或者 Windows
+- 应用有公开的 GitHub 仓库
+- 编译的版本发布在 GitHub Releases
+- 编译已代码签名
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+最简单的使用这个服务是安装 [update-electron-app](https://github.com/electron/update-electron-app)，一个预配置好的 Node.js 模块来使用 update.electronjs.org。
 
 安装模块
 
@@ -19,23 +19,23 @@ The easiest way to use this service is by installing [update-electron-app](https
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+从你的应用的 main process 文件调用这个更新：
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+默认情况下，这个模块会在启动的时候检查更新，然后每隔十分钟检查一次。 当发现了一个更新，它会自动在后台下载。 下载完成后，会显示 dialog 提示框允许用户重启应用。
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+如果你需要定制化你的配置，你可以[传参数给 `update-electron-app`](https://github.com/electron/update-electron-app) 或者 [直接的使用更新服务](https://github.com/electron/update.electronjs.org)
 
-## Using `electron-builder`
+## 使用 `electron-builder`
 
 如果你的app是通过[`electron-builder`](https://github.com/electron-userland/electron-builder)打包那么你可以使用[electron-updater](https://www.electron.build/auto-update)模块, 它不依赖任何服务器并且可以从S3, GitHub或者任何其它静态文件存储更新. 这避开了 Electron 内置的更新机制，这意味着本文档的其余部分不适用于此 ` electron-builder `的更新程序。
 
 ## 部署更新服务器
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+如果你开发的是私有 Electron 应用程序，或者你没有在 Github Releases 公开发布，你可能需要运行自己的更新服务器。
 
 根据你的需要，你可以从下方选择：
 

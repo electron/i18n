@@ -70,7 +70,7 @@ Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
 `autoUpdater` nesnesi aşağıdaki yöntemleri içerir:
 
-### `autoUpdater.setFeedURL(options)`
+### `autoUpdater.setFeedURL(seçenekler)`
 
 * `seçenekler` Obje 
   * `url` Dize

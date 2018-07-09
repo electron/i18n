@@ -2,11 +2,11 @@
 
 W systemie Windows przycisk paska zadań może służyć do wyświetlania paska postępu. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+W systemie MacOS pasek postępu będzie wyświetlany jako część ikony dock'a.
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
-**Progress bar in taskbar button:**
+**Pasek postępu na pasku zadań:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 

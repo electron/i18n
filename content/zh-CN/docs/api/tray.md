@@ -71,8 +71,8 @@ app.on('ready', () => {
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
-* `position` [Point](structures/point.md) - The position of the event.
+* `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
+* `position` [Point](structures/point.md) - 事件的位置信息。
 
 当该图标被点击时触发。
 
@@ -83,7 +83,7 @@ app.on('ready', () => {
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
 当该图标被右击时触发。
 
@@ -94,21 +94,21 @@ app.on('ready', () => {
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
 当该图标被双击时触发。
 
 #### Event: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+当系统托盘图标气泡显示时，触发该事件。
 
 #### Event: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+当系统托盘气泡被点击时，触发该事件。
 
 #### Event: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+当系统托盘气泡因为超时被关闭或者用户手动关闭时，触发该事件。
 
 #### Event: 'drop' *macOS*
 
@@ -147,7 +147,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - 事件的位置信息。
 
 Emitted when the mouse enters the tray icon.
 
@@ -158,7 +158,7 @@ Emitted when the mouse enters the tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - 事件的位置信息。
 
 Emitted when the mouse exits the tray icon.
 
@@ -169,7 +169,7 @@ Emitted when the mouse exits the tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - 事件的位置信息。
 
 Emitted when the mouse moves in the tray icon.
 

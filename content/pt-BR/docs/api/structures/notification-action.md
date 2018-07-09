@@ -1,7 +1,7 @@
 # Objeto NotificationAction
 
 * `type` String - o tipo de ação, pode ser `button`.
-* `text` String (optional) - The label for the given action.
+* `text` String (opcional) - O label para esta ação.
 
 ## Plataforma / Suporte para Action
 

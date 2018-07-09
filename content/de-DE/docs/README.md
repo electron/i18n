@@ -19,17 +19,17 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Installiere Electron](tutorial/first-app.md#installing-electron)
   * [Electron-Entwicklung auf einen Blick](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Starten deiner Anwendung](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
+* [Boilerplates und CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+  * [Andere Tools und Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Anwendungsarchitektur](tutorial/application-architecture.md) 
-  * [Main und Render Prozesse](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Haupt- und Renderprozesse](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron's APIs benutzen](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js APIs benutzen](tutorial/application-architecture.md#using-nodejs-apis)
-  * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
+  * [Native Node.js Module benutzen](tutorial/using-native-node-modules.md)
 * Features zu deiner App hinzufügen 
   * [Benachrichtigungen](tutorial/notifications.md)
   * [Kürzliche Dokumente](tutorial/desktop-environment-integration.md#recent-documents)
@@ -39,22 +39,22 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Benutzerdefinierte Linux Desktop Aktionen](tutorial/linux-desktop-actions.md)
   * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
   * [Offline/Online erkennung](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Repräsentative Datei für macOS BrowserWindows](tutorial/represented-file.md)
+  * [Natives Datei Drag & Drop](tutorial/native-file-drag-drop.md)
 * [Barrierefreiheit](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Barrierefreiheit aktivieren](tutorial/accessibility.md#enabling-accessibility)
-* [Testing and Debugging](tutorial/application-debugging.md) 
+* [Testen und Debuggen](tutorial/application-debugging.md) 
   * [Debuggen des Hauptprozesses](tutorial/debugging-main-process.md)
   * [Verwendung von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Erweiterung](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
+  * [Automatisiertes Testen mit einem benutzerdefinierten Treiber](tutorial/automated-testing-with-a-custom-driver.md)
+* Pakete erstellen 
+  * [Code Signierung](tutorial/code-signing.md)
 * [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [Unterstützung](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -76,17 +76,17 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
   * [Proxys](tutorial/installation.md#proxies)
   * [Benutzerdefinierte Mirrors und Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemlösungen](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [Im Detail: Electron's Versionierungsschema](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Stabillisations Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
+  * [Beta-Versionen und Fehlerbehebungen](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [Im Detail: Anwendungsquellcode packen mit asar](tutorial/application-packaging.md) 
   * [Asar Archive generieren](tutorial/application-packaging.md#generating-asar-archives)
   * [Verwenden von asar Archiven](tutorial/application-packaging.md#using-asar-archives)
   * [Einschränkungen](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Ungepacket Dateien zu Asar Archiven hinzufügen](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Im Detail: Benutzung des Pepper Flash Plugins](tutorial/using-pepper-flash-plugin.md)
+* [Im Detail: Benutzung des Widevine CDM Plugins](tutorial/using-widevine-cdm-plugin.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 
 * * *
@@ -99,7 +99,7 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
 * [Prozess-Objekt](api/process.md)
 * [Unterstützte Chrome-Befehlszeilenoptionen](api/chrome-command-line-switches.md)
 * [Umgebungsvariablen](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Breaking API Veränderungen](api/breaking-changes.md)
 
 ### Benutzerdefinierte DOM-Elemente:
 
@@ -147,4 +147,4 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
 
 ## Entwicklung
 
-See <development/README.md>
+Siehe <development/README.md>

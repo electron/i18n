@@ -26,7 +26,7 @@ Un problema di sicurezza esiste quando tu ricevi un codice da una destinazione r
 
 Da Electron 2.0, gli sviluppatori vedranno avvisi e raccomandazioni stampate nella console sviluppatore. Mostrano solo quando il nome binario è Electron, indicando che uno sviluppatore sta guardando attualmente alla console.
 
-Puoi abilitare o disabilitare forzatamente questi avvisi impostando `ELECTRON_ABILITA_SICUREZZA_AVVISI` o `ELECTRON_DISABILITA_SICUREZZA_AVVISI` sull'oggetto `processo.enb` o sull'oggetto `finestra`.
+Puoi abilitare o disabilitare forzatamente questi avvisi impostando `ELECTRON_ENABLE_SECURITY_WARNINGS` o `ELECTRON_DISABLE_SECURITY_WARNINGS` sull'oggetto `process.env` o sull'oggetto `window`.
 
 ## Lista di controllo: Raccomandazioni di Sicurezza
 

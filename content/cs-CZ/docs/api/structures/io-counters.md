@@ -1,8 +1,8 @@
-# IOCounters Object
+# Objekt IOCounters
 
-* `readOperationCount` Number - The number of I/O read operations.
-* `writeOperationCount` Number - The number of I/O write operations.
-* `otherOperationCount` Number - Then number of I/O other operations.
-* `readTransferCount` Number - The number of I/O read transfers.
-* `writeTransferCount` Number - The number of I/O write transfers.
-* `otherTransferCount` Number - Then number of I/O other transfers.
+* `readOperationCount` Number – počet I/O čtecích operací.
+* `writeOperationCount` Number – počet I/O zapisovacích operací.
+* `otherOperationCount` Number – počet ostatních I/O operací.
+* `readTransferCount` Number – počet I/O čtecích přenosů.
+* `writeTransferCount` Number – počet I/O zapisovacích přenosů.
+* `otherTransferCount` Number – počet ostatních I/O přenosů.

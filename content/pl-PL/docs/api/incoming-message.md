@@ -8,7 +8,7 @@ Proces: [Main](../glossary.md#main-process)
 
 ### Wydarzenia instancji
 
-#### Event: 'data'
+#### Zdarzenie: 'data'
 
 Zwraca:
 
@@ -16,15 +16,15 @@ Zwraca:
 
 The `data` event is the usual method of transferring response data into applicative code.
 
-#### Event: 'end'
+#### Zdarzenie: 'end'
 
 Indicates that response body has ended.
 
-#### Event: 'aborted'
+#### Zdarzenie: 'aborted'
 
 Emitted when a request has been canceled during an ongoing HTTP transaction.
 
-#### Event: 'error'
+#### Zdarzenie: 'error'
 
 Zwraca:
 
