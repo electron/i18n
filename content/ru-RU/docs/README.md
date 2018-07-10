@@ -52,7 +52,7 @@
   * [Расширение DevTools](tutorial/devtools-extension.md)
   * [Автоматическое тестирование с помощью специального драйвера](tutorial/automated-testing-with-a-custom-driver.md)
 * Упаковка 
-  * [Цифровая подпись](tutorial/code-signing.md)
+  * [Подписывание кода](tutorial/code-signing.md)
 * [Распространение](tutorial/application-distribution.md) 
   * [Поддержка](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
@@ -76,7 +76,7 @@
   * [Прокси](tutorial/installation.md#proxies)
   * [Пользовательские зеркала и кеши](tutorial/installation.md#custom-mirrors-and-caches)
   * [Устранение проблем](tutorial/installation.md#troubleshooting)
-* [В деталях: Схема управления версиями Electron](tutorial/electron-versioning.md) 
+* [В деталях: Схема версионирования Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Стабильные ветки](tutorial/electron-versioning.md#stabilization-branches)
   * [Бета-релизы и исправление багов](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
@@ -130,7 +130,7 @@
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Модули для Renderer процесса (веб-страницы):
+### Модули для процесса-рендерера (веб-страницы):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
