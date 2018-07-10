@@ -147,4 +147,4 @@
 
 ## Розробка
 
-Дивіться <development/README.md>
+Дивіться [development/README.md](development/README.md)

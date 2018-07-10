@@ -147,4 +147,4 @@
 
 ## Разработка
 
-See <development/README.md>
+See [development/README.md](development/README.md)

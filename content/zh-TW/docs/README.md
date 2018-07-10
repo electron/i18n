@@ -147,4 +147,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## 開發
 
-See <development/README.md>
+See [development/README.md](development/README.md)

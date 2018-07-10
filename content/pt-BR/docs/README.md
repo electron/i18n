@@ -147,4 +147,4 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 
 ## Desenvolvimento
 
-Veja <development/README.md>
+Veja [development/README.md](development/README.md)

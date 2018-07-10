@@ -147,4 +147,4 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 
 ## Pengembangan
 
-Lihat <development/README.md>
+Lihat [development/README.md](development/README.md)

@@ -147,4 +147,4 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 
 ## Pag-unlad
 
-Tingnan sa <development/README.md>
+Tingnan sa [development/README.md](development/README.md)
