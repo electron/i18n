@@ -147,4 +147,4 @@ Diese individuellen Tutorials erweitern die √úberschriften aus dem Guide obendr√
 
 ## Entwicklung
 
-Siehe <development/README.md>
+Siehe [development/README.md](development/README.md)

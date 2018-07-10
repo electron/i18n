@@ -147,4 +147,4 @@
 
 ## 開発
 
-<development/README.md> を参照してください
+[development/README.md](development/README.md) を参照してください
