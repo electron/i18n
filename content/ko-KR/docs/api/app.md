@@ -47,7 +47,7 @@ Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에
 
 **참고:** 만약 어플리케이션이 `autoUpdater.quitAndInstall()`에 의해 종료되는 경우 모든 윈도우에서 `close`이벤트를 발생한 *후* `before-quit` 가 발생되고 윈도우를 닫습니다.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**참고**: Window 운영체제에서는 시스템 종료, 재시작 또는 로그아웃으로 앱이 종료되는 경우 해당 이벤트가 발생하지 않습니다.
 
 ### 이벤트: 'will-quit'
 
@@ -59,7 +59,7 @@ Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에
 
 `will-quit` 와 `window-all-closed` 이벤트들의 차이점에 대해서는 `window-all-closed`이벤트 설명을 참조하세요.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**참고**: Window 운영체제에서는 시스템 종료, 재시작 또는 로그아웃으로 앱이 종료되는 경우 해당 이벤트가 발생하지 않습니다.
 
 ### 이벤트: 'quit'
 
@@ -70,7 +70,7 @@ Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에
 
 어플리케이션을 종료할 때 발생된다.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**참고**: Window 운영체제에서는 시스템 종료, 재시작 또는 로그아웃으로 앱이 종료되는 경우 해당 이벤트가 발생하지 않습니다.
 
 ### 이벤트: 'open-file' *macOS*
 
