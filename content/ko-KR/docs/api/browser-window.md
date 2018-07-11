@@ -33,7 +33,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ### `ready-to-show` 이벤트를 사용하기
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+페이지가 로딩될 때, 만약 윈도우가 아직 화면에 표시되지 않았고 최초로 renderer process 가 해당 페이지 렌더링을 완료할 때, `ready-to-show` 이벤트가 발생한다. Showing the window after this event will have no visual flash:
 
 ```javascript
 const {BrowserWindow} = require('electron')
