@@ -1,10 +1,10 @@
 # dialog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> نمایش دیالوگ های نیتیو سیستمی برای بازکردن و ذخیره کردن فایل.
 
 فرآیند: [اصلی](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+مثالی از دیالوگ برای انتخاب چند فایل یا پوشه همزمان:
 
 ```javascript
 const {dialog} = require('electron')
