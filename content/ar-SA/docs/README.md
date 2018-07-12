@@ -55,7 +55,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Code Signing](tutorial/code-signing.md)
 * [Distribution](tutorial/application-distribution.md) 
   * [Support](tutorial/support.md)
-  * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
+  * [Mac App ore](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Security](tutorial/security.md) 
