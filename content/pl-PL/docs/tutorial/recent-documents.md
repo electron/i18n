@@ -26,10 +26,10 @@ app.clearRecentDocuments()
 
 ## Windows Notes
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+Aby móc skorzystać z tej funkcji w systemie Windows, twoja aplikacja musie być zarejestrowana jako moduł obsługi plików typu dokument, w przeciwnym wypadku plik nie pojawi się w JumpList nawet po ich dodaniu. Możesz znaleźć wszystko, po zarejestrowaniu swojej aplikacji w [Rejestracja Aplikacji](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Kiedy użytkownik kliknie na plik z JumpList, nowa instancja twojej aplikacji wystartuje ze ścieżki pliku dodajnej jako argument w wierszu poleceń.
 
 ## macOS Notes
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Gdy żądany jest plik z listy ostatnich dokumentów (dock menu), to emitowany jest event `open-file` z modułu `app`.
