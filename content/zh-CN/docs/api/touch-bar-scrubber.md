@@ -24,7 +24,7 @@
 
 #### `touchBarScrubber.items`
 
-A `ScrubberItem[]` array representing the items in this scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+一个Scrubberitem[] 数组代表Scrubber里的所有物品。 Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
 
 #### `touchBarScrubber.selectedStyle`
 
