@@ -88,7 +88,7 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 * `name` String - The name of cookie to remove.
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Rimuove i cookie con uno specifico `url` e `name`, a operazione finita chiama `callback` tramite `callback()`.
 
 #### `cookies.flushStore(callback)`
 
