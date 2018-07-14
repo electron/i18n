@@ -38,13 +38,13 @@ Aplikacja Electron ma domyślnie wyłączoną dostępność ze względów wydajn
 
 ### Aplikacja Wewnętrzna
 
-Używając [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), możesz uzyskać dostęp do przełącznika dostępności dla użytkowników w preferencjach aplikacji. User's system assistive utilities have priority over this setting and will override it.
+Używając [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), możesz uzyskać dostęp do przełącznika dostępności dla użytkowników w preferencjach aplikacji. Narzędzia pomocnicze w systemie użytkownika mają pierwszeństwo nad tymi ustawieniami i nadpisują je.
 
-### Assistive Technology
+### Technologie wspomagające
 
-Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). Zobacz Chrome'a [dokumentacje dostępności](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) po więcej szczegółów.
+Aplikacja Electron automatycznie włączy dostępność po wykryciu technologii asystującej (Windows) lub VoiceOver (macOS). Zobacz Chrome'a [dokumentacje dostępności](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) po więcej szczegółów.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+Na macOS, technologia asystująca innej firmy może przełączać dostępność w aplikacjach elektronicznych, programowo ustawiając atrybut `AXManualAccessibility`:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
