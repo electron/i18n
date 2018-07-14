@@ -26,7 +26,7 @@ Edytor metod wprowadzania. Program, który umożliwia użytkownikom wprowadzanie
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Interfejs Opisujący Język (Interface description language). Zapisuje funkcje sygnatury i typów danych w formacie, który może być używany do generwoania interfejsów w językach takich jak np. Java, C++, JavaScript, itp.
 
 ### IPC
 
@@ -54,9 +54,9 @@ Akronim od Apple Mac App Store. Szczegółowe informacje odnośnie przesyłania 
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+System IPC do komunikowania się wewnątrz- lub między-procesami, i jest to ważne ponieważ Chrome jest w stanie podzielić swoją prace na oddzielne procesy lub nie, w zależności od ograniczenia pamięci itp.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Zobacz https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### natywne moduły
 
