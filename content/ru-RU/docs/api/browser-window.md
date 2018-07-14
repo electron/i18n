@@ -175,7 +175,7 @@ Process: [Main](../glossary.md#main-process)
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Почитайте больше об этой опции здесь<0>. **Отметим:** Эта опция в настоящее время экспериментальная и может поменяться или быть удалена в будущих Electron релизах.</li> 
       
       * `session` [Сессия](session.md#class-session) (необязательна) - отсылает сессию используемую на странице. Вместо передачи объекта Session напрямую, вы можете также выбрать использование `partition` опции вместо которой принимает строку раздела. Когда оба `session` и `partition` определены, `session` будет приоритентней. По умолчанию используется session по умолчанию.
-      * `partition` String (необязательно) - Устанавливает сеанс, используемый страницей в соответствии со строкой раздела сессии. Если `partition` начинается с `persist:`, страница будет использовать постоянную сессию доступная всем страницам в приложении с некоторыми `partition`. Если нет `persist:` префикса, страница будет использовать сеанс в памяти. By assigning the same `partition`, multiple pages can share the same session. По умолчанию используется session по умолчанию.
+      * `partition` String (необязательно) - Устанавливает сеанс, используемый страницей в соответствии со строкой раздела сессии. Если `partition` начинается с `persist:`, страница будет использовать постоянную сессию доступная всем страницам в приложении с некоторыми `partition`. Если нет `persist:` префикса, страница будет использовать сеанс в памяти. При присваивании одинаковой `partition`, разные страницы могут иметь одинаковую сессию. По умолчанию используется session по умолчанию.
       * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`.
       * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
       * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
@@ -467,7 +467,7 @@ Process: [Main](../glossary.md#main-process)
       
       Удаляет расширение DevTools с указанным именем.
       
-      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+      **Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
       
       #### `BrowserWindow.getDevToolsExtensions()`
       
