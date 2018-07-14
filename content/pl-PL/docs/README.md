@@ -50,11 +50,11 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Używanie Selenium oraz WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Rozszerzenie DevTools](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Automatyczne testowania za pomocą Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
 * Packaging 
   * [Code Signing](tutorial/code-signing.md)
-* [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+* [Dystrybucja](tutorial/application-distribution.md) 
+  * [Wsparcie](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Sklep Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -63,7 +63,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Bezpieczeństwa i uaktualnienia Chrominum](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Ostrzeżenia bezpieczeństwa Electrona](tutorial/security.md#electron-security-warnings)
   * [Lista kontrolna zabezpieczeń](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
+* [Aktualizacje](tutorial/updates.md) 
   * [Wdrażanie aktualizacji serwera](tutorial/updates.md#deploying-an-update-server)
   * [Wdrażanie aktualizacji do twojej aplikacji](tutorial/updates.md#implementing-updates-in-your-app)
   * [Stosowanie aktualizacji](tutorial/updates.md#applying-updates)
@@ -86,7 +86,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
   * [Ograniczenia](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Dodawanie rozpakowanych Plików do Archiwów asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Szczegółowo: Używanie Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Szczegółowo: Korzystanie z Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
 
 * * *
@@ -99,7 +99,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [Obiekt Process](api/process.md)
 * [Wspierane Zmienne Konsoli Chrome](api/chrome-command-line-switches.md)
 * [Zmienne Środowiskowe](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Istotne zmiany w API](api/breaking-changes.md)
 
 ### Własne Elementy DOM:
 
@@ -116,7 +116,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
-* [zakupy w aplikacji](api/in-app-purchase.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
