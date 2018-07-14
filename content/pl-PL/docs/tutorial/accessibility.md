@@ -6,7 +6,7 @@ Udostępnianie dostępnych aplikacji jest dla nas ważne i jesteśmy szczęśliw
 
 Obawy ułatwień dostępu w aplikacjach Electron'a są podobne do tych z stron internetowych, ponieważ są one tak samo ostatecznie w HTML'u. Aplikacje Electron'a jednak nie mogą używać zasobów online dla audytów dostępności, ponieważ Twoja aplikacja nie ma adresu URL, który by wskazywał dla biegłych rewidendów.
 
-Te nowe funkcjonalności dostarczają narzędzia do badania twojej aplikacji. Możesz wybrać pomiędzy dodaniem ich do Twoich testów za pomocą Spectron lub użyć ich w DevTools z Devtron. Read on for a summary of the tools.
+Te nowe funkcjonalności dostarczają narzędzia do badania twojej aplikacji. Możesz wybrać pomiędzy dodaniem ich do Twoich testów za pomocą Spectron lub użyć ich w DevTools z Devtron. Zapoznaj się z podsumowaniem narzędzi.
 
 ## Spectron
 
@@ -30,7 +30,7 @@ W Devtron'ie, jest nowa karta ułatwień dostępu, która pozwoli Ci na audyt st
 
 Obydwa te narzędzia używają [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) biblioteki stworzonej przez Google dla przeglądarki Chrome. Możesz dowiedzieć się więcej na temat zasad inspekcji ułatwień dostępu, których ta biblioteka używa na [repozytorium wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
+Jeżeli znasz inne dobre narzędzia dostępne dla Electron, dodaj je do dokumentacji dostępności za pomocą pull request.
 
 ## Włączanie ułatwień dostępu
 
@@ -38,7 +38,7 @@ Aplikacja Electron ma domyślnie wyłączoną dostępność ze względów wydajn
 
 ### Aplikacja Wewnętrzna
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+Używając [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), możesz uzyskać dostęp do przełącznika dostępności dla użytkowników w preferencjach aplikacji. User's system assistive utilities have priority over this setting and will override it.
 
 ### Assistive Technology
 
