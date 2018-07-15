@@ -6,13 +6,13 @@ nav:
   community: Общество
   contact: Контакти
   docs: Документация
-  donors: Donors
+  donors: Донори
   languages: Езици
   releases: Издания
   search: Търсене
   userland: Потребителска страна
 docs:
-  title: Документация на Електрон
+  title: Документация за Electron
   description: Вижте всички <a href="/docs/all"> документи на една страница</a> или проверете на <a href="/docs/faq"> често задавани въпроси</a>.
   guides: Ръководства
   api_reference: Функционална документация
@@ -24,11 +24,11 @@ docs:
     view_all_docs: Всички документи на една страница
 languages:
   choose_language: Изберете Вашият език
-  translation_progress: Процес на превеждане
+  translation_progress: Напредък на превеждането
   current: текущата селекция
 community:
   title: Обществото на Electron
-  description: Resources for connecting with people working on Electron.
+  description: Ресурси за свързване с хора, работещи в Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
@@ -42,12 +42,12 @@ community:
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
     other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
+    title: Езикови общности
     description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
   tools: Инструменти
   boilerplates: Шаблони
   components: Компоненти
-  videos: Видео клипове
+  videos: Видеоклипове
   meetups: Срещи
   awesome_notice: Този списък е генериран от хранилището на<a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus страхотен Електрон</a>. <br>Нещо липсва? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> направи предложение</a>.
   meetup_notice: За да добавите среща, редактиране <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> направи предложение</a>.
@@ -60,7 +60,7 @@ web_technologies:
   title: Интернет Технологии
   description: Електрон използва Chromium и Node.js, за да може вие да изградите вашето приложение с HTML, CSS и JavaScript.
 open_source:
-  title: С отворен код
+  title: Отворен код
   description: Електрон е проект с отворен код, поддържан от GitHub и активна общност от съдружници.
 cross_platform:
   title: Междуплатформен
@@ -88,7 +88,7 @@ quick_start:
   install_deps: Инсталирайте зависимостите и подкарайте
   dive_deeper: Или се потопете дълбоко и прочетете <a href='/docs'> документацията</a>.
 need_help:
-  title: Нужда от помощ?
+  title: Нуждаете ли се от помощ?
   description: Задайте въпроси във форум <a href='https://discuss.atom.io/c/electron'>Дискусии</a> или в нашия <a href='http://atom-slack.herokuapp.com/'>Slack</a> канал. Следвайте ни <a href="https://twitter.com/electronjs">@electronjs</a> в Twitter, за да научите важни съобщения. Имате ли нужда от личен диалог? Поща <a href="mailto:info@electronjs.org">electron@github.com</a>.
 headings:
   languages: Езици
@@ -105,9 +105,9 @@ apps:
   something_missing: Липсва ли нещо?
   edit_this_app: Редактиране на това приложение.
 clipboard:
-  copy: Копирай
+  copy: Копиране
   copy_to_clipboard: Копиране в клипборда
-  copied: Копиран
+  copied: Копирано
 or: или
 pages:
   '/':
@@ -152,7 +152,7 @@ pages:
     title: Spectron
     description: Spectron е рамка с отворен код за лесно писане на интеграционни тестове за вашето Електрон приложение. Spectron е създадена на основата на ChromeDriver и WebDriverIO.
   '/donors':
-    title: Donors
+    title: Донори
 _404:
   page_not_found: Страницата не е намерена.
 search:
