@@ -1,28 +1,28 @@
 ## Class: Cookies
 
-> Query and modify a session's cookies.
+> Interroga e modifica i cookie di una sessione.
 
 Processo: [Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Puoi accedere alle istanze della classe `Cookies` usando la proprietà `cookies` di una `Session`.
 
 Ad esempio:
 
 ```javascript
 const {session} = require('electron')
 
-// Query all cookies.
+// Interroga tutti i cookie.
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Query all cookies associated with a specific url.
+// Interroga tutti i cookie con un url specifico.
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// Salva dei dati in un cookie;
+// Se il cookie esiste già, lo sovrascrive.
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
@@ -88,7 +88,7 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 * `name` String - The name of cookie to remove.
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Rimuove i cookie con uno specifico `url` e `name`, a operazione finita chiama `callback` tramite `callback()`.
 
 #### `cookies.flushStore(callback)`
 

@@ -18,8 +18,8 @@ myNotification.onclick = () => {
 
 ## Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu.
-* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. 但是请注意，它不需要被固定到开始屏幕。
+* 在 Windows 10, 一个指向您应用程序的快捷方式 [ 应用程序用户模型ID ](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 必须被添加到开始菜单。
+* 在 Windows 8.1 和 Windows 8 上，带有 [ 应用程序用户模型ID（Application User Model ID）](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 的应用程序快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
 
 Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][[set-app-user-model-id](../api/app.md#appsetappusermodelidid-windows)] yourself.

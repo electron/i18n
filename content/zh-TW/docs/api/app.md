@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+以下例子顯示如何當最後一個視窗已經關閉的時候終止程式
 
 ```javascript
 const {app} = require('electron')
@@ -15,11 +15,11 @@ app.on('window-all-closed', () => {
 
 ## 事件
 
-The `app` object emits the following events:
+`app`物件觸發以下事件
 
 ### 事件: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+當程式完成基本啟動時觸發 在Windows 及Linux上，`will-finish-launching`事件與`ready`事件是相同的。在macOS上，這個事件代表`NSApplication`的 `applicationWillFinishLaunching`通知。 You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 

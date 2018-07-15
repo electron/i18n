@@ -1,4 +1,4 @@
 # Hata Raporu Nesnesi
 
-* `date` Date
+* `tarih` Tarih
 * `kimlik` dizesi

@@ -48,7 +48,7 @@ $ mkdir ~/.chromium-git-cache
 $ LIBCHROMIUMCONTENT_GIT_CACHE=~/.chromium-git-cache ./script/bootstrap.py -d --build_debug_libcc
 ```
 
-If the bootstrap script is interrupted while using the git cache, it will leave the cache locked. To remove the lock, delete the files ending in `.lock`:
+当使用git缓存的时候,启动脚本会被中断,它将使缓存被锁定.删除以.lock结尾的文件可以移除锁定.
 
 ```sh
 $ find ~/.chromium-git-cache/ -type f -name '*.lock' -delete

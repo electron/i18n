@@ -26,7 +26,7 @@ Edytor metod wprowadzania. Program, który umożliwia użytkownikom wprowadzanie
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Interfejs Opisujący Język (Interface description language). Zapisuje funkcje sygnatury i typów danych w formacie, który może być używany do generwoania interfejsów w językach takich jak np. Java, C++, JavaScript, itp.
 
 ### IPC
 
@@ -54,13 +54,13 @@ Akronim od Apple Mac App Store. Szczegółowe informacje odnośnie przesyłania 
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+System IPC do komunikowania się wewnątrz- lub między-procesami, i jest to ważne ponieważ Chrome jest w stanie podzielić swoją prace na oddzielne procesy lub nie, w zależności od ograniczenia pamięci itp.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Zobacz https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### natywne moduły
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Używane są głównie w celu zapewnienia interfejsu między uruchomionym w Node.js JavaScript s bibliotekami C/C++.
+Natywne moduły (native modules nazywane również [addonami](https://nodejs.org/api/addons.html) w Node.js) są modułami napisanymi w C lub C++, które mogą być załadowane do Node.js lub Electron za pomocą funkcji require() i używane tak, jakby były zwyczajnymi modułami Node.js. Używane są głównie w celu zapewnienia interfejsu między uruchomionym w Node.js JavaScript s bibliotekami C/C++.
 
 Natywne moduły Node są obsługiwane przez Electron, ale ponieważ Electron często używa innej wersji V8 od Node binary zainstalowanej na twoim systemie, musisz ręcznie określić lokalizację nagłówków Electronu podczas budowania modułów natywnych.
 

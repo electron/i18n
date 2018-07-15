@@ -24,11 +24,11 @@
 
 #### `touchBarScrubber.items`
 
-A `ScrubberItem[]` array representing the items in this scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+一个Scrubberitem[] 数组代表Scrubber里的所有物品。 改变数组里的值会立即改变到touch bar的控制。 Updating deep properties inside this array **does not update the touch bar**.
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+Scrubber中被选择的物品需要有的，一个代表的样式的`String`。 改变这个值会立即影响到touch bar的控制。可选值：
 
 * `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
@@ -44,15 +44,15 @@ A `String` representing the style that selected items in the scrubber should hav
 
 #### `touchBarScrubber.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+一个boolean值代表是否在scrubber中显示左/右选择箭头。改变这个值立即影响touch bar的控制。
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Possible values:
+一个代表scrubber模式的`string`。升级这个值会立即影响到touch bar的控制。可选值：
 
-* `fixed` - Maps to `NSScrubberModeFixed`.
-* `free` - Maps to `NSScrubberModeFree`.
+* `fixed` - 映射到`NSScrubberModeFixed`
+* `free` - 映射到`NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Updating this value immediately updates the control in the touch bar.
+一个Boolean代表scrubber是否连续。改变这个值立即影响touch bar的控制。
