@@ -15,15 +15,15 @@
 * [`electron-jp`](https://electron-jp.slack.com) *(Японский)*
 * [`electron-tr`](https://electron-tr.herokuapp.com) *(Турецкий)*
 * [`electron-id`](https://electron-id.slack.com) *(Индонезия)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* [`electron-pl`](https://electronpl.github.io) *(Польша)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+Если вы хотите внести свой вклад в Electron, смотрите [документ](../../CONTRIBUTING.md).
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+Если вы обнаружили ошибку в [поддерживаемой версии](#supported-versions) Electron, сообщите об этом [issue tracker](../development/issues.md).
 
 [awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
 
-## Supported Versions
+## Поддерживаемые версии
 
 The latest three release branches are supported by the Electron team. For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
 
@@ -55,6 +55,6 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Runni
 
 Будет ли готовая бинарная сборка включена в дистрибутив, зависит от того, включает ли дистрибутив библиотеки, с которыми связан Electron на компилирруемой платформе, поэтому гарантируется работа только в Ubuntu 12.04, но следующие платформы также проверяются, чтобы иметь возможность запускать прекомпилированные сборки Electron:
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 и новее
 * Fedora 21
 * Debian 8
