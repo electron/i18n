@@ -1,7 +1,7 @@
 # شئ NotificationAction
 
 * `نوع` رشته - نوعی عمل، که می تواند `دکمه` باشد.
-* `text` String (optional) - The label for the given action.
+* `text` String (optional) - برچب عمل.
 
 ## پلت فرم / پشتیبانی عمل
 
