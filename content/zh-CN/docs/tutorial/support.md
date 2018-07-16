@@ -4,11 +4,11 @@
 
 如果你有安全方面的问题，请阅读 [安全文档](../../SECURITY.md)。
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
 
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` channel on Freenode
-* [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
+* [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
+* `#atom-shell` Freenode上的频道
+* [`Electron`](https://atom-slack.herokuapp.com) Atom's Slack上的频道
 * [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*
 * [`electron-br`](https://electron-br.slack.com) *(巴西葡语版)*
 * <[`electron-kr`](https://electron-kr.github.io/electron-kr) *(韩语版)*
@@ -21,7 +21,7 @@ If you're looking for programming help, for answers to questions, or to join in 
 
 如果你在Electron的[支持版](#supported-versions)中发现漏洞，请在[问题追踪](../development/issues.md)中提交你发现的漏洞。
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+[awesome-electron](https://github.com/sindresorhus/awesome-electron)是一个社区维护的示例程序列表。
 
 ## 支持版
 
