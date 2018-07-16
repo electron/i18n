@@ -1,8 +1,8 @@
 # Electron技术支持
 
-## Finding Support
+## 寻找技术支持
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+如果你有安全方面的问题，请阅读 [安全文档](../../SECURITY.md)。
 
 If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
 
@@ -45,7 +45,7 @@ If an application has exceptional circumstances and needs to stay on an unsuppor
 
 仅支持 Windows 7 或更高版本, 旧版操作系统已不再支持(并且无法运行).
 
-为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
+为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 如果在ARM版Windows上使用Electron的话调用ia32库就行了。
 
 ### Linux
 
