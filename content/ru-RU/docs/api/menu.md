@@ -270,7 +270,7 @@ The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api
 
 ## Позиция элемента меню
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+Вы можете использовать `position` и `id` для контроля того, как элемент будет размещен при создании меню с `Menu.buildFromTemplate`.
 
 The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
 
