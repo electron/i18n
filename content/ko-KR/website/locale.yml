@@ -21,10 +21,10 @@ docs:
     propose_change: 문서 개선 작업 참여
     version_history: 버전 역사
     translate: 문서 번역 참여
-    view_all_docs: 한 페이지에 모든 문서
+    view_all_docs: 한 페이지에 모든 문서 보기
 languages:
-  choose_language: 이 웹사이트를 볼 언어를 선택하세요
-  translation_progress: 번역 진행 단계
+  choose_language: 언어를 선택하세요
+  translation_progress: 번역 진행률
   current: 현재 선택된 단계
 community:
   title: Electron 커뮤니티
