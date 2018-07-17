@@ -25,7 +25,7 @@ docs:
 languages:
   choose_language: 언어를 선택하세요
   translation_progress: 번역 진행률
-  current: 현재 선택된 단계
+  current: 현재 설정
 community:
   title: Electron 커뮤니티
   description: Electron을 쓰는 사람들과 함께하기 위한 자료들입니다.
