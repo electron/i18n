@@ -2,7 +2,7 @@
 
 > Ustawienia regionalne wartości są zwracane przez `app.getLocale()`.
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+Electron korzysta z biblioteki Chromium `l10n_util`, aby pobrać ustawienia narodowe. Możliwe wartości są wymienione poniżej:
 
 | Kod języka | Nazwa języka                        |
 | ---------- | ----------------------------------- |
