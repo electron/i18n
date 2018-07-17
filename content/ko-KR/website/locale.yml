@@ -88,13 +88,13 @@ quick_start:
   install_deps: 종속성을 설치하고 실행하세요
   dive_deeper: 혹은 <a href='/docs'>문서</a>를 더 깊이 읽어보세요.
 need_help:
-  title: 도움이 필요하신가요?
+  title: 도움이 필요하세요?
   description: <a href='https://discuss.atom.io/c/electron'>토론</a>포럼이나<a href="http://atom-slack.herokuapp.com/"> Slack </a> 채널에서 질문하실 수 있습니다. 중요한 알림을 받으시려면 트위터에서 <a href="https://twitter.com/electronjs"> @electronjs </a>를 팔로우하세요. 개인적으로 연락을 원하시나요? <a href="mailto:info@electronjs.org"> info@electronjs.org</a>로 메일을 보내주세요.
 headings:
-  languages: 언어
+  languages: 다국어 지원
 taglines:
   languages: 멋진 글로벌 개발자 커뮤니티에서 번역한 콘텐츠.
-help_translate: "번역에 도움을 주세요."
+help_translate: "번역 참여"
 footer:
   see_the_faq: 자주 묻는 질문
 apps:
