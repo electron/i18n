@@ -9,13 +9,13 @@ If you're looking for programming help, for answers to questions, or to join in 
 * [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 * `#atom-shell` channel on Freenode
 * [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
-* [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
+* [`electron-ru`](https://telegram.me/electron_ru) *(Rosja)*
 * [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korea)*
+* [`electron-jp`](https://electron-jp.slack.com) *(Japonia)*
 * [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* [`electron-id`](https://electron-id.slack.com) *(Indonezja)*
+* [`electron-id`](https://electronpl.github.io) *(Indonezja)*
 
 If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
 
@@ -39,7 +39,7 @@ Następujące platformy są obsługiwane przez Electron:
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+Tylko 64-bitowe pliki binarne są dostarczane dla macOS, a minimalna obsługiwana wersja macOS to macOS 10.9.
 
 ### Windows
 
@@ -55,6 +55,6 @@ The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built 
 
 Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 i nowszy
 * Fedora 21
 * Debian 8
