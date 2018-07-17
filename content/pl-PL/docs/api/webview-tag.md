@@ -598,7 +598,7 @@ Fired when a redirect was received while requesting a resource.
 
 Fired when document in the given frame is loaded.
 
-### Event: 'page-title-updated'
+### Zdarzenie: 'page-title-updated'
 
 Zwraca:
 
@@ -615,11 +615,11 @@ Zwraca:
 
 Fired when page receives favicon urls.
 
-### Event: 'enter-html-full-screen'
+### Zdarzenie: 'enter-html-full-screen'
 
 Fired when page enters fullscreen triggered by HTML API.
 
-### Event: 'leave-html-full-screen'
+### Zdarzenie: 'leave-html-full-screen'
 
 Fired when page leaves fullscreen triggered by HTML API.
 
