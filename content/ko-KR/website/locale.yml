@@ -31,8 +31,8 @@ community:
   description: Electron으로 작업하는 사람들을 연결하기 위한 방법들
   channels:
     get_started: "<a href='/docs/tutorial/first-app'>빠르게 시작하기 문서</a>를 읽고 앱 만들기를 <a href='/docs/tutorial/first-app'><b>시작해 보세요</b></a>."
-    updates: "트위터에서 <a href='https://twitter.com/electronjs'>@electronjs</a>를 팔로우하고 블로그 피드에 가입하여 <a href='https://twitter.com/electronjs'><b>최신 정보를 유지</b></a>하십시오."
-    localized_docs: "<a href='/languages'>언어 페이지</a>에서 <a href='/languages'><b>모국어로 된 문서를 읽어</b></a>보세요."
+    updates: "트위터에서 <a href='https://twitter.com/electronjs'>@electronjs</a>를 팔로우하고 <a href='/blog'>블로그 피드</a>를 구독해서 <a href='https://twitter.com/electronjs'><b>최근 소식을 확인하세요</b></a>."
+    localized_docs: "<a href='/languages'>언어 페이지</a> 설정을 통해 <a href='/languages'><b>모국어로 번역된 문서를 읽어보세요</b></a>."
     help: "<a href='http://atom-slack.herokuapp.com'>atomio Slack</a> 참여, <a href='https://discuss.atom.io/c/electron'>Discuss</a>에 글을 올리는 것, 또는 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>를 방문하는 것으로 <a href='http://atom-slack.herokuapp.com'><b>도움을 얻거나 의견을 들어</b></a>보세요."
     packages: "<a href='/search/npmPackages'>패키지 검색 페이지</a>에서 <a href='/search/npmPackages'><b>유용한 npm 패키지를 찾아</b></a>보세요."
     bugs: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>버그를 알려</b></a>주세요."
@@ -93,7 +93,7 @@ need_help:
 headings:
   languages: 언어
 taglines:
-  languages: 우리의 멋진 글로벌 개발자 커뮤니티에서 지역화된 콘텐츠입니다.
+  languages: 멋진 글로벌 개발자 커뮤니티에서 번역한 콘텐츠.
 help_translate: "번역에 도움을 주세요."
 footer:
   see_the_faq: 자주 묻는 질문
