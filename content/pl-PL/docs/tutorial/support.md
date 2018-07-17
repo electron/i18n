@@ -1,6 +1,6 @@
-# Electron Support
+# Wsparcie Electron'a
 
-## Finding Support
+## Znalezienie wsparcia
 
 If you have a security concern, please see the [security document](../../SECURITY.md).
 
@@ -23,7 +23,7 @@ If you've found a bug in a [supported version](#supported-versions) of Electron,
 
 [awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
 
-## Supported Versions
+## Wspierane wersje
 
 The latest three release branches are supported by the Electron team. For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
 
