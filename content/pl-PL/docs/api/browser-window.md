@@ -361,19 +361,19 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Zdarzenie: 'scroll-touch-begin' *macOS*
 
 Emitted when scroll wheel event phase has begun.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Zdarzenie: 'scroll-touch-end' *macOS*
 
 Emitted when scroll wheel event phase has ended.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Zdarzenie: 'scroll-touch-edge' *macOS*
 
 Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
-#### Event: 'swipe' *macOS*
+#### Zdarzenie: 'swipe' *macOS*
 
 Zwraca:
 
@@ -382,15 +382,15 @@ Zwraca:
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### Zdarzenie: 'sheet-begin' *macOS*
 
 Emitted when the window opens a sheet.
 
-#### Event: 'sheet-end' *macOS*
+#### Zdarzenie: 'sheet-end' *macOS*
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### Zdarzenie: 'new-window-for-tab' *macOS*
 
 Emitted when the native new tab button is clicked.
 
@@ -1171,7 +1171,7 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *Eksperymentalne*
 
 * `touchBar` TouchBar
 
@@ -1179,11 +1179,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Eksperymentalne*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Eksperymentalne*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
