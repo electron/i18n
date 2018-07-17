@@ -47,7 +47,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | fr-CH      | Francuski (Szwajcaria)              |
 | fr-FR      | Francuski (Francja)                 |
 | fy         | Frisian                             |
-| ga         | Irish                               |
+| ga         | Irlandzki                           |
 | gd         | Język gaelicki szkocki              |
 | gl         | Galicyjski                          |
 | gn         | Guarani                             |
@@ -72,7 +72,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | km         | Kambodżański                        |
 | kn         | Kannada                             |
 | ko         | Koreański                           |
-| ku         | Kurdish                             |
+| ku         | Kurdyjski                           |
 | ky         | Kirgiski                            |
 | la         | Łaciński                            |
 | ln         | Język lingala                       |
@@ -86,10 +86,10 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | mr         | Język marathi                       |
 | ms         | Malajski                            |
 | mt         | Maltański                           |
-| nb         | Norwegian (Bokmal)                  |
+| nb         | Norweski (Bokmal)                   |
 | ne         | Nepalski                            |
 | nl         | Duński                              |
-| nn         | Norwegian (Nynorsk)                 |
+| nn         | Norweski (Nynorsk)                  |
 | no         | Norweski                            |
 | oc         | Prowansalski                        |
 | om         | Oromo                               |
@@ -99,7 +99,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ps         | Pashto                              |
 | pt         | Portugalski                         |
 | pt-BR      | Portugalski (Brazylijski)           |
-| pt-PT      | Portuguese (Portugal)               |
+| pt-PT      | Portugalski (Portugalia)            |
 | qu         | Keczua                              |
 | rm         | Język romansz                       |
 | ro         | Rumuński                            |
@@ -108,7 +108,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | sh         | Serbo-Croatian                      |
 | si         | Sinhalese                           |
 | sk         | Słowacki                            |
-| sl         | Slovenian                           |
+| sl         | Słoweński                           |
 | sn         | Shona                               |
 | so         | Somali                              |
 | sq         | Albański                            |
