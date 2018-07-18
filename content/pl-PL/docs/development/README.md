@@ -1,10 +1,10 @@
-# Developing Electron
+# Praca z Electron
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. Poradniki przy tworzeniu aplikacji, możesz znaleźć w [/docs/README.md](../README.md#guides-and-tutorials)
 
 * [Kodeks postępowania](../../CODE_OF_CONDUCT.md)
-* [Przyczyń się dla Electron'a](../../CONTRIBUTING.md)
-* [Zgłoszenia](issues.md)
+* [Współtworzenie Electron’a](../../CONTRIBUTING.md)
+* [Problemy](issues.md)
 * [Oczekujące zmiany](pull-requests.md)
 * [Formatowanie Dokumentacji](coding-style.md#documentation)
 * [Struktura Ścieżki Kodu Źródłowego](source-code-directory-structure.md)
