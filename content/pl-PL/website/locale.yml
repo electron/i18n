@@ -36,45 +36,45 @@ community:
     help: "<a href='http://atom-slack.herokuapp.com'><b>Uzyskaj pomoc i opinię</b></a> dołączając do <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, publikując na <a href='https://discuss.atom.io/c/electron'>Discuss</a>, lub odwiedzając <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Znajdź przydatne pakiety npm</b></a> na <a href='/search/npmPackages'>stronie wyszukiwania pakietów</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Zgłaszaj błędy</b></a> otwierając problemy w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Zgłoś błąd</b></a> otwierając problem w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Zaproponuj funkcjonalności</b></a> otwierając problem w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Zgłoś naruszenia Kodeksu Postępowania</b></a> wysyłając e-mail na adres <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Ujawnij problemy związane z bezpieczeństwem</b></a>, wysyłając wiadomość e-mail na adres <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Przekaż darowiznę</b></a> na naszej <a href='/donors'>stronie OpenCollective</a>."
     other: "W przypadku wszystkich innych pytań wyślij e-mail na adres <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Społeczności językowe
-    description: "Społeczność Electron'a obejmuje cały świat i nie każdy zna język angielski. Znajdź <a href='/languages'> dokumentację w swoim języku </a> lub dołącz do jednej z poniższych społeczności językowych:"
+    description: "Społeczność Electron'a obejmuje cały świat, a nie każdy zna język angielski. Znajdź <a href='/languages'> dokumentację w swoim języku </a> lub dołącz do jednej z poniższych społeczności językowych:"
   tools: Narzędzia
   boilerplates: Boilerplates
   components: Komponenty
   videos: Wideo
   meetups: Spotkania
-  awesome_notice: Ta lista została wygenerowana z repozytorium <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Czegoś brakuje? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Wyślij zapytanie</a>.
-  meetup_notice: Aby dodać spotkanie, edytuj <code>data/meetups.json</code> i <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">wyślij zapytanie</a>.
+  awesome_notice: Ta lista została wygenerowana z repozytorium <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron</a><br> autorstwa Sindre Sorhus. Czegoś brakuje? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Zaproponuj zmiany</a>.
+  meetup_notice: Aby dodać spotkanie, edytuj plik <code>data/meetups.json</code> i <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">zaproponuj zmiany</a>.
 releases: Wydania
 electron_is_easy:
   title: To łatwiejsze, niż myślisz
-  description: Jeśli potrafisz stworzyć stronę internetową, potrafisz też napisać aplikację desktopową. Electron to framework, służący tworzeniu natywnych aplikacji, z użyciem takich technologii jak JavaScript, HTML, czy CSS. Sam zadba o trudniejsze tematy, tak, abyś mógł się skupić na najważniejszych elementach swojej aplikacji.
+  description: Jeśli potrafisz stworzyć stronę internetową, potrafisz też napisać aplikację desktopową. Electron to framework, służący tworzeniu natywnych aplikacji, z użyciem technologii takich jak JavaScript, HTML, czy CSS. Electron zadba o trudniejsze tematy, tak, abyś ty mógł skupić się na najważniejszych elementach swojej aplikacji.
   video_link: Zobacz wideo
 web_technologies:
   title: Technologie Webowe
   description: Electron używa Chromium oraz Node.js, więc możesz napisać swoją własną aplikację używając języków HTML, CSS oraz JavaScript.
 open_source:
   title: Otwartoźródłowy
-  description: Electron to otwartoźródłowy projekt zarządzany przez GitHub'a oraz aktywną społeczność.
+  description: Electron to otwartoźródłowy projekt współtworzony przez GitHub'a oraz aktywną społeczność.
 cross_platform:
   title: Wieloplatformowy
   description: Kompatybilny z systemami MacOS, Windows oraz Linux.
 benefits:
-  hard_parts_made_easy: Trudne kwestie uczyniono łatwymi
+  hard_parts_made_easy: Trudne kwestie uczynione łatwymi
   automatic_updates: Automatyczne aktualizacje
   native_menus_and_notifications: Natywne menu oraz powiadomienia
   crash_reporting: Raportowanie błędów
   debugging_and_profiling: Debugowanie oraz profiling
-  windows_installers: Instalator Windows
+  windows_installers: Instalatory Windows
 get_started:
   title: Pierwsze kroki
-  description: Aby rozpocząć przygodę z Electronem, sprawdź linki podane poniżej. Dowiedz się, jak uzbroić swoją aplikację internetową w Electron, przeglądaj API, generuj instalatory.
+  description: Aby rozpocząć przygodę z Electronem, sprawdź linki podane poniżej. Dowiedz się, jak uzbroić swoją aplikację internetową w Electron, przeglądaj API i generuj instalatory.
 explore:
   title: Przeglądaj API Electrona
   description: "<a href='https://github.com/electron/electron-api-demos'> Electron API dema aplikacji</a> interakcyjnie pokazuje najważniejsze funkcje API electron'a. Zobacz, co jest możliwe z electron'em oraz przykładowym kodem i przydatnymi poradami dotyczącymi tworzenia aplikacji."
