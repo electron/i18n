@@ -77,14 +77,14 @@ get_started:
   description: Aby rozpocząć przygodę z Electronem, sprawdź linki podane poniżej. Dowiedz się, jak uzbroić swoją aplikację internetową w Electron, przeglądaj API i generuj instalatory.
 explore:
   title: Przeglądaj API Electrona
-  description: "<a href='https://github.com/electron/electron-api-demos'> Electron API dema aplikacji</a> interakcyjnie pokazuje najważniejsze funkcje API electron'a. Zobacz, co jest możliwe z electron'em oraz przykładowym kodem i przydatnymi poradami dotyczącymi tworzenia aplikacji."
+  description: "<a href='https://github.com/electron/electron-api-demos'> Electron API dema aplikacji</a> w sposób interaktywny pokazują najważniejsze funkcje Electron'a. Zapoznaj się z przykładowym kodem i przydatnymi poradami dotyczącymi tworzenia aplikacji."
 download_from_github: Pobierz z GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Zobacz wszystkie wydania</a> na GitHub
 quick_start:
   title: "Otwórz <a href='https://github.com/electron/electron-quick-start' target='_blank'>Szybki Poradnik</a>, aby zobaczyć Electron w akcji:"
   description: Minimalna aplikacja z pomocnymi wskazówkami.
   clone: Sklonuj repozytorium Quick Start
-  go_into_repo: Wejdź w repozytorium
+  go_into_repo: Przejdź do repozytorium
   install_deps: Zainstaluj zależności i uruchom
   dive_deeper: Lub zanurkuj głębiej w <a href='/docs'>dokumentację</a>.
 need_help:
@@ -99,7 +99,7 @@ footer:
   see_the_faq: Zobacz najczęściej zadawane pytania
 apps:
   title: Aplikacje stworzone przy użyciu Electrona
-  description: Z Electronem tworzenie aplikacji desktopowych dla twojej firmy lub projektu jest banalnie łatwe. Pierwotnie stworzony został przez GitHub dla <a href='https://atom.io' target='_blank'>edytora Atom</a>, Electron był już używany do tworzenia aplikacji przez korporacje, takie jak Microsoft, Facebook, Slack czy Docker.
+  description: Z Electronem tworzenie aplikacji desktopowych dla twojej firmy lub projektu jest banalnie łatwe. Pierwotnie stworzony przez GitHub dla <a href='https://atom.io' target='_blank'>edytora Atom</a>, Electron był już używany do tworzenia aplikacji przez korporacje, takie jak Microsoft, Facebook, Slack czy Docker.
   view_more: Zobacz więcej aplikacji
   submit_your_own: dodaj własną aplikację
   something_missing: Czegoś brakuje?
@@ -121,7 +121,7 @@ pages:
     description: Przewodniki oraz dokumentacja API dla najnowszej wersji Electrona
   '/docs/all':
     title: Cała dokumentacja Electrona!
-    description: Wszystkie przewodniki oraz dokumentacja na jednej, przystosowanej do wyszukiwania, stronie.
+    description: Wszystkie poradniki oraz dokumentacja na jednej, przystosowanej do wyszukiwania, stronie.
   '/docs/api':
     title: API
     description: Dokumentacja API dla najnowszej wersji Electrona
@@ -144,13 +144,13 @@ pages:
   '/languages':
     title: Języki
   '/userland':
-    title: Strefa użytkownika
+    title: Strefa użytkowników
   '/devtron':
     title: Devtron
     description: Devtron to narzędzie open-source, które pomoże ci monitorować i debugować twoją aplikację stworzoną z Electron. Twórz na szczycie wspaniałych Narzędzi Programistycznych Chrome.
   '/spectron':
     title: Spectron
-    description: Spectron to framework o otwartym kodzie źródłowych dla łatwiejszego pisania testów integracyjnych dla twojej aplikacji stworzonej z Electron. Twórz na szczycie ChromeDriver i WebDriverIO.
+    description: Spectron to otwartoźródłowy framework do łatwiejszego pisania testów integracyjnych dla twojej aplikacji stworzonej z Electron. Twórz na szczycie ChromeDriver i WebDriverIO.
   '/donors':
     title: Darczyńcy
 _404:
