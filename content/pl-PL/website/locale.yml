@@ -10,7 +10,7 @@ nav:
   languages: Języki
   releases: Wydania
   search: Szukaj
-  userland: Strefa użytkownika
+  userland: Strefa użytkowników
 docs:
   title: Dokumentacja Electron'a
   description: Zobacz całą <a href="/docs/all">dokumentację na jednej stronie</a> lub sprawdź <a href="/docs/faq">FAQ</a>.
@@ -28,11 +28,11 @@ languages:
   current: aktualnie wybrano
 community:
   title: Społeczność Electrona
-  description: Materiały do ​​połączenia z osobami pracującymi na Electron.
+  description: Materiały do ​​połączenia się z osobami pracującymi przy Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Zacznij</b></a> tworzyć aplikację, od przeczytania <a href='/docs/tutorial/first-app'>miniprzewodnika</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Bądź na bieżąco</b></a> śledząc <a href='https://twitter.com/electronjs'>@electronjs</a> na Twitterze i subskrybując <a href='/blog'>blog</a>."
-    localized_docs: "<a href='/languages'><b>Czytaj dokumentację w Twoim języku ojczystym</b></a> odwiedzając <a href='/languages'>stronę wyboru języka</a>."
+    localized_docs: "<a href='/languages'><b>Czytaj dokumentację w Twoim języku</b></a> odwiedzając <a href='/languages'>stronę wyboru języka</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Uzyskaj pomoc i opinię</b></a> dołączając do <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, publikując na <a href='https://discuss.atom.io/c/electron'>Discuss</a>, lub odwiedzając <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Znajdź przydatne pakiety npm</b></a> na <a href='/search/npmPackages'>stronie wyszukiwania pakietów</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Zgłaszaj błędy</b></a> otwierając problemy w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
