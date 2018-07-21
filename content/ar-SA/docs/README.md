@@ -11,14 +11,14 @@
 ## الدليل الإرشادي والدروس
 
 * [اعداد وتجهيز بيئة التطوير](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
+  * [اعداد نظام تشغيل الماك (macOS)](tutorial/development-environment.md#setting-up-macos)
+  * [اعداد نظام الويندوز (Windows)](tutorial/development-environment.md#setting-up-windows)
+  * [اعداد نظام لينكس (Linux)](tutorial/development-environment.md#setting-up-linux)
+  * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
+* [انشاء تطبيقك الأول](tutorial/first-app.md) 
+  * [تنصيب إلكترون (Electron)](tutorial/first-app.md#installing-electron)
+  * [اسلوب تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [تشغيل تطبيقك الأول](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -68,9 +68,9 @@
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## دروس مفصلة
 
-These individual tutorials expand on topics discussed in the guide above.
+هذه دروس مفصلة للمواضيع التي تمت مناقشتها في الدليل بالأعلى.
 
 * [In Detail: Installing Electron](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
