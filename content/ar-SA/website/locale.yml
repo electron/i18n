@@ -49,7 +49,7 @@ community:
   components: المكونات
   videos: مقاطع فيديو
   meetups: الملتقيات
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
+  awesome_notice: هذه قائمة تم تكوينها من <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> شيء مفقود؟ <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">تقديم طلب سحب للمستودع</a>.
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 releases: اﻹصدارات
 electron_is_easy:
