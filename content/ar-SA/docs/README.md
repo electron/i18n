@@ -107,19 +107,19 @@
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
-### وحدات للعملية الرئيسية:
+### وحدات للـ Main Process:
 
-* [تطبيق](api/app.md)
-* [تحديث تلقائي](api/auto-updater.md)
-* [عرض المتصفح](api/browser-view.md)
-* [نوافذ المتصفح](api/browser-window.md)
-* [تتبع المحتوى](api/content-tracing.md)
-* [الحوار](api/dialog.md)
-* [اختصار عالمي](api/global-shortcut.md)
-* [inAppPurchase](api/in-app-purchase.md)
+* [app (التطبيق)](api/app.md)
+* [autoUpdater (التحديث التلقائي)](api/auto-updater.md)
+* [BrowserView (عرض المتصفح)](api/browser-view.md)
+* [BrowserWindow (نوافذ المتصفح)](api/browser-window.md)
+* [contentTracing (تتبع المحتوى)](api/content-tracing.md)
+* [dialog (الحوار)](api/dialog.md)
+* [globalShortcut (اختصار عالمي)](api/global-shortcut.md)
+* [inAppPurchase (مشتريات داخل التطبيق)](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
-* [MenuItem](api/menu-item.md)
+* [Menu (القائمة)](api/menu.md)
+* [MenuItem (عنصر في القائمة)](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/netLog.md)
 * [powerMonitor](api/power-monitor.md)
@@ -147,4 +147,4 @@
 
 ## التطوير
 
-See <development/README.md>
+اطلع على <development/README.md>
