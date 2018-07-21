@@ -12,7 +12,7 @@ nav:
   search: بحث
   userland: مساحة المستخدم
 docs:
-  title: توثيق الكترون
+  title: مستندات إلكترون
   description: مشاهدة <a href="/docs/all"> كافة المستندات في صفحة واحدة</a> أو التحقق من <a href="/docs/faq"> الأسئلة الأكثر تكرارًا</a>.
   guides: الأدلة
   api_reference: مرجع API
