@@ -1,4 +1,4 @@
-# Zwolnienie
+# Wydawanie
 
 This document describes the process for releasing a new version of Electron.
 

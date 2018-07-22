@@ -57,19 +57,19 @@ const win = new BrowserWindow()
 
 Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
 
-1) Все API, доступные в Node.js также доступны и в Electron. Calling the following code from an Electron app works:
+1) Все API, доступные в Node.js также доступны и в Electron. Вызов следующего кода an Electron app:
 
 ```javascript
 const fs = require('fs')
 
 const root = fs.readdirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// Это будет печатать все файлы на корневом уровне диска,
+// либо '/' либо 'C:\'.
 console.log(root)
 ```
 
-Как вы уже могли угадать, это имеет важные последствия для безопасности если вы пытаетесь загрузить удаленный контент. You can find more information and guidance on loading remote content in our [security documentation](./security.md).
+Как вы уже могли угадать, это имеет важные последствия для безопасности если вы пытаетесь загрузить удаленный контент. Вы можете найти дополнительную информацию и руководство по загрузке remote контента в нашем [security documentation](./security.md).
 
 2) Вы можете использовать Node.js модули в вашем приложении. Выберите свой любимый npm модуль. npm предлагает в настоящее время крупнейшее в мире хранилище open-source код - возможность использовать хорошо поддержанный и проверенный код, который раньше был зарезервированное для серверных приложений, является одной из ключевых особенностей Electron. Контекст | Контекст запроса.
 

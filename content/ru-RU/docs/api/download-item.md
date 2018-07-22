@@ -82,7 +82,7 @@ Returns `String` - The save path of the download item. This will be either the p
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Приостановить скачивание.
 
 #### `downloadItem.isPaused()`
 

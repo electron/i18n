@@ -1,29 +1,29 @@
-# Electron Support
+# Поддержка Electron
 
-## Finding Support
+## Поиск поддержки
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+Если у вас есть проблема с безопасностью, смотрите [документ безопасности](../../SECURITY.md).
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+Если вы ищете помощь в программировании, для ответов на вопросы, или присоединиться к обсуждению с другими разработчиками, которые используют Electron, вы можете взаимодействовать с сообществом в этих местах:
 
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` channel on Freenode
-* [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
-* [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-* [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* [`electron`](https://discuss.atom.io/c/electron) категория на Atom форумы
+* `#atom-shell` канал на Freenode
+* [`Electron`](https://atom-slack.herokuapp.com) канал на Atom's Slack
+* [`electron-ru`](https://telegram.me/electron_ru) *(Русский)*
+* [`electron-br`](https://electron-br.slack.com) *(Бразильский Португальский)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Корейский)*
+* [`electron-jp`](https://electron-jp.slack.com) *(Японский)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(Турецкий)*
+* [`electron-id`](https://electron-id.slack.com) *(Индонезия)*
+* [`electron-pl`](https://electronpl.github.io) *(Польша)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+Если вы хотите внести свой вклад в Electron, смотрите [документ](../../CONTRIBUTING.md).
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+Если вы обнаружили ошибку в [поддерживаемой версии](#supported-versions) Electron, сообщите об этом [issue tracker](../development/issues.md).
 
 [awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
 
-## Supported Versions
+## Поддерживаемые версии
 
 The latest three release branches are supported by the Electron team. For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
 
@@ -55,6 +55,6 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Runni
 
 Будет ли готовая бинарная сборка включена в дистрибутив, зависит от того, включает ли дистрибутив библиотеки, с которыми связан Electron на компилирруемой платформе, поэтому гарантируется работа только в Ubuntu 12.04, но следующие платформы также проверяются, чтобы иметь возможность запускать прекомпилированные сборки Electron:
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 и новее
 * Fedora 21
 * Debian 8

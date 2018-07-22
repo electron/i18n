@@ -106,7 +106,7 @@ It is recommended that you pause expensive operations when the visibility state 
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## Class: BrowserWindow
+## Klasa: BrowserWindow
 
 > Twórz i kontroluj okna wyszukiwarki.
 
@@ -224,7 +224,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'page-title-updated'
+#### Zdarzenie: 'page-title-updated'
 
 Zwraca:
 
@@ -257,27 +257,27 @@ window.onbeforeunload = (e) => {
 
 ***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
 
-#### Event: 'closed'
+#### Zdarzenie: 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' *Windows*
+#### Zdarzenie: 'session-end' *Windows*
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### Zdarzenie: 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### Zdarzenie: 'responsive'
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### Zdarzenie: 'blur'
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### Zdarzenie: 'focus'
 
 Emitted when the window gains focus.
 
@@ -285,61 +285,61 @@ Emitted when the window gains focus.
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### Zdarzenie: 'hide'
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### Zdarzenie: 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
-#### Event: 'maximize'
+#### Zdarzenie: 'maximize'
 
 Emitted when window is maximized.
 
-#### Event: 'unmaximize'
+#### Zdarzenie: 'unmaximize'
 
 Emitted when the window exits from a maximized state.
 
-#### Event: 'minimize'
+#### Zdarzenie: 'minimize'
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### Zdarzenie: 'restore'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### Zdarzenie: 'resize'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### Zdarzenie: 'move'
 
 Emitted when the window is being moved to a new position.
 
 **Note**: On macOS this event is just an alias of `moved`.
 
-#### Event: 'moved' *macOS*
+#### Zdarzenie: 'moved' *macOS*
 
 Emitted once when the window is moved to a new position.
 
-#### Event: 'enter-full-screen'
+#### Zdarzenie: 'enter-full-screen'
 
 Emitted when the window enters a full-screen state.
 
-#### Event: 'leave-full-screen'
+#### Zdarzenie: 'leave-full-screen'
 
 Emitted when the window leaves a full-screen state.
 
-#### Event: 'enter-html-full-screen'
+#### Zdarzenie: 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
-#### Event: 'leave-html-full-screen'
+#### Zdarzenie: 'leave-html-full-screen'
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'app-command' *Windows*
+#### Zdarzenie: 'app-command' *Windows*
 
 Zwraca:
 
@@ -361,19 +361,19 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Zdarzenie: 'scroll-touch-begin' *macOS*
 
 Emitted when scroll wheel event phase has begun.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Zdarzenie: 'scroll-touch-end' *macOS*
 
 Emitted when scroll wheel event phase has ended.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Zdarzenie: 'scroll-touch-edge' *macOS*
 
 Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
-#### Event: 'swipe' *macOS*
+#### Zdarzenie: 'swipe' *macOS*
 
 Zwraca:
 
@@ -382,15 +382,15 @@ Zwraca:
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### Zdarzenie: 'sheet-begin' *macOS*
 
 Emitted when the window opens a sheet.
 
-#### Event: 'sheet-end' *macOS*
+#### Zdarzenie: 'sheet-end' *macOS*
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### Zdarzenie: 'new-window-for-tab' *macOS*
 
 Emitted when the native new tab button is clicked.
 
@@ -1171,7 +1171,7 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *Eksperymentalne*
 
 * `touchBar` TouchBar
 
@@ -1179,11 +1179,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Eksperymentalne*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Eksperymentalne*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 

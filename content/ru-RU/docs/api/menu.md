@@ -260,7 +260,7 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 
 macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### Main Menu's Name
+### Имя главного меню
 
 On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
@@ -270,7 +270,7 @@ The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api
 
 ## Позиция элемента меню
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+Вы можете использовать `position` и `id` для контроля того, как элемент будет размещен при создании меню с `Menu.buildFromTemplate`.
 
 The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
 

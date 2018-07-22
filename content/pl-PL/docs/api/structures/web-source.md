@@ -1,5 +1,5 @@
 # WebSource Object
 
 * `code` String
-* `url` String (optional)
-* `startLine` Integer (optional) - Default is 1.
+* `url` String (opcjonalnie)
+* `startLine` Integer (opcjonalnie) - Domyślnie 1.

@@ -152,7 +152,7 @@ The `hslShift` is applied to the image with the following rules
 
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
-## Class: NativeImage
+## Klasa: NativeImage
 
 > Natively wrap images such as tray, dock, and application icons.
 

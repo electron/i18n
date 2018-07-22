@@ -1,24 +1,24 @@
-# خطوط رسميه
+# الدليل الرسمي
 
-الرجاء التأكد من استخدام المستندات التي تطابق إصدار إلكترون. ينبغي أن يكون رقم الإصدار جزءا من عنوان الصفحة URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+الرجاء التأكد من استخدام المستندات التي تطابق إصدار إلكترون الخاص بك. ينبغي أن يكون رقم الإصدار جزءا من عنوان الصفحة URL. اذا كان إصدار إلكترون الخاص بك لا يطابق الظاهر في رابط الصفحة، هذا يعني انك تستعرص دليل لا يتوافق مع اصدار إلكتروني لديك وهنالك احتمال بأن لا تتوافق التعليمات و API مع اصدار إلكترون الذي لديك. لاستعراض نسخة أقدم، يمكنك [تصفح الوسوم](https://github.com/electron/electron/tree/v1.4.0) في GitHub عن طريق الدخول على القائمة المنسدلة "Switch branches/tags" واختيار الوسم الذي يطابق اصدار إلكترون الذي لديك.
 
 ## الأسئلة الشائعة
 
-There are questions that are asked quite often. Check this out before creating an issue:
+هذه اسئلة شائعة يتم طرحها بشكل متكرر، الرجاء مراجعتها قبل ان طرح مسألة جديدة:
 
-* [الأسئلة المتداولة حول إلكترون](faq.md)
+* [إلكترون - الاسئلة الشائعة](faq.md)
 
-## Guides and Tutorials
+## الدليل الإرشادي والدروس
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
+* [اعداد وتجهيز بيئة التطوير](tutorial/development-environment.md) 
+  * [اعداد نظام تشغيل الماك (macOS)](tutorial/development-environment.md#setting-up-macos)
+  * [اعداد نظام الويندوز (Windows)](tutorial/development-environment.md#setting-up-windows)
+  * [اعداد نظام لينكس (Linux)](tutorial/development-environment.md#setting-up-linux)
+  * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
+* [انشاء تطبيقك الأول](tutorial/first-app.md) 
+  * [تنصيب إلكترون (Electron)](tutorial/first-app.md#installing-electron)
+  * [اسلوب تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [تشغيل تطبيقك الأول](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -68,9 +68,9 @@ There are questions that are asked quite often. Check this out before creating a
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## دروس مفصلة
 
-These individual tutorials expand on topics discussed in the guide above.
+هذه دروس مفصلة للمواضيع التي تمت مناقشتها في الدليل بالأعلى.
 
 * [In Detail: Installing Electron](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
@@ -107,19 +107,19 @@ These individual tutorials expand on topics discussed in the guide above.
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
-### وحدات للعملية الرئيسية:
+### وحدات للـ Main Process:
 
-* [تطبيق](api/app.md)
-* [تحديث تلقائي](api/auto-updater.md)
-* [عرض المتصفح](api/browser-view.md)
-* [نوافذ المتصفح](api/browser-window.md)
-* [تتبع المحتوى](api/content-tracing.md)
-* [الحوار](api/dialog.md)
-* [اختصار عالمي](api/global-shortcut.md)
-* [inAppPurchase](api/in-app-purchase.md)
+* [app (التطبيق)](api/app.md)
+* [autoUpdater (التحديث التلقائي)](api/auto-updater.md)
+* [BrowserView (عرض المتصفح)](api/browser-view.md)
+* [BrowserWindow (نوافذ المتصفح)](api/browser-window.md)
+* [contentTracing (تتبع المحتوى)](api/content-tracing.md)
+* [dialog (الحوار)](api/dialog.md)
+* [globalShortcut (اختصار عالمي)](api/global-shortcut.md)
+* [inAppPurchase (مشتريات داخل التطبيق)](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
-* [MenuItem](api/menu-item.md)
+* [Menu (القائمة)](api/menu.md)
+* [MenuItem (عنصر في القائمة)](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/netLog.md)
 * [powerMonitor](api/power-monitor.md)
@@ -147,4 +147,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## التطوير
 
-See <development/README.md>
+اطلع على <development/README.md>

@@ -1,4 +1,4 @@
-# كائن جهاز بلوتوث
+# BluetoothDevice Object (كائن جهاز بلوتوث)
 
-* اسم الجهاز: سلسلة نصية
-* هوية الجهاز
+* `deviceName` String (اسم الجهاز)
+* `deviceId` String (هوية الجهاز)

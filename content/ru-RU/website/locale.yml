@@ -1,4 +1,4 @@
-tagline: Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS
+tagline: Создавайте кросс-платформенные приложения при помощи JavaScript, HTML и CSS
 nav:
   apps: Приложения
   blog: Блог
@@ -37,9 +37,9 @@ community:
     packages: "<a href='/search/npmPackages'><b>Находите полезные npm пакеты</b></a> на <a href='/search/npmPackages'>странице поиска пакетов</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Сообщайте об ошибках,</b></a> открывая вопросы в<a href='https://github.com/electron/electron/issues'>electron/electron</a> репозитории."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Предлагайте идеи,</b></a> открывая вопросы в репозитории <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Сообщить о нарушении правил поведения</b></a> по электронной почте <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Раскрыть проблемы безопасности</b></a> по электронной почте <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Пожертвовать</b></a> on our <a href='/donors'>OpenCollective page</a>."
     other: "По всем другим вопросам, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Языковые сообщества
