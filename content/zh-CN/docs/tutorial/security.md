@@ -24,13 +24,13 @@
 
 ## Electron 安全警告
 
-从Electron 2.0版本开始，开发者将会在开发者控制台看到打印的警告和建议。 They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
+从Electron 2.0版本开始，开发者将会在开发者控制台看到打印的警告和建议。 当你正在查看控制台时，二进制名为Electron的警告才会出现
 
 你可以通过在`process.env` 或 `window`对象上配置`ELECTRON_ENABLE_SECURITY_WARNINGS` 或`ELECTRON_DISABLE_SECURITY_WARNINGS`来强制开启或关闭这些警告。
 
 ## 清单：安全建议
 
-This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+这并不能完美的防御黑客的攻击，但至少，你应该遵循以下步骤来提升项目的安全性
 
 1. [只加载安全的内容](#1-only-load-secure-content)
 2. [Disable the Node.js integration in all renderers that display remote content](#2-disable-nodejs-integration-for-remote-content)
