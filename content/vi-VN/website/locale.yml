@@ -6,7 +6,7 @@ nav:
   community: Cộng đồng
   contact: Liên hệ
   docs: Tài liệu
-  donors: Donors
+  donors: Người ủng hộ
   languages: Ngôn ngữ
   releases: Các phiên bản phát hành
   search: Tìm kiếm
@@ -28,9 +28,9 @@ languages:
   current: lựa chọn hiện tại
 community:
   title: Cộng đồng Electron
-  description: Resources for connecting with people working on Electron.
+  description: Những tài nguyên giúp kết nối với những người làm Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Bắt đầu</b></a> xây dựng một ứng dụng bằng cách đọc <a href='/docs/tutorial/first-app'> hướng dẫn nhanh</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
     localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
@@ -152,7 +152,7 @@ pages:
     title: Spectron
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
   '/donors':
-    title: Donors
+    title: Người ủng hộ
 _404:
   page_not_found: Không tìm thấy trang.
 search:
