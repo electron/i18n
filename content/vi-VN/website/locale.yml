@@ -150,7 +150,7 @@ pages:
     description: Devtron là một công cụ mã nguồn mở giúp bạn kiểm tra, giám sát và gỡ lỗi các ứng dụng Electron của bạn. Được xây dựng dựa trên công cụ tuyệt vời Chrome Developer Tools.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron là một bộ khung mã nguồn mở giúp viết các bộ kiểm thử tích hợp cho ứng dụng Electron của bạn một cách dễ dàng. Được xây dựng trên ChromeDriver và WebDriverIO.
   '/donors':
     title: Người ủng hộ
 _404:
